@@ -110,8 +110,8 @@
     useDelay: 1000
     itemIconStyle: BigAction
     icon:
-      sprite: Objects/Specific/Janitorial/soap.rsi
-      state: soap-4
+      sprite: Objects/Decoration/present.rsi
+      state: present
   - type: InstantAction
     event: !type:RandomGlobalSpawnSpellEvent
       makeSurvivorAntagonist: false

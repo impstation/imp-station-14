@@ -24,7 +24,7 @@
 - type: entity
   parent: BaseAction
   id: ActionBubble
-  name: Watery Sphere
+  name: Water Sphere
   description: Its just a bubble...
   components:
   - type: Magic
@@ -57,8 +57,6 @@
     useDelay: 30
     itemIconStyle: BigAction
     raiseOnUser: true
-    sound: !type:SoundPathSpecifier
-      path: /Audio/_Impstation/Magic/ice.ogg
     icon:
       sprite: Structures/Specific/Anomalies/ice_anom.rsi
       state: pulse

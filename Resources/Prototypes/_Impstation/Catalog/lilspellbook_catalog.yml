@@ -2,9 +2,9 @@
   id: SpellbookSpawnMagicMonkey
   name: spellbook-magic-monkey-name
   description: spellbook-magic-monkey-desc
-  productEntity: MagicMonkeySpawnSpellbook
+  productEntity: MobMonkeyMagic
   cost:
-    WizCoin: 2
+    WizCoin: 0
   categories:
   - LilSpells
   conditions:
@@ -16,6 +16,9 @@
   name: spellbook-bub-name
   description: spellbook-bub-desc
   productAction: ActionBubble
+  icon:
+    sprite: Clothing/Head/Misc/waterdroplet.rsi
+    state: icon
   categories:
   - LilSpells
   conditions:
@@ -30,10 +33,8 @@
   icon:
     sprite: Structures/Specific/Anomalies/ice_anom.rsi
     state: pulse
-  cost:
-    WizCoin: 3
   categories:
   - LilSpells
   conditions:
   - !type:ListingLimitedStockCondition
-    stock: 1
+    stock: 5

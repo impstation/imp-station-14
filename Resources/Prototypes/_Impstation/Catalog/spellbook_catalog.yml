@@ -10,6 +10,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookSpawnSpores
+  name: spellbook-wizspore-name
+  description: spellbook-wizspore-desc
+  productAction: ActionSpawnWizSpore
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Utility
 - type: listing
   id: SpellbookSpaceGrease
@@ -17,7 +30,7 @@
   description: spellbook-spacegrease-desc
   productAction: ActionSpawnSpaceGreaseSpell
   cost:
-    WizCoin: 2
+    WizCoin: 0
   categories:
   - SpellbookUtility
   conditions:
@@ -30,7 +43,7 @@
   description: spellbook-finfin-desc
   productAction: ActionSpawnFinFinSpell
   cost:
-    WizCoin: 2
+    WizCoin: 0
   categories:
   - SpellbookUtility
   conditions:
@@ -44,7 +57,20 @@
   description: spellbook-wand-bub-description
   productEntity: WeaponWandWater
   cost:
-    WizCoin: 3
+    WizCoin: 0
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWizSuit
+  name: spellbook-suit-name
+  description: spellbooksuit-desc
+  productEntity: ClothingOuterHardsuitWizard
+  cost:
+    WizCoin: 0
   categories:
   - SpellbookEquipment
   conditions:
@@ -57,7 +83,20 @@
   description: spellbook-wand-polymorph-cluwne-description
   productEntity: WeaponWandCluwne
   cost:
-    WizCoin: 3
+    WizCoin: 0
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWandPolymorphPig
+  name: spellbook-wand-polymorph-pig-name
+  description: spellbook-wand-polymorph-pig-description
+  productEntity: WeaponWandPig
+  cost:
+    WizCoin: 0
   categories:
   - SpellbookEquipment
   conditions:
@@ -70,7 +109,7 @@
   description: spellbook-wizmov-description
   productEntity: WizmovCircuitBoard
   cost:
-    WizCoin: 3
+    WizCoin: 0
   categories:
   - SpellbookEquipment
   conditions:
@@ -83,7 +122,7 @@
   description: spellbook-apprentice-description
   productEntity: ApprenticeHat
   cost:
-    WizCoin: 3
+    WizCoin: 0
   categories:
   - SpellbookEquipment
   conditions:
@@ -93,11 +132,11 @@
 # Event
 - type: listing
   id: SpellbookEventSummonSoap
-  name: spellbook-event-summon-magic-soap
+  name: spellbook-event-summon-magic-soap-name
   description: spellbook-event-summon-soap-description
   productAction: ActionSummonSoap
   cost:
-    WizCoin: 2
+    WizCoin: 0
   categories:
   - SpellbookEvents
   conditions:
@@ -111,7 +150,7 @@
   description: spellbook-event-summon-whimsy-description
   productAction: ActionSummonWhimsy
   cost:
-    WizCoin: 2
+    WizCoin: 0
   categories:
   - SpellbookEvents
   conditions:
@@ -125,7 +164,7 @@
   description: spellbook-event-summon-gifts-description
   productAction: ActionSummonGifts
   cost:
-    WizCoin: 2
+    WizCoin: 0
   categories:
   - SpellbookEvents
   conditions:

@@ -50,26 +50,26 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionSpawnMagicMonkey
-  name: Summon apprentice
-  description: Now you have your very own minion!
+  id: ActionSpawnWizSpore
+  name: Summon Spores
+  description: Go my spores!
   components:
   - type: Magic
   - type: Action
-    useDelay: 100
+    useDelay: 180
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/Magic/Eldritch/voidblink.ogg
+      path: /Audio/_Impstation/Animals/bros_hit.ogg
     icon:
-      sprite: Objects/Misc/books.rsi
-      state: icon_banana
+      sprite: _Impstation/Magic/miniwiz.rsi
+      state: miniwiz
   - type: TargetAction
-    range: 2
+    range: 1
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
-      - id: MobMonkeyMagic
-        amount: 1
+      - id: MobWizSpore
+        amount: 12
       offset: 0, 1
   - type: SpeakOnAction
-    sentence: action-speech-spell-summon-mm
+    sentence: action-speech-spell-summon-wiz

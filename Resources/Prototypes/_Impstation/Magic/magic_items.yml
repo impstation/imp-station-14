@@ -80,10 +80,10 @@
     fixtureID: projectile
 
 - type: entity
-  name: wand of water
+  name: bubble wand
   parent: WeaponWandBase
   id: WeaponWandWater
-  description: This wand emits an aura of evil, dark puddle based magic is at work here...
+  description: This wand emits an aura of evil, dark magic is at work here...
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Basic/wands.rsi
@@ -135,7 +135,7 @@
     capacity: 500
   - type: Gun
     clumsyProof: true
-    fireRate: 1
+    fireRate: 0.2
     useKey: false
     selectedMode: SemiAuto
     availableModes:
@@ -154,22 +154,6 @@
     - AnomalyHost
   - type: Loadout
     prototypes: [ MobMagicMonkeyGear ]
-
-- type: entity
-  id: MagicMonkeySpawnSpellbook
-  name: apprentice's apprentice summoning spellbook
-  parent: BaseSpellbook
-  components:
-    - type: Spellbook
-      spellActions:
-        ActionSpawnMagicMonkey: null
-    - type: Sprite
-      sprite: Objects/Misc/books.rsi
-      layers:
-      - state: paper
-      - state: cover_base
-        color: "#00008B"
-      - state: icon_banana
 
 - type: entity
   name: wide ice barrage
@@ -203,10 +187,10 @@
     - magic?
 
 - type: entity
-  name: miniwiz
-  parent: MobCockroach
-  id: MobMiniWiz
-  description: This station is just crawling with bu- what
+  name: wizspore
+  parent: MobSorb
+  id: MobWizSpore
+  description: Fungus but a bit more magical.
   components:
   - type: Sprite
     sprite: _Impstation/Magic/miniwiz.rsi
@@ -219,23 +203,17 @@
         Base: miniwiz
       Dead:
         Base: wizded
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaserFGold
-    fireCost: 50
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 50
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+  - type: BallisticAmmoProvider
+    proto: BulletLighterIncendiary
+    capacity: 500
   - type: Gun
-    fireRate: 1
+    clumsyProof: true
+    fireRate: 0.4
     useKey: false
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
-    soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/goldlaser.ogg
+    soundGunshot: /Audio/Magic/fireball.ogg
   - type: CombatMode
   - type: HTN
     rootTask:
@@ -250,7 +228,36 @@
     factions:
     - Wizard
   - type: NPCImprintingOnSpawnBehaviour
-    spawnFriendsSearchRadius: 2
+    spawnFriendsSearchRadius: 4
     whitelist:
       components:
       - HumanoidAppearance
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Dead
+    damageCap: 50
+    damage:
+      types:
+        Blunt: 0.11
+
+- type: entity
+  name: wand of pig polymorph
+  parent: WeaponWandBase
+  id: WeaponWandPig
+  description: Sometimes you just need to ruin someone's day.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/salami.rsi
+    state: salami
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: BasicEntityAmmoProvider
+    proto: ProjectilePolyboltPig
+    capacity: 5
+    count: 5
+
