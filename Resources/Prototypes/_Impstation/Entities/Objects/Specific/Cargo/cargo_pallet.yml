@@ -1,0 +1,16 @@
+﻿- type: entity
+  id: CargoPalletMail
+  name: cargo mail pallet
+  description: Designates where mail deliveries will appear. Made of plastitanium to discourage pesky vandals.
+  parent: BaseCargoPallet
+  components:
+  - type: CargoPallet
+    palletType: mail
+  - type: Sprite
+    sprite: _Impstation/Structures/cargo_pallets.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/cargo_pallets.rsi
+    state: cargo_pallet_mail
+  - type: IconSmooth
+    key: cargo_pallet_mail
+    base: cargo_pallet_mail_
