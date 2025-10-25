@@ -9,7 +9,7 @@ marking-AllulaloChestHeartMonitor-allulaloChestHeartMonitor = Heart monitor
 # Head
 
 marking-AllulaloHeadUnderbelly = Underbelly
-marking-AllulaloHeadNeckFluff-allulaloHeadUnderbelly = Underbelly
+marking-AllulaloHeadUnderbelly-allulaloHeadUnderbelly = Underbelly
 
 marking-AllulaloHeadNeckFluff = Neck Plumage
 marking-AllulaloHeadNeckFluff-allulaloHeadNeckFluff = Plumage
@@ -29,14 +29,23 @@ marking-AllulaloEyesDefault-allulaloEyesDefaultLeft = Left eye
 marking-AllulaloEyesDefault-allulaloEyesDefaultRight = Right eye
 
 marking-AllulaloEyesUnshaded = Eyes (Glowing)
-marking-AllulaloEyesDefault-allulaloEyesUnshadedLeft = Left eye
-marking-AllulaloEyesDefault-allulaloEyesUnshadedRight = Right eye
+marking-AllulaloEyesUnshaded-allulaloEyesUnshadedLeft = Left eye
+marking-AllulaloEyesUnshaded-allulaloEyesUnshadedRight = Right eye
 
 # RArm
 
 marking-AllulaloWingsDefault = Default Wings
 marking-AllulaloWingsDefault-allulaloArmDefaultRight = Wing (Right)
 marking-AllulaloWingsDefault-allulaloArmDefaultLeft = Wing (Left)
+
+marking-AllulaloWingsSplit = Split Wings
+marking-AllulaloWingsSplit-allulaloArmSplit1 = Lower feathers
+marking-AllulaloWingsSplit-allulaloArmSplit2 = Upper feathers
+
+marking-AllulaloWingsOwl = Diving Wings
+marking-AllulaloWingsOwl-allulaloArmOwl1 = Middle feathers
+marking-AllulaloWingsOwl-allulaloArmOwl2 = Pattern feathers
+marking-AllulaloWingsOwl-allulaloArmOwl3 = Flight feathers
 
 # LArm
 
