@@ -45,5 +45,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SpawnOnTrigger
-    proto: FoesSeofSpawner
-    amount: 2
+    proto: FoesSeofSpawner #override the MobBeeroboros
+  - type: SpawnEntityTableOnTrigger
+    table: !type:AllSelector
+      children:
+      - id: FoesSeofSpawner #this plus the spawn on trigger = amount 2
+    keysIn:
+    - trigger
