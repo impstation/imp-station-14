@@ -62,7 +62,8 @@ public abstract class SharedEntityStorageSystem : EntitySystem
             component.IsCollidableWhenOpen,
             component.OpenOnMove,
             component.EnteringRange,
-            component.NextInternalOpenAttempt);
+            component.NextInternalOpenAttempt,
+            component.Openable); //imp
     }
 
     protected void OnHandleState(EntityUid uid, EntityStorageComponent component, ref ComponentHandleState args)
@@ -75,6 +76,7 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         component.OpenOnMove = state.OpenOnMove;
         component.EnteringRange = state.EnteringRange;
         component.NextInternalOpenAttempt = state.NextInternalOpenAttempt;
+        component.Openable = state.Openable; // IMP
     }
 
     protected virtual void OnComponentInit(EntityUid uid, EntityStorageComponent component, ComponentInit args)
@@ -428,6 +430,10 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         )
             return false;
         // end imp
+
+        // imp edit: openable bool
+        if (component.Openable == false)
+            return false;
 
         //Checks to see if the opening position, if offset, is inside of a wall.
         if (component.EnteringOffset != new Vector2(0, 0) && !HasComp<WallMountComponent>(target)) //if the entering position is offset
