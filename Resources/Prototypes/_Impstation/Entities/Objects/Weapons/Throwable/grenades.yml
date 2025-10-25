@@ -11,9 +11,12 @@
     spreadAmount: 30
     keysIn:
     - timer
-  - type: SpawnOnTrigger
-    proto: MobAngryBee
-    amount: 6
+  - type: SpawnEntityTableOnTrigger
+    table: !type:GroupSelector
+      rolls: 6
+      children:
+      - id: MobAngryBee
+    useMapCoords: true
     keysIn:
     - timer
 
@@ -34,9 +37,13 @@
         Quantity: 15
     keysIn:
     - timer
-  - type: SpawnOnTrigger
-    proto: BrosSorbSpawner
-    amount: 60
+  - type: SpawnEntityTableOnTrigger
+    table: !type:GroupSelector
+      rolls: 60
+      children:
+      - id: MobBros
+      - id: MobSorb
+    useMapCoords: true
     keysIn:
     - timer
   - type: EmitSoundOnTrigger
