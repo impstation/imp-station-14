@@ -7,6 +7,8 @@ using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
+using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Content.Shared.Stunnable;
 
 namespace Content.Server.Stunnable.Systems
@@ -30,13 +32,14 @@ namespace Content.Server.Stunnable.Systems
 
         private void OnStaminaHitAttempt(Entity<StunbatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
         {
-            // Impstation
+            // Impstation start
             if (entity.Comp.Inverted && _itemToggle.IsActivated(entity.Owner))
             {
                 args.Cancelled = true;
             }
             else if (entity.Comp.Inverted)  // Uses else so that the next if statement can call battery drain when stun gets canceled (e.g. baton is on)
                 return;
+            // imp end
 
             if (!_itemToggle.IsActivated(entity.Owner) ||
             !TryComp<BatteryComponent>(entity.Owner, out var battery) || !_battery.TryUseCharge(entity.Owner, entity.Comp.EnergyPerUse, battery))

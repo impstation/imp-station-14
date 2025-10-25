@@ -15,7 +15,7 @@ public sealed partial class DungeonJob
     private async Task PostGen(JunctionDunGen gen, Dungeon dungeon, HashSet<Vector2i> reservedTiles, Random random)
     {
         var tileDef = _tileDefManager[gen.Tile];
-        var contents = gen.Contents; // imp
+        var contents = gen.Contents; // imp remove index
 
         // N-wide junctions
         foreach (var tile in dungeon.CorridorTiles)

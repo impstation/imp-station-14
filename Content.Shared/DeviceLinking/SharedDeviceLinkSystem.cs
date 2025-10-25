@@ -199,9 +199,9 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
 
         return Loc.GetString(proto.Name);
     }
-	
+
 	/// <summary>
-    /// Goobstation - Removes a port from a source.
+    ///     Goobstation - Removes a port from a source.
     /// </summary>
     public void RemoveSourcePort(EntityUid uid, ProtoId<SourcePortPrototype> port)
     {
@@ -214,7 +214,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Goobstation - Removes a port from a sink.
+    ///     Goobstation - Removes a port from a sink.
     /// </summary>
     public void RemoveSinkPort(EntityUid uid, ProtoId<SinkPortPrototype> port)
     {

@@ -4,7 +4,6 @@ using Content.Server.Actions;
 using Content.Server.Body.Systems;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
-using Content.Server._Impstation.Drone.Components;
 using Content.Server.Emoting.Systems;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared.Anomaly.Components;
@@ -27,6 +26,7 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server._Impstation.Drone.Components; // imp
 
 namespace Content.Server.Zombies
 {
@@ -184,7 +184,7 @@ namespace Content.Server.Zombies
             if (args.Handled)
                 return;
 
-            _protoManager.TryIndex(component.EmoteSoundsId, out var sounds);
+            _protoManager.Resolve(component.EmoteSoundsId, out var sounds);
 
             args.Handled = _chat.TryPlayEmoteSound(uid, sounds, args.Emote);
         }
@@ -249,7 +249,7 @@ namespace Content.Server.Zombies
                 if (args.User == entity)
                     continue;
 
-                if (!TryComp<MobStateComponent>(entity, out var mobState) || HasComp<DroneComponent>(entity))
+                if (!TryComp<MobStateComponent>(entity, out var mobState) || HasComp<DroneComponent>(entity)) // imp drone
                     continue;
 
                 if (HasComp<ZombieComponent>(entity))
