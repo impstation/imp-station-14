@@ -35,6 +35,7 @@ namespace Content.Client.HealthAnalyzer.UI
         private readonly SpriteSystem _spriteSystem;
         private readonly IPrototypeManager _prototypes;
         private readonly IResourceCache _cache;
+        private readonly MobThresholdSystem _mobThreshold = default!; // imp add
 
         public HealthAnalyzerWindow()
         {
@@ -106,7 +107,26 @@ namespace Content.Client.HealthAnalyzer.UI
 
             // Total Damage
 
-            DamageLabel.Text = damageable.TotalDamage.ToString();
+            if (msg.ShowExactValues == true) // imp add
+                DamageLabel.Text = damageable.TotalDamage.ToString();
+            else // IMP ADD START!
+            {
+                if (!_mobThreshold.TryGetDeadPercentage(target.Value, FixedPoint2.Max(0.0, damageable.TotalDamage), out var deadPercentage)) // this is my alternative to completely hardcoding it.
+                    DamageLabel.Text = Loc.GetString("health-analyzer-window-entity-unknown-text");
+                else
+                    DamageLabel.Text = (float)deadPercentage.Value switch
+                    {
+                        >= 2f => Loc.GetString("heath-analyzer-window-entity-damage-cataclysmic-text"),
+                        >= 1.5f => Loc.GetString("heath-analyzer-window-entity-damage-extreme-text"),
+                        >= 1f => Loc.GetString("heath-analyzer-window-entity-damage-severe-text"),
+                        >= 0.75f => Loc.GetString("heath-analyzer-window-entity-damage-extensive-text"),
+                        >= 0.5f => Loc.GetString("heath-analyzer-window-entity-damage-substantial-text"),
+                        >= 0.25f => Loc.GetString("heath-analyzer-window-entity-damage-moderate-text"),
+                        < 0f => Loc.GetString("heath-analyzer-window-entity-damage-negligible-text"),
+                        _ => Loc.GetString("heath-analyzer-window-entity-damage-none-text"),
+                    };
+            }
+            // IMP ADD END
 
             // Alerts
 
@@ -142,7 +162,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
             IReadOnlyDictionary<string, FixedPoint2> damagePerType = damageable.Damage.DamageDict;
 
-            DrawDiagnosticGroups(damageSortedGroups, damagePerType);
+            DrawDiagnosticGroups(damageSortedGroups, damagePerType, damageable.TotalDamage, msg.ShowExactValues); // imp add showexactvalues & totaldamage
         }
 
         private static string GetStatus(MobState mobState)
@@ -158,7 +178,9 @@ namespace Content.Client.HealthAnalyzer.UI
 
         private void DrawDiagnosticGroups(
             Dictionary<string, FixedPoint2> groups,
-            IReadOnlyDictionary<string, FixedPoint2> damageDict)
+            IReadOnlyDictionary<string, FixedPoint2> damageDict,
+            FixedPoint2 totalDamage,
+            bool? showExactValues) // imp add showexactvalues & totaldamage
         {
             GroupsContainer.RemoveAllChildren();
 
@@ -167,10 +189,28 @@ namespace Content.Client.HealthAnalyzer.UI
                 if (damageAmount == 0)
                     continue;
 
+                // IMP ADD START!
+                var damageAmountString = damageAmount.ToString();
+
+                if (showExactValues == false)
+                {
+                    // we are taking a sum of the total damage and assigning text values to them based on the percentage each takes up.
+                    var dmgPercent = damageAmount / totalDamage;
+                    damageAmountString = (float)dmgPercent switch
+                    {
+                        1f => Loc.GetString("health-analyzer-window-damage-all-text"),
+                        >= 0.75f => Loc.GetString("health-analyzer-window-damage-most-text"),
+                        >= 0.5f => Loc.GetString("health-analyzer-window-damage-some-text"),
+                        >= 0.25f => Loc.GetString("health-analyzer-window-damage-little-text"),
+                        _ => Loc.GetString("health-analyzer-window-damage-error-text")
+                    };
+                }
+                // IMP ADD END
+
                 var groupTitleText = $"{Loc.GetString(
                     "health-analyzer-window-damage-group-text",
                     ("damageGroup", _prototypes.Index<DamageGroupPrototype>(damageGroupId).LocalizedName),
-                    ("amount", damageAmount)
+                    ("amount", damageAmountString) // imp edit FixedPoint2 -> string
                 )}";
 
                 var groupContainer = new BoxContainer
@@ -191,11 +231,33 @@ namespace Content.Client.HealthAnalyzer.UI
                     if (!damageDict.TryGetValue(type, out var typeAmount) || typeAmount <= 0)
                         continue;
 
-                    var damageString = Loc.GetString(
+                    //IMP EDITS START
+                    var damageString = "";
+                    var groupDamageAmount = typeAmount.ToString();
+
+                    // IMP ADD START!
+                    if (showExactValues == false)
+                    {
+                        // same as before but for the groups.
+                        var dmgPercent = typeAmount / totalDamage;
+                        groupDamageAmount = (float)dmgPercent switch
+                        {
+                            1f => Loc.GetString("health-analyzer-window-damage-all-text"),
+                            >= 0.75f => Loc.GetString("health-analyzer-window-damage-most-text"),
+                            >= 0.5f => Loc.GetString("health-analyzer-window-damage-some-text"),
+                            >= 0.25f => Loc.GetString("health-analyzer-window-damage-little-text"),
+                            _ => Loc.GetString("health-analyzer-window-damage-error-text")
+                        };
+                    }
+                    // IMP ADD END, but the edits continue below
+
+                    damageString = Loc.GetString(
                         "health-analyzer-window-damage-type-text",
                         ("damageType", _prototypes.Index<DamageTypePrototype>(type).LocalizedName),
-                        ("amount", typeAmount)
+                        ("amount", groupDamageAmount) // imp: change to string
                     );
+                    // IMP EDITS END
+
 
                     groupContainer.AddChild(CreateDiagnosticItemLabel(damageString.Insert(0, " · ")));
                 }

@@ -211,13 +211,20 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (TryComp<UnrevivableComponent>(target, out var unrevivableComp) && unrevivableComp.Analyzable)
             unrevivable = true;
 
+        // imp add
+        var showExactValues = false;
+        if (TryComp<HealthAnalyzerComponent>(healthAnalyzer, out var healthAnalyzerComp))
+            showExactValues = healthAnalyzerComp.ShowExactValues;
+        // imp add end
+
         _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerScannedUserMessage(
             GetNetEntity(target),
             bodyTemperature,
             bloodAmount,
             scanMode,
             bleeding,
-            unrevivable
+            unrevivable,
+            showExactValues // imp add
         ));
     }
 }
