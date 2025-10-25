@@ -29,18 +29,32 @@
       amount: 1
   - type: Appearance
 
+# Frontier: base stack for card stack component
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem]
+  id: CardStackBase
+  name: stack of cards
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: CardStack
+  - type: StripMenuHidden
+  - type: ContainerContainer # Frontier
+    containers: # Frontier
+      cardstack-container: !type:Container # Frontier
+# End Frontier
+
+- type: entity
+  parent: CardStackBase # Frontier
   id: CardHandBase
   categories: [ HideSpawnMenu ]
   name: hand of cards
   components:
   - type: Item
-    size: Small
     shape:
     - 0,0,1,0
   - type: CardHand
-  - type: CardStack
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: singlecard_down_black
@@ -48,12 +62,9 @@
     interfaces:
       enum.CardUiKey.Key:
         type: CardHandMenuBoundUserInterface
-  - type: ContainerContainer
-    containers:
-      cardstack-container: !type:Container
 
 - type: entity
-  parent: BaseItem
+  parent: CardStackBase # Frontier
   id: CardDeckBase
   categories: [ HideSpawnMenu ]
   name: deck of cards
@@ -62,15 +73,9 @@
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: deck_black_full
   - type: Item
-    size: Small
     shape:
     - 0,0,1,0
   - type: CardDeck
-  - type: CardStack
-  - type: ContainerContainer
-    containers:
-      cardstack-container: !type:Container
-
 
 # Black
 - type: entity

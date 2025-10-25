@@ -1,3 +1,6 @@
+container-sealed = The container is sealed.
+container-unsealed = You open the container.
+
 card-examined = This is the {$target}.
 cards-verb-shuffle = Shuffle
 card-verb-shuffle-success = Cards shuffled
