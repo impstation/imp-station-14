@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Bottle sprite taken from cev-eris at https://github.com/discordia-space/CEV-Eris/blob/2b969adc2dfd3e9621bf3597c5cbffeb3ac8c9f0/icons/obj/chemical.dmi and from /tg/ at https://github.com/tgstation/tgstation/blob/master/icons/obj/medical/chemical.dmi on 01/12/2024, BROS/SORB taken from BROS (ATARI 400/800), ripped by 4MASTY, all put together and animated by DVDPlayerofDiscordFame (Github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "primed",
+      "delays": [
+        [
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06
+        ]
+      ]
+    },
+    {
+      "name": "primed-unshaded",
+      "delays": [
+        [
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06,
+          0.06
+        ]
+      ]
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

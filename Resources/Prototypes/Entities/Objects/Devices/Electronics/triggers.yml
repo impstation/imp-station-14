@@ -14,7 +14,7 @@
   description: A configurable timer.
   components:
   - type: Sprite
-    sprite: Objects/Devices/timer.rsi
+    sprite: _Impstation/Objects/Devices/triggers.rsi #imp
     state: timer
   - type: Item
     size: Tiny
@@ -44,8 +44,8 @@
   description: Adds a machine link that is triggered by signals.
   components:
   - type: Sprite
-    sprite: Objects/Devices/signaltrigger.rsi
-    state: signaltrigger
+    sprite: _Impstation/Objects/Devices/triggers.rsi #imp
+    state: signal #imp
   - type: StaticPrice
     price: 40
   - type: Tag
@@ -82,7 +82,7 @@
   - type: Item
     size: Tiny
   - type: Sprite
-    sprite: Objects/Devices/voice.rsi
+    sprite: _Impstation/Objects/Devices/triggers.rsi #imp
     state: voice
   - type: StaticPrice
     price: 40

@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC0-1.0",
+    "copyright": "by DVDPlayerOfDiscordFame (Github) for Impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "payload-empty"
+        },
+        {
+            "name": "payload-chemical-left"
+        },
+        {
+            "name": "payload-chemical-right"
+        },
+        {
+            "name": "payload-chemical-armed",
+            "delays": [ [ 0.2, 0.2, 0.2, 0.2 ] ]
+        },
+        {
+            "name": "payload-explosive-armed",
+            "delays": [ [ 0.2, 0.2, 0.2, 0.2 ] ]
+        },
+        {
+            "name": "payload-flash-armed",
+            "delays": [ [ 0.2, 0.2, 0.2, 0.2 ] ]
+        }
+    ]
+}
