@@ -25,8 +25,18 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BatteryDrainerComponent, ComponentStartup>(OnStartup); // imp add
         SubscribeLocalEvent<BatteryDrainerComponent, BeforeInteractHandEvent>(OnBeforeInteractHand);
         SubscribeLocalEvent<BatteryDrainerComponent, NinjaBatteryChangedEvent>(OnBatteryChanged);
+    }
+
+    /// <summary>
+    ///  Imp add. Allow entities who are a battery to use themselves as the battery for this component
+    /// </summary>
+    private void OnStartup(Entity<BatteryDrainerComponent> ent, ref ComponentStartup args)
+    {
+        if (ent.Comp.BatteryUid == null && TryComp<BatteryComponent>(ent.Owner, out _))
+            ent.Comp.BatteryUid = ent.Owner;
     }
 
     /// <summary>
@@ -89,6 +99,26 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             _popup.PopupEntity(Loc.GetString("battery-drainer-empty", ("battery", target)), uid, uid, PopupType.Medium);
             return false;
         }
+        // imp start
+        if (comp.FullDrain == true)
+        {
+            /// I HATE MATH I HATE MATH IM CASTING A CURSE ON THIS .CS ///
+            /// making all power sources give the same ammount based on percent charged ///
+            var charge = targetBattery.CurrentCharge / targetBattery.MaxCharge;
+            var powerget = charge * 500000; // this number comes from the eeeps max charge
+            _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + powerget);
+            /// taking power away from target ///
+            var availableeeep = targetBattery.CurrentCharge;
+            var requiredeeep = battery.MaxCharge - battery.CurrentCharge;
+            var maxDrainedeeep = battery.MaxCharge - battery.CurrentCharge;
+            var inputeeep = Math.Min(Math.Min(availableeeep, requiredeeep), maxDrainedeeep);
+            if (!_battery.TryUseCharge(target, inputeeep, targetBattery))
+                return false;
+            Spawn("EffectSparks", Transform(target).Coordinates);
+            _audio.PlayPvs(comp.SparkSound, target);
+            _popup.PopupEntity(Loc.GetString("battery-drainer-success", ("battery", target)), uid, uid);
+            return false;
+        } // imp end
 
         var available = targetBattery.CurrentCharge;
         var required = battery.MaxCharge - battery.CurrentCharge;

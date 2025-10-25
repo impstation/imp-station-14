@@ -147,6 +147,23 @@
         factions:
         - Syndicate
 
+# eeeplet
+- type: entity
+  id: EeepEvent
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 4
+    earliestStart: 25
+    reoccurrenceDelay: 30
+    minimumPlayers: 30
+  - type: VentCrittersRule
+    specialEntries:
+    - id: SpawnPointGhostEeeplet
+      min: 1
+      max: 2
+      prob: 0.1
+
 # bluespace lockers
 
 - type: entity
