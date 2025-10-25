@@ -46,12 +46,12 @@
     whitelist:
       tags:
       - GrenadeFlashBang
+    distance: 6
+    velocity: 6
   - type: Item #imp - still fits in a pocket but takes a bit more space in the inventory
     size: Small
     shape:
     - 0,0,1,1
-    distance: 6
-    velocity: 6
   - type: ClusterGrenadeVisuals
     state: base
   - type: Sprite
