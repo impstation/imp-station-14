@@ -20,3 +20,51 @@
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: BulletLighterIncendiary #blood red lighter fire projectile
+
+- type: entity
+  parent: BaseAction
+  id: ActionBubble
+  name: Water Sphere
+  description: Its just a bubble...
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Fluids/watersplash.ogg
+    icon:
+    sprite: _Impstation/Magic/bubble.rsi
+    state: bullet
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: MagicBubble
+  - type: SpeakOnAction
+    sentence: action-speech-spell-bub
+
+- type: entity
+  parent: BaseAction
+  id: ActionFrost
+  name: Frost Bolt
+  description:
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 30
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    icon:
+      sprite: Structures/Specific/Anomalies/ice_anom.rsi
+      state: pulse
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileIciclepread
+  - type: SpeakOnAction
+    sentence: action-speech-spell-frost

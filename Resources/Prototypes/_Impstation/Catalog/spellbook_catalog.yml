@@ -1,12 +1,78 @@
+#Offensive
+- type: listing
+  id: SpellbookFrost
+  name: spellbook-frost-name
+  description: spellbook-frost-desc
+  productAction: ActionFrost
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnSpores
+  name: spellbook-wizspore-name
+  description: spellbook-wizspore-desc
+  productAction: ActionSpawnWizSpore
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Utility
 - type: listing
   id: SpellbookSpaceGrease
   name: spellbook-spacegrease-name
   description: spellbook-spacegrease-desc
   productAction: ActionSpawnSpaceGreaseSpell
   cost:
-    WizCoin: 2
+    WizCoin: 0
   categories:
   - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnFinFin
+  name: spellbook-finfin-name
+  description: spellbook-finfin-desc
+  productAction: ActionSpawnFinFinSpell
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Equipment
+- type: listing
+  id: SpellbookWandBubbles
+  name: spellbook-wand-bub-name
+  description: spellbook-wand-bub-description
+  productEntity: WeaponWandWater
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWizSuit
+  name: spellbook-suit-name
+  description: spellbooksuit-desc
+  productEntity: ClothingOuterHardsuitWizard
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -17,9 +83,92 @@
   description: spellbook-wand-polymorph-cluwne-description
   productEntity: WeaponWandCluwne
   cost:
-    WizCoin: 3
+    WizCoin: 0
   categories:
   - SpellbookEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookWandPolymorphPig
+  name: spellbook-wand-polymorph-pig-name
+  description: spellbook-wand-polymorph-pig-description
+  productEntity: WeaponWandPig
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWizmov
+  name: spellbook-wizmov-name
+  description: spellbook-wizmov-description
+  productEntity: WizmovCircuitBoard
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookApprentice
+  name: spellbook-apprentice-name
+  description: spellbook-apprentice-description
+  productEntity: ApprenticeHat
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Event
+- type: listing
+  id: SpellbookEventSummonSoap
+  name: spellbook-event-summon-magic-soap-name
+  description: spellbook-event-summon-soap-description
+  productAction: ActionSummonSoap
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookEventSummonWhimsy
+  name: spellbook-event-summon-magic-whimsy-name
+  description: spellbook-event-summon-whimsy-description
+  productAction: ActionSummonWhimsy
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookEventSummonGifts
+  name: spellbook-event-summon-magic-gifts-name
+  description: spellbook-event-summon-gifts-description
+  productAction: ActionSummonGifts
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+

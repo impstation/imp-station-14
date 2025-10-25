@@ -1,0 +1,263 @@
+- type: entity
+  id: ApprenticeHat
+  parent: [ BaseItem, BaseMagicalContraband, ClothingHeadHatWizardBase, StorePresetLilSpellbook]
+  name: apprentice hat
+  description: Gives an aspiring wizard magical powers when used on them, and can be examined to learn spells!
+  components:
+  - type: LimitedCharges
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/witchhat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/witchhat.rsi
+  - type: ActionOnInteract
+    requiresCharge: true
+    actions:
+    - ActionNewWizard
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Store
+    refundAllowed: false
+    ownerOnly: false
+    balance:
+      WizCoin: 10
+
+- type: entity
+  id: MagicBubble
+  name: bubble
+  components:
+  - type: Sprite
+    sprite: _Impstation/Magic/bubble.rsi
+    state: bullet
+  - type: Physics
+    angularDamping: 0.02
+    linearDamping: 0.02
+    bodyType: Dynamic
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    deleteOnCollide: true
+    soundHit:
+      path: /Audio/Effects/pop.ogg
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnCollide
+    damage: 50
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.30,0.10,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Water
+          Quantity: 50
+  - type: Vapor
+    active: false
+    transferAmountPercentage: 20
+  - type: SpawnOnTrigger
+    proto: PuddleWater
+  - type: TriggerOnCollide
+    fixtureID: projectile
+
+- type: entity
+  name: bubble wand
+  parent: WeaponWandBase
+  id: WeaponWandWater
+  description: This wand emits an aura of evil, dark magic is at work here...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Basic/wands.rsi
+    state: water
+  - type: Gun
+    fireRate: 4
+    projectileSpeed: 2
+    clumsyProof: false
+    cameraRecoilScalar: 0
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Effects/pop.ogg
+    params:
+      variation: 1
+  - type: BasicEntityAmmoProvider
+    proto: MagicBubble
+
+- type: entity
+  name: Wizard's apprentice's apprentice
+  parent: MobMonkey
+  id: MobMonkeyMagic
+  description: Filled with magical potential, probably.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-monkey-name
+    description: ghost-role-information-monkey-description
+    rules: ghost-role-information-familiar-rules
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 2
+    whitelist:
+      components:
+      - HumanoidAppearance
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Wizard
+  - type: HTN
+    rootTask:
+      task: MagicMonkeyCompound # RAGE RAGE RAGE
+  - type: BallisticAmmoProvider
+    proto: BulletLighterIncendiary
+    capacity: 500
+  - type: Gun
+    clumsyProof: true
+    fireRate: 0.2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - VimPilot
+    - AnomalyHost
+  - type: Loadout
+    prototypes: [ MobMagicMonkeyGear ]
+
+- type: entity
+  name: wide ice barrage
+  id: ProjectileIciclepread
+  categories: [ HideSpawnMenu ]
+  parent: ProjectileIcicle
+  components:
+  - type: ProjectileSpread
+    proto: ProjectileIcicle
+    count: 5
+    spread: 30
+
+- type: entity
+  name: cone of cold
+  parent: FoodFrozenSnowcone
+  id: FoodFrozenSnowconeMagic
+  description: It dosen't even have syrup...
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Ice
+          Quantity: 10
+        - ReagentId: DoctorsDelight
+          Quantity: 15
+  - type: FlavorProfile
+    flavors:
+    - ice
+    - magic?
+
+- type: entity
+  name: wizspore
+  parent: MobSorb
+  id: MobWizSpore
+  description: Fungus but a bit more magical.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Magic/miniwiz.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: miniwiz
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: miniwiz
+      Dead:
+        Base: wizded
+  - type: BallisticAmmoProvider
+    proto: BulletLighterIncendiary
+    capacity: 500
+  - type: Gun
+    clumsyProof: true
+    fireRate: 0.4
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: CombatMode
+  - type: HTN
+    rootTask:
+      task: MagicMonkeyCompound
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Wizard
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 4
+    whitelist:
+      components:
+      - HumanoidAppearance
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Dead
+    damageCap: 50
+    damage:
+      types:
+        Blunt: 0.11
+
+- type: entity
+  name: wand of pig polymorph
+  parent: WeaponWandBase
+  id: WeaponWandPig
+  description: Sometimes you just need to ruin someone's day.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/salami.rsi
+    state: salami
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: BasicEntityAmmoProvider
+    proto: ProjectilePolyboltPig
+    capacity: 5
+    count: 5
+

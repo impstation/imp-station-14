@@ -1,0 +1,29 @@
+- type: entity
+  id: ProjectilePolyboltPig
+  parent: ProjectilePolyboltBase
+  name: pig polybolt
+  description: Nooo, I don't wanna be a pig!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardForcedPig
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      components:
+      - MobState
+
+- type: polymorph
+  id: WizardForcedPig
+  configuration:
+    entity: MobPig
+    forced: true
+    inventory: None
+    transferName: true
+    transferDamage: true
+    revertOnCrit: true
+    revertOnDeath: true
+    duration: 180 # imp change
+    polymorphSound: !type:SoundPathSpecifier
+      path: /Audio/Magic/forcewall.ogg
+    exitPolymorphSound: !type:SoundPathSpecifier
+      path: /Audio/Magic/forcewall.ogg
