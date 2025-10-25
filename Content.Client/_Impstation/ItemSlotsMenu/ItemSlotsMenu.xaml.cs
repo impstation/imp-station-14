@@ -16,6 +16,8 @@ public sealed partial class ItemSlotsMenu: RadialMenu
 
     private readonly ItemSlotsSystem _itemSlots;
 
+    private const string MainString = "Main";
+
     public event Action<string>? ItemSlotEjectMessageAction;
 
     public ItemSlotsMenu(EntityUid owner, ItemSlotsBoundUserInterface bui)
@@ -26,8 +28,7 @@ public sealed partial class ItemSlotsMenu: RadialMenu
         _itemSlots = _entManager.System<ItemSlotsSystem>();
 
         // Find the main radial container
-        const string mainString = "Main";
-        var main = FindControl<RadialContainer>(mainString);
+        var main = FindControl<RadialContainer>(MainString);
 
         if (!_entManager.TryGetComponent<ItemSlotsComponent>(owner, out var slotsComp))
             return;
