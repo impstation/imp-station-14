@@ -50,6 +50,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookSpawnCurse
+  name: spellbook-curse-name
+  description: spellbook-curse-desc
+  productAction: ActionCurse
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Equipment
 - type: listing
   id: SpellbookWandBubbles

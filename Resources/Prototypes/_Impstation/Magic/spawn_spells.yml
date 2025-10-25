@@ -73,3 +73,30 @@
       offset: 0, 1
   - type: SpeakOnAction
     sentence: action-speech-spell-summon-wiz
+
+- type: entity
+  parent: BaseAction
+  id: ActionCurse
+  name: Curse
+  description: Summons a powerful curse that latches on to someone, maybe don't stand to close...
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 1 # low for testing
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Ambience/ambiruin2.ogg
+    icon:
+      sprite: _Impstation/Magic/miniwiz.rsi
+      state: miniwiz
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: AnomalyTrapCurse
+        amount: 1
+      offset: 0, 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-curse
+
