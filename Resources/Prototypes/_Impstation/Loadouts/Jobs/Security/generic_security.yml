@@ -1,0 +1,36 @@
+#Eyewear
+- type: loadout
+  id: SecuritySunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+  groupBy: "job"
+
+- type: loadout
+  id: SecurityVisor
+  equipment:
+    eyes: ClothingEyesVisorSecurity
+  groupBy: "job"
+
+- type: loadout
+  id: SecurityHud
+  equipment:
+    eyes: ClothingEyesHudSecurity
+  groupBy: "job"
+
+- type: loadout
+  id: SecurityEyePatchHud
+  equipment:
+    eyes: ClothingEyesEyepatchHudSecurity
+  groupBy: "job"
+
+- type: loadout
+  id: SecurityGlassesHud
+  equipment:
+    eyes: ClothingEyesGlassesHudSecurity
+  groupBy: "job"
+
+- type: loadout
+  id: Sunglasses
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+  groupBy: "job"

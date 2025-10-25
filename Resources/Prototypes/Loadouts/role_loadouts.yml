@@ -479,6 +479,7 @@
   - HeadofSecurityBelt # imp SecurityBelt > HeadofSecurityBelt
   - SecurityShoes
   - HeadofSecurityHeadset #imp
+  - SecurityEyewear # imp
   - HeadofSecurityBackpack # imp SecurityBackpack > HeadofSecurityBackpack
   - SurvivalSecurityCommand # imp SurvivalSecurity > SurvivalSecurityCommand
   - Trinkets
@@ -500,6 +501,7 @@
   - WardenOuterClothing
   - SecurityBelt # imp reorder
   - SecurityShoes
+  - SecurityEyewear # imp
   - SecurityBackpack # imp reorder
   - WardenPDA # imp
   - SurvivalSecurity
@@ -522,6 +524,7 @@
   - SecurityOuterClothing
   - SecurityBelt # imp reorder
   - SecurityShoes
+  - SecurityEyewear # imp
   - SecurityBackpack # imp reorder
   - SecurityPDA # imp reorder
   - SurvivalSecurity
@@ -542,6 +545,7 @@
   - DetectiveJumpsuit
   - DetectiveOuterClothing
   - DetectiveShoes # imp SecurityShoes > DetectiveShoes
+  - SecurityEyewear # imp
   - SecurityBackpack # imp reorder
   - DetectivePDA # imp
   - SurvivalSecurity

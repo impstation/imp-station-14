@@ -129,6 +129,7 @@ loadout-group-head-of-security-belt = Head of Security belt
 loadout-group-security-gun-command = Sidearm
 loadout-group-security-ammo-command = Ammunition
 
+loadout-group-security-glasses = Security glasses
 loadout-group-warden-neck = Warden neck
 loadout-group-upper-security-shoes = Security shoes
 loadout-group-warden-id = Warden ID
