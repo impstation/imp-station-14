@@ -224,7 +224,7 @@ namespace Content.Server.Forensics
 
             var totalPrintsAndFibers = forensicsComp.Fingerprints.Count + forensicsComp.Fibers.Count;
             var hasRemovableDNA = forensicsComp.DNAs.Count > 0 && forensicsComp.CanDnaBeCleaned;
-            if (hasRemovableDNA || totalPrintsAndFibers > 0 /* imp add*/ || HasComp<CleanableInfoComponent>(target))
+            if (hasRemovableDNA || totalPrintsAndFibers > 0 || HasComp<CleanableInfoComponent>(target)) //imp add - CleanableInfoComponent check
             {
                 var cleanDelay = cleanForensicsEntity.Comp.CleanDelay;
                 var doAfterArgs = new DoAfterArgs(EntityManager, user, cleanDelay, new CleanForensicsDoAfterEvent(), cleanForensicsEntity, target: target, used: cleanForensicsEntity)
