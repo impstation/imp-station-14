@@ -120,6 +120,12 @@
         - MachineMask
   - type: StealTarget #imp
     stealGroup: StealMopBucket
+  - type: UserInterface # imp
+    interfaces:
+      enum.ItemSlotsUiKey.Key:
+        type: ItemSlotsBUI
+  - type: ActivatableUI # imp
+    key: enum.ItemSlotsUiKey.Key
 
 - type: entity
   name: mop bucket
@@ -359,6 +365,8 @@
       interfaces:
         enum.StorageUiKey.Key:
           type: StorageBoundUserInterface
+        enum.ItemSlotsUiKey.Key: # imp
+          type: ItemSlotsBUI
     - type: Edible
       edible: Drink
       solution: bucket
@@ -383,3 +391,5 @@
       guides:
       - Janitorial
     - type: DnaSubstanceTrace
+    - type: ActivatableUI # imp
+      key: enum.ItemSlotsUiKey.Key

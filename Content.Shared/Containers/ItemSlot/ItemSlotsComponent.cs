@@ -275,4 +275,13 @@ namespace Content.Shared.Containers.ItemSlots
     /// </summary>
     [ByRefEvent]
     public record struct ItemSlotEjectAttemptEvent(EntityUid SlotEntity, EntityUid Item, EntityUid? User, ItemSlot Slot, bool Cancelled = false);
+
+    /// <summary>
+    /// Imp edit. For the radial menu.
+    /// </summary>
+    [Serializable, NetSerializable]
+    public enum ItemSlotsUiKey : byte
+    {
+        Key
+    }
 }
