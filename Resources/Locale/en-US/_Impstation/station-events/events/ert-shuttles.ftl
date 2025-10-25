@@ -1,0 +1,1 @@
+station-event-c-b-u-r-n-medium-shuttle-announcement = A biological defense team has been dispatched via shuttle. Station crew should cooperate where needed.
