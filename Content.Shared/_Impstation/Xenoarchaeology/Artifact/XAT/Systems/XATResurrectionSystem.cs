@@ -26,7 +26,7 @@ public sealed class XATResurrectionSystem : BaseXATSystem<XATResurrectionCompone
 
     private void OnMobStateChanged(MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
+        if (args.OldMobState != MobState.Dead || args.NewMobState == MobState.Dead)
             return;
 
         var targetCoords = Transform(args.Target).Coordinates;
@@ -37,7 +37,7 @@ public sealed class XATResurrectionSystem : BaseXATSystem<XATResurrectionCompone
             if (node.Attached == null)
                 continue;
 
-            var artifact = _xenoArtifactQuery.Get(GetEntity(node.Attached.Value));
+            var artifact = _xenoArtifactQuery.Get(node.Attached.Value);
 
             if (!CanTrigger(artifact, (uid, node)))
                 continue;

@@ -8,22 +8,17 @@ namespace Content.Server.Xenoarchaeology.Artifact.XAT;
 /// <summary>
 /// System for checking if emote-triggered xenoartifact should be triggered.
 /// </summary>
-public sealed class XATExpressionSystem : BaseQueryUpdateXATSystem<XATExpressionComponent>
+public sealed class XATExpressionSystem : BaseXATSystem<XATExpressionComponent>
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    private EntityQuery<XenoArtifactComponent> _xenoArtifactQuery;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         base.Initialize();
+        _xenoArtifactQuery = GetEntityQuery<XenoArtifactComponent>();
         SubscribeLocalEvent<TransformComponent, EntityEmotedEvent>(OnEmote);
-    }
-
-
-    protected override void UpdateXAT(Entity<XenoArtifactComponent> artifact, Entity<XATExpressionComponent, XenoArtifactNodeComponent> node, float frameTime)
-    {
-        return;
     }
 
     private void OnEmote(EntityUid emoter, TransformComponent component, EntityEmotedEvent args)
@@ -39,8 +34,7 @@ public sealed class XATExpressionSystem : BaseQueryUpdateXATSystem<XATExpression
             if (node.Attached == null)
                 continue;
 
-            var artifact = _xenoArtifactQuery.Get(GetEntity(node.Attached.Value));
-
+            var artifact = _xenoArtifactQuery.Get(node.Attached.Value);
             if (!CanTrigger(artifact, (uid, node)))
                 continue;
 

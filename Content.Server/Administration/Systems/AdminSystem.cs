@@ -449,7 +449,7 @@ public sealed class AdminSystem : EntitySystem
 
             if (_playerManager.TryGetSessionById(uid, out var session))
                 _gameTicker.SpawnObserver(session);
-                
+
             RaiseLocalEvent(ref eraseEvent);
         }
 

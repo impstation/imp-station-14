@@ -45,7 +45,7 @@ public abstract partial class SharedXenoArtifactSystem
         if (!Resolve(ent, ref ent.Comp))
             return false;
 
-        var artifact = GetEntity(ent.Comp.Attached);
+        var artifact = ent.Comp.Attached;
         if (!TryComp<XenoArtifactComponent>(artifact, out var artiComp))
             return false;
 
@@ -86,7 +86,7 @@ public abstract partial class SharedXenoArtifactSystem
             // as an experiment - unlocking node doesn't activate it, activation is left for player to decide.
             // var activated = ActivateNode((ent, artifactComponent), node.Value, null, null, Transform(ent).Coordinates, false);
             // if (activated)
-            soundEffect = artifactComponent.UnlockActivationSuccessfulSound; //imp edit, move activation sounds, allow artifacts to customize sounds
+            soundEffect = artifactComponent.UnlockActivationSuccessfulSound; // imp edit, move activation sounds, allow artifacts to customize sounds
 
             // imp edit start
             if (artifactComponent.Natural && _net.IsServer)
