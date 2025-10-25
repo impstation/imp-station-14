@@ -6,14 +6,14 @@ using Robust.Client.Input;
 namespace Content.Client._Impstation.ItemSlotsMenu;
 
 [UsedImplicitly]
-public sealed class ItemSlotsBUI : BoundUserInterface
+public sealed class ItemSlotsBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IClyde _displayManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
 
     private ItemSlotsMenu? _menu;
 
-    public ItemSlotsBUI(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    public ItemSlotsBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         IoCManager.InjectDependencies(this);
     }

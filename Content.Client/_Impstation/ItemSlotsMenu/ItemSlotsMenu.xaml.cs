@@ -18,19 +18,16 @@ public sealed partial class ItemSlotsMenu: RadialMenu
 
     public event Action<string>? ItemSlotEjectMessageAction;
 
-    private EntityUid _owner;
-
-    public ItemSlotsMenu(EntityUid owner, ItemSlotsBUI bui)
+    public ItemSlotsMenu(EntityUid owner, ItemSlotsBoundUserInterface bui)
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
 
         _itemSlots = _entManager.System<ItemSlotsSystem>();
 
-        _owner = owner;
-
         // Find the main radial container
-        var main = FindControl<RadialContainer>("Main");
+        const string mainString = "Main";
+        var main = FindControl<RadialContainer>(mainString);
 
         if (!_entManager.TryGetComponent<ItemSlotsComponent>(owner, out var slotsComp))
             return;
