@@ -135,7 +135,7 @@
         Blunt: 10
 
 - type: entity
-  parent: [ClothingEyesBase, BaseLensSlot, ShowSecurityIcons, BaseSecurityContraband] 
+  parent: ClothingEyesGlassesSecurity
   id: ClothingEyesVisorSecurity
   name: security visor
   description: A high-tech, menacing visor that provides flash immunity and a security HUD like normal security glasses.
@@ -144,12 +144,7 @@
     sprite: _Impstation/Clothing/Eyes/Glasses/secvisor.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Eyes/Glasses/secvisor.rsi
-  - type: FlashImmunity
-  - type: EyeProtection
-    protectionTime: 5
-  - type: GuideHelp
-    guides:
-    - Security
-    - Antagonists
-  - type: IdentityBlocker
-    coverage: EYES
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - GlassesSecurity
