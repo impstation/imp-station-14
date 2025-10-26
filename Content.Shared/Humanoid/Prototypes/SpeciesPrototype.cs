@@ -34,6 +34,21 @@ public sealed partial class SpeciesPrototype : IPrototype
     [DataField(required: true)]
     public bool RoundStart { get; private set; } = false;
 
+    // Imp start
+    /// <summary>
+    /// Whether or not the species is available for randomization.
+    /// </summary>
+    [DataField]
+    public bool RandomViable { get; private set; }
+
+    /// <summary>
+    /// When a random species is picked, verify random float is lower than this number
+    /// if not, don't pick the species
+    /// </summary>
+    [DataField]
+    public float RandomChance { get; private set; } = 1f;
+    // Imp end
+
     // The below two are to avoid fetching information about the species from the entity
     // prototype.
 
@@ -81,7 +96,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// Method of skin coloration used by the species.
     /// </summary>
     [DataField(required: true)]
-    public HumanoidSkinColor SkinColoration { get; private set; }
+    public ProtoId<SkinColorationPrototype> SkinColoration { get; private set; }
 
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> MaleFirstNames { get; private set; } = "NamesFirstMale";
@@ -94,7 +109,6 @@ public sealed partial class SpeciesPrototype : IPrototype
 
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> LastNames { get; private set; } = "NamesLast";
-
 
     [DataField]
     public SpeciesNaming Naming { get; private set; } = SpeciesNaming.FirstLast;
@@ -142,6 +156,6 @@ public enum SpeciesNaming : byte
     First,
     FirstLast,
     FirstDashFirst,
-    FirstMiddleLast,
+    FirstMiddleLast, // imp add
     TheFirstofLast,
 }

@@ -5,11 +5,8 @@ using Content.Server.Administration.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server._Impstation.Thaven;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Revenant.Components;
-using Content.Server.Revenant.EntitySystems;
 using Content.Server.Stack;
 using Content.Server.Station.Systems;
 using Content.Server.Weapons.Ranged.Systems;
@@ -25,10 +22,9 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Doors.Components;
 using Content.Shared.Hands.Components;
-using Content.Shared._Impstation.Thaven.Components;
 using Content.Shared.Inventory;
-using Content.Shared.Item;
 using Content.Shared.PDA;
+using Content.Shared.Power.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Station.Components;
 using Content.Shared.Verbs;
@@ -41,6 +37,10 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server.Revenant.Components; // imp
+using Content.Server.Revenant.EntitySystems; // imp
+using Content.Shared._Impstation.Thaven.Components; // imp
+using Content.Shared.Item; // imp
 
 namespace Content.Server.Administration.Systems;
 
@@ -58,7 +58,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly BatterySystem _batterySystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly RevenantAnimatedSystem _revenantAnimate = default!;
+    [Dependency] private readonly RevenantAnimatedSystem _revenantAnimate = default!; // imp
 
     private void AddTricksVerbs(GetVerbsEvent<Verb> args)
     {
@@ -961,9 +961,11 @@ public sealed partial class AdminVerbSystem
         SnapJoints = -27,
         MakeMinigun = -28,
         SetBulletAmount = -29,
+        // imp adds
         MakeAnimate = -30,
         MakeInanimate = -31,
         AddRandomMood = -32,
         AddCustomMood = -33,
+        // imp end
     }
 }

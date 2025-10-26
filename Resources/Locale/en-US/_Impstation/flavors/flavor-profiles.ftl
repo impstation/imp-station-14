@@ -6,6 +6,9 @@ flavor-base-artificial = artificial
 flavor-base-shrimp = shrimpy
 flavor-base-something = like something
 flavor-base-weird = weird
+flavor-base-ectoplasm = ghastly
+flavor-base-fatty = fatty
+flavor-base-gooey = gooey
 
 flavor-complex-raktaccino = fantastically bitter
 flavor-complex-moscowmule = like a kick in the teeth
@@ -112,3 +115,4 @@ flavor-complex-theatre = like theatre access
 flavor-complex-wizard = like wizard access
 flavor-complex-irwizine = like wrestling an alligator
 flavor-complex-rose = like a garden in the summer
+flavor-complex-allulalo = like hand sanitizer

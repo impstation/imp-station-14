@@ -10,10 +10,9 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Speech;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Mech.EntitySystems; //imp
-using Content.Shared.Mech.Components; //imp
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
+using Content.Shared.Mech.Components; //imp
 
 namespace Content.Shared.ActionBlocker
 {
@@ -24,7 +23,6 @@ namespace Content.Shared.ActionBlocker
     public sealed class ActionBlockerSystem : EntitySystem
     {
         [Dependency] private readonly SharedContainerSystem _container = default!;
-        [Dependency] private readonly SharedMechSystem _mechSystem = default!; //imp
 
         private EntityQuery<ComplexInteractionComponent> _complexInteractionQuery;
 
@@ -170,15 +168,21 @@ namespace Content.Shared.ActionBlocker
             return !ev.Cancelled;
         }
 
-        public bool CanPickup(EntityUid user, EntityUid item)
+        /// <summary>
+        /// Whether a user can pickup the given item.
+        /// </summary>
+        /// <param name="user">The mob trying to pick up the item.</param>
+        /// <param name="item">The item being picked up.</param>
+        /// <param name="showPopup">Whether or not to show a popup to the player telling them why the attempt failed.</param>
+        public bool CanPickup(EntityUid user, EntityUid item, bool showPopup = false)
         {
-            var userEv = new PickupAttemptEvent(user, item);
+            var userEv = new PickupAttemptEvent(user, item, showPopup);
             RaiseLocalEvent(user, userEv);
 
             if (userEv.Cancelled)
                 return false;
 
-            var itemEv = new GettingPickedUpAttemptEvent(user, item);
+            var itemEv = new GettingPickedUpAttemptEvent(user, item, showPopup);
             RaiseLocalEvent(item, itemEv);
 
             return !itemEv.Cancelled;

@@ -16,6 +16,9 @@ reagent-desc-bloodkodepiia = The fluid that bleeds from a kodepiia if you cut it
 reagent-name-gray-blood = joos
 reagent-desc-gray-blood = Thui hope glump mochigi ketchup.
 
+reagent-name-reaper-blood = ectoplasm
+reagent-desc-reaper-blood = The liquefied essence of soul that maintains the corporeal forms of various spectral entities.
+
 reagent-name-mucin = mucin
 reagent-desc-mucin = A fascinating secretion capable of accelerating the movement of Gastropoids. It looks exploitable...
 
@@ -24,3 +27,6 @@ reagent-desc-testosterone = A fundamental bodily hormone, synthesized from plant
 
 reagent-name-estradiol = estradiol
 reagent-desc-estradiol = A fundamental bodily hormone, synthesized from cell matter for pharmaceutical distribution.
+
+reagent-name-bloodallulalo = methylated blood
+reagent-desc-bloodallulalo = An ancient alkylate form of blood. Known to rapidly evaporate if spilled.

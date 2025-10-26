@@ -21,6 +21,9 @@
   - CigPackSpirits # imp
   - CigarCase
   - CigarGold
+  - BoxFolderBaseThreePapers
+  - BoxFolderPlasticClipboardThreePapers
+  - BoxFolderClipboardThreePapers
   - ClothingNeckLGBTPin
 #  - ClothingNeckAllyPin
   - ClothingNeckAromanticPin
@@ -69,7 +72,6 @@
   - BarFlask
   - CardBoxBlack
   - CardBoxTarot
-  - Clipboard
   - ClothingHeadHatKippahBlueAndGold
   - ClothingHeadHatKippahSimple
   - ClothingHeadHatKippahWhiteAndBlue
@@ -127,6 +129,7 @@
   hidden: true
   loadouts:
   - EmergencyMeat # imp
+  - EmergencyWheat # imp
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesAquaticFullTank # Imp
@@ -140,6 +143,7 @@
   loadouts:
   - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesEVAKodepiia # imp
+  - LoadoutSpeciesEVAUngu # imp
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
 
@@ -159,6 +163,7 @@
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
   - LoadoutSpeciesPocketDoubleOxygenKodepiia # imp
+  - LoadoutSpeciesPocketDoubleOxygenUngu # imp
 
 # Command
 - type: loadoutGroup
@@ -358,6 +363,13 @@
   - BartenderWintercoat
 
 - type: loadoutGroup
+  id: BartenderGoldenShaker
+  name: loadout-group-bartender-shaker
+  minLimit: 0
+  loadouts:
+  - BartenderGoldenShaker
+
+- type: loadoutGroup
   id: ChefHead
   name: loadout-group-chef-head
   minLimit: 0
@@ -513,12 +525,16 @@
   minLimit: 1
   loadouts:
   - Bible
-  - ChaplainBookQuran #imp reorder
-  - BibleTanakh #imp reorder
-  - BibleDruid
+  # imp adds. these 2 in front because of woke
+  - ChaplainBookQuran
+  - BibleTanakh
+  # end imp
   - BibleNanoTrasen
-  - BibleSatanic
-  #imp edit start, kind of insane they labeled all holy books as bibles but oh well, using this loadout group will save headache in the future
+  - BibleDruid
+  - BibleHonk
+  - BibleRatvar
+  - BibleNarsie
+   #imp edit start, kind of insane they labeled all holy books as bibles but oh well, using this loadout group will save headache in the future
   - ChaplainBookScroll
   - ChaplainBookTablet
   - ChaplainBookGreybible
@@ -658,6 +674,7 @@
   - EmergencyOxygenClown
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatClown # imp
+  - EmergencyWheatClown # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -721,6 +738,7 @@
   - EmergencySpeciesMothMime
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMime # imp
+  - EmergencyWheatMime # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -776,6 +794,7 @@
   - PanFlute
   - Ocarina
   - Bagpipe
+  - Shamisen # imp
 
 # Cargo
 - type: loadoutGroup
@@ -862,6 +881,14 @@
   - BlackShoes
   - CargoWinterBoots
   - CargoClownShoes # imp
+
+- type: loadoutGroup
+  id: CargoTechnicianID
+  name: loadout-group-cargo-technician-id
+  loadouts:
+  - CargoTechnicianPDA
+  - SeniorCargoTechnicianPDA # imp
+#  - SeniorCourierPDA imp, moved to courier
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
@@ -1034,6 +1061,7 @@
   - EmergencyOxygenExtended
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatExtended # imp
+  - EmergencyWheatExtended # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Science
@@ -1370,6 +1398,7 @@
   - EmergencyOxygenSecurity
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSecurity # imp
+  - EmergencyWheatSecurity # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -1615,6 +1644,7 @@
   - EmergencyOxygenMedical
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMedical # imp
+  - EmergencyWheatMedical # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Wildcards
@@ -1661,6 +1691,7 @@
   - EmergencyOxygenSyndicate
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSyndicate # imp
+  - EmergencyWheatSyndicate # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup

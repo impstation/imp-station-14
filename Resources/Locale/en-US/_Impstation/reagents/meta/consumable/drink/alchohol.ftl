@@ -11,7 +11,7 @@ reagent-name-reaganomics = reaganomics
 reagent-desc-reaganomics = Why would we ever want anything else?
 
 reagent-name-gatorwine = gatorwine
-reagent-desc-gatorwine = No Reptillians were harmed in the making of this drink.
+reagent-desc-gatorwine = No Reptilians were harmed in the making of this drink.
 
 reagent-name-rotgut = rotgut
 reagent-desc-rotgut = A perfect excuse to check up with that cute girl in the emergency ward.

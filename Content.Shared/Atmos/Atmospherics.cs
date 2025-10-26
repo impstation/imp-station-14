@@ -180,6 +180,7 @@ namespace Content.Shared.Atmos
         };
 
         #region Excited Groups
+
         /// <summary>
         ///     Number of full atmos updates ticks before an excited group breaks down (averages gas contents across turfs)
         /// </summary>
@@ -266,7 +267,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     1 mol of Tritium is required per X mol of oxygen.
         /// </summary>
-        public const float FrezonProductionTritRatio = 25.0f;
+        public const float FrezonProductionTritRatio = 25.0f; // imp edit, was 8.0
 
         /// <summary>
         ///     1 / X of the tritium is converted into Frezon each tick

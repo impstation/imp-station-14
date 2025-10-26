@@ -7,6 +7,8 @@ using Content.Shared.Physics;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonLayers;
 using Robust.Shared.Collections;
+using Robust.Shared.Random; // imp
+using System.Numerics; // imp
 
 namespace Content.Server.Procedural.DungeonJob;
 
@@ -50,7 +52,7 @@ public sealed partial class DungeonJob
                 var entities = _entManager.System<EntityTableSystem>().GetSpawns(gen.Table, random).ToList();
                 foreach (var ent in entities)
                 {
-                    var uid = _entManager.SpawnAtPosition(ent, _maps.GridTileToLocal(_gridUid, _grid, tile));
+                    var uid = _entManager.SpawnAtPosition(ent, _maps.GridTileToLocal(_gridUid, _grid, tile).Offset(new Vector2(random.NextFloat(-0.5f, 0.5f), random.NextFloat(-0.5f, 0.5f)))); // imp (Added offset. The Offset allows the entities to be placed anywhere on the tiles boundaries)
                     _entManager.RemoveComponent<GhostRoleComponent>(uid);
                     _entManager.RemoveComponent<GhostTakeoverAvailableComponent>(uid);
                     npcs.SleepNPC(uid);

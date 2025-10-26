@@ -4,6 +4,7 @@
   text: "/ServerInfo/_Impstation/Guidebook/Mobs/Species.xml" # imp
   children:
   - Arachnid
+  - Allulalo # imp
   - Decapoid # imp
   - Diona
   - Dwarf
@@ -15,12 +16,14 @@
   - SlimePerson # imp
   - Snail # imp
   - Thaven # imp
+  - Ungu # imp
   - Vox
+  #- Vulpkanin # imp, disabled roundstart
 
 - type: guideEntry
   id: Arachnid
   name: species-name-arachnid
-  text: "/ServerInfo/Guidebook/Mobs/Arachnid.xml"
+  text: "/ServerInfo/_Impstation/Guidebook/Mobs/Arachnid.xml" #imp
 
 - type: guideEntry
   id: Diona
@@ -45,7 +48,7 @@
 - type: guideEntry
   id: Reptilian
   name: species-name-reptilian
-  text: "/ServerInfo/Guidebook/Mobs/Reptilian.xml"
+  text: "/ServerInfo/_Impstation/Guidebook/Mobs/Reptilian.xml" # imp
 
 - type: guideEntry
   id: SlimePerson
@@ -56,3 +59,8 @@
   id: Vox
   name: species-name-vox
   text: "/ServerInfo/_Impstation/Guidebook/Mobs/Vox.xml" # imp
+
+- type: guideEntry
+  id: Vulpkanin
+  name: species-name-vulpkanin
+  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"

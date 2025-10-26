@@ -2,7 +2,6 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords.Systems;
-using Content.Server._DV.Cargo.Systems; // Imp edit
 using Content.Shared.Cargo.Components;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Delivery;
@@ -12,6 +11,7 @@ using Content.Shared.StationRecords;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Content.Server._DV.Cargo.Systems; // Imp edit
 
 namespace Content.Server.Delivery;
 
@@ -69,11 +69,11 @@ public sealed partial class DeliverySystem : SharedDeliverySystem
             _fingerprintReader.AddAllowedFingerprint((ent.Owner, reader), entry.Fingerprint);
         }
 
-        if (stationId != null) // Imp - update logistics after mapinit
-        {
-            var ev = new LogisticStatsUpdatedEvent((EntityUid)stationId);
-            RaiseLocalEvent(ev);
-        }
+        // Imp - update logistics after mapinit
+        var ev = new LogisticStatsUpdatedEvent(stationId);
+        RaiseLocalEvent(ev);
+        // imp end
+
         Dirty(ent);
     }
 
@@ -108,7 +108,7 @@ public sealed partial class DeliverySystem : SharedDeliverySystem
         if (ent.Comp.WasPenalized)
             return;
 
-        if (!_protoMan.TryIndex(ent.Comp.PenaltyBankAccount, out var accountInfo))
+        if (!_protoMan.Resolve(ent.Comp.PenaltyBankAccount, out var accountInfo))
             return;
 
         var multiplier = GetDeliveryMultiplier(ent);

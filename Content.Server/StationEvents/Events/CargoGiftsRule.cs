@@ -6,8 +6,8 @@ using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using Robust.Shared.Prototypes;
-using Content.Server.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server.Announcements.Systems; // ee announce
+using Robust.Shared.Player; // ee announce
 
 namespace Content.Server.StationEvents.Events;
 
@@ -16,7 +16,7 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
     [Dependency] private readonly CargoSystem _cargoSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
     protected override void Added(EntityUid uid, CargoGiftsRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -25,17 +25,15 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
 
         base.Added(uid, component, gameRule, args);
 
-        _announcer.SendAnnouncement(
+        _announcer.SendAnnouncement( // ee announce
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
             component.Announce,
-            null,
-            Color.FromHex("#18abf5"),
-            null, null,
-            null, //imp
-            ("sender", Loc.GetString(component.Sender)),
+            colorOverride: Color.FromHex("#18abf5"),
+            localeArgs: [
+                ("sender", Loc.GetString(component.Sender)),
                 ("description", Loc.GetString(component.Description)),
-                ("dest", Loc.GetString(component.Dest))
+                ("dest", Loc.GetString(component.Dest))]
         );
     }
 
