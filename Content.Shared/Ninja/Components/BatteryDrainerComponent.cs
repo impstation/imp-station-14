@@ -43,4 +43,10 @@ public sealed partial class BatteryDrainerComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool FullDrain = false;
+
+    /// <summary>
+    ///     Imp add. Denotes the minimum amount of charge to drain.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float? MinimumDrain;
 }

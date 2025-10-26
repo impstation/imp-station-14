@@ -102,7 +102,7 @@
     useSound:
       path: /Audio/Effects/tesla_consume.ogg
   - type: AmbientSound
-    volume: -3
+    volume: -6
     range: 5
     sound:
       path: /Audio/Effects/tesla.ogg
@@ -130,12 +130,12 @@
     deactivateSound: null
   - type: BatteryDrainer
     fullDrain: true
-    drainEfficiency: 1
     drainTime: 10
     sparkSound:
      path: /Audio/Effects/PowerSink/charge_fire.ogg
+    minimumDrain: 1000
   - type: Battery
-    maxCharge: 5000000
+    maxCharge: 10000
     startingCharge: 0
   - type: ComplexInteraction
   - type: ExaminableBattery

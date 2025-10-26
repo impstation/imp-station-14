@@ -113,6 +113,11 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             return false;
 
         var output = input * comp.DrainEfficiency;
+        // IMP ADD START: minimum clamp
+        if (comp.MinimumDrain is not null)
+            output = Math.Max(output, (float)comp.MinimumDrain);
+        // IMP END
+
         _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + output, battery);
         // TODO: create effect message or something
         Spawn("EffectSparks", Transform(target).Coordinates);
