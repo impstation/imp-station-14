@@ -147,8 +147,8 @@
 
 - type: entity
   parent: BaseItem
-  id: RCDSafety
-  name: positivity RCD
+  id: RCDRefreshments
+  name: refreshments RCD
   description: The pinnacle of Decapoidian technology. An RCD that makes snacks.
   suffix: AutoRecharge
   components:
@@ -186,9 +186,9 @@
 - type: entity
   parent: Crayon
   id: CrayonChalkInfinite
-  name: neverending chalk
+  name: infinity chalk
   suffix: Infinite
-  description: White, forensic-grade chalk, perfect for marking up a crime scene.
+  description: Not for doodles.
   components:
   - type: Crayon
     color: White
@@ -243,3 +243,32 @@
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: RotatingLight
     speed: 180
+
+- type: entity
+  name: code violation dispenser
+  parent: BaseWeaponBattery
+  id: TckutTicketDispenser
+  description: May the mighty hand of the Empire strike fierce the fool who violated code.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/tckut_ticket_dispenser.rsi
+    layers:
+    - state: icon
+  - type: Gun
+    fireRate: 4
+    soundGunshot:
+      path: /Audio/Effects/Pop.ogg
+    soundEmpty:
+      path: /Audio/Items/hiss.ogg
+    clumsyProof: true
+  - type: ProjectileBatteryAmmoProvider
+    proto: CodeViolation
+    fireCost: 20
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1
+  - type: Item
+    size: Tiny
