@@ -117,7 +117,7 @@
     animation: WeaponArcZap
     damage:
       types:
-        Shock: 2
+        Shock: 5
   - type: StaminaDamageOnHit
     damage: 40 # stun and run away type combat
   - type: NightVision # EE edit
@@ -133,7 +133,7 @@
      path: /Audio/Effects/PowerSink/charge_fire.ogg
     minimumDrain: 1000
   - type: Battery
-    maxCharge: 30000
+    maxCharge: 25000
     startingCharge: 0
   - type: ComplexInteraction
   - type: ExaminableBattery
@@ -217,7 +217,7 @@
     color: "#afa2ff"
     castShadows: true
   - type: Gun
-    fireRate: 0.2
+    fireRate: 0.5
     projectileSpeed: 8
     soundGunshot:
       path: /Audio/Effects/Lightning/lightningshock.ogg
@@ -225,28 +225,29 @@
         variation: 0.2
   - type: ProjectileBatteryAmmoProvider
     proto: EeepGunBullet
-    fireCost: 200
+    fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 5
+    autoRechargeRate: 10
   - type: Battery
     maxCharge: 1000
-    startingCharge: 0
+    startingCharge: 500
   - type: PassiveDamage # passive regen.
     allowedStates:
     - Alive
     - Critical
     - Dead # if engie wants to use a dead eeep as a power source they have to deal with it coming back :)
     damage:
-      types:
-        Heat: -0.5
       groups:
+        Airloss: -0.5
         Brute: -0.5
+        Burn: -0.5
+        Toxin: -0.5
   - type: LightningArcShooter
     arcDepth: 2
-    maxLightningArc: 1
+    maxLightningArc: 3
     shootMinInterval: 10
-    shootMaxInterval: 20
+    shootMaxInterval: 15
     shootRange: 5
     lightningPrototype: Lightning
   - type: AnnounceOnSpawn
