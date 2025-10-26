@@ -24,8 +24,11 @@ namespace Content.Client.Changelog
         private ISawmill _sawmill = default!;
 
         public bool NewChangelogEntries { get; private set; }
+
+        // imp edit start: dictionaries for multiple changelogs
         public Dictionary<string, int> LastReadId { get; private set; } = new Dictionary<string, int>();
         public Dictionary<string, int> MaxId { get; private set; } = new Dictionary<string, int>();
+        // imp end
 
         public event Action? NewChangelogEntriesChanged;
 
@@ -37,11 +40,12 @@ namespace Content.Client.Changelog
         ///     <see cref="LastReadId"/> is NOT cleared
         ///     since that's used in the changelog menu to show the "since you last read" bar.
         /// </remarks>
-        public async void SaveNewReadId()
+        public async void SaveNewReadId() // imp async
         {
             NewChangelogEntries = false;
             NewChangelogEntriesChanged?.Invoke();
 
+            // imp edit start
             var changelogs = await LoadChangelog();
 
             foreach (var changelog in changelogs)
@@ -49,6 +53,7 @@ namespace Content.Client.Changelog
                 using var sw = _resource.UserData.OpenWriteText(new($"/changelog_last_seen_{_configManager.GetCVar(CCVars.ServerId)}_{changelog.Name}"));
                 sw.Write(MaxId[changelog.Name].ToString());
             }
+            // imp edit end
         }
 
         public async void Initialize()
@@ -72,6 +77,7 @@ namespace Content.Client.Changelog
                 return;
             }
 
+            // imp edits start
             if (mainChangelogs.Length > 1)
                 _sawmill.Error($"More than one file found in Resource/Changelog with name {MainChangelogName}");
 
@@ -96,6 +102,7 @@ namespace Content.Client.Changelog
                 if (!changelog.AdminOnly)
                     NewChangelogEntries = NewChangelogEntries || LastReadId[name] < MaxId[name];
             }
+            // imp edits end
 
             NewChangelogEntriesChanged?.Invoke();
         }
