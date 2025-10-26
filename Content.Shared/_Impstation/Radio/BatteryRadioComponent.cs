@@ -1,4 +1,4 @@
-namespace Content.Server._Impstation.Radio;
+namespace Content.Shared._Impstation.Radio;
 
 /// <summary>
 /// When active, will drain the power of attached battery-powered radio, and shut off when it runs out.

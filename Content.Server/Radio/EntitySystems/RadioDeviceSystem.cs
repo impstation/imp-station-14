@@ -14,6 +14,7 @@ using Content.Shared.Chat;
 using Robust.Shared.Prototypes;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.UserInterface; // Nuclear-14
+using Content.Shared._Impstation.Radio; // imp
 using Content.Shared._NC.Radio; // Nuclear-14
 using Robust.Server.GameObjects; // Nuclear-14
 using Content.Server._Impstation.Radio; // imp

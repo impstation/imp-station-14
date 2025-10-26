@@ -3,6 +3,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Server.Radio;
 using Content.Server.Radio.EntitySystems;
+using Content.Shared._Impstation.Radio;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Radio.Components;
 using Content.Shared.Speech;
@@ -10,7 +11,7 @@ using Content.Shared.UserInterface;
 
 namespace Content.Server._Impstation.Radio;
 
-public sealed class BatteryRadioSystem : EntitySystem
+public sealed class BatteryRadioSystem : SharedBatteryRadioSystem
 {
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -99,19 +100,6 @@ public sealed class BatteryRadioSystem : EntitySystem
         }
         else if (TryComp<ActiveBatteryRadioComponent>(uid, out var active) && active.UsingSpeaker)
             active.UsingMicrophone = false;
-        else
-            RemCompDeferred<ActiveBatteryRadioComponent>(uid);
-    }
-
-    public void ActivateSpeaker(EntityUid uid, bool activate = true)
-    {
-        if (activate)
-        {
-            EnsureComp<ActiveBatteryRadioComponent>(uid, out var active);
-            active.UsingSpeaker = true;
-        }
-        else if (TryComp<ActiveBatteryRadioComponent>(uid, out var active) && active.UsingMicrophone)
-            active.UsingSpeaker = false;
         else
             RemCompDeferred<ActiveBatteryRadioComponent>(uid);
     }
