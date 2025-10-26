@@ -197,3 +197,16 @@
     - type: ClusterSpawner
       prototypes:
         - MobBoar
+
+- type: entity
+  name: tck'ut spawner
+  suffix: Borg
+  id: BorgSpawnerTckUt
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+  - type: ConditionalSpawner
+    prototypes:
+    - MobTckUt

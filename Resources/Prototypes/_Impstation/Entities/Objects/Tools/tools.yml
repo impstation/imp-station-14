@@ -223,11 +223,30 @@
     price: 50
 
 - type: entity
-  parent: [FlashlightLantern, BaseSecurityContraband]
+  parent: BaseItem
   id: UtWeeWoo
-  name: WeeWoo
+  name: weewoo
   description: A trusty weewoo for responding to incidences.
   components:
+  - type: HandheldLight
+    addPrefix: false
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: PointLight
+    enabled: false
+    radius: 3
+    energy: 28
+    color: "#FF5F15"
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 180
+  - type: Battery
+    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 2
+  - type: ItemTogglePointLight
   - type: Sprite
     sprite: _Impstation/Objects/Tools/seclite.rsi # imp
     layers:
@@ -236,13 +255,6 @@
       shader: unshaded
       visible: false
       map: [ "light" ]
-  - type: PointLight
-    radius: 3
-    energy: 28
-    color: "#FF5F15"
-    mask: /Textures/Effects/LightMasks/double_cone.png
-  - type: RotatingLight
-    speed: 180
 
 - type: entity
   name: code violation dispenser
@@ -257,7 +269,7 @@
   - type: Gun
     fireRate: 4
     soundGunshot:
-      path: /Audio/Effects/Pop.ogg
+      path: /Audio/Effects/pop.ogg
     soundEmpty:
       path: /Audio/Items/hiss.ogg
     clumsyProof: true

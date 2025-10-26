@@ -1,8 +1,8 @@
 - type: entity #behold my abombination, mortal
   parent: [BaseMob, StripableInventoryBase]
-  id: MobTckut
+  id: MobTckUt
   name: tck'ut
-  description: A droid made the Decapoidian Empire to patrol the halls and tunnels of its fleets.
+  description: It wishes it was a security borg..
   components:
   - type: Reactive
     groups:
@@ -209,6 +209,8 @@
     color: "#ff0043"
     netsync: false
   - type: Pullable
+  - type: Puller
+    needsHands: false
   - type: StandingState
   - type: Tag
     tags:
@@ -250,7 +252,7 @@
   - type: GhostRole
     makeSentient: true
     name: Tck'ut
-    description: Patrol the halls, approve crew morale, help security, and enforce safety.
+    description: Patrol the halls, make snacks, give comfort, and promote safety.
     rules: ghost-role-information-silicon-rules
     mindRoles:
     - MindRoleGhostRoleSilicon
