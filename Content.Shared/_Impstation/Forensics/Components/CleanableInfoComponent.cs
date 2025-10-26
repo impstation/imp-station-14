@@ -1,6 +1,5 @@
 using Robust.Shared.GameStates;
 
-
 /// <summary>
 /// This component is for items that can have their name and description changed when cleaned by soap.
 /// </summary>

@@ -33,7 +33,7 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledShotgun
-  name: Hydra bundle #imp 
+  name: Hydra bundle #imp
   description: "Lean and mean: Contains the popular Hydra shotgun and 4 .50 buckshot drums." #, and a pair of Thermal Imaging Goggles. #imp edit
   suffix: Hydra bundle #imp edit
   components:
@@ -230,7 +230,7 @@
   description: "Contains a lot of C-4 charges."
   suffix: syndicate C-4 bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
+  - type: StorageFill # imp indent fix
     contents:
       - id: C4
         amount: 8
