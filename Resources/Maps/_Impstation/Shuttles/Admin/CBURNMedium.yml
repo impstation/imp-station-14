@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.2.0
   forkId: ""
   forkVersion: ""
-  time: 10/24/2025 05:19:30
-  entityCount: 598
+  time: 10/26/2025 23:35:51
+  entityCount: 603
 maps: []
 grids:
 - 1
@@ -353,11 +353,6 @@ entities:
     - type: Transform
       pos: -6.5,-0.5
       parent: 1
-  - uid: 84
-    components:
-    - type: Transform
-      pos: -3.5,10.5
-      parent: 1
   - uid: 111
     components:
     - type: Transform
@@ -366,7 +361,7 @@ entities:
   - uid: 161
     components:
     - type: Transform
-      pos: -1.5,10.5
+      pos: -3.5,10.5
       parent: 1
   - uid: 255
     components:
@@ -377,6 +372,11 @@ entities:
     components:
     - type: Transform
       pos: -2.5,8.5
+      parent: 1
+  - uid: 492
+    components:
+    - type: Transform
+      pos: -1.5,10.5
       parent: 1
 - proto: AirlockCentralCommandLocked
   entities:
@@ -886,6 +886,11 @@ entities:
     - type: Transform
       pos: 1.5,-0.5
       parent: 1
+  - uid: 514
+    components:
+    - type: Transform
+      pos: 1.5,-2.5
+      parent: 1
 - proto: CableMV
   entities:
   - uid: 11
@@ -1136,6 +1141,16 @@ entities:
       rot: 3.141592653589793 rad
       pos: -6.5,-1.5
       parent: 1
+  - uid: 75
+    components:
+    - type: Transform
+      pos: -2.5,11.5
+      parent: 1
+  - uid: 84
+    components:
+    - type: Transform
+      pos: -1.5,11.5
+      parent: 1
   - uid: 86
     components:
     - type: Transform
@@ -1314,7 +1329,6 @@ entities:
   - uid: 445
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -3.5,11.5
       parent: 1
   - uid: 474
@@ -1361,12 +1375,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -5.5,0.5
-      parent: 1
-  - uid: 492
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -2.5,11.5
       parent: 1
   - uid: 497
     components:
@@ -1426,12 +1434,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -2.5,12.5
-      parent: 1
-  - uid: 514
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,11.5
       parent: 1
   - uid: 515
     components:
@@ -1651,13 +1653,6 @@ entities:
     - type: Transform
       pos: -2.5,13.5
       parent: 1
-- proto: CrewMonitoringServer
-  entities:
-  - uid: 75
-    components:
-    - type: Transform
-      pos: 1.5,-2.5
-      parent: 1
 - proto: CrowbarGreen
   entities:
   - uid: 194
@@ -1714,6 +1709,30 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+- proto: DoubleEmergencyNitrogenTankFilled
+  entities:
+  - uid: 601
+    components:
+    - type: Transform
+      pos: -2.324513,-1.405771
+      parent: 1
+  - uid: 602
+    components:
+    - type: Transform
+      pos: -2.246388,-1.530771
+      parent: 1
+- proto: DoubleEmergencyOxygenTankFilled
+  entities:
+  - uid: 107
+    components:
+    - type: Transform
+      pos: -2.730763,-1.312021
+      parent: 1
+  - uid: 600
+    components:
+    - type: Transform
+      pos: -2.652638,-1.405771
+      parent: 1
 - proto: DrinkCanPack
   entities:
   - uid: 47
@@ -1926,6 +1945,14 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
+- proto: FuelTankOlympus
+  entities:
+  - uid: 599
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5722989,3.486609
+      parent: 1
 - proto: GasPassiveGate
   entities:
   - uid: 210
@@ -2674,6 +2701,11 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-1.5
+      parent: 1
+  - uid: 603
+    components:
+    - type: Transform
+      pos: 1.5,-2.5
       parent: 1
 - proto: GravityGeneratorMini
   entities:
@@ -4135,14 +4167,6 @@ entities:
     components:
     - type: Transform
       pos: -1.3695688,0.51946044
-      parent: 1
-- proto: WeaponFlamerXiuhcoatl
-  entities:
-  - uid: 107
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.4875906,3.4929848
       parent: 1
 - proto: WeaponPistolMk58
   entities:
