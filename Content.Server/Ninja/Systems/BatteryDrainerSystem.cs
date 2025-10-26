@@ -99,31 +99,15 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             _popup.PopupEntity(Loc.GetString("battery-drainer-empty", ("battery", target)), uid, uid, PopupType.Medium);
             return false;
         }
-        // imp start
-        if (comp.FullDrain == true)
-        {
-            /// I HATE MATH I HATE MATH IM CASTING A CURSE ON THIS .CS ///
-            /// making all power sources give the same ammount based on percent charged ///
-            var charge = targetBattery.CurrentCharge / targetBattery.MaxCharge;
-            var powerget = charge * 500000; // this number comes from the eeeps max charge
-            _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + powerget);
-            /// taking power away from target ///
-            var availableeeep = targetBattery.CurrentCharge;
-            var requiredeeep = battery.MaxCharge - battery.CurrentCharge;
-            var maxDrainedeeep = battery.MaxCharge - battery.CurrentCharge;
-            var inputeeep = Math.Min(Math.Min(availableeeep, requiredeeep), maxDrainedeeep);
-            if (!_battery.TryUseCharge(target, inputeeep, targetBattery))
-                return false;
-            Spawn("EffectSparks", Transform(target).Coordinates);
-            _audio.PlayPvs(comp.SparkSound, target);
-            _popup.PopupEntity(Loc.GetString("battery-drainer-success", ("battery", target)), uid, uid);
-            return false;
-        } // imp end
 
         var available = targetBattery.CurrentCharge;
         var required = battery.MaxCharge - battery.CurrentCharge;
         // higher tier storages can charge more
-        var maxDrained = pnb.MaxSupply * comp.DrainTime;
+        // IMP EDIT START- why the fuck does draintime affecting the amount drained go undocumented!!!
+        var maxDrained = comp.FullDrain ?
+            pnb.MaxSupply * comp.DrainTime :
+            required;
+        // IMP EDIT END
         var input = Math.Min(Math.Min(available, required / comp.DrainEfficiency), maxDrained);
         if (!_battery.TryUseCharge(target, input, targetBattery))
             return false;
@@ -134,6 +118,11 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
         Spawn("EffectSparks", Transform(target).Coordinates);
         _audio.PlayPvs(comp.SparkSound, target);
         _popup.PopupEntity(Loc.GetString("battery-drainer-success", ("battery", target)), uid, uid);
+
+        // IMP ADD- god this code is a mess. the bool return is only ever used to check if this should repeat
+        // we dont want that if we're draining the full thing so whatever
+        if (comp.FullDrain)
+            return false;
 
         // repeat the doafter until battery is full
         return !_battery.IsFull(comp.BatteryUid.Value, battery);
