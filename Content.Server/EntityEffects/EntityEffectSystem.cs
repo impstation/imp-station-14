@@ -40,12 +40,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Server.Forensics; // imp
 using Content.Shared._Impstation.EntityEffects.Effects; // imp
 using Content.Shared._Impstation.Ghost; // imp
-using Content.Shared.Chemistry.Reagent; // imp
 using Content.Shared.Humanoid; // imp
-
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
 using PolymorphEffect = Content.Shared.EntityEffects.Effects.Polymorph;
@@ -81,7 +78,6 @@ public sealed class EntityEffectSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
-    [Dependency] private readonly ForensicsSystem _forensicsSystem = default!; // imp
 
     public override void Initialize()
     {

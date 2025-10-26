@@ -33,6 +33,6 @@ public sealed partial class ItemPlacerComponent : Component
     /// <summary>
     /// Frontier: track old placeable status
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public bool? LastPlaceable;
 }

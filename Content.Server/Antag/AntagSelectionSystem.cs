@@ -23,7 +23,6 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
-using Content.Shared.NPC.Systems; //imp
 using Content.Shared.Players;
 using Content.Shared.Roles;
 using Content.Shared.Whitelist;
@@ -32,11 +31,12 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
-using Robust.Shared.Network; // imp
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared.NPC.Systems; // imp
+using Robust.Shared.Network; // imp
 
 namespace Content.Server.Antag;
 
@@ -56,16 +56,15 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    // imp edit start
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly PlayTimeTrackingManager _tracking = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!; // imp
+    [Dependency] private readonly IRobustRandom _random = default!; // imp
+    [Dependency] private readonly NpcFactionSystem _faction = default!; //#IMP
+    [Dependency] private readonly PlayTimeTrackingManager _tracking = default!; //imp
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
 
-    public Dictionary<NetUserId, (ICommonSession, AntagSelectionDefinition, Entity<AntagSelectionComponent>)> QueuedAntags = [];
+    public Dictionary<NetUserId, (ICommonSession, AntagSelectionDefinition, Entity<AntagSelectionComponent>)> QueuedAntags = []; // imp
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -192,7 +191,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         foreach (var (uid, antag) in rules)
         {
-            if (!antag.Definitions.Any(p => p.ForceAllPossible)) //imp edit, for svs i think??
+            if (!antag.Definitions.Any(p => p.ForceAllPossible)) // imp svs
                 if (!RobustRandom.Prob(LateJoinRandomChance))
                     continue;
 
@@ -347,6 +346,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                 guaranteed.RemoveAt(0);
             }
             if (picking && session == null)
+            // imp edits end
             {
                 if (!playerPool.TryPickAndTake(RobustRandom, out session) && noSpawner)
                 {
@@ -356,7 +356,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
                 if (session != null && ent.Comp.PreSelectedSessions.Values.Any(x => x.Contains(session)))
                 {
-                    Log.Warning($"Somehow picked {session} for an antag when another rule already selected them previously");
+                    Log.Warning($"Somehow picked {session} for an antag when another rule already selected them previously"); // imp phrasing tweak
                     continue;
                 }
             }
@@ -507,6 +507,11 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             return;
         }
 
+        // imp start
+        var prereqEv = new AntagPrereqSetupEvent(session, ent, def);
+        RaiseLocalEvent(ent, ref prereqEv, true);
+        // imp end
+
         // The following is where we apply components, equipment, and other changes to our antagonist entity.
         EntityManager.AddComponents(player, def.Components);
 
@@ -519,6 +524,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         {
             _faction.RemoveFaction(player, removeFaction);
         }
+        // imp end
 
         // Equip the entity's RoleLoadout and LoadoutGroup
         List<ProtoId<StartingGearPrototype>> gear = new();
@@ -696,7 +702,7 @@ public record struct AntagSelectLocationEvent(ICommonSession? Session, Entity<An
     public List<MapCoordinates> Coordinates = new();
 }
 
-// Imp addition, used for svs?
+// imp add
 /// <summary>
 /// Event raised on a game rule entity to send additional information before begining setup.
 /// Used for applying additional more complex setup logic.

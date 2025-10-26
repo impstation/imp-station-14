@@ -145,6 +145,7 @@
   - type: HideLayerClothing
     slots:
     - Tail
+    - RArmExtension # imp
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseHighlyIllegalContraband]

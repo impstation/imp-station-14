@@ -39,7 +39,7 @@ using Content.Shared.Roles.Components;
 namespace Content.Server.Ghost.Roles;
 
 [UsedImplicitly]
-public sealed partial class GhostRoleSystem : EntitySystem
+public sealed partial class GhostRoleSystem : EntitySystem // imp add partial
 {
     [Dependency] private readonly IBanManager _ban = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;

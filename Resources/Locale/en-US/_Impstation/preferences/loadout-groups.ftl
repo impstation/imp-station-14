@@ -102,6 +102,7 @@ loadout-group-courier-backpack = Courier backpack
 loadout-group-courier-neck = Courier neck
 loadout-group-courier-outerclothing = Courier outer clothing
 loadout-group-courier-shoes = Courier shoes
+loadout-group-courier-id = Courier ID
 
 # engineering
 loadout-group-chief-engineer-backpack = Chief Engineer backpack
@@ -128,6 +129,7 @@ loadout-group-head-of-security-belt = Head of Security belt
 loadout-group-security-gun-command = Sidearm
 loadout-group-security-ammo-command = Ammunition
 
+loadout-group-security-glasses = Security glasses
 loadout-group-warden-neck = Warden neck
 loadout-group-upper-security-shoes = Security shoes
 loadout-group-warden-id = Warden ID

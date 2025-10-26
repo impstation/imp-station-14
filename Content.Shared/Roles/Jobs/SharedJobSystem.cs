@@ -1,13 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Roles.Components;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Mind; // imp heretic
 
 namespace Content.Shared.Roles.Jobs;
 
@@ -19,7 +18,7 @@ public abstract class SharedJobSystem : EntitySystem
     [Dependency] private readonly SharedPlayerSystem _playerSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!; // imp
 
     private readonly Dictionary<string, string> _inverseTrackerLookup = new();
 
@@ -50,7 +49,8 @@ public abstract class SharedJobSystem : EntitySystem
         {
             if (antag.PlayTimeTracker != string.Empty)
                 _inverseTrackerLookup.Add(antag.PlayTimeTracker, antag.ID);
-        } // end imp
+        }
+        // end imp
     }
 
     /// <summary>
