@@ -29,17 +29,4 @@ public sealed partial class SpawnOnTriggerComponent : BaseXOnTriggerComponent
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Predicted;
-
-    /// <summary>
-    ///     #IMP Allows multiple entities to be spawned.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public int Amount = 1;
-
-    /// <summary>
-    ///     #IMP Amount reduces by one for every entity spawned.
-    ///     If SingleUse is set to false, this will be reset after all entities spawned.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool SingleUse = true;
 }
