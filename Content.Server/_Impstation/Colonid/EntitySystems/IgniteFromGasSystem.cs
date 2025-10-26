@@ -19,7 +19,7 @@ public sealed class IgniteFromGasSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (CheckAtmosForGas() && !CheckInventoryForProtection())
+        if (CheckAtmosForGas(_ent) && !CheckInventoryForProtection(_ent))
         {
             _flammable.AdjustFireStacks(_ent, _ent.Comp.FireStacksAmount);
         }
