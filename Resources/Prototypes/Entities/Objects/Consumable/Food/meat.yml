@@ -817,6 +817,10 @@
       - state: tomato-inhand-left
       right:
       - state: tomato-inhand-right
+  - type: Tag # imp
+    tags:
+    - KodeEdible
+    - Meat
 
 - type: entity
   parent: FoodMeatBase
@@ -910,8 +914,8 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-        - ReagentId: Flour
-          Quantity: 5
+        - ReagentId: Nutriment # imp: contents of flour so it will stop turning back into a meatball after you eat it
+          Quantity: 0.5
         - ReagentId: Egg
           Quantity: 6
   - type: Construction
@@ -1038,9 +1042,9 @@
     graph: AnomalyMeatSteak
     node: start
     defaultTarget: anomaly steak
-  - type: Tag
-    tags:
-    - Meat
+#  - type: Tag  # imp - no reason to retag this, gets tags from parent
+#    tags:
+#    - Meat
   - type: Item
     size: Normal
     shape:

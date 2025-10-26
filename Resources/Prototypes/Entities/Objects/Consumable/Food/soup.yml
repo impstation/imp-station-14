@@ -96,6 +96,7 @@
   - type: Tag # imp
     tags:
     - Vegetable
+    - Soup
 
 # Salad
 
@@ -200,7 +201,8 @@
   - type: Tag
     tags:
     - Meat
-    - Fruit
+#    - Fruit # imp: no fruit in this
+    - Vegetable # imp
     - Soup
 
 - type: entity
@@ -232,6 +234,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Vegetable
 
 - type: entity
   name: caesar salad
@@ -263,6 +266,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Vegetable
 
 - type: entity
   name: kimchi salad
@@ -297,6 +301,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Vegetable
 
 - type: entity
   name: fruit salad
@@ -551,6 +556,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Soup
 
 - type: entity
   name: black-eyed gumbo
@@ -664,6 +670,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Mushroom
 
 # Soup
 
@@ -754,6 +761,7 @@
           Quantity: 8
   - type: Tag
     tags:
+    - Meat #imp
     - Fruit
     - Soup
 
@@ -784,6 +792,10 @@
           Quantity: 10 # imp
         - ReagentId: Nutriment # imp
           Quantity: 2
+  - type: Tag #imp
+    tags:
+    - Meat
+    - Soup
 
 - type: entity
   name: clown's tears
@@ -845,6 +857,7 @@
   - type: Tag # imp
     tags:
     - Vegetable
+    - Soup
 
 - type: entity
   name: nettle soup
@@ -880,6 +893,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Vegetable
+    - Soup
 
 - type: entity
   name: mystery soup
@@ -926,6 +941,8 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - Soup #imp
+    - Meat #imp
 
 
 - type: entity
@@ -959,6 +976,8 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - Soup #imp
+    - Meat #imp
 
 - type: entity
   name: chili con carnival
@@ -994,6 +1013,8 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - Soup #imp
+    - Meat #imp
 
 - type: entity
   name: monkey's delight
@@ -1121,8 +1142,9 @@
           Quantity: 5
   - type: Tag
     tags:
-    - Meat
+    # - Meat #imp removed, no meat in this recipe
     - Soup
+    - Vegetable
 
 - type: entity
   name: mushroom soup
@@ -1153,6 +1175,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Soup
+    - Mushroom
 
 - type: entity
   name: beet soup
@@ -1178,6 +1202,7 @@
   - type: Tag # imp
     tags:
     - Vegetable
+    - Soup
 # Tastes like borsch, bortsch, borstch, borsh, borshch, borscht.
 
 - type: entity
@@ -1202,6 +1227,7 @@
   - type: Tag # imp
     tags:
     - Vegetable
+    - Soup
 # Tastes like beet.
 
 - type: entity
@@ -1238,7 +1264,6 @@
     tags:
     - Meat
 #    - Fruit imp, removing this so ungus dont eat it
-    - ReptilianFood # imp
     - Soup
 
 - type: entity
@@ -1266,6 +1291,7 @@
   - type: Tag # imp
     tags:
     - Vegetable
+    - Soup
 # Tastes like sweet potato.
 
 - type: entity
@@ -1296,7 +1322,8 @@
           Quantity: 10
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable
+    - Soup
 
 - type: entity
   name: bisque
@@ -1327,6 +1354,11 @@
           Quantity: 10 # imp
         - ReagentId: CarpoToxin # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Meat
+    - Soup
+    - Mushroom
 # Tastes like crab.
 
 - type: entity

@@ -159,6 +159,9 @@
   - type: Edible
     trash:
     - FoodTinBeansTrash
+  - type: Tag
+    tags:
+    - Vegetable
 
 - type: entity
   parent: FoodTinBaseTrash
