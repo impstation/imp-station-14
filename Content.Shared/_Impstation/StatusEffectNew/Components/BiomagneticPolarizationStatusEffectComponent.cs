@@ -34,6 +34,11 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// </summary>
     [DataField("polarization: N=T S=F"), AutoNetworkedField]
     public bool Polarization;
+    /// <summary>
+    /// This should probably never be changed.
+    /// </summary>
+    [DataField]
+    public float NorthChance = 0.5f;
 
     [DataField]
     public Color NorthColor = Color.Red;

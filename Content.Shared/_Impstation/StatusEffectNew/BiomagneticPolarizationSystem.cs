@@ -53,7 +53,8 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
 
             var other = contact.OtherEnt(ent.Owner);
 
-            if (!_statusEffect.TryGetStatusEffect(other, _effectID, out var otherEffectEnt) || !HasComp<PhysicsComponent>(other)
+            if (!_statusEffect.TryGetStatusEffect(other, _effectID, out var otherEffectEnt)
+                || !HasComp<PhysicsComponent>(other)
                 || !TryComp<BiomagneticPolarizationStatusEffectComponent>(otherEffectEnt, out var otherBiomagComp))
                 continue;
 

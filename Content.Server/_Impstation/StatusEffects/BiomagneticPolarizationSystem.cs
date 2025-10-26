@@ -55,6 +55,10 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
 
     private readonly List<EntityUid> _expiredEffectEnts = [];
 
+    private const ExplosionSlope = 1
+    private const CapExplosionSlope = 2
+    private const MaxTileIntensity = 100
+
     public override void Initialize()
     {
         base.Initialize();
@@ -69,8 +73,6 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         base.Update(frameTime);
 
         var curTime = _timing.CurTime;
-
-
 
         var query = EntityQueryEnumerator<BiomagneticPolarizationStatusEffectComponent, StatusEffectComponent, PointLightComponent>();
         while (query.MoveNext(out var ent, out var comp, out var statusComp, out var lightComp))
@@ -152,18 +154,14 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         comp.Polarization = _random.Prob(0.5f);
 
         // Set light color based on polarization
-        if (!TryComp<PointLightComponent>(ent, out var maybePointLight) || maybePointLight is not { } pointLight)
-            return;
+        var pointLight = EnsureComp<PointLightComponent>(ent);
         var tgtColor = comp.Polarization ? comp.NorthColor : comp.SouthColor;
         _lights.SetColor(ent, tgtColor, pointLight);
 
         // Set the randomized decay rate
         comp.RealDecayRate = _random.NextFloat(comp.MinDecayRate, comp.MaxDecayRate);
 
-        var physicsQuery = GetEntityQuery<PhysicsComponent>();
-
-        if (!physicsQuery.TryComp(args.Target, out var maybePhysComp) || maybePhysComp is not { } physComp)
-            return;
+        var physComp = EnsureComp<PhysicsComponent>(ent);
 
         comp.StatusOwner = (args.Target, physComp);
         Dirty(ent, ent.Comp);
@@ -211,13 +209,13 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
                 var arcs = _random.Next(arcsMin, arcsMax);
                 _lightning.ShootRandomLightnings(statusOwner, comp.LightningRange, arcs, comp.LightningPrototype);
 
-                _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.CurrentStrength * comp.ExplosionStrengthMult, 1, 100, statusOwner);
+                _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.CurrentStrength * comp.ExplosionStrengthMult, ExplosionSlope, MaxTileIntensity, statusOwner);
             }
             else
             {
                 var arcs = _random.Next(arcsMin, arcsMax) * (int)comp.LightningCapMult;
                 _lightning.ShootRandomLightnings(statusOwner, comp.LightningRange * comp.LightningCapMult, arcs, comp.LightningPrototype);
-                _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.StrengthCap * comp.CapExplosionMult, 2, 100, statusOwner);
+                _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.StrengthCap * comp.CapExplosionMult, CapExplosionSlope, MaxTileIntensity, statusOwner);
 
                 HandleCapCollisionEffects((ent, comp));
 
@@ -236,7 +234,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
 
     private void HandleStaticTiles(Entity<BiomagneticPolarizationStatusEffectComponent> ent)
     {
-        HashSet<EntityUid> entities = new();
+        HashSet<EntityUid> entities = [];
         var xform = Transform(ent);
         var maybeGridUid = xform.GridUid;
         if (maybeGridUid is not { } gridUid)
