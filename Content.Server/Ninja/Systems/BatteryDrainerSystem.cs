@@ -25,8 +25,18 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BatteryDrainerComponent, ComponentStartup>(OnStartup); // imp add
         SubscribeLocalEvent<BatteryDrainerComponent, BeforeInteractHandEvent>(OnBeforeInteractHand);
         SubscribeLocalEvent<BatteryDrainerComponent, NinjaBatteryChangedEvent>(OnBatteryChanged);
+    }
+
+    /// <summary>
+    ///  Imp add. Allow entities who are a battery to use themselves as the battery for this component
+    /// </summary>
+    private void OnStartup(Entity<BatteryDrainerComponent> ent, ref ComponentStartup args)
+    {
+        if (ent.Comp.BatteryUid == null && TryComp<BatteryComponent>(ent.Owner, out _))
+            ent.Comp.BatteryUid = ent.Owner;
     }
 
     /// <summary>
@@ -93,17 +103,31 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
         var available = targetBattery.CurrentCharge;
         var required = battery.MaxCharge - battery.CurrentCharge;
         // higher tier storages can charge more
-        var maxDrained = pnb.MaxSupply * comp.DrainTime;
+        // IMP EDIT START- why the fuck does draintime affecting the amount drained go undocumented!!!
+        var maxDrained = comp.FullDrain ?
+            pnb.MaxSupply * comp.DrainTime :
+            required;
+        // IMP EDIT END
         var input = Math.Min(Math.Min(available, required / comp.DrainEfficiency), maxDrained);
         if (!_battery.TryUseCharge(target, input, targetBattery))
             return false;
 
         var output = input * comp.DrainEfficiency;
+        // IMP ADD START: minimum clamp
+        if (comp.MinimumDrain is not null)
+            output = Math.Max(output, (float)comp.MinimumDrain);
+        // IMP END
+
         _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + output, battery);
         // TODO: create effect message or something
         Spawn("EffectSparks", Transform(target).Coordinates);
         _audio.PlayPvs(comp.SparkSound, target);
         _popup.PopupEntity(Loc.GetString("battery-drainer-success", ("battery", target)), uid, uid);
+
+        // IMP ADD- god this code is a mess. the bool return is only ever used to check if this should repeat
+        // we dont want that if we're draining the full thing so whatever
+        if (comp.FullDrain)
+            return false;
 
         // repeat the doafter until battery is full
         return !_battery.IsFull(comp.BatteryUid.Value, battery);

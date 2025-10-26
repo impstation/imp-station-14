@@ -1058,13 +1058,13 @@
     startingCharge: 480
 
 - type: entity
-  name: energy magnum
+  name: Type-25 energy magnum #imp
   parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
   id: WeaponEnergyMagnum
   description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for either high damage, window piercing, or non-lethal disabling.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/energy_magnum.rsi #imp
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
@@ -1078,7 +1078,7 @@
     zeroVisible: true
   - type: Appearance
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Battery/energy_magnum.rsi #imp
   - type: Tag
     tags:
     - HighRiskItem
@@ -1086,7 +1086,7 @@
     stealGroup: WeaponEnergyMagnum
   - type: Gun
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/blasterrevolver.ogg #imp
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserMagnum
     fireCost: 150
