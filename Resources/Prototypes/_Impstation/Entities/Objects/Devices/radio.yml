@@ -2,7 +2,7 @@
 - type: entity
   name: handheld radio
   description: A handy handheld radio.
-  parent: BaseItem
+  parent: BaseRadio
   id: RadioHandheld
   components:
   - type: RadioMicrophone
