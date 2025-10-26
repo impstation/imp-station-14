@@ -240,7 +240,7 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
         if (ent.Comp.RequiresPower && !this.IsPowered(ent, EntityManager))
             return;
 
-        if (!_protoMan.TryIndex<RadioChannelPrototype>(args.Channel, out var channel) || !ent.Comp.SupportedChannels.Contains(args.Channel)) // Nuclear-14: add channel
+        if (!_protoMan.HasIndex<RadioChannelPrototype>(args.Channel) || !ent.Comp.SupportedChannels.Contains(args.Channel))
             return;
 
         SetIntercomChannel(ent, args.Channel);

@@ -143,8 +143,7 @@ public sealed class RadioSystem : EntitySystem
 
         var radioQuery = EntityQueryEnumerator<ActiveRadioComponent, TransformComponent>();
 
-        if (frequency == null) // Nuclear-14
-            frequency = GetFrequency(messageSource, channel); // Nuclear-14
+        frequency ??= GetFrequency(messageSource, channel); // Nuclear-14
 
         while (canSend && radioQuery.MoveNext(out var receiver, out var radio, out var transform))
         {

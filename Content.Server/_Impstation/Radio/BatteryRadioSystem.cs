@@ -2,10 +2,10 @@ using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Server.Radio;
-using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
-using Content.Server.Speech;
 using Content.Shared.PowerCell.Components;
+using Content.Shared.Radio.Components;
+using Content.Shared.Speech;
 using Content.Shared.UserInterface;
 
 namespace Content.Server._Impstation.Radio;
