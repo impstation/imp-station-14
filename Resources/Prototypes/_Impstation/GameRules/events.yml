@@ -36,7 +36,7 @@
   id: BountyHunterSpawn
   components:
   - type: StationEvent
-    weight: 7
+    weight: 5
     duration: null
     earliestStart: 20 #originally 25
     reoccurrenceDelay: 20
@@ -130,7 +130,7 @@
   id: SyndicateInfiltratorSpawn
   components:
   - type: StationEvent
-    weight: 4
+    weight: 3
     reoccurrenceDelay: 5
     minimumPlayers: 15
     earliestStart: 25
@@ -153,16 +153,16 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 4
+    weight: 3.5
     earliestStart: 25
-    reoccurrenceDelay: 30
+    reoccurrenceDelay: 40
     minimumPlayers: 30
   - type: VentCrittersRule
     specialEntries:
     - id: SpawnPointGhostEeeplet
       min: 1
-      max: 2
-      prob: 0.1
+      max: 1
+      prob: 0.05
 
 # bluespace lockers
 
