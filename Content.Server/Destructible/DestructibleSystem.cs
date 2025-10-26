@@ -16,13 +16,13 @@ using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
-using Content.Shared.Projectiles; // imp
 using Content.Shared.Trigger.Systems;
 using JetBrains.Annotations;
 using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Projectiles; // imp
 
 namespace Content.Server.Destructible
 {

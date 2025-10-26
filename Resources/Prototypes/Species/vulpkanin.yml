@@ -3,6 +3,7 @@
   name: species-name-vulpkanin
   roundStart: false #imp, longstanding stance to not have these roundstart
   randomViable: true #imp, we'll let them be ghost roles though
+  randomChance: 0.5 #imp, AT A COST
   prototype: MobVulpkanin
   sprites: MobVulpkaninSprites
   defaultSkinTone: "#5a3f2d"
