@@ -274,8 +274,8 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         // imp edit start, natural artifacts' nodes should only show their information if they're unlocked or active
         if (artifact.Value.Comp.Natural)
         {
-            if (!node.Value.Comp.Locked || _xenoArtifact.IsNodeActive(artifact.Value, node.Value))
-                hasInfo = true;
+            hasInfo = !node.Value.Comp.Locked || _xenoArtifact.IsNodeActive(artifact.Value, node.Value);
+
         }
         // imp edit end
 

@@ -2,8 +2,6 @@ using System.Numerics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
-using Content.Shared.Damage.Components; // imp
-using Content.Shared.Damage.Systems; // imp
 using Content.Shared.Construction.Components;
 using Content.Shared.Database;
 using Content.Shared.Friction;
@@ -14,6 +12,8 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
+using Content.Shared.Damage.Components; // imp
+using Content.Shared.Damage.Systems; // imp
 
 namespace Content.Shared.Throwing;
 
@@ -37,7 +37,6 @@ public sealed class ThrowingSystem : EntitySystem
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
-
     [Dependency] private readonly SharedStaminaSystem _stamina = default!; // imp
 
     public override void Initialize()

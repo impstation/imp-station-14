@@ -23,7 +23,7 @@ namespace Content.Server.Speech.Muting
 
         private void OnEmote(EntityUid uid, MutedComponent component, ref EmoteEvent args)
         {
-            // imp change
+            // imp change, add muted emotes
             if (args.Handled || !component.MutedEmotes)
                 return;
 
@@ -34,7 +34,7 @@ namespace Content.Server.Speech.Muting
 
         private void OnScreamAction(EntityUid uid, MutedComponent component, ScreamActionEvent args)
         {
-            // imp change
+            // imp change, add muted emotes
             if (args.Handled || !component.MutedScream)
                 return;
 
@@ -49,7 +49,7 @@ namespace Content.Server.Speech.Muting
 
         private void OnSpeakAttempt(EntityUid uid, MutedComponent component, SpeakAttemptEvent args)
         {
-            // imp change
+            // imp change, add muted speech
             if (!component.MutedSpeech)
                 return;
 

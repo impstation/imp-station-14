@@ -103,8 +103,11 @@ public sealed class MaterialStorageSystem : SharedMaterialStorageSystem
             return false;
         _audio.PlayPvs(storage.InsertingSound, receiver);
         if (user != receiver) // Goobstation - for automation to not spam popups
-            _popup.PopupEntity(Loc.GetString("machine-insert-item", ("user", user), ("machine", receiver),
-                ("item", toInsert)), receiver);
+            _popup.PopupEntity(Loc.GetString("machine-insert-item",
+                ("user", user),
+                ("machine", receiver),
+                ("item", toInsert)),
+            receiver);
         QueueDel(toInsert);
 
         // Logging

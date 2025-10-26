@@ -36,29 +36,29 @@ public sealed partial class MobThresholdsComponent : Component
     public ProtoId<AlertCategoryPrototype> HealthAlertCategory = "Health";
 
     /// <summary>
-    /// Whether or not this entity should display threshold overlays (robots don't feel pain, black out etc.)
-    /// If you'd prefer to disable specific overlays, see <seealso cref="ShowBruteOverlay"/>,
+    /// Whether or not this entity should display damage overlays (robots don't feel pain, black out etc.)
+    /// IMP: If you'd prefer to disable specific overlays, see <seealso cref="ShowBruteOverlay"/>,
     /// <seealso cref="ShowAirlossOverlay"/> and <seealso cref="ShowCritOverlay"/>.
     /// </summary>
-    [DataField("showOverlays"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("showOverlays")]
     public bool ShowOverlays = true;
 
     /// <summary>
-    /// Whether or not this entity should display the red vignette for brute damage
+    /// IMP: Whether or not this entity should display the red vignette for brute damage
     /// </summary>
-    [DataField("showBruteOverlay"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public bool ShowBruteOverlay = true;
 
     /// <summary>
-    /// Whether or not this entity should display the dark vignette for brute damage
+    /// IMP: Whether or not this entity should display the dark vignette for brute damage
     /// </summary>
-    [DataField("showAirlossOverlay"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public bool ShowAirlossOverlay = true;
 
     /// <summary>
-    /// Whether or not this entity should display the white vignette for the death threshold
+    /// IMP: Whether or not this entity should display the white vignette for the death threshold
     /// </summary>
-    [DataField("showCritOverlay"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public bool ShowCritOverlay = true;
 
     /// <summary>
@@ -80,9 +80,11 @@ public sealed class MobThresholdsComponentState : ComponentState
     public Dictionary<MobState, ProtoId<AlertPrototype>> StateAlertDict;
 
     public bool ShowOverlays;
+    // imp add start
     public bool ShowBruteOverlay;
     public bool ShowAirlossOverlay;
     public bool ShowCritOverlay;
+    // imp add end
 
     public bool AllowRevives;
 
@@ -92,9 +94,11 @@ public sealed class MobThresholdsComponentState : ComponentState
         Dictionary<MobState,
         ProtoId<AlertPrototype>> stateAlertDict,
         bool showOverlays,
+        // imp add start
         bool showBruteOverlay,
         bool showAirlossOverlay,
         bool showCritOverlay,
+        // imp add end
         bool allowRevives)
     {
         UnsortedThresholds = unsortedThresholds;
@@ -102,9 +106,11 @@ public sealed class MobThresholdsComponentState : ComponentState
         CurrentThresholdState = currentThresholdState;
         StateAlertDict = stateAlertDict;
         ShowOverlays = showOverlays;
+        // imp add start
         ShowBruteOverlay = showBruteOverlay;
         ShowAirlossOverlay = showAirlossOverlay;
         ShowCritOverlay = showCritOverlay;
+        // imp add end
         AllowRevives = allowRevives;
     }
 }
