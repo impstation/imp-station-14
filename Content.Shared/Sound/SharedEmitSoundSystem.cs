@@ -149,44 +149,51 @@ public abstract class SharedEmitSoundSystem : EntitySystem
         if (component.Positional)
         {
             var coords = Transform(uid).Coordinates;
-            if (predict) {
+            if (predict)
+            // imp add detach
+            {
                 if (component.Detach)
                 {
                     if (TryComp(uid, out TransformComponent? xform))
                         _audioSystem.PlayPredicted(component.Sound, xform.Coordinates, user);
                 }
-                else
+                else // imp end
                     _audioSystem.PlayPredicted(component.Sound, coords, user);
             }
             else if (_netMan.IsServer)
                 // don't predict sounds that client couldn't have played already
+                // imp add detach
                 if (component.Detach)
                 {
                     if (TryComp(uid, out TransformComponent? xform))
                         _audioSystem.PlayPvs(component.Sound, xform.Coordinates);
                 }
-                else
+                else // imp end
                     _audioSystem.PlayPvs(component.Sound, coords);
         }
         else
         {
-            if (predict) {
+            if (predict)
+            // imp add detach
+            {
                 if (component.Detach)
                 {
                     if (TryComp(uid, out TransformComponent? xform))
                         _audioSystem.PlayPredicted(component.Sound, xform.Coordinates, user);
                 }
-                else
+                else // imp end
                     _audioSystem.PlayPredicted(component.Sound, uid, user);
             }
-            else if (_netMan.IsServer) {
+            else if (_netMan.IsServer)
+            // imp add detach
+            {
                 // don't predict sounds that client couldn't have played already
                 if (component.Detach)
                 {
                     if (TryComp(uid, out TransformComponent? xform))
                         _audioSystem.PlayPvs(component.Sound, xform.Coordinates);
                 }
-                else
+                else // imp end
                     _audioSystem.PlayPvs(component.Sound, uid);
             }
         }

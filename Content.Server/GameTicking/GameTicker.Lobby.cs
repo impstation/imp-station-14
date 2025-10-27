@@ -166,7 +166,7 @@ namespace Content.Server.GameTicking
                 if (!_playerManager.TryGetSessionById(playerUserId, out var playerSession))
                     continue;
                 RaiseNetworkEvent(GetStatusMsg(playerSession), playerSession.Channel);
-                RaiseLocalEvent(new PlayerToggleReadyEvent(playerSession)); //imp edit, for preround ready manifest
+                RaiseLocalEvent(new PlayerToggleReadyEvent(playerSession)); //imp edit, for preround ready manifest // imp ready manifest
             }
         }
 
@@ -183,6 +183,13 @@ namespace Content.Server.GameTicking
                 return;
             }
 
+            // imp edit start, no need to update if the player is already (un)readied
+            var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
+            if (_playerGameStatuses[player.UserId] == status)
+            {
+                return;
+            }
+            // imp edit end
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
             RaiseLocalEvent(new PlayerToggleReadyEvent(player)); //imp edit, for preround ready manifest

@@ -1,8 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;

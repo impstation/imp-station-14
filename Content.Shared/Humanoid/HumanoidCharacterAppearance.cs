@@ -5,6 +5,7 @@ using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using Content.Shared.Random.Helpers; // imp
 
 namespace Content.Shared.Humanoid;
 
@@ -127,13 +128,13 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
     {
         var random = IoCManager.Resolve<IRobustRandom>();
         var markingManager = IoCManager.Resolve<MarkingManager>();
-        var hairStyles = markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.Hair, species).Keys.ToList();
-        var facialHairStyles = markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.FacialHair, species).Keys.ToList();
-
 
         // IMP EDIT BEGIN - RANDOMIZED CHARACTER MARKINGS BY BECK (& mq)
 
-        /* var newHairStyle = hairStyles.Count > 0
+        /* var hairStyles = markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.Hair, species).Keys.ToList();
+        var facialHairStyles = markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.FacialHair, species).Keys.ToList();
+
+        var newHairStyle = hairStyles.Count > 0
             ? random.Pick(hairStyles)
             : HairStyles.DefaultHairStyle.Id;
 
@@ -218,6 +219,11 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
         var newHairStyle = HairStyles.DefaultFacialHairStyle.Id;
         var newFacialHairStyle = HairStyles.DefaultFacialHairStyle.Id;
 
+        // we're also declaring a new marking set for our species, so we can grab weight later.
+        var markingSet = new Dictionary<MarkingCategories, MarkingPoints>();
+        if (protoMan.TryIndex(species, out SpeciesPrototype? speciesProto))
+            markingSet = new MarkingSet(speciesProto.MarkingPoints, markingManager, protoMan).Points;
+
         // now we loop through every extant marking category,
         foreach (var category in Enum.GetValues<MarkingCategories>())
         {
@@ -230,10 +236,6 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
                 markingWeights.Add(marking.Key, marking.Value.RandomWeight);
 
             // grab the markingset from our category..
-            var markingSet = new Dictionary<MarkingCategories, MarkingPoints>();
-            if (protoMan.TryIndex(species, out SpeciesPrototype? speciesProto))
-                markingSet = new MarkingSet(speciesProto.MarkingPoints, markingManager, protoMan).Points;
-
             if (!markingSet.TryGetValue(category, out var categorySet))
                 continue;
 
@@ -243,15 +245,15 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             {
                 newHairStyle = markings.Count == 0 || !random.Prob(categorySet.Weight)
                     ? HairStyles.DefaultHairStyle.Id
-                    : random.Pick(markingWeights).Key;
+                    : random.Pick(markingWeights);
             }
 
             // if it's facial hair, there are entries in the category, and the character is not female, roll & assign a random one. else bald
-            if (category == MarkingCategories.FacialHair)
+            else if (category == MarkingCategories.FacialHair)
             {
                 newFacialHairStyle = markings.Count == 0 || sex == Sex.Female || !random.Prob(categorySet.Weight)
                     ? HairStyles.DefaultFacialHairStyle.Id
-                    : random.Pick(markingWeights).Key;
+                    : random.Pick(markingWeights);
             }
 
             // for every other category,
@@ -270,7 +272,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
                         continue;
 
                     // pick a random marking from the list
-                    var randomMarking = random.Pick(markingWeights).Key;
+                    var randomMarking = random.Pick(markingWeights);
                     if (!markings.TryGetValue(randomMarking, out var protoToAdd))
                         continue;
                     var markingToAdd = protoToAdd.AsMarking();
@@ -315,6 +317,7 @@ public sealed partial class HumanoidCharacterAppearance : ICharacterAppearance, 
             return MathHelper.Clamp01(channel + random.Next(-25, 25) / 100f);
         }
 
+        // imp:
         List<Color> GetComplementaryColors(Color color, double angle)
         {
             var hsl = Color.ToHsl(color);

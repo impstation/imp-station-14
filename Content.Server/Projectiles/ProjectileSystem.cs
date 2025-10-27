@@ -4,13 +4,13 @@ using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
-using Robust.Shared.Utility;
+using Content.Shared.Damage.Events; // imp throwing
+using Robust.Shared.Utility; // imp throwing
 
 namespace Content.Server.Projectiles;
 
@@ -27,7 +27,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     {
         base.Initialize();
         SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, DamageExamineEvent>(OnDamageExamine);
+        SubscribeLocalEvent<EmbeddableProjectileComponent, DamageExamineEvent>(OnDamageExamine); // imp throwing
     }
 
     private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)
@@ -129,6 +129,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         }
     }
 
+    // imp throwing add
     private void OnDamageExamine(EntityUid uid, EmbeddableProjectileComponent comp, ref DamageExamineEvent args)
     {
         if (!comp.EmbedOnThrow)

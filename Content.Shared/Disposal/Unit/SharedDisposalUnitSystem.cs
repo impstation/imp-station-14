@@ -1,11 +1,9 @@
 using System.Linq;
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Climbing.Systems;
 using Content.Shared.Containers;
 using Content.Shared.Database;
-using Content.Shared.DeviceLinking; // Goobstation
 using Content.Shared.Disposal.Components;
 using Content.Shared.Disposal.Unit.Events;
 using Content.Shared.DoAfter;
@@ -33,14 +31,16 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using Robust.Shared.Prototypes; // Goobstation
 using Robust.Shared.Utility;
-
+using Content.Shared.DeviceLinking; // Goobstation
+using Robust.Shared.Prototypes; // Goobstation
 
 namespace Content.Shared.Disposal.Unit;
 
 [Serializable, NetSerializable]
-public sealed partial class DisposalDoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class DisposalDoAfterEvent : SimpleDoAfterEvent
+{
+}
 
 public abstract class SharedDisposalUnitSystem : EntitySystem
 {
@@ -62,11 +62,12 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] private   readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private   readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _device = default!; // Goobstation
 
     public static readonly ProtoId<SourcePortPrototype> ReadyPort = "DisposalReady"; // Goobstation
-    public const float PressurePerSecond = 0.05f;
     protected static TimeSpan ExitAttemptDelay = TimeSpan.FromSeconds(0.5);
+
+    // Percentage
+    public const float PressurePerSecond = 0.05f;
 
     public override void Initialize()
     {

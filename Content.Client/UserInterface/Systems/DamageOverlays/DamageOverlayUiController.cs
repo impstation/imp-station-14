@@ -112,6 +112,7 @@ public sealed class DamageOverlayUiController : UIController
                         _overlay.PainLevel = 0;
                     }
                 }
+                // imp edit start: pain insensitivity
                 else
                     _overlay.PainLevel = 0;
 
@@ -119,6 +120,7 @@ public sealed class DamageOverlayUiController : UIController
                     _overlay.OxygenLevel = FixedPoint2.Min(1f, oxyDamage / critThreshold).Float();
                 else
                     _overlay.OxygenLevel = 0;
+                // imp edit end
 
                 _overlay.CritLevel = 0;
                 _overlay.DeadLevel = 0;
@@ -129,10 +131,12 @@ public sealed class DamageOverlayUiController : UIController
                 if (!_mobThresholdSystem.TryGetDeadPercentage(entity,
                         FixedPoint2.Max(0.0, damageable.TotalDamage), out var critLevel))
                     return;
+                // imp edit start
                 if (thresholds.ShowCritOverlay)
-                    _overlay.CritLevel = critLevel.Value.Float();
+                        _overlay.CritLevel = critLevel.Value.Float();
                 else
                     _overlay.CritLevel = 0;
+                // imp edit end
 
                 _overlay.PainLevel = 0;
                 _overlay.DeadLevel = 0;

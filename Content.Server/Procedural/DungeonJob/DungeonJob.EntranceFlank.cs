@@ -18,7 +18,7 @@ public sealed partial class DungeonJob
         var tiles = new List<(Vector2i Index, Tile)>();
         var tileDef = _tileDefManager[gen.Tile];
         var spawnPositions = new ValueList<Vector2i>(dungeon.Rooms.Count);
-        var contents = gen.Contents; // imp
+        var contents = gen.Contents; // imp remove indexing
 
         foreach (var room in dungeon.Rooms)
         {
@@ -47,17 +47,11 @@ public sealed partial class DungeonJob
         foreach (var entrance in spawnPositions)
         {
             // Imp Edit Start
-            if (!gen.useRandomEntity)
-            {
+            if (!gen.UseRandomEntity)
                 foreach (var entity in contents)
-                {
                     _entManager.SpawnEntity(entity, _maps.GridTileToLocal(_gridUid, _grid, entrance));
-                }
-            }
             else
-            {
                 _entManager.SpawnEntity(contents[random.Next(0, gen.Contents.Count)], _maps.GridTileToLocal(_gridUid, _grid, entrance));
-            }
             // Imp Edit End
         }
     }

@@ -1,5 +1,4 @@
 using System.Collections.Frozen;
-using Content.Shared.CollectiveMind;
 using System.Text.RegularExpressions;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
@@ -7,6 +6,7 @@ using Content.Shared.Speech;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.CollectiveMind; // imp
 
 namespace Content.Shared.Chat;
 
@@ -24,8 +24,8 @@ public abstract class SharedChatSystem : EntitySystem
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
-    public const char CollectiveMindPrefix = '+';
     public const char DefaultChannelKey = 'h';
+    public const char CollectiveMindPrefix = '+'; // imp
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
@@ -45,8 +45,7 @@ public abstract class SharedChatSystem : EntitySystem
     /// Cache of the keycodes for faster lookup.
     /// </summary>
     private FrozenDictionary<char, RadioChannelPrototype> _keyCodes = default!;
-
-    private FrozenDictionary<char, CollectiveMindPrototype> _mindKeyCodes = default!;
+    private FrozenDictionary<char, CollectiveMindPrototype> _mindKeyCodes = default!; // imp add
 
     public override void Initialize()
     {
@@ -54,7 +53,7 @@ public abstract class SharedChatSystem : EntitySystem
         DebugTools.Assert(_prototypeManager.HasIndex(CommonChannel));
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypeReload);
         CacheRadios();
-        CacheCollectiveMinds();
+        CacheCollectiveMinds(); // imp
     }
 
     protected virtual void OnPrototypeReload(PrototypesReloadedEventArgs obj)
@@ -62,6 +61,7 @@ public abstract class SharedChatSystem : EntitySystem
         if (obj.WasModified<RadioChannelPrototype>())
             CacheRadios();
 
+        // imp add
         if (obj.WasModified<CollectiveMindPrototype>())
             CacheCollectiveMinds();
     }
@@ -72,6 +72,7 @@ public abstract class SharedChatSystem : EntitySystem
             .ToFrozenDictionary(x => x.KeyCode);
     }
 
+    // imp add
     private void CacheCollectiveMinds()
     {
         _prototypeManager.PrototypesReloaded -= OnPrototypeReload;
@@ -196,6 +197,7 @@ public abstract class SharedChatSystem : EntitySystem
         return true;
     }
 
+    // imp add
     public bool TryProccessCollectiveMindMessage(
         EntityUid source,
         string input,

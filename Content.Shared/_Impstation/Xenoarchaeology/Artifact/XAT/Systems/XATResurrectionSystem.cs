@@ -26,7 +26,7 @@ public sealed class XATResurrectionSystem : BaseXATSystem<XATResurrectionCompone
 
     private void OnMobStateChanged(MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
+        if (args.OldMobState != MobState.Dead || args.NewMobState == MobState.Dead)
             return;
 
         var targetCoords = Transform(args.Target).Coordinates;

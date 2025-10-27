@@ -163,7 +163,7 @@
       sprite: Clothing/Back/Duffels/salvage.rsi
 
 - type: entity
-  parent: [ClothingBackpackDuffel, Tier1Contraband]
+  parent: [ClothingBackpackDuffel, Tier1Contraband] # imp t1 contra
   id: ClothingBackpackDuffelSyndicate
   name: syndicate duffel bag
   description: A large duffel bag for holding various traitor goods.
@@ -175,6 +175,10 @@
   - type: Storage
     grid:
     - 0,0,8,4
+  - type: CleanableInfo # imp add
+    cleanedName: "syndicate duffel bag"
+    cleanedDescription: "A large duffel bag for holding various traitor goods."
+  - type: Forensics # imp add
 
 - type: entity
   parent: [ ClothingBackpackDuffelSyndicate, BaseSyndicateContraband ]
