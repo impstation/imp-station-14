@@ -306,7 +306,7 @@
       solutions:
         meatsheet:
           reagents:
-          - ReagentId: UncookedAnimalProteins
+          - ReagentId: UncookedAnimalProteins # imp changed from Protein so it doesn't poison the only species who could eat it??????
             Quantity: 7
           - ReagentId: Fat
             Quantity: 3

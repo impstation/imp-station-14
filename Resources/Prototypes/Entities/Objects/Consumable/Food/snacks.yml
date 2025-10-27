@@ -351,7 +351,7 @@
           Quantity: 1
         - ReagentId: TableSalt
           Quantity: 5
-  - type: Tag
+  - type: Tag # imp
     tags:
     - UnguFood
     - ReptilianFood
@@ -411,7 +411,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
-    - Fruit # flavor profile says it takes like fruit cake
+    - Fruit # flavor profile says it tastes like fruit cake
 
 - type: entity
   parent: FoodSnackBase

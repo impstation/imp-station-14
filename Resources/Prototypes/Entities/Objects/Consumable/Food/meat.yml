@@ -1043,9 +1043,9 @@
     graph: AnomalyMeatSteak
     node: start
     defaultTarget: anomaly steak
-#  - type: Tag  # imp - no reason to retag this, gets tags from parent
-#    tags:
-#    - Meat
+  - type: Tag
+    tags:
+    - Meat
   - type: Item
     size: Normal
     shape:

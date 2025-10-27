@@ -202,7 +202,6 @@
     tags:
     - Meat
 #    - Fruit # imp: no fruit in this
-    - Vegetable # imp
     - Soup
 
 - type: entity
@@ -233,7 +232,6 @@
           Quantity: 4 # imp
   - type: Tag # imp
     tags:
-    - UnguFood
     - Vegetable
 
 - type: entity
@@ -265,7 +263,6 @@
           Quantity: 1
   - type: Tag # imp
     tags:
-    - UnguFood
     - Vegetable
 
 - type: entity
@@ -300,7 +297,6 @@
           Quantity: 5
   - type: Tag # imp
     tags:
-    - UnguFood
     - Vegetable
 
 - type: entity
@@ -892,7 +888,6 @@
           Quantity: 6
   - type: Tag # imp
     tags:
-    - UnguFood
     - Vegetable
     - Soup
 
