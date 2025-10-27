@@ -97,8 +97,8 @@
   components:
   - type: GhostRole
     allowMovement: true
-    name: ghost-role-information-eeep-name
-    description: ghost-role-information-eeep-desc
+    name: ghost-role-information-eeeplet-name
+    description: ghost-role-information-eeeplet-desc
     rules: ghost-role-information-antagonist-rules
     mindRoles:
     - MindRoleGhostRoleTeamAntagonist
@@ -172,6 +172,13 @@
   name: eeep
   description: Uh oh.
   components:
+  - type: GhostRole
+    allowMovement: true
+    name: ghost-role-information-eeep-name
+    description: ghost-role-information-eeep-desc
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
   - type: Bloodstream
     bloodMaxVolume: 400
     bloodReagent: WeldingCoils
