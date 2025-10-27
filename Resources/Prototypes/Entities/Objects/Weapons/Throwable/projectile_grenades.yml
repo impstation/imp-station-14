@@ -22,12 +22,21 @@
       cluster-payload: !type:Container
   - type: ProjectileGrenade
   - type: AnimationPlayer
-  - type: GenericVisualizer
+  - type: GenericVisualizer #imp our take on the layers
     visuals:
       enum.Trigger.TriggerVisuals.VisualState:
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
           Unprimed: { state: icon }
+        triggerlight:
+          Primed: { visible: true }
+          Unprimed: { visible: false }    
+#  - type: GenericVisualizer #imp - same as normal grenades, this is the Wizden take on the layers, commented out in place of our's to add the unshaded layer
+#    visuals:
+#      enum.Trigger.TriggerVisuals.VisualState:
+#        enum.ConstructionVisuals.Layer:
+#          Primed: { state: primed }
+#          Unprimed: { state: icon }
   - type: Tag
     tags:
     - HandGrenade
@@ -49,10 +58,14 @@
   description: A grenade that launches rubber projectiles, or sting balls, at high speeds in the hopes to stun a target. Stings like hell. #imp
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/stingergrenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/stingergrenade.rsi #imp
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
+    - state: primed-unshaded #imp the unshaded layer
+      shader: unshaded
+      visible: false
+      map: ["triggerlight"]
   - type: ProjectileGrenade
     fillPrototype: PelletClusterRubber
     capacity: 30
@@ -83,10 +96,14 @@
   description: Guaranteed to light up the mood.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/pyrogrenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/pyrogrenade.rsi #imp
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
+    - state: primed-unshaded #imp the unshaded layer
+      shader: unshaded
+      visible: false
+      map: ["triggerlight"]
   - type: SpawnOnTrigger #imp; causes light when it explodes
     keysIn:
     - timer
@@ -120,10 +137,14 @@
   description: Launches a deadly spray of shrapnel and fragmentation that rip through any unfortunate soul in the area of effect. #imp
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/shrapnelgrenade.rsi #imp
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
+    - state: primed-unshaded #imp the unshaded layer
+      shader: unshaded
+      visible: false
+      map: ["triggerlight"]
   - type: ProjectileGrenade
     fillPrototype: PelletClusterLethal
     capacity: 30
