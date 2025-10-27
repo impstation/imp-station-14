@@ -41,6 +41,11 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
     public event Action? OnServerSelectionButtonPressed;
     public event Action? OnExtractButtonPressed;
 
+    // imp edit start, thusd buttons
+    public event Action? OnUpBiasButtonPressed;
+    public event Action? OnDownBiasButtonPressed;
+    // imp edit end
+
     public AnalysisConsoleMenu()
     {
         RobustXamlLoader.Load(this);
@@ -66,6 +71,23 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         };
 
         ExtractButton.OnPressed += StartExtract;
+
+        // imp edit start
+        UpBiasButton.OnPressed += _ =>
+        {
+            OnUpBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.Up;
+            UpBiasButton.Pressed = true;
+            DownBiasButton.Pressed = false;
+        };
+        DownBiasButton.OnPressed += _ =>
+        {
+            OnDownBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.Down;
+            UpBiasButton.Pressed = false;
+            DownBiasButton.Pressed = true;
+        };
+        // imp edit end
     }
 
     /// <summary>
@@ -111,6 +133,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             var text = Loc.GetString("analysis-console-extract-value", ("id", nodeId), ("value", pointValue));
             extractionMessage.AddMarkupOrThrow(text);
             extractionMessage.PushNewline();
+            _extractionSum += pointValue; // imp fix, they forgot to do this
         }
 
         if (count == 0)
@@ -148,6 +171,27 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         if (arti == null)
             NoneSelectedLabel.Visible = false;
+
+        // imp edit start, don't show the bias stuff if it doesn't need it
+        if (arti is { Comp.Natural: true })
+        {
+            BiasBox.Visible = true;
+            BiasDivider.Visible = true;
+        }
+        else
+        {
+            BiasBox.Visible = false;
+            BiasDivider.Visible = false;
+        }
+
+        if (arti is { Comp.Natural: true })
+        {
+            if (ent.Comp.BiasDirection == BiasDirection.Down)
+                DownBiasButton.Pressed = true;
+            else if (ent.Comp.BiasDirection == BiasDirection.Up)
+                UpBiasButton.Pressed = true;
+        }
+        // imp edit end
 
         NoArtiLabel.Visible = true;
         if (!_artifactAnalyzer.TryGetAnalyzer(ent, out _))
@@ -188,6 +232,23 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         LockedValueLabel.SetMarkup(Loc.GetString("analysis-console-info-locked-value", ("state", lockedState)));
 
+        // imp edit start, if it's active and locked it's 3. hope this helps
+        if (artifact.Value.Comp.Natural)
+        {
+            var currentState = _xenoArtifact.IsNodeActive(artifact.Value, node.Value) ? 1 : 0;
+            CurrentValueLabel.SetMarkup(Loc.GetString("analysis-console-info-natural-current-value", ("state", currentState)));
+
+            lockedState = node.Value.Comp.Locked ? 0 : 1;
+            LockedLabel.SetMarkup(Loc.GetString("analysis-console-info-natural-locked"));
+            LockedValueLabel.SetMarkup(Loc.GetString("analysis-console-info-natural-locked-value", ("state", lockedState)));
+        }
+        else
+        {
+            CurrentLabel.Visible = false;
+            CurrentValueLabel.Visible = false;
+        }
+        // imp edit end
+
         var percent = (float) node.Value.Comp.Durability / node.Value.Comp.MaxDurability;
         var color = percent switch
         {
@@ -200,7 +261,23 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             ("current", node.Value.Comp.Durability),
             ("max", node.Value.Comp.MaxDurability)));
 
+        // imp edit start, if the artifact doesn't activate on interaction then durability isn't used. Don't show it
+        if (!artifact.Value.Comp.ActivateOnInteraction)
+        {
+            DurabilityValueLabel.Visible = false;
+            DurabilityLabel.Visible = false;
+        }
+        // imp edit end
+
         var hasInfo = _xenoArtifact.HasUnlockedPredecessor(artifact.Value, node.Value);
+
+        // imp edit start, natural artifacts' nodes should only show their information if they're unlocked or active
+        if (artifact.Value.Comp.Natural)
+        {
+            hasInfo = !node.Value.Comp.Locked || _xenoArtifact.IsNodeActive(artifact.Value, node.Value);
+
+        }
+        // imp edit end
 
         EffectValueLabel.SetMarkup(Loc.GetString("analysis-console-info-effect-value",
             ("state", hasInfo),
@@ -217,12 +294,26 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             triggerStr.Append("- ");
             triggerStr.Append(Loc.GetString(node.Value.Comp.TriggerTip!));
 
-            foreach (var predecessor in predecessorNodes)
+            // imp edit start
+
+            // foreach (var predecessor in predecessorNodes)
+            // {
+            //     triggerStr.AppendLine();
+            //     triggerStr.Append("- ");
+            //     triggerStr.Append(Loc.GetString(predecessor.Comp.TriggerTip!));
+            // }
+
+            if (artifact.Value.Comp.RequirePredecessorTriggers)
             {
-                triggerStr.AppendLine();
-                triggerStr.Append("- ");
-                triggerStr.Append(Loc.GetString(predecessor.Comp.TriggerTip!));
+                foreach (var predecessor in predecessorNodes)
+                {
+                    triggerStr.AppendLine();
+                    triggerStr.Append("- ");
+                    triggerStr.Append(Loc.GetString(predecessor.Comp.TriggerTip!));
+                }
             }
+            // imp edit end
+
             TriggerValueLabel.SetMarkup(Loc.GetString("analysis-console-info-triggered-value", ("triggers", triggerStr.ToString())));
         }
 

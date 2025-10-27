@@ -5,12 +5,17 @@ using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared._Impstation.Xenoarchaeology.Artifact.Components; // imp edit
+using Content.Shared.Power.EntitySystems; // imp edit
+using Content.Shared.Xenoarchaeology.Equipment.Components; // imp edit
+using Robust.Shared.Random; // imp edit
 
 namespace Content.Shared.Xenoarchaeology.Artifact;
 
 public abstract partial class SharedXenoArtifactSystem
 {
     [Dependency] private readonly EntityTableSystem _entityTable =  default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!; // imp edit
 
     private EntityQuery<XenoArtifactComponent> _xenoArtifactQuery;
     private EntityQuery<XenoArtifactNodeComponent> _nodeQuery;
@@ -33,21 +38,14 @@ public abstract partial class SharedXenoArtifactSystem
         SetNodeDurability((ent, ent), nodeComponent.MaxDurability);
     }
 
-    /// <summary> Gets node component by node entity uid. </summary>
-    public XenoArtifactNodeComponent XenoArtifactNode(EntityUid uid)
-    {
-        return _nodeQuery.Get(uid);
-    }
-
     public void SetNodeUnlocked(Entity<XenoArtifactNodeComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-        if (ent.Comp.Attached is not { } netArtifact)
+        if (ent.Comp.Attached is not { } artifact)
             return;
 
-        var artifact = GetEntity(netArtifact);
         if (!TryComp<XenoArtifactComponent>(artifact, out var artifactComponent))
             return;
 
@@ -102,8 +100,26 @@ public abstract partial class SharedXenoArtifactSystem
     /// </summary>
     public Entity<XenoArtifactNodeComponent> CreateNode(Entity<XenoArtifactComponent> ent, XenoArchTriggerPrototype trigger, int depth = 0)
     {
-        var entProtoId = _entityTable.GetSpawns(ent.Comp.EffectsTable)
-                                     .First();
+        //var entProtoId = _entityTable.GetSpawns(ent.Comp.EffectsTable) imp comment out
+        //    .First();
+
+        // imp edit start
+        var ctx = new EntityTableContext(new Dictionary<string, object>
+        {
+            { "Depth", depth },
+        });
+
+        var entProtoId = new EntProtoId();
+
+        var entTable = _entityTable.GetSpawns(ent.Comp.EffectsTable, ctx: ctx).ToList();
+
+        if (entTable.Count < 1)
+            entProtoId = new EntProtoId("XenoArtifactEffectBadFeeling");
+        else
+            entProtoId = entTable.First();
+
+        Log.Debug($"{entProtoId} chosen for depth {depth}");
+        // imp edit end
 
         AddNode((ent, ent), entProtoId, out var nodeEnt, dirty: false);
         DebugTools.Assert(nodeEnt.HasValue, "Failed to create node on artifact.");
@@ -197,7 +213,10 @@ public abstract partial class SharedXenoArtifactSystem
             foreach (var netNode in segment)
             {
                 var node = GetEntity(netNode);
-                outSegment.Add((node, XenoArtifactNode(node)));
+                if (!_nodeQuery.TryComp(node, out var comp))
+                    continue;
+
+                outSegment.Add((node, comp));
             }
 
             output.Add(outSegment);
@@ -270,6 +289,22 @@ public abstract partial class SharedXenoArtifactSystem
         var allNodes = GetAllNodes((ent, ent.Comp));
         foreach (var node in allNodes)
         {
+            // imp edit start, if the artifact's natural the current node should be the only active node
+            if (ent.Comp.Natural)
+            {
+                if (!_net.IsServer)
+                    return;
+
+                if (ent.Comp.CurrentNode != null && ent.Comp.CurrentNode.Value.Equals(node))
+                {
+                    ent.Comp.CachedActiveNodes.Add(GetNetEntity(node));
+                    Dirty(ent);
+                    return;
+                }
+                continue;
+            }
+            // imp edit end
+
             // Locked nodes cannot be active.
             if (node.Comp.Locked)
                 continue;
@@ -385,7 +420,7 @@ public abstract partial class SharedXenoArtifactSystem
             return;
         }
 
-        var artifact = _xenoArtifactQuery.Get(GetEntity(nodeComponent.Attached.Value));
+        var artifact = _xenoArtifactQuery.Get(nodeComponent.Attached.Value);
 
         var nonactiveNodes = GetActiveNodes(artifact);
         var durabilityEffect = MathF.Pow((float)nodeComponent.Durability / nodeComponent.MaxDurability, 2);
@@ -393,7 +428,69 @@ public abstract partial class SharedXenoArtifactSystem
             ? 1f - durabilityEffect
             : 1f + durabilityEffect;
 
+        // imp edit start, if they dont activate on interaction, durability doesn't matter
+        if (!artifact.Comp.ActivateOnInteraction)
+            durabilityMultiplier = 1;
+        // imp edit end
+
         var predecessorNodes = GetPredecessorNodes((artifact, artifact), node);
         nodeComponent.ResearchValue = (int)(Math.Pow(1.25, Math.Pow(predecessorNodes.Count, 1.5f)) * nodeComponent.BasePointValue * durabilityMultiplier);
+    }
+
+    /// <summary>
+    ///     Imp edit, set the current node to the given node, rebuild the cache of active nodes.
+    /// </summary>
+    public void SetCurrentNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent> node)
+    {
+        artifact.Comp.CurrentNode = node;
+        RebuildCachedActiveNodes((artifact, artifact));
+        Dirty(node);
+    }
+
+    /// <summary>
+    ///     Imp edit, set a new current node depending on the set bias and the connected locked nodes
+    /// </summary>
+    public void GetNewCurrentNode(Entity<XenoArtifactComponent> ent)
+    {
+        if (ent.Comp.CurrentNode == null)
+            return;
+
+        var predecessorNodes = GetDirectPredecessorNodes((ent, ent), ent.Comp.CurrentNode.Value).ToList();
+        var successorNodes = GetDirectSuccessorNodes((ent, ent), ent.Comp.CurrentNode.Value).ToList();
+        var directNodes = predecessorNodes.Union(successorNodes).ToList();
+
+        Entity<XenoArtifactNodeComponent> newNode;
+
+        // check if the console's powered
+        if (TryComp<XenoArtifactBiasedComponent>(ent, out var biasComp) &&
+            _powerReceiver.IsPowered(biasComp.Provider) &&
+            HasComp<AnalysisConsoleComponent>(biasComp.Provider) &&
+            GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity) != null &&
+            _powerReceiver.IsPowered(GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity)!.Value))
+        {
+            switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).BiasDirection)
+            {
+                case BiasDirection.Up:
+                    if (predecessorNodes.Count > 0)
+                        directNodes = predecessorNodes;
+                    break;
+                case BiasDirection.Down:
+                    if (successorNodes.Count > 0)
+                        directNodes = successorNodes;
+                    break;
+            }
+        }
+
+        if (directNodes.Count > 0)
+            newNode = RobustRandom.Pick(directNodes);
+        else
+            return;
+
+        // 75% chance to be a locked node (if they exist)
+        var lockedNodes = directNodes.Where(x => x.Comp.Locked).ToList();
+        if (lockedNodes.Count > 0 && RobustRandom.Prob(0.75f))
+            newNode = RobustRandom.Pick(lockedNodes);
+
+        SetCurrentNode(ent, newNode);
     }
 }
