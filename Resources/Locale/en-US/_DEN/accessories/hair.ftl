@@ -3,10 +3,6 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
-marking-longsmoothie = Long Smoothy
-marking-shortbob = Short Bob
-marking-shortside = Short Side
-marking-twintailsberly = Twintails (Berly)
 marking-amazon = Amazon
 marking-astolfo = Astolfo
 marking-baum = Baum
