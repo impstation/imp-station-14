@@ -33,6 +33,8 @@
   - type: FlavorProfile
     flavors:
     - pasta
+    ignoreReagents:
+    - egg
   - type: Sprite
     state: boiled
   - type: SolutionContainerManager # imp

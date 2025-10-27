@@ -75,14 +75,14 @@
       - state: lung_r
   - type: Lung
   - type: Metabolizer
-    updateInterval: 1.5
+    updateInterval: 0.75 # imp edited from 1.5
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
     metabolizerTypes: [ Human ]
     groups:
     - id: Gas
-      rateModifier: 150.0 #imp edited from 100.0
+      rateModifier: 75.0 #imp edited from 100.0
   - type: SolutionContainerManager
     solutions:
       organ:

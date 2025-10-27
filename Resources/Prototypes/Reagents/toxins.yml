@@ -443,7 +443,7 @@
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
-        probability: 0.5
+        probability: 0.2
 
 - type: reagent
   id: Amatoxin
@@ -625,7 +625,7 @@
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
-        probability: 0.5
+        probability: 0.2
   reactiveEffects: # imp edit
     Acidic:
       methods: [ Touch ]
@@ -690,7 +690,7 @@
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
-        probability: 0.5
+        probability: 0.2
 
 
 - type: reagent

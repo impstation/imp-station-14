@@ -383,38 +383,6 @@
     FoodDonkpocketCloth: 1
   recipeType: Microwave
 
-- type: microwaveMealRecipe
-  id: RecipeFabricScrapSalad
-  name: fabric scrap salad recipe
-  result: FabricScrapSalad
-  time: 5
-  group: Moth
-  solids:
-    MaterialCloth: 2
-    FoodBowlBig: 1
-  recipeType: Assembler
-
-- type: microwaveMealRecipe
-  id: RecipeYarnNoodles
-  name: yarn noodles recipe
-  result: YarnNoodles
-  time: 5
-  group: Moth
-  solids:
-    MaterialCloth: 3
-    ChopSticks: 1
-  recipeType: Assembler
-
-- type: microwaveMealRecipe
-  id: RecipeCardTaco
-  name: card taco recipe
-  result: FoodTacoCardboard
-  time: 5
-  group: Moth
-  solids:
-    MaterialCardboard: 1
-  recipeType: Assembler
-
 # fin fin related
 
 - type: microwaveMealRecipe
