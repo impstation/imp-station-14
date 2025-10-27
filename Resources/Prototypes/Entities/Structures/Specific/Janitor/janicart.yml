@@ -123,7 +123,7 @@
   - type: UserInterface # imp
     interfaces:
       enum.ItemSlotsUiKey.Key:
-        type: ItemSlotsBUI
+        type: ItemSlotsBoundUserInterface
   - type: ActivatableUI # imp
     key: enum.ItemSlotsUiKey.Key
 
@@ -366,7 +366,7 @@
         enum.StorageUiKey.Key:
           type: StorageBoundUserInterface
         enum.ItemSlotsUiKey.Key: # imp
-          type: ItemSlotsBUI
+          type: ItemSlotsBoundUserInterface
     - type: Edible
       edible: Drink
       solution: bucket
