@@ -12,7 +12,7 @@
   description: Mmm, Donuts.
   components:
   - type: Sprite
-    sprite: _Impstation\Objects\Storage\donut_box.rsi # imp
+    sprite: _Impstation/Objects/Storage/donut_box.rsi # imp
     state: icon # imp
     layers:
     - state: icon # imp
@@ -45,7 +45,7 @@
       tags:
       - Donut
   - type: Item
-    sprite: _Impstation\Objects\Storage\donut_box.rsi # imp
+    sprite: _Impstation/Objects/Storage/donut_box.rsi # imp
     size: Normal
     shape:
     - 0,0,2,1
