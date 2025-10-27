@@ -241,7 +241,7 @@
 - type: entity
   name: tck'ut spawner
   suffix: Borg
-  id: BorgSpawnerTckUt
+  id: BorgSpawnerTckut
   parent: MarkerBase
   components:
   - type: Sprite
@@ -249,4 +249,4 @@
     - state: green
   - type: ConditionalSpawner
     prototypes:
-    - MobTckUt
+    - MobTckut
