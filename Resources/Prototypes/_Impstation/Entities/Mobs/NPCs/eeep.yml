@@ -27,8 +27,8 @@
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3
-    baseSprintSpeed: 6
+    baseWalkSpeed: 1
+    baseSprintSpeed: 3
     baseWeightlessModifier: 1.5
   - type: Sprite
     sprite: _Impstation/Mobs/Aliens/eeeplet.rsi
@@ -63,7 +63,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      100: Dead
   - type: Butcherable
     spawned:
       - id: EeepSpark
@@ -93,12 +93,10 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
-  - type: Puller
-    needsHands: false
   - type: Prying
     pryPowered: true
     force: true
-    speedModifier: 10
+    speedModifier: 4
     useSound:
       path: /Audio/Effects/tesla_consume.ogg
   - type: AmbientSound
@@ -112,14 +110,14 @@
     color: "#afa2ff"
     castShadows: true
   - type: MeleeWeapon
-    attackRate: 0.8
+    attackRate: 0.4
     soundHit:
         path: /Audio/Effects/Lightning/lightningshock.ogg
     angle: 0
     animation: WeaponArcZap
     damage:
       types:
-        Shock: 2
+        Shock: 5
   - type: StaminaDamageOnHit
     damage: 40 # stun and run away type combat
   - type: NightVision # EE edit
@@ -135,7 +133,7 @@
      path: /Audio/Effects/PowerSink/charge_fire.ogg
     minimumDrain: 1000
   - type: Battery
-    maxCharge: 10000
+    maxCharge: 25000
     startingCharge: 0
   - type: ComplexInteraction
   - type: ExaminableBattery
@@ -179,7 +177,7 @@
   description: Uh oh.
   components:
   - type: Bloodstream
-    bloodMaxVolume: 500
+    bloodMaxVolume: 400
     bloodReagent: WeldingCoils
   - type: Electrified
     requirePower: false
@@ -204,8 +202,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Critical
-      550: Dead
+      400: Critical
+      450: Dead
   - type: GoobAbsorbable
     biomassRestored: 0.8
   - type: AmbientSound
@@ -219,7 +217,8 @@
     color: "#afa2ff"
     castShadows: true
   - type: Gun
-    projectileSpeed: 10
+    fireRate: 0.5
+    projectileSpeed: 8
     soundGunshot:
       path: /Audio/Effects/Lightning/lightningshock.ogg
       params:
@@ -232,22 +231,23 @@
     autoRechargeRate: 10
   - type: Battery
     maxCharge: 1000
-    startingCharge: 1000
+    startingCharge: 500
   - type: PassiveDamage # passive regen.
     allowedStates:
     - Alive
     - Critical
     - Dead # if engie wants to use a dead eeep as a power source they have to deal with it coming back :)
     damage:
-      types:
-        Heat: -1
       groups:
-        Brute: -1
+        Airloss: -0.5
+        Brute: -0.5
+        Burn: -0.5
+        Toxin: -0.5
   - type: LightningArcShooter
     arcDepth: 2
-    maxLightningArc: 1
-    shootMinInterval: 4
-    shootMaxInterval: 10
+    maxLightningArc: 3
+    shootMinInterval: 10
+    shootMaxInterval: 15
     shootRange: 5
     lightningPrototype: Lightning
   - type: AnnounceOnSpawn

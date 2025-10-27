@@ -1,56 +1,4 @@
 ﻿Entries:
-- author: maelines
-  changes:
-  - message: scorned user maenyas added 28 hairstyles for humanoids (thavens eventually
-      when she figures that out)
-    type: Add
-  id: 1859
-  time: '2025-06-17T08:31:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2778
-- author: Mousetrinity
-  changes:
-  - message: chefs now have a variety of animals to fight and butcher, check your
-      lockers!
-    type: Add
-  - message: monkeys and kobolds that participated in the Ancestor Immunization Program
-      are now immune to zombie infections! be sure to check if your re-hydratable
-      cubes are sanitized, and look out for an N branding on their hands
-    type: Tweak
-  id: 1860
-  time: '2025-06-17T09:15:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2777
-- author: Kandiyaki
-  changes:
-  - message: Heretics' Void Blast can now be aimed!
-    type: Tweak
-  - message: Heretics' Void Blast now makes ice instead of snow.
-    type: Tweak
-  - message: Ascended Void heretics turn nearby walls to ice instead of snow.
-    type: Tweak
-  - message: Ascended Void heretics can now walk through windows, and are immune to
-      lasers!
-    type: Add
-  id: 1861
-  time: '2025-06-17T14:21:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2536
-- author: TuttlePants
-  changes:
-  - message: Bounty hunters don't target other bounty hunters
-    type: Tweak
-  - message: Bounty hunter targeting isn't fucked anymore
-    type: Fix
-  id: 1862
-  time: '2025-06-17T14:23:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2750
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: You can now purchase a box of .25 Caseless bullets for 2 telecrystals.
-    type: Add
-  - message: You can now print .25 Caseless magazines and bullets from emagged autolathes.
-    type: Add
-  id: 1863
-  time: '2025-06-17T21:11:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2801
 - author: DinnerCalzone
   changes:
   - message: Saltern now supports Pyschologist and Reporter.
@@ -4206,3 +4154,41 @@
   id: 2358
   time: '2025-10-26T03:15:14.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3595
+- author: starlighthowls
+  changes:
+  - message: Those Eeep were rabid sorry here's some normal ones.
+    type: Tweak
+  id: 2359
+  time: '2025-10-26T06:30:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3620
+- author: 12rabbits
+  changes:
+  - message: Fixed the ready manifest displaying jobs as having negative players readied,
+      and other inaccuracies.
+    type: Fix
+  id: 2360
+  time: '2025-10-26T08:09:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3623
+- author: mqole
+  changes:
+  - message: Banished ghost hair.
+    type: Fix
+  id: 2361
+  time: '2025-10-27T05:54:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3627
+- author: kipdotnet
+  changes:
+  - message: Banana has been un-reverted.
+    type: Fix
+  id: 2362
+  time: '2025-10-27T06:05:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3628
+- author: Squamatic
+  changes:
+  - message: W-wait, you called the red phone for a CBURN team? Don't you know that
+      Central barely even funds those guys? That whole romerol thing is just a myth,
+      anyway...
+    type: Add
+  id: 2363
+  time: '2025-10-27T09:34:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3614
