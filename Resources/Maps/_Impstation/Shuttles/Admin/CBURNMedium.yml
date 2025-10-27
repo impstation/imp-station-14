@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.2.0
   forkId: ""
   forkVersion: ""
-  time: 10/26/2025 23:35:51
-  entityCount: 603
+  time: 10/27/2025 01:39:51
+  entityCount: 605
 maps: []
 grids:
 - 1
@@ -504,6 +504,13 @@ entities:
     components:
     - type: Transform
       pos: -8.5,2.5
+      parent: 1
+- proto: BoxLethalshot
+  entities:
+  - uid: 482
+    components:
+    - type: Transform
+      pos: -2.1306746,0.7402892
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -1606,15 +1613,15 @@ entities:
       parent: 1
 - proto: CombatKnife
   entities:
+  - uid: 323
+    components:
+    - type: Transform
+      pos: -1.7087996,0.5215392
+      parent: 1
   - uid: 444
     components:
     - type: Transform
       pos: -1.8695688,0.56633544
-      parent: 1
-  - uid: 508
-    components:
-    - type: Transform
-      pos: -2.0625865,0.62852085
       parent: 1
 - proto: ComputerAlert
   entities:
@@ -2920,16 +2927,15 @@ entities:
       parent: 1
 - proto: MagazineBoxPistol
   entities:
-  - uid: 323
+  - uid: 508
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -1.3160361,4.6522465
+      pos: -2.5195634,0.377442
       parent: 1
-  - uid: 482
+  - uid: 605
     components:
     - type: Transform
-      pos: -2.5157115,0.37852085
+      pos: -2.5212996,0.3809142
       parent: 1
 - proto: MagazineBoxRifle
   entities:
@@ -4183,6 +4189,14 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -1.3000983,3.9153228
+      parent: 1
+- proto: WeaponShotgunDoubleBarreled
+  entities:
+  - uid: 604
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -1.2346517,4.4400167
       parent: 1
 - proto: WeaponSubMachineGunDrozd
   entities:
