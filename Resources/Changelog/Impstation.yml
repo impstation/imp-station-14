@@ -1,36 +1,4 @@
 ﻿Entries:
-- author: Kandiyaki
-  changes:
-  - message: Heretics' Void Blast can now be aimed!
-    type: Tweak
-  - message: Heretics' Void Blast now makes ice instead of snow.
-    type: Tweak
-  - message: Ascended Void heretics turn nearby walls to ice instead of snow.
-    type: Tweak
-  - message: Ascended Void heretics can now walk through windows, and are immune to
-      lasers!
-    type: Add
-  id: 1861
-  time: '2025-06-17T14:21:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2536
-- author: TuttlePants
-  changes:
-  - message: Bounty hunters don't target other bounty hunters
-    type: Tweak
-  - message: Bounty hunter targeting isn't fucked anymore
-    type: Fix
-  id: 1862
-  time: '2025-06-17T14:23:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2750
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: You can now purchase a box of .25 Caseless bullets for 2 telecrystals.
-    type: Add
-  - message: You can now print .25 Caseless magazines and bullets from emagged autolathes.
-    type: Add
-  id: 1863
-  time: '2025-06-17T21:11:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2801
 - author: DinnerCalzone
   changes:
   - message: Saltern now supports Pyschologist and Reporter.
@@ -4201,3 +4169,26 @@
   id: 2360
   time: '2025-10-26T08:09:44.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3623
+- author: mqole
+  changes:
+  - message: Banished ghost hair.
+    type: Fix
+  id: 2361
+  time: '2025-10-27T05:54:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3627
+- author: kipdotnet
+  changes:
+  - message: Banana has been un-reverted.
+    type: Fix
+  id: 2362
+  time: '2025-10-27T06:05:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3628
+- author: Squamatic
+  changes:
+  - message: W-wait, you called the red phone for a CBURN team? Don't you know that
+      Central barely even funds those guys? That whole romerol thing is just a myth,
+      anyway...
+    type: Add
+  id: 2363
+  time: '2025-10-27T09:34:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3614
