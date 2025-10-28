@@ -4,8 +4,8 @@ meta:
   engineVersion: 266.0.0
   forkId: ""
   forkVersion: ""
-  time: 09/22/2025 12:06:49
-  entityCount: 1005
+  time: 09/23/2025 04:44:29
+  entityCount: 1006
 maps: []
 grids:
 - 1
@@ -4581,6 +4581,13 @@ entities:
     components:
     - type: Transform
       pos: 12.5,-10.5
+      parent: 1
+- proto: GravityGeneratorMini
+  entities:
+  - uid: 1006
+    components:
+    - type: Transform
+      pos: 12.5,-7.5
       parent: 1
 - proto: Grille
   entities:

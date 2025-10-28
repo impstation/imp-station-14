@@ -72,7 +72,6 @@
   - BarFlask
   - CardBoxBlack
   - CardBoxTarot
-  - Clipboard
   - ClothingHeadHatKippahBlueAndGold
   - ClothingHeadHatKippahSimple
   - ClothingHeadHatKippahWhiteAndBlue
@@ -889,7 +888,7 @@
   loadouts:
   - CargoTechnicianPDA
   - SeniorCargoTechnicianPDA # imp
-  - SeniorCourierPDA
+#  - SeniorCourierPDA imp, moved to courier
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
