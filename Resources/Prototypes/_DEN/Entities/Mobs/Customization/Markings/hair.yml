@@ -5,14 +5,6 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
 - type: marking
-  id: twintailsberly
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/haircepha.rsi
-      state: twintailsberly
-
-- type: marking
   id: amazon
   bodyPart: Hair
   markingCategory: Hair
@@ -21,28 +13,12 @@
       state: hair_amazon
 
 - type: marking
-  id: astolfo
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_astolfo
-
-- type: marking
   id: baum
   bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
       state: hair_baum
-
-- type: marking
-  id: beachwave
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_beachwave
 
 - type: marking
   id: bluntbangs
@@ -155,86 +131,6 @@
   sprites:
     - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
       state: hair_dreadlocks_long
-
-- type: marking
-  id: firestarter
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_firestarter
-
-- type: marking
-  id: fluffy_bangs
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_fluffy_bangs
-
-- type: marking
-  id: fluffy_short
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_fluffy_short
-
-- type: marking
-  id: fortuneteller
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_fortuneteller
-
-- type: marking
-  id: fortuneteller_alt
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_fortuneteller_alt
-
-- type: marking
-  id: froofylong
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_froofylong
-
-- type: marking
-  id: geisha
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_geisha
-
-- type: marking
-  id: gentle_bun
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_gentle_bun
-
-- type: marking
-  id: gentle_duo_bun
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_gentle_duo_bun
-
-- type: marking
-  id: glammetal
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_glammetal
 
 - type: marking
   id: gloomy_long
@@ -357,14 +253,6 @@
       state: hair_long4
 
 - type: marking
-  id: longdtails
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_longdtails
-
-- type: marking
   id: longovereye_alt
   bodyPart: Hair
   markingCategory: Hair
@@ -373,36 +261,12 @@
       state: hair_longovereye_alt
 
 - type: marking
-  id: longsidepartstraight
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_longsidepartstraight
-
-- type: marking
   id: loose_slicked
   bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
       state: hair_loose_slicked
-
-- type: marking
-  id: mcsqueeb
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_mcsqueeb
-
-- type: marking
-  id: mediumbraid
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_mediumbraid
 
 - type: marking
   id: mermaid
@@ -420,21 +284,13 @@
     - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
       state: hair_mia
 
-- type: marking
-  id: newyou
+- type: marking #imp edit, they missed this one????
+  id: mohawkshort
   bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_newyou
-
-- type: marking
-  id: phoenix
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_phoenix
+      state: hair_mohawkshort
 
 - type: marking
   id: phoenix_half_shaven
@@ -459,14 +315,6 @@
   sprites:
     - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
       state: hair_punktails
-
-- type: marking
-  id: quadcurls
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_quadcurls
 
 - type: marking
   id: ring_tails
@@ -525,28 +373,12 @@
       state: hair_sabitsuki
 
 - type: marking
-  id: scully
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_scully
-
-- type: marking
   id: short_tassles
   bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
       state: hair_short_tassles
-
-- type: marking
-  id: shy
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_shy
 
 - type: marking
   id: sleaze
@@ -571,22 +403,6 @@
   sprites:
     - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
       state: hair_spicy
-
-- type: marking
-  id: spikey
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_spikey
-
-- type: marking
-  id: spikey_long
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_spikey_long
 
 - type: marking
   id: stacy
@@ -669,22 +485,6 @@
       state: hair_violet
 
 - type: marking
-  id: violet_ponytail
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_violet_ponytail
-
-- type: marking
-  id: viper
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_viper
-
-- type: marking
   id: volajupompless
   bodyPart: Hair
   markingCategory: Hair
@@ -707,38 +507,6 @@
   sprites:
     - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
       state: hair_zoey
-
-- type: marking
-  id: halfshave_glamorous
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: halfshave_glamorous
-
-- type: marking
-  id: halfshave_long
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: halfshave_long
-
-- type: marking
-  id: halfshave_messy
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: halfshave_messy
-
-- type: marking
-  id: halfshave_messylong
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: halfshave_messylong
 
 - type: marking
   id: inari
