@@ -1,58 +1,4 @@
 ﻿Entries:
-- author: Kandiyaki
-  changes:
-  - message: Heretics' Void Blast can now be aimed!
-    type: Tweak
-  - message: Heretics' Void Blast now makes ice instead of snow.
-    type: Tweak
-  - message: Ascended Void heretics turn nearby walls to ice instead of snow.
-    type: Tweak
-  - message: Ascended Void heretics can now walk through windows, and are immune to
-      lasers!
-    type: Add
-  id: 1861
-  time: '2025-06-17T14:21:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2536
-- author: TuttlePants
-  changes:
-  - message: Bounty hunters don't target other bounty hunters
-    type: Tweak
-  - message: Bounty hunter targeting isn't fucked anymore
-    type: Fix
-  id: 1862
-  time: '2025-06-17T14:23:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2750
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: You can now purchase a box of .25 Caseless bullets for 2 telecrystals.
-    type: Add
-  - message: You can now print .25 Caseless magazines and bullets from emagged autolathes.
-    type: Add
-  id: 1863
-  time: '2025-06-17T21:11:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2801
-- author: DinnerCalzone
-  changes:
-  - message: Saltern now supports Pyschologist and Reporter.
-    type: Add
-  id: 1864
-  time: '2025-06-18T07:35:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2810
-- author: DinnerCalzone
-  changes:
-  - message: Boxer, Chaplain, Librarian, Reporter, and Zookeeper are once again part
-      of the Service department.
-    type: Tweak
-  id: 1865
-  time: '2025-06-18T07:35:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2805
-- author: meridiadottxt
-  changes:
-  - message: Submarine now in rotation!
-    type: Add
-  id: 1866
-  time: '2025-06-18T07:45:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2807
 - author: DinnerCalzone
   changes:
   - message: The janitor's closet is now secured by janitor access and the Shining
@@ -4201,3 +4147,56 @@
   id: 2360
   time: '2025-10-26T08:09:44.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3623
+- author: mqole
+  changes:
+  - message: Banished ghost hair.
+    type: Fix
+  id: 2361
+  time: '2025-10-27T05:54:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3627
+- author: kipdotnet
+  changes:
+  - message: Banana has been un-reverted.
+    type: Fix
+  id: 2362
+  time: '2025-10-27T06:05:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3628
+- author: Squamatic
+  changes:
+  - message: W-wait, you called the red phone for a CBURN team? Don't you know that
+      Central barely even funds those guys? That whole romerol thing is just a myth,
+      anyway...
+    type: Add
+  id: 2363
+  time: '2025-10-27T09:34:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3614
+- author: EpicToast
+  changes:
+  - message: Disabilities and quirks have been combined into one section.
+    type: Tweak
+  - message: Traits can now cost or grant points in your trait budget.
+    type: Tweak
+  - message: Some traits are no longer compatible with each other.
+    type: Tweak
+  id: 2364
+  time: '2025-10-28T02:22:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3538
+- author: hivehum
+  changes:
+  - message: Added two new steal objectives.
+    type: Add
+  - message: Thieves get gimmick objectives!
+    type: Add
+  - message: Made an enormous rebalance to how steal targets are handled. Hopefully
+      CMOs want to kill everyone and themselves a little less frequently.
+    type: Tweak
+  id: 2365
+  time: '2025-10-28T07:49:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3532
+- author: msTheowo
+  changes:
+  - message: Donut boxes have received a makeover.
+    type: Tweak
+  id: 2366
+  time: '2025-10-28T07:50:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3630
