@@ -2,14 +2,24 @@
   id: UltraVision
   name: trait-ultravision-name
   description: trait-ultravision-desc
-  category: Disabilities
+  category: Traits # imp
   components:
     - type: UltraVision
+  # imp addition starts
+  subcategories:
+    - Visual
+  cost: -1
+  # imp addition ends
 
 - type: trait
   id: DogVision
   name: trait-deuteranopia-name
   description: trait-deuteranopia-desc
-  category: Disabilities
+  category: Traits # imp
   components:
     - type: DogVision
+  # imp addition starts
+  subcategories:
+    - Visual
+  cost: -1
+  # imp addition ends

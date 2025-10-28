@@ -38,6 +38,7 @@ using Direction = Robust.Shared.Maths.Direction;
 using Content.Client._CD.Records.UI;
 using Content.Shared._CD.Records;
 // End CD - Character Records
+using Content.Shared._Impstation.Traits; // imp
 
 namespace Content.Client.Lobby.UI
 {
@@ -513,7 +514,9 @@ namespace Content.Client.Lobby.UI
         {
             TraitsList.RemoveAllChildren();
 
-            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderBy(t => Loc.GetString(t.Name)).ToList();
+            // imp edit -- sort trait points by their cost, then their name
+            var traits = _prototypeManager.EnumeratePrototypes<TraitPrototype>().OrderByDescending(t => t.Cost).ThenBy(t => Loc.GetString(t.Name)).ToList();
+            // imp edit end
             TabContainer.SetTabTitle(3, Loc.GetString("humanoid-profile-editor-traits-tab"));
 
             if (traits.Count < 1)
@@ -572,6 +575,7 @@ namespace Content.Client.Lobby.UI
                 }
 
                 List<TraitPreferenceSelector?> selectors = new();
+                List<ProtoId<TraitSubcategoryPrototype>> usedSubcategories = []; // imp addition
                 var selectionCount = 0;
 
                 foreach (var traitProto in categoryTraits)
@@ -581,7 +585,22 @@ namespace Content.Client.Lobby.UI
 
                     selector.Preference = Profile?.TraitPreferences.Contains(trait.ID) == true;
                     if (selector.Preference)
+                    // begin Imp edits - ignore any traits that conflict with subcategories of already selected traits
+                    {
                         selectionCount += trait.Cost;
+                        foreach (var subcategory in trait.Subcategories)
+                        {
+                            if (!usedSubcategories.Contains(subcategory))
+                            {
+                                usedSubcategories.Add(subcategory);
+                            }
+                            else
+                            {
+                                Profile = Profile?.WithoutTraitPreference(trait.ID, _prototypeManager);
+                            }
+                        }
+                    }
+                    // end imp edits
 
                     selector.PreferenceChanged += preference =>
                     {
@@ -605,10 +624,29 @@ namespace Content.Client.Lobby.UI
                 {
                     TraitsList.AddChild(new Label
                     {
-                        Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", selectionCount) ,("max", category.MaxTraitPoints)),
+                        Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", category.MaxTraitPoints - selectionCount)), // imp edit -- count points backwards
                         FontColorOverride = Color.Gray
                     });
                 }
+
+                // imp addition start:
+                // instead of appending everything to traitslist, we make a new boxcontainer and put the selectors in there.
+                var traitColumn1 = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Vertical,
+                    Margin = new Thickness(10, 0, 10, 0)
+                };
+                var traitColumn2 = new BoxContainer
+                {
+                    Orientation = LayoutOrientation.Vertical
+                };
+
+                var traitBoxContainer = new BoxContainer { };
+                traitBoxContainer.AddChild(traitColumn1);
+                traitBoxContainer.AddChild(traitColumn2);
+
+                var i = 0;
+                // imp end
 
                 foreach (var selector in selectors)
                 {
@@ -621,8 +659,27 @@ namespace Content.Client.Lobby.UI
                         selector.Checkbox.Label.FontColorOverride = Color.Red;
                     }
 
-                    TraitsList.AddChild(selector);
+                    // begin Imp additions -- disallow players from selecting multiple traits in the same subcategory
+                    if (!selector.Preference && selector.Subcategories.Overlaps(usedSubcategories))
+                    {
+                        selector.Checkbox.Label.FontColorOverride = Color.Red;
+                    }
+                    // end Imp additions
+
+                    // imp start: ui layout
+                    if (i == 0)
+                    {
+                        traitColumn1.AddChild(selector);
+                        i += 1;
+                    }
+                    else
+                    {
+                        traitColumn2.AddChild(selector);
+                        i -= 1;
+                    }
                 }
+                TraitsList.AddChild(traitBoxContainer);
+                // imp end
             }
         }
 
