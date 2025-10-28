@@ -236,7 +236,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [1, 2, 3]
     - id: XenoArtifactPortal
-      weight: 100000.0 # imp edit
+      weight: 10.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [2, 3, 4]
