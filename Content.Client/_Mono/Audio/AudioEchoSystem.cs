@@ -3,29 +3,29 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
+using Content.Client.Light.EntitySystems;
+using Content.Shared.Light.Components;
+using Content.Shared.Maps;
+using Content.Shared.Physics;
+using Content.Shared._Mono.CCVar;
+using Robust.Client.GameObjects;
+using Robust.Shared.Audio.Components;
+using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Map;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.CompilerServices;
-using Content.Client.Light.EntitySystems;
-using Content.Shared._Mono.CCVar;
-using Content.Shared.Light.Components;
-using Content.Shared.Maps;
-using Content.Shared.Physics;
-using Robust.Client.GameObjects;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Components;
-using Robust.Shared.Configuration;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 
-namespace Content.Goobstation.Client.Audio;
+namespace Content.Client._Mono.Audio;
 
 /// <summary>
 ///     Handles making sounds 'echo' in large, open spaces. Uses simplified raytracing.
@@ -58,6 +58,7 @@ public sealed class AreaEchoSystem : EntitySystem
     /// </remarks>
     private static readonly List<(float, ProtoId<AudioPresetPrototype>)> DistancePresets = new() { (12f, "Hallway"), (20f, "Auditorium"), (30f, "ConcertHall"), (40f, "Hangar") };
 
+
     /// <summary>
     ///     When is the next time we should check all audio entities and see if they are eligible to be updated.
     /// </summary>
@@ -66,11 +67,15 @@ public sealed class AreaEchoSystem : EntitySystem
     /// <summary>
     ///     Collision mask for echoes.
     /// </summary>
-    private int _echoLayer = (int) (CollisionGroup.Opaque | CollisionGroup.Impassable); // this could be better but whatever
+    private readonly int _echoLayer = (int)(CollisionGroup.Opaque | CollisionGroup.Impassable); // this could be better but whatever
 
     private int _echoMaxReflections;
     private bool _echoEnabled = true;
-    private TimeSpan _calculationInterval = TimeSpan.FromSeconds(15); // how often we should check existing audio re-apply or remove echo from them when necessary
+
+    /// <summary>
+    /// How often we should check existing audio re-apply or remove echo from them when necessary.
+    /// </summary>
+    private TimeSpan _calculationInterval = TimeSpan.FromSeconds(15);
     private float _calculationalFidelity;
 
     private EntityQuery<MapGridComponent> _gridQuery;
@@ -404,8 +409,8 @@ public sealed class AreaEchoSystem : EntitySystem
         for (; incrementedRayMagnitude < rayMagnitude;)
         {
             var nextCheckedTilePosition = new Vector2i(
-                (int) MathF.Floor(nextCheckedPosition.X / gridTileSize),
-                (int) MathF.Floor(nextCheckedPosition.Y / gridTileSize)
+                (int)MathF.Floor(nextCheckedPosition.X / gridTileSize),
+                (int)MathF.Floor(nextCheckedPosition.Y / gridTileSize)
             );
 
             if (checkRoof)
