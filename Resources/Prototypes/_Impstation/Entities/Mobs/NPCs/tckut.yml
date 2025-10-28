@@ -1,5 +1,5 @@
 - type: entity #behold my abombination, mortal
-  parent: [BaseMob, StripableInventoryBase]
+  parent: [BaseMob, StripableInventoryBase, ShowSecurityIcons, ShowMedicalIcons]
   id: MobTckut
   name: tck'ut
   description: It wishes it was a security borg..
@@ -217,6 +217,8 @@
     - DoorBumpOpener
     - FootstepSound
     - SiliconEmotes
+    - HudMedical
+    - HudSecurity
   - type: Emoting
   - type: GuideHelp
     guides:
