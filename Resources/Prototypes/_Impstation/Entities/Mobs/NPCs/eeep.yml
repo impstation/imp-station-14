@@ -242,10 +242,10 @@
     - Dead # if engie wants to use a dead eeep as a power source they have to deal with it coming back :)
     damage:
       groups:
-        Airloss: -0.5
-        Brute: -0.5
-        Burn: -0.5
-        Toxin: -0.5
+        Airloss: -1
+        Brute: -1
+        Burn: -1
+        Toxin: -1
   - type: LightningArcShooter
     arcDepth: 2
     maxLightningArc: 3
