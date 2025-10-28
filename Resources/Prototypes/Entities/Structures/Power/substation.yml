@@ -25,8 +25,8 @@
     supplyRampTolerance: 5000
     supplyRampRate: 1000
   - type: StationInfiniteBatteryTarget
-  - type: ActivatableUIRequiresAccess
-  - type: AccessReader
+  - type: ActivatableUIRequiresAccess # imp
+  - type: AccessReader # imp
     access: [["Engineering"]]
 
   # Interface
