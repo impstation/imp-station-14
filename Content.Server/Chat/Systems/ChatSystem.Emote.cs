@@ -1,5 +1,4 @@
 using System.Collections.Frozen;
-using System.Collections.Immutable; //DeltaV
 using Content.Server.Popups;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Emoting;
@@ -7,6 +6,7 @@ using Content.Shared.Speech;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using System.Collections.Immutable; //DeltaV
 
 namespace Content.Server.Chat.Systems;
 

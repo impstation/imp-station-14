@@ -8,7 +8,7 @@
       time: 10h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 15 # imp, was 5h
+      time: 15h # imp, was 5h
       inverted: true # stop playing intern if you're good at security!
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"

@@ -14,11 +14,10 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.RatKing;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
-using Robust.Shared.Containers;
-using Content.Shared.Damage;
-using Content.Shared.SubFloor;
-using Content.Shared.Body;
-using Content.Shared.Body.Components;
+using Content.Shared.Body.Components; // imp
+using Content.Shared.Damage; // imp
+using Content.Shared.SubFloor; // imp
+using Robust.Shared.Containers; // imp
 
 namespace Content.Server.RatKing
 {
@@ -31,9 +30,8 @@ namespace Content.Server.RatKing
         [Dependency] private readonly HungerSystem _hunger = default!;
         [Dependency] private readonly NPCSystem _npc = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
-        [Dependency] private readonly EntityLookupSystem _lookup = default!;
-
-        [Dependency] private readonly SharedContainerSystem _container = default!;
+        [Dependency] private readonly EntityLookupSystem _lookup = default!; // imp
+        [Dependency] private readonly SharedContainerSystem _container = default!; // imp
 
         public override void Initialize()
         {
@@ -42,7 +40,7 @@ namespace Content.Server.RatKing
             SubscribeLocalEvent<RatKingComponent, RatKingRaiseArmyActionEvent>(OnRaiseArmy);
             SubscribeLocalEvent<RatKingComponent, RatKingDomainActionEvent>(OnDomain);
             SubscribeLocalEvent<RatKingComponent, AfterPointedAtEvent>(OnPointedAt);
-            SubscribeLocalEvent<RatKingComponent, AfterPointedArrowEvent>(OnPointedNearby);
+            SubscribeLocalEvent<RatKingComponent, AfterPointedArrowEvent>(OnPointedNearby); // imp
         }
 
         /// <summary>

@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobBotanist
-      time: 108000 #30 hrs, ~20 rounds #imp
+      time: 30h
 
 - type: loadout
   id: BotanistLeatherGloves

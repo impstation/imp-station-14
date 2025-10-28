@@ -168,7 +168,7 @@ public sealed partial class XenoArtifactComponent : Component
     public EntProtoId<InstantActionComponent> SelfActivateAction = "ActionArtifactActivate";
 
     /// <summary>
-    /// Imp edit. The sound that plays when an artifact finishes unlocking successfully (with node unlocked).
+    ///     Imp edit. The sound that plays when an artifact finishes unlocking successfully (with node unlocked).
     /// </summary>
     [DataField]
     public SoundSpecifier UnlockActivationSuccessfulSound = new SoundCollectionSpecifier("ArtifactUnlockingActivationSuccess")
@@ -181,7 +181,7 @@ public sealed partial class XenoArtifactComponent : Component
     };
 
     /// <summary>
-    /// Imp edit. The sound that plays when artifact finishes unlocking non-successfully.
+    ///     Imp edit. The sound that plays when artifact finishes unlocking non-successfully.
     /// </summary>
     [DataField]
     public SoundSpecifier? UnlockActivationFailedSound = new SoundCollectionSpecifier("ArtifactUnlockActivationFailure")
@@ -193,39 +193,40 @@ public sealed partial class XenoArtifactComponent : Component
     };
 
     /// <summary>
-    /// Imp edit. Whether nodes require their predecessors' triggers.
+    ///     Imp edit. Whether nodes require their predecessors' triggers.
     /// </summary>
     [DataField, ViewVariables]
     public bool RequirePredecessorTriggers = true;
 
     /// <summary>
-    /// Imp edit. Whether procgen forces there to be at least two segments.
+    ///     Imp edit. Whether procgen forces there to be at least two segments.
     /// </summary>
     [DataField, ViewVariables]
     public bool EnforceMultipleSegments = true;
 
     /// <summary>
-    /// Imp edit. Whether interacting with an artifact will activate its effect.
+    ///     Imp edit. Whether interacting with an artifact will activate its effect.
     /// </summary>
     [DataField, ViewVariables]
     public bool ActivateOnInteraction = true;
 
     /// <summary>
-    /// Imp edit. Makes sure the first layer will only have one node.
+    ///     Imp edit. Makes sure the first layer will only have one node.
     /// </summary>
     [DataField, ViewVariables]
     public bool OneStartNode;
 
     /// <summary>
-    /// Imp edit. The current node the artifact is on, used with natural artifacts. The first node generated is automatically made the current node.
+    ///     Imp edit. The current node the artifact is on, used with natural artifacts.
+    ///     The first node generated is automatically made the current node.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public EntityUid? CurrentNode { get; set; }
 
     /// <summary>
-    /// Imp edit. Only the current node is considered for triggers. In this case, the current node does its effect and
-    /// a random directly connected node is made the current node, affected by bias. The first generated node is made
-    /// the first current node, and the current node is the only active node.
+    ///     Imp edit. Only the current node is considered for triggers. In this case, the current node does its effect and
+    ///     a random directly connected node is made the current node, affected by bias. The first generated node is made
+    ///     the first current node, and the current node is the only active node.
     /// </summary>
     [DataField, ViewVariables]
     public bool Natural;
