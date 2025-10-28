@@ -34,6 +34,12 @@ public sealed partial class XenoArtifactNodeComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? Attached;
 
+    /// <summary>
+    /// #IMP (For natural artifacts only) If the effect should be applied at node entry and removed at node exit
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool EffectActiveOnlyWhileNodeIsCurrent = false;
+
     #region Durability
     /// <summary>
     /// Marker, is durability of node degraded or not.

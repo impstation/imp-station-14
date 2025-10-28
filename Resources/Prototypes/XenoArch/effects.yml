@@ -236,7 +236,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [1, 2, 3]
     - id: XenoArtifactPortal
-      weight: 10.0 # imp edit
+      weight: 100000.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [2, 3, 4]
@@ -958,6 +958,13 @@
   parent: BaseOneTimeXenoArtifactEffect
   description: Energy release #IMP desc changed
   components:
+  - type: XenoArtifactNode #IMP
+    maxDurability: 1
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 0
+    maxNodeUnlocks: 1 #IMP
+    effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -989,6 +996,13 @@
   parent: BaseOneTimeXenoArtifactEffect
   description: Create small gravity well
   components:
+  - type: XenoArtifactNode #IMP
+    maxDurability: 1
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 0
+    maxNodeUnlocks: 1 #IMP
+    effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1003,6 +1017,13 @@
   parent: BaseOneTimeXenoArtifactEffect
   description: Create small gravity well
   components:
+  - type: XenoArtifactNode #IMP
+    maxDurability: 1
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 0
+    maxNodeUnlocks: 1 #IMP
+    effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1017,6 +1038,13 @@
   parent: BaseOneTimeXenoArtifactEffect
   description: Create light interference
   components:
+  - type: XenoArtifactNode #IMP
+    maxDurability: 1
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 0
+    maxNodeUnlocks: 1 #IMP
+    effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     components:
     - type: Stealth

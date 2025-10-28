@@ -455,6 +455,14 @@ public abstract partial class SharedXenoArtifactSystem
     public void SetCurrentNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent> node)
     {
         artifact.Comp.CurrentNode = node;
+
+        // Natural artifacts get to activate the effect when entering a node and deactivate it when exiting, if proper EffectActiveOnlyWhileNodeIsCurrent = true on nodecomp.
+        if (artifact.Comp.Natural && node.Comp.EffectActiveOnlyWhileNodeIsCurrent)
+        {
+            var ev = new XenoArtifactNodeActivatedEvent(artifact, node, null, null, Transform(artifact).Coordinates, false);
+            RaiseLocalEvent(node, ref ev);
+        }
+
         RebuildCachedActiveNodes((artifact, artifact));
         Dirty(node);
     }
