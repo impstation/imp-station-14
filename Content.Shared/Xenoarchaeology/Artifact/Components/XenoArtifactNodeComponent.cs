@@ -36,6 +36,7 @@ public sealed partial class XenoArtifactNodeComponent : Component
 
     /// <summary>
     /// #IMP (For natural artifacts only) If the effect should be applied at node entry and removed at node exit
+    /// Incompatible with MaxNodeUnlocks.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool EffectActiveOnlyWhileNodeIsCurrent = false;
