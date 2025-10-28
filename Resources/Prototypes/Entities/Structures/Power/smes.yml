@@ -36,8 +36,8 @@
       startingCharge: 0
       maxCharge: 8000000
     - type: ExaminableBattery
-    - type: ActivatableUIRequiresAccess
-    - type: AccessReader
+    - type: ActivatableUIRequiresAccess # imp 
+    - type: AccessReader # imp
       access: [["Engineering"]]
     - type: NodeContainer
       examinable: true
