@@ -1135,4 +1135,96 @@
       right:
         - state: plushie_ungu-inhand-right
 
-
+- type: entity
+  parent: BaseFigurine # actually a plushie
+  id: PlushieEeepy
+  name: eeepy plush
+  description: Made from real Eeep... wool? Slime...??
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    layers:
+    - state: eeepy
+    - state: eeepy-glow
+      shader: unshaded
+    - type: Clothing
+      quickEquip: false
+      sprite: _Impstation/Objects/Fun/toys.rsi
+      equippedPrefix: eeepy
+      slots:
+      - HEAD
+      clothingVisuals:
+        head:
+          layers:
+          - state: eeepy-equipped-HELMET
+          - state: eeepy-equipped-HELMET-glow
+            shader: unshaded
+  - type: Item
+    size: Normal
+  - type: SpeakOnTrigger
+    pack: FigurinesEeep
+  - type: Tag
+    tags:
+    - ClothMade
+    - Plushie
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/pop.ogg
+    embedOnThrow: True
+  - type: ThrowingAngle
+    angle: 0
+  - type: LandAtCursor
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/PowerSink/charge_fire.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/pop_high.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+     path: /Audio/Effects/tesla_consume.ogg
+    damage:
+      types:
+        Shock: 2
+    hidden: true
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 100
+  - type: StaticPrice
+    price: 500
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+     path: /Audio/_Impstation/Effects/Emotes/wetblink.ogg
+    delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
+        - ReagentId: WeldingCoils
+          Quantity: 5
+  - type: ContainerContainer
+    containers:
+      stash: !type:ContainerSlot { }
+  - type: Speech
+    speechVerb: Slime
+    speechSounds: Pop
+  - type: SecretStash
+    secretStashName: secret-stash-plushie
+    blacklist:
+      components:
+      - SecretStash
+      - NukeDisk
+      tags:
+      - QuantumSpinInverter
+      - FakeNukeDisk
+  - type: ToolOpenable
+    openToolQualityNeeded: Slicing
+    closeToolQualityNeeded: Slicing
+    name: secret-stash-plushie
+  - type: StealTarget
+    stealGroup: Plushie
+  - type: DamageOtherOnHit
