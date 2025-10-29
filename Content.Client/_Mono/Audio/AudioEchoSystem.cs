@@ -56,8 +56,16 @@ public sealed class AreaEchoSystem : EntitySystem
     /// <remarks>
     ///     Keep in ascending order.
     /// </remarks>
-    private static readonly List<(float, ProtoId<AudioPresetPrototype>)> DistancePresets = new() { (12f, "Hallway"), (20f, "Auditorium"), (30f, "ConcertHall"), (40f, "Hangar") };
+    private static readonly AudioDistanceThreshold[] DistancePresets =
+    [
+        new(15f, "Hallway"),
+        new(20f, "Auditorium"),
+        new(40f, "ConcertHall"),
+        new(50f, "Hangar")
+    ];
 
+    private readonly float _minimumMagnitude = DistancePresets[0].Distance;
+    private readonly float _maximumMagnitude = DistancePresets[^1].Distance;
 
     /// <summary>
     ///     When is the next time we should check all audio entities and see if they are eligible to be updated.
@@ -107,12 +115,6 @@ public sealed class AreaEchoSystem : EntitySystem
 
         _nextExistingUpdate = _gameTiming.CurTime + _calculationInterval;
 
-        var minimumMagnitude = DistancePresets.TryFirstOrNull(out var first) ? first.Value.Item1 : 0f;
-        DebugTools.Assert(minimumMagnitude > 0f, "First distance preset was less than or equal to 0!");
-        if (minimumMagnitude <= 0f)
-            return;
-
-        var maximumMagnitude = DistancePresets.Last().Item1;
         var audioEnumerator = EntityQueryEnumerator<AudioComponent>();
 
         while (audioEnumerator.MoveNext(out var uid, out var audioComponent))
@@ -121,8 +123,21 @@ public sealed class AreaEchoSystem : EntitySystem
                 !audioComponent.Playing)
                 continue;
 
-            ProcessAudioEntity((uid, audioComponent), Transform(uid), minimumMagnitude, maximumMagnitude);
+            ProcessAudioEntity((uid, audioComponent), Transform(uid), _minimumMagnitude, _maximumMagnitude);
         }
+    }
+
+    [Pure]
+    private static ProtoId<AudioPresetPrototype> GetBestPreset(float magnitude)
+    {
+        foreach (var preset in DistancePresets)
+        {
+            if (preset.Distance >= magnitude)
+                return preset.Preset;
+        }
+
+        // fallback to largest preset
+        return DistancePresets[^1].Preset;
     }
 
     /// <summary>
@@ -435,18 +450,9 @@ public sealed class AreaEchoSystem : EntitySystem
 
         if (echoMagnitude > minimumMagnitude)
         {
-            ProtoId<AudioPresetPrototype>? bestPreset = null;
-            for (var i = DistancePresets.Count - 1; i >= 0; i--)
-            {
-                var preset = DistancePresets[i];
-                if (preset.Item1 < echoMagnitude)
-                    continue;
+            var bestPreset = GetBestPreset(echoMagnitude);
 
-                bestPreset = preset.Item2;
-            }
-
-            if (bestPreset != null)
-                _audioEffectSystem.TryAddEffect(entity, DistancePresets[0].Item2);
+            _audioEffectSystem.TryAddEffect(entity, bestPreset);
         }
         else
             _audioEffectSystem.TryRemoveEffect(entity);
@@ -461,13 +467,13 @@ public sealed class AreaEchoSystem : EntitySystem
         if (!CanAudioEcho(entity))
             return;
 
-        var minimumMagnitude = DistancePresets.TryFirstOrNull(out var first) ? first.Value.Item1 : 0f;
-        DebugTools.Assert(minimumMagnitude > 0f, "First distance preset was less than or equal to 0!");
-        if (minimumMagnitude <= 0f)
-            return;
-
-        var maximumMagnitude = DistancePresets.Last().Item1;
-
-        ProcessAudioEntity(entity, args.Transform, minimumMagnitude, maximumMagnitude);
+        ProcessAudioEntity(entity, args.Transform, _minimumMagnitude, _maximumMagnitude);
     }
+
+}
+
+public sealed class AudioDistanceThreshold(float distance, ProtoId<AudioPresetPrototype> preset)
+{
+    public float Distance { get; init; } = distance;
+    public ProtoId<AudioPresetPrototype> Preset { get; init; } = preset;
 }
