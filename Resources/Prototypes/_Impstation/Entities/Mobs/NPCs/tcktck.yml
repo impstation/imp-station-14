@@ -276,7 +276,7 @@
     switchText: power-switchable-generator-switched
     cables:
     - voltage: LV
-      node: Apc
+      node: output_lv
     - voltage: MV
       node: output_mv
   - type: UseDelay
