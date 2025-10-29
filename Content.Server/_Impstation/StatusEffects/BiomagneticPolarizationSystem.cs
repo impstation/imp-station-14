@@ -55,9 +55,9 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
 
     private readonly List<EntityUid> _expiredEffectEnts = [];
 
-    private const ExplosionSlope = 1
-    private const CapExplosionSlope = 2
-    private const MaxTileIntensity = 100
+    private readonly float _explosionSlope = 1f;
+    private readonly float _capExplosionSlope = 2f;
+    private readonly float _maxTileIntensity = 100f;
 
     public override void Initialize()
     {
@@ -209,13 +209,13 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
                 var arcs = _random.Next(arcsMin, arcsMax);
                 _lightning.ShootRandomLightnings(statusOwner, comp.LightningRange, arcs, comp.LightningPrototype);
 
-                _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.CurrentStrength * comp.ExplosionStrengthMult, ExplosionSlope, MaxTileIntensity, statusOwner);
+                _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.CurrentStrength * comp.ExplosionStrengthMult, _explosionSlope, _maxTileIntensity, statusOwner);
             }
             else
             {
                 var arcs = _random.Next(arcsMin, arcsMax) * (int)comp.LightningCapMult;
                 _lightning.ShootRandomLightnings(statusOwner, comp.LightningRange * comp.LightningCapMult, arcs, comp.LightningPrototype);
-                _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.StrengthCap * comp.CapExplosionMult, CapExplosionSlope, MaxTileIntensity, statusOwner);
+                _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.StrengthCap * comp.CapExplosionMult, _capExplosionSlope, _maxTileIntensity, statusOwner);
 
                 HandleCapCollisionEffects((ent, comp));
 
