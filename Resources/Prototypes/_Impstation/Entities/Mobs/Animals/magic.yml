@@ -1,0 +1,185 @@
+- type: entity
+  name: Wizard's apprentice's apprentice
+  parent: MobMonkey
+  id: MobMonkeyMagic
+  description: Filled with magical potential, probably.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-monkey-name
+    description: ghost-role-information-monkey-description
+    rules: ghost-role-information-familiar-rules
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 2
+    whitelist:
+      components:
+      - HumanoidAppearance
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Wizard
+  - type: HTN
+    rootTask:
+      task: MagicMonkeyCompound # RAGE RAGE RAGE
+  - type: BallisticAmmoProvider
+    proto: BulletLighterIncendiary
+    capacity: 500
+  - type: Gun
+    clumsyProof: true
+    fireRate: 0.2
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - VimPilot
+    - AnomalyHost
+  - type: Loadout
+    prototypes: [ MobMagicMonkeyGear ]
+
+- type: entity
+  name: wizspore
+  parent: MobSorb
+  id: MobWizSpore
+  description: Fungus but a bit more magical.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Animals/Magic/miniwiz.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: miniwiz
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: miniwiz
+      Dead:
+        Base: wizded
+  - type: BallisticAmmoProvider
+    proto: BulletLighterIncendiary
+    capacity: 500
+  - type: Gun
+    clumsyProof: true
+    fireRate: 0.4
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: CombatMode
+  - type: HTN
+    rootTask:
+      task: MagicMonkeyCompound
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Wizard
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 4
+    whitelist:
+      components:
+      - HumanoidAppearance
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Dead
+    damageCap: 50
+    damage:
+      types:
+        Blunt: 0.11
+
+- type: entity
+  name: Big guy who needs a name
+  parent: [MobElementalBase, MobCombat]
+  id: MobRockMagic
+  description: Is it... a statue?
+  components:
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-rock-name
+    description: ghost-role-information-rock-desc
+    raffle:
+      settings: default
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+  - type: Sprite
+    sprite: _Impstation/Mobs/Animals/Magic/rock.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: rock
+    tags:
+      - CannotSuicide
+      - DoorBumpOpener
+      - FootstepSound
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      400: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/break_stone.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArtifactFragment:
+            min: 3
+            max: 5
+  - type: MeleeWeapon
+    attackRate: 0.6
+    hidden: true
+    soundHit:
+      path: /Audio/Effects/break_stone.ogg
+      params:
+        variation: 0.125
+    damage:
+      types:
+        Blunt: 40
+        Structural: 40
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepThud
+  - type: NpcFactionMember
+    factions:
+      - Wizard
+  - type: Speech
+    speechVerb: LargeMob
+    speechSounds: Vulpkanin
+  - type: Vocal
+    sounds:
+      Unsexed: VRexEmotes
+  - type: ReplacementAccent
+    accent: vrex
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes

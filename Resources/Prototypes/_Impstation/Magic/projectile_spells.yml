@@ -54,7 +54,7 @@
   components:
   - type: Magic
   - type: Action
-    useDelay: 30
+    useDelay: 5
     itemIconStyle: BigAction
     raiseOnUser: true
     icon:
@@ -65,6 +65,6 @@
     checkCanAccess: false
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
-      prototype: ProjectileIciclepread
+      prototype: ProjectileIcicle
   - type: SpeakOnAction
     sentence: action-speech-spell-frost
