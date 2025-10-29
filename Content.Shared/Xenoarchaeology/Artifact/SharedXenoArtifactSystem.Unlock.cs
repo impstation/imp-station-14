@@ -45,12 +45,17 @@ public abstract partial class SharedXenoArtifactSystem
         if (!Resolve(ent, ref ent.Comp))
             return false;
 
-        var artifact = GetEntity(ent.Comp.Attached);
+        var artifact = ent.Comp.Attached;
         if (!TryComp<XenoArtifactComponent>(artifact, out var artiComp))
             return false;
 
         if (artiComp.Suppressed)
             return false;
+
+        // imp edit start, only the current node can be unlocked (activated)
+        if (artiComp.Natural && artiComp.CurrentNode != null)
+            return artiComp.CurrentNode.Value.Equals(ent!);
+        // imp edit end
 
         if (!HasUnlockedPredecessor((artifact.Value, artiComp), ent)
             // unlocked final nodes should not listen for unlocking
@@ -81,7 +86,12 @@ public abstract partial class SharedXenoArtifactSystem
             // as an experiment - unlocking node doesn't activate it, activation is left for player to decide.
             // var activated = ActivateNode((ent, artifactComponent), node.Value, null, null, Transform(ent).Coordinates, false);
             // if (activated)
-            soundEffect = artifactComponent.UnlockActivationSuccessfulSound; //imp edit, move activation sounds, allow artifacts to customize sounds
+            soundEffect = artifactComponent.UnlockActivationSuccessfulSound; // imp edit, move activation sounds, allow artifacts to customize sounds
+
+            // imp edit start
+            if (artifactComponent.Natural && _net.IsServer)
+                GetNewCurrentNode((ent.Owner, ent.Comp2));
+            // imp edit end
         }
         else
         {
@@ -91,7 +101,12 @@ public abstract partial class SharedXenoArtifactSystem
 
         if (_net.IsServer)
         {
-            _popup.PopupEntity(Loc.GetString(unlockAttemptResultMsg), ent);
+            // imp edit start
+            //_popup.PopupEntity(Loc.GetString(unlockAttemptResultMsg), ent);
+            if (!artifactComponent.Natural)
+                _popup.PopupEntity(Loc.GetString(unlockAttemptResultMsg), ent);
+            // imp edit end
+
             _audio.PlayPvs(soundEffect, ent.Owner);
         }
 
@@ -122,11 +137,42 @@ public abstract partial class SharedXenoArtifactSystem
         {
             var artifactComponent = ent.Comp2;
             var curNode = GetNode((ent, artifactComponent), nodeIndex);
-            if (!curNode.Comp.Locked || !CanUnlockNode((curNode, curNode)))
+
+            // imp edit start
+            if (artifactComponent.Natural)
+            {
+                if (artifactComponent.CurrentNode != null && !artifactComponent.CurrentNode.Value.Equals(curNode))
+                    continue;
+            }
+
+            //if (!curNode.Comp.Locked || !CanUnlockNode((curNode, curNode)))
+            //    continue;
+
+            if (!CanUnlockNode((curNode, curNode)))
                 continue;
 
-            var requiredIndices = GetPredecessorNodes((ent, artifactComponent), nodeIndex);
+            if (!artifactComponent.Natural)
+            {
+                if (!curNode.Comp.Locked)
+                    continue;
+            }
+
+            // var requiredIndices = GetPredecessorNodes((ent, artifactComponent), nodeIndex);
+            // requiredIndices.Add(nodeIndex);
+
+            var requiredIndices = new HashSet<int>();
+
+            if (artifactComponent.RequirePredecessorTriggers)
+                requiredIndices = GetPredecessorNodes((ent, artifactComponent), nodeIndex);
+
             requiredIndices.Add(nodeIndex);
+
+            if (artifactComponent.Natural)
+            {
+                node = curNode;
+                return true; // exit early
+            }
+            // imp edit end
 
             if (!ent.Comp1.ArtifexiumApplied)
             {

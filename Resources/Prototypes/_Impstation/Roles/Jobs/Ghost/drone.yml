@@ -1,0 +1,15 @@
+- type: job
+  id: Drone
+  name: ghost-role-information-drone-name
+  description: ghost-role-information-drone-description
+  playTimeTracker: JobDrone
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 10h
+    - !type:DepartmentTimeRequirement
+      department: Silicon
+      time: 5h
+  setPreference: false
+  canBeAntag: false
+  applyTraits: false

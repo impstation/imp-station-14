@@ -11,7 +11,7 @@
   - type: Item
     size: Small
     storedRotation: -90
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
@@ -143,6 +143,7 @@
     - SnoutCover # imp
     - HeadTop
     - HeadSide
+    - FacialHair
 
 - type: entity
   abstract: true
@@ -191,7 +192,7 @@
     - Snout
     - HeadTop
     - HeadSide
-    - FacialHair #imp
+    - FacialHair
     - SnoutCover # imp
 
 - type: entity

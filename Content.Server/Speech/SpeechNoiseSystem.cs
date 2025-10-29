@@ -7,7 +7,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
-using Content.Shared.Chat;
+using Content.Shared.Chat; // imp
 
 namespace Content.Server.Speech
 {
@@ -35,12 +35,12 @@ namespace Content.Server.Speech
             RaiseLocalEvent(ent, voiceEv);
             protoId = voiceEv.SpeechSounds ?? protoId;
 
-            if (protoId == null)
+            if (protoId == null) // imp edit end
                 return null;
 
             // Play speech sound
             SoundSpecifier? contextSound;
-            var prototype = _protoManager.Index<SpeechSoundsPrototype>(protoId);
+            var prototype = _protoManager.Index<SpeechSoundsPrototype>(protoId); // imp protoid
 
             // Different sounds for ask/exclaim based on last character
             contextSound = message[^1] switch

@@ -36,10 +36,12 @@
     quickEquip: false
     sprite: _Impstation/Mobs/Aliens/pleebnar.rsi
     clothingVisuals:
-       head:
-        - map: ["enum.DamageStateVisualLayers.Base"]
-          state: 0-equipped-HELMET
-          offset: "0,0.5"
+      head:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: 0-equipped-HELMET
+        offset: "0,0.5"
+      head-ungu:
+      - state: 0-equipped-HELMET-ungu
     equippedPrefix: 0
     slots:
     - HEAD

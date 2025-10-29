@@ -2,11 +2,11 @@ using Content.Shared.Atmos;
 using Content.Shared.Camera;
 using Content.Shared.Cuffs;
 using Content.Shared.Hands.Components;
-using Content.Shared.Heretic;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Wieldable;
+using Content.Shared.Heretic; // imp
 
 namespace Content.Shared.Hands.EntitySystems;
 
