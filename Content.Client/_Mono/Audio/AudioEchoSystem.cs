@@ -58,9 +58,9 @@ public sealed class AreaEchoSystem : EntitySystem
     /// </remarks>
     private static readonly AudioDistanceThreshold[] DistancePresets =
     [
-        new(15f, "Hallway"),
-        new(20f, "Auditorium"),
-        new(40f, "ConcertHall"),
+        new(26f, "Hallway"),
+        new(30f, "Auditorium"),
+        new(45f, "ConcertHall"),
         new(50f, "Hangar")
     ];
 
@@ -127,8 +127,11 @@ public sealed class AreaEchoSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    ///     Returns the appropiate DistantPreset, or the largest if somehow it can't be found.
+    /// </summary>
     [Pure]
-    private static ProtoId<AudioPresetPrototype> GetBestPreset(float magnitude)
+    public static ProtoId<AudioPresetPrototype> GetBestPreset(float magnitude)
     {
         foreach (var preset in DistancePresets)
         {
@@ -253,9 +256,21 @@ public sealed class AreaEchoSystem : EntitySystem
         var originTileIndices = tileRef.GridIndices;
         var worldPosition = _transformSystem.GetWorldPosition(transformComponent);
 
+        var directionCount = _calculatedDirections.Length;
+        var dirIndex = -1;
+
+        // we're going to weigh distances before ray reflection happen higher than reflections afterwards
+        // otherwise even small rooms will sound like a cave
+        var distancesBeforeFirstBounce = new float[directionCount];
+        var distancesAfterBounces = new float[directionCount];
+
         // At this point, we are ready for war against the client's pc.
         foreach (var direction in _calculatedDirections)
         {
+            // this is to avoid nesting any more loops
+            if (dirIndex <= directionCount)
+                dirIndex++;
+
             var currentDirectionVector = direction.ToVec();
             var currentTargetEntityUid = lastEntityBeforeGrid.Owner;
 
@@ -281,11 +296,23 @@ public sealed class AreaEchoSystem : EntitySystem
                 totalDistance += distanceCovered;
                 remainingDistance -= distanceCovered;
 
-                // we don't need further logic anyway if we just finished the last iteration
-                if (reflectIteration == _echoMaxReflections)
+                if (raycastResults is not { }) // means we didnt hit anything
                     break;
 
-                if (raycastResults is not { }) // means we didnt hit anything
+                // grab the distance before the first reflection and after the first bounce in separate arrays
+                // this way we can weigh the distances more on the 0th reflection doing this for more and more reflections might not be a bad
+                // idea either, weighing reflections less towards the magnitude the deeper in they are.
+                if (reflectIteration == 0)
+                {
+                    distancesBeforeFirstBounce[dirIndex] = raycastResults.Value.Distance;
+                }
+                else
+                {
+                    distancesAfterBounces[dirIndex] += raycastResults.Value.Distance;
+                }
+
+                // we don't need further logic anyway if we just finished the last iteration
+                if (reflectIteration == _echoMaxReflections)
                     break;
 
                 // i think cross-grid would actually be pretty easy here? but the tile-marching doesnt often account for that at fidelities above 1 so whatever.
@@ -313,11 +340,13 @@ public sealed class AreaEchoSystem : EntitySystem
                 normalVector = GetTileHitNormal(currentOriginLocalPosition, _mapSystem.TileToVector(gridRoofEntity, currentOriginTileIndices), gridRoofEntity.Comp1.TileSize);
                 currentDirectionVector = Reflect(currentDirectionVector, normalVector);
             }
-
-            magnitude += totalDistance;
         }
 
-        magnitude /= _calculatedDirections.Length * _echoMaxReflections;
+        var longestBeforeBounce = distancesBeforeFirstBounce.Max();
+        var longestAfterBounce = distancesAfterBounces.Max();
+        var weightedDistance = longestBeforeBounce * 0.9f + longestAfterBounce * 0.1f;
+
+        magnitude = weightedDistance;
         return true;
     }
 
@@ -472,6 +501,9 @@ public sealed class AreaEchoSystem : EntitySystem
 
 }
 
+/// <summary>
+/// A class container containing thresholds for audio presets.
+/// </summary>
 public sealed class AudioDistanceThreshold(float distance, ProtoId<AudioPresetPrototype> preset)
 {
     public float Distance { get; init; } = distance;
