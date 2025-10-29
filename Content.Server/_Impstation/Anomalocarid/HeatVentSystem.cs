@@ -94,6 +94,9 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
                 break;
         }
 
-        _alerts.ShowAlert(ent, ent.Comp.Alert, severity);
+        if (TryComp<AlertsComponent>(ent, out var alerts))
+        {
+            _alerts.ShowAlert((ent, alerts), ent.Comp.Alert, severity);
+        }
     }
 }
