@@ -36,9 +36,6 @@
       startingCharge: 0
       maxCharge: 8000000
     - type: ExaminableBattery
-    - type: AccessReader # imp
-      access: [["Engineering"]]
-    - type: ActivatableUIRequiresAccess # imp 
     - type: NodeContainer
       examinable: true
       nodes:
@@ -100,6 +97,9 @@
       - PowerStorage
       - VoltageNetworks
       - Power
+    - type: AccessReader # imp
+      access: [["Engineering"]]
+    - type: ActivatableUIRequiresAccess # imp 
 
     # Interface
     - type: BatteryInterface
