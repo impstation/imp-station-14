@@ -40,6 +40,9 @@ public sealed class GlobalStatusEffectRule : StationEventSystem<GlobalStatusEffe
         var query = EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent>();
         while (query.MoveNext(out var ent, out var mindComp, out _))
         {
+            if (!mindComp.HasMind)
+                continue;
+
             // yes i know this looks bad. its a ternary. in summary, if both min and max aren't null, it returns a random timespan in seconds. otherwise it returns null
             TimeSpan? duration = component.MinEffectDuration != null && component.MaxEffectDuration != null
                         ? TimeSpan.FromSeconds(_random.NextFloat((float)component.MinEffectDuration, (float)component.MaxEffectDuration!))
