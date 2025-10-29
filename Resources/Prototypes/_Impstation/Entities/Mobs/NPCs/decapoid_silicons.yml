@@ -1,9 +1,14 @@
-- type: entity #behold my abombination, mortal
-  parent: [BaseMob, StripableInventoryBase]
-  id: MobTckTck
-  name: tck'tck
-  description: A borg-like entity manufactured by the Decapoid Empire. Provides 8KW of power when anchored, and has a charger port for power cells.
+- type: entity # laying the foundation for a future of decapoid silicons, available for licensing by NT
+  parent: [StripableInventoryBase, BaseControllable]
+  id: BaseMobDecapoidSilicon
   components:
+  - type: MobCollision
+  - type: Physics
+    bodyType: KinematicController
+  - type: InputMover
+  - type: MobMover
+  - type: MovementSpeedModifier
+  - type: LagCompensation
   - type: Reactive
     groups:
       Acidic: [Touch]
@@ -13,12 +18,6 @@
         Blunt: 5
     soundHit:
       collection: MetalThud
-  - type: FootstepModifier
-    footstepSoundCollection:
-      path: /Audio/_Impstation/Effects/Footsteps/tcktckstep.ogg
-  - type: CombatMode
-  - type: StaticPrice
-    price: 1250
   - type: Fixtures
     fixtures:
       fix1:
@@ -30,28 +29,7 @@
         - MobMask
         layer:
         - MobLayer
-  - type: MovementSpeedModifier
-    baseWalkSpeed : 2.5
-    baseSprintSpeed : 4.5
   - type: Appearance
-  - type: PowerChargerVisuals
-  - type: Sprite
-    sprite: _Impstation/Mobs/Silicon/Bots/tcktck.rsi
-    layers:
-    - state: tcktck
-      map: ["enum.BorgVisualLayers.Body", "movement"]
-    - state: tcktck_e_r
-      map: ["enum.BorgVisualLayers.Light"]
-      visible: false
-    - state: light
-      shader: unshaded
-      map: ["light","enum.BorgVisualLayers.LightStatus"]
-      visible: false
-    - state: empty
-      map: ["enum.PowerChargerVisualLayers.Base"]
-    - state: light-empty
-      map: ["enum.PowerChargerVisualLayers.Light"]
-      shader: unshaded
   - type: RotationVisuals
     horizontalRotation: 90
   - type: MobState
@@ -70,14 +48,6 @@
       Dead: BorgDead
     showOverlays: false
     allowRevives: true
-  - type: HealthExaminable
-    examinableTypes:
-      - Blunt
-      - Slash
-      - Piercing
-      - Heat
-      - Shock
-    locPrefix: silicon
   - type: UserInterface
     interfaces:
       enum.SiliconLawsUiKey.Key:
@@ -92,9 +62,6 @@
   - type: ActionGrant
     actions:
     - ActionViewLaws
-  - type: SiliconLawProvider
-    canBeSubverted: false
-    laws: Tcksimov
   - type: Inventory
     templateId: borg
   - type: Hands
@@ -138,9 +105,6 @@
     drawRate: 0 #if it doesnt have power nothing works so I just made it 0 drain instead of cutting power entirely
   # no ToggleCellDraw since dont want to lose access when power is gone
   - type: Body
-  - type: StatusEffects
-    allowed:
-    - Flashed
   - type: TypingIndicator
     proto: robot
   - type: Speech
@@ -214,7 +178,7 @@
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    radius: 2.5
+    radius: 4
     color: "#ff0043"
     netsync: false
   - type: Pullable
@@ -225,7 +189,6 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
-    - CanPilot
     - SiliconEmotes
   - type: Emoting
   - type: GuideHelp
@@ -237,14 +200,101 @@
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
         Cold: 10 # for cold lightbulbs
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+      charger_slot:
+        ejectOnInteract: true
+        whitelist:
+          components:
+          - PowerCell #just power cells no guns
+  - type: GhostRole
+    makeSentient: true
+    rules: ghost-role-information-silicon-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+  - type: GhostTakeoverAvailable
+  - type: Climbing
+  - type: Clumsy
+    clumsySound:
+      path: /Audio/Effects/metal_thud3.ogg # the game gets really touchy about having that initial forward slash.
+    clumsyHypo: false
+    clumsyDefib: false
+    clumsyGuns: false
+  - type: Access
+    tags:
+    - Maintenance
+  - type: NpcFactionMember
+    factions:
+    - SimpleNeutral
+  - type: Carriable
+  - type: CanEscapeInventory #for carrying
+
+- type: entity #behold my abombination, mortal
+  parent: [BaseMobDecapoidSilicon, StripableInventoryBase]
+  id: MobTckTck
+  name: tck'tck
+  description: A borg-like entity manufactured by the Decapoid Empire. Provides 8KW of power when anchored, and has a charger port for power cells.
+  components:
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_Impstation/Effects/Footsteps/tcktckstep.ogg
+  - type: CombatMode
+  - type: StaticPrice
+    price: 1250
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
+  - type: PowerChargerVisuals
+  - type: Sprite
+    sprite: _Impstation/Mobs/Silicon/Bots/tcktck.rsi
+    layers:
+    - state: tcktck
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: tcktck_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      visible: false
+    - state: light
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+    - state: empty
+      map: ["enum.PowerChargerVisualLayers.Base"]
+    - state: light-empty
+      map: ["enum.PowerChargerVisualLayers.Light"]
+      shader: unshaded
+  - type: HealthExaminable
+    examinableTypes:
+      - Blunt
+      - Slash
+      - Piercing
+      - Heat
+      - Shock
+    locPrefix: silicon
+  - type: SiliconLawProvider
+    canBeSubverted: false
+    laws: Tcksimov
+  - type: Tag
+    tags:
+    - CanPilot
+    - DoorBumpOpener
+    - FootstepSound
+    - SiliconEmotes
   - type: BorgChassis
     maxModules: 3
     hasMindState: tcktck_e
     noMindState: tcktck_e_r
     moduleWhitelist:
       tags:
-      - BorgModuleGeneric
       - BorgModuleTckTck
+  - type: StatusEffects
+    allowed:
+    - Flashed
   - type: ContainerFill
     containers:
       borg_module:
@@ -257,16 +307,6 @@
     chargeRate: 40
     slotId: charger_slot
     portable: true
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHyper
-      charger_slot:
-        ejectOnInteract: true
-        whitelist:
-          components:
-          - PowerCell #just power cells no guns
   - type: PowerSupplier
     supplyRate: 8000
     supplyRampTolerance: 2000
@@ -291,12 +331,8 @@
         !type:CableDeviceNode
         nodeGroupID: MVPower
   - type: GhostRole
-    makeSentient: true
     name: Tck'Tck
     description: Help with power, charge batteries, and go on adventures.
-    rules: ghost-role-information-silicon-rules
-    mindRoles:
-    - MindRoleGhostRoleSilicon
   - type: GhostTakeoverAvailable
   - type: GenericVisualizer
     visuals:
@@ -304,22 +340,79 @@
         anchored:
           False: { state: anchored, visible: false }
           True: { state: anchored, visible: true }
-  - type: Climbing
-  - type: Clumsy
-    clumsySound:
-      path: /Audio/Effects/metal_thud3.ogg # the game gets really touchy about having that initial forward slash.
-    clumsyHypo: false
-    clumsyDefib: false
-    clumsyGuns: false
   - type: Access
     tags:
+    - Maintenance
     - Engineering
     - External
     - Salvage
     - Cargo
+
+- type: entity
+  parent: [BaseMobDecapoidSilicon, StripableInventoryBase, ShowSecurityIcons, ShowMedicalIcons]
+  id: MobTckut
+  name: tck'ut
+  description: Originally designed to patrol Decapoid schools, this hardy droid has found new purpose being exported to stations galaxy wide.
+  components:
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/borgwalk3.ogg
+  - type: StaticPrice
+    price: 1250
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
+  - type: CombatMode
+  - type: Sprite
+    sprite: _Impstation/Mobs/Silicon/Bots/tckut.rsi
+    layers:
+    - state: tckut
+      map: ["enum.BorgVisualLayers.Body", "movement"]
+    - state: tckut_e_r
+      map: ["enum.BorgVisualLayers.Light"]
+      visible: false
+    - state: light
+      shader: unshaded
+      map: ["light","enum.BorgVisualLayers.LightStatus"]
+      visible: false
+  - type: HealthExaminable
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+    locPrefix: silicon
+  - type: SiliconLawProvider
+    canBeSubverted: false
+    laws: Utsimov
+  - type: PointLight
+    radius: 8
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - SiliconEmotes
+    - HudMedical
+    - HudSecurity
+  - type: BorgChassis
+    maxModules: 3
+    hasMindState: tckut_e
+    noMindState: tckut_e_r
+    moduleWhitelist:
+      tags:
+      - BorgModuleGeneric
+      - BorgModuleTckut
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleTckut
+  - type: GhostRole
+    makeSentient: true
+    name: Tck'ut
+    description: Patrol the halls, make snacks, give comfort, and promote safety.
+  - type: Access
+    tags:
     - Maintenance
-  - type: NpcFactionMember
-    factions:
-    - SimpleNeutral
-  - type: Carriable
-  - type: CanEscapeInventory #for carrying
+    - Security
+    - Medical
