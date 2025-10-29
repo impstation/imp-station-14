@@ -1349,8 +1349,8 @@
   parent: BulletLaser
   components:
   - type: ProjectileSpread
-    proto: BulletLaserHeavy
-    count: 4 #52 heat damage if you hit all your shots, but narrower spread
+    proto: BulletLaserHeavy #imp
+    count: 4 #60 heat damage if you hit all your shots, but narrower spread
     spread: 10
 
 - type: entity
@@ -1365,7 +1365,7 @@
     spread: 9
 
 - type: entity
-  name: magnum laser bolt
+  name: magnum blaster bolt #imp
   id: BulletLaserMagnum
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
@@ -1382,7 +1382,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 30
+        Heat: 35 #imp
 
 - type: entity
   name: magnum window-piercing bolt
