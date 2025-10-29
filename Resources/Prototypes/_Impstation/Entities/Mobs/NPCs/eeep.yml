@@ -207,7 +207,7 @@
     thresholds:
       0: Alive
       400: Critical
-      450: Dead
+      500: Dead
   - type: GoobAbsorbable
     biomassRestored: 0.8
   - type: AmbientSound
@@ -260,3 +260,18 @@
     sound:
      path: /Audio/Effects/PowerSink/charge_fire.ogg
     color: yellow
+  - type: ActionsProvider
+    actions:
+    - ActionEeepEmp
+  - type: TriggerOnActivateImplant
+  - type: EmpOnTrigger
+    range: 10
+    energyConsumption: 50000
+    disableDuration: 20
+  - type: Perishable
+    rotAfter: 2000
+  - type: Butcherable
+    CanButcherInCrit: True
+    spawned:
+      - id: EeepSpark
+        amount: 1
