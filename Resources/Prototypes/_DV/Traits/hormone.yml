@@ -2,7 +2,7 @@
   id: EstradiolSensitive
   name: trait-estradiol-sensitive-name
   description: trait-estradiol-sensitive-desc
-  category: Quirks
+  category: Traits # imp
   components:
     - type: HormoneSensitive
       target: Female
@@ -11,7 +11,7 @@
   id: TestosteroneSensitive
   name: trait-testosterone-sensitive-name
   description: trait-testosterone-sensitive-desc
-  category: Quirks
+  category: Traits # imp
   components:
     - type: HormoneSensitive
       target: Male
