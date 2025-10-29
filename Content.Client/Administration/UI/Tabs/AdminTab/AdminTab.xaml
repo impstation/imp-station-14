@@ -5,7 +5,7 @@
     xmlns:at="clr-namespace:Content.Client.Administration.UI.Tabs.AdminTab"
     xmlns:cdAdmin="clr-namespace:Content.Client._CD.Admin.UI"
     Margin="4"
-    MinSize="50 50">
+    MinSize="50 50"> <!-- CD: add cdadmin -->
     <BoxContainer Orientation="Vertical">
         <GridContainer Columns="3">
             <cc:UICommandButton Command="kick" Text="{Loc admin-player-actions-window-title}" WindowType="{x:Type at:PlayerActionsWindow}" />

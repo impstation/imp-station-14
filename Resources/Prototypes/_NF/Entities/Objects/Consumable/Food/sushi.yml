@@ -38,6 +38,10 @@
   - type: SliceableFood
     count: 6
     slice: FoodMealAvocadoSushiSlice
+  - type: Tag # imp
+    tags:
+    - Sushi
+    - UnguFood
 
 - type: entity
   name: avocado sushi
@@ -66,6 +70,10 @@
           Quantity: 1
   - type: Item
     size: Tiny
+  - type: Tag # imp
+    tags:
+    - Sushi
+    - UnguFood
 
 - type: entity
   name: carp sushi

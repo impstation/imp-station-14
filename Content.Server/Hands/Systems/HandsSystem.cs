@@ -5,12 +5,10 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Body.Part;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Decapoids.Components; // Imp
 using Content.Shared.Explosion;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Input;
-using Content.Shared.Item; // Imp
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Stacks;
@@ -23,6 +21,8 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Decapoids.Components; // Imp
+using Content.Shared.Item; // Imp
 
 namespace Content.Server.Hands.Systems
 {
@@ -196,7 +196,7 @@ namespace Content.Server.Hands.Systems
 
             if (itemEv.Cancelled)
                 return true;
-            // imp edit,
+            // imp edit end
 
             // Let other systems change the thrown entity (useful for virtual items)
             // or the throw strength.

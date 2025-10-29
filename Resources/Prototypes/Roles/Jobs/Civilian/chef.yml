@@ -4,8 +4,8 @@
   description: job-description-chef
   playTimeTracker: JobChef
   requirements:
-    - !type:OverallPlaytimeRequirement #imp edit
-      time: 1800
+    - !type:OverallPlaytimeRequirement #imp edit, was civilian
+      time: 0.5h
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hd

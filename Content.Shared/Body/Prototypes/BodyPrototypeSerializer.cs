@@ -46,6 +46,7 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
                     continue;
                 }
 
+                // imp collective mind (??????)
                 if (organ.Value == "null" || organ.Value == null)
                     continue;
 

@@ -527,6 +527,8 @@
         - CrateMask #this is so they can go under plastic flaps
         layer:
         - MachineLayer
+  - type: Paintable
+    group: null
   - type: AntiTamper # imp edit
     containers:
       - entity_storage

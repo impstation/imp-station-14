@@ -37,6 +37,7 @@
     - Hair
     - HeadTop
     - HeadSide
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingHeadBase
@@ -324,6 +325,7 @@
     solution: drink
     delay: 0.5
     forceFeedDelay: 1.5
+    utensil: Spoon
   - type: FlavorProfile
     flavors:
       - water

@@ -100,9 +100,12 @@
   - FauxTileAstroGrass
   - FauxTileMowedAstroGrass
   - FauxTileJungleAstroGrass
+  - FauxTileDarkAstroGrass
+  - FauxTileLightAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+  - FauxTileDesertAstroSand
   - FauxTileShoveledAstroSnow # imp
   - FauxTileAstroCave # imp
 
@@ -184,7 +187,7 @@
   id: BluespaceCargoTransport
   name: research-technology-bluespace-cargo-transport
   icon:
-    sprite: _Impstation/Structures/cargo_telepad.rsi
+    sprite: _Impstation/Structures/cargo_telepad.rsi #imp
     state: display
   discipline: CivilianServices
   tier: 2

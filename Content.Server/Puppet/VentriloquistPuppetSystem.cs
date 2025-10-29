@@ -5,15 +5,15 @@ using Content.Shared.Puppet;
 using Content.Server.Speech.Muting;
 using Content.Shared.CombatMode;
 using Content.Shared.Hands;
-using Robust.Shared.Random;
 using Content.Shared.Speech.Muting;
+using Robust.Shared.Random; // imp
 
 namespace Content.Server.Puppet
 {
     public sealed class VentriloquistPuppetSystem : SharedVentriloquistPuppetSystem
     {
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly IRobustRandom _random = default!; // imp
 
         public override void Initialize()
         {

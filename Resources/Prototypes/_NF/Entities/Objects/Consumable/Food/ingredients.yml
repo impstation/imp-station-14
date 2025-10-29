@@ -30,7 +30,7 @@
   - type: FlavorProfile
     flavors:
     - bitter
-  - type: Food
+  - type: Edible
   - type: SolutionContainerManager
     solutions:
       food:
@@ -68,7 +68,7 @@
   - type: FlavorProfile
     flavors:
     - bitter
-  - type: Food
+  - type: Edible
   - type: SolutionContainerManager
     solutions:
       food:
@@ -143,8 +143,9 @@
         reagents:
         - ReagentId: Honey
           Quantity: 30
-  - type: Drink
+  - type: Edible
     solution: food
+    destroyOnEmpty: false
     useSound:
       path: /Audio/Items/eating_1.ogg
 

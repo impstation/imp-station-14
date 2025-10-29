@@ -98,6 +98,10 @@
     interfaces:
       enum.DisposalUnitUiKey.Key:
         type: DisposalUnitBoundUserInterface
+  - type: Rummageable
+    table: !type:NestedSelector
+      tableId: RatKingLoot
+  - type: RequireProjectileTarget
   - type: AutomationSlots # Goobstation
     slots:
     - !type:AutomatedContainer
@@ -112,8 +116,6 @@
       - DisposalEject
       sources:
       - DisposalReady
-  - type: Rummageable
-  - type: RequireProjectileTarget
 
 - type: entity
   id: MailingUnit

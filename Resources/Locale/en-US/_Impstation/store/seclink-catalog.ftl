@@ -17,8 +17,8 @@ seclink-pocket-disabler-name = Pocket Disabler
 seclink-pocket-disabler-desc = A compact disabler variant that trades battery size for portability. It's just as effective as the standard variant... so long as you don't miss.
 seclink-auto-disabler-name = Auto Disabler
 seclink-auto-disabler-desc = While not as potent as the Disabler SMG, this remains a competent option for midrange suspect apprehension.
-seclink-stun-projector-name = Stun Projector
-seclink-stun-projector-desc = The Stun Projector creates the same energy as a standard disabler, then accelerates that bolt to 299792458 meters per second. This both increases its effectiveness and allows it to pass through windows without dissipating, in exchange for less rounds and a slower fire rate.
+seclink-stun-projector-name = Disabler Magnum
+seclink-stun-projector-desc = A disabler that sacrifices efficiency for pure stunning power.
 seclink-spaceblade-name = Space Blade: Limited Security Edition
 seclink-spaceblade-desc = Commissioned by the Central Command Enforcement Divison on the tail of the Space Blade craze, this special top is equipped with patented Stun-n-Cuff technology to inject a little fun in Security's life while doing the doldrum duties of their department.
 
