@@ -270,8 +270,3 @@
     disableDuration: 20
   - type: Perishable
     rotAfter: 2000
-  - type: Butcherable
-    CanButcherInCrit: True
-    spawned:
-      - id: EeepSpark
-        amount: 1
