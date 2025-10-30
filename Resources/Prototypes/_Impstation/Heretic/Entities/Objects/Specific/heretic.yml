@@ -158,10 +158,8 @@
   description: "There are keys that open doors; then there are keys that destroy them."
   components:
     - type: Sprite
-      sprite: Objects/Tools/crowbar.rsi
-      state: storage
-    - type: Item
-      sprite: Objects/Tools/crowbar.rsi
+      sprite: _Impstation/Heretic/frangiclave.rsi
+      state: frangiclave
     - type: Fixtures
       fixtures:
         fix1:
@@ -181,7 +179,7 @@
         types:
           Structural: 9999
     - type: ThrowingAngle
-      angle: 180
+      angle: 225
     - type: LandAtCursor
     - type: DamageOnHighSpeedImpact
       minimumSpeed: 2
@@ -203,8 +201,15 @@
         behaviors:
         - !type:PlaySoundBehavior
           sound:
-            collection: GlassBreak
+            path: /Audio/_Goobstation/Heretic/castsummon.ogg
             params:
               volume: -4
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
+        - !type:ExplodeBehavior
+    - type: Explosive
+      explosionType: Cryo
+      # Cosmetic explosion
+      maxIntensity: 0.01
+      intensitySlope: 1
+      totalIntensity: 0.01
