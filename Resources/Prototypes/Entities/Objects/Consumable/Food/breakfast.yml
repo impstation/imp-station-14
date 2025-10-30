@@ -32,9 +32,9 @@
   components:
   - type: FlavorProfile
     flavors:
-      - bacon
-      - egg
-      - potatoes
+      - bacon # imp
+      - egg # imp
+      - potatoes # imp
   - type: Sprite
     state: fullamerican
   - type: Tag # imp
@@ -49,9 +49,9 @@
   components:
   - type: FlavorProfile
     flavors:
-      - bacon
-      - egg
-      - tomato
+      - bacon # imp
+      - egg # imp
+      - tomato # imp
   - type: Sprite
     state: fullenglish
   - type: Tag # imp

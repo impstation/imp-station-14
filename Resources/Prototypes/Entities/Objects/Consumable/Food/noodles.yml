@@ -33,7 +33,7 @@
   - type: FlavorProfile
     flavors:
     - pasta
-    ignoreReagents:
+    ignoreReagents: # imp
     - egg
   - type: Sprite
     state: boiled

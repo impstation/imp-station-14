@@ -915,6 +915,8 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+#        - ReagentId: Flour # imp: see below
+#          Quantity: 5
         - ReagentId: Nutriment # imp: contents of flour so it will stop turning back into a meatball after you eat it
           Quantity: 0.5
         - ReagentId: Egg
