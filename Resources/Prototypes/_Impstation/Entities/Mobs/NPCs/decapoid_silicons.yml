@@ -200,9 +200,6 @@
       flatReductions:
         Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
         Cold: 10 # for cold lightbulbs
-    moduleWhitelist:
-      tags:
-      - BorgModuleGeneric
   - type: ItemSlots
     slots:
       cell_slot:
@@ -399,7 +396,7 @@
     maxModules: 3
     hasMindState: tckut_e
     noMindState: tckut_e_r
-    moduleWhitelist:
+    ModuleWhitelist:
       tags:
       - BorgModuleGeneric
       - BorgModuleTckut
