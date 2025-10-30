@@ -42,6 +42,7 @@ construction-graph-tag-gas-tank = any gas tank
 construction-graph-tag-glowstick = a glowstick
 construction-graph-tag-hemp-sack = a sack made from hemp cloth
 construction-graph-tag-light-tube = light tube
+construction-graph-tag-knife = knife
 construction-graph-tag-makeshift-loader = makeshift loader
 construction-graph-tag-plunger = a plunger
 construction-graph-tag-powercell = a power cell

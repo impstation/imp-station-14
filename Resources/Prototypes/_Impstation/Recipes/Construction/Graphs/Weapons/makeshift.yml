@@ -5,15 +5,27 @@
     - node: start
       edges:
         - to: sword
-          step:
+          steps:
             - material: MetalRod
               amount: 2
-              doAfter: 4
+              doAfter: 8
             - material: Cable
               amount: 8
               doAfter: 1
-            - tag: GlassShard
-              name: construction-graph-tag-glass-shard
+            - tag: Knife
+              name: construction-graph-tag-knife
+              icon:
+                sprite: Objects/Materials/Shards/shard.rsi
+                state: shard1
+              doAfter: 1
+            - tag: Knife
+              name: construction-graph-tag-knife
+              icon:
+                sprite: Objects/Materials/Shards/shard.rsi
+                state: shard1
+              doAfter: 1
+            - tag: Knife
+              name: construction-graph-tag-knife
               icon:
                 sprite: Objects/Materials/Shards/shard.rsi
                 state: shard1
