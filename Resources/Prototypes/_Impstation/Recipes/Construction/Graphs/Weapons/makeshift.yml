@@ -1,0 +1,22 @@
+- type: constructionGraph
+  id: ScrapSword
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: sword
+          step:
+            - material: MetalRod
+              amount: 2
+              doAfter: 4
+            - material: Cable
+              amount: 8
+              doAfter: 1
+            - tag: GlassShard
+              name: construction-graph-tag-glass-shard
+              icon:
+                sprite: Objects/Materials/Shards/shard.rsi
+                state: shard1
+              doAfter: 1
+    - node: sword
+      entity: ScrapSword

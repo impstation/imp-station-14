@@ -1,0 +1,34 @@
+- type: entity
+  id: ScrapSword
+  parent: [ BaseSword, BaseMajorContraband ]
+  name: scrap "sword"
+  description: A makeshift weapon made of several knives tied together.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/cutlass.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 16
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/cutlass.rsi
+    shape:
+    - 0,0,1,6
+  - type: DamageOtherOnHit
+    staminaCost: 5
+  - type: EmbeddableProjectile
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/energykatana.rsi
+    slots:
+    - Back
+  - type: Construction
+    graph: ScrapSword
+    node: sword
+
