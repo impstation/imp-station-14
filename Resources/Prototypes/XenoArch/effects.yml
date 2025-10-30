@@ -16,7 +16,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [1, 2, 3]
     - id: XenoArtifactWandering
-      weight: 10.0 # imp edit
+      weight: 5.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [0, 1, 2]
@@ -26,7 +26,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [0, 1, 2, 3]
     - id: XenoArtifactGhost
-      weight: 10.0 # imp edit
+      weight: 5.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [0, 1, 2, 3]
@@ -446,6 +446,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 0
+    maxNodeUnlocks: 1 #IMP
   - type: NameIdentifier
     group: XenoArtifactNode
 
@@ -917,6 +918,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 1
+    maxNodeUnlocks: 4 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -937,6 +939,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 2
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -955,6 +958,13 @@
   parent: BaseOneTimeXenoArtifactEffect
   description: Energy release #IMP desc changed
   components:
+  - type: XenoArtifactNode #IMP
+    maxDurability: 1
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 0
+    maxNodeUnlocks: 1 #IMP
+    effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -986,6 +996,13 @@
   parent: BaseOneTimeXenoArtifactEffect
   description: Create small gravity well
   components:
+  - type: XenoArtifactNode #IMP
+    maxDurability: 1
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 0
+    maxNodeUnlocks: 1 #IMP
+    effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1000,6 +1017,13 @@
   parent: BaseOneTimeXenoArtifactEffect
   description: Create small gravity well
   components:
+  - type: XenoArtifactNode #IMP
+    maxDurability: 1
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 0
+    maxNodeUnlocks: 1 #IMP
+    effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1014,6 +1038,13 @@
   parent: BaseOneTimeXenoArtifactEffect
   description: Create light interference
   components:
+  - type: XenoArtifactNode #IMP
+    maxDurability: 1
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 0
+    maxNodeUnlocks: 1 #IMP
+    effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     components:
     - type: Stealth
@@ -1062,6 +1093,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 2
+    maxNodeUnlocks: 4 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1085,6 +1117,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 2
+    maxNodeUnlocks: 4 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1108,6 +1141,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 1
+    maxNodeUnlocks: 4 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1131,6 +1165,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 2
+    maxNodeUnlocks: 4 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1154,6 +1189,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 2
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1177,6 +1213,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 3
+    maxNodeUnlocks: 6 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1232,6 +1269,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 1
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1429,6 +1467,8 @@
   parent: BaseXenoArtifactEffect
   description: Create glass
   components:
+  - type: XenoArtifactNode #IMP
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1444,6 +1484,8 @@
   parent: BaseXenoArtifactEffect
   description: Create steel
   components:
+  - type: XenoArtifactNode #IMP
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1459,6 +1501,8 @@
   parent: BaseXenoArtifactEffect
   description: Create plastic
   components:
+  - type: XenoArtifactNode #IMP
+    maxNodeUnlocks: 5 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1486,6 +1530,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 1
+    maxNodeUnlocks: 1 #IMP
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true

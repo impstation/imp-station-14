@@ -1,37 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: The janitor's closet is now secured by janitor access and the Shining
-      Spring has been moved back into from the HD's locker.
-    type: Tweak
-  id: 1867
-  time: '2025-06-18T09:04:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2797
-- author: TheLuggage05
-  changes:
-  - message: Added a cargo order for the Mail RPDS. Up your courier game today!
-    type: Add
-  - message: The RPDS mail capsules Work Now.
-    type: Fix
-  id: 1868
-  time: '2025-06-18T09:15:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2809
-- author: DinnerCalzone
-  changes:
-  - message: Fixed reinforced secret doors not appearing in the construction menu
-      properly.
-    type: Fix
-  id: 1869
-  time: '2025-06-18T09:23:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2812
-- author: DinnerCalzone
-  changes:
-  - message: A large number of new chemical barrels have been added to the salvage
-      loot pool.
-    type: Add
-  id: 1870
-  time: '2025-06-18T09:36:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2811
 - author: msTheowo
   changes:
   - message: You can print plastic knives at service techfabs now!
@@ -4200,3 +4167,35 @@
   id: 2366
   time: '2025-10-28T07:50:38.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3630
+- author: VeeNomine
+  changes:
+  - message: Decreased the nokia soundfont that pAIs, musician PDA, and drones use.
+      No longer will your ears bleed. Future adjustments may be needed.
+    type: Tweak
+  id: 2367
+  time: '2025-10-29T12:07:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3625
+- author: Kandiyaki
+  changes:
+  - message: A new Heretic item, the Frangiclave, which instantly breaks any object
+      it's thrown at.
+    type: Add
+  id: 2368
+  time: '2025-10-29T12:22:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3535
+- author: TheGrimbeeper
+  changes:
+  - message: Some natural artifact effects are only on while their node is active.
+    type: Fix
+  - message: Some natural artifact effects are limited (no more infinite magic books).
+    type: Fix
+  id: 2369
+  time: '2025-10-29T12:37:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3633
+- author: TheGrimbeeper
+  changes:
+  - message: Thieves will no longer feel the urge to die a glorious death.
+    type: Tweak
+  id: 2370
+  time: '2025-10-30T08:04:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3640
