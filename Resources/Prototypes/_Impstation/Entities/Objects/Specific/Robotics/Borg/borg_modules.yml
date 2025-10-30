@@ -122,7 +122,7 @@
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }
 
-#TckIt modules
+#Tckut modules
 - type: entity
   id: BorgModuleTckut
   parent: [ BaseBorgModule, BaseProviderBorgModule, DecapoidEmpireContraband ]
@@ -137,8 +137,8 @@
     - item: HoloprojectorSafety
     - item: RCDRefreshments
     - item: CrayonChalkInfinite
-    - item: UtWeeWoo
     - item: TckutTicketDispenser
+    - item: TckutWeewoo
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: tcktck-tools-module }
   - type: Tag

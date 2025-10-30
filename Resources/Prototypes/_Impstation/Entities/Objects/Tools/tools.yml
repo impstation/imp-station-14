@@ -146,10 +146,10 @@
     - Decalamp
 
 - type: entity
-  parent: BaseItem
+  parent: RCDRechargingTckTck
   id: RCDRefreshments
   name: refreshments RCD
-  description: The pinnacle of Decapoidian technology. An RCD that makes snacks.
+  description: The pinnacle of Decapoid technology, a RCD that makes snacks.
   suffix: AutoRecharge
   components:
   - type: RCD
@@ -161,27 +161,10 @@
     - RCDCakeCottonSlice
     - RCDMeatMeatball
     - RCDCBlanketShock
-  - type: Sprite
-    sprite: _Impstation/Objects/Tools/tckrcd.rsi
-    state: icon
-  - type: Item
-    size: Tiny
-  - type: Clothing
-    sprite: _Impstation/Objects/Tools/tckrcd.rsi
-    quickEquip: false
-    slots:
-    - Belt
   - type: LimitedCharges
     maxCharges: 10
   - type: AutoRecharge
     rechargeDuration: 10
-  - type: UserInterface
-    interfaces:
-      enum.RcdUiKey.Key:
-        type: RCDMenuBoundUserInterface
-  - type: ActivatableUI
-    inHandsOnly: true
-    key: enum.RcdUiKey.Key
 
 - type: entity
   parent: Crayon
@@ -224,7 +207,7 @@
 
 - type: entity
   parent: BaseItem
-  id: UtWeeWoo
+  id: TckutWeewoo
   name: weewoo
   description: A trusty weewoo for responding to incidences.
   components:
@@ -240,12 +223,19 @@
     mask: /Textures/Effects/LightMasks/double_cone.png
   - type: RotatingLight
     speed: 180
-  - type: Battery
-    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
-    startingCharge: 600
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
   - type: ItemTogglePointLight
   - type: Sprite
     sprite: _Impstation/Objects/Tools/seclite.rsi # imp
