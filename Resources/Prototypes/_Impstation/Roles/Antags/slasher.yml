@@ -1,0 +1,8 @@
+- type: antag
+  id: Slasher
+  antagonist: true
+  playTimeTracker: AntagSlasher
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 5h
+  guides: [ Slasher ]
