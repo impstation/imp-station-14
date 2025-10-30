@@ -3,8 +3,8 @@
   parent: BaseItem
   abstract: true
   components:
-  - type: Sprite
-    sprite: Mobs/Species/Arachnid/organs.rsi
+  - type: Sprite #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
   - type: Organ
   - type: Food
   - type: Extractable
@@ -29,10 +29,11 @@
 - type: entity
   id: OrganArachnidStomach
   parent: OrganAnimalStomach
+  name: arachnid stomach #imp edit
   description: "Gross. This is hard to stomach."
   components:
-  - type: Sprite
-    sprite: Mobs/Species/Arachnid/organs.rsi
+  - type: Sprite   #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     state: stomach
   - type: Item
     size: Small
@@ -42,7 +43,7 @@
     specialDigestible:  #imp edit
       tags:
       - SpiderFood
-    isSpecialDigestibleExclusive: false # also imp
+    isSpecialDigestibleExclusive: false # imp
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -64,13 +65,14 @@
 - type: entity
   id: OrganArachnidLungs
   parent: BaseArachnidOrgan
-  name: lungs
-  description: "Filters oxygen from an atmosphere... just more greedily."
+  name: book lungs  #imp edit
+  description: "Filters oxygen from an atmosphere... just less efficiently."  #imp edited from 'but more greedily'
   components:
-  - type: Sprite
+  - type: Sprite #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     layers:
-      - state: lung-l
-      - state: lung-r
+      - state: lung_l
+      - state: lung_r
   - type: Lung
   - type: Metabolizer
     updateInterval: 1.5
@@ -80,7 +82,7 @@
     metabolizerTypes: [ Human ]
     groups:
     - id: Gas
-      rateModifier: 100.0
+      rateModifier: 75.0 #imp edited from 100.0
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -105,9 +107,10 @@
   id: OrganArachnidHeart
   parent: BaseArachnidOrgan
   name: heart
-  description: "A disgustingly persistent little biological pump made for spiders."
+  description: "A persistent little biological pump made for spiders."  #imp edit to remove 'disgustingly'
   components:
-  - type: Sprite
+  - type: Sprite  #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     state: heart-on
   - type: Item
     size: Small
@@ -115,7 +118,7 @@
   - type: Metabolizer
     updateInterval: 1.5
     maxReagents: 2
-    metabolizerTypes: [Arachnid]
+    metabolizerTypes: [Arachnid, Animal]  #imp edit to add Animal
     groups:
     - id: Medicine
     - id: Poison
@@ -129,14 +132,15 @@
 - type: entity
   id: OrganArachnidLiver
   parent: BaseHumanOrgan
-  name: liver
+  name: hepatic caecum  #imp edit
   description: "Pairing suggestion: chianti and fava beans."
   categories: [ HideSpawnMenu ]
   components:
   - type: Item
     size: Small
     heldPrefix: liver
-  - type: Sprite
+  - type: Sprite #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     state: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
     updateInterval: 1.5
@@ -154,14 +158,15 @@
 - type: entity
   id: OrganArachnidKidneys
   parent: BaseHumanOrgan
-  name: kidneys
+  name: malpighian tubules  #imp edit
   description: "Filters toxins from the bloodstream."
   categories: [ HideSpawnMenu ]
   components:
-  - type: Sprite
+  - type: Sprite #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     layers:
-      - state: kidney-l
-      - state: kidney-r
+      - state: kidney_l
+      - state: kidney_r
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Item
     size: Small
@@ -183,7 +188,8 @@
   name: eyes
   description: "Two was already too many."
   components:
-  - type: Sprite
+  - type: Sprite #imp edit
+    sprite: _Impstation/Mobs/Species/Arachnid/organs.rsi
     layers:
       - state: eyeball-l
       - state: eyeball-r
@@ -203,7 +209,8 @@
   name: tongue
   description: "A fleshy muscle mostly used for lying."
   components:
-  - type: Sprite
+  - type: Sprite  #imp edit
+    sprite: Mobs/Species/Arachnid/organs.rsi
     state: tongue
   - type: Tag # goob edit
     tags:

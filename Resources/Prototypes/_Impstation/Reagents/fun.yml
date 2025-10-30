@@ -6,7 +6,7 @@
   physicalDesc: reagent-physical-desc-really-cruddy
   flavor: crud
   color: "#47181A"
-  contraband: Minor
+  contrabandSeverity: Minor
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: BrosSorbSpawner
@@ -150,7 +150,7 @@
   physicalDesc: reagent-physical-desc-threat
   flavor: singulo
   color: "#000000"
-  contraband: Major
+  contrabandSeverity: Major
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: FloorChasmEntity
@@ -323,7 +323,7 @@
         - !type:Breathing
         - !type:Internals
           usingInternals: false
-          
+
 - type: reagent
   id: Pulp
   name: reagent-name-pulp

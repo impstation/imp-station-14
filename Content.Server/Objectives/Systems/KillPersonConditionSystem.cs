@@ -1,11 +1,8 @@
 using Content.Server.Objectives.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.GameTicking.Rules;
-using Content.Server.Preferences.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
 
 namespace Content.Server.Objectives.Systems;

@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfSecurity
-      time: 54000 #15 hrs, ~10 rounds, half the standard due to HoS having an extreme unlock requirement
+      time: 15h # ~10 rounds, half the standard due to HoS having an extreme unlock requirement
 
 # Headset
 - type: loadout

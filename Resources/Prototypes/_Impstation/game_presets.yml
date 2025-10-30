@@ -60,6 +60,41 @@
     - BasicRoundstartVariation
 
 - type: gamePreset
+  id: LowpopHeretics
+  alias:
+    - LowpopHeretic
+  name: heretic-gamemode-title
+  description: heretic-gamemode-description
+  cooldown: 1
+  showInVote: false
+  rules:
+    - Heretic
+    - HereticBooksEventScheduler
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - PopLimiter20
+
+- type: gamePreset
+  id: SecretLowpopHeretics
+  alias:
+    - SecretLowpopHeretic
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - Heretic
+    - HereticBooksEventScheduler
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - PopLimiter20
+
+- type: gamePreset
   id: AllAboardTheShip
   alias:
   - svsaller
