@@ -292,8 +292,8 @@ public abstract class SharedMagicSystem : EntitySystem
 
         ev.Handled = true;
 
-        EntityManager.RemoveComponents(ev.Target, ev.ToRemove); // imp
-        EntityManager.AddComponents(ev.Target, ev.ToAdd); // imp
+        EntityManager.RemoveComponents(ev.Target, ev.ToRemove); // imp entman
+        EntityManager.AddComponents(ev.Target, ev.ToAdd); // imp entman
     }
     // End Change Component Spells
     #endregion
