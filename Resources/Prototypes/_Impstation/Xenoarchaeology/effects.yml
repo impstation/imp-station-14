@@ -233,10 +233,10 @@
 - type: entity
   id: XenoArtifactFoamVeryDangerous
   parent: BaseXenoArtifactEffect
-  description: Creates wave of foam
+  description: Biochemical disruption
   components:
   - type: XAEFoam
-    replaceDescription: true
+    replaceDescription: false
     reagents:
     - SpaceDrugs
     - BrosochloricBros
@@ -255,10 +255,10 @@
 - type: entity
   id: XenoArtifactFoamRomerol
   parent: BaseXenoArtifactEffect
-  description: Creates wave of foam
+  description: Biochemical disruption
   components:
   - type: XAEFoam
-    replaceDescription: true
+    replaceDescription: false
     reagents:
     - Romerol
     - Pilk
