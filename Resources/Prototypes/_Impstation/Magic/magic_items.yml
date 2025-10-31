@@ -133,6 +133,8 @@
   description: W1Z4rD5 0N1Y!!!!!
   suffix: Wizard, Locked
   components:
+  - type: Lock
+    breakOnAccessBreaker: false
   - type: AccessReader
     access: [["Wizard"]]
   - type: Sprite
@@ -156,3 +158,87 @@
           collection: WoodDestroy
       - !type:DoActsBehavior
         acts: ["Destruction"]
+
+- type: entity
+  id: Airlock
+  parent: BaseStructure
+  name: airlock
+  description: It opens, it closes, and maybe crushes you.
+  components:
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Rotatable
+  - type: StationAiWhitelist
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/smash.ogg"
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/public.rsi
+    snapCardinals: true
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49" # don't want this colliding with walls or they won't close
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - AirlockLayer
+  - type: LayerChangeOnWeld
+    unWeldedLayer: AirlockLayer
+    weldedLayer: WallLayer
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronics ]
+  - type: AccessReader
+    access: [["Wizard"]]
+  #  containerAccessProvider: board
+  - type: Door
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Machines/airlock_open.ogg
+    closeSound:
+      path: /Audio/Machines/airlock_close.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+  - type: ContainerContainer
+    containers:
+      board: !type:Container
+  - type: Airlock
+  - type: NavMapDoor
+  - type: Appearance
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+  - type: RadiationBlocker
+    resistance: 3
+  - type: Occluder
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+  - type: PlacementReplacement
+    key: walls
+  - type: BlockWeather
