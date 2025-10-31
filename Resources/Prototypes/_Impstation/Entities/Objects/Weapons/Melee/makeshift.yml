@@ -32,3 +32,32 @@
     graph: ScrapSword
     node: sword
 
+- type: entity
+  name: microwave sledgehammer
+  parent: BaseItem
+  id: improvisedSledge
+  description: An improvised sledgehammer made of a microwave welded onto a metal poll, reinforced with weilded steel.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Prospectors/Weapons/breaching_sledge.rsi
+    state: icon
+  - type: MeleeWeapon
+    attackRate: 0.5
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10
+        Structural: 20
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 10
+        Structural: 25
+  - type: Item
+    size: Large
+  - type: Construction
+    graph: ScrapSword
+    node: sword
