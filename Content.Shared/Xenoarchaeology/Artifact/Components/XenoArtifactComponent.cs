@@ -230,6 +230,12 @@ public sealed partial class XenoArtifactComponent : Component
     /// </summary>
     [DataField, ViewVariables]
     public bool Natural;
+
+    /// <summary>
+    ///     Imp edit. The advanced node scanner scanning this artifact, if there is one
+    /// </summary>
+    [DataField, ViewVariables]
+    public EntityUid? AdvancedNodeScanner { get; set; }
 }
 
 /// <summary>

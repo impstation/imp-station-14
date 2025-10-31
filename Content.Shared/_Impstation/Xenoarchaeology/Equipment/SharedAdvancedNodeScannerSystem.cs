@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 
 namespace Content.Shared.Xenoarchaeology.Equipment;
@@ -36,6 +37,12 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
             analysisConsoleComponent.AdvancedNodeScanner = GetNetEntity(ent);
             Dirty((EntityUid)analyzer.Console, analysisConsoleComponent);
         }
+        if (analyzer.CurrentArtifact is not null && TryComp<XenoArtifactComponent>(analyzer.CurrentArtifact, out var artifactComp))
+        {
+            artifactComp.AdvancedNodeScanner = ent.Owner;
+            Dirty((EntityUid)analyzer.CurrentArtifact, artifactComp);
+        }
+
         Dirty(args.Sink, analyzer);
         Dirty(ent);
     }
@@ -56,6 +63,12 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
             {
                 analysisConsoleComponent.AdvancedNodeScanner = null;
                 Dirty((EntityUid)analyzer.Console, analysisConsoleComponent);
+            }
+
+            if (analyzer.CurrentArtifact is not null && TryComp<XenoArtifactComponent>(analyzer.CurrentArtifact, out var artifactComp))
+            {
+                artifactComp.AdvancedNodeScanner = null;
+                Dirty((EntityUid)analyzer.CurrentArtifact, artifactComp);
             }
         }
 
