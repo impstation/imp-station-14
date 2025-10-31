@@ -57,7 +57,22 @@
         Blunt: 10
         Structural: 25
   - type: Item
-    size: Large
+    size: Gigantic
   - type: Construction
-    graph: ScrapSword
+    graph: MicrowaveSledgehammer
     node: sword
+
+- type: entity
+  name: incomplete microwave sledgehammer
+  parent: BaseItem
+  id: IncompleteImprovisedSledge
+  description: A microwave attached to a metal pole. This would not make a good weapon yet.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+    state: icon
+  - type: Item
+    size: Gigantic
+  - type: Construction
+    graph: WoodenBat
+    node: incompleteBat

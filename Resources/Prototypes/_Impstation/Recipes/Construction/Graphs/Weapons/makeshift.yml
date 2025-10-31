@@ -32,3 +32,43 @@
               doAfter: 1
     - node: sword
       entity: ScrapSword
+
+- type: constructionGraph
+  id: MicrowaveSledgehammer
+  start: start
+  graph:
+    - node: start
+      edges:
+       - to: incomplete_sledge
+         steps:
+          - material: MetalRod
+            amount: 8
+            doAfter: 10
+          - material: Cable
+            amount: 10
+            doAfter: 1
+          - tag: Microwave
+            name: construction-graph-tag-microwave
+            icon:
+              sprite: Objects/Materials/Shards/shard.rsi
+              state: shard1
+            doAfter: 1
+          - tool: Welding
+            doAfter: 5
+
+    - node: incomplete_sledge
+      entity: IncompleteImprovisedSledge
+      edges:
+       - to: sledgehammer
+         steps:
+          - material: Plasteel
+            amount: 10
+            doAfter: 6
+          - material: Steel
+            amount: 15
+            doAfter: 1
+          - tool: Welding
+            amount: 8
+
+    - node: sledgehammer
+      entity: improvisedSledge
