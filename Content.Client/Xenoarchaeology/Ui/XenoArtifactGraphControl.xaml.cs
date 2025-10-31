@@ -131,7 +131,9 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                     if (artifact.Comp.Natural && node.Comp.Locked && !_artifactSystem.IsNodeActive(artifact, node)) //natural artifact with a locked, inactive node passes this
                     {
                         var directPredecessorNodes = _artifactSystem.GetDirectPredecessorNodes((artifact, artifact), node);
-                        if (!directPredecessorNodes.Any(x => _artifactSystem.IsNodeActive(artifact, x) || !x.Comp.Locked)) // no parent is active or unlocked
+                        // no parent is active or unlocked, if we have advanced node scanner this increases to grandparents
+                        if (!directPredecessorNodes.Any(x => _artifactSystem.IsNodeActive(artifact, x) || !x.Comp.Locked) //no parent is active or unlocked
+                         && (artifact.Comp.AdvancedNodeScanner == null || !_artifactSystem.AnyGrandparentsActiveOrUnlocked((artifact, artifact), node))) //advanced node scanner increases vision range by one
                         {
                             hiddenNodes.Add(node);
                             continue;

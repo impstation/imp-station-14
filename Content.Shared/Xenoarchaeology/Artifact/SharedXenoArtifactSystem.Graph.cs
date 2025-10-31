@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Robust.Shared.Prototypes;
@@ -554,6 +555,21 @@ public abstract partial class SharedXenoArtifactSystem
         }
 
         return output;
+    }
+
+    /// <summary>
+    /// IMP Are any of the node's predessessor's predeccessors active or unlocked?
+    /// </summary>
+    public bool AnyGrandparentsActiveOrUnlocked(Entity<XenoArtifactComponent> ent, EntityUid node)
+    {
+        var parents = GetDirectPredecessorNodes((ent, ent), node);
+        foreach (var parent in parents)
+        {
+            if (GetDirectPredecessorNodes((ent, ent), parent).Any(x => IsNodeActive(ent, x) || !x.Comp.Locked))
+                return true;
+        }
+
+        return false;
     }
 
     /// <summary>
