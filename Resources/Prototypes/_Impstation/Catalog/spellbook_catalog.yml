@@ -23,7 +23,33 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookSpawnRock
+  name: spellbook-rock-name
+  description: spellbook-rock-desc
+  productEntity: MobRockMagic
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Utility
+- type: listing
+  id: SpellbookWizardOnly
+  name: spellbook-wizonly-name
+  description: spellbook-wizonly-desc
+  productAction: ActionWizardsOnly
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 - type: listing
   id: SpellbookSpaceGrease
   name: spellbook-spacegrease-name
@@ -63,7 +89,20 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-# Equipment
+- type: listing
+  id: SpellbookSpawnRunes
+  name: spellbook-runes-name
+  description: spellbook-runes-desc
+  productEntity: ScrollRunes
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Equipment + wands + books
 - type: listing
   id: SpellbookWandBubbles
   name: spellbook-wand-bub-name
@@ -98,7 +137,7 @@
   cost:
     WizCoin: 0
   categories:
-  - SpellbookEquipment
+  - SpellbookWand
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -111,7 +150,72 @@
   cost:
     WizCoin: 0
   categories:
-  - SpellbookEquipment
+  - SpellbookWand
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWandHeal
+  name: spellbook-wand-heal-name
+  description: spellbook-wand-heal-description
+  productEntity: WeaponStaffHealing
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookWand
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWandDeath
+  name: spellbook-wand-death-name
+  description: spellbook-wand-death-description
+  productEntity: WeaponWandDeath
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookWand
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWandFire
+  name: spellbook-wand-fire-name
+  description: spellbook-wand-fire-description
+  productEntity: WeaponWandFireball
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookWand
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWandCarp
+  name: spellbook-wand-carp-name
+  description: spellbook-wand-carp-description
+  productEntity: WeaponWandPolymorphCarp
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookWand
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWandBread
+  name: spellbook-wand-bread-name
+  description: spellbook-wand-bread-description
+  productEntity: WeaponWandPolymorphBread
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookWand
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -138,6 +242,84 @@
     WizCoin: 0
   categories:
   - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookBookSpawn
+  name: spellbook-spawn-name
+  description: spellbook-spawn-description
+  productEntity: SpawnSpellbook
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookBook
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookBookWall
+  name: spellbook-wall-name
+  description: spellbook-wall-description
+  productEntity: ForceWallSpellbook
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookBook
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookBookBlink
+  name: spellbook-blink-name
+  description: spellbook-blink-description
+  productEntity: BlinkBook
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookBook
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookBookSmite
+  name: spellbook-smite-name
+  description: spellbook-smite-description
+  productEntity: SmiteBook
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookBook
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookBookKnock
+  name: spellbook-knock-name
+  description: spellbook-knock-description
+  productEntity: KnockSpellbook
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookBook
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookBookFire
+  name: spellbook-fire-name
+  description: spellbook-fire-description
+  productEntity: FireballSpellbook
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookBook
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1

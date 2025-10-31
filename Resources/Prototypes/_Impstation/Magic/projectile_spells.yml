@@ -54,7 +54,7 @@
   components:
   - type: Magic
   - type: Action
-    useDelay: 5
+    useDelay: 15
     itemIconStyle: BigAction
     raiseOnUser: true
     icon:
@@ -65,6 +65,59 @@
     checkCanAccess: false
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
-      prototype: ProjectileIcicle
+      prototype: ProjectileIceMagic
   - type: SpeakOnAction
     sentence: action-speech-spell-frost
+
+- type: entity
+  parent: BaseAction
+  id: ActionWizardsOnly
+  name: Wizard door
+  description: Transform a door to keep others out.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    raiseOnUser: true
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectilePolyboltWizardDoor
+  - type: SpeakOnAction
+    sentence: action-speech-wizdoor
+
+- type: entity
+  id: ProjectilePolyboltWizardDoor
+  parent: ProjectilePolyboltBase
+  name: wizard door polybolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: spell
+      color: brown
+  - type: PolymorphOnTrigger
+    polymorph: WizardMagicDoor
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      components:
+      - Airlock
+      - Firelock
+
+- type: entity
+  id: ProjectilePolyboltPig
+  parent: ProjectilePolyboltBase
+  name: pig polybolt
+  description: Nooo, I don't wanna be a pig!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardForcedPig
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      components:
+      - MobState

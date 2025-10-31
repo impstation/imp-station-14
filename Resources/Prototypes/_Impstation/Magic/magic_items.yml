@@ -46,7 +46,7 @@
       types:
         Blunt: 0
   - type: StaminaDamageOnCollide
-    damage: 50
+    damage: 10
   - type: Fixtures
     fixtures:
       fix1:
@@ -79,8 +79,6 @@
   - type: TriggerOnCollide
     fixtureID: projectile
 
-
-
 - type: entity
   name: cone of cold
   parent: FoodFrozenSnowcone
@@ -101,3 +99,60 @@
     - ice
     - magic?
 
+- type: entity
+  id: ProjectileIceMagic
+  parent: BaseBullet
+  name: magic icicle
+  description: Brrrrr!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/ice_anom.rsi
+  - type: Projectile
+    deleteOnCollide: true
+    soundHit:
+      path: /Audio/_Impstation/Magic/icemagic.ogg
+    damage:
+      types:
+        Piercing: 80
+        Cold: 80
+        Structural: 50
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: SpawnOnTrigger
+    proto: IceCrust
+    settings:
+        minAmount: 5
+        maxAmount: 10
+        maxRange: 4
+
+- type: entity
+  parent: Airlock
+  id: WizardDoor
+  name: wizard door
+  description: W1Z4rD5 0N1Y!!!!!
+  suffix: Wizard, Locked
+  components:
+  - type: AccessReader
+    access: [["Wizard"]]
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/basic.rsi
+  - type: RadiationBlocker
+  - type: Door
+    openSound:
+      path: /Audio/_Impstation/Magic/magicdooropen.ogg
+    closeSound:
+      path: /Audio/_Impstation/Magic/magicdoorclose.ogg
+    denySound:
+      path: /Audio/_Impstation/Magic/magicdoorno.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

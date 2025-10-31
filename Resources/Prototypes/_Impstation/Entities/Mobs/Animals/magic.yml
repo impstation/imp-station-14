@@ -11,6 +11,7 @@
     name: ghost-role-information-monkey-name
     description: ghost-role-information-monkey-description
     rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
   - type: NPCImprintingOnSpawnBehaviour
     spawnFriendsSearchRadius: 2
     whitelist:
@@ -30,7 +31,7 @@
     capacity: 500
   - type: Gun
     clumsyProof: true
-    fireRate: 0.2
+    fireRate: 1
     useKey: false
     selectedMode: SemiAuto
     availableModes:
@@ -106,7 +107,7 @@
         Blunt: 0.11
 
 - type: entity
-  name: Big guy who needs a name
+  name: Grotesque
   parent: [MobElementalBase, MobCombat]
   id: MobRockMagic
   description: Is it... a statue?
@@ -123,6 +124,7 @@
   - type: RotationVisuals
     defaultRotation: 90
     horizontalRotation: 90
+  - type: Examiner
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
     baseSprintSpeed: 3
@@ -138,7 +140,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      400: Dead
+      300: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -149,23 +151,21 @@
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
-          path: /Audio/Effects/break_stone.ogg
+          path: /Audio/_Impstation/Magic/magicrock.ogg
       - !type:SpawnEntitiesBehavior
         spawn:
           ArtifactFragment:
             min: 3
             max: 5
   - type: MeleeWeapon
-    attackRate: 0.6
+    attackRate: 1
     hidden: true
     soundHit:
-      path: /Audio/Effects/break_stone.ogg
-      params:
-        variation: 0.125
+      collection: Punch
     damage:
       types:
         Blunt: 40
-        Structural: 40
+        Structural: 60
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepThud
@@ -175,11 +175,23 @@
   - type: Speech
     speechVerb: LargeMob
     speechSounds: Vulpkanin
-  - type: Vocal
-    sounds:
-      Unsexed: VRexEmotes
   - type: ReplacementAccent
-    accent: vrex
+    accent: Crab
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
+  - type: MeleeThrowOnHit
+    UnanchorOnHit: true
+    speed: 15
+    distance: 4
+    StunTime: 10
+    ActivateOnThrown: true
+  - type: StatusEffects
+    allowed:
+    - SlowedDown
+    - TemporaryBlindness
+    - RadiationProtection
+    - Pacified
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Effects/break_stone.ogg
