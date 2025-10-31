@@ -488,13 +488,13 @@ public abstract partial class SharedXenoArtifactSystem
             GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity) != null &&
             _powerReceiver.IsPowered(GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity)!.Value))
         {
-            switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).BiasDirection)
+            switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).DepthBiasDirection)
             {
-                case BiasDirection.Up:
+                case DepthBiasDirection.Up:
                     if (predecessorNodes.Count > 0)
                         directNodes = predecessorNodes;
                     break;
-                case BiasDirection.Down:
+                case DepthBiasDirection.Down:
                     if (successorNodes.Count > 0)
                         directNodes = successorNodes;
                     break;

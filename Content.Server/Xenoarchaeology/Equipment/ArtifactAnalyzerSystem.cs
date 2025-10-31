@@ -54,13 +54,13 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
     private void OnUpBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
         ref AnalysisConsoleUpBiasButtonPressedMessage args)
     {
-        ent.Comp.BiasDirection = BiasDirection.Up;
+        ent.Comp.DepthBiasDirection = DepthBiasDirection.Up;
     }
 
     private void OnDownBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
         ref AnalysisConsoleDownBiasButtonPressedMessage args)
     {
-        ent.Comp.BiasDirection = BiasDirection.Down;
+        ent.Comp.DepthBiasDirection = DepthBiasDirection.Down;
     }
     // imp edit end
 }

@@ -76,14 +76,14 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         UpBiasButton.OnPressed += _ =>
         {
             OnUpBiasButtonPressed?.Invoke();
-            _owner.Comp.BiasDirection = BiasDirection.Up;
+            _owner.Comp.DepthBiasDirection = DepthBiasDirection.Up;
             UpBiasButton.Pressed = true;
             DownBiasButton.Pressed = false;
         };
         DownBiasButton.OnPressed += _ =>
         {
             OnDownBiasButtonPressed?.Invoke();
-            _owner.Comp.BiasDirection = BiasDirection.Down;
+            _owner.Comp.DepthBiasDirection = DepthBiasDirection.Down;
             UpBiasButton.Pressed = false;
             DownBiasButton.Pressed = true;
         };
@@ -186,9 +186,9 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         if (arti is { Comp.Natural: true })
         {
-            if (ent.Comp.BiasDirection == BiasDirection.Down)
+            if (ent.Comp.DepthBiasDirection == DepthBiasDirection.Down)
                 DownBiasButton.Pressed = true;
-            else if (ent.Comp.BiasDirection == BiasDirection.Up)
+            else if (ent.Comp.DepthBiasDirection == DepthBiasDirection.Up)
                 UpBiasButton.Pressed = true;
         }
         // imp edit end

@@ -31,6 +31,13 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     public EntityUid? Console;
 
     /// <summary>
+    /// #IMP The corresponding advanced node scanner entity.
+    /// Can be null if not linked.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? AdvancedNodeScanner;
+
+    /// <summary>
     /// Marker, if artifact graph data is ready for printing.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
