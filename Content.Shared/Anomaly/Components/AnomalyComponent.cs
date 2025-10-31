@@ -39,7 +39,7 @@ public sealed partial class AnomalyComponent : Component
     /// </summary>
     /// <remarks>
     /// Note that this doesn't refer to stability as a percentage: This is an arbitrary
-    /// value that only matters in relation to the <see cref="GrowthThreshold"/> and <see cref=""/>
+    /// value that only matters in relation to the <see cref="GrowthThreshold"/> and <see cref="DecayThreshold"/>
     /// </remarks>
     [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float Stability = 0f;
@@ -336,3 +336,10 @@ public readonly record struct AnomalyHealthChangedEvent(EntityUid Anomaly, float
 /// </summary>
 [ByRefEvent]
 public readonly record struct AnomalyBehaviorChangedEvent(EntityUid Anomaly, ProtoId<AnomalyBehaviorPrototype>? Old, ProtoId<AnomalyBehaviorPrototype>? New);
+
+/// <summary>
+/// Event of anomaly being affected by exotic particle.
+/// Is raised when particle collides with artifact.
+/// </summary>
+[ByRefEvent]
+public record struct AnomalyAffectedByParticleEvent(EntityUid Anomaly, EntityUid Particle);

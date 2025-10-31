@@ -104,7 +104,7 @@
   name: Inspector
   parent: [BaseWeaponRevolver, BaseSecurityContraband]
   id: WeaponRevolverInspector
-  description: A single-action revolver manufactured by various companies. It is readily available on the civilian market, making it a popular choice among private investigators. You feel lucky just holding it. Loads 6 rounds of .45 magnum.
+  description: A double-action revolver manufactured by various companies. It is readily available on the civilian market, making it a popular choice among private investigators. You feel lucky just holding it. Loads 6 rounds of .45 magnum.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi #imp
@@ -117,6 +117,8 @@
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
+  - type: StealTarget
+    stealGroup: OfficerHandgun
 
 - type: entity
   name: Mateba
@@ -173,7 +175,7 @@
   suffix: armor-piercing
   components:
   - type: RevolverAmmoProvider
-    whitelist:
+    whitelist: # Redundant
       tags:
         - CartridgeMagnum
         - SpeedLoaderMagnum

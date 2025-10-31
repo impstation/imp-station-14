@@ -19,5 +19,6 @@ guide-entry-impluggage = The Luggage
 guide-entry-impapids = Apids
 guide-entry-impbountyhunter = Bounty Hunter
 guide-entry-imptourist = Tourists
+guide-entry-impeeeps = Electric Sheep
 
 guide-entry-cooking-techniques = Cooking Techniques

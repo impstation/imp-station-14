@@ -15,7 +15,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
-using Content.Server.Announcements.Systems;
+using Content.Server.Announcements.Systems; // ee announce
 
 namespace Content.Server.Dragon;
 
@@ -30,7 +30,7 @@ public sealed class DragonRiftSystem : EntitySystem
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
     public override void Initialize()
     {
@@ -82,7 +82,9 @@ public sealed class DragonRiftSystem : EntitySystem
                 comp.State = DragonRiftState.AlmostFinished;
                 Dirty(uid, comp);
 
+                // imp edit start
                 _announcer.SendAnnouncement(_announcer.GetAnnouncementId("CarpRift"), Filter.Broadcast(), comp.Announcement, colorOverride: Color.Red, localeArgs: ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, xform)))));
+                // imp edit end
                 _navMap.SetBeaconEnabled(uid, true);
             }
 

@@ -140,17 +140,15 @@
     Sneeze:
       collection: MaleSneezes #placeholder
     Cough:
-      collection: MaleCoughs #placeholder
+      path: /Audio/Voice/Vox/vox_cough.ogg
     Yawn:
       collection: MaleYawn #placeholder
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: MaleSigh #placeholder
+      path: /Audio/Voice/Vox/vox_sigh.ogg
     Crying:
-      collection: VoxCry
-      params:
-        volume: -7
+      path: /Audio/Voice/Vox/vox_cry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -166,7 +164,7 @@
       params:
         volume: 10
     DefaultDeathgasp:
-      collection: MaleDeathGasp #placeholder
+      path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
     Chitter:
       collection: VoxChitter
       params:
@@ -194,17 +192,15 @@
     Sneeze:
       collection: FemaleSneezes #placeholder
     Cough:
-      collection: FemaleCoughs #placeholder
+      path: /Audio/Voice/Vox/vox_cough.ogg
     Yawn:
       collection: FemaleYawn #placeholder
     Honk:
       collection: BikeHorn
     Sigh:
-      collection: FemaleSigh #placeholder
+      path: /Audio/Voice/Vox/vox_sigh.ogg
     Crying:
-      collection: VoxCry
-      params:
-        volume: -7
+      path: /Audio/Voice/Vox/vox_cry.ogg
     Whistle:
       collection: Whistles
     Weh:
@@ -218,7 +214,7 @@
       params:
         volume: 10
     DefaultDeathgasp:
-      collection: FemaleDeathGasp #placeholder
+      path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
     Chitter:
       collection: VoxChitter
       params:
@@ -918,6 +914,46 @@
       params:
         volume: -3
         variation: 0.1
+
+- type: emoteSounds
+  id: Allulalo
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+    Laugh:
+      path: /Audio/_Impstation/Allulalo/allulalo_laugh.ogg
+    Hiss:
+      collection: VoxHiss
+      params:
+        volume: -5
+    Chitter:
+      path: /Audio/_Impstation/Allulalo/allulalo_chitter.ogg
+    Sneeze:
+      collection: UnisexSneezes #placeholder
+    Cough:
+      collection: UnisexCoughs #placeholder
+    Yawn:
+      path: /Audio/_Impstation/Allulalo/allulalo_say.ogg
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      path: /Audio/_Impstation/Allulalo/allulalo_say.ogg #placeholder
+    Whistle:
+      collection: Whistles
+    Crying:
+      path: /Audio/_Impstation/Allulalo/allulalo_cry.ogg
+    Weh:
+      collection: Weh
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    Gasp:
+      path: /Audio/_Impstation/Allulalo/allulalo_say.ogg
+    DefaultDeathgasp:
+      /Audio/_Impstation/Allulalo/allulalo_deathgasp.ogg
 
 #body emotes
 - type: emoteSounds

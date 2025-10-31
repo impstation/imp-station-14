@@ -6,18 +6,18 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobWarden
-      time: 10800 #3 hrs, imp
+      time: 3h # imp, was 1h
     - !type:RoleTimeRequirement
       role: JobDetective
-      time: 3600 #1 hr, knowing how to use the tools is important
+      time: 1h # knowing how to use the tools is important
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 36000 #10 hrs, imp
+      time: 10h # imp, was 5h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 324000 # 90 hrs
-    - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs
+      time: 90h # imp, was 10h
+    - !type:OverallPlaytimeRequirement # imp add
+      time: 40h
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
@@ -45,7 +45,7 @@
 - type: startingGear
   id: HoSGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    # eyes: ClothingEyesGlassesSecurity imp loadouts
     id: HoSPDA
     gloves: ClothingHandsGlovesCombat
     # pocket1: WeaponPistolMk58 imp loadouts

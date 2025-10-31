@@ -38,21 +38,14 @@ public abstract partial class SharedXenoArtifactSystem
         SetNodeDurability((ent, ent), nodeComponent.MaxDurability);
     }
 
-    /// <summary> Gets node component by node entity uid. </summary>
-    public XenoArtifactNodeComponent XenoArtifactNode(EntityUid uid)
-    {
-        return _nodeQuery.Get(uid);
-    }
-
     public void SetNodeUnlocked(Entity<XenoArtifactNodeComponent?> ent)
     {
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-        if (ent.Comp.Attached is not { } netArtifact)
+        if (ent.Comp.Attached is not { } artifact)
             return;
 
-        var artifact = GetEntity(netArtifact);
         if (!TryComp<XenoArtifactComponent>(artifact, out var artifactComponent))
             return;
 
@@ -90,6 +83,18 @@ public abstract partial class SharedXenoArtifactSystem
 
         ent.Comp.Durability = Math.Clamp(durability, 0, ent.Comp.MaxDurability);
         UpdateNodeResearchValue((ent, ent.Comp));
+        Dirty(ent);
+    }
+
+    /// <summary>
+    /// #IMP Adjusts the number of times a node believes it has been unlocked, for use with artifact glue, etc.
+    /// </summary>
+    public void AdjustNodeUnlocks(Entity<XenoArtifactNodeComponent?> ent, int delta)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        ent.Comp.NumNodeUnlocks += delta;
         Dirty(ent);
     }
 
@@ -220,7 +225,10 @@ public abstract partial class SharedXenoArtifactSystem
             foreach (var netNode in segment)
             {
                 var node = GetEntity(netNode);
-                outSegment.Add((node, XenoArtifactNode(node)));
+                if (!_nodeQuery.TryComp(node, out var comp))
+                    continue;
+
+                outSegment.Add((node, comp));
             }
 
             output.Add(outSegment);
@@ -424,7 +432,7 @@ public abstract partial class SharedXenoArtifactSystem
             return;
         }
 
-        var artifact = _xenoArtifactQuery.Get(GetEntity(nodeComponent.Attached.Value));
+        var artifact = _xenoArtifactQuery.Get(nodeComponent.Attached.Value);
 
         var nonactiveNodes = GetActiveNodes(artifact);
         var durabilityEffect = MathF.Pow((float)nodeComponent.Durability / nodeComponent.MaxDurability, 2);
@@ -442,17 +450,25 @@ public abstract partial class SharedXenoArtifactSystem
     }
 
     /// <summary>
-    /// Imp edit, set the current node to the given node, rebuild the cache of active nodes.
+    ///     Imp edit, set the current node to the given node, rebuild the cache of active nodes.
     /// </summary>
     public void SetCurrentNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent> node)
     {
         artifact.Comp.CurrentNode = node;
+
+        // Natural artifacts get to activate the effect when entering a node and deactivate it when exiting, if proper EffectActiveOnlyWhileNodeIsCurrent = true on nodecomp.
+        if (artifact.Comp.Natural && node.Comp.EffectActiveOnlyWhileNodeIsCurrent && (node.Comp.MaxNodeUnlocks == 0 || node.Comp.MaxNodeUnlocks > node.Comp.NumNodeUnlocks))
+        {
+            var ev = new XenoArtifactNodeActivatedEvent(artifact, node, null, null, Transform(artifact).Coordinates, false);
+            RaiseLocalEvent(node, ref ev);
+        }
+
         RebuildCachedActiveNodes((artifact, artifact));
         Dirty(node);
     }
 
     /// <summary>
-    /// Imp edit, set a new current node depending on the set bias and the connected locked nodes
+    ///     Imp edit, set a new current node depending on the set bias and the connected locked nodes
     /// </summary>
     public void GetNewCurrentNode(Entity<XenoArtifactComponent> ent)
     {
