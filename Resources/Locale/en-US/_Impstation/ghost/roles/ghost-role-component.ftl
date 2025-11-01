@@ -182,5 +182,8 @@ ghost-role-information-monkey-description-lambordeere = You have slain your capt
 ghost-role-information-bananadeer-name = Banana deer
 ghost-role-information-bananadeer-description = While you usually reside on planet Teo, somehow you've ended up on a space station! Honk, slip and jump your way through life!
 
-ghost-role-information-eeep-name = Eeeplet
-ghost-role-information-eeep-desc = As a baby electric sheep your favourite food is power sourced from your local station APCs. Maybe if you eat enough you can become a fully grown Eeep!
+ghost-role-information-eeeplet-name = Eeeplet
+ghost-role-information-eeeplet-desc = As a baby electric sheep your favourite food is power sourced from your local station, and you're very hungry.
+
+ghost-role-information-eeep-name = Eeep
+ghost-role-information-eeep-desc = A bad tempered and fully grown Electric sheep.
