@@ -197,7 +197,7 @@
     - state: spell_default
   - type: Spellbook
     spellActions:
-      ActionFlashRune: null
+#      ActionFlashRune: null  Imp edit remove, its broken
       ActionExplosionRune: null
       ActionIgniteRune: null
       ActionStunRune: null

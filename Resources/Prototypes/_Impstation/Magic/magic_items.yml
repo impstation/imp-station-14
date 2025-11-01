@@ -127,55 +127,24 @@
         maxRange: 4
 
 - type: entity
-  parent: Airlock
+  parent: BaseStructure
   id: WizardDoor
   name: wizard door
   description: W1Z4rD5 0N1Y!!!!!
   suffix: Wizard, Locked
   components:
-  - type: Lock
-    breakOnAccessBreaker: false
-  - type: AccessReader
-    access: [["Wizard"]]
-  - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/basic.rsi
-  - type: RadiationBlocker
-  - type: Door
-    openSound:
-      path: /Audio/_Impstation/Magic/magicdooropen.ogg
-    closeSound:
-      path: /Audio/_Impstation/Magic/magicdoorclose.ogg
-    denySound:
-      path: /Audio/_Impstation/Magic/magicdoorno.ogg
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 500
-      behaviors:
-      - !type:PlaySoundBehavior
-        sound:
-          collection: WoodDestroy
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-
-- type: entity
-  id: Airlock
-  parent: BaseStructure
-  name: airlock
-  description: It opens, it closes, and maybe crushes you.
-  components:
   - type: Anchorable
     flags:
     - Anchorable
   - type: Rotatable
-  - type: StationAiWhitelist
   - type: MeleeSound
     soundGroups:
       Brute:
         path:
           "/Audio/Weapons/smash.ogg"
   - type: InteractionOutline
+  - type: ApcPowerReceiver
+  - type: ExtensionCableReceiver
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Standard/public.rsi
     snapCardinals: true
@@ -195,25 +164,19 @@
         - FullTileMask
         layer:
         - AirlockLayer
-  - type: LayerChangeOnWeld
-    unWeldedLayer: AirlockLayer
-    weldedLayer: WallLayer
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronics ]
+#  - type: ContainerFill
+#    containers:
+#      board: [ DoorElectronics ]
   - type: AccessReader
     access: [["Wizard"]]
   #  containerAccessProvider: board
   - type: Door
-    crushDamage:
-      types:
-        Blunt: 15
     openSound:
-      path: /Audio/Machines/airlock_open.ogg
+      path: /Audio/_Impstation/Magic/magicdooropen.ogg
     closeSound:
-      path: /Audio/Machines/airlock_close.ogg
+      path: /Audio/_Impstation/Magic/magicdoorclose.ogg
     denySound:
-      path: /Audio/Machines/airlock_deny.ogg
+      path: /Audio/_Impstation/Magic/magicdoorno.ogg
   - type: ContainerContainer
     containers:
       board: !type:Container
@@ -234,11 +197,11 @@
         !type:DamageTrigger
         damage: 500
       behaviors:
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
-          collection: MetalSlam
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: PlacementReplacement
     key: walls
   - type: BlockWeather

@@ -3,10 +3,22 @@ spellbook-frost-name = Ice Bolt
 spellbook-frost-desc = Fire a deadly spear of ice.
 
 spellbook-wizspore-name = Wizspores
-spellbook-wizspore-desc = Trying their best.
+spellbook-wizspore-desc = A resummonable group of magical minions!
 
 spellbook-bub-name = Bubble
 spellbook-bub-desc = You get one.
+
+spellbook-rock-name = Grotesque
+spellbook-rock-desc = A powerfull stone protector.
+
+spellbook-wizonly-name = Wizards Domain
+spellbook-wizonly-desc = Make any door wizards only.
+
+spellbook-runes-name = Rune scroll
+spellbook-runes-desc = Place runic circles.
+
+spellbook-curse-name = Curse
+spellbook-curse-desc = Manifest a curse that latches onto the nearest humanoid.
 
 # Utility
 spellbook-spacegrease-name = Space Grease
@@ -47,7 +59,7 @@ spellbook-apprentice-name = Apprentice Hat
 spellbook-apprentice-description = An Apprentice's Hat and Grimoire all in one! Just make sure to give them a tap with it first to ensure their undying loyalty.
 
 spellbook-wand-bub-name = Bubble Wand
-spellbook-wand-bub-description = Scary...
+spellbook-wand-bub-description = Take down your enemies, non-violently... unless they're slimes.
 
 # Event
 
