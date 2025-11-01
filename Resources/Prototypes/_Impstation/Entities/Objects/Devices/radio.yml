@@ -1,0 +1,61 @@
+# NOTE: this handheld radio is the upstream prototype by default, with handicomms added on top.
+- type: entity
+  name: handheld radio
+  description: A handy handheld radio.
+  parent: BaseRadio
+  id: RadioHandheld
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Handheld
+    toggleOnInteract: false
+    frequency: 1330
+  - type: RadioSpeaker
+    channels:
+    - Handheld
+    toggleOnInteract: false
+  - type: ActivatableUI
+    key: enum.HandheldRadioUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HandheldRadioUiKey.Key:
+        type: HandheldRadioBoundUserInterface
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: walkietalkie
+    - state: walkietalkie-on
+    state: walkietalkie
+
+- type: entity
+  name: scrap radio
+  description: A handheld radio made out of junk.
+  parent: RadioHandheld
+  id: RadioHandheldScrap
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Handheld
+    toggleOnInteract: false
+    frequency: 1330
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: BatteryRadio
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmall
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/communication.rsi
+    layers:
+    - state: scrapradio
+    - state: on-scrapradio
+    state: scrapradio
+  - type: Item
+    sprite: _Impstation/Objects/Devices/communication.rsi
+    heldPrefix: scrapradio
+  - type: Construction
+    graph: RadioHandheldScrapGraph
+    node: radio
