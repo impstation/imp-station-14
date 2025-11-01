@@ -138,12 +138,12 @@
     damage:
       types:
         Shock: 5
-        Brute: 5
+        Brute: 2
   - type: StaminaDamageOnHit
-    damage: 10
+    damage: 20
   - type: MeleeChemicalInjector
     solution: Nocturine
-    transferAmount: 2
+    transferAmount: 5
   - type: Battery
     maxCharge: 30000
     startingCharge: 0
