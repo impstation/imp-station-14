@@ -10,7 +10,7 @@ public sealed partial class AdvancedNodeScannerComponent : Component
     /// The analyzer entity the advanced node scanner is linked.
     /// Can be null if not linked.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public NetEntity? AnalyzerEntity;
 
     /// <summary>
@@ -18,4 +18,11 @@ public sealed partial class AdvancedNodeScannerComponent : Component
     /// </summary>
     [DataField("LinkingPort", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
     public string AdvancedNodeScannerLinkingPort = "AdvancedNodeScannerSender";
+
+    /// <summary>
+    /// Natural artifact visibility increase on analysis console graph
+    /// +1 by default
+    /// </summary>
+    [DataField]
+    public int NaturalNodeGraphVisibilityModifier = 1;
 }

@@ -32,6 +32,7 @@
     powerLoad: 500
     needsPower: true
   - type: AdvancedNodeScanner
+    naturalNodeGraphVisibilityModifier: 1
   - type: DeviceNetwork
     deviceNetId: Wired
     receiveFrequencyId: BasicDevice

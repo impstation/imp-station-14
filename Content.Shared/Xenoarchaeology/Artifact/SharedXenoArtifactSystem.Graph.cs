@@ -3,6 +3,8 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Xenoarchaeology.Equipment.Components;
+using Robust.Shared.Toolshed.Commands.Math;
 
 namespace Content.Shared.Xenoarchaeology.Artifact;
 
@@ -558,18 +560,59 @@ public abstract partial class SharedXenoArtifactSystem
     }
 
     /// <summary>
-    /// IMP Are any of the node's predessessor's predeccessors active or unlocked?
+    /// IMP A natural artifact node should be visible if it fits one of the following
+    /// 1 Is depth 0
+    /// 2 Is unlocked or active
+    /// 3 Has a direct predecessor which is unlocked or active
+    /// 4 Is part of an artifact which is scanned by an advanced node scanner AND has grand-predecessors which are unlocked or active.
+    /// (note: if advanced node scanner has visibility increase of +1 then grand predeccessors, +2 great-grand predecessors, etc)
     /// </summary>
-    public bool AnyGrandparentsActiveOrUnlocked(Entity<XenoArtifactComponent> ent, EntityUid node)
+    public bool NaturalNodeVisible(Entity<XenoArtifactComponent> ent, Entity<XenoArtifactNodeComponent> node)
     {
-        var parents = GetDirectPredecessorNodes((ent, ent), node);
-        foreach (var parent in parents)
+        // 1 If depth 0
+        if (node.Comp.Depth == 0)
+            return true;
+
+        // 2 If unlocked or active
+        if (IsNodeActive(ent, node) || !node.Comp.Locked)
+            return true;
+
+        if (ent.Comp.AdvancedNodeScanner is null || !TryComp<AdvancedNodeScannerComponent>(ent.Comp.AdvancedNodeScanner, out var ans))
         {
-            if (GetDirectPredecessorNodes((ent, ent), parent).Any(x => IsNodeActive(ent, x) || !x.Comp.Locked))
+            //Has a direct predecessor which is unlocked or active
+            var parents = GetDirectPredecessorNodes((ent, ent), node);
+            if (parents.Any(x => IsNodeActive(ent, x) || !x.Comp.Locked))
+                return true;
+        }
+        else
+        {
+            var visibility = Math.Min(1 + ans.NaturalNodeGraphVisibilityModifier, node.Comp.Depth);
+            var ancestors = GetDirectPredecessorNodesRecursive((ent, ent), node, visibility);
+            if (ancestors.Any(x => IsNodeActive(ent, x) || !x.Comp.Locked))
                 return true;
         }
 
         return false;
+    }
+
+    /// <summary>
+    /// IMP Recursively get all predecessor nodes of predecessors up to some visibility limit
+    /// </summary>
+    public HashSet<Entity<XenoArtifactNodeComponent>> GetDirectPredecessorNodesRecursive(Entity<XenoArtifactComponent> ent, Entity<XenoArtifactNodeComponent> node, int generations)
+    {
+        var ancestors = GetDirectPredecessorNodes((ent, ent), node);
+        var temp = new HashSet<Entity<XenoArtifactNodeComponent>>();
+        if (generations > 0)
+        {
+            foreach (var ancestor in ancestors)
+            {
+                if (ancestor.Comp.Depth == 0)
+                    continue;
+
+                temp.UnionWith(GetDirectPredecessorNodesRecursive(ent, ancestor, generations - 1));
+            }
+        }
+        return ancestors.Union(temp).ToHashSet();
     }
 
     /// <summary>
