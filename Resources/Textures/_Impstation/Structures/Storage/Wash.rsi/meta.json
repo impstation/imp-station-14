@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by by AftrLite (GitHub)",
+  "copyright": "base, washOn, washOff by AftrLite (GitHub); doorOpen, doorClosed by AftrLite (GitHub) and edited by mqole; other sprites by mqole",
   "size": {
     "x": 32,
     "y": 32
@@ -11,13 +11,47 @@
       "name": "base"
     },
     {
-      "name": "open"
+      "name": "baseBroken"
     },
     {
-      "name": "closed"
+      "name": "fabric"
     },
     {
-      "name": "icon"
+      "name": "fabricCycle",
+      "delays": [
+        [
+            0.1, 0.1, 0.1, 0.1,
+            0.1, 0.1, 0.1, 0.1,
+            0.1, 0.1
+        ]
+      ]
+    },
+    {
+      "name": "reagent"
+    },
+    {
+      "name": "reagentFabric"
+    },
+    {
+      "name": "reagentCycle"
+    },
+    {
+      "name": "doorClosed"
+    },
+    {
+      "name": "doorClosedBloody"
+    },
+    {
+      "name": "doorClosedBroken"
+    },
+    {
+      "name": "doorOpen"
+    },
+    {
+      "name": "doorOpenBloody"
+    },
+    {
+      "name": "doorOpenBroken"
     },
     {
       "name": "washOn"

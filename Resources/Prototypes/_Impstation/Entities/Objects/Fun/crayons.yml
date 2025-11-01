@@ -31,3 +31,421 @@
   - type: FlavorProfile
     flavors:
     - chalky
+
+- type: entity
+  parent: Crayon
+  id: CrayonAqua
+  name: aqua crayon
+  components:
+  - type: Sprite
+    state: white
+    color: aqua
+  - type: Crayon
+    color: aqua
+  - type: Dye
+    color: aqua
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonBeige
+  name: beige crayon
+  components:
+  - type: Sprite
+    state: white
+    color: beige
+  - type: Crayon
+    color: beige
+  - type: Dye
+    color: beige
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonChartreuse
+  name: chartreuse crayon
+  components:
+  - type: Sprite
+    state: white
+    color: chartreuse
+  - type: Crayon
+    color: chartreuse
+  - type: Dye
+    color: chartreuse
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonCoral
+  name: coral crayon
+  components:
+  - type: Sprite
+    state: white
+    color: coral
+  - type: Crayon
+    color: coral
+  - type: Dye
+    color: coral
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonCrimson
+  name: crimson crayon
+  components:
+  - type: Sprite
+    state: white
+    color: crimson
+  - type: Crayon
+    color: crimson
+  - type: Dye
+    color: crimson
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonCyan
+  name: cyan crayon
+  components:
+  - type: Sprite
+    state: white
+    color: cyan
+  - type: Crayon
+    color: cyan
+  - type: Dye
+    color: cyan
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonForestGreen
+  name: forest green crayon
+  components:
+  - type: Sprite
+    state: white
+    color: forestGreen
+  - type: Crayon
+    color: forestGreen
+  - type: Dye
+    color: forestGreen
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonFuchsia
+  name: fuchsia crayon
+  components:
+  - type: Sprite
+    state: white
+    color: fuchsia
+  - type: Crayon
+    color: fuchsia
+  - type: Dye
+    color: fuchsia
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonGold
+  name: gold crayon
+  components:
+  - type: Sprite
+    state: white
+    color: gold
+  - type: Crayon
+    color: gold
+  - type: Dye
+    color: gold
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonGray
+  name: gray crayon
+  components:
+  - type: Sprite
+    state: white
+    color: gray
+  - type: Crayon
+    color: gray
+  - type: Dye
+    color: gray
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonIndigo
+  name: indigo crayon
+  components:
+  - type: Sprite
+    state: white
+    color: indigo
+  - type: Crayon
+    color: indigo
+  - type: Dye
+    color: indigo
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonLavender
+  name: lavender crayon
+  components:
+  - type: Sprite
+    state: white
+    color: lavender
+  - type: Crayon
+    color: lavender
+  - type: Dye
+    color: lavernder
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonLime
+  name: lime crayon
+  components:
+  - type: Sprite
+    state: white
+    color: lime
+  - type: Crayon
+    color: lime
+  - type: Dye
+    color: lime
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonMagenta
+  name: magenta crayon
+  components:
+  - type: Sprite
+    state: white
+    color: magenta
+  - type: Crayon
+    color: magenta
+  - type: Dye
+    color: magenta
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonMaroon
+  name: maroon crayon
+  components:
+  - type: Sprite
+    state: white
+    color: maroon
+  - type: Crayon
+    color: maroon
+  - type: Dye
+    color: maroon
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonNavy
+  name: navy crayon
+  components:
+  - type: Sprite
+    state: white
+    color: navy
+  - type: Crayon
+    color: navy
+  - type: Dye
+    color: navy
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonOlive
+  name: olive crayon
+  components:
+  - type: Sprite
+    state: white
+    color: olive
+  - type: Crayon
+    color: olive
+  - type: Dye
+    color: olive
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonOrchid
+  name: orchid crayon
+  components:
+  - type: Sprite
+    state: white
+    color: orchid
+  - type: Crayon
+    color: orchid
+  - type: Dye
+    color: orchid
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonPink
+  name: pink crayon
+  components:
+  - type: Sprite
+    state: white
+    color: pink
+  - type: Crayon
+    color: pink
+  - type: Dye
+    color: pink
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonSilver
+  name: silver crayon
+  components:
+  - type: Sprite
+    state: white
+    color: silver
+  - type: Crayon
+    color: silver
+  - type: Dye
+    color: silver
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonTurquoise
+  name: turquoise crayon
+  components:
+  - type: Sprite
+    state: white
+    color: turquoise
+  - type: Crayon
+    color: turquoise
+  - type: Dye
+    color: turquoise
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
+
+- type: entity
+  parent: Crayon
+  id: CrayonViolet
+  name: violet crayon
+  components:
+  - type: Sprite
+    state: white
+    color: violet
+  - type: Crayon
+    color: violet
+  - type: Dye
+    color: violet
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - Recyclable
+    - Trash
