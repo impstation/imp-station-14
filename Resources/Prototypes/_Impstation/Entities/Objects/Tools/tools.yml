@@ -144,3 +144,133 @@
     - ClothingHeadHatCone
     - PowerCellSmall
     - Decalamp
+
+- type: entity
+  parent: RCDRechargingTckTck
+  id: RCDRefreshments
+  name: refreshments RCD
+  description: The pinnacle of Decapoid technology, a RCD that makes snacks.
+  suffix: AutoRecharge
+  components:
+  - type: RCD
+    availablePrototypes:
+    - RCDHotCoffee
+    - RCDJuiceOrangeCarton
+    - RCDZombieSlushieGlass
+    - RCDBakedCookieSugar
+    - RCDCakeCottonSlice
+    - RCDMeatMeatball
+    - RCDCBlanketShock
+  - type: LimitedCharges
+    maxCharges: 10
+  - type: AutoRecharge
+    rechargeDuration: 10
+
+- type: entity
+  parent: Crayon
+  id: CrayonChalkInfinite
+  name: infinity chalk
+  suffix: Infinite
+  description: Not for doodles.
+  components:
+  - type: Crayon
+    color: White
+    infinite: true
+  - type: Sprite
+    state: white
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - CrayonWhite
+
+- type: entity
+  parent: Holoprojector
+  id: HoloprojectorSafety
+  name: safety projector
+  description: Creates a visual indicator of an unsafe area.
+  components:
+  - type: HolosignProjector
+    signProto: HolosignSafety
+  - type: LimitedCharges
+    maxCharges: 60
+  - type: AutoRecharge
+    rechargeDuration: 10
+  - type: Sprite
+    sprite: Objects/Devices/Holoprojectors/security.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - HolofanProjector
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: BaseItem
+  id: TckutWeewoo
+  name: weewoo
+  description: A trusty weewoo for responding to incidences.
+  components:
+  - type: HandheldLight
+    addPrefix: false
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: PointLight
+    enabled: false
+    radius: 3
+    energy: 28
+    color: "#FF5F15"
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 180
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 2
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: ItemTogglePointLight
+  - type: Sprite
+    sprite: _Impstation/Objects/Tools/seclite.rsi # imp
+    layers:
+    - state: seclite
+    - state: seclite-overlay
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
+
+- type: entity
+  name: code violation dispenser
+  parent: BaseWeaponBattery
+  id: TckutTicketDispenser
+  description: May the mighty hand of the Empire strike fierce the fool who violated code.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/tckut_ticket_dispenser.rsi
+    layers:
+    - state: icon
+  - type: Gun
+    fireRate: 4
+    soundGunshot:
+      path: /Audio/Effects/pop.ogg
+    soundEmpty:
+      path: /Audio/Items/hiss.ogg
+    clumsyProof: true
+  - type: ProjectileBatteryAmmoProvider
+    proto: CodeViolation
+    fireCost: 20
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1
+  - type: Item
+    size: Tiny
