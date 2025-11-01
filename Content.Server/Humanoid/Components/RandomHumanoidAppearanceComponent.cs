@@ -12,6 +12,13 @@ public sealed partial class RandomHumanoidAppearanceComponent : Component
 
     [DataField("randomizeName")] public bool RandomizeName = true;
 
+    // Imp edit
+    /// <summary>
+    /// When true, will set sex & gender to whatever the player has selected in character customization.
+    /// </summary>
+    [DataField]
+    public bool KeepPronouns = false;
+
     // Overrides //
 
     /// <summary>
