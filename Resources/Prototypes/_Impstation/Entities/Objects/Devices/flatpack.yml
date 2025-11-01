@@ -33,6 +33,19 @@
 
 - type: entity
   parent: [ BaseFlatpack, BaseSyndicateContraband ]
+  id: SyndicateRecordsComputerFlatpack
+  name: syndicate records terminal flatpack
+  description: A flatpack used for constructing a syndicate records terminal. Smaller than conventional flatpacks.
+  components:
+  - type: Flatpack
+    entity: ComputerSyndicateRecords
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/flatpack.rsi # imp
+    layers:
+    - state: syndicate_flatpack
+
+- type: entity
+  parent: [ BaseFlatpack, BaseSyndicateContraband ]
   id: SyndicateMicrowaveFlatpack
   name: donk co. microwave flatpack
   description: A flatpack used for constructing a donk co. microwave. Smaller than conventional flatpacks.
