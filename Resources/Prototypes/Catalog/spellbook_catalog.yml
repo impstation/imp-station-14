@@ -209,7 +209,7 @@
   cost:
     WizCoin: 3
   categories:
-  - SpellbookEquipment
+  - SpellbookWand # imp edit
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -222,7 +222,7 @@
   cost:
     WizCoin: 3
   categories:
-  - SpellbookEquipment
+  - SpellbookWand # imp edit
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -235,7 +235,7 @@
   cost:
     WizCoin: 3
   categories:
-  - SpellbookEquipment
+  - SpellbookWand # imp edit
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -266,19 +266,18 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-# imp (Removed until it is fixed and no longer makes everyone miserable)
-#- type: listing
-#  id: SpellbookStaffAnimation
-#  name: spellbook-staff-animation-name
-#  description: spellbook-staff-animation-description
-#  productEntity: AnimationStaff
-#  cost:
-#    WizCoin: 3
-#  categories:
-#  - SpellbookEquipment
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: SpellbookStaffAnimation
+  name: spellbook-staff-animation-name
+  description: spellbook-staff-animation-description
+  productEntity: AnimationStaff
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookWand # imp edit
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 # Event
 - type: listing
@@ -294,33 +293,33 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: SpellbookEventSummonGuns
-  name: spellbook-event-summon-guns-name
-  description: spellbook-event-summon-guns-description
-  productAction: ActionSummonGuns
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookEvents
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  disableRefund: true
+#- type: listing /imp edit remove/
+#  id: SpellbookEventSummonGuns
+#  name: spellbook-event-summon-guns-name
+#  description: spellbook-event-summon-guns-description
+#  productAction: ActionSummonGuns
+#  cost:
+#    WizCoin: 2
+#  categories:
+#  - SpellbookEvents
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  disableRefund: true
 
-- type: listing
-  id: SpellbookEventSummonMagic
-  name: spellbook-event-summon-magic-name
-  description: spellbook-event-summon-magic-description
-  productAction: ActionSummonMagic
-  cost:
-    WizCoin: 2
-  categories:
-  - SpellbookEvents
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  disableRefund: true
+#- type: listing /imp edit remove/
+#  id: SpellbookEventSummonMagic
+#  name: spellbook-event-summon-magic-name
+#  description: spellbook-event-summon-magic-description
+#  productAction: ActionSummonMagic
+#  cost:
+#    WizCoin: 2
+#  categories:
+#  - SpellbookEvents
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
+#  disableRefund: true
 
 # Upgrades
 - type: listing

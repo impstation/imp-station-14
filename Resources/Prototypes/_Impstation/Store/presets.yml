@@ -17,3 +17,16 @@
       BatonToken: 0
       DisablerToken: 0
       UtilityToken: 0
+
+# Apprentice spells
+
+- type: entity
+  id: StorePresetLilSpellbook
+  abstract: true
+  components:
+  - type: Store
+    name: store-preset-name-lil-spellbook
+    categories:
+    - LilSpells
+    currencyWhitelist:
+    - WizCoin
