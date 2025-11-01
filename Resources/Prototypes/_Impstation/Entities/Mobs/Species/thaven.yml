@@ -51,7 +51,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 120
+        density: 150 #lighter than humans, elfish nature #not on dwarf level though
         restitution: 0.0
         mask:
         - MobMask

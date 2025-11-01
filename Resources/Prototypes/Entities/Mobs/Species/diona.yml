@@ -86,7 +86,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 300 #weighs more than humans because wood
+        density: 250 #imp # heavy #but not a giant fucking snail heavy #original - 300
         restitution: 0.0
         mask:
           - MobMask

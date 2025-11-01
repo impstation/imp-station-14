@@ -125,7 +125,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 500
+        density: 300 #built to match gastropoids
         restitution: 0.0
         mask:
         - MobMask
