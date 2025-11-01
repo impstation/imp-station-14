@@ -281,6 +281,13 @@
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
+      - type: TriggerOnMobstateChange #imp
+        mobState:
+        - Critical
+        - Dead
+      - type: RattleOnTrigger #imp
+        targetUser: true
+        radioChannel: Revolution
       mindRoles:
       - MindRoleHeadRevolutionary
   - type: DynamicRuleCost
