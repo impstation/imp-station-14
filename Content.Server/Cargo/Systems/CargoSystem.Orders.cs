@@ -299,7 +299,7 @@ namespace Content.Server.Cargo.Systems
             return tradeDestination;
         }
 
-        private void GetTradeStations(StationDataComponent data, ref List<EntityUid> ents)
+        public void GetTradeStations(StationDataComponent data, ref List<EntityUid> ents) // imp edit, make it public
         {
             foreach (var gridUid in data.Grids)
             {

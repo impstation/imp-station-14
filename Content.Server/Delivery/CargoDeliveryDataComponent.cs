@@ -1,3 +1,4 @@
+using Content.Shared.EntityTable.EntitySelectors; // imp addition
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Delivery;
@@ -48,4 +49,10 @@ public sealed partial class CargoDeliveryDataComponent : Component
     /// </summary>
     [DataField]
     public bool DistributeRandomly = true;
+
+    /// <summary>
+    /// The entity table to select deliveries from when spawning from the ATS. Imp addition.
+    /// </summary>
+    [DataField(required: true)]
+    public EntityTableSelector Table = default!;
 }
