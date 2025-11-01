@@ -128,7 +128,7 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                     var node = nodes[i];
 
                     // Imp edit: natural artifacts should have nodes hidden if you haven't at least seen their parent, or grandparent+ if you have advanced node scanner.
-                    if (!_artifactSystem.NaturalNodeVisible((artifact, artifact), node))
+                    if (artifact.Comp.Natural && !_artifactSystem.NaturalNodeVisible((artifact, artifact), node))
                     {
                         hiddenNodes.Add(node);
                         continue;
