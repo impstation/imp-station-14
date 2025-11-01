@@ -72,6 +72,12 @@
     - Hair
     - Snout
     - Tail
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
+            state: hair
   - type: Bloodstream
     bloodReagent: ShimmeringBlood
   - type: Inventory
@@ -130,3 +136,15 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: hands
+  - type: HumanoidAppearance
+    species: Thaven
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+    - Tail
+    markingsDisplacement:
+      Hair:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
+            state: hair
