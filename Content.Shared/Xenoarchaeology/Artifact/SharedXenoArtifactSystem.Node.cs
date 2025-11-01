@@ -14,7 +14,7 @@ namespace Content.Shared.Xenoarchaeology.Artifact;
 
 public abstract partial class SharedXenoArtifactSystem
 {
-    [Dependency] private readonly EntityTableSystem _entityTable =  default!;
+    [Dependency] private readonly EntityTableSystem _entityTable = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!; // imp edit
 
     private EntityQuery<XenoArtifactComponent> _xenoArtifactQuery;
@@ -488,16 +488,48 @@ public abstract partial class SharedXenoArtifactSystem
             GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity) != null &&
             _powerReceiver.IsPowered(GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity)!.Value))
         {
-            switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).DepthBiasDirection)
+            //advanced node scanner lets us go left or right if we're going deeper
+            if (ent.Comp.AdvancedNodeScanner is { } scanner && _powerReceiver.IsPowered(scanner) && HasComp<AdvancedNodeScannerComponent>(scanner))
             {
-                case DepthBiasDirection.Up:
-                    if (predecessorNodes.Count > 0)
-                        directNodes = predecessorNodes;
-                    break;
-                case DepthBiasDirection.Down:
-                    if (successorNodes.Count > 0)
-                        directNodes = successorNodes;
-                    break;
+                switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).BiasDirection)
+                {
+                    case BiasDirection.DeepRandom:
+                        if (successorNodes.Count > 0)
+                            directNodes = successorNodes;
+                        break;
+                    case BiasDirection.DeepLeft:
+                        if (successorNodes.Count > 0)
+                        {
+                            directNodes.Clear();
+                            directNodes.Add(OrderNodesByEntityUid(successorNodes).First());
+                        }
+                        break;
+                    case BiasDirection.DeepRight:
+                        if (successorNodes.Count > 0)
+                        {
+                            directNodes.Clear();
+                            directNodes.Add(OrderNodesByEntityUid(successorNodes).Last());
+                        }
+                        break;
+                    default:
+                        if (predecessorNodes.Count > 0)
+                            directNodes = predecessorNodes;
+                        break;
+                }
+            }
+            else
+            {
+                switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).BiasDirection)
+                {
+                    case BiasDirection.Shallow:
+                        if (successorNodes.Count > 0)
+                            directNodes = predecessorNodes;
+                        break;
+                    default:
+                        if (predecessorNodes.Count > 0)
+                            directNodes = successorNodes;
+                        break;
+                }
             }
         }
 
@@ -512,5 +544,14 @@ public abstract partial class SharedXenoArtifactSystem
             newNode = RobustRandom.Pick(lockedNodes);
 
         SetCurrentNode(ent, newNode);
+    }
+
+    /// <summary>
+    ///     Imp, return sorted nodes, sorting by Entity UID. This is because lower EUIDs are placed on the 'left' of the graph.
+    ///     If I ever see a counter example I'll need to redo this or enforce that harder, but until then...
+    /// </summary>
+    public static List<Entity<XenoArtifactNodeComponent>> OrderNodesByEntityUid(List<Entity<XenoArtifactNodeComponent>> nodes)
+    {
+        return nodes.OrderBy(x => (int)x.Owner).ToList();
     }
 }

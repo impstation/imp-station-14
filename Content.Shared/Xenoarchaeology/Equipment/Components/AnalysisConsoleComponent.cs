@@ -51,14 +51,7 @@ public sealed partial class AnalysisConsoleComponent : Component
     ///     Imp edit. The direction the up/down depth bias is going.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public DepthBiasDirection DepthBiasDirection = DepthBiasDirection.Up;
-
-    /// <summary>
-    ///     Imp edit. The direction the left/right bias is going.
-    ///     Advanced node scanner only
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public HorizontalBiasDirection HorizontalBiasDirection = HorizontalBiasDirection.Random;
+    public BiasDirection BiasDirection = BiasDirection.Shallow;
 }
 
 [Serializable, NetSerializable]
@@ -72,21 +65,22 @@ public sealed class AnalysisConsoleExtractButtonPressedMessage : BoundUserInterf
 
 // imp edit start
 [Serializable, NetSerializable]
-public sealed class AnalysisConsoleUpBiasButtonPressedMessage : BoundUserInterfaceMessage;
+public sealed class AnalysisConsoleShallowBiasButtonPressedMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
-public sealed class AnalysisConsoleDownBiasButtonPressedMessage : BoundUserInterfaceMessage;
+public sealed class AnalysisConsoleDeepRandomBiasButtonPressedMessage : BoundUserInterfaceMessage;
 
-public enum DepthBiasDirection : byte
-{
-    Up, //Towards depth 0
-    Down, //Away from depth 0
-}
+[Serializable, NetSerializable]
+public sealed class AnalysisConsoleDeepLeftBiasButtonPressedMessage : BoundUserInterfaceMessage;
 
-public enum HorizontalBiasDirection : byte
+[Serializable, NetSerializable]
+public sealed class AnalysisConsoleDeepRightBiasButtonPressedMessage : BoundUserInterfaceMessage;
+
+public enum BiasDirection : byte
 {
-    Left,
-    Random,
-    Right
+    Shallow, //Towards depth 0
+    DeepRandom, //Away from depth 0, random
+    DeepLeft, // Away from depth 0, prioritizing left on graph
+    DeepRight // Away from depht 0, prioritizing right on graph
 }
 // imp edit end

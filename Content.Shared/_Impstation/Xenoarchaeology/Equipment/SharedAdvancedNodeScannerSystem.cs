@@ -3,6 +3,7 @@ using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
+using Content.Shared.Xenoarchaeology.Artifact;
 
 namespace Content.Shared.Xenoarchaeology.Equipment;
 
@@ -14,6 +15,7 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 {
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SharedArtifactAnalyzerSystem _analyzer = default!;
+    [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!;
 
 
     /// <inheritdoc/>
@@ -39,7 +41,7 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         }
         if (analyzer.CurrentArtifact is not null && TryComp<XenoArtifactComponent>(analyzer.CurrentArtifact, out var artifactComp))
         {
-            artifactComp.AdvancedNodeScanner = ent.Owner;
+            _artifact.SetAdvancedNodeScanner(((EntityUid)analyzer.CurrentArtifact, artifactComp), ent.Owner);
             Dirty((EntityUid)analyzer.CurrentArtifact, artifactComp);
         }
 
@@ -67,7 +69,7 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 
             if (analyzer.CurrentArtifact is not null && TryComp<XenoArtifactComponent>(analyzer.CurrentArtifact, out var artifactComp))
             {
-                artifactComp.AdvancedNodeScanner = null;
+                _artifact.SetAdvancedNodeScanner(((EntityUid)analyzer.CurrentArtifact, artifactComp), null);
                 Dirty((EntityUid)analyzer.CurrentArtifact, artifactComp);
             }
         }

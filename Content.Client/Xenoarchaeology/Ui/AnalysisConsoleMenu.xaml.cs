@@ -42,8 +42,10 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
     public event Action? OnExtractButtonPressed;
 
     // imp edit start, thusd buttons
-    public event Action? OnUpBiasButtonPressed;
-    public event Action? OnDownBiasButtonPressed;
+    public event Action? OnShallowBiasButtonPressed;
+    public event Action? OnDeepRandomBiasButtonPressed;
+    public event Action? OnDeepLeftBiasButtonPressed;
+    public event Action? OnDeepRightBiasButtonPressed;
     // imp edit end
 
     public AnalysisConsoleMenu()
@@ -73,19 +75,41 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         ExtractButton.OnPressed += StartExtract;
 
         // imp edit start
-        UpBiasButton.OnPressed += _ =>
+        ShallowBiasButton.OnPressed += _ =>
         {
-            OnUpBiasButtonPressed?.Invoke();
-            _owner.Comp.DepthBiasDirection = DepthBiasDirection.Up;
-            UpBiasButton.Pressed = true;
-            DownBiasButton.Pressed = false;
+            OnShallowBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.Shallow;
+            ShallowBiasButton.Pressed = true;
+            DeepRandomBiasButton.Pressed = false;
+            DeepLeftBiasButton.Pressed = false;
+            DeepRightBiasButton.Pressed = false;
         };
-        DownBiasButton.OnPressed += _ =>
+        DeepRandomBiasButton.OnPressed += _ =>
         {
-            OnDownBiasButtonPressed?.Invoke();
-            _owner.Comp.DepthBiasDirection = DepthBiasDirection.Down;
-            UpBiasButton.Pressed = false;
-            DownBiasButton.Pressed = true;
+            OnDeepRandomBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.DeepRandom;
+            ShallowBiasButton.Pressed = false;
+            DeepRandomBiasButton.Pressed = true;
+            DeepLeftBiasButton.Pressed = false;
+            DeepRightBiasButton.Pressed = false;
+        };
+        DeepLeftBiasButton.OnPressed += _ =>
+        {
+            OnDeepLeftBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.DeepLeft;
+            ShallowBiasButton.Pressed = false;
+            DeepRandomBiasButton.Pressed = false;
+            DeepLeftBiasButton.Pressed = true;
+            DeepRightBiasButton.Pressed = false;
+        };
+        DeepRightBiasButton.OnPressed += _ =>
+        {
+            OnDeepRightBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.DeepRight;
+            ShallowBiasButton.Pressed = false;
+            DeepRandomBiasButton.Pressed = false;
+            DeepLeftBiasButton.Pressed = false;
+            DeepRightBiasButton.Pressed = true;
         };
         // imp edit end
     }
@@ -177,6 +201,18 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         {
             BiasBox.Visible = true;
             BiasDivider.Visible = true;
+            if (arti.Value.Comp.AdvancedNodeScanner is not null)
+            {
+                DeepLeftBiasButton.Visible = true;
+                DeepRightBiasButton.Visible = true;
+                BiasInternalDivider.Visible = true;
+            }
+            else
+            {
+                DeepLeftBiasButton.Visible = false;
+                DeepRightBiasButton.Visible = false;
+                BiasInternalDivider.Visible = false;
+            }
         }
         else
         {
@@ -186,10 +222,51 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         if (arti is { Comp.Natural: true })
         {
-            if (ent.Comp.DepthBiasDirection == DepthBiasDirection.Down)
-                DownBiasButton.Pressed = true;
-            else if (ent.Comp.DepthBiasDirection == DepthBiasDirection.Up)
-                UpBiasButton.Pressed = true;
+            ShallowBiasButton.Pressed = false;
+            DeepRandomBiasButton.Pressed = false;
+            DeepLeftBiasButton.Pressed = false;
+            DeepRightBiasButton.Pressed = false;
+            if (ent.Comp.BiasDirection == BiasDirection.DeepLeft)
+            {
+                if (arti.Value.Comp.AdvancedNodeScanner is not null)
+                {
+                    DeepLeftBiasButton.Pressed = true;
+                    OnDeepLeftBiasButtonPressed?.Invoke();
+                }
+                else
+                {
+                    OnDeepRandomBiasButtonPressed?.Invoke();
+                    ent.Comp.BiasDirection = BiasDirection.DeepRandom;
+                    DeepRandomBiasButton.Pressed = true;
+                }
+            }
+            else if (ent.Comp.BiasDirection == BiasDirection.DeepRight)
+            {
+                if (arti.Value.Comp.AdvancedNodeScanner is not null)
+                {
+                    DeepRightBiasButton.Pressed = true;
+                    OnDeepRightBiasButtonPressed?.Invoke();
+
+                }
+                else
+                {
+                    OnDeepRandomBiasButtonPressed?.Invoke();
+                    ent.Comp.BiasDirection = BiasDirection.DeepRandom;
+                    DeepRandomBiasButton.Pressed = true;
+                }
+            }
+            else if (ent.Comp.BiasDirection == BiasDirection.DeepRandom)
+            {
+                DeepRandomBiasButton.Pressed = true;
+                OnDeepRandomBiasButtonPressed?.Invoke();
+
+            }
+            else if (ent.Comp.BiasDirection == BiasDirection.Shallow)
+            {
+                ShallowBiasButton.Pressed = true;
+                OnShallowBiasButtonPressed?.Invoke();
+
+            }
         }
         // imp edit end
 

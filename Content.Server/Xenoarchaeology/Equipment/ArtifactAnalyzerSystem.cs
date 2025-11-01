@@ -21,8 +21,10 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         base.Initialize();
 
         SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleExtractButtonPressedMessage>(OnExtractButtonPressed);
-        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleUpBiasButtonPressedMessage>(OnUpBiasButtonPressed); // imp edit
-        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleDownBiasButtonPressedMessage>(OnDownBiasButtonPressed); // imp edit
+        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleShallowBiasButtonPressedMessage>(OnShallowBiasButtonPressed); // imp edit
+        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleDeepRandomBiasButtonPressedMessage>(OnDeepRandomBiasButtonPressed); // imp edit
+        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleDeepLeftBiasButtonPressedMessage>(OnDeepLeftBiasButtonPressed); // imp edit
+        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleDeepRightBiasButtonPressedMessage>(OnDeepRightBiasButtonPressed); // imp edit
     }
 
     private void OnExtractButtonPressed(Entity<AnalysisConsoleComponent> ent, ref AnalysisConsoleExtractButtonPressedMessage args)
@@ -51,17 +53,30 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
     }
 
     // imp edit start
-    private void OnUpBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
-        ref AnalysisConsoleUpBiasButtonPressedMessage args)
+    private void OnShallowBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
+        ref AnalysisConsoleShallowBiasButtonPressedMessage args)
     {
-        ent.Comp.DepthBiasDirection = DepthBiasDirection.Up;
+        ent.Comp.BiasDirection = BiasDirection.Shallow;
     }
 
-    private void OnDownBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
-        ref AnalysisConsoleDownBiasButtonPressedMessage args)
+    private void OnDeepRandomBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
+        ref AnalysisConsoleDeepRandomBiasButtonPressedMessage args)
     {
-        ent.Comp.DepthBiasDirection = DepthBiasDirection.Down;
+        ent.Comp.BiasDirection = BiasDirection.DeepRandom;
     }
+
+    private void OnDeepLeftBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
+        ref AnalysisConsoleDeepLeftBiasButtonPressedMessage args)
+    {
+        ent.Comp.BiasDirection = BiasDirection.DeepLeft;
+    }
+
+    private void OnDeepRightBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
+        ref AnalysisConsoleDeepRightBiasButtonPressedMessage args)
+    {
+        ent.Comp.BiasDirection = BiasDirection.DeepRight;
+    }
+
     // imp edit end
 }
 

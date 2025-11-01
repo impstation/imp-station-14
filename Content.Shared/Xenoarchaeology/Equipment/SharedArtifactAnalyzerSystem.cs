@@ -6,6 +6,7 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Content.Shared._Impstation.Xenoarchaeology.Artifact.Components; // imp edit
+using Content.Shared.Xenoarchaeology.Artifact; // imp edit
 
 namespace Content.Shared.Xenoarchaeology.Equipment;
 
@@ -16,6 +17,7 @@ namespace Content.Shared.Xenoarchaeology.Equipment;
 public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 {
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!; //IMP
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -41,7 +43,10 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 
         //If the pad has a linked advanced node scanner, let the artifact know
         if (ent.Comp.AdvancedNodeScanner != null && TryComp<XenoArtifactComponent>(args.OtherEntity, out var artifact))
-            artifact.AdvancedNodeScanner = ent.Comp.AdvancedNodeScanner;
+        {
+            _artifact.SetAdvancedNodeScanner((args.OtherEntity, artifact), ent.Comp.AdvancedNodeScanner);
+            Dirty(args.OtherEntity, artifact);
+        }
         // imp edit end
         Dirty(ent);
     }
@@ -50,7 +55,11 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
     {
         //imp edit start
         if (TryComp<XenoArtifactComponent>(args.OtherEntity, out var artifact))
-            artifact.AdvancedNodeScanner = null;
+        {
+            _artifact.SetAdvancedNodeScanner((args.OtherEntity, artifact), null);
+            Dirty(args.OtherEntity, artifact);
+
+        }
         //imp edit end
 
         if (args.OtherEntity != ent.Comp.CurrentArtifact)
