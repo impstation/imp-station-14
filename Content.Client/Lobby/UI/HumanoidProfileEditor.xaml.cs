@@ -1181,7 +1181,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
-            ReloadProfilePreview();
+            ReloadPreview(); // imp reloadprofilepreview -> reloadpreview for marking appended displacements
         }
 
         private void OnSkinColorOnValueChanged()

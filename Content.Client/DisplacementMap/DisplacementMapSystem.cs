@@ -111,4 +111,17 @@ public sealed class DisplacementMapSystem : EntitySystem
 
         _sprite.RemoveLayer(sprite.AsNullable(), displacementLayerKey, false);
     }
+
+    // IMP ADD, HELPER METHOD
+    /// <summary>
+    ///     Builds a new displacement map from two provided displacements, appending one on top of the other.
+    /// </summary>
+    public DisplacementData AppendDisplacement(DisplacementData appended, DisplacementData? baseLayer)
+    {
+        if (baseLayer is null)
+            return appended;
+
+        // how the fuck do we do this! shit!!!
+        return baseLayer;
+    }
 }
