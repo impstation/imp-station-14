@@ -12,9 +12,6 @@ public sealed class XAEInjectionSystem : BaseXAESystem<XAEInjectionComponent>
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-
-    private EntityQuery<InjectableSolutionComponent> _injectableQuery;
     private readonly HashSet<EntityUid> _entitiesInRange = new();
 
     protected override void OnActivated(Entity<XAEInjectionComponent> ent, ref XenoArtifactNodeActivatedEvent args)
