@@ -1,32 +1,4 @@
 ﻿Entries:
-- author: msTheowo
-  changes:
-  - message: You can print plastic knives at service techfabs now!
-    type: Tweak
-  id: 1871
-  time: '2025-06-19T04:15:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2820
-- author: ATDoop
-  changes:
-  - message: Removed the ion storm law that forced silicons to call the shuttle.
-    type: Remove
-  id: 1872
-  time: '2025-06-19T05:44:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2798
-- author: mqole
-  changes:
-  - message: Circumcised lizards.
-    type: Fix
-  id: 1873
-  time: '2025-06-20T04:29:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2827
-- author: DinnerCalzone
-  changes:
-  - message: Empty liquid storage tanks can now be ordered from Cargo.
-    type: Add
-  id: 1874
-  time: '2025-06-20T05:23:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2826
 - author: MintyTheBinty
   changes:
   - message: Paprika is now available from tampered condiment vendors!
@@ -4199,3 +4171,35 @@
   id: 2370
   time: '2025-10-30T08:04:01.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3640
+- author: TheGrimbeeper
+  changes:
+  - message: artifact foam may have contents undetermined by the scanner
+    type: Tweak
+  id: 2371
+  time: '2025-11-01T00:51:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3646
+- author: EpicToast
+  changes:
+  - message: Luna is undergoing renovations and will not be in the standard work schedule.
+    type: Remove
+  id: 2372
+  time: '2025-11-01T01:21:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3647
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The M1 and the T25 have new firing modes! Check 'em out!
+    type: Add
+  - message: Several balance changes to the M1 and the T25-- check the PR for details
+    type: Tweak
+  id: 2373
+  time: '2025-11-01T01:23:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3638
+- author: entings
+  changes:
+  - message: Lots of little dietary tweaks. This one's for you, Reptilian players.
+    type: Tweak
+  - message: Arachnids can breathe again, for real this time.
+    type: Fix
+  id: 2374
+  time: '2025-11-01T03:47:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3626
