@@ -714,6 +714,7 @@
     tags:
     - Ingredient
     - NFButterStick
+    - UnguFood # imp
 
 - type: entity
   parent: FoodBakingBase
@@ -736,6 +737,7 @@
   - type: Tag
     tags:
     - Slice
+    - UnguFood # imp
 
 - type: entity
   name: stick of cannabis butter
@@ -757,6 +759,9 @@
           Quantity: 90 # imp
   - type: Extractable
     grindableSolutionName: food
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: cheese wheel
@@ -774,6 +779,9 @@
   - type: SliceableFood
     count: 4
     slice: FoodCheeseSlice
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: FoodBakingBase
@@ -838,6 +846,9 @@
           Quantity: 3
         - ReagentId: Vitamin
           Quantity: 0.6
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: FoodBakingBase
@@ -895,6 +906,9 @@
   - type: SliceableFood
     count: 3
     slice: FoodTofuSlice
+  - type: Tag # imp
+    tags:
+    - Vegetable
 
 - type: entity
   parent: FoodBakingBase
@@ -921,7 +935,7 @@
   - type: Tag
     tags:
     - Slice
-    - UnguFood # imp
+    - Vegetable # imp
 
 - type: entity
   name: burned mess
@@ -980,6 +994,7 @@
   - type: Tag
     tags:
       - Ingredient
+      - Fruit # imp
 
 - type: entity
   parent: FoodBakingBase

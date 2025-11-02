@@ -39,6 +39,7 @@
     tags:
     - FoodSnack
     - ReptilianFood
+    - UnguFood
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -79,6 +80,7 @@
   - type: Tag
     tags:
     - Ingredient
+    - UnguFood
 
 - type: entity
   name: ball of string cheese
