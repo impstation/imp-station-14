@@ -311,7 +311,7 @@ accent-russian-words-89 = technician
 accent-russian-words-89-2 = tech
 accent-russian-words-replace-89 = tekhnik
 
-accent-russian-words-90 = snack
+accent-russian-words-90 = sunflower seeds
 accent-russian-words-replace-90 = semechki
 
 accent-russian-words-91 = spider
