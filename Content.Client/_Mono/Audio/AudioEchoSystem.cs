@@ -58,10 +58,10 @@ public sealed class AreaEchoSystem : EntitySystem
     /// </remarks>
     private static readonly AudioDistanceThreshold[] DistancePresets =
     [
-        new(26f, "Hallway"),
-        new(30f, "Auditorium"),
-        new(45f, "ConcertHall"),
-        new(50f, "Hangar")
+        new(16f, "Hallway"),
+        new(20f, "Auditorium"),
+        new(30f, "ConcertHall"),
+        new(36f, "Hangar")
     ];
 
     private readonly float _minimumMagnitude = DistancePresets[0].Distance;
