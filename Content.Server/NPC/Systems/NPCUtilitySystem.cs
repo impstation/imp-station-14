@@ -612,6 +612,17 @@ public readonly record struct UtilityResult(Dictionary<EntityUid, float> Entitie
         return Entities.MaxBy(x => x.Value).Key;
     }
 
+    public EntityUid GetNextHighest()
+    {
+        if (Entities.Count == 0)
+            return EntityUid.Invalid;
+
+        var result = Entities.MaxBy(x => x.Value).Key;
+        Entities.Remove(result);
+
+        return result;
+    }
+
     /// <summary>
     /// Returns the entity with the lowest score. This does not consider entities with a 0 (invalid) score.
     /// </summary>

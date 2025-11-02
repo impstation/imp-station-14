@@ -979,11 +979,17 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: Body
-    prototype: AnimalRuminant
+  - type: ImpReproductive
+    partnerWhiteList:
+      tags:
+      - Cow
+    ReproductiveGroup: MobCow
+  #- type: Body
+  #  prototype: AnimalRuminant
   - type: HTN
     rootTask:
-      task: RuminantCompound
+      task: LivestockCompound
+      #task: RuminantCompound
   - type: GuideHelp
     guides:
     - Chef
@@ -4046,6 +4052,11 @@
   - type: NpcFactionMember
     factions:
     - Passive
+  - type: ImpReproductive
+    partnerWhiteList:
+      tags:
+      - Pig
+    ReproductiveGroup: MobPig
   - type: HTN
     rootTask:
       task: RuminantCompound

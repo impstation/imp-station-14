@@ -241,6 +241,21 @@
 #    - !type:TargetAccessibleCon
 #      curve: !type:BoolCurve
 
+- type: utilityQuery
+  id: NearbyBreedables
+  query:
+    - !type:ComponentQuery
+      components:
+        - type: ImpReproductive
+          partnerWhiteList:
+            tags:
+          ReproductiveGroup: ""
+  considerations:
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve
 
 # Presets
 - type: utilityCurvePreset

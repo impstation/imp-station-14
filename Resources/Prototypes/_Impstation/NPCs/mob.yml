@@ -1,0 +1,12 @@
+- type: htnCompound
+  id: LivestockCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: FoodCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: BreedCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound

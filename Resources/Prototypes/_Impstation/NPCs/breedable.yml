@@ -1,0 +1,19 @@
+- type: htnCompound
+  id: BreedCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:BreedablePrecondition
+              minHungerState: Okay
+              minThirstState: Okay
+          operator: !type:BreedingUtilityOperator
+            proto: NearbyBreedables
+
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: MeleeRange
