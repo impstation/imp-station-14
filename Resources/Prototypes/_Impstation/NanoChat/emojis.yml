@@ -80,6 +80,13 @@
     state: plushie_apid
 
 - type: nanoChatEmoji
+  id: decapoid
+  category: Plushies
+  sprite:
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_decapoid
+
+- type: nanoChatEmoji
   id: dwarf
   category: Plushies
   sprite:
@@ -92,6 +99,20 @@
   sprite:
     sprite: _Impstation/Objects/Fun/toys.rsi
     state: plushie_goblin
+
+- type: nanoChatEmoji
+  id: gastropoid
+  category: Plushies
+  sprite:
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_gray
+
+- type: nanoChatEmoji
+  id: snail
+  category: Plushies
+  sprite:
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_snail
 
 - type: nanoChatEmoji
   id: thaven
