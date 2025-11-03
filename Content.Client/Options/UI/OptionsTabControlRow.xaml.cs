@@ -177,12 +177,14 @@ public sealed partial class OptionsTabControlRow : Control
     }
 
     //imp edit start
+
     public OptionTextEditCVar AddOptionTextEdit(
         CVarDef<string> cVar,
         TextEdit textEdit)
     {
         return AddOption(new OptionTextEditCVar(this, _cfg, cVar,textEdit));
     }
+
     //imp edit end
 
     /// <summary>
