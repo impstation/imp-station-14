@@ -4,6 +4,7 @@
   text: "/ServerInfo/_Impstation/Guidebook/Mobs/Species.xml" # imp
   children:
   - Arachnid
+  - Allulalo # imp
   - Decapoid # imp
   - Diona
   - Dwarf
@@ -42,7 +43,7 @@
 - type: guideEntry
   id: Moth
   name: species-name-moth
-  text: "/ServerInfo/Guidebook/Mobs/Moth.xml"
+  text: "/ServerInfo/_Impstation/Guidebook/Mobs/Moth.xml" # imp
 
 - type: guideEntry
   id: Reptilian

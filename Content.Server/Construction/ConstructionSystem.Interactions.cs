@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Construction.Components;
 using Content.Server.Temperature.Components;
-using Content.Shared._Impstation.Construction.Steps;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Components;
 using Content.Shared.Construction.EntitySystems;
@@ -17,6 +16,7 @@ using Content.Shared.Temperature;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;
+using Content.Shared._Impstation.Construction.Steps; // imp
 #if EXCEPTION_TOLERANCE
 // ReSharper disable once RedundantUsingDirective
 using Robust.Shared.Exceptions;
@@ -655,6 +655,7 @@ namespace Content.Server.Construction
         public HandleResult? Result;
     }
 
+    // imp add
     public sealed class ConstructionConsumedObjectEvent : EntityEventArgs
     {
         public EntityUid Old;

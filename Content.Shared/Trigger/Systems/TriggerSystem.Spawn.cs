@@ -1,4 +1,4 @@
-﻿using Content.Shared.GameTicking;
+﻿﻿using Content.Shared.GameTicking;
 using Content.Shared.Trigger.Components.Effects;
 using Content.Shared.Trigger.Components.Triggers;
 using Robust.Shared.Prototypes;
@@ -38,15 +38,7 @@ public sealed partial class TriggerSystem
             return;
 
         var xform = Transform(target.Value);
-        var savedAmount = ent.Comp.Amount; //imp
-        while (savedAmount > 0) //imp
-        {
-            SpawnTriggerHelper((target.Value, xform), ent.Comp.Proto, ent.Comp.UseMapCoords, ent.Comp.Predicted);
-            savedAmount--;
-        }
-        // #IMP: SingleUse
-        if (!ent.Comp.SingleUse)
-            ent.Comp.Amount = savedAmount;
+        SpawnTriggerHelper((target.Value, xform), ent.Comp.Proto, ent.Comp.UseMapCoords, ent.Comp.Predicted);
     }
 
     private void HandleSpawnTableOnTrigger(Entity<SpawnEntityTableOnTriggerComponent> ent, ref TriggerEvent args)
