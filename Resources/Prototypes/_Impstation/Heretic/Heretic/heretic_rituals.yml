@@ -25,3 +25,16 @@
     Eyes: 1
   output:
     HereticMirror: 1
+
+- type: hereticRitual
+  id: HereticKeyRitual
+  locName: knowledge-path-side-s3-key-name
+  locDesc: knowledge-path-side-s3-key-description
+  icon:
+    sprite: _Impstation/Heretic/frangiclave.rsi
+    state: frangiclave
+  requiredTags:
+    WhitelistChameleonIdCard: 1
+    Organ: 1
+  output:
+    HereticKeyThrowing: 1

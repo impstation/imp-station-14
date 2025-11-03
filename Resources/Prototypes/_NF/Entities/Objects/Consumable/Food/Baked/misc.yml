@@ -33,6 +33,7 @@
   - type: Tag
     tags:
     - Fruit
+    - Muffin # imp
 
 - type: entity
   name: apple strudel bite
@@ -68,6 +69,7 @@
   - type: Tag
     tags:
     - Fruit
+    - Bread # imp
 
 - type: entity
   name: cinnamon roll
@@ -94,3 +96,7 @@
           Quantity: 15
         - ReagentId: Sugar
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread

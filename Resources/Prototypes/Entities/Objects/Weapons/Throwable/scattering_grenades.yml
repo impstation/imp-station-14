@@ -48,10 +48,14 @@
       - GrenadeFlashBang
     distance: 6
     velocity: 6
+  - type: Item #imp - still fits in a pocket but takes a bit more space in the inventory
+    size: Small
+    shape:
+    - 0,0,1,1
   - type: ClusterGrenadeVisuals
     state: base
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/clusterbang.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/clusterbang.rsi #imp
     state: base-0
 
 - type: entity
@@ -62,10 +66,16 @@
   suffix: Full
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/clusterbang.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/clusterbang.rsi #imp
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
+    - state: primed-unshaded #imp the unshaded layer
+      shader: unshaded
+      visible: false
+      map: ["triggerlight"]
+  - type: Appearance #imp
+  - type: AnimationPlayer #imp
   - type: ScatteringGrenade
     whitelist:
       tags:
@@ -76,12 +86,21 @@
   - type: TimerTriggerVisuals
     primingSound:
       path: /Audio/Effects/countdown.ogg
-  - type: GenericVisualizer
+  - type: GenericVisualizer #imp everything in this typed component is us-- see the commented out version below this for the original
     visuals:
       enum.Trigger.TriggerVisuals.VisualState:
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
           Unprimed: { state: icon }
+        triggerlight:
+          Primed: { visible: true }
+          Unprimed: { visible: false }
+#  - type: GenericVisualizer
+#    visuals:
+#      enum.Trigger.TriggerVisuals.VisualState:
+#        enum.ConstructionVisuals.Layer:
+#          Primed: { state: primed }
+#          Unprimed: { state: icon }
   - type: EmitSoundOnTrigger
     keysIn:
     - timer
@@ -96,10 +115,24 @@
   description: Why use one grenade when you can use three at once!
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/clusterbomb.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/clusterbomb.rsi #imp
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
+    - state: primed-unshaded #imp the unshaded layer
+      shader: unshaded
+      visible: false
+      map: ["triggerlight"]
+  - type: AnimationPlayer #imp this is on BaseGrenade and I don't, know why it's not on here or ScatteringBase
+  - type: GenericVisualizer #imp everything in this typed component is us
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { state: primed }
+          Unprimed: { state: icon }
+        triggerlight:
+          Primed: { visible: true }
+          Unprimed: { visible: false }
   - type: ScatteringGrenade
     fillPrototype: ExGrenade
     distance: 4
@@ -180,17 +213,38 @@
   name: foam dart grenade
   description: Releases a bothersome spray of foam darts that cause severe welching.
   components:
+#  - type: Sprite #imp it wasn't working this way
+#    sprite: Objects/Fun/Foam/foam_grenade.rsi
+#    layers:
+#    - state: icon
+#      map: ["Base"]
+#    - state: primed
+#      map: ["enum.TriggerVisualLayers.Base"]
   - type: Sprite
-    sprite: Objects/Fun/Foam/foam_grenade.rsi
+    sprite: Objects/Fun/Foam/foam_grenade.rsi 
     layers:
     - state: icon
-      map: ["Base"]
-    - state: primed
       map: ["enum.TriggerVisualLayers.Base"]
+    - state: primed-unshaded #imp the unshaded layer
+      shader: unshaded
+      visible: false
+      map: ["triggerlight"]
+  - type: Appearance #imp
+  - type: AnimationPlayer #imp
+  - type: GenericVisualizer #imp everything in this typed component is us
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { state: primed }
+          Unprimed: { state: icon }
+        triggerlight:
+          Primed: { visible: true }
+          Unprimed: { visible: false }
   - type: ScatteringGrenade
     fillPrototype: BulletFoam
     capacity: 30
     velocity: 30
+  - type: TimerTriggerVisuals #imp
   - type: TimerTrigger
     beepSound:
       path: "/Audio/Effects/beep1.ogg"
@@ -202,5 +256,5 @@
     keysIn:
     - timer
     sound:
-      path: "/Audio/Weapons/Guns/Gunshots/batrifle.ogg"
+      path: "/Audio/Weapons/Guns/Gunshots/estocshot.ogg" #imp
     positional: true

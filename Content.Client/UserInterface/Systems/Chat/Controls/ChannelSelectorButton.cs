@@ -1,6 +1,6 @@
 using System.Numerics;
-using Content.Shared.CollectiveMind;
 using Content.Shared.Chat;
+using Content.Shared.CollectiveMind; // imp add
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
 
@@ -69,7 +69,7 @@ public sealed class ChannelSelectorButton : ChatPopupButton<ChannelSelectorPopup
         };
     }
 
-    public void UpdateChannelSelectButton(ChatSelectChannel channel, Shared.Radio.RadioChannelPrototype? radio, CollectiveMindPrototype? collectiveMind)
+    public void UpdateChannelSelectButton(ChatSelectChannel channel, Shared.Radio.RadioChannelPrototype? radio, CollectiveMindPrototype? collectiveMind) // imp collective mind edits
     {
         if (radio != null)
         {

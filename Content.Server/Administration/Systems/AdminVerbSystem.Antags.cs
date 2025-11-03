@@ -1,4 +1,3 @@
-using Content.Server._Goobstation.GameTicking.Rules.Components; //goob
 using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
@@ -13,6 +12,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server._Goobstation.GameTicking.Rules.Components; //goob
 
 namespace Content.Server.Administration.Systems;
 

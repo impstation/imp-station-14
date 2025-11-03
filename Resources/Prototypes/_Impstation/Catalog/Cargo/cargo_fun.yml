@@ -17,3 +17,43 @@
   cost: 1500
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct
+  id: ThereminInstrument
+  icon:
+    sprite: _Impstation/Objects/Fun/Instruments/theremin.rsi
+    state: theremin
+  product: ThereminInstrument
+  cost: 1500
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: DrumKitInstrument
+  icon:
+    sprite: _Impstation/Objects/Fun/Instruments/drumkit.rsi
+    state: drumkit
+  product: DrumKitInstrument
+  cost: 1500
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: HammondOrganInstrument
+  icon:
+    sprite: _Impstation/Objects/Fun/Instruments/hammondorgan.rsi
+    state: hammondorgan
+  product: HammondOrganInstrument
+  cost: 1500
+  category: cargoproduct-category-name-fun
+  group: market
+
+- type: cargoProduct
+  id: DulcimerInstrument
+  icon:
+    sprite: _Impstation/Objects/Fun/Instruments/dulcimer.rsi
+    state: dulcimer
+  product: DulcimerInstrument
+  cost: 1500
+  category: cargoproduct-category-name-fun
+  group: market

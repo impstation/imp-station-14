@@ -13,12 +13,17 @@ public sealed partial class EntranceFlankDunGen : IDunGenLayer
     public ProtoId<ContentTileDefinition> Tile;
 
     // Imp Edit Start
-    // All the entities that will be placed on the tile
+    /// <summary>
+    ///     All the entities that will be placed on the tile.
+    ///     Imp: used to be an EntityTable, now a list of Entities.
+    /// </summary>
     [DataField(required: true)]
-    public List<ProtoId<EntityPrototype>> Contents = new List<ProtoId<EntityPrototype>>(); 
+    public List<ProtoId<EntityPrototype>> Contents = [];
 
-    //Do we want to use a random entity from the list?
+    /// <summary>
+    ///     Do we want to use a random entity from the list?
+    /// </summary>
     [DataField]
-    public bool useRandomEntity;
+    public bool UseRandomEntity;
     // Imp Edit End
 }

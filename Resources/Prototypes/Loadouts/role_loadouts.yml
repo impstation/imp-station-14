@@ -5,11 +5,11 @@
 # Jumpsuit
 # OuterClothing
 # Gloves
+# Belt
 # Shoes
 # Headset
 # Glasses
 # Backpack
-# Belt
 # PDA
 # Survival
 # Trinkets
@@ -99,6 +99,7 @@
   - Glasses
   - CommonBackpack # imp reorder
   - BartenderPDA # imp
+  - BartenderGoldenShaker # imp reorder
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -182,8 +183,8 @@
   - ChaplainNeck
   - ChaplainJumpsuit
   - ChaplainOuterClothing
-  - ChaplainShoes # imp
   - ChaplainBelt # imp
+  - ChaplainShoes # imp
   - Glasses
   - CommonBackpack # imp reorder
   - Survival
@@ -260,10 +261,10 @@
   - MimeNeck # imp
   - MimeJumpsuit
   - MimeOuterClothing
+  - MimeBelt # imp reorder
   - MimeShoes # imp
   - Glasses
   - MimeBackpack # imp reorder
-  - MimeBelt # imp reorder
   - SurvivalMime
   - Trinkets
   - GroupBreathToolDecapoidInventoryMime # imp special
@@ -272,6 +273,7 @@
 
 - type: roleLoadout
   id: JobMusician
+  canCustomizeName: true
   groups:
   - MusicianHead # imp
   - MusicianNeck # imp
@@ -316,11 +318,11 @@
   - CargoTechnicianNeck # imp
   - CargoTechnicianJumpsuit
   - CargoTechnicianOuterClothing
+  - CargoTechnicianBelt #imp
   - CargoTechnicianShoes
   - Glasses
   - CargoTechnicianBackpack # imp reorder
-  - CargoTechnicianBelt #imp
-  - CargoTechnicianPDA # imp
+  - CargoTechnicianID # imp reorder
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
@@ -474,10 +476,11 @@
   - HeadofSecurityNeck
   - HeadofSecurityJumpsuit
   - HeadofSecurityOuterClothing
+  - HeadofSecurityBelt # imp SecurityBelt > HeadofSecurityBelt
   - SecurityShoes
   - HeadofSecurityHeadset #imp
+  - SecurityEyewear # imp
   - HeadofSecurityBackpack # imp SecurityBackpack > HeadofSecurityBackpack
-  - HeadofSecurityBelt # imp SecurityBelt > HeadofSecurityBelt
   - SurvivalSecurityCommand # imp SurvivalSecurity > SurvivalSecurityCommand
   - Trinkets
   - SecurityStar
@@ -496,9 +499,10 @@
   - WardenNeck # imp
   - WardenJumpsuit
   - WardenOuterClothing
-  - SecurityShoes
-  - SecurityBackpack # imp reorder
   - SecurityBelt # imp reorder
+  - SecurityShoes
+  - SecurityEyewear # imp
+  - SecurityBackpack # imp reorder
   - WardenPDA # imp
   - SurvivalSecurity
   - Trinkets
@@ -518,9 +522,10 @@
   - SecurityNeck # imp
   - SecurityJumpsuit
   - SecurityOuterClothing
+  - SecurityBelt # imp reorder
   - SecurityShoes
+  - SecurityEyewear # imp
   - SecurityBackpack # imp reorder
-  - SecurityBelt
   - SecurityPDA # imp reorder
   - SurvivalSecurity
   - Trinkets
@@ -540,6 +545,7 @@
   - DetectiveJumpsuit
   - DetectiveOuterClothing
   - DetectiveShoes # imp SecurityShoes > DetectiveShoes
+  - SecurityEyewear # imp
   - SecurityBackpack # imp reorder
   - DetectivePDA # imp
   - SurvivalSecurity
@@ -574,11 +580,11 @@
   - ChiefMedicalOfficerJumpsuit
   - ChiefMedicalOfficerOuterClothing # imp reorder
   - MedicalGloves
+  - ChiefMedicalOfficerBelt #imp
   - ChiefMedicalOfficerShoes
   - ChiefMedicalOfficerHeadset #imp
   - MedicalEyewear
   - ChiefMedicalOfficerBackpack #imp MedicalBackpack > ChiefMedicalOfficerBackpack
-  - ChiefMedicalOfficerBelt #imp
   - SurvivalCommand # imp SurvivalMedical > SurvivalCommand
   - Trinkets
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
