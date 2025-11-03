@@ -1,12 +1,8 @@
-using System.Text.RegularExpressions;
 using Content.Shared._Impstation.CCVar;
-using Content.Shared._Impstation.Pleebnar.Components;
 using Content.Shared.Actions;
 using Content.Shared.Examine;
-using Content.Shared.Gibbing.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Players;
 using Content.Shared.Verbs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -26,7 +22,6 @@ public sealed class NotifierExamineSystem : EntitySystem
 
         SubscribeLocalEvent<NotifierExamineComponent,ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<NotifierExamineComponent, PlayerAttachedEvent>(OnPlayerAttached);
-        //SubscribeLocalEvent<NotifierExamineComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<NotifierExamineComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
 
 
@@ -34,20 +29,16 @@ public sealed class NotifierExamineSystem : EntitySystem
 
     private void OnPlayerAttached(Entity<NotifierExamineComponent> ent, ref PlayerAttachedEvent args)
     {
-
-        if ( !_netCfg.GetClientCVar<bool>(args.Player.Channel, ImpCCVars.NotifierOn))
-        {
+        if (!_netCfg.GetClientCVar(args.Player.Channel, ImpCCVars.NotifierOn))
             return;
-        }
-        ent.Comp.Active=true;
-        ent.Comp.Content=_netCfg.GetClientCVar<string>(args.Player.Channel, ImpCCVars.NotifierExamine);
-        Dirty(ent.Owner,ent.Comp);
+
+        ent.Comp.Active = true;
+        ent.Comp.Content = _netCfg.GetClientCVar(args.Player.Channel, ImpCCVars.NotifierExamine);
+        Dirty(ent.Owner, ent.Comp);
     }
     private void OnGetExamineVerbs(Entity<NotifierExamineComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
-        if (!ent.Comp.Active)
-            return;
-        if (Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
+        if (!ent.Comp.Active && Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
             return;
 
         var user = args.User;

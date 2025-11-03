@@ -37,6 +37,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Shared.NPC.Systems; // imp
 using Robust.Shared.Network; // imp
+using Content.Shared._Impstation.NotifierExamine;//imp
 
 namespace Content.Server.Antag;
 
@@ -458,7 +459,6 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             antagEnt = getEntEv.Entity;
         }
 
-
         if (antagEnt is not { } player)
         {
             Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
@@ -511,7 +511,9 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         // imp start
         var prereqEv = new AntagPrereqSetupEvent(session, ent, def);
         RaiseLocalEvent(ent, ref prereqEv, true);
+        
         EnsureComp<NotifierExamineComponent>(player);//imp edit
+
         // imp end
 
         // The following is where we apply components, equipment, and other changes to our antagonist entity.

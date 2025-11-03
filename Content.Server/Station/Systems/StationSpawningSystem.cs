@@ -3,7 +3,6 @@ using Content.Server.Humanoid;
 using Content.Server.Mind;
 using Content.Server.PDA;
 using Content.Server.Station.Components;
-using Content.Shared._Impstation.NotifierExamine;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
@@ -24,6 +23,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.GameObjects.Components.Localization; //imp
+using Content.Shared._Impstation.NotifierExamine;//imp
 
 namespace Content.Server.Station.Systems;
 

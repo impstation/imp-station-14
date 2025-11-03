@@ -31,11 +31,11 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using Content.Server.Popups;
-using Content.Shared._Impstation.NotifierExamine;
 using Content.Shared.Verbs;
 using Robust.Shared.Collections;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Roles.Components;
+using Content.Shared._Impstation.NotifierExamine;//imp
 
 namespace Content.Server.Ghost.Roles;
 
@@ -603,8 +603,7 @@ public sealed partial class GhostRoleSystem : EntitySystem // imp add partial
             return;
 
         DebugTools.AssertNotNull(player.ContentData());
-
-
+        
         EnsureComp<NotifierExamineComponent>(mob);//imp edit
         // After taking a ghost role, the player cannot return to the original body, so wipe the player's current mind
         // unless it is a visiting mind

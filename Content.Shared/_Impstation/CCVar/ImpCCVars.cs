@@ -23,13 +23,13 @@ public sealed class ImpCCVars : CVars
 
 
     /// <summary>
-    /// If the player has the notifier turned on
+    /// If the player has the accessibility notifier turned on
     /// </summary>
     public static readonly CVarDef<bool> NotifierOn=
         CVarDef.Create("accessibility.notifier_on", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "if the notifier system is active");
 
     /// <summary>
-    /// the contents of a players notifier
+    /// the contents of a players accessibility notifier
     /// </summary>
     public static readonly CVarDef<string> NotifierExamine =
         CVarDef.Create("accessibility.notifier_examine", "", CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "content of accessibility issue notifier.");
@@ -72,6 +72,4 @@ public sealed class ImpCCVars : CVars
     /// </summary>
     public static readonly CVarDef<int> DiscordLastMessageSystemMaxMessageBatchOverflowDelay =
         CVarDef.Create("discord.last_message_system_max_message_batch_overflow_delay", 60000, CVar.SERVERONLY);
-
 }
-
