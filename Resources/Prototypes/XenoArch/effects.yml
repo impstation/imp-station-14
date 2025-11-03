@@ -1311,7 +1311,7 @@
 - type: entity
   id: XenoArtifactFoamGood
   parent: BaseXenoArtifactEffect
-  description: Creates wave of foam #IMP desc changed
+  description: Biochemical disruption #IMP desc changed
   components:
   - type: XenoArtifactNode
     maxDurability: 7
@@ -1319,7 +1319,7 @@
       min: 0
       max: 5
   - type: XAEFoam
-    replaceDescription: true
+    replaceDescription: false #IMP -> false
     reagents:
     - Dermaline
     - Arithrazine
@@ -1332,12 +1332,12 @@
 - type: entity
   id: XenoArtifactFoamDangerous
   parent: BaseXenoArtifactEffect
-  description: Creates wave of foam #IMP desc changed
+  description: Biochemical disruption #IMP desc changed
   components:
   - type: XAEFoam
     minFoamAmount: 20
     maxFoamAmount: 30
-    replaceDescription: true
+    replaceDescription: false #Imp -> false
     reagents:
     - Tritium
     - Plasma
