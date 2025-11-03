@@ -46,7 +46,7 @@
 - type: entity
   abstract: true
   parent: BaseMachine
-  id: BaseMachinePowered
+  id: BaseMachinePowered #imp comment: if this gets changed by upstream change BaseMachinePoweredTooShortAllowed as well
   components:
   - type: ApcPowerReceiver
     powerLoad: 1000
