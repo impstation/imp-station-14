@@ -11,8 +11,6 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Smoking;
-using Content.Shared.Whitelist;
-using Content.Shared.Examine;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -22,8 +20,10 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Whitelist; // imp reagent view
+using Content.Shared.Examine; // imp reagent view
+using Robust.Shared.Utility; // imp reagent view
 
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
 
@@ -47,7 +47,7 @@ public sealed class SmokeSystem : EntitySystem
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // imp
 
     private EntityQuery<SmokeComponent> _smokeQuery;
     private EntityQuery<SmokeAffectedComponent> _smokeAffectedQuery;
@@ -65,7 +65,7 @@ public sealed class SmokeSystem : EntitySystem
         SubscribeLocalEvent<SmokeComponent, ReactionAttemptEvent>(OnReactionAttempt);
         SubscribeLocalEvent<SmokeComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
         SubscribeLocalEvent<SmokeComponent, SpreadNeighborsEvent>(OnSmokeSpread);
-        SubscribeLocalEvent<SmokeComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<SmokeComponent, ExaminedEvent>(OnExamined); // imp
     }
 
     /// <inheritdoc/>
@@ -368,7 +368,9 @@ public sealed class SmokeSystem : EntitySystem
             if (component.ContentsViewers.Components is null)
             {
                 component.ContentsViewers.Components = ["Ghost"];
-            } else if (component.ContentsViewers.Components.AsQueryable().Contains("Ghost")){
+            }
+            else if (component.ContentsViewers.Components.AsQueryable().Contains("Ghost"))
+            {
                 var tempList = component.ContentsViewers.Components.ToList();
                 tempList.Add("Ghost");
                 component.ContentsViewers.Components = tempList.ToArray();

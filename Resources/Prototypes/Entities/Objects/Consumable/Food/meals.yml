@@ -50,7 +50,7 @@
           Quantity: 4
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable
 # Tastes like potato.
 
 - type: entity
@@ -83,7 +83,7 @@
       Burger: SpaceFriesBurger
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable
 # Tastes like fries, salt.
 
 - type: entity
@@ -117,7 +117,7 @@
       Burger: CheesyFriesBurger
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable
 # Tastes like fries, cheese.
 
 - type: entity
@@ -320,7 +320,7 @@
     state: yakiimo
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable
 # Tastes like sweet potato.
 
 - type: entity
@@ -611,6 +611,9 @@
           Quantity: 10
         - ReagentId: Allicin
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Vegetable
 # Tastes like pain.
 
 - type: entity
@@ -643,6 +646,9 @@
           Quantity: 3
         - ReagentId: TableSalt # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Vegetable
 # Tastes awesome.
 
 - type: entity
@@ -808,4 +814,4 @@
         #  Quantity: 4
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable

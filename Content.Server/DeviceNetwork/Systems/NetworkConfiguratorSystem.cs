@@ -446,7 +446,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     private void OnAddSwitchModeVerb(EntityUid uid, NetworkConfiguratorComponent configurator, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract || !args.Using.HasValue || !HasComp<NetworkConfiguratorComponent>(args.Target)
-        || configurator.SwitchDisabled) // imp
+        || configurator.SwitchDisabled) // imp switchdisabled, drone
             return;
 
         AlternativeVerb verb = new()
