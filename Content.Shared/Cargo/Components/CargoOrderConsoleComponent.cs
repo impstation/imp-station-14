@@ -149,7 +149,7 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// Imp addition. Acquisition slip prototype to use.
     /// </summary>
     [DataField]
-    public EntProtoId AcquisitionSlip;
+    public EntProtoId AcquisitionSlip = "PaperAcquisitionSlipCargo";
 }
 
 /// <summary>
