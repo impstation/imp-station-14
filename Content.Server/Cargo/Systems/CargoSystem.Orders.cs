@@ -332,7 +332,7 @@ namespace Content.Server.Cargo.Systems
             if (Timing.CurTime < component.NextPrintTime)
                 return;
 
-            var label = Spawn(account.AcquisitionSlip, Transform(uid).Coordinates);
+            var label = Spawn(component.AcquisitionSlip, Transform(uid).Coordinates); // imp edit
             component.NextPrintTime = Timing.CurTime + component.PrintDelay;
             _audio.PlayPvs(component.PrintSound, uid);
 

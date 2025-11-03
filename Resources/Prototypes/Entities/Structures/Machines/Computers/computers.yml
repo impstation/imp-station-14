@@ -962,6 +962,7 @@
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
     removeLimitAccess: [ "Quartermaster" ]
+    acquisitionSlip: PaperAcquisitionSlipCargo # imp
   - type: ActiveRadio
     channels:
     - Supply
@@ -1021,6 +1022,7 @@
     account: Cargo # imp edit
     announcementChannel: Engineering
     # removeLimitAccess: [ "ChiefEngineer" ] # imp
+    acquisitionSlip: PaperAcquisitionSlipEngineering # imp
     mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
@@ -1060,6 +1062,7 @@
     account: Cargo # imp edit
     announcementChannel: Medical
     # removeLimitAccess: [ "ChiefMedicalOfficer" ] # imp edit
+    acquisitionSlip: PaperAcquisitionSlipMedical # imp
     mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
@@ -1099,6 +1102,7 @@
     account: Cargo # imp edit
     announcementChannel: Science
     # removeLimitAccess: [ "ResearchDirector" ] # imp edit
+    acquisitionSlip: PaperAcquisitionSlipScience # imp
     mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
@@ -1138,6 +1142,7 @@
     account: Cargo # imp edit
     announcementChannel: Security
     # removeLimitAccess: [ "HeadOfSecurity" ] # imp
+    acquisitionSlip: PaperAcquisitionSlipSecurity # imp
     mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
@@ -1177,6 +1182,7 @@
     account: Cargo # imp edit
     announcementChannel: Service
     # removeLimitAccess: [ "HeadOfPersonnel" ] # imp
+    acquisitionSlip: PaperAcquisitionSlipService # imp
     mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
