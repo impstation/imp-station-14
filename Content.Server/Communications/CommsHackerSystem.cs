@@ -9,8 +9,8 @@ using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
-using Content.Server.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server.Announcements.Systems;// ee announce
+using Robust.Shared.Player; // ee announce
 
 namespace Content.Server.Communications;
 
@@ -23,7 +23,7 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     // TODO: remove when generic check event is used
     [Dependency] private readonly NinjaGlovesSystem _gloves = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-	[Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
     public override void Initialize()
     {
@@ -82,8 +82,8 @@ public sealed class CommsHackerSystem : SharedCommsHackerSystem
     public void CallInThreat(NinjaHackingThreatPrototype ninjaHackingThreat)
     {
         _gameTicker.StartGameRule(ninjaHackingThreat.Rule, out _);
-        _announcer.SendAnnouncement(_announcer.GetAnnouncementId("NinjaHacking"), Filter.Broadcast(),
-		    ninjaHackingThreat.Announcement, colorOverride: Color.Red);
+        _announcer.SendAnnouncement(_announcer.GetAnnouncementId("NinjaHacking"), Filter.Broadcast(), // ee announce
+            ninjaHackingThreat.Announcement, colorOverride: Color.Red);
     }
 }
 

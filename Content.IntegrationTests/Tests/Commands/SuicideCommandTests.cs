@@ -113,7 +113,6 @@ public sealed class SuicideCommandTests
     [Test]
     public async Task TestSuicideWhileDamaged()
     {
-        return; // Offbrand
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
             Connected = true,
@@ -147,8 +146,8 @@ public sealed class SuicideCommandTests
             mobThresholdsComp = entManager.GetComponent<MobThresholdsComponent>(player);
             damageableComp = entManager.GetComponent<DamageableComponent>(player);
 
-            if (protoMan.TryIndex(DamageType, out var slashProto))
-                damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(46.5)));
+            var slashProto = protoMan.Index(DamageType);
+            damageableSystem.TryChangeDamage(player, new DamageSpecifier(slashProto, FixedPoint2.New(46.5)));
         });
 
         // Check that running the suicide command kills the player
@@ -229,7 +228,6 @@ public sealed class SuicideCommandTests
     [Test]
     public async Task TestSuicideByHeldItem()
     {
-        return; // Offbrand
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
             Connected = true,
@@ -305,7 +303,6 @@ public sealed class SuicideCommandTests
     [Test]
     public async Task TestSuicideByHeldItemSpreadDamage()
     {
-        return; // Offbrand
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
             Connected = true,

@@ -2,9 +2,6 @@ using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Components;
-using Content.Shared._DV.Polymorph; // DeltaV
-using Content.Shared.Actions;
-using Content.Shared.Actions.Components;
 using Content.Shared.Buckle;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
@@ -22,8 +19,8 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Robust.Shared.Toolshed.Commands.Generic; // DeltaV
 using Robust.Shared.Utility;
+using Content.Shared._DV.Polymorph; // DeltaV
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -116,7 +113,7 @@ public sealed partial class PolymorphSystem : EntitySystem
 
     private void OnPolymorphActionEvent(Entity<PolymorphableComponent> ent, ref PolymorphActionEvent args)
     {
-        if (!_proto.TryIndex(args.ProtoId, out var prototype) || args.Handled)
+        if (!_proto.Resolve(args.ProtoId, out var prototype) || args.Handled)
             return;
 
         PolymorphEntity(ent, prototype.Configuration);
@@ -269,7 +266,7 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (configuration.TransferHumanoidAppearance)
         {
-            _humanoid.CloneAppearance(child, uid);
+            _humanoid.CloneAppearance(uid, child);
         }
 
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
@@ -400,7 +397,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (target.Comp.PolymorphActions.ContainsKey(id))
             return;
 
-        if (!_proto.TryIndex(id, out var polyProto))
+        if (!_proto.Resolve(id, out var polyProto))
             return;
 
         var entProto = _proto.Index(polyProto.Configuration.Entity);

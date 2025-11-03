@@ -7,7 +7,8 @@
 - type: species
   id: Vox
   name: species-name-vox
-  roundStart: true
+  roundStart: true # imp
+  randomViable: true
   prototype: MobVox
   sprites: MobVoxSprites
   markingLimits: MobVoxMarkingLimits
@@ -67,6 +68,9 @@
       points: 1
       required: false #imp
       #defaultMarkings: [ VoxBeak ]
+    SnoutCover:
+      points: 1
+      required: false
     Arms:
       points: 6
       required: false #imp

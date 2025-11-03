@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Mech.Components;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
@@ -14,6 +13,7 @@ using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
+using Content.Shared.Power.Components;
 using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
@@ -209,6 +209,12 @@ public sealed partial class MechSystem : SharedMechSystem
                 Priority = 1, // Promote to top to make ejecting the ALT-click action
                 Act = () =>
                 {
+                    if (args.User == uid || args.User == component.PilotSlot.ContainedEntity)
+                    {
+                        TryEject(uid, component);
+                        return;
+                    }
+
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.ExitDelay, new MechExitEvent(), uid, target: uid)
                     {
                         BreakOnMove = true,

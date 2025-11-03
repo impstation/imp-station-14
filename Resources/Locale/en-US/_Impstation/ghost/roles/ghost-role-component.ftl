@@ -108,6 +108,10 @@ ghost-role-information-young-kodepiia-description = A shy sort-of-creature, emer
 ghost-role-information-anomalite-description = A small sprite, born from the latent energies of an anomaly core. Loyal to its core, or whoever possesses it.
 ghost-role-information-familiar-anomalite-rules = You are a [color=#6495ed][bold]Familiar[/bold][/color], loyal to the Anomaly Core you came from (or whoever happens to have it right now.) Serve the interests of your master, whatever those may be.
 
+ghost-role-information-weirdshrimp-name = Weird Shrimp
+ghost-role-information-weirdshrimp-description = A curious creature, born just moments ago. It's excited to see the world and imprints on others easily. It seems to have a strange attachment to Discount Dan's products.
+ghost-role-information-familiar-weirdshrimp-rules = You are a [color=#6495ed][bold]Familiar[/bold][/color], loyal to whoever you see first. Do your best to help your new best friend.
+
                                                   You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
 
 # Anomalite Names
@@ -177,3 +181,6 @@ ghost-role-information-monkey-description-lambordeere = You have slain your capt
 
 ghost-role-information-bananadeer-name = Banana deer
 ghost-role-information-bananadeer-description = While you usually reside on planet Teo, somehow you've ended up on a space station! Honk, slip and jump your way through life!
+
+ghost-role-information-eeep-name = Eeeplet
+ghost-role-information-eeep-desc = As a baby electric sheep your favourite food is power sourced from your local station APCs. Maybe if you eat enough you can become a fully grown Eeep!

@@ -79,6 +79,28 @@
     - blinked
 
 - type: emote
+  id: Jumps
+  name: chat-emote-name-jumps
+  category: General
+  available: false
+  icon: _Impstation/Interface/Emotes/jump.png
+  chatTriggers:
+    - jump
+    - jumps
+    - jumped
+
+- type: emote
+  id: Moo
+  name: chat-emote-name-moo
+  category: General
+  available: false
+  chatMessages: ["chat-emote-msg-moo"]
+  chatTriggers:
+    - moo
+    - moos
+    - mooed
+
+- type: emote
   id: Coo
   name: chat-emote-name-coo
   category: Vocal

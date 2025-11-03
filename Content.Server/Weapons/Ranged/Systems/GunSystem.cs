@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server._Impstation.Weapons.Ranged;
 using Content.Server.Cargo.Systems;
 using Content.Server.Weapons.Ranged.Components;
 using Content.Shared.Cargo;
@@ -23,6 +22,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
+using Content.Server._Impstation.Weapons.Ranged; // imp
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
@@ -317,11 +317,11 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             RemoveShootable(uid);
             // TODO: Someone can probably yeet this a billion miles so need to pre-validate input somewhere up the call stack.
-            ThrowingSystem.TryThrow(uid, mapDirection, projspeed, user);
+            ThrowingSystem.TryThrow(uid, mapDirection, projspeed, user); // imp projspeed
             return;
         }
 
-        ShootProjectile(uid, mapDirection, gunVelocity, gunUid, user, projspeed);
+        ShootProjectile(uid, mapDirection, gunVelocity, gunUid, user, projspeed); // imp projspeed
     }
 
     /// <summary>

@@ -85,7 +85,7 @@ public sealed partial class ArtifactCrusherComponent : Component
     public DamageSpecifier CrushingDamage = new();
 
     /// <summary>
-    /// #IMP Damage multiplier for things that aren't gibbed in the crusher (currently only changelings)
+    ///     #IMP Damage multiplier for things that aren't gibbed in the crusher (currently only changelings)
     /// </summary>
     [DataField]
     public int NonGibbedDamageMult;

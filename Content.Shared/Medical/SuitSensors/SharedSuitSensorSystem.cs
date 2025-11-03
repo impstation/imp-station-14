@@ -5,6 +5,7 @@ using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DoAfter;
+using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Interaction;
@@ -21,9 +22,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.FixedPoint; // Offbrand
-using Content.Shared._Offbrand.Wounds; // Offbrand
-
 
 namespace Content.Shared.Medical.SuitSensors;
 
@@ -33,8 +31,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    // [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!; Offbrand - we don't need that
-    [Dependency] private readonly WoundableHealthAnalyzerSystem _woundableHealthAnalyzer = default!; // Offbrand - we do need that
+    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -53,6 +50,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
+        SubscribeLocalEvent<SuitSensorComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<SuitSensorComponent, EmpDisabledRemovedEvent>(OnEmpFinished);
         SubscribeLocalEvent<SuitSensorComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SuitSensorComponent, GetVerbsEvent<Verb>>(OnVerb);
         SubscribeLocalEvent<SuitSensorComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
@@ -135,6 +134,25 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     {
         ent.Comp.User = null;
         Dirty(ent);
+    }
+
+    private void OnEmpPulse(Entity<SuitSensorComponent> ent, ref EmpPulseEvent args)
+    {
+        args.Affected = true;
+        args.Disabled = true;
+
+        ent.Comp.PreviousMode = ent.Comp.Mode;
+        SetSensor(ent.AsNullable(), SuitSensorMode.SensorOff, null);
+
+        ent.Comp.PreviousControlsLocked = ent.Comp.ControlsLocked;
+        ent.Comp.ControlsLocked = true;
+        // SetSensor already calls Dirty
+    }
+
+    private void OnEmpFinished(Entity<SuitSensorComponent> ent, ref EmpDisabledRemovedEvent args)
+    {
+        SetSensor(ent.AsNullable(), ent.Comp.PreviousMode, null);
+        ent.Comp.ControlsLocked = ent.Comp.PreviousControlsLocked;
     }
 
     private void OnExamine(Entity<SuitSensorComponent> ent, ref ExaminedEvent args)
@@ -357,17 +375,15 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         if (TryComp(sensor.User.Value, out MobStateComponent? mobState))
             isAlive = !_mobStateSystem.IsDead(sensor.User.Value, mobState);
 
-        // Begin Offbrand Removals
-        // // get mob total damage
-        // var totalDamage = 0;
-        // if (TryComp<DamageableComponent>(sensor.User.Value, out var damageable))
-        //     totalDamage = damageable.TotalDamage.Int();
+        // get mob total damage
+        var totalDamage = 0;
+        if (TryComp<DamageableComponent>(sensor.User.Value, out var damageable))
+            totalDamage = damageable.TotalDamage.Int();
 
-        // // Get mob total damage crit threshold
-        // int? totalDamageThreshold = null;
-        // if (_mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, MobState.Critical, out var critThreshold))
-        //     totalDamageThreshold = critThreshold.Value.Int();
-        // End Offbrand Removals
+        // Get mob total damage crit threshold
+        int? totalDamageThreshold = null;
+        if (_mobThresholdSystem.TryGetThresholdForState(sensor.User.Value, MobState.Critical, out var critThreshold))
+            totalDamageThreshold = critThreshold.Value.Int();
 
         // finally, form suit sensor status
         var status = new SuitSensorStatus(GetNetEntity(sensor.User.Value), GetNetEntity(ent.Owner), userName, userJob, userJobIcon, userJobDepartments);
@@ -377,19 +393,14 @@ public abstract class SharedSuitSensorSystem : EntitySystem
                 status.IsAlive = isAlive;
                 break;
             case SuitSensorMode.SensorVitals:
-                // Begin Offbrand Changes
-                // status.IsAlive = isAlive;
-                // status.TotalDamage = totalDamage;
-                // status.TotalDamageThreshold = totalDamageThreshold;
-                status.WoundableData = _woundableHealthAnalyzer.TakeSample(sensor.User.Value, withWounds: false);
-                goto case SuitSensorMode.SensorBinary;
-                // End Offbrand Changes
+                status.IsAlive = isAlive;
+                status.TotalDamage = totalDamage;
+                status.TotalDamageThreshold = totalDamageThreshold;
+                break;
             case SuitSensorMode.SensorCords:
                 status.IsAlive = isAlive;
-                // Begin Offbrand - don't duplicate code
-                // status.TotalDamage = totalDamage;
-                // status.TotalDamageThreshold = totalDamageThreshold;
-                // End Offbrand - don't duplicate code
+                status.TotalDamage = totalDamage;
+                status.TotalDamageThreshold = totalDamageThreshold;
                 EntityCoordinates coordinates;
                 var xformQuery = GetEntityQuery<TransformComponent>();
 
@@ -410,7 +421,7 @@ public abstract class SharedSuitSensorSystem : EntitySystem
                 }
 
                 status.Coordinates = GetNetCoordinates(coordinates);
-                goto case SuitSensorMode.SensorVitals; // Offbrand - don't duplicate code
+                break;
         }
 
         return status;
@@ -433,14 +444,10 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             [SuitSensorConstants.NET_OWNER_UID] = status.OwnerUid,
         };
 
-        // Begin Offbrand Changes
-        // if (status.TotalDamage != null)
-        //     payload.Add(SuitSensorConstants.NET_TOTAL_DAMAGE, status.TotalDamage);
-        // if (status.TotalDamageThreshold != null)
-        //     payload.Add(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, status.TotalDamageThreshold);
-        if (status.WoundableData is { } woundable)
-            payload.Add(SuitSensorConstants.NET_WOUNDABLE_DATA, woundable);
-        // End Offbrand Changes
+        if (status.TotalDamage != null)
+            payload.Add(SuitSensorConstants.NET_TOTAL_DAMAGE, status.TotalDamage);
+        if (status.TotalDamageThreshold != null)
+            payload.Add(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, status.TotalDamageThreshold);
         if (status.Coordinates != null)
             payload.Add(SuitSensorConstants.NET_COORDINATES, status.Coordinates);
 
@@ -468,21 +475,15 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         if (!payload.TryGetValue(SuitSensorConstants.NET_OWNER_UID, out NetEntity ownerUid)) return null;
 
         // try get total damage and cords (optionals)
-        // Begin Offbrand Changes
-        // payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE, out int? totalDamage);
-        // payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, out int? totalDamageThreshold);
-        payload.TryGetValue(SuitSensorConstants.NET_WOUNDABLE_DATA, out WoundableHealthAnalyzerData? woundableData);
-        // End Offbrand Changes
+        payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE, out int? totalDamage);
+        payload.TryGetValue(SuitSensorConstants.NET_TOTAL_DAMAGE_THRESHOLD, out int? totalDamageThreshold);
         payload.TryGetValue(SuitSensorConstants.NET_COORDINATES, out NetCoordinates? coords);
 
         var status = new SuitSensorStatus(ownerUid, suitSensorUid, name, job, jobIcon, jobDepartments)
         {
             IsAlive = isAlive.Value,
-            // Begin Offbrand Changes
-            // TotalDamage = totalDamage,
-            // TotalDamageThreshold = totalDamageThreshold,
-            WoundableData = woundableData,
-            // End Offbrand Changes
+            TotalDamage = totalDamage,
+            TotalDamageThreshold = totalDamageThreshold,
             Coordinates = coords,
         };
         return status;

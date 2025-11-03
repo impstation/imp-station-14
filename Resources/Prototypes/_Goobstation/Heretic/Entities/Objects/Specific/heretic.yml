@@ -39,11 +39,24 @@
     - type: HereticMagicItem
     - type: Contraband
       severity: TierXContraband
+    - type: Paper #imp heretic book now writeable
+      contentSize: 12000
+    - type: UserInterface
+      interfaces:
+        enum.PaperUiKey.Key:
+          type: PaperBoundUserInterface
+  - type: ActivatableUI
+    key: enum.PaperUiKey.Key
+    requiresComplex: false
+    verbOnly: true #imp end
   - type: ItemTogglePointLight
   - type: ToggleableVisuals
     spriteLayer: enum.ToggleableVisuals.Layer
   - type: ItemToggleSize
     activatedSize: Normal
+  - type: Tag #imp made the heretic book into a book to fit on shelves and into storage.
+    tags:
+    - Book
 
 - type: entity
   parent: [ DrinkBase, TierXContraband ]

@@ -4,6 +4,7 @@
   group: Narcotics
   desc: reagent-desc-desoxyephedrine
   physicalDesc: reagent-physical-desc-translucent
+  contrabandSeverity: Major
   flavor: bitter
   color: "#FAFAFA"
   boilingPoint: 212.0  # Dexosyephedrine vape when?
@@ -24,8 +25,6 @@
             Poison: 2 # this is added to the base damage of the meth.
             Asphyxiation: 2
     Narcotic:
-      statusEffects: # Offbrand
-      - statusEffect: StatusEffectHeartStrainDesoxyephedrine
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.35
@@ -34,12 +33,11 @@
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
         time: 3
         type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 3
         type: Remove
       - !type:ModifyStatusEffect
@@ -63,14 +61,13 @@
   group: Narcotics
   desc: reagent-desc-ephedrine
   physicalDesc: reagent-physical-desc-powdery
+  contrabandSeverity: Minor
   flavor: bitter
   color: "#D2FFFA"
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
     Narcotic:
-      statusEffects: # Offbrand
-      - statusEffect: StatusEffectHeartStrainEphedrine
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.25
@@ -84,12 +81,11 @@
             Poison: 2 # this is added to the base damage of the meth.
             Asphyxiation: 2
       - !type:Jitter
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
         time: 1
         type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 1
         type: Remove
       - !type:ModifyStatusEffect
@@ -118,15 +114,13 @@
   group: Narcotics
   desc: reagent-desc-stimulants
   physicalDesc: reagent-physical-desc-energizing
+  contrabandSeverity: Tier3Contraband #imp, tiered contraband
   flavor: sharp
   color: "#9A040E"
   boilingPoint: 212.0
   meltingPoint: 170.0
-  contraband: Tier3Contraband # imp
   metabolisms:
     Narcotic:
-      statusEffects: # Offbrand
-      - statusEffect: StatusEffectHeartStrainHyperzine
       metabolismRate: 1.0
       effects:
       - !type:MovespeedModifier
@@ -146,12 +140,11 @@
           min: 1
         reagent: ChloralHydrate
         amount: -10
-      - !type:GenericStatusEffect
-        key: Stun
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
         time: 3
         type: Remove
-      - !type:GenericStatusEffect
-        key: KnockedDown
+      - !type:ModifyKnockdown
         time: 3
         type: Remove
       - !type:GenericStatusEffect
@@ -204,14 +197,11 @@
     amount: -1
   metabolisms:
     Narcotic:
-      statusEffects: # Offbrand
-      - statusEffect: StatusEffectHeartStabilizationTHC
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
-        refresh: false
 
 - type: reagent
   id: Nicotine
@@ -226,8 +216,6 @@
     amount: -5
   metabolisms: # imp edit begin
     Narcotic:
-      statusEffects: # Offbrand
-      - statusEffect: StatusEffectHeartStrainNicotine
       effects:
       - !type:HealthChange
         probability: 0.1
@@ -249,6 +237,7 @@
   group: Narcotics
   desc: reagent-desc-impedrezene
   physicalDesc: reagent-physical-desc-acrid
+  contrabandSeverity: Minor
   flavor: bitter
   color: "#215263"
   metabolisms:
@@ -265,7 +254,6 @@
         effectProto: StatusEffectSeeingRainbow
         time: 10
         type: Add
-        refresh: false
       - !type:ChemVomit # Vomiting is a symptom of brain damage
         probability: 0.05
       - !type:Drunk # Headaches and slurring are major symptoms of brain damage, this is close enough
@@ -279,7 +267,7 @@
   physicalDesc: reagent-physical-desc-syrupy
   flavor: bitter
   color: "#63806e"
-  contraband: Minor #imp
+  contrabandSeverity: Minor #imp
   metabolisms:
     Narcotic:
       effects:
@@ -287,7 +275,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
 
 - type: reagent
   id: Bananadine
@@ -304,7 +291,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
 
 # Probably replace this one with sleeping chem when putting someone in a comatose state is easier
 - type: reagent
@@ -313,14 +299,12 @@
   group: Narcotics
   desc: reagent-desc-nocturine
   physicalDesc: reagent-physical-desc-powdery
+  contrabandSeverity: Tier2Contraband # imp, tiered contraband
   color: "#128e80"
   boilingPoint: 444.0
   meltingPoint: 128.0
-  contraband: Tier2Contraband # imp
   metabolisms:
     Narcotic:
-      statusEffects: # Offbrand
-      - statusEffect: StatusEffectPainSuppressionNocturine
       effects:
       - !type:ModifyStatusEffect
         conditions:
@@ -329,6 +313,7 @@
           min: 8
         effectProto: StatusEffectForcedSleeping
         time: 3
+        delay: 6
         type: Add
 
 - type: reagent
@@ -337,8 +322,8 @@
   group: Narcotics
   desc: reagent-desc-mute-toxin
   physicalDesc: reagent-physical-desc-syrupy
+  contrabandSeverity: Tier2Contraband # imp, tiered
   color: "#000000"
-  contraband: Tier2Contraband # imp
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
@@ -349,7 +334,6 @@
         component: Muted
         type: Add
         time: 10
-        refresh: false
 
 - type: reagent
   id: NorepinephricAcid
@@ -357,11 +341,11 @@
   group: Narcotics
   desc: reagent-desc-norepinephric-acid
   physicalDesc: reagent-physical-desc-milky
+  contrabandSeverity: Minor
   flavor: salty
   color: "#96a8b5"
   boilingPoint: 255.0
   meltingPoint: 36.0
-  contraband: Minor #imp
   metabolisms:
     Narcotic:
       effects:
@@ -402,6 +386,8 @@
   group: Narcotics
   desc: reagent-desc-tear-gas
   physicalDesc: reagent-physical-desc-milky
+  allowedDepartments:
+  - Security
   flavor: salty
   color: "#ffffff4d"
   boilingPoint: 255.0
@@ -499,7 +485,6 @@
         effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
       - !type:GenericStatusEffect # imp
         key: RelentlessPositivity
         component: RelentlessPositivity

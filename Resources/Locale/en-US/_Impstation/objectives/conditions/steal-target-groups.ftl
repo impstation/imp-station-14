@@ -9,6 +9,7 @@ steal-target-groups-seedextractor = seed extractor
 steal-target-groups-medtekcartridge = MedTek cartridge
 steal-target-groups-logprobecartridge = LogProbe cartridge
 steal-target-groups-astronavcartridge = AstroNav cartridge
+steal-target-groups-medchemhud = MedChem HUD
 
 steal-target-groups-servicetechfab = service techfab machine board
 steal-target-groups-shipyardcomputercircuitboard = shipyard computer board
@@ -20,6 +21,8 @@ steal-target-groups-evil-skull = evil skull
 steal-target-groups-antiquedisabler = "antique" disabler
 
 steal-target-groups-clothing-neck-bureaucracymedal = excellence in bureaucracy medal
+
+steal-target-groups-toolboxgolden = golden toolbox
 
 # Thief Animal
 

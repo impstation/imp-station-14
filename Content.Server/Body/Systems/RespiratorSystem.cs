@@ -3,6 +3,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.EntityEffects;
+using Content.Shared.Body.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
@@ -95,10 +96,7 @@ public sealed class RespiratorSystem : EntitySystem
                 }
             }
 
-            // Begin Offbrand - Respirators gasp when their heart has stopped
-            var isSuffocating = respirator.Saturation < respirator.SuffocationThreshold;
-            var shouldGaspFromHeart = TryComp<Content.Shared._Offbrand.Wounds.HeartrateComponent>(uid, out var heartrate) && !heartrate.Running;
-            if (isSuffocating || shouldGaspFromHeart)
+            if (respirator.Saturation < respirator.SuffocationThreshold)
             {
                 if (_gameTiming.CurTime >= respirator.LastGaspEmoteTime + respirator.GaspEmoteCooldown)
                 {
@@ -109,14 +107,10 @@ public sealed class RespiratorSystem : EntitySystem
                         ignoreActionBlocker: true);
                 }
 
-                if (isSuffocating)
-                {
-                    TakeSuffocationDamage((uid, respirator));
-                    respirator.SuffocationCycles += 1;
-                    continue;
-                }
+                TakeSuffocationDamage((uid, respirator));
+                respirator.SuffocationCycles += 1;
+                continue;
             }
-            // End Offbrand - Respirators gasp when their heart has stopped
 
             StopSuffocation((uid, respirator));
             respirator.SuffocationCycles = 0;
@@ -397,7 +391,7 @@ public sealed class RespiratorSystem : EntitySystem
         var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((ent, null));
         foreach (var entity in organs)
         {
-            _alertsSystem.ShowAlert(ent, entity.Comp1.Alert);
+            _alertsSystem.ShowAlert(ent.Owner, entity.Comp1.Alert);
         }
     }
 
@@ -407,7 +401,7 @@ public sealed class RespiratorSystem : EntitySystem
         var organs = _bodySystem.GetBodyOrganEntityComps<LungComponent>((ent, null));
         foreach (var entity in organs)
         {
-            _alertsSystem.ClearAlert(ent, entity.Comp1.Alert);
+            _alertsSystem.ClearAlert(ent.Owner, entity.Comp1.Alert);
         }
     }
 

@@ -371,7 +371,26 @@
   - type: StealTarget
     stealGroup: AnimalMcGriff
   - type: MessyDrinker
-  - type: DogVision # imp
+# start imp
+  - type: DogVision
+  - type: NpcFactionMember
+    factions:
+      - Dog
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Animals/dog_bark1.ogg
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+# end imp
 
 - type: entity
   name: Paperwork
@@ -469,7 +488,26 @@
     speechVerb: Canine
     speechSounds: Dog
   - type: MessyDrinker
-  - type: DogVision # imp
+# start imp
+  - type: DogVision
+  - type: NpcFactionMember
+    factions:
+      - Dog
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 0
+    soundHit:
+      path: /Audio/Animals/dog_bark1.ogg
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+# end imp
 
 - type: entity
   name: Morty
@@ -856,8 +894,6 @@
   - type: Item
     sprite: Mobs/Pets/Smile/smile.rsi
     size: Huge
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-slime
   - type: MobPrice
     price: 3000 # it is a truly valuable creature
   - type: GhostRole
@@ -933,7 +969,7 @@
     stealGroup: AnimalTropico
 
 - type: entity
-  name: Polly the parrot
+  name: Poly # imp
   parent: MobParrotBase
   id: MobPollyParrot
   description: An expert in quantum cracker theory

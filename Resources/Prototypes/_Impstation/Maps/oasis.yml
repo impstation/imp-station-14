@@ -2,7 +2,7 @@
   id: OasisImp
   mapName: 'Oasis'
   mapPath: /Maps/_Impstation/oasis.yml
-  minPlayers: 60
+  minPlayers: 70
   stations:
     Oasis:
       stationProto: StandardNanotrasenStation
@@ -15,7 +15,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_accordia.yml
         - type: StationJobs
-          availableJobs: # Total of 79 jobs roundstart, max of 93 inc. latejoins and trainees.
+          availableJobs: # Total of 77 jobs roundstart, max of 91 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -41,11 +41,11 @@
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 5, 5 ]
             TechnicalAssistant: [ 4, 4 ]
-            # medical - 13-17
+            # medical - 11-15
             Chemist: [ 2, 2 ]
             MedicalDoctor: [ 6, 6 ]
             MedicalIntern: [ 4, 4 ]
-            Paramedic: [ 4, 4 ]
+            Paramedic: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             # science - 8-9
             Borg: [ 3, 3 ]

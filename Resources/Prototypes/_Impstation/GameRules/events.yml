@@ -36,7 +36,7 @@
   id: BountyHunterSpawn
   components:
   - type: StationEvent
-    weight: 7
+    weight: 5
     duration: null
     earliestStart: 20 #originally 25
     reoccurrenceDelay: 20
@@ -130,7 +130,7 @@
   id: SyndicateInfiltratorSpawn
   components:
   - type: StationEvent
-    weight: 4
+    weight: 3
     reoccurrenceDelay: 5
     minimumPlayers: 15
     earliestStart: 25
@@ -146,3 +146,55 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+
+# eeeplet
+- type: entity
+  id: EeepEvent
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 3.5
+    earliestStart: 25
+    reoccurrenceDelay: 40
+    minimumPlayers: 30
+  - type: VentCrittersRule
+    specialEntries:
+    - id: SpawnPointGhostEeeplet
+      min: 1
+      max: 1
+      prob: 0.03
+
+# bluespace lockers
+
+- type: entity
+  id: BluespaceLockerDefault
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    reoccurrenceDelay: 5
+    earliestStart: 1
+    duration: 1
+  - type: BluespaceLockerRuleDefault
+
+- type: entity
+  id: BluespaceLockerRandom
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    reoccurrenceDelay: 5
+    earliestStart: 1
+    duration: 1
+  - type: BluespaceLockerRuleRandom
+
+- type: entity
+  id: BluespaceLockerRandomUnrestricted
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    reoccurrenceDelay: 5
+    earliestStart: 1
+    duration: 1
+  - type: BluespaceLockerRuleRandomUnrestricted
