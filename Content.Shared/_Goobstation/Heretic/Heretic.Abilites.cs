@@ -83,4 +83,9 @@ public sealed partial class EventHereticFleshAscend : InstantActionEvent { }
 public sealed partial class HereticVoidBlastEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
+
+// hunt
+public sealed partial class EventHereticPlaceWatchtower : InstantActionEvent { }
+public sealed partial class EventHereticSerpentFocus : InstantActionEvent { }
+public sealed partial class EventHereticHuntAscend : InstantActionEvent { }
 #endregion
