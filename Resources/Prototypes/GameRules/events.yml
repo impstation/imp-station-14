@@ -632,8 +632,18 @@
     - Research
     - Security
     - Service
+    - Medical #imp
+    - Chemistry #imp
     blacklist:
     - External # don't space everything
+    bannedExtras: #imp
+     tags:
+     - ExternalAirlock
+     components:
+     - GasCanister
+     - BorgChassis
+     - Emitter
+     - AntiTamper
 
 - type: entity
   parent: BaseGameRule
