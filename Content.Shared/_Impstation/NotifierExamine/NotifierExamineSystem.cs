@@ -1,5 +1,4 @@
 using Content.Shared._Impstation.CCVar;
-using Content.Shared.Actions;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
@@ -13,10 +12,8 @@ namespace Content.Shared._Impstation.NotifierExamine;
 public sealed class NotifierExamineSystem : EntitySystem
 {
     [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly INetConfigurationManager _netCfg = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     public override void Initialize()
     {
 
