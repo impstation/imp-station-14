@@ -104,7 +104,7 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: TooShortForUIWhitelist
+  - type: TooShortForUIWhitelist #imp change
 
 - type: entity
   name: long-range holopad
