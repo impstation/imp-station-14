@@ -14,6 +14,8 @@ public sealed class NotifierExamineSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly INetConfigurationManager _netCfg = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+
+    private readonly ResPath _accessibilityIcon = new("/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png");
     public override void Initialize()
     {
 
@@ -49,7 +51,7 @@ public sealed class NotifierExamineSystem : EntitySystem
             },
             Text = Loc.GetString("notifier-verb-text"),
             Category = VerbCategory.Examine,
-            Icon = new SpriteSpecifier.Texture(new("/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(_accessibilityIcon)
         };
         args.Verbs.Add(verb);
         Dirty(ent.Owner,ent.Comp);
