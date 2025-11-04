@@ -50,8 +50,8 @@ public sealed class XAEPortalSystem : BaseXAESystem<XAEPortalComponent>
         if(!TrySpawnNextTo(ent.Comp.PortalProto, target, out var secondPortal))
             return;
 
-        //#IMP NO LONGER NEEDED(but i'm leaving it in commented in case how portals work changes and we need it again)  // Manual position swapping, because the portal that opens doesn't trigger a collision, and doesn't teleport targets the first time.
-        //#IMP NO LONGER NEEDED  _transform.SwapPositions(target, args.Artifact.Owner);
+        // Manual position swapping, because the portal that opens doesn't trigger a collision, and doesn't teleport targets the first time.
+        _transform.SwapPositions(target, args.Artifact.Owner);
 
         _link.TryLink(firstPortal.Value, secondPortal.Value, true);
     }

@@ -35,6 +35,7 @@
   id: ClothingBackpackDuffelSyndicateFilledShotgun
   name: Hydra bundle #imp
   description: "Lean and mean: Contains the popular Hydra shotgun and 4 .50 buckshot drums." #, and a pair of Thermal Imaging Goggles. #imp edit
+  suffix: Hydra bundle #imp edit
   components:
   - type: StorageFill
     contents:
@@ -49,6 +50,7 @@
   id: ClothingBackpackDuffelSyndicateFilledSMG
   name: C-20R Gorgon bundle #imp
   description: "Old faithful: The classic C-20R Gorgon submachine gun, bundled with 3 magazines." #, and a Suppressor. #imp
+  suffix: Gorgon bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -62,6 +64,7 @@
   id: ClothingBackpackDuffelSyndicateFilledBR
   name: Basilisk-11 bundle
   description: "Precise and deadly, just as a professional should be. Bundled with 3 magazines."
+  suffix: Basilisk-11 bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -74,6 +77,7 @@
   id: ClothingBackpackDuffelSyndicateFilledRifle
   name: Estoc DMR bundle
   description: "For medium-range sharpshooting, the Estoc DMR. Bundled with three magazines."
+  suffix: Estoc DMR bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -86,6 +90,7 @@
   id: ClothingBackpackDuffelSyndicateFilledRevolver
   name: Python bundle
   description: "Go loud and proud with a fully loaded Python revolver, bundled with 2 speed loaders." #imp, number format
+  suffix: Python bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -98,6 +103,7 @@
   id: ClothingBackpackDuffelSyndicateFilledLMG
   name: L6 Nidhogg SAW bundle #imp
   description: "More dakka: The iconic L6 Nidhogg light machine gun, bundled with 2 box magazines." #imp
+  suffix: L6 Nidhogg SAW bundle #imp edit
   components:
   - type: StorageFill
     contents:
@@ -109,6 +115,7 @@
   id: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
   name: China Lake bundle #imp, remove hyphen
   description: "An old China Lake grenade launcher bundled with 11 grenades of various destructive capability." #imp, grammar
+  suffix: China Lake bundle #imp edit
   components:
   - type: StorageFill
     contents:
@@ -123,6 +130,7 @@
   id: ClothingBackpackDuffelSyndicateFilledCarbine
   name: M-90gl bundle
   description: "A versatile battle rifle with an attached grenade launcher, bundled with 3 magazines and 6 grenades of various capabilities."
+  suffix: M-90gl bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -141,6 +149,7 @@
   id: ClothingBackpackDuffelSyndicateAmmoFilled
   name: ammo bundle
   description: "Reloading! Contains 4 magazines for the C-20R Gorgon, 4 drums for the Hydra, 3 magazines for the Estoc DMR and 2 ammo boxes for the L6 Nidhogg SAW." #imp
+  suffix: ammo bundle #imp edit
   components:
   - type: StorageFill
     contents:
@@ -160,7 +169,7 @@
 - type: entity
   parent: ClothingBackpackDuffelClown
   id: ClothingBackpackDuffelSyndicateCostumeClown
-  suffix: syndicate
+  suffix: syndicate clown duffel bag # imp edit, clarity after rename, spawn menu. This was just called "Syndicate". Funny
   components:
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
@@ -178,6 +187,7 @@
   id: ClothingBackpackDuffelSyndicateCarpSuit
   name: carp suit duffel bag
   description: Contains a carp suit and some friends to play with.
+  suffix: carp suit duffel bag # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -188,8 +198,10 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicatePyjamaBundle
-  name: syndicate pyjama duffel bag
-  description: Contains 3 pairs of syndicate pyjamas and 4 plushies for the ultimate sleepover.
+  name: syndicate duffel bag #imp - making this one anomymous by default so that sec gets scared
+  # description: Contains 3 pairs of syndicate pyjamas and 4 plushies for the ultimate sleepover.
+  description: A large duffel bag for holding various traitor goods.
+  suffix: syndicate pyjama duffel bag # imp edit, clarity after rename, spawn menu
   components:
   - type: Storage
     grid:
@@ -216,11 +228,12 @@
   id: ClothingBackpackDuffelSyndicateC4tBundle
   name: syndicate C-4 bundle
   description: "Contains a lot of C-4 charges."
+  suffix: syndicate C-4 bundle # imp edit, clarity after rename, spawn menu
   components:
-    - type: StorageFill
-      contents:
-        - id: C4
-          amount: 8
+  - type: StorageFill # imp indent fix
+    contents:
+      - id: C4
+        amount: 8
 
 - type: entity
   parent: ClothingBackpackChameleon
@@ -246,6 +259,7 @@
   id: ClothingBackpackDuffelSyndicateEVABundle
   name: syndicate EVA bundle
   description: "Contains the Syndicate approved EVA suit."
+  suffix: syndicate EVA bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -261,6 +275,7 @@
   id: ClothingBackpackDuffelSyndicateHardsuitBundle
   name: syndicate hardsuit bundle
   description: "Contains the Syndicate's signature blood-red hardsuit." # imp hyphen consistency
+  suffix: syndicate hardsuit bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -275,6 +290,7 @@
   id: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   name: syndicate elite hardsuit bundle
   description: "Contains the Syndicate's elite hardsuit, which comes with some more stuff in it."
+  suffix: syndicate elite hardsuit bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -289,6 +305,7 @@
   id: ClothingBackpackDuffelSyndicateHardsuitExtrasBundle
   name: syndicate hardsuit extras bundle
   description: "Contains stuff that you will absolutely want to have when purchasing a hardsuit."
+  suffix: syndicate hardsuit extras bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -302,6 +319,7 @@
   id: ClothingBackpackDuffelZombieBundle
   name: syndicate zombie bundle
   description: "An all-in-one kit for unleashing the undead upon a station."
+  suffix: syndicate zombie bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -317,6 +335,7 @@
   id: ClothingBackpackDuffelSyndicateMedicalBundleFilled
   name: medical bundle
   description: "All you need to get your comrades back in the fight."
+  suffix: medical bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -339,6 +358,7 @@
   id: ClothingBackpackDuffelSyndicateDecoyKitFilled
   name: decoy bundle
   description: "Contains distractions, both auditory and visual. Smell coming soon."
+  suffix: decoy bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
@@ -371,6 +391,7 @@
   id: ClothingBackpackDuffelSyndicateFilledStarterKit
   name: basic operative bundle
   description: "Contains a weapon, medical supplies, breaching tools, spare ammo, and some simple utilities."
+  suffix: basic operative bundle # imp edit, clarity after rename, spawn menu
   components:
   - type: StorageFill
     contents:
