@@ -1,8 +1,11 @@
+using Content.Server._Impstation.PersonalEconomy;
 using Content.Server.Access.Systems;
 using Content.Server.Humanoid;
 using Content.Server.Mind;
 using Content.Server.PDA;
 using Content.Server.Station.Components;
+using Content.Shared._Impstation.PersonalEconomy.Components;
+using Content.Shared._Impstation.PersonalEconomy.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
@@ -44,6 +47,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly GrammarSystem _grammar = default!; // imp
+    [Dependency] private readonly SharedBankingSystem _banking = null!; //imp
 
     /// <summary>
     /// Attempts to spawn a player character onto the given station.
@@ -188,7 +192,10 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     /// <param name="characterName">Character name to use for the ID.</param>
     /// <param name="jobPrototype">Job prototype to use for the PDA and ID.</param>
     /// <param name="station">The station this player is being spawned on.</param>
-    public void SetPdaAndIdCardData(EntityUid entity, string characterName, JobPrototype jobPrototype, EntityUid? station)
+    public void SetPdaAndIdCardData(EntityUid entity,
+        string characterName,
+        JobPrototype jobPrototype,
+        EntityUid? station)
     {
         if (!InventorySystem.TryGetSlotEntity(entity, "id", out var idUid))
             return;
@@ -205,6 +212,32 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
 
         if (_prototypeManager.Resolve(jobPrototype.Icon, out var jobIcon))
             _cardSystem.TryChangeJobIcon(cardId, jobIcon, card);
+
+        //imp edit start - set up bank cards for players that spawn with PDAs
+        //I only want to give bank cards set up here an account automatically, other cards should need to be activated by the HoP
+        //why is this so evil
+        //<star wars opening text crawl music>
+        //todo split this out into a single method call
+        //todo this kinda really sucks, I don't like that it just doesn't work for ppl not spawned by spawning in at the station aaeugh
+        //todo move all of this logic out into comp init / map init?
+        //put starting balance & salary into there
+        //basically, I need to get the job proto / starting gear that an ent was spawned with after it's been spawned
+        //or am I fine with economy stuff only applying to people spawned on the station?
+        //ok - thought 2 - make the bank cards get spawned like Id cards using the wierd yaml datafield, then PDAs that don't need cards won't spawn with them
+        //use card prototypes to determine starting money and all that, mess with things with traits here
+        //card prototypes let me do cute dept-branded cards, which is fun
+        //still not entirely sure how things will get the right name for visitors etc etc, but maybe it'll just work out? hopefully? probably?
+        //something something 1-2 TC disposable agent card for nukies, etc etc
+        if (idUid is { } real && //is the id slot item real?
+            TryComp<PdaComponent>(real, out var pdaComp) && //is it a PDA?
+            pdaComp.BankCardSlot.ContainerSlot!.ContainedEntity is { } containedCard && //does it have something in the bank card slot?
+            TryComp<BankCardComponent>(containedCard, out var bankCardComp)) //is it a bank card?
+        {
+            var realCardRealTrue = (containedCard, bankCardComp);
+            _banking.SetAccountName(bankCardComp.AccessNumber, characterName);
+            _banking.UpdateCardDetails(realCardRealTrue, bankCardComp.AccessNumber);
+        }
+        //imp edit end
 
         var extendedAccess = false;
         if (station != null)

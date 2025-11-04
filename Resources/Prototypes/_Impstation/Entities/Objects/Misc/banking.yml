@@ -1,0 +1,27 @@
+﻿- type: entity
+  parent: Clothing
+  id: BankCard
+  name: bank card
+  description: The little square of plastic that controls your life. No, the other one.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp edit
+    layers:
+    - state: default
+    - state: idpassenger
+  - type: Clothing
+    slots:
+    - idcard
+    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp edit
+  - type: Item
+    size: Small
+    heldPrefix: default
+    storedRotation: -90
+  - type: BankCard
+
+- type: entity
+  id: RemoteBankServer
+  name: remote bank server
+  description: if you're seeing this, something has gone horribly wrong
+  components:
+  - type: RemoteBankServer
