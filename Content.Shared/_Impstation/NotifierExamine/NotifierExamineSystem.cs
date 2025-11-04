@@ -51,8 +51,8 @@ public sealed class NotifierExamineSystem : EntitySystem
             Category = VerbCategory.Examine,
             Icon = new SpriteSpecifier.Texture(_accessibilityIcon)
         };
-        args.Verbs.Add(verb);
         Dirty(ent.Owner,ent.Comp);
+        args.Verbs.Add(verb);
     }
 
     private void OnExamined(Entity<NotifierExamineComponent> ent, ref ExaminedEvent args)
