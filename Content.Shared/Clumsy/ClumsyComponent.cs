@@ -95,6 +95,7 @@ public sealed partial class ClumsyComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ClumsyVaulting = true;
+    
     /// <summary>
     ///      IMP CHANGE
     ///      Whitelist too add specific guns as clumsyproof
@@ -102,6 +103,7 @@ public sealed partial class ClumsyComponent : Component
     /// </summary>
     [DataField]
     public EntityWhitelist? GunWhitelist = null;
+    
     /// <summary>
     ///      Lets you define a new "failed" message for each event.
     /// </summary>
