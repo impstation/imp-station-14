@@ -19,11 +19,9 @@ public sealed class NotifierExamineSystem : EntitySystem
     public override void Initialize()
     {
 
-        SubscribeLocalEvent<NotifierExamineComponent,ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<NotifierExamineComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<NotifierExamineComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<NotifierExamineComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
-
-
     }
 
     private void OnPlayerAttached(Entity<NotifierExamineComponent> ent, ref PlayerAttachedEvent args)
@@ -59,8 +57,7 @@ public sealed class NotifierExamineSystem : EntitySystem
 
     private void OnExamined(Entity<NotifierExamineComponent> ent, ref ExaminedEvent args)
     {
-        if (!ent.Comp.Active || !args.IsInDetailsRange||_mobState.IsDead(ent.Owner)) return;
-        args.PushMarkup($"[color=lightblue]{Loc.GetString("notifier-info",("ent", ent.Owner))}[/color]");
+        if (!ent.Comp.Active || !args.IsInDetailsRange || _mobState.IsDead(ent.Owner)) return;
+        args.PushMarkup($"[color=lightblue]{Loc.GetString("notifier-info", ("ent", ent.Owner))}[/color]");
     }
-
 }
