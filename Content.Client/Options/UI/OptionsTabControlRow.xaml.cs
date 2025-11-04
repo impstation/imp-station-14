@@ -791,6 +791,5 @@ public sealed class OptionTextEditCVar : BaseOptionCVar<string>
             ValueChanged();
         };
     }
-
 }
 //imp edit ends

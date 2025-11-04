@@ -60,5 +60,4 @@ public sealed class NotifierExamineSystem : EntitySystem
         if (!ent.Comp.Active || !args.IsInDetailsRange || _mobState.IsDead(ent.Owner)) return;
         args.PushMarkup($"[color=lightblue]{Loc.GetString("notifier-info", ("ent", ent.Owner))}[/color]");
     }
-
 }
