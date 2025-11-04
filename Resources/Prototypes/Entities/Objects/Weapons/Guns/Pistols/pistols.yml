@@ -239,6 +239,16 @@
   - type: Construction #imp
     graph: UpgradeWeaponPistolConversion
     node: start
+  - type: ItemSlots # imp. my sick ass hack
+    slots:
+      conversion_kit:
+        priority: 3
+        locked: true
+        lockedFailPopup: gun-conversion-kit-upgrade
+        whitelist:
+          tags:
+            - ConversionKitFA
+            - ConversionKitHB
 
 - type: entity
   name: N1984
