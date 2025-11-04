@@ -6,6 +6,11 @@
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumMeteoric
+  - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/45_meteoric.rsi #imp
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
 
 - type: entity
   id: BulletMagnumMeteoric
@@ -37,7 +42,7 @@
         hard: False
 
 - type: entity
-  parent: BaseMagazineBoxMagnum
+  parent: [ BaseMagazineBoxMagnum, TierXContraband ]
   id: MagazineBoxMagnumMeteoric
   name: ammunition box (.45 meteoric)
   description: A box containing 12 .45 rounds that hum with a furious energy.
@@ -45,6 +50,7 @@
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumMeteoric
   - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/45m_box.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -54,7 +60,7 @@
 - type: entity
   id: Cartridge60Meteoric
   name: cartridge (.60 meteoric)
-  parent: BaseCartridge
+  parent: [BaseCartridge, TierXContraband]
   description: A strange round, seemingly made of volcanic glass.
   components:
   - type: CartridgeAmmo
@@ -63,7 +69,7 @@
     tags:
     - CartridgeAntiMateriel
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi #imp
+    sprite: _Impstation/Heretic/Hunt/60_meteoric.rsi #imp
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
@@ -103,6 +109,7 @@
     capacity: 12
     proto: Cartridge60Meteoric
   - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/60m_box.rsi
     layers:
     - state: base-b
       map: ["enum.GunVisualLayers.Base"]
