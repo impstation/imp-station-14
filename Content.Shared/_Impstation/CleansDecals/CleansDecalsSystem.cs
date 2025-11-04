@@ -28,7 +28,7 @@ public sealed class CleansDecalsSystem : EntitySystem
 
     private void OnAfterInteract(EntityUid uid, CleansDecalsComponent component, AfterInteractEvent args)
     {
-        if (args.Handled || !args.CanReach || args.Target is not null)
+        if (args.Handled || !args.CanReach)
             return;
 
         TryStartCleaning(uid, component, args.User, args.ClickLocation);
