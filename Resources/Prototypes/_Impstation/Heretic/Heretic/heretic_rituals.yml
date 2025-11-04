@@ -40,3 +40,15 @@
     HereticKeyThrowing: 1
 
 ##hunt path
+- type: hereticRitual
+  id: BladeHunt
+  locName: knowledge-path-hunt-s1-name
+  locDesc: knowledge-path-hunt-s1-desc
+  icon:
+    sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+    Sidearm: 1
+  output:
+    WeaponRevolverSerpentine: 1

@@ -1,0 +1,36 @@
+- type: entity
+  name: Serpentine Revolver
+  parent: [BaseWeaponRevolver, TierXContraband]
+  id: WeaponRevolverSerpentine
+  description: A mixture of blade and revolver, used by sinister individuals for rituals and sacrifices.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/Blades/blade_blade.rsi #imp
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi #imp
+  - type: Item
+    storedOffset: 0,-2
+  - type: RevolverAmmoProvider
+    proto: CartridgeMagnum
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+  - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Tool
+    qualities:
+      - Slicing
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Slash: 8
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+    wideAnimationRotation: -80
+  - type: AltFireMelee
+    attackType: Heavy

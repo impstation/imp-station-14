@@ -1,0 +1,24 @@
+##hunt path catalog 
+- type: listing
+  id: HereticHuntPath1
+  name: knowledge-path-hunt-s1-name
+  description: knowledge-path-hunt-s1-desc
+  icon: { sprite: _Goobstation/Heretic/Blades/blade_blade.rsi, state: icon }
+  productHereticKnowledge: PrincipleOfStrife
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathHunt
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    # add every path here because you shouldn't be able to buy more starter knowledge
+    blacklist:
+    - Ash
+    - Blade
+    - Flesh
+    - Hunt
+    - Lock
+    - Rust
+    - Void
