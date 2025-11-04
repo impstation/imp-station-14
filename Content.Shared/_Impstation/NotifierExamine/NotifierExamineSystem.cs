@@ -35,7 +35,7 @@ public sealed class NotifierExamineSystem : EntitySystem
     }
     private void OnGetExamineVerbs(Entity<NotifierExamineComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
-        if (!ent.Comp.Active && Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
+        if (!ent.Comp.Active || Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
             return;
 
         var user = args.User;
@@ -49,10 +49,10 @@ public sealed class NotifierExamineSystem : EntitySystem
             },
             Text = Loc.GetString("notifier-verb-text"),
             Category = VerbCategory.Examine,
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(new("/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png"))
         };
-        Dirty(ent.Owner,ent.Comp);
         args.Verbs.Add(verb);
+        Dirty(ent.Owner,ent.Comp);
     }
 
     private void OnExamined(Entity<NotifierExamineComponent> ent, ref ExaminedEvent args)
