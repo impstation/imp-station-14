@@ -63,6 +63,7 @@
       state: angry
       visible: false
   - type: CombatModeSprint
+    stunSeconds: 1
     doImpactDamage: true
     beginCombatMessage: "ungu-begin-combat-popup"
   - type: CombatMode
