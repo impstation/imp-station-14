@@ -1,0 +1,37 @@
+- type: entity
+  id: CartridgeMagnumMeteoric
+  name: cartridge (.45 meteoric)
+  parent: BaseCartridgeMagnum
+  description: A strange round, seemingly made of volcanic glass.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnumMeteoric
+
+- type: entity
+  id: BulletMagnumMeteoric
+  name: bullet (.45 meteoric)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 35
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Mobs
+      fly-by: &flybyfixture
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
