@@ -35,3 +35,81 @@
         - HighImpassable
         - LowImpassable
         hard: False
+
+- type: entity
+  parent: BaseMagazineBoxMagnum
+  id: MagazineBoxMagnumMeteoric
+  name: ammunition box (.45 meteoric)
+  description: A box containing 12 .45 rounds that hum with a furious energy.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumMeteoric
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Cartridge60Meteoric
+  name: cartridge (.60 meteoric)
+  parent: BaseCartridge
+  description: A strange round, seemingly made of volcanic glass.
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet60Meteoric
+  - type: Tag
+    tags:
+    - CartridgeAntiMateriel
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi #imp
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: Bullet60Meteoric
+  name: bullet (.60 meteoric)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 75
+        Structural: 226
+  - type: StaminaDamageOnCollide
+    damage: 60
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Mobs
+
+- type: entity
+  parent: BaseMagazineBoxAntiMateriel
+  id: MagazineBox60Meteoric
+  name: ammunition box (.60 meteoric)
+  description: A box containing 12 rifle rounds that hum with a furious energy.
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 12
+    proto: Cartridge60Meteoric
+  - type: Sprite
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
