@@ -1,6 +1,7 @@
 - type: entity # laying the foundation for a future of decapoid silicons, available for licensing by NT
   parent: [StripableInventoryBase, BaseControllable]
   id: BaseMobDecapoidSilicon
+  abstract: true
   components:
   - type: MobCollision
   - type: Physics
@@ -233,7 +234,7 @@
   - type: CanEscapeInventory #for carrying
 
 - type: entity #behold my abombination, mortal
-  parent: [BaseMobDecapoidSilicon, StripableInventoryBase]
+  parent: BaseMobDecapoidSilicon
   id: MobTckTck
   name: tck'tck
   description: A borg-like entity manufactured by the Decapoid Empire. Provides 8KW of power when anchored, and has a charger port for power cells.
@@ -346,7 +347,7 @@
     - Cargo
 
 - type: entity
-  parent: [BaseMobDecapoidSilicon, StripableInventoryBase, ShowSecurityIcons, ShowMedicalIcons]
+  parent: [BaseMobDecapoidSilicon, ShowSecurityIcons, ShowMedicalIcons]
   id: MobTckut
   name: tck'ut
   description: Originally designed to patrol Decapoid schools, this hardy droid has found new purpose being exported to stations galaxy wide.
