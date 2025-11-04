@@ -1,6 +1,7 @@
 - type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   id: MobEeepBase
+  abstract: true
   categories: [ HideSpawnMenu ]
   components:
   - type: GhostTakeoverAvailable
@@ -16,8 +17,6 @@
     baseWalkSpeed: 3
     baseSprintSpeed: 5
     baseWeightlessModifier: 1.5
-  - type: Physics
-    bodyType: KinematicController
   - type: Fixtures
     fixtures:
       fix1:
@@ -29,7 +28,6 @@
         - FlyingMobMask
         layer:
         - FlyingMobLayer
-  - type: MobState
   - type: Butcherable
     spawned:
       - id: EeepSpark
