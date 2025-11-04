@@ -21,8 +21,6 @@ namespace Content.Client._DV.CartridgeLoader.Cartridges;
 [GenerateTypedNameReferences]
 public sealed partial class NanoChatMessageBubble : BoxContainer
 {
-    private static readonly Regex EmojiRegex = new(@":(\w+):", RegexOptions.Compiled); // Funky Station - Emoji Parsing
-
     public static readonly Color OwnMessageColor = Color.FromHex("#173717d9"); // Dark green
     public static readonly Color OtherMessageColor = Color.FromHex("#252525d9"); // Dark gray
     public static readonly Color BorderColor = Color.FromHex("#40404066"); // Subtle border
@@ -45,13 +43,10 @@ public sealed partial class NanoChatMessageBubble : BoxContainer
         style.BackgroundColor = isOwnMessage ? OwnMessageColor : OtherMessageColor;
         style.BorderColor = BorderColor;
 
-        // Funky Station Start - Emoji Support & Sender Names for groupchats
-        var contentWithEmoji = EmojiRegex.Replace(message.Content, "[emoji=\"$1\"]");
+        // Set message content
+        MessageText.Text = message.Content;
 
-        MessageText.SetMessage(
-            FormattedMessage.FromMarkupPermissive(contentWithEmoji),
-            new[] { typeof(EmojiTag) }
-        );
+        // Funky Station Start - Sender Names for groupchats
 
         SenderNameLabel.Visible = showSenderName && !string.IsNullOrEmpty(senderName);
         if (SenderNameLabel.Visible)

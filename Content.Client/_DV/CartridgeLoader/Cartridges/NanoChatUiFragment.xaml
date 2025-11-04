@@ -247,18 +247,6 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
                                   PlaceHolder="{Loc nano-chat-message-placeholder}"
                                   HorizontalExpand="True"
                                   StyleClasses="OpenRight" />
-                        <!-- Funky Station - Emoji Picker -->
-                        <Button Name="EmojiButton"
-                                MinSize="32 32"
-                                MaxSize="32 32"
-                                StyleClasses="OpenBoth"
-                                Margin="4 0 0 0"
-                                ToolTip="{Loc nano-chat-emoji-picker}">
-                            <TextureRect StyleClasses="ButtonSquare"
-                                         TexturePath="/Textures/Interface/Emotes/laugh.png"
-                                         Stretch="KeepAspectCentered"
-                                         MinSize="24 24" />
-                        </Button>
                         <Button Name="SendButton"
                                 MinSize="32 32"
                                 Disabled="True"

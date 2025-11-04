@@ -889,8 +889,8 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(name))
         {
             name = name.Trim();
-            if (name.Length > IdCardConsoleComponent.MaxFullNameLength)
-                name = name[..IdCardConsoleComponent.MaxFullNameLength];
+            if (name.Length > _maxNameLength) // Imp
+                name = name[.._maxNameLength]; // Imp
         }
 
         // Generate a unique group number (surely unique I actually have no idea how to generate good unique numbers.)

@@ -36,7 +36,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
     private readonly CreateGroupChatPopup _createGroupChatPopup; // Funky Station - Create Group Chat Popup
     private readonly InviteToGroupPopup _inviteToGroupPopup; // Funky Station - Group Chat Invite Popup
     private readonly GroupMembersPopup _groupMembersPopup; // Funky Station - Group Chat Members Popup
-    private readonly EmojiPickerPopup _emojiPickerPopup; // Funky Station - Emoji Picker
     private uint? _currentChat;
     private uint? _pendingChat;
     private uint _ownNumber;
@@ -62,7 +61,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         _createGroupChatPopup = new(); // Funky Station - Create Group Chat Popup
         _inviteToGroupPopup = new(); // Funky Station - Group Chat Invite Popup
         _groupMembersPopup = new(); // Funky Station - Group Chat Members Popup
-        _emojiPickerPopup = new(); // Funky Station - Emoji Picker
         SetupEventHandlers();
     }
 
@@ -117,8 +115,6 @@ public sealed partial class NanoChatUiFragment : BoxContainer
         };
 
         // Funky Station End - Group Chat Handlers
-
-        _emojiPickerPopup.OnEmojiSelected += InsertEmoji; // Funky Station - Emoji Picker
 
         NewChatButton.OnPressed += _ =>
         {
@@ -203,30 +199,11 @@ public sealed partial class NanoChatUiFragment : BoxContainer
 
         MessageInput.OnTextEntered += _ => SendMessage();
         SendButton.OnPressed += _ => SendMessage();
-        EmojiButton.OnPressed += _ => OpenEmojiPicker(); // Funky Station - Emoji Picker
         EditChatButton.OnPressed += _ => BeginEditChat();
         DeleteChatButton.OnPressed += _ => DeleteCurrentChat();
         InviteToGroupButton.OnPressed += _ => OpenInvitePopup(); // Funky Station - Group Chat Invite Popup
         ViewMembersButton.OnPressed += _ => OpenMembersPopup(); // Funky Station - Group Chat Members Popup
     }
-
-    // Funky Station Start - Emoji Picker
-    private void OpenEmojiPicker()
-    {
-        _emojiPickerPopup.OpenCentered();
-    }
-
-    private void InsertEmoji(string emoji)
-    {
-        var currentText = MessageInput.Text;
-        var cursorPos = MessageInput.CursorPosition;
-
-        var newText = currentText.Insert(cursorPos, emoji);
-        MessageInput.Text = newText;
-        MessageInput.CursorPosition = cursorPos + emoji.Length;
-        MessageInput.GrabKeyboardFocus();
-    }
-    // Funky Station End - Emoji Picker
 
     private void ToggleView()
     {
