@@ -14,14 +14,14 @@ public sealed class NotifierExamineSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly INetConfigurationManager _netCfg = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+
+    private readonly ResPath _accessibilityIcon = new("/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png");
     public override void Initialize()
     {
 
-        SubscribeLocalEvent<NotifierExamineComponent,ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<NotifierExamineComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<NotifierExamineComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<NotifierExamineComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
-
-
     }
 
     private void OnPlayerAttached(Entity<NotifierExamineComponent> ent, ref PlayerAttachedEvent args)
@@ -49,16 +49,16 @@ public sealed class NotifierExamineSystem : EntitySystem
             },
             Text = Loc.GetString("notifier-verb-text"),
             Category = VerbCategory.Examine,
-            Icon = new SpriteSpecifier.Texture(new ("/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png"))
+            Icon = new SpriteSpecifier.Texture(_accessibilityIcon)
         };
-        Dirty(ent.Owner,ent.Comp);
+        Dirty(ent.Owner, ent.Comp);
         args.Verbs.Add(verb);
     }
 
     private void OnExamined(Entity<NotifierExamineComponent> ent, ref ExaminedEvent args)
     {
-        if (!ent.Comp.Active || !args.IsInDetailsRange||_mobState.IsDead(ent.Owner)) return;
-        args.PushMarkup($"[color=lightblue]{Loc.GetString("notifier-info",("ent", ent.Owner))}[/color]");
+        if (!ent.Comp.Active || !args.IsInDetailsRange || _mobState.IsDead(ent.Owner)) return;
+        args.PushMarkup($"[color=lightblue]{Loc.GetString("notifier-info", ("ent", ent.Owner))}[/color]");
     }
 
 }

@@ -177,14 +177,12 @@ public sealed partial class OptionsTabControlRow : Control
     }
 
     //imp edit start
-
     public OptionTextEditCVar AddOptionTextEdit(
         CVarDef<string> cVar,
         TextEdit textEdit)
     {
-        return AddOption(new OptionTextEditCVar(this, _cfg, cVar,textEdit));
+        return AddOption(new OptionTextEditCVar(this, _cfg, cVar, textEdit));
     }
-
     //imp edit end
 
     /// <summary>
@@ -758,41 +756,41 @@ public sealed class OptionDropDownCVar<T> : BaseOptionCVar<T> where T : notnull
     {
         public T Key;
     }
+}
 
-    }
-    //imp edit start
-    public sealed class OptionTextEditCVar : BaseOptionCVar<string>
+//imp edit start
+public sealed class OptionTextEditCVar : BaseOptionCVar<string>
+{
+    private readonly TextEdit _textEdit;
+
+    protected override string Value
     {
-        private readonly TextEdit _textEdit;
-
-        protected override string Value
-        {
-            get => Rope.Collapse(_textEdit.TextRope);
-            set => _textEdit.TextRope = new Rope.Leaf(value);
-        }
-
-        /// <summary>
-        /// Creates a new instance of this type.
-        /// </summary>
-        /// <param name="controller">The control row that owns this option.</param>
-        /// <param name="cfg">The configuration manager to get and set values from.</param>
-        /// <param name="cVar">The CVar that is being controlled by this option.</param>
-        /// <param name="textEdit">The UI control for the option.</param>
-        /// <remarks>
-        /// </remarks>
-        public OptionTextEditCVar(
-            OptionsTabControlRow controller,
-            IConfigurationManager cfg,
-            CVarDef<string> cVar,
-            TextEdit textEdit)
-            : base(controller, cfg, cVar)
-        {
-            _textEdit = textEdit;
-            textEdit.OnTextChanged += _ =>
-            {
-                ValueChanged();
-            };
-        }
-
+        get => Rope.Collapse(_textEdit.TextRope);
+        set => _textEdit.TextRope = new Rope.Leaf(value);
     }
-    //imp edit ends
+
+    /// <summary>
+    /// Creates a new instance of this type.
+    /// </summary>
+    /// <param name="controller">The control row that owns this option.</param>
+    /// <param name="cfg">The configuration manager to get and set values from.</param>
+    /// <param name="cVar">The CVar that is being controlled by this option.</param>
+    /// <param name="textEdit">The UI control for the option.</param>
+    /// <remarks>
+    /// </remarks>
+    public OptionTextEditCVar(
+        OptionsTabControlRow controller,
+        IConfigurationManager cfg,
+        CVarDef<string> cVar,
+        TextEdit textEdit)
+        : base(controller, cfg, cVar)
+    {
+        _textEdit = textEdit;
+        textEdit.OnTextChanged += _ =>
+        {
+            ValueChanged();
+        };
+    }
+
+}
+//imp edit ends

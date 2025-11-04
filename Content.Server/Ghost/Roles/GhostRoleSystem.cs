@@ -603,8 +603,8 @@ public sealed partial class GhostRoleSystem : EntitySystem // imp add partial
             return;
 
         DebugTools.AssertNotNull(player.ContentData());
-        
-        EnsureComp<NotifierExamineComponent>(mob);//imp edit
+
+        EnsureComp<NotifierExamineComponent>(mob); //imp add
         // After taking a ghost role, the player cannot return to the original body, so wipe the player's current mind
         // unless it is a visiting mind
         if(_mindSystem.TryGetMind(player.UserId, out _, out var mind) && !mind.IsVisitingEntity)
