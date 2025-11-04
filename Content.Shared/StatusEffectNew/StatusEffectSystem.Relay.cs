@@ -8,7 +8,6 @@ using Robust.Shared.Player;
 using Content.Shared.Damage; // imp
 using Content.Shared.Interaction.Events; // imp
 
-
 namespace Content.Shared.StatusEffectNew;
 
 public sealed partial class StatusEffectsSystem
