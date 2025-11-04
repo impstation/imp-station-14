@@ -21,10 +21,11 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
 
         <!--  Message panel  -->
         <BoxContainer
-            HorizontalExpand="True"
-            MaxWidth="320"
             Name="MessageBox"
-            Orientation="Vertical">
+            Orientation="Vertical"
+            HorizontalExpand="False"
+            MaxWidth="320"
+            HorizontalAlignment="Left">
 
             <!-- Funky Station - Added sender name label -->
             <Label
