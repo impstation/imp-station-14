@@ -85,7 +85,7 @@
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 100
+          damage: 20 #imp edit - reduce camera health by a shit ton. this is 10 crowbar hits
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
