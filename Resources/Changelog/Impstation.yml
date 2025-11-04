@@ -1,101 +1,4 @@
 ﻿Entries:
-- author: msTheowo
-  changes:
-  - message: You can print plastic knives at service techfabs now!
-    type: Tweak
-  id: 1871
-  time: '2025-06-19T04:15:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2820
-- author: ATDoop
-  changes:
-  - message: Removed the ion storm law that forced silicons to call the shuttle.
-    type: Remove
-  id: 1872
-  time: '2025-06-19T05:44:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2798
-- author: mqole
-  changes:
-  - message: Circumcised lizards.
-    type: Fix
-  id: 1873
-  time: '2025-06-20T04:29:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2827
-- author: DinnerCalzone
-  changes:
-  - message: Empty liquid storage tanks can now be ordered from Cargo.
-    type: Add
-  id: 1874
-  time: '2025-06-20T05:23:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2826
-- author: MintyTheBinty
-  changes:
-  - message: Paprika is now available from tampered condiment vendors!
-    type: Add
-  - message: Changed the English Spice's and Lethal Poison Injector's pepper to paprika
-      for an extra kick!
-    type: Tweak
-  id: 1875
-  time: '2025-06-20T05:30:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2825
-- author: youtubevideo3
-  changes:
-  - message: Nanotrasen's various tobacco product subsidiaries have consulted with
-      marketing firms in order to create fresh and unique brand identities.
-    type: Tweak
-  id: 1876
-  time: '2025-06-20T05:34:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2819
-- author: widgetbeck
-  changes:
-  - message: Eddid thi Vowel Rotation eccint treot, whoch rutetis ell vuwils tu thi
-      roght by uni. AEIOU -> EIOUA
-    type: Add
-  id: 1877
-  time: '2025-06-20T05:35:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2817
-- author: widgetbeck
-  changes:
-  - message: Replicator Tier 3 speed has been reduced.
-    type: Tweak
-  - message: Replicator flat structural damage reductions have been removed.
-    type: Tweak
-  - message: All Replicator tiers are now vulnerable to flash.
-    type: Add
-  - message: There is now a clear visual indicator for which Replicator is the Queen
-      once the nest has been destroyed.
-    type: Add
-  - message: Replicator Tier 1 stun has been slightly reduced, and Tier 2 stun has
-      been slightly increased (along with a new sprite.)
-    type: Tweak
-  - message: Replicator Tier 2's whip has received a small damage buff.
-    type: Tweak
-  - message: Replicators cannot be zombified.
-    type: Remove
-  id: 1878
-  time: '2025-06-20T05:44:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2804
-- author: Ruddygreat, DarkIcedCoffee
-  changes:
-  - message: Added the S.A.L.V.O hud.
-    type: Add
-  id: 1879
-  time: '2025-06-20T05:43:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2669
-- author: CrystalClover
-  changes:
-  - message: Added Pulp, a mushy substance derived from wood products.
-    type: Add
-  - message: Moths now derive sustainence from Cellulose, with Fiber and Pulp being
-      digested into Cellulose.
-    type: Tweak
-  - message: Moths can now (slowly) eat Cardboard and Wood sheets.
-    type: Tweak
-  - message: The Nutribrick wrapper is now actually paper; it contains 10 Pulp and
-      recycles into Cardboard.
-    type: Tweak
-  id: 1880
-  time: '2025-06-21T01:08:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2806
 - author: DVDPlayerOfDiscordFame
   changes:
   - message: The M-1 Energy Shotgun doesn't need to wait 30 seconds to recharge anymore,
@@ -4199,3 +4102,78 @@
   id: 2370
   time: '2025-10-30T08:04:01.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3640
+- author: TheGrimbeeper
+  changes:
+  - message: artifact foam may have contents undetermined by the scanner
+    type: Tweak
+  id: 2371
+  time: '2025-11-01T00:51:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3646
+- author: EpicToast
+  changes:
+  - message: Luna is undergoing renovations and will not be in the standard work schedule.
+    type: Remove
+  id: 2372
+  time: '2025-11-01T01:21:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3647
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The M1 and the T25 have new firing modes! Check 'em out!
+    type: Add
+  - message: Several balance changes to the M1 and the T25-- check the PR for details
+    type: Tweak
+  id: 2373
+  time: '2025-11-01T01:23:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3638
+- author: entings
+  changes:
+  - message: Lots of little dietary tweaks. This one's for you, Reptilian players.
+    type: Tweak
+  - message: Arachnids can breathe again, for real this time.
+    type: Fix
+  id: 2374
+  time: '2025-11-01T03:47:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3626
+- author: starlighthowls
+  changes:
+  - message: Lowered ungus stun on impact when hitting walls.
+    type: Tweak
+  id: 2375
+  time: '2025-11-01T21:41:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3653
+- author: kipdotnet
+  changes:
+  - message: Allulalo are now roundstart available.
+    type: Add
+  id: 2376
+  time: '2025-11-01T23:00:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3621
+- author: starlighthowls
+  changes:
+  - message: Added a new lobby art by Wowls! Average Tuesday Shift
+    type: Add
+  id: 2377
+  time: '2025-11-02T01:18:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3650
+- author: kipdotnet
+  changes:
+  - message: Allulalo now have survival boxes. oops.
+    type: Fix
+  id: 2378
+  time: '2025-11-02T02:55:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3655
+- author: TheGrimbeeper
+  changes:
+  - message: Artifacts now slightly permissive of contaminants in what you splash
+      on them.
+    type: Tweak
+  id: 2379
+  time: '2025-11-02T12:38:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3656
+- author: starlighthowls
+  changes:
+  - message: Dolphin got un-cursed.
+    type: Tweak
+  id: 2380
+  time: '2025-11-03T10:37:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3649
