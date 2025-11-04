@@ -152,6 +152,7 @@
     startingCharge: 1050
   - type: MeleeWeapon
     wideAnimationRotation: -80
+  - type: PacifismAllowedGun
 
 - type: entity
   name: antique disabler
@@ -250,3 +251,4 @@
     damage:
       types:
         Blunt: 8
+  - type: PacifismAllowedGun
