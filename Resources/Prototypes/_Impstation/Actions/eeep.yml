@@ -2,7 +2,7 @@
   parent: BaseImplantAction
   id: ActionEeepEmp
   name: Eeep EMP
-  description: Cause an EMP pulse, but be careful- this will drain your own power too!
+  description: Cause an EMP, but be careful- this will drain your own power too!
   components:
   - type: Action
     checkCanInteract: false
