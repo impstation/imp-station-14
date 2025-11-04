@@ -66,7 +66,7 @@
       melee:
         reagents:
         - ReagentId: Ethanotoxin
-          Quantity: 5 #you can bite someone five times. upped from two based on feedback
+          Quantity: 4 #you can bite someone four times. upped from two based on feedback
   - type: MeleeChemicalInjector
     solution: melee
   - type: SolutionRegeneration
