@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseMachinePoweredTooShortAllowed, ConstructibleMachine ] #imp
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
   id: Holopad
   name: holopad
   description: "A floor-mounted device for projecting holographic images."
