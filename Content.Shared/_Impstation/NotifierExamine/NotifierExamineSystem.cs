@@ -35,7 +35,7 @@ public sealed class NotifierExamineSystem : EntitySystem
     }
     private void OnGetExamineVerbs(Entity<NotifierExamineComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
-        if (!ent.Comp.Active && Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
+        if (!ent.Comp.Active || Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
             return;
 
         var user = args.User;

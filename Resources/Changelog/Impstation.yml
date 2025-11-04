@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Portable Sensor Array can be manufactured at the Security Techfab
-      alongside the protolathe with a cost adjustment.
-    type: Tweak
-  id: 1885
-  time: '2025-06-22T06:29:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2843
 - author: msTheowo
   changes:
   - message: Pen holders
@@ -4157,3 +4149,10 @@
   id: 2384
   time: '2025-11-04T03:21:33.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/1893
+- author: sev7ves
+  changes:
+  - message: the star icon does not display on people not using the notifier anymore
+    type: Fix
+  id: 2385
+  time: '2025-11-04T11:53:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3674
