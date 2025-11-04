@@ -1,7 +1,9 @@
 using Content.Client.Construction;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._EE.ShortConstruction;
+using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
+using Content.Shared.NodeContainer;
 using Content.Shared.Popups;
 using Robust.Client.GameObjects;
 using Robust.Client.Placement;
@@ -17,7 +19,7 @@ namespace Content.Client._EE.ShortConstruction.UI;
 
 //This was originally a PR for Einstein's Engines, submitted by Github user VMSolidus.
 //https://github.com/Simple-Station/Einstein-Engines/pull/861
-//It has been modified to work within the Imp Station 14 server fork by Honeyed_Lemons.
+//It has been modified to work within the Imp Station 14 server fork by Honeyed_Lemons. (and mqole (hi!))
 
 public sealed class ShortConstructionMenu : RadialMenu
 {
@@ -52,20 +54,25 @@ public sealed class ShortConstructionMenu : RadialMenu
         {
             if (_playerManager.LocalSession == null)
                 return;
-            if (!_protoManager.TryIndex(protoId, out var proto))
+
+            // imp: basically just checking that the target proto Exists as a valid entity
+            // do not add button if it isnt real
+            if (!_protoManager.TryIndex(protoId, out var proto) ||
+                !_construction.TryGetRecipePrototype(proto.ID, out var targetProtoId) ||
+                !_protoManager.TryIndex(targetProtoId, out var targetProto))
                 continue;
 
-            var button = new RadialMenuTextureButtonWithSector
+            var button = new RadialMenuButtonWithSector
             {
-                ToolTip = Loc.GetString(proto.Name),
+                ToolTip = Loc.GetString(targetProto.Name), // imp
                 SetSize = new Vector2(48f, 48f)
             };
 
             var texture = new TextureRect
             {
-                VerticalAlignment = Control.VAlignment.Center,
-                HorizontalAlignment = Control.HAlignment.Center,
-                Texture = _spriteSystem.Frame0(proto.Icon),
+                VerticalAlignment = VAlignment.Center,
+                HorizontalAlignment = HAlignment.Center,
+                Texture = _spriteSystem.Frame0(targetProto), // imp
                 TextureScale = new Vector2(1.5f, 1.5f)
             };
 

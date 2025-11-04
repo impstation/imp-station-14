@@ -98,7 +98,23 @@
         orGroup: GiftPool
       - id: PlushieArachind
         orGroup: GiftPool
+      # DEN begin
+      - id: PlushieTeddyBear
+        orGroup: GiftPool
+      - id: PlushieTeddyBearRecolorableRandom
+        orGroup: GiftPool
+      - id: SqueakySmileyGuyRandom
+        orGroup: GiftPool
+      - id: SqueakySmileyBall
+        orGroup: GiftPool
+      - id: PlushieAlienGerm
+        orGroup: GiftPool
+      - id: PlushieAlienGermMini
+        orGroup: GiftPool
+      # DEN end
       - id: ClothingNeckCloakMoth
+        orGroup: GiftPool
+      - id: TennisBall
         orGroup: GiftPool
       - id: ToyMouse
         orGroup: GiftPool
@@ -323,6 +339,8 @@
       - id: ClothingUniformJumpsuitColorMaroon
         orGroup: GiftPool
       - id: ClothingUniformColorRainbow
+        orGroup: GiftPool
+      - id: ClothingUniformJumpskirtColorRainbow
         orGroup: GiftPool
       - id: ClothingUniformOveralls
         orGroup: GiftPool

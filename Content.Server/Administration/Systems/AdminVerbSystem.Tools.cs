@@ -2,18 +2,12 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Server.Administration.Components;
-using Content.Server.Atmos;
-using Content.Server.Atmos.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server._Impstation.Thaven;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Revenant.Components;
-using Content.Server.Revenant.EntitySystems;
 using Content.Server.Stack;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Access;
@@ -21,17 +15,18 @@ using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
 using Content.Shared.Construction.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Doors.Components;
 using Content.Shared.Hands.Components;
-using Content.Shared._Impstation.Thaven.Components;
 using Content.Shared.Inventory;
-using Content.Shared.Item;
 using Content.Shared.PDA;
+using Content.Shared.Power.Components;
 using Content.Shared.Stacks;
+using Content.Shared.Station.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Physics;
@@ -42,6 +37,10 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server.Revenant.Components; // imp
+using Content.Server.Revenant.EntitySystems; // imp
+using Content.Shared._Impstation.Thaven.Components; // imp
+using Content.Shared.Item; // imp
 
 namespace Content.Server.Administration.Systems;
 
@@ -59,11 +58,11 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly BatterySystem _batterySystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly GunSystem _gun = default!;
-    [Dependency] private readonly RevenantAnimatedSystem _revenantAnimate = default!;
+    [Dependency] private readonly RevenantAnimatedSystem _revenantAnimate = default!; // imp
 
     private void AddTricksVerbs(GetVerbsEvent<Verb> args)
     {
-        if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+        if (!TryComp(args.User, out ActorComponent? actor))
             return;
 
         var player = actor.PlayerSession;
@@ -904,7 +903,7 @@ public sealed partial class AdminVerbSystem
         }
         else if (TryComp<HandsComponent>(target, out var hands))
         {
-            foreach (var held in _handsSystem.EnumerateHeld(target, hands))
+            foreach (var held in _handsSystem.EnumerateHeld((target, hands)))
             {
                 if (HasComp<AccessComponent>(held))
                 {
@@ -962,9 +961,11 @@ public sealed partial class AdminVerbSystem
         SnapJoints = -27,
         MakeMinigun = -28,
         SetBulletAmount = -29,
+        // imp adds
         MakeAnimate = -30,
         MakeInanimate = -31,
         AddRandomMood = -32,
         AddCustomMood = -33,
+        // imp end
     }
 }

@@ -1,0 +1,1076 @@
+- type: entity
+  parent: CardBoxBase
+  id: CardBoxTarot
+  name: tarot deck box
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: box
+    layers:
+    - state: purple_box
+    - state: purple_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckTarot
+      amount: 1
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckTarot
+  name: deck of cards
+  components:
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: deck_tarot_full
+  - type: CardStack
+    content:
+    # Cups
+    - CardScAceOfCups
+    - CardScTwoOfCups
+    - CardScThreeOfCups
+    - CardScFourOfCups
+    - CardScFiveOfCups
+    - CardScSixOfCups
+    - CardScSevenOfCups
+    - CardScEightOfCups
+    - CardScNineOfCups
+    - CardScTenOfCups
+    - CardScPageOfCups
+    - CardScKnightOfCups
+    - CardScQueenOfCups
+    - CardScKingOfCups
+    # Pentacles
+    - CardScAceOfPentacles
+    - CardScTwoOfPentacles
+    - CardScThreeOfPentacles
+    - CardScFourOfPentacles
+    - CardScFiveOfPentacles
+    - CardScSixOfPentacles
+    - CardScSevenOfPentacles
+    - CardScEightOfPentacles
+    - CardScNineOfPentacles
+    - CardScTenOfPentacles
+    - CardScPageOfPentacles
+    - CardScKnightOfPentacles
+    - CardScQueenOfPentacles
+    - CardScKingOfPentacles
+    # Swords
+    - CardScAceOfSwords
+    - CardScTwoOfSwords
+    - CardScThreeOfSwords
+    - CardScFourOfSwords
+    - CardScFiveOfSwords
+    - CardScSixOfSwords
+    - CardScSevenOfSwords
+    - CardScEightOfSwords
+    - CardScNineOfSwords
+    - CardScTenOfSwords
+    - CardScPageOfSwords
+    - CardScKnightOfSwords
+    - CardScQueenOfSwords
+    - CardScKingOfSwords
+    # Wands
+    - CardScAceOfWands
+    - CardScTwoOfWands
+    - CardScThreeOfWands
+    - CardScFourOfWands
+    - CardScFiveOfWands
+    - CardScSixOfWands
+    - CardScSevenOfWands
+    - CardScEightOfWands
+    - CardScNineOfWands
+    - CardScTenOfWands
+    - CardScPageOfWands
+    - CardScKnightOfWands
+    - CardScQueenOfWands
+    - CardScKingOfWands
+    # Major Arcana
+    - CardScTheFool
+    - CardScTheMagician
+    - CardScTheHighPriestess
+    - CardScTheEmpress
+    - CardScTheEmperor
+    - CardScTheHierophant
+    - CardScTheLovers
+    - CardScTheChariot
+    - CardScStrength
+    - CardScTheHermit
+    - CardScTheWheel
+    - CardScJustice
+    - CardScTheHangedMan
+    - CardScDeath
+    - CardScTemperance
+    - CardScTheDevil
+    - CardScTheTower
+    - CardScTheStar
+    - CardScTheMoon
+    - CardScTheSun
+    - CardScJudgement
+    - CardScTheWorld
+  
+- type: entity
+  parent: BaseItem
+  id: CardBaseTarot
+  name: card
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      collection: cardShove
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: singlecard_down_tarot
+  - type: Rotatable
+  - type: Item
+    size: Tiny
+  - type: UseDelay
+    delay: 0.5
+  - type: Card
+    backSpriteLayers:
+    - sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+      state: singlecard_down_tarot
+    flipped: true
+
+# cups
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScAceOfCups
+  description: A chalice atop a pool, surrounded by flowing water. A grand bird hovers above the chalice. Water, New Feelings, Spirituality, Intuition
+  components:
+  - type: Card
+    name: card-sc-ace-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Ace_of_Cups_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTwoOfCups
+  description: Two cups, each with a snake rising from it. They intertwine and wrap around each other. Water, Unity, Partnership, Connection
+  components:
+  - type: Card
+    name: card-sc-two-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_2_of_Cups_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScThreeOfCups
+  description: Three smiling women, each holding a cup. One is in front, holding hers above her head. The other two hold theirs above the first. Water, Friendship, Community, Happiness
+  components:
+  - type: Card
+    name: card-sc-three-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_3_of_Cups_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScFourOfCups
+  description: An individual presenting a cup, standing upon a table. Light shines upon it. Three cups stand at their feet. They look unhappy. Water, Apathy, Contemplation, Disconnection
+  components:
+  - type: Card
+    name: card-sc-four-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_4_of_Cups_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScFiveOfCups
+  description: A close-up of a crying individual. Two cups stand upright behind them, three others lie scattered beneath. Water, Loss, Grief, Disappointment, Mourning
+  components:
+  - type: Card
+    name: card-sc-five-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_5_of_Cups_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScSixOfCups
+  description: Two rabbits flanking a tall flower. Six cups surround them, flowers sprouting from each. Water, Familiarity, Memories, Healing, Restoration
+  components:
+  - type: Card
+    name: card-sc-six-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_6_of_Cups_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScSevenOfCups
+  description: Seven cups upon a cloud, each containing something different. A flower, a tower, a snake, a crown, a skull, sparkles, and a mask. Water, Searching for Purpose, Choices, Daydreaming
+  components:
+  - type: Card
+    name: card-sc-seven-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_7_of_Cups_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScEightOfCups
+  description: A long-robed individual stepping past eight cups, stacked upon each other. A forest lies in the distance behind them. Water, Walking Away, Disillusionment, Leaving Something Behind
+  components:
+  - type: Card
+    name: card-sc-eight-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_8_of_Cups_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScNineOfCups
+  description: An individual seated upon a large sofa. Nine cups stand shelved above them. Water, Satisfaction, Luxury, Emotional Stability
+  components:
+  - type: Card
+    name: card-sc-nine-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_9_of_Cups_tarot
+  
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTenOfCups
+  description: Cups stacked upon each other, counting ten, with a fish leaping from the top-most. The sun shines above them, a rainbow spread before it. Water, Inner Happiness, Fulfillment, Dreams Coming True
+  components:
+  - type: Card
+    name: card-sc-ten-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_10_of_Cups_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScPageOfCups
+  description: The Page stands holding their cup out, other hand on their hip. A fish curls out from the cup. Water, Happy Surprise, Dreamer, Sensitivity
+  components:
+  - type: Card
+    name: card-sc-page-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Page_of_Cups_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScKnightOfCups
+  description: The Knight rides horseback before a river of water. They hold their cup with both hands. Water, Idealistic, Romantic, Following One's Heart
+  components:
+  - type: Card
+    name: card-sc-knight-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Knight_of_Cups_tarot
+  
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScQueenOfCups
+  description: The Queen, depicted with the lower half of a fish, holds her cup low in front of her. Seashells and algae surround her. Water, Compassion, Calm, Comfort
+  components:
+  - type: Card
+    name: card-sc-queen-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Queen_of_Cups_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScKingOfCups
+  description: The King, depicted with the lower half of a fish, holds his cup aloft. A sailboat sits on the water in the distance. Water, Emotional Control, Balance Between Heart and Head
+  components:
+  - type: Card
+    name: card-sc-king-cups
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_King_of_Cups_tarot
+
+# pentacles
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScAceOfPentacles
+  description: A single, grand pentacle surrounded by vines and flowers. Earth, Opportunity, Prosperity, New Venture
+  components:
+  - type: Card
+    name: card-sc-ace-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Ace_of_Pentacles_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTwoOfPentacles
+  description: Two hands, each holding a pentacle. Vines spread between the two, ending in flowers. Earth, Balancing Decisions, Priorities, Adaptation
+  components:
+  - type: Card
+    name: card-sc-two-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_2_of_Pentacles_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScThreeOfPentacles
+  description: Three individuals stand together; one robed, one aproned, one armored. A pentacle for each shines above them. Earth, Teamwork, Collaboration, Building Together
+  components:
+  - type: Card
+    name: card-sc-three-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_3_of_Pentacles_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScFourOfPentacles
+  description: A suited individual stands atop a pentacle, balances one on their head, and holds two more in each hand. They stand before a columned building. Earth, Conservation, Security, Frugality
+  components:
+  - type: Card
+    name: card-sc-four-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_4_of_Pentacles_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScFiveOfPentacles
+  description: Cupped hands are outstretched towards a closed door. The frame is adorned with pentacles counting five. Earth, Need, Poverty, Insecurity, Low Resources
+  components:
+  - type: Card
+    name: card-sc-five-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_5_of_Pentacles_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScSixOfPentacles
+  description: Cupped hands drop six pentacles down towards two open hands. A scale rests between the two open hands. Earth, Charity, Generosity, Sharing
+  components:
+  - type: Card
+    name: card-sc-six-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_6_of_Pentacles_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScSevenOfPentacles
+  description: Crops upon farmland sprout flowering pentacles counting seven. Earth, Hard Work, Perseverance, Diligence
+  components:
+  - type: Card
+    name: card-sc-seven-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_7_of_Pentacles_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScEightOfPentacles
+  description: A smith's hammer shines brightly above an anvil, surrounded by eight pentacles. Earth, Diligence, Passion, High Standards
+  components:
+  - type: Card
+    name: card-sc-eight-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_8_of_Pentacles_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScNineOfPentacles
+  description: A closed gate adorned with pentacles lies before a lush woodland. Four pentacles on each gate door, one atop the frame. Earth, Fruits of Labor, Reckless Spending, Rewards
+  components:
+  - type: Card
+    name: card-sc-nine-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_9_of_Pentacles_tarot
+  
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTenOfPentacles
+  description: A large tree stands before an arch with six pentacles growing from its branches. Four more rest above it. Earth, Legacy, Inheritance, Culmination
+  components:
+  - type: Card
+    name: card-sc-ten-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_10_of_Pentacles_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScPageOfPentacles
+  description: The Page stands with a pentacle in one hand, the other behind their back. Plants sprout around them. Earth, Ambition, Desire, Diligence, Craving New Adventure
+  components:
+  - type: Card
+    name: card-sc-page-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Page_of_Pentacles_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScKnightOfPentacles
+  description: The Knight rides on horseback, pentacle in hand. They stand before farmland containing tall crops. Earth, Efficiency, Hard Work, Responsibility
+  components:
+  - type: Card
+    name: card-sc-knight-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Knight_of_Pentacles_tarot
+  
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScQueenOfPentacles
+  description: The Queen stands, pentacle in hand, within thick vegetation. Vines grow around her, sprouts are at her feet. Earth, Practicality, Creature Comforts, Security
+  components:
+  - type: Card
+    name: card-sc-queen-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Queen_of_Pentacles_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScKingOfPentacles
+  description: The King, antlers upon his head, sits upon a modest bench, pentacle upon his lap. A grand castle and forest to match lie behind him. Earth, Abundance, Prosperity, Provider, Generosity
+  components:
+  - type: Card
+    name: card-sc-king-pentacles
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_King_of_Pentacles_tarot
+
+# swords
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScAceOfSwords
+  description: A single, grand sword stands upright. A snake coils around it. A crown sits upon it, just before its end. It parts clouds, light shining past it. Air, Breakthrough, Clarity, Sharp Mind
+  components:
+  - type: Card
+    name: card-sc-ace-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Ace_of_Swords_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTwoOfSwords
+  description: A blindfolded individual sits alone during a clear night. They hold two swords, their hilts crossing. Air, Difficult Choices, Indecision, Stalemate
+  components:
+  - type: Card
+    name: card-sc-two-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_2_of_Swords_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScThreeOfSwords
+  description: A heart with a crying eye, three swords piercing downward into it. Storm clouds rain upon it. Air, Heartbreak, Suffering, Grief
+  components:
+  - type: Card
+    name: card-sc-three-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_3_of_Swords_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScFourOfSwords
+  description: A tired-looking individual stands behind a shield. Blades adorn the wall behind them, counting four. Air, Rest, Restoration, Contemplation
+  components:
+  - type: Card
+    name: card-sc-four-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_4_of_Swords_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScFiveOfSwords
+  description: Four swords raised horizontally, each crossed by one upright with a skull atop it. Gravestones lie beneath the blades. Air, Unbridled Ambition, Win At All Costs, Sneakiness
+  components:
+  - type: Card
+    name: card-sc-five-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_5_of_Swords_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScSixOfSwords
+  description: Six blades stand upright, their hilts pointing upward, aboard a boat. The vessel moves across the waves. Air, Transition, Leaving Behind, Moving On
+  components:
+  - type: Card
+    name: card-sc-six-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_6_of_Swords_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScSevenOfSwords
+  description: Six blades stand upright, pointed downward, in a starry night. A fox rests its paw upon the seventh, the blade pointed diagonally. Air, Deception, Trickery, Tactics and Strategy
+  components:
+  - type: Card
+    name: card-sc-seven-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_7_of_Swords_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScEightOfSwords
+  description: An individual stands blindfolded and bound. Six blades flank them, three on each side. Two more cross in front of them. They are bleeding, blood pooling at their feet. Air, Imprisonment, Entrapment, Self-Victimization
+  components:
+  - type: Card
+    name: card-sc-eight-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_8_of_Swords_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScNineOfSwords
+  description: A crying individual stands with their arms outstretched. Seven blades point downward toward them, two more threaten to pierce each arm. Air, Anxiety, Hopelessness, Trauma
+  components:
+  - type: Card
+    name: card-sc-nine-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_9_of_Swords_tarot
+  
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTenOfSwords
+  description: An individual stands bisected, blood pooling at their feet. Ten blades cross and pierce through their body. Air, Failure, Collapse, Defeat, Backstabbing
+  components:
+  - type: Card
+    name: card-sc-ten-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_10_of_Swords_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScPageOfSwords
+  description: The Page stands atop a rock. They hold their sword by hilt and blade, resting it behind their back. Air, Curiosity, Restlessness, Mental Energy
+  components:
+  - type: Card
+    name: card-sc-page-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Page_of_Swords_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScKnightOfSwords
+  description: The Knight rides atop a pegasus, their blade held aloft. Birds soar skyward above them. A shield is emblazoned upon their tabard. Air, Action, Impulsiveness, Defending Beliefs
+  components:
+  - type: Card
+    name: card-sc-knight-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Knight_of_Swords_tarot
+  
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScQueenOfSwords
+  description: The Queen stands with her sword held perfectly upright, her other hand behind her back. Air, Complexity, Perceptive, Clear Mindedness
+  components:
+  - type: Card
+    name: card-sc-queen-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Queen_of_Swords_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScKingOfSwords
+  description: The King sits upon his throne, full armored. His sword is held upright in one hand, a globe held in the other. Air, Head Over Heart, Truth, Discipline
+  components:
+  - type: Card
+    name: card-sc-king-swords
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_King_of_Swords_tarot
+
+# wands
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScAceOfWands
+  description: A single wand, its end alight with flame, stands tall above greenery. Fire, Creation, Willpower, Inspiration, Desire
+  components:
+  - type: Card
+    name: card-sc-ace-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Ace_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTwoOfWands
+  description: An individual, holding two wands, stands before a crystal ball. Cloudy mountaintops loom far behind them. Fire, Planning, Making Decisions, Leaving Home
+  components:
+  - type: Card
+    name: card-sc-two-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_2_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScThreeOfWands
+  description: An individual wearing a ceremonial military suit. There is a banner emblazoned with three wands behind them. There are castle battlements further behind. Fire, Looking Ahead, Expansion, Rapid Growth
+  components:
+  - type: Card
+    name: card-sc-three-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_3_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScFourOfWands
+  description: A castle standing tall. The path leading up to it is flanked by four wands, two on each side. Fire, Community, Home, Celebration
+  components:
+  - type: Card
+    name: card-sc-four-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_4_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScFiveOfWands
+  description: One wand, flanked by shields is raised skyward. Four wands cross above it. Fire, Competition, Conflict, Reality
+  components:
+  - type: Card
+    name: card-sc-five-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_5_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScSixOfWands
+  description: A knight returning home from a tour. They wield one wand, five others are banners above them. Fire, Victory, Success, Public Reward
+  components:
+  - type: Card
+    name: card-sc-six-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_6_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScSevenOfWands
+  description: A shield with two wands crossed behind it. Five wands, depicted as spears, point towards the shield. Fire, Perseverance, Mounting a Defense, Maintaining Control
+  components:
+  - type: Card
+    name: card-sc-seven-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_7_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScEightOfWands
+  description: Eight wands, depicted as arrows, shoot skyward. Birds fly alongside them, up towards the sun. Fire, Rapid Action, Movement, Quick Decisions
+  components:
+  - type: Card
+    name: card-sc-eight-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_8_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScNineOfWands
+  description: An individual stands on a battlement, holding a wand as a staff. Eight wands stand upright before the wall. Fire, Resilience, Grit, Taking Last Stand
+  components:
+  - type: Card
+    name: card-sc-nine-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_9_of_Wands_tarot
+  
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTenOfWands
+  description: A scarab holds an eye above it. Ten wands cross above it. Fire, Accomplishment, Responsibility, Burden
+  components:
+  - type: Card
+    name: card-sc-ten-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_10_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScPageOfWands
+  description: The Page stands humbly, their wand as a walking staff held beside them. Mountains are far off in the distance. Fire, Exploration, Excitement, Freedom
+  components:
+  - type: Card
+    name: card-sc-page-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Page_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScKnightOfWands
+  description: The Knight rides on horseback, their wand alight with flame at its end. The sun shines behind them. Fire, Action, Adventure, Fearlessness
+  components:
+  - type: Card
+    name: card-sc-knight-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Knight_of_Wands_tarot
+  
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScQueenOfWands
+  description: The Queen stands with two wands, alight with flame, flanking her. The sun shines behind her crowned head. Fire, Courage, Determination, Passion, Joy
+  components:
+  - type: Card
+    name: card-sc-queen-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Queen_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScKingOfWands
+  description: The King sits on his throne, a fire burns at his feet. Wands with burning ends frame his throne. Fire, Big Picture, Leader, Overcoming Challenges
+  components:
+  - type: Card
+    name: card-sc-king-wands
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_King_of_Wands_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheFool
+  description: The beginning of the path to enlightenment. The Fool stands, dressed as such, juggling. Innocence, New Beginnings, Wonder, Foolishness
+  components:
+  - type: Card
+    name: card-sc-the-fool
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Fool_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheMagician
+  description: The first step to enlightenment. The Magician stands behind a table, wielding a Wand. A Cup, Pentacle, and Sword lie upon the table. Willpower, Creation, Mastery, Adaptation
+  components:
+  - type: Card
+    name: card-sc-the-magician
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Magician_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheHighPriestess
+  description: The second step to enlightenment. The High Priestess stands before two columns, book and crystal in hand. Inner Voice, Intuition, Divine Truth, Wisdom, Unconscious
+  components:
+  - type: Card
+    name: card-sc-the-high-priestess
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_High_Priestess_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheEmpress
+  description: The third step to enlightenment. The Empress stands, adorned in royal robes, in a lush field. Beauty, Fertility, Nurturing, Luxury, Creativity
+  components:
+  - type: Card
+    name: card-sc-the-empress
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Empress_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheEmperor
+  description: The fourth step to enlightenment. The Emperor sits, crowned, upon the throne, sceptre in hand. Mountaintops rise behind him. Structure, Ambition, Authority, Rationality
+  components:
+  - type: Card
+    name: card-sc-the-emperor
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Emperor_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheHierophant
+  description: The fifth step to enlightenment. The Hierophant, a man of the cloth, stands behind scripture. Two veiled individuals stand before him. Tradition, Legacy, Society, Organized Religion
+  components:
+  - type: Card
+    name: card-sc-the-hierophant
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Hierophant_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheLovers
+  description: The sixth step to enlightenment. The Lovers stand in a lush garden, fruit between them... and a snake above it. Choices, Union, Love, Relationship
+  components:
+  - type: Card
+    name: card-sc-the-lovers
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Lovers_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheChariot
+  description: The seventh step to enlightenment. A rocket ship, shooting for the stars, rocketing onwards. Self Control, Discipline, Success
+  components:
+  - type: Card
+    name: card-sc-the-chariot
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Chariot_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScStrength
+  description: The eighth step to enlightenment. The trusty toolbox, dinged and slightly bloody, wielded by the greytider. Tools and materials lie within. Courage, Inner Strength, Conviction, Compassion
+  components:
+  - type: Card
+    name: card-sc-strength
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Strength_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheHermit
+  description: The ninth step to enlightenment. A robed figure stands at a cliffside, their lantern illuminating the area. Contemplation, Solitude, Insight, Awareness
+  components:
+  - type: Card
+    name: card-sc-the-hermit
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Hermit_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheWheel
+  description: The tenth step to enlightenment. The Wheel stands prominent, other card's depictions lie around it. Fate, Karma, Destiny, Fortune, Cycles
+  components:
+  - type: Card
+    name: card-sc-the-wheel
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Wheel_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScJustice
+  description: The eleventh step to enlightenment. A sword, blade pointed downwards, with scales hanging off of both sides of its hilt. Truth, Faireness, Law, Clarity, Cause and Effect
+  components:
+  - type: Card
+    name: card-sc-justice
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Justice_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheHangedMan
+  description: The twelfth step to enlightenment. The Hanged Man hangs upside-down off of a post, tied by the ankle. There is a holy glow around his head. Sacrifice, Suspension, Release, Martyrdom
+  components:
+  - type: Card
+    name: card-sc-the-hanged-man
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Hanged_Man_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScDeath
+  description: The thirteenth step to enlightenment. A skeleton stands before an open gate, scythes in each hand, crossed in front of them. Around the gate is lush greenery. End of Cycle, New Beginnings, Change, Metamorphosis
+  components:
+  - type: Card
+    name: card-sc-death
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Death_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTemperance
+  description: The fourteenth step to enlightenment. An angel stands eyes closed between two cups. Water flows before them and between the cups. Middle Path, Patience, Finding Meaning
+  components:
+  - type: Card
+    name: card-sc-temperance
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Temperance_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheDevil
+  description: The fifteenth step to enlightenment. The Devil stands with his arms over the Lovers. Materialism, Playfulness, PLeasure, Addiction
+  components:
+  - type: Card
+    name: card-sc-the-devil
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Devil_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheTower
+  description: The sixteenth step to enlightenment. The Tower stands tall in a heavy storm, a pyre burning bright atop it. Upheaval, Disaster, Foundational Shift
+  components:
+  - type: Card
+    name: card-sc-the-tower
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Tower_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheStar
+  description: The seventeenth step to enlightenment. A woman stands, stars above her, filling cups in a waterfall. She is knee-deep in water, cattails sprouting from it. Hope, Faith, Rejuvenation, Rebuilding, Healing
+  components:
+  - type: Card
+    name: card-sc-the-star
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Star_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheMoon
+  description: The eighteenth step to enlightenment. The Moon looms over a body of water, towers upon wooded islands flanking it. The water holds two fish circling each other. Unconscious, Illusions, Intuition, Unclarity
+  components:
+  - type: Card
+    name: card-sc-the-moon
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Moon_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheSun
+  description: The nineteenth step to enlightenment. The Sun shines bright over a hill. A hand is outstretched towards it. Joy, Success, Celebration, Pleasure
+  components:
+  - type: Card
+    name: card-sc-the-sun
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_Sun_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScJudgement
+  description: The twentieth step to enlightenment. A herald of Death holds a trumpet over a graveyard. Hands reach from the ground. Reflection, Reckoning, Awakening
+  components:
+  - type: Card
+    name: card-sc-judgement
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_Judgement_tarot
+
+- type: entity
+  parent: CardBaseTarot
+  categories: [ HideSpawnMenu ]
+  id: CardScTheWorld
+  description: The final step to enlightenment. The Nanotrasen logo, along with each of the elements, meet the Fool at the end of their journey. Fulfillment, Harmony, Completion
+  components:
+  - type: Card
+    name: card-sc-the-world
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: sc_The_World_tarot

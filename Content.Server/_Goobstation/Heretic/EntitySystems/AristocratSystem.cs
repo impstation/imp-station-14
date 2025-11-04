@@ -13,6 +13,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Goobstation.Heretic.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -27,8 +28,6 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly TemperatureSystem _temp = default!;
     [Dependency] private readonly TileSystem _tile = default!;
-
-    private string _snowWallPrototype = "WallSnowCobblebrick";
 
     public override void Update(float frameTime)
     {
@@ -59,7 +58,7 @@ public sealed partial class AristocratSystem : EntitySystem
         var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.Range);
         foreach (var look in lookup)
         {
-            if (HasComp<HereticComponent>(look) || HasComp<GhoulComponent>(look))
+            if (HasComp<HereticComponent>(look) || HasComp<MinionComponent>(look))
                 continue;
 
             if (TryComp<TemperatureComponent>(look, out var temp))
@@ -67,21 +66,24 @@ public sealed partial class AristocratSystem : EntitySystem
 
             _statusEffect.TryAddStatusEffect<MutedComponent>(look, "Muted", TimeSpan.FromSeconds(5), true);
 
-            if (TryComp<TagComponent>(look, out var tag))
-            {
-                var tags = tag.Tags;
+            if (!TryComp<TagComponent>(look, out var tag))
+                continue;
 
-                // replace walls with snow ones
-                if (_rand.Prob(.45f) && tags.Contains("Wall")
-                && Prototype(look) != null && Prototype(look)!.ID != _snowWallPrototype)
-                {
-                    Spawn(_snowWallPrototype, Transform(look).Coordinates);
-                    QueueDel(look);
-                }
-            }
+            var tags = tag.Tags;
+
+            // check if wall
+            if (!_rand.Prob(.45f) || !tags.Contains("Wall") || Prototype(look) == null
+                || Prototype(look)!.ID == ent.Comp.SnowWallPrototype)
+                continue;
+            // replace wall
+            Spawn(ent.Comp.SnowWallPrototype, Transform(look).Coordinates);
+            QueueDel(look);
         }
     }
 
+    //apparently void ascension is supposed to replace tiles?
+    //it doesn't
+    //i guess they didn't test this -kandi
     private void SpawnTiles(Entity<AristocratComponent> ent)
     {
         var xform = Transform(ent);
@@ -109,7 +111,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
         foreach (var tileref in tiles)
         {
-            var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
+            var tile = _prot.Index<ContentTileDefinition>(ent.Comp.IceTilePrototype);
             _tile.ReplaceTile(tileref, tile);
         }
 

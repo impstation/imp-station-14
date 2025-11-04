@@ -5,14 +5,13 @@
   id: BaseMobMoth
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: HumanoidAppearance
     species: Moth
     hideLayersOnEquip:
     - HeadTop
     - HeadSide #imp
     - Snout #imp
-    - Tail #imp
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -52,13 +51,13 @@
       Female: FemaleMoth
       Unsexed: UnisexMoth
   - type: MovementSpeedModifier
-    weightlessAcceleration: 1.5 # Move around more easily in space.
-    weightlessFriction: 1
-    weightlessModifier: 1
+    baseWeightlessAcceleration: 1.5 # Move around more easily in space.
+    baseWeightlessFriction: 1
+    baseWeightlessModifier: 1
   - type: Flammable
     damage:
       types:
-        Heat: 4.5 # moths burn more easily
+        Heat: 2.5 # moths burn more easily
   - type: Temperature # Moths hate the heat and thrive in the cold.
     heatDamageThreshold: 320
     coldDamageThreshold: 230
@@ -72,9 +71,9 @@
         Heat : 3 #per second, scales with temperature & other constants
   - type: TemperatureSpeed
     thresholds:
-      289: 0.8
-      275: 0.6
-      250: 0.4
+      289: 0.9
+      275: 0.8
+      250: 0.7
   - type: Sprite # sprite again because we want different layer ordering
     noRot: true
     drawdepth: Mobs
@@ -114,6 +113,7 @@
       - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
       - map: [ "neck" ]
+      - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       # headside was here
@@ -132,9 +132,54 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
             state: jumpsuit-female
-
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: back
+#      outerClothing: #imp
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Moth/displacement.rsi
+#            state: outerclothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: hand
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: jumpsuit-male
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: back
+#      outerClothing: #imp
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Moth/displacement.rsi
+#            state: outerclothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: hand
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: shoes
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -149,6 +194,51 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
             state: jumpsuit-female
-
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: back
+#      outerClothing: #imp
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Moth/displacement.rsi
+#            state: outerclothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: hand
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: jumpsuit-male
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: back
+#      outerClothing: #imp
+#        sizeMaps:
+#          32:
+#            sprite: Mobs/Species/Moth/displacement.rsi
+#            state: outerclothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: hand
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
+            state: shoes

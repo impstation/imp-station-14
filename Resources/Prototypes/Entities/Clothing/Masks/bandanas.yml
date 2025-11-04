@@ -15,6 +15,7 @@
     foldedHideLayers: []
     unfoldedHideLayers:
     - Snout
+    - SnoutCover # imp
   - type: Mask
     disableOnFolded: true
   - type: IngestionBlocker
@@ -31,9 +32,11 @@
     tags:
     - Bandana
     - ClothMade
+    - Recyclable
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
     hideOnToggle: true
 
 - type: entity
@@ -72,6 +75,7 @@
     tags:
     - WhitelistChameleon
     - ClothMade
+    - Recyclable
 
 - type: entity
   parent: ClothingMaskBandanaBase

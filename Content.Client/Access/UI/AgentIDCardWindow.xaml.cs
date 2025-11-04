@@ -22,11 +22,11 @@ namespace Content.Client.Access.UI
         private const int JobIconColumnCount = 10;
 
         public event Action<string>? OnNameChanged;
+        public event Action<string>? OnJobChanged;
 
         private const int MaxNumberLength = 4; // DeltaV - Same as NewChatPopup
-
-        public event Action<string>? OnJobChanged;
         public event Action<uint>? OnNumberChanged; // DeltaV - Add event for number changes
+
         public event Action<ProtoId<JobIconPrototype>>? OnJobIconChanged;
 
         public AgentIDCardWindow()
@@ -75,7 +75,7 @@ namespace Content.Client.Access.UI
 
         public void SetAllowedIcons(string currentJobIconId)
         {
-            IconGrid.DisposeAllChildren();
+            IconGrid.RemoveAllChildren();
 
             var jobIconButtonGroup = new ButtonGroup();
             var i = 0;

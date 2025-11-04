@@ -4,7 +4,6 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Popups;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Zombies;
 using Content.Shared.GameTicking.Components;
@@ -14,12 +13,12 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Roles;
+using Content.Shared.Roles.Components;
 using Content.Shared.Zombies;
-using Content.Shared._Impstation.Ghost;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Globalization;
-using Content.Server.Announcements.Systems;
+using Content.Server.Announcements.Systems; // ee announce
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -36,7 +35,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
     public override void Initialize()
     {
@@ -124,7 +123,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         {
             foreach (var station in _station.GetStations())
             {
-                _announcer.SendAnnouncement(_announcer.GetAnnouncementId("ShuttleCalled"),
+                _announcer.SendAnnouncement(_announcer.GetAnnouncementId("ShuttleCalled"), // ee announce
                     _station.GetInOwningStation(station), "zombie-shuttle-call",
                     colorOverride: Color.Crimson);
             }
@@ -195,7 +194,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         {
             foreach (var station in _station.GetStationsSet())
             {
-                if (TryComp<StationDataComponent>(station, out var data) && _station.GetLargestGrid(data) is { } grid)
+                if (_station.GetLargestGrid(station) is { } grid)
                     stationGrids.Add(grid);
             }
         }

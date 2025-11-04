@@ -1,13 +1,12 @@
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
+using Content.Server.EntityEffects;
 using Content.Shared.Atmos;
 using Content.Shared.Database;
-using Content.Shared.EntityEffects;
 using Content.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Botany;
@@ -82,7 +81,7 @@ public partial struct SeedChemQuantity
 
 // TODO reduce the number of friends to a reasonable level. Requires ECS-ing things like plant holder component.
 [Virtual, DataDefinition]
-[Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffect), typeof(MutationSystem))]
+[Access(typeof(BotanySystem), typeof(PlantHolderSystem), typeof(SeedExtractorSystem), typeof(PlantHolderComponent), typeof(EntityEffectSystem), typeof(MutationSystem))]
 public partial class SeedData
 {
     #region Tracking
@@ -99,6 +98,12 @@ public partial class SeedData
     /// </summary>
     [DataField("noun")]
     public string Noun { get; private set; } = "";
+
+    /// <summary>
+    ///     Frontier: The localized string used for a set of seeds (or equivalent)
+    /// </summary>
+    [DataField("packetName")]
+    public string PacketName { get; private set; } = "botany-seed-packet-name";
 
     /// <summary>
     ///     Name displayed when examining the hydroponics tray. Describes the actual plant, not the seed itself.
@@ -149,8 +154,8 @@ public partial class SeedData
     /// <summary>
     ///     The entity prototype this seed spawns when it gets harvested.
     /// </summary>
-    [DataField("productPrototypes", customTypeSerializer: typeof(PrototypeIdListSerializer<EntityPrototype>))]
-    public List<string> ProductPrototypes = new();
+    [DataField]
+    public List<EntProtoId> ProductPrototypes = new();
 
     [DataField] public Dictionary<string, SeedChemQuantity> Chemicals = new();
 
@@ -229,6 +234,23 @@ public partial class SeedData
 
     #endregion
 
+    // Frontier: no fun fields
+    #region Frontier
+    /// <summary>
+    ///     If true, the plant cannot be swabbed.
+    /// </summary>
+    [DataField] public bool PreventSwabbing;
+    /// <summary>
+    ///     If true, the plant cannot be clipped.
+    /// </summary>
+    [DataField] public bool PreventClipping;
+    /// <summary>
+    ///     If true, the plant will always be seedless.
+    /// </summary>
+    [DataField] public bool PermanentlySeedless;
+    #endregion
+    // End Frontier
+
     #region Cosmetics
 
     [DataField(required: true)]
@@ -259,8 +281,8 @@ public partial class SeedData
     /// <summary>
     ///     The seed prototypes this seed may mutate into when prompted to.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<SeedPrototype>))]
-    public List<string> MutationPrototypes = new();
+    [DataField]
+    public List<ProtoId<SeedPrototype>> MutationPrototypes = new();
 
     /// <summary>
     ///  Log impact for when the seed is planted.
@@ -286,8 +308,8 @@ public partial class SeedData
             Mysterious = Mysterious,
 
             PacketPrototype = PacketPrototype,
-            ProductPrototypes = new List<string>(ProductPrototypes),
-            MutationPrototypes = new List<string>(MutationPrototypes),
+            ProductPrototypes = new List<EntProtoId>(ProductPrototypes),
+            MutationPrototypes = new List<ProtoId<SeedPrototype>>(MutationPrototypes),
             Chemicals = new Dictionary<string, SeedChemQuantity>(Chemicals),
             ConsumeGasses = new Dictionary<Gas, float>(ConsumeGasses),
             ExudeGasses = new Dictionary<Gas, float>(ExudeGasses),
@@ -316,6 +338,10 @@ public partial class SeedData
             Seedless = Seedless,
             Viable = Viable,
             Ligneous = Ligneous,
+
+            PreventSwabbing = PreventSwabbing, // Frontier
+            PreventClipping = PreventClipping, // Frontier
+            PermanentlySeedless = PermanentlySeedless, // Frontier
 
             PlantRsi = PlantRsi,
             PlantIconState = PlantIconState,
@@ -346,8 +372,8 @@ public partial class SeedData
             Mysterious = other.Mysterious,
 
             PacketPrototype = other.PacketPrototype,
-            ProductPrototypes = new List<string>(other.ProductPrototypes),
-            MutationPrototypes = new List<string>(other.MutationPrototypes),
+            ProductPrototypes = new List<EntProtoId>(other.ProductPrototypes),
+            MutationPrototypes = new List<ProtoId<SeedPrototype>>(other.MutationPrototypes),
 
             Chemicals = new Dictionary<string, SeedChemQuantity>(Chemicals),
             ConsumeGasses = new Dictionary<Gas, float>(ConsumeGasses),
@@ -379,6 +405,10 @@ public partial class SeedData
             Seedless = Seedless,
             Viable = Viable,
             Ligneous = Ligneous,
+
+            PreventSwabbing = PreventSwabbing, // Frontier
+            PreventClipping = PreventClipping, // Frontier
+            PermanentlySeedless = PermanentlySeedless, // Frontier
 
             PlantRsi = other.PlantRsi,
             PlantIconState = other.PlantIconState,

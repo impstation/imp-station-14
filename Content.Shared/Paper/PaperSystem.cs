@@ -10,9 +10,9 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
-using Content.Shared._Impstation.Illiterate;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared._Impstation.Illiterate; // imp
 
 namespace Content.Shared.Paper;
 
@@ -123,13 +123,18 @@ public sealed class PaperSystem : EntitySystem
                 if (entity.Comp.EditingDisabled)
                 {
                     var paperEditingDisabledMessage = Loc.GetString("paper-tamper-proof-modified-message");
-                    _popupSystem.PopupEntity(paperEditingDisabledMessage, entity, args.User);
+                    _popupSystem.PopupClient(paperEditingDisabledMessage, entity, args.User);
 
                     args.Handled = true;
                     return;
                 }
 
-                var ev = TryComp<IlliterateComponent>(args.User, out var illiterate) ? new PaperWriteAttemptEvent(entity.Owner, illiterate.FailMsg, true) : new PaperWriteAttemptEvent(entity.Owner); // imp
+                var ev =
+                // imp start: illiterate check
+                    TryComp<IlliterateComponent>(args.User, out var illiterate)
+                    ? new PaperWriteAttemptEvent(entity.Owner, illiterate.FailMsg, true)
+                // end imp
+                    : new PaperWriteAttemptEvent(entity.Owner);
                 RaiseLocalEvent(args.User, ref ev);
                 if (ev.Cancelled)
                 {
@@ -219,7 +224,7 @@ public sealed class PaperSystem : EntitySystem
     {
         if (!_paperQuery.TryComp(ent, out var paperComp))
         {
-            Log.Warning($"{EntityManager.ToPrettyString(ent)} has a {nameof(RandomPaperContentComponent)} but no {nameof(PaperComponent)}!");
+            Log.Warning($"{ToPrettyString(ent)} has a {nameof(RandomPaperContentComponent)} but no {nameof(PaperComponent)}!");
             RemCompDeferred(ent, ent.Comp);
             return;
         }
@@ -283,6 +288,12 @@ public sealed class PaperSystem : EntitySystem
         }
     }
 
+    public void SetContent(EntityUid entity, string content)
+    {
+        if (!TryComp<PaperComponent>(entity, out var paper))
+            return;
+        SetContent((entity, paper), content);
+    }
 
     public void SetContent(Entity<PaperComponent> entity, string content)
     {
@@ -300,7 +311,7 @@ public sealed class PaperSystem : EntitySystem
         _appearance.SetData(entity, PaperVisuals.Status, status, appearance);
     }
 
-    public void UpdateUserInterface(Entity<PaperComponent> entity)
+    public void UpdateUserInterface(Entity<PaperComponent> entity) // imp public, used in dv signaturesystem
     {
         _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
     }

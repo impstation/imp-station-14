@@ -6,7 +6,7 @@
   physicalDesc: reagent-physical-desc-really-cruddy
   flavor: crud
   color: "#47181A"
-  contraband: Minor
+  contrabandSeverity: Minor
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: BrosSorbSpawner
@@ -150,7 +150,7 @@
   physicalDesc: reagent-physical-desc-threat
   flavor: singulo
   color: "#000000"
-  contraband: Major
+  contrabandSeverity: Major
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: FloorChasmEntity
@@ -187,6 +187,23 @@
         amount: -0.5
 
 - type: reagent
+  id: Irwizine
+  name: reagent-name-irwizine
+  desc: reagent-desc-irwizine
+  physicalDesc: reagent-physical-desc-irwizine
+  flavor: irwizine
+  color: "#fff174"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:MakeTame
+      - !type:FactionChange
+        faction: Passive
+        conditions:
+        - !type:ReagentThreshold
+          min: 10
+
+- type: reagent
   id: Sadness
   name: reagent-name-sadness
   desc: reagent-desc-sadness
@@ -206,3 +223,140 @@
       - !type:Emote
         emote: Crying
         force: true
+
+- type: reagent
+  id: ButterfliesReagent
+  name: reagent-name-butterflies
+  group: Toxins #getting scared is basically toxins
+  desc: reagent-desc-butterflies
+  physicalDesc: reagent-physical-desc-nervous
+  flavor: sweet
+  color: "#f8eb73"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: MobButterfly
+    usage: 3
+    maxOnTile: 3
+    randomOffsetMax: 0.3
+    maxOnTileWhitelist:
+      tags: [ Butterfly ]
+  metabolisms:
+    Poison:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        messages:
+          - "butterflies-effect-stomach"
+          - "butterflies-effect-looks"
+          - "butterflies-effect-heart"
+          - "butterflies-effect-exciting"
+          - "butterflies-effect-hands"
+          - "butterflies-effect-chaos"
+          - "butterflies-effect-chaos-two"
+          - "butterflies-effect-chaos-three"
+        probability: 0.1
+
+- type: reagent
+  id: ButterfliesBiggerReagent
+  name: reagent-name-butterfliesbigger
+  group: Toxins #getting scared is basically toxins
+  desc: reagent-desc-butterfliesbigger
+  physicalDesc: reagent-physical-desc-reallynervous
+  flavor: sweet
+  color: "#c0992e"
+  tileReactions:
+  - !type:CreateEntityTileReaction
+    entity: MobButterflyBigger
+    usage: 3
+    maxOnTile: 3
+    randomOffsetMax: 0.3
+    maxOnTileWhitelist:
+      tags: [ Butterfly ]
+  metabolisms:
+    Poison:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        messages:
+          - "butterflies-effect-stomach"
+          - "butterflies-effect-looks"
+          - "butterflies-effect-heart"
+          - "butterflies-effect-exciting"
+          - "butterflies-effect-hands"
+          - "butterflies-effect-chaos"
+          - "butterflies-effect-chaos-two"
+          - "butterflies-effect-chaos-three"
+        probability: 0.4
+
+- type: reagent
+  id: Paprika
+  name: reagent-name-paprika
+  group: Foods
+  desc: reagent-desc-paprika
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: spicy
+  color: "#a52a2a"
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:Emote
+        emote: Cough
+        showInChat: false
+        showInGuidebook: true
+        probability: 0.65
+      - !type:PopupMessage
+        type: Local
+        messages:
+          - "paprika-effect-throat"
+          - "paprika-effect-chills"
+          - "paprika-effect-eyes"
+        probability: 0.05
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:Emote
+        emote: Cough
+        showInGuidebook: true
+        conditions:
+        - !type:Breathing
+        - !type:Internals
+          usingInternals: false
+
+- type: reagent
+  id: Pulp
+  name: reagent-name-pulp
+  desc: reagent-desc-pulp
+  physicalDesc: reagent-physical-desc-pulpy
+  flavor: paper
+  color: "#806a44"
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent #imp
+        reagent: Cellulose
+        amount: 0.5
+
+- type: reagent
+  id: Something
+  name: reagent-name-something
+  desc: reagent-desc-something
+  physicalDesc: reagent-physical-desc-something
+  flavor: something
+  color: "#467557"
+  metabolisms: # imp
+    Food:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "something-effect-feelsomething"
+        - "something-effect-justhappened"
+        - "something-effect-kindofway"
+        - "something-effect-somthing"
+        - "something-effect-process"
+        - "something-effect-change"
+        - "something-effect-feeling"
+        probability: 0.2

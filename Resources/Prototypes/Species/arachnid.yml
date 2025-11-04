@@ -2,6 +2,7 @@
   id: Arachnid
   name: species-name-arachnid
   roundStart: true
+  randomViable: true # imp
   prototype: MobArachnid
   sprites: MobArachnidSprites
   defaultSkinTone: "#385878"
@@ -78,7 +79,7 @@
       points: 1
       required: false
     Chest:
-      points: 4
+      points: 4 # imp
       required: false
     Legs:
       points: 8 #impspecial

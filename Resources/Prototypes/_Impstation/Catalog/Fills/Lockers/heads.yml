@@ -3,17 +3,15 @@
   table: !type:AllSelector
     children:
     - id: BoxEncryptionKeyService
-    - id: ClothingBeltChefFilled
-    - id: ClothingBeltJanitorFilled
-    - id: ClothingBeltPlantFilled
+    - id: ClothingBeltHospitalityDirectorFilled
     - id: ClothingHeadsetAltService
     - id: ClothingShoesGaloshes
     - id: DoorRemoteService
+    - id: PortableCutterMachineFolded
     - id: RubberStampHD
-    - id: ServiceTechFabCircuitboard
-    - id: WeaponLauncherCleanerLake
     - id: PersonalAILearnerService
-    
+    - id: ClothingNeckCloakBlanketShock
+
 - type: entity
   id: LockerHospitalityDirectorFilled
   suffix: Filled

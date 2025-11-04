@@ -15,6 +15,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:OverallPlaytimeRequirement
+    time: 4h
 
 - type: startingGear
   id: DeathSquadGear
@@ -45,3 +48,11 @@
     - FreedomImplanter
   inhand:
   - WeaponPulseRifle
+
+- type: chameleonOutfit
+  id: DeathSquadChameleonOutfit
+  job: DeathSquad
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHelmetHardsuitDeathsquad
+    neck: ClothingNeckBronzeheart

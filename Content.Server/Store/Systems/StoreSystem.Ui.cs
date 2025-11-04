@@ -1,20 +1,13 @@
-using System.Collections;
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
-using Content.Server.Heretic.EntitySystems;
-using Content.Server.PDA.Ringer;
-using Content.Server.Roles;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
-using Content.Shared.Roles;
 using Content.Shared.PDA.Ringer;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
@@ -23,6 +16,10 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Server.Heretic.EntitySystems; // imp
+using Content.Shared.Heretic; // imp
+using Content.Shared.Heretic.Prototypes; // imp
+using Content.Shared.Roles.Components; // imp
 
 namespace Content.Server.Store.Systems;
 
@@ -174,7 +171,7 @@ public sealed partial class StoreSystem
         }
 
         if (!IsOnStartingMap(uid, component))
-            DisableRefund(buyer, uid, component);
+            DisableRefund(buyer, uid, component); // imp buyer
 
         //subtract the cash
         foreach (var (currency, amount) in cost)
@@ -290,9 +287,9 @@ public sealed partial class StoreSystem
         if (_mind.TryGetMind(buyer, out _, out var mindComp))
         {
             //get the currency that makes up most of the listing's base cost
-                //uses base cost for consistency reasons
-                //has the side effect of not tracking things that are free
-                //not sure if I want that to happen tbh? though for now all it misses is the business cards, which don't really matter w/r/t tc spend
+            //uses base cost for consistency reasons
+            //has the side effect of not tracking things that are free
+            //not sure if I want that to happen tbh? though for now all it misses is the business cards, which don't really matter w/r/t tc spend
             ProtoId<CurrencyPrototype>? primaryCurrency = null;
             var primaryCurrencyCost = 0;
             foreach (var (currency, amount) in listing.OriginalCost)
@@ -307,7 +304,7 @@ public sealed partial class StoreSystem
             //get the role that "purchased" this item by primary currency & purchase priority.
             var purchasePriority = -1;
             MindRoleComponent? purchaserComp = null;
-            foreach (var mindRole in mindComp.MindRoles) //go over all of the player's mindRoles
+            foreach (var mindRole in mindComp.MindRoleContainer.ContainedEntities) //go over all of the player's mindRoles
             {
                 foreach (var roleComp in AllComps<MindRoleComponent>(mindRole)) //go over all of their mindRole components
                 {
@@ -395,7 +392,7 @@ public sealed partial class StoreSystem
 
         if (!IsOnStartingMap(uid, component))
         {
-            DisableRefund(buyer, uid, component);
+            DisableRefund(buyer, uid, component); // imp buyer
             UpdateUserInterface(buyer, uid, component);
         }
 
@@ -413,12 +410,9 @@ public sealed partial class StoreSystem
 
             component.BoughtEntities.RemoveAt(i);
 
-            if (_actions.TryGetActionData(purchase, out var actionComponent, logError: false))
-            {
-                _actionContainer.RemoveAction(purchase, actionComponent);
-            }
+            _actionContainer.RemoveAction(purchase, logMissing: false);
 
-            EntityManager.DeleteEntity(purchase);
+            Del(purchase);
         }
 
         component.BoughtEntities.Clear();
@@ -433,8 +427,10 @@ public sealed partial class StoreSystem
         component.BalanceSpent = new();
         UpdateUserInterface(buyer, uid, component);
 
+        // imp start
         var ev = new StoreRefundedEvent();
         RaiseLocalEvent(uid, ref ev, true);
+        // imp end
     }
 
     private void HandleRefundComp(EntityUid uid, StoreComponent component, EntityUid purchase)
@@ -451,6 +447,7 @@ public sealed partial class StoreSystem
         return component.StartingMap == xform.MapUid;
     }
 
+    // imp add
     /// <summary>
     ///     Enables refunds for this store
     /// </summary>
@@ -467,14 +464,14 @@ public sealed partial class StoreSystem
     /// <summary>
     ///     Disables refunds for this store
     /// </summary>
-    public void DisableRefund(EntityUid buyer, EntityUid store, StoreComponent? component = null)
+    public void DisableRefund(EntityUid buyer, EntityUid store, StoreComponent? component = null) // imp add buyer
     {
         if (!Resolve(store, ref component))
             return;
 
         component.RefundAllowed = false;
 
-        UpdateUserInterface(buyer, store, component);
+        UpdateUserInterface(buyer, store, component); // imp add
     }
 }
 

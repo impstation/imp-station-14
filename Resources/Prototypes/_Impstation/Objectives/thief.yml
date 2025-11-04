@@ -1,3 +1,23 @@
+# gimmick
+
+- type: entity
+  parent: BaseGimmickObjective
+  id: ThiefDieObjective
+  name: Die a glorious death.
+  description: Die. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    difficulty: 1.5
+    icon:
+      sprite: Mobs/Ghosts/ghost_human.rsi
+      state: icon
+    trivial: true
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
+
 # pets
 
 - type: entity
@@ -124,6 +144,15 @@
 
 - type: entity
   parent: BaseThiefStealObjective
+  id: HDCutterMachineStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: HDCutterMachine
+  - type: Objective
+    difficulty: 1.5
+
+- type: entity
+  parent: BaseThiefStealObjective
   id: SecPillCanisterStealObjective
   components:
   - type: NotJobRequirement
@@ -135,12 +164,32 @@
 
 - type: entity
   parent: BaseThiefStealObjective
+  id: GoldenToolboxStealObjective
+  components:
+  - type: StealCondition
+    stealGroup: ToolboxGolden
+  - type: Objective
+    difficulty: 1
+
+- type: entity
+  parent: BaseThiefStealObjective
   id: ShiningSpringStealObjective
   components:
   - type: NotJobRequirement
     job: Janitor
   - type: StealCondition
     stealGroup: ShiningSpring
+  - type: Objective
+    difficulty: 1
+
+- type: entity
+  parent: BaseThiefStealObjective
+  id: ClothingNeckBureaucracyMedalStealObjective
+  components:
+  - type: NotJobRequirement
+    job: HeadOfPersonnel
+  - type: StealCondition
+    stealGroup: ClothingNeckBureaucracyMedal
   - type: Objective
     difficulty: 1
 

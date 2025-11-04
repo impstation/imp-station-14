@@ -8,6 +8,10 @@ using Robust.Shared.Physics.Controllers;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server.Projectiles; // imp
+using Content.Shared.Movement.Pulling.Components; // imp
+using Content.Shared.Movement.Pulling.Systems; // imp
+using Content.Shared.Projectiles; // imp
 
 namespace Content.Server.Physics.Controllers;
 
@@ -21,6 +25,10 @@ internal sealed class RandomWalkController : VirtualController
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
+    [Dependency] private readonly ProjectileSystem _projectile = default!; // imp
+    [Dependency] private readonly PullingSystem _pulling = default!; // imp
+    [Dependency] private readonly ThrowingSystem _throwing = default!; // imp
+    [Dependency] private readonly TransformSystem _transform = default!; // imp
     #endregion Dependencies
 
     public override void Initialize()
@@ -43,9 +51,9 @@ internal sealed class RandomWalkController : VirtualController
         var query = EntityQueryEnumerator<RandomWalkComponent, PhysicsComponent>();
         while (query.MoveNext(out var uid, out var randomWalk, out var physics))
         {
-            if (EntityManager.HasComponent<ActorComponent>(uid)
-            ||  EntityManager.HasComponent<ThrownItemComponent>(uid)
-            ||  EntityManager.HasComponent<FollowerComponent>(uid))
+            if (HasComp<ActorComponent>(uid)
+            || HasComp<ThrownItemComponent>(uid)
+            || HasComp<FollowerComponent>(uid))
                 continue;
 
             var curTime = _timing.CurTime;
@@ -77,7 +85,28 @@ internal sealed class RandomWalkController : VirtualController
             randomWalk.BiasVector *= 0f;
         var pushStrength = _random.NextFloat(randomWalk.MinSpeed, randomWalk.MaxSpeed);
 
-        _physics.SetLinearVelocity(uid, physics.LinearVelocity * randomWalk.AccumulatorRatio + pushVec * pushStrength, body: physics);
+        // imp edit start
+        if (randomWalk.BreakPulling && TryComp<PullableComponent>(uid, out var pulling))
+            _pulling.TryStopPull(uid, pulling);
+
+        if (TryComp<EmbeddableProjectileComponent>(uid, out var embeddable) && embeddable.Target != null)
+        {
+            // calculate the direction away from the embed target
+            var pos = _transform.GetWorldPosition(uid);
+            var posTarget = _transform.GetWorldPosition(embeddable.Target.Value);
+            var delta = posTarget - pos;
+            var speed = delta.Length() > 0 ? delta.Normalized() * -1 : Vector2.Zero;
+
+            _projectile.EmbedDetach(uid, embeddable);
+            _physics.SetLinearVelocity(uid, physics.LinearVelocity * randomWalk.AccumulatorRatio + speed * pushStrength, body: physics);
+        }
+        else if (!randomWalk.Throw)
+            _physics.SetLinearVelocity(uid, physics.LinearVelocity * randomWalk.AccumulatorRatio + pushVec * pushStrength, body: physics);
+        else
+        {
+            _throwing.TryThrow(uid, physics.LinearVelocity * randomWalk.AccumulatorRatio + pushVec * pushStrength);
+        }
+        // imp edit end
     }
 
     /// <summary>

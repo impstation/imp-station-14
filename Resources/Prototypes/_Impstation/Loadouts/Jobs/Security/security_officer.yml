@@ -4,6 +4,11 @@
   equipment:
     jumpsuit: ClothingUniformSpaceJumpsuitSecurity
 
+- type: loadout
+  id: SecurityJumpsuitBlue
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue
+
 # Outer Clothing
 - type: loadout
   id: ArmorVestCompact
@@ -15,7 +20,7 @@
   equipment:
     outerClothing: ClothingOuterCoatBomberSecurity
 
-# Neck; DV poncho
+# Neck
 - type: loadout
   id: SecPoncho
   equipment:

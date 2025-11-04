@@ -6,6 +6,7 @@
   flavor: bitter
   color: "#cf3600"
   physicalDesc: reagent-physical-desc-opaque
+  contrabandSeverity: Minor
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -27,6 +28,8 @@
   flavor: bitter
   color: "#e2a38c"
   physicalDesc: reagent-physical-desc-exotic-smelling
+  allowedDepartments:
+  - Medical
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -61,6 +64,10 @@
   flavor: bitter
   color: "#000067"
   physicalDesc: reagent-physical-desc-nondescript
+  allowedDepartments:
+  - Medical
+  allowedJobs:
+  - Zookeeper
   metabolisms:
     Poison:
       effects:
@@ -71,12 +78,10 @@
       - !type:MovespeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:GenericStatusEffect
-        key: Drowsiness
-        component: Drowsiness
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
         time: 4
         type: Add
-        refresh: false
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -130,6 +135,7 @@
   group: Toxins
   desc: reagent-desc-polytrinic-acid
   physicalDesc: reagent-physical-desc-strong-smelling
+  contrabandSeverity: Major
   flavor: acid
   color: "#a1000b"
   boilingPoint: 78.2 # This isn't a real chemical...
@@ -198,6 +204,7 @@
   group: Toxins
   desc: reagent-desc-fluorosulfuric-acid
   physicalDesc: reagent-physical-desc-strong-smelling
+  contrabandSeverity: Minor
   flavor: acid
   color: "#5050ff"
   boilingPoint: 165
@@ -238,6 +245,8 @@
   group: Toxins
   desc: reagent-desc-sulfuric-acid
   physicalDesc: reagent-physical-desc-oily
+  allowedJobs:
+  - Chemist
   flavor: acid
   color: "#BF8C00"
   recognizable: true
@@ -286,6 +295,9 @@
   group: Toxins
   desc: reagent-desc-unstable-mutagen
   physicalDesc: reagent-physical-desc-glowing
+  allowedJobs:
+  - Chemist
+  - Botanist
   flavor: bitter
   color: "#00ff5f"
   boilingPoint: 340282300000000000000000000000000000000 # Ethidium bromide, which doesn't boil.
@@ -307,8 +319,8 @@
   group: Toxins
   desc: reagent-desc-heartbreaker-toxin
   physicalDesc: reagent-physical-desc-strong-smelling
+  contrabandSeverity: Major
   color: "#5f959c"
-  contraband: Major # imp
   metabolisms:
     Poison:
       effects:
@@ -326,8 +338,8 @@
   group: Toxins
   desc: reagent-desc-lexorin
   physicalDesc: reagent-physical-desc-pungent
+  contrabandSeverity: Tier3Contraband # imp
   color: "#6b0007"
-  contraband: Tier3Contraband # imp
   metabolisms:
     Poison:
       effects:
@@ -344,19 +356,17 @@
   physicalDesc: reagent-physical-desc-opaque
   flavor: bitter
   color: "#77b58e"
-  contraband: Minor # imp
+  contrabandSeverity: Minor # imp
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
   metabolisms:
     Poison:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 10
-        refresh: false
   # TODO: PROPER hallucinations
 
 - type: reagent
@@ -382,8 +392,9 @@
         damage:
           groups:
             Brute: 2
-            Toxin: 2
             Airloss: 2
+          types:
+            Poison: 2
       - !type:PopupMessage
         type: Local
         messages: [ "histamine-effect-light-itchiness" ]
@@ -422,8 +433,17 @@
         conditions:
           - !type:OrganType
             type: Animal
-          - !type:ReagentThreshold
+          - !type:ReagentThreshold #imp
             min: 0.12
+      - !type:PopupMessage # imp - let them know why they're puking
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: true
+        type: Local
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-sick" ]
+        probability: 0.2
 
 - type: reagent
   id: Amatoxin
@@ -431,8 +451,8 @@
   group: Toxins
   desc: reagent-desc-amatoxin
   physicalDesc: reagent-physical-desc-nondescript
+  contrabandSeverity: Major
   color: "#D6CE7B"
-  contraband: Major
   metabolisms:
     Poison:
       metabolismRate: 0.2
@@ -454,14 +474,14 @@
     Poison:
       effects:
         - !type:HealthChange
-          conditions:
+          conditions: #imp
           - !type:HasTag
             tag: BROS
             invert: true
           damage:
             types:
               Poison: 2
-  tileReactions:
+  tileReactions: #imp
     - !type:SpillTileReaction
 
 - type: reagent
@@ -470,9 +490,9 @@
   group: Toxins
   desc: reagent-desc-romerol
   physicalDesc: reagent-physical-desc-necrotic
+  contrabandSeverity: Tier3Contraband #imp
   flavor: bitter
   color: "#7e916e"
-  contraband: Tier3Contraband
   worksOnTheDead: true
   metabolisms:
     Medicine:
@@ -498,6 +518,9 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
           - !type:OrganType # imp
             type: Kodepiia
             shouldHave: false
@@ -511,6 +534,9 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
           - !type:OrganType # imp
             type: Kodepiia
             shouldHave: false
@@ -518,6 +544,9 @@
         conditions:
         - !type:OrganType
           type: Animal
+          shouldHave: false
+        - !type:OrganType
+          type: Vox
           shouldHave: false
         - !type:OrganType # imp
           type: Kodepiia
@@ -538,9 +567,14 @@
         conditions:
         - !type:OrganType
           type: Animal
-          shouldHave: true
         reagent: Protein
         amount: 0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Vox
+        reagent: Protein
+        amount: 0.25
       - !type:AdjustReagent # Frontier
         conditions:
         - !type:OrganType
@@ -580,6 +614,25 @@
         damage:
           types:
             Poison: 0.06
+      - !type:Emote #imp edit
+        emote: Crying
+        probability: 0.1
+      - !type:PopupMessage # imp - let them know why they're puking
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: true
+        type: Local
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-sick" ]
+        probability: 0.2
+  reactiveEffects: # imp edit
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:Emote
+        emote: Crying
+        force: true
 
 - type: reagent
   id: Pax
@@ -587,6 +640,11 @@
   group: Narcotics
   desc: reagent-desc-pax
   physicalDesc: reagent-physical-desc-soothing
+  allowedDepartments:
+  - Security
+  - Medical
+  allowedJobs:
+  - Zookeeper
   color: "#AAAAAA"
   metabolisms:
     Poison:
@@ -612,6 +670,7 @@
       - !type:Emote
         emote: Honk
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.2
       - !type:HealthChange
@@ -623,6 +682,15 @@
         damage:
           types:
             Poison: 0.06
+      - !type:PopupMessage # imp - let them know why they're puking
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: true
+        type: Local
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-sick" ]
+        probability: 0.2
 
 
 - type: reagent
@@ -631,6 +699,7 @@
   group: Toxins
   desc: reagent-desc-lead
   physicalDesc: reagent-physical-desc-metallic
+  contrabandSeverity: Major
   color: "#5C6274"
   metabolisms:
     Poison:
@@ -647,6 +716,7 @@
   group: Toxins
   desc: reagent-desc-bungotoxin
   physicalDesc: reagent-physical-desc-nondescript
+  contrabandSeverity: Major
   color: "#EBFF8E"
   metabolisms:
     Poison:
@@ -663,9 +733,9 @@
   group: Toxins
   desc: reagent-desc-vestine
   physicalDesc: reagent-physical-desc-shiny
+  contrabandSeverity: Tier2Contraband # imp
   flavor: medicine
   color: "#435166"
-  contraband: Tier2Contraband # imp
   metabolisms:
     Poison:
       effects:
@@ -687,9 +757,9 @@
   group: Toxins
   desc: reagent-desc-tazinide
   physicalDesc: reagent-physical-desc-metallic
+  contrabandSeverity: Tier3Contraband #imp
   flavor: shocking
   color: "#FDD023"
-  contraband: Tier3Contraband
   metabolisms:
     Poison:
       effects:
@@ -702,6 +772,8 @@
   group: Toxins
   desc: reagent-desc-lipolicide
   physicalDesc: reagent-physical-desc-strong-smelling
+  allowedDepartments:
+  - Medical
   flavor: mothballs #why does weightloss juice taste like mothballs
   color: "#F0FFF0"
   metabolisms:
@@ -759,3 +831,36 @@
           shouldHave: false
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
+
+- type: reagent
+  id: ToxinTrash
+  name: reagent-name-toxintrash
+  group: Toxins
+  desc: reagent-desc-toxintrash
+  flavor: trashy
+  physicalDesc: reagent-physical-desc-nondescript
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+        conditions:
+        - !type:OrganType
+          type: Vox
+      # imp edit start
+      - !type:SatiateHunger
+          conditions:
+            - !type:OrganType
+              type: Rat
+      - !type:HealthChange
+          conditions:
+          - !type:OrganType
+            type: Rat
+            shouldHave: false
+          - !type:OrganType
+            type: Vox
+            shouldHave: false
+          damage:
+            types:
+              Poison: 0.5
+      # imp edit end

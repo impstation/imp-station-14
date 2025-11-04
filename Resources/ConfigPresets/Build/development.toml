@@ -4,6 +4,7 @@ lobbyenabled = false
 # Dev map for faster loading & convenience
 map = "Dev"
 role_timers = false
+role_loadout_timers = false
 
 [events]
 enabled = false
@@ -37,3 +38,9 @@ preload_grids = false
 
 [admin]
 see_own_notes = true
+
+[ic]
+# imp. yay!
+random_characters = false
+random_species_weights = ""
+ssd_sleep_time = 3600

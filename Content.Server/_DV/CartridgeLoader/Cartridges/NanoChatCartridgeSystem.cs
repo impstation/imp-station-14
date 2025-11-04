@@ -3,18 +3,20 @@ using Content.Server.Administration.Logs;
 using Content.Server.CartridgeLoader;
 using Content.Server.Power.Components;
 using Content.Server.Radio;
-using Content.Server.Radio.Components;
 using Content.Server.Station.Systems;
-using Content.Shared._DV.CartridgeLoader.Cartridges;
-using Content.Shared._DV.NanoChat;
 using Content.Shared.Access.Components;
 using Content.Shared.CartridgeLoader;
+using Content.Shared.CCVar;
 using Content.Shared.Database;
+using Content.Shared._DV.CartridgeLoader.Cartridges;
+using Content.Shared._DV.NanoChat;
 using Content.Shared.PDA;
 using Content.Shared.Radio.Components;
-using Robust.Shared.Map;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared.Silicons.Borgs.Components; // Impstation
+using Content.Shared.Silicons.StationAi; // Impstation
 
 namespace Content.Server._DV.CartridgeLoader.Cartridges;
 
@@ -22,14 +24,12 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 {
     [Dependency] private readonly CartridgeLoaderSystem _cartridge = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
-
-    private EntityQuery<PdaComponent> _pdaQuery;
-    private EntityQuery<NanoChatCardComponent> _cardQuery;
 
     // Messages in notifications get cut off after this point
     // no point in storing it on the comp
@@ -38,63 +38,32 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     // The max length of the name and job title on the notification before being truncated.
     private const int NotificationTitleMaxLength = 32;
 
+    private int _maxNameLength;
+    private int _maxIdJobLength;
+
     public override void Initialize()
     {
         base.Initialize();
 
-        _pdaQuery = GetEntityQuery<PdaComponent>();
-        _cardQuery = GetEntityQuery<NanoChatCardComponent>();
-
-        SubscribeLocalEvent<CartridgeLoaderComponent, ActiveProgramChangedEvent>(OnActiveProgramChanged);
-
-        SubscribeLocalEvent<CartridgeLoaderComponent, BoundUIOpenedEvent>(OnUiOpened);
-        SubscribeLocalEvent<CartridgeLoaderComponent, BoundUIClosedEvent>(OnUiClosed);
-
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
         SubscribeLocalEvent<NanoChatCartridgeComponent, CartridgeMessageEvent>(OnMessage);
+
+        Subs.CVar(_cfg, CCVars.MaxNameLength, x => _maxNameLength = x, true);
+        Subs.CVar(_cfg, CCVars.MaxIdJobLength, x => _maxIdJobLength = x, true);
     }
 
-    private void OnActiveProgramChanged(Entity<CartridgeLoaderComponent> ent, ref ActiveProgramChangedEvent args)
+    private void UpdateClosed(Entity<NanoChatCartridgeComponent> ent)
     {
-        if (!_pdaQuery.TryGetComponent(ent, out var pda) || pda.ContainedId is not { } cardUid)
+        if (!TryComp<CartridgeComponent>(ent, out var cartridge) ||
+            cartridge.LoaderUid is not { } pda ||
+            !TryComp<CartridgeLoaderComponent>(pda, out var loader) ||
+            !GetCardEntity(pda, out var card))
+        {
             return;
+        }
 
-        if (!_cardQuery.TryGetComponent(cardUid, out var nanoChatCard))
-            return;
-
-        _nanoChat.SetClosed((cardUid, nanoChatCard), !HasComp<NanoChatCartridgeComponent>(args.NewActiveProgram));
-    }
-
-    private void OnUiOpened(Entity<CartridgeLoaderComponent> ent, ref BoundUIOpenedEvent args)
-    {
-        if (!PdaUiKey.Key.Equals(args.UiKey))
-            return;
-
-        if (!_pdaQuery.TryGetComponent(ent, out var pda) || pda.ContainedId is not { } cardUid)
-            return;
-
-        if (!_cardQuery.TryGetComponent(cardUid, out var nanoChatCard))
-            return;
-
-        if (nanoChatCard.IsClosed)
-            _nanoChat.SetClosed((cardUid, nanoChatCard), !HasComp<NanoChatCartridgeComponent>(ent.Comp.ActiveProgram));
-
-    }
-
-    private void OnUiClosed(Entity<CartridgeLoaderComponent> ent, ref BoundUIClosedEvent args)
-    {
-        if (!PdaUiKey.Key.Equals(args.UiKey))
-            return;
-
-        if (!_pdaQuery.TryGetComponent(ent, out var pda) || pda.ContainedId is not { } cardUid)
-            return;
-
-        if (!_cardQuery.TryGetComponent(cardUid, out var nanoChatCard))
-            return;
-
-        // Since the UI got closed we always set it to be closed
-        if (!nanoChatCard.IsClosed)
-            _nanoChat.SetClosed((cardUid, nanoChatCard), true);
+        // if you switch to another program or close the pda UI, allow notifications for the selected chat
+        _nanoChat.SetClosed((card, card.Comp), loader.ActiveProgram != ent.Owner || !_ui.IsUiOpen(pda, PdaUiKey.Key));
     }
 
     public override void Update(float frameTime)
@@ -108,12 +77,15 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             if (cartridge.LoaderUid == null)
                 continue;
 
-            // Check if we need to update our card reference
-            if (!_pdaQuery.TryGetComponent(cartridge.LoaderUid, out var pda))
-                continue; // TODO: This is slow as fuck, should be just listening to container events after PDA refactor.
-                          // There was a reason I did this in the Update loop but I can't remember.
+            // keep it up to date without handling ui open/close events on the pda or adding code when changing active program
+            UpdateClosed((uid, nanoChat));
 
-            var newCard = pda.ContainedId;
+            // Check if we need to update our card reference
+            if (!TryComp<PdaComponent>(cartridge.LoaderUid, out var pda))
+                continue;
+
+            GetCardEntity(cartridge.LoaderUid.Value, out var newCardEnt); // Impstation
+            var newCard = newCardEnt.Owner; // Impstation
             var currentCard = nanoChat.Card;
 
             // If the cards match, nothing to do
@@ -185,11 +157,18 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     {
         card = default;
 
-        // Get the PDA and check if it has an ID card
-        if (!_pdaQuery.TryGetComponent(loaderUid, out var pda) || pda.ContainedId == null)
-            return false;
+        // Begin Impstation
+        if (TryComp<NanoChatCardComponent>(loaderUid, out var selfCard))
+        {
+            card = (loaderUid, selfCard);
+            return true;
+        }
+        // End Impstation
 
-        if (!_cardQuery.TryGetComponent(pda.ContainedId.Value, out var idCard))
+        // Get the PDA and check if it has an ID card
+        if (!TryComp<PdaComponent>(loaderUid, out var pda) ||
+            pda.ContainedId == null ||
+            !TryComp<NanoChatCardComponent>(pda.ContainedId, out var idCard))
             return false;
 
         card = (pda.ContainedId.Value, idCard);
@@ -208,16 +187,16 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(name))
         {
             name = name.Trim();
-            if (name.Length > IdCardConsoleComponent.MaxFullNameLength)
-                name = name[..IdCardConsoleComponent.MaxFullNameLength];
+            if (name.Length > _maxNameLength)
+                name = name[.._maxNameLength];
         }
 
         var jobTitle = msg.RecipientJob;
         if (!string.IsNullOrWhiteSpace(jobTitle))
         {
             jobTitle = jobTitle.Trim();
-            if (jobTitle.Length > IdCardConsoleComponent.MaxJobTitleLength)
-                jobTitle = jobTitle[..IdCardConsoleComponent.MaxJobTitleLength];
+            if (jobTitle.Length > _maxIdJobLength)
+                jobTitle = jobTitle[.._maxIdJobLength];
         }
 
         // Add new recipient
@@ -269,16 +248,16 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!string.IsNullOrWhiteSpace(name))
         {
             name = name.Trim();
-            if (name.Length > IdCardConsoleComponent.MaxFullNameLength)
-                name = name[..IdCardConsoleComponent.MaxFullNameLength];
+            if (name.Length > _maxNameLength)
+                name = name[.._maxNameLength];
         }
 
         var jobTitle = msg.RecipientJob;
         if (!string.IsNullOrWhiteSpace(jobTitle))
         {
             jobTitle = jobTitle.Trim();
-            if (jobTitle.Length > IdCardConsoleComponent.MaxJobTitleLength)
-                jobTitle = jobTitle[..IdCardConsoleComponent.MaxJobTitleLength];
+            if (jobTitle.Length > _maxIdJobLength)
+                jobTitle = jobTitle[.._maxIdJobLength];
         }
 
         // Update recipient
@@ -332,7 +311,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
     private void HandleToggleMuteChat(Entity<NanoChatCardComponent> card, NanoChatUiMessageEvent msg)
     {
-        Log.Debug($"Toggling mute for chat #{msg.RecipientNumber:D4} on card #{card.Comp.Number:D4}");
         if (msg.RecipientNumber is not uint chat)
             return;
         _nanoChat.ToggleChatMuted((card, card.Comp), chat);
@@ -384,7 +362,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         // Log message attempt
         var recipientsText = recipients.Count > 0
-            ? string.Join(", ", recipients.Select((Entity<NanoChatCardComponent> r) => ToPrettyString(r)))
+            ? string.Join(", ", recipients.Select(r => ToPrettyString(r)))
             : $"#{msg.RecipientNumber:D4}";
 
         _adminLogger.Add(LogType.Chat,
@@ -457,18 +435,21 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                 if (receiverCart.Card != recipient.Owner)
                     continue;
 
-                // Check if devices are on same map
-                var recipientMap = Transform(receiverUid).MapID;
-                var senderMap = Transform(sender).MapID;
-                // Must be on the same map/station unless long-range is allowed
-                if (!channel.LongRange && recipientMap != senderMap)
-                {
-                    break;
-                }
+                // Check if devices are on same station/map
+                var recipientStation = _station.GetOwningStation(receiverUid);
+                var senderStation = _station.GetOwningStation(sender);
 
-                /* Must have an active common server
-                if (HasActiveServer(senderMap))
-                    continue;*/
+                // Both entities must be on a station
+                if (recipientStation == null || senderStation == null)
+                    continue;
+
+                // Must be on same map/station unless long range allowed
+                if (!channel.LongRange && recipientStation != senderStation)
+                    continue;
+
+                // Needs telecomms
+                if (!HasActiveServer(senderStation.Value) || !HasActiveServer(recipientStation.Value))
+                    continue;
 
                 // Check if recipient can receive
                 var receiveAttemptEv = new RadioReceiveAttemptEvent(channel, sender, receiverUid);
@@ -485,7 +466,10 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         return (deliverableRecipients.Count == 0, deliverableRecipients);
     }
 
-    private bool HasActiveServer(MapId mapId)
+    /// <summary>
+    ///     Checks if there are any active telecomms servers on the given station
+    /// </summary>
+    private bool HasActiveServer(EntityUid station)
     {
         // I have no idea why this isn't public in the RadioSystem
         var query =
@@ -493,7 +477,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         while (query.MoveNext(out var uid, out _, out _, out var power))
         {
-            if (Transform(uid).MapID == mapId && power.Powered)
+            if (_station.GetOwningStation(uid) == station && power.Powered)
                 return true;
         }
 
@@ -518,7 +502,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             return;
 
         _nanoChat.AddMessage((recipient, recipient.Comp), senderNumber, message with { DeliveryFailed = false });
-
 
         if (recipient.Comp.IsClosed || _nanoChat.GetCurrentChat((recipient, recipient.Comp)) != senderNumber)
             HandleUnreadNotification(recipient, message, senderNumber);
@@ -563,7 +546,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         var title = "";
         if (!string.IsNullOrEmpty(senderRecipient.JobTitle))
         {
-            var titleRecipient = Truncate(Loc.GetString("nano-chat-new-message-title-recipient",
+            var titleRecipient = SharedNanoChatSystem.Truncate(Loc.GetString("nano-chat-new-message-title-recipient",
                 ("sender", senderName), ("jobTitle", senderRecipient.JobTitle)), NotificationTitleMaxLength, " \\[...\\]");
             title = Loc.GetString("nano-chat-new-message-title", ("sender", titleRecipient));
         }
@@ -572,7 +555,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _cartridge.SendNotification(pdaUid,
             title,
-            Loc.GetString("nano-chat-new-message-body", ("message", Truncate(message.Content, NotificationMaxLength, " [...]"))),
+            Loc.GetString("nano-chat-new-message-body", ("message", SharedNanoChatSystem.Truncate(message.Content, NotificationMaxLength, " [...]"))),
             loader);
     }
 
@@ -618,6 +601,20 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
             if (card.Number != number)
                 continue;
 
+            // Begin Impstation - NanoChat cards can be silicons
+            if (HasComp<BorgChassisComponent>(uid))
+            {
+                if (!TryComp<BorgSwitchableTypeComponent>(uid, out var switchable) || switchable.SelectedBorgType is not { } borgType)
+                    return new NanoChatRecipient(number, MetaData(uid).EntityName, null);
+
+                return new NanoChatRecipient(number, MetaData(uid).EntityName, Loc.GetString($"borg-type-{borgType}-transponder"));
+            }
+            if (HasComp<StationAiHeldComponent>(uid))
+            {
+                return new NanoChatRecipient(number, MetaData(uid).EntityName, Loc.GetString($"station-ai-transponder"));
+            }
+            // End Impstation - NanoChat cards can be silicons
+
             // Try to get job title from ID card if possible
             string? jobTitle = null;
             var name = "Unknown";
@@ -632,14 +629,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         return null;
     }
-
-    /// <summary>
-    ///     Truncates a string to a maximum length.
-    /// </summary>
-    private static string Truncate(string text, int maxLength, string overflowText = "...") =>
-        text.Length <= maxLength
-            ? text
-            : text[..(maxLength - overflowText.Length)] + overflowText;
 
     private void OnUiReady(Entity<NanoChatCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
     {
@@ -664,6 +653,27 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
                     contacts.Add(new NanoChatRecipient(nanoChatNumber, fullName));
                 }
             }
+
+            // Begin Impstation - NanoChat cards can be silicons
+            var borgQuery = AllEntityQuery<NanoChatCardComponent, BorgChassisComponent>();
+            while (borgQuery.MoveNext(out var borgId, out var borgChatCard, out var _))
+            {
+                if (borgChatCard.ListNumber && borgChatCard.Number is uint nanoChatNumber && _station.GetOwningStation(borgId) == station)
+                {
+                    contacts.Add(new NanoChatRecipient(nanoChatNumber, MetaData(borgId).EntityName));
+                }
+            }
+
+            var aiQuery = AllEntityQuery<NanoChatCardComponent, StationAiHeldComponent>();
+            while (aiQuery.MoveNext(out var aiId, out var aiChatCard, out var _))
+            {
+                if (aiChatCard.ListNumber && aiChatCard.Number is uint nanoChatNumber && _station.GetOwningStation(aiId) == station)
+                {
+                    contacts.Add(new NanoChatRecipient(nanoChatNumber, MetaData(aiId).EntityName));
+                }
+            }
+            // End Impstation - NanoChat cards can be silicons
+
             contacts.Sort((contactA, contactB) => string.CompareOrdinal(contactA.Name, contactB.Name));
         }
         else
@@ -680,7 +690,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         var notificationsMuted = false;
         var listNumber = false;
 
-        if (ent.Comp.Card != null && _cardQuery.TryGetComponent(ent.Comp.Card, out var card))
+        if (ent.Comp.Card != null && TryComp<NanoChatCardComponent>(ent.Comp.Card, out var card))
         {
             recipients = card.Recipients;
             messages = card.Messages;

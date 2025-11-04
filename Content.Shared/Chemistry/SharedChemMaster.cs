@@ -9,7 +9,7 @@ namespace Content.Shared.Chemistry
     /// </summary>
     public sealed class SharedChemMaster
     {
-        public const uint PillTypes = 20;
+        public const uint PillTypes = 22; // Impstation - more pill types
         public const string BufferSolutionName = "buffer";
         public const string InputSlotName = "beakerSlot";
         public const string OutputSlotName = "outputSlot";
@@ -106,7 +106,10 @@ namespace Content.Shared.Chemistry
         U1 = 1,
         U5 = 5,
         U10 = 10,
+        U15 = 15,
+        U20 = 20,
         U25 = 25,
+        U30 = 30,
         U50 = 50,
         U100 = 100,
         All,

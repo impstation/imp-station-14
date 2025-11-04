@@ -9,3 +9,5 @@ immovable-rod-penetrated-mob-weh = WEH!
 immovable-rod-penetrated-mob-finfin = {CAPITALIZE(THE($mob))} came and saw him.
 immovable-rod-penetrated-mob-gondal = {CAPITALIZE(THE($mob))}'s eardrums exploded. Badly.
 immovable-rod-penetrated-mob-hollowbarrel = {CAPITALIZE(THE($mob))} died with no honor!
+immovable-rod-penetrated-mob-baguette = {CAPITALIZE(THE($mob))} a été réduit en purée.
+immovable-rod-penetrated-mob-whiteboy = {CAPITALIZE(THE($mob))} got creamed!

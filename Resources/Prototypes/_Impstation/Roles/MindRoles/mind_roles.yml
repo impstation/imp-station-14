@@ -14,17 +14,26 @@
   name: Bounty Hunter Role
   components:
   - type: MindRole
+    antag: true
     antagPrototype: BountyHunter
     roleType: FreeAgent
-  - type: MindRoleBountyHunter
+  - type: BountyHunterRole
 
-#Lone Op
+# Syndicate Infiltrator
 - type: entity
-  parent: MindRoleNukeops
-  id: MindRoleNukeopsLone
-  name: Lone Operative Role
+  parent: MindRoleTraitor
+  id: MindRoleInfiltrator
   components:
   - type: MindRole
-    roleType: SoloAntagonist
-    antagPrototype: NukeopsLone
-  - type: NukeopsRole
+    subtype: role-subtype-traitor
+
+# V-Rex
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindroleVRex
+  name: V-Rex Role
+  components:
+  - type: MindRole
+    antagPrototype: VRex
+    roleType: TeamAntagonist
+    exclusiveAntag: true

@@ -5,20 +5,14 @@
   id: BaseMobThaven
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: Hunger
   - type: Thirst
   - type: Icon
     sprite: _Impstation/Mobs/Species/Thaven/parts.rsi # Unlike dwarves elves are NOT made of slime
     state: full
   - type: ThavenMoods
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 2
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
+  - type: IonStormTarget
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -77,7 +71,6 @@
     hideLayersOnEquip:
     - Hair
     - Snout
-    - Tail
   - type: Bloodstream
     bloodReagent: ShimmeringBlood
   - type: Inventory
@@ -105,7 +98,6 @@
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: hands
 
-
 - type: entity
   parent: BaseSpeciesDummy
   id: MobThavenDummy
@@ -114,6 +106,7 @@
   - type: Sprite
     scale: 1, 1
   - type: Inventory
+    speciesId: thaven
     templateId: thaven
     displacements:
       jumpsuit:

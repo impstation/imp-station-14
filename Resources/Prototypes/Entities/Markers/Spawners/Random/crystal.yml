@@ -6,8 +6,9 @@
   components:
     - type: Sprite
       layers:
-        - state: red
-        - sprite: Structures/Decoration/crystal.rsi
+#         - sprite: Structures/Decoration/crystal.rsi
+#        - state: red
+        - sprite: _Impstation/Structures/crystal.rsi # imp
           state: crystal_grey
     - type: RandomSpawner
       prototypes:

@@ -1,9 +1,9 @@
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics.Components;
 using Content.Server.Popups;
+using Content.Shared.Body.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Chemistry.Components;
@@ -12,6 +12,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.DoAfter;
 using Content.Shared.Forensics;
 using Content.Shared.Forensics.Components;
+using Content.Shared.Forensics.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
@@ -19,21 +20,22 @@ using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Random;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
-using Robust.Shared.GameObjects;
+using Content.Shared.Hands.Components;
 
 namespace Content.Server.Forensics
 {
-    public sealed class ForensicsSystem : EntitySystem
+    public sealed class ForensicsSystem : SharedForensicsSystem
     {
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private readonly MetaDataSystem _metaData = default!; //imp add
 
         public override void Initialize()
         {
-            SubscribeLocalEvent<FingerprintComponent, ContactInteractionEvent>(OnInteract);
+            SubscribeLocalEvent<HandsComponent, ContactInteractionEvent>(OnInteract);
             SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit, after: new[] { typeof(BloodstreamSystem) });
             // The solution entities are spawned on MapInit as well, so we have to wait for that to be able to set the DNA in the bloodstream correctly without ResolveSolution failing
             SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit, after: new[] { typeof(BloodstreamSystem) });
@@ -61,7 +63,7 @@ namespace Content.Server.Forensics
             }
         }
 
-        private void OnInteract(EntityUid uid, FingerprintComponent component, ContactInteractionEvent args)
+        private void OnInteract(EntityUid uid, HandsComponent component, ContactInteractionEvent args)
         {
             ApplyEvidence(uid, args.Other);
         }
@@ -146,28 +148,6 @@ namespace Content.Server.Forensics
             }
         }
 
-        //gets the name of a person from the DNA inside it. RETURNS NULL FOR ANIMALS, OR ANYTHING ELSE WITH UNKNOWN DNA.
-        public string? GetNameFromDNA(string DNA)
-        {
-            var query = EntityQueryEnumerator<DnaComponent>();
-
-            String? outputName = null;
-            //iterate over every DNAcomponent in the server until you find one that matches the given DNA
-            while (query.MoveNext(out var sourceUID, out var sourceComp))
-            {
-                if (sourceComp.DNA != null && sourceComp.DNA.Equals(DNA))
-                {
-
-                    if (EntityManager.TryGetComponent(sourceUID, out MetaDataComponent? metaData))
-                    {
-                        //output the name of the entity with the given DNA
-                        outputName = metaData.EntityName;
-                    }
-                }
-            }
-            return outputName;
-        }
-
         public List<string> GetSolutionsDNA(EntityUid uid)
         {
             List<string> list = new();
@@ -244,7 +224,7 @@ namespace Content.Server.Forensics
             var totalPrintsAndFibers = forensicsComp.Fingerprints.Count + forensicsComp.Fibers.Count;
             var hasRemovableDNA = forensicsComp.DNAs.Count > 0 && forensicsComp.CanDnaBeCleaned;
 
-            if (hasRemovableDNA || totalPrintsAndFibers > 0)
+            if (hasRemovableDNA || totalPrintsAndFibers > 0 || HasComp<CleanableInfoComponent>(target)) //imp add - CleanableInfoComponent check
             {
                 var cleanDelay = cleanForensicsEntity.Comp.CleanDelay;
                 var doAfterArgs = new DoAfterArgs(EntityManager, user, cleanDelay, new CleanForensicsDoAfterEvent(), cleanForensicsEntity, target: target, used: cleanForensicsEntity)
@@ -283,6 +263,16 @@ namespace Content.Server.Forensics
 
             if (targetComp.CanDnaBeCleaned)
                 targetComp.DNAs = new();
+
+            //Imp Add if it has a cleanable name component, change the name
+            if (TryComp<CleanableInfoComponent>(args.Target, out var cleanableInfoComp))
+            {
+                if (!string.IsNullOrEmpty(cleanableInfoComp.CleanedName))
+                    _metaData.SetEntityName(args.Target.Value, cleanableInfoComp.CleanedName);
+
+                if (!string.IsNullOrEmpty(cleanableInfoComp.CleanedDescription))
+                    _metaData.SetEntityDescription(args.Target.Value, cleanableInfoComp.CleanedDescription);
+            }
 
             // leave behind evidence it was cleaned
             if (TryComp<FiberComponent>(args.Used, out var fiber))
@@ -328,6 +318,8 @@ namespace Content.Server.Forensics
                 component.Fingerprints.Add(fingerprint.Fingerprint ?? "");
         }
 
+        // TODO: Delete this. A lot of systems are manually raising this method event instead of calling the identical <see cref="TransferDna"/> method.
+        // According to our code conventions we should not use method events.
         private void OnTransferDnaEvent(EntityUid uid, DnaComponent component, ref TransferDnaEvent args)
         {
             if (component.DNA == null)
@@ -339,12 +331,7 @@ namespace Content.Server.Forensics
         }
 
         #region Public API
-
-        /// <summary>
-        /// Give the entity a new, random DNA string and call an event to notify other systems like the bloodstream that it has been changed.
-        /// Does nothing if it does not have the DnaComponent.
-        /// </summary>
-        public void RandomizeDNA(Entity<DnaComponent?> ent)
+        public override void RandomizeDNA(Entity<DnaComponent?> ent)
         {
             if (!Resolve(ent, ref ent.Comp, false))
                 return;
@@ -356,11 +343,7 @@ namespace Content.Server.Forensics
             RaiseLocalEvent(ent.Owner, ref ev);
         }
 
-        /// <summary>
-        /// Give the entity a new, random fingerprint string.
-        /// Does nothing if it does not have the FingerprintComponent.
-        /// </summary>
-        public void RandomizeFingerprint(Entity<FingerprintComponent?> ent)
+        public override void RandomizeFingerprint(Entity<FingerprintComponent?> ent)
         {
             if (!Resolve(ent, ref ent.Comp, false))
                 return;
@@ -369,13 +352,7 @@ namespace Content.Server.Forensics
             Dirty(ent);
         }
 
-        /// <summary>
-        /// Transfer DNA from one entity onto the forensics of another
-        /// </summary>
-        /// <param name="recipient">The entity receiving the DNA</param>
-        /// <param name="donor">The entity applying its DNA</param>
-        /// <param name="canDnaBeCleaned">If this DNA be cleaned off of the recipient. e.g. cleaning a knife vs cleaning a puddle of blood</param>
-        public void TransferDna(EntityUid recipient, EntityUid donor, bool canDnaBeCleaned = true)
+        public override void TransferDna(EntityUid recipient, EntityUid donor, bool canDnaBeCleaned = true)
         {
             if (TryComp<DnaComponent>(donor, out var donorComp) && donorComp.DNA != null)
             {

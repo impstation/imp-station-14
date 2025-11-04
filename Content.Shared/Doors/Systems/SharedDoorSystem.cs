@@ -23,13 +23,11 @@ using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Map.Components;
-//imp edit start
-using Content.Shared.Fluids;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Components.SolutionManager;
-using Robust.Shared.Containers;
-using Robust.Shared.Random;
-//imp edit end
+using Robust.Shared.Prototypes;
+using Content.Shared.Chemistry.EntitySystems; // imp
+using Content.Shared.Fluids; // imp
+using Robust.Shared.Containers; // imp
+using Robust.Shared.Random; // imp
 
 namespace Content.Shared.Doors.Systems;
 
@@ -52,15 +50,12 @@ public abstract partial class SharedDoorSystem : EntitySystem
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
-    //imp edit start
-    [Dependency] private readonly SharedPuddleSystem _puddle = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    //imp edit end
+    [Dependency] private readonly IRobustRandom _random = default!; // imp
+    [Dependency] private readonly SharedContainerSystem _container = default!; // imp
+    [Dependency] private readonly SharedPuddleSystem _puddle = default!; // imp
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!; // imp
 
-    [ValidatePrototypeId<TagPrototype>]
-    public const string DoorBumpTag = "DoorBumpOpener";
+    public static readonly ProtoId<TagPrototype> DoorBumpTag = "DoorBumpOpener";
 
     /// <summary>
     ///     A set of doors that are currently opening, closing, or just queued to open/close after some delay.
@@ -235,7 +230,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
                 {
                     //Special case : if the bucket is here but its solution container compnent was removed by an admin or something
                     //Just drop the bucket and return
-                    _container.RemoveEntity(uid, bucket, null, null, null, true, false, null, _random.NextAngle());
+                    _container.RemoveEntity(uid, bucket, localRotation: _random.NextAngle());
                     args.Handled = true;
                     return;
                 }
@@ -247,7 +242,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
                 _solutionContainerSystem.RemoveAllSolution(soln.Value);
 
                 //Drop the bucket on the floor
-                _container.RemoveEntity(uid, bucket, null, null, null, true, false, null, _random.NextAngle());
+                _container.RemoveEntity(uid, bucket, localRotation: _random.NextAngle());
             }
         }
         //imp edit end
@@ -577,7 +572,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
             if (door.CrushDamage != null)
                 _damageableSystem.TryChangeDamage(entity, door.CrushDamage, origin: uid);
 
-            _stunSystem.TryParalyze(entity, stunTime, true);
+            _stunSystem.TryUpdateParalyzeDuration(entity, stunTime);
         }
 
         if (door.CurrentlyCrushing.Count == 0)

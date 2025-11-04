@@ -103,5 +103,6 @@ accent-mobster-words-replace-31 = capo del capo
 accent-mobster-words-32 = crew
 accent-mobster-words-replace-32 = cosa nostra
 
-accent-mobster-words-33 = got it?
-accent-mobster-words-replace-33 = capiche?
+accent-mobster-words-33 = you got it
+accent-mobster-words-33-2 = got it
+accent-mobster-words-replace-33 = capiche

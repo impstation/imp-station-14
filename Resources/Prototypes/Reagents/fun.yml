@@ -37,32 +37,13 @@
   metabolisms:
     Food:
       effects:
-      - !type:SatiateHunger
-        conditions:
-        - !type:OrganType
-          type: Moth
-
-- type: reagent
-  id: Trash
-  name: reagent-name-trash
-  desc: reagent-desc-trash
-  physicalDesc: reagent-physical-desc-murky
-  flavor: trash
-  metabolisms:
-    Food:
-      effects:
-        - !type:SatiateHunger
-          conditions:
-            - !type:OrganType
-              type: Rat
-        - !type:HealthChange
-          conditions:
-          - !type:OrganType
-            type: Rat
-            shouldHave: false
-          damage:
-            types:
-              Poison: 0.5
+      #- !type:SatiateHunger #imp
+      #  conditions:
+      #  - !type:OrganType
+      #    type: Moth
+      - !type:AdjustReagent #imp
+        reagent: Cellulose
+        amount: 1
 
 - type: reagent
   id: BuzzochloricBees
@@ -70,9 +51,9 @@
   group: Toxins
   desc: reagent-desc-buzzochloric-bees
   physicalDesc: reagent-physical-desc-buzzy
+  contrabandSeverity: Minor
   flavor: bee
   color: "#FFD35D"
-  contraband: Minor # imp
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: MobBee
@@ -181,6 +162,7 @@
   group: Toxins
   desc: reagent-desc-licoxide
   physicalDesc: reagent-physical-desc-electric
+  contrabandSeverity: Minor
   flavor: shocking
   color: "#FDD023"
   metabolisms:
@@ -237,6 +219,8 @@
     requiredSlipSpeed: 3.5
   desc: reagent-desc-fresium
   physicalDesc: reagent-physical-desc-frosty
+  allowedDepartments:
+  - Medical
   flavor: cold
   color: "#b3f1ff"
   boilingPoint: 50.0
@@ -332,11 +316,14 @@
   color: "#FF4DD2"
   slipData:
     requiredSlipSpeed: 3.5 #clown juice gotta slip
+    superSlippery: true #imp edit, funnier this way
+  friction: 0.05 #imp edit, matches space lube
   metabolisms:
     Medicine:
       effects:
       - !type:Emote
         emote: Laugh
+        showInGuidebook: true
         probability: 0.3
       - !type:PopupMessage
         type: Local
@@ -359,14 +346,15 @@
       - !type:Emote
         emote: Weh
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.5
       - !type:Polymorph
         prototype: ArtifactLizard # Does the same thing as the original YML I made for this reagent.
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
+#        - !type:OrganType  # imp: everyone can polymorph as a treat
+#          type: Animal
+#          shouldHave: false
         - !type:ReagentThreshold
           min: 50
       - !type:AdjustReagent
@@ -391,18 +379,53 @@
       - !type:Emote
         emote: Hew
         showInChat: true
+        showInGuidebook: true
         force: true
         probability: 0.5
       - !type:Polymorph
         prototype: ArtifactLizard
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
+#        - !type:OrganType  # imp: everyone can polymorph as a treat
+#          type: Animal
+#          shouldHave: false
         - !type:ReagentThreshold
           min: 50
       - !type:AdjustReagent
         reagent: JuiceThatMakesYouHew
+        amount: -20
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+
+- type: reagent
+  id: CorgiJuice
+  name: reagent-name-corgiessence
+  group: Toxins
+  desc: reagent-desc-corgiessence
+  physicalDesc: reagent-physical-desc-fluffy
+  flavor: dogfood
+  color: "#ed9715"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+        damage:
+          types:
+            Cellular: 0.5
+      - !type:Polymorph
+        prototype: SmartCorgiMorph
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        - !type:ReagentThreshold # imp - you're mutating yourself into dog
+          reagent: UnstableMutagen
+          min: 10
+      - !type:AdjustReagent
+        reagent: CorgiJuice
         amount: -20
         conditions:
         - !type:ReagentThreshold

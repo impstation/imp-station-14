@@ -16,6 +16,10 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 6h
 
 - type: startingGear
   id: ERTLeaderGear
@@ -81,7 +85,7 @@
     pocket1: MagazineRifle
     pocket2: MagazineRifle
   inhand:
-  - WeaponRifleLecter
+  - WeaponRifleLecterXL8
   storage:
     back:
     - WeaponDisabler
@@ -90,6 +94,14 @@
     - BoxZiptie
     - CrowbarRed
     - MagazineMagnum
+
+- type: chameleonOutfit
+  id: ERTLeaderChameleonOutfit
+  job: ERTLeader
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHelmetHardsuitERTLeader
+    neck: ClothingNeckBronzeheart
 
 # Chaplain
 - type: job
@@ -177,6 +189,16 @@
     - Lighter
     - NullRodDefault # imp
 
+- type: chameleonOutfit
+  id: ERTChaplainChameleonOutfit
+  job: ERTChaplain
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHelmetHardsuitERTChaplain
+    mask: ClothingMaskGasERT
+    outerClothing: ClothingOuterHardsuitERTChaplain
+    shoes: ClothingShoesBootsMagAdv
+
 # Engineer
 - type: job
   id: ERTEngineer
@@ -195,6 +217,10 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 3h
 
 - type: startingGear
   id: ERTEngineerGear
@@ -252,6 +278,14 @@
     - SheetSteel
     - SheetGlass
 
+- type: chameleonOutfit
+  id: ERTEngineerChameleonOutfit
+  job: ERTEngineer
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHelmetHardsuitERTEngineer
+    neck: ClothingNeckEngineermedal
+
 # Security
 - type: job
   id: ERTSecurity
@@ -259,7 +293,7 @@
   description: job-description-ertsecurity
   playTimeTracker: JobERTSecurity
   setPreference: false
-  startingGear: ERTEngineerGearEVA
+  startingGear: ERTSecurityGearEVA
   icon: "JobIconERTSecurity" #imp
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -270,6 +304,10 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 4h
 
 - type: startingGear
   id: ERTSecurityGear
@@ -345,6 +383,14 @@
     - CrowbarRed
     - MagazinePistol
 
+- type: chameleonOutfit
+  id: ERTSecurityChameleonOutfit
+  job: ERTSecurity
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHelmetHardsuitERTSecurity
+    neck: ClothingNeckSecuritymedal
+
 # Medical
 - type: job
   id: ERTMedical
@@ -363,6 +409,10 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 3h
 
 - type: startingGear
   id: ERTMedicalGear
@@ -411,6 +461,14 @@
     - ChemistryBottleOmnizine
     - ChemistryBottleEpinephrine
     - ChemistryBottleEpinephrine
+
+- type: chameleonOutfit
+  id: ERTMedicalChameleonOutfit
+  job: ERTMedical
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHelmetHardsuitERTMedical
+    neck: ClothingNeckStethoscope
 
 # Janitor
 - type: job
@@ -474,3 +532,12 @@
     - Soap
     - CrowbarRed
     - AdvMopItem
+
+- type: chameleonOutfit
+  id: ERTJanitorChameleonOutfit
+  job: ERTJanitor
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHelmetHardsuitERTJanitor
+    neck: ClothingNeckScarfStripedPurple
+    eyes: ClothingEyesGlassesSunglasses

@@ -21,16 +21,17 @@
       tags:
       - BaseballBat
 
-- type: cargoBounty
-  id: BountyBrain
-  reward: 12500
-  description: bounty-description-brain
-  entries:
-  - name: bounty-item-brain
-    amount: 1
-    whitelist:
-      components:
-      - Brain
+# imp edit - no longer a practical bounty with offmed
+# - type: cargoBounty
+#   id: BountyBrain
+#   reward: 12500
+#   description: bounty-description-brain
+#   entries:
+#   - name: bounty-item-brain
+#     amount: 1
+#     whitelist:
+#       components:
+#       - Brain
 
 - type: cargoBounty
   id: BountyBread
@@ -202,14 +203,16 @@
 
 - type: cargoBounty
   id: BountyKnife
-  reward: 6000
+  reward: 2000
   description: bounty-description-knife
   entries:
   - name: bounty-item-knife
     amount: 5
     whitelist:
       components:
-        - Sharp
+      - Sharp
+      tags:
+      - UtilityKnife # required because retracted utility knives are not Sharp
 
 - type: cargoBounty
   id: BountyLemon
@@ -223,17 +226,6 @@
       - Lemon
 
 - type: cargoBounty
-  id: BountyLemo
-  reward: 12000
-  description: bounty-description-lemo
-  entries:
-  - name: bounty-item-lemo
-    amount: 5
-    whitelist:
-      tags:
-      - Lemo
-
-- type: cargoBounty
   id: BountyLime
   reward: 10000
   description: bounty-description-lime
@@ -245,16 +237,16 @@
       tags:
       - Lime
 
-- type: cargoBounty
-  id: BountyLung
-  reward: 2000
-  description: bounty-description-lung
-  entries:
-  - name: bounty-item-lung
-    amount: 3
-    whitelist:
-      components:
-      - Lung
+# - type: cargoBounty
+#   id: BountyLung
+#   reward: 2000
+#   description: bounty-description-lung
+#   entries:
+#   - name: bounty-item-lung
+#     amount: 3
+#     whitelist:
+#       components:
+#       - Lung
 
 - type: cargoBounty
   id: BountyMonkeyCube
@@ -477,17 +469,18 @@
       tags:
       - ArtifactFragment
 
-- type: cargoBounty
-  id: BountyOrgans
-  reward: 2000
-  description: bounty-description-organs
-  idPrefix: UNTH
-  entries:
-  - name: bounty-item-organs
-    amount: 8
-    whitelist:
-      components:
-      - Organ
+# imp edit - no longer a practical bounty with offmed
+# - type: cargoBounty
+#   id: BountyOrgans
+#   reward: 2000
+#   description: bounty-description-organs
+#   idPrefix: UNTH
+#   entries:
+#   - name: bounty-item-organs
+#     amount: 8
+#     whitelist:
+#       components:
+#       - Organ
 
 - type: cargoBounty
   id: BountyLabeler
@@ -575,7 +568,8 @@
       - Cake
       - Pie
       - Bread
-      - Pistachios  
+      - Pistachios
+      - Creamsicle
 
 - type: cargoBounty
   id: BountyVegetable
@@ -760,153 +754,12 @@
       - Flash
 
 - type: cargoBounty
-  id: BountyTeethSpaceCarp
-  reward: 800
-  description: bounty-description-tooth-space-carp
+  id: BountyRing
+  reward: 12500
+  description: bounty-description-ring
   entries:
-  - name: bounty-item-tooth-space-carp
-    amount: 8
+  - name: bounty-item-ring
+    amount: 2
     whitelist:
       tags:
-      - ToothSpaceCarp
-
-- type: cargoBounty
-  id: BountyTeethSharkminnow
-  reward: 1500
-  description: bounty-description-tooth-sharkminnow
-  entries:
-  - name: bounty-item-tooth-sharkminnow
-    amount: 5
-    whitelist:
-      tags:
-      - ToothSharkminnow
-
-
-- type: cargoBounty
-  id: BountyRegenerativeMesh
-  reward: 12000
-  description: bounty-description-regenerative-mesh
-  entries:
-  - name: bounty-item-regenerative-mesh
-    amount: 30
-    whitelist:
-      tags:
-      - RegenerativeMesh
-
-#- type: cargoBounty # Imp - Bounty has multiple bounty arbitrages. It's not worth repricing several cargo items when its also possible to just cut this out
-#  id: BountyJugs
-#  reward: 4000
-#  description: bounty-description-jugs
-#  entries:
-#  - name: bounty-item-jugs
-#    amount: 5
-#    whitelist:
-#      tags:
-#      - Jug
-
-- type: cargoBounty
-  id: BountyCrushers
-  reward: 10000
-  description: bounty-description-crushers
-  entries:
-  - name: bounty-item-crushers
-    amount: 1
-    whitelist:
-      tags:
-      - Crusher
-
-- type: cargoBounty
-  id: BountyAloeCream
-  reward: 6500
-  description: bounty-description-aloe-cream
-  entries:
-  - name: bounty-item-aloe-cream
-    amount: 30
-    whitelist:
-      tags:
-      - Aloe
-
-- type: cargoBounty
-  id: BountyBagels
-  reward: 11000
-  description: bounty-description-bagels
-  entries:
-  - name: bounty-item-bagels
-    amount: 9
-    whitelist:
-      tags:
-      - Bagel
-
-- type: cargoBounty
-  id: BountyBearHide
-  reward: 10000
-  description: bounty-description-bear-hide
-  entries:
-  - name: bounty-item-bear-hide
-    amount: 1
-    whitelist:
-      tags:
-      - BearHide
-
-- type: cargoBounty
-  id: BountyMuffins
-  reward: 11500
-  description: bounty-description-muffins
-  entries:
-  - name: bounty-item-muffins
-    amount: 8
-    whitelist:
-      tags:
-      - Muffin
-
-- type: cargoBounty
-  id: BountySuppermatter
-  reward: 20000
-  description: bounty-description-suppermatter
-  entries:
-  - name: bounty-item-suppermatter
-    amount: 1
-    whitelist:
-      tags:
-      - Suppermatter
-    blacklist:
-      tags:
-      - Slice #no cheating!
-
-- type: cargoBounty
-  id: BountyCrystal
-  reward: 10000
-  description: bounty-description-crystal
-  entries:
-  - name: bounty-item-crystal
-    amount: 12
-    whitelist:
-      tags:
-      - CrystalRed
-      - CrystalPink
-      - CrystalOrange
-      - CrystalGreen
-      - CrystalCyan
-      - CrystalBlue
-
-- type: cargoBounty
-  id: BountyMimeHardsuit
-  reward: 13000
-  description: bounty-description-mime-hardsuit
-  entries:
-  - name: bounty-item-mime-hardsuit
-    amount: 1
-    whitelist:
-      tags:
-      - MimeHardsuit
-
-- type: cargoBounty
-  id: BountySpiderMeat
-  reward: 7000
-  description: bounty-description-spider-meat
-  entries:
-  - name: bounty-item-spider-meat
-    amount: 3
-    whitelist:
-      tags:
-      - SpiderMeat
+      - Ring

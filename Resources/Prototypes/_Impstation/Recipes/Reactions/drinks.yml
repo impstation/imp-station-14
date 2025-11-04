@@ -302,7 +302,7 @@
   requiredMixerCategories:
     - Shake
   reactants:
-    Protein:
+    UncookedAnimalProteins:
       amount: 1
     Cream:
       amount: 1
@@ -579,3 +579,99 @@
   products:
     LiquidLunch: 6
 
+- type: reaction
+  id: BatteryAcid
+  requiredMixerCategories:
+    - Stir
+  reactants:
+    Rum:
+      amount: 1
+    SynthBlood:
+      amount: 1
+    DrGibb:
+      amount: 1
+    SpaceMountainWind:
+      amount: 1
+  products:
+    BatteryAcid: 4
+
+- type: reaction
+  id: AngelsKiss
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Rum:
+      amount: 1
+    SynthBlood:
+      amount: 1
+    CoffeeLiqueur:
+      amount: 1
+  products:
+    AngelsKiss: 3
+
+- type: reaction
+  id: PinkRose
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Gin:
+      amount: 1
+    JuiceRose:
+      amount: 1
+    JuiceLime:
+      amount: 1
+  products:
+    PinkRose: 3
+
+- type: reaction
+  id: LaFleurette
+  requiredMixerCategories:
+  reactants:
+    Champagne:
+      amount: 2
+    JuiceRose:
+      amount: 1
+  products:
+    LaFleurette: 3
+
+- type: reaction
+  id: RomanceDead
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Gin:
+      amount: 1
+    JuiceRose:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    RomanceDead: 3
+
+- type: reaction
+  id: RomanceDeadNot
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    JuiceLemon:
+      amount: 1
+    JuiceRose:
+      amount: 1
+    Blood:
+      amount: 1
+  products:
+    RomanceDeadNot: 3
+
+- type: reaction
+  id: RoseMilk
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    JuiceRose:
+      amount: 1
+    Milk:
+      amount: 1
+    Sugar:
+      amount: 1
+  products:
+    RoseMilk: 3

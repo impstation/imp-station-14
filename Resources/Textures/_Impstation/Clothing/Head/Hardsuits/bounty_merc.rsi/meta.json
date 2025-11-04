@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by AvianMaiden for Impstation.",
+  "copyright": "Made by AvianMaiden for Impstation. on-sprites modified by Smugman",
 
   "size": {
     "x": 32,
@@ -12,11 +12,22 @@
       "name": "icon"
     },
     {
-      "name": "equipped-HELMET",
+      "name": "icon-flash"
+    },
+    {
+      "name": "off-equipped-HELMET",
       "directions": 4
     },
     {
-      "name": "equipped-HELMET-vox",
+      "name": "off-equipped-HELMET-vox",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET-vox",
       "directions": 4
     }
   ]

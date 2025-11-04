@@ -2,6 +2,7 @@
   id: Kodepiia
   name: species-name-kodepiia
   roundStart: true
+  randomViable: true
   prototype: MobKodepiia
   sprites: MobKodepiiaSprites
   markingLimits: MobKodepiiaMarkingLimits
@@ -12,6 +13,9 @@
   lastNames: KodepiiaLast
   sexes:
   - Unsexed
+  youngAge: 25
+  oldAge: 40
+  ancientAge: 70
 
 - type: speciesBaseSprites
   id: MobKodepiiaSprites
@@ -45,6 +49,7 @@
     Hair:
       points: 1
       required: false
+      weight: 0.3
     Tail:
       points: 2
       required: false
@@ -63,6 +68,7 @@
     Arms:
       points: 1
       required: true
+      weight: 1
       defaultMarkings: [ KodeWingsBlade ]
 
 - type: humanoidBaseSprite

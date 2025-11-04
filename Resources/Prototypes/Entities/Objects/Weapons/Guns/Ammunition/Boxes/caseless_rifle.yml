@@ -3,7 +3,7 @@
   parent: BaseItem
   id: BaseMagazineBoxCaselessRifle
   name: ammunition box (.25 caseless)
-  description: A box made for 60 rounds of .25 caseless ammunition. #imp
+  description: A box made for 50 rounds of .25 caseless ammunition. #imp
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -11,14 +11,14 @@
       tags:
         - CartridgeCaselessRifle
     proto: CartridgeCaselessRifle
-    capacity: 60
+    capacity: 50 #imp
   - type: Item
     size: Small
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Wizden/Objects/Weapons/Guns/Ammunition/Boxes/caseless_rifle.rsi # imp
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/caseless_rifle.rsi # imp
   - type: MagazineVisuals
     magState: mag
     steps: 4
@@ -72,7 +72,7 @@
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRifle
   name: ammunition box (.25 caseless)
-  description: A box made for 60 rounds of .25 caseless ammunition, labeled as live-fire bullets. #imp
+  description: A box made for 50 rounds of .25 caseless ammunition, labeled as live-fire bullets. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
@@ -87,7 +87,7 @@
   parent: BaseMagazineBoxCaselessRifle
   id: MagazineBoxCaselessRiflePractice
   name: ammunition box (.25 caseless practice)
-  description: A box made for 60 rounds of .25 caseless ammunition, labeled as practice bullets. #imp
+  description: A box made for 50 rounds of .25 caseless ammunition, labeled as practice bullets. #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice

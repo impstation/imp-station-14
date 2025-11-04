@@ -1,0 +1,35 @@
+- type: reaction
+  id: Silverjack
+  reactants:
+    Tequila:
+      amount: 1
+    Beer:
+      amount: 1
+    Sulfur:
+      amount: 1
+  products:
+    Silverjack: 4
+
+- type: reaction
+  id: AtomicPunch
+  reactants:
+    Radium:
+      amount: 1
+    JuiceLime:
+      amount: 1
+    JuicePineapple:
+      amount: 1
+  products:
+    AtomicPunch: 3
+
+- type: reaction
+  id: SapoPicante
+  reactants:
+    Gin:
+      amount: 1
+    CapsaicinOil:
+      amount: 1
+    JuiceTomato:
+      amount: 2
+  products:
+    SapoPicante: 4

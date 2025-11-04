@@ -14,14 +14,34 @@
     holiday: MonkeyDay
     prototype: MonkeyCubeBox
 
-- type: startingGear
+- type: startingGear #imp
   id: ZookeeperGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitSafari
     head: ClothingHeadSafari
     shoes: ClothingShoesColorWhite
     id: ZookeeperPDA
+    belt: ClothingBeltUtility #imp
     ears: ClothingHeadsetService
-  #storage:
-    #back:
-    #- Stuff
+  inhand: #imp
+    - WeaponRifleTranq
+  storage:
+    belt: #imp
+    - TranqDart
+    - TranqDart
+    - TranqDart
+    - IrwizineDart
+    - IrwizineDart
+    - IrwizineDart
+
+- type: chameleonOutfit
+  id: ZookeeperChameleonOutfit
+  job: Zookeeper
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterWinterColorLightBrown
+    neck: ClothingNeckScarfStripedBrown
+    belt: ClothingBeltUtility #imp
+    gloves: ClothingHandsGlovesColorBrown
+

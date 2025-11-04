@@ -21,11 +21,11 @@
 
 - type: entity
   name: explosive payload
-  parent: BasePayload
+  parent: [ BasePayload, BaseSecurityContraband ]
   id: ExplosivePayload
   components:
   - type: Sprite
-    sprite: Objects/Devices/payload.rsi
+    sprite: _Impstation/Objects/Devices/payload.rsi #imp
     state: payload-explosive-armed
   - type: Explosive
     explosionType: Default
@@ -37,12 +37,6 @@
   - type: Destructible
     thresholds:
     - trigger:
-        !type:DamageTypeTrigger
-        damageType: Heat
-        damage: 25
-      behaviors:
-      - !type:ExplodeBehavior
-    - trigger:
         !type:DamageTrigger
         damage: 50
       behaviors:
@@ -51,12 +45,12 @@
 
 - type: entity
   name: chemical payload
-  parent: BasePayload
+  parent: [ BasePayload, BaseMedicalScienceContraband ]
   id: ChemicalPayload
   description: A chemical payload. Has space to store two beakers. In combination with a trigger and a case, this can be used to initiate chemical reactions.
   components:
   - type: Sprite
-    sprite: Objects/Devices/payload.rsi
+    sprite: _Impstation/Objects/Devices/payload.rsi #imp
     state: payload-empty
     layers:
     - state: payload-empty
@@ -87,12 +81,12 @@
 
 - type: entity
   name: flash payload
-  parent: BasePayload
+  parent: [ BasePayload, BaseSecurityScienceCommandContraband ]
   id: FlashPayload
   description: A single-use flash payload.
   components:
     - type: Sprite
-      sprite: Objects/Devices/payload.rsi
+      sprite: _Impstation/Objects/Devices/payload.rsi #imp
       state: payload-flash-armed
     - type: DeleteOnTrigger
     - type: FlashOnTrigger
@@ -100,3 +94,4 @@
     - type: EmitSoundOnTrigger
       sound:
         path: "/Audio/Effects/flash_bang.ogg"
+      positional: true

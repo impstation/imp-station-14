@@ -209,7 +209,7 @@ public sealed class MindlessCloneSystem : EntitySystem
             // make sure that the spawned clone isn't always facing north. they face the person they're a clone of, instead
             _rotateToFaceSystem.TryFaceCoordinates(ent, _transformSystem.ToMapCoordinates(Transform(ent.Comp.IsCloneOf).Coordinates).Position);
 
-            _stun.TryParalyze(ent, stunTime, true);
+            _stun.TryUpdateParalyzeDuration(ent, stunTime);
 
             stunTime += TimeSpan.FromSeconds(0.5); // to make the delay end *after* the stun is up. otherwise the mobstate check fails
         }
@@ -225,7 +225,8 @@ public sealed class MindlessCloneSystem : EntitySystem
         if (comp.SpeakOnSpawn && !_mobState.IsIncapacitated(uid))
         {
             // enable the typing indicator for the duration of the DoAfter.
-            _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, true);
+            // TODO: give this better functionality with upstream #29349
+            _appearance.SetData(uid, TypingIndicatorVisuals.State, 2);
 
             var choices = _prototypeManager.Index(comp.PhrasesToPick).Values;
             comp.NextPhrase = _random.Pick(choices);
@@ -268,7 +269,8 @@ public sealed class MindlessCloneSystem : EntitySystem
         }
 
         // disable the typing indicator, as "typing" has now finished.
-        _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, false);
+        // TODO: give this better functionality with upstream #29349
+        _appearance.SetData(uid, TypingIndicatorVisuals.State, 0);
     }
 
     /// <summary>

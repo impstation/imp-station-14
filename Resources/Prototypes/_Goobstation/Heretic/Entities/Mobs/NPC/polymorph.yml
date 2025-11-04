@@ -8,7 +8,6 @@
     drawdepth: WallMountedItems
     sprite: _Goobstation/Heretic/polymorphs.rsi
     state: ash_jaunt
-    loop: false
   - type: TimedDespawn
     lifetime: 1
 
@@ -22,10 +21,10 @@
     drawdepth: WallMountedItems
     sprite: _Goobstation/Heretic/polymorphs.rsi
     state: ash_jaunt_end
-    loop: false
   - type: TimedDespawn
     lifetime: 1
 
+# TODO: this whole thing seems like a mess and would be better off using BaseMobJaunt
 - type: entity
   id: PolymorphAshJaunt
   name: Unknown
@@ -52,6 +51,8 @@
         mask:
         - GhostImpassable
   - type: MovementIgnoreGravity
+    weightless: true
+  - type: GravityAffected
   - type: Actions
   - type: NoSlip
   - type: Eye
@@ -117,7 +118,7 @@
   - type: SolutionContainerManager # imp. Little bit o' everybody in there.
     solutions:
       blood:
-        maxVol: 800
+        maxVol: 900
         reagents:
         - ReagentId: ShimmeringBlood
           Quantity: 100
@@ -126,6 +127,8 @@
         - ReagentId: Slime
           Quantity: 100
         - ReagentId: GrayBlood
+          Quantity: 100
+        - ReagentId: SynthBlood
           Quantity: 100
         - ReagentId: CopperBlood
           Quantity: 100
@@ -178,8 +181,12 @@
       collection: Punch
     animation: WeaponArcFist
   - type: Devourer
-    foodPreference: Humanoid
-    shouldStoreDevoured: true
+    foodPreferenceWhitelist:
+      components:
+      - HumanoidAppearance
+    stomachStorageWhitelist:
+      components:
+      - MobState
     chemical: Ichor
     healRate: 15.0
     whitelist:

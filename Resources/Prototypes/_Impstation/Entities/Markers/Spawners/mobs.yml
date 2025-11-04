@@ -21,7 +21,7 @@
     layers:
     - state: green
     - state: alive
-      sprite: Mobs/Demons/tomatokisser.rsi
+      sprite: _Impstation/Mobs/Demons/tomatokisser.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobTomatoKisser
@@ -35,7 +35,7 @@
     layers:
     - state: green
     - state: raptor
-      sprite: Mobs/Aliens/laser-less_laser_raptor.rsi
+      sprite: _Impstation/Mobs/Aliens/laser-less_laser_raptor.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobRaptor
@@ -48,7 +48,7 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: Mobs/Animals/bros.rsi
+        - sprite: _Impstation/Mobs/Animals/bros.rsi
           state: bros
     - type: ClusterSpawner
       prototypes:
@@ -72,20 +72,6 @@
       - id: MobGoose
 
 - type: entity
-  name: xeno lone praetorian spawner
-  id: SpawnMobXenoPraetorian
-  parent: MarkerBase
-  components:
-  - type: Sprite
-    layers:
-    - state: green
-    - state: running
-      sprite: Mobs/Aliens/Xenos/praetorian.rsi
-  - type: ConditionalSpawner
-    prototypes:
-    - MobXenoLonePraetorianNoGhost
-
-- type: entity
   name: Space Bear Major Spawner
   id: SpawnMobBearMajor
   parent: MarkerBase
@@ -94,7 +80,7 @@
     layers:
     - state: green
     - state: major
-      sprite: Mobs/Animals/major.rsi
+      sprite: _Impstation/Mobs/Animals/major.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobBearSpaceMajor
@@ -182,3 +168,72 @@
     prototypes:
       - MobWalter
       - MobDolby
+
+- type: entity
+  name: Foes/Seof Spawner
+  id: FoesSeofSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: _Impstation/Mobs/Animals/foes.rsi
+          state: foes
+    - type: ClusterSpawner
+      prototypes:
+        - MobFoes
+        - MobSeof
+
+- type: entity
+  name: Eeeplet Spawner
+  id: SpawnMobEeeplet
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: eeeplet
+      sprite: _Impstation/Mobs/Aliens/eeeplet.rsi
+    - state: eeeplet_glow
+      sprite: _Impstation/Mobs/Aliens/eeeplet.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobEeeplet
+
+- type: entity
+  id: SpawnPointGhostEeeplet
+  name: ghost role spawn point
+  suffix: eeeplet
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-eeep-name
+    description: ghost-role-information-eeep-desc
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobEeeplet
+  - type: Sprite
+    layers:
+    - state: green
+    - state: eeeplet
+      sprite: _Impstation/Mobs/Aliens/eeeplet.rsi
+    - state: eeeplet_glow
+      sprite: _Impstation/Mobs/Aliens/eeeplet.rsi
+
+- type: entity
+  name: Boar Spawner
+  id: BoarSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+        - sprite: _Impstation/Mobs/Animals/boar.rsi
+          state: boar
+    - type: ClusterSpawner
+      prototypes:
+        - MobBoar

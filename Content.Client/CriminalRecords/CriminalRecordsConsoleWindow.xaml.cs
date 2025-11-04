@@ -33,8 +33,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
     public readonly EntityUid Console;
 
-    [ValidatePrototypeId<LocalizedDatasetPrototype>]
-    private const string ReasonPlaceholders = "CriminalRecordsWantedReasonPlaceholders";
+    private static readonly ProtoId<LocalizedDatasetPrototype> ReasonPlaceholders = "CriminalRecordsWantedReasonPlaceholders";
 
     public Action<uint?>? OnKeySelected;
     public Action<StationRecordFilterType, string>? OnFiltersChanged;
@@ -226,11 +225,13 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         var specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Misc/job_icons.rsi"), "Unknown");
         var na = Loc.GetString("generic-not-available-shorthand");
         PersonName.Text = stationRecord.Name;
-        PersonGender.Text = Loc.GetString("gender-display", ("gender", stationRecord.Gender));
         PersonJob.Text = stationRecord.JobTitle ?? na;
+
+        // imp add start
+        PersonGender.Text = Loc.GetString("gender-display", ("gender", stationRecord.Gender));
         PersonPrints.Text = Loc.GetString("general-station-record-console-record-fingerprint", ("fingerprint", stationRecord.Fingerprint ?? na));
         PersonDna.Text = Loc.GetString("general-station-record-console-record-dna", ("dna", stationRecord.DNA ?? na));
-
+        // imp add end
 
         // Job icon
         if (_proto.TryIndex<JobIconPrototype>(stationRecord.JobIcon, out var proto))
@@ -300,7 +301,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
         var field = "reason";
         var title = Loc.GetString("criminal-records-status-" + status.ToString().ToLower());
-        var placeholders = _proto.Index<LocalizedDatasetPrototype>(ReasonPlaceholders);
+        var placeholders = _proto.Index(ReasonPlaceholders);
         var placeholder = Loc.GetString("criminal-records-console-reason-placeholder", ("placeholder", _random.Pick(placeholders))); // just funny it doesn't actually get used
         var prompt = Loc.GetString("criminal-records-console-reason");
         var entry = new QuickDialogEntry(field, QuickDialogEntryType.LongText, prompt, placeholder);

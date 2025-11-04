@@ -8,9 +8,6 @@
     state: rods
   - type: Item
     sprite: Objects/Materials/parts.rsi
-  - type: Tag
-    tags:
-      - DroneUsable
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: FlimsyMetallic
@@ -22,11 +19,16 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - ConstructionMaterial
+    - DroneUsable #imp
 
 - type: entity
   parent: PartBase
   id: PartRodMetal
   name: metal rod
+  description: A long piece of steel. Very movable. # imp
   suffix: Full
   components:
   - type: PhysicalComposition
@@ -74,6 +76,7 @@
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
+  # imp edit start
   - type: UserInterface
     interfaces:
       enum.ShortConstructionUiKey.Key:
@@ -84,6 +87,11 @@
     prototypes:
     - Grille
     - Table
+  - type: PluralName
+    oneOf: plural-name-a
+    someOf: plural-name-bundle-1
+    nameSomeOf: metal rods
+  # imp edit end
 
 - type: entity
   parent: PartRodMetal
@@ -94,7 +102,8 @@
   - type: Tag
     tags:
     - RodMetal1
-    - DroneUsable
+    - ConstructionMaterial
+    - DroneUsable #imp
   - type: Sprite
     state: rods
   - type: Stack
@@ -109,26 +118,9 @@
   - type: Tag
     tags:
     - RodMetal1
-    - DroneUsable
+    - ConstructionMaterial
+    - DroneUsable #imp
   - type: Sprite
     state: rods
   - type: Stack
     count: 1
-
-- type: entity
-  parent: PartRodMetal
-  id: PartRodMetalLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0
-
-- type: entity
-  parent: FloorTileItemSteel
-  id: FloorTileItemSteelLingering0
-  suffix: Lingering, 0
-  components:
-  - type: Stack
-    lingering: true
-    count: 0

@@ -5,15 +5,15 @@
   playTimeTracker: JobLawyer
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs, imp
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 7200 #2 hrs, imp
+      time: 10h # imp, was 2.5h
+    - !type:DepartmentTimeRequirement # imp add
+      department: Security
+      time: 5h
   startingGear: LawyerGear
   icon: "JobIconLawyer"
-  supervisors: job-supervisors-hd
+  supervisors: job-supervisors-hop
   access:
-  - Service
+  # - Service imp
   - Lawyer
   - Brig
   - Maintenance
@@ -29,3 +29,14 @@
     back:
     - RubberStampLawyer
     - BookSpaceLaw
+
+- type: chameleonOutfit
+  id: LawyerChameleonOutfit
+  job: Lawyer
+  equipment:
+    head: ClothingHeadHatBowlerHat
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    neck: ClothingNeckLawyerbadge
+    outerClothing: ClothingOuterWinterColorBlack
+    gloves: ClothingHandsGlovesColorBlack

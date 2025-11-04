@@ -42,7 +42,7 @@
     path: /Audio/_Impstation/Kodepiia/kodeask.ogg
   exclaimSound:
     path: /Audio/_Impstation/Kodepiia/kodeexclaim.ogg
-    
+
 - type: speechSounds
   id: Suppy
   saySound:
@@ -51,3 +51,44 @@
     collection: SuppyAsk
   exclaimSound:
     collection: SuppyExclaim
+
+- type: speechSounds
+  id: PleebnarPVC
+  saySound:
+    path: /Audio/_Impstation/Animals/pleebnar_speak.ogg
+  askSound:
+    path: /Audio/_Impstation/Animals/pleebnar_speak.ogg
+  exclaimSound:
+    path: /Audio/_Impstation/Animals/pleebnar_speak.ogg
+
+- type: speechSounds
+  id: Penguin
+  saySound:
+    path: /Audio/Animals/penguin_squawk.ogg
+  askSound:
+    path: /Audio/Animals/penguin_squawk.ogg
+  exclaimSound:
+    path: /Audio/Animals/penguin_squawk.ogg
+
+- type: speechSounds
+  id: Pop
+  saySound:
+    path: /Audio/Effects/pop.ogg
+  askSound:
+    path: /Audio/Effects/pop_high.ogg
+  exclaimSound:
+    path: /Audio/Effects/pop_high.ogg
+
+- type: speechSounds
+  id: Tcktck
+  saySound:
+    path: /Audio/_Impstation/Voice/Talk/Tcktck/tcktck.ogg
+
+- type: speechSounds
+  id: Allulalo
+  saySound:
+    path: /Audio/_Impstation/Allulalo/allulalo_say.ogg
+  askSound:
+    path: /Audio/_Impstation/Allulalo/allulalo_ask.ogg
+  exclaimSound:
+    path: /Audio/_Impstation/Allulalo/allulalo_exclaim.ogg

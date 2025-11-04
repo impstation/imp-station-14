@@ -2,22 +2,50 @@
   id: gray
   spritePath: /Textures/_Impstation/Effects/speech.rsi
   typingState: gray0
+  idleState: gray0 # TODO: new idle state
   offset: 0.01, 0.01
 
 - type: typingIndicator
   id: Gastropoid
   spritePath: /Textures/_Impstation/Effects/speech.rsi
   typingState: snail
+  idleState: snail # TODO: new idle state
   offset: -0.1, 0.1
 
 - type: typingIndicator
   id: kodepiia
   spritePath: /Textures/_Impstation/Effects/speech.rsi
   typingState: kode
+  idleState: kode # TODO: new idle state
   offset: -0.45, 0.35
 
 - type: typingIndicator
   id: lawyerblue
   spritePath: /Textures/_Impstation/Effects/speech.rsi
   typingState: lawyerblue0
+  idleState: lawyerblue0 # TODO: new idle state
   offset: 0, 0.125
+
+- type: typingIndicator
+  id: clock
+  typingState: clock0
+  idleState: clock0 # TODO: new idle state
+
+- type: typingIndicator
+  id: syndibot
+  typingState: syndibot0
+  idleState: syndibot3
+
+- type: typingIndicator
+  id: allulalo
+  spritePath: /Textures/_Impstation/Effects/speech.rsi
+  typingState: allulalo
+  idleState: allulalo-idle
+  offset: -0.45, 0.35
+  
+- type: typingIndicator
+  id: Ungu
+  spritePath: /Textures/_Impstation/Effects/speech.rsi
+  typingState: ungu
+  idleState: ungu
+  offset: 0, 0.1

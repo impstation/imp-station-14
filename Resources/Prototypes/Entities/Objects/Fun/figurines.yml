@@ -19,6 +19,8 @@
     - Figurine
   - type: UseDelay
     delay: 5
+  - type: UseDelayOnTrigger
+  - type: UseDelayTriggerCondition # prevent spam
   - type: TriggerOnActivate
   - type: TriggerOnSignal
   - type: Speech
@@ -190,7 +192,7 @@
   parent: BaseFigurine
   id: ToyFigurineCargoTech
   name: cargo technican figure
-  description: A figurine depicting a reptillian Cargo Technican.
+  description: A figurine depicting a reptilian Cargo Technican.  #imp edit for spelling
   components:
   - type: Sprite
     state: cargotech

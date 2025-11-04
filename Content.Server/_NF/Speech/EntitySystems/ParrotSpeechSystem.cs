@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Server.Chat.Systems;
-using Content.Server.Speech;
 using Content.Server._NF.Speech.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Whitelist;
@@ -8,7 +7,8 @@ using Content.Shared.Chat.TypingIndicator; //imp
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
-using Content.Shared.Mobs.Systems; //imp
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Speech; //imp
 
 namespace Content.Server._NF.Speech.EntitySystems;
 
@@ -72,12 +72,14 @@ public sealed class ParrotSpeechSystem : EntitySystem
         {
             component.NextMessage = _random.Pick(component.LearnedPhrases);
             component.NextFakeTypingSend = _timing.CurTime + TimeSpan.FromSeconds(0.1 * component.NextMessage.Length);
-            _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, true);
+            // TODO: give this better functionality with upstream #29349
+            _appearance.SetData(uid, TypingIndicatorVisuals.State, 2);
         }
         else if (_timing.CurTime > component.NextFakeTypingSend)
         {
             SendMessage(uid, component);
-            _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, false);
+            // TODO: give this better functionality with upstream #29349
+            _appearance.SetData(uid, TypingIndicatorVisuals.State, 0);
 
             // and reset.
             component.NextFakeTypingSend = null;

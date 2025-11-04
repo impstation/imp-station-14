@@ -57,3 +57,21 @@
     count: 10
   - type: TimedDespawn
     lifetime: 0.25
+
+- type: entity
+  id: PelletClusterLessLethal
+  name: pellet (ball, less lethal)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
+    layers:
+    - state: shard #imp
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Piercing: 5
+  - type: TimedDespawn
+    lifetime: 0.25

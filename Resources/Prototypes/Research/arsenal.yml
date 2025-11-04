@@ -66,8 +66,8 @@
   - BoxShellTranquilizer
   - BoxBeanbag
   - WeaponDisabler
-  - WeaponShotgunKammererBeanbag
-  - WeaponShotgunEnforcerBeanbag
+  - WeaponShotgunKammererBeanbag #imp
+  - WeaponShotgunEnforcerBeanbag #imp
 
 #- type: technology # imp - combining draconic and uranium munitions research
 #  id: UraniumMunitions
@@ -125,6 +125,8 @@
   - FlashPayload
   - ExplosivePayload
   - ChemicalPayload
+  - CableDetStack1
+  - EmptyDetonator
   - SignallerDeadMans # DeltaV - Dead Man's Signaller
 
 - type: technology
@@ -168,6 +170,21 @@
   cost: 10000
   recipeUnlocks:
   - WeaponXrayCannon
+  - WeaponDisablerCarbine #imp
+
+- type: technology
+  id: KineticModifications
+  name: research-technology-kinetic-modifications
+  icon:
+    sprite: Objects/Tools/upgrade.rsi
+    state: display
+  discipline: Arsenal
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - PKAUpgradeDamage
+  - PKAUpgradeRange
+  - PKAUpgradeFireRate
 
 - type: technology
   id: BasicShuttleArmament
@@ -190,6 +207,18 @@
   - ShuttleGunFriendshipCircuitboard
   technologyPrerequisites:
   - SalvageWeapons
+
+- type: technology
+  id: DualWieldingTechnology
+  name: research-technology-dual-wielding-technology
+  icon:
+    sprite: Clothing/Back/Specific/harmpack.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - ClothingBackpackHarmpack
 
 # Tier 3
 

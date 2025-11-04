@@ -1,10 +1,10 @@
 - type: cargoProduct
-  id: ServiceJanitorialCleanades
+  id: ServiceSpaceCleaner
   icon:
-    sprite: Objects/Specific/Janitorial/wet_floor_sign.rsi
-    state: icon
-  product: CrateServiceCleanades
-  cost: 800
+    sprite: Structures/Storage/tanks.rsi
+    state: cleanerdispenser
+  product: CrateServiceSpaceCleaner
+  cost: 750
   category: cargoproduct-category-name-service
   group: market
 
@@ -35,6 +35,17 @@
 #    sprite: _Impstation/Objects/Fun/bouquet.rsi
 #    state: icon
 #  product: CrateValentinesFilled
+#  cost: 750
+#  category: cargoproduct-category-name-fun
+#  group: market
+
+#- type: cargoProduct # come back next june
+#  name: anniversary crate
+#  id: CrateAnniversary
+#  icon:
+#    sprite: _Impstation/Objects/Fun/toys.rsi
+#    state: plushie_imp
+#  product: CrateAnniversaryFilled
 #  cost: 750
 #  category: cargoproduct-category-name-fun
 #  group: market

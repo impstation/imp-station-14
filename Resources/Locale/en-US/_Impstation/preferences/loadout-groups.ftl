@@ -5,6 +5,7 @@ loadout-group-tank-harness-aquatic = Tank harness for water-breathers
 loadout-group-tank-harness-command-aquatic = Command tank harness for water-breathers
 loadout-group-tank-harness-with-outerwear-aquatic = Tank harness for water-breathers (in inventory)
 loadout-group-tank-harness-command-with-outerwear-aquatic = Command tank harness for water-breathers (in inventory)
+loadout-group-breath-tool-command = Species-dependent breath tools for command
 loadout-group-breath-tool-decapoid = Vaporizer for decapoids
 loadout-group-breath-tool-inventory-decapoid = Vaporizer for decapoids (in inventory)
 loadout-group-breath-tool-inventory-decapoid-clown = Vaporizer for decapoid clowns (in inventory)
@@ -74,7 +75,9 @@ loadout-group-clown-mask = Clown mask
 loadout-group-clown-neck = Clown neck
 
 loadout-group-musician-neck = Musician neck
+loadout-group-musician-gloves = Musician gloves
 loadout-group-musician-shoes = Musician shoes
+loadout-group-musician-head = Musician head
 
 loadout-group-reporter-mask = Reporter mask
 loadout-group-reporter-neck = Reporter neck
@@ -86,7 +89,6 @@ loadout-group-quartermaster-headset = Quartermaster headset
 
 loadout-group-cargo-technician-mask = Cargo Technician mask
 loadout-group-cargo-technician-neck = Cargo Technician neck
-loadout-group-cargo-technician-id = Cargo Technician ID
 loadout-group-cargo-technician-belt = Cargo Technician belt
 
 loadout-group-salvage-specialist-neck = Salvage Specialist neck
@@ -100,6 +102,7 @@ loadout-group-courier-backpack = Courier backpack
 loadout-group-courier-neck = Courier neck
 loadout-group-courier-outerclothing = Courier outer clothing
 loadout-group-courier-shoes = Courier shoes
+loadout-group-courier-id = Courier ID
 
 # engineering
 loadout-group-chief-engineer-backpack = Chief Engineer backpack
@@ -126,6 +129,7 @@ loadout-group-head-of-security-belt = Head of Security belt
 loadout-group-security-gun-command = Sidearm
 loadout-group-security-ammo-command = Ammunition
 
+loadout-group-security-glasses = Security glasses
 loadout-group-warden-neck = Warden neck
 loadout-group-upper-security-shoes = Security shoes
 loadout-group-warden-id = Warden ID
@@ -163,6 +167,9 @@ loadout-group-chemist-id = Chemist ID
 loadout-group-paramedic-neck = Paramedic neck
 loadout-group-paramedic-id = Paramedic ID
 
+loadout-group-psychologist-head = Psychologist head
+loadout-group-psychologist-mask = Psychologist mask
 loadout-group-psychologist-neck = Psychologist neck
 loadout-group-psychologist-shoes = Psychologist shoes
 loadout-group-psychologist-outerclothing = Psychologist outer clothing
+loadout-group-psychologist-backpack = Psychologist backpack

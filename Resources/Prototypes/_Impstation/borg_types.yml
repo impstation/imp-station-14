@@ -12,7 +12,9 @@
     - BorgModuleCargo
 
   defaultModules:
-  - BorgModuleAppraisal # Idk man, I didn't want to let them start with nothing lol
+  - BorgModuleTool
+  - BorgModuleAppraisal
+  - BorgModuleCourier # Imp
 
   radioChannels:
   - Supply
@@ -25,3 +27,5 @@
   spriteHasMindState: cargo_e
   spriteNoMindState: cargo_e_r
   spriteToggleLightState: cargo_l
+
+  pdaBorderColor: "#e39751"

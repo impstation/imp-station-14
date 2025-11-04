@@ -7,7 +7,9 @@
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
   - type: Item
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    size: Normal
+    size: Large
+    shape:
+    - 0,0,2,1
   - type: GunWieldBonus
     minAngle: -43
     maxAngle: -43
@@ -24,6 +26,8 @@
       path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
     soundEmpty: # imp edit
       path: /Audio/_Impstation/Weapons/Guns/Empty/dry_fire.ogg
+      params:
+        volume: -5
   - type: AmmoCounter
   - type: Appearance
   - type: GenericVisualizer

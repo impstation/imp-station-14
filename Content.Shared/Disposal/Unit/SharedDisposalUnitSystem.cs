@@ -1,12 +1,9 @@
 using System.Linq;
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Components;
 using Content.Shared.Climbing.Systems;
 using Content.Shared.Containers;
 using Content.Shared.Database;
-using Content.Shared.DeviceLinking; // Goobstation
 using Content.Shared.Disposal.Components;
 using Content.Shared.Disposal.Unit.Events;
 using Content.Shared.DoAfter;
@@ -17,10 +14,12 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
+using Content.Shared.Storage.Components;
 using Content.Shared.Throwing;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
@@ -32,14 +31,16 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
-using Robust.Shared.Prototypes; // Goobstation
 using Robust.Shared.Utility;
-
+using Content.Shared.DeviceLinking; // Goobstation
+using Robust.Shared.Prototypes; // Goobstation
 
 namespace Content.Shared.Disposal.Unit;
 
 [Serializable, NetSerializable]
-public sealed partial class DisposalDoAfterEvent : SimpleDoAfterEvent { }
+public sealed partial class DisposalDoAfterEvent : SimpleDoAfterEvent
+{
+}
 
 public abstract class SharedDisposalUnitSystem : EntitySystem
 {
@@ -61,11 +62,12 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] private   readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private   readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedDeviceLinkSystem _device = default!; // Goobstation
 
     public static readonly ProtoId<SourcePortPrototype> ReadyPort = "DisposalReady"; // Goobstation
-    public const float PressurePerSecond = 0.05f;
     protected static TimeSpan ExitAttemptDelay = TimeSpan.FromSeconds(0.5);
+
+    // Percentage
+    public const float PressurePerSecond = 0.05f;
 
     public override void Initialize()
     {
@@ -92,6 +94,9 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         SubscribeLocalEvent<DisposalUnitComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
         SubscribeLocalEvent<DisposalUnitComponent, DragDropTargetEvent>(OnDragDropOn);
         SubscribeLocalEvent<DisposalUnitComponent, ContainerRelayMovementEntityEvent>(OnMovement);
+
+        SubscribeLocalEvent<DisposalUnitComponent, GetDumpableVerbEvent>(OnGetDumpableVerb);
+        SubscribeLocalEvent<DisposalUnitComponent, DumpEvent>(OnDump);
     }
 
     private void AddDisposalAltVerbs(Entity<DisposalUnitComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -143,7 +148,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
             Category = VerbCategory.Insert,
             Act = () =>
             {
-                _handsSystem.TryDropIntoContainer(args.User, args.Using.Value, component.Container, checkActionBlocker: false, args.Hands);
+                _handsSystem.TryDropIntoContainer((args.User, args.Hands), args.Using.Value, component.Container, checkActionBlocker: false);
                 _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(args.User):player} inserted {ToPrettyString(args.Using.Value)} into {ToPrettyString(uid)}");
                 AfterInsert(uid, component, args.Using.Value, args.User);
             }
@@ -448,7 +453,7 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
             return false;
 
         var storable = HasComp<ItemComponent>(entity);
-        if (!storable && !HasComp<BodyComponent>(entity))
+        if (!storable && !HasComp<MobStateComponent>(entity))
             return false;
 
         if (_whitelistSystem.IsBlacklistPass(component.Blacklist, entity) ||
@@ -786,5 +791,24 @@ public abstract class SharedDisposalUnitSystem : EntitySystem
         // create a verb category for "enter"?
         // See also, medical scanner. Also maybe add verbs for entering lockers/body bags?
         args.Verbs.Add(verb);
+    }
+
+    private void OnGetDumpableVerb(Entity<DisposalUnitComponent> ent, ref GetDumpableVerbEvent args)
+    {
+        args.Verb = Loc.GetString("dump-disposal-verb-name", ("unit", ent));
+    }
+
+    private void OnDump(Entity<DisposalUnitComponent> ent, ref DumpEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+        args.PlaySound = true;
+
+        foreach (var entity in args.DumpQueue)
+        {
+            DoInsertDisposalUnit(ent, entity, args.User);
+        }
     }
 }

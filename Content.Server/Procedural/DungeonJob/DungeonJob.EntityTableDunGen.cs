@@ -7,6 +7,8 @@ using Content.Shared.Physics;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonLayers;
 using Robust.Shared.Collections;
+using Robust.Shared.Random; // imp
+using System.Numerics; // imp
 
 namespace Content.Server.Procedural.DungeonJob;
 
@@ -14,23 +16,32 @@ public sealed partial class DungeonJob
 {
     private async Task PostGen(
         EntityTableDunGen gen,
-        Dungeon dungeon,
+        List<Dungeon> dungeons,
+        HashSet<Vector2i> reservedTiles,
         Random random)
     {
-        var availableRooms = new ValueList<DungeonRoom>();
-        availableRooms.AddRange(dungeon.Rooms);
-        var availableTiles = new ValueList<Vector2i>(dungeon.AllTiles);
-
         var count = random.Next(gen.MinCount, gen.MaxCount + 1);
         var npcs = _entManager.System<NPCSystem>();
 
-        for (var i = 0; i < count; i++)
+        foreach (var dungeon in dungeons)
         {
-            while (availableTiles.Count > 0)
+            var availableRooms = new ValueList<DungeonRoom>();
+            availableRooms.AddRange(dungeon.Rooms);
+            var availableTiles = new ValueList<Vector2i>(dungeon.AllTiles);
+
+            while (availableTiles.Count > 0 && count > 0)
             {
                 var tile = availableTiles.RemoveSwap(random.Next(availableTiles.Count));
 
-                if (!_anchorable.TileFree(_grid,
+                await SuspendDungeon();
+
+                if (!ValidateResume())
+                    return;
+
+                if (reservedTiles.Contains(tile))
+                    continue;
+
+                if (!_anchorable.TileFree((_gridUid, _grid),
                         tile,
                         (int) CollisionGroup.MachineLayer,
                         (int) CollisionGroup.MachineLayer))
@@ -41,19 +52,24 @@ public sealed partial class DungeonJob
                 var entities = _entManager.System<EntityTableSystem>().GetSpawns(gen.Table, random).ToList();
                 foreach (var ent in entities)
                 {
-                    var uid = _entManager.SpawnAtPosition(ent, _maps.GridTileToLocal(_gridUid, _grid, tile));
+                    var uid = _entManager.SpawnAtPosition(ent, _maps.GridTileToLocal(_gridUid, _grid, tile).Offset(new Vector2(random.NextFloat(-0.5f, 0.5f), random.NextFloat(-0.5f, 0.5f)))); // imp (Added offset. The Offset allows the entities to be placed anywhere on the tiles boundaries)
                     _entManager.RemoveComponent<GhostRoleComponent>(uid);
                     _entManager.RemoveComponent<GhostTakeoverAvailableComponent>(uid);
                     npcs.SleepNPC(uid);
                 }
 
-                break;
+                count--;
             }
 
-            await SuspendDungeon();
-
-            if (!ValidateResume())
+            if (gen.PerDungeon)
+            {
+                count = random.Next(gen.MinCount, gen.MaxCount + 1);
+            }
+            // Stop if count is 0, otherwise go to next dungeon.
+            else if (count == 0)
+            {
                 return;
+            }
         }
     }
 }

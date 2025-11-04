@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseStorageItem
+  id: GunCaseHoS
+  name: secure briefcase
+  description: An expensive case that's definitely used for transportation of classified documents and nothing else.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/guncase.rsi
+    layers:
+      - map: [ base ]
+        state: icon
+    state: icon
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: icon-open }
+          False: { state: icon }
+  - type: Appearance
+  - type: Item
+    size: Ginormous
+    sprite: _Impstation/Objects/Storage/guncase.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,2
+    storageOpenSound: /Audio/Machines/door_lock_on.ogg
+    storageCloseSound: /Audio/Machines/door_lock_off.ogg

@@ -2,13 +2,15 @@
   id: BulletPistolStun
   name: bullet (.35 stun)
   categories: [ HideSpawnMenu ]
-  parent: BaseBullet
+  parent: ImpstationBaseBullet
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
     layers:
-    - state: rubber
+    - state: stunbullet
+      shader: unshaded
   - type: Projectile
+    impactEffect: BulletImpactEffectKineticStun
     damage:
       types:
         Shock: 2

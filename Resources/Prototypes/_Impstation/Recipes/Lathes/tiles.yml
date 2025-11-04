@@ -1,9 +1,32 @@
 - type: latheRecipe
+  parent: BaseTileRecipe
   id: FloorTileItemApid
   result: FloorTileItemApid
   completetime: 1
   materials:
     Steel: 50
+
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemChapelNE
+  result: FloorTileItemChapelNE
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  parent: FloorTileItemChapelNE
+  id: FloorTileItemChapelNW
+  result: FloorTileItemChapelNW
+
+- type: latheRecipe
+  parent: FloorTileItemChapelNE
+  id: FloorTileItemChapelSE
+  result: FloorTileItemChapelSE
+
+- type: latheRecipe
+  parent: FloorTileItemChapelNE
+  id: FloorTileItemChapelSW
+  result: FloorTileItemChapelSW
 
 - type: latheRecipe
   parent: BaseConcreteTileRecipe

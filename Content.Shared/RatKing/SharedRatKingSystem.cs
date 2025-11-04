@@ -1,25 +1,15 @@
-﻿using Content.Shared.Actions;
-using Content.Shared.DoAfter;
-using Content.Shared.Random;
-using Content.Shared.Random.Helpers;
-using Content.Shared.Verbs;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
+using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.RatKing;
 
 public abstract class SharedRatKingSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -27,7 +17,6 @@ public abstract class SharedRatKingSystem : EntitySystem
         SubscribeLocalEvent<RatKingComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<RatKingComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<RatKingComponent, RatKingOrderActionEvent>(OnOrderAction);
-
         SubscribeLocalEvent<RatKingServantComponent, ComponentShutdown>(OnServantShutdown);
     }
 
@@ -57,12 +46,13 @@ public abstract class SharedRatKingSystem : EntitySystem
         if (!TryComp(uid, out ActionsComponent? comp))
             return;
 
-        _action.RemoveAction(uid, component.ActionRaiseArmyEntity, comp);
-        _action.RemoveAction(uid, component.ActionDomainEntity, comp);
-        _action.RemoveAction(uid, component.ActionOrderStayEntity, comp);
-        _action.RemoveAction(uid, component.ActionOrderFollowEntity, comp);
-        _action.RemoveAction(uid, component.ActionOrderCheeseEmEntity, comp);
-        _action.RemoveAction(uid, component.ActionOrderLooseEntity, comp);
+        var actions = new Entity<ActionsComponent?>(uid, comp);
+        _action.RemoveAction(actions, component.ActionRaiseArmyEntity);
+        _action.RemoveAction(actions, component.ActionDomainEntity);
+        _action.RemoveAction(actions, component.ActionOrderStayEntity);
+        _action.RemoveAction(actions, component.ActionOrderFollowEntity);
+        _action.RemoveAction(actions, component.ActionOrderCheeseEmEntity);
+        _action.RemoveAction(actions, component.ActionOrderLooseEntity);
     }
 
     private void OnOrderAction(EntityUid uid, RatKingComponent component, RatKingOrderActionEvent args)

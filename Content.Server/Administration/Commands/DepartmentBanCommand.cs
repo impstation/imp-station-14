@@ -16,6 +16,9 @@ public sealed class DepartmentBanCommand : IConsoleCommand
     [Dependency] private readonly IPlayerLocator _locator = default!;
     [Dependency] private readonly IBanManager _banManager = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly ILogManager _log = default!;
+
+    private ISawmill? _sawmill;
 
     public string Command => "departmentban";
     public string Description => Loc.GetString("cmd-departmentban-desc");
@@ -29,7 +32,8 @@ public sealed class DepartmentBanCommand : IConsoleCommand
         uint minutes;
         if (!Enum.TryParse(_cfg.GetCVar(CCVars.DepartmentBanDefaultSeverity), out NoteSeverity severity))
         {
-            Logger.WarningS("admin.department_ban", "Department ban severity could not be parsed from config! Defaulting to medium.");
+            _sawmill ??= _log.GetSawmill("admin.department_ban");
+            _sawmill.Warning("Department ban severity could not be parsed from config! Defaulting to medium.");
             severity = NoteSeverity.Medium;
         }
 
@@ -95,11 +99,11 @@ public sealed class DepartmentBanCommand : IConsoleCommand
         // If you are trying to remove the following variable, please don't. It's there because the note system groups role bans by time, reason and banning admin.
         // Without it the note list will get needlessly cluttered.
         var now = DateTimeOffset.UtcNow;
-        var roles = new List<string>();
+        var roles = new List<string>(); // imp collective minds
         foreach (var job in departmentProto.Roles)
         {
             _banManager.CreateRoleBan(targetUid, located.Username, shell.Player?.UserId, null, targetHWid, job, minutes, severity, reason, now);
-            roles.Add(job.Id);
+            roles.Add(job.Id); // imp collective minds
         }
     }
 

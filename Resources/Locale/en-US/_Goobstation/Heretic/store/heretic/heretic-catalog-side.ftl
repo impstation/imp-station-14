@@ -1,3 +1,4 @@
+
 ## stage 3
 knowledge-path-side-s3-armor-name = Armorer’s Ritual
 knowledge-path-side-s3-armor-desc =

@@ -1,4 +1,3 @@
-using Content.Shared.Changeling;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
@@ -7,6 +6,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using Content.Shared._Goobstation.Changeling; //goob
 
 namespace Content.Shared.Atmos.Rotting;
 
@@ -26,11 +26,11 @@ public abstract class SharedRottingSystem : EntitySystem
         SubscribeLocalEvent<PerishableComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<PerishableComponent, ExaminedEvent>(OnPerishableExamined);
 
-        SubscribeLocalEvent<RottingComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<RottingComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<RottingComponent, MobStateChangedEvent>(OnRottingMobStateChanged);
         SubscribeLocalEvent<RottingComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<RottingComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<RottingComponent, ComponentStartup>(OnStartup); // imp
     }
 
     private void OnPerishableMapInit(EntityUid uid, PerishableComponent component, MapInitEvent args)
@@ -64,6 +64,7 @@ public abstract class SharedRottingSystem : EntitySystem
         args.PushMarkup(Loc.GetString(description, ("target", Identity.Entity(perishable, EntityManager))));
     }
 
+    // imp add
     private void OnStartup(Entity<RottingComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.NextRotUpdate = _timing.CurTime + ent.Comp.RotUpdateRate;
@@ -104,7 +105,8 @@ public abstract class SharedRottingSystem : EntitySystem
 
         args.PushMarkup(Loc.GetString(description, ("target", Identity.Entity(uid, EntityManager))));
 
-        if (HasComp<ChangelingComponent>(args.Examiner) && !HasComp<AbsorbedComponent>(uid))
+        // imp start changeling compatibility
+        if (HasComp<GoobChangelingComponent>(args.Examiner) && !HasComp<GoobAbsorbedComponent>(uid))
         {
             var changelingDescription = stage switch
             {
@@ -114,6 +116,7 @@ public abstract class SharedRottingSystem : EntitySystem
 
             args.PushMarkup(Loc.GetString(changelingDescription, ("target", Identity.Entity(uid, EntityManager))));
         }
+        // imp end
     }
 
     /// <summary>

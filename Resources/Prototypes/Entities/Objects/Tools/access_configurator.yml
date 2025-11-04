@@ -56,6 +56,9 @@
       - Security
       - Service
       - Theatre
+      - GenpopEnter
+      - GenpopLeave
+      - Vault #imp
       privilegedIdSlot:
         name: id-card-console-privileged-id
         ejectSound: /Audio/Machines/id_swipe.ogg
@@ -77,6 +80,7 @@
       requiresComplex: true
       requireActiveHand: false
       singleUser: true
+      inHandsOnly: true
     - type: ItemSlots
     - type: ContainerContainer
       containers:
@@ -144,8 +148,10 @@
     - Xenoborg
     - GenpopEnter
     - GenpopLeave
+    - Vault #imp
     privilegedIdSlot:
       name: id-card-console-privileged-id
+      startingItem: UniversalIDCard
       ejectSound: /Audio/Machines/id_swipe.ogg
       insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
       ejectOnBreak: true

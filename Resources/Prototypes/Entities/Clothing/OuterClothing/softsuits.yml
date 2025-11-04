@@ -12,13 +12,14 @@
   - type: Tag
     tags:
     - SuitEVA
-#    - MonkeyWearable #imp
+    # - MonkeyWearable # imp
+    - CorgiWearable
     - WhitelistChameleon
 
 #Syndicate EVA
 - type: entity
-  parent: [ ClothingOuterEVASuitBase, Tier1Contraband ]
-  id: ClothingOuterHardsuitSyndicate # TODO: rename to ClothingOuterEVASuitSyndicate
+  parent: [ ClothingOuterEVASuitBase, Tier1Contraband ] # imp contraband
+  id: ClothingOuterEVASuitSyndicate
   name: syndicate EVA suit
   description: "Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!'"
   components:
@@ -31,6 +32,8 @@
     - SuitEVA
 #    - MonkeyWearable #imp
     - WhitelistChameleon
+  - type: StaticPrice
+    price: 1000 # Helmet is 500
 
 #Emergency EVA
 - type: entity
@@ -56,21 +59,32 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
-#  - type: Tag #imp
-#    tags:
-#    - MonkeyWearable 
+  - type: Tag
+    tags:
+    - CorgiWearable
+    # - MonkeyWearable # imp
+    - ScurretWearable
+    - MonkeyWearable
+    - WhitelistChameleon
 
 #Prisoner EVA
 - type: entity
   parent: ClothingOuterEVASuitBase
   id:  ClothingOuterHardsuitEVAPrisoner
   name: prisoner EVA suit
-  description: A lightweight space suit for prisoners to protect them from the vacuum of space during emergencies.
+  description: An emergency EVA suit meant for prisoners. It's horribly slow and lacking in temperature protection, but enough to buy you time from the harsh vacuum of space.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/eva_prisoner.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 0.7
+    sprintModifier: 0.7
+  - type: HeldSpeedModifier
+  - type: TemperatureProtection
+    heatingCoefficient: 0.75
+    coolingCoefficient: 0.5
   - type: Tag
     tags:
     - SuitEVA
@@ -155,3 +169,7 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon

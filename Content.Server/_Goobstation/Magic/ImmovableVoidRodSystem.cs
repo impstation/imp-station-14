@@ -35,7 +35,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
                 continue;
 
             var tileref = grid.GetTileRef(trans.Coordinates);
-            var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
+            var tile = _prot.Index<ContentTileDefinition>(rod.IceTilePrototype);
             _tile.ReplaceTile(tileref, tile);
         }
     }
@@ -48,18 +48,19 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
 
     private void OnCollide(Entity<ImmovableVoidRodComponent> ent, ref StartCollideEvent args)
     {
-        if ((TryComp<HereticComponent>(args.OtherEntity, out var th) && th.CurrentPath == "Void")
-        || HasComp<GhoulComponent>(args.OtherEntity))
+        if (TryComp<HereticComponent>(args.OtherEntity, out var th) && th.MainPath == "Void")
             return;
 
-        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2.5f), false);
+        _stun.TryAddParalyzeDuration(args.OtherEntity, TimeSpan.FromSeconds(2.5f));
 
         TryComp<TagComponent>(args.OtherEntity, out var tag);
         var tags = tag?.Tags ?? new();
 
-        if (tags.Contains("Wall") && Prototype(args.OtherEntity) != null && Prototype(args.OtherEntity)!.ID != "WallSnowCobblebrick")
+        var proto = Prototype(args.OtherEntity);
+
+        if (tags.Contains("Wall") && proto != null && proto.ID != ent.Comp.SnowWallPrototype)
         {
-            Spawn("WallSnowCobblebrick", Transform(args.OtherEntity).Coordinates);
+            Spawn(ent.Comp.SnowWallPrototype, Transform(args.OtherEntity).Coordinates);
             QueueDel(args.OtherEntity);
         }
     }

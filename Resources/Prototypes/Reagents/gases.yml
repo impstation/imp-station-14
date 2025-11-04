@@ -86,9 +86,6 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
-        - !type:OrganType #imp, thaven lungs don't do chemical reactions
-          type: Thaven
-          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
@@ -144,10 +141,6 @@
           types:
             Poison:
               1
-        conditions: #imp
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
       - !type:Oxygenate #imp, thaven can breathe all gases safely
         conditions:
         - !type:OrganType
@@ -158,9 +151,6 @@
         conditions:
           - !type:ReagentThreshold
             min: 1.5
-          - !type:OrganType #imp, thaven can breathe all gases safely
-            type: Thaven
-            shouldHave: false
         clear: True
         time: 5
   reactiveEffects:
@@ -174,6 +164,8 @@
   name: reagent-name-tritium
   desc: reagent-desc-tritium
   physicalDesc: reagent-physical-desc-ionizing
+  allowedDepartments:
+  - Engineering
   flavor: bitter
   color: "#66ff33"
   tileReactions:
@@ -201,10 +193,6 @@
           types:
             Radiation:
               1
-        conditions: #imp
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
       - !type:Oxygenate #imp, thaven can breathe all gases safely
         conditions:
         - !type:OrganType
@@ -215,9 +203,6 @@
         conditions:
           - !type:ReagentThreshold
             min: 1.5
-          - !type:OrganType #imp, thaven can breathe all gases safely
-            type: Thaven
-            shouldHave: false
         clear: True
         time: 5
 
@@ -267,9 +252,6 @@
           type: Thaven
       - !type:HealthChange
         conditions:
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
         - !type:OrganType
           type: Plant
           shouldHave: false
@@ -290,9 +272,6 @@
         conditions:
         - !type:OrganType
           type: Plant
-          shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
           shouldHave: false
         factor: -4
       # We need a metabolism effect on reagent removal
@@ -375,9 +354,6 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
         emote: Laugh
         showInChat: true
         probability: 0.1
@@ -389,9 +365,6 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
         emote: Scream
         showInChat: true
         probability: 0.01
@@ -402,9 +375,6 @@
           min: 0.5
         - !type:OrganType
           type: Slime
-          shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
           shouldHave: false
         type: Local
         visualType: Medium
@@ -418,12 +388,9 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: NitrousOxide
@@ -431,13 +398,9 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
-        key: ForcedSleep
-        component: ForcedSleeping
+        effectProto: StatusEffectForcedSleeping
         time: 3
-        type: Add
+        type: Update
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -445,9 +408,6 @@
           min: 3.5
         - !type:OrganType
           type: Slime
-          shouldHave: false
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
           shouldHave: false
         ignoreResistances: true
         damage:
@@ -459,6 +419,10 @@
   name: reagent-name-frezon
   desc: reagent-desc-frezon
   physicalDesc: reagent-physical-desc-gaseous
+  allowedDepartments:
+  - Engineering
+  allowedJobs:
+  - Chemist
   flavor: bitter
   color: "#3a758c"
   boilingPoint: -195.8
@@ -472,14 +436,12 @@
         damage:
           types:
             Cellular: 1
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
-        time: 100
-        refresh: false
+        time: 15
       - !type:Drunk
-        boozePower: 100
+        boozePower: 15
       - !type:PopupMessage
         type: Local
         messages: [ "frezon-lungs-cold" ]
@@ -508,24 +470,19 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 0.5
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
         damage:
           types:
             Cellular: 0.5
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentThreshold
           reagent: Frezon
           min: 1
-        key: SeeingRainbows
-        component: SeeingRainbows
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 500
-        refresh: false
       - !type:Drunk
         boozePower: 500
         conditions:
@@ -540,9 +497,6 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 0.5
-        - !type:OrganType #imp, thaven can breathe all gases safely
-          type: Thaven
-          shouldHave: false
       - !type:PopupMessage
         type: Local
         visualType: Medium

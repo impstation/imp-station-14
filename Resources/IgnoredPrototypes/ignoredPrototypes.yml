@@ -6,3 +6,24 @@
 #
 # - /Prototypes/Guidebook
 # - /Prototypes/Catalog/uplink_catalog.yml
+
+# MAP PROTOTYPES
+# All station map prototypes should be consolidated in Prototypes/_Impstation/Maps
+# We're ignoring Wizden map prototypes in the base directory so any changes made by upstream merges can be safely ignored and maintain parity
+# Map prototypes are ignored per-file instead of ignoring the entire directory, otherwise we would have to rename every prototype in salvage.yml, which would suck
+# Any new map prototypes added by upstream should be added here, but since Pools/default.yml is being ignored, missing a prototype shouldn't break anything
+- /Prototypes/Maps/Pools
+- /Prototypes/Maps/amber.yml
+- /Prototypes/Maps/bagel.yml
+- /Prototypes/Maps/box.yml
+- /Prototypes/Maps/centcomm.yml
+- /Prototypes/Maps/elkridge.yml
+- /Prototypes/Maps/exo.yml
+- /Prototypes/Maps/fland.yml
+- /Prototypes/Maps/marathon.yml
+- /Prototypes/Maps/oasis.yml
+- /Prototypes/Maps/packed.yml
+- /Prototypes/Maps/plasma.yml
+- /Prototypes/Maps/reach.yml
+- /Prototypes/Maps/relic.yml
+- /Prototypes/Maps/saltern.yml

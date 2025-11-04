@@ -1,12 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Players.PlayTimeTracking;
-using Robust.Shared.GameObjects;
+using Content.Shared.Roles.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.Mind; // imp heretic
 
 namespace Content.Shared.Roles.Jobs;
 
@@ -18,7 +18,7 @@ public abstract class SharedJobSystem : EntitySystem
     [Dependency] private readonly SharedPlayerSystem _playerSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!; // imp
 
     private readonly Dictionary<string, string> _inverseTrackerLookup = new();
 
@@ -49,7 +49,8 @@ public abstract class SharedJobSystem : EntitySystem
         {
             if (antag.PlayTimeTracker != string.Empty)
                 _inverseTrackerLookup.Add(antag.PlayTimeTracker, antag.ID);
-        } // end imp
+        }
+        // end imp
     }
 
     /// <summary>
@@ -159,6 +160,45 @@ public abstract class SharedJobSystem : EntitySystem
 
     //end imp additions
 
+    /// <summary>
+    /// Tries to get all the departments for a given job. Will return an empty list if none are found.
+    /// </summary>
+    public bool TryGetAllDepartments(string jobProto, out List<DepartmentPrototype> departmentPrototypes)
+    {
+        // not sorting it since there should only be 1 primary department for a job.
+        // this is enforced by the job tests.
+        var departmentProtos = _prototypes.EnumeratePrototypes<DepartmentPrototype>();
+        departmentPrototypes = new List<DepartmentPrototype>();
+        var found = false;
+
+        foreach (var department in departmentProtos)
+        {
+            if (department.Roles.Contains(jobProto))
+            {
+                departmentPrototypes.Add(department);
+                found = true;
+            }
+        }
+
+        return found;
+    }
+
+    /// <summary>
+    /// Try to get the lowest weighted department for the given job. If the job has no departments will return null.
+    /// </summary>
+    public bool TryGetLowestWeightDepartment(string jobProto, [NotNullWhen(true)] out DepartmentPrototype? departmentPrototype)
+    {
+        departmentPrototype = null;
+
+        if (!TryGetAllDepartments(jobProto, out var departmentPrototypes) || departmentPrototypes.Count == 0)
+            return false;
+
+        departmentPrototypes.Sort((x, y) => y.Weight.CompareTo(x.Weight));
+
+        departmentPrototype = departmentPrototypes[0];
+        return true;
+    }
+
     public bool MindHasJobWithId(EntityUid? mindId, string prototypeId)
     {
 
@@ -180,7 +220,7 @@ public abstract class SharedJobSystem : EntitySystem
         prototype = null;
         MindTryGetJobId(mindId, out var protoId);
 
-        return _prototypes.TryIndex(protoId, out prototype) || prototype is not null;
+        return _prototypes.Resolve(protoId, out prototype) || prototype is not null;
     }
 
     public bool MindTryGetJobId(

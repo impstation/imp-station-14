@@ -188,4 +188,7 @@ chatsan-word-66 = smth
 chatsan-replacement-66 = something
 
 chatsan-word-67 = allg
-chatsan-replacement-67 = all good
+chatsan-replacement-67 = all good=
+
+chatsan-word-68 = idk
+chatsan-replacement-68 = i don't know

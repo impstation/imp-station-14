@@ -1,4 +1,3 @@
-using Content.Server.Administration.Commands;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Preferences.Managers;
@@ -6,13 +5,14 @@ using Content.Server.Station.Systems;
 using Content.Shared.Mind.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Content.Server.Clothing.Systems; // imp
 
 namespace Content.Server.Ghost.Roles
 {
     public sealed partial class GhostRoleSystem
     {
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
-        [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly OutfitSystem _outfit = default!; // imp
 
         private void OnSpawnerTakeCharacter(EntityUid uid, GhostRoleCharacterSpawnerComponent component,
             ref TakeGhostRoleEvent args)
@@ -26,7 +26,7 @@ namespace Content.Server.Ghost.Roles
 
             var character = (HumanoidCharacterProfile)_prefs.GetPreferences(args.Player.UserId).SelectedCharacter;
 
-            var mob = _entityManager.System<StationSpawningSystem>()
+            var mob = _ent.System<StationSpawningSystem>()
                 .SpawnPlayerMob(Transform(uid).Coordinates, null, character, null);
             _transform.AttachToGridOrMap(mob);
 
@@ -42,7 +42,7 @@ namespace Content.Server.Ghost.Roles
             GhostRoleInternalCreateMindAndTransfer(args.Player, uid, mob, ghostRole);
 
             if (outfit != null)
-                SetOutfitCommand.SetOutfit(mob, outfit, _entityManager);
+                _outfit.SetOutfit(mob, outfit); // imp edit
 
             if (++component.CurrentTakeovers < component.AvailableTakeovers)
             {

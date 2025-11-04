@@ -25,15 +25,6 @@
   price: 0.05
 
 - type: material
-  id: HempCloth
-  stackEntity: MaterialHempCloth1
-  name: materials-hemp-cloth
-  unit: materials-unit-roll
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: hemp_cloth }
-  color: "#e7e7de"
-  price: 0.03
-
-- type: material
   id: Durathread
   stackEntity: MaterialDurathread1
   name: materials-durathread
@@ -110,6 +101,14 @@
   price: 0 # Maybe better for it to be priceless, knowing how greedy cargo is.
 
 - type: material
+  id: Cotton
+  name: materials-cotton
+  unit: materials-unit-boll
+  icon: { sprite: Objects/Materials/materials.rsi, state: cotton }
+  color: "#cccccc"
+  price: 0.01 #Who knew cotton was infinitely more valuable than silk
+
+- type: material
   id: Bones
   name: materials-bones
   unit: materials-unit-piece
@@ -136,6 +135,7 @@
 
 - type: material
   id: Diamond
+  stackEntity: MaterialDiamond1
   name: materials-diamond
   unit: materials-unit-piece
   icon: { sprite: Objects/Materials/materials.rsi, state: diamond }

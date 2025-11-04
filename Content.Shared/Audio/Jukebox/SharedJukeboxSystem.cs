@@ -1,16 +1,15 @@
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Emag.Systems; //imp
+using Robust.Shared.Serialization; // Frontier
 
 namespace Content.Shared.Audio.Jukebox;
 
 public abstract class SharedJukeboxSystem : EntitySystem
 {
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] private readonly EmagSystem _emag = default!; // imp
 
-    //imp for everything below this line ------------------
-    //support emagging the jukebox
-    [Dependency] protected readonly EmagSystem _emag = default!;
-
+    //imp start - support emagging the jukebox
     public override void Initialize()
     {
         base.Initialize();
@@ -28,3 +27,11 @@ public abstract class SharedJukeboxSystem : EntitySystem
         args.Handled = true;
     }
 }
+
+// Frontier: Shuffle & Repeat
+[Serializable, NetSerializable]
+public sealed class JukeboxInterfaceState(JukeboxPlaybackMode playbackMode) : BoundUserInterfaceState
+{
+    public JukeboxPlaybackMode PlaybackMode { get; set; } = playbackMode;
+}
+// End Frontier: Shuffle & Repeat
