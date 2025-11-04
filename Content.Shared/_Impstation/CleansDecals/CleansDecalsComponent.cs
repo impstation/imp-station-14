@@ -10,7 +10,7 @@ public sealed partial class CleansDecalsComponent : Component
     /// How long it takes to clean decals.
     /// </summary>
     [DataField]
-    public float CleanDelay = 5.0f;
+    public float CleanDelay = 3.0f;
 
     /// <summary>
     /// The size of the area that will be cleaned.

@@ -1,6 +1,4 @@
-﻿
-
-using Content.Shared.Chemistry.EntitySystems;
+﻿using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Decals;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
