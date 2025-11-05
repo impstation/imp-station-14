@@ -139,8 +139,18 @@
         Brute: 2
   - type: StaminaDamageOnHit
     damage: 20
-  - type: MeleeChemicalInjector
-    solution: Nocturine
+  - type: SolutionContainerManager 
+    solutions:
+      food:
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 6
+        chloralhydrate: 
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 500 
+  - type: MeleeChemicalInjector 
+    solution: chloralhydrate
     transferAmount: 5
   - type: Battery
     maxCharge: 30000
