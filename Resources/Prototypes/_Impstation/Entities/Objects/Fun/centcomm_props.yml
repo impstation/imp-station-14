@@ -1,0 +1,41 @@
+- type: entity
+  parent: BaseStructure
+  id: BrettKellyGooPod
+  suffix: CentComm Prop
+  categories: [ DoNotMap ]
+  name: Gravestone™ generation pod
+  description: A special machine for generating specialized biological assets, similar to a cloning pod. This one seems to have a partially finished bioform floating inside.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/gravestone.rsi
+    drawdepth: Mobs
+    layers:
+     - state: pod
+     - state: unshaded-pod
+       shader: unshaded
+  - type: PointLight
+    color: "#7c2324"
+    energy: 1
+    offset: 0,-0.5
+    radius: 4
+    softness: 5
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieGleef
+  suffix: SPAWN AT YOUR OWN RISK # im serious i dont even want this spawned by admins
+  categories: [ DoNotMap ]
+  name: Gleef plushie
+  description: Try not to catch his attention, lest you get insulted on all comms.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_gleef
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    inhandVisuals:
+      left:
+      - state: gleef-inhand-left
+      right:
+      - state: gleef-inhand-right
