@@ -32,6 +32,8 @@
 - type: hereticKnowledge
   id: WatchtowerStriving
   requiredPower: 2
+  actionPrototypes:
+  - ActionHereticBlazingDash
 
 - type: hereticKnowledge
   id: MarkOfHunt

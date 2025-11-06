@@ -251,3 +251,51 @@
         type: LatheBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
+
+- type: entity
+  id: hereticWatchtower
+  parent: BaseStructure
+  name: eldritch tower
+  description: A small, ghostly tower, leaking some kind of sickly liquid.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.35,0.25,0.35"
+        density: 190
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/watchtower.rsi
+    layers:
+    - state: base
+    - state: flow
+  - type: Clickable
+  - type: ProjectileRedirector
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Electronic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: monitorBroken
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: TimedDespawn
+    lifetime: 60

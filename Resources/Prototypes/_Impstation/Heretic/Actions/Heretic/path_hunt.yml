@@ -1,1 +1,18 @@
 ##hunt path actions
+- type: entity
+  parent: BaseAction
+  id: ActionHereticWatchtower
+  name: Watchtower Striving
+  description: Place down a Watchtower, which will redirect bullets towards your foes or other Watchtowers.
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Heretic/abilities_heretic.rsi
+      state: watchtower_striving
+  - type: InstantAction
+    event: !type:HereticSpawnWatchtowerEvent
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-place-watchtower
