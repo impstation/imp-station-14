@@ -514,8 +514,8 @@
         lid_overlay_lip:  #overlay used over open state
           True: { visible: true }
           False: { visible: false }
-      #imp edit end
-  - type: OverrideSell
+  #- type: OverrideSell
+  # imp edit end
   - type: Fixtures
     fixtures:
       fix1:
@@ -566,9 +566,9 @@
       color: "#EFB341"
       map: [ lid_overlay_lip ]
       offset: 0, 0.65625
-    # imp edit end
-  - type: OverrideSell
-    overrideAccount: Engineering
+  #- type: OverrideSell
+  #  overrideAccount: Engineering
+  # imp edit end
   - type: AccessReader
     access: [["Engineering"]]
 
@@ -606,8 +606,10 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: 0.0, -0.0625 #imp edit, match CrateGeneric
       map: ["enum.PaperLabelVisuals.Layer"]
-  - type: OverrideSell
-    overrideAccount: Medical
+  # imp edit start
+  #- type: OverrideSell
+  #  overrideAccount: Medical
+  # imp edit end
   - type: AccessReader
     access: [["Medical"]]
 
@@ -645,8 +647,10 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: 0.0, -0.0625 #imp edit, match CrateGeneric
       map: ["enum.PaperLabelVisuals.Layer"]
-  - type: OverrideSell
-    overrideAccount: Science
+      # imp edit start
+  #- type: OverrideSell
+    #overrideAccount: Science
+    - # imp edit end
   - type: AccessReader
     access: [["Research"]]
 
@@ -684,8 +688,10 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: 0.0, -0.0625 #imp edit, match CrateGeneric
       map: ["enum.PaperLabelVisuals.Layer"]
-  - type: OverrideSell
-    overrideAccount: Security
+      # imp edit start
+  #- type: OverrideSell
+  #  overrideAccount: Security
+  # imp edit end
   - type: AccessReader
     access: [["Security"]]
 
@@ -723,8 +729,10 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: 0.0, -0.0625 #imp edit, match CrateGeneric
       map: ["enum.PaperLabelVisuals.Layer"]
-  - type: OverrideSell
-    overrideAccount: Service
+      # imp edit start
+  #- type: OverrideSell
+  #  overrideAccount: Service
+  # imp edit end
   - type: AccessReader
     access: [["Service"]]
 
