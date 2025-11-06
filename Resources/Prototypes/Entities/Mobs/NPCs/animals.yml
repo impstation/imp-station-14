@@ -2285,7 +2285,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: [ 'Hiss' ] # Can't thump tail because no body component
+    allowedEmotes: [ 'Hiss', 'Chirp' ] # Can't thump tail because no body component # imp edit to add chirp
   - type: Vocal
     sounds:
       Male: MaleReptilian
@@ -2815,7 +2815,7 @@
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
-    allowedEmotes: ['Click', 'Chitter']
+    allowedEmotes: ['Click', 'Chitter', 'Hiss'] # imp edit to add hiss
   - type: Vocal
     sounds:
       Male: UnisexArachnid

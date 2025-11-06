@@ -74,6 +74,9 @@
     - id: PlushieSnail
       prob: 0.82
       orGroup: Prize
+    - id: PlushieRaptor
+      prob: 0.82
+      orGroup: Prize
     - id: PlushieSnake
       prob: 0.82
       orGroup: Prize
@@ -232,6 +235,9 @@
       orGroup: Prize
     - id: ToyNuke
       prob: 0.03
+      orGroup: Prize
+    - id: PlushieEeepy
+      prob: 0.3
       orGroup: Prize
     sound:
       path: /Audio/Effects/unwrap.ogg
