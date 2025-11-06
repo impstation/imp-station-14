@@ -27,6 +27,18 @@
   - type: MindRole
     subtype: role-subtype-traitor
 
+# Tourist
+- type: entity
+  parent: BaseMindRole
+  id: MindRoleTourist
+  name: Tourist Role
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: Tourist
+    roleType: FreeAgent
+  - type: TouristRole
+
 # V-Rex
 - type: entity
   parent: BaseMindRoleAntag

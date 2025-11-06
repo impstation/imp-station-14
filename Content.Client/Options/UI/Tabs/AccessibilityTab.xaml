@@ -1,6 +1,7 @@
 <Control xmlns="https://spacestation14.io"
          xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         xmlns:ui="clr-namespace:Content.Client.Options.UI">
+         xmlns:ui="clr-namespace:Content.Client.Options.UI"
+         xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"> <!-- imp graphics -->
     <BoxContainer Orientation="Vertical">
         <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
             <BoxContainer Orientation="Vertical" Margin="8">
@@ -25,6 +26,17 @@
                 <Label Text="{Loc 'ui-options-accessability-header-content'}"
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="CensorNudityCheckBox" Text="{Loc 'ui-options-censor-nudity'}" />
+                <!-- Imp add -->
+                <Label Text="{Loc 'ui-options-accessability-header-misc'}"
+                       StyleClasses="LabelKeyText"/>
+                <Label Text="{Loc ui-options-notifier-label}"/>
+                <CheckBox Name="NotifierEnable" Text="{Loc ui-options-notifier-enable}"/>
+                <PanelContainer>
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#4a4d68"/>
+                    </PanelContainer.PanelOverride>
+                    <TextEdit Name="NotifierExamineTextEdit" MinHeight="150" Margin="5 5" />
+                </PanelContainer>
             </BoxContainer>
         </ScrollContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />
