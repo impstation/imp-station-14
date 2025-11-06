@@ -161,7 +161,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         // Set the randomized decay rate
         comp.RealDecayRate = _random.NextFloat(comp.MinDecayRate, comp.MaxDecayRate);
 
-        var physComp = EnsureComp<PhysicsComponent>(ent);
+        var physComp = EnsureComp<PhysicsComponent>(args.Target);
 
         comp.StatusOwner = (args.Target, physComp);
         Dirty(ent, ent.Comp);
