@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: Radar
+  name: long range crew monitoring radar
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/fax_machine.rsi # imp
+    layers:
+    - state: icon
+      map: [ "enum.FaxMachineVisuals.VisualState" ]
+  - type: Icon
+    sprite: _Impstation/Structures/Machines/fax_machine.rsi # imp
+    state: icon
+  - type: Appearance
+  - type: Physics
+    bodyType: Static
+  - type: ApcPowerReceiver
+    powerLoad: 250
+  - type: DeviceNetworkRequiresPower
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SuitSensor
+    transmitFrequencyId: CrewRadar
+  - type: StationLimitedNetwork
+    allowNonStationPackets: true
+  - type: CrewMonitorRadar

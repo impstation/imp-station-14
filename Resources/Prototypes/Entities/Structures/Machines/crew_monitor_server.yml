@@ -32,7 +32,7 @@
     - type: DeviceNetwork
       deviceNetId: Wireless
       transmitFrequencyId: CrewMonitor
-      receiveFrequencyId: SuitSensor
+      receiveFrequencyId: CrewRadar # Imp
       autoConnect: false
     - type: WirelessNetworkConnection
       range: 10000 # Delta-V Maximises the range for the Crew Monitor Server to make it work for Listening Post

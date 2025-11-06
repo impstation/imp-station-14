@@ -514,7 +514,7 @@
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
-    range: 1200
+    range: 600 # Imp change, from 1200
 
 - type: entity
   parent: [ BaseComputerAiAccess, BaseScienceContraband ]
