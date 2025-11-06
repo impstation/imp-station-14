@@ -1,14 +1,12 @@
 using Content.Shared.Actions;
-using Robust.Shared.GameStates;
 
 namespace Content.Shared.Heretic;
-
-[RegisterComponent, NetworkedComponent]
 
 #region Abilities
 
 //Hunt
-public sealed partial class HereticSpawnWatchtowerEvent : InstantActionEvent { }
-public sealed partial class HereticSerpentsFocusEvent : InstantActionEvent { }
+public sealed partial class EventHereticPlaceWatchtower : InstantActionEvent { }
+public sealed partial class EventHereticSerpentFocus : InstantActionEvent { }
+public sealed partial class EventHereticHuntAscend : InstantActionEvent { }
 
 #endregion

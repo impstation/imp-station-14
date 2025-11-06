@@ -13,6 +13,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnPlaceWatchtower(Entity<HereticComponent> ent, ref EventHereticPlaceWatchtower args)
     {
+        if (!TryUseAbility(ent, args))
+            return;
+
+        var xform = Transform(ent);
+        Spawn("hereticWatchtower", _transform.GetMapCoordinates(ent, xform: xform));
+        args.Handled = true;
     }
     private void OnSerpentFocus(Entity<HereticComponent> ent, ref EventHereticSerpentFocus args)
     {

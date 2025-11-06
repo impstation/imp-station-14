@@ -288,7 +288,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 30
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -298,4 +298,8 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: TimedDespawn
-    lifetime: 60
+    lifetime: 25
+  - type: PointLight
+    radius: 3
+    energy: 2.5
+    color: "#6e7500"

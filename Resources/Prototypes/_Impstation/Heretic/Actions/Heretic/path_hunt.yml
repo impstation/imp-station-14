@@ -12,7 +12,25 @@
       sprite: _Impstation/Heretic/abilities_heretic.rsi
       state: watchtower_striving
   - type: InstantAction
-    event: !type:HereticSpawnWatchtowerEvent
+    event: !type:EventHereticPlaceWatchtower
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-place-watchtower
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticSerpentsFocus
+  name: Serpent's Focus
+  description: Focus your senses, which will allow you to see prey through walls - but block out all other vision.
+  components:
+  - type: Action
+    useDelay: 15
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Heretic/abilities_heretic.rsi
+      state: serpents_focus
+  - type: InstantAction
+    event: !type:EventHereticSerpentFocus
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-serpents-focus
