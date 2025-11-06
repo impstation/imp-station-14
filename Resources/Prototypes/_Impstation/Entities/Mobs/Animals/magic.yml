@@ -195,3 +195,45 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Effects/break_stone.ogg
+
+- type: entity
+  name: spider
+  parent: MobGiantSpiderWizard
+  id: MobTinySpiderWizard
+  description: This spider looks little.
+  suffix: Wizard, Tiny
+  components:
+  - type: Accentless
+    removes:
+    - type: ReplacementAccent
+      accent: xeno
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
+  - type: Sprite
+    sprite: _Impstation/Magic/spider.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: spider
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: RandomChanceTriggerCondition
+    successChance: 1
+  - type: DamageOnTrigger
+    damage:
+      types:
+        Piercing: 50
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer

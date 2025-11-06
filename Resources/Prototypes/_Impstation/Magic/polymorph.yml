@@ -28,3 +28,12 @@
       path: /Audio/Magic/forcewall.ogg
     exitPolymorphSound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
+
+- type: polymorph
+  id: WizardTinySpider
+  configuration:
+    entity: MobTinySpiderWizard
+    transferName: false
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true

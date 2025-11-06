@@ -55,6 +55,9 @@ spellbook-staff-animation-description = Bring inanimate objects to life!
 spellbook-wizmov-name = Wizmov
 spellbook-wizmov-description = A 'magical' item for gaining the allegiance of an AI unit.
 
+spellbook-pai-name = Magic mirror
+spellbook-pai-desc = May or may not contain a wise spirit.
+
 spellbook-apprentice-name = Apprentice Hat
 spellbook-apprentice-description = An Apprentice's Hat and Grimoire all in one! Just make sure to give them a tap with it first to ensure their undying loyalty.
 

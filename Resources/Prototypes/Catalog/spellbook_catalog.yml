@@ -89,6 +89,7 @@
     WizCoin: 2
   categories:
   - SpellbookDefensive
+  - LilSpells # imp add
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -102,6 +103,7 @@
     WizCoin: 1
   categories:
   - SpellbookDefensive
+  - LilSpells # imp add
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -169,6 +171,7 @@
     WizCoin: 1
   categories:
   - SpellbookUtility
+  - LilSpells # imp add
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1

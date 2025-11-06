@@ -205,3 +205,55 @@
   - type: PlacementReplacement
     key: walls
   - type: BlockWeather
+
+- type: entity
+  parent: PersonalAI
+  id: PersonalAIMagic
+  name: magic mirror
+  suffix: Wizard
+  description: Your magical guide.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Magic/PAI.rsi
+    layers:
+    - state: pai-base
+    - state: pai-off
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: pai-system-role-name-wizard
+    roleDescription: pai-system-role-description-wizard
+    roleRules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: pai-off }
+          Searching: { state: pai-loading}
+          On: { state: pai-on }
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconXenoborg
+
+- type: entity
+  id: BulletInstaBreakMagic
+  name: magic bullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 1000
+    ignoreResistances: true

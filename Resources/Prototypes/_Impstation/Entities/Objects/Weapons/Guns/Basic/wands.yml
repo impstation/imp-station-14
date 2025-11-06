@@ -47,3 +47,22 @@
     proto: ProjectilePolyboltPig
     capacity: 5
     count: 5
+
+- type: entity
+  name: magical wand of destruction
+  parent: WeaponWandBase
+  id: WeaponWandBreak
+  description: Only the best and brightest of the Space Wizards R&D team worked together to create this beauty.
+  components:
+  - type: Sprite
+    layers:
+    - state: death
+    - state: death-effect
+      map: ["effect"]
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletInstaBreakMagic
+    capacity: 8
+    count: 8

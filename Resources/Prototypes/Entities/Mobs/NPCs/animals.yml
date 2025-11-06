@@ -2973,7 +2973,7 @@
       bloodReagent: Laughter
 
 - type: entity
-  name: wizard spider
+  name: spider # imp edit
   parent: MobGiantSpider
   id: MobGiantSpiderWizard
   description: This spider looks a little magical
@@ -2983,6 +2983,26 @@
     removes:
     - type: ReplacementAccent
       accent: xeno  #let this wizard speak
+  - type: MobThresholds # imp add
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: Sprite # imp add
+    sprite: _Impstation/Magic/spider.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: icon
+  - type: Fixtures # imp add
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
 
 - type: entity
   name: possum

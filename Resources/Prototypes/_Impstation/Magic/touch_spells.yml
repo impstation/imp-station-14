@@ -17,8 +17,45 @@
         factions:
         - Wizard
       - type: MindRole
-        roleType: MindRoleGhostRoleFamiliar
+        roleType: Familiar
   - type: SpeakOnAction
     sentence: action-speech-spell-apprentice
   - type: Magic
     requiresClothes: true
+
+- type: entity
+  parent: BaseActionPolymorph
+  id: ActionPolymorphWizardTinySpider
+  name: Spider Polymorph
+  description: Polymorphs you into a Spider.
+  components:
+  - type: Action
+    icon:
+      sprite: _Impstation/Magic/spider.rsi
+      state: spider
+  - type: InstantAction
+    event: !type:PolymorphActionEvent
+      protoId: WizardTinySpider
+
+- type: entity
+  parent: BaseSmiteAction
+  id: ActionFood
+  name: Consume
+  description: im so hungry i could eat a...
+  components:
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Magic/dinnerbell.ogg
+    icon:
+      sprite: Objects/Consumable/Food/Baked/cake.rsi
+      state: berry_delight
+  - type: EntityTargetAction
+    event: !type:ChangeComponentsSpellEvent
+      toAdd:
+      - type: Edible
+  - type: FlavorProfile
+    flavors:
+      - concerning
+  - type: EatSign
+  - type: SpeakOnAction
+    sentence: action-speech-spell-food
