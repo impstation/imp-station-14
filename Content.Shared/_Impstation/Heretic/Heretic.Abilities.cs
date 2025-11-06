@@ -6,6 +6,7 @@ namespace Content.Shared.Heretic;
 
 //Hunt
 public sealed partial class EventHereticPlaceWatchtower : InstantActionEvent { }
+public sealed partial class EventHereticTeachSerpentFocus : InstantActionEvent { }
 public sealed partial class EventHereticSerpentFocus : InstantActionEvent { }
 public sealed partial class EventHereticHuntAscend : InstantActionEvent { }
 
