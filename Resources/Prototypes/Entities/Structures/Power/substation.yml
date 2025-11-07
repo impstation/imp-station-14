@@ -29,6 +29,9 @@
   - type: Wires
     boardName: wires-board-name-substation
     layoutId: AIGenericAccessNoPower  #imp edit end
+  - type: AccessReader # imp
+    access: [["Engineering"]]
+  - type: ActivatableUIRequiresAccess # imp
 
   # Interface
   - type: BatteryInterface
