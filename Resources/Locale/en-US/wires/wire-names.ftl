@@ -77,7 +77,7 @@ wires-board-name-smartfridge = SmartFridge
 wires-board-name-morgue = Morgue
 wires-board-name-crematorium = Crematorium
 wires-board-name-disposal = Disposal Unit
-wire-board-name-mailchute = Mailing Unit
+wires-board-name-mailchute = Mailing Unit
 wires-board-name-gravity-generator = Gravity Generator
 wires-board-name-grill = Electric Grill
 wires-board-name-fax-machine = Fax Machine
@@ -88,6 +88,7 @@ wires-board-name-medical-assembler = Medical Assembler
 wires-board-name-grinder = Reagent Grinder
 wires-board-name-microwave = Microwave
 wires-board-name-oven = Oven
+wires-board-name-cryosleep = Cryosleep Pod
 # names that get displayed in the wire hacking hud & admin logs.
 
 wire-name-access = ACC
