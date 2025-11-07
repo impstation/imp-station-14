@@ -1,8 +1,8 @@
 using Content.Server.StationEvents.Events;
 using Content.Shared.Access;
 using Content.Shared.Destructible.Thresholds;
-using Content.Shared.Whitelist; // imp
 using Robust.Shared.Prototypes;
+using Content.Shared.Whitelist; // imp
 
 namespace Content.Server.StationEvents.Components;
 

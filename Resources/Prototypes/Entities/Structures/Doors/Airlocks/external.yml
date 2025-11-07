@@ -22,7 +22,9 @@
     group: null
   - type: Tag # imp
     tags: 
-    - ExternalAirlock
+      - Structure
+      - Airlock
+      - ExternalAirlock
 
 - type: entity
   parent: AirlockExternal

@@ -118,11 +118,17 @@ public sealed class GreytideVirusRule : StationEventSystem<GreytideVirusRuleComp
             if (!_access.AreAccessTagsAllowed(accessIds, accessEnt.Value.Comp) || _access.AreAccessTagsAllowed(virusComp.Blacklist, accessEnt.Value.Comp))
                 continue;
 
-            // imp. do an extra check for any banned ents that shouldn't be unlocked
+            // imp. (commented out for refactored logic)
+            // open and bolt airlocks
+            // _door.TryOpenAndBolt(airlockUid, doorComp, airlockComp);
+
+            // imp start
+
+            // do an extra check for any banned ents that shouldn't be unlocked
             if (_whitelist.IsBlacklistPass(virusComp.BannedExtras, airlockUid))
                 continue;
 
-            // imp. pick one of these and apply it to the airlock
+            //  pick one of these and apply it to the airlock
             switch (random.Next(4))
             {
                 case 0:
@@ -137,6 +143,8 @@ public sealed class GreytideVirusRule : StationEventSystem<GreytideVirusRuleComp
                 case 3: // lucky!
                     break;
             }
+
+            // imp end
         }
     }
 }
