@@ -11,11 +11,21 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.NPC.HTN.Preconditions;
+
+/// <summary>
+/// Handles the Conditions for an animal to chase something based on its mood
+/// Also ends the chase based on a timer, at which point the whole HTN branch will cancel.
+/// </summary>
 public sealed partial class ChasePrecondition : HTNPrecondition
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IGameTiming _time = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+
+    public override void Initialize(IEntitySystemManager sysManager)
+    {
+        CanFailLater = true;
+        base.Initialize(sysManager);
+    }
 
     public override bool IsMet(NPCBlackboard blackboard)
     {
@@ -24,7 +34,6 @@ public sealed partial class ChasePrecondition : HTNPrecondition
         // We either have no animal brain OR we aren't ready for the next chase
         // OR If we aren't bored or already chasing
         if (!_entManager.TryGetComponent<AnimalComponent>(owner, out var animalBrain) ||
-            animalBrain.NextChase > _time.CurTime ||
             (animalBrain.CurrentMood != AnimalMood.Bored && animalBrain.CurrentMood != AnimalMood.Chasing))
             return false;
 
@@ -32,12 +41,6 @@ public sealed partial class ChasePrecondition : HTNPrecondition
         if (animalBrain.CurrentMood == AnimalMood.Chasing && animalBrain.EndChase < _time.CurTime)
         {
             animalBrain.CurrentMood = AnimalMood.Tired;
-            animalBrain.NextChase = _time.CurTime + TimeSpan.FromSeconds(animalBrain.MinRestTime, animalBrain.MaxRestTime);
-
-            //var htn = _entManager.GetComponent<HTNComponent>(owner);
-
-            //_htnSystem.ShutdownPlan(htn);
-
             return false;
         }
 

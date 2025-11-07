@@ -15,6 +15,10 @@ using Content.Server._Impstation.NPC.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.NPC.HTN.PrimitiveTasks.Operators;
+
+/// <summary>
+/// Handles figuring out what our chase target is and setting the chasing timer.
+/// </summary>
 public sealed partial class ChaseOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
@@ -38,14 +42,16 @@ public sealed partial class ChaseOperator : HTNOperator
         var result = _entManager.System<NPCUtilitySystem>().GetEntities(blackboard, Prototype);
         var target = result.GetHighest();
 
+        // Are we an animal to begin with?
         if (!_entManager.TryGetComponent<AnimalComponent>(owner, out var animalBrain))
             return (false, null);
 
+        // Is our target real?
         if (!target.IsValid())
             return (false, null);
 
         // It's time to start the chase!
-        if (animalBrain.CurrentMood != AnimalMood.Chasing)
+        if (animalBrain.CurrentMood != AnimalMood.Chasing && animalBrain.CurrentMood != AnimalMood.Tired)
         {
             animalBrain.CurrentMood = AnimalMood.Chasing;
             animalBrain.EndChase = _time.CurTime + animalBrain.MaxChaseTime;

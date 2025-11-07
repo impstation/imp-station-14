@@ -6,6 +6,9 @@
           task: DogCombatCompound
     - tasks:
         - !type:HTNCompoundTask
+          task: DogRestCompound
+    - tasks:
+        - !type:HTNCompoundTask
           task: IdleCompound
 
 - type: htnCompound
@@ -37,16 +40,15 @@
 - type: htnCompound
   id: DogMeleeAttackTargetCompound
   branches:
-    - preconditions:
-      - !type:ChasePrecondition # If this one stops being True, cancel the whole lot
-      - !type:KeyExistsPrecondition
+    - preconditions:                  # Is checked once before beginning the entire task set
+      - !type:KeyExistsPrecondition   # it will not be checked again until a new task set
         key: Target
       tasks:
         - !type:HTNPrimitiveTask
-          operator: !type:MoveToOperator
-            shutdownState: PlanFinished
-            pathfindInPlanning: true
-            removeKeyOnFinish: false
+          operator: !type:MoveToOperator # Has an update function!!!
+            shutdownState: PlanFinished  # this means the task in reality will run
+            pathfindInPlanning: true     # alongside future tasks
+            removeKeyOnFinish: false     # in this case the update function is what makes the NPC move
             targetKey: TargetCoordinates
             pathfindKey: TargetPathfind
             rangeKey: MeleeRange
@@ -56,7 +58,8 @@
         - !type:HTNPrimitiveTask
           operator: !type:MeleeOperator
             targetKey: Target
-          preconditions:
+          preconditions: # These stop the task running before it's ready
+            - !type:ChasePrecondition
             - !type:KeyExistsPrecondition
               key: Target
             - !type:TargetInRangePrecondition
@@ -67,3 +70,50 @@
               id: MeleeService
               proto: NearbyMeleeTargets
               key: Target
+
+- type: htnCompound
+  id: DogRestCompound
+  branches:
+    - preconditions:
+        - !type:AnimalMoodPrecondition
+          animalMood: Tired
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+              proto: NearbyBucklables # Any good chairs or beds nearby?
+        - !type:HTNCompoundTask
+          task: DogGoToSleepCompound # nighty night!
+
+- type: htnCompound
+  id: DogGoToSleepCompound
+  branches:
+    - preconditions:
+        - !type:KeyExistsPrecondition
+          key: Target
+      tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:MoveToOperator
+            pathfindInPlanning: true
+            removeKeyOnFinish: false
+            targetKey: TargetCoordinates
+            pathfindKey: TargetPathfind
+            rangeKey: OntopRange
+        - !type:HTNPrimitiveTask
+          operator: !type:RestOperator
+          preconditions:
+            - !type:TargetInRangePrecondition
+              targetKey: Target
+              rangeKey: MeleeRange
+
+- type: utilityQuery # Imp addition, it gets angry when it's not put here
+  id: NearbyBucklables
+  query:
+    - !type:ComponentQuery
+      components:
+        - type: Strap
+  considerations:
+    - !type:TargetDistanceCon
+      curve: !type:PresetCurve
+        preset: TargetDistance
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve

@@ -13,6 +13,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using NetSerializer;
 
 namespace Content.Server.NPC.HTN;
 
@@ -359,6 +360,8 @@ public sealed class HTNSystem : EntitySystem
         // Run the existing plan still
         var status = HTNOperatorStatus.Finished;
 
+        bool skipUpdate = false;
+
         // Continuously run operators until we can't anymore.
         while (status != HTNOperatorStatus.Continuing && component.Plan != null)
         {
@@ -379,7 +382,24 @@ public sealed class HTNSystem : EntitySystem
                 component.CheckServices = false;
             }
 
-            status = currentOperator.Update(blackboard, frameTime);
+            // Imp edit Start
+            foreach (var con in currentTask.Preconditions)
+            {
+                // If this condition can't fail after the initial check, ignore it
+                if (!con.CanFailLater)
+                    continue;
+
+                // Go back and see if the condition is still true
+                // Good for conditions that are timer based and need the task to stop if the condition stops being met
+                if (!con.IsMet(blackboard))
+                {
+                    status = HTNOperatorStatus.Finished;
+                    skipUpdate = true;
+                }
+            }
+
+            if (!skipUpdate) // Imp edit end
+                status = currentOperator.Update(blackboard, frameTime);
 
             switch (status)
             {

@@ -6,6 +6,9 @@ namespace Content.Server.NPC.HTN.Preconditions;
 [ImplicitDataDefinitionForInheritors]
 public abstract partial class HTNPrecondition
 {
+    // When we check this precondition again later, is it eligible to fail?
+    public bool CanFailLater = false;
+
     /// <summary>
     /// Handles one-time initialization of this precondition.
     /// </summary>
