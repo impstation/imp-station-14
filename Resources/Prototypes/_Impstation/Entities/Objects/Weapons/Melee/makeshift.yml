@@ -60,7 +60,7 @@
     size: Gigantic
   - type: Construction
     graph: MicrowaveSledgehammer
-    node: sword
+    node: sledgehammer
 
 - type: entity
   name: incomplete microwave sledgehammer
@@ -73,6 +73,7 @@
     state: icon
   - type: Item
     size: Gigantic
+    sprite: Objects/Weapons/Melee/incomplete_bat.rsi
   - type: Construction
-    graph: WoodenBat
-    node: incompleteBat
+    graph: MicrowaveSledgehammer
+    node: incompleteSledge
