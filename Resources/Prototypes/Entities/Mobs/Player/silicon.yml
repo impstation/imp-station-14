@@ -96,7 +96,7 @@
       locked: true
   - type: Ringer
   # imp edit end
-  - type: Hands #imp edit VERY EXPERIMENTAL
+  - type: Hands #imp edit, lets the ai toggle power on devices that allow it
 
 - type: entity
   id: AiHeldIntellicard

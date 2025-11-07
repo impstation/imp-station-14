@@ -266,7 +266,7 @@
   - !type:PowerWireAction
   - !type:AccessWireAction
   - !type:SpeechWireAction
-  - !type:LogWireAction #imp edit end
+  - !type:LogWireAction 
 
 - type: wireLayout
   id: GravityGenerator
@@ -292,5 +292,5 @@
   wires:
   - !type:PowerWireAction
   - !type:AccessWireAction
-  - !type:AiInteractWireAction
+  - !type:AiInteractWireAction # imp edit end
   

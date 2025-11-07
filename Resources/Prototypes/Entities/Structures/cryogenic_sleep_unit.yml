@@ -22,6 +22,8 @@
     interfaces:
       enum.CryostorageUIKey.Key:
         type: CryostorageBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: ActivatableUI
     key: enum.CryostorageUIKey.Key
   - type: AccessReader
@@ -62,7 +64,13 @@
         overlay: # imp
           True: { state: sleeper_1-overlay }
           False: { state: sleeper_0-overlay }
-  - type: StationAiWhitelist #Imp edit, does not let ai eject people, can only see whos inside
+  - type: StationAiWhitelist #Imp edit start, does not let ai eject people, can only see whos inside
+  - type: Wires
+    boardName: wires-board-name-cryosleep
+    layoutId: AIGeneric
+  - type: WiresVisuals
+  - type: WiresPanel # imp edit end
+
 
 # This one handles all spawns, latejoin and roundstart.
 - type: entity
