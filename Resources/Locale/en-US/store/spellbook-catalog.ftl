@@ -21,7 +21,7 @@ spellbook-smoke-name = Smoke
 spellbook-smoke-desc = Summons a cloud of smoke, it's pretty obvious.
 
 spellbook-polymorph-spider-name = Spider Polymorph
-spellbook-polymorph-spider-desc = Transforms you into a spider! # imp edit
+spellbook-polymorph-spider-desc = Transforms you into a spider!
 
 spellbook-polymorph-rod-name = Rod Polymorph
 spellbook-polymorph-rod-desc = Change into an Immovable Rod with limited movement.
@@ -39,13 +39,13 @@ spellbook-animate-name = Animate
 spellbook-animate-description = Bring an inanimate object to life!
 
 spellbook-smite-name = Smite
-spellbook-smite-desc = Don't like them? EXPLODE them into giblets! # imp edit
+spellbook-smite-desc = Don't like them? EXPLODE them!
 
 spellbook-cluwne-name = Cluwne's Curse
-spellbook-cluwne-desc = For when you really hate someone and Smite isn't enough. # imp edit
+spellbook-cluwne-desc = For when you really hate someone and Smite isn't enough.
 
 spellbook-slip-name = Slippery Slope
-spellbook-slip-desc = Learn the ancient ways of the Janitor and curse your target to be slippery. # imp edit
+spellbook-slip-desc = Learn the ancient ways of the Janitor and curse your target to be slippery.
 
 spellbook-item-recall-name = Item Recall
 spellbook-item-recall-description = Mark a held item and summon it back at any time with just a snap of your fingers!

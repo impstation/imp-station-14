@@ -83,6 +83,19 @@
     stock: 1
 
 - type: listing
+  id: SpellbookLight
+  name: spellbook-light-name
+  description: spellbook-light-desc
+  productAction: ActionSpawnLight
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: SpellbookSpaceGrease
   name: spellbook-spacegrease-name
   description: spellbook-spacegrease-desc
@@ -127,6 +140,19 @@
   name: spellbook-runes-name
   description: spellbook-runes-desc
   productEntity: ScrollRunes
+  cost:
+    WizCoin: 4
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnCarp
+  name: spellbook-carp-spawn-name
+  description: spellbook-carp-spawn-desc
+  productEntity: SpawnSpellbook
   cost:
     WizCoin: 4
   categories:
@@ -182,7 +208,7 @@
   cost:
     WizCoin: 5
   categories:
-  - LilSpells
+  - SpellBookWand
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -213,19 +239,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: SpellbookWandCarp
-  name: spellbook-wand-carp-name
-  description: spellbook-wand-carp-description
-  productEntity: WeaponWandPolymorphCarp
-  cost:
-    WizCoin: 4
-  categories:
-  - SpellbookWand
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
 
 - type: listing
   id: SpellbookWizmov
@@ -249,46 +262,6 @@
     WizCoin: 5
   categories:
   - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-
-- type: listing
-  id: SpellbookBookWall
-  name: spellbook-wall-name
-  description: spellbook-wall-description
-  productEntity: ForceWallSpellbook
-  cost:
-    WizCoin: 0
-  categories:
-  - LilSpells
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: SpellbookBookBlink
-  name: spellbook-blink-name
-  description: spellbook-blink-description
-  productEntity: BlinkBook
-  cost:
-    WizCoin: 0
-  categories:
-  - LilSpells
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: SpellbookBookKnock
-  name: spellbook-knock-name
-  description: spellbook-knock-description
-  productEntity: KnockSpellbook
-  cost:
-    WizCoin: 0
-  categories:
-  - LilSpells
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1

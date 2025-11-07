@@ -49,13 +49,36 @@
     icon:
       sprite: Objects/Consumable/Food/Baked/cake.rsi
       state: berry_delight
+  - type: SpeakOnAction
+    sentence: action-speech-spell-food
   - type: EntityTargetAction
     event: !type:ChangeComponentsSpellEvent
       toAdd:
       - type: Edible
-  - type: FlavorProfile
-    flavors:
-      - concerning
-  - type: EatSign
-  - type: SpeakOnAction
-    sentence: action-speech-spell-food
+        requiresSpecialDigestion: false
+      - type: FlavorProfile
+        flavors:
+          - concerning
+      - type: EatSign
+      - type: InjectableSolution
+        solution: food
+      - type: RefillableSolution
+        solution: food
+      - type: SolutionContainerManager
+        solutions:
+          food:
+            maxVol: 40
+            reagents:
+            - ReagentId: Nutriment
+              Quantity: 30 # imp
+            - ReagentId: Vitamin
+              Quantity: 5
+      - type: Tag
+        tags:
+        - Cake
+        - KodeEdible
+        - ClothMade
+        - ClothFood
+        - UnguFood
+        - FoodSnack
+        - Meat

@@ -82,7 +82,7 @@
   components:
   - type: Magic
   - type: Action
-    useDelay: 1 # low for testing
+    useDelay: 1200
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/Ambience/ambiruin2.ogg
@@ -100,3 +100,28 @@
   - type: SpeakOnAction
     sentence: action-speech-spell-curse
 
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnLight
+  name: Summon lights
+  description: Happy litte guys who light up the room.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 30
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Animals/bros_hit.ogg
+    icon:
+      sprite: _Impstation/Mobs/Animals/Magic/light.rsi
+      state: light
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MobLightGrub
+        amount: 1
+      offset: 0, 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-summon-light

@@ -20,6 +20,9 @@ spellbook-runes-desc = Place runic circles.
 spellbook-curse-name = Curse
 spellbook-curse-desc = Manifest a curse that latches onto the nearest humanoid.
 
+spellbook-food-name = Consume
+spellbook-food-desc = Makes something irresistibly edible.
+
 # Utility
 spellbook-spacegrease-name = Space Grease
 spellbook-spacegrease-desc = Everyone loves a slip n' slide!
