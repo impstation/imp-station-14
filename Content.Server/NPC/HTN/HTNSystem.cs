@@ -353,14 +353,14 @@ public sealed class HTNSystem : EntitySystem
             RequestPlan(component);
         }
 
-        // Getting a new plan so do nothing.
+        // Imp. Getting a new plan so do nothing.
         if (component.Plan == null)
             return;
 
         // Run the existing plan still
         var status = HTNOperatorStatus.Finished;
 
-        bool skipUpdate = false;
+        bool skipUpdate = false; // Imp
 
         // Continuously run operators until we can't anymore.
         while (status != HTNOperatorStatus.Continuing && component.Plan != null)
