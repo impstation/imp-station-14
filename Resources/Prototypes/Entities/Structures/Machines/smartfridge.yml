@@ -64,6 +64,8 @@
     interfaces:
       enum.SmartFridgeUiKey.Key:
         type: SmartFridgeBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: WiresPanel
   - type: WiresVisuals
   - type: AccessReader
@@ -114,6 +116,9 @@
       collection: MetalThud
   - type: ExplosionResistance
     damageCoefficient: 0.1
+  - type: Wires #imp edit start
+    boardName: wires-board-name-smartfridge
+    layoutId: SmartFridge  #imp edit end
 
 - type: entity
   parent: SmartFridge

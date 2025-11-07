@@ -119,6 +119,7 @@
   wires:
   - !type:PowerWireAction
   - !type:CryoPodEjectLockWireAction
+  - !type:AiInteractWireAction # imp edit
 
 - type: wireLayout
   id: ParticleAccelerator
@@ -233,3 +234,63 @@
   wires:
   - !type:AccessWireAction
   - !type:AiInteractWireAction
+
+- type: wireLayout #imp edit start
+  id: AIGeneric
+  dummyWires: 2
+  wires:
+  - !type:PowerWireAction
+    pulseTimeout: 15
+  - !type:AiInteractWireAction
+
+- type: wireLayout
+  id: AIGenericAccess
+  dummyWires: 2
+  wires:
+  - !type:PowerWireAction
+    pulseTimeout: 15
+  - !type:AiInteractWireAction
+  - !type:AccessWireAction
+
+- type: wireLayout
+  id: AIGenericAccessNoPower
+  dummyWires: 3
+  wires:
+  - !type:AiInteractWireAction
+  - !type:AccessWireAction  
+
+- type: wireLayout
+  id: SmartFridge
+  wires:
+  - !type:AiInteractWireAction
+  - !type:PowerWireAction
+  - !type:AccessWireAction
+  - !type:SpeechWireAction
+  - !type:LogWireAction #imp edit end
+
+- type: wireLayout
+  id: GravityGenerator
+  dummyWires: 3
+  wires:
+  - !type:PowerWireAction
+  - !type:PowerWireAction
+  - !type:PowerWireAction
+  - !type:AiInteractWireAction
+  - !type:DoorAlarmWireAction
+
+- type: wireLayout
+  id: StationAnchor
+  dummyWires: 3
+  wires:
+  - !type:PowerWireAction
+  - !type:PowerWireAction
+  - !type:AiInteractWireAction
+
+- type: wireLayout
+  id: SignalTimer
+  dummyWires: 1
+  wires:
+  - !type:PowerWireAction
+  - !type:AccessWireAction
+  - !type:AiInteractWireAction
+  

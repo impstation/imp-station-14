@@ -97,6 +97,10 @@
       - PowerStorage
       - VoltageNetworks
       - Power
+    - type: StationAiWhitelist #Imp edit
+    - type: Wires
+      boardName: wires-board-name-smes
+      layoutId: AIGenericAccessNoPower  #imp edit end
 
     # Interface
     - type: BatteryInterface
@@ -108,6 +112,8 @@
       interfaces:
         enum.BatteryUiKey.Key:
           type: BatteryBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
     - type: ActivatableUI
       key: enum.BatteryUiKey.Key
 

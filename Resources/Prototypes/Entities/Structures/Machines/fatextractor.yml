@@ -116,3 +116,12 @@
       machine_board: !type:Container
       machine_parts: !type:Container
       entity_storage: !type:Container
+  - type: StationAiWhitelist #Imp edit start
+  - type: WiresVisuals
+  - type: Wires
+    boardName: wires-board-name-lipid-extractor
+    layoutId: AIGeneric  
+  - type: UserInterface
+    interfaces: 
+        enum.WiresUiKey.Key:
+         type: WiresBoundUserInterface # imp edit end

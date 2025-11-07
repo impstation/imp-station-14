@@ -58,6 +58,13 @@
     - type: GuideHelp
       guides:
       - ShuttleCraft
+    - type: StationAiWhitelist #Imp edit start
+    - type: UserInterface
+      interfaces: 
+        enum.WiresUiKey.Key:
+         type: WiresBoundUserInterface
+    - type: WiresPanel
+    - type: WiresVisuals # imp edit end
   placement:
     mode: SnapgridCenter
 
@@ -101,6 +108,9 @@
       shader: unshaded
       visible: false
       offset: 0, 1
+  - type: Wires #imp edit start
+    boardName: wires-board-name-thruster
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: ThrusterUnanchored
@@ -200,6 +210,9 @@
     damageModifierSet: Electronic
   - type: StaticPrice
     price: 2000
+  - type: Wires #imp edit start
+    boardName: wires-board-name-gyroscope
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: GyroscopeUnanchored

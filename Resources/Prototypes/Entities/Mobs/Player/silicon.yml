@@ -96,6 +96,7 @@
       locked: true
   - type: Ringer
   # imp edit end
+  - type: Hands #imp edit VERY EXPERIMENTAL
 
 - type: entity
   id: AiHeldIntellicard
@@ -424,7 +425,7 @@
 # The actual brain inside the core
 - type: entity
   id: StationAiBrain
-  parent: PositronicBrain
+  parent: PositronicBrainAI
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Sprite
@@ -488,6 +489,8 @@
     preinstalled:
     - NewsReaderCartridge
     - NanoChatCartridge
+    - CrewManifestCartridge
+    - NotekeeperCartridge
     cartridgeSlot:
       locked: true
       priority: -1
