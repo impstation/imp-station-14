@@ -87,12 +87,6 @@ public sealed partial class SuitSensorComponent : Component
     public string? ConnectedServer = null;
 
     /// <summary>
-    ///     The frequency the suit sensor sends it state to.
-    /// </summary>
-    [DataField]
-    public ProtoId<DeviceFrequencyPrototype> Frequency = "SuitSensor"; // imp addition
-
-    /// <summary>
     /// The previous mode of the suit. This is used to restore the state when an EMP effect ends.
     /// </summary>
     [DataField, AutoNetworkedField, ViewVariables]

@@ -9,6 +9,7 @@ public sealed partial class CrewMonitoringConsoleComponent : Component
     /// <summary>
     ///     List of all currently connected sensors to this console.
     /// </summary>
+    [DataField]
     public Dictionary<string, SuitSensorStatus> ConnectedSensors = new();
 
     /// <summary>

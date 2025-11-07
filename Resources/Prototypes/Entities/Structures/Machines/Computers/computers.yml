@@ -511,7 +511,7 @@
           type: WiresBoundUserInterface
   - type: CrewMonitoringConsole
   - type: DeviceNetwork
-    deviceNetId: Wireless
+    deviceNetId: Wired # Imp change, from Wireless
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
     range: 600 # Imp change, from 1200

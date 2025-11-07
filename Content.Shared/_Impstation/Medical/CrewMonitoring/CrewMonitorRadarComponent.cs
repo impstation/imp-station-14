@@ -6,15 +6,22 @@ namespace Content.Shared._Impstation.Medical.CrewMonitoring;
 public sealed partial class CrewMonitorRadarComponent : Component
 {
     /// <summary>
-    ///     The server the rdar sends to.
-    ///     The suit sensor will try connecting to a new server when no server is connected.
-    ///     It does this by calling the servers entity system for performance reasons.
+    ///     CurrentlyConnectedServer
     /// </summary>
-    [DataField("server")]
-    public string? ConnectedServer = null;
+    [DataField]
+    public string? ConnectedServerAddress;
+
 
     /// <summary>
     ///     List of all currently connected sensors to this radar.
     /// </summary>
     public readonly Dictionary<string, SuitSensorStatus> SensorStatus = new();
+
+    /// <summary>
+    ///     After what time sensor consider to be lost.
+    /// </summary>
+    [DataField]
+    public float SensorTimeout = 10f;
+
+
 }

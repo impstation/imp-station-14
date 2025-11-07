@@ -21,92 +21,92 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<CrewMonitoringServerComponent, ComponentRemove>(OnRemove);
+        //SubscribeLocalEvent<CrewMonitoringServerComponent, ComponentRemove>(OnRemove); // imp comment out
         SubscribeLocalEvent<CrewMonitoringServerComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
-        SubscribeLocalEvent<CrewMonitoringServerComponent, DeviceNetServerDisconnectedEvent>(OnDisconnected);
+        //SubscribeLocalEvent<CrewMonitoringServerComponent, DeviceNetServerDisconnectedEvent>(OnDisconnected); // imp comment out
     }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        // check update rate
-        _updateDiff += frameTime;
-        if (_updateDiff < UpdateRate)
-            return;
-        _updateDiff -= UpdateRate;
-
-        var servers = EntityQueryEnumerator<CrewMonitoringServerComponent>();
-
-        while (servers.MoveNext(out var id, out var server))
-        {
-            if (!_singletonServerSystem.IsActiveServer(id))
-                continue;
-
-            UpdateTimeout(id);
-            BroadcastSensorStatus(id, server);
-        }
-    }
+    // imp comment out start, moved to CrewMonitorRadarSystem
+    // public override void Update(float frameTime)
+    // {
+    //     base.Update(frameTime);
+    //
+    //     // check update rate
+    //     _updateDiff += frameTime;
+    //     if (_updateDiff < UpdateRate)
+    //         return;
+    //     _updateDiff -= UpdateRate;
+    //
+    //     var servers = EntityQueryEnumerator<CrewMonitoringServerComponent>();
+    //
+    //     while (servers.MoveNext(out var id, out var server))
+    //     {
+    //         if (!_singletonServerSystem.IsActiveServer(id))
+    //             continue;
+    //
+    //         UpdateTimeout(id);
+    //         BroadcastSensorStatus(id, server);
+    //     }
+    // }
+    // imp comment out end
 
     /// <summary>
     /// Adds or updates a sensor status entry if the received package is a sensor status update
     /// </summary>
+    /// imp, changed fairly drastically for crew monitor refactoring
     private void OnPacketReceived(EntityUid uid, CrewMonitoringServerComponent component, DeviceNetworkPacketEvent args)
     {
-        var sensorStatus = _sensors.PacketToSuitSensor(args.Data);
-        if (sensorStatus == null)
-            return;
-
-        sensorStatus.Timestamp = _gameTiming.CurTime;
-        component.SensorStatus[args.SenderAddress] = sensorStatus;
+        _deviceNetworkSystem.QueuePacket(uid, null, args.Data);
     }
 
-    /// <summary>
-    /// Clears the servers sensor status list
-    /// </summary>
-    private void OnRemove(EntityUid uid, CrewMonitoringServerComponent component, ComponentRemove args)
-    {
-        component.SensorStatus.Clear();
-    }
-
-    /// <summary>
-    /// Drop the sensor status if it hasn't been updated for to long
-    /// </summary>
-    private void UpdateTimeout(EntityUid uid, CrewMonitoringServerComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return;
-
-        foreach (var (address, sensor) in component.SensorStatus)
-        {
-            var dif = _gameTiming.CurTime - sensor.Timestamp;
-            if (dif.Seconds > component.SensorTimeout)
-                component.SensorStatus.Remove(address);
-        }
-    }
-
-    /// <summary>
-    /// Broadcasts the status of all connected sensors
-    /// </summary>
-    private void BroadcastSensorStatus(EntityUid uid, CrewMonitoringServerComponent? serverComponent = null, DeviceNetworkComponent? device = null)
-    {
-        if (!Resolve(uid, ref serverComponent, ref device))
-            return;
-
-        var payload = new NetworkPayload()
-        {
-            [DeviceNetworkConstants.Command] = DeviceNetworkConstants.CmdUpdatedState,
-            [SuitSensorConstants.NET_STATUS_COLLECTION] = serverComponent.SensorStatus
-        };
-
-        _deviceNetworkSystem.QueuePacket(uid, null, payload, device: device);
-    }
-
-    /// <summary>
-    /// Clears sensor data on disconnect
-    /// </summary>
-    private void OnDisconnected(EntityUid uid, CrewMonitoringServerComponent component, ref DeviceNetServerDisconnectedEvent _)
-    {
-        component.SensorStatus.Clear();
-    }
+    // imp comment out start, moved to CrewMonitorRadarSystem
+    // /// <summary>
+    // /// Clears the servers sensor status list
+    // /// </summary>
+    // private void OnRemove(EntityUid uid, CrewMonitoringServerComponent component, ComponentRemove args)
+    // {
+    //     component.SensorStatus.Clear();
+    // }
+    //
+    // /// <summary>
+    // /// Drop the sensor status if it hasn't been updated for to long
+    // /// </summary>
+    // private void UpdateTimeout(EntityUid uid, CrewMonitoringServerComponent? component = null)
+    // {
+    //     if (!Resolve(uid, ref component))
+    //         return;
+    //
+    //     foreach (var (address, sensor) in component.SensorStatus)
+    //     {
+    //         var dif = _gameTiming.CurTime - sensor.Timestamp;
+    //         if (dif.Seconds > component.SensorTimeout)
+    //             component.SensorStatus.Remove(address);
+    //     }
+    // }
+    //
+    // /// <summary>
+    // /// Broadcasts the status of all connected sensors
+    // /// </summary>
+    // private void BroadcastSensorStatus(EntityUid uid, CrewMonitoringServerComponent? serverComponent = null, DeviceNetworkComponent? device = null)
+    // {
+    //     if (!Resolve(uid, ref serverComponent, ref device))
+    //         return;
+    //
+    //     var payload = new NetworkPayload()
+    //     {
+    //         [DeviceNetworkConstants.Command] = DeviceNetworkConstants.CmdUpdatedState,
+    //         [SuitSensorConstants.NET_STATUS_COLLECTION] = serverComponent.SensorStatus
+    //     };
+    //
+    //     _deviceNetworkSystem.QueuePacket(uid, null, payload, device: device);
+    // }
+    //
+    // /// <summary>
+    // /// Clears sensor data on disconnect
+    // /// </summary>
+    // private void OnDisconnected(EntityUid uid, CrewMonitoringServerComponent component, ref DeviceNetServerDisconnectedEvent _)
+    // {
+    //     component.SensorStatus.Clear();
+    // }
+    // imp comment out end
 }

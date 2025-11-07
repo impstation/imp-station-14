@@ -14,7 +14,7 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
     [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServerSystem = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
-    public override void Update(float frameTime)
+    public override void Update(float frameTime) // Imp, charged heavily for crew monitoring refactor
     {
         base.Update(frameTime);
 
@@ -43,11 +43,7 @@ public sealed class SuitSensorSystem : SharedSuitSensorSystem
             // Send it to the connected server
             var payload = SuitSensorToPacket(status);
 
-            _protoManager.Resolve(sensor.Frequency, out var frequency);
-            if (frequency != null)
-            {
-                _deviceNetworkSystem.QueuePacket(uid, null, payload, frequency: frequency.Frequency, device: device);
-            }
+            _deviceNetworkSystem.QueuePacket(uid, null, payload, device: device);
         }
     }
 }
