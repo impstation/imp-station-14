@@ -59,6 +59,8 @@
     interfaces:
       enum.ChemMasterUiKey.Key:
         type: ChemMasterBoundUserInterface
+      enum.WiresUiKey.Key: # imp edit start
+        type: WiresBoundUserInterface # imp edit end
   - type: ApcPowerReceiver
     powerLoad: 250
   - type: Appearance
@@ -100,3 +102,7 @@
     guides:
     - Chemicals
     - Chemist
+  - type: StationAiWhitelist #Imp edit end
+  - type: Wires
+    boardName: wires-board-name-chemmaster
+    layoutId: AIGeneric  #imp edit end

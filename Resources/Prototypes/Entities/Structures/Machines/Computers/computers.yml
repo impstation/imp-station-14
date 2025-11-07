@@ -97,7 +97,7 @@
     - DeviceMonitoringAndControl
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess #imp edit
   id: ComputerEmergencyShuttle
   name: emergency shuttle console
   description: Handles authorization to early launch the shuttle.
@@ -120,7 +120,7 @@
     color: "#43ccb5"
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess #imp edit
   id: BaseComputerShuttle
   name: shuttle console
   description: Used to pilot a shuttle.

@@ -62,6 +62,7 @@
         overlay: # imp
           True: { state: sleeper_1-overlay }
           False: { state: sleeper_0-overlay }
+  - type: StationAiWhitelist #Imp edit, does not let ai eject people, can only see whos inside
 
 # This one handles all spawns, latejoin and roundstart.
 - type: entity

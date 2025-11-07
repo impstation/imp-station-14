@@ -39,6 +39,8 @@
     interfaces:
       enum.SignalTimerUiKey.Key:
         type: SignalTimerBoundUserInterface
+      enum.WiresUiKey.Key: # imp edit start
+        type: WiresBoundUserInterface # imp edit end
   - type: Electrified
     enabled: false
     usesApcPower: true
@@ -99,6 +101,12 @@
   - type: ContainerFill
     containers:
       board: [ BrigTimerElectronics ]
+  - type: WiresVisuals
+  - type: WiresPanel
+  - type: Wires
+    boardName: wires-board-name-timer
+    layoutId: ScreenTimer
+
 
 # Construction Frame
 

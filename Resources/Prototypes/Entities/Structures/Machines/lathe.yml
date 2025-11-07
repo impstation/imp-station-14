@@ -42,6 +42,8 @@
         type: LatheBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Transform
     anchored: true
   - type: Pullable
@@ -54,6 +56,7 @@
     - !type:AutomatedMaterialStorage
       input: AutomationSlotMaterials
       output: null
+  - type: StationAiWhitelist #Imp edit 
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -159,6 +162,9 @@
   - type: EmptyOnMachineDeconstruct
     containers:
     - blueprint
+  - type: Wires #imp edit start
+    boardName: wires-board-name-autolathe
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: AutolatheHyperConvection
@@ -233,6 +239,9 @@
     - SecurityEquipment
     - SecurityWeapons
     - ImpProtoEmagged # Imp
+  - type: Wires
+    boardName: wires-board-name-protolathe
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -299,6 +308,9 @@
         - Ingot
   - type: OreSiloClient
   - type: RequireProjectileTarget
+  - type: Wires #imp edit start
+    boardName: wires-board-name-circuit-imprinter
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: CircuitImprinterHyperConvection
@@ -350,6 +362,9 @@
   - type: GuideHelp
     guides:
     - Robotics
+  - type: Wires #imp edit start
+    boardName: wires-board-name-exosuit-fabricator
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: Biofabricator
@@ -389,6 +404,9 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - HostileCubesStatic
+  - type: Wires #imp edit start
+    boardName: wires-board-name-biofabricator
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: SecurityTechFab
@@ -443,6 +461,9 @@
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]
+  - type: Wires #imp edit start
+    boardName: wires-board-name-secuirty-techfab
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: AmmoTechFab
@@ -482,6 +503,9 @@
           - RawMaterial
           - Ingot
     - type: OreSiloClient
+    - type: Wires #imp edit start
+      boardName: wires-board-name-ammo-techfab
+      layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: MedicalTechFab
@@ -526,6 +550,9 @@
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Medical]
+  - type: Wires #imp edit start
+    boardName: wires-board-name-medical-techfab
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   parent: BaseLathe
@@ -577,6 +604,9 @@
         - RawMaterial
         - Ingot
   - type: OreSiloClient
+  - type: Wires #imp edit start
+    boardName: wires-board-name-uniform-printer
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: Biogenerator
@@ -620,6 +650,9 @@
     staticPacks:
     - BioGenIngredientsStatic
     - BioGenMaterialsStatic
+  - type: Wires #imp edit start
+    boardName: wires-board-name-biogenerator
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   parent: BaseLathe
@@ -660,6 +693,9 @@
       radius: 2.5
       energy: 5
       color: "#ff5a00"
+    - type: Wires #imp edit start
+      boardName: wires-board-name-ore-processor
+      layoutId: AIGeneric  #imp edit end
 
 - type: entity
   parent: OreProcessor
@@ -716,6 +752,9 @@
     runningState: base_machine_processing
     staticPacks:
     - SheetifierStatic
+  - type: Wires #imp edit start
+    boardName: wires-board-name-sheetifier
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   parent: BaseLathe
@@ -762,3 +801,6 @@
         - RawMaterial
         - Plastic
   - type: OreSiloClient
+  - type: Wires #imp edit start
+    boardName: wires-board-name-cutter-machine
+    layoutId: AIGeneric  #imp edit end

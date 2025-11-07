@@ -25,6 +25,10 @@
     supplyRampTolerance: 5000
     supplyRampRate: 1000
   - type: StationInfiniteBatteryTarget
+  - type: StationAiWhitelist #Imp edit start
+  - type: Wires
+    boardName: wires-board-name-substation
+    layoutId: AIGenericAccessNoPower  #imp edit end
 
   # Interface
   - type: BatteryInterface
@@ -36,6 +40,8 @@
     interfaces:
       enum.BatteryUiKey.Key:
         type: BatteryBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: ActivatableUI
     key: enum.BatteryUiKey.Key
 
