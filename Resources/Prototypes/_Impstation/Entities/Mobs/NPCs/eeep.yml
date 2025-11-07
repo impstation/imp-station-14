@@ -39,9 +39,6 @@
     - TemporaryBlindness
     - RadiationProtection
     - Pacified
-  - type: FlavorProfile
-    flavors:
-      - jelly
   - type: InteractionPopup
     successChance: 0.3
     interactSuccessString: petting-success-eeeplet
@@ -141,10 +138,6 @@
     damage: 20
   - type: SolutionContainerManager 
     solutions:
-      food:
-        reagents:
-        - ReagentId: ChloralHydrate
-          Quantity: 6
       chloralhydrate: 
         reagents:
         - ReagentId: ChloralHydrate
