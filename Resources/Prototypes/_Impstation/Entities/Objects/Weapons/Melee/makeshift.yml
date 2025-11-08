@@ -112,9 +112,9 @@
     sprite: Objects/Weapons/Melee/energykatana.rsi
     slots:
     - Back
-  # - type: Construction
-  #   graph: ScrapSword
-  #   node: sword
+  - type: Construction
+    graph: BigScrapSword
+    node: sword
 
 - type: entity
   name: huge sword-shaped scrap
@@ -128,6 +128,15 @@
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/incomplete_bat.rsi
-  # - type: Construction
-  #   graph: MicrowaveSledgehammer
-  #   node: incompleteSledge
+  - type: DamageOtherOnHit
+    staminaCost: 55
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 10s
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Construction
+    graph: BigScrapSword
+    node: incompleteBigSword

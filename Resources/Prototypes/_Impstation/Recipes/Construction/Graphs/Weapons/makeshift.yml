@@ -33,6 +33,7 @@
     - node: sword
       entity: ScrapSword
 
+
 - type: constructionGraph
   id: MicrowaveSledgehammer
   start: start
@@ -66,9 +67,56 @@
               doAfter: 6
             - material: Steel
               amount: 15
-              doAfter: 1
+              doAfter: 4
             - tool: Welding
               doAfter: 8
 
     - node: sledgehammer
       entity: improvisedSledge
+
+
+- type: constructionGraph
+  id: BigScrapSword
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: incompleteBigSword
+          steps:
+            - material: Plasteel
+              amount: 5
+              doAfter: 6
+            - material: Steel
+              amount: 15
+              doAfter: 1
+            - material: MetalRod
+              amount: 8
+              doAfter: 1
+            - material: Cable
+              amount: 15
+              doAfter: 1
+
+    - node: incompleteBigSword
+      edges:
+        - to: sword
+          steps:
+            - tool: Welding
+              doAfter: 10
+            - material: Steel
+              amount: 15
+              doAfter: 4
+            - tool: Screwing
+              doAfter: 4
+            - material: Cloth
+              amount: 10
+              doAfter: 4
+            - material: MetalRod
+              amount: 2
+              doAfter: 2
+            - material: Cable
+              amount: 15
+              doAfter: 6
+            - tool: Cutting
+              doAfter: 6
+            - tool: Welding
+              doAfter: 20
