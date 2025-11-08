@@ -1,37 +1,4 @@
 ﻿Entries:
-- author: Stonylogray, mousesweater, and Dinner
-  changes:
-  - message: The syndicate has harnessed Dark Forces to allow traitorous chaplains
-      to produce profaned versions of nullrod items. Go forth and spread chaos!
-    type: Add
-  - message: The aureate quiver has been transmogrified into a belt-slot container
-      rather than a magazine.
-    type: Tweak
-  - message: Nullrods and nullrod items are no longer contraband.
-    type: Tweak
-  - message: The aureole arc now has functioning wielding sprites.
-    type: Fix
-  id: 1898
-  time: '2025-06-27T14:15:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2631
-- author: Darkmajia
-  changes:
-  - message: Lowpop rounds no longer have specifically lower-intensity gamemodes.
-      Chaos reigns upon the world.
-    type: Remove
-  id: 1899
-  time: '2025-06-27T14:17:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2830
-- author: DinnerCalzone
-  changes:
-  - message: Scientist no longer has a playtime requirement.
-    type: Tweak
-  - message: Research Assistant has been limited to 1 slot per map and locks out after
-      5 hours of Science playtime.
-    type: Tweak
-  id: 1900
-  time: '2025-06-27T14:17:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2829
 - author: DinnerCalzone
   changes:
   - message: Most welding tools can now be emptied by right-clicking on them and pressing
@@ -4175,3 +4142,25 @@
   id: 2397
   time: '2025-11-07T22:42:31.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3629
+- author: kipdotnet
+  changes:
+  - message: Fixed vacuum flasks turning into giant error signs when you opened them.
+    type: Fix
+  id: 2398
+  time: '2025-11-08T10:12:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3688
+- author: yesteryuri
+  changes:
+  - message: The paperwork belt holds pens, too.
+    type: Add
+  id: 2399
+  time: '2025-11-08T10:44:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3689
+- author: yesteryuri
+  changes:
+  - message: A few drink flavors got fixed, make sure to order one of everything to
+      check.
+    type: Fix
+  id: 2400
+  time: '2025-11-08T10:44:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3691
