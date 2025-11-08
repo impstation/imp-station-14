@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Whitelist; //imp
 
 namespace Content.Server.Tabletop.Components
 {
@@ -37,5 +38,21 @@ namespace Content.Server.Tabletop.Components
         /// </summary>
         [ViewVariables]
         public TabletopSession? Session { get; set; } = null;
+
+        // imp start
+
+        /// <summary>
+        /// The maximum amount of entities that can be added to a session.
+        /// </summary>
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public int EntMax = 30;
+
+        /// <summary>
+        /// Blacklist for any unsavoury entities. No cockroach gambit, sorry.
+        /// </summary>
+        [DataField]
+        public EntityWhitelist? Blacklist = null;
+
+        //imp end
     }
 }
