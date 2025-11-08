@@ -60,6 +60,8 @@
     icon:
       sprite: Structures/Specific/Anomalies/ice_anom.rsi
       state: pulse
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Magic/icemagicbolt.ogg
   - type: TargetAction
     range: 60
     checkCanAccess: false

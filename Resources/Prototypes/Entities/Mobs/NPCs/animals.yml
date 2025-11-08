@@ -3003,6 +3003,9 @@
         - SmallMobMask
         layer:
         - SmallMobLayer
+  - type: NpcFactionMember # imp add
+    factions:
+      - Wizard
 
 - type: entity
   name: possum

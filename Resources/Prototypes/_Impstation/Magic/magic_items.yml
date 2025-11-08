@@ -164,12 +164,8 @@
         - FullTileMask
         layer:
         - AirlockLayer
-#  - type: ContainerFill
-#    containers:
-#      board: [ DoorElectronics ]
   - type: AccessReader
     access: [["Wizard"]]
-  #  containerAccessProvider: board
   - type: Door
     openSound:
       path: /Audio/_Impstation/Magic/magicdooropen.ogg
@@ -257,3 +253,28 @@
       types:
         Structural: 1000
     ignoreResistances: true
+
+- type: entity
+  parent: ClothingBackpackSatchelHolding
+  id: ClothingBackpackSatchelWizard
+  name: bag of holding
+  description: For wizardly things... or anything else really, you have the room.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Magic/bag.rsi
+    state: open
+    layers:
+    - state: open
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/soft_thump.ogg
+  - type: Storage
+    storageOpenSound: /Audio/_NF/Voice/Goblin/goblin-hiss-01.ogg
+    storageCloseSound: /Audio\Voice\Vulpkanin\dog_snarl3.ogg
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          False: { state: close }
+          True: { state: open }
+  - type: Appearance

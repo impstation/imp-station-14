@@ -120,7 +120,7 @@
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
-      - id: MobLightGrub
+      - id: MobLightSquid
         amount: 1
       offset: 0, 1
   - type: SpeakOnAction

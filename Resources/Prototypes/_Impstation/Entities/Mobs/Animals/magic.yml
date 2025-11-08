@@ -140,7 +140,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      450: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -237,11 +237,14 @@
         - SmallMobMask
         layer:
         - SmallMobLayer
+  - type: NpcFactionMember
+    factions:
+      - Wizard
 
 - type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
-  id: MobLightGrub
-  name: glow grub
+  id: MobLightSquid
+  name: glow squid
   description: Apparently the paralarval form of an eeeplet.
   components:
   - type: MovementSpeedModifier
@@ -308,3 +311,6 @@
     whitelist:
       components:
       - HumanoidAppearance
+  - type: NpcFactionMember
+    factions:
+      - Wizard

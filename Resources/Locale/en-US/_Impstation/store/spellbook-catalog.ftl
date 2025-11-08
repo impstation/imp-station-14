@@ -67,6 +67,21 @@ spellbook-apprentice-description = An Apprentice's Hat and Grimoire all in one! 
 spellbook-wand-bub-name = Bubble Wand
 spellbook-wand-bub-description = Take down your enemies, non-violently... unless they're slimes.
 
+spellbook-light-name = Glow squids
+spellbook-light-desc = Little glowing friends to follow you around.
+
+spellbook-wand-fire-name = Wand of Fire
+spellbook-wand-fire-desc = A more powerfull explosion but with limited uses.
+
+spellbook-wand-break-name = Obliterate
+spellbook-wand-break-desc = For removing anoying walls, or doors, or furniture or-
+
+spellbook-carp-spawn-name = MagiCarp Spawn
+spellbook-carp-spawn-desc = Summons a wizard friendly school of space carp.
+
+spellbook-suit-name = Wizard Hardsuit
+spellbook-suit-desc = Fireball related explosion resistant!
+
 # Event
 
 spellbook-event-summon-magic-gifts-name = Summon Gifts
