@@ -280,3 +280,16 @@
       color: "#00008B"
   - type: Paper
     content: book-text-grayjanitor
+
+- type: entity
+  parent: BookBase
+  id: BookTamlin
+  name: cosmic rays and fairies
+  description: A faint buzzing emanates from inside.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: booktamlin
+  - type: Paper
+    content: book-text-tamlin

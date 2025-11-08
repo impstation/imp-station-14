@@ -4,7 +4,7 @@ book-text-grayjanitor = [color=#510b7c][head=1]Janitorial[/head][/color]
 
         -------
 
-        [head=2]Basic Equipment[/head]
+        Basic Equipment
 
         > mop
         > janitorial trolley
@@ -18,7 +18,7 @@ book-text-grayjanitor = [color=#510b7c][head=1]Janitorial[/head][/color]
 
         -------
 
-        [head=2]Additional Equipment[/head]
+        Additional Equipment
 
         > wet floor sign
         > holosign projector
@@ -28,7 +28,7 @@ book-text-grayjanitor = [color=#510b7c][head=1]Janitorial[/head][/color]
 
         -------
 
-        [head=2]Fluid Acquisition and Disposal[/head]
+        Fluid Acquisition and Disposal
 
         > sipa tank
         > sink
@@ -36,7 +36,7 @@ book-text-grayjanitor = [color=#510b7c][head=1]Janitorial[/head][/color]
 
         -------
 
-        [head=2]Tidying Vru[/head]
+        Tidying Vru
 
         Now, onto thusd (figurative) meat pib potatoes. Gleepzz here blagh clean, right? Lets keep ei simple. Thusd main tools mo’ll zooti putting blagh use zazz thusd trusty mop, pu trash bag, erth cleaner, pib zat jorl zim different buckets.
 
@@ -54,14 +54,14 @@ book-text-grayjanitor = [color=#510b7c][head=1]Janitorial[/head][/color]
 
         -------
 
-        [head=2]Extra Duties[/head]
+        Extra Duties
 
         Pu zigeef yooni mochigi splorp gimbo thusd lookout jazee pu bit more blagh zii, pib there zazz plenty jorl tools tii mou disposal. Keep an eye embinum jazee broken lights, toupa thusd berguh take care jorl mice in thusd kitchen, pib if mozz feeling -really- generous, try blagh restock thusd vending waba-beepis pib emergency closets around thusd station!
 
-        [head=2]Additional Information:[/head]
+        Additional Information:
 
-        [head=3]Erth cleaner[/head]
-        >Recipe
+        Erth cleaner
+        > Recipe
         - ammonia [1]       Mix       - erth cleaner [2]
         - sipa [1]
 
@@ -70,13 +70,13 @@ book-text-grayjanitor = [color=#510b7c][head=1]Janitorial[/head][/color]
         Glump mochigi able blagh clean almost ziip surfaces jorl almost anything glorp may dirty them.
         Thusd yooni mochigi likely blagh appreciate refills.
 
-        [italics]Seems blagh zooti lemony fresh.[/italics]
+        Seems blagh zooti lemony fresh.
 
         -------
 
-        [head=3]Ammonia[/head]
+        Ammonia
 
-        >Recipe
+        > Recipe
         - hydrogen [3]       Mix       - ammonia [4]
         - nitrogen [1]
 
@@ -87,7 +87,7 @@ book-text-grayjanitor = [color=#510b7c][head=1]Janitorial[/head][/color]
         -------
 
 
-        >Sources
+        > Sources
 
         - ammonia (gas) [1]      Condense       - ammonia [.21]
 

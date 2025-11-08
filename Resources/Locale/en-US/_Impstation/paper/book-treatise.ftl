@@ -6,6 +6,7 @@ book-text-treatise = The thought-things are the residents of the world the schol
 
         The thought-things are impossible to fully describe, as they are naught but description. The following are what few remain within my memory as blurred photocopies or whispered anecdotes. If one wishes to know of others, know that the Majors inspired the Fool on his journey to enlightenment.
 
+        ---
 
         The Storm-Queen numbers three, and is the most easily contacted of her kin. She is the threshold between positive and negative, the spark of a shorted circuit, the thunderclap that can be heard in the dreams of those who have witnessed an electrocution. She is as powerful, as bright, and as fleeting as the lightning that she named.
 
@@ -13,7 +14,7 @@ book-text-treatise = The thought-things are the residents of the world the schol
 
         The Discordant Note numbers ten. It is the youngest of the thought-things (though they have no age), as well as the most mischievous. It knows well the secrets of the sine-cycle of consciousness, so it does not require a dream-door, as it can enter through the peaks and valleys. The Note's influence is often perceptible as a bell-chime to those whose essence shimmers.
 
-        The Aristocrat numbers thirteen. Its silence is audible in the last thought of all lives, and to those who have brushed close with such a thought and still live. It grants its=== few chosen with the creeping ice of the year-end and the nothing of the all-end. It is known in many cultures to have a vaguely humanoid appearance.
+        The Aristocrat numbers thirteen. Its silence is audible in the last thought of all lives, and to those who have brushed close with such a thought and still live. It grants its few chosen with the creeping ice of the year-end and the nothing of the all-end. It is known in many cultures to have a vaguely humanoid appearance.
 
         The Windy Atlas numbers seventeen. It is an explorer, a scholar, a skeptic, and by some accounts, the first mortal to ever become manse. Rarely, she reveals itself to those minds that are first-discoverers, perceptible as a single star in an otherwise empty sky, with the sound of wind hitting a sail as its voice.
 
@@ -25,8 +26,8 @@ book-text-treatise = The thought-things are the residents of the world the schol
 
         The Archivist numbers twenty-one and will always number twenty-one, for it is the keeper of the infinity. It has not been known to ever enter a dream; rather, when one is sent to wander the shelves, they may come across a small, white cat, tirelessly sorting the endless volumes within. To those few minds who have entered the archives and returned intact, the Archivist is a treasured friend.
 
+        ---
 
         The thought-things are not gods, nor are they prophets - they have existed for longer than either concept. However, they have been mistaken for such things several times throughout several histories. The Watchman as Apollo, the Aristocrat as the Grim Reaper, the Note as She-Who-Tolls. They are the old gods, the blurry silhouettes from which all the new gods were traced.
-
 
         This is but one revelation of the glory.
