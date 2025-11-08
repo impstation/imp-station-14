@@ -97,8 +97,9 @@
               doAfter: 1
 
     - node: incompleteBigSword
+      entity: ScrapSwordBigIncomplete
       edges:
-        - to: sword
+        - to: bigSword
           steps:
             - tool: Welding
               doAfter: 10
@@ -120,3 +121,6 @@
               doAfter: 6
             - tool: Welding
               doAfter: 20
+
+    - node: bigSword
+      entity: ScrapSwordBig

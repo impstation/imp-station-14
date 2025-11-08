@@ -114,7 +114,7 @@
     - Back
   - type: Construction
     graph: BigScrapSword
-    node: sword
+    node: bigSword
 
 - type: entity
   name: huge sword-shaped scrap
@@ -134,7 +134,7 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 10s
+        Blunt: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Construction
