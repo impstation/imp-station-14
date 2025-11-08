@@ -8,7 +8,7 @@
   - type: Action
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Impstation/Heretic/abilities_heretic.rsi
       state: open_store
   - type: InstantAction
     event: !type:EventHereticOpenStore {}
@@ -25,7 +25,7 @@
     useDelay: 10
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Impstation/Heretic/abilities_heretic.rsi
       state: mansus_grasp
   - type: InstantAction
     event: !type:EventHereticMansusGrasp {}
@@ -42,7 +42,7 @@
     useDelay: 10
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Impstation/Heretic/abilities_heretic.rsi
       state: mansus_link
   - type: TargetAction
   - type: EntityTargetAction

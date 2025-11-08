@@ -435,6 +435,15 @@
             type: Animal
           - !type:ReagentThreshold #imp
             min: 0.12
+      - !type:PopupMessage # imp - let them know why they're puking
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: true
+        type: Local
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-sick" ]
+        probability: 0.2
 
 - type: reagent
   id: Amatoxin
@@ -608,6 +617,15 @@
       - !type:Emote #imp edit
         emote: Crying
         probability: 0.1
+      - !type:PopupMessage # imp - let them know why they're puking
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: true
+        type: Local
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-sick" ]
+        probability: 0.2
   reactiveEffects: # imp edit
     Acidic:
       methods: [ Touch ]
@@ -664,6 +682,15 @@
         damage:
           types:
             Poison: 0.06
+      - !type:PopupMessage # imp - let them know why they're puking
+        conditions:
+        - !type:OrganType
+          type: Animal
+          shouldHave: true
+        type: Local
+        visualType: MediumCaution
+        messages: [ "generic-reagent-effect-sick" ]
+        probability: 0.2
 
 
 - type: reagent
