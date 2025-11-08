@@ -93,10 +93,15 @@
     attackRate: 0.8
     damage:
       types:
-        Slash: 25
-        Blunt: 10
+        Slash: 32.5
+        Blunt: 15
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: MeleeRequiresWield
+  - type: HeldSpeedModifier
+    walkModifier: 0.4
+    sprintModifier: 0.4
   - type: Item
     size: Ginormous
   - type: EmbeddableProjectile
@@ -107,9 +112,9 @@
     sprite: Objects/Weapons/Melee/energykatana.rsi
     slots:
     - Back
-  - type: Construction
-    graph: ScrapSword
-    node: sword
+  # - type: Construction
+  #   graph: ScrapSword
+  #   node: sword
 
 - type: entity
   name: huge sword-shaped scrap
@@ -123,6 +128,6 @@
   - type: Item
     size: Ginormous
     sprite: Objects/Weapons/Melee/incomplete_bat.rsi
-  - type: Construction
-    graph: MicrowaveSledgehammer
-    node: incompleteSledge
+  # - type: Construction
+  #   graph: MicrowaveSledgehammer
+  #   node: incompleteSledge
