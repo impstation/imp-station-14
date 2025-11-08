@@ -1,115 +1,4 @@
 ﻿Entries:
-- author: EpicToast
-  changes:
-  - message: Packed now supports genpop.
-    type: Add
-  id: 1887
-  time: '2025-06-22T06:33:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2849
-- author: starlighthowls
-  changes:
-  - message: NTAS WW now has a zoo!
-    type: Add
-  id: 1888
-  time: '2025-06-22T06:35:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2840
-- author: sev7ves
-  changes:
-  - message: can now teleport to artifacts and anomalies as ghost.
-    type: Tweak
-  id: 1889
-  time: '2025-06-22T08:33:03.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2552
-- author: CombustibleToast
-  changes:
-  - message: Condensers no longer work slower at higher pressures.
-    type: Fix
-  id: 1890
-  time: '2025-06-22T09:46:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2799
-- author: SixValentine
-  changes:
-  - message: Luna is now compliant with modern mapping standards
-    type: Add
-  id: 1891
-  time: '2025-06-22T14:27:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2828
-- author: Jellvisk
-  changes:
-  - message: metamorphic holes can now properly be deconstructed
-    type: Fix
-  id: 1892
-  time: '2025-06-23T01:54:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2852
-- author: crocodilecarousel
-  changes:
-  - message: fish have decided they hate snakes now
-    type: Fix
-  id: 1893
-  time: '2025-06-24T14:33:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2857
-- author: mqole
-  changes:
-  - message: Thaven are now vulnerable to Ion Storms.
-    type: Add
-  id: 1894
-  time: '2025-06-24T23:15:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2850
-- author: DinnerCalzone
-  changes:
-  - message: Airlock sprites have received some adjustments. Some airlocks are associated
-      with different colors than before.
-    type: Tweak
-  id: 1895
-  time: '2025-06-27T11:56:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2867
-- author: ATDoop
-  changes:
-  - message: Added a disclaimer to the character records menu.
-    type: Tweak
-  id: 1896
-  time: '2025-06-27T11:58:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2856
-- author: normalgirl2171
-  changes:
-  - message: No fudging swearing!!!
-    type: Add
-  id: 1897
-  time: '2025-06-27T13:29:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2539
-- author: Stonylogray, mousesweater, and Dinner
-  changes:
-  - message: The syndicate has harnessed Dark Forces to allow traitorous chaplains
-      to produce profaned versions of nullrod items. Go forth and spread chaos!
-    type: Add
-  - message: The aureate quiver has been transmogrified into a belt-slot container
-      rather than a magazine.
-    type: Tweak
-  - message: Nullrods and nullrod items are no longer contraband.
-    type: Tweak
-  - message: The aureole arc now has functioning wielding sprites.
-    type: Fix
-  id: 1898
-  time: '2025-06-27T14:15:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2631
-- author: Darkmajia
-  changes:
-  - message: Lowpop rounds no longer have specifically lower-intensity gamemodes.
-      Chaos reigns upon the world.
-    type: Remove
-  id: 1899
-  time: '2025-06-27T14:17:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2830
-- author: DinnerCalzone
-  changes:
-  - message: Scientist no longer has a playtime requirement.
-    type: Tweak
-  - message: Research Assistant has been limited to 1 slot per map and locks out after
-      5 hours of Science playtime.
-    type: Tweak
-  id: 1900
-  time: '2025-06-27T14:17:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2829
 - author: DinnerCalzone
   changes:
   - message: Most welding tools can now be emptied by right-clicking on them and pressing
@@ -4154,3 +4043,124 @@
   id: 2386
   time: '2025-11-05T09:50:12.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3677
+- author: mqole
+  changes:
+  - message: Heretic abilities have received a fresh coat of paint.
+    type: Tweak
+  id: 2387
+  time: '2025-11-05T14:37:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3676
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: There's a new friend that can pop out of your vents, though they might
+      not be so friendly!
+    type: Add
+  id: 2388
+  time: '2025-11-05T16:06:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3642
+- author: starlighthowls
+  changes:
+  - message: Added allulalo plushie.
+    type: Add
+  - message: Added Eeeplet plushie.
+    type: Add
+  id: 2389
+  time: '2025-11-06T08:31:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3654
+- author: honeyed-lemons
+  changes:
+  - message: The RGB wand now properly makes things RGB!
+    type: Fix
+  - message: The Staff of Animation now properly sets damage and health levels.
+    type: Fix
+  id: 2390
+  time: '2025-11-06T12:37:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3541
+- author: sev7ves
+  changes:
+  - message: Decapoids can use the crusher bolt without dying badly.
+    type: Tweak
+  id: 2391
+  time: '2025-11-06T18:08:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3670
+- author: sev7ves
+  changes:
+  - message: allulalo can use holopads now.
+    type: Fix
+  id: 2392
+  time: '2025-11-06T18:08:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3669
+- author: Kandiyaki
+  changes:
+  - message: allulalo heretics are no longer forced to have a mansus grasp in their
+      nonexistent second hand when drawing a transmutation rune.
+    type: Fix
+  id: 2393
+  time: '2025-11-07T02:14:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3666
+- author: VeeNomine
+  changes:
+  - message: 'Law !@#%: Silicon World'
+    type: Add
+  id: 2394
+  time: '2025-11-07T06:46:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3679
+- author: kipdotnet
+  changes:
+  - message: Folding chairs are now a 1x4 in storage.
+    type: Tweak
+  - message: Allulalo now hold 4u of Ethanotoxin, up from 2u. The guidebook has been
+      updated to clarify that they dont have an unlimited amount of it and shouldnt
+      be gnawing their coworkers to death.
+    type: Tweak
+  - message: Fixed Allulalo being able to use computers from the floor.
+    type: Fix
+  - message: The "No Accent" trait now actually works for Allulalo.
+    type: Fix
+  - message: Allulalo sprites should now have significantly less floating pixels.
+    type: Fix
+  - message: Allulalo are now included on the species guidebook page.
+    type: Fix
+  id: 2395
+  time: '2025-11-07T07:28:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3661
+- author: FlippenPage
+  changes:
+  - message: Conversion Kits have been resprited! And are slightly less jank.
+    type: Fix
+  id: 2396
+  time: '2025-11-07T18:12:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3673
+- author: starlighthowls
+  changes:
+  - message: Engi access is required to change the settings on a SMES or Substation.
+    type: Tweak
+  - message: More little balance changes for Eeeps.
+    type: Tweak
+  - message: Eeeps can now sacrifice their own power to cause an EMP.
+    type: Add
+  id: 2397
+  time: '2025-11-07T22:42:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3629
+- author: kipdotnet
+  changes:
+  - message: Fixed vacuum flasks turning into giant error signs when you opened them.
+    type: Fix
+  id: 2398
+  time: '2025-11-08T10:12:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3688
+- author: yesteryuri
+  changes:
+  - message: The paperwork belt holds pens, too.
+    type: Add
+  id: 2399
+  time: '2025-11-08T10:44:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3689
+- author: yesteryuri
+  changes:
+  - message: A few drink flavors got fixed, make sure to order one of everything to
+      check.
+    type: Fix
+  id: 2400
+  time: '2025-11-08T10:44:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3691
