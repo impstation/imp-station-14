@@ -57,7 +57,7 @@
           #   doAfter: 5
 
     - node: incompleteSledge
-      entity: IncompleteImprovisedSledge
+      entity: ImprovisedSledgeIncomplete
       edges:
         - to: sledgehammer
           steps:

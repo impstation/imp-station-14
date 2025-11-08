@@ -28,6 +28,7 @@
     sprite: Objects/Weapons/Melee/energykatana.rsi
     slots:
     - Back
+    - SuitStorage
   - type: Construction
     graph: ScrapSword
     node: sword
@@ -65,8 +66,56 @@
 - type: entity
   name: incomplete microwave sledgehammer
   parent: BaseItem
-  id: IncompleteImprovisedSledge
+  id: ImprovisedSledgeIncomplete
   description: A microwave attached to a metal pole. This would not make a good weapon yet.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+    sprite: Objects/Weapons/Melee/incomplete_bat.rsi
+  - type: Construction
+    graph: MicrowaveSledgehammer
+    node: incompleteSledge
+
+- type: entity
+  id: ScrapSwordBig
+  parent: [ BaseSword, BaseMajorContraband ]
+  name: Unionworker's Pride
+  description: A true weapon of the people, able to fell any capitalist in but a few mighty swings of it's hulking blade.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/cutlass.rsi
+  - type: DamageOtherOnHit
+    staminaCost: 20
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      types:
+        Slash: 25
+        Blunt: 10
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Ginormous
+  - type: EmbeddableProjectile
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225
+  - type: Clothing # I might remove this later, not sure yet
+    sprite: Objects/Weapons/Melee/energykatana.rsi
+    slots:
+    - Back
+  - type: Construction
+    graph: ScrapSword
+    node: sword
+
+- type: entity
+  name: huge sword-shaped scrap
+  parent: BaseItem
+  id: ScrapSwordBigIncomplete
+  description: An unfinished heap of steel and plasteel struggling to be born as something beautiful. This would not make a good weapon yet.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Melee/incomplete_bat.rsi
