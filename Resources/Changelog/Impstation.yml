@@ -1,148 +1,4 @@
 ﻿Entries:
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The M-1 Energy Shotgun doesn't need to wait 30 seconds to recharge anymore,
-      but recharges a bit slower.
-    type: Tweak
-  id: 1881
-  time: '2025-06-21T01:12:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2802
-- author: ruddygreat
-  changes:
-  - message: Sechuds no longer try to figure out if you should arrest materials!
-    type: Fix
-  id: 1882
-  time: '2025-06-21T01:13:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2834
-- author: widgetbeck
-  changes:
-  - message: Replicators no longer get points or levelup progress from humanoids.
-      They still provide enough spawning progress for a new ghostrole, however.
-    type: Remove
-  - message: Reduced the amount of time Replicators are stunned by EMPs.
-    type: Tweak
-  - message: Gave Replicators their own faction, meaning they should now be counted
-      as hostile by carp and rats.
-    type: Tweak
-  - message: Adjusted Replicator Tier 2 pulling speeds.
-    type: Tweak
-  - message: Adjusted Replicator Tier 3 damage.
-    type: Tweak
-  - message: Increased minimum playercount and decreased event weight for the ReplicatorSpawn
-      event.
-    type: Tweak
-  - message: Fixed Replicator Nests incorrectly assigning spawning progress to certain
-      items. Stacked items should now contribute to spawning more ghostroles.
-    type: Fix
-  id: 1883
-  time: '2025-06-21T22:41:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2847
-- author: widgetbeck
-  changes:
-  - message: Removed the Thaven "your moods are secret" mood - It's more interesting
-      if you treat the moods as secret by default.
-    type: Remove
-  - message: Changed the wording of the Thaven guidebook entry's section on Moods
-      to discourage some LRP behavior.
-    type: Tweak
-  id: 1884
-  time: '2025-06-22T06:19:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2823
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Portable Sensor Array can be manufactured at the Security Techfab
-      alongside the protolathe with a cost adjustment.
-    type: Tweak
-  id: 1885
-  time: '2025-06-22T06:29:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2843
-- author: msTheowo
-  changes:
-  - message: Pen holders
-    type: Add
-  - message: Paper bins are now craftable
-    type: Tweak
-  id: 1886
-  time: '2025-06-22T06:31:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2844
-- author: EpicToast
-  changes:
-  - message: Packed now supports genpop.
-    type: Add
-  id: 1887
-  time: '2025-06-22T06:33:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2849
-- author: starlighthowls
-  changes:
-  - message: NTAS WW now has a zoo!
-    type: Add
-  id: 1888
-  time: '2025-06-22T06:35:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2840
-- author: sev7ves
-  changes:
-  - message: can now teleport to artifacts and anomalies as ghost.
-    type: Tweak
-  id: 1889
-  time: '2025-06-22T08:33:03.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2552
-- author: CombustibleToast
-  changes:
-  - message: Condensers no longer work slower at higher pressures.
-    type: Fix
-  id: 1890
-  time: '2025-06-22T09:46:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2799
-- author: SixValentine
-  changes:
-  - message: Luna is now compliant with modern mapping standards
-    type: Add
-  id: 1891
-  time: '2025-06-22T14:27:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2828
-- author: Jellvisk
-  changes:
-  - message: metamorphic holes can now properly be deconstructed
-    type: Fix
-  id: 1892
-  time: '2025-06-23T01:54:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2852
-- author: crocodilecarousel
-  changes:
-  - message: fish have decided they hate snakes now
-    type: Fix
-  id: 1893
-  time: '2025-06-24T14:33:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2857
-- author: mqole
-  changes:
-  - message: Thaven are now vulnerable to Ion Storms.
-    type: Add
-  id: 1894
-  time: '2025-06-24T23:15:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2850
-- author: DinnerCalzone
-  changes:
-  - message: Airlock sprites have received some adjustments. Some airlocks are associated
-      with different colors than before.
-    type: Tweak
-  id: 1895
-  time: '2025-06-27T11:56:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2867
-- author: ATDoop
-  changes:
-  - message: Added a disclaimer to the character records menu.
-    type: Tweak
-  id: 1896
-  time: '2025-06-27T11:58:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2856
-- author: normalgirl2171
-  changes:
-  - message: No fudging swearing!!!
-    type: Add
-  id: 1897
-  time: '2025-06-27T13:29:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2539
 - author: Stonylogray, mousesweater, and Dinner
   changes:
   - message: The syndicate has harnessed Dark Forces to allow traitorous chaplains
@@ -4177,3 +4033,145 @@
   id: 2380
   time: '2025-11-03T10:37:23.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3649
+- author: starlighthowls
+  changes:
+  - message: Russian people got a lot more Russian.
+    type: Tweak
+  id: 2381
+  time: '2025-11-04T00:31:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3659
+- author: sev7ves
+  changes:
+  - message: Added an accessibility issues notifier. This is used to notify other
+      players of OOC issues like disability, internet issues, or phobias.
+    type: Add
+  id: 2382
+  time: '2025-11-04T02:07:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/2872
+- author: mousesweater
+  changes:
+  - message: new positive traits! slight and hefty!
+    type: Add
+  id: 2383
+  time: '2025-11-04T02:19:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3641
+- author: SixValentine
+  changes:
+  - message: Tesloose bar sign
+    type: Add
+  id: 2384
+  time: '2025-11-04T03:21:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/1893
+- author: sev7ves
+  changes:
+  - message: the star icon does not display on people not using the notifier anymore
+    type: Fix
+  id: 2385
+  time: '2025-11-04T11:53:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3674
+- author: TheGrimbeeper
+  changes:
+  - message: killing revenants will (once again) not also kill the server
+    type: Fix
+  id: 2386
+  time: '2025-11-05T09:50:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3677
+- author: mqole
+  changes:
+  - message: Heretic abilities have received a fresh coat of paint.
+    type: Tweak
+  id: 2387
+  time: '2025-11-05T14:37:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3676
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: There's a new friend that can pop out of your vents, though they might
+      not be so friendly!
+    type: Add
+  id: 2388
+  time: '2025-11-05T16:06:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3642
+- author: starlighthowls
+  changes:
+  - message: Added allulalo plushie.
+    type: Add
+  - message: Added Eeeplet plushie.
+    type: Add
+  id: 2389
+  time: '2025-11-06T08:31:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3654
+- author: honeyed-lemons
+  changes:
+  - message: The RGB wand now properly makes things RGB!
+    type: Fix
+  - message: The Staff of Animation now properly sets damage and health levels.
+    type: Fix
+  id: 2390
+  time: '2025-11-06T12:37:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3541
+- author: sev7ves
+  changes:
+  - message: Decapoids can use the crusher bolt without dying badly.
+    type: Tweak
+  id: 2391
+  time: '2025-11-06T18:08:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3670
+- author: sev7ves
+  changes:
+  - message: allulalo can use holopads now.
+    type: Fix
+  id: 2392
+  time: '2025-11-06T18:08:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3669
+- author: Kandiyaki
+  changes:
+  - message: allulalo heretics are no longer forced to have a mansus grasp in their
+      nonexistent second hand when drawing a transmutation rune.
+    type: Fix
+  id: 2393
+  time: '2025-11-07T02:14:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3666
+- author: VeeNomine
+  changes:
+  - message: 'Law !@#%: Silicon World'
+    type: Add
+  id: 2394
+  time: '2025-11-07T06:46:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3679
+- author: kipdotnet
+  changes:
+  - message: Folding chairs are now a 1x4 in storage.
+    type: Tweak
+  - message: Allulalo now hold 4u of Ethanotoxin, up from 2u. The guidebook has been
+      updated to clarify that they dont have an unlimited amount of it and shouldnt
+      be gnawing their coworkers to death.
+    type: Tweak
+  - message: Fixed Allulalo being able to use computers from the floor.
+    type: Fix
+  - message: The "No Accent" trait now actually works for Allulalo.
+    type: Fix
+  - message: Allulalo sprites should now have significantly less floating pixels.
+    type: Fix
+  - message: Allulalo are now included on the species guidebook page.
+    type: Fix
+  id: 2395
+  time: '2025-11-07T07:28:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3661
+- author: FlippenPage
+  changes:
+  - message: Conversion Kits have been resprited! And are slightly less jank.
+    type: Fix
+  id: 2396
+  time: '2025-11-07T18:12:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3673
+- author: starlighthowls
+  changes:
+  - message: Engi access is required to change the settings on a SMES or Substation.
+    type: Tweak
+  - message: More little balance changes for Eeeps.
+    type: Tweak
+  - message: Eeeps can now sacrifice their own power to cause an EMP.
+    type: Add
+  id: 2397
+  time: '2025-11-07T22:42:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3629

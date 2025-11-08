@@ -168,6 +168,11 @@
 
 - type: latheRecipe
   parent: PrizeCounterPlushieExpensive
+  id: PlushieEeepy
+  result: PlushieEeepy
+
+- type: latheRecipe
+  parent: PrizeCounterPlushieExpensive
   id: PlushieFinfin
   result: PlushieFinfin
   materials:
@@ -218,6 +223,11 @@
   parent: PrizeCounterPlushie
   id: PlushieSnail
   result: PlushieSnail
+
+- type: latheRecipe
+  parent: PrizeCounterPlushie
+  id: PlushieRaptor
+  result: PlushieRaptor
 
 - type: latheRecipe
   parent: PrizeCounterPlushieExpensive

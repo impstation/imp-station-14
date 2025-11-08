@@ -138,6 +138,9 @@
     clumsyHypo: false # these variables were created for this purpose and have been upstreamed
     clumsyVaulting: false
     clumsyDefib: false
+    gunWhitelist:
+      tags:
+        - Crusher
     gunFailedMessage: gun-clumsy-decapoid # The gun slips out of your claws!
   - type: Bloodstream
     bloodReagent: CopperBlood # real life crustaceans are in the same clade as spiders and share a blood type

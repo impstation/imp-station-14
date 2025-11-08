@@ -196,10 +196,15 @@ public sealed partial class MansusGraspSystem : EntitySystem
     {
         var tags = ent.Comp.Tags;
 
+        if(!TryComp<HandsComponent>(args.User, out var userHands))
+        {
+            return;
+        }
+
         if (!args.CanReach
         || !args.ClickLocation.IsValid(EntityManager)
         || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
-        || !MansusGraspActive(args.User) // no grasp - not special
+        || !MansusGraspActive(args.User) && !(userHands.Count <= 1) // no grasp or no extra hand to make a grasp
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
         || (!tags.Contains("Write") && !tags.Contains("DecapoidClaw")) // not a writing implement or decapoid claw
         || args.Target != null && HasComp<ItemComponent>(args.Target)) //don't allow clicking items (otherwise the circle gets stuck to them)
