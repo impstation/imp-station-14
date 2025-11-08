@@ -511,10 +511,10 @@
           type: WiresBoundUserInterface
   - type: CrewMonitoringConsole
   - type: DeviceNetwork
-    deviceNetId: Wired # Imp change, from Wireless
+    deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
   - type: WirelessNetworkConnection
-    range: 600 # Imp change, from 1200
+    range: 400 # Imp change, from 1200
 
 - type: entity
   parent: [ BaseComputerAiAccess, BaseScienceContraband ]

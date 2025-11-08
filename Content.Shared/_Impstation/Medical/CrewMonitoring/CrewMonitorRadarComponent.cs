@@ -23,5 +23,22 @@ public sealed partial class CrewMonitorRadarComponent : Component
     [DataField]
     public float SensorTimeout = 10f;
 
+    /// <summary>
+    ///     How far a radar can properly track someone
+    /// </summary>
+    [DataField]
+    public float MaximumRange = 300f;
 
+    /// <summary>
+    ///     How far someone needs to be for the coordinates to be innaccurate
+    /// </summary>
+    [DataField]
+    public float CorruptRange = 200f;
+
+
+    /// <summary>
+    ///     Variability of corruption
+    /// </summary>
+    [DataField]
+    public float CorruptionValue = 0.03f;
 }

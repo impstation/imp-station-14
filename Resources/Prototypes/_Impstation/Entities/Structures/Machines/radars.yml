@@ -24,3 +24,5 @@
   - type: StationLimitedNetwork
     allowNonStationPackets: true
   - type: CrewMonitorRadar
+  - type: WirelessNetworkConnection
+    range: 300 # Imp change, from 1200
