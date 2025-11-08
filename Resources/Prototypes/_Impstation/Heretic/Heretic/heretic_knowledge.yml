@@ -42,6 +42,8 @@
 - type: hereticKnowledge
   id: MeteoricPouch
   requiredPower: 4
+  ritualPrototypes:
+  - MeteoricPouch
 
 - type: hereticKnowledge
   id: SerpentFocus
@@ -51,15 +53,22 @@
 - type: hereticKnowledge
   id: LionsBane
   requiredPower: 6
+  ritualPrototypes:
+  - LionhunterRifle
 
 - type: hereticKnowledge
   id: SkaptodonCloak
   requiredPower: 7
+  ritualPrototypes:
+  - SkaptodonCloak
 
 - type: hereticKnowledge
   id: AscensionHunt
   requiredPower: 8
+  ritualPrototypes:
+  - AscensionHunt
 
 - type: hereticKnowledge
   id: ManhuntsReversal
   requiredPower: 00
+  event: !type:EventHereticHuntAscend

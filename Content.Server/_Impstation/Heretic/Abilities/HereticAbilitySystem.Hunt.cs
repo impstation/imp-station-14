@@ -1,15 +1,13 @@
-using Content.Shared._EE.Overlays.Switchable;
+using Content.Shared._Impstation.Weapons.Redirect;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Components;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Eye.Blinding.Systems;
-using System;
-using NetCord;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
+    public SoundSpecifier SummonTowerSound = new SoundPathSpecifier("/Audio/Magic/Ethereal_Exit.ogg");
     private void SubscribeHunt()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticPlaceWatchtower>(OnPlaceWatchtower);
@@ -25,6 +23,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         var xform = Transform(ent);
         Spawn("hereticWatchtower", _transform.GetMapCoordinates(ent, xform: xform));
+        _audio.PlayPvs(SummonTowerSound, ent, AudioParams.Default.WithVolume(-3f));
         args.Handled = true;
     }
     private void OnTeachSerpentFocus(Entity<HereticComponent> ent, ref EventHereticTeachSerpentFocus args) //fuck you fuck you fuck you fuck you fuck you fuck you fuck you fuck you
@@ -44,5 +43,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     }
     private void OnHuntAscend(Entity<HereticComponent> ent, ref EventHereticHuntAscend args)
     {
+        EnsureComp<ProjectileRedirectorComponent>(ent);
+        args.Handled = true;
     }
 }

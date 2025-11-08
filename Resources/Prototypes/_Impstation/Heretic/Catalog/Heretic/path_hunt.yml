@@ -110,7 +110,7 @@
   id: HereticHuntPath7
   name: knowledge-path-hunt-s7-name
   description: knowledge-path-hunt-s7-desc
-  icon: { sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi, state: icon }
+  icon: { sprite: _Impstation/Heretic/Hunt/lionhunter.rsi, state: base }
   productHereticKnowledge: LionsBane
   cost:
     KnowledgePoint: 1
@@ -128,7 +128,7 @@
   id: HereticHuntPath8
   name: knowledge-path-hunt-s8-name
   description: knowledge-path-hunt-s8-desc
-  icon: { sprite: _Goobstation/Heretic/eldritch_mobs.rsi, state: stalker }
+  icon: { sprite: _Impstation/Heretic/Hunt/skaptodon.rsi, state: icon }
   productHereticKnowledge: SkaptodonCloak
   cost:
     KnowledgePoint: 2
@@ -143,7 +143,7 @@
   id: HereticHuntPath9
   name: knowledge-path-hunt-s9-name
   description: knowledge-path-hunt-s9-desc
-  icon: { sprite: _Impstation/Heretic/abilities_heretic.rsi, state: reality_uncoil }
+  icon: { sprite: Structures/meat_spike.rsi, state: spike }
   productHereticKnowledge: AscensionHunt
   cost:
     KnowledgePoint: 2

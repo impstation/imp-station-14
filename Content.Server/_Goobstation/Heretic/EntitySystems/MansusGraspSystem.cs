@@ -33,6 +33,7 @@ using Content.Shared.CombatMode.Pacification;
 using Content.Shared.StatusEffectNew;
 using StatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Movement.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -51,11 +52,13 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly MinionSystem _minion = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly PacificationSystem _pacification = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementModStatus = default!;
 
 
 
     private readonly ProtoId<NpcFactionPrototype> _hereticFaction = "Heretic";
+    public static readonly EntProtoId FlashSlowdown = "FlashSlowdownStatusEffect";
+
 
     public void ApplyGraspEffect(EntityUid performer, EntityUid target, HereticComponent heretic)
     {
@@ -113,8 +116,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
             case "Hunt":
                 if (TryComp<CartridgeAmmoComponent>(target, out var ammo))
                     _gun.RefillCartridge(target, ammo);
-                if (heretic.Power >= 4 && HasComp<StatusEffectsComponent>(target)) //hunt doesn't have a traditional "Mark" so its second grasp upgrade goes here
-                    _statusEffect.TryAddStatusEffectDuration(target, "Pacified", TimeSpan.FromSeconds(8)); //TODO: figure out why the hell this isnt working
+                if (heretic.Power >= 4) //hunt doesn't have a traditional "Mark" so its second grasp upgrade goes here
+                    _movementModStatus.TryAddMovementSpeedModDuration(target, FlashSlowdown, TimeSpan.FromSeconds(8), 0.75f);
                 break;
 
             default:

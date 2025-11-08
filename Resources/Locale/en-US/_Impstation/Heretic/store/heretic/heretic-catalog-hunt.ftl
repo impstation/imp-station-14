@@ -52,5 +52,5 @@ knowledge-path-hunt-s9-desc =
     The ascension ritual of the path of Hunt.
     Bring 3 handcuffed corpses to a transmutation rune to complete the ritual.
     This ritual will complete your transformation from Prey to Hunter.
-    You will reflect all projectiles, and gain a heavy stun resistance.
+    You will redirect all projectiles that hit you back at your foes.
     However, you can still be hurt by melee weapons.

@@ -34,3 +34,14 @@
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-serpents-focus
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleSkaptodonCloak
+  name: Skaptodon Cloak
+  description: Toggle your Skaptodon Cloak's invisibility.
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ToggleActionEvent

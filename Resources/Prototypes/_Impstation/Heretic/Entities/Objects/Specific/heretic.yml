@@ -218,7 +218,7 @@
 ##hunt path
 
 - type: entity
-  id: hereticammopouch
+  id: HereticAmmoPouch
   name: meteoric pouch
   parent: [BaseItem, TierXContraband]
   description: A lion-leather pouch, humming with rage.
@@ -262,6 +262,8 @@
   components:
   - type: Physics
     bodyType: Static
+  - type: Visibility
+    layer: 69 #sigh
   - type: Fixtures
     fixtures:
       fix1:
@@ -303,3 +305,51 @@
     radius: 3
     energy: 2.5
     color: "#6e7500"
+
+- type: entity
+  parent: [ ClothingNeckBase, TierXContraband ]
+  id: HereticSkaptodonCloak
+  name: skaptodon cloak
+  description: A large leather half-cloak, adorned with impossibly large teeth.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/skaptodon.rsi
+    layers:
+    - state: icon
+  - type: Item
+  - type: Clothing
+    slots:
+      - NECK
+    sprite: _Impstation/Heretic/Hunt/skaptodon.rsi
+    clothingVisuals:
+      neck:
+      - state: equipped-NECK
+  - type: ItemToggle
+  - type: ToggleClothing
+    action: ActionToggleSkaptodonCloak
+    disableOnUnequip: true
+  - type: ComponentToggler
+    parent: true
+    components:
+    - type: Stealth
+      minVisibility: 0.1
+      lastVisibility: 0.1
+      useAltShader: true
+    - type: StealthOnMove
+      movementVisibilityRate: 1.0
+  - type: PowerCellDraw
+    drawRate: 3.0 # 2 minutes
+  - type: ToggleCellDraw
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmallNuclear ##listen, it was this or it was program like 5 new components
+        disableEject: true
+        swap: false
