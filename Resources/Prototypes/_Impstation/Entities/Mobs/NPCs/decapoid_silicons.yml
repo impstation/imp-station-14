@@ -151,37 +151,6 @@
         - cell_slot
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: HandheldLight
-    toggleOnInteract: false
-    wattage: 0.2
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: LightBehaviour
-    behaviours:
-    - !type:FadeBehaviour
-      id: radiating
-      maxDuration: 2.0
-      startValue: 3.0
-      endValue: 2.0
-      isLooped: true
-      reverseWhenFinished: true
-    - !type:PulseBehaviour
-      id: blinking
-      interpolate: Nearest
-      maxDuration: 1.0
-      startValue: 0.1
-      endValue: 2.0
-      isLooped: true
-  - type: ToggleableVisuals
-    spriteLayer: light
-  - type: ItemTogglePointLight
-  - type: PointLight
-    enabled: false
-    mask: /Textures/Effects/LightMasks/cone.png
-    autoRot: true
-    radius: 4
-    color: "#ff0043"
-    netsync: false
   - type: Pullable
   - type: Puller
     needsHands: false
@@ -191,6 +160,7 @@
     - DoorBumpOpener
     - FootstepSound
     - SiliconEmotes
+    - EmagImmune
   - type: Emoting
   - type: GuideHelp
     guides:
@@ -277,6 +247,37 @@
   - type: SiliconLawProvider
     canBeSubverted: false
     laws: Tcksimov
+  - type: HandheldLight
+    toggleOnInteract: false
+    wattage: 0.2
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      startValue: 0.1
+      endValue: 2.0
+      isLooped: true
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 4
+    color: "#ff0043"
+    netsync: false
   - type: Tag
     tags:
     - CanPilot
@@ -384,8 +385,39 @@
   - type: SiliconLawProvider
     canBeSubverted: false
     laws: Utsimov
+  - type: HandheldLight
+    toggleOnInteract: false
+    wattage: 0.2
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      startValue: 0.1
+      endValue: 2.0
+      isLooped: true
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: ItemTogglePointLight
   - type: PointLight
-    radius: 8
+    radius: 3
+    energy: 4
+    softness: 16
+    color: "#ff5f15"
+    mask: /Textures/Effects/LightMasks/double_cone.png
+    netsync: false
+  - type: RotatingLight
+    speed: 180
   - type: Tag
     tags:
     - DoorBumpOpener

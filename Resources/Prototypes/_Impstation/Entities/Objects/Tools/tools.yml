@@ -149,7 +149,7 @@
   parent: RCDRechargingTckTck
   id: RCDRefreshments
   name: refreshments RCD
-  description: The pinnacle of Decapoid technology, a RCD that makes snacks.
+  description: The pinnacle of Decapoid technology, an RCD that makes snacks.
   suffix: AutoRecharge
   components:
   - type: RCD
@@ -164,7 +164,7 @@
   - type: LimitedCharges
     maxCharges: 10
   - type: AutoRecharge
-    rechargeDuration: 10
+    rechargeDuration: 30
 
 - type: entity
   parent: Crayon
@@ -206,50 +206,9 @@
     price: 50
 
 - type: entity
-  parent: BaseItem
-  id: TckutWeewoo
-  name: weewoo
-  description: A trusty weewoo for responding to incidents.
-  components:
-  - type: HandheldLight
-    addPrefix: false
-    blinkingBehaviourId: blinking
-    radiatingBehaviourId: radiating
-  - type: PointLight
-    enabled: false
-    radius: 3
-    energy: 28
-    color: "#FF5F15"
-    mask: /Textures/Effects/LightMasks/double_cone.png
-  - type: RotatingLight
-    speed: 180
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 2
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-  - type: ContainerContainer
-    containers:
-      cell_slot: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: ItemTogglePointLight
-  - type: Sprite
-    sprite: _Impstation/Objects/Tools/seclite.rsi # imp
-    layers:
-    - state: seclite
-    - state: seclite-overlay
-      shader: unshaded
-      visible: false
-      map: [ "light" ]
-
-- type: entity
-  name: code violation dispenser
+  name: ticket cannon
   parent: BaseWeaponBattery
-  id: TckutTicketDispenser
+  id: TicketCannon
   description: May the mighty hand of the Empire strike fierce the fool who violated code.
   components:
   - type: Sprite
