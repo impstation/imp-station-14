@@ -57,32 +57,23 @@ public sealed partial class RestOperator : HTNOperator, IHtnConditionalShutdown
     {
         base.Update(blackboard, frameTime);
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        HTNOperatorStatus status;
 
-        if (_entManager.TryGetComponent<AnimalNPCComponent>(owner, out var animalComp) &&
-            animalComp.CurrentMood == AnimalMood.Resting)
+        if (!_entManager.TryGetComponent<AnimalNPCComponent>(owner, out var animalComp))
         {
-            if (animalComp.EndRest < _time.CurTime)
-            {
-                animalComp.CurrentMood = AnimalMood.Bored;
-                status = HTNOperatorStatus.Finished;
-            }
-            else
-            {
-                status = HTNOperatorStatus.Continuing;
-            }
-        }
-        else
-        {
-            status = HTNOperatorStatus.Failed;
+            return HTNOperatorStatus.Failed;
         }
 
-        // Mark it as finished to continue the plan.
-        if (status == HTNOperatorStatus.Continuing && ShutdownState == HTNPlanState.PlanFinished)
+        if (animalComp.CurrentMood != AnimalMood.Resting)
         {
-            status = HTNOperatorStatus.Finished;
+            return HTNOperatorStatus.Failed;
         }
 
-        return status;
+        if (animalComp.EndRest > _time.CurTime)
+        {
+            return HTNOperatorStatus.Continuing;
+        }
+
+        animalComp.CurrentMood = AnimalMood.Bored;
+        return HTNOperatorStatus.Finished;
     }
 }
