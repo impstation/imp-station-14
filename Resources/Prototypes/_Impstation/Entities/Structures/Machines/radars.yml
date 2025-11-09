@@ -1,16 +1,37 @@
 - type: entity
-  parent: BaseMachinePowered
-  id: Radar
-  name: long range crew monitoring radar
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: CrewMonitoringRadar
+  name: crew monitoring radar
+  description: A long range crew monitoring radar, which can detect signals coming from suit signals from over 200 meters away!
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Machines/fax_machine.rsi # imp
+    sprite: _Impstation/Structures/Machines/radar.rsi
     layers:
-    - state: icon
-      map: [ "enum.FaxMachineVisuals.VisualState" ]
+    - map: ["radar-on"]
+      state: icon-on
+      visible: false
+    - map: [ "radar" ]
+      state: icon
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: icon-open
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        radar-on:
+          True: { visible: true }
+          False: { visible: false }
+        radar:
+          True: { visible: false }
+          False: { visible: true }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
   - type: Icon
-    sprite: _Impstation/Structures/Machines/fax_machine.rsi # imp
+    sprite: _Impstation/Structures/Machines/radar.rsi
     state: icon
+  - type: WiresVisuals
+  - type: WiresPanel
   - type: Appearance
   - type: Physics
     bodyType: Static
@@ -26,3 +47,18 @@
   - type: CrewMonitorRadar
   - type: WirelessNetworkConnection
     range: 300 # Imp change, from 1200
+  - type: Machine
+    board: CrewMonitorRadarMachineCircuitboard
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]

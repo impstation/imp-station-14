@@ -17,13 +17,14 @@
   id: CrateCrewMonitoring
   parent: CrateScienceSecure
   name: crew monitoring crate
-  description: Contains a flatpack of a crew monitoring server and a few crew monitoring computers. Requires Science access to open.
+  description: Contains a flatpack of a crew monitoring server, a crew monitoring radar, and a few crew monitoring computers. Requires Science access to open. # Imp, mention radar
   components:
   - type: StorageFill
     contents:
     - id: CrewMonitoringServerFlatpack
     - id: CrewMonitoringComputerFlatpack
       amount: 3
+    - id: CrewMonitoringRadarFlatpack # Imp
 
 - type: entity
   id: CrateStationAiCore

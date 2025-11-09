@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/blob/ceff716c7bef4dfc7236f99c144f6986d81832c5/icons/obj/exploration.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-open"
+    },
+    {
+      "name": "icon-ready",
+      "delays": [
+        [
+          0.8,
+          0.5,
+          0.8,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "icon-on",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}
