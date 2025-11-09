@@ -10,3 +10,4 @@ action-speech-spell-summon-wiz = GO M'I SPOR'Z
 action-speech-spell-scram = HIT'N TH' BRI'CS
 action-speech-spell-curse = FUCK YOU
 action-speech-wizdoor = YUSH'LL N'TPAS
+action-speech-spell-mm = MA'YJIYK MISS'ISLE

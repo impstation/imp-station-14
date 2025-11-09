@@ -116,11 +116,10 @@
       types:
         Piercing: 80
         Cold: 80
-        Structural: 50
   - type: TriggerOnCollide
     fixtureID: projectile
   - type: SpawnOnTrigger
-    proto: IceCrust
+    proto: IceCrust # why wont this work rightttttt
     settings:
         minAmount: 5
         maxAmount: 10
@@ -151,7 +150,6 @@
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
-  - type: AnimationPlayer
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -173,9 +171,6 @@
       path: /Audio/_Impstation/Magic/magicdoorclose.ogg
     denySound:
       path: /Audio/_Impstation/Magic/magicdoorno.ogg
-  - type: ContainerContainer
-    containers:
-      board: !type:Container
   - type: Airlock
   - type: NavMapDoor
   - type: Appearance
@@ -203,7 +198,7 @@
   - type: BlockWeather
 
 - type: entity
-  parent: PersonalAI
+  parent: [ PersonalAI, BaseMagicalContraband ]
   id: PersonalAIMagic
   name: magic mirror
   suffix: Wizard
@@ -255,7 +250,7 @@
     ignoreResistances: true
 
 - type: entity
-  parent: ClothingBackpackSatchelHolding
+  parent: [ ClothingBackpackSatchelHolding,  BaseMagicalContraband ]
   id: ClothingBackpackSatchelWizard
   name: bag of holding
   description: For wizardly things... or anything else really, you have the room.
@@ -278,3 +273,103 @@
           False: { state: close }
           True: { state: open }
   - type: Appearance
+
+- type: entity
+  parent: [ ClothingHandsBase, BaseMagicalContraband ]
+  id: ClothingHandsWizard
+  name: magic gloves
+  description: Magical insuls with a killer punch!
+  components:
+  - type: FingerprintMask
+  - type: Sprite
+    sprite: _Impstation/Magic/gloves.rsi
+  - type: Clothing
+    sprite: _Impstation/Magic/gloves.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-pink
+  - type: DeflectThrownObjects
+  - type: MeleeThrowOnHit
+    speed: 20
+    distance: 50
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 20
+        Structural: 20
+    soundHit:
+      collection: MetalThud
+    mustBeEquippedToUse: true
+
+- type: entity
+  parent: [ ClothingShoesBase, BaseMagicalContraband ]
+  id: ClothingBootsWizard
+  name: magic shoes
+  description: Heel clicking teleport not included.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Magic/boots.rsi
+  - type: Clothing
+    sprite: _Impstation/Magic/boots.rsi
+  - type: NoSlip
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBoots
+  - type: JumpAbility
+    jumpDistance: 4
+    jumpSound: /Audio/Effects/stealthoff.ogg
+  - type: ActionGrant
+    actions:
+    - ActionGravityJump
+  - type: ItemActionGrant
+    actions:
+    - ActionGravityJump
+    activeIfWorn: true
+  - type: ClothingSpeedModifier
+    walkModifier: 1.8
+    sprintModifier: 1.8
+    standing: true
+
+- type: entity
+  parent: [ BaseItem, BaseMagicalContraband ]
+  id: MagicGet
+  name: magical thing
+  description: Oooooooooh you want this thing so bad.
+  components:
+  - type: Clothing
+    slots: [ gloves ]
+    sprite: _Impstation/Magic/ring.rsi
+  - type: Sprite
+    sprite: _Impstation/Magic/ring.rsi
+    state: icon
+  - type: Appearance
+  - type: Item
+    size: Tiny
+
+- type: entity
+  id: ProjectileMM
+  parent: BaseBullet
+  name: magic missile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+      - state: magicm
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          magicm: ""
+          magicm_cyan: ""
+          magicm_green: ""
+          magicm_red: ""
+          magicm_yellow: ""
+  - type: Projectile
+    deleteOnCollide: true
+    soundHit:
+      path: /Audio/_Impstation/Magic/icemagic.ogg
+    damage:
+      types:
+        Cellular: 20

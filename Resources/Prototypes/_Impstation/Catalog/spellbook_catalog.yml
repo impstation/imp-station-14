@@ -27,6 +27,19 @@
     stock: 1
 
 - type: listing
+  id: SpellbookMM
+  name: spellbook-mm-name
+  description: spellbook-mm-desc
+  productAction: ActionMagicM
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: SpellbookFood
   name: spellbook-food-name
   description: spellbook-food-desc
@@ -149,6 +162,45 @@
     stock: 1
 
 - type: listing
+  id: SpellbookSpawnGloves
+  name: spellbook-gloves-name
+  description: spellbook-gloves-desc
+  productEntity: ClothingHandsWizard
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnBoots
+  name: spellbook-boots-name
+  description: spellbook-boots-desc
+  productEntity: ClothingBootsWizard
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnStamp
+  name: spellbook-stamp-name
+  description: spellbook-stamp-desc
+  productEntity: RubberStampWizard
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: SpellbookSpawnCarp
   name: spellbook-carp-spawn-name
   description: spellbook-carp-spawn-desc
@@ -258,6 +310,19 @@
   name: spellbook-apprentice-name
   description: spellbook-apprentice-description
   productEntity: ApprenticeHat
+  cost:
+    WizCoin: 5
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookGet
+  name: spellbook-get-name
+  description: spellbook-get-desc
+  productEntity: MagicGet
   cost:
     WizCoin: 5
   categories:

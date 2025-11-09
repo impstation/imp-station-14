@@ -27,7 +27,6 @@
   name: Water Sphere
   description: Its just a bubble...
   components:
-  - type: Magic
   - type: Action
     useDelay: 15
     itemIconStyle: BigAction
@@ -52,7 +51,6 @@
   name: Frost Bolt
   description:
   components:
-  - type: Magic
   - type: Action
     useDelay: 15
     itemIconStyle: BigAction
@@ -77,7 +75,6 @@
   name: Wizard door
   description: Transform a door to keep others out.
   components:
-  - type: Magic
   - type: Action
     useDelay: 15
     itemIconStyle: BigAction
@@ -90,6 +87,8 @@
       prototype: ProjectilePolyboltWizardDoor
   - type: SpeakOnAction
     sentence: action-speech-wizdoor
+  - type: Magic
+    requiresClothes: true
 
 - type: entity
   id: ProjectilePolyboltWizardDoor
@@ -100,8 +99,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
-    - state: spell
-      color: brown
+    - state: arcane_barrage
   - type: PolymorphOnTrigger
     polymorph: WizardMagicDoor
   - type: WhitelistTriggerCondition
@@ -109,6 +107,8 @@
       components:
       - Airlock
       - Firelock
+  - type: Magic
+    requiresClothes: true
 
 - type: entity
   id: ProjectilePolyboltPig
@@ -123,3 +123,27 @@
     userWhitelist:
       components:
       - MobState
+
+- type: entity
+  parent: BaseAction
+  id: ActionMagicM
+  name: Magic Missile
+  description: The classic.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: magicmissile
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Magic/mm.ogg
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileMM
+  - type: SpeakOnAction
+    sentence: action-speech-spell-mm

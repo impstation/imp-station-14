@@ -1,4 +1,4 @@
-#Offensive
+# Offensive
 spellbook-frost-name = Ice Bolt
 spellbook-frost-desc = Fire a deadly spear of ice.
 
@@ -22,6 +22,9 @@ spellbook-curse-desc = Manifest a curse that latches onto the nearest humanoid.
 
 spellbook-food-name = Consume
 spellbook-food-desc = Makes something irresistibly edible.
+
+spellbook-mm-name = Magic missile
+spellbook-mm-desc = No magical clothing required!
 
 # Utility
 spellbook-spacegrease-name = Space Grease
@@ -81,6 +84,9 @@ spellbook-carp-spawn-desc = Summons a wizard friendly school of space carp.
 
 spellbook-suit-name = Wizard Hardsuit
 spellbook-suit-desc = Fireball related explosion resistant!
+
+spellbook-ring-name = Magical Focus Ring
+spellbook-ring-desc = Allows you to cast any spell without a robe or hat and can't be removed by anyone but yourself.
 
 # Event
 

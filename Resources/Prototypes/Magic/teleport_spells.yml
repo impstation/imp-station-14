@@ -19,6 +19,8 @@
     checkCanAccess: false
   - type: WorldTargetAction
     event: !type:TeleportSpellEvent
+  - type: Magic # imp edit
+    requiresClothes: true
 
 # TODO: Second level upgrade sometime that allows swapping with all objects
 - type: entity

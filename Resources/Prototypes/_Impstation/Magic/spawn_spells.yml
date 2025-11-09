@@ -4,7 +4,6 @@
   name: Space Grease
   description: This spell summons a pool of space grease centered on the clicked location.
   components:
-  - type: Magic
   - type: Action
     useDelay: 20
     itemIconStyle: BigAction
@@ -28,7 +27,6 @@
   name: Your Best Friend
   description: This spell summons a FinFin centered on the clicked location.
   components:
-  - type: Magic
   - type: Action
     useDelay: 10
     itemIconStyle: BigAction
@@ -54,7 +52,6 @@
   name: Summon Spores
   description: Go my spores!
   components:
-  - type: Magic
   - type: Action
     useDelay: 180
     itemIconStyle: BigAction
@@ -73,6 +70,8 @@
       offset: 0, 1
   - type: SpeakOnAction
     sentence: action-speech-spell-summon-wiz
+  - type: Magic
+    requiresClothes: true
 
 - type: entity
   parent: BaseAction
@@ -80,7 +79,6 @@
   name: Curse
   description: Summons a powerful curse that latches on to someone, maybe don't stand to close...
   components:
-  - type: Magic
   - type: Action
     useDelay: 1200
     itemIconStyle: BigAction
@@ -99,6 +97,8 @@
       offset: 0, 1
   - type: SpeakOnAction
     sentence: action-speech-spell-curse
+  - type: Magic
+    requiresClothes: true
 
 - type: entity
   parent: BaseAction
@@ -106,7 +106,6 @@
   name: Summon lights
   description: Happy litte guys who light up the room.
   components:
-  - type: Magic
   - type: Action
     useDelay: 30
     itemIconStyle: BigAction

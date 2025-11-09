@@ -51,6 +51,8 @@
       state: berry_delight
   - type: SpeakOnAction
     sentence: action-speech-spell-food
+  - type: Magic
+    requiresClothes: true
   - type: EntityTargetAction
     event: !type:ChangeComponentsSpellEvent
       toAdd:
