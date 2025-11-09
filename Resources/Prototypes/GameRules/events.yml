@@ -62,6 +62,8 @@
     - id: OppaSpawnLight #imp
     - id: OppaSpawnNight #imp
     - id: SyndicateInfiltratorSpawn # imp
+    - !type:NestedSelector # imp
+      tableId: TouristShuttleEvents
 
 - type: entityTable
   id: SleeperlessGreaterAntagEventsTable
