@@ -291,7 +291,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-
 - type: listing
   id: SpellbookWizmov
   name: spellbook-wizmov-name
@@ -319,10 +318,10 @@
     stock: 1
 
 - type: listing
-  id: SpellbookGet
-  name: spellbook-get-name
-  description: spellbook-get-desc
-  productEntity: MagicGet
+  id: SpellbookRing
+  name: spellbook-ring-name
+  description: spellbook-ring-desc
+  productEntity: MagicRing
   cost:
     WizCoin: 5
   categories:

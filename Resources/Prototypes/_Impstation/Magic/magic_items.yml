@@ -142,10 +142,11 @@
         path:
           "/Audio/Weapons/smash.ogg"
   - type: InteractionOutline
+  - type: AnimationPlayer
   - type: ApcPowerReceiver
   - type: ExtensionCableReceiver
   - type: Sprite
-    sprite: _Impstation/Structures/Doors/Airlocks/Standard/public.rsi
+    sprite: _Impstation/Magic/door.rsi
     snapCardinals: true
     layers:
     - state: closed
@@ -280,15 +281,11 @@
   name: magic gloves
   description: Magical insuls with a killer punch!
   components:
-  - type: FingerprintMask
   - type: Sprite
     sprite: _Impstation/Magic/gloves.rsi
   - type: Clothing
     sprite: _Impstation/Magic/gloves.rsi
   - type: Insulated
-  - type: Fiber
-    fiberMaterial: fibers-insulative
-    fiberColor: fibers-pink
   - type: DeflectThrownObjects
   - type: MeleeThrowOnHit
     speed: 20
@@ -301,6 +298,9 @@
     soundHit:
       collection: MetalThud
     mustBeEquippedToUse: true
+  - type: Fiber
+    fiberMaterial: fibers-magic
+  - type: FingerprintMask
 
 - type: entity
   parent: [ ClothingShoesBase, BaseMagicalContraband ]
@@ -332,10 +332,10 @@
     standing: true
 
 - type: entity
-  parent: [ BaseItem, BaseMagicalContraband ]
-  id: MagicGet
-  name: magical thing
-  description: Oooooooooh you want this thing so bad.
+  parent: [ RingBase, BaseMagicalContraband ]
+  id: MagicRing
+  name: ring of theft
+  description: Yeah im dual classing mage rouge.
   components:
   - type: Clothing
     slots: [ gloves ]
@@ -346,6 +346,12 @@
   - type: Appearance
   - type: Item
     size: Tiny
+  - type: Fiber
+    fiberMaterial: fibers-magic
+  - type: FingerprintMask
+  - type: Thieving
+    stripTimeReduction: 1
+    stealthy: true
 
 - type: entity
   id: ProjectileMM
@@ -369,7 +375,7 @@
   - type: Projectile
     deleteOnCollide: true
     soundHit:
-      path: /Audio/_Impstation/Magic/icemagic.ogg
+      path: /Audio/_Impstation/Magic/woosh.ogg
     damage:
       types:
         Cellular: 20
