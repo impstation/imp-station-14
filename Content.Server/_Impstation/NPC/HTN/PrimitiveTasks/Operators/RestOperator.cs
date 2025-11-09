@@ -60,7 +60,7 @@ public sealed partial class RestOperator : HTNOperator, IHtnConditionalShutdown
         if(_entManager.TryGetComponent<AnimalComponent>(owner, out var animalComp) &&
             animalComp.CurrentMood == AnimalMood.Resting)
         {
-            if(animalComp.EndRest < _time.CurTime)
+            if (animalComp.EndRest < _time.CurTime)
             {
                 animalComp.CurrentMood = AnimalMood.Bored;
                 status = HTNOperatorStatus.Finished;
