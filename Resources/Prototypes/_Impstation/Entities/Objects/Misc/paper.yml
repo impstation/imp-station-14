@@ -130,34 +130,23 @@
     - state: folder-pun
 
 - type: entity
-  parent: Paper
+  parent: BaseItem
   name: code violation
   id: CodeViolation
-  description: 'You know what you did.'
+  description: 'Report to a commanding officer or security personal immediately.'
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Misc/bureaucracy.rsi
     layers:
     - state: safety_card
-    - state: paper_words
-      map: ["enum.PaperVisualLayers.Writing"]
-      visible: false
-    - state: paper_stamp-generic
-      map: ["enum.PaperVisualLayers.Stamp"]
-      visible: false
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/pop.ogg
     embedOnThrow: True
   - type: ThrowingAngle
     angle: 0
   - type: LandAtCursor
-  - type: PaperVisuals
-    headerImagePath: "/Textures/_Impstation/Interface/Paper/paper_heading_code_violation.png"
-    headerMargin: 0.0, 0.0, 0.0, 0.0
-    backgroundImagePath: "/Textures/_Impstation/Interface/Paper/paper_background_red.png"
-    backgroundPatchMargin: 16.0, 16.0, 16.0, 16.0
-    contentMargin: 4.0, 4.0, 4.0, 4.0
-    maxWritableArea: 345.0, 222.0
+  - type: TimedDespawn
+    lifetime: 90
   - type: Tag
     tags:
     - Document
