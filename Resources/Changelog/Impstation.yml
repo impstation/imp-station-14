@@ -1,37 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Most welding tools can now be emptied by right-clicking on them and pressing
-      Spill.
-    type: Add
-  - message: The experimental welding tool now purges non-welding fuel reagents inside
-      of it as it generates welding fuel.
-    type: Add
-  id: 1901
-  time: '2025-06-27T14:20:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2831
-- author: crocodilecarousel
-  changes:
-  - message: new shipment of cmo outfits!
-    type: Add
-  id: 1902
-  time: '2025-06-27T14:21:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2832
-- author: ultramario1998
-  changes:
-  - message: The Jermov AI lawset has been downloaded. Currently admin-only.
-    type: Add
-  id: 1903
-  time: '2025-06-27T14:21:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2837
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Blaster Magnum's stats have been adjusted to help the gun feel better
-      to use.
-    type: Tweak
-  id: 1904
-  time: '2025-06-27T14:22:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2842
 - author: TheLuggage05
   changes:
   - message: Gorlex is funding traitors with elite and juggernaut suits once again!
@@ -4164,3 +4131,35 @@
   id: 2400
   time: '2025-11-08T10:44:28.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3691
+- author: VeeNomine, kipdotnet, corrucyst, fancyplanks, symora, zekdelpon, lobsterpaw,
+    chimken135, salorarainriver, toasterblast
+  changes:
+  - message: Tck'ut, the little hall monitor bot that could, has been added.
+    type: Add
+  id: 2401
+  time: '2025-11-08T23:01:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3618
+- author: kipdotnet
+  changes:
+  - message: Allulalo have footsteps now.
+    type: Fix
+  id: 2402
+  time: '2025-11-09T00:43:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3693
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The M1's kinetic bolt now packs a bit more of a punch. The Blaster Cannon,
+      instead, packs less of a punch.
+    type: Tweak
+  - message: the AKMS crate is now more expensive.
+    type: Tweak
+  id: 2403
+  time: '2025-11-09T00:51:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3692
+- author: mousesweater
+  changes:
+  - message: certain species have had their density slightly tweaked. see pr for details
+    type: Tweak
+  id: 2404
+  time: '2025-11-09T00:56:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3645
