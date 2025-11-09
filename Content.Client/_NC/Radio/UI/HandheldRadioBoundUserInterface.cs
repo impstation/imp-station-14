@@ -1,9 +1,7 @@
 using Content.Shared._NC.Radio;
 using JetBrains.Annotations;
-using Robust.Client.GameObjects;
 
 namespace Content.Client._NC.Radio.UI;
-
 
 [UsedImplicitly]
 public sealed class HandheldRadioBoundUserInterface : BoundUserInterface
@@ -11,10 +9,7 @@ public sealed class HandheldRadioBoundUserInterface : BoundUserInterface
     [ViewVariables]
     private HandheldRadioMenu? _menu;
 
-    public HandheldRadioBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-    {
-
-    }
+    public HandheldRadioBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey) { }
 
     protected override void Open()
     {

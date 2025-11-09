@@ -318,29 +318,4 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
 
     #endregion
     // Nuclear-14-End
-
-    // Frontier: init intercom with map
-    private void OnMapInit(EntityUid uid, IntercomComponent ent, MapInitEvent args)
-    {
-        // Set initial frequency (must be done regardless of power/enabled)
-        if (ent.CurrentChannel != null &&
-                _protoMan.TryIndex(ent.CurrentChannel, out var channel) &&
-                TryComp(uid, out RadioMicrophoneComponent? mic))
-        {
-            mic.Frequency = channel.Frequency;
-        }
-        if (ent.StartSpeakerOnMapInit)
-        {
-            SetSpeakerEnabled(uid, null, true);
-            ent.SpeakerEnabled = true;
-            _appearance.SetData(uid, RadioDeviceVisuals.Speaker, true);
-        }
-        if (ent.StartMicrophoneOnMapInit)
-        {
-            SetMicrophoneEnabled(uid, null, true);
-            ent.MicrophoneEnabled = true;
-            _appearance.SetData(uid, RadioDeviceVisuals.Broadcasting, true);
-        }
-    }
-    // End Frontier
 }
