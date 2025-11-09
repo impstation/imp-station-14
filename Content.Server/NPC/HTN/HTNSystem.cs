@@ -360,7 +360,7 @@ public sealed class HTNSystem : EntitySystem
         // Run the existing plan still
         var status = HTNOperatorStatus.Finished;
 
-        bool skipUpdate = false; // Imp
+        var skipUpdate = false; // Imp
 
         // Continuously run operators until we can't anymore.
         while (status != HTNOperatorStatus.Continuing && component.Plan != null)

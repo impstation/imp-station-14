@@ -43,7 +43,7 @@ public sealed partial class ChaseOperator : HTNOperator
         var target = result.GetHighest();
 
         // Are we an animal to begin with?
-        if (!_entManager.TryGetComponent<AnimalComponent>(owner, out var animalBrain))
+        if (!_entManager.TryGetComponent<AnimalNPCComponent>(owner, out var animalBrain))
             return (false, null);
 
         // Is our target real?

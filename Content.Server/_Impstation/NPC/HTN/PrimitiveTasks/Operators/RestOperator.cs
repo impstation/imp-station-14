@@ -34,13 +34,15 @@ public sealed partial class RestOperator : HTNOperator, IHtnConditionalShutdown
     CancellationToken cancelToken)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
-        if (!_entManager.TryGetComponent<AnimalComponent>(owner, out var animalBrain))
+        if (!_entManager.TryGetComponent<AnimalNPCComponent>(owner, out var animalBrain))
             return (false, null);
 
         if (animalBrain.CurrentMood == AnimalMood.Tired)
         {
             animalBrain.CurrentMood = AnimalMood.Resting;
-            animalBrain.EndRest = _time.CurTime + TimeSpan.FromSeconds(_random.Next(animalBrain.MinRestTime, animalBrain.MaxRestTime));
+
+            var nextSleep = _random.Next(animalBrain.MinRestTime, animalBrain.MaxRestTime);
+            animalBrain.EndRest = _time.CurTime + TimeSpan.FromSeconds(nextSleep);
         }
 
         return (true, null);
@@ -57,10 +59,10 @@ public sealed partial class RestOperator : HTNOperator, IHtnConditionalShutdown
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
         HTNOperatorStatus status;
 
-        if(_entManager.TryGetComponent<AnimalComponent>(owner, out var animalComp) &&
+        if (_entManager.TryGetComponent<AnimalNPCComponent>(owner, out var animalComp) &&
             animalComp.CurrentMood == AnimalMood.Resting)
         {
-            if(animalComp.EndRest < _time.CurTime)
+            if (animalComp.EndRest < _time.CurTime)
             {
                 animalComp.CurrentMood = AnimalMood.Bored;
                 status = HTNOperatorStatus.Finished;

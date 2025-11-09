@@ -33,7 +33,7 @@ public sealed partial class ChasePrecondition : HTNPrecondition
 
         // We either have no animal brain OR we aren't ready for the next chase
         // OR If we aren't bored or already chasing
-        if (!_entManager.TryGetComponent<AnimalComponent>(owner, out var animalBrain) ||
+        if (!_entManager.TryGetComponent<AnimalNPCComponent>(owner, out var animalBrain) ||
             (animalBrain.CurrentMood != AnimalMood.Bored && animalBrain.CurrentMood != AnimalMood.Chasing))
             return false;
 

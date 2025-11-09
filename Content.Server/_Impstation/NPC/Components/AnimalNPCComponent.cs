@@ -10,7 +10,7 @@ namespace Content.Server._Impstation.NPC.Components;
 /// The Component intended for handling an Animals mood and Actions
 /// </summary>
 [RegisterComponent]
-public sealed partial class AnimalComponent : Component
+public sealed partial class AnimalNPCComponent : Component
 {
     // Max amount of time our animal can spend on the chase
     [DataField("maxTimeChasing")]
