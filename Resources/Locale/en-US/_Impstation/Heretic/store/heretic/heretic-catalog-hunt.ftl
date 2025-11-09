@@ -3,7 +3,7 @@ knowledge-path-hunt-s1-desc =
     One's name means nothing in war. There are only titles: Victor and Defeated.
 
     Opens up the Path of Hunt to you.
-    Allows you to transmute a pistol and a knife into a Serpentine Revolver.
+    Allows you to transmute a pistol and a knife into a Serpentine Revolver. Makeshift Pistols and Flare Guns will both suffice.
 
 knowledge-path-hunt-s2-name = Hunter's Grasp
 knowledge-path-hunt-s2-desc =
@@ -21,13 +21,13 @@ knowledge-path-hunt-s4-name = Mark of Hunt
 knowledge-path-hunt-s4-desc =
     The Fugitive was clever. It had done this before. It had been Warden before, and it would be again.
 
-    Your Mansus Grasp will cause your prey to be pacified for a short time.
+    Your Mansus Grasp will cause your prey to be slowed for a short time.
 
 knowledge-path-hunt-s5-name = Meteoric Pouch
 knowledge-path-hunt-s5-desc =
     No wall could hold the Fugitive. The Warden knew this. It had been Fugitive before, and it would be again.
 
-    Allows you to transmute a bag, a bullet, and a beaker into a Meteoric Pouch, which works as a portable ammo fabricator. It can produce Meteoric Bullets, which go through walls.
+    Allows you to transmute a pill canister and a pipe into a Meteoric Pouch, which works as a portable ammo fabricator. It can produce Meteoric Bullets, which go through walls.
 
 knowledge-path-hunt-s6-name = Serpent's Focus
 knowledge-path-hunt-s6-desc =
