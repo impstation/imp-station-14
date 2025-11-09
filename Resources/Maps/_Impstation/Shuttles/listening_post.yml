@@ -421,12 +421,14 @@ entities:
           0,-3:
             0: 16656
           -1,-3:
-            0: 5596
-            2: 2048
+            0: 1500
+            2: 4096
+            3: 2048
           0,-2:
             0: 58623
           -1,-2:
-            0: 3581
+            0: 509
+            2: 3072
           -1,-1:
             0: 62941
           0,-4:
@@ -543,7 +545,7 @@ entities:
   - uid: 345
     components:
     - type: Transform
-      pos: 0.6136322,3.27038
+      pos: 0.41811562,3.7195783
       parent: 1
 - proto: AirAlarm
   entities:
@@ -1053,12 +1055,12 @@ entities:
       parent: 1
     - type: Pullable
       prevFixedRotation: True
-- proto: BookshelfFilled
+- proto: BongGay
   entities:
-  - uid: 502
+  - uid: 996
     components:
     - type: Transform
-      pos: 7.5,-2.5
+      pos: 8.715082,1.9765677
       parent: 1
 - proto: BoozeDispenser
   entities:
@@ -1473,6 +1475,32 @@ entities:
     - type: Transform
       pos: 13.72539,-3.0468464
       parent: 1
+- proto: BusinessCard
+  entities:
+  - uid: 999
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+  - uid: 1000
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+  - uid: 1001
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+  - uid: 1002
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
 - proto: CableApcExtension
   entities:
   - uid: 5
@@ -2132,6 +2160,14 @@ entities:
           - 77
           - 76
           - 71
+- proto: ClothingBackpackChameleonFill
+  entities:
+  - uid: 995
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5587406,2.8602033
+      parent: 1
 - proto: ClothingEyesChameleon
   entities:
   - uid: 287
@@ -2148,7 +2184,7 @@ entities:
   - uid: 949
     components:
     - type: Transform
-      pos: 0.6152973,3.7500544
+      pos: 0.6993656,3.2977033
       parent: 1
 - proto: ClothingHeadHatChameleon
   entities:
@@ -2286,6 +2322,14 @@ entities:
     - type: Transform
       pos: -3.5,-8.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
 - proto: CrowbarRed
   entities:
   - uid: 378
@@ -2303,6 +2347,111 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -1.5,-10.5
       parent: 1
+- proto: CyberPen
+  entities:
+  - uid: 1012
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+  - uid: 1013
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+- proto: CybersunBriefcase
+  entities:
+  - uid: 998
+    components:
+    - type: Transform
+      pos: 7.482977,-2.1931915
+      parent: 1
+    - type: Storage
+      storedItems:
+        999:
+          position: 0,0
+          _rotation: South
+        1000:
+          position: 0,1
+          _rotation: South
+        1001:
+          position: 0,2
+          _rotation: South
+        1002:
+          position: 0,3
+          _rotation: South
+        1003:
+          position: 1,0
+          _rotation: South
+        1004:
+          position: 1,1
+          _rotation: South
+        1005:
+          position: 1,2
+          _rotation: South
+        1006:
+          position: 1,3
+          _rotation: South
+        1007:
+          position: 2,0
+          _rotation: South
+        1008:
+          position: 2,1
+          _rotation: South
+        1009:
+          position: 2,2
+          _rotation: South
+        1010:
+          position: 2,3
+          _rotation: South
+        1011:
+          position: 3,0
+          _rotation: South
+        1012:
+          position: 4,0
+          _rotation: South
+        1013:
+          position: 5,0
+          _rotation: South
+        1014:
+          position: 3,1
+          _rotation: South
+        1015:
+          position: 5,1
+          _rotation: South
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 999
+          - 1000
+          - 1001
+          - 1002
+          - 1003
+          - 1004
+          - 1005
+          - 1006
+          - 1007
+          - 1008
+          - 1009
+          - 1010
+          - 1011
+          - 1012
+          - 1014
+          - 1015
+          - 1013
+- proto: CybersunFlippo
+  entities:
+  - uid: 1011
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
 - proto: DefibrillatorCabinetFilled
   entities:
   - uid: 552
@@ -3649,18 +3798,37 @@ entities:
   - uid: 742
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 7.5,-6.5
       parent: 1
   - uid: 744
     components:
     - type: Transform
-      pos: 8.5,-6.5
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-6.5
       parent: 1
   - uid: 745
     components:
     - type: Transform
-      pos: 6.5,-6.5
+      rot: 1.5707963267948966 rad
+      pos: 8.5,-6.5
       parent: 1
+- proto: HandHeldMassScanner
+  entities:
+  - uid: 952
+    components:
+    - type: Transform
+      parent: 115
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
+  - uid: 993
+    components:
+    - type: Transform
+      parent: 116
+    - type: Physics
+      canCollide: False
+    - type: InsideEntityStorage
 - proto: HandLabeler
   entities:
   - uid: 506
@@ -3866,14 +4034,14 @@ entities:
   - uid: 919
     components:
     - type: Transform
-      pos: 13.491015,-2.8905964
+      pos: 13.198317,-2.9714937
       parent: 1
 - proto: Paper
   entities:
   - uid: 507
     components:
     - type: Transform
-      pos: 0.47282982,2.7708879
+      pos: 0.35783577,2.5208502
       parent: 1
     - type: Paper
       content: >2-
@@ -4091,6 +4259,14 @@ entities:
     components:
     - type: Transform
       parent: 76
+    - type: Physics
+      canCollide: False
+- proto: PenRecruiter
+  entities:
+  - uid: 1015
+    components:
+    - type: Transform
+      parent: 998
     - type: Physics
       canCollide: False
 - proto: PhoneInstrumentSyndicate
@@ -4540,12 +4716,14 @@ entities:
   - uid: 799
     components:
     - type: Transform
+      rot: 1.5707963267948966 rad
       pos: 7.5,-6.5
       parent: 1
   - uid: 800
     components:
     - type: Transform
-      pos: 8.5,-6.5
+      rot: 1.5707963267948966 rad
+      pos: 6.5,-6.5
       parent: 1
 - proto: RubberStampAdminAssistant
   entities:
@@ -4908,6 +5086,20 @@ entities:
       pos: 1.5,-4.5
       parent: 1
     - type: Emagged
+- proto: SpaceCash5000
+  entities:
+  - uid: 1014
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+    - type: PluralName
+      nameSomeOf: spesos
+      overrideName: spesos
+    - type: Grammar
+      attributes:
+        indefinite: some
 - proto: SpawnMobRadioGuard
   entities:
   - uid: 708
@@ -4948,16 +5140,72 @@ entities:
     - type: Transform
       pos: -1.5,-5.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 952
   - uid: 116
     components:
     - type: Transform
       pos: -0.5,-5.5
       parent: 1
+    - type: EntityStorage
+      air:
+        volume: 200
+        immutable: False
+        temperature: 293.14673
+        moles:
+          Oxygen: 1.7459903
+          Nitrogen: 6.568249
+    - type: ContainerContainer
+      containers:
+        entity_storage: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 993
   - uid: 962
     components:
     - type: Transform
       pos: 6.5,3.5
       parent: 1
+- proto: SyndicateBusinessCard
+  entities:
+  - uid: 1007
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+  - uid: 1008
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+  - uid: 1009
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+  - uid: 1010
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
 - proto: SyndicateMicrowave
   entities:
   - uid: 214
@@ -5001,6 +5249,12 @@ entities:
       parent: 1
 - proto: TableCarpet
   entities:
+  - uid: 502
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 7.5,-2.5
+      parent: 1
   - uid: 821
     components:
     - type: Transform
@@ -5095,18 +5349,56 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 8.5,0.5
       parent: 1
-  - uid: 952
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.5,3.5
-      parent: 1
   - uid: 953
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 0.5,2.5
       parent: 1
+  - uid: 994
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 0.5,3.5
+      parent: 1
+- proto: Telecrystal5
+  entities:
+  - uid: 997
+    components:
+    - type: Transform
+      pos: 7.248602,-2.5670176
+      parent: 1
+    - type: PluralName
+      overrideName: telecrystals
+    - type: Grammar
+      attributes:
+        indefinite: a handful of
+- proto: ThiefBusinessCard
+  entities:
+  - uid: 1003
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+  - uid: 1004
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+  - uid: 1005
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
+  - uid: 1006
+    components:
+    - type: Transform
+      parent: 998
+    - type: Physics
+      canCollide: False
 - proto: ToiletEmpty
   entities:
   - uid: 832
@@ -5139,7 +5431,7 @@ entities:
   - uid: 836
     components:
     - type: Transform
-      pos: 8.421799,-4.631566
+      pos: 7.7908688,-2.3423634
       parent: 1
 - proto: ToyFigurineNukieElite
   entities:
