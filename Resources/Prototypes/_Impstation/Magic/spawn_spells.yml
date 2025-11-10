@@ -21,3 +21,228 @@
       - id: MagicInstantEffectSpaceGrease
   - type: SpeakOnAction
     sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnSteel
+  name: Conjure Steel
+  description: This spell summons a stack of steel on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: space_grease
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetSteel
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnWood
+  name: Conjure Wood
+  description: This spell summons a stack of wood on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: space_grease
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MaterialWoodPlank
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnPlastic
+  name: Conjure Plastic
+  description: This spell summons a stack of plastic on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: space_grease
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetPlastic
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnPlasma
+  name: Conjure Plasma
+  description: This spell summons a stack of plasma on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: space_grease
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetPlasma
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnGold
+  name: Conjure Gold
+  description: This spell summons a stack of gold on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: space_grease
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: IngotGold
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnSilver
+  name: Conjure Silver
+  description: This spell summons a stack of silver on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: space_grease
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: IngotSilver
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnUranium
+  name: Conjure Uranium
+  description: This spell summons a stack of uranium on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: space_grease
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetUranium
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnBrass
+  name: Conjure Brass
+  description: This spell summons a stack of brass on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: space_grease
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetBrass
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnCloth
+  name: Conjure Cloth
+  description: This spell summons a stack of cloth on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: space_grease
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: MaterialCloth
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-spacegrease

@@ -74,6 +74,33 @@ spellbook-hammer-singularity-description = Ever wonder what it'd be like to be t
 spellbook-staff-animation-name = Staff of Animation
 spellbook-staff-animation-description = Bring inanimate objects to life!
 
+spellbook-item-summonsteel-name = Summon Steel
+spellbook-item-summonsteel-description = Conjure a full stack of steel.
+
+spellbook-item-summonwood-name = Summon Wood
+spellbook-item-summonwood-description = Conjure a full stack of wood.
+
+spellbook-item-summonplastic-name = Summon Plastic
+spellbook-item-summonplastic-description = Conjure a full stack of plastic.
+
+spellbook-item-summonplasma-name = Summon Plasma
+spellbook-item-summonplasma-description = Conjure a full stack of plasma.
+
+spellbook-item-summongold-name = Summon Gold
+spellbook-item-summongold-description = Conjure a full stack of gold.
+
+spellbook-item-summonsilver-name = Summon Silver
+spellbook-item-summonsilver-description = Conjure a full stack of silver.
+
+spellbook-item-summonuranium-name = Summon Uranium
+spellbook-item-summonuranium-description = Conjure a full stack of uranium.
+
+spellbook-item-summonbrass-name = Summon Brass
+spellbook-item-summonbrass-description = Conjure a full stack of brass.
+
+spellbook-item-summoncloth-name = Summon Cloth
+spellbook-item-summoncloth-description = Conjure a full stack of cloth.
+
 # Events
 
 spellbook-event-summon-ghosts-name = Summon Ghosts
