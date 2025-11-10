@@ -35,7 +35,7 @@
       receiveFrequencyId: CrewRadar # Imp from SuitSensor
       autoConnect: false
     - type: WirelessNetworkConnection
-      range: 500
+      range: 600
     - type: StationLimitedNetwork
     - type: ApcPowerReceiver
       powerLoad: 200

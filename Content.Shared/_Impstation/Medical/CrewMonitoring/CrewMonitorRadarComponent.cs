@@ -27,13 +27,13 @@ public sealed partial class CrewMonitorRadarComponent : Component
     ///     How far a radar can properly track someone
     /// </summary>
     [DataField]
-    public float MaximumRange = 300f;
+    public float MaximumRange = 600f;
 
     /// <summary>
     ///     How far someone needs to be for the coordinates to be innaccurate
     /// </summary>
     [DataField]
-    public float CorruptRange = 200f;
+    public float CorruptRange = 400f;
 
 
     /// <summary>
