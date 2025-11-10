@@ -451,8 +451,8 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         var number = $"{sourceCollectiveMindComp.Minds[collectiveMind].MindId}";
 
-        var admins = _adminManager.ActiveAdmins
-            .Select(p => p.Channel);
+        // imp edit: deadchat can see hivemind
+        var ghosts = GetDeadChatClients();
 
         var messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
             ("message", message),
@@ -482,7 +482,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             source,
             false,
             true,
-            admins,
+            ghosts, // imp admins -> ghosts
             collectiveMind.Color);
     }
     // Starlight - End

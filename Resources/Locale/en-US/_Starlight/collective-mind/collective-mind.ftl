@@ -1,6 +1,7 @@
 # IMP EDIT TO MESSAGES: remove {$number}
-collective-mind-chat-wrap-message = [bold]{$channel}: {$message}[/bold]
-collective-mind-chat-wrap-message-admin = {$source} ({$channel}): {$message}
+# also did some reformatting lol
+collective-mind-chat-wrap-message = [bold]{$channel}:[/bold] {$message}
+collective-mind-chat-wrap-message-admin = [bold]{$source} ({$channel}):[/bold] {$message}
 
 collective-mind-list-header = Available collective minds:
 collective-mind-list-item = {$collective}: {$shortcut}
