@@ -46,7 +46,7 @@
     allowNonStationPackets: true
   - type: CrewMonitorRadar
   - type: WirelessNetworkConnection
-    range: 300 # Imp change, from 1200
+    range: 300
   - type: Machine
     board: CrewMonitorRadarMachineCircuitboard
   - type: Destructible
@@ -62,3 +62,13 @@
         node: machineFrame
       - !type:DoActsBehavior
         acts: ["Destruction"]
+
+- type: entity
+  parent: [ CrewMonitoringRadar, BaseSyndicateContraband ]
+  id: CrewMonitoringRadarLongRange
+  name: ultra long range crew monitoring radar
+  suffix: Listening Post
+  description: An ultra range crew monitoring radar, which can detect signals coming from suit signals from over 10,000 meters away. Wow.
+  components:
+  - type: WirelessNetworkConnection
+    range: 10000
