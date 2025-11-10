@@ -14,8 +14,6 @@ internal sealed class ChatManager : IChatManager
     [Dependency] private readonly IEntitySystemManager _systems = default!;
 
     private ISawmill _sawmill = default!;
-    public event Action? PermissionsUpdated; // imp collective
-
     public void Initialize()
     {
         _sawmill = Logger.GetSawmill("chat");
@@ -78,19 +76,8 @@ internal sealed class ChatManager : IChatManager
                 _consoleHost.ExecuteCommand($"whisper \"{CommandParsing.Escape(str)}\"");
                 break;
 
-            // imp collective start
-            case ChatSelectChannel.CollectiveMind:
-                _consoleHost.ExecuteCommand($"cmsay \"{CommandParsing.Escape(str)}\"");
-                break;
-            // imp end
-
             default:
                 throw new ArgumentOutOfRangeException(nameof(channel), channel, null);
         }
-    }
-
-    public void UpdatePermissions() // imp add
-    {
-        PermissionsUpdated?.Invoke();
     }
 }

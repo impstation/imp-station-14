@@ -35,7 +35,6 @@ using Robust.Shared.Replays;
 using Robust.Shared.Utility;
 using Content.Server._Wizden.Chat.Systems; // Imp edit for Last Message Before Death Webhook
 using Content.Shared.Abilities.Mime; // imp
-using Content.Shared.CollectiveMind; // imp
 
 namespace Content.Server.Chat.Systems;
 
@@ -62,7 +61,6 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly ReplacementAccentSystem _wordreplacement = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
-    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; //imp
     [Dependency] private readonly LastMessageBeforeDeathSystem _lastMessageBeforeDeathSystem = default!; // Imp Edit LastMessageBeforeDeath Webhook
 
     private bool _loocEnabled = true;
@@ -180,10 +178,6 @@ public sealed partial class ChatSystem : SharedChatSystem
             return;
         }
 
-        // imp edit, collective mind
-        if (TryComp<CollectiveMindComponent>(source, out var collective))
-            _collectiveMind.UpdateCollectiveMind(source, collective);
-
         if (player != null && _chatManager.HandleRateLimit(player) != RateLimitStatus.Allowed)
             return;
 
@@ -250,17 +244,6 @@ public sealed partial class ChatSystem : SharedChatSystem
                 return;
             }
         }
-
-        // imp edit start
-        if (desiredType == InGameICChatType.CollectiveMind)
-        {
-            if (TryProccessCollectiveMindMessage(source, message, out var modMessage, out var channel))
-            {
-                SendCollectiveMindChat(source, modMessage, channel);
-                return;
-            }
-        }
-        // imp edit end
 
         // Otherwise, send whatever type.
         switch (desiredType)
@@ -426,68 +409,6 @@ public sealed partial class ChatSystem : SharedChatSystem
     #endregion
 
     #region Private API
-
-    // imp edit, collective mind
-    private void SendCollectiveMindChat(EntityUid source, string message, CollectiveMindPrototype? collectiveMind)
-    {
-        if (_mobStateSystem.IsDead(source) || collectiveMind == null || message == "" || !TryComp<CollectiveMindComponent>(source, out var sourseCollectiveMindComp) || !sourseCollectiveMindComp.Minds.ContainsKey(collectiveMind.ID))
-            return;
-
-        if (TryComp<MimePowersComponent>(source, out var comp) && comp.Enabled) // No cheating
-            return; // Ideally would display the mime-cant-speak string but doing that here would be messy. Collective mind needs an equivalent to OnSpeakAttempt so this can be handled in MutingSystem
-
-        var clients = Filter.Empty();
-        var mindQuery = EntityQueryEnumerator<CollectiveMindComponent, ActorComponent>();
-        while (mindQuery.MoveNext(out var uid, out var collectMindComp, out var actorComp))
-        {
-            if (_mobStateSystem.IsDead(uid))
-                continue;
-
-            if (collectMindComp.Minds.ContainsKey(collectiveMind.ID))
-            {
-                clients.AddPlayer(actorComp.PlayerSession);
-            }
-        }
-
-        var Number = $"{sourseCollectiveMindComp.Minds[collectiveMind.ID]}";
-
-        var admins = _adminManager.ActiveAdmins
-            .Select(p => p.Channel);
-        string messageWrap;
-        string adminMessageWrap;
-
-        messageWrap = Loc.GetString("collective-mind-chat-wrap-message",
-            ("message", message),
-            ("channel", collectiveMind.LocalizedName),
-            ("number", Number));
-
-        adminMessageWrap = Loc.GetString("collective-mind-chat-wrap-message-admin",
-            ("source", source),
-            ("message", message),
-            ("channel", collectiveMind.LocalizedName),
-            ("number", Number));
-
-        _adminLogger.Add(LogType.Chat, LogImpact.Low, $"CollectiveMind chat from {ToPrettyString(source):Player}: {message}");
-
-        _chatManager.ChatMessageToManyFiltered(clients,
-            ChatChannel.CollectiveMind,
-            message,
-            messageWrap,
-            source,
-            false,
-            true,
-            collectiveMind.Color);
-
-        // FOR ADMINS
-        _chatManager.ChatMessageToMany(ChatChannel.CollectiveMind,
-            message,
-            adminMessageWrap,
-            source,
-            false,
-            true,
-            admins,
-            collectiveMind.Color);
-    }
 
     private void SendEntitySpeak(
         EntityUid source,
@@ -1089,8 +1010,7 @@ public enum InGameICChatType : byte
 {
     Speak,
     Emote,
-    Whisper,
-    CollectiveMind // imp
+    Whisper
 }
 
 /// <summary>

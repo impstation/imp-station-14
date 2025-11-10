@@ -41,12 +41,6 @@
         /// </summary>
         Emotes = ChatChannel.Emotes,
 
-        // imp add
-        /// <summary>
-        ///     CollectiveMind
-        /// </summary>
-        CollectiveMind = ChatChannel.CollectiveMind,
-
         /// <summary>
         ///     Deadchat
         /// </summary>
