@@ -133,6 +133,15 @@
       state: hair_dreadlocks_long
 
 - type: marking
+  id: firestarter
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Kodepiia] # imp
+  sprites:
+    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
+      state: hair_firestarter
+
+- type: marking
   id: gloomy_long
   bodyPart: Hair
   markingCategory: Hair
@@ -269,14 +278,6 @@
       state: hair_loose_slicked
 
 - type: marking
-  id: mermaid
-  bodyPart: Hair
-  markingCategory: Hair
-  sprites:
-    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
-      state: hair_mermaid
-
-- type: marking
   id: mia
   bodyPart: Hair
   markingCategory: Hair
@@ -405,6 +406,24 @@
       state: hair_spicy
 
 - type: marking
+  id: spikey
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Kodepiia] # imp
+  sprites:
+    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
+      state: hair_spikey
+
+- type: marking
+  id: spikey_long
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Kodepiia] # imp
+  sprites:
+    - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
+      state: hair_spikey_long
+
+- type: marking
   id: stacy
   bodyPart: Hair
   markingCategory: Hair
@@ -456,6 +475,7 @@
   id: tri_bun
   bodyPart: Hair
   markingCategory: Hair
+  speciesRestriction: [Kodepiia] # imp
   sprites:
     - sprite: _DEN/Mobs/Customization/Hair/hairdoppler.rsi
       state: hair_tri_bun
