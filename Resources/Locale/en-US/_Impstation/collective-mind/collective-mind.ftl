@@ -1,5 +1,5 @@
-collective-mind-diona = Mycorrhizal Gestalt
+collective-mind-diona = Mycorrhizae
 collective-mind-changeling = Hivemind
-collective-mind-carp = Carp
-collective-mind-spider = Spider
-collective-mind-zombie = Zombie
+collective-mind-carp = Spacefish
+collective-mind-spider = The Web
+collective-mind-zombie = Infected

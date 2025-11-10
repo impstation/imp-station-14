@@ -436,6 +436,12 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (_mobStateSystem.IsDead(source) || collectiveMind == null || message == "" || !TryComp<CollectiveMindComponent>(source, out var sourceCollectiveMindComp) || !sourceCollectiveMindComp.Minds.ContainsKey(collectiveMind))
             return;
 
+        if (TryComp<MimePowersComponent>(source, out var comp) && comp.Enabled) // Imp add: no cheating
+        {
+            _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), source, source);
+            return;
+        }
+
         var clients = Filter.Empty();
         var mindQuery = EntityQueryEnumerator<CollectiveMindComponent, ActorComponent>();
         while (mindQuery.MoveNext(out var uid, out var collectMindComp, out var actorComp))

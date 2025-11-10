@@ -1,11 +1,11 @@
 ﻿using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
-using Content.Shared._Starlight.CollectiveMind; // Starlight - Collective Minds
 using Content.Shared.CharacterInfo;
 using Content.Shared.Objectives;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Systems;
+using Content.Shared._Starlight.CollectiveMind; // Starlight - Collective Minds
 
 namespace Content.Server.CharacterInfo;
 
