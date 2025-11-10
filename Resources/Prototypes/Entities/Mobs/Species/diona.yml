@@ -11,7 +11,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-    - DionaMinded
+    - DionaHivemind # Starlight
   - type: GoobAbsorbable
   - type: HumanoidAppearance
     species: Diona
@@ -122,13 +122,6 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: Rootable
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - AnomalyHost
-    #- DionaHivemind # Startlight - Collective Minds - Give access to Diona Minds channel.
 
 - type: entity
   parent: BaseSpeciesDummy

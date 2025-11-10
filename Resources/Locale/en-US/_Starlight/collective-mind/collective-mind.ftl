@@ -1,9 +1,6 @@
-collective-mind-chat-wrap-message = [bold]{$channel} {$number}: {$message}[/bold]
-collective-mind-chat-wrap-message-admin = {$source} ({$channel} {$number}): {$message}
-collective-mind-carp = Carp
-collective-mind-diona = Diona
-collective-mind-spider = Spider
-collective-mind-zombie = Zombie
+# IMP EDIT TO MESSAGES: remove {$number}
+collective-mind-chat-wrap-message = [bold]{$channel}: {$message}[/bold]
+collective-mind-chat-wrap-message-admin = {$source} ({$channel}): {$message}
 
 collective-mind-list-header = Available collective minds:
 collective-mind-list-item = {$collective}: {$shortcut}
