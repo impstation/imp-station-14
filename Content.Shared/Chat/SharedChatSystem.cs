@@ -1,12 +1,12 @@
 using System.Collections.Frozen;
 using System.Text.RegularExpressions;
-using Content.Shared._Starlight.CollectiveMind; // Starlight - Collective Minds
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared._Starlight.CollectiveMind; // Starlight - Collective Minds
 
 namespace Content.Shared.Chat;
 
@@ -24,8 +24,8 @@ public abstract class SharedChatSystem : EntitySystem
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
-    public const char CollectiveMindPrefix = '+'; // Starlight - Collective Minds
     public const char DefaultChannelKey = 'h';
+    public const char CollectiveMindPrefix = '+'; // Starlight - Collective Minds
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units

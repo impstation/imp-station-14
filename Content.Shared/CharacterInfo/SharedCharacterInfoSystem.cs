@@ -1,6 +1,6 @@
-﻿using Content.Shared._Starlight.CollectiveMind; // Starlight - Collective Minds
-using Content.Shared.Objectives;
+﻿using Content.Shared.Objectives;
 using Robust.Shared.Serialization;
+using Content.Shared._Starlight.CollectiveMind; // Starlight - Collective Minds
 
 namespace Content.Shared.CharacterInfo;
 

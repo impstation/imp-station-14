@@ -1,6 +1,6 @@
 using System.Numerics;
-using Content.Shared._Starlight.CollectiveMind; // Starlight - Collective Minds
 using Content.Shared.Chat;
+using Content.Shared._Starlight.CollectiveMind; // Starlight - Collective Minds
 
 namespace Content.Client.UserInterface.Systems.Chat.Controls;
 

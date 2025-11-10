@@ -1,8 +1,8 @@
-﻿using Content.Shared._Starlight.CollectiveMind; // Starlight - Collective Mind
-using Content.Shared.CharacterInfo;
+﻿using Content.Shared.CharacterInfo;
 using Content.Shared.Objectives;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
+using Content.Shared._Starlight.CollectiveMind; // Starlight - Collective Mind
 
 namespace Content.Client.CharacterInfo;
 
