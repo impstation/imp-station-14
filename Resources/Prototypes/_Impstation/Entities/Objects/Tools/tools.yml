@@ -162,27 +162,27 @@
     - RCDMeatMeatball
     - RCDCBlanketShock
   - type: LimitedCharges
-    maxCharges: 10
+    maxCharges: 16
   - type: AutoRecharge
     rechargeDuration: 30
 
-#- type: entity
-#  parent: Crayon
-#  id: CrayonChalkInfinite # temporarily disabled
-#  name: infinity chalk
-#  suffix: Infinite
-#  description: Not for doodles.
-#  components:
-#  - type: Crayon
-#    color: White
-#    infinite: true
-#  - type: Sprite
-#    state: white
-#  - type: Tag
-#    tags:
-#    - Write
-#    - Crayon
-#    - CrayonWhite
+- type: entity
+  parent: Crayon
+  id: CrayonChalkInfinite
+  name: infinity chalk
+  suffix: Infinite
+  description: Not for doodles.
+  components:
+  - type: Crayon
+    color: White
+    infinite: true
+  - type: Sprite
+    state: white
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - CrayonWhite
 
 - type: entity
   parent: BorgHoloBellProjector
@@ -192,6 +192,7 @@
   components:
   - type: HolosignProjector
     signProto: HolosignSafety
+    noRot: true
   - type: ItemSlots
     slots:
       cell_slot:
