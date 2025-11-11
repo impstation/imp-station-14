@@ -40,3 +40,33 @@
     netsync: false
     color: "#335acf"
     energy: 4
+
+- type: entity
+  id: HolosignSafety
+  parent: HolosignWetFloor
+  name: holographic safety line
+  description: A holographic safety line that warns of hazards.
+  components:
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: Sprite
+    sprite: _Impstation/Structures/Holo/safety.rsi
+    state: icon
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: TimedDespawn
+    lifetime: 360
+  - type: PointLight
+    enabled: true
+    radius: 3
+    color: yellow
