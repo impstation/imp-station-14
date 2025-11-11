@@ -1,19 +1,4 @@
 ﻿Entries:
-- author: widgetbeck
-  changes:
-  - message: Tier 3 Replicators can now shed nanites to return to Tier 1, allowing
-      them to respec.
-    type: Add
-  - message: Added bespoke animation + sfx for a couple things.
-    type: Add
-  - message: There is now an automated announcement when a Replicator Nest reaches
-      Level 5.
-    type: Add
-  - message: Fixed (hopefully) message to all replicators when the queen dies.
-    type: Fix
-  id: 1920
-  time: '2025-06-28T03:57:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2893
 - author: britno
   changes:
   - message: Irwizine now only takes 10u to pacify creatures, as opposed to 15u!
@@ -4178,3 +4163,10 @@
   id: 2419
   time: '2025-11-11T02:04:21.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3703
+- author: lobsterpaw
+  changes:
+  - message: Adds a new shuttle to the rare salvage ruins pool!
+    type: Add
+  id: 2420
+  time: '2025-11-11T09:05:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3636
