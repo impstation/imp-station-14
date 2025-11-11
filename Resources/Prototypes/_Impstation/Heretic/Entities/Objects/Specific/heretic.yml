@@ -310,7 +310,7 @@
   parent: [ ClothingNeckBase, TierXContraband ]
   id: HereticSkaptodonCloak
   name: skaptodon cloak
-  description: A large leather half-cloak, adorned with impossibly large teeth.
+  description: A large leather half-cloak, adorned with impossibly large teeth. Grants invisibility, but needs to recharge over time.
   components:
   - type: Sprite
     sprite: _Impstation/Heretic/Hunt/skaptodon.rsi
@@ -325,6 +325,7 @@
       neck:
       - state: equipped-NECK
   - type: ItemToggle
+    onUse: false
   - type: ToggleClothing
     action: ActionToggleSkaptodonCloak
     disableOnUnequip: true
@@ -333,7 +334,7 @@
     components:
     - type: Stealth
       minVisibility: 0.1
-      lastVisibility: 0.1
+      lastVisibility: 1.0
       useAltShader: true
     - type: StealthOnMove
       movementVisibilityRate: 1.0
