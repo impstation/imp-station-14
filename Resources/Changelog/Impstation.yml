@@ -1,70 +1,4 @@
 ﻿Entries:
-- author: Stonylogray
-  changes:
-  - message: Strange libraries have been spotted in IMP sector.
-    type: Tweak
-  id: 1911
-  time: '2025-06-27T15:26:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2853
-- author: hivehum
-  changes:
-  - message: Unidentified green beast eliminated.
-    type: Fix
-  id: 1912
-  time: '2025-06-27T17:34:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2881
-- author: widgetbeck
-  changes:
-  - message: The Replicator nest now generates Replicator plating around itself, starting
-      at level 3. The audio range of its ambient sfx also now scales with level.
-    type: Add
-  - message: The first Replicator queen to spawn now spawns in as a "Tier 0" Spore,
-      which has ventcrawling and door crawling, and automatically upgrades to Tier
-      1 when the nest is placed. As a result, door crawling has been removed from
-      Tier 1.
-    type: Add
-  - message: Reintroduced flat structural damage reduction to Replicators, but significantly
-      reduced from its previous values.
-    type: Tweak
-  - message: Replicator nest levelup requirements no longer increase exponentially
-      forever.
-    type: Fix
-  - message: Introduced a punishment state for Replicators when their nest is destroyed,
-      to encourage Sec to target it. More details on the PR.
-    type: Tweak
-  - message: Replicator levelup popups actually happen now, as do their sound effects.
-    type: Fix
-  id: 1913
-  time: '2025-06-27T19:12:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2861
-- author: sev7ves
-  changes:
-  - message: god has decided pleebnars were too powerful. they are weak now.
-    type: Fix
-  id: 1914
-  time: '2025-06-27T19:41:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2883
-- author: Pinkbat5
-  changes:
-  - message: Hardhats no longer make you bald.
-    type: Tweak
-  id: 1915
-  time: '2025-06-28T02:20:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2874
-- author: SixValentine
-  changes:
-  - message: Luna Atmos Nightmare End?
-    type: Fix
-  id: 1916
-  time: '2025-06-28T03:02:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2890
-- author: honeyed-lemons
-  changes:
-  - message: Genpop has been added to Xeno! Hurray!
-    type: Add
-  id: 1917
-  time: '2025-06-28T03:03:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2886
 - author: astral_amy
   changes:
   - message: There are now sentry turrets defending the most secure parts of Bedlam.
@@ -4182,23 +4116,58 @@
   changes:
   - message: Records now support monospace.
     type: Tweak
+  id: 2410
+  time: '2025-11-11T00:58:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3695
+- author: 0vrseer
+  changes:
   - message: Nukie mice will now wiggle their tails and move their paws.
     type: Tweak
+  id: 2411
+  time: '2025-11-11T00:58:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3695
+- author: LankLTE
+  changes:
   - message: Characters with the 'synthetic' trait will no longer get notified of
       Ion Storms. A new event, Synth Storms, has been added instead.
     type: Tweak
+  id: 2412
+  time: '2025-11-11T00:58:29.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3695
+- author: Radezolid
+  changes:
   - message: Now listening post operatives will spawn with a binary key in their headset.
     type: Tweak
+  id: 2413
+  time: '2025-11-11T00:58:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3695
+- author: deltanedas, Elpersonn, mqole
+  changes:
   - message: The Listening Post's crew monitoring console now shows the station instead
       of the post.
     type: Tweak
+  id: 2414
+  time: '2025-11-11T00:58:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3695
+- author: Minerva
+  changes:
   - message: Tape recorders can now be controlled using four signal ports corresponding
       to their buttons.
     type: Add
+  id: 2415
+  time: '2025-11-11T00:58:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3695
+- author: Oxdeception
+  changes:
   - message: The AAC tablet now has its own typing indicator.
     type: Add
+  id: 2416
+  time: '2025-11-11T00:58:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3695
+- author: keekee38
+  changes:
   - message: added a few phrases to the AAC tablet
     type: Add
-  id: 2410
-  time: '2025-11-11T00:57:52.0000000+00:00'
+  id: 2417
+  time: '2025-11-11T00:57:34.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3596
