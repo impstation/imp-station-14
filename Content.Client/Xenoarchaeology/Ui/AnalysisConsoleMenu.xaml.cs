@@ -145,7 +145,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         ExtractionSumLabel.SetMarkup(Loc.GetString("analysis-console-extract-sum", ("value", _extractionSum)));
 
-        _audio.PlayGlobal(_owner.Comp.ScanFinishedSound, _owner, AudioParams.Default.WithVolume(1f));
+        _audio.PlayGlobal(_owner.Comp.ScanFinishedSound, _owner, AudioParams.Default.WithVolume(0.5f)); //#IMP 1f -> 0.5f
         OnExtractButtonPressed?.Invoke();
     }
 

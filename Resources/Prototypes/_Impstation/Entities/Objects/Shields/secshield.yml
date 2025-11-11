@@ -1,0 +1,95 @@
+- type: entity
+  name: compact shield
+  parent: TelescopicShield
+  id: CompactShield
+  description: A collapsable metal shield. While not the most effective, its plating is easy to weld back together.
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Weapons/Melee/compactshield.rsi
+      layers:
+        - state: compact-icon
+        - state: compact-shield-on
+          visible: false
+          map: [ "shield" ]
+    - type: Item
+      size: Normal
+      sprite: _Impstation/Objects/Weapons/Melee/compactshield.rsi
+      heldPrefix: compact
+    - type: Blocking
+      passiveBlockModifier:
+        coefficients:
+          Blunt: 0.9
+          Slash: 0.95
+          Piercing: 0.95
+          Heat: 0.9
+      activeBlockModifier:
+        coefficients:
+          Blunt: 0.85
+          Slash: 0.9
+          Piercing: 0.9
+          Heat: 0.85
+        flatReductions:
+          Blunt: 0
+          Slash: 0
+          Piercing: 0
+          Heat: 0
+    - type: ToggleableVisuals
+      spriteLayer: shield
+      inhandVisuals:
+        left:
+          - state: inhand-left-on
+        right:
+          - state: inhand-right-on
+    - type: Appearance
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 50
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+        - trigger:
+            !type:DamageTrigger
+            damage: 35
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: MetalGlassBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                BrokenSecShield:
+                  min: 1
+                  max: 1
+    - type: StaticPrice
+      price: 150
+
+- type: entity
+  name: broken shield
+  parent: BaseItem
+  id: BrokenSecShield
+  description: A compact shield in desperate need of some welding.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Melee/compactshield.rsi
+    state: broken
+  - type: Item
+    size: Normal
+    inhandVisuals:
+      left:
+      - state: inhand-left-broken
+      right:
+      - state: inhand-right-broken
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 4
+  - type: ToolRefinable
+    refineResult:
+    - id: CompactShield
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 200
+  - type: SpaceGarbage

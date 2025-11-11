@@ -63,6 +63,7 @@
       state: angry
       visible: false
   - type: CombatModeSprint
+    stunSeconds: 1
     doImpactDamage: true
     beginCombatMessage: "ungu-begin-combat-popup"
   - type: CombatMode
@@ -125,7 +126,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 500
+        density: 300 #STOP! BEING! 500!!!
         restitution: 0.0
         mask:
         - MobMask
