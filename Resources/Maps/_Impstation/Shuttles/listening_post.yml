@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.2.0
   forkId: ""
   forkVersion: ""
-  time: 11/09/2025 03:58:52
+  time: 11/11/2025 03:33:43
   entityCount: 1015
 maps: []
 grids:
@@ -2299,7 +2299,7 @@ entities:
     - type: InsideEntityStorage
 - proto: ComputerCrewMonitoringSyndicate
   entities:
-  - uid: 77
+  - uid: 548
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -2488,6 +2488,7 @@ entities:
       pos: 12.5,2.5
       parent: 1
     - type: RadioMicrophone
+      frequency: 1353
       broadcastChannel: Command
     - type: RadioSpeaker
       channels:
