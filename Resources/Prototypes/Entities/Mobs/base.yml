@@ -41,6 +41,9 @@
   # imp edit start
   - type: AnimatedEmotes
   - type: CollectiveMind
+  - type: DizzyVisuals # imp edit
+    sprite: _Impstation/Effects/dizzy.rsi
+    state: stars
   # imp edit end
 
 # The progenitor. This should only container the most basic components possible.

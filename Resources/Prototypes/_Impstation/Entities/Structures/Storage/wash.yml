@@ -1,28 +1,264 @@
 - type: entity
-  parent: CrateBaseWeldable
-  id: WashingMachine
+  parent: [ CrateGeneric, BaseMachinePowered ]
+  id: WashingMachineEmpty
   name: washing machine
   description: You could use this to wash your clothes, but it looks like most of the wiring was gutted out...
   components:
   - type: Icon
     sprite: _Impstation/Structures/Storage/Wash.rsi
+    state: "base"
   - type: Sprite
     sprite: _Impstation/Structures/Storage/Wash.rsi
     layers:
-    - state: base
-      map: ["enum.StorageVisualLayers.Base"]
-    - state: closed
-      map: ["enum.StorageVisualLayers.Door"]
-    - state: open
-      map: [ open_crate ]
-    - state: washOff
+    - map: ["base"]
+      state: base
+    - map: ["fabric"]
+      state: fabric
+      visible: false
+    - map: ["reagent"]
+      state: reagent
+      visible: false
+    - map: ["door"]
+      state: doorClosed
+    - map: ["cycle"]
+      state: washOff
       shader: unshaded
     - state: paper
       sprite: Structures/Storage/Crates/labels.rsi
       map: [ "enum.PaperLabelVisuals.Layer" ]
       offset: 0.0625, 0.0625
       rotation: 180 #look this is about good as it's gonna get without new sprites
+      visible: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.WashingMachineVisualLayers.Base:
+        base:
+          Idle: { state: "base" }
+          Broken: { state: "baseBroken" }
+      enum.WashingMachineVisualLayers.Fabric:
+        enum.StorageVisuals.HasContents:
+          fabric:
+              false: { visible: false }
+              true: { visible: true }
+        fabric:
+          Idle: { state: "fabric" }
+          Active: { state: "fabricCycle" }
+      enum.WashingMachineVisualLayers.Reagent:
+        Idle:
+          enum.StorageVisuals.HasContents: # my crazy fucking yaml or statements dont piskun work
+            reagent:
+              false: { state: "reagent" }
+              true: { state: "reagentFabric" }
+        reagent:
+          Active: { state: "reagentCycle" }
+      enum.StorageVisuals.Open:
+        true:
+          enum.WashingMachineVisualLayers.Door:
+            door:
+              Idle: { state: "doorOpen" }
+              Bloody: { state: "doorOpenBloody" }
+              Broken: { state: "doorOpenBroken" }
+        false:
+          enum.WashingMachineVisualLayers.Door:
+            door:
+              Idle: { state: "doorClosed" }
+              Bloody: { state: "doorClosedBloody" }
+              Broken: { state: "doorClosedBroken" }
+      enum.WashingMachineVisualLayers.Cycle:
+        cycle:
+          Idle: { state: "washOff" }
+          Active: { state: "washOn" }
+          Broken: { visible: false }
+      enum.PowerDeviceVisuals.Powered:
+        cycle:
+          True: { visible: true }
+          False: { visible: false }
+  - type: ApcPowerReceiver
+    powerDisabled: true
+  - type: WiredNetworkConnection
+  - type: LitOnPowered
+  - type: PointLight
+    radius: 1.5
+    energy: 1.5
+    color: "#8bd6ff"
+  - type: AmbientSound
+    enabled: false
+    volume: -5
+    range: 5
+    sound:
+     path: /Audio/Ambience/Objects/portable_scrubber.ogg
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+  - type: ExaminableSolution
+    solution: tank
+  - type: RefillableSolution
+    solution: tank
+  - type: DrainableSolution
+    solution: tank
   - type: Transform
     anchored: true
   - type: Physics
     bodyType: Static
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+  #- TODO explosive or whatever
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+  - type: WashingMachine
+  - type: ChemicalWashingMachineAdapter
+    solution: tank
+    reagentWater:
+      Water: 1
+    reagentCleaner:
+      Bleach: 1
+  - type: CleansForensics
+    cleanDelay: 0
+  - type: DoAfter #we need this so we can clean forensics off things :/
+
+- type: entity
+  parent: WashingMachineEmpty
+  id: WashingMachine
+  suffix: Full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: Water
+          Quantity: 500
+        maxVol: 500
+
+- type: entity
+  parent: ClothingUniformBase
+  id: WashingLintTest
+  name: DRYER LINT
+  description: FOR TESTING REASONS!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacecadet.rsi
+    layers:
+    - state: icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacecadet.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+  - type: Tag
+    tags:
+    - Lint
+
+- type: entity
+  parent: ClothingUniformBase
+  id: WashingWhiteUniformTest
+  name: WHITE UNIFORM
+  description: FOR TESTING REASONS!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacecadet.rsi
+    layers:
+    - state: icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/spacecadet.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+  - type: Dyeable
+    recipes:
+      red: WashingRainbowUniformTest
+
+- type: entity
+  parent: CrayonRed
+  id: WashingCrayonTestRed
+  name: RED CRAYON DYE
+  description: FOR TESTING REASONS!
+  components:
+  - type: Dye
+    color: red
+
+- type: entity
+  parent: CrayonBlue
+  id: WashingCrayonTestBlue
+  name: BLUE CRAYON DYE
+  description: FOR TESTING REASONS!
+  components:
+  - type: Dye
+    color: blue
+
+- type: entity
+  parent: CrayonGreen
+  id: WashingCrayonTestGreen
+  name: GREEN CRAYON DYE
+  description: FOR TESTING REASONS!
+  components:
+  - type: Dye
+    color: green
+
+- type: entity
+  parent: CrayonBlack
+  id: WashingCrayonTestBlack
+  name: BLACK CRAYON DYE
+  description: FOR TESTING REASONS!
+  components:
+  - type: Dye
+    color: black
+
+- type: entity
+  parent: PlushieBug
+  id: TOTALLY NORMAL BUG PLUSHIE
+  components:
+  - type: Dyeable
+    recipes:
+      black: PlushieEvilBug
+
+- type: entity
+  parent: [ ClothingUniformBase, ClothingUniformFoldableBase ]
+  id: WashingRainbowUniformTest
+  name: RAINBOW UNIFORM
+  description: FOR TESTING REASONS!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/rainbow.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/rainbow.rsi
+
+- type: entity
+  parent: PlushieSnail
+  id: WashingCleanerTest
+  name: WASHING CLEANER
+  description: FOR TESTING REASONS!
+  components:
+  - type: DyeCleaner

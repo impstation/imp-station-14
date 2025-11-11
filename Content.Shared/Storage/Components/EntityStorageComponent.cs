@@ -126,6 +126,13 @@ public sealed partial class EntityStorageComponent : Component, IGasMixtureHolde
     /// </summary>
     [DataField]
     public GasMixture Air { get; set; } = new(200);
+
+    // imp add
+    /// <summary>
+    ///     Set to false to cancel all open attempts
+    /// </summary>
+    [DataField]
+    public bool Openable = true;
 }
 
 [Serializable, NetSerializable]
@@ -143,7 +150,11 @@ public sealed class EntityStorageComponentState : ComponentState
 
     public TimeSpan NextInternalOpenAttempt;
 
-    public EntityStorageComponentState(bool open, int capacity, bool isCollidableWhenOpen, bool openOnMove, float enteringRange, TimeSpan nextInternalOpenAttempt)
+    // imp openable bool
+    public bool Openable;
+
+    // imp: add openable
+    public EntityStorageComponentState(bool open, int capacity, bool isCollidableWhenOpen, bool openOnMove, float enteringRange, TimeSpan nextInternalOpenAttempt, bool openable)
     {
         Open = open;
         Capacity = capacity;
@@ -151,6 +162,7 @@ public sealed class EntityStorageComponentState : ComponentState
         OpenOnMove = openOnMove;
         EnteringRange = enteringRange;
         NextInternalOpenAttempt = nextInternalOpenAttempt;
+        Openable = openable; // imp
     }
 }
 
