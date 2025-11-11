@@ -495,7 +495,10 @@
     startingCharge: 720 #it comes charged! wow!
   - type: Tag
     tags:
-      - PowerCellSmall
+    - PowerCellSmall
+    - SiliconEmotes
+    - Bot
+    - Unimplantable
   - type: TypingIndicator #in case someone admin controls one
     proto: robot
   - type: Speech
@@ -518,9 +521,6 @@
         - SmallMobMask
         layer:
         - SmallMobLayer
-  - type: FootstepModifier
-    footstepSoundCollection:
-      path: /Audio/_Impstation/Effects/Footsteps/tcktckstep.ogg
   - type: MovementSpeedModifier #default mob speed
   - type: MovementAlwaysTouching
   - type: NameIdentifier
@@ -528,3 +528,37 @@
   - type: Item
     storedRotation: 180
     size: Small
+  - type: Repairable
+    doAfterDelay: 2
+    fuelCost: 5
+  - type: RequireProjectileTarget
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:TriggerBehavior
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          IngotGold1:
+            min: 1
+            max: 1
+          SheetPlasteel1:
+            min: 1
+            max: 1
+          CableApcStack1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
