@@ -4,8 +4,8 @@ meta:
   engineVersion: 267.2.0
   forkId: ""
   forkVersion: ""
-  time: 11/11/2025 03:33:43
-  entityCount: 1015
+  time: 11/11/2025 15:40:39
+  entityCount: 1016
 maps: []
 grids:
 - 1
@@ -704,6 +704,9 @@ entities:
     - type: Transform
       pos: 5.5,4.5
       parent: 1
+    - type: Door
+      secondsUntilStateChange: -2135.6697
+      state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
     - type: DeviceLinkSource
@@ -711,6 +714,8 @@ entities:
         281:
         - - DoorStatus
           - DoorBolt
+      lastSignals:
+        DoorStatus: True
 - proto: AirlockSyndicate
   entities:
   - uid: 142
@@ -732,6 +737,12 @@ entities:
     - type: Transform
       pos: 9.5,-3.5
       parent: 1
+    - type: Door
+      secondsUntilStateChange: -1943.3364
+      state: Opening
+    - type: DeviceLinkSource
+      lastSignals:
+        DoorStatus: True
 - proto: AirlockSyndicateGlassLocked
   entities:
   - uid: 143
@@ -759,7 +770,7 @@ entities:
       pos: 6.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -4595.403
+      secondsUntilStateChange: -9407.964
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -777,7 +788,7 @@ entities:
       pos: 7.5,-0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -5074.8022
+      secondsUntilStateChange: -9887.363
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -790,7 +801,7 @@ entities:
       pos: -1.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -5430.9688
+      secondsUntilStateChange: -10243.529
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -2203,6 +2214,12 @@ entities:
     - type: Transform
       pos: 0.6993656,3.2977033
       parent: 1
+    - type: PluralName
+      nameOneOf: black gloves
+      overrideName: black gloves
+    - type: Grammar
+      attributes:
+        indefinite: a pair of
 - proto: ClothingHeadHatChameleon
   entities:
   - uid: 382
@@ -2480,7 +2497,7 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: DeskIntercomAll
+- proto: DeskIntercom
   entities:
   - uid: 986
     components:
@@ -2488,6 +2505,7 @@ entities:
       pos: 12.5,2.5
       parent: 1
     - type: RadioMicrophone
+      frequency: 1353
       broadcastChannel: Command
     - type: RadioSpeaker
       channels:
@@ -2503,7 +2521,11 @@ entities:
       - Service
       - Supply
       - Syndicate
+      - Binary
       currentChannel: Command
+    - type: WiresPanelSecurity
+      wiresAccessible: False
+      examine: wires-panel-component-on-examine-security-level2
     - type: ContainerContainer
       containers:
         board: !type:Container
@@ -2516,6 +2538,9 @@ entities:
           ents:
           - 987
           - 988
+          - 1016
+    - type: Construction
+      node: deskIntercomReinforced
 - proto: DiagnosisReportPaper
   entities:
   - uid: 432
@@ -2656,6 +2681,22 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: EncryptionKeyBinarySyndicate
+  entities:
+  - uid: 1016
+    components:
+    - type: Transform
+      parent: 986
+    - type: Physics
+      canCollide: False
+- proto: EncryptionKeyStationMaster
+  entities:
+  - uid: 987
+    components:
+    - type: Transform
+      parent: 986
+    - type: Physics
+      canCollide: False
 - proto: EncryptionKeySyndie
   entities:
   - uid: 988
