@@ -4,7 +4,7 @@ meta:
   engineVersion: 267.2.0
   forkId: ""
   forkVersion: ""
-  time: 11/11/2025 15:40:39
+  time: 11/11/2025 16:21:45
   entityCount: 1016
 maps: []
 grids:
@@ -705,7 +705,7 @@ entities:
       pos: 5.5,4.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -2135.6697
+      secondsUntilStateChange: -2488.226
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -738,7 +738,7 @@ entities:
       pos: 9.5,-3.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -1943.3364
+      secondsUntilStateChange: -2295.8928
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -770,7 +770,7 @@ entities:
       pos: 6.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -9407.964
+      secondsUntilStateChange: -9760.5205
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -788,7 +788,7 @@ entities:
       pos: 7.5,-0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -9887.363
+      secondsUntilStateChange: -10239.92
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -801,7 +801,7 @@ entities:
       pos: -1.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -10243.529
+      secondsUntilStateChange: -10596.086
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1270,7 +1270,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: BoxFolderBlack
+- proto: BoxFolderBlackEmpty
   entities:
   - uid: 76
     components:
@@ -1281,32 +1281,17 @@ entities:
       parent: 405
     - type: Storage
       storedItems:
-        545:
-          position: 0,1
-          _rotation: South
-        559:
-          position: 1,1
-          _rotation: South
-        539:
-          position: 2,1
-          _rotation: South
-        556:
-          position: 3,1
-          _rotation: South
-        560:
-          position: 4,1
-          _rotation: South
         566:
-          position: 0,3
-          _rotation: South
-        564:
           position: 1,3
           _rotation: South
+        564:
+          position: 0,3
+          _rotation: South
         562:
-          position: 2,3
+          position: 3,3
           _rotation: South
         432:
-          position: 3,3
+          position: 2,3
           _rotation: South
         554:
           position: 4,3
@@ -1321,25 +1306,40 @@ entities:
           position: 2,2
           _rotation: South
         428:
-          position: 3,2
-          _rotation: South
-        424:
           position: 4,2
           _rotation: South
+        424:
+          position: 3,2
+          _rotation: South
+        560:
+          position: 0,1
+          _rotation: South
+        556:
+          position: 1,1
+          _rotation: South
+        539:
+          position: 3,1
+          _rotation: South
+        559:
+          position: 2,1
+          _rotation: South
+        545:
+          position: 4,1
+          _rotation: South
         968:
-          position: 0,0
+          position: 4,0
+          _rotation: South
+        971:
+          position: 2,0
+          _rotation: South
+        970:
+          position: 3,0
           _rotation: South
         969:
           position: 1,0
           _rotation: South
-        970:
-          position: 2,0
-          _rotation: South
-        971:
-          position: 3,0
-          _rotation: South
         972:
-          position: 4,0
+          position: 0,0
           _rotation: South
     - type: ContainerContainer
       containers:
@@ -1347,30 +1347,30 @@ entities:
           showEnts: False
           occludes: True
           ents:
-          - 566
           - 564
-          - 562
+          - 566
           - 432
+          - 562
           - 554
-          - 546
-          - 542
-          - 433
-          - 428
-          - 424
           - 560
           - 556
-          - 539
           - 559
+          - 539
           - 545
-          - 968
-          - 969
-          - 970
-          - 971
+          - 428
+          - 424
+          - 542
+          - 433
+          - 546
           - 972
+          - 969
+          - 971
+          - 970
+          - 968
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: BoxFolderRed
+- proto: BoxFolderRedEmpty
   entities:
   - uid: 74
     components:
@@ -1393,47 +1393,47 @@ entities:
         431:
           position: 3,0
           _rotation: South
-        544:
+        435:
           position: 4,1
           _rotation: South
-        435:
+        434:
           position: 0,1
           _rotation: South
-        434:
+        429:
           position: 1,1
           _rotation: South
-        429:
+        426:
           position: 2,1
           _rotation: South
-        426:
+        544:
           position: 3,1
           _rotation: South
         75:
           position: 4,0
           _rotation: South
         563:
-          position: 1,2
-          _rotation: South
-        553:
-          position: 2,3
-          _rotation: South
-        547:
-          position: 1,3
-          _rotation: South
-        430:
-          position: 0,3
-          _rotation: South
-        427:
           position: 0,2
           _rotation: South
-        555:
-          position: 2,2
-          _rotation: South
-        974:
+        427:
           position: 4,2
           _rotation: South
-        973:
+        430:
+          position: 1,3
+          _rotation: South
+        555:
           position: 3,2
+          _rotation: South
+        547:
+          position: 2,3
+          _rotation: South
+        553:
+          position: 0,3
+          _rotation: South
+        973:
+          position: 1,2
+          _rotation: South
+        974:
+          position: 2,2
           _rotation: South
     - type: ContainerContainer
       containers:
@@ -1445,22 +1445,20 @@ entities:
           - 438
           - 436
           - 431
-          - 435
           - 434
           - 429
           - 426
           - 544
+          - 435
           - 75
           - 563
-          - 427
-          - 430
-          - 555
-          - 547
           - 553
           - 973
+          - 430
           - 974
-    - type: StorageFill
-      contents: []
+          - 555
+          - 547
+          - 427
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -2185,10 +2183,10 @@ entities:
           occludes: True
           ents:
           - 74
-          - 68
-          - 77
           - 76
           - 71
+          - 77
+          - 68
     - type: Fixtures
       fixtures: {}
 - proto: ClothingBackpackChameleonFill
@@ -2339,6 +2337,9 @@ entities:
     - type: Transform
       pos: 9.5,2.5
       parent: 1
+    - type: AccessReader
+      accessListsOriginal:
+      - - Reporter
 - proto: ComputerRadar
   entities:
   - uid: 550
