@@ -13,18 +13,21 @@ using JetBrains.Annotations;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed class AdvancedReplacementAccentSystem : EntitySystem
+public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
 
-    private readonly Dictionary<ProtoId<AdvancedReplacementAccentPrototype>, (CachedWord cached, float weight)[]>
+    private static readonly Regex AllCaps = new Regex("\\b[A-Z0-9\\W]\\b");
+    private static readonly Regex Punct = new Regex("[.?!]");
+
+    private readonly Dictionary<ProtoId<AdvancedFullReplacementAccentPrototype>, (CachedWord cached, float weight)[]>
         _cachedReplacements = new();
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<AdvancedReplacementAccentComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<AdvancedFullReplacementAccentComponent, AccentGetEvent>(OnAccent);
 
         _proto.PrototypesReloaded += OnPrototypesReloaded;
     }
@@ -35,7 +38,7 @@ public sealed class AdvancedReplacementAccentSystem : EntitySystem
 
         _proto.PrototypesReloaded -= OnPrototypesReloaded;
     }
-    private void OnAccent(EntityUid uid, AdvancedReplacementAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, AdvancedFullReplacementAccentComponent component, AccentGetEvent args)
     {
         args.Message = ApplyReplacements(args.Message, component.Accent);
     }
@@ -45,15 +48,51 @@ public sealed class AdvancedReplacementAccentSystem : EntitySystem
         [PublicAPI]
         public string ApplyReplacements(string message, string accent)
         {
-            if (!_proto.TryIndex<AdvancedReplacementAccentPrototype>(accent, out var prototype))
+            if (!_proto.TryIndex<AdvancedFullReplacementAccentPrototype>(accent, out var prototype))
                 return message;
+            var messageWords = message.Split();
+            var replacedMessage = "";
+            var punct="";
+            var cachedReplacements=GetCachedReplacements(prototype);
 
+            foreach (char c in messageWords[^1])
+            {
+                if (Punct.IsMatch(c.ToString()))
+                {
+                    punct += c.ToString();
+                }
+            }
 
+            foreach (var word in messageWords)
+            {
+                var isAllCaps = word.All(c => char.IsUpper(c));
+                var replacement = _random.Pick(cachedReplacements).cached;
+                var replacedWord = "";
+                if (replacement.LengthMatch)
+                {
+                    var lengthToMatch = Math.Max(word.Length-(replacement.Prefix.Length+replacement.Suffix.Length), 1);
+                    for (int i = 0; i < lengthToMatch; i++)
+                    {
+                        replacedWord += replacement.Word;
+                    }
+                    replacedWord=replacement.Prefix+replacedWord+replacement.Suffix;
+                    if (isAllCaps)
+                        replacedWord=replacedWord.ToUpper();
+                }
+                else
+                {
+                    replacedWord=replacement.Word;
+                    if (isAllCaps)
+                        replacedWord=replacedWord.ToUpper();
+                }
+                replacedMessage += " "+ replacedWord;
+            }
 
-            return message;
+            replacedMessage += punct;
+            return replacedMessage;
         }
 
-    private (CachedWord cached, float weight)[] GetCachedReplacements(AdvancedReplacementAccentPrototype prototype)
+    private (CachedWord cached, float weight)[] GetCachedReplacements(AdvancedFullReplacementAccentPrototype prototype)
     {
         if (!_cachedReplacements.TryGetValue(prototype.ID, out var replacements))
         {
@@ -64,7 +103,7 @@ public sealed class AdvancedReplacementAccentSystem : EntitySystem
         return replacements;
     }
 
-    private (CachedWord cached, float weight)[] GenerateCachedReplacements(AdvancedReplacementAccentPrototype prototype)
+    private (CachedWord cached, float weight)[] GenerateCachedReplacements(AdvancedFullReplacementAccentPrototype prototype)
     {
         if (prototype.Words is not { } words)
             return [];

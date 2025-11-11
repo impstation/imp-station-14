@@ -1,8 +1,9 @@
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Speech.EntitySystems;
+[Prototype("advancedFullReplacementAccentWord")]
 
-public sealed class AdvancedWordReplacementWordPrototype : IPrototype
+public sealed class AdvancedWordFullReplacementWordPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; }=default!;
