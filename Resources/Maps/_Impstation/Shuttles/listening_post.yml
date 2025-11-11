@@ -697,7 +697,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         283:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
   - uid: 283
     components:
     - type: Transform
@@ -708,7 +709,8 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         281:
-        - DoorStatus: DoorBolt
+        - - DoorStatus
+          - DoorBolt
 - proto: AirlockSyndicate
   entities:
   - uid: 142
@@ -757,7 +759,7 @@ entities:
       pos: 6.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -4560.7007
+      secondsUntilStateChange: -4595.403
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -775,7 +777,7 @@ entities:
       pos: 7.5,-0.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -5040.1
+      secondsUntilStateChange: -5074.8022
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -788,7 +790,7 @@ entities:
       pos: -1.5,-1.5
       parent: 1
     - type: Door
-      secondsUntilStateChange: -5396.2666
+      secondsUntilStateChange: -5430.9688
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -1447,7 +1449,7 @@ entities:
           - 973
           - 974
     - type: StorageFill
-      contents: [] # This is illegal lmao
+      contents: []
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -2194,9 +2196,6 @@ entities:
       parent: 275
     - type: Physics
       canCollide: False
-    - type: ContainerContainer
-      containers:
-        lens_slot: !type:ContainerSlot {}
 - proto: ClothingHandsChameleon
   entities:
   - uid: 949
@@ -2218,6 +2217,8 @@ entities:
     components:
     - type: Transform
       parent: 275
+    - type: Physics
+      canCollide: False
   - uid: 540
     components:
     - type: Transform
@@ -2296,9 +2297,9 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: ComputerCrewMonitoring
+- proto: ComputerCrewMonitoringSyndicate
   entities:
-  - uid: 548
+  - uid: 77
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -5019,11 +5020,16 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         350:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         356:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         355:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
   - uid: 255
     components:
     - type: Transform
@@ -5033,13 +5039,19 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         266:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         267:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         268:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         269:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
   - uid: 707
     components:
     - type: Transform
@@ -5049,7 +5061,10 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         861:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
   - uid: 860
     components:
     - type: Transform
@@ -5059,15 +5074,22 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         361:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         353:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         351:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         352:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
         354:
-        - Pressed: Toggle
+        - - Pressed
+          - Toggle
+    - type: Fixtures
+      fixtures: {}
 - proto: SignalSwitch
   entities:
   - uid: 96
@@ -5079,8 +5101,12 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         125:
-        - On: On
-        - Off: Off
+        - - On
+          - On
+        - - Off
+          - Off
+    - type: Fixtures
+      fixtures: {}
   - uid: 107
     components:
     - type: Transform
@@ -5091,10 +5117,14 @@ entities:
     - type: DeviceLinkSource
       linkedPorts:
         103:
-        - On: On
-        - Off: Off
+        - - On
+          - On
+        - - Off
+          - Off
       lastSignals:
         Status: True
+    - type: Fixtures
+      fixtures: {}
 - proto: SignSecureMedRed
   entities:
   - uid: 182
@@ -5102,6 +5132,8 @@ entities:
     - type: Transform
       pos: -2.5,-5.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: SinkStemlessWater
   entities:
   - uid: 808
