@@ -19,12 +19,12 @@ public sealed partial class ReagentAccumulationThreshold : EntityEffectCondition
     {
         if (args is EntityEffectReagentArgs reagentArgs)
         {
-            if (Reagent == null && reagentArgs.Reagent?.ID != null)
-            {
-                var reagent = Reagent ?? new ReagentId(reagentArgs.Reagent!.ID, []);
-            }
+            var reagent = Reagent;
 
-            if (Reagent == null)
+            if (Reagent == null && reagentArgs.Reagent?.ID != null)
+                reagent = new ReagentId(reagentArgs.Reagent!.ID, []);
+
+            if (reagent == null)
                 return true;
             _accumulated += reagentArgs.Scale.Float();
 

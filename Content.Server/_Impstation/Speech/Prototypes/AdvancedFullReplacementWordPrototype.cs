@@ -1,9 +1,11 @@
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Speech.Prototypes;
+
 [Prototype]
-public sealed class AdvancedFullReplacementWordPrototype : IPrototype
+public sealed partial class AdvancedFullReplacementWordPrototype : IPrototype
 {
+    [ViewVariables]
     [IdDataField]
     public string ID { get; private set; }=default!;
 

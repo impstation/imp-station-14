@@ -2,11 +2,12 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Speech.Prototypes;
 [Prototype]
-public sealed class AdvancedFullReplacementAccentPrototype : IPrototype
+public sealed partial class AdvancedFullReplacementAccentPrototype : IPrototype
 {
     /// <summary>
     /// Accent ID and name.
     /// </summary>
+    [ViewVariables]
     [IdDataField]
     public string ID { get; private set; }=default!;
 
