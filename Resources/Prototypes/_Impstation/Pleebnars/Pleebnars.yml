@@ -1,6 +1,6 @@
 - type: entity
   name: pleebnar
-  parent: SimpleMobBase
+  parent: [SimpleMobBase, MobCombat, StripableInventoryBase]
   id: MobPleebnar
   description: UNIDENTIFIED PISKUN THING!
   components:
@@ -172,5 +172,10 @@
     interfaces:
       enum.PleebnarTelepathyUIKey.Key:
         type: PleebnarTelepathyBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
   - type: CombatModeVisuals
     hideBaseLayer: true
+  - type: Inventory
+    speciesId: hamster
+    templateId: hamster

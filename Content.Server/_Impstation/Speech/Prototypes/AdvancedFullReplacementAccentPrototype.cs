@@ -1,7 +1,7 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Speech.EntitySystems;
-[Prototype("advancedFullReplacementAccent")]
+namespace Content.Server.Speech.Prototypes;
+[Prototype]
 public sealed class AdvancedFullReplacementAccentPrototype : IPrototype
 {
     /// <summary>

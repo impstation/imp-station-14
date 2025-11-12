@@ -1,8 +1,7 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Speech.EntitySystems;
-[Prototype("advancedFullReplacementWord")]
-
+namespace Content.Server.Speech.Prototypes;
+[Prototype]
 public sealed class AdvancedFullReplacementWordPrototype : IPrototype
 {
     [IdDataField]
