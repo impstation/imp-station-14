@@ -1,9 +1,9 @@
 - type: entity
   id: TckABeacon
-  suffix: Tcka Follow target
+  suffix: Tck'aat Follow target
   parent: BaseItem
-  name: tck'a RFID beacon
-  description: An imperial RFID chip that denotes you as the owner of a Tck'a. Magnetically snaps to similar chips for convenient storage in case you have multiple.
+  name: tck'aat RFID chip
+  description: An imperial RFID beacon that denotes you as the owner of a Tck'aat. Magnetically snaps to similar chips for convenient storage in case you have multiple. Place it on the floor nearby to pair it.
   components:
   - type: TckAFollowTarget
   - type: Sprite
@@ -30,8 +30,8 @@
 - type: entity
   id: TckACanister
   parent: BaseItem
-  name: tck'a shipping capsule
-  description: A rugged, hardwearing shipping capsule for one of the only items the empire sells at retail. U'tck'a.
+  name: tck'aat shipping capsule
+  description: A rugged, hardwearing shipping capsule for one of the only items the empire sells at retail. U'tck'aat.
   components:
   - type: Sprite
     layers:

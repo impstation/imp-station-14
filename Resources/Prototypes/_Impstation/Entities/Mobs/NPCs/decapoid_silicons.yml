@@ -464,7 +464,7 @@
 - type: entity
   parent: [ MobSiliconBase, BasePowerCell ]
   id: MobTckA
-  name: tck'a
+  name: tck'aat #Originally tck'a but beck wanted it to be tck'aat so thats how it displays
   description: A miniscule droid that functions as a power cell. Theres just enough space inside to fit the processing power to follow around its RFID chip.
   components:
   - type: Sprite
