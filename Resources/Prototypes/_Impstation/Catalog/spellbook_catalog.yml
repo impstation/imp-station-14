@@ -23,3 +23,120 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookItemSummonSteel
+  name: spellbook-item-summonsteel-name
+  description: spellbook-item-summonsteel-description
+  productAction: ActionSpawnSteel
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonWood
+  name: spellbook-item-summonwood-name
+  description: spellbook-item-summonwood-description
+  productAction: ActionSpawnWood
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonPlastic
+  name: spellbook-item-summonplastic-name
+  description: spellbook-item-summonplastic-description
+  productAction: ActionSpawnPlastic
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonPlasma
+  name: spellbook-item-summonplasma-name
+  description: spellbook-item-summonplasma-description
+  productAction: ActionSpawnPlasma
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonGold
+  name: spellbook-item-summongold-name
+  description: spellbook-item-summongold-description
+  productAction: ActionSpawnGold
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonSilver
+  name: spellbook-item-summonsilver-name
+  description: spellbook-item-summonsilver-description
+  productAction: ActionSpawnSilver
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonUranium
+  name: spellbook-item-summonuranium-name
+  description: spellbook-item-summonuranium-description
+  productAction: ActionSpawnUranium
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonBrass
+  name: spellbook-item-summonbrass-name
+  description: spellbook-item-summonbrass-description
+  productAction: ActionSpawnBrass
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonCloth
+  name: spellbook-item-summoncloth-name
+  description: spellbook-item-summoncloth-description
+  productAction: ActionSpawnCloth
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
