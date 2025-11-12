@@ -37,3 +37,12 @@
     inventory: None
     revertOnDeath: true
     revertOnCrit: true
+
+- type: polymorph
+  id: MagicRockPolymorph
+  configuration:
+    entity: MagicRock
+    transferName: false
+    inventory: None
+    revertOnDeath: true
+    revertOnCrit: true

@@ -381,7 +381,7 @@
   cost:
     WizCoin: 1
   categories:
-  - SpellbookUtility
+  - SpellbookMats
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -394,7 +394,7 @@
   cost:
     WizCoin: 1
   categories:
-  - SpellbookUtility
+  - SpellbookMats
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -407,7 +407,7 @@
   cost:
     WizCoin: 1
   categories:
-  - SpellbookUtility
+  - SpellbookMats
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -420,7 +420,7 @@
   cost:
     WizCoin: 1
   categories:
-  - SpellbookUtility
+  - SpellbookMats
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -433,7 +433,7 @@
   cost:
     WizCoin: 1
   categories:
-  - SpellbookUtility
+  - SpellbookMats
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -446,7 +446,7 @@
   cost:
     WizCoin: 1
   categories:
-  - SpellbookUtility
+  - SpellbookMats
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -459,7 +459,7 @@
   cost:
     WizCoin: 1
   categories:
-  - SpellbookUtility
+  - SpellbookMats
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -472,7 +472,7 @@
   cost:
     WizCoin: 1
   categories:
-  - SpellbookUtility
+  - SpellbookMats
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -485,7 +485,7 @@
   cost:
     WizCoin: 1
   categories:
-  - SpellbookUtility
+  - SpellbookMats
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -498,7 +498,7 @@
   cost:
     WizCoin: 1
   categories:
-  - SpellbookUtility
+  - SpellbookMats
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -512,6 +512,20 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Defensive
+- type: listing
+  id: SpellbookMagicRock
+  name: spellbook-magic-rock-name
+  description: spellbook-magic-rock-desc
+  productAction: ActionPolymorphMagicRock
+  cost:
+    WizCoin: 4
+  categories:
+  - SpellbookDefensive
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1

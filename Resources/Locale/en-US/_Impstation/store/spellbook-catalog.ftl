@@ -39,33 +39,6 @@ spellbook-magic-monkey-desc = An apprentice's apprentice.
 spellbook-snow-name = Cone of Cold
 spellbook-snow-desc = Summon a cone of ice in front of you.
 
-spellbook-item-summonsteel-name = Summon Steel
-spellbook-item-summonsteel-description = Conjure a full stack of steel.
-
-spellbook-item-summonwood-name = Summon Wood
-spellbook-item-summonwood-description = Conjure a full stack of wood.
-
-spellbook-item-summonplastic-name = Summon Plastic
-spellbook-item-summonplastic-description = Conjure a full stack of plastic.
-
-spellbook-item-summonplasma-name = Summon Plasma
-spellbook-item-summonplasma-description = Conjure a full stack of plasma.
-
-spellbook-item-summongold-name = Summon Gold
-spellbook-item-summongold-description = Conjure a full stack of gold.
-
-spellbook-item-summonsilver-name = Summon Silver
-spellbook-item-summonsilver-description = Conjure a full stack of silver.
-
-spellbook-item-summonuranium-name = Summon Uranium
-spellbook-item-summonuranium-description = Conjure a full stack of uranium.
-
-spellbook-item-summonbrass-name = Summon Brass
-spellbook-item-summonbrass-description = Conjure a full stack of brass.
-
-spellbook-item-summoncloth-name = Summon Cloth
-spellbook-item-summoncloth-description = Conjure a full stack of cloth.
-
 # Equipment
 spellbook-wand-polymorph-cluwne-name = Wand of Cluwning
 spellbook-wand-polymorph-cluwne-description = For when you really hate someone and Smite isn't enough.
@@ -125,3 +98,41 @@ spellbook-event-summon-soap-description = Good for big messes.
 
 spellbook-event-summon-magic-whimsy-name = Summon Whimsical Items
 spellbook-event-summon-whimsy-description = My touys!!!!!
+
+# mats
+
+spellbook-item-summonsteel-name = Summon Steel
+spellbook-item-summonsteel-description = Conjure a full stack of steel.
+
+spellbook-item-summonwood-name = Summon Wood
+spellbook-item-summonwood-description = Conjure a full stack of wood.
+
+spellbook-item-summonplastic-name = Summon Plastic
+spellbook-item-summonplastic-description = Conjure a full stack of plastic.
+
+spellbook-item-summonplasma-name = Summon Plasma
+spellbook-item-summonplasma-description = Conjure a full stack of plasma.
+
+spellbook-item-summongold-name = Summon Gold
+spellbook-item-summongold-description = Conjure a full stack of gold.
+
+spellbook-item-summonsilver-name = Summon Silver
+spellbook-item-summonsilver-description = Conjure a full stack of silver.
+
+spellbook-item-summonuranium-name = Summon Uranium
+spellbook-item-summonuranium-description = Conjure a full stack of uranium.
+
+spellbook-item-summonbrass-name = Summon Brass
+spellbook-item-summonbrass-description = Conjure a full stack of brass.
+
+spellbook-item-summoncloth-name = Summon Cloth
+spellbook-item-summoncloth-description = Conjure a full stack of cloth.
+
+spellbook-item-summonglass-name = Summon Glass
+spellbook-item-summonglass-description = Conjure a full stack of glass.
+
+spellbook-gun-name = Gun
+spellbook-gun-description = THE MOST POWERFUL SPELL OF ALL! Shoots a single bullet.
+
+spellbook-magic-rock-name = Magic rock
+spellbook-magic-rock-desc = Protect yourself by turning into an unbreakable rock!

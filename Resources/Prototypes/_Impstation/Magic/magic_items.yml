@@ -119,7 +119,7 @@
   - type: TriggerOnCollide
     fixtureID: projectile
   - type: SpawnOnTrigger
-    proto: IceCrust # why wont this work rightttttt
+    proto: IceCrust
     settings:
         minAmount: 5
         maxAmount: 10
@@ -251,28 +251,25 @@
     ignoreResistances: true
 
 - type: entity
-  parent: [ ClothingBackpackSatchelHolding,  BaseMagicalContraband ]
+  parent: [ ClothingBackpackSatchelHolding, BaseMagicalContraband, BaseBagOpenClose ]
   id: ClothingBackpackSatchelWizard
   name: bag of holding
   description: For wizardly things... or anything else really, you have the room.
   components:
   - type: Sprite
     sprite: _Impstation/Magic/bag.rsi
-    state: open
+    state: close
     layers:
+    - state: close
     - state: open
+      map: [ "openLayer" ]
+      visible: false
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Effects/soft_thump.ogg
   - type: Storage
-    storageOpenSound: /Audio/_NF/Voice/Goblin/goblin-hiss-01.ogg
+    storageOpenSound: /Audio/_NF/Voice/Goblin/goblin_hiss_1.ogg
     storageCloseSound: /Audio\Voice\Vulpkanin\dog_snarl3.ogg
-  - type: GenericVisualizer
-    visuals:
-      enum.StorageVisuals.Open:
-        base:
-          False: { state: close }
-          True: { state: open }
   - type: Appearance
 
 - type: entity
@@ -379,3 +376,53 @@
     damage:
       types:
         Cellular: 20
+
+- type: entity
+  name: Rock
+  id: MagicRock
+  suffix: Wizard
+  description: Sure is a rock.
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Examiner
+  - type: Physics
+    bodyType: KinematicController
+  - type: Pullable
+  - type: Input
+    context: "human"
+  - type: ZombieImmune
+  - type: ProtectedFromStepTriggers
+  - type: Sprite
+    sprite: Objects/Decoration/Flora/flora_rockssolid.rsi
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - state: rocksolid01
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          rocksolid01: ""
+          rocksolid02: ""
+          rocksolid03: ""
+  - type: NpcFactionMember
+    factions:
+      - Wizard
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Effects/break_stone.ogg
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 0.5
+    baseSprintSpeed : 1

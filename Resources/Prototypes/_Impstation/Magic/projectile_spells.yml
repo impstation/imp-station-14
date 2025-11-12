@@ -37,10 +37,15 @@
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: fireball
-       prototype: BulletLPistol
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: BulletLPistol
   - type: SpeakOnAction
     sentence: action-speech-spell-gun
- 
+
 - type: entity
   parent: BaseAction
   id: ActionBubble
