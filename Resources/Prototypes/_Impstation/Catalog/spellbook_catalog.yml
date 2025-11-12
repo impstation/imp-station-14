@@ -140,3 +140,16 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookItemSummonGlass
+  name: spellbook-item-summonglass-name
+  description: spellbook-item-summonglass-description
+  productAction: ActionSpawnGlass
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
