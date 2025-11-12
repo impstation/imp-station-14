@@ -34,6 +34,42 @@
   - Tcksimov4
   obeysTo: laws-owner-crew
 
+#tck'it lawset
+- type: siliconLaw
+  id: Utsimov0
+  order: 0
+  lawString: law-utsimov-0
+
+- type: siliconLaw
+  id: Utsimov1
+  order: 1
+  lawString: law-utsimov-1
+
+- type: siliconLaw
+  id: Utsimov2
+  order: 2
+  lawString: law-utsimov-2
+
+- type: siliconLaw
+  id: Utsimov3
+  order: 3
+  lawString: law-utsimov-3
+
+- type: siliconLaw
+  id: Utsimov4
+  order: 4
+  lawString: law-utsimov-4
+
+- type: siliconLawset
+  id: Utsimov
+  laws:
+  - Utsimov0
+  - Utsimov1
+  - Utsimov2
+  - Utsimov3
+  - Utsimov4
+  obeysTo: laws-owner-crew
+
 # jermov laws
 # credit to moomoobeef (github) for the original pr, teensarlacc (discord) for the original text
 - type: siliconLaw

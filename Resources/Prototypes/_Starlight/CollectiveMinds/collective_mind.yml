@@ -1,0 +1,34 @@
+- type: collectiveMind
+  id: Carp
+  name: collective-mind-carp
+  keycode: 'c'
+  color: "#787878"
+  requiredComponents:
+  - Devourer
+  requiredTags:
+  - Carp
+
+# imp: our one is better
+# - type: collectiveMind
+#   id: Dionas
+#   name: collective-mind-diona
+#   keycode: 'd'
+#   color: "#15912a"
+#   requiredTags:
+#   - DionaHivemind
+
+- type: collectiveMind
+  id: Spiders
+  name: collective-mind-spider
+  keycode: 's'
+  color: "#8f6741"
+  requiredComponents:
+  - Spider
+
+- type: collectiveMind
+  id: Zombies
+  name: collective-mind-zombie
+  keycode: 'z'
+  color: "#508053"
+  requiredComponents:
+  - Zombie

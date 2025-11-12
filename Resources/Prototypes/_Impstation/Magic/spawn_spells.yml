@@ -349,3 +349,28 @@
         amount: 1
   - type: SpeakOnAction
     sentence: action-speech-spell-spacegrease
+
+- type: entity
+  parent: BaseAction
+  id: ActionSpawnGlass
+  name: Conjure Glass
+  description: This spell summons a stack of glass on the clicked location.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: space_grease
+  - type: TargetAction
+    range: 4
+  - type: WorldTargetAction
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: SheetGlass
+        amount: 1
+  - type: SpeakOnAction
+    sentence: action-speech-spell-spacegrease

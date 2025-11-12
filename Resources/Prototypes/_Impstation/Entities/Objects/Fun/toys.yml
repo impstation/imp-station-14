@@ -545,13 +545,13 @@
     state: plushie_goblin
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/_NF/Voice/Goblin/goblin-scream-01.ogg
+      path: /Audio/_NF/Voice/Goblin/goblin_scream_1.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_NF/Voice/Goblin/goblin-cry-02.ogg
+      path: /Audio/_NF/Voice/Goblin/goblin_cry_2.ogg
   - type: EmitSoundOnCollide
     sound:
-      path: /Audio/_NF/Voice/Goblin/goblin-cry-02.ogg
+      path: /Audio/_NF/Voice/Goblin/goblin_cry_2.ogg
   - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
@@ -572,13 +572,13 @@
     state: plushie_gollylad
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/_NF/Voice/Goblin/goblin-throat-singing-01.ogg
+      path: /Audio/_NF/Voice/Goblin/goblin_throat_singing_1.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/_NF/Voice/Goblin/goblin-deathgasp-01.ogg
+      path: /Audio/_NF/Voice/Goblin/goblin_deathgasp_1.ogg
   - type: EmitSoundOnCollide
     sound:
-      path: /Audio/_NF/Voice/Goblin/goblin-deathgasp-01.ogg
+      path: /Audio/_NF/Voice/Goblin/goblin_deathgasp_1.ogg
   - type: UseDelay
     delay: 5.0
   - type: Edible

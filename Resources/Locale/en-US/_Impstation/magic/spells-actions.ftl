@@ -1,4 +1,5 @@
 action-speech-spell-spacegrease = TIEMTU O'IL UPAH!
+action-speech-spell-gun = B'ANG!
 action-speech-spell-summon-soap = SCR'UB N DU'STIE
 action-speech-spell-summon-whimsy = GET'N SILL'AYY
 action-speech-spell-summon-gifts = MA'RIE CHRISTIE-MAS

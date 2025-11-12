@@ -58,6 +58,20 @@
         pitch: 1.33
         volume: -5
         variation: 0.05
+#imp start
+  - type: Fixtures 
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 215 #these things are pretty tall #plus imagine a heavy dog lunging at you. thats funny.
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+# imp end
   - type: Sprite # Drawlayers. Top to bottom in order I believe.
     netsync: false
     layers:

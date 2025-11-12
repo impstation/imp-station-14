@@ -386,7 +386,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-  - type: listing
+- type: listing
   id: SpellbookItemSummonWood
   name: spellbook-item-summonwood-name
   description: spellbook-item-summonwood-description
@@ -412,7 +412,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-  - type: listing
+- type: listing
   id: SpellbookItemSummonPlasma
   name: spellbook-item-summonplasma-name
   description: spellbook-item-summonplasma-description
@@ -425,7 +425,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-  - type: listing
+- type: listing
   id: SpellbookItemSummonGold
   name: spellbook-item-summongold-name
   description: spellbook-item-summongold-description
@@ -438,7 +438,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-  - type: listing
+- type: listing
   id: SpellbookItemSummonSilver
   name: spellbook-item-summonsilver-name
   description: spellbook-item-summonsilver-description
@@ -451,7 +451,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-  - type: listing
+- type: listing
   id: SpellbookItemSummonUranium
   name: spellbook-item-summonuranium-name
   description: spellbook-item-summonuranium-description
@@ -464,7 +464,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-  - type: listing
+- type: listing
   id: SpellbookItemSummonBrass
   name: spellbook-item-summonbrass-name
   description: spellbook-item-summonbrass-description
@@ -477,7 +477,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-  - type: listing
+- type: listing
   id: SpellbookItemSummonCloth
   name: spellbook-item-summoncloth-name
   description: spellbook-item-summoncloth-description
@@ -486,6 +486,32 @@
     WizCoin: 1
   categories:
   - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonGlass
+  name: spellbook-item-summonglass-name
+  description: spellbook-item-summonglass-description
+  productAction: ActionSpawnGlass
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookGun
+  name: spellbook-gun-name
+  description: spellbook-gun-description
+  productAction: ActionGun
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
