@@ -22,7 +22,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         var xform = Transform(ent);
-        Spawn("hereticWatchtower", _transform.GetMapCoordinates(ent, xform: xform));
+        Spawn("HereticWatchtower", _transform.GetMapCoordinates(ent, xform: xform));
         _audio.PlayPvs(SummonTowerSound, ent, AudioParams.Default.WithVolume(-3f));
         args.Handled = true;
     }

@@ -5,11 +5,12 @@
   description: A mixture of blade and revolver, used by sinister individuals for rituals and sacrifices.
   components:
   - type: Sprite
-    sprite: _Goobstation/Heretic/Blades/blade_blade.rsi #imp
+    sprite: _Impstation/Heretic/Hunt/hunt_revolver.rsi
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi #its. good enough.
   - type: Item
-    storedOffset: 0,-2
+    size: Normal
+    sprite: _Impstation/Heretic/Hunt/hunt_revolver_inhand.rsi
   - type: RevolverAmmoProvider
     proto: CartridgeMagnum
     capacity: 6
@@ -31,7 +32,7 @@
     soundSwing:
       path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
     resetOnHandSelected: false
-    wideAnimationRotation: -80
+    wideAnimationRotation: -125
   - type: AltFireMelee
     attackType: Heavy
 
