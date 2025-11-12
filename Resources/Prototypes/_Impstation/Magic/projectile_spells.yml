@@ -20,3 +20,28 @@
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
       prototype: BulletLighterIncendiary #blood red lighter fire projectile
+
+- type: entity
+  parent: BaseAction
+  id: ActionGun
+  name: Gun
+  description: Shoots a single bullet.
+  components:
+  - type: Magic
+  - type: Action
+    useDelay: 1
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/fireball.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: fireball
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: BulletLPistol
+  - type: SpeakOnAction
+    sentence: action-speech-spell-gun
