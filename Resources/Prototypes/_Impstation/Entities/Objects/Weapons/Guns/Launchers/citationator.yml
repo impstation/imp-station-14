@@ -5,7 +5,7 @@
   description: Issuing citations, with a prejudice.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Cannons/citationator.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/citationator.rsi
     layers:
     - state: icon #magazine counters don't work for ContainerAmmoProvider, and the item counter system only displays if an inventory is being accessed, so for now it's just going to default to icon because that's what looks good at all times rather than being inexplicably empty until new systems are made.
       map: [ "enum.GunVisualLayers.Base" ]
