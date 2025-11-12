@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic;
 
@@ -8,6 +9,6 @@ namespace Content.Shared.Heretic;
 public sealed partial class EventHereticPlaceWatchtower : InstantActionEvent { }
 public sealed partial class EventHereticTeachSerpentFocus : InstantActionEvent { }
 public sealed partial class EventHereticSerpentFocus : InstantActionEvent { }
-public sealed partial class EventHereticHuntAscend : InstantActionEvent { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class EventHereticHuntAscend : EntityEventArgs { }
 
 #endregion

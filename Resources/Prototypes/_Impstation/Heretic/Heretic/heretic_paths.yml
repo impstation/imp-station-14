@@ -12,6 +12,8 @@
   - NightwatcherRebirth
   - AscensionAsh
   - AshlordRite
+  ascensionSound: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_ash.ogg
+  announcement: heretic-ascension-ash
 
 - type: hereticPath
   id: Flesh
@@ -26,6 +28,8 @@
   - LonelyRitual
   - AscensionFlesh
   - PriestFinalHymn
+  ascensionSound: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_flesh.ogg
+  announcement: heretic-ascension-flesh
 
 - type: hereticPath
   id: Void
@@ -40,6 +44,8 @@
   - VoidPull
   - AscensionVoid
   - WaltzAtTheEndOfTime
+  ascensionSound: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_void.ogg
+  announcement: heretic-ascension-void
 
 - type: hereticPath
   id: Hunt
@@ -53,7 +59,8 @@
   - LionsBane
   - SkaptodonCloak
   - AscensionHunt
-  - ManhuntsReversal
+  - ManhuntsReversal ##just uses the base ascension sound since i never made one
+  announcement: heretic-ascension-hunt
 
 # dummy paths
 

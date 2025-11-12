@@ -10,13 +10,16 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
+using Content.Shared.Nutrition;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
@@ -93,12 +96,25 @@ public sealed partial class HereticSystem : EntitySystem
         if (ent.Comp.MainPath == null)
             return;
 
+        var main = ent.Comp.MainPath.Value;
+        if (!_prototypeManager.TryIndex<HereticPathPrototype>(main, out var pathPrototype))
+        {
+            return;
+        }
+
+        var ascendSound = pathPrototype.AscensionSound;
+        var message = Loc.GetString(pathPrototype.Announcement);
+        _chat.DispatchGlobalAnnouncement(message, Name(ent), true, ascendSound, Color.Pink);
+
+        // leaving the old code here as an environmental storytelling corpse -kandi
+        /*
         var pathLoc = ent.Comp.MainPath!.Value.Id.ToLower();
         var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
+        */
 
         // do other logic, e.g. make heretic immune to whatever
-        switch (ent.Comp.MainPath)
+        switch (ent.Comp.MainPath.Value.Id)
         {
             case "Ash":
                 RemComp<TemperatureComponent>(ent);

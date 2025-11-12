@@ -44,6 +44,5 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     private void OnHuntAscend(Entity<HereticComponent> ent, ref EventHereticHuntAscend args)
     {
         EnsureComp<ProjectileRedirectorComponent>(ent);
-        args.Handled = true;
     }
 }
