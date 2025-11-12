@@ -41,11 +41,12 @@
         /// </summary>
         Emotes = ChatChannel.Emotes,
 
-        // imp add
+        // Starlight - Start
         /// <summary>
         ///     CollectiveMind
         /// </summary>
         CollectiveMind = ChatChannel.CollectiveMind,
+        // Starlight - End
 
         /// <summary>
         ///     Deadchat

@@ -441,8 +441,22 @@
     makeSentient: true
     name: Tck'ut
     description: Patrol the halls, make snacks, give comfort, and promote safety.
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+    - Binary
+  - type: ActiveRadio
+    channels:
+    - Common
+    - Binary
   - type: Access
     tags:
     - Maintenance
     - Security
     - Medical
+    - Brig
+    - GenpopEnter
+    - GenpopLeave
+    - Detective
+    - Armory
+    - Chemistry
