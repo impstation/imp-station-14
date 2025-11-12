@@ -1,27 +1,24 @@
-using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
-using Content.Server.Speech.Prototypes;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using JetBrains.Annotations;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-
 
 namespace Content.Server.Speech.EntitySystems;
 
+/// <remarks>
+/// This is largely taken from ReplacementAccentSystem. Just altered to fit this system. the function of onAccent is different though.
+/// </remarks>
 public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
 
-    private static readonly Regex AllCaps = new Regex("\\b[A-Z0-9\\W]\\b");
-    private static readonly Regex Punct = new Regex("[.?!]");
+    private static readonly Regex AllCaps = new Regex("^\\P{Ll}*$");
+    private static readonly Regex Punctuation = new Regex("[.?!]");
 
     private readonly Dictionary<ProtoId<AdvancedFullReplacementAccentPrototype>, (CachedWord cached, float weight)[]>
         _cachedReplacements = new();
@@ -43,58 +40,68 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
     {
         args.Message = ApplyReplacements(args.Message, component.Accent);
     }
+
     /// <summary>
-        ///     Attempts to apply a given replacement accent prototype to a message.
-        /// </summary>
-        [PublicAPI]
-        public string ApplyReplacements(string message, string accent)
+    ///     Attempts to apply a given replacement accent prototype to a message.
+    /// </summary>
+    [PublicAPI]
+    public string ApplyReplacements(string message, string accent)
+    {
+        //check if the prototype actually exists
+        if (!_proto.TryIndex<AdvancedFullReplacementAccentPrototype>(accent, out var prototype))
+            return "";
+
+        var messageWords = message.Split();
+        var replacedMessage = "";
+        var punct="";
+        var cachedReplacements=GetCachedReplacements(prototype);
+        if (cachedReplacements.Count <= 0)
+            return "";
+
+        //get the punctuation from the end of the message because its what matters for formatting.
+        foreach (char c in Punctuation.Matches(messageWords[^1]))
         {
-            if (!_proto.TryIndex<AdvancedFullReplacementAccentPrototype>(accent, out var prototype))
-                return "";
-            var messageWords = message.Split();
-            var replacedMessage = "";
-            var punct="";
-            var cachedReplacements=GetCachedReplacements(prototype);
-            if (cachedReplacements.Count <= 0)
-                return "";
-
-            foreach (char c in messageWords[^1])
-            {
-                if (Punct.IsMatch(c.ToString()))
-                {
-                    punct += c.ToString();
-                }
-            }
-
-            foreach (var word in messageWords)
-            {
-                var isAllCaps = word.All(c => char.IsUpper(c));
-                var replacement = _random.Pick(cachedReplacements);
-                var replacedWord = "";
-                if (replacement.LengthMatch)
-                {
-                    var lengthToMatch = Math.Max(word.Length-(replacement.Prefix.Length+replacement.Suffix.Length), 1);
-                    while (replacedWord.Length < lengthToMatch)
-                    {
-                        replacedWord += replacement.Word;
-                    }
-                    replacedWord=replacement.Prefix+replacedWord+replacement.Suffix;
-                    if (isAllCaps)
-                        replacedWord=replacedWord.ToUpper();
-                }
-                else
-                {
-                    replacedWord=replacement.Word;
-                    if (isAllCaps)
-                        replacedWord=replacedWord.ToUpper();
-                }
-                replacedMessage += " "+ replacedWord;
-            }
-
-            replacedMessage = replacedMessage.TrimStart();
-            replacedMessage += punct;
-            return replacedMessage;
+            punct += c.ToString();
         }
+
+        foreach (var word in messageWords)// iterate through the words
+        {
+            var isAllCaps = AllCaps.IsMatch(word);
+            var replacement = _random.Pick(cachedReplacements);
+            var replacedWord = "";
+
+            //check if we match the length
+            if (replacement.LengthMatch)
+            {
+                //get the length that we need to repeat. minus the chars in the suffix or prefix, is at minimum 1.
+                var lengthToMatch = Math.Max(word.Length-(replacement.Prefix.Length+replacement.Suffix.Length), 1);
+
+                //repeat the replacement until we get to the length or higher
+                while (replacedWord.Length < lengthToMatch)
+                {
+                    replacedWord += replacement.Word;
+                }
+                replacedWord=replacement.Prefix+replacedWord+replacement.Suffix;
+
+            }
+            else
+            {
+                replacedWord=replacement.Word;
+            }
+            //if its just upper case I we don't wanna make it uppercase.
+
+            if (isAllCaps&&!word.Equals("I"))
+                replacedWord=replacedWord.ToUpper();
+
+            replacedMessage += " "+ replacedWord;
+        }
+
+        replacedMessage = replacedMessage.TrimStart();
+        if (replacedMessage.Length>1)
+            replacedMessage = replacedMessage[0].ToString().ToUpper()+replacedMessage.Substring(1);
+        replacedMessage += punct;
+        return replacedMessage;
+    }
 
     private Dictionary<CachedWord, float> GetCachedReplacements(AdvancedFullReplacementAccentPrototype prototype)
     {

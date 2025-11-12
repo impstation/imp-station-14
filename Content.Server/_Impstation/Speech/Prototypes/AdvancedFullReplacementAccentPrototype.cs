@@ -4,11 +4,14 @@ namespace Content.Server.Speech.EntitySystems;
 [Prototype("advancedFullReplacementAccent")]
 public sealed class AdvancedFullReplacementAccentPrototype : IPrototype
 {
+    /// <summary>
+    /// Accent ID and name.
+    /// </summary>
     [IdDataField]
     public string ID { get; private set; }=default!;
 
     /// <summary>
-    /// Words to pick from and their weights.
+    /// List of word protoIDs and weights. the ID must have a corresponding word prototype.
     /// </summary>
     [DataField("words")]
     public Dictionary<ProtoId<AdvancedFullReplacementWordPrototype>, float> Words { get; private set; } = new();
