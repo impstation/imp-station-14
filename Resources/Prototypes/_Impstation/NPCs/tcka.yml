@@ -17,7 +17,7 @@
     - tasks:
         - !type:HTNPrimitiveTask
           operator: !type:UtilityOperator
-            proto: NearbyFollowable # Looks for all things matching the utilityQuery
+            proto: NearbyFollowableTckA # Looks for all things matching the utilityQuery
 
     # Handles finding, pathfinding and moving to the Target
     - tasks:
@@ -47,7 +47,7 @@
 #----------------------------------------------------------------------------
 
 - type: utilityQuery   # Used by UtilityOperator as a way to find entities that match
-  id: NearbyFollowable # and picks the nearest one to the searcher 
+  id: NearbyFollowableTckA # and picks the nearest one to the searcher 
   query:
     - !type:ComponentQuery                # If there are any REQUIRED variable inputs in the component
       components:                        # they need to be added here like when adding them to an NPC
