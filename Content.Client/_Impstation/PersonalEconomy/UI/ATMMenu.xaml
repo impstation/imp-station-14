@@ -5,7 +5,11 @@
             MinSize="512 256"
             SetSize="512 256">
     <BoxContainer Orientation="Horizontal">
-        <ui:Keypad Name="UIKeypad" NumberLength="6"/>
+        <BoxContainer Orientation="Vertical">
+            <Control VerticalExpand="True"/>
+            <ui:Keypad Name="UIKeypad" NumberLength="6"/>
+            <Control VerticalExpand="True"/>
+        </BoxContainer>
         <BoxContainer Name="AccountInfoContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"/>
     </BoxContainer>
 </controls:FancyWindow>
