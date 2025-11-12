@@ -1,7 +1,7 @@
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Speech.EntitySystems;
-[Prototype("AdvancedFullReplacementAccent")]
+[Prototype("advancedFullReplacementAccent")]
 public sealed class AdvancedFullReplacementAccentPrototype : IPrototype
 {
     [IdDataField]
@@ -10,6 +10,6 @@ public sealed class AdvancedFullReplacementAccentPrototype : IPrototype
     /// <summary>
     /// Words to pick from and their weights.
     /// </summary>
-    [DataField("Words")]
-    public Dictionary<AdvancedWordFullReplacementWordPrototype, float> Words { get; private set; } = new();
+    [DataField("words")]
+    public Dictionary<ProtoId<AdvancedFullReplacementWordPrototype>, float> Words { get; private set; } = new();
 }

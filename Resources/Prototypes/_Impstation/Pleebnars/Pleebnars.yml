@@ -28,6 +28,9 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: pleebnar
+    - map: ["enum.CombatModeVisualsVisuals.Combat"]
+      state: pleebnar_harm
+      visible: false
   - type: Item
     size: Tiny
     heldPrefix: 0
@@ -116,7 +119,7 @@
         reagents:
         - ReagentId: GrayBlood
           Quantity: 3
-  - type: ReplacementAccent
+  - type: AdvancedFullReplacementAccent
     accent: pleebnar
   - type: Tag
     tags:
@@ -169,3 +172,5 @@
     interfaces:
       enum.PleebnarTelepathyUIKey.Key:
         type: PleebnarTelepathyBoundUserInterface
+  - type: CombatModeVisuals
+    hideBaseLayer: true

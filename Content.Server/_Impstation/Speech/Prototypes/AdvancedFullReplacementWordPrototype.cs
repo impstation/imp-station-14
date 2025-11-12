@@ -1,9 +1,9 @@
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Speech.EntitySystems;
-[Prototype("advancedFullReplacementAccentWord")]
+[Prototype("advancedFullReplacementWord")]
 
-public sealed class AdvancedWordFullReplacementWordPrototype : IPrototype
+public sealed class AdvancedFullReplacementWordPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; }=default!;
@@ -14,7 +14,7 @@ public sealed class AdvancedWordFullReplacementWordPrototype : IPrototype
     [DataField("replacement")]
     public string Replacement { get; private set; } = default!;
     [DataField("prefix")]
-    public string? Prefix { get; private set; }
+    public string Prefix { get; private set; } =default!;
     [DataField("suffix")]
-    public string? Suffix { get; private set; }
+    public string Suffix { get; private set; }=default!;
 }

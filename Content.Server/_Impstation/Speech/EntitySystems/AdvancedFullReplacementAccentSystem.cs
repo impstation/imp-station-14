@@ -9,6 +9,7 @@ using Robust.Shared.Random;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using JetBrains.Annotations;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 
 namespace Content.Server.Speech.EntitySystems;
@@ -49,11 +50,13 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
         public string ApplyReplacements(string message, string accent)
         {
             if (!_proto.TryIndex<AdvancedFullReplacementAccentPrototype>(accent, out var prototype))
-                return message;
+                return "";
             var messageWords = message.Split();
             var replacedMessage = "";
             var punct="";
             var cachedReplacements=GetCachedReplacements(prototype);
+            if (cachedReplacements.Count <= 0)
+                return "";
 
             foreach (char c in messageWords[^1])
             {
@@ -66,12 +69,12 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
             foreach (var word in messageWords)
             {
                 var isAllCaps = word.All(c => char.IsUpper(c));
-                var replacement = _random.Pick(cachedReplacements).cached;
+                var replacement = _random.Pick(cachedReplacements);
                 var replacedWord = "";
                 if (replacement.LengthMatch)
                 {
                     var lengthToMatch = Math.Max(word.Length-(replacement.Prefix.Length+replacement.Suffix.Length), 1);
-                    for (int i = 0; i < lengthToMatch; i++)
+                    while (replacedWord.Length < lengthToMatch)
                     {
                         replacedWord += replacement.Word;
                     }
@@ -88,11 +91,12 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
                 replacedMessage += " "+ replacedWord;
             }
 
+            replacedMessage = replacedMessage.TrimStart();
             replacedMessage += punct;
             return replacedMessage;
         }
 
-    private (CachedWord cached, float weight)[] GetCachedReplacements(AdvancedFullReplacementAccentPrototype prototype)
+    private Dictionary<CachedWord, float> GetCachedReplacements(AdvancedFullReplacementAccentPrototype prototype)
     {
         if (!_cachedReplacements.TryGetValue(prototype.ID, out var replacements))
         {
@@ -100,7 +104,7 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
             _cachedReplacements.Add(prototype.ID, replacements);
         }
 
-        return replacements;
+        return replacements.ToDictionary();
     }
 
     private (CachedWord cached, float weight)[] GenerateCachedReplacements(AdvancedFullReplacementAccentPrototype prototype)
@@ -108,24 +112,28 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
         if (prototype.Words is not { } words)
             return [];
 
+
         return words.Select(kv =>
             {
-                var (word, weight) = kv;
+                var (wordID, weight) = kv;
+                if (!_proto.TryIndex(wordID, out var word))
+                    return default;
                 CachedWord cached;
                 if (word.LengthMatch)
                 {
                     cached = new CachedWord(
                         word.LengthMatch,
                         _loc.GetString(word.Replacement),
-                        _loc.GetString(word.Prefix!),
-                        _loc.GetString(word.Suffix!));
+                        _loc.GetString(word.Prefix ?? ""),
+                        _loc.GetString(word.Suffix ?? ""));
                 }
                 else
                 {
                     cached = new CachedWord(
                         word.LengthMatch,
-                        word.Replacement);
+                        _loc.GetString(word.Replacement));
                 }
+
                 return (cached, weight);
 
             })
