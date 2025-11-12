@@ -1,2 +1,14 @@
 action-speech-spell-spacegrease = TIEMTU O'IL UPAH!
-action-speech-spell-gun =   B'ANG!
+action-speech-spell-gun = B'ANG!
+action-speech-spell-summon-soap = SCR'UB N DU'STIE
+action-speech-spell-summon-whimsy = GET'N SILL'AYY
+action-speech-spell-summon-gifts = MA'RIE CHRISTIE-MAS
+action-speech-spell-summon-bff = C'MAN SE'IM
+action-speech-spell-apprentice = PLACEHOLDER MAKE APPRENTICE
+action-speech-spell-bub = WE'UT SPHIRE
+action-speech-spell-frost = FROS'TI
+action-speech-spell-summon-wiz = GO M'I SPOR'Z
+action-speech-spell-scram = HIT'N TH' BRI'CS
+action-speech-spell-curse = FUCK YOU
+action-speech-wizdoor = YUSH'LL N'TPAS
+action-speech-spell-mm = MA'YJIYK MISS'ISLE

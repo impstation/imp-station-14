@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseAnomalyInjector
+  id: AnomalyTrapCurse
+  suffix: Curse
+  components:
+  - type: Sprite
+    layers:
+    - state: pink
+    - sprite: Structures/Specific/Anomalies/pyro_anom.rsi
+      state: pulse
+    - sprite: Mobs/Species/Human/parts.rsi
+      state: full
+  - type: InnerBodyAnomalyInjector
+    injectionComponents:
+      - type: Anomaly
+        deleteEntity: false
+        maxPointsPerSecond: 200
+        corePrototype: AnomalyCoreShadow
+        coreInertPrototype: AnomalyCoreShadowInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyCurseSupercritical
+      - type: InnerBodyAnomaly
+        injectionProto: AnomalyInjectionCurse
+        startMessage: inner-anomaly-start-message-shadow
+        fallbackSprite:
+          sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+          state: shadow

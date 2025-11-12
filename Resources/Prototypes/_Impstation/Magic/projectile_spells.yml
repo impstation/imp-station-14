@@ -37,11 +37,128 @@
     icon:
       sprite: Objects/Magic/magicactions.rsi
       state: fireball
+       prototype: BulletLPistol
+  - type: SpeakOnAction
+    sentence: action-speech-spell-gun
+ 
+- type: entity
+  parent: BaseAction
+  id: ActionBubble
+  name: Water Sphere
+  description: Its just a bubble...
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Fluids/watersplash.ogg
+    icon:
+    sprite: _Impstation/Magic/bubble.rsi
+    state: bullet
   - type: TargetAction
     range: 60
     checkCanAccess: false
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
-      prototype: BulletLPistol
+      prototype: MagicBubble
   - type: SpeakOnAction
-    sentence: action-speech-spell-gun
+    sentence: action-speech-spell-bub
+
+- type: entity
+  parent: BaseAction
+  id: ActionFrost
+  name: Frost Bolt
+  description:
+  components:
+  - type: Action
+    useDelay: 15
+    itemIconStyle: BigAction
+    raiseOnUser: true
+    icon:
+      sprite: Structures/Specific/Anomalies/ice_anom.rsi
+      state: pulse
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Magic/icemagicbolt.ogg
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileIceMagic
+  - type: SpeakOnAction
+    sentence: action-speech-spell-frost
+
+- type: entity
+  parent: BaseAction
+  id: ActionWizardsOnly
+  name: Wizard door
+  description: Transform a door to keep others out.
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: BigAction
+    raiseOnUser: true
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectilePolyboltWizardDoor
+  - type: SpeakOnAction
+    sentence: action-speech-wizdoor
+
+- type: entity
+  id: ProjectilePolyboltWizardDoor
+  parent: ProjectilePolyboltBase
+  name: wizard door polybolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: arcane_barrage
+  - type: PolymorphOnTrigger
+    polymorph: WizardMagicDoor
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      components:
+      - Airlock
+  - type: Magic
+    requiresClothes: true
+
+- type: entity
+  id: ProjectilePolyboltPig
+  parent: ProjectilePolyboltBase
+  name: pig polybolt
+  description: Nooo, I don't wanna be a pig!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PolymorphOnTrigger
+    polymorph: WizardForcedPig
+  - type: WhitelistTriggerCondition
+    userWhitelist:
+      components:
+      - MobState
+
+- type: entity
+  parent: BaseAction
+  id: ActionMagicM
+  name: Magic Missile
+  description: The classic.
+  components:
+  - type: Action
+    useDelay: 2
+    itemIconStyle: BigAction
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: magicmissile
+    raiseOnUser: true
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Impstation/Magic/woosh.ogg
+  - type: TargetAction
+    range: 60
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:ProjectileSpellEvent
+      prototype: ProjectileMM

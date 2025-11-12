@@ -21,7 +21,7 @@ spellbook-smoke-name = Smoke
 spellbook-smoke-desc = Summons a cloud of smoke, it's pretty obvious.
 
 spellbook-polymorph-spider-name = Spider Polymorph
-spellbook-polymorph-spider-desc = Transforms you into a spider, man!
+spellbook-polymorph-spider-desc = Transforms you into a spider!
 
 spellbook-polymorph-rod-name = Rod Polymorph
 spellbook-polymorph-rod-desc = Change into an Immovable Rod with limited movement.
@@ -45,7 +45,7 @@ spellbook-cluwne-name = Cluwne's Curse
 spellbook-cluwne-desc = For when you really hate someone and Smite isn't enough. Requires Wizard Robe & Hat.
 
 spellbook-slip-name = Slippery Slope
-spellbook-slip-desc = Learn the ancient ways of the Janitor and curse your target to be slippery. Requires Wizard Robe & Hat.
+spellbook-slip-desc = Learn the ancient ways of the Janitor and curse your target to be slippery.
 
 spellbook-item-recall-name = Item Recall
 spellbook-item-recall-description = Mark a held item and summon it back at any time with just a snap of your fingers!
@@ -58,7 +58,6 @@ spellbook-wand-polymorph-door-description = For when you need a get-away route.
 spellbook-wand-polymorph-carp-name = Wand of Carp Polymorph
 spellbook-wand-polymorph-carp-description = For when you need a carp filet quick and the clown is looking juicy.
 
-# Imp Addition
 spellbook-wand-polymorph-cluwne-name = Wand of Cluwning
 spellbook-wand-polymorph-cluwne-description = For when you really hate someone and Smite isn't enough.
 
@@ -73,39 +72,6 @@ spellbook-hammer-singularity-description = Ever wonder what it'd be like to be t
 
 spellbook-staff-animation-name = Staff of Animation
 spellbook-staff-animation-description = Bring inanimate objects to life!
-
-spellbook-item-summonsteel-name = Summon Steel
-spellbook-item-summonsteel-description = Conjure a full stack of steel.
-
-spellbook-item-summonwood-name = Summon Wood
-spellbook-item-summonwood-description = Conjure a full stack of wood.
-
-spellbook-item-summonplastic-name = Summon Plastic
-spellbook-item-summonplastic-description = Conjure a full stack of plastic.
-
-spellbook-item-summonplasma-name = Summon Plasma
-spellbook-item-summonplasma-description = Conjure a full stack of plasma.
-
-spellbook-item-summongold-name = Summon Gold
-spellbook-item-summongold-description = Conjure a full stack of gold.
-
-spellbook-item-summonsilver-name = Summon Silver
-spellbook-item-summonsilver-description = Conjure a full stack of silver.
-
-spellbook-item-summonuranium-name = Summon Uranium
-spellbook-item-summonuranium-description = Conjure a full stack of uranium.
-
-spellbook-item-summonbrass-name = Summon Brass
-spellbook-item-summonbrass-description = Conjure a full stack of brass.
-
-spellbook-item-summoncloth-name = Summon Cloth
-spellbook-item-summoncloth-description = Conjure a full stack of cloth.
-
-spellbook-item-summonglass-name = Summon Glass
-spellbook-item-summonglass-description = Conjure a full stack of glass.
-
-spellbook-gun-name = Gun
-spellbook-gun-description = THE MOST POWERFUL SPELL OF ALL! Shoots a single bullet.
 
 # Events
 
