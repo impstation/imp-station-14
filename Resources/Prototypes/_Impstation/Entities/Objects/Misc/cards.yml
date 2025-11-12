@@ -111,7 +111,7 @@
     - CardScTheSun
     - CardScJudgement
     - CardScTheWorld
-  
+
 - type: entity
   parent: BaseItem
   id: CardBaseTarot
@@ -243,7 +243,7 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Cups_tarot
-  
+
 - type: entity
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
@@ -279,7 +279,7 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Cups_tarot
-  
+
 - type: entity
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
@@ -412,7 +412,7 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Pentacles_tarot
-  
+
 - type: entity
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
@@ -448,7 +448,7 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Pentacles_tarot
-  
+
 - type: entity
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
@@ -581,7 +581,7 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Swords_tarot
-  
+
 - type: entity
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
@@ -617,7 +617,7 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Swords_tarot
-  
+
 - type: entity
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
@@ -750,7 +750,7 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Wands_tarot
-  
+
 - type: entity
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
@@ -786,7 +786,7 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Knight_of_Wands_tarot
-  
+
 - type: entity
   parent: CardBaseTarot
   categories: [ HideSpawnMenu ]
@@ -1074,3 +1074,1125 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_World_tarot
+
+# TT cards
+
+- type: entity
+  id: TTRules
+  parent: Paper
+  components:
+  - type: Paper
+  - type: RandomPaperContent
+    dataset: TTRules
+
+- type: entity
+  parent: [ BoxCardboard, BaseBagOpenClose ]
+  id: CardBoxTT
+  name: TT booster pack box
+  description: Contains ten random Tippy Trumps cards!
+  components:
+  - type: Item
+    size: Small
+  - type: Storage
+    grid:
+    - 0,0,5,3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: box
+    layers:
+    - state: tt_boxclosed
+    - state: tt_boxopen
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: TTMysteryPack
+      amount: 10
+    - id: TTRules
+      amount: 1
+
+- type: entity
+  parent: BaseItem
+  id: TTMysteryPack
+  name: TT mystery pack
+  description: Contains one random card.
+  components:
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+    - state: pack
+  - type: SpawnItemsOnUse
+    items:
+    - id: CardTrash
+    - id: AnomaliteTTcard
+      orGroup: Cards
+    - id: PipiTTcard
+      orGroup: Cards
+    - id: TarantulaTTcard
+      orGroup: Cards
+    - id: SlurvaTTcard
+      orGroup: Cards
+    - id: KisserTTcard
+      orGroup: Cards
+    - id: SmileTTcard
+      orGroup: Cards
+    - id: TropicoTTcard
+      orGroup: Cards
+    - id: BingusTTcard
+      orGroup: Cards
+    - id: IanTTcard
+      orGroup: Cards
+    - id: GlockroachTTcard
+      orGroup: Cards
+    - id: LepidodentTTcard
+      orGroup: Cards
+    - id: MoproachTTcard
+      orGroup: Cards
+    - id: MothroachTTcard
+      orGroup: Cards
+    - id: MouseTTcard
+      orGroup: Cards
+    - id: ShrimpTTcard
+      orGroup: Cards
+    - id: McGriffTTcard
+      orGroup: Cards
+    - id: GriffyTTcard
+      orGroup: Cards
+    - id: FinfinTTcard
+      orGroup: Cards
+    - id: HamletTTcard
+      orGroup: Cards
+    - id: LuggageTTcard
+      orGroup: Cards
+    - id: PleebnarTTcard
+      orGroup: Cards
+    - id: SnailTTcard
+      orGroup: Cards
+    - id: ApidTTcard
+      orGroup: Cards
+    - id: ServalTTcard
+      orGroup: Cards
+    - id: OppaTTcard
+      orGroup: Cards
+    - id: BananaDeerTTcard
+      orGroup: Cards
+    - id: CancerMouseTTcard
+      orGroup: Cards
+    - id: WizSporesTTcard
+      orGroup: Cards
+    - id: BoarTTcard
+      orGroup: Cards
+    - id: SlimeTTcard
+      orGroup: Cards
+    - id: TckutTTcard
+      orGroup: Cards
+    - id: TcktckTTcard
+      orGroup: Cards
+    - id: DolbyTTcard
+      orGroup: Cards
+    - id: SpaceTickTTcard
+      orGroup: Cards
+    - id: BabyKodeTTcard
+      orGroup: Cards
+    - id: CrabTTcard
+      orGroup: Cards
+    - id: KillerTTcard
+      orGroup: Cards
+    - id: RenaultTTcard
+      orGroup: Cards
+    - id: GollyladTTcard
+      orGroup: Cards
+    - id: HonkBotTTcard
+      orGroup: Cards
+    - id: PunTTcard
+      orGroup: Cards
+    - id: CarpTTcard
+      orGroup: Cards
+    - id: SnakeTTcard
+      orGroup: Cards
+    - id: ClownSpiderTTcard
+      orGroup: Cards
+    - id: SEOFTTcard
+      orGroup: Cards
+    - id: FOESTTcard
+      orGroup: Cards
+    - id: SORBTTcard
+      orGroup: Cards
+    - id: BROSTTcard
+      orGroup: Cards
+    - id: WillowTTcard
+      orGroup: Cards
+    - id: BombadilidiidaeTTcard
+      orGroup: Cards
+    - id: SpaceKangarooTTcard
+      orGroup: Cards
+    - id: WatcherTTcard
+      orGroup: Cards
+    - id: SpaceBearTTcard
+      orGroup: Cards
+    - id: SpaceSnakeTTcard
+      orGroup: Cards
+    - id: LaserlessRaptorTTcard
+      orGroup: Cards
+    - id: LaserRaptorTTcard
+      orGroup: Cards
+    - id: ShivaTTcard
+      orGroup: Cards
+    - id: RevenantTTcard
+      orGroup: Cards
+    - id: RounyTTcard
+      orGroup: Cards
+    - id: GrenadePenguinTTcard
+      orGroup: Cards
+    - id: SMSpiderTTcard
+      orGroup: Cards
+    - id: BasiliskTTcard
+      orGroup: Cards
+    - id: GolaithTTcard
+      orGroup: Cards
+    - id: HivelordTTcard
+      orGroup: Cards
+    - id: ForkliftTTcard
+      orGroup: Cards
+    - id: GorillaTTcard
+      orGroup: Cards
+    - id: RatLilTTcard
+      orGroup: Cards
+    - id: RatKingTTcard
+      orGroup: Cards
+    - id: GrotesequeTTcard
+      orGroup: Cards
+    - id: BehonkerTTcard
+      orGroup: Cards
+    - id: OrbBeeTTcard
+      orGroup: Cards
+    - id: RepliTTcard
+      orGroup: Cards
+    - id: EeepTTcard
+      orGroup: Cards
+    - id: DragonTTcard
+      orGroup: Cards
+    - id: VrexTTcard
+      orGroup: Cards
+    - id: GondalTTcard
+      orGroup: Cards
+
+- type: entity
+  id: CardTrash
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  name: Empty card pack
+  components:
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    layers:
+      - state: pack_open
+  - type: Tag
+    tags:
+    - Trash
+  - type: SpaceGarbage
+
+- type: entity
+  parent: BaseItem
+  id: CardBaseTT
+  name: TT card
+  description: NT branded Tippy Trumps card!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      collection: cardShove
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_back
+  - type: Rotatable
+  - type: Item
+    size: Tiny
+  - type: UseDelay
+    delay: 0.5
+  - type: Card
+    backSpriteLayers:
+    - sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+      state: tt_back
+    flipped: true
+
+- type: entity
+  parent: CardBaseTT
+  id: YumYumTTcard
+  suffix: Yum-Yum
+  components:
+  - type: Card
+    name: Yum-Yum card. "Oh, shit! It's Yum-Yum!" Robustness - 10, Validity - 10, Whimsy 10
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: yumyum
+
+- type: entity
+  parent: CardBaseTT
+  id: GondalTTcard
+  suffix: Gondal
+  components:
+  - type: Card
+    name: Gondal card. Robustness - 8, Validity - 1, Whimsy 9
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_gondal
+
+- type: entity
+  parent: CardBaseTT
+  id: VrexTTcard
+  suffix: V-Rex
+  components:
+  - type: Card
+    name: V-Rex card. Robustness - 9, Validity - 7, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_vrex
+
+- type: entity
+  parent: CardBaseTT
+  id: DragonTTcard
+  suffix: Dragon
+  components:
+  - type: Card
+    name: Dragon card. Robustness - 8, Validity - 9, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_dragon
+
+- type: entity
+  parent: CardBaseTT
+  id: EeepTTcard
+  suffix: Eeep
+  components:
+  - type: Card
+    name: Eeep card. Robustness - 5, Validity - 10, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_eeep
+
+- type: entity
+  parent: CardBaseTT
+  id: RepliTTcard
+  suffix: Replicator
+  components:
+  - type: Card
+    name: Replicator card. Robustness - 7, Validity - 5, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_eeep
+
+- type: entity
+  parent: CardBaseTT
+  id: OrbBeeTTcard
+  suffix: Beeroboros
+  components:
+  - type: Card
+    name: Beeroboros card. Robustness - 1, Validity - 3, Whimsy 1
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_orbbees
+
+- type: entity
+  parent: CardBaseTT
+  id: BehonkerTTcard
+  suffix: Behonker
+  components:
+  - type: Card
+    name: Behonker card. Robustness - 7, Validity - 8, Whimsy 8
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_behonker
+
+- type: entity
+  parent: CardBaseTT
+  id: GrotesequeTTcard
+  suffix: Groteseque
+  components:
+  - type: Card
+    name: Groteseque card. Robustness - 7, Validity - 5, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_rock
+
+- type: entity
+  parent: CardBaseTT
+  id: RatKingTTcard
+  suffix: Rat King
+  components:
+  - type: Card
+    name: Rat King card. Robustness - 4, Validity - 8, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_rking
+
+- type: entity
+  parent: CardBaseTT
+  id: RatLilTTcard
+  suffix: Rat Servant
+  components:
+  - type: Card
+    name: Rat Servant card. Robustness - 2, Validity - 6, Whimsy 1
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_rs
+
+- type: entity
+  parent: CardBaseTT
+  id: GorillaTTcard
+  suffix: Gorilla
+  components:
+  - type: Card
+    name: Gorilla card. Robustness - 6, Validity - 2, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_gorilla
+
+- type: entity
+  parent: CardBaseTT
+  id: ForkliftTTcard
+  suffix: Forklift
+  components:
+  - type: Card
+    name: Forklift card. Robustness - 7, Validity - 3, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_forklift
+
+- type: entity
+  parent: CardBaseTT
+  id: HivelordTTcard
+  suffix: Hivelord
+  components:
+  - type: Card
+    name: Hivelord card. Robustness - 5, Validity - 6, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_hivelord
+
+- type: entity
+  parent: CardBaseTT
+  id: GolaithTTcard
+  suffix: Golaith
+  components:
+  - type: Card
+    name: Golaith card. Robustness - 8, Validity - 6, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_golaith
+
+- type: entity
+  parent: CardBaseTT
+  id: BasiliskTTcard
+  suffix: Basilisk
+  components:
+  - type: Card
+    name: Basilisk card. Robustness - 6, Validity - 5, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_basilisk
+
+- type: entity
+  parent: CardBaseTT
+  id: SMSpiderTTcard
+  suffix: SM Spider
+  components:
+  - type: Card
+    name: Supermatter spider card. Robustness - 10, Validity - 2, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_smspider
+
+- type: entity
+  parent: CardBaseTT
+  id: GrenadePenguinTTcard
+  suffix: Grenade Penguin
+  components:
+  - type: Card
+    name: Grenade Penguin card. Robustness - 5, Validity - 5, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_penguin
+
+- type: entity
+  parent: CardBaseTT
+  id: RounyTTcard
+  suffix: Rouny
+  components:
+  - type: Card
+    name: Rouny card. Robustness - 7, Validity - 7, Whimsy 7
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_rouny
+
+- type: entity
+  parent: CardBaseTT
+  id: RevenantTTcard
+  suffix: Revenant
+  components:
+  - type: Card
+    name: Revenant card. Robustness - 4, Validity - 7, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_rev
+
+- type: entity
+  parent: CardBaseTT
+  id: ShivaTTcard
+  suffix: Shiva
+  components:
+  - type: Card
+    name: Shiva card. Robustness - 6, Validity - 4, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_shiva
+
+- type: entity
+  parent: CardBaseTT
+  id: LaserRaptorTTcard
+  suffix: Laser Raptor
+  components:
+  - type: Card
+    name: Laser Raptor. Robustness - 6, Validity - 5, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_lr
+
+- type: entity
+  parent: CardBaseTT
+  id: LaserlessRaptorTTcard
+  suffix: Laser-less laser Raptor
+  components:
+  - type: Card
+    name: Laser-less laser Raptor card. Robustness - 1, Validity - 5, Whimsy 7
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_llr
+
+- type: entity
+  parent: CardBaseTT
+  id: SpaceSnakeTTcard
+  suffix: Space Snake
+  components:
+  - type: Card
+    name: Space Snake card. Robustness - 6, Validity - 8, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_ssnake
+
+- type: entity
+  parent: CardBaseTT
+  id: SpaceBearTTcard
+  suffix: Space Bear
+  components:
+  - type: Card
+    name: Space Bear card. Robustness - 6, Validity - 6, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_sbear
+
+- type: entity
+  parent: CardBaseTT
+  id: WatcherTTcard
+  suffix: Watcher
+  components:
+  - type: Card
+    name: Watcher card. Robustness - 4, Validity - 5, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_watcher
+
+- type: entity
+  parent: CardBaseTT
+  id: SpaceKangarooTTcard
+  suffix: Space Kangaroo
+  components:
+  - type: Card
+    name: Kangaroo card. Robustness - 6, Validity - 6, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_sroo
+
+- type: entity
+  parent: CardBaseTT
+  id: BombadilidiidaeTTcard
+  suffix: Bombadilidiidae
+  components:
+  - type: Card
+    name: Bombadilidiidae card. Robustness - 5, Validity - 5, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_bomb
+
+- type: entity
+  parent: CardBaseTT
+  id: WillowTTcard
+  suffix: Willow
+  components:
+  - type: Card
+    name: Willow card. Robustness - 6, Validity - 4, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_roo
+
+- type: entity
+  parent: CardBaseTT
+  id: BROSTTcard
+  suffix: BROS
+  components:
+  - type: Card
+    name: BROS card. Robustness - 1, Validity - 3, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_bros
+
+- type: entity
+  parent: CardBaseTT
+  id: SORBTTcard
+  suffix: SORB
+  components:
+  - type: Card
+    name: SORB card. Robustness - 5, Validity - 3, Whimsy 1
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_sorb
+
+- type: entity
+  parent: CardBaseTT
+  id: FOESTTcard
+  suffix: FOES
+  components:
+  - type: Card
+    name: FOES card. Robustness - 2, Validity - 4, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_foes
+
+- type: entity
+  parent: CardBaseTT
+  id: SEOFTTcard
+  suffix: SEOF
+  components:
+  - type: Card
+    name: SEOF card. Robustness - 6, Validity - 4, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_seof
+
+- type: entity
+  parent: CardBaseTT
+  id: ClownSpiderTTcard
+  suffix: Clown Spider
+  components:
+  - type: Card
+    name: Clown Spider card. Robustness - 7, Validity - 6, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_cspider
+
+- type: entity
+  parent: CardBaseTT
+  id: SnakeTTcard
+  suffix: Snake
+  components:
+  - type: Card
+    name: Snake card. Robustness - 7, Validity - 7, Whimsy 1
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_snake
+
+- type: entity
+  parent: CardBaseTT
+  id: CarpTTcard
+  suffix: Carp
+  components:
+  - type: Card
+    name: Space Carp card. Robustness - 4, Validity - 5, Whimsy 1
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_carp
+
+- type: entity
+  parent: CardBaseTT
+  id: PunTTcard
+  suffix: Punpun
+  components:
+  - type: Card
+    name: Punpun card. Robustness - 5, Validity - 4, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_pun
+
+- type: entity
+  parent: CardBaseTT
+  id: HonkBotTTcard
+  suffix: HonkBot
+  components:
+  - type: Card
+    name: HonkBot card. Robustness - 2, Validity - 7, Whimsy 8
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_honkbot
+
+- type: entity
+  parent: CardBaseTT
+  id: GollyladTTcard
+  suffix: Gollylad
+  components:
+  - type: Card
+    name: Gollylad card. Robustness - 4, Validity - 3, Whimsy 10
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_golly
+
+- type: entity
+  parent: CardBaseTT
+  id: RenaultTTcard
+  suffix: Renault
+  components:
+  - type: Card
+    name: Renault card. Robustness - 3, Validity - 6, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_ren
+
+- type: entity
+  parent: CardBaseTT
+  id: KillerTTcard
+  suffix: Tomato Killer
+  components:
+  - type: Card
+    name: Tomato Killer card. Robustness - 4, Validity - 4, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_killer
+
+- type: entity
+  parent: CardBaseTT
+  id: CrabTTcard
+  suffix: Ore Crab
+  components:
+  - type: Card
+    name: Ore Crab card. Robustness - 4, Validity - 3, Whimsy 1
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_crab # to do, add randomsprite with all the crabs
+
+- type: entity
+  parent: CardBaseTT
+  id: BabyKodeTTcard
+  suffix: Baby Kode
+  components:
+  - type: Card
+    name: Baby Kode card. Robustness - 5, Validity - 3, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_babykode
+
+- type: entity
+  parent: CardBaseTT
+  id: SpaceTickTTcard
+  suffix: Tick
+  components:
+  - type: Card
+    name: Space Tick card. Robustness - 4, Validity - 6, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_tick
+
+- type: entity
+  parent: CardBaseTT
+  id: DolbyTTcard
+  suffix: Dolby
+  components:
+  - type: Card
+    name: Dolby card. Robustness - 9, Validity - 1, Whimsy 7
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_dolby
+
+- type: entity
+  parent: CardBaseTT
+  id: TcktckTTcard
+  suffix: Tck'tck
+  components:
+  - type: Card
+    name: tck'tck card. Robustness - 4, Validity - 3, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_tck
+
+- type: entity
+  parent: CardBaseTT
+  id: TckutTTcard
+  suffix: Tck'ut
+  components:
+  - type: Card
+    name: Tck'uk card. Robustness - 4, Validity - 4, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_tckut
+
+- type: entity
+  parent: CardBaseTT
+  id: SlimeTTcard
+  suffix: Vent Slime
+  components:
+  - type: Card
+    name: Slime card. Robustness - 6, Validity - 6, Whimsy 1
+  - type: Sprite
+    layers:
+      - state: tt_gslime
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          tt_gslime: ""
+          tt_tslime: ""
+          tt_yslime: ""
+
+- type: entity
+  parent: CardBaseTT
+  id: BoarTTcard
+  suffix: Boar
+  components:
+  - type: Card
+    name: Wild Boar card. Robustness - 6, Validity - 4, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_boar
+
+- type: entity
+  parent: CardBaseTT
+  id: WizSTTcard
+  suffix: WizSpores
+  components:
+  - type: Card
+    name: Wiz spores card. Robustness - 2, Validity - 4, Whimsy 7
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_wizspore
+
+- type: entity
+  parent: CardBaseTT
+  id: CancerMouseTTcard
+  suffix: Cancer Mouse
+  components:
+  - type: Card
+    name: Radioactive Mouse card. Robustness - 5, Validity - 6, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_cmouse
+
+- type: entity
+  parent: CardBaseTT
+  id: BananaDeerTTcard
+  suffix: Banana Deer
+  components:
+  - type: Card
+    name: Banana Deer card. Robustness - 3, Validity - 1, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_deer
+
+- type: entity
+  parent: CardBaseTT
+  id: OppaTTcard
+  suffix: Oppa
+  components:
+  - type: Card
+    name: Oppa card. Robustness - 2, Validity - 6, Whimsy 6
+  - type: Sprite
+    layers:
+      - state: tt_loppa
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          tt_loppa: ""
+          tt_doppa: ""
+
+- type: entity
+  parent: CardBaseTT
+  id: ServalTTcard
+  suffix: Serval
+  components:
+  - type: Card
+    name: Serval card. Robustness - 3, Validity - 3, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_serval
+
+- type: entity
+  parent: CardBaseTT
+  id: ApidTTcard
+  suffix: Apid
+  components:
+  - type: Card
+    name: Apid card. Robustness - 3, Validity - 3, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_apid
+
+- type: entity
+  parent: CardBaseTT
+  id: SnailTTcard
+  suffix: Snail
+  components:
+  - type: Card
+    name: Snail card. Robustness - 2, Validity - 2, Whimsy 1
+  - type: Sprite
+    layers:
+      - state: tt_snail
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          tt_snail: ""
+          tt_bsnail: ""
+
+- type: entity
+  parent: CardBaseTT
+  id: PleebnarTTcard
+  suffix: Pleebnar
+  components:
+  - type: Card
+    name: Pleebnar card. Robustness - 1, Validity - 1, Whimsy 9
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_pleeb
+
+- type: entity
+  parent: CardBaseTT
+  id: LuggageTTcard
+  suffix: Luggage
+  components:
+  - type: Card
+    name: Luggage card. Robustness - 6, Validity - 2, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_box
+
+- type: entity
+  parent: CardBaseTT
+  id: HamletTTcard
+  suffix: Hamlet
+  components:
+  - type: Card
+    name: Hamlet card. Robustness - 2, Validity - 9, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_hamlet
+
+- type: entity
+  parent: CardBaseTT
+  id: FinfinTTcard
+  suffix: Finfin
+  components:
+  - type: Card
+    name: Finfin card. Robustness - 4, Validity - 2, Whimsy 8
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_finfin
+
+- type: entity
+  parent: CardBaseTT
+  id: GriffyTTcard
+  suffix: Griffy
+  components:
+  - type: Card
+    name: Griffy card. Robustness - 4, Validity - 6, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_griffy
+
+- type: entity
+  parent: CardBaseTT
+  id: McGriffTTcard
+  suffix: McGriff
+  components:
+  - type: Card
+    name: McGriff card. Robustness - 3, Validity - 1, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_mcgriff
+
+- type: entity
+  parent: CardBaseTT
+  id: ShrimpTTcard
+  suffix: Weird Shrimp
+  components:
+  - type: Card
+    name: Weird Shrimp card. Robustness - 2, Validity - 2, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_shrimp
+
+- type: entity
+  parent: CardBaseTT
+  id: MouseTTcard
+  suffix: Mouse
+  components:
+  - type: Card
+    name: Mouse card. Robustness - 1, Validity - 5, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_mouse
+
+- type: entity
+  parent: CardBaseTT
+  id: MothroachTTcard
+  suffix: Mothroach
+  components:
+  - type: Card
+    name: Mothroach card. Robustness - 2, Validity - 2, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_moth
+
+- type: entity
+  parent: CardBaseTT
+  id: MoproachTTcard
+  suffix: Moproach
+  components:
+  - type: Card
+    name: Moproach card. Robustness - 3, Validity - 2, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_mop
+
+- type: entity
+  parent: CardBaseTT
+  id: LepidodentTTcard
+  suffix: Lepidodent
+  components:
+  - type: Card
+    name: Lepidodent card. Robustness - 1, Validity - 2, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_lepidodent
+
+- type: entity
+  parent: CardBaseTT
+  id: GlockroachTTcard
+  suffix: Glockroach
+  components:
+  - type: Card
+    name: Glockroach card. Robustness - 5, Validity - 5, Whimsy 7
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_glock
+
+- type: entity
+  parent: CardBaseTT
+  id: IanTTcard
+  suffix: Ian
+  components:
+  - type: Card
+    name: Ian card. Robustness - 1, Validity - 7, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_ian
+
+- type: entity
+  parent: CardBaseTT
+  id: BingusTTcard
+  suffix: Bingus
+  components:
+  - type: Card
+    name: Bingus card. Robustness - 2, Validity - 1, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_ncat
+
+- type: entity
+  parent: CardBaseTT
+  id: TropicoTTcard
+  suffix: Tropico
+  components:
+  - type: Card
+    name: Tropico card. Robustness - 4, Validity - 1, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_top
+
+- type: entity
+  parent: CardBaseTT
+  id: SmileTTcard
+  suffix: Smile
+  components:
+  - type: Card
+    name: Smile card. Robustness - 3, Validity - 1, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_smile
+
+- type: entity
+  parent: CardBaseTT
+  id: KisserTTcard
+  suffix: Kisser Tomato
+  components:
+  - type: Card
+    name: Kisser Tomato card. Robustness - 3, Validity - 3, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_kisser
+
+- type: entity
+  parent: CardBaseTT
+  id: SlurvaTTcard
+  suffix: Slurva
+  components:
+  - type: Card
+    name: Slurva card. Robustness - 2, Validity - 2, Whimsy 7
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_slurva
+
+- type: entity
+  parent: CardBaseTT
+  id: TarantulaTTcard
+  suffix: Spider
+  components:
+  - type: Card
+    name: Tarantula card. Robustness - 5, Validity - 6, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_rancho
+
+- type: entity
+  parent: CardBaseTT
+  id: PipiTTcard
+  suffix: Pipi
+  components:
+  - type: Card
+    name: Pipi card. Robustness - 1, Validity - 1, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_pipi
+
+- type: entity
+  parent: CardBaseTT
+  id: AnomaliteTTcard
+  suffix: Anomalite
+  components:
+  - type: Card
+    name: Anomalite card. Robustness - 3, Validity - 2, Whimsy 7
+  - type: Sprite
+    layers:
+      - state: tt_banom
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          tt_banom: ""
+          tt_eanom: ""
+          tt_fanom: ""
+          tt_manom: ""
+          tt_panom: ""
+          tt_ganom: ""
+          tt_ianom: ""
+          tt_tanom: ""
+          tt_canom: ""
+          tt_ranom: ""
+          tt_sanom: ""
