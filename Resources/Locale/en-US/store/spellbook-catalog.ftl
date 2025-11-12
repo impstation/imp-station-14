@@ -101,8 +101,8 @@ spellbook-item-summonbrass-description = Conjure a full stack of brass.
 spellbook-item-summoncloth-name = Summon Cloth
 spellbook-item-summoncloth-description = Conjure a full stack of cloth.
 
-spellbook-item-summoncloth-name = Summon Glass
-spellbook-item-summoncloth-description = Conjure a full stack of glass.
+spellbook-item-summonglass-name = Summon Glass
+spellbook-item-summonglass-description = Conjure a full stack of glass.
 
 # Events
 
