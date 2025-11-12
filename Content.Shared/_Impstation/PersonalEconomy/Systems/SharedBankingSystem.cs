@@ -1,4 +1,5 @@
-﻿using Content.Shared._Impstation.PersonalEconomy.Components;
+﻿using System.Diagnostics.CodeAnalysis;
+using Content.Shared._Impstation.PersonalEconomy.Components;
 using Content.Shared.Administration;
 using Content.Shared.Examine;
 using Content.Shared.Roles;
@@ -37,9 +38,12 @@ public abstract class SharedBankingSystem : EntitySystem
         args.PushMarkup(Loc.GetString("bank-card-examine-access-number", ("number", $"{ent.Comp.AccessNumber:000000}")),4);
         args.PushMarkup(Loc.GetString("bank-card-examine-transfer-number", ("number", $"{ent.Comp.TransferNumber:0000}")),4);
 
+        if (!TryGetAccount(ent.Comp.AccessNumber, out var account))
+            return;
+
         args.PushMarkup("The two below are for testing!", 3);
-        args.PushMarkup(Loc.GetString("bank-card-examine-balance", ("balance", GetAccount(ent.Comp.AccessNumber)!.Balance)), 2); //todo remove this
-        args.PushMarkup(Loc.GetString("bank-card-examine-salary", ("salary", GetAccount(ent.Comp.AccessNumber)!.Salary)), 1); //todo remove this
+        args.PushMarkup(Loc.GetString("bank-card-examine-balance", ("balance", account.Balance)), 2); //todo remove this
+        args.PushMarkup(Loc.GetString("bank-card-examine-salary", ("salary", account.Salary)), 1); //todo remove this
     }
 
     /// <summary>
@@ -51,10 +55,18 @@ public abstract class SharedBankingSystem : EntitySystem
         return (0, 0);
     }
 
-    private BankAccount? GetAccount(int accessNumber)
+    public bool TryGetAccount(int accessNumber, [NotNullWhen(true)] out BankAccount? account)
     {
+        account = null;
+
         var serverQuery = EntityQueryEnumerator<RemoteBankServerComponent>();
-        return serverQuery.MoveNext(out var uid, out var server) ? server.AccountDict.GetValueOrDefault(accessNumber) : null;
+        if (!serverQuery.MoveNext(out var uid, out var server) ||
+            !server.AccountDict.TryGetValue(accessNumber, out var bankAcc))
+            return false;
+
+        account = bankAcc;
+        return true;
+
     }
 
     /// <summary>
@@ -64,26 +76,26 @@ public abstract class SharedBankingSystem : EntitySystem
     /// <param name="name"></param>
     public virtual void SetAccountName(int accessNumber, string name)
     {
-        var account = GetAccount(accessNumber);
+        if (!TryGetAccount(accessNumber, out var account))
+            return;
 
-        if (account != null)
-            account.Name = name;
+        account.Name = name;
     }
 
     public virtual void SetAccountSalary(int accessNumber, int salary)
     {
-        var account = GetAccount(accessNumber);
+        if (!TryGetAccount(accessNumber, out var account))
+            return;
 
-        if (account != null)
-            account.Salary = salary;
+        account.Salary = salary;
     }
 
     public virtual void SetAccountBalance(int accessNumber, int balance)
     {
-        var account = GetAccount(accessNumber);
+        if (!TryGetAccount(accessNumber, out var account))
+            return;
 
-        if (account != null)
-            account.Balance = balance;
+        account.Balance = balance;
     }
 
     /// <summary>
@@ -93,9 +105,7 @@ public abstract class SharedBankingSystem : EntitySystem
     /// <param name="accessNumber"></param>
     public virtual void UpdateCardDetails(Entity<BankCardComponent> card, int accessNumber)
     {
-        var account = GetAccount(accessNumber);
-
-        if (account is null)
+        if (!TryGetAccount(accessNumber, out var account))
             return;
 
         SetCardName(card, account.Name);

@@ -1,0 +1,21 @@
+﻿<controls:Keypad
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="False" HorizontalAlignment="Left">
+        <Label Name="NumberDisplay" Align="Center" MinHeight="24"/> <!--todo make this a text entry field instead?-->
+        <GridContainer Name="ButtonGrid" Columns="3" VSeparationOverride="0" HSeparationOverride="0">
+            <Button Name="OneButton" Text="1" StyleClasses="OpenBoth" Margin="0"/>
+            <Button Name="TwoButton" Text="2" StyleClasses="OpenBoth" Margin="0"/>
+            <Button Name="ThreeButton" Text="3" StyleClasses="OpenLeft" Margin="0"/>
+            <Button Name="FourButton" Text="4" StyleClasses="OpenBoth" Margin="0"/>
+            <Button Name="FiveButton" Text="5" StyleClasses="OpenBoth" Margin="0"/>
+            <Button Name="SixButton" Text="6" StyleClasses="OpenBoth" Margin="0"/>
+            <Button Name="SevenButton" Text="7" StyleClasses="OpenBoth" Margin="0"/>
+            <Button Name="EightButton" Text="8" StyleClasses="OpenBoth" Margin="0"/>
+            <Button Name="NineButton" Text="9" StyleClasses="OpenBoth" Margin="0"/>
+            <Button Name="EnterButton" Text="ENT" StyleClasses="OpenRight" Margin="0"/>
+            <Button Name="ZeroButton" Text="0" StyleClasses="OpenBoth" Margin="0"/>
+            <Button Name="ClearButton" Text="CLR" StyleClasses="OpenBoth" Margin="0"/>
+        </GridContainer>
+    </BoxContainer>
+</controls:Keypad>

@@ -1,0 +1,20 @@
+﻿<BoxContainer
+    xmlns="https://spacestation14.io"
+    Orientation="Vertical"
+    VerticalExpand="true">
+    <!--Account info-->
+    <BoxContainer Name="AccountInfoContainer" Orientation="Vertical">
+        <Label Name="AccNameLabel" VerticalAlignment="Center" Access="Public"/>
+        <Label Name="AccAccessNumberLabel" VerticalAlignment="Center" Access="Public"/>
+        <Label Name="AccTransferNumberLabel" VerticalAlignment="Center" Access="Public"/>
+        <Label Name="AccBalanceLabel" VerticalAlignment="Center" Access="Public"/>
+    </BoxContainer>
+    <!--Transaction info todo border thing here-->
+    <BoxContainer Name="TransactionInfoContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Label Text="{Loc transactions-container-title}"/>
+            <Control HorizontalExpand="True"/>
+            <Button Name="TransferFundsButton" Text="{Loc transfer-funds-button-title}" HorizontalAlignment="Right"/>
+        </BoxContainer>
+    </BoxContainer>
+</BoxContainer>

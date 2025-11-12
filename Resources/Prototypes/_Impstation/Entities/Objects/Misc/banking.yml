@@ -25,3 +25,39 @@
   description: if you're seeing this, something has gone horribly wrong
   components:
   - type: RemoteBankServer
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ATMMachine
+  name: ATM Machine
+  description: It's called that on purpose now
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+    - map: ["computerLayerScreen"]
+      state: solar_screen
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+  - type: ActivatableUI
+    key: enum.ATMUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ATMUIKey.Key:
+        type: ATMBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: RadarConsoleCircuitboard
+  - type: PointLight
+    radius: 2.4 #imp
+    energy: 1.6
+    color: "#e6e227"
