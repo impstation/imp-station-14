@@ -1,6 +1,3 @@
-# WHY IS THIS CALLED ALCHOHOL.YML
-# ITS BEEN THIS WAY FOR ALMOST ONE YEAR?????????
-# OUR CODEBASE IS CRUMBLING.
 - type: reagent
   id: TheeHorsepussy
   name: reagent-name-theehorsepussy
@@ -10,7 +7,7 @@
   flavor: horsepussy
   color: "#7BD18C"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/thee_horsepussy.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/thee_horsepussy.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
@@ -365,7 +362,7 @@
   color: "#68430b"
   recognizable: true
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/thavenbadglass.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/thavenbadglass.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 6
   metamorphicFillBaseName: fill-
@@ -386,7 +383,7 @@
   flavor: paintthinner
   color: "#080e17"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/starrynight.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/starrynight.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
@@ -415,7 +412,7 @@
   flavor: radiation
   color: "#B9FF66"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/uapglass.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/uapglass.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
@@ -477,7 +474,7 @@
   color: "#ff2160"
   recognizable: true
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/thumperdrink.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/thumperdrink.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
@@ -541,7 +538,7 @@
   color: "#38839A"
   recognizable: true
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/clevergirl.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/clevergirl.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
@@ -564,7 +561,7 @@
   flavor: lovepotion
   color: "#ff60c0"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/lovepotion.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/lovepotion.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 6
   metamorphicFillBaseName: fill-
@@ -585,7 +582,7 @@
   flavor: soju
   color: "#DDDDDD"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/soju.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/soju.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
@@ -608,7 +605,7 @@
   flavor: lungclogger
   color: "#1F9275"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/lungclogger.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/lungclogger.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 6
   metamorphicFillBaseName: fill-
@@ -637,7 +634,7 @@
   flavor: sleepytimejunction
   color: "#941FDB"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/sleepytimejunction.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/sleepytimejunction.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
@@ -671,7 +668,7 @@
   flavor: breathoffreshair
   color: "#538FBC"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/breathoffreshair.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/breathoffreshair.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 6
   metamorphicFillBaseName: fill-
@@ -699,7 +696,7 @@
   flavor: minotaurslament
   color: "#D7F407"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/minotaurslament.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/minotaurslament.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
@@ -733,7 +730,7 @@
   flavor: burnchamber
   color: "#FFC503"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/burnchamber.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/burnchamber.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
@@ -772,7 +769,7 @@
   flavor: weldingcoils
   color: "#7030e6"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/weldingcoils.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/weldingcoils.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 6
   metamorphicFillBaseName: fill-
@@ -800,7 +797,7 @@
   flavor: poormansfrezon
   color: "#c9edf2"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/poormansfrezon.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/poormansfrezon.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
@@ -846,7 +843,7 @@
   flavor: doublegreen
   color: "#4e634e"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/doublegreen.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/doublegreen.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
@@ -880,7 +877,7 @@
   flavor: batteryacid
   color: "#00ff00"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/batteryacid.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/batteryacid.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
@@ -918,7 +915,7 @@
   flavor: angelskiss
   color: "#a6ffff"
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/angelskiss.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/angelskiss.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
@@ -934,7 +931,7 @@
   color: "#ff1c60"
   recognizable: true
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/pinkrose.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/pinkrose.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
@@ -958,7 +955,7 @@
   color: "#ff9ebb"
   recognizable: true
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/lafleurette.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/lafleurette.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
@@ -982,7 +979,7 @@
   color: "#ff1139"
   recognizable: true
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/romancedead.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/romancedead.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
@@ -1006,7 +1003,7 @@
   color: "#ff1139"
   recognizable: true
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/romancedeadnot.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/romancedeadnot.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
@@ -1027,7 +1024,7 @@
   color: "#ff7c92"
   recognizable: true
   metamorphicSprite:
-    sprite: _Impstation/Objects/Consumable/Drinks/rosemilk.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/rosemilk.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
