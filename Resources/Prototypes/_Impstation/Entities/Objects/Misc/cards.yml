@@ -1075,20 +1075,20 @@
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_The_World_tarot
 
-# TT cards
+# TippyTrump cards
 
 - type: entity
-  id: TTRules
+  id: TippyTrumpRules
   parent: Paper
   components:
   - type: Paper
   - type: RandomPaperContent
-    dataset: TTRules
+    dataset: TippyTrumpRules
 
 - type: entity
   parent: [ BoxCardboard, BaseBagOpenClose ]
-  id: CardBoxTT
-  name: TT booster pack box
+  id: CardBoxTippyTrump
+  name: TippyTrump booster pack box
   description: Contains ten random Tippy Trumps cards!
   components:
   - type: Item
@@ -1106,250 +1106,252 @@
       visible: false
   - type: OpenTriggeredStorageFill
     contents:
-    - id: TTMysteryPack
+    - id: TippyTrumpMysteryPack
       amount: 10
-    - id: TTRules
+    - id: TippyTrumpRules
       amount: 1
 
 - type: entity
   parent: BaseItem
-  id: TTMysteryPack
-  name: TT mystery pack
+  id: TippyTrumpMysteryPack
+  name: TippyTrump mystery pack
   description: Contains one random card.
   components:
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     layers:
     - state: pack
+  - type: EmitSoundOnUse
+    sound: /Audio/Effects/unwrap.ogg
   - type: SpawnItemsOnUse
     items:
     - id: CardTrash
-    - id: AnomaliteTTcard
+    - id: AnomaliteTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: PipiTTcard
+    - id: PipiTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: TarantulaTTcard
+    - id: TarantulaTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: SlurvaTTcard
+    - id: SlurvaTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: KisserTTcard
+    - id: KisserTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: SmileTTcard
+    - id: SmileTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: TropicoTTcard
+    - id: TropicoTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: BingusTTcard
+    - id: BingusTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: IanTTcard
+    - id: IanTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: GlockroachTTcard
+    - id: GlockroachTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: LepidodentTTcard
+    - id: LepidodentTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: MoproachTTcard
+    - id: MoproachTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: MothroachTTcard
+    - id: MothroachTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: MouseTTcard
+    - id: MouseTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: ShrimpTTcard
+    - id: ShrimpTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: McGriffTTcard
+    - id: McGriffTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: GriffyTTcard
+    - id: GriffyTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: FinfinTTcard
+    - id: FinfinTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: HamletTTcard
+    - id: HamletTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: LuggageTTcard
+    - id: LuggageTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: PleebnarTTcard
+    - id: PleebnarTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: SnailTTcard
+    - id: SnailTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: ApidTTcard
+    - id: ApidTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: ServalTTcard
+    - id: ServalTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: OppaTTcard
+    - id: OppaTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: BananaDeerTTcard
+    - id: BananaDeerTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: CancerMouseTTcard
+    - id: CancerMouseTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: WizTTcard
+    - id: WizTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: BoarTTcard
+    - id: BoarTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: SlimeTTcard
+    - id: SlimeTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: TckutTTcard
+    - id: TckutTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: TcktckTTcard
+    - id: TcktckTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: DolbyTTcard
+    - id: DolbyTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: SpaceTickTTcard
+    - id: SpaceTickTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: BabyKodeTTcard
+    - id: BabyKodeTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: CrabTTcard
+    - id: CrabTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: KillerTTcard
+    - id: KillerTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: RenaultTTcard
+    - id: RenaultTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: GollyladTTcard
+    - id: GollyladTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: HonkBotTTcard
+    - id: HonkBotTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: PunTTcard
+    - id: PunTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: CarpTTcard
+    - id: CarpTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: SnakeTTcard
+    - id: SnakeTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: ClownSpiderTTcard
+    - id: ClownSpiderTippyTrumpcard
       prob: 0.03
       orGroup: Cards
-    - id: SEOFTTcard
+    - id: SEOFTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: FOESTTcard
+    - id: FOESTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: SORBTTcard
+    - id: SORBTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: BROSTTcard
+    - id: BROSTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: WillowTTcard
+    - id: WillowTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: BombadilidiidaeTTcard
+    - id: BombadilidiidaeTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: SpaceKangarooTTcard
+    - id: SpaceKangarooTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: WatcherTTcard
+    - id: WatcherTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: SpaceBearTTcard
+    - id: SpaceBearTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: SpaceSnakeTTcard
+    - id: SpaceSnakeTippyTrumpcard
       prob: 0.03
       orGroup: Cards
-    - id: LaserlessRaptorTTcard
+    - id: LaserlessRaptorTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: LaserRaptorTTcard
+    - id: LaserRaptorTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: ShivaTTcard
+    - id: ShivaTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: RevenantTTcard
+    - id: RevenantTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: RounyTTcard
+    - id: RounyTippyTrumpcard
       prob: 0.03
       orGroup: Cards
-    - id: GrenadePenguinTTcard
+    - id: GrenadePenguinTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: SMSpiderTTcard
+    - id: SMSpiderTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: BasiliskTTcard
+    - id: BasiliskTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: GolaithTTcard
+    - id: GolaithTippyTrumpcard
       prob: 0.03
       orGroup: Cards
-    - id: HivelordTTcard
+    - id: HivelordTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: ForkliftTTcard
+    - id: ForkliftTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: GorillaTTcard
+    - id: GorillaTippyTrumpcard
       prob: 0.51
       orGroup: Cards
-    - id: RatLilTTcard
+    - id: RatLilTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: RatKingTTcard
+    - id: RatKingTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: GrotesequeTTcard
+    - id: GrotesequeTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: BehonkerTTcard
+    - id: BehonkerTippyTrumpcard
       prob: 0.03
       orGroup: Cards
-    - id: OrbBeeTTcard
+    - id: OrbBeeTippyTrumpcard
       prob: 0.82
       orGroup: Cards
-    - id: RepliTTcard
+    - id: RepliTippyTrumpcard
       prob: 0.15
       orGroup: Cards
-    - id: EeepTTcard
+    - id: EeepTippyTrumpcard
       prob: 0.03
       orGroup: Cards
-    - id: DragonTTcard
+    - id: DragonTippyTrumpcard
       prob: 0.03
       orGroup: Cards
-    - id: VrexTTcard
+    - id: VrexTippyTrumpcard
       prob: 0.03
       orGroup: Cards
-    - id: GondalTTcard
+    - id: GondalTippyTrumpcard
       prob: 0.03
       orGroup: Cards
 
@@ -1370,8 +1372,8 @@
 
 - type: entity
   parent: BaseItem
-  id: CardBaseTT
-  name: TT card
+  id: CardBaseTippyTrump
+  name: TippyTrump card
   description: NT branded Tippy Trumps card!
   categories: [ HideSpawnMenu ]
   components:
@@ -1393,8 +1395,8 @@
     flipped: true
 
 - type: entity
-  parent: CardBaseTT
-  id: YumYumTTcard
+  parent: CardBaseTippyTrump
+  id: YumYumTippyTrumpcard
   suffix: Yum-Yum
   components:
   - type: Card
@@ -1404,8 +1406,8 @@
     state: yumyum
 
 - type: entity
-  parent: CardBaseTT
-  id: GondalTTcard
+  parent: CardBaseTippyTrump
+  id: GondalTippyTrumpcard
   suffix: Gondal
   components:
   - type: Card
@@ -1415,8 +1417,8 @@
     state: tt_gondal
 
 - type: entity
-  parent: CardBaseTT
-  id: VrexTTcard
+  parent: CardBaseTippyTrump
+  id: VrexTippyTrumpcard
   suffix: V-Rex
   components:
   - type: Card
@@ -1426,8 +1428,8 @@
     state: tt_vrex
 
 - type: entity
-  parent: CardBaseTT
-  id: DragonTTcard
+  parent: CardBaseTippyTrump
+  id: DragonTippyTrumpcard
   suffix: Dragon
   components:
   - type: Card
@@ -1437,8 +1439,8 @@
     state: tt_dragon
 
 - type: entity
-  parent: CardBaseTT
-  id: EeepTTcard
+  parent: CardBaseTippyTrump
+  id: EeepTippyTrumpcard
   suffix: Eeep
   components:
   - type: Card
@@ -1448,8 +1450,8 @@
     state: tt_eeep
 
 - type: entity
-  parent: CardBaseTT
-  id: RepliTTcard
+  parent: CardBaseTippyTrump
+  id: RepliTippyTrumpcard
   suffix: Replicator
   components:
   - type: Card
@@ -1459,8 +1461,8 @@
     state: tt_eeep
 
 - type: entity
-  parent: CardBaseTT
-  id: OrbBeeTTcard
+  parent: CardBaseTippyTrump
+  id: OrbBeeTippyTrumpcard
   suffix: Beeroboros
   components:
   - type: Card
@@ -1470,8 +1472,8 @@
     state: tt_orbbees
 
 - type: entity
-  parent: CardBaseTT
-  id: BehonkerTTcard
+  parent: CardBaseTippyTrump
+  id: BehonkerTippyTrumpcard
   suffix: Behonker
   components:
   - type: Card
@@ -1481,8 +1483,8 @@
     state: tt_behonker
 
 - type: entity
-  parent: CardBaseTT
-  id: GrotesequeTTcard
+  parent: CardBaseTippyTrump
+  id: GrotesequeTippyTrumpcard
   suffix: Groteseque
   components:
   - type: Card
@@ -1492,8 +1494,8 @@
     state: tt_rock
 
 - type: entity
-  parent: CardBaseTT
-  id: RatKingTTcard
+  parent: CardBaseTippyTrump
+  id: RatKingTippyTrumpcard
   suffix: Rat King
   components:
   - type: Card
@@ -1503,8 +1505,8 @@
     state: tt_rking
 
 - type: entity
-  parent: CardBaseTT
-  id: RatLilTTcard
+  parent: CardBaseTippyTrump
+  id: RatLilTippyTrumpcard
   suffix: Rat Servant
   components:
   - type: Card
@@ -1514,8 +1516,8 @@
     state: tt_rs
 
 - type: entity
-  parent: CardBaseTT
-  id: GorillaTTcard
+  parent: CardBaseTippyTrump
+  id: GorillaTippyTrumpcard
   suffix: Gorilla
   components:
   - type: Card
@@ -1525,8 +1527,8 @@
     state: tt_gorilla
 
 - type: entity
-  parent: CardBaseTT
-  id: ForkliftTTcard
+  parent: CardBaseTippyTrump
+  id: ForkliftTippyTrumpcard
   suffix: Forklift
   components:
   - type: Card
@@ -1536,8 +1538,8 @@
     state: tt_forklift
 
 - type: entity
-  parent: CardBaseTT
-  id: HivelordTTcard
+  parent: CardBaseTippyTrump
+  id: HivelordTippyTrumpcard
   suffix: Hivelord
   components:
   - type: Card
@@ -1547,8 +1549,8 @@
     state: tt_hivelord
 
 - type: entity
-  parent: CardBaseTT
-  id: GolaithTTcard
+  parent: CardBaseTippyTrump
+  id: GolaithTippyTrumpcard
   suffix: Golaith
   components:
   - type: Card
@@ -1558,8 +1560,8 @@
     state: tt_golaith
 
 - type: entity
-  parent: CardBaseTT
-  id: BasiliskTTcard
+  parent: CardBaseTippyTrump
+  id: BasiliskTippyTrumpcard
   suffix: Basilisk
   components:
   - type: Card
@@ -1569,8 +1571,8 @@
     state: tt_basilisk
 
 - type: entity
-  parent: CardBaseTT
-  id: SMSpiderTTcard
+  parent: CardBaseTippyTrump
+  id: SMSpiderTippyTrumpcard
   suffix: SM Spider
   components:
   - type: Card
@@ -1580,8 +1582,8 @@
     state: tt_smspider
 
 - type: entity
-  parent: CardBaseTT
-  id: GrenadePenguinTTcard
+  parent: CardBaseTippyTrump
+  id: GrenadePenguinTippyTrumpcard
   suffix: Grenade Penguin
   components:
   - type: Card
@@ -1591,8 +1593,8 @@
     state: tt_penguin
 
 - type: entity
-  parent: CardBaseTT
-  id: RounyTTcard
+  parent: CardBaseTippyTrump
+  id: RounyTippyTrumpcard
   suffix: Rouny
   components:
   - type: Card
@@ -1602,8 +1604,8 @@
     state: tt_rouny
 
 - type: entity
-  parent: CardBaseTT
-  id: RevenantTTcard
+  parent: CardBaseTippyTrump
+  id: RevenantTippyTrumpcard
   suffix: Revenant
   components:
   - type: Card
@@ -1613,8 +1615,8 @@
     state: tt_rev
 
 - type: entity
-  parent: CardBaseTT
-  id: ShivaTTcard
+  parent: CardBaseTippyTrump
+  id: ShivaTippyTrumpcard
   suffix: Shiva
   components:
   - type: Card
@@ -1624,8 +1626,8 @@
     state: tt_shiva
 
 - type: entity
-  parent: CardBaseTT
-  id: LaserRaptorTTcard
+  parent: CardBaseTippyTrump
+  id: LaserRaptorTippyTrumpcard
   suffix: Laser Raptor
   components:
   - type: Card
@@ -1635,8 +1637,8 @@
     state: tt_lr
 
 - type: entity
-  parent: CardBaseTT
-  id: LaserlessRaptorTTcard
+  parent: CardBaseTippyTrump
+  id: LaserlessRaptorTippyTrumpcard
   suffix: Laser-less laser Raptor
   components:
   - type: Card
@@ -1646,8 +1648,8 @@
     state: tt_llr
 
 - type: entity
-  parent: CardBaseTT
-  id: SpaceSnakeTTcard
+  parent: CardBaseTippyTrump
+  id: SpaceSnakeTippyTrumpcard
   suffix: Space Snake
   components:
   - type: Card
@@ -1657,8 +1659,8 @@
     state: tt_ssnake
 
 - type: entity
-  parent: CardBaseTT
-  id: SpaceBearTTcard
+  parent: CardBaseTippyTrump
+  id: SpaceBearTippyTrumpcard
   suffix: Space Bear
   components:
   - type: Card
@@ -1668,8 +1670,8 @@
     state: tt_sbear
 
 - type: entity
-  parent: CardBaseTT
-  id: WatcherTTcard
+  parent: CardBaseTippyTrump
+  id: WatcherTippyTrumpcard
   suffix: Watcher
   components:
   - type: Card
@@ -1679,8 +1681,8 @@
     state: tt_watcher
 
 - type: entity
-  parent: CardBaseTT
-  id: SpaceKangarooTTcard
+  parent: CardBaseTippyTrump
+  id: SpaceKangarooTippyTrumpcard
   suffix: Space Kangaroo
   components:
   - type: Card
@@ -1690,8 +1692,8 @@
     state: tt_sroo
 
 - type: entity
-  parent: CardBaseTT
-  id: BombadilidiidaeTTcard
+  parent: CardBaseTippyTrump
+  id: BombadilidiidaeTippyTrumpcard
   suffix: Bombadilidiidae
   components:
   - type: Card
@@ -1701,8 +1703,8 @@
     state: tt_bomb
 
 - type: entity
-  parent: CardBaseTT
-  id: WillowTTcard
+  parent: CardBaseTippyTrump
+  id: WillowTippyTrumpcard
   suffix: Willow
   components:
   - type: Card
@@ -1712,8 +1714,8 @@
     state: tt_roo
 
 - type: entity
-  parent: CardBaseTT
-  id: BROSTTcard
+  parent: CardBaseTippyTrump
+  id: BROSTippyTrumpcard
   suffix: BROS
   components:
   - type: Card
@@ -1723,8 +1725,8 @@
     state: tt_bros
 
 - type: entity
-  parent: CardBaseTT
-  id: SORBTTcard
+  parent: CardBaseTippyTrump
+  id: SORBTippyTrumpcard
   suffix: SORB
   components:
   - type: Card
@@ -1734,8 +1736,8 @@
     state: tt_sorb
 
 - type: entity
-  parent: CardBaseTT
-  id: FOESTTcard
+  parent: CardBaseTippyTrump
+  id: FOESTippyTrumpcard
   suffix: FOES
   components:
   - type: Card
@@ -1745,8 +1747,8 @@
     state: tt_foes
 
 - type: entity
-  parent: CardBaseTT
-  id: SEOFTTcard
+  parent: CardBaseTippyTrump
+  id: SEOFTippyTrumpcard
   suffix: SEOF
   components:
   - type: Card
@@ -1756,8 +1758,8 @@
     state: tt_seof
 
 - type: entity
-  parent: CardBaseTT
-  id: ClownSpiderTTcard
+  parent: CardBaseTippyTrump
+  id: ClownSpiderTippyTrumpcard
   suffix: Clown Spider
   components:
   - type: Card
@@ -1767,8 +1769,8 @@
     state: tt_cspider
 
 - type: entity
-  parent: CardBaseTT
-  id: SnakeTTcard
+  parent: CardBaseTippyTrump
+  id: SnakeTippyTrumpcard
   suffix: Snake
   components:
   - type: Card
@@ -1778,8 +1780,8 @@
     state: tt_snake
 
 - type: entity
-  parent: CardBaseTT
-  id: CarpTTcard
+  parent: CardBaseTippyTrump
+  id: CarpTippyTrumpcard
   suffix: Carp
   components:
   - type: Card
@@ -1789,8 +1791,8 @@
     state: tt_carp
 
 - type: entity
-  parent: CardBaseTT
-  id: PunTTcard
+  parent: CardBaseTippyTrump
+  id: PunTippyTrumpcard
   suffix: Punpun
   components:
   - type: Card
@@ -1800,8 +1802,8 @@
     state: tt_pun
 
 - type: entity
-  parent: CardBaseTT
-  id: HonkBotTTcard
+  parent: CardBaseTippyTrump
+  id: HonkBotTippyTrumpcard
   suffix: HonkBot
   components:
   - type: Card
@@ -1811,8 +1813,8 @@
     state: tt_honkbot
 
 - type: entity
-  parent: CardBaseTT
-  id: GollyladTTcard
+  parent: CardBaseTippyTrump
+  id: GollyladTippyTrumpcard
   suffix: Gollylad
   components:
   - type: Card
@@ -1822,8 +1824,8 @@
     state: tt_golly
 
 - type: entity
-  parent: CardBaseTT
-  id: RenaultTTcard
+  parent: CardBaseTippyTrump
+  id: RenaultTippyTrumpcard
   suffix: Renault
   components:
   - type: Card
@@ -1833,8 +1835,8 @@
     state: tt_ren
 
 - type: entity
-  parent: CardBaseTT
-  id: KillerTTcard
+  parent: CardBaseTippyTrump
+  id: KillerTippyTrumpcard
   suffix: Tomato Killer
   components:
   - type: Card
@@ -1844,8 +1846,8 @@
     state: tt_killer
 
 - type: entity
-  parent: CardBaseTT
-  id: CrabTTcard
+  parent: CardBaseTippyTrump
+  id: CrabTippyTrumpcard
   suffix: Ore Crab
   components:
   - type: Card
@@ -1855,8 +1857,8 @@
     state: tt_crab # to do, add randomsprite with all the crabs
 
 - type: entity
-  parent: CardBaseTT
-  id: BabyKodeTTcard
+  parent: CardBaseTippyTrump
+  id: BabyKodeTippyTrumpcard
   suffix: Baby Kode
   components:
   - type: Card
@@ -1866,8 +1868,8 @@
     state: tt_babykode
 
 - type: entity
-  parent: CardBaseTT
-  id: SpaceTickTTcard
+  parent: CardBaseTippyTrump
+  id: SpaceTickTippyTrumpcard
   suffix: Tick
   components:
   - type: Card
@@ -1877,8 +1879,8 @@
     state: tt_tick
 
 - type: entity
-  parent: CardBaseTT
-  id: DolbyTTcard
+  parent: CardBaseTippyTrump
+  id: DolbyTippyTrumpcard
   suffix: Dolby
   components:
   - type: Card
@@ -1888,8 +1890,8 @@
     state: tt_dolby
 
 - type: entity
-  parent: CardBaseTT
-  id: TcktckTTcard
+  parent: CardBaseTippyTrump
+  id: TcktckTippyTrumpcard
   suffix: Tck'tck
   components:
   - type: Card
@@ -1899,8 +1901,8 @@
     state: tt_tck
 
 - type: entity
-  parent: CardBaseTT
-  id: TckutTTcard
+  parent: CardBaseTippyTrump
+  id: TckutTippyTrumpcard
   suffix: Tck'ut
   components:
   - type: Card
@@ -1910,8 +1912,8 @@
     state: tt_tckut
 
 - type: entity
-  parent: CardBaseTT
-  id: SlimeTTcard
+  parent: CardBaseTippyTrump
+  id: SlimeTippyTrumpcard
   suffix: Vent Slime
   components:
   - type: Card
@@ -1928,8 +1930,8 @@
           tt_yslime: ""
 
 - type: entity
-  parent: CardBaseTT
-  id: BoarTTcard
+  parent: CardBaseTippyTrump
+  id: BoarTippyTrumpcard
   suffix: Boar
   components:
   - type: Card
@@ -1939,8 +1941,8 @@
     state: tt_boar
 
 - type: entity
-  parent: CardBaseTT
-  id: WizTTcard
+  parent: CardBaseTippyTrump
+  id: WizTippyTrumpcard
   suffix: WizSpores
   components:
   - type: Card
@@ -1950,8 +1952,8 @@
     state: tt_wizspore
 
 - type: entity
-  parent: CardBaseTT
-  id: CancerMouseTTcard
+  parent: CardBaseTippyTrump
+  id: CancerMouseTippyTrumpcard
   suffix: Cancer Mouse
   components:
   - type: Card
@@ -1961,8 +1963,8 @@
     state: tt_cmouse
 
 - type: entity
-  parent: CardBaseTT
-  id: BananaDeerTTcard
+  parent: CardBaseTippyTrump
+  id: BananaDeerTippyTrumpcard
   suffix: Banana Deer
   components:
   - type: Card
@@ -1972,8 +1974,8 @@
     state: tt_deer
 
 - type: entity
-  parent: CardBaseTT
-  id: OppaTTcard
+  parent: CardBaseTippyTrump
+  id: OppaTippyTrumpcard
   suffix: Oppa
   components:
   - type: Card
@@ -1989,8 +1991,8 @@
           tt_doppa: ""
 
 - type: entity
-  parent: CardBaseTT
-  id: ServalTTcard
+  parent: CardBaseTippyTrump
+  id: ServalTippyTrumpcard
   suffix: Serval
   components:
   - type: Card
@@ -2000,8 +2002,8 @@
     state: tt_serval
 
 - type: entity
-  parent: CardBaseTT
-  id: ApidTTcard
+  parent: CardBaseTippyTrump
+  id: ApidTippyTrumpcard
   suffix: Apid
   components:
   - type: Card
@@ -2011,8 +2013,8 @@
     state: tt_apid
 
 - type: entity
-  parent: CardBaseTT
-  id: SnailTTcard
+  parent: CardBaseTippyTrump
+  id: SnailTippyTrumpcard
   suffix: Snail
   components:
   - type: Card
@@ -2028,8 +2030,8 @@
           tt_bsnail: ""
 
 - type: entity
-  parent: CardBaseTT
-  id: PleebnarTTcard
+  parent: CardBaseTippyTrump
+  id: PleebnarTippyTrumpcard
   suffix: Pleebnar
   components:
   - type: Card
@@ -2039,8 +2041,8 @@
     state: tt_pleeb
 
 - type: entity
-  parent: CardBaseTT
-  id: LuggageTTcard
+  parent: CardBaseTippyTrump
+  id: LuggageTippyTrumpcard
   suffix: Luggage
   components:
   - type: Card
@@ -2050,8 +2052,8 @@
     state: tt_box
 
 - type: entity
-  parent: CardBaseTT
-  id: HamletTTcard
+  parent: CardBaseTippyTrump
+  id: HamletTippyTrumpcard
   suffix: Hamlet
   components:
   - type: Card
@@ -2061,8 +2063,8 @@
     state: tt_hamlet
 
 - type: entity
-  parent: CardBaseTT
-  id: FinfinTTcard
+  parent: CardBaseTippyTrump
+  id: FinfinTippyTrumpcard
   suffix: Finfin
   components:
   - type: Card
@@ -2072,8 +2074,8 @@
     state: tt_finfin
 
 - type: entity
-  parent: CardBaseTT
-  id: GriffyTTcard
+  parent: CardBaseTippyTrump
+  id: GriffyTippyTrumpcard
   suffix: Griffy
   components:
   - type: Card
@@ -2083,8 +2085,8 @@
     state: tt_griffy
 
 - type: entity
-  parent: CardBaseTT
-  id: McGriffTTcard
+  parent: CardBaseTippyTrump
+  id: McGriffTippyTrumpcard
   suffix: McGriff
   components:
   - type: Card
@@ -2094,8 +2096,8 @@
     state: tt_mcgriff
 
 - type: entity
-  parent: CardBaseTT
-  id: ShrimpTTcard
+  parent: CardBaseTippyTrump
+  id: ShrimpTippyTrumpcard
   suffix: Weird Shrimp
   components:
   - type: Card
@@ -2105,8 +2107,8 @@
     state: tt_shrimp
 
 - type: entity
-  parent: CardBaseTT
-  id: MouseTTcard
+  parent: CardBaseTippyTrump
+  id: MouseTippyTrumpcard
   suffix: Mouse
   components:
   - type: Card
@@ -2116,8 +2118,8 @@
     state: tt_mouse
 
 - type: entity
-  parent: CardBaseTT
-  id: MothroachTTcard
+  parent: CardBaseTippyTrump
+  id: MothroachTippyTrumpcard
   suffix: Mothroach
   components:
   - type: Card
@@ -2127,8 +2129,8 @@
     state: tt_moth
 
 - type: entity
-  parent: CardBaseTT
-  id: MoproachTTcard
+  parent: CardBaseTippyTrump
+  id: MoproachTippyTrumpcard
   suffix: Moproach
   components:
   - type: Card
@@ -2138,8 +2140,8 @@
     state: tt_mop
 
 - type: entity
-  parent: CardBaseTT
-  id: LepidodentTTcard
+  parent: CardBaseTippyTrump
+  id: LepidodentTippyTrumpcard
   suffix: Lepidodent
   components:
   - type: Card
@@ -2149,8 +2151,8 @@
     state: tt_lepidodent
 
 - type: entity
-  parent: CardBaseTT
-  id: GlockroachTTcard
+  parent: CardBaseTippyTrump
+  id: GlockroachTippyTrumpcard
   suffix: Glockroach
   components:
   - type: Card
@@ -2160,8 +2162,8 @@
     state: tt_glock
 
 - type: entity
-  parent: CardBaseTT
-  id: IanTTcard
+  parent: CardBaseTippyTrump
+  id: IanTippyTrumpcard
   suffix: Ian
   components:
   - type: Card
@@ -2171,8 +2173,8 @@
     state: tt_ian
 
 - type: entity
-  parent: CardBaseTT
-  id: BingusTTcard
+  parent: CardBaseTippyTrump
+  id: BingusTippyTrumpcard
   suffix: Bingus
   components:
   - type: Card
@@ -2182,8 +2184,8 @@
     state: tt_ncat
 
 - type: entity
-  parent: CardBaseTT
-  id: TropicoTTcard
+  parent: CardBaseTippyTrump
+  id: TropicoTippyTrumpcard
   suffix: Tropico
   components:
   - type: Card
@@ -2193,8 +2195,8 @@
     state: tt_top
 
 - type: entity
-  parent: CardBaseTT
-  id: SmileTTcard
+  parent: CardBaseTippyTrump
+  id: SmileTippyTrumpcard
   suffix: Smile
   components:
   - type: Card
@@ -2204,8 +2206,8 @@
     state: tt_smile
 
 - type: entity
-  parent: CardBaseTT
-  id: KisserTTcard
+  parent: CardBaseTippyTrump
+  id: KisserTippyTrumpcard
   suffix: Kisser Tomato
   components:
   - type: Card
@@ -2215,8 +2217,8 @@
     state: tt_kisser
 
 - type: entity
-  parent: CardBaseTT
-  id: SlurvaTTcard
+  parent: CardBaseTippyTrump
+  id: SlurvaTippyTrumpcard
   suffix: Slurva
   components:
   - type: Card
@@ -2226,8 +2228,8 @@
     state: tt_slurva
 
 - type: entity
-  parent: CardBaseTT
-  id: TarantulaTTcard
+  parent: CardBaseTippyTrump
+  id: TarantulaTippyTrumpcard
   suffix: Spider
   components:
   - type: Card
@@ -2237,8 +2239,8 @@
     state: tt_rancho
 
 - type: entity
-  parent: CardBaseTT
-  id: PipiTTcard
+  parent: CardBaseTippyTrump
+  id: PipiTippyTrumpcard
   suffix: Pipi
   components:
   - type: Card
@@ -2248,8 +2250,8 @@
     state: tt_pipi
 
 - type: entity
-  parent: CardBaseTT
-  id: AnomaliteTTcard
+  parent: CardBaseTippyTrump
+  id: AnomaliteTippyTrumpcard
   suffix: Anomalite
   components:
   - type: Card
