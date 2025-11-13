@@ -1,4 +1,5 @@
 - type: entity
+  parent: BaseObjectVerbsCuteness # DEN: Add interaction verb parent. I guess
   id: BaseEnergyBall
   abstract: true
   components:

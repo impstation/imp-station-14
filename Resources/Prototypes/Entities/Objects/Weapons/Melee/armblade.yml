@@ -1,6 +1,6 @@
 - type: entity
   name: arm blade
-  parent: BaseItem
+  parent: [BaseObjectVerbsCommon, BaseItem] # DEN: Add interaction verb parent
   id: ArmBlade
   description: A grotesque blade made out of bone and flesh that can pry open doors and cleaves through people as a hot knife through butter.
   components:
@@ -25,8 +25,3 @@
   - type: Prying
     speedModifier: 1.5 # Jaws of life speed
     pryPowered: true
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject

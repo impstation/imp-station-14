@@ -195,7 +195,7 @@
 
 - type: entity
   id: AirlockGlass
-  parent: Airlock
+  parent: [BaseObjectVerbsStructure, Airlock] # DEN: Add interaction verb parent
   name: glass airlock
   components:
   - type: MeleeSound
@@ -230,10 +230,6 @@
     group: AirlockGlass
   - type: RadiationBlocker
     resistance: 2
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - KnockOn
-    - LickObject
   - type: Tag
     tags:
       - GlassAirlock

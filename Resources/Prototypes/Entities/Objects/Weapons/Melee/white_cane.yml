@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [BaseObjectVerbsCommon, BaseItem] # DEN: Add interaction verb parent
   id: WhiteCane
   name: white cane
   description: This isn't for you. It's for the people who can't figure out you're blind when you ask if cargo is the bar.
@@ -25,8 +25,3 @@
   - type: UseDelay
     delay: 1
   - type: DamageOtherOnHit # imp
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject

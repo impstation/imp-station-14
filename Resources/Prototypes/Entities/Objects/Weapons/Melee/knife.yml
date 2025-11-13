@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [BaseObjectVerbsCommon, BaseItem] # DEN: Add interaction verb parent
   id: BaseKnife
   abstract: true
   components:
@@ -34,11 +34,6 @@
     sound: /Audio/Weapons/star_hit.ogg
   - type: EmbedPassiveDamage
   # end imp edits #
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 - type: entity
   parent: BaseKnife

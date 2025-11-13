@@ -1,6 +1,6 @@
 - type: entity
   id: BaseMeleeWeaponEnergy # more generic naming in case someone makes like, idk, an energy axe
-  parent: BaseItem
+  parent: [BaseObjectVerbsCommon, BaseItem] # DEN: Add interaction verb parent
   abstract: true
   components:
   - type: EnergySword
@@ -175,11 +175,6 @@
     netsync: false
   - type: ItemToggleThrowingAngle # imp
     activatedAngle: 135
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 - type: entity
   name: pen

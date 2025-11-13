@@ -1,6 +1,6 @@
 - type: entity
   id: StatueVenusRed
-  parent: BaseStructure
+  parent: [BaseStructure, BaseObjectVerbsCuteness] # DEN: Add interaction verb parent
   name: statue of a pure maiden
   suffix: Red
   description: An ancient marble statue. The subject is depicted with a floor-length braid and is wielding a red toolbox.
@@ -14,7 +14,7 @@
 
 - type: entity
   id: StatueVenusBlue
-  parent: BaseStructure
+  parent: [BaseStructure, BaseObjectVerbsCuteness] # DEN: Add interaction verb parent
   name: statue of a pure maiden
   suffix: Blue
   description: An ancient marble statue. The subject is depicted with a floor-length braid and is wielding a blue toolbox.
@@ -28,7 +28,7 @@
 
 - type: entity
   id: StatueBananiumClown
-  parent: BaseStructure
+  parent: [BaseStructure, BaseObjectVerbsCuteness] # DEN: Add interaction verb parent
   name: bananium savior statue
   description: A bananium statue. It portrays the return of the savior who will rise up and lead the clowns to the great honk.
   components:

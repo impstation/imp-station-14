@@ -1,0 +1,57 @@
+- type: entity
+  abstract: true
+  id: BaseObjectVerbsCommon
+  components:
+  - type: InteractionVerbs
+    allowedVerbs:
+    - HugObject
+    - KissObject
+    - LickObject
+
+- type: entity
+  abstract: true
+  id: BaseObjectVerbsStructure
+  components:
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KnockOn
+    - LickObject
+
+- type: entity
+  abstract: true
+  id: BaseObjectVerbsEdible
+  components:
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KissObject
+    - LickObject
+
+- type: entity
+  abstract: true
+  id: BaseObjectVerbsLewd # i suppose
+  components:
+  - type: InteractionVerbs
+    allowedVerbs:
+    - KissObject
+    - LickObject
+
+- type: entity
+  abstract: true
+  id: BaseObjectVerbsCuteness # <3
+  components:
+  - type: InteractionVerbs
+    allowedVerbs:
+    - HugObject
+    - PetObject
+    - KissObject
+    - LickObject
+
+- type: entity
+  abstract: true
+  id: BaseObjectVerbsCutenessWall # not huggable
+  components:
+  - type: InteractionVerbs
+    allowedVerbs:
+    - PetObject
+    - KissObject
+    - LickObject

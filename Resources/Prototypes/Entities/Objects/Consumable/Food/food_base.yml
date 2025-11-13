@@ -3,7 +3,7 @@
 #
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: [BaseObjectVerbsEdible, BaseItem] # DEN: Add interaction verb parent
   id: EdibleBase
   components:
   - type: FlavorProfile
@@ -13,10 +13,6 @@
   - type: Sprite
   - type: StaticPrice
     price: 0
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - KissObject
-    - LickObject
 
 #
 # Base component for consumable food
@@ -47,6 +43,7 @@
 # handles appearance with states "icon" and "icon-open"
 - type: entity
   abstract: true
+  parent: BaseObjectVerbsEdible # DEN: Add interaction verb parent
   id: FoodOpenableBase
   components:
   - type: Appearance
@@ -61,7 +58,3 @@
           True: {state: "icon-open"}
           False: {state: "icon"}
   - type: Openable
-  - type: InteractionVerbs
-    allowedVerbs:
-    - KissObject
-    - LickObject

@@ -1,6 +1,6 @@
 - type: entity
   name: stun prod
-  parent: [BaseItem, BaseMinorContraband]
+  parent: [BaseItem, BaseMinorContraband, BaseObjectVerbsCommon] # DEN: Add interaction verb parent
   id: Stunprod
   description: A stun prod for illegal incapacitation.
   components:
@@ -73,8 +73,3 @@
   - type: ItemToggleDamageOtherOnHit
   - type: DamageOtherOnHit
   # end imp edits #
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject

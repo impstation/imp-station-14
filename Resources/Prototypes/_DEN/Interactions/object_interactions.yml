@@ -43,7 +43,7 @@
 - type: Interaction
   id: KissObject
   parent: BaseHands
-  priority: -13
+  priority: -14
   delay: 0.4
   action:
     !type:MoodAction
@@ -55,7 +55,7 @@
 - type: Interaction
   id: LickObject
   parent: BaseHands
-  priority: -14
+  priority: -13
   delay: 0.7
   action:
     !type:MoodAction

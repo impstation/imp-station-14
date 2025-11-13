@@ -1,6 +1,6 @@
 - type: entity
   name: fireaxe
-  parent: [BaseItem, BaseEngineeringContraband]
+  parent: [ BaseObjectVerbsCommon, BaseItem, BaseEngineeringContraband] # DEN: Add interaction verb parent
   id: FireAxe
   description: Truly, the weapon of a madman. Who would think to fight fire with an axe?
   components:
@@ -58,11 +58,6 @@
   - type: ThrowingAngle
     angle: 45
   # end imp edits #
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 - type: entity
   id: FireAxeFlaming

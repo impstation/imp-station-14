@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseWallmountMetallic
+  parent: [BaseObjectVerbsCutenessWall, BaseWallmountMetallic] # DEN: Add interaction verb parent
   id: BaseSign
   name: base sign
   abstract: true

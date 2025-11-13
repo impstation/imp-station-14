@@ -1,6 +1,6 @@
 - type: entity
   name: pickaxe
-  parent: BaseItem
+  parent: [BaseItem, BaseObjectVerbsCommon] # DEN: Add interaction verb parent
   id: Pickaxe
   description: Notched to perfection, for jamming it into rocks.
   components:
@@ -41,15 +41,10 @@
       Wood: 100
   - type: DamageOtherOnHit # Imp
     staminaCost: 5
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 - type: entity
   name: mining drill
-  parent: BaseItem
+  parent: [BaseItem, BaseObjectVerbsCommon] # DEN: Add interaction verb parent
   id: MiningDrill
   description: Powerful tool used to quickly drill through rocks.
   components:
@@ -79,11 +74,6 @@
   - type: ThrowingAngle
     angle: 270
   # end imp edits #
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 - type: entity
   name: diamond tipped mining drill
@@ -110,7 +100,7 @@
 
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: [BaseItem, BaseObjectVerbsCommon] # DEN: Add interaction verb parent
   id: BaseWeaponCrusher # Crusher? But I...
   name: crusher
   description: An early design of the proto-kinetic accelerator.
@@ -130,11 +120,6 @@
       shader: unshaded
       visible: false
       map: [ "light" ]
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 # Very high burst damage if you land a mark, while also providing a small amount of healing.
 - type: entity

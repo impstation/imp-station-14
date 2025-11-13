@@ -1,6 +1,6 @@
 - type: entity
   name: BaseWeaponLightMachineGun
-  parent: BaseItem
+  parent: [BaseObjectVerbsCommon, BaseItem] # DEN: Add interaction verb parent
   id: BaseWeaponLightMachineGun
   description: A rooty tooty point and shooty.
   abstract: true

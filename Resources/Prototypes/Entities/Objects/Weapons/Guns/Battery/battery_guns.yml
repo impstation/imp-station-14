@@ -1,6 +1,6 @@
 - type: entity
   id: BaseWeaponBattery
-  parent: BaseItem
+  parent: [BaseObjectVerbsCommon, BaseItem] # DEN: Add interaction verb parent
   abstract: true
   components:
   - type: Sprite
@@ -92,15 +92,10 @@
       types:
         Blunt: 8
   #imp edit end
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 - type: entity
   id: BaseWeaponPowerCell
-  parent: BaseItem
+  parent: [BaseObjectVerbsCommon, BaseItem] # DEN: Add interaction verb parent
   abstract: true
   components:
   - type: Sprite
@@ -157,11 +152,6 @@
       types:
         Blunt: 5
 #imp edit end
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 - type: entity
   id: BaseWeaponBatterySmall

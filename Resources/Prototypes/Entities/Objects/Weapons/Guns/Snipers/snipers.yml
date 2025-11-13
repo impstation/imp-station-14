@@ -1,6 +1,6 @@
 - type: entity
   name: BaseWeaponSniper
-  parent: BaseItem
+  parent: [BaseObjectVerbsCommon, BaseItem] # DEN: Add interaction verb parent
   id: BaseWeaponSniper
   description: A rooty tooty point and shooty.
   abstract: true
@@ -39,11 +39,6 @@
         ents: []
   - type: StaticPrice
     price: 500
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 - type: entity
   name: Kardashev-Mosin

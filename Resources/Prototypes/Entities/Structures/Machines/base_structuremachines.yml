@@ -42,9 +42,13 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-  - type: InteractionVerbs # EE
+  - type: InteractionVerbs # DEN: Add interaction verbs
     allowedVerbs:
     - KnockOn
+    - HugObject
+    - PetObject
+    - KissObject
+    - LickObject
 
 - type: entity
   abstract: true

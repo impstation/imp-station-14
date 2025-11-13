@@ -1,4 +1,5 @@
 - type: entity
+  parent: BaseObjectVerbsCuteness # DEN: Add interaction verb parent
   id: AmeController
   name: AME controller
   description: It's a controller for the antimatter engine.
@@ -130,6 +131,7 @@
     bodyType: Dynamic
 
 - type: entity
+  parent: BaseObjectVerbsCuteness # DEN: Add interaction verb parent
   id: AmeShielding
   name: AME shielding
   description: Keeps the antimatter in and the matter out.

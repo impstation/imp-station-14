@@ -1,6 +1,6 @@
 - type: entity
   name: chainsaw
-  parent: BaseItem
+  parent: [BaseObjectVerbsCommon, BaseItem] # DEN: Add interaction verb parent
   id: Chainsaw
   description: A very large chainsaw. Usually you use this for cutting down trees... usually.
   components:
@@ -47,8 +47,3 @@
         maxVol: 300
   - type: UseDelay
     delay: 1
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject

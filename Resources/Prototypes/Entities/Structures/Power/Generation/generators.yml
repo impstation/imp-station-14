@@ -2,7 +2,7 @@
 
 - type: entity
   abstract: true
-  parent: BaseMachine
+  parent: [BaseObjectVerbsCuteness, BaseMachine] # DEN: Add interaction verb parent
   id: BaseGenerator
   description: A high efficiency thermoelectric generator.
   name: generator
@@ -89,7 +89,7 @@
 - type: entity
   abstract: true
   id: BaseGeneratorWallmount
-  parent: [ BaseGenerator, BaseWallmount ]
+  parent: [ BaseObjectVerbsCutenessWall, BaseGenerator, BaseWallmount ] # DEN: Add interaction verb parent
   name: wallmount generator
   description: A high efficiency thermoelectric generator stuffed in a wall cabinet.
   components:

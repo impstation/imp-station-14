@@ -1,6 +1,6 @@
 - type: entity
   name: baseball bat
-  parent: [BaseItem, BaseMinorContraband]
+  parent: [BaseObjectVerbsCommon, BaseItem, BaseMinorContraband] # DEN: Add interaction verb parent
   id: BaseBallBat
   description: A robust baseball bat.
   components:
@@ -50,11 +50,6 @@
   - type: DeflectThrownObjects
   - type: DamageOtherOnHit # imp
     staminaCost: 10
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 - type: entity
   name: incomplete baseball bat

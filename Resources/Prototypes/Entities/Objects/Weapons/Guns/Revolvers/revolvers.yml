@@ -1,6 +1,6 @@
 - type: entity
   name: BaseWeaponRevolver
-  parent: BaseItem
+  parent: [BaseObjectVerbsCommon, BaseItem] # DEN: Add interaction verb parent
   id: BaseWeaponRevolver
   description: A rooty tooty point and shooty.
   abstract: true
@@ -71,11 +71,6 @@
       types:
         Blunt: 5
 #imp edit end
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 - type: entity
   name: Deckard

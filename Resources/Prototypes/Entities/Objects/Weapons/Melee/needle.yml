@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, BaseObjectVerbsCommon] # DEN: Add interaction verb parent
   id: WeaponMeleeNeedle
   name: official security anti-inflatable armament
   description: A specialty weapon used in the destruction of unique syndicate morale-boosting equipment.
@@ -24,8 +24,3 @@
   - type: LandAtCursor
   - type: EmbeddableProjectile # imp
     removalTime: 0
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject

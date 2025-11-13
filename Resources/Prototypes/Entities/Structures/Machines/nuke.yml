@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseStructure, StructureWheeled, BaseMajorContraband]
+  parent: [BaseStructure, StructureWheeled, BaseMajorContraband, BaseObjectVerbsCuteness] # DEN: Add interaction verb parent
   id: NuclearBomb
   name: nuclear fission explosive
   description: You probably shouldn't stick around to see if this is armed.
@@ -129,7 +129,7 @@
     bodyType: Dynamic
 
 - type: entity
-  parent: StorageTank
+  parent: [StorageTank, BaseObjectVerbsCuteness] # DEN: Add interaction verb parent
   id: NuclearBombKeg
   name: nuclear fission explosive
   suffix: keg

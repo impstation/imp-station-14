@@ -1,6 +1,6 @@
 ﻿- type: entity
   name: gohei
-  parent: BaseItem
+  parent: [BaseObjectVerbsCommon, BaseItem] # DEN: Add interaction verb parent
   id: Gohei
   description: A wooden stick with white streamers at the end. Originally used by shrine maidens to purify things. # Now used by the station's weeaboos.
   components:
@@ -15,8 +15,3 @@
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/gohei.rsi
-  - type: InteractionVerbs
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject

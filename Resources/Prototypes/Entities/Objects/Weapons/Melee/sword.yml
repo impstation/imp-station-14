@@ -2,7 +2,7 @@
 
 #BaseSword
 - type: entity
-  parent: BaseItem
+  parent: [BaseItem, BaseObjectVerbsCommon] # DEN: Add interaction verb parent
   id: BaseSword
   abstract: true
   components:
@@ -21,11 +21,6 @@
   - type: Tool
     qualities:
     - Slicing
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 #Shortswords
 - type: entity

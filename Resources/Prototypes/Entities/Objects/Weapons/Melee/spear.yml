@@ -1,6 +1,6 @@
 - type: entity
   name: spear
-  parent: [BaseItem, BaseMinorContraband]
+  parent: [BaseItem, BaseMinorContraband, BaseObjectVerbsCommon] # DEN: Add interaction verb parent
   id: Spear
   description: Definition of a Classic. Keeping murder affordable since 200,000 BCE.
   components:
@@ -119,11 +119,6 @@
     equippedFillBaseName: -fill-
     equippedMaxFillLevels: 1
   - type: EmbedPassiveDamage # imp
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject
 
 - type: entity
   name: reinforced spear
@@ -224,7 +219,7 @@
 
 - type: entity
   name: sharkminnow tooth spear
-  parent: Spear
+  parent: [Spear, BaseObjectVerbsCommon] # DEN: Add interaction verb parent
   id: SpearSharkMinnow
   description: A spear with a sharkminnow tooth as a tip.
   components:
@@ -241,8 +236,3 @@
         Piercing: 25 #throw dmg enough to two-shot carp
   - type: Construction
     graph: SpearSharkMinnow
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - HugObject
-    - KissObject
-    - LickObject

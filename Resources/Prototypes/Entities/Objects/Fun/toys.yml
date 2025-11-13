@@ -1,6 +1,7 @@
 ## Base stash
 
 - type: entity
+  parent: [BaseObjectVerbsCuteness, BaseItem] # DEN: Add interaction verb parent
   id: BaseStash
   abstract: true
   components:

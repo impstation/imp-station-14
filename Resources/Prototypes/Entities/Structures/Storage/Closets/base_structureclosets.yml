@@ -1,6 +1,6 @@
 - type: entity
   id: ClosetBase
-  parent: BaseStructureDynamic
+  parent: [BaseStructureDynamic, BaseObjectVerbsCuteness] # DEN: Add interaction verb parent
   name: closet
   description: A standard-issue Nanotrasen storage unit.
   abstract: true
