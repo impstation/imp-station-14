@@ -154,14 +154,18 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         comp.Polarization = _random.Prob(0.5f);
 
         // Set light color based on polarization
-        var pointLight = EnsureComp<PointLightComponent>(ent);
+        if (!TryComp<PointLightComponent>(ent, out var maybePointLight) || maybePointLight is not { } pointLight)
+            return;
         var tgtColor = comp.Polarization ? comp.NorthColor : comp.SouthColor;
         _lights.SetColor(ent, tgtColor, pointLight);
 
         // Set the randomized decay rate
         comp.RealDecayRate = _random.NextFloat(comp.MinDecayRate, comp.MaxDecayRate);
 
-        var physComp = EnsureComp<PhysicsComponent>(args.Target);
+        var physicsQuery = GetEntityQuery<PhysicsComponent>();
+
+        if (!physicsQuery.TryComp(args.Target, out var maybePhysComp) || maybePhysComp is not { } physComp)
+            return;
 
         comp.StatusOwner = (args.Target, physComp);
         Dirty(ent, ent.Comp);
@@ -187,7 +191,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
             return;
         if (ent.Comp.StatusOwner is not { } statusOwner)
             return;
-        var (opposite, same, strCapInvolved) = BiomagCollide(ent, (otherBiomagEnt, otherBiomagComp));
+        var (opposite, same, strCapInvolved) = BiomagCollide(ent, ent.Comp, otherBiomagEnt, otherBiomagComp);
         CollisionEffects(statusOwner, ent, opposite, same, strCapInvolved);
     }
 
