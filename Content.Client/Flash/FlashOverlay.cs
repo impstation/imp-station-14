@@ -107,7 +107,7 @@ namespace Content.Client.Flash
                 // not do any of that while also being equivalent in terms of game balance is hard.
                 //vds/imp
                 var alpha = 1 - MathF.Pow(PercentComplete, 15f);
-                var vignetteIntensity = 1 - MathF.Pow((2*PercentComplete)-1, 4f);
+                var vignetteIntensity = 1 - MathF.Pow((2*PercentComplete)-1, 2f);
 
                 worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds, new Color(1f, 1f, 1f, alpha));
                 _circleMaskShader.SetParameter("Zoom", 1f);
