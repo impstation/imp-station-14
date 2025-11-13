@@ -88,16 +88,21 @@ namespace Content.Client.Flash
                 // Replace it with a proper shader once we come up with something good.
                 // Turns out making an effect that is supposed to be a bright, sudden, and disorienting flash
                 // not do any of that while also being equivalent in terms of game balance is hard.
-                //imp edit, comment these out to disable flashes for people with reduced motion due to complaints.
-                //var alpha = 1 - MathF.Pow(PercentComplete, 8f); // similar falloff curve to the flash shader
-                //worldHandle.DrawRect(args.WorldBounds, new Color(0f, 0f, 0f, alpha));
+                //vds/imp
+                //var alpha = 1 - MathF.Pow(PercentComplete, 15f);
+                var alphashade = 1 - MathF.Pow((2*PercentComplete)-1, 24f);
+                //worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds, new Color(1f, 1f, 1f, alpha));
+                worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds, new Color(0f, 0f, 0f, alphashade));
+                //vds/imp
             }
             else
             {
-                _shader.SetParameter("percentComplete", PercentComplete);
-                worldHandle.UseShader(_shader);
-                worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds);
-                worldHandle.UseShader(null);
+                // VDS
+                var alpha = 1 - MathF.Pow(PercentComplete, 8f) - 0.2f;
+                var alphashade = 1 - MathF.Pow(PercentComplete, 10f) - 0.1f;
+                worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds, new Color(1f, 1f, 1f, alpha));
+                worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds, new Color(0f, 0f, 0f, alphashade));
+                //VDS end
             }
         }
 
