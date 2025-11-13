@@ -115,3 +115,6 @@ trait-hefty-desc = You're heavier than average.
 trait-slight-name = Slight
 trait-slight-desc = You're lighter than average.
                        Incompatible with Hefty.
+
+trait-soft-hands-name = Soft hands
+trait-soft-hands-desc = You're too weak to wield anything.
