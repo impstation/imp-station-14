@@ -120,10 +120,6 @@
     fixtureID: projectile
   - type: SpawnOnTrigger
     proto: IceCrust
-    settings:
-        minAmount: 5
-        maxAmount: 10
-        maxRange: 4
 
 - type: entity
   parent: BaseStructure
@@ -269,7 +265,7 @@
       path: /Audio/Effects/soft_thump.ogg
   - type: Storage
     storageOpenSound: /Audio/_NF/Voice/Goblin/goblin_hiss_1.ogg
-    storageCloseSound: /Audio\Voice\Vulpkanin\dog_snarl3.ogg
+    storageCloseSound: /Audio/Voice/Vulpkanin/dog_snarl3.ogg
   - type: Appearance
 
 - type: entity

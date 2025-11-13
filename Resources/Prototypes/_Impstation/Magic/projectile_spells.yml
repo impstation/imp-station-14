@@ -58,9 +58,6 @@
     raiseOnUser: true
     sound: !type:SoundPathSpecifier
       path: /Audio/Effects/Fluids/watersplash.ogg
-    icon:
-    sprite: _Impstation/Magic/bubble.rsi
-    state: bullet
   - type: TargetAction
     range: 60
     checkCanAccess: false

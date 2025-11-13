@@ -17,8 +17,6 @@
     - FullAuto
     soundGunshot:
       path: /Audio/Effects/pop.ogg
-    params:
-      variation: 1
   - type: BasicEntityAmmoProvider
     proto: MagicBubble
   - type: Item

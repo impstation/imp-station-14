@@ -133,7 +133,7 @@
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: rock
-    tags:
+  - tags:
       - CannotSuicide
       - DoorBumpOpener
       - FootstepSound
@@ -176,16 +176,16 @@
     speechVerb: LargeMob
     speechSounds: Vulpkanin
   - type: ReplacementAccent
-    accent: Crab
+    accent: crab
   - type: Emoting
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
   - type: MeleeThrowOnHit
-    UnanchorOnHit: true
+    unanchorOnHit: true
     speed: 15
     distance: 4
-    StunTime: 10
-    ActivateOnThrown: true
+    stunTime: 10
+    activateOnThrown: true
   - type: StatusEffects
     allowed:
     - SlowedDown
