@@ -38,10 +38,8 @@
   - type: MindContainer
   - type: RequireProjectileTarget
     active: False
-  # imp edit start
-  - type: AnimatedEmotes
-  - type: CollectiveMind
-  # imp edit end
+  - type: CollectiveMind # Startlight - Collective Minds - Give everyone general access to collective mind channels for Dragons/Carp/Critters/Zombies
+  - type: AnimatedEmotes # imp
 
 # The progenitor. This should only container the most basic components possible.
 # Only put things on here if every mob *must* have it. This includes ghosts.

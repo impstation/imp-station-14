@@ -162,7 +162,7 @@
     - RCDMeatMeatball
     - RCDCBlanketShock
   - type: LimitedCharges
-    maxCharges: 10
+    maxCharges: 16
   - type: AutoRecharge
     rechargeDuration: 30
 
@@ -185,17 +185,19 @@
     - CrayonWhite
 
 - type: entity
-  parent: Holoprojector
+  parent: BorgHoloBellProjector
   id: HoloprojectorSafety
   name: safety projector
   description: Creates a visual indicator of an unsafe area.
   components:
   - type: HolosignProjector
     signProto: HolosignSafety
-  - type: LimitedCharges
-    maxCharges: 60
-  - type: AutoRecharge
-    rechargeDuration: 10
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+        disableEject: true
   - type: Sprite
     sprite: Objects/Devices/Holoprojectors/security.rsi
     state: icon
@@ -230,6 +232,6 @@
     startingCharge: 100
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 1
+    autoRechargeRate: 2
   - type: Item
     size: Tiny

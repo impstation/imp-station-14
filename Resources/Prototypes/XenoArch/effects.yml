@@ -832,13 +832,13 @@
 - type: entity
   id: XenoArtifactChemicalPuddle
   parent: BaseXenoArtifactEffect
-  description: Produces puddle of chemical mixture # todo: make description say what exact chemical is produced, maybe add mixes into possible chemicals
+  description: Biochemical disruption # IMP changed description
   components:
   - type: XAECreatePuddle
     chemAmount:
       min: 1
       max: 3
-    replaceDescription: true
+    replaceDescription: false #IMP -> false
     chemicalSolution:
       maxVol: 500
       canReact: false
@@ -1354,13 +1354,13 @@
 - type: entity
   id: XenoArtifactPuddleRare
   parent: BaseXenoArtifactEffect
-  description: Creates puddle of chemicals #IMP desc changed
+  description: Biochemical disruption #IMP desc changed
   components:
   - type: XAECreatePuddle
     chemAmount:
       min: 1
       max: 3
-    replaceDescription: true
+    replaceDescription: false #imp -> false
     chemicalSolution:
       maxVol: 500
       canReact: false
