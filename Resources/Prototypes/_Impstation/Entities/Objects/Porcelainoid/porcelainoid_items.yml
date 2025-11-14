@@ -17,7 +17,7 @@
     - type: BreathMask
     - type: IdentityBlocker # need that for default PorcelainMask
     - type: Unremoveable
-    - type: HideLayerClothing
+    - type: HideLayerClothing # I don't think this matters for porcelainoids so I could probably get rid of it, but I might as well leave it I guess?
       slots:
       - Snout
       - SnoutCover # imp
