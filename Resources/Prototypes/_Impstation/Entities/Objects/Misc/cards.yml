@@ -1088,14 +1088,14 @@
 - type: entity
   parent: [ BoxCardboard, BaseBagOpenClose ]
   id: CardBoxTippyTrump
-  name: TippyTrump booster pack box
-  description: Contains ten random Tippy Trumps cards!
+  name: TippyTrump starter pack box
+  description: Contains two Tippy Trump mystery packs!
   components:
   - type: Item
     size: Small
   - type: Storage
     grid:
-    - 0,0,5,3
+    - 0,0,1,2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: box
@@ -1107,7 +1107,7 @@
   - type: OpenTriggeredStorageFill
     contents:
     - id: TippyTrumpMysteryPack
-      amount: 10
+      amount: 2
     - id: TippyTrumpRules
       amount: 1
 
@@ -1115,7 +1115,7 @@
   parent: BaseItem
   id: TippyTrumpMysteryPack
   name: TippyTrump mystery pack
-  description: Contains one random card.
+  description: Contains five random cards.
   components:
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
@@ -1125,240 +1125,12 @@
     sound: /Audio/Effects/unwrap.ogg
   - type: SpawnItemsOnUse
     items:
-    - id: CardTrash
-    - id: AnomaliteTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: PipiTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: TarantulaTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: SlurvaTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: KisserTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: SmileTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: TropicoTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: BingusTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: IanTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: GlockroachTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: LepidodentTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: MoproachTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: MothroachTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: MouseTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: ShrimpTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: McGriffTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: GriffyTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: FinfinTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: HamletTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: LuggageTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: PleebnarTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: SnailTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: ApidTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: ServalTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: OppaTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: BananaDeerTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: CancerMouseTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: WizTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: BoarTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: SlimeTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: TckutTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: TcktckTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: DolbyTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: SpaceTickTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: BabyKodeTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: CrabTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: KillerTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: RenaultTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: GollyladTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: HonkBotTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: PunTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: CarpTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: SnakeTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: ClownSpiderTippyTrumpcard
-      prob: 0.03
-      orGroup: Cards
-    - id: SEOFTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: FOESTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: SORBTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: BROSTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: WillowTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: BombadilidiidaeTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: SpaceKangarooTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: WatcherTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: SpaceBearTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: SpaceSnakeTippyTrumpcard
-      prob: 0.03
-      orGroup: Cards
-    - id: LaserlessRaptorTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: LaserRaptorTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: ShivaTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: RevenantTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: RounyTippyTrumpcard
-      prob: 0.03
-      orGroup: Cards
-    - id: GrenadePenguinTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: SMSpiderTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: BasiliskTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: GolaithTippyTrumpcard
-      prob: 0.03
-      orGroup: Cards
-    - id: HivelordTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: ForkliftTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: GorillaTippyTrumpcard
-      prob: 0.51
-      orGroup: Cards
-    - id: RatLilTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: RatKingTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: GrotesequeTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: BehonkerTippyTrumpcard
-      prob: 0.03
-      orGroup: Cards
-    - id: OrbBeeTippyTrumpcard
-      prob: 0.82
-      orGroup: Cards
-    - id: RepliTippyTrumpcard
-      prob: 0.15
-      orGroup: Cards
-    - id: EeepTippyTrumpcard
-      prob: 0.03
-      orGroup: Cards
-    - id: DragonTippyTrumpcard
-      prob: 0.03
-      orGroup: Cards
-    - id: VrexTippyTrumpcard
-      prob: 0.03
-      orGroup: Cards
-    - id: GondalTippyTrumpcard
-      prob: 0.03
-      orGroup: Cards
+    - id: OpenTippyTrumpPack
 
 - type: entity
-  id: CardTrash
+  id: OpenTippyTrumpPack
   categories: [ HideSpawnMenu ]
-  parent: BaseItem
+  parent: BoxCardboard
   name: Empty card pack
   components:
   - type: Sprite
@@ -1369,6 +1141,167 @@
     tags:
     - Trash
   - type: SpaceGarbage
+  - type: Storage
+    grid:
+    - 0,0,4,0
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:GroupSelector
+        rolls: 5
+        children:
+        - id: AnomaliteTippyTrumpcard
+          weight: 0.51
+        - id: PipiTippyTrumpcard
+          weight: 0.82
+        - id: TarantulaTippyTrumpcard
+          weight: 0.51
+        - id: SlurvaTippyTrumpcard
+          weight: 0.51
+        - id: KisserTippyTrumpcard
+          weight: 0.82
+        - id: SmileTippyTrumpcard
+          weight: 0.82
+        - id: TropicoTippyTrumpcard
+          weight: 0.82
+        - id: BingusTippyTrumpcard
+          weight: 0.82
+        - id: IanTippyTrumpcard
+          weight: 0.82
+        - id: GlockroachTippyTrumpcard
+          weight: 0.15
+        - id: LepidodentTippyTrumpcard
+          weight: 0.82
+        - id: MoproachTippyTrumpcard
+          weight: 0.51
+        - id: MothroachTippyTrumpcard
+          weight: 0.82
+        - id: MouseTippyTrumpcard
+          weight: 0.51
+        - id: ShrimpTippyTrumpcard
+          weight: 0.51
+        - id: McGriffTippyTrumpcard
+          weight: 0.82
+        - id: GriffyTippyTrumpcard
+          weight: 0.15
+        - id: FinfinTippyTrumpcard
+          weight: 0.51
+        - id: HamletTippyTrumpcard
+          weight: 0.51
+        - id: LuggageTippyTrumpcard
+          weight: 0.51
+        - id: PleebnarTippyTrumpcard
+          weight: 0.51
+        - id: SnailTippyTrumpcard
+          weight: 0.82
+        - id: ApidTippyTrumpcard
+          weight: 0.51
+        - id: ServalTippyTrumpcard
+          weight: 0.82
+        - id: OppaTippyTrumpcard
+          weight: 0.51
+        - id: BananaDeerTippyTrumpcard
+          weight: 0.82
+        - id: CancerMouseTippyTrumpcard
+          weight: 0.15
+        - id: WizTippyTrumpcard
+          weight: 0.51
+        - id: BoarTippyTrumpcard
+          weight: 0.51
+        - id: SlimeTippyTrumpcard
+          weight: 0.51
+        - id: TckutTippyTrumpcard
+          weight: 0.51
+        - id: TcktckTippyTrumpcard
+          weight: 0.51
+        - id: DolbyTippyTrumpcard
+          weight: 0.15
+        - id: SpaceTickTippyTrumpcard
+          weight: 0.51
+        - id: BabyKodeTippyTrumpcard
+          weight: 0.51
+        - id: CrabTippyTrumpcard
+          weight: 0.82
+        - id: KillerTippyTrumpcard
+          weight: 0.51
+        - id: RenaultTippyTrumpcard
+          weight: 0.51
+        - id: GollyladTippyTrumpcard
+          weight: 0.15
+        - id: HonkBotTippyTrumpcard
+          weight: 0.15
+        - id: PunTippyTrumpcard
+          weight: 0.51
+        - id: CarpTippyTrumpcard
+          weight: 0.82
+        - id: SnakeTippyTrumpcard
+          weight: 0.15
+        - id: ClownSpiderTippyTrumpcard
+          weight: 0.03
+        - id: SEOFTippyTrumpcard
+          weight: 0.51
+        - id: FOESTippyTrumpcard
+          weight: 0.51
+        - id: SORBTippyTrumpcard
+          weight: 0.82
+        - id: BROSTippyTrumpcard
+          weight: 0.82
+        - id: WillowTippyTrumpcard
+          weight: 0.15
+        - id: BombadilidiidaeTippyTrumpcard
+          weight: 0.15
+        - id: SpaceKangarooTippyTrumpcard
+          weight: 0.15
+        - id: WatcherTippyTrumpcard
+          weight: 0.51
+        - id: SpaceBearTippyTrumpcard
+          weight: 0.51
+        - id: SpaceSnakeTippyTrumpcard
+          weight: 0.03
+        - id: LaserlessRaptorTippyTrumpcard
+          weight: 0.51
+        - id: LaserRaptorTippyTrumpcard
+          weight: 0.15
+        - id: ShivaTippyTrumpcard
+          weight: 0.51
+        - id: RevenantTippyTrumpcard
+          weight: 0.15
+        - id: RounyTippyTrumpcard
+          weight: 0.03
+        - id: GrenadePenguinTippyTrumpcard
+          weight: 0.15
+        - id: SMSpiderTippyTrumpcard
+          weight: 0.15
+        - id: BasiliskTippyTrumpcard
+          weight: 0.51
+        - id: GolaithTippyTrumpcard
+          weight: 0.03
+        - id: HivelordTippyTrumpcard
+          weight: 0.51
+        - id: ForkliftTippyTrumpcard
+          weight: 0.51
+        - id: GorillaTippyTrumpcard
+          weight: 0.51
+        - id: RatLilTippyTrumpcard
+          weight: 0.82
+        - id: RatKingTippyTrumpcard
+          weight: 0.15
+        - id: GrotesequeTippyTrumpcard
+          weight: 0.15
+        - id: BehonkerTippyTrumpcard
+          weight: 0.03
+        - id: OrbBeeTippyTrumpcard
+          weight: 0.82
+        - id: RepliTippyTrumpcard
+          weight: 0.15
+        - id: EeepTippyTrumpcard
+          weight: 0.03
+        - id: DragonTippyTrumpcard
+          weight: 0.03
+        - id: VrexTippyTrumpcard
+          weight: 0.03
+        - id: GondalTippyTrumpcard
+          weight: 0.03
+
 
 - type: entity
   parent: BaseItem
