@@ -1,0 +1,33 @@
+- type: entity
+  parent: [ClothingMaskBase, BaseChameleon]
+  id: PorcelainMaskChameleon
+  name: porcelain face
+  description: It's your face. Make it express what you feel.
+  suffix: Chameleon
+  components:
+    - type: Tag
+      tags: [] # ignore "WhitelistChameleon" tag
+    - type: Sprite
+      sprite: Clothing/Mask/gas.rsi
+    - type: Clothing
+      sprite: Clothing/Mask/gas.rsi
+    - type: ChameleonClothing
+      slot: [mask]
+      default: PorcelainMask
+    - type: BreathMask
+    - type: IdentityBlocker # need that for default PorcelainMask
+    - type: HideLayerClothing
+      slots:
+      - Snout
+      - SnoutCover # imp
+
+- type: entity
+  parent: ClothingMaskGas
+  id: PorcelainMask
+  name: porcelain face
+  description: It's your face. Make it express what you feel.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clayshapermask.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clayshapermask.rsi
