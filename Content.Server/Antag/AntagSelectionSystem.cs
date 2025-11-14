@@ -35,9 +35,11 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared._Impstation.CCVar; // imp
+using Content.Shared._Impstation.NotifierExamine; // imp
 using Content.Shared.NPC.Systems; // imp
+using Robust.Shared.Configuration; //imp
 using Robust.Shared.Network; // imp
-using Content.Shared._Impstation.NotifierExamine;//imp
 
 namespace Content.Server.Antag;
 
@@ -57,6 +59,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!; // imp
     [Dependency] private readonly IPrototypeManager _prototype = default!; // imp
     [Dependency] private readonly IRobustRandom _random = default!; // imp
     [Dependency] private readonly NpcFactionSystem _faction = default!; //#IMP
@@ -281,7 +284,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         bool midround = false)
     {
         var playerPool = GetPlayerPool(ent, pool, def);
-        var existingAntagCount = ent.Comp.PreSelectedSessions.TryGetValue(def, out var existingAntags) ?  existingAntags.Count : 0;
+        var existingAntagCount = ent.Comp.PreSelectedSessions.TryGetValue(def, out var existingAntags) ? existingAntags.Count : 0;
         var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def) - existingAntagCount;
 
         // if there is both a spawner and players getting picked, let it fall back to a spawner.
@@ -297,56 +300,65 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         }
 
         // imp begin. this is our playtime biasing solution.
-        // create a dictionary of player sessions paired with the total antag playtime that player has across mindroles in this rule.
-        Dictionary<ICommonSession, TimeSpan> sessionAndRoleTimes = [];
-        foreach (var session in playerPool.GetPoolSessions())
-        {
-            // if we've picked a valid session from the pool and there are mindroles to assign in the def,
-            if (session != null && def.PrefRoles != null)
-            {
-                var ruleTimeTotal = TimeSpan.Zero;
-                // grab this session's playtimes for each role,
-                foreach (var role in def.PrefRoles)
-                {
-                    TimeSpan? time = null;
-                    if (_prototype.TryIndex(role, out var antagRole))
-                    {
-                        _tracking.TryGetTrackerTime(session, antagRole.PlayTimeTracker, out time);
-                    }
-                    ruleTimeTotal += time != null ? time.Value : TimeSpan.Zero;
-                }
-                // add them to our dict,
-                sessionAndRoleTimes.Add(session, ruleTimeTotal);
-            }
-        }
-        // then sort our dict by role time.
-        var playersByRoleTimeAsc = from entry in sessionAndRoleTimes orderby entry.Value ascending select entry;
-
-        // now we do playtime biasing.
-        var probToGuarantee = 0.3f; // the highest chance of getting a guaranteed spot. given to the person queued with the lowest mindrole playtime.
-        var probReduction = probToGuarantee / ((float)playersByRoleTimeAsc.Count() / 2f); // linearly reduces the probability so that it hits zero after going through half of the players. NOTE: might tweak this to take the desired count instead of total players queued for this antag.
+        var bias = _config.GetCVar(ImpCCVars.AntagPlaytimeBiasing);
         List<ICommonSession> guaranteed = [];
-        foreach (var keyValuePair in playersByRoleTimeAsc) // for each entry, decide whether or not it should override random antag selection based on its weight, and add it to a list if it should.
+
+        if (bias)
         {
-            if (def.PrefRoles != null && ValidAntagPreference(keyValuePair.Key, def.PrefRoles) && _random.Prob(probToGuarantee))
+            // create a dictionary of player sessions paired with the total antag playtime that player has across mindroles in this rule.
+            Dictionary<ICommonSession, TimeSpan> sessionAndRoleTimes = [];
+            foreach (var session in playerPool.GetPoolSessions())
             {
-                guaranteed.Add(keyValuePair.Key);
+                // if we've picked a valid session from the pool and there are mindroles to assign in the def,
+                if (session != null && def.PrefRoles != null)
+                {
+                    var ruleTimeTotal = TimeSpan.Zero;
+                    // grab this session's playtimes for each role,
+                    foreach (var role in def.PrefRoles)
+                    {
+                        TimeSpan? time = null;
+                        if (_prototype.TryIndex(role, out var antagRole))
+                        {
+                            _tracking.TryGetTrackerTime(session, antagRole.PlayTimeTracker, out time);
+                        }
+                        ruleTimeTotal += time != null ? time.Value : TimeSpan.Zero;
+                    }
+                    // add them to our dict,
+                    sessionAndRoleTimes.Add(session, ruleTimeTotal);
+                }
             }
-            probToGuarantee -= probReduction; // reduce the probability of the next entry getting a guaranteed slot by (maximum prob / (total queried players / 2))
-            if (probToGuarantee <= 0 || guaranteed.Count == count) // stop the loop if the next probability is less than or equal to 0, or if the guaranteed list has hit the target antag count.
-                break;
+            // then sort our dict by role time.
+            var playersByRoleTimeAsc = from entry in sessionAndRoleTimes orderby entry.Value ascending select entry;
+
+            // now we do playtime biasing.
+            var probToGuarantee = 0.3f; // the highest chance of getting a guaranteed spot. given to the person queued with the lowest mindrole playtime.
+            var probReduction = probToGuarantee / ((float)playersByRoleTimeAsc.Count() / 2f); // linearly reduces the probability so that it hits zero after going through half of the players. NOTE: might tweak this to take the desired count instead of total players queued for this antag.
+            foreach (var keyValuePair in playersByRoleTimeAsc) // for each entry, decide whether or not it should override random antag selection based on its weight, and add it to a list if it should.
+            {
+                if (def.PrefRoles != null && ValidAntagPreference(keyValuePair.Key, def.PrefRoles) && _random.Prob(probToGuarantee))
+                {
+                    guaranteed.Add(keyValuePair.Key);
+                }
+                probToGuarantee -= probReduction; // reduce the probability of the next entry getting a guaranteed slot by (maximum prob / (total queried players / 2))
+                if (probToGuarantee <= 0 || guaranteed.Count == count) // stop the loop if the next probability is less than or equal to 0, or if the guaranteed list has hit the target antag count.
+                    break;
+            }
         }
 
         for (var i = 0; i < count; i++)
         {
             var session = (ICommonSession?)null;
-            // if the playtime bias system picked any guaranteed antags,
-            if (guaranteed.Count > 0)
+
+            if (bias)
             {
-                session = guaranteed[0]; // set this session as the picked session and proceed through the rest of the process
-                guaranteed.RemoveAt(0);
+                // if the playtime bias system picked any guaranteed antags,
+                if (guaranteed.Count > 0)
+                {
+                    session = guaranteed[0]; // set this session as the picked session and proceed through the rest of the process
+                    guaranteed.RemoveAt(0);
+                }
             }
-            if (picking && session == null)
+            if (picking && (session == null || !bias))
             // imp edits end
             {
                 if (!playerPool.TryPickAndTake(RobustRandom, out session) && noSpawner)
