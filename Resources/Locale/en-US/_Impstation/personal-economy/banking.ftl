@@ -17,3 +17,15 @@ atm-invalid-account-number = Please enter a valid account number or present a va
 
 transactions-container-title = Transactions
 transfer-funds-button-title = Transfer Funds
+
+#transaction window
+transaction-window-title = Transfer Funds
+atm-recipient-transfer-number = Recipient:
+atm-transfer-amount = Amount:
+atm-transfer-reason = Reason:
+atm-transfer-reason-charcount = {$count} Characters Remaining
+transaction-low-funds = Error : Not Enough Funds
+transaction-no-recipient = Error : Recipient Does Not Exist
+atm-cancel-button-label = Cancel
+atm-confirm-button-label = Confirm
+atm-really-confirm-label = Really Confirm

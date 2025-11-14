@@ -18,6 +18,7 @@ public sealed partial class ATMMenu : FancyWindow
 
     public Action<string>? OnNumberEntered;
     public Action? OnClearButtonPressed;
+    public Action? OnTransactionButtonPressed;
 
     private bool _accountOpen;
 
@@ -31,6 +32,11 @@ public sealed partial class ATMMenu : FancyWindow
     }
 
     protected override void FrameUpdate(FrameEventArgs args)
+    {
+        CheckForCard();
+    }
+
+    private void CheckForCard()
     {
         //if we've already got an open account, we are the server or the player entity does not have hands, return
         if (_accountOpen || _playerMan.LocalEntity is not { } realEnt || !_entityManager.HasComponent<HandsComponent>(realEnt))
@@ -69,6 +75,8 @@ public sealed partial class ATMMenu : FancyWindow
         var infobox = new AccountInfoBox(account);
         AccountInfoContainer.AddChild(infobox);
         _accountOpen = true;
+
+        infobox.OnTransactionButtonPressed += () => OnTransactionButtonPressed?.Invoke();
     }
 
     public void ClearInfoBox()

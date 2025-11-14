@@ -55,6 +55,20 @@ public abstract class SharedBankingSystem : EntitySystem
         return (0, 0);
     }
 
+    public bool TryGetAccountFromTransferNumber(int transferNumber, [NotNullWhen(true)] out BankAccount? account)
+    {
+        account = null;
+
+        var serverQuery = EntityQueryEnumerator<RemoteBankServerComponent>();
+        if (!serverQuery.MoveNext(out var uid, out var server) ||
+            !server.TransferNumberToAccountNumberDict.TryGetValue(transferNumber, out var accessNumber) ||
+            !server.AccountDict.TryGetValue(accessNumber, out var bankAcc))
+            return false;
+
+        account = bankAcc;
+        return true;
+    }
+
     public bool TryGetAccount(int accessNumber, [NotNullWhen(true)] out BankAccount? account)
     {
         account = null;
@@ -66,7 +80,6 @@ public abstract class SharedBankingSystem : EntitySystem
 
         account = bankAcc;
         return true;
-
     }
 
     /// <summary>

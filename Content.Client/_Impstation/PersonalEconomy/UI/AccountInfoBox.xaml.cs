@@ -9,6 +9,9 @@ namespace Content.Client._Impstation.PersonalEconomy.UI;
 [GenerateTypedNameReferences]
 public sealed partial class AccountInfoBox : BoxContainer
 {
+
+    public Action? OnTransactionButtonPressed;
+
     public AccountInfoBox()
     {
         RobustXamlLoader.Load(this);
@@ -17,6 +20,8 @@ public sealed partial class AccountInfoBox : BoxContainer
     public AccountInfoBox(BankAccount account)
     {
         RobustXamlLoader.Load(this);
+
+        TransferFundsButton.OnPressed += _ => OnTransactionButtonPressed?.Invoke();
 
         AccNameLabel.Text = Loc.GetString("atm-machine-account-name-title", ("name", account.Name));
         AccAccessNumberLabel.Text = Loc.GetString("atm-machine-account-access-number-title", ("number", $"{account.AccessNumber:000000}"));
