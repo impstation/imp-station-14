@@ -16,6 +16,7 @@
       default: PorcelainMask
     - type: BreathMask
     - type: IdentityBlocker # need that for default PorcelainMask
+    - type: Unremoveable
     - type: HideLayerClothing
       slots:
       - Snout
