@@ -71,6 +71,12 @@
     receiveFrequencyId: Fax
     transmitFrequencyId: Fax
   - type: RequireProjectileTarget
+  - type: TriggerOnSignal # imp - allow linking up fax sending functionality to a signal
+  - type: WirelessNetworkConnection # imp
+    range: 200 # imp
+  - type: DeviceLinkSink # imp
+    ports: # imp
+    - Trigger # imp
 
 # Special
 - type: entity
