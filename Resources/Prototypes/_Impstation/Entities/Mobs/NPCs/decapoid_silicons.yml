@@ -460,3 +460,111 @@
     - Detective
     - Armory
     - Chemistry
+
+- type: entity
+  parent: [ MobSiliconBase, BasePowerCell ]
+  id: MobTckA
+  name: tck'aat #Originally tck'a but beck wanted it to be tck'aat so thats how it displays
+  description: A miniscule droid that functions as a power cell. Theres just enough space inside to fit the processing power to follow around its RFID chip.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Silicon/Bots/tcka.rsi
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: base
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+    - state: eyes
+      shader: unshaded
+  - type: HTN
+    rootTask:
+      task: TckACompound
+  - type: Vocalizer
+  - type: DatasetVocalizer
+    dataset: FirebotAd #they have a replacementaccent so this actually doesnt do anything
+  - type: PointLight
+    enabled: true
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 2
+    color: "#ff0043"
+    netsync: false
+  - type: Battery
+    maxCharge: 720
+    startingCharge: 720 #it comes charged! wow!
+  - type: Tag
+    tags:
+    - PowerCellSmall
+    - SiliconEmotes
+    - Bot
+    - Unimplantable
+  - type: TypingIndicator #in case someone admin controls one
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Tcktck
+  - type: Vocal
+    sounds:
+      Unsexed: TckTck
+  - type: UnblockableSpeech
+  - type: ReplacementAccent
+    accent: silicon
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 20
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MovementSpeedModifier #default mob speed
+  - type: MovementAlwaysTouching
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: Item
+    storedRotation: 180
+    size: Small
+  - type: Repairable
+    doAfterDelay: 2
+    fuelCost: 5
+  - type: RequireProjectileTarget
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 2
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          IngotGold1:
+            min: 1
+            max: 1
+          SheetPlasteel1:
+            min: 1
+            max: 1
+          CableApcStack1:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: StaticPrice
+    price: 2000
