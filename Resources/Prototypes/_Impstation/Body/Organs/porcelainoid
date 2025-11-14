@@ -1,45 +1,8 @@
 - type: entity
-  id: BaseHumanOrganUnGibbable
-  parent: BaseItem
-  abstract: true
-  components:
-  - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
-  - type: Organ
-  - type: Food
-  - type: Extractable
-    grindableSolutionName: organ
-  - type: SolutionContainerManager
-    solutions:
-      organ:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 5
-  - type: FlavorProfile
-    flavors:
-      - people
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-
-- type: entity
-  id: BaseHumanOrgan
+  id: OrganPorcelainoidBrain
   parent: BaseHumanOrganUnGibbable
-  abstract: true
-  components:
-  - type: Gibbable
-
-- type: entity
-  id: OrganHumanBrain
-  parent: BaseHumanOrganUnGibbable
-  name: brain
-  description: "The source of incredible, unending intelligence. Honk."
+  name: thinking shard
+  description: "This shard does the thinking, something about it makes you want to put it in your mouth"
   components:
   - type: Sprite
     state: brain
@@ -79,10 +42,10 @@
     heldPrefix: brain
 
 - type: entity
-  id: OrganHumanEyes
+  id: OrganPorcelainoidEyes
   parent: BaseHumanOrgan
-  name: eyes
-  description: "I see you!"
+  name: seeing shard
+  description: "This shard does the seeing, something about it makes you want to put it in your mouth"
   components:
   - type: Sprite
     layers:
@@ -98,10 +61,10 @@
     heldPrefix: eyeballs
 
 - type: entity
-  id: OrganHumanLungs
+  id: OrganPorcelainoidLungs
   parent: BaseHumanOrgan
-  name: lungs
-  description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
+  name: breathing shard
+  description: "This shard does the breathing, something about it makes you want to put it in your mouth"
   components:
   - type: Sprite
     layers:
@@ -140,10 +103,10 @@
     - Lungs
 
 - type: entity
-  id: OrganHumanHeart
+  id: OrganPorcelainoidHeart
   parent: BaseHumanOrgan
-  name: heart
-  description: "I feel bad for the heartless bastard who lost this."
+  name: pumping shard
+  description: "This shard does the pumping, something about it makes you want to put it in your mouth"
   components:
   - type: Sprite
     state: heart-on
@@ -167,10 +130,10 @@
     heldPrefix: heart
 
 - type: entity
-  id: OrganHumanStomach
+  id: OrganPorcelainoidStomach
   parent: BaseHumanOrgan
-  name: stomach
-  description: "Gross. This is hard to stomach."
+  name: eating shard
+  description: "This shard does the eating, something about it makes you want to put it in your mouth"
   components:
   - type: Sprite
     state: stomach
@@ -204,10 +167,10 @@
       - Stomach
 
 - type: entity
-  id: OrganHumanLiver
+  id: OrganPorcelainoidLiver
   parent: BaseHumanOrgan
-  name: liver
-  description: "Pairing suggestion: chianti and fava beans."
+  name: processing shard
+  description: "This shard does the processing, something about it makes you want to put it in your mouth"
   components:
   - type: Sprite
     state: liver
@@ -225,27 +188,3 @@
       - Meat
       - Organ
       - Liver
-
-- type: entity
-  id: OrganHumanKidneys
-  parent: BaseHumanOrgan
-  name: kidneys
-  description: "Filters toxins from the bloodstream."
-  components:
-  - type: Sprite
-    layers:
-      - state: kidney-l
-      - state: kidney-r
-  - type: Item
-    size: Small
-    heldPrefix: kidneys
-  # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
-  - type: Metabolizer
-    maxReagents: 5
-    metabolizerTypes: [Human]
-    removeEmpty: true
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Kidneys
