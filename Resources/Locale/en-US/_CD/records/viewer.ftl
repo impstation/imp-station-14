@@ -10,7 +10,7 @@ cd-character-records-viewer-record-job = Job:
 cd-character-records-viewer-record-gender = Pronouns:
 cd-character-records-viewer-record-species = Species:
 
-#Imp edit minor wording
+#Imp edit minor wording + Syndicate
 
 cd-character-records-viewer-record-sec-fingerprint = Fingerprint:
 cd-character-records-viewer-record-sec-dna = DNA:
@@ -29,3 +29,6 @@ cd-character-records-viewer-setwanted-placeholder = Enter a reason...
 
 cd-imp-records-viewer-flavor-left = Nanotrasen employee database. Keep records confidential!
 cd-imp-records-viewer-flavor-right = v3.3
+
+cd-imp-character-records-viewer-title-syndicate = Syndicate Intel
+cd-imp-syndicate = Syndicate
