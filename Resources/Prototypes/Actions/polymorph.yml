@@ -28,8 +28,8 @@
   components:
   - type: Action
     icon:
-      sprite: Mobs/Animals/spider.rsi
-      state: tarantula
+      sprite: _Impstation/Magic/spider.rsi # imp edit
+      state: icon
   - type: InstantAction
     event: !type:PolymorphActionEvent
       protoId: WizardSpider

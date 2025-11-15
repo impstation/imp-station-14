@@ -1,0 +1,92 @@
+- type: listing
+  id: SpellbookSpawnMagicMonkey
+  name: spellbook-magic-monkey-name
+  description: spellbook-magic-monkey-desc
+  productEntity: MobMonkeyMagic
+  cost:
+    WizCoin: 0
+  categories:
+  - LilSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookBubble
+  name: spellbook-bub-name
+  description: spellbook-bub-desc
+  productAction: ActionBubble
+  icon:
+    sprite: Clothing/Head/Misc/waterdroplet.rsi
+    state: icon
+  categories:
+  - LilSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSnow
+  name: spellbook-snow-name
+  description: spellbook-snow-desc
+  productEntity: FoodFrozenSnowconeMagic
+  icon:
+    sprite: Structures/Specific/Anomalies/ice_anom.rsi
+    state: pulse
+  categories:
+  - LilSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 5
+
+- type: listing
+  id: SpellbookPolymorphTinySpider
+  name: spellbook-polymorph-spider-name
+  description: spellbook-polymorph-spider-desc
+  productAction: ActionPolymorphWizardTinySpider
+  cost:
+    WizCoin: 2
+  categories:
+  - LilSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookBookBlink
+  name: spellbook-blink-name
+  description: spellbook-blink-description
+  productEntity: BlinkBook
+  cost:
+    WizCoin: 0
+  categories:
+  - LilSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookBookWall
+  name: spellbook-wall-name
+  description: spellbook-wall-description
+  productEntity: ForceWallSpellbook
+  cost:
+    WizCoin: 0
+  categories:
+  - LilSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookBookKnock
+  name: spellbook-knock-name
+  description: spellbook-knock-description
+  productEntity: KnockSpellbook
+  cost:
+    WizCoin: 0
+  categories:
+  - LilSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
