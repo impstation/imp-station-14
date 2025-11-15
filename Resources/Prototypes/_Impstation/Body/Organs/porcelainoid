@@ -23,12 +23,12 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: PorcelainJuice
           Quantity: 10
       food:
         maxVol: 5
         reagents:
-        - ReagentId: GreyMatter
+        - ReagentId: PorcelainJuice
           Quantity: 5
   - type: FlavorProfile
     flavors:
@@ -86,7 +86,7 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: PorcelainJuice
           Quantity: 10
       Lung:
         maxVol: 100.0
@@ -94,7 +94,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: PorcelainJuice
           Quantity: 5
   - type: Tag # goob edit
     tags:
@@ -147,7 +147,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: PorcelainJuice
           Quantity: 5
   - type: Stomach
   # The stomach metabolizes stuff like foods and drinks.
