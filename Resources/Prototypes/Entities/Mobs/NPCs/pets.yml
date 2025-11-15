@@ -373,6 +373,10 @@
   - type: MessyDrinker
 # start imp
   - type: DogVision
+  - type: AnimalNPC
+    maxTimeChasing: 10
+    maxRestTime: 60
+    minRestTime: 10
   - type: NpcFactionMember
     factions:
       - Dog
@@ -389,7 +393,7 @@
     damage: 20
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: DogCompound
 # end imp
 
 - type: entity
@@ -490,6 +494,10 @@
   - type: MessyDrinker
 # start imp
   - type: DogVision
+  - type: AnimalNPC
+    maxTimeChasing: 10
+    maxRestTime: 60
+    minRestTime: 10
   - type: NpcFactionMember
     factions:
       - Dog
@@ -506,7 +514,7 @@
     damage: 20
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: DogCompound
 # end imp
 
 - type: entity
