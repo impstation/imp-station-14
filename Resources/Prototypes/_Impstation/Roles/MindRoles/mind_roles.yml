@@ -19,6 +19,17 @@
     roleType: FreeAgent
   - type: BountyHunterRole
 
+# Arcfiend
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleArcfiend
+  name: Arcfiend Role
+  components:
+  - type: MindRole
+    antagPrototype: Arcfiend
+    exclusiveAntag: true
+  - type: ArcfiendRole
+
 # Syndicate Infiltrator
 - type: entity
   parent: MindRoleTraitor
