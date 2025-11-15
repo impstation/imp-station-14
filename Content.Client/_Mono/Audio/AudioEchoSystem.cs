@@ -70,10 +70,10 @@ public sealed class AreaEchoSystem : EntitySystem
     /// </remarks>
     private static readonly AudioDistanceThreshold[] DistancePresets =
     [
-        new(22f, "Hallway"),
-        new(30f, "Auditorium"),
-        new(50f, "ConcertHall"),
-        new(60f, "Hangar")
+        new(14f, "Hallway"),
+        new(20f, "Auditorium"),
+        new(25f, "ConcertHall"),
+        new(50f, "Hangar")
     ];
 
     private readonly float _minimumMagnitude = DistancePresets[0].Distance;
@@ -257,6 +257,7 @@ public sealed class AreaEchoSystem : EntitySystem
 
         var filter = new QueryFilter
         {
+            LayerBits = (int)CollisionGroup.DoorPassable,
             MaskBits = (int)CollisionGroup.WallLayer,
             IsIgnored = ent => !_absorptionQuery.HasComp(ent),
             Flags = QueryFlags.Static | QueryFlags.Dynamic
@@ -264,18 +265,20 @@ public sealed class AreaEchoSystem : EntitySystem
         var stopAtFilter = new QueryFilter
         {
 
-            MaskBits = (long)CollisionGroup.WallLayer,
-            IsIgnored = ent => !(_absorptionQuery.TryGetComponent(ent, out var comp) && !comp.ReflectRay),
+            LayerBits = (int)CollisionGroup.WallLayer,
+            IsIgnored = ent => (_absorptionQuery.TryGetComponent(ent, out var comp)) && comp.ReflectRay,
             Flags = QueryFlags.Static | QueryFlags.Dynamic
         };
 
         foreach (var direction in _calculatedDirections)
         {
+            var rand = _random.NextFloat(-1f, 1f);
+            var offsetDirection = direction + rand;
             CastAudioRay(
                     stopAtFilter,
                     filter,
-                    clientMapId, clientCoords, direction.GetDir().ToVec(),
-                    _maximumMagnitude, _echoMaxReflections, _maximumMagnitude,
+                    clientMapId, clientCoords, offsetDirection.ToVec(),
+                    maximumMagnitude, _echoMaxReflections, maximumMagnitude,
                     out var stats);
 
             environmentResults.Add(stats);
@@ -291,52 +294,48 @@ public sealed class AreaEchoSystem : EntitySystem
         var avgAbsorption = environmentResults.Average(absorb => absorb.TotalAbsorption);
         var avgBounces = (float)environmentResults.Average(bounce => bounce.TotalBounces);
         var avgEscaped = (float)environmentResults.Average(escapees => escapees.TotalEscapes);
-        var normalizeBound = totalRays / 2;
 
 
         if (_prevAvgMagnitude > float.Epsilon)
             avgMagnitude = MathHelper.Lerp(_prevAvgMagnitude, avgMagnitude, 0.25f);
         _prevAvgMagnitude = avgMagnitude;
 
+        var finalMagnitude = 0f;
+        finalMagnitude += avgMagnitude;
+        finalMagnitude += finalMagnitude *= NormalizeToPercentage(avgAbsorption, 100f);
+        finalMagnitude += finalMagnitude *= InverseNormalizeToPercentage(avgEscaped, 100f);
+        magnitude = finalMagnitude;
+        Logger.Debug($"""
+                Acoustics:
+                - Average Magnitude: {avgMagnitude:F2}
+                - Average Absorption: {avgAbsorption:F2}
+                - Average Escaped: {avgEscaped:F2}
+                - Average Bounces: {avgBounces:F2}
 
-        magnitude = avgMagnitude;
-        magnitude *= NormalizeToPercentage(avgAbsorption, normalizeBound);
-        magnitude *= InverseNormalizeToPercentage(avgEscaped, normalizeBound);
+                - Absorb Coefficient: {InverseNormalizeToPercentage(avgAbsorption, 100f):F2}
+                - Escape Coefficient: {InverseNormalizeToPercentage(avgEscaped, 100f):F2}
+                - Final Magnitude: {finalMagnitude}
+                - Preset: {GetBestPreset(finalMagnitude)}
+
+                """);
 
         return true;
     }
-    /// <summary>
-    ///     Returns a 0..1 percent, with maxValue as the clamp to normalize by.
-    /// </summary>
-    private static float NormalizeToPercentage(float value, float maxValue)
-    {
-        var clampedValue = MathHelper.Clamp(value, float.Epsilon, maxValue);
-        var percent = clampedValue / maxValue;
 
-        return percent;
+    /// <summary>
+    ///     Returns an epsilon..1.0f percent, where the closer to 0 the value is, the closer to 100% (1.0f) it is.
+    /// </summary>
+    private static float InverseNormalizeToPercentage(float value, float total)
+    {
+        return MathF.Max((total - value) / total * 1f, 0.01f);
     }
 
     /// <summary>
-    ///     Returns a 0..1 percent, with maxValue as the clamp to normalize by.
+    ///     Returns an epsilon..1.0f percent, where the closer to 1 the value is, the closer to 100% (1.0f) it is.
     /// </summary>
-    private static float InverseNormalizeToPercentage(float value, float maxValue)
+    private static float NormalizeToPercentage(float value, float total)
     {
-        var clampedValue = Math.Clamp(value, float.Epsilon, maxValue);
-        var percent = (maxValue - clampedValue) / maxValue;
-
-        return percent;
-    }
-
-    private static float CalculatePenalty(float magnitude, float input, float maxValue)
-    {
-        var reductionFactor = NormalizeToPercentage(
-                input,
-                maxValue
-                );
-
-        var penalty = magnitude * (1.0f - reductionFactor);
-        return penalty;
-
+        return MathF.Max((value / total) * 1f, 0.01f);
     }
 
     private void CastAudioRay(
@@ -346,6 +345,7 @@ public sealed class AreaEchoSystem : EntitySystem
     {
         var currentDirection = Vector2.Normalize(direction);
         var translation = currentDirection * maxDistance;
+        var probeTranslation = currentDirection * maxProbeLength;
 
         var stepData = new EchoRayStep
         {
@@ -353,8 +353,10 @@ public sealed class AreaEchoSystem : EntitySystem
             NewPos = startPos,
             TotalDistance = 0f,
             RemainingDistance = maxDistance,
+            MaxProbeDistance = maxProbeLength,
             Direction = currentDirection,
             Translation = translation,
+            ProbeTranslation = probeTranslation,
 
         };
 
@@ -369,40 +371,37 @@ public sealed class AreaEchoSystem : EntitySystem
         // time to start casting
         for (var iteration = 0; iteration <= maxIterations; iteration++)
         {
-            // check our distance budget
-            if (stepData.RemainingDistance <= 0)
-            {
-                rayStats.Magnitude = stepData.TotalDistance;
-                break;
-            }
             Vector2? worldNormal = null;
 
-            // cast a probe ray to find nearest solid wall
-            // notice the filter
-            var probe = _rayCast.CastRay(mapId, stepData.NewPos, stepData.Translation, stopAtFilter);
+            /*
+                cast a probe ray to find nearest solid wall. notice the filter.
+                note: _rayCast.CastRayClosest exists and you'd think it would be a better fit for a probe ray, but
+                i don't know if i'm just using it wrong or if it's broken cause it seems to clip through walls
+                if there is another grid behind that wall...
+            */
+            var probe = _rayCast.CastRay(mapId, stepData.NewPos, stepData.ProbeTranslation, stopAtFilter);
             if (probe.Results.Count > 0)
             {
-                Logger.Debug($"PROBE RESULT: {ToPrettyString(probe.Results[0].Entity)}");
-
+                Logger.Debug($"HIT: {ToPrettyString(probe.Results[0].Entity)}");
                 var worldMatrix = _transformSystem.GetWorldMatrix(probe.Results[0].Entity);
                 var mapHitPos = probe.Results[0].Point;
+
                 worldNormal = Vector2.TransformNormal(probe.Results[0].LocalNormal, worldMatrix);
                 worldNormal = Vector2.Normalize(worldNormal.Value);
-                Logger.Debug($"norm: {worldNormal}");
-                UpdateProbeStep(ref stepData, mapHitPos);
-            }
 
+
+                UpdateProbeStep(ref stepData, mapHitPos);
+                UpdateAcousticData(ref rayStats, probe.Results[0], stepData.NewDistance, _clientEnt);
+            }
 #if DEBUG
             // jank as fuck but whatever
             _debugRay.ReceiveLocalRayFromAnyThread(new(
-                        Ray: new Ray(stepData.OldPos, stepData.Direction),
-                        MaxLength: stepData.NewDistance,
-                        Results: null,
-                        ServerSide: false,
-                        mapId
-                        ));
+                Ray: new Ray(stepData.OldPos, stepData.Direction),
+                MaxLength: stepData.NewDistance,
+                Results: null,
+                ServerSide: false,
+                mapId));
 #endif
-
             // cast our results ray that'll go to the wall we found with our probe- if any. scans for acoustic data.
             var results = _rayCast.CastRay(mapId, stepData.OldPos, stepData.Translation, filter);
             if (results.Results.Count > 0)
@@ -410,31 +409,8 @@ public sealed class AreaEchoSystem : EntitySystem
                 // go through all hit entities and add up their data
                 foreach (var hit in results.Results)
                 {
-                    Logger.Debug($"RESULT: {ToPrettyString(hit.Entity)}");
-                    if (_absorptionQuery.TryGetComponent(hit.Entity, out var comp))
-                    {
-                        // more type of data could be added in the future.
-                        // instead of just a pure absorption value you could have
-                        // material type and stuff and do whatever with that.
-                        rayStats.TotalAbsorption += comp.Absorption;
-                    }
+                    UpdateAcousticData(ref rayStats, hit, stepData.NewDistance, _clientEnt);
                 }
-            }
-            Logger.Debug($"""
-                    ||-------------------------------
-                    || ITERATION: {iteration}
-                    || OLD POS {stepData.OldPos}
-                    || NEW POS {stepData.NewPos}
-                    || DIR: {stepData.Direction:F2}
-                    """);
-
-            // consider our ray escaped into an open enough room/space if it traveled far
-            if (stepData.NewDistance > maxDistance * 0.6)
-            {
-                Logger.Debug($"FAR: {stepData.NewDistance}");
-                rayStats.Magnitude = stepData.TotalDistance;
-                rayStats.TotalEscapes++;
-                break;
             }
 
             // now we can do our bounce
@@ -445,10 +421,51 @@ public sealed class AreaEchoSystem : EntitySystem
             }
             else
             {
-                // keep movin.
+                // or keep movin.
                 UpdateStepForward(ref stepData);
             }
+
+            // consider our ray escaped into an open enough room/space if it traveled far
+            if (stepData.NewDistance > maxDistance * 0.6)
+            {
+                rayStats.Magnitude = stepData.TotalDistance;
+                rayStats.TotalEscapes++;
+                break;
+            }
+
             // back to start with our new step data
+            rayStats.Magnitude = stepData.TotalDistance;
+
+            // unless we're out of budget, or our positions are too close (indicating we're stuck)
+            if (stepData.RemainingDistance <= 0)
+            {
+                break;
+            }
+        }
+    }
+
+    private void UpdateAcousticData(ref EchoRayStats stats, in RayHit hit, in float maxDistance, in EntityUid listener)
+    {
+        if (_absorptionQuery.TryGetComponent(hit.Entity, out var comp))
+        {
+            /*
+                more type of data could be added in the future.
+                instead of just a pure absorption value you could have
+                material type and stuff and do whatever with that.
+                that's why this is a method. for easy editing in the future.
+            */
+
+            Logger.Debug($"FOUND: {ToPrettyString(hit.Entity)}, absorption: {comp.Absorption}");
+
+            // linear decay based on distance from the listener and the final ray distance.
+            hit.Entity.ToCoordinates().TryDistance(
+                    EntityManager,
+                    listener.ToCoordinates(),
+                    out var distance
+                    );
+            var distanceFactor = MathHelper.Clamp(1f - (distance - maxDistance) / maxDistance, 0f, 100f);
+            stats.TotalAbsorption += comp.Absorption * distanceFactor;
+            Logger.Debug($"New Total Absorb {stats.TotalAbsorption}");
         }
     }
 
@@ -468,10 +485,11 @@ public sealed class AreaEchoSystem : EntitySystem
         step.TotalDistance += step.NewDistance;
 
         // convert our direction into a translation for the results ray.
-        step.Translation = Vector2.Normalize(step.Direction) * step.NewDistance;
+        step.Translation = step.Direction * step.NewDistance;
+        step.ProbeTranslation = step.Direction * step.MaxProbeDistance;
     }
 
-    private static void UpdateProbeStepReflect(ref EchoRayStep step, Vector2 worldNormal, in float maxProbeLength)
+    private static void UpdateProbeStepReflect(ref EchoRayStep step, in Vector2 worldNormal, in float maxProbeLength)
     {
         step.NewPos += worldNormal * 0.05f;
         step.OldPos = step.NewPos;
@@ -480,16 +498,9 @@ public sealed class AreaEchoSystem : EntitySystem
         step.Direction = Vector2.Reflect(step.Direction, worldNormal);
         step.Direction = Vector2.Normalize(step.Direction);
 
-        // gas or no gas
-        var probeLen = MathF.Min(maxProbeLength, step.RemainingDistance);
-        if (probeLen <= 0f)
-        {
-            step.Translation = Vector2.Zero;
-        }
-        else
-        {
-            step.Translation = step.Direction * probeLen;
-        }
+        // gas
+        step.Translation = step.Direction * step.NewDistance;
+        step.ProbeTranslation = step.Direction * step.MaxProbeDistance;
     }
 
     private static void UpdateStepForward(ref EchoRayStep step)
@@ -507,27 +518,6 @@ public sealed class AreaEchoSystem : EntitySystem
         // update our translation with the new distance
         step.Translation = step.Direction * step.NewDistance;
     }
-
-    // private void DebugPopupLine(Vector2 pos, Vector2 dir, float length, float amount)
-    // {
-    //     for (var i = 0.01f; i < amount; i += 0.1f)
-    //     {
-    //         var matrix = Transform(_clientEnt).InvLocalMatrix;
-    //         var rot = Direction.North;
-    //         var popupCoords = new EntityCoordinates(_clientEnt, Vector2.Transform(pos, matrix));
-    //         var newPos = rot.ToAngle().RotateVec(popupCoords.Position);
-    //         popupCoords.WithPosition(newPos);
-    //
-    //
-    //         var translate = dir * length;
-    //         popupCoords = popupCoords.Offset(translate * i);
-    //         _popup.PopupCoordinates("yay!",
-    //                 popupCoords,
-    //                 PopupType.Large
-    //                 );
-    //     }
-    //
-    // }
 
     private void ProcessAudioEntity(
             Entity<AudioComponent> audioEnt,
@@ -574,8 +564,10 @@ public sealed class AreaEchoSystem : EntitySystem
         public float NewDistance;
         public float TotalDistance;
         public float RemainingDistance;
+        public float MaxProbeDistance;
         public Vector2 Direction;
         public Vector2 Translation;
+        public Vector2 ProbeTranslation;
     }
 
     private struct EchoRayStats
