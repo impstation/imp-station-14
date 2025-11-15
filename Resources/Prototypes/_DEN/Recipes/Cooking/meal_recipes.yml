@@ -1,0 +1,11 @@
+- type: microwaveMealRecipe
+  id: RecipeSausage
+  name: sausage recipe
+  result: FoodMeatSausage
+  time: 15
+  reagents:
+    TableSalt: 5
+    UncookedAnimalProteins: 6
+  solids:
+    FoodSausageCasing: 1
+  recipeType: Assembler #imp
