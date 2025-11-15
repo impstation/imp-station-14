@@ -5,7 +5,7 @@
   description: The future of stellar warfare in the palm of your hand. Uses Echion, produced from advanced synthesizers.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -13,7 +13,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
     quickEquip: false
     slots:
       - suitStorage
@@ -25,7 +25,7 @@
     steps: 5
     zeroVisible: true
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/adder.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
     size: Small
     shape:
     - 0,0,1,1
@@ -88,7 +88,7 @@
   description: A beautiful marriage of technology and malice in a single package. Uses Echion, produced from advanced synthesizers.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -96,14 +96,14 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
     quickEquip: false
     slots:
       - suitStorage
       - Belt
   - type: Appearance
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/akurra.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
     size: Large
   - type: Gun
     clumsyProof: false

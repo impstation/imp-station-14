@@ -5,7 +5,7 @@
   description: An emergency laser carbine, for use when getting timely clearance isn't an option. Hand this in to security once the coast is clear.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/emergency_laser_gun_two.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/emergency_laser_gun_two.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -13,7 +13,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/emergency_laser_gun_two.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/emergency_laser_gun_two.rsi
   - type: Battery
     maxCharge: 500
     startingCharge: 500
