@@ -97,6 +97,9 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
+  - type: AudioAbsorption # VDS
+    absorption: 0.2
+    reflectray: true
 
 - type: entity
   parent: Window
@@ -219,6 +222,9 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: StaticPrice
     price: 15
+  - type: AudioAbsorption # VDS
+    absorption: 0.2
+    reflectray: true
 
 - type: entity
   id: WindowDirectionalRCDResistant
