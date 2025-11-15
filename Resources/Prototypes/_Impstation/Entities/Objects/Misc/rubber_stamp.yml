@@ -11,3 +11,18 @@
   - type: Sprite
     sprite: _Impstation/Objects/Misc/stamps.rsi
     state: stamp-hd
+
+- type: entity
+  name: spider clan rubber stamp
+  description: For the boring part of your elite ninja organization.
+  parent: [RubberStampBase, BaseCommandContraband]
+  id: RubberStampNinja
+  categories: [ DoNotMap ]
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-ninja
+    stampedColor: "#21a52e"
+    stampState: "paper_stamp-ninja"
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/stamps.rsi
+    state: stamp-ninja
