@@ -32,3 +32,30 @@
     sprite: _Impstation/Clothing/Mask/clayshapermask.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Mask/clayshapermask.rsi
+
+- type: entity
+  name: Radio
+  description: Your connection to the others.
+  parent: BaseRadio
+  id: porcelainRadio
+  components:
+  - type: TelecomExempt
+  - type: RadioMicrophone
+    broadcastChannel: Porcelain
+  - type: RadioSpeaker
+    channels:
+    - Porcelain
+  - type: Speech
+    speechVerb: Robotic
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: walkietalkie
+    - state: walkietalkie-on
+    state: walkietalkie
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: walkietalkie
+  - type: Tag
+    tags:
+    - Radio
