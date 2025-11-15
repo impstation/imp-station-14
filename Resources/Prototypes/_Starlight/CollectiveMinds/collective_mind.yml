@@ -2,7 +2,7 @@
   id: Carp
   name: collective-mind-carp
   keycode: 'c'
-  color: "#787878"
+  color: "#985be1" # Imp, from #787878
   requiredComponents:
   - Devourer
   requiredTags:
@@ -21,7 +21,7 @@
   id: Spiders
   name: collective-mind-spider
   keycode: 's'
-  color: "#8f6741"
+  color: "#b08370" # Imp, from #8f6741
   requiredComponents:
   - Spider
 
@@ -29,6 +29,6 @@
   id: Zombies
   name: collective-mind-zombie
   keycode: 'z'
-  color: "#508053"
+  color: "#909d4c" # Imp, from #508053
   requiredComponents:
   - Zombie
