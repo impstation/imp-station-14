@@ -962,6 +962,7 @@
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
     removeLimitAccess: [ "Quartermaster" ]
+    acquisitionSlip: PaperAcquisitionSlipCargo # imp
   - type: ActiveRadio
     channels:
     - Supply
@@ -1018,9 +1019,10 @@
       state: generic_panel_open
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
-    account: Engineering
+    account: Cargo # imp edit
     announcementChannel: Engineering
-    removeLimitAccess: [ "ChiefEngineer" ]
+    # removeLimitAccess: [ "ChiefEngineer" ] # imp
+    acquisitionSlip: PaperAcquisitionSlipEngineering # imp
     mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
@@ -1057,9 +1059,10 @@
       state: generic_panel_open
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
-    account: Medical
+    account: Cargo # imp edit
     announcementChannel: Medical
-    removeLimitAccess: [ "ChiefMedicalOfficer" ]
+    # removeLimitAccess: [ "ChiefMedicalOfficer" ] # imp edit
+    acquisitionSlip: PaperAcquisitionSlipMedical # imp
     mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
@@ -1096,9 +1099,10 @@
       state: generic_panel_open
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
-    account: Science
+    account: Cargo # imp edit
     announcementChannel: Science
-    removeLimitAccess: [ "ResearchDirector" ]
+    # removeLimitAccess: [ "ResearchDirector" ] # imp edit
+    acquisitionSlip: PaperAcquisitionSlipScience # imp
     mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
@@ -1135,9 +1139,10 @@
       state: generic_panel_open
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
-    account: Security
+    account: Cargo # imp edit
     announcementChannel: Security
-    removeLimitAccess: [ "HeadOfSecurity" ]
+    # removeLimitAccess: [ "HeadOfSecurity" ] # imp
+    acquisitionSlip: PaperAcquisitionSlipSecurity # imp
     mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
@@ -1174,9 +1179,10 @@
       state: generic_panel_open
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: CargoOrderConsole
-    account: Service
+    account: Cargo # imp edit
     announcementChannel: Service
-    removeLimitAccess: [ "HeadOfPersonnel" ]
+    # removeLimitAccess: [ "HeadOfPersonnel" ] # imp
+    acquisitionSlip: PaperAcquisitionSlipService # imp
     mode: PrintSlip #imp
   - type: ActiveRadio
     channels:
