@@ -134,9 +134,10 @@
     - state: icon-cables
   - type: ItemBorgModule
     hands:
+    - item: MicroDrill
     - item: HoloprojectorSafety
     - item: RCDRefreshments
-    - item: CrayonChalkInfinite
+    - item: CrayonChalkInfinite # temporarily disabled
     - item: TicketCannon
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: tcktck-tools-module }

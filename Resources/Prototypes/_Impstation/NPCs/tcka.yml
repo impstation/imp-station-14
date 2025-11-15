@@ -1,0 +1,60 @@
+- type: htnCompound
+  id: TckACompound # For the Tck'A. It follows a target component around.
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: TckAFollowCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleSpinCompound # Comes with most compound systems. Lets the NPC wander when nothing to do
+
+#----------------------------------------------------------------------------
+
+- type: htnCompound
+  id: TckAFollowCompound
+  branches:
+    # Handles finding our target and passes the target down to other tasks
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: NearbyFollowableTckA # Looks for all things matching the utilityQuery
+
+    # Handles finding, pathfinding and moving to the Target
+    - tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:CoordinatesNotInRangePrecondition
+              targetKey: TargetCoordinates # The Dictionary entry that all future HTN's use for targetKey
+              rangeKey: MovementRange # Range options can be found in NPCBlackboard.cs (Near the top)
+          operator: !type:MoveToOperator # Our pathfinding/movement operator
+            pathfindInPlanning: true
+            targetKey: TargetCoordinates
+            rangeKey: MeleeRange
+            removeKeyOnFinish: false
+
+    # Stand near the target for a little bit        
+    - tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:KeyExistsPrecondition
+              key: IdleTime
+            - !type:CoordinatesInRangePrecondition
+              targetKey: TargetCoordinates
+              rangeKey: MeleeRange
+          operator: !type:WaitOperator
+            key: IdleTime
+
+#----------------------------------------------------------------------------
+
+- type: utilityQuery   # Used by UtilityOperator as a way to find entities that match
+  id: NearbyFollowableTckA # and picks the nearest one to the searcher 
+  query:
+    - !type:ComponentQuery                # If there are any REQUIRED variable inputs in the component
+      components:                        # they need to be added here like when adding them to an NPC
+        - type: TckAFollowTarget
+  considerations:                # There's a lot of different types of considerations
+    - !type:TargetDistanceCon    # These just consider distance and how accessible it is
+      curve: !type:PresetCurve    # These help UtilityOperator's find the best match
+        preset: TargetDistance
+    - !type:TargetAccessibleCon
+      curve: !type:BoolCurve
