@@ -1,0 +1,122 @@
+- type: entity
+  id: CartridgeMagnumMeteoric
+  name: cartridge (.45 meteoric)
+  parent: BaseCartridgeMagnum
+  description: A strange round, seemingly made of volcanic glass.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnumMeteoric
+  - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/45_meteoric.rsi #imp
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+
+- type: entity
+  id: BulletMagnumMeteoric
+  name: bullet (.45 meteoric)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 35
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Mobs
+      fly-by: &flybyfixture
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
+
+- type: entity
+  parent: [ BaseMagazineBoxMagnum, TierXContraband ]
+  id: MagazineBoxMagnumMeteoric
+  name: ammunition box (.45 meteoric)
+  description: A box containing 12 .45 rounds that hum with a furious energy.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumMeteoric
+  - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/45m_box.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: Cartridge60Meteoric
+  name: cartridge (.60 meteoric)
+  parent: [BaseCartridge, TierXContraband]
+  description: A strange round, seemingly made of volcanic glass.
+  components:
+  - type: CartridgeAmmo
+    proto: Bullet60Meteoric
+  - type: Tag
+    tags:
+    - CartridgeAntiMateriel
+  - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/60_meteoric.rsi #imp
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: Bullet60Meteoric
+  name: bullet (.60 meteoric)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 75
+        Structural: 226
+  - type: StaminaDamageOnCollide
+    damage: 60
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Mobs
+
+- type: entity
+  parent: BaseMagazineBoxAntiMateriel
+  id: MagazineBox60Meteoric
+  name: ammunition box (.60 meteoric)
+  description: A box containing 12 rifle rounds that hum with a furious energy.
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 12
+    proto: Cartridge60Meteoric
+  - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/60m_box.rsi
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 4
+    zeroVisible: false
+  - type: Appearance

@@ -454,6 +454,16 @@ public abstract partial class SharedGunSystem : EntitySystem
         Appearance.SetData(uid, AmmoVisuals.Spent, spent);
     }
 
+    //IMP ADDITION - for path of hunt's mansus grasp
+    public void RefillCartridge(EntityUid uid, CartridgeAmmoComponent cartridge)
+    {
+        if (cartridge.Spent == true)
+            DirtyField(uid, cartridge, nameof(CartridgeAmmoComponent.Spent));
+
+        cartridge.Spent = false;
+        Appearance.SetData(uid, AmmoVisuals.Spent, false);
+    }
+
     /// <summary>
     /// Drops a single cartridge / shell
     /// </summary>
