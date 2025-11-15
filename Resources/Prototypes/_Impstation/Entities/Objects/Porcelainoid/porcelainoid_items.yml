@@ -36,26 +36,20 @@
 - type: entity
   name: Connecting Shards
   description: Your connection to the others.
-  parent: BaseItem
+  parent: BaseRadio
   id: porcelainRadio
   components:
-  - type: TelecomExempt
   - type: RadioMicrophone
     broadcastChannel: Handheld
+    toggleOnInteract: false
+    frequency: 1330
   - type: RadioSpeaker
     channels:
     - Handheld
-  - type: Speech
-    speechVerb: Robotic
-  - type: Sprite
-    sprite: Objects/Devices/communication.rsi
-    layers:
-    - state: walkietalkie
-    - state: walkietalkie-on
-    state: walkietalkie
-  - type: Item
-    sprite: Objects/Devices/communication.rsi
-    heldPrefix: walkietalkie
-  - type: Tag
-    tags:
-    - Radio
+    toggleOnInteract: false
+  - type: ActivatableUI
+    key: enum.HandheldRadioUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HandheldRadioUiKey.Key:
+        type: HandheldRadioBoundUserInterface
