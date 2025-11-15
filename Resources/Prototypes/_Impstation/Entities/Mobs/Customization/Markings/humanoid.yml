@@ -1,5 +1,21 @@
 ﻿# markings intended for multiple species go here
 
+# MY DEMO. DELETE LATER
+- type: marking
+  id: DisplacementDemoMarking
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Human, Vox ]
+  sprites:
+  - sprite: _Impstation/displace-demo-marking.rsi
+    state: displace-demo-marking
+  appliedDisplacement:
+    jumpsuit:
+      sizeMaps:
+        32:
+          sprite: _Impstation/displace-demo.rsi
+          state: displace-demo-displace
+
 # Chest
 
 - type: marking

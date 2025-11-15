@@ -108,6 +108,14 @@ public sealed partial class HumanoidAppearanceComponent : Component
     [DataField]
     public Dictionary<HumanoidVisualLayers, DisplacementData> MarkingsDisplacement = new();
 
+    // IMP ADD
+    /// <summary>
+    ///     Any displacement maps that should be appended to this humanoid on top of existing ones.
+    ///     Stored alongside
+    /// </summary>
+    [DataField]
+    public Dictionary<string, DisplacementData> AppendedDisplacements = [];
+
     /// <summary>
     /// DeltaV - let paradox anomaly be cloned
     /// </summary>
