@@ -1,0 +1,10 @@
+- type: entity
+  id: CrewMonitorRadarMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: crew monitoring radar machine board
+  components:
+  - type: MachineBoard
+    prototype: CrewMonitoringRadar
+    stackRequirements:
+      Manipulator: 2
+      Glass: 2
