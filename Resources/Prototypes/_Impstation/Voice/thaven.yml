@@ -41,6 +41,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    Click:
+      path: /Audio/_impstation/Thaven/thaven_clicks_1.ogg
+    Whistle:
+      path: /Audio/_impstation/Thaven/thaven_whistle_1.ogg
   params:
     variation: 0.05
     pitch: 1.25
@@ -88,6 +92,11 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    Click:
+      path: /Audio/_impstation/Thaven/thaven_clicks_1.ogg
+    Whistle:
+      path: /Audio/_impstation/Thaven/thaven_whistle_1.ogg
+
   params:
     variation: 0.05
     pitch: 1.25
@@ -133,6 +142,10 @@
       collection: Ungh
     Gasp:
       collection: UnisexGasp
+    Click:
+      path: /Audio/_impstation/Thaven/thaven_clicks_1.ogg
+    Whistle:
+      path: /Audio/_impstation/Thaven/thaven_whistle_1.ogg
     DefaultDeathgasp:
       collection: UnisexDeathGasp
   params:
