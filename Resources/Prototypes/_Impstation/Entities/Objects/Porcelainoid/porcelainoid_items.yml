@@ -34,17 +34,17 @@
     sprite: _Impstation/Clothing/Mask/clayshapermask.rsi
 
 - type: entity
-  name: Radio
+  name: Connecting Shards
   description: Your connection to the others.
-  parent: BaseRadio
+  parent: BaseItem
   id: porcelainRadio
   components:
   - type: TelecomExempt
   - type: RadioMicrophone
-    broadcastChannel: Porcelain
+    broadcastChannel: Handheld
   - type: RadioSpeaker
     channels:
-    - Porcelain
+    - Handheld
   - type: Speech
     speechVerb: Robotic
   - type: Sprite
