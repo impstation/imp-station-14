@@ -45,6 +45,8 @@
     - id: MaterialCloth1
       amount: 1
   - type: TrayScanReveal
+  - type: AudioAbsorption # VDS
+    absorption: 0.3
 
 - type: entity
   id: Carpet
