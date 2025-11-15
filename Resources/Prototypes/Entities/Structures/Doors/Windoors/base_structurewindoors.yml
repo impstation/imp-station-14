@@ -171,6 +171,8 @@
   - type: StaticPrice
     price: 150
   - type: PryUnpowered
+  - type: AudioAbsorption # VDS
+    absorption: 0.2
 
 - type: entity
   id: BaseSecureWindoor
