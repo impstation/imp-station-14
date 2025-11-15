@@ -11,7 +11,7 @@
   name: chat-radio-centcom
   keycode: 'y'
   frequency: 1337
-  color: "#58b34d" # Imp, from #2681a5
+  color: "#4683d0" # Imp, from #2681a5
   longRange: true
 
 - type: radioChannel
@@ -61,21 +61,21 @@
   name: chat-radio-supply
   keycode: 'u'
   frequency: 1347
-  color: "#ebc799" # Imp, from #b48b57
+  color: "#e3b376" # Imp, from #b48b57
 
 - type: radioChannel
   id: Syndicate
   name: chat-radio-syndicate
   keycode: 't'
   frequency: 1213
-  color: "#de5765" # Imp, from #8f4a4b
+  color: "#d2456b" # Imp, from #8f4a4b
   longRange: true
 
 - type: radioChannel
   id: Handheld
   name: chat-radio-handheld
   frequency: 1330
-  color: "#b38758" # Imp, from #967101
+  color: "#ba8348" # Imp, from #967101
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
   longRange: true
   showFrequency: true # Frontier
