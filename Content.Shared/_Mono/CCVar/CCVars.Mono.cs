@@ -37,7 +37,7 @@ public sealed partial class MonoCVars
     /// </summary>
     /// <seealso cref="AreaEchoSystem"/>
     public static readonly CVarDef<int> AreaEchoReflectionCount =
-        CVarDef.Create("mono.area_echo.max_reflections", 1, CVar.ARCHIVE | CVar.CLIENTONLY);
+        CVarDef.Create("mono.area_echo.max_reflections", 2, CVar.ARCHIVE | CVar.CLIENTONLY);
 
     /// <summary>
     ///     Distantial interval, in tiles, in the rays used to calculate the roofs of an open area for echos,

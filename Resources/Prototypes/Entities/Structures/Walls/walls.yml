@@ -55,6 +55,10 @@
     resistance: 2
   - type: BlockWeather
   - type: SunShadowCast
+  - type: AudioAbsorption # VDS
+    absorption: 0.1
+    reflectray: true
+
 
 - type: entity
   abstract: true
