@@ -202,6 +202,18 @@
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
+    Poison:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Pleebnar
+        - !type:ReagentAccumulationThreshold
+          limit: 30.00
+        damage:
+          types:
+            Poison: 20.0
+
 
 - type: reagent
   id: Nicotine

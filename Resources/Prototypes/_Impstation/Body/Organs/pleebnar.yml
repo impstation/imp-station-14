@@ -47,7 +47,7 @@
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Animal, Pleebnar ]
     groups:
     - id: Gas
       rateModifier: 100.0
@@ -92,7 +92,7 @@
   - type: Stomach
   - type: Metabolizer
     maxReagents: 3
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Animal, Pleebnar ]
     groups:
     - id: Food
     - id: Drink
@@ -118,7 +118,7 @@
   - type: Organ
   - type: Metabolizer
     maxReagents: 1
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Animal, Pleebnar ]
     groups:
     - id: Alcohol
       rateModifier: 0.1
@@ -142,7 +142,7 @@
   - type: Organ
   - type: Metabolizer
     maxReagents: 2
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Animal, Pleebnar ]
     groups:
     - id: Medicine
     - id: Poison
@@ -168,7 +168,7 @@
   - type: Organ
   - type: Metabolizer
     maxReagents: 5
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Animal, Pleebnar ]
     removeEmpty: true
   - type: Tag # goob edit
     tags:
