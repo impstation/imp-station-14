@@ -7,6 +7,7 @@ using Content.Shared.Construction.Components;
 using Content.Shared.Database;
 using Content.Shared.Defusable;
 using Content.Shared.Examine;
+using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Trigger.Components;
 using Content.Shared.Trigger.Components.Effects;
@@ -29,6 +30,7 @@ public sealed class DefusableSystem : SharedDefusableSystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly WiresSystem _wiresSystem = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!; // imp add
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -47,8 +49,18 @@ public sealed class DefusableSystem : SharedDefusableSystem
     /// </summary>
     private void OnGetAltVerbs(EntityUid uid, DefusableComponent comp, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!args.CanInteract || !args.CanAccess || args.Hands == null)
+        if (!args.CanInteract || args.Hands == null) // imp move canaccess
             return;
+
+        // IMP ADD START: item check
+        if (comp.IsEquippable)
+        {
+            if (!_interactionSystem.InRangeUnobstructed(args.User, args.Target))
+                return;
+        }
+        else if (!args.CanAccess)
+            return;
+        // END IMP
 
         args.Verbs.Add(new AlternativeVerb
         {
@@ -91,8 +103,8 @@ public sealed class DefusableSystem : SharedDefusableSystem
                 args.PushMarkup(Loc.GetString("defusable-examine-inactive", ("name", uid)));
             }
         }
-
-        args.PushMarkup(Loc.GetString("defusable-examine-bolts", ("down", comp.Bolted)));
+        if (comp.IsEquippable) // imp add
+            args.PushMarkup(Loc.GetString("defusable-examine-bolts", ("down", comp.Bolted)));
     }
 
     private void OnAnchorAttempt(EntityUid uid, DefusableComponent component, AnchorAttemptEvent args)
@@ -132,7 +144,8 @@ public sealed class DefusableSystem : SharedDefusableSystem
         }
 
         var xform = Transform(uid);
-        if (!xform.Anchored)
+        if (!xform.Anchored
+            && !comp.IsEquippable) // imp add
             _transform.AnchorEntity(uid, xform);
 
         SetBolt(comp, true);
@@ -227,6 +240,8 @@ public sealed class DefusableSystem : SharedDefusableSystem
 
     public void SetBolt(DefusableComponent component, bool value)
     {
+        if (component.IsEquippable) // imp add
+            return;
         component.Bolted = value;
     }
 

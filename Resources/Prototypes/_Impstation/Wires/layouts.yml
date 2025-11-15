@@ -1,0 +1,10 @@
+- type: wireLayout
+  id: DefusableUnanchorable
+  dummyWires: 4
+  wires:
+    - !type:ActivateWireAction
+    - !type:DelayWireAction
+    - !type:ProceedWireAction
+    - !type:BoomWireAction
+    - !type:BoomWireAction
+    - !type:BoomWireAction

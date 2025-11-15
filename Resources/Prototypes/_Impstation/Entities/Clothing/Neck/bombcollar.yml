@@ -1,0 +1,89 @@
+# lots of this is taken from ClothingBaseNeck and BaseHardBomb.
+# we can't inherit due to butcherable and structure comps respectively.
+# enjoy this monstrosity.
+
+- type: entity
+  parent: [ Clothing, Tier3Contraband ]
+  id: BombCollar
+  name: bomb collar
+  description: A Syndicate bomb designed to neutralize a single target. Will explode if you try to remove it while it's activated.
+  components:
+  - type: Clothing
+    sprite: _Impstation/Clothing/Neck/Misc/bombcollar.rsi
+    clothingVisuals:
+      neck:
+        - state: bombcollar
+        # - state: bombcollar-active
+        #   visible: false
+        #   map: [ "primed" ]
+        - state: bombcollar-wires
+          visible: false
+          map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+    quickEquip: false # can you imagine
+    slots:
+    - neck
+    unequipDelay: 20
+    # todo: sound?
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Misc/bombcollar.rsi
+    layers:
+      - state: icon
+      # - state: icon-active
+      #   visible: false
+      #   map: [ "primed" ]
+      # - state: icon-wires
+      #   visible: false
+      #   map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: GenericVisualizer
+    visuals:
+      # enum.DefusableVisuals.Active:
+      #   primed:
+      #     True: { visible: true }
+      #     False: { visible: false }
+      enum.WiresVisualLayers.MaintenancePanel:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: WiresVisuals
+  - type: UserInterface
+    interfaces:
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Wires
+    layoutId: DefusableUnanchorable
+    alwaysRandomize: true
+  - type: Defusable
+    isEquippable: true
+  - type: Explosive # todo
+    explosionType: Default
+    totalIntensity: 5.0
+    intensitySlope: 5
+    maxIntensity: 4
+    canCreateVacuum: false
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
+    - unequip-powered
+  - type: TimerTrigger
+    delay: 180
+    delayOptions: [180, 240, 300, 600, 900]
+    initialBeepDelay: 0
+    beepSound: /Audio/Machines/timer.ogg
+    popup: # todo
+  - type: WiresPanel
+  - type: GuideHelp
+    guides:
+    - Defusal
+  - type: Engraveable
+  - type: PointLight # todo: the user should glow too
+    color: "#C7001B"
+    radius: 0.5
+    softness: 1
+  - type: ToggleComponentsOnTrigger
+    keysIn:
+    - timer-toggled
+    components:
+    - type: TriggerOnGotUnequipped
+      keyOut: unequip-powered
+      slotFlags: NECK

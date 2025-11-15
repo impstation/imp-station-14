@@ -510,6 +510,19 @@
     whitelist:
     - Chaplain
 
+- type: listing
+  id: UplinkBombCollar
+  name: uplink-bombcollar-name
+  description: uplink-bombcollar-desc
+  productEntity: BombCollar
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 6
+  categories:
+    - UplinkExplosives
+
 # implanters
 
 - type: listing

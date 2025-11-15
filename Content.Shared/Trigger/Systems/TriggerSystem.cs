@@ -108,6 +108,7 @@ public sealed partial class TriggerSystem : EntitySystem
         var delay = ent.Comp.InitialBeepDelay ?? ent.Comp.BeepInterval;
         ent.Comp.NextBeep = curTime + delay;
         ent.Comp.User = user;
+        Trigger(ent, null, ent.Comp.ToggleKeyOut); // imp add
         Dirty(ent);
 
         var ev = new ActiveTimerTriggerEvent(user);

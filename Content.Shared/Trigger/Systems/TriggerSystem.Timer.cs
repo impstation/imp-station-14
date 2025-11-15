@@ -38,6 +38,10 @@ public sealed partial class TriggerSystem
 
     private void OnTimerShutdown(Entity<TimerTriggerComponent> ent, ref ComponentShutdown args)
     {
+        // IMP ADD START: we only need to handle an ent with an active timer, otherwise this gets called a lot
+        if (HasComp<ActiveTimerTriggerComponent>(ent))
+            Trigger(ent, null, ent.Comp.ToggleKeyOut);
+        // IMP END
         RemComp<ActiveTimerTriggerComponent>(ent);
     }
 
