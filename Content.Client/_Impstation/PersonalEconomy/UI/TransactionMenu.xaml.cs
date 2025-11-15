@@ -6,7 +6,7 @@ using Robust.Client.UserInterface.XAML;
 namespace Content.Client._Impstation.PersonalEconomy.UI;
 
 [GenerateTypedNameReferences]
-public sealed partial class TransactionWindow : FancyWindow
+public sealed partial class TransactionMenu : FancyWindow
 {
 
     public Action? TransactionConfirmAttempt;
@@ -14,7 +14,7 @@ public sealed partial class TransactionWindow : FancyWindow
 
     public int TransferAmount;
 
-    public TransactionWindow()
+    public TransactionMenu()
     {
         RobustXamlLoader.Load(this);
 

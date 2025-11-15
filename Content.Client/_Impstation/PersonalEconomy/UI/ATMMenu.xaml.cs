@@ -68,7 +68,7 @@ public sealed partial class ATMMenu : FancyWindow
         AccountInfoContainer.AddChild(infoBox);
     }
 
-    public void CreateInfoBoxForAccount(BankAccount account)
+    public void CreateInfoBoxForAccount(Entity<BankAccountComponent> account)
     {
         ClearInfoBox();
 

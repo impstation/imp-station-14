@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Impstation.PersonalEconomy.Components;
+using Content.Shared._Impstation.PersonalEconomy.Events;
 using Content.Shared.Administration;
 using Content.Shared.Examine;
 using Content.Shared.Roles;
@@ -17,16 +18,22 @@ public abstract class SharedBankingSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<BankCardComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<BankCardComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<ATMComponent, RequestTransactionMessage>(OnTransactionRequested);
     }
 
-    private void OnComponentInit(Entity<BankCardComponent> ent, ref ComponentInit args)
+    private void OnTransactionRequested(Entity<ATMComponent> ent, ref RequestTransactionMessage args)
     {
-        SetupID(ent);
-    }
 
-    protected virtual void SetupID(Entity<BankCardComponent> ent)
-    {
+        //todo write this next
+        //todo actually, ent-ify accounts first
+        //verify transaction
+        //transfer money between accounts
+        //add transaction to both accounts
+        //dirty comps
+        //job's a goodun
+
+        var foo = 1;
+        foo++;
 
     }
 
@@ -42,44 +49,43 @@ public abstract class SharedBankingSystem : EntitySystem
             return;
 
         args.PushMarkup("The two below are for testing!", 3);
-        args.PushMarkup(Loc.GetString("bank-card-examine-balance", ("balance", account.Balance)), 2); //todo remove this
-        args.PushMarkup(Loc.GetString("bank-card-examine-salary", ("salary", account.Salary)), 1); //todo remove this
+        args.PushMarkup(Loc.GetString("bank-card-examine-balance", ("balance", account.Value.Comp.Balance)), 2); //todo remove this
+        args.PushMarkup(Loc.GetString("bank-card-examine-salary", ("salary", account.Value.Comp.Salary)), 1); //todo remove this
     }
 
-    /// <summary>
-    /// Create a new account. does nothing if run on the client.
-    /// </summary>
-    /// <returns>the Access number &amp; transfer number for the account</returns>
-    public virtual (int AccessNumber, int TransferNumber) CreateNewAccount(string name)
-    {
-        return (0, 0);
-    }
-
-    public bool TryGetAccountFromTransferNumber(int transferNumber, [NotNullWhen(true)] out BankAccount? account)
+    public bool TryGetAccountFromTransferNumber(int transferNumber, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)
     {
         account = null;
 
-        var serverQuery = EntityQueryEnumerator<RemoteBankServerComponent>();
-        if (!serverQuery.MoveNext(out var uid, out var server) ||
-            !server.TransferNumberToAccountNumberDict.TryGetValue(transferNumber, out var accessNumber) ||
-            !server.AccountDict.TryGetValue(accessNumber, out var bankAcc))
-            return false;
+        //todo cache this
+        var accountQuery = EntityQueryEnumerator<BankAccountComponent>();
+        while (accountQuery.MoveNext(out var uid, out var comp))
+        {
+            if (comp.TransferNumber == transferNumber)
+            {
+                account = (uid, comp);
+                return true;
+            }
+        }
 
-        account = bankAcc;
-        return true;
+        return false;
     }
 
-    public bool TryGetAccount(int accessNumber, [NotNullWhen(true)] out BankAccount? account)
+    public bool TryGetAccount(int accessNumber, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)
     {
         account = null;
 
-        var serverQuery = EntityQueryEnumerator<RemoteBankServerComponent>();
-        if (!serverQuery.MoveNext(out var uid, out var server) ||
-            !server.AccountDict.TryGetValue(accessNumber, out var bankAcc))
-            return false;
+        var accountQuery = EntityQueryEnumerator<BankAccountComponent>();
+        while (accountQuery.MoveNext(out var uid, out var comp))
+        {
+            if (comp.AccessNumber == accessNumber)
+            {
+                account = (uid, comp);
+                return true;
+            }
+        }
 
-        account = bankAcc;
-        return true;
+        return false;
     }
 
     /// <summary>
@@ -92,7 +98,7 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!TryGetAccount(accessNumber, out var account))
             return;
 
-        account.Name = name;
+        account.Value.Comp.Name = name;
     }
 
     public virtual void SetAccountSalary(int accessNumber, int salary)
@@ -100,7 +106,7 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!TryGetAccount(accessNumber, out var account))
             return;
 
-        account.Salary = salary;
+        account.Value.Comp.Salary = salary;
     }
 
     public virtual void SetAccountBalance(int accessNumber, int balance)
@@ -108,7 +114,7 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!TryGetAccount(accessNumber, out var account))
             return;
 
-        account.Balance = balance;
+        account.Value.Comp.Balance = balance;
     }
 
     /// <summary>
@@ -121,8 +127,8 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!TryGetAccount(accessNumber, out var account))
             return;
 
-        SetCardName(card, account.Name);
-        SetCardNumber(card, account.AccessNumber);
+        SetCardName(card, account.Value.Comp.Name);
+        SetCardNumber(card, account.Value.Comp.AccessNumber);
     }
 
     /// <summary>

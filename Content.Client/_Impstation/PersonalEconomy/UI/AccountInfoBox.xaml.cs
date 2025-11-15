@@ -17,32 +17,35 @@ public sealed partial class AccountInfoBox : BoxContainer
         RobustXamlLoader.Load(this);
     }
 
-    public AccountInfoBox(BankAccount account)
+    public AccountInfoBox(Entity<BankAccountComponent> account)
     {
         RobustXamlLoader.Load(this);
 
         TransferFundsButton.OnPressed += _ => OnTransactionButtonPressed?.Invoke();
 
-        AccNameLabel.Text = Loc.GetString("atm-machine-account-name-title", ("name", account.Name));
-        AccAccessNumberLabel.Text = Loc.GetString("atm-machine-account-access-number-title", ("number", $"{account.AccessNumber:000000}"));
-        AccTransferNumberLabel.Text = Loc.GetString("atm-machine-account-transfer-number-title", ("number", $"{account.TransferNumber:0000}"));
-        AccBalanceLabel.Text = Loc.GetString("atm-machine-account-balance-title", ("balance", $"{account.Balance:n0}"));
+        AccNameLabel.Text = Loc.GetString("atm-machine-account-name-title", ("name", account.Comp.Name));
+        AccAccessNumberLabel.Text = Loc.GetString("atm-machine-account-access-number-title", ("number", $"{account.Comp.AccessNumber:000000}"));
+        AccTransferNumberLabel.Text = Loc.GetString("atm-machine-account-transfer-number-title", ("number", $"{account.Comp.TransferNumber:0000}"));
+        AccBalanceLabel.Text = Loc.GetString("atm-machine-account-balance-title", ("balance", $"{account.Comp.Balance:n0}"));
 
-        if (account.Transactions.Count == 0)
+        if (account.Comp.Transactions.Count == 0)
         {
-            var noTransactionsLabel = new Label();
-            noTransactionsLabel.Text = Loc.GetString("atm-machine-no-transactions");
-            noTransactionsLabel.VerticalExpand = true;
-            noTransactionsLabel.HorizontalExpand = true;
-            noTransactionsLabel.HorizontalAlignment = HAlignment.Center;
-            noTransactionsLabel.VerticalAlignment = VAlignment.Center;
-            noTransactionsLabel.Align = Label.AlignMode.Center;
-            TransactionInfoContainer.AddChild(noTransactionsLabel);
+            NoTransactionsLabel.Visible = true;
+            TransactionInfoBoxScroller.Visible = false;
         }
         else
         {
-            //actually fill out transaction data here
+            NoTransactionsLabel.Visible = false;
+            TransactionInfoBoxScroller.Visible = true;
+
+            FillOutTransactionInfo();
         }
+    }
+
+    //todo write this
+    private void FillOutTransactionInfo()
+    {
+
     }
 }
 

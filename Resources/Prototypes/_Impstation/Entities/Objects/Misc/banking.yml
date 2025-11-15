@@ -20,14 +20,14 @@
   - type: BankCard
 
 - type: entity
-  id: RemoteBankServer
-  name: remote bank server
-  description: if you're seeing this, something has gone horribly wrong
+  id: BankAccount
+  name: Bank Account
+  description: if you're seeing this, something has gone horribly wrong. admins yell at me and I'll make these properly interactable at some point.
   components:
-  - type: RemoteBankServer
+    - type: BankAccount
 
 - type: entity
-  parent: BaseComputerAiAccess
+  parent: BaseComputerAiAccess #ai accessible because it's really funny if the AI convinces someone to let it steal all of their money
   id: ATMMachine
   name: ATM Machine
   description: It's called that on purpose now
@@ -61,3 +61,4 @@
     radius: 2.4 #imp
     energy: 1.6
     color: "#e6e227"
+  - type: ATM
