@@ -3319,10 +3319,15 @@
     soundHit:
       path: /Audio/Animals/dog_bark1.ogg
   - type: StaminaDamageOnHit
-    damage: 20
+    damage: 10
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: DogCompound
+    blackboard:
+      VisionRadius: !type:Single
+        4
+      AggroVisionRadius: !type:Single
+        6
 # imp end
 
 - type: entity
