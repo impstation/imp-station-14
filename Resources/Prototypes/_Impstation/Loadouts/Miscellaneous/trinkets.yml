@@ -205,6 +205,13 @@
   groupBy: "baubles"
 
 - type: loadout
+  id: CardBoxTippyTrump
+  storage:
+    back:
+    - CardBoxTippyTrump
+  groupBy: "baubles"
+
+- type: loadout
   id: FolderBlack
   storage:
     back:

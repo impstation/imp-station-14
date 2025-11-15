@@ -160,6 +160,8 @@
     children:
     - id: StrangePill
       prob: 0.20
+    - id: TippyTrumpMysteryPack # imp
+      prob: 0.10
     # Tools
     - !type:NestedSelector
       tableId: MaintToolsTable
