@@ -237,14 +237,12 @@ public sealed class AreaEchoSystem : EntitySystem
 
         var filter = new QueryFilter
         {
-            LayerBits = (int)CollisionGroup.DoorPassable,
-            MaskBits = (int)CollisionGroup.WallLayer,
+            MaskBits = (int)CollisionGroup.DoorPassable,
             IsIgnored = ent => !_absorptionQuery.HasComp(ent),
             Flags = QueryFlags.Static | QueryFlags.Dynamic
         };
         var stopAtFilter = new QueryFilter
         {
-
             LayerBits = (int)CollisionGroup.WallLayer,
             IsIgnored = ent => _absorptionQuery.TryGetComponent(ent, out var comp) && comp.ReflectRay,
             Flags = QueryFlags.Static | QueryFlags.Dynamic
@@ -282,8 +280,8 @@ public sealed class AreaEchoSystem : EntitySystem
 
         var finalMagnitude = 0f;
         finalMagnitude += avgMagnitude;
-        finalMagnitude += finalMagnitude *= NormalizeToPercentage(avgAbsorption, 100f);
-        finalMagnitude += finalMagnitude *= InverseNormalizeToPercentage(avgEscaped, 100f);
+        finalMagnitude *= InverseNormalizeToPercentage(avgAbsorption, 100f);
+        finalMagnitude *= InverseNormalizeToPercentage(avgEscaped, 100f);
         magnitude = finalMagnitude;
         Logger.Debug($"""
                 Acoustics:
