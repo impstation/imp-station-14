@@ -23,6 +23,10 @@ using Robust.Shared.Debugging;
 using Content.Shared.Coordinates;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
+using Content.Shared.Maps;
+using Content.Shared.Light.EntitySystems;
+using Content.Shared.Light.Components;
+using Robust.Shared.Map.Components;
 
 namespace Content.Client._Mono.Audio;
 
@@ -39,6 +43,8 @@ public sealed class AreaEchoSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RayCastSystem _rayCast = default!;
     [Dependency] private readonly SharedDebugRayDrawingSystem _debugRay = default!;
+    [Dependency] private readonly TurfSystem _turfSystem = default!;
+    [Dependency] private readonly SharedRoofSystem _roofSystem = default!;
 
     /// <summary>
     ///     The directions that are raycasted to determine size for echo.
@@ -56,9 +62,9 @@ public sealed class AreaEchoSystem : EntitySystem
     /// </remarks>
     private static readonly AudioDistanceThreshold[] DistancePresets =
     [
-        new(14f, "Hallway"),
-        new(20f, "Auditorium"),
-        new(25f, "ConcertHall"),
+        new(18f, "Hallway"),
+        new(30f, "Auditorium"),
+        new(45f, "ConcertHall"),
         new(50f, "Hangar")
     ];
 
@@ -86,6 +92,8 @@ public sealed class AreaEchoSystem : EntitySystem
 
     private EntityQuery<AudioAbsorptionComponent> _absorptionQuery;
     private EntityQuery<TransformComponent> _transformQuery;
+    private EntityQuery<RoofComponent> _roofQuery;
+    private EntityQuery<MapGridComponent> _gridQuery;
 
     public override void Initialize()
     {
@@ -100,6 +108,8 @@ public sealed class AreaEchoSystem : EntitySystem
 
         _absorptionQuery = GetEntityQuery<AudioAbsorptionComponent>();
         _transformQuery = GetEntityQuery<TransformComponent>();
+        _roofQuery = GetEntityQuery<RoofComponent>();
+        _gridQuery = GetEntityQuery<MapGridComponent>();
 
         SubscribeLocalEvent<AudioComponent, EntParentChangedMessage>(OnAudioParentChanged);
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
@@ -233,6 +243,12 @@ public sealed class AreaEchoSystem : EntitySystem
         var clientMapId = clientTransform.MapID;
         var clientCoords = _transformSystem.ToMapCoordinates(clientTransform.Coordinates).Position;
 
+        if (!_turfSystem.TryGetTileRef(clientEnt.ToCoordinates(), out var tileRef)
+            || _turfSystem.IsSpace(tileRef.Value))
+        {
+            return false;
+        }
+
         var environmentResults = new List<EchoRayStats>(_calculatedDirections.Length);
 
         var filter = new QueryFilter
@@ -273,15 +289,27 @@ public sealed class AreaEchoSystem : EntitySystem
         var avgBounces = (float)environmentResults.Average(bounce => bounce.TotalBounces);
         var avgEscaped = (float)environmentResults.Average(escapees => escapees.TotalEscapes);
 
-
         if (_prevAvgMagnitude > float.Epsilon)
             avgMagnitude = MathHelper.Lerp(_prevAvgMagnitude, avgMagnitude, 0.25f);
         _prevAvgMagnitude = avgMagnitude;
+
+
 
         var finalMagnitude = 0f;
         finalMagnitude += avgMagnitude;
         finalMagnitude *= InverseNormalizeToPercentage(avgAbsorption, 100f);
         finalMagnitude *= InverseNormalizeToPercentage(avgEscaped, 100f);
+
+        if (clientTransform.GridUid.HasValue
+            && _roofQuery.TryGetComponent(clientTransform.GridUid.Value, out var roof)
+            && _gridQuery.TryGetComponent(clientTransform.GridUid.Value, out var grid)
+            && _transformSystem.TryGetGridTilePosition(clientEnt, out var indices)
+            && !_roofSystem.IsRooved((clientTransform.GridUid.Value, grid, roof), indices))
+        {
+            Logger.Debug("reached");
+            finalMagnitude *= 0.3f;
+        }
+
         magnitude = finalMagnitude;
         Logger.Debug($"""
                 Acoustics:
@@ -292,8 +320,8 @@ public sealed class AreaEchoSystem : EntitySystem
 
                 - Absorb Coefficient: {InverseNormalizeToPercentage(avgAbsorption, 100f):F2}
                 - Escape Coefficient: {InverseNormalizeToPercentage(avgEscaped, 100f):F2}
-                - Final Magnitude: {finalMagnitude}
-                - Preset: {GetBestPreset(finalMagnitude)}
+                - Final Magnitude: {magnitude}
+                - Preset: {GetBestPreset(magnitude)}
 
                 """);
 
@@ -404,7 +432,7 @@ public sealed class AreaEchoSystem : EntitySystem
             }
 
             // consider our ray escaped into an open enough room/space if it traveled far
-            if (stepData.NewDistance > maxDistance * 0.6)
+            if (stepData.NewDistance > maxDistance * 0.45)
             {
                 rayStats.Magnitude = stepData.TotalDistance;
                 rayStats.TotalEscapes++;
