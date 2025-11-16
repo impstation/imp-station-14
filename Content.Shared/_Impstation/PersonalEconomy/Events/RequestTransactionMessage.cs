@@ -1,13 +1,23 @@
-﻿using Robust.Shared.Serialization;
+﻿using Content.Shared._Impstation.PersonalEconomy.Components;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.PersonalEconomy.Events;
 
+/// <summary>
+/// Request that a transaction attempt is made.
+/// </summary>
+/// <param name="senderAccount"> the sender's account access number</param>
+/// <param name="recipientAccount"> the recipient's account transfer number</param>
+/// <param name="amount"> the amount of money to be transferred</param>
+/// <param name="reason"> the reason for the transfer</param>
 [Serializable, NetSerializable]
-public sealed class RequestTransactionMessage(int fromAccount, int toAccount, int amount, string reason)
+//todo will probably need different types of message / transactions
+//mainly for "sending" money to arbitrary people
+public sealed class RequestTransactionMessage(AccessNumber senderAccount, TransferNumber recipientAccount, int amount, string reason)
     : BoundUserInterfaceMessage
 {
-    public int FromAccount = fromAccount;
-    public int ToAccount = toAccount;
+    public AccessNumber SenderAccount = senderAccount;
+    public TransferNumber RecipientAccount = recipientAccount;
     public int Amount = amount;
     public string Reason = reason;
 }

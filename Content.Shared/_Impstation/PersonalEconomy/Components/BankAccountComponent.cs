@@ -13,31 +13,85 @@ public sealed partial class BankAccountComponent : Component
     public string Name = string.Empty;
 
     [DataField, AutoNetworkedField]
-    public int AccessNumber = 0;
+    public AccessNumber AccessNumber;
     [DataField, AutoNetworkedField]
-    public int TransferNumber = 0;
+    public TransferNumber TransferNumber;
 
     [DataField, AutoNetworkedField]
     public int Balance = 0;
     [DataField, AutoNetworkedField]
     public int Salary = 0;
 
-    //todo make this a server-only property in the comp, then have the data get sent back to the client via a BUI state?
+    //ok so all of this rambling is irrelevant now that I've ent-ified things, but I'll leave it here as a testament to 1 am me's thought process :)
+    //make this a server-only property in the comp, then have the data get sent back to the client via a BUI state?
     //or just have it send a normal message back to the client system that then caches the values?
     //or just do a field delta state for this field specifically?
     //or ent-ify bank accounts? it'll be like 50 ents with 3 comps that get force-PVS'd to everyone which feels kinda sussy but it does massively reduce the size of each state
     //basically I don't want to be replicating every transaction to every player all the time because that will potentially be a lot of network traffic
     //ok yeah I think I've convinced myself that ent-ifying bank accounts is the way to go?
     //I'll only store 10 transactions, also this lets everything be in shared, so everything seems good?
-    //let this be a testament to my madness (and 1 am programming prowess)
     [DataField, AutoNetworkedField]
-    public List<BankTransaction> Transactions = []; //todo make this only be the last like 10-15 transactions?
+    public List<BankTransaction> Transactions = [];
 }
 
 [DataDefinition, Serializable, NetSerializable]
 public sealed partial class BankTransaction
 {
-    [DataField] public int Other = 0;
+    public BankTransaction(TransferNumber other, int amount, string reason)
+    {
+        OtherAccount = other;
+        Amount = amount;
+        Reason = reason;
+    }
+
+    //todo let this take a name string as well as an account number
+    //todo also this needs a timestamp to make transactions with an identical body still be different
+    [DataField] public TransferNumber OtherAccount= 0;
     [DataField] public int Amount = 0;
     [DataField] public string Reason = string.Empty; //limited to 64 chars
+}
+
+/// <summary>
+/// Used to enforce transfer number / access number constraints. technically I think they can just be freely casted between because they can both go to and from int but this makes me feel smart.
+/// </summary>
+[DataDefinition, Serializable, NetSerializable]
+public partial struct AccessNumber
+{
+    public readonly int Number;
+
+    public AccessNumber(int number)
+    {
+        Number = number;
+    }
+
+    public static implicit operator int(AccessNumber number)
+    {
+        return number.Number;
+    }
+
+    public static implicit operator AccessNumber(int number)
+    {
+        return new AccessNumber(number);
+    }
+}
+
+[DataDefinition, Serializable, NetSerializable]
+public partial struct TransferNumber
+{
+    public readonly int Number;
+
+    public TransferNumber(int number)
+    {
+        Number = number;
+    }
+
+    public static implicit operator int(TransferNumber number)
+    {
+        return number.Number;
+    }
+
+    public static implicit operator TransferNumber(int number)
+    {
+        return new TransferNumber(number);
+    }
 }

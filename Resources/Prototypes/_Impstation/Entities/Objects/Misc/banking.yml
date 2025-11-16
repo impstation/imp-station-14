@@ -49,6 +49,7 @@
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: ActivatableUI
     key: enum.ATMUIKey.Key
+    singleUser: true
   - type: UserInterface
     interfaces:
       enum.ATMUIKey.Key:

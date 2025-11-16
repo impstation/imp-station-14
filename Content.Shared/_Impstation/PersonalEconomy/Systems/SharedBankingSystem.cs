@@ -24,17 +24,60 @@ public abstract class SharedBankingSystem : EntitySystem
     private void OnTransactionRequested(Entity<ATMComponent> ent, ref RequestTransactionMessage args)
     {
 
-        //todo write this next
-        //todo actually, ent-ify accounts first
-        //verify transaction
-        //transfer money between accounts
-        //add transaction to both accounts
-        //dirty comps
-        //job's a goodun
+        TryMakeTransaction(args.SenderAccount, args.RecipientAccount, args.Amount, args.Reason);
 
-        var foo = 1;
-        foo++;
+    }
 
+    public bool TryMakeTransaction(AccessNumber sender, TransferNumber recipient, int amount, string reason)
+    {
+        if (!VerifyTransaction(sender, recipient, amount))
+            return false;
+
+        MakeTransaction(sender, recipient, amount, reason);
+        return true;
+
+    }
+
+    private bool VerifyTransaction(AccessNumber sender, TransferNumber recipient, int amount)
+    {
+        //return false if neither account exists
+        if (!TryGetAccount(sender, out var senderAccount) ||
+            !TryGetAccountFromTransferNumber(recipient, out var recipientAccount))
+            return false;
+
+        //return true if the sender has enough money
+        return senderAccount.Value.Comp.Balance >= amount;
+    }
+
+    private void MakeTransaction(AccessNumber sender, TransferNumber recipient, int amount, string reason)
+    {
+        //this should always be true by the time this gets called but
+        //could make these out variables from the verify method, maybe?
+        //will matter less when I've got a proper cache in buuuuuut
+        if (!TryGetAccount(sender, out var senderAccount) || !TryGetAccountFromTransferNumber(recipient, out var recipientAccount))
+            return;
+
+        //adjust balances
+        senderAccount.Value.Comp.Balance -= amount;
+        recipientAccount.Value.Comp.Balance += amount;
+
+        //add transactions!
+        AddTransaction(senderAccount.Value, -amount, recipient, reason);
+        AddTransaction(recipientAccount.Value, amount, senderAccount.Value.Comp.TransferNumber, reason);
+    }
+
+    private void AddTransaction(Entity<BankAccountComponent> account, int amount, int from, string reason)
+    {
+        //limit reason length
+        if (reason.Length > 64) //todo make this length limit a cvar?
+            reason = reason[..64];
+
+        var transaction = new BankTransaction(from, amount, reason);
+        account.Comp.Transactions.Insert(0, transaction);
+        if (account.Comp.Transactions.Count > 10) //todo make the history limit a cvar?
+            account.Comp.Transactions.RemoveAt(10);
+
+        Dirty(account);
     }
 
     private void OnExamined(Entity<BankCardComponent> ent, ref ExaminedEvent args)
@@ -42,8 +85,8 @@ public abstract class SharedBankingSystem : EntitySystem
         if (!args.IsInDetailsRange)
             return;
 
-        args.PushMarkup(Loc.GetString("bank-card-examine-access-number", ("number", $"{ent.Comp.AccessNumber:000000}")),4);
-        args.PushMarkup(Loc.GetString("bank-card-examine-transfer-number", ("number", $"{ent.Comp.TransferNumber:0000}")),4);
+        args.PushMarkup(Loc.GetString("bank-card-examine-access-number", ("number", $"{ent.Comp.AccessNumber.Number:000000}")),4);
+        args.PushMarkup(Loc.GetString("bank-card-examine-transfer-number", ("number", $"{ent.Comp.TransferNumber.Number:0000}")),4);
 
         if (!TryGetAccount(ent.Comp.AccessNumber, out var account))
             return;
@@ -53,7 +96,7 @@ public abstract class SharedBankingSystem : EntitySystem
         args.PushMarkup(Loc.GetString("bank-card-examine-salary", ("salary", account.Value.Comp.Salary)), 1); //todo remove this
     }
 
-    public bool TryGetAccountFromTransferNumber(int transferNumber, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)
+    public bool TryGetAccountFromTransferNumber(TransferNumber transferNumber, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)
     {
         account = null;
 
@@ -71,7 +114,7 @@ public abstract class SharedBankingSystem : EntitySystem
         return false;
     }
 
-    public bool TryGetAccount(int accessNumber, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)
+    public bool TryGetAccount(AccessNumber accessNumber, [NotNullWhen(true)] out Entity<BankAccountComponent>? account)
     {
         account = null;
 
@@ -93,7 +136,7 @@ public abstract class SharedBankingSystem : EntitySystem
     /// </summary>
     /// <param name="accessNumber"></param>
     /// <param name="name"></param>
-    public virtual void SetAccountName(int accessNumber, string name)
+    public virtual void SetAccountName(AccessNumber accessNumber, string name)
     {
         if (!TryGetAccount(accessNumber, out var account))
             return;
@@ -101,7 +144,7 @@ public abstract class SharedBankingSystem : EntitySystem
         account.Value.Comp.Name = name;
     }
 
-    public virtual void SetAccountSalary(int accessNumber, int salary)
+    public virtual void SetAccountSalary(AccessNumber accessNumber, int salary)
     {
         if (!TryGetAccount(accessNumber, out var account))
             return;
@@ -109,7 +152,7 @@ public abstract class SharedBankingSystem : EntitySystem
         account.Value.Comp.Salary = salary;
     }
 
-    public virtual void SetAccountBalance(int accessNumber, int balance)
+    public virtual void SetAccountBalance(AccessNumber accessNumber, int balance)
     {
         if (!TryGetAccount(accessNumber, out var account))
             return;
@@ -122,7 +165,7 @@ public abstract class SharedBankingSystem : EntitySystem
     /// </summary>
     /// <param name="card"></param>
     /// <param name="accessNumber"></param>
-    public virtual void UpdateCardDetails(Entity<BankCardComponent> card, int accessNumber)
+    public virtual void UpdateCardDetails(Entity<BankCardComponent> card, AccessNumber accessNumber)
     {
         if (!TryGetAccount(accessNumber, out var account))
             return;
@@ -148,7 +191,7 @@ public abstract class SharedBankingSystem : EntitySystem
     /// </summary>
     /// <param name="card"></param>
     /// <param name="accessNumber"></param>
-    public virtual void SetCardNumber(Entity<BankCardComponent> card, int accessNumber)
+    public virtual void SetCardNumber(Entity<BankCardComponent> card, AccessNumber accessNumber)
     {
         card.Comp.AccessNumber = accessNumber;
         Dirty(card);

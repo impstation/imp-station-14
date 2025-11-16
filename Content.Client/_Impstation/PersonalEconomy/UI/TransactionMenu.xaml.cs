@@ -33,6 +33,7 @@ public sealed partial class TransactionMenu : FancyWindow
             TransferNumberBox.Text = numberStr;
         };
 
+        //todo this acts strangely sometimes, need to figure out why
         TransferAmountBox.OnTextChanged += args =>
         {
             var amountStr = string.Concat(args.Text.Where(char.IsDigit));

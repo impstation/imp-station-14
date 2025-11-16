@@ -10,10 +10,10 @@ public sealed partial class BankCardComponent : Component
 {
 
     [DataField, AutoNetworkedField]
-    public int AccessNumber = 0; //todo this can probably just be a number that gets formatted actually?
+    public AccessNumber AccessNumber;
 
     [DataField, AutoNetworkedField]
-    public int TransferNumber = 0;
+    public TransferNumber TransferNumber;
 
     [DataField, AutoNetworkedField]
     public string Name = "Unknown";

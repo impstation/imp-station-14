@@ -10,13 +10,16 @@
         <Label Name="AccBalanceLabel" VerticalAlignment="Center" Access="Public"/>
     </BoxContainer>
     <!--Transaction info todo border thing here-->
-    <BoxContainer Name="TransactionInfoContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
         <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
             <Label Text="{Loc transactions-container-title}"/>
             <Control HorizontalExpand="True"/>
             <Button Name="TransferFundsButton" Text="{Loc transfer-funds-button-title}" HorizontalAlignment="Right" Access="Public"/>
         </BoxContainer>
-        <Label Name="NoTransactionsLabel" Text="{Loc atm-machine-no-transactions}" VerticalExpand="True" HorizontalExpand="True" Visible="False"/>
-        <ScrollContainer Name="TransactionInfoBoxScroller" Visible="False"/>
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True">
+            <BoxContainer Name="TransactionInfoContainer" Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True">
+                <Label Name="NoTransactionsLabel" Text="{Loc atm-machine-no-transactions}" VerticalExpand="True" HorizontalExpand="True"/>
+            </BoxContainer>
+        </ScrollContainer>
     </BoxContainer>
 </BoxContainer>

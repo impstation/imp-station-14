@@ -54,8 +54,8 @@ public sealed partial class ATMMenu : FancyWindow
                 continue;
 
             //set the entered number & invoke the number entered action
-            UIKeypad.SetEnteredNumber($"{comp.AccessNumber:000000}");
-            OnNumberEntered?.Invoke($"{comp.AccessNumber:000000}");
+            UIKeypad.SetEnteredNumber($"{comp.AccessNumber.Number:000000}");
+            OnNumberEntered?.Invoke($"{comp.AccessNumber.Number:000000}");
             break;
         }
     }

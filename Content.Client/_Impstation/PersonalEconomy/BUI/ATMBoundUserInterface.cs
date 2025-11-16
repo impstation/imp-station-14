@@ -55,6 +55,7 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
             _transactionMenu.TransferNumberBox.Clear();
             _transactionMenu.TransferAmountBox.Clear();
             _transactionMenu.TransferReasonBox.Clear();
+            _transactionMenu.ReallyConfirmButton.Disabled = true;
             _transactionMenu.TransactionNotEnoughFundsLabel.Visible = false;
             _transactionMenu.TransactionRecipientDoesNotExistLabel.Visible = false;
 
@@ -120,6 +121,8 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
     }
 
     //todo move this into banking system
+    //actually this kinda can't get moved into there since it needs to convey UI-specific info? maybe have an overload that returns a TransactionFailureReason enum or smth?
+    //also want to probably enforce the TransferNumber type restriction here? this only gets called from a place where a transfernumber is guaranteed to be the intention but it feels wierd not doing that
     private bool VerifyTransaction(string recipient, int amount)
     {
         var verified = true;
