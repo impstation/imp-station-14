@@ -3,36 +3,26 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
-using Content.Client.Light.EntitySystems;
-using Content.Shared.Light.Components;
-using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared._Mono.CCVar;
-using Robust.Client.GameObjects;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Numerics;
-using System.Runtime.CompilerServices;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 using Robust.Client.Player;
 using Content.Shared._VDS.Audio;
 using Robust.Shared.Debugging;
-using Content.Shared.Tag;
-using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Coordinates;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
-using Content.Shared.Popups;
 
 namespace Content.Client._Mono.Audio;
 
@@ -43,12 +33,8 @@ public sealed class AreaEchoSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly AudioEffectSystem _audioEffectSystem = default!;
-    [Dependency] private readonly RoofSystem _roofSystem = default!;
-    [Dependency] private readonly TurfSystem _turfSystem = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RayCastSystem _rayCast = default!;
@@ -97,7 +83,6 @@ public sealed class AreaEchoSystem : EntitySystem
     /// How often we should check existing audio re-apply or remove echo from them when necessary.
     /// </summary>
     private TimeSpan _calculationInterval = TimeSpan.FromSeconds(15);
-    private float _calculationalFidelity;
 
     private EntityQuery<AudioAbsorptionComponent> _absorptionQuery;
     private EntityQuery<TransformComponent> _transformQuery;
@@ -112,7 +97,6 @@ public sealed class AreaEchoSystem : EntitySystem
         _configurationManager.OnValueChanged(MonoCVars.AreaEchoHighResolution, x => _calculatedDirections = GetEffectiveDirections(x), invokeImmediately: true);
 
         _configurationManager.OnValueChanged(MonoCVars.AreaEchoRecalculationInterval, x => _calculationInterval = x, invokeImmediately: true);
-        _configurationManager.OnValueChanged(MonoCVars.AreaEchoStepFidelity, x => _calculationalFidelity = x, invokeImmediately: true);
 
         _absorptionQuery = GetEntityQuery<AudioAbsorptionComponent>();
         _transformQuery = GetEntityQuery<TransformComponent>();
@@ -129,8 +113,6 @@ public sealed class AreaEchoSystem : EntitySystem
             return;
 
         _nextExistingUpdate = _gameTiming.CurTime + _calculationInterval;
-
-
         var audioEnumerator = EntityQueryEnumerator<AudioComponent>();
 
         while (audioEnumerator.MoveNext(out var uid, out var audioComponent))
@@ -139,9 +121,7 @@ public sealed class AreaEchoSystem : EntitySystem
                 !audioComponent.Playing)
                 continue;
 
-            ProcessAudioEntity(
-                (uid, audioComponent),
-                Transform(uid));
+            ProcessAudioEntity((uid, audioComponent));
         }
     }
 
@@ -266,7 +246,7 @@ public sealed class AreaEchoSystem : EntitySystem
         {
 
             LayerBits = (int)CollisionGroup.WallLayer,
-            IsIgnored = ent => (_absorptionQuery.TryGetComponent(ent, out var comp)) && comp.ReflectRay,
+            IsIgnored = ent => _absorptionQuery.TryGetComponent(ent, out var comp) && comp.ReflectRay,
             Flags = QueryFlags.Static | QueryFlags.Dynamic
         };
 
@@ -335,7 +315,7 @@ public sealed class AreaEchoSystem : EntitySystem
     /// </summary>
     private static float NormalizeToPercentage(float value, float total)
     {
-        return MathF.Max((value / total) * 1f, 0.01f);
+        return MathF.Max(value / total * 1f, 0.01f);
     }
 
     private void CastAudioRay(
@@ -416,7 +396,7 @@ public sealed class AreaEchoSystem : EntitySystem
             // now we can do our bounce
             if (worldNormal.HasValue)
             {
-                UpdateProbeStepReflect(ref stepData, worldNormal.Value, maxProbeLength);
+                UpdateProbeStepReflect(ref stepData, worldNormal.Value);
                 rayStats.TotalBounces++;
             }
             else
@@ -489,7 +469,7 @@ public sealed class AreaEchoSystem : EntitySystem
         step.ProbeTranslation = step.Direction * step.MaxProbeDistance;
     }
 
-    private static void UpdateProbeStepReflect(ref EchoRayStep step, in Vector2 worldNormal, in float maxProbeLength)
+    private static void UpdateProbeStepReflect(ref EchoRayStep step, in Vector2 worldNormal)
     {
         step.NewPos += worldNormal * 0.05f;
         step.OldPos = step.NewPos;
@@ -519,17 +499,13 @@ public sealed class AreaEchoSystem : EntitySystem
         step.Translation = step.Direction * step.NewDistance;
     }
 
-    private void ProcessAudioEntity(
-            Entity<AudioComponent> audioEnt,
-            TransformComponent audioXForm
-    )
+    private void ProcessAudioEntity(Entity<AudioComponent> audioEnt)
     {
         TryProcessAreaSpaceMagnitude(_clientEnt, _maximumMagnitude, out var echoMagnitude);
 
         if (echoMagnitude > _minimumMagnitude)
         {
             var bestPreset = GetBestPreset(echoMagnitude);
-
             _audioEffectSystem.TryAddEffect(audioEnt, bestPreset);
         }
         else
@@ -549,7 +525,7 @@ public sealed class AreaEchoSystem : EntitySystem
             return;
         _clientEnt = _playerManager.LocalEntity.Value;
 
-        ProcessAudioEntity(entity, args.Transform);
+        ProcessAudioEntity(entity);
     }
 
     private void OnPlayerAttached(PlayerAttachedEvent ev)
