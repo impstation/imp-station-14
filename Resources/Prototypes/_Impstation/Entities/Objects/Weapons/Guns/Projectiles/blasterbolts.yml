@@ -51,16 +51,16 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 2
+    maxIntensity: 1.5
     intensitySlope: 3
-    totalIntensity: 24
+    totalIntensity: 12
     canCreateVacuum: false
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 15
+        Heat: 13
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -144,8 +144,8 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 22
-        Structural: 50
+        Blunt: 25
+        Structural: 75
 
 - type: entity
   name : flare shot
