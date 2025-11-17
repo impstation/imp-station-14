@@ -51,3 +51,25 @@
   - type: Item
     sprite: Objects/Devices/securityhandy.rsi
     heldPrefix: walkietalkie
+
+
+- type: entity
+  name: Futuristic Connecting Shard
+  description: Your connection to the others.
+  parent: BaseRadio
+  id: PorcelainRadioHandicom
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Handheld
+    toggleOnInteract: false
+    frequency: 1330
+  - type: RadioSpeaker
+    channels:
+    - Handheld
+    toggleOnInteract: false
+  - type: ActivatableUI
+    key: enum.HandheldRadioUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HandheldRadioUiKey.Key:
+        type: HandheldRadioBoundUserInterface
