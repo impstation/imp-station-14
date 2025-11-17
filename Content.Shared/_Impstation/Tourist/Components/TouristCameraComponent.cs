@@ -28,7 +28,7 @@ namespace Content.Shared._Impstation.Tourist.Components
         };
 
         [DataField]
-        public float DoAfterDuration = 3f;
+        public float DoAfterDuration = 2f;
 
         public bool Flashing;
 
