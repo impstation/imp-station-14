@@ -33,23 +33,21 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Mask/clayshapermask.rsi
 
+
 - type: entity
-  name: Connecting Shards
+  name: Connecting Shard
   description: Your connection to the others.
   parent: BaseRadio
-  id: porcelainRadio
+  id: PorcelainRadio
   components:
   - type: RadioMicrophone
-    broadcastChannel: Handheld
-    toggleOnInteract: false
-    frequency: 1330
+    broadcastChannel: Porcelain
+    listenRange: 1
   - type: RadioSpeaker
     channels:
-    - Handheld
-    toggleOnInteract: false
-  - type: ActivatableUI
-    key: enum.HandheldRadioUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.HandheldRadioUiKey.Key:
-        type: HandheldRadioBoundUserInterface
+    - Porcelain
+  - type: Sprite
+    sprite: Objects/Devices/securityhandy.rsi
+  - type: Item
+    sprite: Objects/Devices/securityhandy.rsi
+    heldPrefix: walkietalkie
