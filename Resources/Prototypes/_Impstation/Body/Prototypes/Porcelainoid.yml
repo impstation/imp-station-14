@@ -8,7 +8,7 @@
       connections:
       - torso
       organs:
-        brain: OrganHumanBrain
+        brain: OrganPorcelainoidBrain
         eyes: OrganPorcelainoidEyes
     torso:
       part: TorsoHuman
@@ -18,11 +18,11 @@
       - right_leg
       - left_leg
       organs:
-        heart: OrganHumanHeart
-        lungs: OrganHumanLungs
-        stomach: OrganHumanStomach
-        liver: OrganHumanLiver
-        kidneys: OrganHumanKidneys
+        heart: OrganPorcelainoidHeart
+        lungs: OrganPorcelainoidLungs
+        stomach: OrganPorcelainoidStomach
+        liver: OrganPorcelainoidLiver
+        kidneys: OrganPorcelainoidKidneys
     right_arm:
       part: RightArmHuman
       connections:
