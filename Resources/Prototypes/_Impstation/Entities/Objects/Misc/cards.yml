@@ -1139,6 +1139,10 @@
   components:
   - type: Item
     size: Tiny
+  - type: Storage
+    grid:
+    - 0,0,1,2
+    maxItemSize: Tiny
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     layers:
