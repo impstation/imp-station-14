@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChemist
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
 
 - type: loadoutEffectGroup
   id: Chemist10hr
@@ -15,7 +15,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChemist
-      time: 36000 #10 hrs, ~7 rounds
+      time: 10h
 
 # Jumpsuit
 - type: loadout

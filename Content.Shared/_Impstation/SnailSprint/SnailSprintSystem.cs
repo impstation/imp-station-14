@@ -63,7 +63,8 @@ public sealed partial class SharedSnailSprintSystem : EntitySystem
     private void OnSnailSprintAction(Entity<SnailSprintComponent> ent, ref SnailSprintActionEvent args)
     {
         // prevent the action and let the player know if their thirst value is too low to use it.
-        if (TryComp<ThirstComponent>(ent.Owner, out var thirstComp) && _thirstSystem.IsThirstBelowState(ent, ent.Comp.MinThirstThreshold, thirstComp.CurrentThirst - ent.Comp.ThirstCost, thirstComp))
+        if (TryComp<ThirstComponent>(ent.Owner, out var thirstComp)
+            && _thirstSystem.IsThirstBelowState((ent, thirstComp), ent.Comp.MinThirstThreshold, thirstComp.CurrentThirst))
         {
             _popupSystem.PopupClient(Loc.GetString(ent.Comp.FailedPopup), ent.Owner, ent.Owner);
             return;

@@ -112,10 +112,31 @@
   - SeclinkUtility
 
 - type: listing
-  id: SeclinkHandheldCriminalRecords
-  name: seclink-handheld-records-name
-  description: seclink-handheld-records-desc
-  productEntity: HandheldCriminalRecords
+  id: SeclinkCitationator
+  name: seclink-citationator-name
+  description: seclink-citationator-desc
+  icon: { sprite: _Impstation/Objects/Weapons/Guns/Cannons/citationator.rsi, state: icon }
+  productEntity: LauncherCitationator
+  cost:
+    UtilityToken: 1
+  categories:
+    - SeclinkUtility
+
+- type: listing
+  id: SeclinkCompactShield
+  name: seclink-shield-name
+  description: seclink-shield-desc
+  productEntity: CompactShield
+  cost:
+    UtilityToken: 1
+  categories:
+    - SeclinkUtility
+
+- type: listing
+  id: SeclinkSurplusGoggles
+  name: seclink-nvgoggles-name
+  description: seclink-nvgoggles-desc
+  productEntity: ClothingEyesSurplusNVGoggles
   cost:
     UtilityToken: 1
   categories:

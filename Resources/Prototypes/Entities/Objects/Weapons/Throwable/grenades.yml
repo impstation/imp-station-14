@@ -4,10 +4,16 @@
   id: GrenadeBase
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/grenade.rsi
-    layers:
+    sprite: _Impstation/Objects/Weapons/Grenades/grenade.rsi #imp
+    layers: #imp - changed the way layers work so that the unshaded primed layer will work.
+#   - state: icon
+#     map: ["Base"]
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
+    - state: primed-unshaded
+      shader: unshaded
+      visible: false
+      map: ["triggerlight"]
   - type: Item
     size: Small
   - type: Clothing
@@ -31,12 +37,21 @@
         acts: ["Destruction"]
   - type: Appearance
   - type: AnimationPlayer
-  - type: GenericVisualizer
+  - type: GenericVisualizer #imp everything in this typed component is us-- see the commented out version for the original
     visuals:
       enum.Trigger.TriggerVisuals.VisualState:
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
           Unprimed: { state: icon }
+        triggerlight:
+          Primed: { visible: true }
+          Unprimed: { visible: false }
+#  - type: GenericVisualizer #imp this is what it looks like normally without the futzing about I do to make the unshaded layers a reality
+#    visuals:
+#      enum.Trigger.TriggerVisuals.VisualState:
+#        enum.ConstructionVisuals.Layer:
+#          Primed: { state: primed }
+#          Unprimed: { state: icon }
   - type: Tag
     tags:
     - HandGrenade
@@ -53,7 +68,7 @@
 
 - type: entity
   name: explosive grenade
-  description: Grenade that creates a small but devastating explosion.
+  description: Causes a small but devastating blast. As the proverb goes, enter every room with a boom. #imp
   parent: [GrenadeBase, Tier3Contraband] #imp contraband
   id: ExGrenade
   components:
@@ -76,12 +91,12 @@
 
 - type: entity
   name: flashbang
-  description: THINK FAST CHUCKLENUTS! #imp
+  description: THINK FAST, CHUCKLENUTS! #imp
   parent: [ GrenadeBase, BaseSecurityContraband ]
   id: GrenadeFlashBang
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/flashbang.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/flashbang.rsi #imp
   - type: FlashOnTrigger
     keysIn:
     - timer
@@ -98,7 +113,7 @@
   - type: SpawnOnTrigger
     keysIn:
     - timer
-    proto: GrenadeFlashEffect
+    proto: GrenadeFlashEffectStun #imp
     predicted: true
   - type: Appearance
   - type: TimerTriggerVisuals
@@ -119,6 +134,7 @@
   components:
     - type: PointLight
       enabled: true
+      color: "#ffd591" #imp
       radius: 5
       energy: 8
       netsync: false
@@ -136,7 +152,7 @@
   id: SyndieMiniBomb
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/syndgrenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/syndgrenade.rsi #imp
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Destructible
@@ -188,6 +204,8 @@
     totalIntensity: 400
     intensitySlope: 30
     maxIntensity: 125
+    deleteAfterExplosion: false
+    repeatable: true
     canCreateVacuum: true
   - type: TimerTrigger
     delay: 4.5
@@ -203,10 +221,10 @@
   parent: [ GrenadeBase, BaseSyndicateContraband ]
   id: SingularityGrenade
   name: singularity grenade
-  description: Grenade that simulates the power of a singularity, pulling things in a heap.
+  description: A grenade that simulates the power of a singularity, pulling everything around itself into a heap. #imp
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/singularitygrenade.rsi #imp
   - type: TimerTrigger
     delay: 3
     beepInterval: 0.46
@@ -272,12 +290,12 @@
 
 - type: entity
   name: whitehole grenade
-  description: Grenade that repulses everything around for some time.
+  description: A grenade that repulses everything around itself for some time. #imp
   parent: SingularityGrenade
   id: WhiteholeGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/whiteholegrenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/whiteholegrenade.rsi #imp
   - type: TimerTrigger
     delay: 3
     beepInterval: 0.69
@@ -332,12 +350,12 @@
 
 - type: entity
   name: the nuclear option
-  description: Please don't throw it, think of the children.
+  description: Please don't throw it; think of the children! #imp
   parent: GrenadeBase
   id: NuclearGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/nukenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/nukenade.rsi #imp
   - type: TimerTrigger
     delay: 5
   - type: ExplodeOnTrigger
@@ -370,10 +388,14 @@
   id: ModularGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/modular.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/modular.rsi #imp
     layers:
     - state: empty
       map: [ "enum.ConstructionVisuals.Layer" ]
+    - state: primed-unshaded #imp
+      shader: unshaded
+      visible: false
+      map: ["triggerlight"]
   - type: Item
     size: Small
   - type: Tag
@@ -395,6 +417,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Appearance
+  - type: AnimationPlayer #imp
   - type: GenericVisualizer
     visuals:
       enum.ConstructionVisuals.Key:
@@ -404,10 +427,16 @@
           caseWithTrigger: { state: no-payload }
           caseWithPayload: { state: no-trigger }
           grenade: { state: complete }
-      enum.Trigger.TriggerVisuals.VisualState:
+      enum.Trigger.TriggerVisuals.VisualState: #imp - our version of these layers
         enum.ConstructionVisuals.Layer:
           Primed: { state: primed }
-          # Unprimed: <Use state determined by enum.ConstructionVisuals.Layer>
+        triggerlight:
+          Primed: { visible: true }
+          Unprimed: { visible: false }
+#      enum.Trigger.TriggerVisuals.VisualState: #imp the Wizden version of these layers, you know the drill
+#        enum.ConstructionVisuals.Layer:
+#          Primed: { state: primed }
+#          # Unprimed: <Use state determined by enum.ConstructionVisuals.Layer>
   - type: StaticPrice
     price: 75
 
@@ -418,7 +447,7 @@
   id: EmpGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/empgrenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/empgrenade.rsi #imp
   - type: EmpOnTrigger
     keysIn:
     - timer
@@ -441,7 +470,7 @@
   id: HolyHandGrenade
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/holyhandgrenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/holyhandgrenade.rsi #imp
   - type: ExplodeOnTrigger
     keysIn:
     - timer
@@ -467,10 +496,10 @@
   parent: [ GrenadeBase, BaseSecurityContraband ]
   id: SmokeGrenade
   name: smoke grenade
-  description: A tactical grenade that releases a large, long-lasting cloud of smoke when used.
+  description: A grenade that releases a large, long-lasting cloud of thick smoke when used. #imp
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/smoke.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/smoke.rsi #imp
   - type: SmokeOnTrigger
     keysIn:
     - timer
@@ -479,7 +508,7 @@
   - type: EmitSoundOnTrigger
     keysIn:
     - timer
-    sound: /Audio/Items/smoke_grenade_smoke.ogg
+    sound: /Audio/Effects/smoke.ogg #imp
     positional: true
   - type: DeleteOnTrigger
     keysIn:
@@ -492,10 +521,10 @@
   parent: [ BaseServiceContraband, SmokeGrenade ] #imp edit
   id: CleanerGrenade
   name: cleanade
-  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
+  description: A special grenade for janitors, releasing large cloud of space cleaner foam. #imp
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/janitor.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/janitor.rsi #imp
   - type: SmokeOnTrigger
     keysIn:
     - timer
@@ -507,6 +536,10 @@
       - ReagentId: SpaceCleaner
         Quantity: 30
   # imp edit start
+  - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
   - type: Tag
     tags:
     - CleanerGrenade
@@ -520,14 +553,14 @@
   parent: SmokeGrenade
   id: TearGasGrenade
   name: tear gas grenade
-  description: A riot control tear gas grenade. Causes irritation, pain and makes you cry your eyes out.
+  description: A chemical irritant grenade intended for riot control. Makes you cry your eyes out and cough your lungs out. #imp
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/tear_gas.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/tear_gas.rsi #imp
   - type: SmokeOnTrigger
     keysIn:
     - timer
-    duration: 10
+    duration: 15 #imp
     spreadAmount: 30
     smokePrototype: TearGasSmokeWhite
     solution:
@@ -542,9 +575,13 @@
   description: An emergency tool used for patching hull breaches with special quick-set metal foam. Almost as good as real floors!
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/metalfoam.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/metalfoam.rsi #imp
   - type: TimerTrigger
     delay: 5
+  - type: EmitSoundOnTrigger #imp
+    keysIn:
+    - timer
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
   - type: SmokeOnTrigger
     keysIn:
     - timer
@@ -561,7 +598,7 @@
   description: A special solid state chemical grenade used for quickly releasing standard air into a spaced area. Fills up to 30 tiles!
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/airboom.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/airboom.rsi #imp
   - type: EmitSoundOnTrigger
     keysIn:
     - timer
@@ -578,8 +615,8 @@
     air:
       volume: 1000
       moles: # Target is 3117.84 mols total for filling 30 tiles (goal is 101.325 kPa @ 20C)
-      - 654.7464 # oxygen
-      - 2463.0936 # nitrogen
+        Oxygen: 654.7464 # oxygen
+        Nitrogen: 2463.0936 # nitrogen
       temperature: 293.15
   - type: StaticPrice
     price: 350
@@ -589,6 +626,13 @@
         enabled:
           True: { state: active }
           False: { state: spent }
+      enum.Trigger.TriggerVisuals.VisualState: #imp everything in this little category
+        enum.ConstructionVisuals.Layer:
+          Primed: { state: primed }
+          Unprimed: { state: icon }
+        triggerlight:
+          Primed: { visible: true }
+          Unprimed: { visible: false }
 
 # Non-explosive "dummy" grenades to use as a distraction.
 
@@ -599,7 +643,7 @@
   id: GrenadeDummy
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/grenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/grenade.rsi #imp
   - type: DeleteOnTrigger
     keysIn:
     - timer
@@ -626,7 +670,7 @@
   id: SyndieTrickyBomb
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/syndgrenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/syndgrenade.rsi #imp
   - type: TimerTrigger
     delay: 5
   - type: EmitSoundOnTrigger

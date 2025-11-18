@@ -20,6 +20,7 @@
     - type: GrayAccent
     - type: DwarfAccent
     - type: NoContractionsAccent
+    - type: AllulaloAccent
 
 # 1 Cost
 
@@ -96,7 +97,7 @@
   name: trait-socialanxiety-name
   description: trait-socialanxiety-desc
   category: SpeechTraits
-  cost: 1
+  cost: 0 # imp edit
   components:
   - type: StutteringAccent
     matchRandomProb: 0.1

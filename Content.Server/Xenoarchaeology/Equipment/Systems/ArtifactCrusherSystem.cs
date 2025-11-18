@@ -2,8 +2,6 @@ using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
-using Content.Server.Xenoarchaeology.XenoArtifacts; //imp
-using Content.Shared._Goobstation.Changeling; //imp
 using Content.Shared.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Power;
@@ -15,6 +13,9 @@ using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server.Xenoarchaeology.Artifact; //imp
+using Content.Shared._Goobstation.Changeling; //imp
+using Content.Shared.Xenoarchaeology.Artifact.Components; //imp
 
 namespace Content.Server.Xenoarchaeology.Equipment.Systems;
 
@@ -28,7 +29,7 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly ArtifactSystem _artifact = default!; //#IMP
+    [Dependency] private readonly XenoArtifactSystem _artifact = default!; //imp
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -106,9 +107,11 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                 }
             }
 
-            //#IMP
-            if (HasComp<ArtifactComponent>(contained))
-                _artifact.ForceActivateArtifact(contained);
+            if (TryComp<XenoArtifactComponent>(contained, out var artifact) && artifact.Natural) //imp if statement and all code within
+            {
+                var unlocking = EnsureComp<XenoArtifactUnlockingComponent>(contained);
+                _artifact.FinishUnlockingState((contained, unlocking, artifact));
+            }
 
             if (!TryComp<BodyComponent>(contained, out var body))
                 Del(contained);
