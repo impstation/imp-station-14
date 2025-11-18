@@ -10,7 +10,7 @@ namespace Content.Shared._Impstation.Tourist.Components
     {
 
         [DataField]
-        public int FlashDuration { get; set; } = 5000;
+        public int FlashDuration { get; set; } = 3500;
 
         [DataField]
         public float Range { get; set; } = 7f;
@@ -28,7 +28,7 @@ namespace Content.Shared._Impstation.Tourist.Components
         };
 
         [DataField]
-        public float DoAfterDuration = 1f;
+        public float DoAfterDuration = 2f;
 
         public bool Flashing;
 

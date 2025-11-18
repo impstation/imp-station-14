@@ -245,3 +245,17 @@
     earliestStart: 1
     duration: 1
   - type: BluespaceLockerRuleRandomUnrestricted
+
+# biomagnetic polarization
+- type: entity
+  id: BiomagneticPolarizationRule
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    duration: 150
+    maxDuration: 300
+    reoccurrenceDelay: 30
+  - type: GlobalStatusEffectRule
+    statusEffect: "StatusEffectBiomagneticPolarization"
+    announcement: "station-event-biomagnetic-polarization-announcement"
