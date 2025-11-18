@@ -115,7 +115,8 @@
   name: FG10 Olympus
   parent: BaseWeaponFlamer
   id: WeaponFlamerOlympus
-  description: An effective and efficient decontamination tool used by CBURN crews. Requires a proprietary fuel tank equipped to the back.
+  categories: [HideSpawnMenu] #see its fuel tank, where this spawns holstered in.
+  description: An effective and efficient decontamination tool used by CBURN crews. Requires a proprietary fuel tank equipped to a suit's tank slot.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/olympus.rsi
