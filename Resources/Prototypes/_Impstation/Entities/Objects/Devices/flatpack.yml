@@ -80,3 +80,12 @@
     entity: PrinterDocSyndicate
   - type: Item
     size: Normal
+
+- type: entity
+  parent: BaseFlatpack
+  id: TckutFlatpack
+  name: tck'ut flatpack
+  description: A flatpack used for constructing a Tck'ut.
+  components:
+  - type: Flatpack
+    entity: MobTckut

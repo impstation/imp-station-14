@@ -1,5 +1,3 @@
-<!-- Guidelines: TBD sorry. Sorry. I'm trying to fix it -->
-
 ## About the PR
 <!-- What did you change? -->
 
@@ -14,7 +12,7 @@
 
 ## Requirements
 <!-- Confirm the following by placing an X in the brackets [X]: -->
-- [ ] I have read and am following the Pull Request and Changelog Guidelines. <!-- SORRY WE DONT HAVE THIS ONE YET. SORRY -->
+- [ ] I have read and am following the Impstation [Design Principles](https://github.com/impstation/imp-station-14/wiki/Design-Principles) and [Coding Standards](https://github.com/impstation/imp-station-14/wiki/Coding-Standards).
 - [ ] I have added media to this PR or it does not require an ingame showcase.
 <!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->
 

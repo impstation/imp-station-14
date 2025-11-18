@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "copyright": "Sprited by skeepo (discord) and edited by kipdotnet (github)",
+  "license": "CC-BY-SA-3.0",
+  "states": [
+    {
+      "name": "base",
+      "directions": 4
+    },
+    {
+      "name": "eyes",
+      "directions": 4
+    },
+    {
+      "name": "o1",
+      "directions": 4
+    },
+    {
+      "name": "o2",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4,
+      "delays": [
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4,
+      "delays": [
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ]
+      ]
+    }
+  ]
+}

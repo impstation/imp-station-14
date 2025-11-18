@@ -1,0 +1,11 @@
+# CBURN shuttle, based on Harmony ERT shuttle gamerules
+
+- type: entity
+  id: CBURNMediumShuttle
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: true
+    weight: 0 #  Admin only.
+  - type: LoadMapRule
+    preloadedGrid: CBURNMedium

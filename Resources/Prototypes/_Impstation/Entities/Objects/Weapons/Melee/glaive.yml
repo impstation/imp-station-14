@@ -1,0 +1,50 @@
+- type: entity
+  name: telescopic glaive
+  parent: [ BaseSword, BaseSecurityContraband ]
+  id: SecurityGlaive
+  description: A reliable weapon of a loyal guard.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Melee/secglaive.rsi
+  - type: Sharp
+    butcherDelayModifier: 2
+  - type: MeleeWeapon
+    attackRate: 1
+    angle: 90
+    range: 1.75
+    damage:
+      types:
+        Slash: 10
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 10
+  - type: Item
+    storedSprite:
+      state: storage
+      sprite: _Impstation/Objects/Weapons/Melee/secglaive.rsi
+    size: Large
+    shape:
+    - 0,0,3,1
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Melee/secglaive.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: Tag
+    tags:
+    - Spear
+  - type: DisarmMalus
+  - type: DamageOtherOnHit
+    staminaCost: 5
+    damage:
+      types:
+        Piercing: 15
+        Slash: 10
+  - type: EmbeddableProjectile
+  - type: EmbedPassiveDamage
+  - type: ThrowingAngle
+    angle: 225

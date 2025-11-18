@@ -1,0 +1,143 @@
+- type: trait
+  id: RandomUnrevivable
+  name: trait-random-unrevivable-name
+  description: trait-random-unrevivable-desc
+  category: Traits
+  components:
+    - type: RandomUnrevivable
+  subcategories:
+    - Unrevivability
+  cost: -2
+
+- type: trait
+  id: SGDrequired
+  name: trait-sgdrequired-name
+  description: trait-sgdrequired-desc
+  traitGear: ClothingNeckSGD
+  category: Traits
+  components:
+    - type: SpeechRequiresEquipment
+      equipment:
+        neck:
+          tags:
+            - SGD
+      failMessage: sgdrequired-cant-speak
+  subcategories:
+    - Speech
+  cost: -1
+
+- type: trait
+  id: Unborgable
+  name: trait-unborgable-name
+  description: trait-unborgable-desc
+  category: Traits
+  components:
+    - type: Unborgable
+  organ: Brain
+
+- type: trait
+  id: Illiterate
+  name: trait-illiterate-name
+  description: trait-illiterate-desc
+  category: Traits
+  components:
+    - type: Illiterate
+
+- type: trait
+  id: ImperfectClone
+  name: trait-imperfect-clone-name
+  description: trait-imperfect-clone-desc
+  category: RandomizerTraits
+  cost: 1
+  components:
+    - type: TraitRandomizer
+      minTraits: 1
+      maxTraits: 3
+      categories:
+      - Traits
+
+- type: trait
+  id: ImperfectCloneAccents
+  name: trait-imperfect-clone-accent-name
+  description: trait-imperfect-clone-accent-desc
+  category: RandomizerTraits
+  cost: 1
+  components:
+    - type: TraitRandomizer
+      minTraits: 0
+      maxTraits: 2
+      categories:
+      - SpeechTraits
+
+- type: trait
+  id: InconsistentHandwriting
+  name: trait-inconsistent-handwriting-name
+  description: trait-inconsistent-handwriting-desc
+  category: RandomizerTraits
+  cost: 1
+  components:
+    - type: TraitRandomizer
+      minTraits: 1
+      maxTraits: 1
+      categories:
+      - SignatureFonts
+
+- type: trait
+  id: ChaosMagicVictim
+  name: trait-chaos-magic-victim-name
+  description: trait-chaos-magic-victim-desc
+  category: RandomizerTraits
+  cost: 1
+  components:
+    - type: TraitRandomizer
+      minTraits: 5
+      maxTraits: 5
+      categories:
+      - Traits
+      - SpeechTraits
+
+- type: trait
+  id: Echolalia
+  name: trait-echolalia-name
+  description: trait-echolalia-desc
+  category: Traits # doesn't belong in the speech traits because it's something the player cannot control, not something that happens when the player sends a message to chat
+  components:
+  - type: ActiveListener
+    range: 5
+  - type: ParrotSpeech
+    maximumPhraseLength: 24 # higher chance of saying a full sentence
+    hideMessagesInChat: false # so that people react to it with roleplay
+    whisperChance: 0.25 # partly so it's not always interjecting into conversations
+    preserveContext: true # to both creatively obfuscate and clarify the nature of a player's chat messages (the ellipses might tell you an echo is an excerpt, but the caps preservation might make you think otherwise)
+    minimumWait: 300
+    maximumWait: 600 # triggers once every 5-10 minutes
+    learnChance: 0.1
+  subcategories:
+    - Echolalia
+  cost: -1
+
+- type: trait
+  id: UnadaptedToSpace
+  name: trait-unadapted-to-space-name
+  description: trait-unadapted-to-space-desc
+  category: Traits
+  components:
+  - type: UnadaptedToSpace
+  cost: -4
+
+- type: trait
+  id: HeavyweightDrunk
+  name: trait-heavyweightdrunk-name
+  description: trait-heavyweightdrunk-desc
+  category: Traits
+  components:
+  - type: HeavyweightDrunk
+
+- type: trait
+  id: SoftHands
+  name: trait-soft-hands-name
+  description: trait-soft-hands-desc
+  category: Traits
+  components:
+  - type: UnableToWield
+  cost: -3

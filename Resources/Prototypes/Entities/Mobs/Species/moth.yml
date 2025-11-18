@@ -74,6 +74,20 @@
       289: 0.9
       275: 0.8
       250: 0.7
+#imp start
+  - type: Fixtures 
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 160 #they're light flying bugs! 
+        restitution: 0.0
+        mask:
+          - MobMask
+        layer:
+          - MobLayer
+# imp end
   - type: Sprite # sprite again because we want different layer ordering
     noRot: true
     drawdepth: Mobs

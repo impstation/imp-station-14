@@ -144,3 +144,94 @@
     - ClothingHeadHatCone
     - PowerCellSmall
     - Decalamp
+
+- type: entity
+  parent: RCDRechargingTckTck
+  id: RCDRefreshments
+  name: refreshments RCD
+  description: The pinnacle of Decapoid technology, an RCD that makes snacks.
+  suffix: AutoRecharge
+  components:
+  - type: RCD
+    availablePrototypes:
+    - RCDHotCoffee
+    - RCDJuiceOrangeCarton
+    - RCDZombieSlushieGlass
+    - RCDBakedCookieSugar
+    - RCDCakeCottonSlice
+    - RCDMeatMeatball
+    - RCDCBlanketShock
+  - type: LimitedCharges
+    maxCharges: 16
+  - type: AutoRecharge
+    rechargeDuration: 30
+
+- type: entity
+  parent: Crayon
+  id: CrayonChalkInfinite
+  name: infinity chalk
+  suffix: Infinite
+  description: Not for doodles.
+  components:
+  - type: Crayon
+    color: White
+    infinite: true
+  - type: Sprite
+    state: white
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - CrayonWhite
+
+- type: entity
+  parent: BorgHoloBellProjector
+  id: HoloprojectorSafety
+  name: safety projector
+  description: Creates a visual indicator of an unsafe area.
+  components:
+  - type: HolosignProjector
+    signProto: HolosignSafety
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+        disableEject: true
+  - type: Sprite
+    sprite: Objects/Devices/Holoprojectors/security.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - HolofanProjector
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  name: ticket cannon
+  parent: BaseWeaponBattery
+  id: TicketCannon
+  description: May the mighty hand of the Empire strike fierce the fool who violated code.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/tckut_ticket_dispenser.rsi
+    layers:
+    - state: icon
+  - type: Gun
+    fireRate: 4
+    soundGunshot:
+      path: /Audio/Effects/pop.ogg
+    soundEmpty:
+      path: /Audio/Items/hiss.ogg
+    clumsyProof: true
+  - type: ProjectileBatteryAmmoProvider
+    proto: CodeViolation
+    fireCost: 20
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 2
+  - type: Item
+    size: Tiny

@@ -104,6 +104,7 @@
 #    interfaces:
 #      enum.WiresUiKey.Key:
 #        type: WiresBoundUserInterface
+  - type: TooShortForUIBlacklist #imp
 
 - type: entity
   parent: BaseComputer

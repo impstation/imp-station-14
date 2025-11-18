@@ -150,6 +150,7 @@
     tags:
     - UnguFood
     - Pie
+    - ReptilianFood # pistachios
 
 - type: entity
   name: slice of baklava
@@ -177,6 +178,7 @@
     - UnguFood
     - Pie
     - Slice
+    - ReptilianFood # pistachios
 # Tastes like pie, nuts.
 
 - type: entity
@@ -456,6 +458,7 @@
     tags:
     - Pie
     - Vegetable # imp, adding this bcs the fruit pies have fruit
+    - ReptilianFood # imp they get to eat squash
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -485,6 +488,7 @@
     - Pie
     - Slice
     - Vegetable # imp
+    - ReptilianFood # imp
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -582,6 +586,10 @@
           Quantity: 30
         - ReagentId: Vitamin
           Quantity: 12
+  - type: Tag # imp
+    tags:
+    - Pie
+    - Vegetable
 
 - type: entity
   name: slice of frosty pie
@@ -607,6 +615,11 @@
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 2.4
+  - type: Tag # imp
+    tags:
+    - Pie
+    - Vegetable
+    - Slice
 # Tastes like pie, mint.
 
 - type: entity
@@ -639,7 +652,7 @@
           Quantity: 15
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Fruit
     - Pie
 
 - type: entity
@@ -670,7 +683,7 @@
           Quantity: 3.75
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Fruit
     - Pie
     - Slice
 # Tastes like nothing.
@@ -703,6 +716,7 @@
     tags:
     - UnguFood
     - Pie
+    - Mushroom
 # Tastes like pie, mushrooms.
 
 - type: entity
@@ -720,6 +734,7 @@
     tags:
     - UnguFood
     - Pie
+    - Mushroom
 # Tastes like pie, mushrooms.
 
 # Tart

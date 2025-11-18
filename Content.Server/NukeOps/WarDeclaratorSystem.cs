@@ -79,7 +79,8 @@ public sealed class WarDeclaratorSystem : EntitySystem
                 Filter.Broadcast(),
                 ent.Comp.Message,
                 title,
-                ent.Comp.Color);
+                ent.Comp.Color,
+                announcementSound: ent.Comp.Sound);
             _adminLogger.Add(LogType.Chat, LogImpact.Low, $"{ToPrettyString(args.Actor):player} has declared war with this text: {ent.Comp.Message}");
         }
 

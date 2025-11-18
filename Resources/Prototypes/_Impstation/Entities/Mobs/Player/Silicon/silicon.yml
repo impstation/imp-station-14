@@ -39,8 +39,8 @@
   - type: Instrument # imp
     allowPercussion: false
     handheld: false
-    bank: 1
-    program: 2
+    bank: 110
+    program: 5
   - type: Loadout # imp special. this replaces the InnateTool component.
     prototypes:
       - StartingGearDroneTools

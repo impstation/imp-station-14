@@ -11,20 +11,22 @@
   - type: FlavorProfile
     flavors:
       - cotton
+      - potatoes # imp
+      - carrot # imp
   - type: Sprite
     sprite: _Nyanotrasen/Objects/Consumable/Food/moth.rsi
     state: cottonsoup
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 60
+        maxVol: 56 # imp edit to remove allicin
         reagents:
         - ReagentId: Nutriment
           Quantity: 20
         - ReagentId: Vitamin
           Quantity: 12
-        - ReagentId: Allicin
-          Quantity: 4
+#        - ReagentId: Allicin # imp removed with recipe change from onion to potato
+#          Quantity: 4
         - ReagentId: JuiceCarrot
           Quantity: 5
         - ReagentId: Fiber
@@ -179,6 +181,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - ReptilianFood
+    - ClothMade
 #Tastes like vanilla and clouds.
 
 - type: entity
@@ -211,6 +215,8 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - ReptilianFood
+    - ClothMade
 #Tastes like vanilla and clouds.
 
 - type: entity

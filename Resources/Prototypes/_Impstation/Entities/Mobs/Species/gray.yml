@@ -25,8 +25,8 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        # they r smaller
-        density: 120
+        # they r smaller #they r smaller (2)
+        density: 100
         restitution: 0.0
         mask:
         - MobMask

@@ -151,3 +151,5 @@
     state: icon
   - type: Item
     sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_gold.rsi #imp edit
+  - type: StealTarget # imp
+    stealGroup: ToolboxGolden

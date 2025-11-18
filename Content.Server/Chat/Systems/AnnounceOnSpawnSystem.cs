@@ -20,6 +20,6 @@ public sealed class AnnounceOnSpawnSystem : EntitySystem
     {
         var sender = comp.Sender != null ? Loc.GetString(comp.Sender) : Loc.GetString("chat-manager-sender-announcement");
         _announcer.SendAnnouncement(_announcer.GetAnnouncementId("SpawnAnnounceCaptain"), Filter.Broadcast(), // imp on deck!
-            comp.Message, sender, comp.Color);
+            comp.Message, sender, comp.Color, announcementSound: comp.Sound);
     }
 }

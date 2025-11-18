@@ -1,20 +1,23 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation at commit 6665eec76c98a4f3f89bebcd10b34b47dcc0b8ae. Inhands sprited by Flareguy for Space Station 14.",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/cc65477c04f7403ca8a457bd5bae69a01abadbf0, Original conversion kit icons by DVDPlayerOfDiscordFame (Github) for Impstation, Redesigned icons by Lightning for Impstation",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
+      "name": "box_sec_ckit"
+    },
+    {
       "name": "iconfa"
     },
-	{
-	  "name": "iconhb"
-	},
-	{
-	  "name": "iconpb"
-	}
+	  {
+	    "name": "iconhb"
+	  },
+	  {
+	    "name": "iconpb"
+	  }
   ]
 }

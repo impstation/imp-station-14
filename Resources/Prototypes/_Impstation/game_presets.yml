@@ -30,71 +30,6 @@
     - BasicRoundstartVariation
 
 - type: gamePreset
-  id: SecretSpyVsSpy #For Admin Use: Runs SpyVsSpy but shows "Secret" in lobby.
-  alias:
-    - secretsvs
-  name: secret-title
-  description: secret-description
-  showInVote: false #Admin Use
-  rules:
-    - DummyNonAntagChance
-    - SpyVsSpy
-    - SleeperlessStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-
-- type: gamePreset
-  id: SecretSpyVsSpy3TC #For Admin Use: Runs SpyVsSpy3TC but shows "Secret" in lobby.
-  alias:
-    - secretsvs
-  name: secret-title
-  description: secret-description
-  showInVote: false #Admin Use
-  rules:
-    - DummyNonAntagChance
-    - SpyVsSpy3TC
-    - SleeperlessStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-
-- type: gamePreset
-  id: LowpopHeretics
-  alias:
-    - LowpopHeretic
-  name: heretic-gamemode-title
-  description: heretic-gamemode-description
-  cooldown: 1
-  showInVote: false
-  rules:
-    - Heretic
-    - HereticBooksEventScheduler
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - PopLimiter20
-
-- type: gamePreset
-  id: SecretLowpopHeretics
-  alias:
-    - SecretLowpopHeretic
-  name: secret-title
-  description: secret-description
-  showInVote: false
-  rules:
-    - Heretic
-    - HereticBooksEventScheduler
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - PopLimiter20
-
-- type: gamePreset
   id: AllAboardTheShip
   alias:
   - svsaller
@@ -141,3 +76,181 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlFriendlyEventScheduler # the obstacle is each other, not vent spawns!
   - BasicRoundstartVariation
+
+# secret...
+# all below protos are admin use only. they set the gamemode but keep the "secret" title and description.
+# this allows admins to set the gamemode without anyone knowing.
+# btw if you're looking for the lings or heretics rules, those are in the goob directory
+
+- type: gamePreset
+  id: SecretTraitor
+  alias:
+    - secrettraitor
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - DummyNonAntagChance
+    - Traitor
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretNukeops
+  alias:
+    - secretnukeops
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - Nukeops
+    - DummyNonAntagChance
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretRevolutionary
+  alias:
+    - secretrev
+    - secretrevs
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - DummyNonAntagChance
+    - Revolutionary
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretZombie
+  alias:
+  - secretzombie
+  - secretzombies
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+  - Zombie
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretWizard
+  alias:
+  - secretwizard
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+  - Wizard
+  - DummyNonAntagChance
+  - SubGamemodesRuleNoWizard #No Dual Wizards at the start, midround is fine
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretKesslerSyndrome
+  alias:
+    - secretkessler
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - KesslerSyndromeScheduler
+    - RampingStationEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretZombieteors
+  alias:
+  - secretzombieteors
+  - scarethegoddamnpantsoffem
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+  - Zombie
+  - BasicStationEventScheduler
+  - KesslerSyndromeScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretSpyVsSpy
+  alias:
+    - secretsvs
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - DummyNonAntagChance
+    - SpyVsSpy
+    - SleeperlessStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretSpyVsSpy3TC
+  alias:
+    - secretsvs3tc
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - DummyNonAntagChance
+    - SpyVsSpy3TC
+    - SleeperlessStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: LowpopHeretics
+  alias:
+    - LowpopHeretic
+  name: heretic-gamemode-title
+  description: heretic-gamemode-description
+  cooldown: 1
+  showInVote: false
+  rules:
+    - Heretic
+    - HereticBooksEventScheduler
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - PopLimiter20
+
+- type: gamePreset
+  id: SecretLowpopHeretics
+  alias:
+    - SecretLowpopHeretic
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - Heretic
+    - HereticBooksEventScheduler
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+    - PopLimiter20

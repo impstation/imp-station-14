@@ -1039,13 +1039,15 @@
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/eshotgun.ogg #imp
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpreadNarrow
-    fireCost: 80
+    fireCost: 72 #imp
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: BulletLaserSpreadNarrow
-      fireCost: 80
+      fireCost: 72 #imp - was 80
+    - proto: BulletBlasterKinetic #imp
+      fireCost: 42
     - proto: BulletDisablerSmgSpread
-      fireCost: 48
+      fireCost: 42 #imp was 48
   - type: Item
     size: Large
     shape:
@@ -1054,8 +1056,8 @@
     heldPrefix: energy
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Battery
-    maxCharge: 480
-    startingCharge: 480
+    maxCharge: 504 #imp - was 480
+    startingCharge: 504 #imp
 
 - type: entity
   name: Type-25 energy magnum #imp
@@ -1085,25 +1087,28 @@
   - type: StealTarget
     stealGroup: WeaponEnergyMagnum
   - type: Gun
+    fireRate: 1.5 #imp
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/blasterrevolver.ogg #imp
+  - type: Battery #imp
+    maxCharge: 1050
+    startingCharge: 1050
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserMagnum
-    fireCost: 150
+    fireCost: 175 #imp was 150
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: BulletLaserMagnum
-      fireCost: 150
-    - proto: BulletLaserWindowPiercingMagnum
-      fireCost: 150
-    - proto: BulletDisabler
-      fireCost: 62.5
-  - type: BatterySelfRecharger #imp removed the recharge pause but made the recharge even slower
+      fireCost: 175 #imp
+    - proto: BulletBlasterFlare #imp - was BulletLaserWindowPiercingMagnum
+      fireCost: 87.5 #imp
+    - proto: BulletMagnumDisabler #imp
+      fireCost: 116 #imp
+  - type: BatterySelfRecharger #imp reduced the recharge delay and the recharge rate
     autoRecharge: true
-   # autoRechargeRate: 48
-   # autoRechargePause: true
-   # autoRechargePauseTime: 10
-    autoRechargeRate: 18.5 #imp
+    autoRechargeRate: 35 #imp - was 48
+    autoRechargePause: true
+    autoRechargePauseTime: 1 #imp - was 10. One second means you don't get a bonus shot while magdumping.
 #imp edit begin; weapon melee
   - type: MeleeWeapon
     attackRate: 0.6

@@ -1,44 +1,51 @@
 - type: entity
+  parent: BaseItem
+  abstract: true
+  id: BaseConversionKit
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/conversionkit.rsi
+  - type: Item
+    size: Normal
+
+- type: entity
   name: PRIbar+ conversion kit
-  parent: [ BaseItem, BaseSecurityContraband ]
+  parent: [ BaseConversionKit, BaseSecurityContraband ]
   id: PRIbarPlusConversionKit
   description: A package of parts and tools for adding a ratchet to a PRIbar.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/conversionkit.rsi
-    state: iconpb
-  - type: Item
-    size: Normal
+    layers:
+    - state: box_sec_ckit
+    - state: iconpb
   - type: Tag
     tags:
     - ConversionKitPB
 
 - type: entity
   name: full-auto conversion kit
-  parent: [ BaseItem, BaseSecurityContraband ]
+  parent: [ BaseConversionKit, BaseSecurityContraband ]
   id: FullAutoConversionKit
-  description: A package of parts and tools for modifying an mk 58.
+  description: A package of parts and tools for modifying an Mk 58.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/conversionkit.rsi
-    state: iconfa
-  - type: Item
-    size: Normal
+    layers:
+    - state: box_sec_ckit
+    - state: iconfa
   - type: Tag
     tags:
     - ConversionKitFA
 
 - type: entity
   name: hyper-burst conversion kit
-  parent: [ BaseItem, BaseSecurityContraband ]
+  parent: [ BaseConversionKit, BaseSecurityContraband ]
   id: HyperBurstConversionKit
-  description: A package of parts and tools for modifying an mk 58.
+  description: A package of parts and tools for modifying an Mk 58.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/conversionkit.rsi
-    state: iconhb
-  - type: Item
-    size: Normal
+    layers:
+    - state: box_sec_ckit
+    - state: iconhb
   - type: Tag
     tags:
     - ConversionKitHB

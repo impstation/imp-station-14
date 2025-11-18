@@ -53,18 +53,23 @@
     Tail:
       points: 2
       required: false
+      weight: 0.6
     Head:
       points: 8
       required: false
+      weight: 0.6
     Snout:
       points: 1
       required: false
+      weight: 0.6
     Chest:
       points: 4
       required: false
+      weight: 0.6
     Legs:
       points: 8
       required: false
+      weight: 0.6
     Arms:
       points: 1
       required: true

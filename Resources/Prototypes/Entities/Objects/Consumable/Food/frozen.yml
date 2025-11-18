@@ -122,7 +122,7 @@
           Quantity: 1
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Fruit
 
 - type: entity
   parent: FoodFrozenBase
@@ -264,6 +264,10 @@
             #  Quantity: 2
             - ReagentId: Sugar
               Quantity: 4 # imp
+    - type: Tag # imp
+      tags:
+      - ReptilianFood
+      - UnguFood
 
 - type: entity
   name: flavorless snowcone
