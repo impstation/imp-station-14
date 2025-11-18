@@ -1141,7 +1141,7 @@
     size: Tiny
   - type: Storage
     grid:
-    - 0,0,1,2
+    - 0,0,4,0
     maxItemSize: Tiny
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
@@ -1151,9 +1151,6 @@
     tags:
     - Trash
   - type: SpaceGarbage
-  - type: Storage
-    grid:
-    - 0,0,4,0
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:GroupSelector
