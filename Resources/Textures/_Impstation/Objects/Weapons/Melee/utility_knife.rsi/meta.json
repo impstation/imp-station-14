@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "icon and icon_engaged from boxcutter and boxcutter_on in https://github.com/tgstation/tgstation/blob/ceff716c7bef4dfc7236f99c144f6986d81832c5/icons/obj/tools.dmi, and inhands from https://github.com/tgstation/tgstation/blob/ceff716c7bef4dfc7236f99c144f6986d81832c5/icons/mob/inhands/equipment/boxcutter_lefthand.dmi and https://github.com/tgstation/tgstation/blob/ceff716c7bef4dfc7236f99c144f6986d81832c5/icons/mob/inhands/equipment/boxcutter_righthand.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon_engaged"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-left_engaged",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right_engaged",
+            "directions": 4
+        }
+    ]
+}
