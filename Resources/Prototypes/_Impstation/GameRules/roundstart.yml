@@ -229,3 +229,33 @@
     specialEntries:
     - id: MobFoxRenault
       prob: 0.005
+
+- type: entity
+  id: Slasher
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 10
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Slasher ]
+      max: 1
+      playerRatio: 20
+      blacklist:
+        components:
+        - AntagImmune
+      briefing:
+        text: slasher-role-greeting
+        color: DarkRed
+        sound: "/Audio/Ambience/Antag/slasher_start.ogg"
+      components:
+      - type: Slasher
+      mindRoles:
+      - MindRoleSlasher
+    components:
+    - type: SlasherDestroy # Dragon Devour
+    - type: SlasherResummonWeapons
+    - type: SlasherSpawnAnomaly
+    - type: SlasherCreateMeathook
+    - type: FlashWeakness

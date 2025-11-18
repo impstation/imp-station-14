@@ -47,4 +47,5 @@
   - type: MindRole
     antagPrototype: Slasher
     roleType: SoloAntagonist
-  - type: SlasherRoleComponent
+    exclusiveAntag: true
+  - type: SlasherRole

@@ -3,7 +3,7 @@ using Content.Shared.Roles.Components;
 namespace Content.Server.Roles;
 
 /// <summary>
-///     Added to mind role entities to tag that they are a bounty hunter.
+///     Added to mind role entities to tag that they are a slasher.
 /// </summary>
 [RegisterComponent]
 public sealed partial class SlasherRoleComponent : BaseMindRoleComponent

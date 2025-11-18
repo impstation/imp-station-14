@@ -270,6 +270,9 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnFlashImmunityFlashAttempt(Entity<FlashImmunityComponent> ent, ref FlashAttemptEvent args)
     {
+        if (HasComp<FlashWeaknessComponent>(ent))
+            args.Cancelled = false;
+
         if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)
             return;
 

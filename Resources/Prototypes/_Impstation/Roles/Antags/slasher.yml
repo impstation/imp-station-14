@@ -6,3 +6,25 @@
   - !type:OverallPlaytimeRequirement
     time: 5h
   guides: [ Slasher ]
+  objective: "Win"
+
+- type: entity
+  parent: BaseAction
+  id: ActionDestroy
+  name: "[color=red]Destroy[/color]"
+  description: Attempt to break a structure or wall.
+  components:
+  - type: Action
+    icon: { sprite : Interface/Actions/devour.rsi, state: icon }
+    iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on }
+    itemIconStyle: BigAction
+    priority: 1
+  - type: TargetAction
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - Door
+      tags:
+      - Wall
+    event: !type:DestroyActionEvent
