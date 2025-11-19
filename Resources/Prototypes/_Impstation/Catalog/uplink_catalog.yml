@@ -188,7 +188,7 @@
   id: UplinkAdderBundle
   name: uplink-adder-name
   description: uplink-adder-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Special/adder.rsi, state: icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi, state: icon }
   productEntity: AdderBox
   discountCategory: rareDiscounts
   discountDownTo:
@@ -202,7 +202,7 @@
   id: UplinkAkurraBundle
   name: uplink-akurra-name
   description: uplink-akurra-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Special/akurra.rsi, state: icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledAkurra
   discountCategory: veryRareDiscounts
   discountDownTo:

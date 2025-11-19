@@ -5,7 +5,7 @@
   description: A cell-loaded fusion pistol, built on the smallest budget imaginable.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/blaster.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/blaster.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -19,7 +19,7 @@
         shader: unshaded
   - type: Appearance
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/blaster.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/blaster.rsi
     quickEquip: false
     slots:
       - suitStorage
@@ -56,7 +56,7 @@
   description: What once started as an overzealous gardening tool was soon picked up by military developers. Packs one hell of a punch!
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/blastercannon.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/blastercannon.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -65,7 +65,7 @@
         shader: unshaded
   - type: Appearance
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/blastercannon.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/blastercannon.rsi
     quickEquip: false
     slots:
       - Back
@@ -108,7 +108,7 @@
   description: A culmination of energy weapons research rolled into a single, menacing package.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/advblaster.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/advblaster.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -116,7 +116,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/advblaster.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/advblaster.rsi
     quickEquip: false
     slots:
       - suitStorage
@@ -149,11 +149,11 @@
   description: A harmless* gun used by Grays for ceremonial purposes.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/grayceremonial.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/grayceremonial.rsi
     layers:
       - state: icon
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/grayceremonial.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/grayceremonial.rsi
     quickEquip: false
     slots:
       - suitStorage

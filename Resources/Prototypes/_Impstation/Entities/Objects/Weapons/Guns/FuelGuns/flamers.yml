@@ -1,11 +1,12 @@
 - type: entity
-  name: FG13 Xiuhcoatl
-  parent: [WeaponPlasmaAdder, BaseGunWieldable]
-  id: WeaponFlamerXiuhcoatl
-  description: Simple as it is deadly, the Xiuhcoatl fulfills a long-standing craving of the Gorlex Marauders for Nanotrasen Barbeque. Uses welding fuel.
+  name: BaseWeaponFlamer
+  parent: [ BaseItem, BaseGunWieldable ]
+  id: BaseWeaponFlamer
+  abstract: true
+  description: A rooty tooty point and shooty.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Special/xiuhcoatl.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -13,16 +14,16 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Special/xiuhcoatl.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
   - type: Appearance
+  - type: AmmoCounter
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/xiuhcoatl.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
     size: Ginormous
-  - type: GunRequiresWield
   - type: Gun
     projectileSpeed: 16
     clumsyProof: false
@@ -33,25 +34,7 @@
     - FullAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/flamethrower.ogg
-  - type: SolutionContainerManager
-    solutions:
-      chamber:
-        reagents:
-        - ReagentId: WeldingFuel
-          Quantity: 600
-        maxVol: 600 #25 seconds of flaming
-  - type: SolutionAmmoProvider
-    solutionId: chamber
-    proto: BulletFlamethrower
-    fireCost: 3
-  - type: SolutionItemStatus
-    solution: chamber
-  - type: SolutionRefuel
-    fuelSolutionName: chamber
-    fuelReagent: WeldingFuel
-  - type: Tag
-    tags:
-    - WeldingTool
+  - type: GunRequiresWield
   - type: StaticPrice
     price: 100
   - type: PhysicalComposition
@@ -90,13 +73,53 @@
       path: /Audio/Effects/hit_kick.ogg
 
 - type: entity
-  name: FG10 Olympus
-  parent: [BaseItem, BaseGunWieldable]
-  id: WeaponFlamerOlympus
-  description: An effective and efficient decontamination tool used by CBURN crews. Requires a proprietary fuel tank equipped to the back.
+  name: FG13 Xiuhcoatl
+  parent: [BaseWeaponFlamer, Tier3Contraband]
+  id: WeaponFlamerXiuhcoatl
+  description: Simple as it is deadly, the Xiuhcoatl fulfills a long-standing craving of the Gorlex Marauders for Nanotrasen Barbeque. Uses welding fuel.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Special/olympus.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
+  - type: Appearance
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/xiuhcoatl.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 600
+        maxVol: 600 #25 seconds of flaming
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletFlamethrower
+    fireCost: 3
+  - type: ExaminableSolution
+    solution: chamber
+  - type: SolutionItemStatus
+    solution: chamber
+  - type: SolutionRefuel
+    fuelSolutionName: chamber
+    fuelReagent: WeldingFuel
+  - type: Tag
+    tags:
+    - WeldingTool
+
+- type: entity
+  name: FG10 Olympus
+  parent: BaseWeaponFlamer
+  id: WeaponFlamerOlympus
+  categories: [HideSpawnMenu] #see its fuel tank, where this spawns holstered in.
+  description: An effective and efficient decontamination tool used by CBURN crews. Requires a proprietary fuel tank equipped to a suit's tank slot.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/olympus.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -104,7 +127,7 @@
         shader: unshaded
   - type: Appearance
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Special/olympus.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/olympus.rsi
     size: Large
   - type: GunRequiresWield
   - type: Gun
@@ -130,10 +153,6 @@
     tags:
     - WeldingTool
     - OlympusFlamer
-  - type: StaticPrice
-    price: 100
-  - type: IgnitionSource
-    temperature: 700
   - type: MeleeWeapon
     range: 1.5
     attackRate: 0.6 #lighter than a Xiuhcoatl but still burns
@@ -149,17 +168,3 @@
       params:
         variation: 0.250
         volume: -12
-  - type: StaminaDamageOnHit
-    damage: 15 #slight stagger, but still like 7 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 15
-    damage:
-      types:
-        Blunt: 10
-        Heat: 4
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg

@@ -5,12 +5,12 @@
   description: Downsized from a standard accelerator, the QueensGuard-280 is a workhorse rifle for apid conscripts. It's a little on the lighter side, but still fires straight.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Basic/apid_kinetic_accelerator.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/apid_kinetic_accelerator.rsi
     layers:
       - state: icon
         map: ["enum.GunVisualLayers.Base"]
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Basic/apid_kinetic_accelerator.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/apid_kinetic_accelerator.rsi
     size: Small
     storedRotation: -90
   - type: Wieldable
