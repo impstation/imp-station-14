@@ -355,7 +355,7 @@ public sealed class FaxSystem : EntitySystem
     // imp start
     private void OnTriggerPortFired(Entity<FaxMachineComponent> ent, ref SignalReceivedEvent args)
     {
-        Send(ent, ent.Comp, new FaxSendMessage();
+        Send(ent, ent.Comp, new FaxSendMessage());
     }
     // imp end
 
