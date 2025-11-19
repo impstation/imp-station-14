@@ -78,11 +78,11 @@ public sealed partial class PoSSetupBox : Control
         StartDialogueBox();
 
         if (accountNo != 0)
-            TransferNoEntryBox.Text = $"{accountNo:0000}";
+            TransferNoEntryBox.SetText($"{accountNo:0000}");
         if (amount != 0)
-            TransferAmountEntryBox.Text = $"{amount:n0}";
+            TransferAmountEntryBox.SetText($"{amount}");
         if (!string.IsNullOrEmpty(reason))
-            TransferReasonEntryBox.Text = reason;
+            TransferReasonEntryBox.SetText(reason);
     }
 
     private void StartDialogueBox()

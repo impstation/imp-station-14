@@ -20,6 +20,8 @@ public sealed class POSBoundUserInterface : BoundUserInterface
     //why does doing any UI work make me feel like I've been kicked in the head by a horse
     //abandon hope, all ye who enter here
 
+    //todo need to make this allow for negative charge amounts so that pawn shops can exist? or do I want to force them to go through cash only?
+
     //ok I'm writing out a flowchart for this since I can't keep it all in my head
     //UI opened
         //if we don't have a recipient account or the user is the recipient, create a setup box

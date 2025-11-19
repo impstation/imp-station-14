@@ -54,6 +54,7 @@ public abstract class SharedBankingSystem : EntitySystem
 
     public bool TryMakeTransaction(AccessNumber sender, TransferNumber recipient, int amount, string reason)
     {
+        //todo need to do something for if a transaction becomes invalid after a client confirms it
         if (!VerifyTransaction(sender, recipient, amount))
             return false;
 
