@@ -8,6 +8,7 @@ using Content.Server.Tools;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
+using Content.Shared.DeviceLinking.Events; // imp
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
@@ -31,7 +32,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Server._Impstation.Fax; // imp edit
-using Content.Server.Radio.EntitySystems; // imp edit
+using Content.Server.Radio.EntitySystems;
 
 namespace Content.Server.Fax;
 
@@ -72,6 +73,7 @@ public sealed class FaxSystem : EntitySystem
         SubscribeLocalEvent<FaxMachineComponent, EntRemovedFromContainerMessage>(OnItemSlotChanged);
         SubscribeLocalEvent<FaxMachineComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<FaxMachineComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
+        SubscribeLocalEvent<FaxMachineComponent, SignalReceivedEvent>(OnTriggerPortFired); // imp
 
         // Interaction
         SubscribeLocalEvent<FaxMachineComponent, InteractUsingEvent>(OnInteractUsing);
@@ -349,6 +351,18 @@ public sealed class FaxSystem : EntitySystem
     {
         SetDestination(uid, args.Address, component);
     }
+
+    // imp start
+    private void OnTriggerPortFired(EntityUid uid, FaxMachineComponent component, SignalReceivedEvent args)
+    {
+        // need to make a fake FaxSendMessage to pass into Send()
+        // normally the client would make this message when a player sends it,
+        // but since this is being triggered by a remote signaler (handled on server)
+        // we need to make one on the server instead to pass it into Send()
+        FaxSendMessage fakeSendMessage = new FaxSendMessage();
+        Send(uid, component, fakeSendMessage);
+    }
+    // imp end
 
     private void UpdateAppearance(EntityUid uid, FaxMachineComponent? component = null)
     {
