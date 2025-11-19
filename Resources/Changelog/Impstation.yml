@@ -1,59 +1,4 @@
 ﻿Entries:
-- author: widgetbeck
-  changes:
-  - message: Fixed Replicator pinpointers failing to point at the Queen when she is
-      selected.
-    type: Fix
-  id: 1927
-  time: '2025-06-28T05:07:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2896
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Lecter uses our sprite again.
-    type: Fix
-  id: 1928
-  time: '2025-06-28T20:17:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2900
-- author: CrystalClover
-  changes:
-  - message: Added ability to tuck away the wig on the clown mask
-    type: Add
-  - message: Slightly altered all the clown mask sprites to make them more consistent
-      and changed their colours to match department outfits better
-    type: Tweak
-  id: 1929
-  time: '2025-06-28T23:08:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2537
-- author: Stonylogray
-  changes:
-  - message: Cigarettes are now bad for you.
-    type: Tweak
-  id: 1930
-  time: '2025-06-28T23:37:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2889
-- author: crocodilecarousel and hivehum
-  changes:
-  - message: press g and get decorating or else!!!
-    type: Add
-  id: 1931
-  time: '2025-06-29T00:02:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2901
-- author: DinnerCalzone
-  changes:
-  - message: Radiators now support pipe layering.
-    type: Add
-  - message: Radiators now look different.
-    type: Tweak
-  id: 1932
-  time: '2025-06-29T00:27:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2897
-- author: starlighthowls
-  changes:
-  - message: lepidodent can now be found on NT stations.
-    type: Add
-  id: 1933
-  time: '2025-06-29T09:34:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2816
 - author: kipdotnet
   changes:
   - message: Banana has had a small cleanup of decals and should look nicer.
@@ -4165,3 +4110,56 @@
   id: 2426
   time: '2025-11-14T00:38:49.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3705
+- author: eviltori
+  changes:
+  - message: '"soft hands" trait. for if the big guns aren''t really your style, and
+      you prefer a more subtle approach.'
+    type: Add
+  id: 2427
+  time: '2025-11-14T05:29:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3723
+- author: Squamatic
+  changes:
+  - message: Vulpkanin have received new scream sounds!
+    type: Tweak
+  id: 2428
+  time: '2025-11-14T05:31:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3724
+- author: Widgetbeck, Airfryerbuyonegetonefree
+  changes:
+  - message: Added a *shocking* new event.
+    type: Add
+  id: 2429
+  time: '2025-11-15T00:12:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3561
+- author: eviltori
+  changes:
+  - message: random character appearances have gotten less zany.
+    type: Tweak
+  id: 2430
+  time: '2025-11-16T19:44:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3728
+- author: starlighthowls
+  changes:
+  - message: Tippy trump card packs can now be ordered from cargo or selected in your
+      character loadout!
+    type: Add
+  id: 2431
+  time: '2025-11-17T00:55:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3712
+- author: starlighthowls
+  changes:
+  - message: TippyTrump rules suck less now.
+    type: Tweak
+  id: 2432
+  time: '2025-11-17T09:12:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3730
+- author: TuttlePants
+  changes:
+  - message: Tourists now take longer to line up their perfect shot
+    type: Tweak
+  - message: Tourist cameras are now made using plastic instead of cotton
+    type: Fix
+  id: 2433
+  time: '2025-11-17T11:22:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3729
