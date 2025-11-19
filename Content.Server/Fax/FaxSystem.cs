@@ -353,14 +353,9 @@ public sealed class FaxSystem : EntitySystem
     }
 
     // imp start
-    private void OnTriggerPortFired(EntityUid uid, FaxMachineComponent component, SignalReceivedEvent args)
+    private void OnTriggerPortFired(Entity<FaxMachineComponent> ent, ref SignalReceivedEvent args)
     {
-        // need to make a fake FaxSendMessage to pass into Send()
-        // normally the client would make this message when a player sends it,
-        // but since this is being triggered by a remote signaler (handled on server)
-        // we need to make one on the server instead to pass it into Send()
-        FaxSendMessage fakeSendMessage = new FaxSendMessage();
-        Send(uid, component, fakeSendMessage);
+        Send(ent, ent.Comp, new FaxSendMessage();
     }
     // imp end
 
