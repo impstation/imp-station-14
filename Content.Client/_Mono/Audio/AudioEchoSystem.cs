@@ -98,9 +98,12 @@ public sealed class AreaEchoSystem : EntitySystem
         _gridQuery = GetEntityQuery<MapGridComponent>();
 
         // SubscribeLocalEvent<AudioComponent, EntParentChangedMessage>(OnAudioParentChanged);
-        SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<LocalPlayerAttachedEvent>(OnLocalPlayerAttached);
+        SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnLocalPlayerDetached);
+
         SubscribeLocalEvent<AudioComponent, EntParentChangedMessage>(OnParentChange);
     }
+
 
     public override void Update(float frameTime)
     {
@@ -554,9 +557,14 @@ public sealed class AreaEchoSystem : EntitySystem
     //     ProcessAudioEntity(entity);
     // }
 
-    private void OnPlayerAttached(PlayerAttachedEvent ev)
+    private void OnLocalPlayerAttached(LocalPlayerAttachedEvent ev)
     {
         _clientEnt = ev.Entity;
+    }
+
+    private void OnLocalPlayerDetached(LocalPlayerDetachedEvent ev)
+    {
+        _clientEnt = EntityUid.Invalid;
     }
 
     private void OnParentChange(Entity<AudioComponent> audio, ref EntParentChangedMessage ev)
