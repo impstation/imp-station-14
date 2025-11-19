@@ -3,11 +3,7 @@ using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Station.Components;
-using Content.Server._CD.Traits; // cd
-using Content.Server.Chat.Managers; // cd
-using Content.Shared.Chat; // cd
-using Robust.Shared.Player; // cd
-using Robust.Shared.Random; // cd
+using Robust.Shared.Random; // imp
 
 namespace Content.Server.StationEvents.Events;
 
@@ -15,7 +11,6 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
 {
     [Dependency] private readonly IonStormSystem _ionStorm = default!;
     [Dependency] private readonly IRobustRandom _random = default!; // imp
-    [Dependency] private readonly IChatManager _chatManager = default!; // CD - Used for synth trait
 
     protected override void Started(EntityUid uid, IonStormRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
@@ -23,22 +18,6 @@ public sealed class IonStormRule : StationEventSystem<IonStormRuleComponent>
 
         if (!TryGetRandomStation(out var chosenStation))
             return;
-
-        // CD - Go through everyone with the SynthComponent and inform them a storm is happening.
-        var synthQuery = EntityQueryEnumerator<SynthComponent>();
-        while (synthQuery.MoveNext(out var ent, out var synthComp))
-        {
-            if (RobustRandom.Prob(synthComp.AlertChance))
-                continue;
-
-            if (!TryComp<ActorComponent>(ent, out var actor))
-                continue;
-
-            var msg = Loc.GetString("station-event-ion-storm-synth");
-            var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
-            _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Yellow);
-        }
-        // CD - End of synth trait
 
         // begin imp edit, why tf wasnt this all just an event
         // var query = EntityQueryEnumerator<SiliconLawBoundComponent, TransformComponent, IonStormTargetComponent>();

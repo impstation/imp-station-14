@@ -87,6 +87,18 @@ public abstract partial class SharedXenoArtifactSystem
     }
 
     /// <summary>
+    /// #IMP Adjusts the number of times a node believes it has been unlocked, for use with artifact glue, etc.
+    /// </summary>
+    public void AdjustNodeUnlocks(Entity<XenoArtifactNodeComponent?> ent, int delta)
+    {
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        ent.Comp.NumNodeUnlocks += delta;
+        Dirty(ent);
+    }
+
+    /// <summary>
     /// Creates artifact node entity, attaching trigger and marking depth level for future use.
     /// </summary>
     public Entity<XenoArtifactNodeComponent> CreateNode(Entity<XenoArtifactComponent> ent, ProtoId<XenoArchTriggerPrototype> trigger, int depth = 0)
@@ -443,6 +455,14 @@ public abstract partial class SharedXenoArtifactSystem
     public void SetCurrentNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent> node)
     {
         artifact.Comp.CurrentNode = node;
+
+        // Natural artifacts get to activate the effect when entering a node and deactivate it when exiting, if proper EffectActiveOnlyWhileNodeIsCurrent = true on nodecomp.
+        if (artifact.Comp.Natural && node.Comp.EffectActiveOnlyWhileNodeIsCurrent && (node.Comp.MaxNodeUnlocks == 0 || node.Comp.MaxNodeUnlocks > node.Comp.NumNodeUnlocks))
+        {
+            var ev = new XenoArtifactNodeActivatedEvent(artifact, node, null, null, Transform(artifact).Coordinates, false);
+            RaiseLocalEvent(node, ref ev);
+        }
+
         RebuildCachedActiveNodes((artifact, artifact));
         Dirty(node);
     }

@@ -203,7 +203,7 @@
   name: meat bun
   parent: FoodBakedBase
   id: FoodBakedBunMeat
-  description: Has the potential to not be dog.
+  description: Flaky pastry around a meaty core. Might have been better fresh... # imp edit from "Has the potential to not be dog."
   components:
   - type: Sprite
     state: bun-meat
@@ -216,6 +216,10 @@
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 2
+  - type: Tag # imp
+    tags:
+    - Meat
+    - Bread
 
 # Cookies
 
@@ -767,6 +771,7 @@
     tags:
     - ClothMade
     - ClothFood # imp
+    - Bread # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -957,7 +962,7 @@
             Quantity: 1
     - type: Tag # imp
       tags:
-      - UnguFood
+      - Vegetable
 
 - type: entity
   parent: FoodBakedBase
@@ -995,6 +1000,7 @@
   - type: Tag # imp
     tags:
     - UnguFood
+    - Bread
 
 - type: entity
   parent: FoodBakedCroissant
@@ -1020,6 +1026,7 @@
     tags:
     - ClothMade
     - ClothFood # imp
+    - Bread # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1087,6 +1094,7 @@
     tags:
     - ClothMade
     - ClothFood # imp
+    - Bread # imp
   - type: SolutionContainerManager
     solutions:
       food:

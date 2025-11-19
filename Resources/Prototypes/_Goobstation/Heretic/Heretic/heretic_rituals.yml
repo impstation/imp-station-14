@@ -72,8 +72,8 @@
   locName: knowledge-path-ash-s9-name
   locDesc: knowledge-path-ash-s9-desc
   icon:
-    sprite: _Goobstation/Heretic/abilities_heretic.rsi
-    state: ashlord_rite2
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: fire_cascade
   customBehaviors:
   - !type:RitualAshAscendBehavior
     min: 3
@@ -183,8 +183,8 @@
   locName: knowledge-path-flesh-s9-name
   locDesc: knowledge-path-flesh-s9-desc
   icon:
-    sprite: _Goobstation/Heretic/abilities_heretic.rsi
-    state: final_hymn
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: reality_uncoil
   customBehaviors:
   - !type:RitualSacrificeBehavior
     min: 4

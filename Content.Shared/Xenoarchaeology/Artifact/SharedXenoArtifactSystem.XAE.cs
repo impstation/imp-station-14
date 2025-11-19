@@ -145,8 +145,17 @@ public abstract partial class SharedXenoArtifactSystem
             AdjustNodeDurability((node, node.Comp), -1);
         }
 
-        var ev = new XenoArtifactNodeActivatedEvent(artifact, node, user, target, coordinates);
-        RaiseLocalEvent(node, ref ev);
+        //#IMP turn off effect on regular node activation. Non-imp code is in the `else`
+        if (artifact.Comp.Natural && node.Comp.EffectActiveOnlyWhileNodeIsCurrent)
+        {
+            var ev = new XenoArtifactNodeActivatedEvent(artifact, node, user, target, coordinates, true);
+            RaiseLocalEvent(node, ref ev);
+        }
+        else
+        {
+            var ev = new XenoArtifactNodeActivatedEvent(artifact, node, user, target, coordinates);
+            RaiseLocalEvent(node, ref ev);
+        }
         return true;
     }
 }
@@ -159,13 +168,15 @@ public abstract partial class SharedXenoArtifactSystem
 /// <param name="User">Character that attempted to activate artifact.</param>
 /// <param name="Target">Target, on which artifact activation attempt was used (for hand-held artifact - it can be 'clicked' over someone).</param>
 /// <param name="Coordinates">Coordinates of <paramref name="Target"/> entity.</param>
+/// IMP <param name="Deactivate">If we should be removing components or turning off effects. Natural artifacts only, and requires EffectActiveOnlyWhileNodeIsCurrent = true on nodecomp.</param>
 [ByRefEvent]
 public readonly record struct XenoArtifactNodeActivatedEvent(
     Entity<XenoArtifactComponent> Artifact,
     Entity<XenoArtifactNodeComponent> Node,
     EntityUid? User,
     EntityUid? Target,
-    EntityCoordinates Coordinates
+    EntityCoordinates Coordinates,
+    bool Deactivate = false //#IMP
 );
 
 [ByRefEvent]
