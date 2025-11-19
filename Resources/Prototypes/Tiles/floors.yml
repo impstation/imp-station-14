@@ -1920,7 +1920,7 @@
 - type: tile
   id: FloorHull
   name: tiles-hull
-  sprite: /Textures/Tiles/_Impstation/Tiles/Misc/hull.png # Imp
+  sprite: /Textures/_Impstation/Tiles/Misc/hull.png # Imp
   baseTurf: Plating
   isSubfloor: false
   footstepSounds:
@@ -1931,7 +1931,7 @@
 - type: tile
   id: FloorHullReinforced
   name: tiles-hull-reinforced
-  sprite: /Textures/Tiles/_Impstation/Tiles/Misc/hull_reinforced.png # Imp
+  sprite: /Textures/_Impstation/Tiles/Misc/hull_reinforced.png # Imp
   baseTurf: Plating
   isSubfloor: false
   footstepSounds:

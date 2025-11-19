@@ -403,9 +403,9 @@
 
   # Sideways Hull Tile
 - type: tile
-  id: FloorHull
+  id: FloorHullSideways
   name: tiles-hull
-  sprite: /Textures/Tiles/_Impstation/Tiles/Misc/hull_sideways.png
+  sprite: /Textures/_Impstation/Tiles/Misc/hull_sideways.png
   baseTurf: Plating
   isSubfloor: false
   footstepSounds:
