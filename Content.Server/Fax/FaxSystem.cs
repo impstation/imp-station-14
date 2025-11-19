@@ -32,7 +32,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Server._Impstation.Fax; // imp edit
-using Content.Server.Radio.EntitySystems;
+using Content.Server.Radio.EntitySystems; // imp edit
 
 namespace Content.Server.Fax;
 
