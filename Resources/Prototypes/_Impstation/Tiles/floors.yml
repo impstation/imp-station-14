@@ -400,3 +400,15 @@
     collection: FootstepPlating
   itemDrop: FloorTileItemDirty
   heatCapacity: 10000
+
+  # Sideways Hull Tile
+- type: tile
+  id: FloorHull
+  name: tiles-hull
+  sprite: /Textures/Tiles/_Impstation/Tiles/Misc/hull_sideways.png
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemSteel #probably should not be normally obtainable, but the game shits itself and dies when you try to put null here
+  heatCapacity: 10000
