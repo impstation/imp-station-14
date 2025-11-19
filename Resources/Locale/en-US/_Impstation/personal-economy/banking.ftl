@@ -29,3 +29,25 @@ transaction-no-recipient = Error : Recipient Does Not Exist
 atm-cancel-button-label = Cancel
 atm-confirm-button-label = Confirm
 atm-really-confirm-label = Really Confirm
+
+#pos system
+pos-window-title = Point-of-sale system
+pos-begin-setup-text = This device has not been set up, please press the button below to begin
+pos-begin-setup-present-card = This device has not been set up, please enter a valid account number or present a valid bank card to continue
+pos-begin-setup-button-text = Begin Setup
+pos-setup-recipient-account-number = Recipient Account Number
+pos-setup-charge-amount = Charge Amount
+pos-setup-reason = Reason
+pos-setup-err-invalid-recipient = Error : invalid recipient
+pos-setup-err-invalid-transfer-amount = Error : please specify charge amount
+pos-setup-confirmed = settings updated!
+pos-clear-setup-button-label = Clear Setup
+pos-confirm-setup-button-label = Confirm
+
+pos-payment-present-card = Please enter a valid account number or present a valid bank card to continue
+pos-payment-name-and-number = {$name} (#{$number})
+pos-payment-is-trying-to-charge = Is trying to charge you
+pos-payment-spesito-amount = ${$amount} Spesitos
+pos-payment-reason = for "{$reason}"
+pos-payment-confirm-button-label = Confirm Transaction
+pos-payment-cancel-button-label = Cancel

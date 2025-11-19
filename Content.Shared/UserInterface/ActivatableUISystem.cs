@@ -155,8 +155,10 @@ public sealed partial class ActivatableUISystem : EntitySystem
         if (component.VerbOnly)
             return;
 
-        if (component.RequiredItems == null)
-            return;
+        //imp edit - not entirely sure why this check is here since the whitelist check will automatically pass if the list is null
+        //either way, removing this so that you can use bank cards on ATMs & PoS systems
+        //if (component.RequiredItems == null)
+        //    return;
 
         if (_whitelistSystem.IsWhitelistFail(component.RequiredItems, args.Used))
             return;

@@ -34,6 +34,8 @@ public sealed partial class TransactionMenu : FancyWindow
         };
 
         //todo this acts strangely sometimes, need to figure out why
+        //specifically it can't be fully cleared
+        //generally need to clean up all of this text entry stuff
         TransferAmountBox.OnTextChanged += args =>
         {
             var amountStr = string.Concat(args.Text.Where(char.IsDigit));

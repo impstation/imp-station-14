@@ -8,3 +8,9 @@ public enum ATMUIKey : byte
     Key
 }
 
+[Serializable, NetSerializable]
+public enum POSUIKey : byte
+{
+    Key
+}
+

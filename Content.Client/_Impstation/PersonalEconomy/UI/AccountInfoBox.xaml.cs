@@ -47,7 +47,7 @@ public sealed partial class AccountInfoBox : BoxContainer
         TransactionInfoContainer.RemoveAllChildren();
         foreach (var transaction in _account.Comp.Transactions)
         {
-            var infobox = new TransactionInfoBox(transaction.OtherAccount, transaction.Amount, transaction.Reason);
+            var infobox = new TransactionInfoBox(transaction.OtherAccount, transaction.Name, transaction.Amount, transaction.Timestamp, transaction.Reason);
             TransactionInfoContainer.AddChild(infobox);
         }
     }
@@ -79,10 +79,13 @@ public sealed partial class AccountInfoBox : BoxContainer
         return false;
     }
 
-    //todo need to add transaction timestamps
     private bool CompTransactionToInfobox(BankTransaction transaction, TransactionInfoBox infoBox)
     {
-        return transaction.OtherAccount == infoBox.Other && transaction.Amount == infoBox.Amount && transaction.Reason == infoBox.Reason;
+        return transaction.OtherAccount == infoBox.Other &&
+               transaction.Amount == infoBox.Amount &&
+               // ReSharper disable once CompareOfFloatsByEqualityOperator - we only care if the timestamps are literally identical
+               transaction.Timestamp == infoBox.Timestamp &&
+               transaction.Reason == infoBox.Reason;
     }
 }
 

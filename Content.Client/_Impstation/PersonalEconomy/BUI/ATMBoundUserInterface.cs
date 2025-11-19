@@ -25,7 +25,6 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
         base.Open();
 
         _atmMenu = this.CreateWindow<ATMMenu>();
-        _atmMenu.CreateInvalidInfoBox();
         _atmMenu.OnClose += ClearMenu;
 
         _atmMenu.OnNumberEntered += s =>
@@ -55,6 +54,7 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
             _transactionMenu.TransferNumberBox.Clear();
             _transactionMenu.TransferAmountBox.Clear();
             _transactionMenu.TransferReasonBox.Clear();
+            _transactionMenu.TransferAmount = 0;
             _transactionMenu.ReallyConfirmButton.Disabled = true;
             _transactionMenu.TransactionNotEnoughFundsLabel.Visible = false;
             _transactionMenu.TransactionRecipientDoesNotExistLabel.Visible = false;

@@ -9,7 +9,9 @@ namespace Content.Client._Impstation.PersonalEconomy.UI;
 public sealed partial class TransactionInfoBox : Control
 {
     public readonly TransferNumber Other;
+    public readonly string OtherName = "";
     public readonly int Amount;
+    public readonly double Timestamp;
     public readonly string Reason = "";
 
     public TransactionInfoBox()
@@ -17,22 +19,26 @@ public sealed partial class TransactionInfoBox : Control
         RobustXamlLoader.Load(this);
     }
 
-    public TransactionInfoBox(TransferNumber other, int amount, string reason)
+    public TransactionInfoBox(TransferNumber other, string name, int amount, double timestamp, string reason)
     {
 
         RobustXamlLoader.Load(this);
 
         Other = other;
+        OtherName = name;
         Amount = amount;
+        Timestamp = timestamp;
         Reason = reason;
-        
+
         TransferNoLabel.Text = $"#{other.Number:0000}";
+        TimestampLabel.Text = $@"{TimeSpan.FromSeconds(timestamp):hh\:mm\:ss}";
         AmountLabel.Text = $"{amount:n0}";
 
         //todo proper custom tooltipsupplier for this
+        //todo locstringify this
         ToolTip = amount < 0
-            ? $"You sent account #{other.Number:0000} ${int.Abs(amount)} spesitos for \"{reason}\""
-            : $"You recieved ${amount} spesitos from account #{other} for \"{reason}\"";
+            ? $"You sent {OtherName} (#{other.Number:0000}) ${int.Abs(amount)} spesitos for \"{reason}\""
+            : $"You recieved ${amount} spesitos from {OtherName} (#{other}) for \"{reason}\"";
     }
 }
 

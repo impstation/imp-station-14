@@ -37,17 +37,19 @@ public sealed partial class BankAccountComponent : Component
 [DataDefinition, Serializable, NetSerializable]
 public sealed partial class BankTransaction
 {
-    public BankTransaction(TransferNumber other, int amount, string reason)
+    public BankTransaction(TransferNumber other, string name, int amount, double timestamp, string reason)
     {
         OtherAccount = other;
+        Name = name;
         Amount = amount;
+        Timestamp = timestamp;
         Reason = reason;
     }
 
-    //todo let this take a name string as well as an account number
-    //todo also this needs a timestamp to make transactions with an identical body still be different
     [DataField] public TransferNumber OtherAccount= 0;
+    [DataField] public string Name = ""; //technically this doesn't need to be stored here since both the client & server will know what all account names are at all times, but I like it keeping track of renambed accounts for scams and such
     [DataField] public int Amount = 0;
+    [DataField] public double Timestamp = 0;
     [DataField] public string Reason = string.Empty; //limited to 64 chars
 }
 
@@ -55,7 +57,7 @@ public sealed partial class BankTransaction
 /// Used to enforce transfer number / access number constraints. technically I think they can just be freely casted between because they can both go to and from int but this makes me feel smart.
 /// </summary>
 [DataDefinition, Serializable, NetSerializable]
-public partial struct AccessNumber
+public partial struct AccessNumber : IEquatable<AccessNumber>
 {
     public readonly int Number;
 
@@ -73,10 +75,25 @@ public partial struct AccessNumber
     {
         return new AccessNumber(number);
     }
+
+    public bool Equals(AccessNumber other)
+    {
+        return Number == other.Number;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is AccessNumber other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        return Number;
+    }
 }
 
 [DataDefinition, Serializable, NetSerializable]
-public partial struct TransferNumber
+public partial struct TransferNumber : IEquatable<TransferNumber>
 {
     public readonly int Number;
 
@@ -93,5 +110,20 @@ public partial struct TransferNumber
     public static implicit operator TransferNumber(int number)
     {
         return new TransferNumber(number);
+    }
+
+    public bool Equals(TransferNumber other)
+    {
+        return Number == other.Number;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is TransferNumber other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        return Number;
     }
 }

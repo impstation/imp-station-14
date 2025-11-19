@@ -57,7 +57,7 @@ public sealed partial class Keypad : Control
         NumberDisplay.Text = _enteredNumber;
     }
 
-    private void ClearButtonPressed()
+    public void ClearButtonPressed()
     {
         _enteredNumber = "";
         NumberDisplay.Text = _enteredNumber;

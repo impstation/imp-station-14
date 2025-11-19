@@ -5,14 +5,14 @@
   description: The little square of plastic that controls your life. No, the other one.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp edit
+    sprite: _Impstation/Objects/Misc/id_cards.rsi
     layers:
     - state: default
     - state: idpassenger
   - type: Clothing
     slots:
     - idcard
-    sprite: _Impstation/Objects/Misc/id_cards.rsi #imp edit
+    sprite: _Impstation/Objects/Misc/id_cards.rsi
   - type: Item
     size: Small
     heldPrefix: default
@@ -36,17 +36,17 @@
     layers:
     - map: ["computerLayerBody"]
       state: computer
-      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+      sprite: _Impstation/Structures/Machines/computers.rsi
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
-      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+      sprite: _Impstation/Structures/Machines/computers.rsi
     - map: ["computerLayerScreen"]
       state: solar_screen
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
-      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+      sprite: _Impstation/Structures/Machines/computers.rsi
   - type: ActivatableUI
     key: enum.ATMUIKey.Key
     singleUser: true
@@ -59,7 +59,30 @@
   - type: Computer
     board: RadarConsoleCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
+    radius: 2.4
     energy: 1.6
     color: "#e6e227"
   - type: ATM
+
+- type: entity
+  parent: BaseItem
+  id: POSSystem
+  name: point-of-sale system
+  description: Historians believe these were invented largely to assist with scams and bribery. Nanotrasen continues this proud tradition, in the name of historical preservation.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/hand_labeler.rsi
+    state: hand_labeler
+  - type: Item
+    sprite: Objects/Tools/hand_labeler.rsi
+    storedRotation: -90
+  - type: UseDelay
+    delay: 0.5
+  - type: ActivatableUI
+    key: enum.POSUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.POSUIKey.Key:
+        type: POSBoundUserInterface
+  - type: PosSystem
+  - type: PhysicalComposition

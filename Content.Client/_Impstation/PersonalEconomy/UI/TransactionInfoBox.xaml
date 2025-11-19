@@ -4,7 +4,10 @@
     VerticalExpand="True"
     MouseFilter="Stop">
     <BoxContainer Orientation="Vertical" VerticalExpand="True">
-        <Label Name="TransferNoLabel" VerticalExpand="True"/>
-        <Label Name="AmountLabel" VerticalExpand="True"/>
+        <Control VerticalExpand="True"/>
+        <Label Name="TransferNoLabel"/>
+        <Label Name="TimestampLabel"/>
+        <Label Name="AmountLabel"/>
+        <Control VerticalExpand="True"/>
     </BoxContainer>
 </controls:TransactionInfoBox>

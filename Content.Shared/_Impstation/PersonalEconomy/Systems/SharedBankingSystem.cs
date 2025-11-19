@@ -3,7 +3,9 @@ using Content.Shared._Impstation.PersonalEconomy.Components;
 using Content.Shared._Impstation.PersonalEconomy.Events;
 using Content.Shared.Administration;
 using Content.Shared.Examine;
+using Content.Shared.Interaction;
 using Content.Shared.Roles;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._Impstation.PersonalEconomy.Systems;
 
@@ -13,19 +15,41 @@ namespace Content.Shared._Impstation.PersonalEconomy.Systems;
 public abstract class SharedBankingSystem : EntitySystem
 {
     [Dependency] private readonly MetaDataSystem _metaData = null!;
+    [Dependency] private readonly IGameTiming _timing = null!;
 
     /// <inheritdoc/>
     public override void Initialize()
     {
         SubscribeLocalEvent<BankCardComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<ATMComponent, RequestTransactionMessage>(OnTransactionRequested);
+        SubscribeLocalEvent<PosSystemComponent, UpdatePoSSettingsMessage>(OnPoSSettingsUpdate);
+        SubscribeLocalEvent<PosSystemComponent, PoSTransactionSuccededMessage>(OnTransactionSucceded);
+        SubscribeLocalEvent<PosSystemComponent, PoSTransactionFailedMessage>(OnTransactionFailed);
+    }
+
+    private void OnTransactionFailed(Entity<PosSystemComponent> ent, ref PoSTransactionFailedMessage args)
+    {
+        //todo implement this : have the pos system put out a "transaction failed" signal
+    }
+
+    private void OnTransactionSucceded(Entity<PosSystemComponent> ent, ref PoSTransactionSuccededMessage args)
+    {
+        //todo make this put out a "transaction succeded" signal
+        TryMakeTransaction(args.Account, ent.Comp.RecipientAccount, ent.Comp.Amount, ent.Comp.Reason);
+    }
+
+    private void OnPoSSettingsUpdate(Entity<PosSystemComponent> ent, ref UpdatePoSSettingsMessage args)
+    {
+        ent.Comp.RecipientAccount = args.Recipient;
+        ent.Comp.Amount = args.Amount;
+        ent.Comp.Reason = args.Reason;
+
+        Dirty(ent);
     }
 
     private void OnTransactionRequested(Entity<ATMComponent> ent, ref RequestTransactionMessage args)
     {
-
         TryMakeTransaction(args.SenderAccount, args.RecipientAccount, args.Amount, args.Reason);
-
     }
 
     public bool TryMakeTransaction(AccessNumber sender, TransferNumber recipient, int amount, string reason)
@@ -62,17 +86,18 @@ public abstract class SharedBankingSystem : EntitySystem
         recipientAccount.Value.Comp.Balance += amount;
 
         //add transactions!
-        AddTransaction(senderAccount.Value, -amount, recipient, reason);
-        AddTransaction(recipientAccount.Value, amount, senderAccount.Value.Comp.TransferNumber, reason);
+        AddTransaction(senderAccount.Value, recipientAccount.Value.Comp.Name, -amount, recipient, reason);
+        AddTransaction(recipientAccount.Value, senderAccount.Value.Comp.Name, amount, senderAccount.Value.Comp.TransferNumber, reason);
     }
 
-    private void AddTransaction(Entity<BankAccountComponent> account, int amount, int from, string reason)
+    private void AddTransaction(Entity<BankAccountComponent> account, string otherName, int amount, int from, string reason)
     {
         //limit reason length
         if (reason.Length > 64) //todo make this length limit a cvar?
             reason = reason[..64];
 
-        var transaction = new BankTransaction(from, amount, reason);
+        var timestamp = _timing.CurTime.TotalSeconds;
+        var transaction = new BankTransaction(from, otherName, amount, timestamp, reason);
         account.Comp.Transactions.Insert(0, transaction);
         if (account.Comp.Transactions.Count > 10) //todo make the history limit a cvar?
             account.Comp.Transactions.RemoveAt(10);
