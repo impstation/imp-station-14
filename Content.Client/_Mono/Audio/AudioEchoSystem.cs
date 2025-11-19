@@ -12,14 +12,11 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Numerics;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
-using Robust.Client.Player;
 using Content.Shared._VDS.Audio;
-using Robust.Shared.Debugging;
 using Content.Shared.Coordinates;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
@@ -27,6 +24,7 @@ using Content.Shared.Maps;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Light.Components;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Client._Mono.Audio;
 
@@ -35,16 +33,16 @@ namespace Content.Client._Mono.Audio;
 /// </summary>
 public sealed class AreaEchoSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly AudioEffectSystem _audioEffectSystem = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RayCastSystem _rayCast = default!;
-    [Dependency] private readonly SharedDebugRayDrawingSystem _debugRay = default!;
     [Dependency] private readonly TurfSystem _turfSystem = default!;
     [Dependency] private readonly SharedRoofSystem _roofSystem = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
 
     /// <summary>
     ///     The directions that are raycasted to determine size for echo.
@@ -77,18 +75,8 @@ public sealed class AreaEchoSystem : EntitySystem
     /// </summary>
     private EntityUid _clientEnt;
 
-    /// <summary>
-    ///     When is the next time we should check all audio entities and see if they are eligible to be updated.
-    /// </summary>
-    private TimeSpan _nextExistingUpdate = TimeSpan.Zero;
-
     private int _echoMaxReflections;
     private bool _echoEnabled = true;
-
-    /// <summary>
-    /// How often we should check existing audio re-apply or remove echo from them when necessary.
-    /// </summary>
-    private TimeSpan _calculationInterval = TimeSpan.FromSeconds(15);
 
     private EntityQuery<AudioAbsorptionComponent> _absorptionQuery;
     private EntityQuery<TransformComponent> _transformQuery;
@@ -104,35 +92,19 @@ public sealed class AreaEchoSystem : EntitySystem
         _configurationManager.OnValueChanged(MonoCVars.AreaEchoEnabled, x => _echoEnabled = x, invokeImmediately: true);
         _configurationManager.OnValueChanged(MonoCVars.AreaEchoHighResolution, x => _calculatedDirections = GetEffectiveDirections(x), invokeImmediately: true);
 
-        _configurationManager.OnValueChanged(MonoCVars.AreaEchoRecalculationInterval, x => _calculationInterval = x, invokeImmediately: true);
-
         _absorptionQuery = GetEntityQuery<AudioAbsorptionComponent>();
         _transformQuery = GetEntityQuery<TransformComponent>();
         _roofQuery = GetEntityQuery<RoofComponent>();
         _gridQuery = GetEntityQuery<MapGridComponent>();
 
-        SubscribeLocalEvent<AudioComponent, EntParentChangedMessage>(OnAudioParentChanged);
+        // SubscribeLocalEvent<AudioComponent, EntParentChangedMessage>(OnAudioParentChanged);
         SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<AudioComponent, EntParentChangedMessage>(OnParentChange);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-        if (!_echoEnabled ||
-            _gameTiming.CurTime < _nextExistingUpdate)
-            return;
-
-        _nextExistingUpdate = _gameTiming.CurTime + _calculationInterval;
-        var audioEnumerator = EntityQueryEnumerator<AudioComponent>();
-
-        while (audioEnumerator.MoveNext(out var uid, out var audioComponent))
-        {
-            if (!CanAudioEcho(audioComponent) ||
-                !audioComponent.Playing)
-                continue;
-
-            ProcessAudioEntity((uid, audioComponent));
-        }
     }
 
     /// <summary>
@@ -204,11 +176,44 @@ public sealed class AreaEchoSystem : EntitySystem
     // }
 
     /// <summary>
-    ///     Basic check for whether an audio can echo. Doesn't account for distance.
+    ///     Basic check for whether an audio can echo.
     /// </summary>
-    public bool CanAudioEcho(AudioComponent audioComponent)
+    public bool CanAudioEcho(in Entity<AudioComponent> audio)
     {
-        return !audioComponent.Global && _echoEnabled;
+        if (!_echoEnabled)
+            return false;
+
+        // we cast from the player, so they need a valid entity.
+        if (!_clientEnt.IsValid())
+            return false;
+
+        if (TerminatingOrDeleted(audio))
+            return false;
+
+        // is the audio dead/loaded/local/playing?
+        if (!audio.Comp.Loaded
+            || audio.Comp.Global
+            || audio.Comp.State == AudioState.Stopped)
+            return false;
+
+        // get grid or world pos.
+        Vector2 audioPos;
+        if ((audio.Comp.Flags & AudioFlags.GridAudio) != 0x0)
+        {
+            audioPos = _mapSystem.GetGridPosition(Transform(audio.Owner).ParentUid);
+        }
+        else
+        {
+            audioPos = _transformSystem.GetWorldPosition(audio.Owner);
+        }
+
+        // check distance!
+        var delta = audioPos - _clientEnt.ToCoordinates().Position;
+        var distance = delta.Length();
+        if (_audioSystem.GetAudioDistance(distance) > audio.Comp.MaxDistance)
+            return false;
+
+        return true;
     }
 
     /// <summary>
@@ -306,7 +311,6 @@ public sealed class AreaEchoSystem : EntitySystem
             && _transformSystem.TryGetGridTilePosition(clientEnt, out var indices)
             && !_roofSystem.IsRooved((clientTransform.GridUid.Value, grid, roof), indices))
         {
-            Logger.Debug("reached");
             finalMagnitude *= 0.3f;
         }
 
@@ -401,12 +405,8 @@ public sealed class AreaEchoSystem : EntitySystem
             }
 #if DEBUG
             // jank as fuck but whatever
-            _debugRay.ReceiveLocalRayFromAnyThread(new(
-                Ray: new Ray(stepData.OldPos, stepData.Direction),
-                MaxLength: stepData.NewDistance,
-                Results: null,
-                ServerSide: false,
-                mapId));
+            var debugRay = new CollisionRay(stepData.OldPos, stepData.Direction, (int)stopAtFilter.LayerBits);
+            var debugResults = _physicsSystem.IntersectRay(mapId, debugRay, stepData.NewDistance);
 #endif
             // cast our results ray that'll go to the wall we found with our probe- if any. scans for acoustic data.
             var results = _rayCast.CastRay(mapId, stepData.OldPos, stepData.Translation, filter);
@@ -538,25 +538,34 @@ public sealed class AreaEchoSystem : EntitySystem
             _audioEffectSystem.TryRemoveEffect(audioEnt);
     }
 
-    // Maybe TODO: defer this onto ticks? but whatever its just clientside
-    private void OnAudioParentChanged(Entity<AudioComponent> entity, ref EntParentChangedMessage args)
-    {
-        if (args.Transform.MapID == MapId.Nullspace)
-            return;
-
-        if (!CanAudioEcho(entity))
-            return;
-
-        if (!_playerManager.LocalEntity.HasValue)
-            return;
-        _clientEnt = _playerManager.LocalEntity.Value;
-
-        ProcessAudioEntity(entity);
-    }
+    // // Maybe TODO: defer this onto ticks? but whatever its just clientside
+    // private void OnAudioParentChanged(Entity<AudioComponent> entity, ref EntParentChangedMessage args)
+    // {
+    //     if (args.Transform.MapID == MapId.Nullspace)
+    //         return;
+    //
+    //     if (!CanAudioEcho(entity))
+    //         return;
+    //
+    //     if (!_playerManager.LocalEntity.HasValue)
+    //         return;
+    //     _clientEnt = _playerManager.LocalEntity.Value;
+    //
+    //     ProcessAudioEntity(entity);
+    // }
 
     private void OnPlayerAttached(PlayerAttachedEvent ev)
     {
         _clientEnt = ev.Entity;
+    }
+
+    private void OnParentChange(Entity<AudioComponent> audio, ref EntParentChangedMessage ev)
+    {
+        if (!CanAudioEcho(audio))
+            return;
+
+        ProcessAudioEntity(audio);
+
     }
 
     private struct EchoRayStep
