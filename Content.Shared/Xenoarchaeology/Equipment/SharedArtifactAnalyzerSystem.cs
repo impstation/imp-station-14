@@ -5,6 +5,7 @@ using Content.Shared.Placeable;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
+using Content.Shared._Impstation.Xenoarchaeology.Artifact.Components; // imp edit
 
 namespace Content.Shared.Xenoarchaeology.Equipment;
 
@@ -31,10 +32,12 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 
     private void OnItemPlaced(Entity<ArtifactAnalyzerComponent> ent, ref ItemPlacedEvent args)
     {
-        if (!HasComp<XenoArtifactComponent>(args.OtherEntity)) //IMP Disregard old artifacts
-            return;
-
         ent.Comp.CurrentArtifact = args.OtherEntity;
+        // imp edit start, give whatever's on the pad the biased component
+        var bias = EnsureComp<XenoArtifactBiasedComponent>(args.OtherEntity);
+        if (ent.Comp.Console != null)
+            bias.Provider = ent.Comp.Console.Value;
+        // imp edit end
         Dirty(ent);
     }
 
@@ -44,6 +47,10 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
             return;
 
         ent.Comp.CurrentArtifact = null;
+        // imp edit start, okay now take it away
+        if (TryComp<XenoArtifactBiasedComponent>(args.OtherEntity, out var bias) && ent.Comp.Console != null && bias.Provider == ent.Comp.Console.Value)
+            RemComp(args.OtherEntity, bias);
+        // imp edit end
         Dirty(ent);
     }
 
@@ -123,7 +130,12 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
             return false;
 
         artifact = (analyzer.Value.Comp.CurrentArtifact.Value, comp);
-        return true;
+
+        //#IMP doublecheck that artifact is actually ON the pad
+        if (Transform(artifact.Value.Owner).Coordinates.TryDistance(EntityManager, Transform(analyzer.Value.Owner).Coordinates, out var distance) && distance < 3)
+            return true; // IMP This line wasn't in the if originally
+        artifact = null;//IMP
+        return false;//IMP
     }
 
     public bool TryGetAnalysisConsole(Entity<ArtifactAnalyzerComponent> ent, [NotNullWhen(true)] out Entity<AnalysisConsoleComponent>? analysisConsole)

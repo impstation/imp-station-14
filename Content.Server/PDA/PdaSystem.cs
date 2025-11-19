@@ -17,14 +17,13 @@ using Content.Shared.Light;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.PDA;
 using Content.Shared.PDA.Ringer;
-using Content.Shared.Silicons.Borgs.Components; // Impstation
-using Content.Shared.Silicons.Borgs.Components; // Impstation
-using Content.Shared.Silicons.StationAi; // Impstation
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Shared.Silicons.Borgs.Components; // Impstation
+using Content.Shared.Silicons.StationAi; // Impstation
 
 namespace Content.Server.PDA
 {
@@ -160,8 +159,8 @@ namespace Content.Server.PDA
 
             // Begin Impstation - PDAs can be self-viewed
             if (!(TryComp<ActorComponent>(ent, out var actor) ||
-                (_containerSystem.TryGetContainingContainer((ent, null, null), out var container)
-                && TryComp<ActorComponent>(container.Owner, out actor))))
+                _containerSystem.TryGetContainingContainer((ent, null, null), out var container)
+                && TryComp<ActorComponent>(container.Owner, out actor)))
                 return;
             // End Impstation - PDAs can be self-viewed
 
@@ -232,8 +231,8 @@ namespace Content.Server.PDA
                 new PdaIdInfoText
                 {
                     ActualOwnerName = pda.OwnerName,
-                    IdOwner = owner, // Impstation
-                    JobTitle = job, // Impstation
+                    IdOwner = owner, // Impstation id.fullname -> owner
+                    JobTitle = job, // Impstation id.localizedjobtitle -> job
                     StationAlertLevel = pda.StationAlertLevel,
                     StationAlertColor = pda.StationAlertColor
                 },

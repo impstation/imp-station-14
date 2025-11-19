@@ -4,7 +4,9 @@
     children:
     - id: AnomalySpawn
     - id: BluespaceArtifact
-    - id: BluespaceLocker
+    - id: BluespaceLockerDefault # imp
+    - id: BluespaceLockerRandom # imp
+    - id: BluespaceLockerRandomUnrestricted # imp
     - id: BreakerFlip
     - id: BureaucraticError
     - id: ClericalError
@@ -26,6 +28,8 @@
     - id: VentClog
     - id: GoblinKnightEvent # imp
     - id: HereticBooksSpawnSmall #imp
+    - id: BiomagneticPolarizationRule # imp
+    - id: SynthStorm # CD: Unique event for synths
 
 - type: entityTable
   id: GreaterAntagEventsTable #imp: higher impact antags
@@ -43,6 +47,7 @@
     - id: BountyHunterSpawn # imp
     - id: ReplicatorSpawn # imp
     - id: VRexEvent #imp
+    - id: EeepEvent # imp
 
 - type: entityTable
   id: LesserAntagEventsTable # imp: lower impact antags
@@ -59,6 +64,8 @@
     - id: OppaSpawnLight #imp
     - id: OppaSpawnNight #imp
     - id: SyndicateInfiltratorSpawn # imp
+    - !type:NestedSelector # imp
+      tableId: TouristShuttleEvents
 
 - type: entityTable
   id: SleeperlessGreaterAntagEventsTable
@@ -76,7 +83,8 @@
     - id: ChangelingAwakening # imp
     - id: BountyHunterSpawn # imp
     - id: ReplicatorSpawn # imp
-    - id: VRexEvent #imp
+    - id: VRexEvent # imp
+    - id: EeepEvent # imp
 
 - type: entityTable
   id: DerelictBorgEventTable #For Derelict Borg spawns
@@ -154,7 +162,7 @@
   - type: BluespaceArtifactRule
 
 - type: entity
-  id: BluespaceLocker
+  id: BluespaceLocker # imp: currently will not run, replaced by other locker rules
   parent: BaseGameRule
   components:
   - type: StationEvent
@@ -186,6 +194,10 @@
   - type: BureaucraticErrorRule
     ignoredJobs:
     - StationAi
+    - ResearchAssistant
+    - MedicalIntern
+    - SecurityCadet
+    - TechnicalAssistant
 
 - type: entity
   id: ClericalError
@@ -355,7 +367,7 @@
     duration: 1
     earliestStart: 30
     reoccurrenceDelay: 60
-    minimumPlayers: 15 #imp
+    minimumPlayers: 15 #imp used to be 10, wizden increased this to 30 recently
   - type: AntagSelection
     agentName: wizard-round-end-name
     definitions:

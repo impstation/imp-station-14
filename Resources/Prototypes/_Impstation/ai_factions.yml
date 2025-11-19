@@ -16,6 +16,7 @@
     - Changeling
     - Heretic
     - Replicator
+    - Dog
 
 - type: npcFaction
   id: Penguin
@@ -48,3 +49,12 @@
   - Dino
   - Penguin
   - AllHostile
+  - Dog
+
+- type: npcFaction
+  id: Dog
+  hostile:
+  - Courier
+
+- type: npcFaction
+  id: Courier

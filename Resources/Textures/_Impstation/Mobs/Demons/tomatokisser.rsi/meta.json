@@ -5,7 +5,7 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
-  "copyright": " taken from TG on commit https://github.com/tgstation/tgstation/commit/7e5f13f558253e76865e81c9641b7ec68e57754b, edit by starlighthowls",
+  "copyright": " taken from TG on commit https://github.com/tgstation/tgstation/commit/7e5f13f558253e76865e81c9641b7ec68e57754b, edit by starlighthowls, inhands based on inhand sprites for Smile by yuitop, edited by Entings (Github).",
   "states": [
     {
       "name": "alive",
@@ -35,6 +35,14 @@
     },
     {
       "name": "dead"
+    },
+    {
+        "name": "inhand-right",
+        "directions": 4
+    },
+    {
+        "name": "inhand-left",
+        "directions": 4
     }
   ]
 }

@@ -39,6 +39,12 @@ public sealed partial class AnalysisConsoleComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<SourcePortPrototype> LinkingPort = "ArtifactAnalyzerSender";
+
+    /// <summary>
+    ///     Imp edit. The direction the bias is going.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public BiasDirection BiasDirection = BiasDirection.Up;
 }
 
 [Serializable, NetSerializable]
@@ -50,3 +56,16 @@ public enum ArtifactAnalyzerUiKey : byte
 [Serializable, NetSerializable]
 public sealed class AnalysisConsoleExtractButtonPressedMessage : BoundUserInterfaceMessage;
 
+// imp edit start
+[Serializable, NetSerializable]
+public sealed class AnalysisConsoleUpBiasButtonPressedMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class AnalysisConsoleDownBiasButtonPressedMessage : BoundUserInterfaceMessage;
+
+public enum BiasDirection : byte
+{
+    Up, //Towards depth 0
+    Down, //Away from depth 0
+}
+// imp edit end

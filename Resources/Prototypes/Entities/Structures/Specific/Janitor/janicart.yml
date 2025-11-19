@@ -81,8 +81,11 @@
   - type: ReactiveContainer
     solution: bucket
     container: item_slot
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: bucket
+    destroyOnEmpty: false
+    utensil: Spoon
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 3
@@ -117,6 +120,12 @@
         - MachineMask
   - type: StealTarget #imp
     stealGroup: StealMopBucket
+  - type: UserInterface # imp
+    interfaces:
+      enum.ItemSlotsUiKey.Key:
+        type: ItemSlotsBoundUserInterface
+  - type: ActivatableUI # imp
+    key: enum.ItemSlotsUiKey.Key
 
 - type: entity
   name: mop bucket
@@ -189,11 +198,7 @@
           whitelist:
             tags:
               - Plunger
-        goldenplunger_slot:
-          name: janitorial-trolley-slot-component-slot-name-goldenplunger
-          whitelist:
-            tags:
-            - GoldenPlunger
+              - GoldenPlunger
           priority: 8
         wetfloorsign_slot4:
           name: janitorial-trolley-slot-component-slot-name-sign
@@ -360,8 +365,13 @@
       interfaces:
         enum.StorageUiKey.Key:
           type: StorageBoundUserInterface
-    - type: Drink
+        enum.ItemSlotsUiKey.Key: # imp
+          type: ItemSlotsBoundUserInterface
+    - type: Edible
+      edible: Drink
       solution: bucket
+      destroyOnEmpty: false
+      utensil: Spoon
     - type: ContainerContainer
       containers:
         storagebase: !type:Container
@@ -381,3 +391,5 @@
       guides:
       - Janitorial
     - type: DnaSubstanceTrace
+    - type: ActivatableUI # imp
+      key: enum.ItemSlotsUiKey.Key

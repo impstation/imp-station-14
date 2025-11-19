@@ -190,6 +190,9 @@ namespace Content.Client.Options.UI.Tabs
             AddHeader("ui-options-header-interaction-adv");
             AddButton(ContentKeyFunctions.SmartEquipBackpack);
             AddButton(ContentKeyFunctions.SmartEquipBelt);
+            AddButton(ContentKeyFunctions.SmartEquipPocket1);
+            AddButton(ContentKeyFunctions.SmartEquipPocket2);
+            AddButton(ContentKeyFunctions.SmartEquipSuitStorage);
             AddButton(ContentKeyFunctions.OpenBackpack);
             AddButton(ContentKeyFunctions.OpenBelt);
             AddButton(ContentKeyFunctions.ThrowItemInHand);
@@ -232,11 +235,13 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.EscapeMenu);
             AddButton(ContentKeyFunctions.EscapeContext);
 
+            // DeltaV - NanoChat keybinds start
             AddHeader("ui-options-header-nano-chat");
-            AddButton(ContentKeyFunctions.NanoChatNavigateUp); // DeltaV - NanoChat keybinds
-            AddButton(ContentKeyFunctions.NanoChatNavigateDown); // DeltaV - NanoChat keybinds
-            AddButton(ContentKeyFunctions.NanoChatNavigateUpUnread); // DeltaV - NanoChat keybinds
-            AddButton(ContentKeyFunctions.NanoChatNavigateDownUnread); // DeltaV - NanoChat keybinds
+            AddButton(ContentKeyFunctions.NanoChatNavigateUp);
+            AddButton(ContentKeyFunctions.NanoChatNavigateDown);
+            AddButton(ContentKeyFunctions.NanoChatNavigateUpUnread);
+            AddButton(ContentKeyFunctions.NanoChatNavigateDownUnread);
+            // DeltaV end
 
             AddHeader("ui-options-header-misc");
             AddButton(ContentKeyFunctions.TakeScreenshot);

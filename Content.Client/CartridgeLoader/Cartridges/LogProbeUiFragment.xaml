@@ -9,7 +9,7 @@
                               BorderColor="#5a5a5a"
                               BorderThickness="0 0 0 1"/>
         </PanelContainer.PanelOverride>
-        <BoxContainer Orientation="Vertical" Margin="4 8">
+        <BoxContainer Orientation="Vertical" Margin="4 8"> <!-- DV vertical -->
             <!-- DV begin - Add title label -->
             <Label Name="TitleLabel"
                    Text="{Loc 'log-probe-header-access'}"

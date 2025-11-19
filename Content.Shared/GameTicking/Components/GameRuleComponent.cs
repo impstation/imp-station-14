@@ -23,6 +23,7 @@ public sealed partial class GameRuleComponent : Component
     [DataField]
     public int MinPlayers;
 
+    // imp add
     /// <summary>
     /// The maximum amount of players supported by this game rule.
     /// </summary>
@@ -36,6 +37,7 @@ public sealed partial class GameRuleComponent : Component
     [DataField]
     public bool CancelPresetOnTooFewPlayers = true;
 
+    // imp add
     /// <summary>
     /// If true, this rule having too many players will cancel the preset selection.
     /// If false, it will simply not run silently.
