@@ -8,7 +8,6 @@ using Content.Server.Tools;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Database;
-using Content.Shared.DeviceLinking.Events; // imp
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
@@ -32,6 +31,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Server._Impstation.Fax; // imp edit
+using Content.Shared.DeviceLinking.Events; // imp
 using Content.Server.Radio.EntitySystems; // imp edit
 
 namespace Content.Server.Fax;
@@ -73,7 +73,7 @@ public sealed class FaxSystem : EntitySystem
         SubscribeLocalEvent<FaxMachineComponent, EntRemovedFromContainerMessage>(OnItemSlotChanged);
         SubscribeLocalEvent<FaxMachineComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<FaxMachineComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
-        SubscribeLocalEvent<FaxMachineComponent, SignalReceivedEvent>(OnTriggerPortFired); // imp
+        SubscribeLocalEvent<FaxMachineComponent, SignalReceivedEvent>(OnSendPortFired); // imp
 
         // Interaction
         SubscribeLocalEvent<FaxMachineComponent, InteractUsingEvent>(OnInteractUsing);
@@ -353,7 +353,7 @@ public sealed class FaxSystem : EntitySystem
     }
 
     // imp start
-    private void OnTriggerPortFired(Entity<FaxMachineComponent> ent, ref SignalReceivedEvent args)
+    private void OnSendPortFired(Entity<FaxMachineComponent> ent, ref SignalReceivedEvent args)
     {
         Send(ent, ent.Comp, new FaxSendMessage());
     }

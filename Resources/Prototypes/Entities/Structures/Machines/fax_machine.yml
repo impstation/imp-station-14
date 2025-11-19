@@ -72,12 +72,12 @@
     transmitFrequencyId: Fax
   - type: RequireProjectileTarget
   # imp start- allow linking up fax sending functionality to a signal
-  - type: TriggerOnSignal
+  - type: SendFaxOnSignal
   - type: WirelessNetworkConnection
     range: 200
   - type: DeviceLinkSink
     ports:
-    - Trigger
+    - SendFax
   # imp end
 
 # Special
