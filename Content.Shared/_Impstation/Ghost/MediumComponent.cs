@@ -10,7 +10,7 @@ namespace Content.Shared._Impstation.Ghost;
 public sealed partial class MediumComponent : Component
 {
     [DataField]
-    public EntProtoId ToggleGhostsMediumAction = "ActionToggleGhostsMedium";
+    public EntProtoId ToggleGhostsMediumAction = "ActionToggleGhosts";
 
     [DataField, AutoNetworkedField]
     public EntityUid? ToggleGhostsMediumActionEntity;
@@ -25,5 +25,3 @@ public sealed partial class MediumComponent : Component
     [DataField, AutoNetworkedField]
     public float MediumTime = 300; // 5 minutes
 }
-
-public sealed partial class ToggleGhostsMediumActionEvent : InstantActionEvent { }
