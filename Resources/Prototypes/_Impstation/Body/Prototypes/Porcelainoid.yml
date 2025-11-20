@@ -4,14 +4,14 @@
   root: torso
   slots:
     head:
-      part: HeadHuman
+      part: HeadPorcelain
       connections:
       - torso
       organs:
         brain: OrganPorcelainoidBrain
         eyes: OrganPorcelainoidEyes
     torso:
-      part: TorsoHuman
+      part: TorsoPorcelain
       connections:
       - right_arm
       - left_arm
@@ -24,26 +24,26 @@
         liver: OrganPorcelainoidLiver
         kidneys: OrganPorcelainoidKidneys
     right_arm:
-      part: RightArmHuman
+      part: RightArmPorcelain
       connections:
       - right_hand
     left_arm:
-      part: LeftArmHuman
+      part: LeftArmPorcelain
       connections:
       - left_hand
     right_hand:
-      part: RightHandHuman
+      part: RightHandPorcelain
     left_hand:
-      part: LeftHandHuman
+      part: LeftHandPorcelain
     right_leg:
-      part: RightLegHuman
+      part: RightLegPorcelain
       connections:
       - right_foot
     left_leg:
-      part: LeftLegHuman
+      part: LeftLegPorcelain
       connections:
       - left_foot
     right_foot:
-      part: RightFootHuman
+      part: RightFootPorcelain
     left_foot:
-      part: LeftFootHuman
+      part: LeftFootPorcelain
