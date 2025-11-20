@@ -5,7 +5,6 @@ using Robust.Client.Console;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
 using Robust.Shared.Player;
-using Content.Shared._Impstation.Ghost; // imp
 
 namespace Content.Client.Ghost
 {
@@ -48,8 +47,6 @@ namespace Content.Client.Ghost
         public event Action<GhostComponent>? PlayerRemoved;
         public event Action<GhostComponent>? PlayerUpdated;
         public event Action<GhostComponent>? PlayerAttached;
-        public event Action<MediumComponent>? MediumRemoved; // imp add
-        public event Action<MediumComponent>? MediumAttached; // imp add
         public event Action? PlayerDetached;
         public event Action<GhostWarpsResponseEvent>? GhostWarpsResponse;
         public event Action<GhostUpdateGhostRoleCountEvent>? GhostRoleCountUpdated;
