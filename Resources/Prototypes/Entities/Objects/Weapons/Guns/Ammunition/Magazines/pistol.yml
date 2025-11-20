@@ -327,12 +327,12 @@
     proto: CartridgePistol
   - type: Sprite
     layers:
-    - state: base
+    - state: practice #imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    - state: stripe
-      color: "#ffcb6f" #imp
+#   - state: stripe
+#      color: "#ffcb6f" #imp
   - type: Item
     inhandVisuals:
       left:
