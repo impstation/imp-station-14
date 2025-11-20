@@ -17,7 +17,7 @@
   - type: FlashImmunity
 
 - type: entity
-  parent: ClothingHeadEyeBaseFlippable
+  parent: [ClothingHeadEyeBaseFlippable, ClothingEyesEyepatchBase] # Imp, add eyepatch base
   id: ClothingEyesEyepatch
   name: eyepatch
   description: Yarr.

@@ -255,7 +255,7 @@
   suffix: Syndicate
 
 - type: entity
-  parent: [ClothingEyesHudMedical, ClothingHeadEyeBaseFlippable]
+  parent: [ClothingEyesHudMedical, ClothingHeadEyeBaseFlippable, ClothingEyesEyepatchBase] # Imp, add eyepatch base
   id: ClothingEyesEyepatchHudMedical
   name: medical hud eyepatch
   description: A heads-up display that scans the humanoids in view and provides accurate data about their health status. For true patriots.
@@ -276,7 +276,7 @@
   name: medical hud eyepatch
 
 - type: entity
-  parent: [ClothingEyesHudSecurity, ClothingHeadEyeBaseFlippable]
+  parent: [ClothingEyesHudSecurity, ClothingHeadEyeBaseFlippable, ClothingEyesEyepatchBase] # Imp, add eyepatch base
   id: ClothingEyesEyepatchHudSecurity
   name: security hud eyepatch
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. For true patriots.
@@ -297,7 +297,7 @@
   name: security hud eyepatch
 
 - type: entity
-  parent: [ClothingEyesHudBeer, ClothingHeadEyeBaseFlippable]
+  parent: [ClothingEyesHudBeer, ClothingHeadEyeBaseFlippable, ClothingEyesEyepatchBase] # Imp, add eyepatch base
   id: ClothingEyesEyepatchHudBeer
   name: beer hud eyepatch
   description: A pair of sunHud outfitted with apparatus to scan reagents, as well as providing an innate understanding of liquid viscosity while in motion. For true patriots.
@@ -313,7 +313,7 @@
   name: beer hud eyepatch
 
 - type: entity
-  parent: [ClothingEyesHudDiagnostic, ClothingHeadEyeBaseFlippable]
+  parent: [ClothingEyesHudDiagnostic, ClothingHeadEyeBaseFlippable, ClothingEyesEyepatchBase] # Imp, add eyepatch base
   id: ClothingEyesEyepatchHudDiag
   name: diagnostic hud eyepatch
   description: A heads-up display capable of analyzing the integrity and status of robotics and exosuits. Made out of see-borg-ium.

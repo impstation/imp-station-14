@@ -50,6 +50,7 @@
       strippingWindowPos: 0,0
       displayName: Eyes
       offset: 0, 0.08
+      insecure: true # Imp
     - name: ears
       slotTexture: ears
       slotFlags: EARS
@@ -65,6 +66,7 @@
       strippingWindowPos: 1,0
       displayName: Head
       offset: 0, 0.06
+      insecure: true # Imp
     - name: pocket1
       slotTexture: pocket
       fullTextureName: template_small

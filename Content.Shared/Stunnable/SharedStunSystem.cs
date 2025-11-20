@@ -20,6 +20,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._Impstation.SecurelyAttached;
+using Content.Shared.Inventory; // imp
 
 namespace Content.Shared.Stunnable;
 
@@ -38,6 +40,7 @@ public abstract partial class SharedStunSystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly SharedStaminaSystem Stamina = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SecurelyAttachedSystem _securelyAttached = default!; // imp
 
     public override void Initialize()
     {
@@ -267,6 +270,11 @@ public abstract partial class SharedStunSystem : EntitySystem
             {
                 var ev = new DropHandItemsEvent();
                 RaiseLocalEvent(uid, ref ev);
+
+                // imp start, securely attached system
+                if (TryComp<InventoryComponent>(uid, out var inv))
+                    _securelyAttached.DropEquipment((uid,inv));
+                // imp end, securely attached system
             }
 
             // Only update Autostand value if it's our first time being knocked down...

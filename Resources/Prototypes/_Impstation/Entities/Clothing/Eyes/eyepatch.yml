@@ -1,5 +1,15 @@
 - type: entity
-  parent: [ClothingHeadEyeBaseFlippable, BaseCommandContraband]
+  parent: ClothingEyesBase
+  id: ClothingEyesEyepatchBase
+  abstract: true
+  components:
+  - type: SecurelyAttached
+  - type: Tag
+    tags:
+    - Eyepatch
+
+- type: entity
+  parent: [ClothingHeadEyeBaseFlippable, BaseCommandContraband, ClothingEyesEyepatchBase]
   id: ClothingEyesGlassesCaptaineyepatch
   name: captain's eyepatch
   description: "An awesome eyepatch to protect eyes that may or may not actually be damaged."
@@ -16,7 +26,7 @@
     - CaptainsEyepatch
 
 - type: entity
-  parent: [ClothingEyesGlassesCaptaineyepatch]
+  parent: [ClothingEyesGlassesCaptaineyepatch, ClothingEyesEyepatchBase]
   id: ClothingEyesGlassesCaptainEyepatchAdministrativeHud
   name: captain's eyepatch
   suffix: AdministrativeHUD
@@ -31,7 +41,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingEyesBase
+  parent: [ClothingEyesBase, ClothingEyesEyepatchBase]
   id: ClothingEyesDoubleEyepatch
   name: double eyepatch
   description: Signature wear of the dread pirate Blindbeard.
@@ -47,7 +57,7 @@
   - type: FlashImmunity
 
 - type: entity
-  parent: [ClothingEyesHudCommand, ClothingHeadEyeBaseFlippable]
+  parent: [ClothingEyesHudCommand, ClothingHeadEyeBaseFlippable, ClothingEyesEyepatchBase]
   id: ClothingEyesEyepatchHudCommand
   name: administration hud eyepatch
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status. For true patriots.
