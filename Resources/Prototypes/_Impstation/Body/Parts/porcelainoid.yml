@@ -1,7 +1,7 @@
 - type: entity
-  id: PartHuman
+  id: PartPorcelain
   parent: [BaseItem, BasePart]
-  name: "human body part"
+  name: "porcelain body part"
   abstract: true
   components:
   - type: Extractable
@@ -13,8 +13,8 @@
         Quantity: 10
 
 - type: entity
-  id: TorsoHuman
-  name: "human torso"
+  id: TorsoPorcelainoid
+  name: "Porcelain torso"
   parent: [PartHuman, BaseTorso]
   components:
   - type: Sprite
@@ -29,8 +29,8 @@
         Quantity: 20
 
 - type: entity
-  id: HeadHuman
-  name: "human head"
+  id: HeadPorcelain
+  name: "Porcelain head"
   parent: [PartHuman, BaseHead]
   components:
   - type: Sprite
@@ -45,8 +45,8 @@
         Quantity: 10
 
 - type: entity
-  id: LeftArmHuman
-  name: "left human arm"
+  id: LeftArmPorcelain
+  name: "left Porcelain arm"
   parent: [PartHuman, BaseLeftArm]
   components:
   - type: Sprite
@@ -54,8 +54,8 @@
     state: "l_arm"
 
 - type: entity
-  id: RightArmHuman
-  name: "right human arm"
+  id: RightArmPorcelain
+  name: "right Porcelain arm"
   parent: [PartHuman, BaseRightArm]
   components:
   - type: Sprite
@@ -63,8 +63,8 @@
     state: "r_arm"
 
 - type: entity
-  id: LeftHandHuman
-  name: "left human hand"
+  id: LeftHandPorcelain
+  name: "left Porcelain hand"
   parent: [PartHuman, BaseLeftHand]
   components:
   - type: Sprite
@@ -72,8 +72,8 @@
     state: "l_hand"
 
 - type: entity
-  id: RightHandHuman
-  name: "right human hand"
+  id: RightHandPorcelain
+  name: "right Porcelain hand"
   parent: [PartHuman, BaseRightHand]
   components:
   - type: Sprite
@@ -81,8 +81,8 @@
     state: "r_hand"
 
 - type: entity
-  id: LeftLegHuman
-  name: "left human leg"
+  id: LeftLegPorcelain
+  name: "left Porcelain leg"
   parent: [PartHuman, BaseLeftLeg]
   components:
   - type: Sprite
@@ -90,8 +90,8 @@
     state: "l_leg"
 
 - type: entity
-  id: RightLegHuman
-  name: "right human leg"
+  id: RightLegPorcelain
+  name: "right Porcelain leg"
   parent: [PartHuman, BaseRightLeg]
   components:
   - type: Sprite
@@ -99,8 +99,8 @@
     state: "r_leg"
 
 - type: entity
-  id: LeftFootHuman
-  name: "left human foot"
+  id: LeftFootPorcelain
+  name: "left Porcelain foot"
   parent: [PartHuman, BaseLeftFoot]
   components:
   - type: Sprite
@@ -108,8 +108,8 @@
     state: "l_foot"
 
 - type: entity
-  id: RightFootHuman
-  name: "right human foot"
+  id: RightFootPorcelain
+  name: "right Porcelain foot"
   parent: [PartHuman, BaseRightFoot]
   components:
   - type: Sprite

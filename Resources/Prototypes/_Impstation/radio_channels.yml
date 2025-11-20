@@ -9,7 +9,8 @@
 - type: radioChannel
   id: Porcelain
   name: chat-radio-porcelain
-  frequency: 1414 # teehee.
-  color: "#c6226a" # idk if revs have an established colour this is probably fine
-  longRange: true # ideally shouldnt work off grid but needs this to function without a server console
+  keycode: 'p'
+  frequency: 1414
+  color: "#ffffff"
+  longRange: true
   showFrequency: true

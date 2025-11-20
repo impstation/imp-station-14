@@ -62,10 +62,10 @@
   - type: RadioMicrophone
     broadcastChannel: Handheld
     toggleOnInteract: false
-    frequency: 1330
+    frequency: 1459
   - type: RadioSpeaker
     channels:
-    - Handheld
+    - handheld
     toggleOnInteract: false
   - type: ActivatableUI
     key: enum.HandheldRadioUiKey.Key
