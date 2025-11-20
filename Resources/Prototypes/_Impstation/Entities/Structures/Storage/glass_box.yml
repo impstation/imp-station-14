@@ -93,6 +93,8 @@
         whitelist:
           components:
           - NukeDisk
+          tags:
+          - FakeNukeDisk
         ejectSound: /Audio/Machines/machine_switch.ogg
 
 - type: entity
