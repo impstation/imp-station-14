@@ -34,24 +34,21 @@ public sealed class HomunculusSystem : EntitySystem
         // Save a copy of the solutions reagents, can't just use it straight up
         var reagentList = solution.Comp.Solution.Contents.ToList();
         List<string?> storedDna = [];
-        List<Entity<HomunculiTypeComponent>> entities = [];
+        List<Entity<HomunculusTypeComponent>> entities = [];
 
         foreach (var dnaList in reagentList.Select(reagent => reagent.Reagent.EnsureReagentData().OfType<DnaData>()))
         {
             storedDna.AddRange(dnaList.Select(dna => dna.DNA));
         }
 
-        var query = EntityQueryEnumerator<HomunculiTypeComponent>();
-        while (query.MoveNext(out var entityUid,out var homunculiTypeComponent))
+        var query = EntityQueryEnumerator<HomunculusTypeComponent, DnaComponent>();
+        while (query.MoveNext(out var entityUid,out var homunculusType, out var dna))
         {
-            if (!TryComp<DnaComponent>(entityUid, out var dna))
-                continue;
-
-            if (!VerifyAndUseRecipe(homunculiTypeComponent, solution, reagentList))
+            if (!VerifyAndUseRecipe(homunculusType, solution, reagentList))
                 continue;
 
             if (storedDna.Contains(dna.DNA))
-                entities.Add((entityUid, homunculiTypeComponent));
+                entities.Add((entityUid, homunculusType));
         }
         if (entities.Count > 0)
         {
@@ -64,9 +61,9 @@ public sealed class HomunculusSystem : EntitySystem
         return false;
     }
 
-    public void CreateHomunculiFromEntities(List<Entity<HomunculiTypeComponent>> entities,List<string?> dnaData, MapCoordinates mapCoordinates, out EntityUid homunculus)
+    public void CreateHomunculiFromEntities(List<Entity<HomunculusTypeComponent>> entities,List<string?> dnaData, MapCoordinates mapCoordinates, out EntityUid homunculus)
     {
-        homunculus = EntityManager.Spawn(entities[0].Comp.HomunculiType, mapCoordinates);
+        homunculus = EntityManager.Spawn(entities[0].Comp.HomunculusType, mapCoordinates);
         _transform.AttachToGridOrMap(homunculus);
 
         EnsureComp<DnaComponent>(homunculus, out var homunculiDnaComponent);
@@ -76,15 +73,15 @@ public sealed class HomunculusSystem : EntitySystem
         SetHomunculusAppearance(entities,homunculus);
     }
 
-    public bool VerifyAndUseRecipe(HomunculiTypeComponent homunculiComp, Entity<SolutionComponent> solution, List<ReagentQuantity> reagents)
+    public bool VerifyAndUseRecipe(HomunculusTypeComponent homunculusComp, Entity<SolutionComponent> solution, List<ReagentQuantity> reagents)
     {
-        if (!SatisfiesRecipe(homunculiComp, reagents))
+        if (!SatisfiesRecipe(homunculusComp, reagents))
             return false;
 
         var savedSolutions = solution.Comp.Solution.Contents.ToList();
         // Go through all the reagents in the saved solution, if the reagent matches one in the recipe, remove it
         // I have to check for reagent data because it needs to be specific or else it won't drain
-        foreach (var (reagent, amount) in homunculiComp.Recipe)
+        foreach (var (reagent, amount) in homunculusComp.Recipe)
         {
             var match = savedSolutions.FirstOrDefault(rq => rq.Reagent.Prototype == reagent);
 
@@ -96,7 +93,7 @@ public sealed class HomunculusSystem : EntitySystem
         return true;
     }
 
-    private static bool SatisfiesRecipe(HomunculiTypeComponent component, List<ReagentQuantity> reagents)
+    private static bool SatisfiesRecipe(HomunculusTypeComponent component, List<ReagentQuantity> reagents)
     {
         foreach (var required in component.Recipe)
         {
@@ -108,7 +105,7 @@ public sealed class HomunculusSystem : EntitySystem
         return true;
     }
 
-    private void SetHomunculusAppearance(List<Entity<HomunculiTypeComponent>> entities, EntityUid homunculi)
+    private void SetHomunculusAppearance(List<Entity<HomunculusTypeComponent>> entities, EntityUid homunculi)
     {
         var markingCategories = new List<MarkingCategories>
         {

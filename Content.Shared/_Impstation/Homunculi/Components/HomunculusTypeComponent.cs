@@ -7,11 +7,11 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared._Impstation.Homunculi.Components;
 
 [RegisterComponent]
-public sealed partial class HomunculiTypeComponent : Component
+public sealed partial class HomunculusTypeComponent : Component
 {
-    [DataField(customTypeSerializer:typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string HomunculiType = "HomunculusHuman";
+    [DataField]
+    public EntProtoId HomunculusType = "HomunculusHuman";
 
-    [DataField(customTypeSerializer:typeof(PrototypeIdDictionarySerializer<FixedPoint2, ReagentPrototype>))]
-    public Dictionary<string, FixedPoint2> Recipe = new();
+    [DataField]
+    public Dictionary<ProtoId<ReagentPrototype>, FixedPoint2> Recipe = new();
 }

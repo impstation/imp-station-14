@@ -20,7 +20,7 @@ public sealed partial class IncubatorComponent : Component
     public EntityUid? PlayingStream;
 
     [DataField]
-    public SoundSpecifier?  LoopingSound = new SoundPathSpecifier("/Audio/Machines/spinning.ogg");
+    public SoundSpecifier? LoopingSound = new SoundPathSpecifier("/Audio/Machines/spinning.ogg");
 
     [DataField]
     public string BeakerSlotId = "beaker_slot";

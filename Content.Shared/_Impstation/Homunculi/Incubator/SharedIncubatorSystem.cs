@@ -4,7 +4,7 @@ using Content.Shared._Impstation.Homunculi.Incubator.Components;
 
 namespace Content.Shared._Impstation.Homunculi.Incubator;
 
-public abstract class  SharedIncubatorSystem : EntitySystem
+public abstract class SharedIncubatorSystem : EntitySystem
 {
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
 

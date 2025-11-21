@@ -31,8 +31,8 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: HomunculiType #imp
-    homunculiType: HomunculusHuman
+  - type: HomunculusType #imp
+    homunculusType: HomunculusHuman
     recipe:
       SynthFlesh: 20
       Saline: 20
