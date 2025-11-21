@@ -82,7 +82,7 @@
     - WhitelistChameleon
   - type: PluralName # imp
     oneOf: plural-name-some
-
+  - type: SecurelyAttached # imp
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot] # BaseLensSlot from imp
@@ -335,6 +335,7 @@
       - ChemGoggles #imp
     - type: PluralName # imp
       oneOf: plural-name-some
+    - type: SecurelyAttached # imp
 
 - type: entity
   parent: [ClothingEyesBase, BaseHighlyIllegalContraband]
@@ -349,6 +350,7 @@
   - type: FlashImmunity
   - type: NightVision # EE edit
     isEquipment: true
+  - type: SecurelyAttached # imp
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSecurityContraband]

@@ -1,29 +1,24 @@
-using System.Numerics;
 using Content.Shared._Impstation.SecurelyAttached.Components;
-using Content.Shared.ActionBlocker;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Examine;
 using Content.Shared.Glue;
 using Content.Shared.Inventory;
-using Content.Shared.Movement.Pulling.Systems;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Standing;
 using Content.Shared.Throwing;
-using Robust.Shared.Containers;
-using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._Impstation.SecurelyAttached;
 
 public sealed class SecurelyAttachedSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-
-    private EntityQuery<PhysicsComponent> _physicsQuery;
+    [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <summary>
     /// Speed items are thrown off of the holder
@@ -40,6 +35,11 @@ public sealed class SecurelyAttachedSystem : EntitySystem
     /// </summary>
     private const float MaximumDistance = 2f;
 
+    /// <summary>
+    /// Drop chance is increased by linear velocity divided by this number.
+    /// </summary>
+    private const float SpeedModifier = 15f;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<ClothingComponent, ExaminedEvent>(OnExamined);
@@ -53,43 +53,42 @@ public sealed class SecurelyAttachedSystem : EntitySystem
             if (!_inventory.TryGetSlotEntity(ent, slot.Name, out var itemUid))
                 continue;
 
+            var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(itemUid.Value).Id });
+            var rand = new System.Random(seed);
+
             var dropChance = slot.InsecureDropChance;
+
+            var playerPosition = _physics.GetPhysicsTransform(ent).Position;
+            var linearVelocity = _physics.GetLinearVelocity(ent, playerPosition).Length();
+
+            dropChance *= 1 + linearVelocity / SpeedModifier;
+
+            if (!(rand.NextFloat() <= dropChance))
+                continue;
 
             if (!slot.Insecure || HasComp<SecurelyAttachedComponent>(itemUid))
                 continue;
 
-            if (!(_random.NextFloat() <= dropChance))
+            if (!_inventory.TryUnequip(ent, slot.Name, silent: true, checkDoafter: false, predicted: true))
                 continue;
 
             // this is all taken from hands system. thank you hands system.
 
-            var offsetRandomCoordinates = _transform.GetMoverCoordinates(ent).Offset(_random.NextVector2(1f, 1.5f));
-
+            var offsetRandomCoordinates = _transform.GetMoverCoordinates(ent).Offset(rand.NextPolarVector2(0f, 0.5f));
             var direction = _transform.ToMapCoordinates(offsetRandomCoordinates).Position - _transform.GetWorldPosition(ent);
 
             var length = direction.Length();
             var distance = Math.Clamp(length, MinimumDistance, MaximumDistance);
             direction *= distance / length;
 
-            var itemEv = new BeforeGettingThrownEvent(itemUid.Value, direction, ItemThrowSpeed, ent);
-            RaiseLocalEvent(itemUid.Value, ref itemEv);
+            var throwAttempt = new FellDownThrowAttemptEvent(ent);
+            RaiseLocalEvent(itemUid.Value, ref throwAttempt);
 
-            if (itemEv.Cancelled)
+            if (throwAttempt.Cancelled)
                 return;
 
-            var ev = new BeforeThrowEvent(itemUid.Value, direction, ItemThrowSpeed, ent);
-            RaiseLocalEvent(ent, ref ev);
-
-            if (ev.Cancelled)
-                return;
-
-            _throwingSystem.TryThrow(ev.ItemUid, ev.Direction, ev.ThrowSpeed, ev.PlayerUid, compensateFriction: !HasComp<LandAtCursorComponent>(ev.ItemUid));
+            _throwingSystem.TryThrow(itemUid.Value, direction, ItemThrowSpeed, ent, compensateFriction: !HasComp<LandAtCursorComponent>(itemUid.Value));
         }
-    }
-
-    public bool TryDrop(EntityUid wearer, EntityUid itemToDrop, string slotName)
-    {
-        return _inventory.CanUnequip(wearer, slotName, out _);
     }
 
     private void OnExamined(Entity<ClothingComponent> ent, ref ExaminedEvent args)
@@ -98,7 +97,7 @@ public sealed class SecurelyAttachedSystem : EntitySystem
             return;
 
         if (slot.Insecure && !HasComp<SecurelyAttachedComponent>(ent))
-            args.PushMarkup(Loc.GetString("insecure-attached"));
+            args.PushMarkup(Loc.GetString("insecurely-attached"));
         else
             args.PushMarkup(Loc.GetString("securely-attached"));
     }

@@ -16,6 +16,7 @@
     coverage: EYES
   - type: PluralName # imp
     oneOf: plural-name-some
+  - type: SecurelyAttached # imp
 
 - type: entity
   parent: [ClothingEyesNightVisionGoggles, ShowSecurityIcons]
@@ -92,6 +93,7 @@
     coverage: EYES
   - type: PluralName # imp
     oneOf: plural-name-some
+  - type: SecurelyAttached # imp
 
 - type: entity
   parent: ClothingEyesThermalVisionGoggles

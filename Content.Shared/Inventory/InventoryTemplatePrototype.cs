@@ -70,6 +70,6 @@ public sealed partial class SlotDefinition
     /// <summary>
     ///     Default drop chance when the item is dropped, overwritten by item insecure component
     /// </summary>
-    [DataField] public float InsecureDropChance = 1f;
+    [DataField] public float InsecureDropChance = 0.3f;
     // Imp end, secure attachment system
 }

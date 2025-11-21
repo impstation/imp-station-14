@@ -102,6 +102,7 @@
     - WhitelistChameleon
   - type: PluralName # imp
     oneOf: plural-name-some
+  - type: SecurelyAttached # imp
 
 - type: entity
   parent: ClothingEyesBase
@@ -126,6 +127,7 @@
     flavors:
       - onion
       - greasey
+  - type: SecurelyAttached # imp
 
 - type: entity
   parent: ClothingEyesBase
@@ -139,6 +141,7 @@
     sprite: Clothing/Eyes/Hud/onionbeer.rsi
   - type: ShowHungerIcons
   - type: ShowThirstIcons
+  - type: SecurelyAttached # imp
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
@@ -231,6 +234,7 @@
     tags:
     - PetWearable
     - WhitelistChameleon
+  - type: SecurelyAttached # imp
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, Tier2Contraband]
@@ -248,6 +252,7 @@
     tags:
     - PetWearable
     - WhitelistChameleon
+  - type: SecurelyAttached # imp
 
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]
