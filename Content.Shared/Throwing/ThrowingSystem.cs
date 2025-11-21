@@ -1,13 +1,9 @@
 using System.Numerics;
-using Content.Shared._Impstation.Throwing; // Imp
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
 using Content.Shared.CCVar;
-using Content.Shared.Damage.Components; // imp
-using Content.Shared.Damage.Systems; // imp
 using Content.Shared.Construction.Components;
 using Content.Shared.Database;
-using Content.Shared.Friction;
 using Content.Shared.Gravity;
 using Content.Shared.Projectiles;
 using Robust.Shared.Configuration;
@@ -15,8 +11,13 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Random; // imp
 using Robust.Shared.Timing;
+
+using Content.Shared._Impstation.Throwing; // Imp
+using Content.Shared.Damage.Components; // imp
+using Content.Shared.Damage.Systems; // imp
+using Content.Shared.Random.Helpers; // imp
+using Robust.Shared.Random; // imp
 
 namespace Content.Shared.Throwing;
 
@@ -45,7 +46,6 @@ public sealed class ThrowingSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _configManager = default!;
 
     [Dependency] private readonly SharedStaminaSystem _stamina = default!; // imp
-    [Dependency] private readonly IRobustRandom _random = default!; // imp
 
     public override void Initialize()
     {
@@ -160,13 +160,19 @@ public sealed class ThrowingSystem : EntitySystem
         if (projectileQuery.TryGetComponent(uid, out var proj) && !proj.OnlyCollideWhenShot)
             return;
 
+        // imp upright landing start
         TryComp<UprightLandingComponent>(uid, out var uprightLanding);
+
+        var seed = SharedRandomExtensions.HashCodeCombine(new() { (int) _gameTiming.CurTick.Value, GetNetEntity(uid).Id });
+        var rand = new System.Random(seed);
+
+        // imp upright landing end
 
         var comp = new ThrownItemComponent
         {
             Thrower = user,
             Animate = animated,
-            LandsUpright = uprightLanding != null && uprightLanding.Chance >= _random.NextFloat(), // Imp
+            LandsUpright = uprightLanding != null && uprightLanding.Chance >= rand.NextFloat(), // Imp
         };
 
 
