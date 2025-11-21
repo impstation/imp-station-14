@@ -17,3 +17,13 @@
   cost: 600
   category: cargoproduct-category-name-cargo
   group: market
+
+- type: cargoProduct
+  id: CargoTckA
+  icon:
+    sprite: _Impstation/Objects/Storage/decacapsule.rsi
+    state: icon
+  product: TckACanister
+  cost: 4000
+  category: cargoproduct-category-name-cargo
+  group: market

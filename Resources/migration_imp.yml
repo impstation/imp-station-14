@@ -68,11 +68,6 @@ CrateServiceCleanades: CrateServiceCleanerGrenades
 ClosetJanitor: LockerJanitor
 ClosetJanitorFilled: LockerJanitorFilled
 
-# 2025-06-28
-# impstation: replace artifact spawners with combined old/new artifact spawners
-RandomArtifactSpawner: RandomOldNewArtifactSpawner
-RandomArtifactSpawner20: RandomOldNewArtifactSpawner20
-
 # 2025-07-17
 # removed redundant prototype from DV tabletop computer port
 MobileComputerTabletopComms: ComputerTabletopComms
@@ -95,7 +90,34 @@ SpawnMobPoly: SpawnMobPollyParrot
 # upstream merge replacement prototypes
 DVSmartFridge: SmartFridge
 
+# 2025-08-13
+# changed vault door to its own access so HoP can't open it with their remote
+VaultDoorCommandLocked: VaultDoorLocked
+
 # 2025-08-18
 # upstream merge replacement prototypes, borg-exclusive items were mapped...
 SoapBorg: Soap
 CableApcStackLingering10: CableApcStack10
+
+# 2025-09-16
+# replaced the grape juice cup with colo cups
+DrinkLean: DrinkColoCupGrapeJuice
+
+# 2025-09-24
+# offmed exodus
+ChemistryBottleParacetamol: null
+CrateFreezerIVBag: null
+IVBagBlood: null
+IVStand: null
+
+# 2025-09-29
+# old xenoarch revert
+RandomOldNewArtifactSpawner: RandomArtifactSpawner
+RandomOldNewArtifactSpawner20: RandomArtifactSpawner20
+
+# 2025-10-01
+# xenoarch unification
+ComplexXenoArtifact: ReticulatedXenoArtifactStructure
+ComplexXenoArtifactItem: ReticulatedXenoArtifactItem
+RandomXAEArtifactSpawner: RandomArtifactSpawner
+RandomXAEArtifactSpawner20: RandomArtifactSpawner20

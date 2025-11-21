@@ -22,13 +22,6 @@
           - Vaporizer
           - SGD
     failMessage: decapoid-cant-speak
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 2
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
   - type: Sprite
     layers: # Need to redefine the whole order to draw the legs and claw correctly
     - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # hivehum edit i just saw this layer order and got really scared but this probably wants to render under the back legs
@@ -62,6 +55,7 @@
     - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "head" ]
     - map: [ "mask" ]
+    - map: [ "enum.HumanoidVisualLayers.SnoutCover" ]
     - map: [ "enum.HumanoidVisualLayers.HeadSide" ] # not default
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
@@ -84,14 +78,14 @@
     butcheringType: Spike
     spawned:
     - id: FoodMeatCrab # maybe custom someday. as-is, it's fine
-      amount: 1
+      amount: 6
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 350 # they're a little heavier than everyone else.
+        density: 325 # youre the heaviest. dont let anyone else trick you.
         restitution: 0.0
         mask:
         - MobMask
@@ -144,6 +138,9 @@
     clumsyHypo: false # these variables were created for this purpose and have been upstreamed
     clumsyVaulting: false
     clumsyDefib: false
+    gunWhitelist:
+      tags:
+        - Crusher
     gunFailedMessage: gun-clumsy-decapoid # The gun slips out of your claws!
   - type: Bloodstream
     bloodReagent: CopperBlood # real life crustaceans are in the same clade as spiders and share a blood type
@@ -191,7 +188,7 @@
     - Hair
     - Snout
     - HeadSide
-  - type: Carriable # Carrying system from nyanotrasen.
+  - type: CarrierOneHand
 
 - type: entity
   parent: BaseSpeciesDummy

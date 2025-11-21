@@ -6,7 +6,6 @@ using Content.Server.Popups;
 using Content.Shared.Crayon;
 using Content.Shared.Database;
 using Content.Shared.Decals;
-using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Nutrition.EntitySystems;
@@ -15,6 +14,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Server.Heretic.EntitySystems; // Imp
 
 namespace Content.Server.Crayon;
 
@@ -26,6 +26,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!; // Imp
 
     public override void Initialize()
     {
@@ -41,7 +42,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
 
     private static void OnCrayonGetState(EntityUid uid, CrayonComponent component, ref ComponentGetState args)
     {
-        args.State = new CrayonComponentState(component.Color, component.SelectedState, component.Charges, component.Capacity, component.Infinite);
+        args.State = new CrayonComponentState(component.Color, component.SelectedState, component.Charges, component.Capacity, component.Infinite); // imp infinite
     }
 
     private void OnCrayonAfterInteract(EntityUid uid, CrayonComponent component, AfterInteractEvent args)
@@ -49,8 +50,8 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (args.Handled || !args.CanReach)
             return;
 
-        if (TryComp<HereticComponent>(args.User, out var heretic) && heretic.MansusGraspActive)
-            return;
+        if (_mansusGrasp.MansusGraspActive(uid)) // Imp Start
+            return; // Imp End
 
         if (component.Charges <= 0)
         {
@@ -76,7 +77,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (component.UseSound != null)
             _audio.PlayPvs(component.UseSound, uid, AudioParams.Default.WithVariation(0.125f));
 
-        if (!component.Infinite)
+        if (!component.Infinite) // imp
         {
             // Decrease "Ammo"
             component.Charges--;
@@ -86,7 +87,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
         _adminLogger.Add(LogType.CrayonDraw, LogImpact.Low, $"{ToPrettyString(args.User):user} drew a {component.Color:color} {component.SelectedState}");
         args.Handled = true;
 
-        if (!component.Infinite && component.DeleteEmpty && component.Charges <= 0)
+        if (!component.Infinite && component.DeleteEmpty && component.Charges <= 0) // imp add infinite
             UseUpCrayon(uid, args.User);
         else
             _uiSystem.ServerSendUiMessage(uid, SharedCrayonComponent.CrayonUiKey.Key, new CrayonUsedMessage(component.SelectedState));

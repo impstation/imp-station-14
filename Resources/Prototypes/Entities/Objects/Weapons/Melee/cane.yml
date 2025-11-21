@@ -11,6 +11,7 @@
     size: Normal
     sprite: Objects/Weapons/Melee/cane.rsi
   - type: Appearance
+  - type: MobilityAid
   - type: MeleeWeapon
     wideAnimationRotation: 45
     damage:
@@ -25,28 +26,25 @@
         Blunt: 3
   - type: UseDelay
     delay: 1
-  - type: DamageOtherOnHit
+  - type: DamageOtherOnHit # imp
 
 - type: entity
   name: cane blade
-  parent: [BaseItem, Tier2Contraband]
+  parent: [BaseSword, Tier2Contraband] #imp, contraband
   id: CaneBlade
   description: A sharp blade with a cane shaped hilt.
   components:
-  - type: Sharp
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane_blade.rsi
-    state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 65
     attackRate: 1.5
     damage:
       types:
-        Slash: 14
+        Slash: 17
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
-    size: Normal
     sprite: Objects/Weapons/Melee/cane_blade.rsi
   - type: Tag
     tags:
@@ -62,7 +60,7 @@
   # end imp edits #
 
 - type: entity
-  parent: [Cane, VoiceLock]
+  parent: [Cane, SelectableLock]
   id: CaneSheath
   suffix: Empty
   components:
@@ -92,6 +90,7 @@
           - CaneBlade
         insertSound: /Audio/Items/sheath.ogg
         ejectSound: /Audio/Items/unsheath.ogg
+        priority: 3
   - type: ItemMapper
     mapLayers:
       cane:

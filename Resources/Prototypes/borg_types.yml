@@ -14,6 +14,7 @@
 
   defaultModules:
   - BorgModuleTool
+  - BorgModuleInflatable
   - BorgModuleArtifact
   - BorgModuleAnomaly
   radioChannels:
@@ -66,6 +67,10 @@
   petSuccessString: petting-success-engineer-cyborg
   petFailureString: petting-failure-engineer-cyborg
 
+  # Impstation - Borg PDAs
+  pdaBorderColor: "#bf803a"
+  pdaAccentVerticalColor: "#ffd187"
+
 
 # Salvage borg
 - type: borgType
@@ -106,6 +111,10 @@
   petSuccessString: petting-success-salvage-cyborg
   petFailureString: petting-failure-salvage-cyborg
 
+  # Impstation - Borg PDAs
+  pdaBorderColor: "#af9366"
+  pdaAccentVerticalColor: "#8900c9"
+
 
 # Janitor borg
 - type: borgType
@@ -141,6 +150,9 @@
   # Pet
   petSuccessString: petting-success-janitor-cyborg
   petFailureString: petting-failure-janitor-cyborg
+
+  # Impstation - Borg PDAs
+  pdaBorderColor: "#5D2D56"
 
 
 # Medical borg
@@ -195,6 +207,10 @@
   footstepCollection:
     collection: FootstepHoverBorg
 
+  # Impstation - Borg PDAs
+  pdaBorderColor: "#d7d7d0"
+  pdaAccentVerticalColor: "#447987"
+
 
 # Service borg
 - type: borgType
@@ -232,3 +248,7 @@
   # Pet
   petSuccessString: petting-success-service-cyborg
   petFailureString: petting-failure-service-cyborg
+
+  # Impstation - Borg PDAs
+  pdaBorderColor: "#717059"
+  pdaAccentVerticalColor: "#00cc35"

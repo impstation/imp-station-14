@@ -16,6 +16,10 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:DepartmentTimeRequirement
+    department: Command
+    time: 6h
 
 - type: startingGear
   id: ERTLeaderGear
@@ -81,7 +85,7 @@
     pocket1: MagazineRifle
     pocket2: MagazineRifle
   inhand:
-  - WeaponRifleLecter
+  - WeaponRifleLecterXL8
   storage:
     back:
     - WeaponDisabler
@@ -213,6 +217,10 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:DepartmentTimeRequirement
+    department: Engineering
+    time: 3h
 
 - type: startingGear
   id: ERTEngineerGear
@@ -296,6 +304,10 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:DepartmentTimeRequirement
+    department: Security
+    time: 4h
 
 - type: startingGear
   id: ERTSecurityGear
@@ -397,6 +409,10 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:DepartmentTimeRequirement
+    department: Medical
+    time: 3h
 
 - type: startingGear
   id: ERTMedicalGear

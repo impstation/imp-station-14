@@ -102,6 +102,20 @@
     sprite: _Impstation/Objects/Weapons/Guns/Battery/hopdisabler.rsi
     state: icon
 
+- type: stealTargetGroup
+  id: MedChemHUD
+  name: steal-target-groups-medchemhud
+  sprite:
+    sprite: _Impstation/Clothing/Eyes/Hud/medchem.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: ToolboxGolden
+  name: steal-target-groups-toolboxgolden
+  sprite:
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_gold.rsi
+    state: icon
+
 # rare but otherwise not notable
 
 - type: stealTargetGroup

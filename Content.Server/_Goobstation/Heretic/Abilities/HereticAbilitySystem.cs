@@ -1,37 +1,35 @@
+using Content.Server._Goobstation.Heretic.Components;
+using Content.Server._Impstation.Heretic.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Shared.Interaction;
 using Content.Server.Flash;
 using Content.Server.Hands.Systems;
+using Content.Server.Heretic.EntitySystems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Server.Radio.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
+using Content.Shared.Medical;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Radio.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
-using Content.Shared.Body.Systems;
-using Content.Server.Medical;
 using Robust.Server.GameObjects;
 using Content.Shared.Stunnable;
-using Robust.Shared.Map;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
-using Content.Server.Station.Systems;
 using Robust.Shared.Prototypes;
 using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Movement.Systems;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -63,6 +61,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -73,7 +72,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         {
             // ignore heretics with the same path*, affect everyone else
             if ((TryComp<HereticComponent>(look, out var th) && th.MainPath == ent.Comp.MainPath)
-            || HasComp<GhoulComponent>(look))
+            || HasComp<MinionComponent>(look))
                 continue;
 
             if (!HasComp<StatusEffectsComponent>(look))
@@ -91,8 +90,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticOpenStore>(OnStore);
         SubscribeLocalEvent<HereticComponent, EventHereticMansusGrasp>(OnMansusGrasp);
 
-        SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
-        SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
+        SubscribeLocalEvent<MinionComponent, EventHereticMansusLink>(OnMansusLink);
+        SubscribeLocalEvent<MinionComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
 
         SubscribeAsh();
         SubscribeFlesh();
@@ -113,7 +112,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             var ev = new CheckMagicItemEvent();
             RaiseLocalEvent(ent, ev);
 
-            if (!ev.Handled)
+            if (!ev.Handled && !HasComp<InnateHereticMagicComponent>(ent))
             {
                 _popup.PopupEntity(Loc.GetString("heretic-ability-fail-magicitem"), ent, ent);
                 return false;
@@ -138,7 +137,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        if (ent.Comp.MansusGraspActive)
+        if (_mansusGrasp.MansusGraspActive(ent.Owner))
         {
             _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
             return;
@@ -153,11 +152,10 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        ent.Comp.MansusGraspActive = true;
         args.Handled = true;
     }
 
-    private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
+    private void OnMansusLink(Entity<MinionComponent> ent, ref EventHereticMansusLink args)
     {
         if (!TryUseAbility(ent, args))
             return;
@@ -185,18 +183,18 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("heretic-manselink-start-target"), args.Target, args.Target, PopupType.MediumCaution);
         _doafter.TryStartDoAfter(dargs);
     }
-    private void OnMansusLinkDoafter(Entity<GhoulComponent> ent, ref HereticMansusLinkDoAfter args)
+    private void OnMansusLinkDoafter(Entity<MinionComponent> ent, ref HereticMansusLinkDoAfter args)
     {
         if (args.Cancelled || args.Args.Target == null)
             return;
 
         var target = args.Args.Target.Value;
 
-        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(target);
+        EnsureComp<IntrinsicRadioReceiverComponent>(target);
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(target);
         var radio = EnsureComp<ActiveRadioComponent>(target);
-        radio.Channels = new() { "Mansus" };
-        transmitter.Channels = new() { "Mansus" };
+        radio.Channels = ["Mansus"];
+        transmitter.Channels = ["Mansus"];
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));

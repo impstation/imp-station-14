@@ -13,9 +13,12 @@
   - Dna
   - Fingerprint
   - NpcFactionMember
+  - NotifierExamine # imp change
   # traits
   - BlackAndWhiteOverlay
   - Clumsy
+  - Hemophilia
+  - ImpairedMobility
   # - LegsParalyzed (you get healed)
   - LightweightDrunk
   - Muted
@@ -26,6 +29,12 @@
   - PermanentBlindness
   - Snoring
   - Unrevivable
+  # imp disabilities begin
+  - Hemophilia
+  - RandomUnrevivable
+  - Illiterate
+  - UnadaptedToSpace
+  # imp disabilities end
   # accents
   - Accentless
   - BackwardsAccent
@@ -54,8 +63,32 @@
   - SouthernAccent
   - SpanishAccent
   - StutteringAccent
-  - UnadaptedToSpace # imp edit
-
+  # imp accents begin
+  - ProperCapitalization
+  - ProperPunctuation
+  - NoContractionsAccent
+  - SharpInflection
+  - Monotonous
+  - TransatlanticAccent
+  - BasicPirateAccent
+  - BasicFrenchAccent
+  - BasicRussianAccent
+  - StiltedSpeech
+  - RelentlessPositivity
+  - PGAccent
+  - VowelRotation
+  - ArchaicAccent
+  - SnalienAccent
+  - MobsterAccent
+  - RatvarianLanguage
+  - MilbratAccent
+  # imp accents end
+  blacklist:
+    components:
+    - AttachedClothing # helmets, which are part of the suit
+    - HumanoidAppearance # will cause problems for downstream felinids getting cloned as Urists
+    - Implanter # they will spawn full again, but you already get the implant. And we can't do item slot copying yet
+    - VirtualItem
 # for job-specific traits etc.
 - type: cloningSettings
   id: Special
@@ -74,6 +107,8 @@
   - HeadRevolutionary
   - Revolutionary
   - NukeOperative
+  - Heretic # Imp
+  - GoobChangeling # Imp
 
 # a full clone with all traits and items, but no antag roles
 - type: cloningSettings
@@ -109,8 +144,10 @@
   # that means we only need to copy them over when switching between species.
   # So these don't need to be part of the Body settings, unless someone makes a trait that adjusts these components.
   - BodyEmotes
+  - MessyDrinker
   # - Fixtures TODO: A better way to clone fixtures or a fixture fix. Currently if you devour someone on the ground and transform, you lose collision with tables as they were knocked down when they were copied.
   - Speech
+  - TemperatureProtection
   - TypingIndicator
   - ScaleVisuals # for dwarf height
   eventComponents:
@@ -122,6 +159,7 @@
   - Rootable # diona
   - Sericulture # arachnids
   - MovementSpeedModifier # moths when weightless
+  - JumpAbility # vulp leaping
   copyEquipment: null
   copyInternalStorage: false
   copyImplants: false

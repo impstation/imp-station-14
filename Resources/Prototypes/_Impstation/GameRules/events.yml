@@ -3,7 +3,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 35
+    earliestStart: 30 #originally 35
     minimumPlayers: 30 # roundstart changeling is 15 which seems insane
     weight: 2 # twice as common as zombies
     duration: 1
@@ -36,9 +36,9 @@
   id: BountyHunterSpawn
   components:
   - type: StationEvent
-    weight: 7
+    weight: 5
     duration: null
-    earliestStart: 25
+    earliestStart: 20 #originally 25
     reoccurrenceDelay: 20
     minimumPlayers: 15
   - type: AntagLoadProfileRule
@@ -130,7 +130,7 @@
   id: SyndicateInfiltratorSpawn
   components:
   - type: StationEvent
-    weight: 4
+    weight: 3
     reoccurrenceDelay: 5
     minimumPlayers: 15
     earliestStart: 25
@@ -146,3 +146,116 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+
+# eeeplet
+- type: entity
+  id: EeepEvent
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    weight: 3.5
+    earliestStart: 25
+    reoccurrenceDelay: 40
+    minimumPlayers: 30
+  - type: VentCrittersRule
+    specialEntries:
+    - id: SpawnPointGhostEeeplet
+      min: 1
+      max: 1
+      prob: 0.01
+
+# tourist shuttles. Spawn weight for them might need to be reduced
+- type: entityTable
+  id: TouristShuttleEvents
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: TouristSmallShuttle
+    - id: TouristMediumShuttle
+    - id: TouristLargeShuttle
+    
+- type: entity
+  id: TouristSmallShuttle #one tourist
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: 1
+    minimumPlayers: 15
+    maxOccurrences: 1 #only one of each type of tourist shuttle can spawn
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/tourist_small.yml
+
+- type: entity
+  id: TouristMediumShuttle #three tourists
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 2
+    duration: 1
+    minimumPlayers: 25
+    maxOccurrences: 1 #only one of each type of tourist shuttle can spawn
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/tourist_medium.yml
+
+- type: entity
+  id: TouristLargeShuttle #five tourists
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 2
+    duration: 1
+    minimumPlayers: 35
+    maxOccurrences: 1 #only one of each type of tourist shuttle can spawn
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/tourist_large.yml
+
+# bluespace lockers
+- type: entity
+  id: BluespaceLockerDefault
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    reoccurrenceDelay: 5
+    earliestStart: 1
+    duration: 1
+  - type: BluespaceLockerRuleDefault
+
+- type: entity
+  id: BluespaceLockerRandom
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    reoccurrenceDelay: 5
+    earliestStart: 1
+    duration: 1
+  - type: BluespaceLockerRuleRandom
+
+- type: entity
+  id: BluespaceLockerRandomUnrestricted
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    reoccurrenceDelay: 5
+    earliestStart: 1
+    duration: 1
+  - type: BluespaceLockerRuleRandomUnrestricted
+
+# biomagnetic polarization
+- type: entity
+  id: BiomagneticPolarizationRule
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    duration: 150
+    maxDuration: 300
+    reoccurrenceDelay: 30
+  - type: GlobalStatusEffectRule
+    statusEffect: "StatusEffectBiomagneticPolarization"
+    announcement: "station-event-biomagnetic-polarization-announcement"

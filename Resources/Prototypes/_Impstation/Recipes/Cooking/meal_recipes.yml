@@ -124,6 +124,20 @@
   recipeType: Assembler
 
 - type: microwaveMealRecipe
+  id: RecipeAnimalHeartCarpaccio # might as well, right? can't let you mix and match though, sorry
+  name: animal heart carpaccio recipe
+  result: MealHeartCarpaccio
+  group: Savory
+  time: 5
+  solids:
+    OrganAnimalHeart: 1
+    OrganAnimalLiver: 1
+    OrganAnimalLungs: 1
+    OrganAnimalStomach: 1
+    OrganAnimalKidneys: 1
+  recipeType: Assembler
+
+- type: microwaveMealRecipe
   id: RecipeMacaronBerry
   name: berry macaron recipe
   result: FoodMacaronBerry
@@ -429,6 +443,21 @@
     FoodDoughFlat: 1
     FoodMeatFinfinCutlet: 3
     FoodLemoSlice: 5
+  recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeBombPizza
+  name: Bomb pizza recipe
+  result: FoodPizzaBomb
+  secretRecipe: true
+  group: Secret
+  time: 30
+  solids:
+    FoodDoughFlat: 1
+    MaterialGunpowder: 3
+    SheetSteel1: 1
+    FoodCheeseSlice: 1
+    FoodTomato: 1
   recipeType: Oven
 
 # FIRST CLOOOOOOOO IS SOMETHING GREEN

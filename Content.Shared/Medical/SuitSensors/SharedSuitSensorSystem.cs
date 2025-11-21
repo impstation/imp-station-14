@@ -5,6 +5,7 @@ using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.DeviceNetwork;
 using Content.Shared.DoAfter;
+using Content.Shared.Emp;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Interaction;
@@ -49,6 +50,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
         SubscribeLocalEvent<PlayerSpawnCompleteEvent>(OnPlayerSpawn);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<SuitSensorComponent, ClothingGotUnequippedEvent>(OnUnequipped);
+        SubscribeLocalEvent<SuitSensorComponent, EmpPulseEvent>(OnEmpPulse);
+        SubscribeLocalEvent<SuitSensorComponent, EmpDisabledRemovedEvent>(OnEmpFinished);
         SubscribeLocalEvent<SuitSensorComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SuitSensorComponent, GetVerbsEvent<Verb>>(OnVerb);
         SubscribeLocalEvent<SuitSensorComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
@@ -131,6 +134,25 @@ public abstract class SharedSuitSensorSystem : EntitySystem
     {
         ent.Comp.User = null;
         Dirty(ent);
+    }
+
+    private void OnEmpPulse(Entity<SuitSensorComponent> ent, ref EmpPulseEvent args)
+    {
+        args.Affected = true;
+        args.Disabled = true;
+
+        ent.Comp.PreviousMode = ent.Comp.Mode;
+        SetSensor(ent.AsNullable(), SuitSensorMode.SensorOff, null);
+
+        ent.Comp.PreviousControlsLocked = ent.Comp.ControlsLocked;
+        ent.Comp.ControlsLocked = true;
+        // SetSensor already calls Dirty
+    }
+
+    private void OnEmpFinished(Entity<SuitSensorComponent> ent, ref EmpDisabledRemovedEvent args)
+    {
+        SetSensor(ent.AsNullable(), ent.Comp.PreviousMode, null);
+        ent.Comp.ControlsLocked = ent.Comp.PreviousControlsLocked;
     }
 
     private void OnExamine(Entity<SuitSensorComponent> ent, ref ExaminedEvent args)
@@ -344,7 +366,8 @@ public abstract class SharedSuitSensorSystem : EntitySystem
             userJobIcon = card.Comp.JobIcon;
 
             foreach (var department in card.Comp.JobDepartments)
-                userJobDepartments.Add(Loc.GetString(_proto.Index(department).Name));
+                if (!_proto.Index(department).ManifestHidden) // imp edit, ignore departments that are manifest hidden
+                    userJobDepartments.Add(Loc.GetString(_proto.Index(department).Name));
         }
 
         // get health mob state

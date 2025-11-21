@@ -88,6 +88,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 if (outputContainer is null || !_solutionContainersSystem.TryGetFitsInDispenser(outputContainer.Value, out var containerSoln, out var containerSolution))
                     continue;
 
+                // imp lists
                 List<EntityUid> toDelete = new();
                 List<(EntityUid, int)> toSet = new();
 
@@ -95,7 +96,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 {
                     var solution = active.Program switch
                     {
-                        GrinderProgram.Grind => TryGrindSolution(item, (uid, reagentGrinder), inputContainer.ContainedEntities),
+                        GrinderProgram.Grind => TryGrindSolution(item, (uid, reagentGrinder), inputContainer.ContainedEntities), // imp try
                         GrinderProgram.Juice => CompOrNull<ExtractableComponent>(item)?.JuiceSolution,
                         _ => null,
                     };
@@ -121,7 +122,7 @@ namespace Content.Server.Kitchen.EntitySystems
                         scaledSolution.ScaleSolution(fitsCount);
                         solution = scaledSolution;
 
-                        toSet.Add((item, stack.Count - fitsCount));
+                        toSet.Add((item, stack.Count - fitsCount)); // imp edit (was setcount)
                     }
                     else
                     {
@@ -134,10 +135,12 @@ namespace Content.Server.Kitchen.EntitySystems
                     _solutionContainersSystem.TryAddSolution(containerSoln.Value, solution);
                 }
 
+                // imp add start
                 foreach (var item in toDelete)
                     Del(item);
                 foreach (var (item, amount) in toSet)
                     _stackSystem.SetCount(item, amount); // Setting to 0 will QueueDel
+                // imp add end
 
                 _userInterfaceSystem.ServerSendUiMessage(uid, ReagentGrinderUiKey.Key,
                     new ReagentGrinderWorkCompleteMessage());
@@ -326,17 +329,19 @@ namespace Content.Server.Kitchen.EntitySystems
             _audioSystem.PlayPvs(reagentGrinder.Comp.ClickSound, reagentGrinder.Owner, AudioParams.Default.WithVolume(-2f));
         }
 
-        private Solution? TryGrindSolution(EntityUid uid, Entity<ReagentGrinderComponent> grinder, IReadOnlyList<EntityUid> contents)
+        private Solution? TryGrindSolution(EntityUid uid, Entity<ReagentGrinderComponent> grinder, IReadOnlyList<EntityUid> contents) // imp get -> try
         {
             if (TryComp<ExtractableComponent>(uid, out var extractable)
                 && extractable.GrindableSolution is not null
                 && _solutionContainersSystem.TryGetSolution(uid, extractable.GrindableSolution, out _, out var solution))
             {
+                // imp add event
                 var ev = new GrindAttemptEvent(grinder, contents);
                 RaiseLocalEvent(uid, ev);
 
                 if (ev.Cancelled)
                     return null;
+                // imp end
 
                 return solution;
             }
@@ -357,6 +362,7 @@ namespace Content.Server.Kitchen.EntitySystems
         }
     }
 
+    // imp add
     public sealed partial class GrindAttemptEvent : CancellableEntityEventArgs
     {
         public Entity<ReagentGrinderComponent> Grinder;

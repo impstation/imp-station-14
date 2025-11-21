@@ -21,6 +21,6 @@ public sealed partial class InContainerPrecondition : HTNPrecondition
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
-        return IsInContainer == _container.IsEntityInContainer(owner);
+        return IsInContainer == _container.IsEntityInContainer(owner); //imp edit
     }
 }

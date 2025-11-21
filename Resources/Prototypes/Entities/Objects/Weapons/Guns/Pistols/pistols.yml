@@ -178,7 +178,7 @@
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
-    fireRate: 4
+    fireRate: 3.4 #imp
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
       params:
@@ -234,9 +234,43 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: StealTarget
+    stealGroup: OfficerHandgun
   - type: Construction #imp
     graph: UpgradeWeaponPistolConversion
     node: start
+  - type: ContainerContainer #imp
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      conversion_kit: !type:ContainerSlot
+  - type: ItemSlots # imp. my sick ass hack
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+      conversion_kit:
+        priority: 3
+        locked: true
+        lockedFailPopup: gun-conversion-kit-upgrade
+        whitelist:
+          tags:
+            - ConversionKitFA
+            - ConversionKitHB
 
 - type: entity
   name: N1984

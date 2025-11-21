@@ -2,9 +2,6 @@ using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Components;
-using Content.Shared._DV.Polymorph; // DeltaV
-using Content.Shared.Actions;
-using Content.Shared.Actions.Components;
 using Content.Shared.Buckle;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
@@ -22,8 +19,8 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Robust.Shared.Toolshed.Commands.Generic; // DeltaV
 using Robust.Shared.Utility;
+using Content.Shared._DV.Polymorph; // DeltaV
 
 namespace Content.Server.Polymorph.Systems;
 
@@ -59,6 +56,7 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         SubscribeLocalEvent<PolymorphedEntityComponent, BeforeFullySlicedEvent>(OnBeforeFullySliced);
         SubscribeLocalEvent<PolymorphedEntityComponent, DestructionEventArgs>(OnDestruction);
+        SubscribeLocalEvent<PolymorphedEntityComponent, EntityTerminatingEvent>(OnPolymorphedTerminating);
 
         InitializeMap();
     }
@@ -115,7 +113,7 @@ public sealed partial class PolymorphSystem : EntitySystem
 
     private void OnPolymorphActionEvent(Entity<PolymorphableComponent> ent, ref PolymorphActionEvent args)
     {
-        if (!_proto.TryIndex(args.ProtoId, out var prototype) || args.Handled)
+        if (!_proto.Resolve(args.ProtoId, out var prototype) || args.Handled)
             return;
 
         PolymorphEntity(ent, prototype.Configuration);
@@ -131,12 +129,11 @@ public sealed partial class PolymorphSystem : EntitySystem
 
     private void OnBeforeFullySliced(Entity<PolymorphedEntityComponent> ent, ref BeforeFullySlicedEvent args)
     {
-        var (_, comp) = ent;
-        if (comp.Configuration.RevertOnEat)
-        {
-            args.Cancel();
-            Revert((ent, ent));
-        }
+        if (ent.Comp.Reverted || !ent.Comp.Configuration.RevertOnEat)
+            return;
+
+        args.Cancel();
+        Revert((ent, ent));
     }
 
     /// <summary>
@@ -145,10 +142,23 @@ public sealed partial class PolymorphSystem : EntitySystem
     /// </summary>
     private void OnDestruction(Entity<PolymorphedEntityComponent> ent, ref DestructionEventArgs args)
     {
-        if (ent.Comp.Configuration.RevertOnDeath)
-        {
-            Revert((ent, ent));
-        }
+        if (ent.Comp.Reverted || !ent.Comp.Configuration.RevertOnDeath)
+            return;
+
+        Revert((ent, ent));
+    }
+
+    private void OnPolymorphedTerminating(Entity<PolymorphedEntityComponent> ent, ref EntityTerminatingEvent args)
+    {
+        if (ent.Comp.Reverted)
+            return;
+
+        if (ent.Comp.Configuration.RevertOnDelete)
+            Revert(ent.AsNullable());
+
+        // Remove our original entity too
+        // Note that Revert will set Parent to null, so reverted entities will not be deleted
+        QueueDel(ent.Comp.Parent);
     }
 
     /// <summary>
@@ -292,18 +302,26 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (Deleted(uid))
             return null;
 
-        var parent = component.Parent;
+        if (component.Parent is not { } parent)
+            return null;
+
         if (Deleted(parent))
             return null;
 
         var uidXform = Transform(uid);
         var parentXform = Transform(parent);
 
+        // Don't swap back onto a terminating grid
+        if (TerminatingOrDeleted(uidXform.ParentUid))
+            return null;
+
         if (component.Configuration.ExitPolymorphSound != null)
             _audio.PlayPvs(component.Configuration.ExitPolymorphSound, uidXform.Coordinates);
 
         _transform.SetParent(parent, parentXform, uidXform.ParentUid);
         _transform.SetCoordinates(parent, parentXform, uidXform.Coordinates, uidXform.LocalRotation);
+
+        component.Reverted = true;
 
         if (component.Configuration.TransferDamage &&
             TryComp<DamageableComponent>(parent, out var damageParent) &&
@@ -379,7 +397,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (target.Comp.PolymorphActions.ContainsKey(id))
             return;
 
-        if (!_proto.TryIndex(id, out var polyProto))
+        if (!_proto.Resolve(id, out var polyProto))
             return;
 
         var entProto = _proto.Index(polyProto.Configuration.Entity);

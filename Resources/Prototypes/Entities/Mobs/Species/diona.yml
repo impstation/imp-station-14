@@ -11,7 +11,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-    - DionaMinded
+    - DionaHivemind # Starlight
   - type: GoobAbsorbable
   - type: HumanoidAppearance
     species: Diona
@@ -86,7 +86,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 300 #weighs more than humans because wood
+        density: 300
         restitution: 0.0
         mask:
           - MobMask
@@ -94,7 +94,7 @@
           - MobLayer
   - type: Speech
     speechVerb: Plant
-    allowedEmotes: ['Chirp']
+    allowedEmotes: ['Chirp', 'Multichirp'] # Impstation
   - type: Vocal
     sounds:
       Male: MaleDiona
@@ -122,7 +122,6 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: Rootable
-  - type: Carriable # Carrying system from nyanotrasen.
 
 - type: entity
   parent: BaseSpeciesDummy

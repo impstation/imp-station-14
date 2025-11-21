@@ -6,7 +6,6 @@
   id: FoodBakedBase
   abstract: true
   components:
-  - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
   - type: SolutionContainerManager
@@ -27,7 +26,7 @@
   id: FoodBakedMuffin
   description: A delicious and spongy little cake.
   components:
-  - type: Food
+  - type: Edible
     trash:
     - FoodPlateMuffinTin
   - type: Sprite
@@ -52,6 +51,7 @@
   - type: Tag
     tags:
       - Muffin
+      - UnguFood # imp
 
 - type: entity
   name: berry muffin
@@ -181,6 +181,10 @@
   components:
   - type: Sprite
     state: bun-honey
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   name: hotcross bun
@@ -190,12 +194,16 @@
   components:
   - type: Sprite
     state: bun-hotcross
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   name: meat bun
   parent: FoodBakedBase
   id: FoodBakedBunMeat
-  description: Has the potential to not be dog.
+  description: Flaky pastry around a meaty core. Might have been better fresh... # imp edit from "Has the potential to not be dog."
   components:
   - type: Sprite
     state: bun-meat
@@ -208,6 +216,10 @@
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 2
+  - type: Tag # imp
+    tags:
+    - Meat
+    - Bread
 
 # Cookies
 
@@ -258,6 +270,9 @@
           Quantity: 5
         - ReagentId: Butter # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: raisin cookie
@@ -301,6 +316,9 @@
           Quantity: 5
         - ReagentId: Butter
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 # Nuggets
 
@@ -571,6 +589,9 @@
   - type: Construction # Frontier
     graph: WaffleCone
     node: start
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: soy waffles
@@ -647,6 +668,9 @@
   components:
   - type: Sprite
     state: pretzel
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: cannoli
@@ -665,6 +689,9 @@
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: dumplings
@@ -718,6 +745,10 @@
           Quantity: 0.4
         - ReagentId: Blackpepper # imp
           Quantity: 0.4
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   name: cotton chèvre chaud
@@ -734,12 +765,13 @@
     - cotton
   - type: Sprite
     state: chevrechaud-cotton
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
     - ClothMade
     - ClothFood # imp
+    - Bread # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -757,11 +789,14 @@
           Quantity: 0.4
 
 - type: entity
-  name: brownies
   parent: FoodBakedBase
   id: FoodBakedBrownieBatch
+  name: brownies
   description: A pan of brownies.
   components:
+  - type: Item
+    size: Normal
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
       - sweet
@@ -826,11 +861,14 @@
     - Slice
 
 - type: entity
-  name: special brownies
   parent: FoodBakedBase
   id: FoodBakedCannabisBrownieBatch
+  name: special brownies
   description: A pan of "special" brownies.
   components:
+  - type: Item
+    size: Normal
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
       - sweet
@@ -863,9 +901,9 @@
     slice: FoodBakedCannabisBrownie
 
 - type: entity
-  name: special brownie
   parent: FoodBakedBase
   id: FoodBakedCannabisBrownie
+  name: special brownie
   description: A "special" brownie.
   components:
   - type: FlavorProfile
@@ -922,13 +960,22 @@
             Quantity: 1
           - ReagentId: Vitamin
             Quantity: 1
+    - type: Tag # imp
+      tags:
+      - Vegetable
 
 - type: entity
-  name: croissant
   parent: FoodBakedBase
   id: FoodBakedCroissant
+  name: croissant
   description: Buttery, flaky goodness.
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: -2,-4
   - type: FlavorProfile
     flavors:
       - bread
@@ -950,13 +997,22 @@
     damage:
       types:
         Blunt: 0 # so the damage stats icon doesn't immediately give away the syndie ones
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
-  name: cotton croissant
   parent: FoodBakedCroissant
   id: FoodBakedCroissantCotton
+  name: cotton croissant
   description: Buttery, flaky, fibery goodness.
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
   - type: FlavorProfile
     flavors:
     - bread
@@ -964,12 +1020,13 @@
     - cotton
   - type: Sprite
     state: croissant-cotton
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
     - ClothMade
     - ClothFood # imp
+    - Bread # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -985,11 +1042,15 @@
         #  Quantity: 1
 
 - type: entity
-  name: grilled cheese sandwich
   parent: FoodBakedBase
   id: FoodBakedGrilledCheeseSandwich
+  name: grilled cheese sandwich
   description: Bread and cheese toasted with butter, perfect for a chilly day in space.
   components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
   - type: FlavorProfile
     flavors:
       - cheesy
@@ -1008,9 +1069,13 @@
           Quantity: 5 # imp
         # - ReagentId: Vitamin
         #  Quantity: 3
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
-  parent: FoodBakedBase
+  parent: FoodBakedGrilledCheeseSandwich
   id: FoodBakedGrilledCheeseSandwichCotton
   name: cotton grilled cheese sandwich
   description: Cotton bread slightly burnt in butter, with melted cheese. Moths find it difficult to resist this combination.
@@ -1023,12 +1088,13 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
     state: grilled-cheese-cotton
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
     - ClothMade
     - ClothFood # imp
+    - Bread # imp
   - type: SolutionContainerManager
     solutions:
       food:

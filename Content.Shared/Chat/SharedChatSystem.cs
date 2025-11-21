@@ -1,11 +1,12 @@
 using System.Collections.Frozen;
-using Content.Shared.CollectiveMind;
 using System.Text.RegularExpressions;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared._Starlight.CollectiveMind; // Starlight - Collective Minds
 
 namespace Content.Shared.Chat;
 
@@ -23,13 +24,14 @@ public abstract class SharedChatSystem : EntitySystem
     public const char EmotesAltPrefix = '*';
     public const char AdminPrefix = ']';
     public const char WhisperPrefix = ',';
-    public const char CollectiveMindPrefix = '+';
     public const char DefaultChannelKey = 'h';
+    public const char CollectiveMindPrefix = '+'; // Starlight - Collective Minds
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units
     public const int WhisperMuffledRange = 5; // how far whisper goes at all, in world units
-    public const string DefaultAnnouncementSound = "/Audio/Announcements/announce.ogg";
+    public static readonly SoundSpecifier DefaultAnnouncementSound
+        = new SoundPathSpecifier("/Audio/Announcements/announce.ogg");
 
     public static readonly ProtoId<RadioChannelPrototype> CommonChannel = "Common";
 
@@ -44,7 +46,7 @@ public abstract class SharedChatSystem : EntitySystem
     /// </summary>
     private FrozenDictionary<char, RadioChannelPrototype> _keyCodes = default!;
 
-    private FrozenDictionary<char, CollectiveMindPrototype> _mindKeyCodes = default!;
+    private FrozenDictionary<char, CollectiveMindPrototype> _mindKeyCodes = default!; // Starlight - Collective Minds
 
     public override void Initialize()
     {
@@ -52,16 +54,17 @@ public abstract class SharedChatSystem : EntitySystem
         DebugTools.Assert(_prototypeManager.HasIndex(CommonChannel));
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypeReload);
         CacheRadios();
-        CacheCollectiveMinds();
+        CacheCollectiveMinds(); // Starlight - Collective Minds
     }
 
     protected virtual void OnPrototypeReload(PrototypesReloadedEventArgs obj)
     {
         if (obj.WasModified<RadioChannelPrototype>())
             CacheRadios();
-
+        // Starlight - Start - Collective Minds
         if (obj.WasModified<CollectiveMindPrototype>())
             CacheCollectiveMinds();
+        // Starlight - End
     }
 
     private void CacheRadios()
@@ -70,12 +73,13 @@ public abstract class SharedChatSystem : EntitySystem
             .ToFrozenDictionary(x => x.KeyCode);
     }
 
+    // Starlight - Start - Collective Minds
     private void CacheCollectiveMinds()
     {
-        _prototypeManager.PrototypesReloaded -= OnPrototypeReload;
         _mindKeyCodes = _prototypeManager.EnumeratePrototypes<CollectiveMindPrototype>()
             .ToFrozenDictionary(x => x.KeyCode);
     }
+    // Starlight - End
 
     /// <summary>
     ///     Attempts to find an applicable <see cref="SpeechVerbPrototype"/> for a speaking entity's message.
@@ -194,7 +198,8 @@ public abstract class SharedChatSystem : EntitySystem
         return true;
     }
 
-    public bool TryProccessCollectiveMindMessage(
+    // Starlight - Start - Collective Minds
+    public bool TryProcessCollectiveMindMessage(
         EntityUid source,
         string input,
         out string output,
@@ -230,6 +235,7 @@ public abstract class SharedChatSystem : EntitySystem
 
         return false;
     }
+    // Starlight - End
 
     public string SanitizeMessageCapital(string message)
     {

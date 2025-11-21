@@ -15,6 +15,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:OverallPlaytimeRequirement
+    time: 6h
 
 - type: startingGear
   id: CentcomGear
@@ -28,7 +31,7 @@
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
     belt: WeaponPistolN1984
-    pocket1: BoxFolderBlack
+    pocket1: BoxFolderCentComClipboardThreePapers
     pocket2: PenCentcom
 
 

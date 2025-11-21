@@ -48,11 +48,12 @@ public sealed class LockSystem : EntitySystem
         SubscribeLocalEvent<LockComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<LockComponent, LockDoAfter>(OnDoAfterLock);
         SubscribeLocalEvent<LockComponent, UnlockDoAfter>(OnDoAfterUnlock);
-        SubscribeLocalEvent<LockComponent, StorageInteractAttemptEvent>(OnStorageInteractAttempt);
+
 
         SubscribeLocalEvent<LockedWiresPanelComponent, LockToggleAttemptEvent>(OnLockToggleAttempt);
         SubscribeLocalEvent<LockedWiresPanelComponent, AttemptChangePanelEvent>(OnAttemptChangePanel);
         SubscribeLocalEvent<LockedAnchorableComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
+        SubscribeLocalEvent<LockedStorageComponent, StorageInteractAttemptEvent>(OnStorageInteractAttempt);
 
         SubscribeLocalEvent<UIRequiresLockComponent, ActivatableUIOpenAttemptEvent>(OnUIOpenAttempt);
         SubscribeLocalEvent<UIRequiresLockComponent, LockToggledEvent>(LockToggled);
@@ -145,7 +146,7 @@ public sealed class LockSystem : EntitySystem
             }
 
             return _doAfter.TryStartDoAfter(
-                new DoAfterArgs(EntityManager, user, lockTime, new LockDoAfter(), uid, uid)
+                new DoAfterArgs(EntityManager, user, lockTime, new LockDoAfter(), uid, uid) // imp locktime
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,
@@ -259,7 +260,7 @@ public sealed class LockSystem : EntitySystem
             }
 
             return _doAfter.TryStartDoAfter(
-                new DoAfterArgs(EntityManager, user, lockTime, new UnlockDoAfter(), uid, uid)
+                new DoAfterArgs(EntityManager, user, lockTime, new UnlockDoAfter(), uid, uid) // imp add locktime
                 {
                     BreakOnDamage = true,
                     BreakOnMove = true,
@@ -399,9 +400,9 @@ public sealed class LockSystem : EntitySystem
         TryUnlock(uid, args.User, skipDoAfter: true);
     }
 
-    private void OnStorageInteractAttempt(Entity<LockComponent> ent, ref StorageInteractAttemptEvent args)
+    private void OnStorageInteractAttempt(Entity<LockedStorageComponent> ent, ref StorageInteractAttemptEvent args)
     {
-        if (ent.Comp.Locked)
+        if (IsLocked(ent.Owner))
             args.Cancelled = true;
     }
 

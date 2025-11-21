@@ -2,13 +2,13 @@ using Content.Server.Administration.Logs;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Roles;
-using Content.Shared._Goobstation.Changeling; //imp
 using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Roles.Components;
 using Robust.Shared.Containers;
+using Content.Shared._Goobstation.Changeling; //imp
 
 namespace Content.Server.Mindshield;
 
@@ -28,7 +28,7 @@ public sealed class MindShieldSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MindShieldImplantComponent, ImplantImplantedEvent>(OnImplantImplanted);
-        SubscribeLocalEvent<MindShieldImplantComponent, EntGotRemovedFromContainerMessage>(OnImplantDraw);
+        SubscribeLocalEvent<MindShieldImplantComponent, ImplantRemovedEvent>(OnImplantRemoved);
     }
 
     private void OnImplantImplanted(Entity<MindShieldImplantComponent> ent, ref ImplantImplantedEvent ev)
@@ -36,12 +36,12 @@ public sealed class MindShieldSystem : EntitySystem
         if (ev.Implanted == null)
             return;
 
-        EnsureComp<MindShieldComponent>(ev.Implanted.Value);
-        MindShieldRemovalCheck(ev.Implanted.Value, ev.Implant);
+        EnsureComp<MindShieldComponent>(ev.Implanted);
+        MindShieldRemovalCheck(ev.Implanted, ev.Implant);
     }
 
     /// <summary>
-    /// Checks if the implanted person was a Rev or Head Rev and remove role or destroy mindshield respectively. Also removes fake Changeling mindshields.
+    /// Checks if the implanted person was a Rev or Head Rev and remove role or destroy mindshield respectively. IMP- Also removes fake Changeling mindshields.
     /// </summary>
     private void MindShieldRemovalCheck(EntityUid implanted, EntityUid implant)
     {
@@ -65,9 +65,9 @@ public sealed class MindShieldSystem : EntitySystem
         }
     }
 
-    private void OnImplantDraw(Entity<MindShieldImplantComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    private void OnImplantRemoved(Entity<MindShieldImplantComponent> ent, ref ImplantRemovedEvent args)
     {
-        RemComp<MindShieldComponent>(args.Container.Owner);
+        RemComp<MindShieldComponent>(args.Implanted);
     }
 }
 

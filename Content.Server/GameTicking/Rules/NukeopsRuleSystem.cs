@@ -26,11 +26,10 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Station.Components;
-using Content.Shared.Humanoid; //imp addition
-using Content.Shared.Mind; //imp addition
-using Content.Shared.Roles; //imp addition
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.Humanoid; //imp addition
+using Content.Shared.Mind; //imp addition
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -128,7 +127,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 genderString = appearance.Gender.ToString().ToLowerInvariant();
             }
 
-            foreach (var mindRole in mindComp.MindRoles)
+            foreach (var mindRole in mindComp.MindRoleContainer.ContainedEntities)
             {
                 //make sure we have a mindRole comp
                 if (!TryComp<MindRoleComponent>(mindRole, out var mindRoleComp))

@@ -1,14 +1,15 @@
+using System.Linq;
+using System.Numerics;
 using Content.Server.Physics.Components;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Controllers;
 using Content.Shared.Movement.Pulling.Components; // imp
 using Content.Shared.Movement.Pulling.Systems; // imp
 using Content.Shared.Projectiles; // imp
 using Content.Shared.Throwing; // imp
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Controllers;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
-using System.Numerics;
 
 namespace Content.Server.Physics.Controllers;
 
@@ -22,9 +23,9 @@ public sealed class ChasingWalkSystem : VirtualController
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly ThrowingSystem _throw = default!; // imp
-    [Dependency] private readonly SharedProjectileSystem _projectile = default!; //imp
     [Dependency] private readonly PullingSystem _pulling = default!; // imp
+    [Dependency] private readonly SharedProjectileSystem _projectile = default!; //imp
+    [Dependency] private readonly ThrowingSystem _throw = default!; // imp
 
     private readonly HashSet<Entity<IComponent>> _potentialChaseTargets = new();
 
@@ -105,6 +106,16 @@ public sealed class ChasingWalkSystem : VirtualController
         var delta = pos2 - pos1;
         var speed = delta.Length() > 0 ? delta.Normalized() * component.Speed : Vector2.Zero;
 
+        // imp moved this
+        /* _physics.SetLinearVelocity(uid, speed);
+        _physics.SetBodyStatus(uid, physics, BodyStatus.InAir); //If this is not done, from the explosion up close, the tesla will "Fall" to the ground, and almost stop moving. */
+
+        if (component.RotateWithImpulse)
+        {
+            var ang = speed.ToAngle() + Angle.FromDegrees(90); // we want "Up" to be forward, bullet convention.
+            _transform.SetWorldRotation(uid, ang + component.RotationAngleOffset);
+        }
+
         if (!component.Throw) // imp - everything after this is ours
         {
             if (component.BreakPulling && TryComp<PullableComponent>(uid, out var pullable))
@@ -134,5 +145,6 @@ public sealed class ChasingWalkSystem : VirtualController
             else
                 _throw.TryThrow(uid, speed, component.Speed);
         }
+        // imp end
     }
 }

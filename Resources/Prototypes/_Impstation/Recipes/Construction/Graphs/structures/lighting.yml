@@ -40,6 +40,10 @@
       steps:
       - allTags: [LightBulb, LightWarm]
         name: construction-graph-tag-light-bulb
+    - to: smallFloorLightCold
+      steps:
+      - allTags: [LightBulb, LightCold]
+        name: construction-graph-tag-light-bulb
     - to: smallFloorLightCyan
       steps:
       - allTags: [LightBulb, LightCyan]
@@ -261,6 +265,13 @@
     - to: metamorphicLightHole
       steps:
       - remove: LightWarm
+        name: construction-graph-tag-light-bulb
+  - node: smallFloorLightCold
+    entity: PoweredSmallFloorLightCold
+    edges:
+    - to: metamorphicLightHole
+      steps:
+      - remove: LightCold
         name: construction-graph-tag-light-bulb
   - node: smallFloorLightCyan
     entity: PoweredSmallFloorLightCyan
