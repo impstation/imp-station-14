@@ -1,6 +1,7 @@
 using Content.Server.Defusable.Systems;
 using Content.Server.Explosion.Components;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes; // imp
 
 namespace Content.Server.Defusable.Components;
 
@@ -57,6 +58,13 @@ public sealed partial class DefusableComponent : Component
     /// </summary>
     [DataField("delayTime")]
     public int DelayTime = 30;
+
+    // imp add
+    /// <summary>
+    ///     Can this bomb be worn as an equippable item?
+    /// </summary>
+    [DataField]
+    public bool IsEquippable;
 
     #region Wires
     // wires, this is so that they're one use

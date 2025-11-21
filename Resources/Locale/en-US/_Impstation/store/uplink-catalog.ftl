@@ -129,3 +129,6 @@ uplink-super-mosin-desc = A modified bolt-action service rifle with a large maga
 
 uplink-ourobros-name = OuroBROS
 uplink-ourobros-desc = UNGH!
+
+uplink-bombcollar-name = Bomb collar
+uplink-bombcollar-desc = A modified Syndicate bomb that can be worn around the neck. Has a fail-safe mechanism that will detonate the bomb if it's removed once activated.

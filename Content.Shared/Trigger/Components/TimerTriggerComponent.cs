@@ -28,6 +28,13 @@ public sealed partial class TimerTriggerComponent : Component
     [DataField, AutoNetworkedField]
     public string? KeyOut = "timer";
 
+    // IMP ADD
+    /// <summary>
+    ///     The key that will trigger when this timer is toggled.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public string? ToggleKeyOut = "timer-toggled";
+
     /// <summary>
     /// The time after which this timer will trigger after it is activated.
     /// </summary>
