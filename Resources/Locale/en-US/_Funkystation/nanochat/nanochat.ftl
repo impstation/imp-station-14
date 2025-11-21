@@ -5,3 +5,5 @@
 # Emoji picker
 nano-chat-emoji-picker = Emoji Picker
 nano-chat-emoji-search = Search emojis...
+# Imp add
+nano-chat-emoji-close = Close

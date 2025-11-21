@@ -45,7 +45,7 @@ public sealed partial class NanoChatMessageBubble : BoxContainer
         style.BackgroundColor = isOwnMessage ? OwnMessageColor : OtherMessageColor;
         style.BorderColor = BorderColor;
 
-        // Funky Station Start - Emoji Support & Sender Names for groupchats
+        // Funky Station Start - Emoji Support
         var contentWithEmoji = EmojiRegex.Replace(message.Content, "[emoji=\"$1\"]");
 
         MessageText.SetMessage(

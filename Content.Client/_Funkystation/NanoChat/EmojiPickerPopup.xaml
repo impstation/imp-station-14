@@ -22,7 +22,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
                              HScroll="0"
                              VScroll="1">
                 <GridContainer Name="EmojiGrid"
-                               Columns="6"
+                               Columns="5"
                                HorizontalExpand="True" />
             </ScrollContainer>
 
@@ -31,7 +31,7 @@ SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
                           HorizontalAlignment="Right"
                           Margin="0 8 0 0">
                 <Button Name="EmojiCloseButton"
-                        Text="{Loc nano-chat-close}"
+                        Text="{Loc nano-chat-emoji-close}"
                         MinSize="80 0" />
             </BoxContainer>
         </BoxContainer>
