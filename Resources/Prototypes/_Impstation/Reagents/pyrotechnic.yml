@@ -26,3 +26,56 @@
             Radiation: 3
       - !type:FlammableReaction
         multiplier: 0.3
+
+- type: reagent
+  id: HotterSauce
+  name: reagent-name-hotter-sauce
+  parent: BasePyrotechnic
+  desc: reagent-disc-hotter-sauce
+  physicalDesc:
+  flavour: spicy
+  color: "#e43409"
+  recognizable: true
+  metabolisms:
+    Poison:
+      effects:
+      - !type:AdjustTemperature
+        amount: 40
+
+- type: reagent
+  id: InfernoSauce
+  name: reagent-name-inferno-sauce
+  parent: BasePyrotechnic
+  desc: reagent-desc-inferno-sauce
+  physicalDesc:
+  flavour: spicy
+  color: "#7e1c03"
+  recognizable: true
+  metabolisms:
+    Poison:
+      effects:
+      - !type:AdjustTemperature
+        amount: 100
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 10
+
+- type: reagent
+  id: HottestSauce
+  name: reagent-name-hottest-sauce
+  parent: BasePyrotechnic
+  desc: reagent-desc-hottest-sauce
+  physicalDesc:
+  flavour: spicy
+  color: "#4d1103"
+  contrabandSeverity: Minor
+  recognizable: true
+  metabolisms:
+    Poison:
+      effects:
+      - !type:AdjustTemperature
+        amount: 100
+      # - !type:FlammableReaction
+      #   multiplier: 0.1
+      - !type:Ignite
