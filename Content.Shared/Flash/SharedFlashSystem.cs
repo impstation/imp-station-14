@@ -258,6 +258,9 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnPermanentBlindnessFlashAttempt(Entity<PermanentBlindnessComponent> ent, ref FlashAttemptEvent args)
     {
+        if (HasComp<FlashWeaknessComponent>(args.Target)) //imp
+            return;
+
         // check for total blindness
         if (ent.Comp.Blindness == 0)
             args.Cancelled = true;
@@ -265,13 +268,16 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnTemporaryBlindnessFlashAttempt(Entity<TemporaryBlindnessComponent> ent, ref FlashAttemptEvent args)
     {
+        if (HasComp<FlashWeaknessComponent>(args.Target)) //imp
+            return;
+
         args.Cancelled = true;
     }
 
     private void OnFlashImmunityFlashAttempt(Entity<FlashImmunityComponent> ent, ref FlashAttemptEvent args)
     {
-        if (HasComp<FlashWeaknessComponent>(ent))
-            args.Cancelled = false;
+        if (HasComp<FlashWeaknessComponent>(args.Target)) //imp
+            return;
 
         if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)
             return;
