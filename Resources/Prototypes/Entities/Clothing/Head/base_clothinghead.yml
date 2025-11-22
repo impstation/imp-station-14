@@ -195,6 +195,8 @@
     - FacialHair
     - SnoutCover # imp
   - type: SecurelyAttached # imp
+  - type: SlotBlock # imp
+    slots: [ears, eyes, mask]
 
 - type: entity
   abstract: true
