@@ -454,8 +454,11 @@
     size: Small
   - type: PhysicalComposition
     materialComposition:
-      Glass: 500 # 5 sheets
-      Plastic: 300 # 3 sheets
+      Glass: 100 # imp edit start, 1 sheet
+      Plastic: 50 # 50/50 for 1 plastic
+  - type: Tag
+    tags:
+    - Trash # imp edit end
 
 - type: entity
   parent: BaseScrapLarge
