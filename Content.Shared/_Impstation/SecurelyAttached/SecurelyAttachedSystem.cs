@@ -14,11 +14,11 @@ namespace Content.Shared._Impstation.SecurelyAttached;
 
 public sealed class SecurelyAttachedSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <summary>
     /// Speed items are thrown off of the holder
