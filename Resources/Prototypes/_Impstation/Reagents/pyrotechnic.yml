@@ -37,18 +37,18 @@
   color: "#e43409"
   recognizable: true
   metabolisms:
-    Poison:
+    Food:
       effects:
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
           max: 375
-        amount: 6000
+        amount: 7000
       - !type:SatiateThirst
         factor: -6
       - !type:PopupMessage
           type: Local
-          messages: [ "capsaicin-effect-light-burn" ]
+          messages: [ "capsaicin-effect-heavy-burn" ]
           probability: 0.2
 
 - type: reagent
@@ -62,13 +62,13 @@
   contrabandSeverity: Minor
   recognizable: true
   metabolisms:
-    Poison:
+    Food:
       effects:
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-          max: 375
-        amount: 10000
+          max: 350
+        amount: 14000
       - !type:SatiateThirst
         factor: -12
       - !type:HealthChange
@@ -77,8 +77,8 @@
             Heat: 1
       - !type:PopupMessage
           type: Local
-          messages: [ "capsaicin-effect-light-burn" ]
-          probability: 0.4
+          messages: [ "capsaicin-effect-heavy-burn" ]
+          probability: 0.3
 
 - type: reagent
   id: HottestSauce
@@ -91,17 +91,17 @@
   contrabandSeverity: Major
   recognizable: true
   metabolisms:
-    Poison:
+    Food:
       effects:
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
-          max: 400
-        amount: 20000
+          max: 385
+        amount: 24000
       - !type:SatiateThirst
         factor: -20
       - !type:FlammableReaction
-        multiplier: 0.2
+        multiplier: 0.3
       - !type:Ignite
       - !type:HealthChange
         damage:
@@ -109,5 +109,5 @@
             Heat: 2
       - !type:PopupMessage
           type: Local
-          messages: [ "capsaicin-effect-light-burn" ]
-          probability: 0.5
+          messages: [ "capsaicin-effect-heavy-burn" ]
+          probability: 0.3
