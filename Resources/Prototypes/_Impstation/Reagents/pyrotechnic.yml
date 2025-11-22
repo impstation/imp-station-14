@@ -32,50 +32,78 @@
   name: reagent-name-hotter-sauce
   parent: BasePyrotechnic
   desc: reagent-disc-hotter-sauce
-  physicalDesc:
-  flavour: spicy
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: spicy
   color: "#e43409"
   recognizable: true
   metabolisms:
     Poison:
       effects:
       - !type:AdjustTemperature
-        amount: 40
+        conditions:
+        - !type:Temperature
+          max: 375
+        amount: 6000
+      - !type:SatiateThirst
+        factor: -6
+      - !type:PopupMessage
+          type: Local
+          messages: [ "capsaicin-effect-light-burn" ]
+          probability: 0.2
 
 - type: reagent
   id: InfernoSauce
   name: reagent-name-inferno-sauce
   parent: BasePyrotechnic
   desc: reagent-desc-inferno-sauce
-  physicalDesc:
-  flavour: spicy
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: spicy
   color: "#7e1c03"
-  recognizable: true
-  metabolisms:
-    Poison:
-      effects:
-      - !type:AdjustTemperature
-        amount: 100
-      - !type:HealthChange
-        damage:
-          types:
-            Heat: 10
-
-- type: reagent
-  id: HottestSauce
-  name: reagent-name-hottest-sauce
-  parent: BasePyrotechnic
-  desc: reagent-desc-hottest-sauce
-  physicalDesc:
-  flavour: spicy
-  color: "#4d1103"
   contrabandSeverity: Minor
   recognizable: true
   metabolisms:
     Poison:
       effects:
       - !type:AdjustTemperature
-        amount: 100
-      # - !type:FlammableReaction
-      #   multiplier: 0.1
+        conditions:
+        - !type:Temperature
+          max: 375
+        amount: 10000
+      - !type:SatiateThirst
+        factor: -12
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 1
+      - !type:PopupMessage
+          type: Local
+          messages: [ "capsaicin-effect-light-burn" ]
+          probability: 0.4
+
+- type: reagent
+  id: HottestSauce
+  name: reagent-name-hottest-sauce
+  parent: BasePyrotechnic
+  desc: reagent-desc-hottest-sauce
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: spicy
+  color: "#4d1103"
+  contrabandSeverity: Major
+  recognizable: true
+  metabolisms:
+    Poison:
+      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 400
+        amount: 15000
+      - !type:SatiateThirst
+        factor: -20
+      - !type:FlammableReaction
+        multiplier: 0.2
       - !type:Ignite
+      - !type:PopupMessage
+          type: Local
+          messages: [ "capsaicin-effect-light-burn" ]
+          probability: 0.5
