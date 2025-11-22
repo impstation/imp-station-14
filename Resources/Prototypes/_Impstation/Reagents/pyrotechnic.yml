@@ -132,14 +132,11 @@
     Food:
       effects:
       - !type:AdjustTemperature
-        conditions:
-        - !type:Temperature
-          max: 500
-        amount: 50000
+        amount: 100000
       - !type:SatiateThirst
         factor: -100
       - !type:FlammableReaction
-        multiplier: 0.8
+        multiplier: 8
       - !type:Ignite
       - !type:HealthChange
         damage:
