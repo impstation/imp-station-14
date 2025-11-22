@@ -87,7 +87,7 @@
   desc: reagent-desc-hottest-sauce
   physicalDesc: reagent-physical-desc-spicy
   flavor: spicy
-  color: "#4d1103"
+  color: "#570503"
   contrabandSeverity: Major
   recognizable: true
   metabolisms:
@@ -97,12 +97,16 @@
         conditions:
         - !type:Temperature
           max: 400
-        amount: 15000
+        amount: 20000
       - !type:SatiateThirst
         factor: -20
       - !type:FlammableReaction
         multiplier: 0.2
       - !type:Ignite
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 2
       - !type:PopupMessage
           type: Local
           messages: [ "capsaicin-effect-light-burn" ]
