@@ -2,6 +2,7 @@ using Content.Server.Chat.Systems;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Radio;
 using Content.Shared.Radio.Components;
+using Content.Shared._Coyote.RadioNoises;
 using Content.Shared.Radio.EntitySystems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -110,6 +111,18 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         }
 
         if (TryComp(parent, out ActorComponent? actor))
+        {
+            // Imp edit from Coyote for radio sounds
+            var staticEv = new RadioReceivedEvent(
+                uid,
+                args.MessageSource,
+                actor.PlayerSession.AttachedEntity,
+                args.Channel.ID,
+                args.Message
+            );
+            RaiseLocalEvent(uid, ref staticEv);
+
             _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
+        }
     }
 }

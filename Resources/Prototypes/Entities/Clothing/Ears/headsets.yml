@@ -26,6 +26,17 @@
   - type: GuideHelp
     guides:
     - Radio
+  - type: RadioStatic # imp edit for radio sounds
+    baseSoundpack: RadioStaticDefault
+    departmentSoundPacks:
+      Command: RadioStaticCommand
+      Medical: RadioStaticMedical
+      Security: RadioStaticSecurity
+      Science: RadioStaticScience
+      Engineering: RadioStaticEngineering
+      Binary: RadioStaticBinary
+      CentCom: RadioStaticCentCom
+      Syndicate: RadioStaticSyndicate
 
 - type: entity
   parent: ClothingHeadset
