@@ -93,12 +93,14 @@ public sealed class SecurelyAttachedSystem : EntitySystem
 
     private void OnExamined(Entity<ClothingComponent> ent, ref ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange || HasComp<GluedComponent>(ent) || !_inventory.TryGetContainingSlot(ent.Owner, out var slot))
+        if (!args.IsInDetailsRange|| !_inventory.TryGetContainingSlot(ent.Owner, out var slot))
             return;
 
-        if (slot.Insecure && !HasComp<SecurelyAttachedComponent>(ent))
-            args.PushMarkup(Loc.GetString("insecurely-attached"));
-        else
+        var secure = !slot.Insecure || HasComp<GluedComponent>(ent) || HasComp<AttachedClothingComponent>(ent);
+
+        if (secure || HasComp<SecurelyAttachedComponent>(ent))
             args.PushMarkup(Loc.GetString("securely-attached"));
+        else
+            args.PushMarkup(Loc.GetString("insecurely-attached"));
     }
 }
