@@ -48,7 +48,9 @@
         factor: -6
       - !type:PopupMessage
           type: Local
-          messages: [ "capsaicin-effect-heavy-burn" ]
+          messages:
+          - "capsaicin-effect-heavy-burn"
+          - "generic-reagent-effect-tearing-up"
           probability: 0.2
 
 - type: reagent
@@ -77,7 +79,9 @@
             Heat: 1
       - !type:PopupMessage
           type: Local
-          messages: [ "capsaicin-effect-heavy-burn" ]
+          messages:
+          - "capsaicin-effect-heavy-burn"
+          - "generic-reagent-effect-tearing-up"
           probability: 0.3
 
 - type: reagent
@@ -109,5 +113,39 @@
             Heat: 2
       - !type:PopupMessage
           type: Local
-          messages: [ "capsaicin-effect-heavy-burn" ]
+          messages:
+          - "clf3-it-burns"
+          - "generic-reagent-effect-tearing-up"
+          probability: 0.3
+
+- type: reagent
+  id: DanPersonalHotsauce
+  name: reagent-name-dans-personal
+  parent: BasePyrotechnic
+  desc: reagent-desc-dans-personal
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: spicy
+  color: "#270000"
+  contrabandSeverity: Tier3Contraband
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:Temperature
+          max: 500
+        amount: 50000
+      - !type:SatiateThirst
+        factor: -100
+      - !type:FlammableReaction
+        multiplier: 0.8
+      - !type:Ignite
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 5
+      - !type:PopupMessage
+          type: Local
+          messages: [ "psicodine-effect-at-peace" ]
           probability: 0.3
