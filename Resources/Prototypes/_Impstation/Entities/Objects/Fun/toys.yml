@@ -160,6 +160,7 @@
       head:
       - state: bug-equipped-HELMET
         offset: "0, 0.06"
+  - type: SecurelyAttached # imp, it grabbing onto your head :)
 
 - type: entity
   parent: BasePlushie
@@ -237,6 +238,7 @@
       head:
       - state: evilbug-equipped-HELMET
         offset: "0, 0.06"
+  - type: SecurelyAttached # imp, it grabbing onto your head :)
 
 - type: entity
   parent: BasePlushie
