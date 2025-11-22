@@ -5,7 +5,7 @@
   description: A novelty mug with writing on it.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Drinks/noveltymug.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Mug/noveltymug.rsi
     layers:
       - state: icon-0
         map: [ "icon" ]
@@ -33,10 +33,10 @@
   description: A cheap, mass produced style of cup, typically used at parties.
   components:
   - type: Icon
-    sprite: _Impstation/Objects/Consumable/Drinks/colocup.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Disposable/colocup.rsi
     state: icon-0
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Drinks/colocup.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Disposable/colocup.rsi
     layers:
     - map: [ "random" ]
       state: icon-0

@@ -129,6 +129,7 @@
   - type: Clothing
     sprite: _NF/Objects/Fun/emotional_support_rpg.rsi
   - type: Gun
+    fireRate: 1 #imp divide fire rate by 8
     soundGunshot:
       path: /Audio/Effects/thunk.ogg
     soundEmpty:
@@ -168,4 +169,4 @@
     sound:
       path: /Audio/Weapons/rubberhammer.ogg
   - type: StaminaDamageOnCollide
-    damage: 20
+    damage: 10 #IMP this used to be 20

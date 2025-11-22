@@ -1,6 +1,6 @@
 - type: entity
   name: disposable camera
-  parent: [ClothingNeckBase]
+  parent: [Clothing]
   id: TouristCamera
   description: A cheap, mass produced camera equipped with a military-grade flash to capture every memory and a lanyard to hold them close.
   components:
@@ -20,6 +20,9 @@
     - type: UseDelay
     - type: Appearance
     - type: Clothing
+      quickEquip: true
+      slots:
+      - neck
       sprite: _Impstation/Objects/Misc/touristcamera.rsi
     - type: GenericVisualizer
       visuals:

@@ -21,3 +21,20 @@
     state: icon
   - type: Item
     sprite: _Impstation/Objects/Weapons/Melee/tailorsknife.rsi
+
+- type: entity
+  name: officer's dagger
+  parent: [BaseSecurityCommandContraband, CombatKnife]
+  id: OfficerKnife
+  description: An expertly crafted gift from the Decapoid Empire, with a beauty to match its lethality.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Melee/officer_knife.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Melee/officer_knife.rsi
+    storedSprite:
+      state: storage
+      sprite: _Impstation/Objects/Weapons/Melee/officer_knife.rsi
+  - type: ThrowingAngle
+    angle: 225
