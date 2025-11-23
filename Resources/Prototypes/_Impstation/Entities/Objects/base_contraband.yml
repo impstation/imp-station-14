@@ -65,3 +65,13 @@
   - type: Contraband
     allowedJobs: [ Zookeeper ]
     implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HospitalityDirector ]
+
+# Chief Engineer Contraband: Keb crystal crate
+- type: entity
+  id: BaseRestrictedChiefEngineerContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ ChiefEngineer ]
+    implicitlyAllowedJobs: [ Captain ]
