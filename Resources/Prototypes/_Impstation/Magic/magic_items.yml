@@ -310,7 +310,7 @@
     footstepSoundCollection:
       collection: FootstepBoots
   - type: JumpAbility
-    jumpDistance: 4
+    jumpDistance: 8
     jumpSound: /Audio/Effects/stealthoff.ogg
   - type: ActionGrant
     actions:
@@ -348,10 +348,45 @@
 
 - type: entity
   id: ProjectileMM
-  parent: BaseBullet
+  parent: [ FlyingMobBase, BaseBulletTrigger ] # dont worry about it
   name: magic missile
   categories: [ HideSpawnMenu ]
   components:
+  - type: CartridgeAmmo
+    proto: PelletShotgunSpread
+  - type: CombatMode
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.30,0.10,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: MobCollision
+  - type: Physics
+    bodyType: KinematicController
+  - type: InputMover
+  - type: MobMover
+  - type: Clickable
+  - type: NpcFactionMember
+    factions:
+      - Wizard
+  - type: HTN
+    rootTask:
+      task: MagicMissileCompound
+  - type: TimedDespawn
+    lifetime: 8
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
@@ -365,10 +400,17 @@
           magicm_green: ""
           magicm_red: ""
           magicm_yellow: ""
+  - type: TriggerOnCollide
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/_Impstation/Magic/woosh.ogg"
+    hidden: true
+    damage:
+      groups:
+        Brute: 0
+    fixtureID: projectile
   - type: Projectile
     deleteOnCollide: true
-    soundHit:
-      path: /Audio/_Impstation/Magic/woosh.ogg
     damage:
       types:
         Cellular: 20
@@ -422,3 +464,20 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 0.5
     baseSprintSpeed : 1
+
+- type: entity
+  parent: [ClothingEyesBase, BaseMagicalContraband]
+  id: ClothingEyesGlassesWizard
+  name: magical glasses
+  description:
+  components:
+  - type: Sprite
+    sprite: _Impstation/Magic/eyes.rsi
+  - type: Clothing
+    sprite: _Impstation/Magic/eyes.rsi
+  - type: FlashImmunity
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES

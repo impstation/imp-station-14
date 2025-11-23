@@ -150,7 +150,7 @@
   description: The classic.
   components:
   - type: Action
-    useDelay: 2
+    useDelay: 10
     itemIconStyle: BigAction
     icon:
       sprite: Objects/Magic/magicactions.rsi
@@ -159,8 +159,11 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/_Impstation/Magic/woosh.ogg
   - type: TargetAction
-    range: 60
+    range: 5
     checkCanAccess: false
   - type: WorldTargetAction
-    event: !type:ProjectileSpellEvent
-      prototype: ProjectileMM
+    event: !type:WorldSpawnSpellEvent
+      prototypes:
+      - id: ProjectileMM
+        amount: 4
+      offset: 1, 0

@@ -133,7 +133,8 @@
     layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: rock
-  - tags:
+  - type: Tag
+    tags:
       - CannotSuicide
       - DoorBumpOpener
       - FootstepSound

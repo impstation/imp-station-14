@@ -175,6 +175,19 @@
     stock: 1
 
 - type: listing
+  id: SpellbookSpawnGlasses
+  name: spellbook-glasses-name
+  description: spellbook-glasses-desc
+  productEntity: ClothingEyesGlassesWizard
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: SpellbookSpawnBoots
   name: spellbook-boots-name
   description: spellbook-boots-desc
