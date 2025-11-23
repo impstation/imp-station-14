@@ -201,6 +201,7 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
             args.Message
         );
         RaiseLocalEvent(uid, ref staticEv);
+        // end Imp-Coyote edit
 
         var name = Loc.GetString("speech-name-relay",
             ("speaker", Name(uid)),

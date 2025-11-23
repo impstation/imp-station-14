@@ -27,7 +27,7 @@ public sealed class RadioStaticPrototype : IPrototype
     /// </summary>
     [DataField("saySound", required: true)]
     public SoundSpecifier SaySound { get; set; } =
-        new SoundPathSpecifier("/Audio/Radio/Static/say_static.ogg");
+        new SoundPathSpecifier("/Audio/_Coyote/Effects/Radio/general.ogg");
 
     /// <summary>
     /// Ask sound to be played when a radio message is received.

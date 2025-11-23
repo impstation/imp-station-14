@@ -125,4 +125,5 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
         }
     }
+            // end Imp-Coyote edit
 }
