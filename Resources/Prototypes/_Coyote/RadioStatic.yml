@@ -35,6 +35,12 @@
     path: /Audio/_Coyote/Effects/Radio/engineering.ogg
 
 - type: RadioStatic
+  id: RadioStaticSupply
+  secret: true
+  saySound:
+    path: /Audio/_StarLight/Effects/Radio/ce.ogg
+
+- type: RadioStatic
   id: RadioStaticBinary
   secret: true
   saySound:
@@ -51,6 +57,12 @@
   secret: true
   saySound:
     path: /Audio/_StarLight/Effects/Radio/marauder_agent.ogg
+
+- type: RadioStatic
+  id: RadioStaticFreelance
+  secret: true
+  saySound:
+    path: /Audio/_Impstation/Effects/Radio/freelance_quindar.ogg
 
 - type: RadioStatic
   id: RadioStaticHandheld
