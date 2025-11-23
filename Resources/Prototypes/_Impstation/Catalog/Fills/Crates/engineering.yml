@@ -1,0 +1,9 @@
+﻿- type: entity
+  id: CrateEngineeringSupermatter
+  parent: CrateEngineeringSecure
+  name: supermatter crystal crate
+  description: Contains a supermatter crystal.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SupermatterFlatpack
