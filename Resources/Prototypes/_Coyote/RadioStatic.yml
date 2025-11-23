@@ -1,8 +1,14 @@
 - type: RadioStatic
-  id: RadioStaticDefault # if there is no defined channel, this will be used. This also acts as greencomms.
+  id: RadioStaticDefault # if there is no defined channel, this will be used.
   secret: true
   saySound:
     path: /Audio/_Coyote/Effects/Radio/general.ogg
+
+- type: RadioStatic
+  id: RadioStaticCommon
+  secret: true
+  saySound:
+    path: /Audio/_StarLight/Effects/Radio/general2.ogg
 
 - type: RadioStatic
   id: RadioStaticCentCom
@@ -44,7 +50,7 @@
   id: RadioStaticService
   secret: true
   saySound:
-    path: /Audio/_Coyote/Effects/Radio/general2.ogg
+    path: /Audio/_StarLight/Effects/Radio/ce2.ogg
 
 - type: RadioStatic
   id: RadioStaticSupply
@@ -75,3 +81,9 @@
   secret: true
   saySound:
     path: /Audio/_Impstation/Effects/Radio/freelance_quindar.ogg
+
+- type: RadioStatic
+  id: RadioStaticRevolution
+  secret: true
+  saySound:
+    path: /Audio/_StarLight/Effects/Radio/marauder.ogg

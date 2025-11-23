@@ -29,6 +29,7 @@
   - type: RadioStatic # imp edit for radio sounds
     baseSoundpack: RadioStaticDefault
     departmentSoundPacks:
+      Common: RadioStaticCommon
       CentCom: RadioStaticCentCom
       Command: RadioStaticCommand
       Engineering: RadioStaticEngineering
@@ -40,6 +41,7 @@
       Syndicate: RadioStaticSyndicate
       Binary: RadioStaticBinary
       Freelance: RadioStaticFreelance
+      Revolution: RadioStaticRevolution
 
 - type: entity
   parent: ClothingHeadset
