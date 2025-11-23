@@ -29,15 +29,16 @@
   - type: RadioStatic # imp edit for radio sounds
     baseSoundpack: RadioStaticDefault
     departmentSoundPacks:
-      Command: RadioStaticCommand
-      Medical: RadioStaticMedical
-      Security: RadioStaticSecurity
-      Science: RadioStaticScience
-      Engineering: RadioStaticEngineering
-      Supply: RadioStaticSupply
-      Binary: RadioStaticBinary
       CentCom: RadioStaticCentCom
+      Command: RadioStaticCommand
+      Engineering: RadioStaticEngineering
+      Medical: RadioStaticMedical
+      Science: RadioStaticScience
+      Security: RadioStaticSecurity
+      Service: RadioStaticService
+      Supply: RadioStaticSupply
       Syndicate: RadioStaticSyndicate
+      Binary: RadioStaticBinary
       Freelance: RadioStaticFreelance
 
 - type: entity
