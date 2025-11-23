@@ -36,3 +36,107 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: packet-solid-
+
+- type: entity
+  parent: BaseFoodCondimentPacket
+  id: FoodCondimentPacketDanPersonal
+  name: Dan's Personal Hotsauce
+  description: A gift from Discount Dan himself, straight from his personal collection. This is all you get from him. Fatally spicy.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: DanPersonalHotsauce
+          Quantity: 10
+  - type: Icon
+    state: packet-dans-personal
+    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: packet-solid-
+
+- type: entity
+  parent: BaseFoodCondimentBottle
+  id: FoodCondimentBottleHotterSauce
+  name: hotter sauce bottle
+  description: Really makes you feel the heat.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: HotterSauce
+          Quantity: 30
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
+    layers:
+    - state: bottle-empty
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: label-hr
+    - state: bottle-alpha-6
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: true
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
+    state: bottle-hotter-sauce
+  - type: Tag
+    tags:
+      - Hotsauce
+
+- type: entity
+  parent: BaseFoodCondimentBottle
+  id: FoodCondimentBottleHotterSauce
+  name: inferno sauce bottle
+  description: For the daredevil in you. Discount Dan's is not responsible for any injuries recieved from this product.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: InfernoSauce
+          Quantity: 30
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
+    layers:
+    - state: bottle-empty
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: label-if
+    - state: bottle-alpha-6
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: true
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
+    state: bottle-inferno-sauce
+  - type: Tag
+    tags:
+      - Hotsauce
+
+- type: entity
+  parent: BaseFoodCondimentBottle
+  id: FoodCondimentBottleHotterSauce
+  name: hottest sauce bottle
+  description: Feel the burn! Discount Dan's is not responsible for any injuries recieved from this product. This product is not ment for consumption.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: HottestSauce
+          Quantity: 30
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
+    layers:
+    - state: bottle-empty
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: label-ht
+    - state: bottle-alpha-6
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: true
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
+    state: bottle-hottest-sauce
+  - type: Tag
+    tags:
+      - Hotsauce
