@@ -373,3 +373,24 @@
             Quantity: 5
           - ReagentId: Sadness
             Quantity: 5
+
+- type: entity
+  id: CigaretteSyndicateHypo
+  suffix: Hypo
+  parent: Cigarette (Hypo)
+  name: cigarette
+  components:
+  - type: Smokable
+    inhaleAmount: 16
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 16
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 1
+      food:
+        maxVol: 16
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 1
