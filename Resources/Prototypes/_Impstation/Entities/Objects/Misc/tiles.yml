@@ -192,7 +192,7 @@
   - type: Stack
     stackType: FloorTilePlastic
 
-  - type: entity
+- type: entity
   name: white plastic tile
   parent: FloorTileItemPlastic
   id: FloorTileItemWhitePlastic
@@ -208,7 +208,7 @@
   - type: Stack
     stackType: FloorTileWhitePlastic
 
-  - type: entity
+- type: entity
   name: dark plastic tile
   parent: FloorTileItemPlastic
   id: FloorTileItemDarkPlastic
