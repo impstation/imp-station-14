@@ -12,3 +12,41 @@
     - type: EmitSoundOnSpawn
       sound:
         path: /Audio/Effects/teleport_arrival.ogg
+
+- type: entity
+  parent: Supermatter
+  id: SupermatterShard
+  name: supermatter shard
+  description: A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Power/Generation/Supermatter/supermatter_shard.rsi
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+    layers:
+    - state: supermatter
+      map: [ "enum.SupermatterVisuals.Crystal" ]
+    - state: supermatter-psy
+      map: [ "enum.SupermatterVisuals.Psy" ]
+      color: "#ffffff00"
+  - type: SupermatterVisuals
+    crystal:
+      Normal: { state: supermatter }
+      Glow: { state: supermatter-glow }
+      GlowEmergency: { state: supermatter-glow }
+      GlowDelam: { state: supermatter-glow }
+  - type: Explosive
+    explosionType: Supermatter
+    totalIntensity: 40000 # half of normal crystal
+    intensitySlope: 5
+    maxIntensity: 100
+  - type: Supermatter
+    gasEfficiency: 0.04 # approx 83.3% of normal crystal
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Pullable
+    prevFixedRotation: True
+  - type: Physics
+    bodyType: Dynamic

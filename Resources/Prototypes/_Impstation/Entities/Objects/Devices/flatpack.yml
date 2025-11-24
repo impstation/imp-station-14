@@ -89,12 +89,3 @@
   components:
   - type: Flatpack
     entity: MobTckut
-
-- type: entity
-  parent: [BaseFlatpack, BaseRestrictedChiefEngineerContraband]
-  id: SupermatterFlatpack
-  name: supermatter crystal flatpack
-  description: A flatpack used for constructing an entire supermatter crystal. Do not open until you're sure it's where you want it to be.
-  components:
-  - type: Flatpack
-    entity: Supermatter

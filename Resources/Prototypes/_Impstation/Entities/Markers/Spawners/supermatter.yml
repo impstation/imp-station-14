@@ -11,3 +11,16 @@
     lifetime: 1
   - type: SpawnOnDespawn
     prototype: SupermatterNoAnnouncement
+
+- type: entity
+  id: SupermatterShardSpawner
+  categories: [ HideSpawnMenu ]
+  name: supermatter shard spawner
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Fun/goldbikehorn.rsi
+    visible: false
+    state: icon
+  - type: TriggerOnGotRemovedFromContainer
+  - type: SpawnOnTrigger
+    proto: SupermatterShard

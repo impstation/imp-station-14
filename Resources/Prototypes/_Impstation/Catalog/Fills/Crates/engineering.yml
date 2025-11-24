@@ -1,18 +1,20 @@
 ﻿- type: entity
   id: CrateEngineeringSupermatter
   parent: [CrateEngineeringSecure, BaseRestrictedChiefEngineerContraband]
-  name: supermatter crystal crate
-  description: Contains a supermatter crystal. Has an anti-tamper acidifier system.
+  name: supermatter shard crate
+  description: Contains a supermatter shard. Has an anti-tamper acidifier system.
   components:
   - type: Icon
     sprite: _Impstation/Structures/Storage/Crates/supermatter.rsi
   - type: Sprite
     sprite: _Impstation/Structures/Storage/Crates/supermatter.rsi
-  - type: StorageFill
-    contents:
-    - id: SupermatterFlatpack
+  - type: ContainerFill
+    containers:
+      entity_storage:
+      - SupermatterShardSpawner
   - type: AccessReader
     access: [ [ "ChiefEngineer" ] ]
   - type: AntiTamper
     containers:
     - entity_storage
+  - type: SupermatterImmune
