@@ -103,7 +103,7 @@
 
 - type: entity
   name: TT-10 advanced blaster
-  parent: [WeaponDisablerPractice, BaseSecurityContraband]
+  parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
   id: WeaponBlasterMagnum
   description: A culmination of energy weapons research rolled into a single, menacing package.
   components:
