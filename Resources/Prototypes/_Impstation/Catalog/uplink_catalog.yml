@@ -536,13 +536,13 @@
   id: uplinkHotsauces
   name: uplink-hotsauces-name
   description: uplink-hotsauces-desc
-  icon: { sprite: Textures/Objects/Consumable/Food/condiments.rsi, state: bottle-hotsauce }
+  icon: { sprite: /Textures/Objects/Consumable/Food/condiments.rsi, state: bottle-hotsauce }
   productEntity: BoxHotsauces
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
-    Telecrystal: 9
+    Telecrystal: 3
   categories:
   - UplinkJob
   conditions:
