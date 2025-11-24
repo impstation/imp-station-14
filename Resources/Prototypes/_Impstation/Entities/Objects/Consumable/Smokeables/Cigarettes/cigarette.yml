@@ -4,6 +4,8 @@
   parent: Cigarette
   name: cigarette
   components:
+  - type: Smokable
+    inhaleAmount: 1
   - type: SolutionContainerManager
     solutions:
       smokable:

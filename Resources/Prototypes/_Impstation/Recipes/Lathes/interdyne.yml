@@ -21,6 +21,46 @@
     Plasma: 3000
 
 - type: latheRecipe
+  id: InterdyneVentCrud
+  resultReagents:
+    VentCrud: 30
+  categories:
+  - Chemicals
+  icon:
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Credit: 5000
+    Plasma: 3000
+
+- type: latheRecipe
+  id: InterdyneMold
+  resultReagents:
+    Mold: 30
+  categories:
+  - Chemicals
+  icon:
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Credit: 2000
+
+- type: latheRecipe
+  id: InterdyneMechanotoxin
+  resultReagents:
+    Mechanotixn: 10
+  categories:
+  - Chemicals
+  icon:
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Credit: 8000
+
+- type: latheRecipe
   id: InterdyneEchion
   resultReagents:
     Echion: 5
@@ -46,7 +86,7 @@
   completetime: 1
   materials:
     Credit: 5000
-    Plasma: 1000
+    Plasma: 3000
 
 - type: latheRecipe
   id: InterdyneUplinkLighterBox
