@@ -3,8 +3,8 @@ using Content.Server.Speech.Components;
 using Content.Shared.Speech;
 
 namespace Content.Server.Speech.EntitySystems;
-
-public sealed class SnalienAccentSystem : EntitySystem
+// hi guys. this is a copy of snalienaccentsystem for accentless use
+public sealed class GastropoidAccentSystem : EntitySystem
 {
     private static readonly Regex RegexLowerslurw = new Regex("w{1,3}");
     private static readonly Regex RegexUpperslurw = new Regex("W{1,3}");
@@ -57,10 +57,10 @@ public sealed class SnalienAccentSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<SnalienAccentComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<GastropoidAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, SnalienAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, GastropoidAccentComponent component, AccentGetEvent args)
     {
         var message = args.Message;
 
