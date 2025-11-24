@@ -1107,26 +1107,43 @@
     - item: HydroponicsToolMiniHoe
     - item: HydroponicsToolSpade
     - item: HydroponicsToolClippers
+    #imp edit start
+    - item: PlantBag
+    - item: HydroponicsToolHatchet
     - item: Bucket
+      hand:
+        emptyLabel: borg-slot-botany-containers
+        emptyRepresentative: Bucket
+        whitelist:
+          tags:
+          - Bottle
+    - item:
+      hand:
+        emptyLabel: borg-slot-botany-seeds
+        emptyRepresentative: CabbageSeeds
+        whitelist:
+          components:
+          - Seed
+    #imp edit end
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: gardening-module }
 
-- type: entity
-  id: BorgModuleHarvesting
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: harvesting cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: service
-    - state: icon-harvesting
-  - type: ItemBorgModule
-    hands:
-    - item: HydroponicsToolScythe
-    - item: HydroponicsToolHatchet
-    - item: PlantBag
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: harvesting-module }
+    ###- type: entity  # imp combining Harvest and Gardening
+    ###id: BorgModuleHarvesting
+    ###parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+    ###name: harvesting cyborg module
+    ###components:
+    ###- type: Sprite
+    ###layers:
+    ###- state: service
+    ###- state: icon-harvesting
+    ###- type: ItemBorgModule
+    ###hands:
+    ###- item: HydroponicsToolScythe
+    ###- item: HydroponicsToolHatchet
+    ###- item: PlantBag
+    ###- type: BorgModuleIcon
+    ###icon: { sprite: Interface/Actions/actions_borg.rsi, state: harvesting-module }
 
 - type: entity
   id: BorgModuleClowning

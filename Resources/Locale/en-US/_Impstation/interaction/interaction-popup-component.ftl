@@ -36,6 +36,8 @@ petting-failure-smspider = You reach out to pet {THE($target)}, but decide again
 ## Petting silicons
 
 petting-success-cargo-cyborg = You pet {THE($target)} on {POSS-ADJ($target)} scratched metal head.
+petting-success-decapoid-silicon = You pet {THE($target)} on {POSS-ADJ($target)} cute little head.
+petting-failure-decapoid-silicon = You reach out to pet {THE($target)}, but get distracted by {POSS-ADJ($target)} cuteness.
 
 ## Apids
 

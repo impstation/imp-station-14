@@ -20,6 +20,9 @@
   radioChannels:
   - Science
 
+  addComponents:
+  - type: SolutionScanner #imp
+
   # Visual
   inventoryTemplateId: borgShort
   spriteBodyState: robot
@@ -139,6 +142,9 @@
   - Science
   - Service
 
+  addComponents:
+  - type: SolutionScanner #imp
+
   # Visual
   inventoryTemplateId: borgJanitor # imp
   spriteBodyState: janitor
@@ -211,44 +217,45 @@
   pdaBorderColor: "#d7d7d0"
   pdaAccentVerticalColor: "#447987"
 
-
+#imp start
 # Service borg
-- type: borgType
-  id: service
+#- type: borgType
+#  id: service
 
   # Description
-  dummyPrototype: BorgChassisService
+#  dummyPrototype: BorgChassisService
 
-  # Functional
-  extraModuleCount: 4
-  moduleWhitelist:
-    tags:
-    - BorgModuleGeneric
-    - BorgModuleService
+#  # Functional
+#  extraModuleCount: 4
+#  moduleWhitelist:
+#    tags:
+#    - BorgModuleGeneric
+#    - BorgModuleService
 
-  defaultModules:
-  - BorgModuleTool
-  - BorgModuleMusique
-  - BorgModuleBartender # imp
-  - BorgModuleService
-  - BorgModuleClowning
-  - BorgModuleGardening
-  - BorgModuleHarvesting
-  radioChannels:
-  - Science
-  - Service
+#  defaultModules:
+#  - BorgModuleTool
+#  - BorgModuleMusique
+#  - BorgModuleBartender # imp
+#  - BorgModuleService
+#  - BorgModuleClowning
+#  - BorgModuleGardening
+#  - BorgModuleHarvesting
+#  radioChannels:
+#  - Science
+#  - Service
 
-  # Visual
-  inventoryTemplateId: borgHumanoid # imp
-  spriteBodyState: service
-  spriteHasMindState: service_e
-  spriteNoMindState: service_e_r
-  spriteToggleLightState: service_l
+#  # Visual
+#  inventoryTemplateId: borgHumanoid # imp
+#  spriteBodyState: service
+#  spriteHasMindState: service_e
+#  spriteNoMindState: service_e_r
+#  spriteToggleLightState: service_l
 
-  # Pet
-  petSuccessString: petting-success-service-cyborg
-  petFailureString: petting-failure-service-cyborg
+ # Pet
+#  petSuccessString: petting-success-service-cyborg
+#  petFailureString: petting-failure-service-cyborg
 
   # Impstation - Borg PDAs
-  pdaBorderColor: "#717059"
-  pdaAccentVerticalColor: "#00cc35"
+#  pdaBorderColor: "#717059"
+#  pdaAccentVerticalColor: "#00cc35"
+#imp finish
