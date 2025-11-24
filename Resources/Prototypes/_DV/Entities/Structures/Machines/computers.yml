@@ -32,3 +32,11 @@
       state: shipyard
     - map: ["computerLayerKeys"]
       state: telesci_key
+
+- type: entity
+  parent: ComputerCrewMonitoring
+  id: ComputerCrewMonitoringSyndicate
+  suffix: Syndicate, Long Range
+  components:
+  # TODO: unique sprite please someone
+  - type: LongRangeCrewMonitor
