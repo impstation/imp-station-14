@@ -22,3 +22,42 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+
+- type: entity
+  parent: [ClothingHeadHelmetArmoredBase, Tier3Contraband]
+  id: ClothingHeadHelmetNukie
+  name: operative helmet
+  description: Standard gear for Syndicate soldiers. It's not much, so just try to shoot first and kill fast.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Helmets/syndie_operative.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Helmets/syndie_operative.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD
+
+- type: entity
+  parent: ClothingHeadHelmetNukie
+  id: ClothingHeadHelmetNukieAgent
+  name: corpsman helmet
+  description: Surplus gear painted to denote a combat medic. Won't stop you from having to get stitched up.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Helmets/syndie_agent.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Helmets/syndie_agent.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetNukie
+  id: ClothingHeadHelmetNukieCommander
+  name: commander helmet
+  description: A sturdy enough helmet for the leader of a strike team.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Helmets/syndie_commander.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Helmets/syndie_commander.rsi
