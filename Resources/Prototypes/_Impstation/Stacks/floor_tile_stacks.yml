@@ -59,6 +59,24 @@
   maxCount: 30
 
 - type: stack
+  id: FloorTilePlastic
+  name: stack-plastic
+  spawn: FloorTileItemPlastic
+  maxCount: 30
+
+- type: stack
+  id: FloorTileWhitePlastic
+  name: stack-white-plastic
+  spawn: FloorTileItemWhitePlastic
+  maxCount: 30
+
+- type: stack
+  id: FloorTileDarkPlastic
+  name: stack-dark-plastic
+  spawn: FloorTileItemDarkPlastic
+  maxCount: 30
+
+- type: stack
   id: FloorTileGreen
   name: stack-green
   spawn: FloorTileItemGreen
@@ -116,4 +134,10 @@
   id: FloorTileGreenSquiggly
   name: stack-green-squiggly
   spawn: FloorTileItemGreenSquiggly
+  maxCount: 30
+
+- type: stack
+  id: FloorTileGreenPlastic
+  name: stack-green-plastic
+  spawn: FloorTileItemGreenPlastic
   maxCount: 30
