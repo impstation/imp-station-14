@@ -50,7 +50,7 @@
         - ReagentId: DanPersonalHotsauce
           Quantity: 5
   - type: Icon
-    state: packet-dans-personal
+    state: packet-dans-personalIMP
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 2
@@ -72,12 +72,12 @@
     layers:
     - state: bottle-empty
       map: ["enum.OpenableVisuals.Layer"]
-    - state: label-hr
+    - state: label-hrIMP
     - state: bottle-alpha-6
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: true
   - type: Icon
-    state: bottle-hotter-sauce
+    state: bottle-hotter-sauceIMP
   - type: Tag
     tags:
       - Hotsauce
@@ -98,12 +98,12 @@
     layers:
     - state: bottle-empty
       map: ["enum.OpenableVisuals.Layer"]
-    - state: label-if
+    - state: label-ifIMP
     - state: bottle-alpha-6
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: true
   - type: Icon
-    state: bottle-inferno-sauce
+    state: bottle-inferno-sauceIMP
   - type: Tag
     tags:
       - Hotsauce
@@ -124,12 +124,12 @@
     layers:
     - state: bottle-empty
       map: ["enum.OpenableVisuals.Layer"]
-    - state: label-ht
+    - state: label-htIMP
     - state: bottle-alpha-6
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: true
   - type: Icon
-    state: bottle-hottest-sauce
+    state: bottle-hottest-sauceIMP
   - type: Tag
     tags:
       - Hotsauce
