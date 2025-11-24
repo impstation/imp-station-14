@@ -30,3 +30,19 @@ stack-utility-token = utility token
 
 # misc
 stack-tcka-beacon = tck'aat RFID chip
+
+# extra steel color variants
+stack-squiggly = steel squiggly tile
+stack-white-squiggly = white steel squiggly tile
+
+# green steel tiles
+stack-green = green tile
+stack-green-mini = green steel mini tile
+stack-green-pavement = green steel pavement
+stack-green-diagonal = green steel diagonal tile
+stack-green-offset = offset green tile
+stack-green-mono = green steel mono tile
+stack-green-pavement-vertical = green steel vertical pavement
+stack-green-herringbone = green steel herringbone
+stack-green-diagonal-mini = green steel diagonal mini tile
+stack-green-squiggly = green steel squiggly tile

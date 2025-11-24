@@ -112,8 +112,8 @@
 # Squiggly variants of other tile colors, because it's only for dark colors upstream
 
 - type: tile
-  id: FloorSteelSquiggly
-  name: tiles-steel-squiggly
+  id: FloorSquiggly
+  name: tiles-squiggly
   sprite: /Textures/_Impstation/Tiles/Steel/steel_squiggly.png
   variants: 4
   placementVariants:
@@ -126,7 +126,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemDarkSquiggly
+  itemDrop: FloorTileItemSquiggly
   heatCapacity: 10000
   allowRotationMirror: true
 
@@ -145,7 +145,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemDarkSquiggly
+  itemDrop: FloorTileItemWhiteSquiggly
   heatCapacity: 10000
   allowRotationMirror: true
 
@@ -166,7 +166,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepPlating
-  itemDrop: FloorTileItemDirty
+  itemDrop: FloorTileItemDark
   heatCapacity: 10000
 
 - type: tile
@@ -184,7 +184,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepPlating
-  itemDrop: FloorTileItemDirty
+  itemDrop: FloorTileItemWhite
   heatCapacity: 10000
 
 # Dark green tiles, another variant of standard steel tiles
@@ -205,7 +205,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemGreen
   heatCapacity: 10000
 
 - type: tile
@@ -223,7 +223,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDarkMini
+  itemDrop: FloorTileItemGreenMini
   heatCapacity: 10000
 
 - type: tile
@@ -241,7 +241,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDarkPavement
+  itemDrop: FloorTileItemGreenPavement
   heatCapacity: 10000
 
 - type: tile
@@ -259,7 +259,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDarkDiagonal
+  itemDrop: FloorTileItemGreenDiagonal
   heatCapacity: 10000
 
 - type: tile
@@ -271,7 +271,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDarkOffset
+  itemDrop: FloorTileItemGreenOffset
   heatCapacity: 10000
 
 - type: tile
@@ -289,7 +289,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemSteelMono
+  itemDrop: FloorTileItemGreenMono
   heatCapacity: 10000
 
 - type: tile
@@ -307,7 +307,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDarkPavementVertical
+  itemDrop: FloorTileItemGreenPavementVertical
   heatCapacity: 10000
 
 - type: tile
@@ -325,7 +325,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDarkHerringbone
+  itemDrop: FloorTileItemGreenHerringbone
   heatCapacity: 10000
 
 - type: tile
@@ -343,7 +343,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDarkDiagonalMini
+  itemDrop: FloorTileItemGreenDiagonalMini
   heatCapacity: 10000
 
 - type: tile
@@ -361,7 +361,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepTile
-  itemDrop: FloorTileItemDark
+  itemDrop: FloorTileItemGreen
   heatCapacity: 10000
 
 - type: tile
@@ -379,7 +379,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemDarkSquiggly
+  itemDrop: FloorTileItemGreenSquiggly
   heatCapacity: 10000
   allowRotationMirror: true
 
@@ -398,7 +398,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepPlating
-  itemDrop: FloorTileItemDirty
+  itemDrop: FloorTileItemGreen
   heatCapacity: 10000
 
   # Sideways Hull Tile
@@ -410,5 +410,5 @@
   isSubfloor: false
   footstepSounds:
     collection: FootstepHull
-  itemDrop: FloorTileItemSteel #probably should not be normally obtainable, but the game shits itself and dies when you try to put null here
+  itemDrop: FloorTileItemSteel # Have to put something here according to upstream comments and I can't be bothered to test myself. Shouldn't be obtainable though
   heatCapacity: 10000

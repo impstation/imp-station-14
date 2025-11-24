@@ -10,8 +10,8 @@ tiles-shoveled-astro-snow = shoveled astro-snow
 tiles-steel-squiggly = steel squiggly tile
 tiles-white-squiggly = white steel squiggly tile
 
-tiles-dirty-dark-floor = dark steel squiggly tile
-tiles-dirty-white-floor = white steel squiggly tile
+tiles-dirty-dark-floor = dirty dark steel tile
+tiles-dirty-white-floor = dirty white steel tile
 
 tiles-green-floor = green steel tile
 tiles-green-floor-mini = green steel mini-tile

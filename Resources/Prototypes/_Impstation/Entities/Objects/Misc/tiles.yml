@@ -139,3 +139,200 @@
   - type: Stack
     stackType: FloorTileAstroGrass
     count: 4
+
+# Steel Tile Variants for extra colors
+- type: entity
+  name: steel squiggly tile
+  parent: FloorTileItemBase
+  id: FloorTileItemSquiggly
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tiles/squiggly.rsi
+    state: steel-squiggly
+  - type: Item
+    heldPrefix: steel
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorSquiggly
+  - type: Stack
+    stackType: FloorTileSquiggly
+
+- type: entity
+  name: white steel squiggly tile
+  parent: FloorTileItemBase
+  id: FloorTileItemWhiteSquiggly
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tiles/squiggly.rsi
+    state: white-squiggly
+  - type: Item
+    heldPrefix: white
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorWhiteSquiggly
+  - type: Stack
+    stackType: FloorTileWhiteSquiggly
+
+# Green Steel Tiles
+- type: entity
+  name: green tile
+  parent: FloorTileItemBase
+  id: FloorTileItemGreen
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tiles/green.rsi
+    state: green
+  - type: Item
+    heldPrefix: green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGreen
+  - type: Stack
+    stackType: FloorTileGreen
+
+- type: entity
+  name: green steel mini tile
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenMini
+  components:
+  - type: Sprite
+    state: green-mini
+  - type: Item
+    heldPrefix: green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGreenMini
+  - type: Stack
+    stackType: FloorTileGreenMini
+
+- type: entity
+  name: green steel pavement
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenPavement
+  components:
+  - type: Sprite
+    state: green-pavement
+  - type: Item
+    heldPrefix: green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGreenPavement
+  - type: Stack
+    stackType: FloorTileGreenPavement
+
+- type: entity
+  name: green steel diagonal tile
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenDiagonal
+  components:
+  - type: Sprite
+    state: green-diagonal
+  - type: Item
+    heldPrefix: green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGreenDiagonal
+  - type: Stack
+    stackType: FloorTileGreenDiagonal
+
+- type: entity
+  name: offset green tile
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenOffset
+  components:
+  - type: Sprite
+    state: green-offset
+  - type: Item
+    heldPrefix: green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGreenOffset
+  - type: Stack
+    stackType: FloorTileGreenOffset
+
+- type: entity
+  name: green steel mono tile
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenMono
+  components:
+  - type: Sprite
+    state: green-mono
+  - type: Item
+    heldPrefix: green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGreenMono
+  - type: Stack
+    stackType: FloorTileGreenMono
+
+- type: entity
+  name: green steel vertical pavement
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenPavementVertical
+  components:
+  - type: Sprite
+    state: green-pavement-vertical
+  - type: Item
+    heldPrefix: green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGreenPavementVertical
+  - type: Stack
+    stackType: FloorTileGreenPavementVertical
+
+- type: entity
+  name: green steel herringbone
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenHerringbone
+  components:
+  - type: Sprite
+    state: green-herringbone
+  - type: Item
+    heldPrefix: green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGreenHerringbone
+  - type: Stack
+    stackType: FloorTileGreenHerringbone
+
+- type: entity
+  name: green steel diagonal mini tile
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenDiagonalMini
+  components:
+  - type: Sprite
+    state: green-diagonal-mini
+  - type: Item
+    heldPrefix: green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGreenDiagonalMini
+  - type: Stack
+    stackType: FloorTileGreenDiagonalMini
+
+- type: entity
+  name: green steel squiggly tile
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenSquiggly
+  components:
+  - type: Sprite
+    state: green-squiggly
+  - type: Item
+    heldPrefix: green
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorGreenSquiggly
+  - type: Stack
+    stackType: FloorTileGreenSquiggly
