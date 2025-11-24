@@ -9,14 +9,19 @@
   abstract: true
   components:
     - type: StationBankAccount
+      accounts:
+        Cargo: 7000 # imp
+      revenueDistribution:
+        Cargo: 1.0 # imp
+      primaryCut: 1.0 # imp
     - type: StationCargoOrderDatabase
       orders:
         Cargo: [ ]
-        Engineering: [ ]
-        Medical: [ ]
-        Science: [ ]
-        Security: [ ]
-        Service: [ ]
+        # Engineering: [ ] # imp
+        # Medical: [ ] # imp
+        # Science: [ ] # imp
+        # Security: [ ] # imp
+        # Service: [ ] # imp
     - type: StationCargoBountyDatabase
 
 - type: entity
