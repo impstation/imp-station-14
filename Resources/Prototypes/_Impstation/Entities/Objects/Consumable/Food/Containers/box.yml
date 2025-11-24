@@ -161,3 +161,24 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/chalk_heart.rsi
     state: chalkheartpackage1
+
+- type: entity
+  name: box of spicy PLACEHOLDER
+  parent: BoxCardboard
+  id: BoxHotSauces
+  description: PLACEHOLDER
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodCondimentBottleHotterSauce
+    - id: FoodCondimentBottleInfernoSauce
+    - id: FoodCondimentBottleHottestSauce
+    - id: FoodCondimentPacketDanPersonal
+  - type: Sprite
+    layers:
+      - state: boxwide
+      - state: agrichemkit
+  - type: GuideHelp
+    guides:
+    - Botanical
+    - Chemicals
