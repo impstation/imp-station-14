@@ -352,9 +352,9 @@
       - !type:Polymorph
         prototype: ArtifactLizard # Does the same thing as the original YML I made for this reagent.
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
+#        - !type:OrganType  # imp: everyone can polymorph as a treat
+#          type: Animal
+#          shouldHave: false
         - !type:ReagentThreshold
           min: 50
       - !type:AdjustReagent
@@ -385,9 +385,9 @@
       - !type:Polymorph
         prototype: ArtifactLizard
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
+#        - !type:OrganType  # imp: everyone can polymorph as a treat
+#          type: Animal
+#          shouldHave: false
         - !type:ReagentThreshold
           min: 50
       - !type:AdjustReagent

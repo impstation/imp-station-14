@@ -109,3 +109,10 @@
         node: monitorBroken
       - !type:DoActsBehavior
         acts: ["Destruction"]
+        
+# kill this for personal economy okay?
+- type: entity
+  parent: ComputerBroken
+  id: ComputerFundingAllocationBroken
+  name: broken funding allocation computer
+  description: Terminal for controlling the distribution of funds and pay to departments. What happened to it?

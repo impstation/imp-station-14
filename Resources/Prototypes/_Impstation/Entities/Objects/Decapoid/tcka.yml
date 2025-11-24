@@ -1,0 +1,84 @@
+- type: entity
+  id: TckABeacon
+  suffix: Tck'aat Follow target
+  parent: BaseItem
+  name: tck'aat RFID chip
+  description: An imperial RFID beacon that any nearby tck'aat's will follow. It magnetically snaps to similar chips for convenient storage in case you have multiple. You may need to place it on the floor once so they can see it.
+  components:
+  - type: TckAFollowTarget
+  - type: Sprite
+    sprite: /Textures/_Impstation/Objects/Decapoid/tckabeacon.rsi
+    layers:
+    - state: icon1
+      map: ["base"]
+  - type: Stack
+    count: 1
+    stackType: TckABeacon
+    baseLayer: base
+    layerStates:
+    - icon1
+    - icon2
+    - icon3
+    - icon4
+    layerFunction: Threshold
+  - type: StackLayerThreshold
+    thresholds: [ 2, 3, 4, ]
+  - type: Item
+    size: Tiny
+  - type: Appearance
+
+- type: entity
+  id: TckACanister
+  parent: BaseItem
+  name: tck'aat shipping capsule
+  description: A rugged, hardwearing shipping capsule for one of the only items the empire sells at retail; A walking battery drone! U'tck'aat.
+  components:
+  - type: Sprite
+    layers:
+      - map: [ base ]
+        state: icon
+      - state: paper
+        sprite: _Impstation/Objects/Storage/decacapsule.rsi
+        map: ["enum.PaperLabelVisuals.Layer"]
+    sprite: _Impstation/Objects/Storage/decacapsule.rsi
+    state: icon
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Storage/decacapsule.rsi
+  - type: GenericVisualizer
+    visuals:
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Paper: { state: paper }
+          Bounty: { state: bounty }
+          CaptainsPaper: { state: captains_paper }
+          Invoice: { state: invoice }
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: comp-paper-label-insert
+      ejectVerbText: comp-paper-label-eject
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        tags:
+        - Book
+  - type: ContainerContainer
+    containers:
+      paper_label: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: ItemSlots
+  - type: Appearance
+  - type: SpawnItemsOnUse
+    items:
+      - id: MobTckA
+      - id: TckABeacon

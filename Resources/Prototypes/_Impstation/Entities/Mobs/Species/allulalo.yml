@@ -8,7 +8,9 @@
   - type: GoobAbsorbable
     biomassRestored: 1.0
   - type: Hunger
+    baseDecayRate: 0.02 # 30% ish more than default
   - type: Thirst
+    baseDecayRate: 0.02 # 30% ish more than default
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -33,13 +35,16 @@
     blacklist:
       components:
       - TooShortForUIBlacklist
+    whitelist:
+      components:
+      - TooShortForUIWhitelist
   - type: AllulaloAccent
   - type: HeavyweightDrunk #Their blood is alcoholic. also a bird drinking you under the table is funny
   - type: CanEscapeInventory
     baseResistTime: 1.0 #they break out of grabs FAST
   - type: Damageable
     damageContainer: Biological
-    #damageModifierSet:
+    damageModifierSet: Allulalo #stops them from being oppressive hopefully
   - type: Bloodstream
     bloodMaxVolume: 250 #should be 50 less than the default of 300. theyre small
     bloodReagent: BloodAllulalo
@@ -66,7 +71,7 @@
       melee:
         reagents:
         - ReagentId: Ethanotoxin
-          Quantity: 2 #you can bite someone twice
+          Quantity: 4 #you can bite someone four times. upped from two based on feedback
   - type: MeleeChemicalInjector
     solution: melee
   - type: SolutionRegeneration
@@ -91,6 +96,7 @@
     - DoorBumpOpener
     - AnomalyHost
     - CanPilot
+    - FootstepSound
   - type: TypingIndicator
     proto: allulalo
   - type: Vocal

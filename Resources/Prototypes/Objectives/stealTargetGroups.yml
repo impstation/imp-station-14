@@ -74,7 +74,7 @@
   id: WeaponAntiqueLaser
   name: steal-target-groups-weapon-antique-laser
   sprite:
-    sprite: Objects/Weapons/Guns/Battery/antiquelasergun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/antiquelasergun.rsi #imp
     state: base
 
 - type: stealTargetGroup
@@ -88,7 +88,7 @@
   id: WeaponEnergyMagnum
   name: steal-target-groups-weapon-energy-magnum
   sprite:
-    sprite: Objects/Weapons/Guns/Battery/energy_magnum.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/energy_magnum.rsi #imp
     state: icon
 
 # Thief Collection
