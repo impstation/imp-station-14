@@ -40,7 +40,7 @@
 - type: entity
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketDanPersonal
-  name: Dan's Personal Hotsauce
+  name: packet of Dan's Personal Hotsauce
   description: A gift from Discount Dan himself, straight from his personal collection. This is all you get from him. Fatally spicy.
   components:
   - type: SolutionContainerManager
@@ -48,10 +48,9 @@
       food:
         reagents:
         - ReagentId: DanPersonalHotsauce
-          Quantity: 10
+          Quantity: 5
   - type: Icon
     state: packet-dans-personal
-    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 2
@@ -70,7 +69,6 @@
         - ReagentId: HotterSauce
           Quantity: 30
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
     layers:
     - state: bottle-empty
       map: ["enum.OpenableVisuals.Layer"]
@@ -79,7 +77,6 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: true
   - type: Icon
-    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
     state: bottle-hotter-sauce
   - type: Tag
     tags:
@@ -98,7 +95,6 @@
         - ReagentId: InfernoSauce
           Quantity: 30
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
     layers:
     - state: bottle-empty
       map: ["enum.OpenableVisuals.Layer"]
@@ -107,7 +103,6 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: true
   - type: Icon
-    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
     state: bottle-inferno-sauce
   - type: Tag
     tags:
@@ -126,7 +121,6 @@
         - ReagentId: HottestSauce
           Quantity: 30
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
     layers:
     - state: bottle-empty
       map: ["enum.OpenableVisuals.Layer"]
@@ -135,7 +129,6 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: true
   - type: Icon
-    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
     state: bottle-hottest-sauce
   - type: Tag
     tags:
