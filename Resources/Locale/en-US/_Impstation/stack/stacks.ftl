@@ -34,7 +34,6 @@ stack-tcka-beacon = tck'aat RFID chip
 # extra tile color variants
 stack-squiggly = steel squiggly tile
 stack-white-squiggly = white steel squiggly tile
-stack-plastic = plastic tile
 stack-white-plastic = white plastic tile
 stack-dark-plastic = dark plastic tile
 
