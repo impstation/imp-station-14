@@ -241,6 +241,9 @@
       - FloorGreen
   - type: Stack
     stackType: FloorTileGreen
+  - type: Construction
+    graph: TileGreen
+    node: greentile
 
 - type: entity
   name: green steel mini tile
