@@ -16,10 +16,10 @@ using Content.Shared.Temperature;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Content.Shared.Atmos;
 using Content.Shared.Bed.Sleep; // Funkystation
 using Content.Shared.Buckle.Components; // Funkystation
 using Robust.Shared.Random; // Funkystation
-using Content.Shared.Atmos;
 
 namespace Content.Server.Nutrition.EntitySystems
 {

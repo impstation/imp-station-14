@@ -13,3 +13,9 @@ knowledge-path-side-s3-mirror-desc =
     Allows you to transmute a pair of eyes, a light bulb, and a crowbar into a Wildering Mirror.
     When held, the Wildering Mirror has a high chance to deflect energy weapons such as disablers.
 
+knowledge-path-side-s3-key-name = Frangiclave
+knowledge-path-side-s3-key-desc =
+    It cannot be locked away. Keep it in the hand or beneath the tongue.
+
+    Allows you to transmute an ID card and an organ into a Frangiclave.
+    When thrown, the Frangiclave will instantly destroy any inanimate object, and then vanish.

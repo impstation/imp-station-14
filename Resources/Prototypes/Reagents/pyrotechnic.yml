@@ -19,11 +19,11 @@
   parent: BasePyrotechnic
   desc: reagent-desc-thermite
   physicalDesc: reagent-physical-desc-grainy
+  contrabandSeverity: Minor
   flavor: bitter
   color: "#757245"
   boilingPoint: 2977.0 # Aluminum oxide
   meltingPoint: 2030.0
-  contraband: Major # imp
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 2
@@ -42,9 +42,9 @@
   parent: BasePyrotechnic
   desc: reagent-desc-napalm
   physicalDesc: reagent-physical-desc-soapy
+  contrabandSeverity: Major
   flavor: bitter
   color: "#FA00AF"
-  contraband: Major # imp
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 5
@@ -72,9 +72,9 @@
   parent: BasePyrotechnic
   desc: reagent-desc-phlogiston
   physicalDesc: reagent-physical-desc-burning
+  contrabandSeverity: Major
   flavor: bitter
   color: "#D4872A"
-  contraband: Minor # imp
   metabolisms:
     Poison:
       effects:
@@ -102,9 +102,9 @@
   parent: BasePyrotechnic
   desc: reagent-desc-chlorine-trifluoride
   physicalDesc: reagent-physical-desc-blazing
+  contrabandSeverity: Major
   flavor: bitter
   color: "#FFC8C8"
-  contraband: Major # imp
   tileReactions:
   - !type:PryTileReaction
   metabolisms:

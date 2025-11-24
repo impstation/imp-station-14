@@ -1,8 +1,8 @@
-﻿using Content.Client.PDA; // Impstation
-using Content.Shared.Movement.Components;
+﻿using Content.Shared.Movement.Components;
 using Content.Shared.Silicons.Borgs;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Client.GameObjects;
+using Content.Client.PDA; // Impstation
 
 namespace Content.Client.Silicons.Borgs;
 
