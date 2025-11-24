@@ -475,3 +475,42 @@
     - id: MuteAutoInjector
     sound:
       path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: BaseHandheldInstrument
+  id: PhoneInstrumentBountyHunter
+  name: old flippable phone
+  description: For freelancers to call their anonymous employer.
+  components:
+  - type: ToggleableVisuals
+    spriteLayer: enum.ToggleableVisuals.Layer
+  - type: EmitSoundOnLand
+    sound:
+       path: /Audio/Items/ring.ogg
+  - type: Instrument
+    program: 124
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Goobstation/Heretic/book.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+  - type: ItemToggle
+    predictable: false
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        base:
+          True: { state: icon-on }
+          False: { state: icon }
+  - type: ComponentToggler
+    components:
+    - type: Prayable
+      sentMessage: prayer-popup-notify-freelance-sent
+      notificationPrefix: prayer-chat-notify-freelance
+  - type: DamageOtherOnHit # imp
+    damage:
+      types:
+        Blunt: 25
+    staminaCost: 12.5
