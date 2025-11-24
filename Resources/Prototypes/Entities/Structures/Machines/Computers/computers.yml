@@ -43,7 +43,7 @@
           False: { visible: true }
   - type: AtmosAlertsComputer
   - type: ActivatableUI
-    singleUser: true
+    singleUser: false #imp edit, changed from true
     key: enum.AtmosAlertsComputerUiKey.Key
   - type: UserInterface
     interfaces:
@@ -83,7 +83,7 @@
     navMapTileColor: "#1a1a1a"
     navMapWallColor: "#404040"
   - type: ActivatableUI
-    singleUser: true
+    singleUser: false #imp edit, changed from true
     key: enum.AtmosMonitoringConsoleUiKey.Key
   - type: UserInterface
     interfaces:
@@ -348,7 +348,7 @@
         !type:CableDeviceNode
         nodeGroupID: HVPower
   - type: ActivatableUI
-    singleUser: true
+    singleUser: false #imp edit, changed from true
     key: enum.PowerMonitoringConsoleUiKey.Key
   - type: UserInterface
     interfaces:

@@ -63,7 +63,7 @@
   - type: ActivatableUIRequiresPower
   - type: ActivatableUI
     key: enum.IntercomUiKey.Key
-    singleUser: true
+    singleUser: false #imp edit, changed from true
   - type: UserInterface
     interfaces:
       enum.IntercomUiKey.Key:
