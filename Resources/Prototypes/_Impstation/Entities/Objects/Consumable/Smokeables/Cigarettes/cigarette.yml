@@ -344,8 +344,8 @@
     tags:
       - Cigarette
       - Trash
-      - PetWearable # imp
-      - KodeEdible # imp
+      - PetWearable
+      - KodeEdible
   - type: StaticPrice
     price: 1
   - type: SpaceGarbage
@@ -377,11 +377,11 @@
 - type: entity
   id: CigaretteSyndicateHypo
   suffix: Hypo
-  parent: Cigarette (Hypo)
-  name: cigarette
+  parent: Cigarette
+  name: cigarette (hypo)
   components:
   - type: Smokable
-    inhaleAmount: 16
+    inhaleAmount: 1
   - type: SolutionContainerManager
     solutions:
       smokable:
