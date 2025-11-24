@@ -3,7 +3,7 @@
   result: CigPackVoid
   completetime: 1
   materials:
-    Gold: 1500
+    Plasma: 1500
     Credit: 10000
 
 - type: latheRecipe
@@ -32,7 +32,7 @@
   completetime: 1
   materials:
     Credit: 10000
-    Uranium: 3000
+    Plasma: 3000
 
 - type: latheRecipe
   id: InterdyneLead
@@ -86,3 +86,11 @@
   materials:
     Credit: 6000
     Plasma: 1500
+
+- type: latheRecipe
+  id: InterdyneCigPackSyndicateHypos
+  result: CigPackSyndicateHypos
+  completetime: 1
+  materials:
+    Credit: 15000
+    Plasma: 4500

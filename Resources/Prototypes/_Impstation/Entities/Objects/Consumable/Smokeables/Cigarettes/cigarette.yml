@@ -385,12 +385,13 @@
   - type: SolutionContainerManager
     solutions:
       smokable:
-        maxVol: 16
+        maxVol: 15.1
         reagents:
           - ReagentId: Nicotine
-            Quantity: 1
+            Quantity: 0.1
+        canReact: false
       food:
-        maxVol: 16
+        maxVol: 15.1
         reagents:
           - ReagentId: Nicotine
-            Quantity: 1
+            Quantity: 0.1

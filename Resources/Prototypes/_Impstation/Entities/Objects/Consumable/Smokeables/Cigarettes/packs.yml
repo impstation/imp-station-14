@@ -89,3 +89,18 @@
       prob: 0.75
     - id: CigaretteTazinide
       prob: 0.75
+
+- type: entity
+  id: CigPackSyndicateHypos
+  parent: CigPackSyndicate
+  name: Interdyne hypos packet
+  description: Cryostabilised cigarettes for cruel syndicate assassins. Enhanced with microinjectors forcing your target to inhale the contents rapidly. Each cigarette has room for 15u of chemicals. Comes with 10 cigarettes.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi
+  - type: StorageFill
+    contents:
+    - id: CigaretteSyndicateHypo
+      amount: 10
