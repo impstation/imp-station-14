@@ -135,8 +135,9 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
             if (entXform.GridUid != gridUid)
                 continue;
 
-            if (!entXform.Anchored)
-                continue;
+            // imp edit, comment this out for supermatter shards (always unanchored)
+            //if (!entXform.Anchored)
+            //    continue;
 
             // Create entry
             var netEnt = GetNetEntity(ent);
@@ -157,7 +158,8 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
         if (!TryComp(focusSupermatter.Value, out TransformComponent? focusSupermatterXform))
             return null;
 
-        if (!focusSupermatterXform.Anchored ||
+        // imp edit, comment this out for supermatter shards (always unanchored)
+        if (//!focusSupermatterXform.Anchored ||
             focusSupermatterXform.GridUid != gridUid)
             return null;
 
