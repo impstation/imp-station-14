@@ -135,7 +135,7 @@
 
 - type: entity
   name: Valkyrie #imp
-  parent: [BaseWeaponRifle, Tier3Contraband] #imp, tiered contra
+  parent: [BaseWeaponRifle, BaseCentcommContraband] #imp, centcomm rifle
   id: WeaponRifleM90GrenadeLauncher
   description: No expense is spared for Central Command's elite, and this experimental rifle with integrated optics is no exception. Uses .20 rifle ammo. #imp
   components:
