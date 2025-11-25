@@ -963,6 +963,7 @@
   - type: CargoOrderConsole
     removeLimitAccess: [ "Quartermaster" ]
     acquisitionSlip: PaperAcquisitionSlipCargo # imp
+    showFundsTab: true # imp
   - type: ActiveRadio
     channels:
     - Supply
@@ -1024,6 +1025,7 @@
     # removeLimitAccess: [ "ChiefEngineer" ] # imp
     acquisitionSlip: PaperAcquisitionSlipEngineering # imp
     mode: PrintSlip #imp
+    showFundsTab: false # imp
   - type: ActiveRadio
     channels:
     - Engineering
@@ -1064,6 +1066,7 @@
     # removeLimitAccess: [ "ChiefMedicalOfficer" ] # imp edit
     acquisitionSlip: PaperAcquisitionSlipMedical # imp
     mode: PrintSlip #imp
+    showFundsTab: false # imp
   - type: ActiveRadio
     channels:
     - Medical
@@ -1104,6 +1107,7 @@
     # removeLimitAccess: [ "ResearchDirector" ] # imp edit
     acquisitionSlip: PaperAcquisitionSlipScience # imp
     mode: PrintSlip #imp
+    showFundsTab: false # imp
   - type: ActiveRadio
     channels:
     - Science
@@ -1144,6 +1148,7 @@
     # removeLimitAccess: [ "HeadOfSecurity" ] # imp
     acquisitionSlip: PaperAcquisitionSlipSecurity # imp
     mode: PrintSlip #imp
+    showFundsTab: false # imp
   - type: ActiveRadio
     channels:
     - Security
@@ -1184,6 +1189,7 @@
     # removeLimitAccess: [ "HeadOfPersonnel" ] # imp
     acquisitionSlip: PaperAcquisitionSlipService # imp
     mode: PrintSlip #imp
+    showFundsTab: false # imp
   - type: ActiveRadio
     channels:
     - Service

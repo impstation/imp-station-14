@@ -58,7 +58,7 @@
                 </PanelContainer>
             </BoxContainer>
             <!-- Funds tab -->
-            <BoxContainer Orientation="Vertical" Margin="15">
+            <BoxContainer Orientation="Vertical" Margin="15" Name="FundsTab"> <!-- Imp edit, add FundsTab name -->
                 <BoxContainer Orientation="Horizontal">
                     <RichTextLabel Name="TransferLimitLabel" Margin="0 0 15 0"/>
                     <RichTextLabel Name="UnlimitedNotifier" Text="{Loc 'cargo-console-menu-account-action-transfer-limit-unlimited-notifier'}"/>
