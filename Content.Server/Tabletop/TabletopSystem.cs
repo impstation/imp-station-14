@@ -99,7 +99,7 @@ namespace Content.Server.Tabletop
 
             // imp start
 
-            if (session.Entities.Count > component.EntMax)
+            if (session.Entities.Count >= component.EntMax)
             {
                 _popupSystem.PopupEntity(Loc.GetString("tabletop-error-max-ents"), uid, args.User);
                 _adminLog.Add(LogType.Action, LogImpact.Low,
