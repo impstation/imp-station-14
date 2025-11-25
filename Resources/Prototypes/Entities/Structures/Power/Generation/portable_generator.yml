@@ -6,7 +6,7 @@
 - type: entity
   abstract: true
   id: PortableGeneratorBase
-  parent: [BaseMachine, SmallConstructibleMachine, StructureWheeled]
+  parent: [ BaseMachine, SmallConstructibleMachine, StructureWheeled]
   components:
     # Basic properties
     - type: Transform
