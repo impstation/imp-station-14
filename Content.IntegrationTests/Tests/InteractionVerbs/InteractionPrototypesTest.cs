@@ -1,8 +1,4 @@
-using System.Linq;
-using Content.Client.Guidebook;
-using Content.Server.Verbs;
 using Content.Shared.InteractionVerbs;
-using Content.Shared.Verbs;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
