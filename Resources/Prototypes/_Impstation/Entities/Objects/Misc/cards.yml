@@ -1092,10 +1092,11 @@
   description: Contains two Tippy Trump mystery packs!
   components:
   - type: Item
-    size: Small
+    size: Tiny
   - type: Storage
     grid:
     - 0,0,1,2
+    maxItemSize: Tiny
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: box
@@ -1117,6 +1118,8 @@
   name: TippyTrump mystery pack
   description: Contains five random cards.
   components:
+  - type: Item
+    size: Tiny
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     layers:
@@ -1134,6 +1137,12 @@
   name: TippyTrump mystery pack
   description: Contains five random cards.
   components:
+  - type: Item
+    size: Tiny
+  - type: Storage
+    grid:
+    - 0,0,4,0
+    maxItemSize: Tiny
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     layers:
@@ -1142,9 +1151,6 @@
     tags:
     - Trash
   - type: SpaceGarbage
-  - type: Storage
-    grid:
-    - 0,0,4,0
   - type: EntityTableContainerFill
     containers:
       storagebase: !type:GroupSelector
