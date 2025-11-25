@@ -41,7 +41,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared._Impstation.EntityEffects.Effects; // imp
-using Content.Shared._Impstation.Ghost; // imp
 using Content.Shared.Humanoid; // imp
 
 using TemperatureCondition = Content.Shared.EntityEffects.EffectConditions.Temperature; // disambiguate the namespace
@@ -131,7 +130,6 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ResetNarcolepsy>>(OnExecuteResetNarcolepsy);
 
         SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeSyndient>>(OnExecuteMakeSyndient); // imp
-        SubscribeLocalEvent<ExecuteEntityEffectEvent<Medium>>(OnExecuteMedium); // Imp
         SubscribeLocalEvent<ExecuteEntityEffectEvent<MakeTame>>(OnExecuteMakeTame); // imp
     }
 
@@ -1041,14 +1039,5 @@ public sealed class EntityEffectSystem : EntitySystem
         ghostRole.RoleName = entityData.EntityName;
         ghostRole.RoleDescription = Loc.GetString("ghost-role-information-nonantagonist-freeagent-tame");
         ghostRole.RoleRules = Loc.GetString("ghost-role-information-tame-rules");
-    }
-
-
-    private void OnExecuteMedium(ref ExecuteEntityEffectEvent<Medium> args)
-    {
-        var entityManager = args.Args.EntityManager;
-        var uid = args.Args.TargetEntity;
-
-        entityManager.EnsureComponent<MediumComponent>(uid);
     }
 }

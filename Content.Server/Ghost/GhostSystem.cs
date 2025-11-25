@@ -38,7 +38,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.Access.Systems; //imp
-using Content.Shared._Impstation.Ghost; //imp
 using Content.Shared.SSDIndicator; //imp
 
 namespace Content.Server.Ghost
@@ -110,11 +109,6 @@ namespace Content.Server.Ghost
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
 
             SubscribeLocalEvent<GhostComponent, GetVisMaskEvent>(OnGhostVis);
-
-            SubscribeLocalEvent<MediumComponent, ComponentStartup>(OnMediumStartup); //imp
-            SubscribeLocalEvent<MediumComponent, ComponentRemove>(OnMediumRemove); //imp
-            SubscribeLocalEvent<MediumComponent, MapInitEvent>(OnMapInitMedium); //imp
-            SubscribeLocalEvent<MediumComponent, GetVisMaskEvent>(OnMediumVis); //imp
         }
 
         private void OnGhostVis(Entity<GhostComponent> ent, ref GetVisMaskEvent args)
@@ -252,38 +246,6 @@ namespace Content.Server.Ghost
 
             args.PushMarkup(deathTimeInfo);
         }
-
-        #region Medium
-
-        // serverside methods for the 'medium' reagent effects. lets affected entities see ghosts.
-        // imp special
-
-        private void OnMediumVis(Entity<MediumComponent> ent, ref GetVisMaskEvent args)
-        {
-            // If component not deleting they can see ghosts.
-            if (ent.Comp.LifeStage <= ComponentLifeStage.Running)
-            {
-                args.VisibilityMask |= (int)VisibilityFlags.Ghost;
-            }
-        }
-
-        private void OnMediumStartup(EntityUid uid, MediumComponent component, ComponentStartup args)
-        {
-            _eye.RefreshVisibilityMask(uid);
-        }
-
-        private void OnMediumRemove(EntityUid uid, MediumComponent component, ComponentRemove args)
-        {
-            _eye.RefreshVisibilityMask(uid);
-            _actions.RemoveAction(uid, component.ToggleGhostsMediumActionEntity);
-        }
-
-        private void OnMapInitMedium(EntityUid uid, MediumComponent component, MapInitEvent args)
-        {
-            _actions.AddAction(uid, ref component.ToggleGhostsMediumActionEntity, component.ToggleGhostsMediumAction);
-        }
-
-        #endregion
 
         #region Ghost Deletion
 
