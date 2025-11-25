@@ -10,14 +10,17 @@ namespace Content.Shared.InteractionVerbs.Requirements;
 /// <summary>
 ///     Requires the target to meet a certain whitelist and not meet a blacklist.
 /// </summary>
-[Serializable, NetSerializable]
+//[Serializable, NetSerializable] imp edit fuck off
 public sealed partial class EntityWhitelistRequirement : InteractionRequirement
 {
-    [DataField] public EntityWhitelist Whitelist = new(), Blacklist = new();
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+
+    [DataField]
+    public EntityWhitelist Whitelist = new(), Blacklist = new();
 
     public override bool IsMet(InteractionArgs args, InteractionVerbPrototype proto, InteractionAction.VerbDependencies deps)
     {
-        return Whitelist.IsValid(args.Target, deps.EntMan) && !Blacklist.IsValid(args.Target, deps.EntMan);
+        return _whitelist.IsValid(Whitelist, args.Target) && !_whitelist.IsValid(Blacklist, args.Target);
     }
 }
 

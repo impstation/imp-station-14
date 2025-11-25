@@ -213,7 +213,10 @@ public sealed partial class DoAfterArgs
         NetUsed = entManager.GetNetEntity(Used);
     }
 
-    private DoAfterArgs()
+    /// <summary>
+    /// EE edit. An empty do-after constructor. This WILL cause runtime errors if used to create a do-after. Only use this if you really know what you're doing!
+    /// </summary>
+    public DoAfterArgs() // EE edit, make it public
     {
     }
 

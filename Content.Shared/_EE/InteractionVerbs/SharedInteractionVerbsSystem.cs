@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared.Contests;
+using Content.Shared._EE.Contests;
 using Content.Shared.DoAfter;
 using Content.Shared.Ghost;
 using Content.Shared.InteractionVerbs.Events;
@@ -261,11 +261,11 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
 
         // We don't use EveryContest here because it's straight up bad
         if (contests.HasFlag(Mass))
-            args.ContestAdvantage *= _contests.MassContest(args.User, args.Target, true, 10f);
+            args.ContestAdvantage *= _contests.MassContest(args.User, args.Target, 10f);
         if (contests.HasFlag(Stamina))
-            args.ContestAdvantage *= _contests.MassContest(args.User, args.Target, true, 10f);
+            args.ContestAdvantage *= _contests.MassContest(args.User, args.Target, 10f);
         if (contests.HasFlag(Health))
-            args.ContestAdvantage *= _contests.MassContest(args.User, args.Target, true, 10f);
+            args.ContestAdvantage *= _contests.MassContest(args.User, args.Target, 10f);
 
         canPerform = proto.ContestAdvantageRange?.IsInRange(args.ContestAdvantage.Value) ?? true;
         args.ContestAdvantage = proto.ContestAdvantageLimit.Clamp(args.ContestAdvantage.Value);
