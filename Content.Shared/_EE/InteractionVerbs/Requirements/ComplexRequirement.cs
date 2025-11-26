@@ -1,7 +1,7 @@
 using System.Linq;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.InteractionVerbs.Requirements;
+namespace Content.Shared._EE.InteractionVerbs.Requirements;
 
 /// <summary>
 ///     A requirement that combines multiple other requirements.

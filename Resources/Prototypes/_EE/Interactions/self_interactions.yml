@@ -35,7 +35,8 @@
 # Sleeping on the floor is real
 - type: Interaction
   id: MakeSleepSelf
-  parent: [SelfInteractionBase, MakeSleepOther]
+  parent: SelfInteractionBase
+  priority: -6
   delay: 4.5
   requirement:
     !type:ComplexRequirement
@@ -44,3 +45,6 @@
     - !type:StandingStateRequirement
       allowLaying: true
       allowKnockedDown: true
+  action:
+    !type:ToggleSleepingAction
+    sleep: true

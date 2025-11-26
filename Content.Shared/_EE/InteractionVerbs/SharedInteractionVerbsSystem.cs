@@ -1,11 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._EE.Contests;
+using Content.Shared._EE.InteractionVerbs.Events;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DoAfter;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
-using Content.Shared.InteractionVerbs.Events;
+using Content.Shared._EE.InteractionVerbs.Events;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
@@ -15,11 +16,11 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using static Content.Shared.InteractionVerbs.InteractionPopupPrototype.Prefix;
-using static Content.Shared.InteractionVerbs.InteractionVerbPrototype.ContestType;
-using static Content.Shared.InteractionVerbs.InteractionVerbPrototype.EffectTargetSpecifier;
+using static Content.Shared._EE.InteractionVerbs.InteractionPopupPrototype.Prefix;
+using static Content.Shared._EE.InteractionVerbs.InteractionVerbPrototype.ContestType;
+using static Content.Shared._EE.InteractionVerbs.InteractionVerbPrototype.EffectTargetSpecifier;
 
-namespace Content.Shared.InteractionVerbs;
+namespace Content.Shared._EE.InteractionVerbs;
 
 public abstract class SharedInteractionVerbsSystem : EntitySystem
 {
@@ -46,7 +47,7 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
 
         SubscribeLocalEvent<InteractionVerbsComponent, GetVerbsEvent<InteractionVerb>>(OnGetOthersVerbs);
         SubscribeLocalEvent<OwnInteractionVerbsComponent, GetVerbsEvent<InnateVerb>>(OnGetOwnVerbs);
-        SubscribeLocalEvent<InteractionVerbDoAfterEvent>(OnDoAfterFinished);
+        SubscribeLocalEvent<_EE.InteractionVerbs.Events.InteractionVerbDoAfterEvent>(OnDoAfterFinished);
     }
 
     private void LoadGlobalVerbs()
@@ -83,7 +84,7 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
         AddAll(allVerbs.Select(_protoMan.Index).Union(_globalPrototypes), args, () => new InnateVerb());
     }
 
-    private void OnDoAfterFinished(InteractionVerbDoAfterEvent ev)
+    private void OnDoAfterFinished(_EE.InteractionVerbs.Events.InteractionVerbDoAfterEvent ev)
     {
         if (ev.Cancelled || ev.Handled || !_protoMan.TryIndex(ev.VerbPrototype, out var proto))
             return;
@@ -158,7 +159,7 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
             NeedHand = proto.RequiresHands,
             RequireCanInteract = proto.RequiresCanAccess,
             Delay = delay,
-            Event = new InteractionVerbDoAfterEvent(proto.ID, args)
+            Event = new _EE.InteractionVerbs.Events.InteractionVerbDoAfterEvent(proto.ID, args)
         };
 
         var isSuccess = _doAfters.TryStartDoAfter(doAfter);

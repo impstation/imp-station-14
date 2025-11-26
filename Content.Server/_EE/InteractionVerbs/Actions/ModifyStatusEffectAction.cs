@@ -1,9 +1,9 @@
-using Content.Shared.InteractionVerbs;
+using Content.Shared._EE.InteractionVerbs;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Server.InteractionVerbs.Actions;
+namespace Content.Server._EE.InteractionVerbs.Actions;
 
 [Serializable]
 public sealed partial class ModifyStatusEffectAction : InteractionAction

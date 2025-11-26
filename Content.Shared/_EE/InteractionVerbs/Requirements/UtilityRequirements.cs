@@ -1,7 +1,7 @@
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.InteractionVerbs.Requirements;
+namespace Content.Shared._EE.InteractionVerbs.Requirements;
 
 [Serializable, NetSerializable]
 public sealed partial class ChanceRequirement : InteractionRequirement

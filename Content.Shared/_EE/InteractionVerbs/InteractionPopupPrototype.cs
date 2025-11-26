@@ -2,7 +2,7 @@ using Content.Shared.Chat;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.InteractionVerbs;
+namespace Content.Shared._EE.InteractionVerbs;
 
 /// <summary>
 ///     Specifies how popups should be shown.<br/>
@@ -31,7 +31,7 @@ public sealed partial class InteractionPopupPrototype : IPrototype
     ///     If true, the respective success/fail popups will be logged into chat, as players perceive them.
     /// </summary>
     [DataField]
-    public bool LogPopup = true;
+    public bool LogPopup = false; // imp edit
 
     /// <summary>
     ///     Chat channel to which popups will be logged if <see cref="LogPopup"/> is true.

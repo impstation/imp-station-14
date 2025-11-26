@@ -17,7 +17,7 @@
   range: {max: 20}
   effectSuccess:
     popup: Obvious
-    sound: {path: /Audio/Effects/ominous.ogg}
+    sound: {path: /Audio/_EE/Effects/ominous.ogg}
     soundPerceivedByOthers: false
   action:
     !type:NoOpAction
@@ -28,8 +28,7 @@
   priority: -11
   delay: 0.7
   action:
-    !type:MoodAction
-    effect: BeingHugged
+    !type:NoOpAction # imp edit, no mood system
 
 - type: Interaction
   id: PetObject
@@ -37,8 +36,7 @@
   priority: -12
   delay: 0.4
   action:
-    !type:MoodAction
-    effect: BeingPet
+    !type:NoOpAction # imp edit, no mood system
 
 - type: Interaction
   id: KissObject
@@ -46,20 +44,7 @@
   priority: -14
   delay: 0.4
   action:
-    !type:MoodAction
-    effect: BeingKissed
+    !type:NoOpAction # imp edit, no mood system
   effectSuccess:
     popup: Obvious
-    sound: {path: /Audio/Floof/Lewd/kiss.ogg}
-
-- type: Interaction
-  id: LickObject
-  parent: BaseHands
-  priority: -13
-  delay: 0.7
-  action:
-    !type:MoodAction
-    effect: BeingLicked
-  effectSuccess:
-    popup: Obvious
-    sound: {path: /Audio/Floof/Lewd/lick.ogg}
+    sound: {path: /Audio/_Impstation/Animals/mwah.ogg} # imp edit mwah

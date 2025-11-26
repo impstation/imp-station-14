@@ -1,12 +1,12 @@
 using System.Linq;
 using Content.Server.Chat.Managers;
 using Content.Shared.Interaction;
-using Content.Shared.InteractionVerbs;
+using Content.Shared._EE.InteractionVerbs;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
 
-namespace Content.Server.InteractionVerbs;
+namespace Content.Server._EE.InteractionVerbs;
 
 public sealed class InteractionVerbsSystem : SharedInteractionVerbsSystem
 {

@@ -1,6 +1,6 @@
-using Content.Shared.InteractionVerbs;
+using Content.Shared._EE.InteractionVerbs;
 
-namespace Content.Server.InteractionVerbs.Actions;
+namespace Content.Server._EE.InteractionVerbs.Actions;
 
 /// <summary>
 ///     An action that raises an event on the target or the user. Made for interop with systems that rely on events.

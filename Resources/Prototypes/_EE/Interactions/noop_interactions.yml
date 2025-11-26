@@ -10,7 +10,7 @@
   range: {max: 20}
   effectSuccess:
     popup: Obvious
-    sound: {path: _EE/Audio/Effects/ominous.ogg}
+    sound: {path: /Audio/_EE/Effects/ominous.ogg}
     soundPerceivedByOthers: false # Can be used to attract attention, but not to spam sounds or chat
   action:
     !type:NoOpAction
@@ -24,7 +24,7 @@
   range: {max: 20}
   effectSuccess:
     popup: Obvious
-    sound: {path: _EE/Audio/Effects/ominous.ogg}
+    sound: {path: /Audio/_EE/Effects/ominous.ogg}
     soundPerceivedByOthers: false
   hideByRequirement: true
   requirement:

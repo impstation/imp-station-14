@@ -4,7 +4,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.InteractionVerbs;
+namespace Content.Shared._EE.InteractionVerbs;
 
 /// <summary>
 ///     Represents an action performed when a verb is used successfully.

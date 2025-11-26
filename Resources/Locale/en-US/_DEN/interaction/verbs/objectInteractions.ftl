@@ -1,9 +1,3 @@
-interaction-LickObject-name = Lick
-interaction-LickObject-description = Lick this object. Surely that's unsanitary.
-interaction-LickObject-success-self-popup = You lick {THE($target)}.
-interaction-LickObject-success-target-popup = {THE($user)} licks you.
-interaction-LickObject-success-others-popup = {THE($user)} licks {THE($target)}.
-
 interaction-KissObject-name = Kiss
 interaction-KissObject-description = Kiss this object, whatever melts the pain away.
 interaction-KissObject-success-self-popup = You kiss {THE($target)}.

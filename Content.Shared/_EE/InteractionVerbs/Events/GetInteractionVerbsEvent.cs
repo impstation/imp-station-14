@@ -1,6 +1,7 @@
+using Content.Shared._EE.InteractionVerbs;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.InteractionVerbs.Events;
+namespace Content.Shared._EE.InteractionVerbs.Events;
 
 /// <summary>
 ///     Raised directly on the user entity to get more interaction verbs it may allow.

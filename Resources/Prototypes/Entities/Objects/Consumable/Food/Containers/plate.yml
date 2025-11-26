@@ -59,9 +59,6 @@
     materialComposition:
       Glass: 60
   - type: SpaceGarbage
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - LickObject
 
 - type: entity
   name: broken plate
@@ -155,9 +152,6 @@
   - type: Tag
     tags:
     - Trash
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - LickObject
 
 - type: entity
   parent: BaseItem
@@ -180,9 +174,6 @@
   - type: Tag
     tags:
     - Trash
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - LickObject
 
 # Pie Tin
 
@@ -207,9 +198,6 @@
     materialComposition:
       Steel: 60
   - type: SpaceGarbage
-  - type: InteractionVerbs # The Den
-    allowedVerbs:
-    - LickObject
 
 # Muffin Tin
 

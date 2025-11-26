@@ -6,7 +6,6 @@
     allowedVerbs:
     - HugObject
     - KissObject
-    - LickObject
 
 - type: entity
   abstract: true
@@ -15,25 +14,6 @@
   - type: InteractionVerbs
     allowedVerbs:
     - KnockOn
-    - LickObject
-
-- type: entity
-  abstract: true
-  id: BaseObjectVerbsEdible
-  components:
-  - type: InteractionVerbs
-    allowedVerbs:
-    - KissObject
-    - LickObject
-
-- type: entity
-  abstract: true
-  id: BaseObjectVerbsLewd # i suppose
-  components:
-  - type: InteractionVerbs
-    allowedVerbs:
-    - KissObject
-    - LickObject
 
 - type: entity
   abstract: true
@@ -44,7 +24,6 @@
     - HugObject
     - PetObject
     - KissObject
-    - LickObject
 
 - type: entity
   abstract: true
@@ -54,4 +33,3 @@
     allowedVerbs:
     - PetObject
     - KissObject
-    - LickObject

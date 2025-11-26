@@ -1,10 +1,10 @@
 using Content.Server.Chat.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
-using Content.Shared.InteractionVerbs;
+using Content.Shared._EE.InteractionVerbs;
 using Robust.Shared.Serialization;
 
-namespace Content.Server.InteractionVerbs.Actions;
+namespace Content.Server._EE.InteractionVerbs.Actions;
 
 /// <summary>
 ///     Makes the target or the user to send a chat message. <br/><br/>

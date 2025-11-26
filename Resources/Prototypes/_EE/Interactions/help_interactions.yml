@@ -51,24 +51,6 @@
     !type:ChangeStandingStateAction
     makeLaying: true
 
-- type: Interaction
-  id: MakeSleepOther
-  parent: [BaseHelp, BaseGlobal]
-  priority: -6
-  delay: 10 # Should be long enough to be non-abusable, right?
-  hideByRequirement: true
-  requirement:
-    !type:ComplexRequirement
-    requirements:
-      - !type:StandingStateRequirement
-        allowLaying: true
-        allowKnockedDown: true
-      - !type:MobStateRequirement
-        allowedStates: [Alive, Critical]
-  action:
-    !type:ToggleSleepingAction
-    sleep: true
-
 # Shake the target to wake them up and sober them up a little bit
 - type: Interaction
   id: ShakeOther

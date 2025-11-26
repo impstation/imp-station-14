@@ -2,7 +2,7 @@ using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.InteractionVerbs;
+namespace Content.Shared._EE.InteractionVerbs;
 
 /// <summary>
 ///     Defines a requirement for an <see cref="InteractionVerb"/>.

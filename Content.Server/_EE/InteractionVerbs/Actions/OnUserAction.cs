@@ -1,6 +1,6 @@
-using Content.Shared.InteractionVerbs;
+using Content.Shared._EE.InteractionVerbs;
 
-namespace Content.Server.InteractionVerbs.Actions;
+namespace Content.Server._EE.InteractionVerbs.Actions;
 
 /// <summary>
 ///     A special proxy action that swaps the target and the user for the proxied action.

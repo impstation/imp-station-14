@@ -1,7 +1,7 @@
-using Content.Shared.InteractionVerbs;
+using Content.Shared._EE.InteractionVerbs;
 using Robust.Shared.Random;
 
-namespace Content.Server.InteractionVerbs.Actions;
+namespace Content.Server._EE.InteractionVerbs.Actions;
 
 /// <summary>
 ///     An action that does nothing on its own, made just to mimic the old "chance to show a popup" interactions.

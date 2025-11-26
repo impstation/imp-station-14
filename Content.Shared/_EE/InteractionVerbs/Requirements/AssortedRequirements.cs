@@ -5,7 +5,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Whitelist;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.InteractionVerbs.Requirements;
+namespace Content.Shared._EE.InteractionVerbs.Requirements;
 
 /// <summary>
 ///     Requires the target to meet a certain whitelist and not meet a blacklist.

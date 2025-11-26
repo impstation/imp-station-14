@@ -1,4 +1,6 @@
-namespace Content.Shared.InteractionVerbs.Events;
+using Content.Shared._EE.InteractionVerbs;
+
+namespace Content.Shared._EE.InteractionVerbs.Events;
 
 /// <summary>
 ///     Raised directly on the performer of the interaction verb and on its target to determine if it should be allowed.

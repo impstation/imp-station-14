@@ -1,7 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.InteractionVerbs;
+namespace Content.Shared._EE.InteractionVerbs;
 
 /// <summary>
 ///     Specifies which verbs this entity may perform on its own, on any entity that the verb allows.

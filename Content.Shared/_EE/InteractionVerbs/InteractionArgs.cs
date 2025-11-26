@@ -3,7 +3,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.InteractionVerbs;
+namespace Content.Shared._EE.InteractionVerbs;
 
 public sealed partial class InteractionArgs
 {

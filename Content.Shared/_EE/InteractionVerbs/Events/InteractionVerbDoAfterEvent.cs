@@ -1,8 +1,9 @@
 using Content.Shared.DoAfter;
+using Content.Shared._EE.InteractionVerbs;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.InteractionVerbs.Events;
+namespace Content.Shared._EE.InteractionVerbs.Events;
 
 [Serializable, NetSerializable]
 public sealed partial class InteractionVerbDoAfterEvent : SimpleDoAfterEvent
