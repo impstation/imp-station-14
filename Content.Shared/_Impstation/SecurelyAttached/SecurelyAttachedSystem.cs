@@ -1,10 +1,7 @@
-using System.Numerics;
-using Content.Shared._Impstation.SecurelyAttached.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Examine;
 using Content.Shared.Glue;
 using Content.Shared.Inventory;
-using Content.Shared.Pinpointer;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Standing;
 using Content.Shared.Throwing;
@@ -19,7 +16,6 @@ public sealed class SecurelyAttachedSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
 
     public override void Initialize()
@@ -39,7 +35,9 @@ public sealed class SecurelyAttachedSystem : EntitySystem
             if (!TryComp<ClothingComponent>(itemUid, out var clothing))
                 return;
 
-            var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(itemUid.Value).Id });
+            var seed = SharedRandomExtensions.HashCodeCombine([
+                (int)_timing.CurTick.Value, GetNetEntity(itemUid.Value).Id,
+            ]);
             var rand = new System.Random(seed);
 
             var dropChance = clothing.InsecureDropChance;
@@ -53,7 +51,7 @@ public sealed class SecurelyAttachedSystem : EntitySystem
             if (!(rand.NextFloat() <= dropChance))
                 continue;
 
-            if (!clothing.Insecure || HasComp<SecurelyAttachedComponent>(itemUid))
+            if (!clothing.Insecure)
                 continue;
 
             if (!_inventory.TryUnequip(ent, slot.Name, silent: true, checkDoafter: false, predicted: true))
