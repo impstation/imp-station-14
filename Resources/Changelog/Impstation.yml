@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: jtfg-dev
-  changes:
-  - message: Gave some non-bullet guns proper descriptions.
-    type: Tweak
-  - message: Nanotrasen is still spelled Nanotrasen, we just made sure.
-    type: Fix
-  id: 1952
-  time: '2025-07-01T08:15:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2916
 - author: meridiadottxt
   changes:
   - message: added a spawner for mappers that selects between a blaster magnum, the
@@ -4165,3 +4156,11 @@
   id: 2451
   time: '2025-11-23T09:34:36.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3747
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Massively nerfed the HoP's origami skills so they can no longer make
+      their certificate look like a disabler.
+    type: Fix
+  id: 2452
+  time: '2025-11-26T21:08:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3769
