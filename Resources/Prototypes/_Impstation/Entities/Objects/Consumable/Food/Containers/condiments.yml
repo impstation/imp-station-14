@@ -99,7 +99,9 @@
   parent: BaseFoodCondimentBottleIMP
   id: FoodCondimentBottleInfernoSauce
   name: Dan's Inferno Sauce bottle
-  description: For the daredevil in you. Discount Dan's is not responsible for any injuries recieved from this product.
+  description:
+    For the daredevil in you.
+    Discount Dan's is not responsible for any injuries recieved from this product.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -125,7 +127,10 @@
   parent: BaseFoodCondimentBottleIMP
   id: FoodCondimentBottleHottestSauce
   name: Dan's Hottest Sauce bottle
-  description: Feel the burn! Discount Dan's is not responsible for any injuries recieved from this product. This product is not ment for consumption.
+  description:
+    Feel the burn!
+    Discount Dan's is not responsible for any injuries recieved from this product.
+    This product is not ment for consumption.
   components:
   - type: SolutionContainerManager
     solutions:
