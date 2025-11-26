@@ -16,9 +16,9 @@
   description: It's a blue jumpskirt with some gold markings denoting the rank of "Captain".
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/captain.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/captain.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/captain.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/captain.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -27,9 +27,9 @@
   description: A sturdy jumpskirt, issued to members of the Cargo department.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/cargotech.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/cargotech.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/cargotech.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -82,9 +82,9 @@
   description: There's some odd stains on this jumpskirt. Hm.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/chemistry.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/chemistry.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/chemistry.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -159,9 +159,9 @@
   description: If this suit was non-conductive, maybe engineers would actually do their damn job.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/engineering.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/engineering.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/engineering.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/engineering.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -239,9 +239,9 @@
   description: Has a strong earthy smell to it. Hopefully it's merely dirty as opposed to soiled.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/hydro.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/hydro.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/hydro.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/hydro.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -261,9 +261,9 @@
   description: It's made of a special fiber that provides minor protection against biohazards. It has a cross on the chest denoting that the wearer is trained medical personnel.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/medical.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/medical.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/medical.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/medical.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -350,9 +350,9 @@
   description: 'What can brown do for you?'
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/qm.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/qm.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/qm.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
@@ -383,9 +383,9 @@
   description: It's made of a special fiber that increases perceived intelligence and decreases personal ethics. It has markings that denote the wearer as a scientist.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/scientist.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/scientist.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/scientist.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/scientist.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -394,9 +394,9 @@
   description: It's a slimming black with reinforced seams; great for industrial work.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/roboticist.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/roboticist.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/roboticist.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseSecurityContraband]
@@ -551,9 +551,9 @@
   description: I am at work. I can't leave work. Work is breathing. I am testing air quality.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/atmosf.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/atmos.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/atmosf.rsi
+    sprite: _TBD/Clothing/Uniforms/Jumpskirt/atmos.rsi
 
 - type: entity
   parent: ClothingUniformSkirtBase

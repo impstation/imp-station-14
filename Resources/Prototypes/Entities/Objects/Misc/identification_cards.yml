@@ -6,11 +6,11 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _TBD/Objects/Misc/id_cards.rsi
   - type: Clothing
     slots:
     - idcard
-    sprite: Objects/Misc/id_cards.rsi
+    sprite: _TBD/Objects/Misc/id_cards.rsi
   - type: Item
     size: Small
     heldPrefix: default
@@ -37,7 +37,7 @@
     layers:
     - state: default
     - sprite: &icon-rsi Interface/Misc/job_icons.rsi
-      offset: &icon-offset -0.09375, 0.0625 #3 pixels left, 2 pixels up
+      offset: &icon-offset -0.185, 0.015 #3 pixels left, 2 pixels up
       state: Passenger
   - type: PresetIdCard
     job: Passenger

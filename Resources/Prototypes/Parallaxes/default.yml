@@ -29,6 +29,17 @@
         id: "hq_wizard_stars_dim_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim-2.toml"
       slowness: 0.984352
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Parallaxes/planet.png"
+      slowness: 0.998046875
+      scale: "1, 1"
+      tiled: false
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Parallaxes/Asteroids.png"
+      slowness: 0.998046875
+      scale: "1, 1"
   layersLQ:
     - texture:
         !type:GeneratedParallaxTextureSource
