@@ -41,7 +41,10 @@
   parent: BaseFoodCondimentPacket
   id: FoodCondimentPacketDanPersonal
   name: packet of Dan's Personal Hotsauce
-  description: A gift from Discount Dan himself, straight from his personal collection. Fatally spicy. This is all you get from him.
+  description:
+    A gift from Discount Dan himself, straight from his personal collection. Fatally spicy.
+
+    This is all you get from him.
   components:
   - type: SolutionContainerManager
     solutions:
@@ -100,8 +103,9 @@
   id: FoodCondimentBottleInfernoSauce
   name: Dan's Inferno Sauce bottle
   description:
-    For the daredevil in you.
-    Discount Dan's is not responsible for any injuries recieved from this product.
+    "For the daredevil in you.
+
+    Discount Dan's is not responsible for any injuries recieved from this product."
   components:
   - type: SolutionContainerManager
     solutions:
@@ -128,9 +132,11 @@
   id: FoodCondimentBottleHottestSauce
   name: Dan's Hottest Sauce bottle
   description:
-    Feel the burn!
+    "Feel the burn!
+
     Discount Dan's is not responsible for any injuries recieved from this product.
-    This product is not ment for consumption.
+
+    This product is not ment for consumption."
   components:
   - type: SolutionContainerManager
     solutions:
