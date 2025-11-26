@@ -6,9 +6,9 @@
   description: You'd know it if you couldn't see it. # imp
   components:
   - type: Sprite
-    sprite: Objects/Materials/Sheets/glass.rsi
+    sprite: _TBD/Objects/stack_objects.rsi
   - type: Item
-    sprite: Objects/Materials/Sheets/glass.rsi
+    sprite: _TBD/Objects/stack_objects.rsi
     size: Normal
   - type: StaticPrice
     price: 0
@@ -67,16 +67,16 @@
     stackType: Glass
     baseLayer: base
     layerStates:
-    - glass
-    - glass_2
-    - glass_3
+    - sheet-glass_1
+    - sheet-glass_2
+    - sheet-glass_3
   - type: Sprite
-    state: glass_3
+    state: sheet-glass_3
     layers:
-    - state: glass_3
+    - state: sheet-glass_3
       map: ["base"]
   - type: Item
-    heldPrefix: glass
+    heldPrefix: sheet-glass_1
   - type: FloorTile
     outputs:
     - FloorGlass
@@ -110,7 +110,7 @@
   suffix: 10
   components:
   - type: Sprite
-    state: glass
+    state: sheet-glass_1
   - type: Stack
     stackType: Glass
     count: 10
@@ -121,7 +121,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: glass
+    state: sheet-glass_1
   - type: Stack
     stackType: Glass
     count: 1
@@ -140,16 +140,16 @@
     stackType: ReinforcedGlass
     baseLayer: base
     layerStates:
-    - rglass
-    - rglass_2
-    - rglass_3
+    - sheet-rglass_1
+    - sheet-rglass_2
+    - sheet-rglass_3
   - type: Sprite
-    state: rglass_3
+    state: sheet-rglass_3
     layers:
-    - state: rglass_3
+    - state: sheet-rglass_3
       map: ["base"]
   - type: Item
-    heldPrefix: rglass
+    heldPrefix: sheet-rglass_1
   - type: FloorTile
     outputs:
     - FloorRGlass
@@ -200,12 +200,12 @@
   suffix: Single
   components:
   - type: Sprite
-    state: rglass
+    state: sheet-rglass_1
   - type: Stack
     stackType: ReinforcedGlass
     count: 1
   - type: Extractable
-    grindableSolutionName: rglass
+    grindableSolutionName: sheet-rglass_1
   - type: SolutionContainerManager
     solutions:
       rglass:
@@ -232,16 +232,16 @@
     stackType: PlasmaGlass
     baseLayer: base
     layerStates:
-    - pglass
-    - pglass_2
-    - pglass_3
+    - sheet-pglass_1
+    - sheet-pglass_2
+    - sheet-pglass_3
   - type: Sprite
-    state: pglass_3
+    state: sheet-pglass_3
     layers:
-    - state: pglass_3
+    - state: sheet-pglass_3
       map: ["base"]
   - type: Item
-    heldPrefix: pglass
+    heldPrefix: sheet-pglass_1
   - type: Construction
     graph: Glass
     node: SheetPGlass
@@ -289,7 +289,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: pglass
+    state: sheet-pglass_1
   - type: Stack
     stackType: PlasmaGlass
     count: 1
@@ -319,16 +319,16 @@
     stackType: ReinforcedPlasmaGlass
     baseLayer: base
     layerStates:
-    - rpglass
-    - rpglass_2
-    - rpglass_3
+    - sheet-prglass_1
+    - sheet-prglass_2
+    - sheet-prglass_3
   - type: Sprite
-    state: rpglass_3
+    state: sheet-prglass_3
     layers:
-    - state: rpglass_3
+    - state: sheet-prglass_3
       map: ["base"]
   - type: Item
-    heldPrefix: rpglass
+    heldPrefix: sheet-prglass_1
   - type: Construction
     graph: Glass
     node: SheetRPGlass
@@ -367,7 +367,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: rpglass
+    state: sheet-prglass_1
   - type: Stack
     stackType: ReinforcedPlasmaGlass
     count: 1
@@ -386,16 +386,16 @@
     stackType: UraniumGlass
     baseLayer: base
     layerStates:
-    - uglass
-    - uglass_2
-    - uglass_3
+    - sheet-uglass_1
+    - sheet-uglass_2
+    - sheet-uglass_3
   - type: Sprite
-    state: uglass_3
+    state: sheet-uglass_3
     layers:
-    - state: uglass_3
+    - state: sheet-uglass_3
       map: ["base"]
   - type: Item
-    heldPrefix: uglass
+    heldPrefix: sheet-uglass_1
   - type: Construction
     graph: Glass
     node: SheetUGlass
@@ -454,7 +454,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: uglass
+    state: sheet-uglass_1
   - type: Stack
     stackType: UraniumGlass
     count: 1
@@ -472,16 +472,16 @@
     stackType: ReinforcedUraniumGlass
     baseLayer: base
     layerStates:
-    - ruglass
-    - ruglass_2
-    - ruglass_3
+    - sheet-urglass_1
+    - sheet-urglass_2
+    - sheet-urglass_3
   - type: Sprite
-    state: ruglass_3
+    state: sheet-urglass_3
     layers:
-    - state: ruglass_3
+    - state: sheet-urglass_3
       map: ["base"]
   - type: Item
-    heldPrefix: ruglass
+    heldPrefix: sheet-urglass
   - type: Construction
     graph: Glass
     node: SheetRUGlass
@@ -520,7 +520,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: ruglass
+    state: sheet-urglass_1
   - type: Stack
     stackType: ReinforcedUraniumGlass
     count: 1
@@ -543,6 +543,7 @@
     - cglass_2
     - cglass_3
   - type: Sprite
+    sprite: Objects/Materials/Sheets/glass.rsi
     state: cglass_3
     layers:
     - state: cglass_3
@@ -609,6 +610,7 @@
   suffix: Single
   components:
   - type: Sprite
+    sprite: Objects/Materials/Sheets/glass.rsi
     state: cglass
   - type: Stack
     stackType: ClockworkGlass

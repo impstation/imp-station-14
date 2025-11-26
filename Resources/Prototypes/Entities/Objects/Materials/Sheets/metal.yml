@@ -5,9 +5,9 @@
   description: A sheet of metal, used often on the station in various applications.
   components:
   - type: Sprite
-    sprite: Objects/Materials/Sheets/metal.rsi
+    sprite: _TBD/Objects/stack_objects.rsi
   - type: Item
-    sprite: Objects/Materials/Sheets/metal.rsi
+    sprite: _TBD/Objects/stack_objects.rsi
     size: Normal
   - type: StaticPrice
     price: 0
@@ -55,13 +55,13 @@
     stackType: Steel
     baseLayer: base
     layerStates:
-    - steel
-    - steel_2
-    - steel_3
+    - sheet-steel_1
+    - sheet-steel_2
+    - sheet-steel_3
   - type: Sprite
-    state: steel_3
+    state: sheet-steel_3
     layers:
-    - state: steel_3
+    - state: sheet-steel_3
       map: ["base"]
   - type: Item
     heldPrefix: steel
@@ -100,7 +100,7 @@
   suffix: 10
   components:
   - type: Sprite
-    state: steel
+    state: sheet-steel_1
   - type: Stack
     stackType: Steel
     count: 10
@@ -136,6 +136,7 @@
     - brass_2
     - brass_3
   - type: Sprite
+    sprite: Objects/Materials/Sheets/other.rsi
     state: brass_3
     layers:
     - state: brass_3
@@ -177,6 +178,7 @@
   suffix: 10
   components:
   - type: Sprite
+    sprite: Objects/Materials/Sheets/other.rsi
     state: brass
   - type: Stack
     stackType: Brass
@@ -189,6 +191,7 @@
   suffix: Single
   components:
   - type: Sprite
+    sprite: Objects/Materials/Sheets/other.rsi
     state: brass
   - type: Stack
     stackType: Brass
@@ -209,13 +212,13 @@
     stackType: Plasteel
     baseLayer: base
     layerStates:
-    - plasteel
-    - plasteel_2
-    - plasteel_3
+    - sheet-plasteel_1
+    - sheet-plasteel_2
+    - sheet-plasteel_3
   - type: Sprite
-    state: plasteel_3
+    state: sheet-plasteel_3
     layers:
-    - state: plasteel_3
+    - state: sheet-plasteel_3
       map: ["base"]
   - type: Item
     heldPrefix: plasteel
@@ -241,7 +244,7 @@
   suffix: 10
   components:
   - type: Sprite
-    state: plasteel
+    state: sheet-plasteel_1
   - type: Stack
     stackType: Plasteel
     count: 10
@@ -253,7 +256,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: plasteel
+    state: sheet-plasteel_1
   - type: Stack
     stackType: Plasteel
     count: 1
