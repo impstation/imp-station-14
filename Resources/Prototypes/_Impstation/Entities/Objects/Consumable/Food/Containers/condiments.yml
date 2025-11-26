@@ -82,7 +82,6 @@
         - ReagentId: HotterSauce
           Quantity: 30
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
     layers:
     - state: bottle-empty
       map: ["enum.OpenableVisuals.Layer"]
@@ -91,7 +90,6 @@
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: true
   - type: Icon
-    sprite: _Impstation/Objects/Consumable/Food/condiments.rsi
     state: bottle-hotter-sauce
   - type: Tag
     tags:
