@@ -13,7 +13,8 @@
     layers:
       HeadTop : HEAD
       HeadSide : HEAD
-  - type: SecurelyAttached # Imp
+  - type: Clothing # Imp
+    insecure: false
 
 - type: entity
   parent: ClothingHeadHelmetBase

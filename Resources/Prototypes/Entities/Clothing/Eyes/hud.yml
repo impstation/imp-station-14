@@ -91,6 +91,7 @@
     sprite: Clothing/Eyes/Hud/beergoggles.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/beergoggles.rsi
+    insecure: false # imp
   - type: ShowThirstIcons
   - type: StealTarget
     stealGroup: ClothingEyesHudBeer
@@ -102,7 +103,6 @@
     - WhitelistChameleon
   - type: PluralName # imp
     oneOf: plural-name-some
-  - type: SecurelyAttached # imp
 
 - type: entity
   parent: ClothingEyesBase
@@ -114,6 +114,7 @@
     sprite: Clothing/Eyes/Hud/friedonion.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/friedonion.rsi
+    insecure: false # imp
   - type: ShowHungerIcons
   - type: Food
   - type: SolutionContainerManager
@@ -127,7 +128,6 @@
     flavors:
       - onion
       - greasey
-  - type: SecurelyAttached # imp
 
 - type: entity
   parent: ClothingEyesBase
@@ -139,9 +139,9 @@
     sprite: Clothing/Eyes/Hud/onionbeer.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/onionbeer.rsi
+    insecure: false # imp
   - type: ShowHungerIcons
   - type: ShowThirstIcons
-  - type: SecurelyAttached # imp
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
@@ -229,12 +229,12 @@
     sprite: Clothing/Eyes/Hud/synd.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/synd.rsi
+    insecure: false # imp
   - type: ShowSyndicateIcons
   - type: Tag
     tags:
     - PetWearable
     - WhitelistChameleon
-  - type: SecurelyAttached # imp
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, Tier2Contraband]
@@ -246,13 +246,13 @@
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/syndagent.rsi
+    insecure: false # imp
   - type: ShowSyndicateIcons
   - type: ShowHealthBars
   - type: Tag
     tags:
     - PetWearable
     - WhitelistChameleon
-  - type: SecurelyAttached # imp
 
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]

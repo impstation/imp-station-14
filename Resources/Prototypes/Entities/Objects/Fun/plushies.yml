@@ -309,10 +309,10 @@
     sprite: Objects/Fun/Plushies/arachnid.rsi
     slots:
     - HEAD
+    insecure: false # imp
   - type: FoodSequenceElement
     entries:
       CottonBurger: ArachnidPlushie
-  - type: SecurelyAttached # imp, it grabbing onto your head :)
 
 - type: entity
   parent: BasePlushie

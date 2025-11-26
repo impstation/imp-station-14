@@ -26,12 +26,12 @@
     sprite: Clothing/Head/Helmets/eva_large.rsi
   - type: Clothing
     sprite: Clothing/Head/Helmets/eva_large.rsi
+    insecure: false # imp
   - type: Tag
     tags:
     - HelmetEVA
     - WhitelistChameleon
     - CorgiWearable
-  - type: SecurelyAttached # imp
 
 #Syndicate EVA Helmet
 - type: entity

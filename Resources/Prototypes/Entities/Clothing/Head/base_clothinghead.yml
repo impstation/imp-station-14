@@ -6,6 +6,7 @@
   - type: Clothing
     slots:
     - HEAD
+    insecure: true # imp
   - type: Sprite
     state: icon
   - type: Item
@@ -166,6 +167,7 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     quickEquip: false
     slots: [ HEAD ]
+    insecure: false # imp
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
@@ -194,7 +196,6 @@
     - HeadSide
     - FacialHair
     - SnoutCover # imp
-  - type: SecurelyAttached # imp
   - type: SlotBlock # imp
     slots: [ears, eyes, mask]
 

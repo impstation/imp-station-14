@@ -60,16 +60,4 @@ public sealed partial class SlotDefinition
     ///     Entity blacklist for CanEquip checks.
     /// </summary>
     [DataField("blacklist")] public EntityWhitelist? Blacklist = null;
-
-    // Imp start, secure attachement system
-    /// <summary>
-    ///     Whether or not items in this slot are considered insecure by default
-    /// </summary>
-    [DataField] public bool Insecure;
-
-    /// <summary>
-    ///     Default drop chance when the item is dropped, overwritten by item insecure component
-    /// </summary>
-    [DataField] public float InsecureDropChance = 0.3f;
-    // Imp end, secure attachment system
 }

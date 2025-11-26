@@ -9,6 +9,7 @@
     sprite: Clothing/Head/Hoods/Bio/general.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Bio/general.rsi
+    insecure: false # imp
   - type: BreathMask
   - type: IngestionBlocker
   - type: GroupExamine
@@ -25,7 +26,6 @@
       Snout: HEAD
       HeadTop: HEAD
       HeadSide: HEAD
-  - type: SecurelyAttached # imp
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral

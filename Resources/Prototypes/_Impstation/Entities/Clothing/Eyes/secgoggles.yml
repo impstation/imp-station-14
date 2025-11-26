@@ -8,6 +8,7 @@
     sprite: _Impstation/Clothing/Eyes/Glasses/secvision.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Eyes/Glasses/secvision.rsi
+    insecure: false # imp
   - type: NightVision
     isEquipment: true
   - type: IdentityBlocker
@@ -17,4 +18,3 @@
   - type: VisionCorrection
     correctionPower: 1
     visionBonus: 1.5
-  - type: SecurelyAttached # imp

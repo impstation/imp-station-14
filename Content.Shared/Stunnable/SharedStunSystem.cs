@@ -20,7 +20,8 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared._Impstation.SecurelyAttached; // imp
+using Content.Shared._Impstation.SecurelyAttached;
+using Content.Shared.Clothing.Components; // imp
 using Content.Shared.Inventory; // imp
 
 namespace Content.Shared.Stunnable;
@@ -40,8 +41,6 @@ public abstract partial class SharedStunSystem : EntitySystem
     [Dependency] protected readonly SharedDoAfterSystem DoAfter = default!;
     [Dependency] protected readonly SharedStaminaSystem Stamina = default!;
     [Dependency] private readonly StatusEffectsSystem _status = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!; // imp
-    [Dependency] private readonly SecurelyAttachedSystem _securelyAttached = default!; // imp
 
     public override void Initialize()
     {
@@ -273,8 +272,8 @@ public abstract partial class SharedStunSystem : EntitySystem
                 RaiseLocalEvent(uid, ref ev);
 
                 // imp start, securely attached system
-                if (TryComp<InventoryComponent>(uid, out var inv))
-                    _securelyAttached.DropEquipment((uid,inv));
+                var saEv = new SecurelyAttachedSystem.DropEquipmentAttemptEvent();
+                RaiseLocalEvent(uid, saEv);
                 // imp end, securely attached system
             }
 
@@ -404,7 +403,7 @@ public abstract partial class SharedStunSystem : EntitySystem
         // is this a self-equip, or are they being stripped?
         if (args.Unequipee != uid) // imp change start, securely attached items
             return;
-        if (_inventory.TryGetSlot(uid, args.Slot, out var slotDefinition) && slotDefinition.Insecure)
+        if (TryComp<ClothingComponent>(args.Equipment, out var clothing) && clothing.Insecure)
             return;
         args.Cancel(); // imp change end, securely attached items
     }

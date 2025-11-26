@@ -156,11 +156,11 @@
     equippedPrefix: bug
     slots:
     - HEAD
+    insecure: false # imp
     clothingVisuals:
       head:
       - state: bug-equipped-HELMET
         offset: "0, 0.06"
-  - type: SecurelyAttached # imp, it grabbing onto your head :)
 
 - type: entity
   parent: BasePlushie
@@ -234,11 +234,11 @@
     equippedPrefix: evilbug
     slots:
     - HEAD
+    insecure: false # imp
     clothingVisuals:
       head:
       - state: evilbug-equipped-HELMET
         offset: "0, 0.06"
-  - type: SecurelyAttached # imp, it grabbing onto your head :)
 
 - type: entity
   parent: BasePlushie

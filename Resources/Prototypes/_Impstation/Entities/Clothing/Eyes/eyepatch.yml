@@ -1,9 +1,9 @@
 - type: entity
-  parent: ClothingEyesBase
   id: ClothingEyesEyepatchBase
   abstract: true
   components:
-  - type: SecurelyAttached
+  - type: Clothing
+    insecure: false # imp
   - type: Tag
     tags:
     - Eyepatch

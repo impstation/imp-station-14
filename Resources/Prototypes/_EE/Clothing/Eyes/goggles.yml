@@ -10,13 +10,13 @@
     sprite: _EE/Clothing/Eyes/Goggles/nightvision.rsi
   - type: Clothing
     sprite: _EE/Clothing/Eyes/Goggles/nightvision.rsi
+    insecure: false # imp
   - type: NightVision
     isEquipment: true
   - type: IdentityBlocker
     coverage: EYES
   - type: PluralName # imp
     oneOf: plural-name-some
-  - type: SecurelyAttached # imp
 
 - type: entity
   parent: [ClothingEyesNightVisionGoggles, ShowSecurityIcons]
@@ -85,6 +85,7 @@
     sprite: _EE/Clothing/Eyes/Goggles/thermal.rsi
   - type: Clothing
     sprite: _EE/Clothing/Eyes/Goggles/thermal.rsi
+    insecure: false # imp
   - type: ThermalVision
     isEquipment: true
     pulseTime: 2
@@ -93,7 +94,6 @@
     coverage: EYES
   - type: PluralName # imp
     oneOf: plural-name-some
-  - type: SecurelyAttached # imp
 
 - type: entity
   parent: ClothingEyesThermalVisionGoggles
