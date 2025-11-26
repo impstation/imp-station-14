@@ -59,7 +59,7 @@
 - type: entity
   parent: BaseFoodCondimentBottle
   id: FoodCondimentBottleHotterSauce
-  name: hotter sauce bottle
+  name: Dan's Hotter Sauce bottle
   description: Really makes you feel the heat.
   components:
   - type: SolutionContainerManager
@@ -85,7 +85,7 @@
 - type: entity
   parent: BaseFoodCondimentBottle
   id: FoodCondimentBottleInfernoSauce
-  name: inferno sauce bottle
+  name: Dan's Inferno Sauce bottle
   description: For the daredevil in you. Discount Dan's is not responsible for any injuries recieved from this product.
   components:
   - type: SolutionContainerManager
@@ -111,7 +111,7 @@
 - type: entity
   parent: BaseFoodCondimentBottle
   id: FoodCondimentBottleHottestSauce
-  name: hottest sauce bottle
+  name: Dan's Hottest Sauce bottle
   description: Feel the burn! Discount Dan's is not responsible for any injuries recieved from this product. This product is not ment for consumption.
   components:
   - type: SolutionContainerManager
