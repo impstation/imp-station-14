@@ -31,8 +31,8 @@
   components:
   - type: StorageFill
     contents:
-    #- id: ClothingHandsGlovesColorYellow
-    #  prob: 0.01
+    - id: ClothingHandsGlovesColorYellow
+      prob: 0.01
     - id: ClothingHeadHatWelding
       prob: 0.5
     - id: GoblinWirecutters
@@ -47,6 +47,40 @@
       prob: 0.3
     - id: GoblinWelder
       prob: 0.3
+  - type: Storage
+    maxItemSize: Normal
+    # inherited from utility belt
+    whitelist:
+      tags:
+      - Powerdrill
+      - Wirecutter
+      - Crowbar
+      - Screwdriver
+      - Flashlight
+      - Wrench
+      - GeigerCounter
+      - Flare
+      - CableCoil
+      - CigPack
+      - Radio
+      - HolofanProjector
+      - Multitool
+      - AppraisalTool
+      - JawsOfLife
+      - GPS
+      - WeldingMask
+      components:
+      - SprayPainter
+      - NetworkConfigurator
+      - RCD
+      - RCDAmmo
+      - Welder
+      - PowerCell
+      - Geiger
+      - TrayScanner
+      - GasAnalyzer
+      - HandLabeler
+      - Insulated # <-- we copy this whole tower for one component ok?
 
 # chaplain
 - type: entity
