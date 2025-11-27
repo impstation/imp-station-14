@@ -1,4 +1,3 @@
-using System.Diagnostics.SymbolStore;
 using Content.IntegrationTests.Tests.Interaction;
 
 namespace Content.IntegrationTests.Tests.Construction.Interaction;
