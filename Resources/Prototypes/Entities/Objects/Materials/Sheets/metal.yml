@@ -55,16 +55,16 @@
     stackType: Steel
     baseLayer: base
     layerStates:
-    - sheet-steel_1
-    - sheet-steel_2
-    - sheet-steel_3
+    - sheet-metal_1
+    - sheet-metal_2
+    - sheet-metal_3
   - type: Sprite
-    state: sheet-steel_3
+    state: sheet-metal_3
     layers:
-    - state: sheet-steel_3
+    - state: sheet-metal_3
       map: ["base"]
   - type: Item
-    heldPrefix: steel
+    heldPrefix: sheet-metal_1
   - type: Appearance
   - type: Extractable
     grindableSolutionName: steel
@@ -100,7 +100,7 @@
   suffix: 10
   components:
   - type: Sprite
-    state: sheet-steel_1
+    state: sheet-metal_1
   - type: Stack
     stackType: Steel
     count: 10
@@ -112,7 +112,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: steel
+    state: sheet-metal_1
   - type: Stack
     stackType: Steel
     count: 1
@@ -136,7 +136,7 @@
     - brass_2
     - brass_3
   - type: Sprite
-    sprite: Objects/Materials/Sheets/other.rsi
+    sprite: Objects/Materials/Sheets/metal.rsi
     state: brass_3
     layers:
     - state: brass_3
@@ -178,7 +178,7 @@
   suffix: 10
   components:
   - type: Sprite
-    sprite: Objects/Materials/Sheets/other.rsi
+    sprite: Objects/Materials/Sheets/metal.rsi
     state: brass
   - type: Stack
     stackType: Brass
@@ -191,7 +191,7 @@
   suffix: Single
   components:
   - type: Sprite
-    sprite: Objects/Materials/Sheets/other.rsi
+    sprite: Objects/Materials/Sheets/metal.rsi
     state: brass
   - type: Stack
     stackType: Brass
