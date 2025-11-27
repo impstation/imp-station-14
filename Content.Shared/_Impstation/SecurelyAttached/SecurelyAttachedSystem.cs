@@ -25,7 +25,7 @@ public sealed class SecurelyAttachedSystem : EntitySystem
     }
 
     // Ran when entity is tripped, or is thrown
-    public void DropEquipment(Entity<InventoryComponent> ent, ref DropEquipmentAttemptEvent args)
+    private void DropEquipment(Entity<InventoryComponent> ent, ref DropEquipmentAttemptEvent args)
     {
         foreach (var slot in ent.Comp.Slots)
         {
@@ -35,9 +35,8 @@ public sealed class SecurelyAttachedSystem : EntitySystem
             if (!TryComp<ClothingComponent>(itemUid, out var clothing))
                 return;
 
-            var seed = SharedRandomExtensions.HashCodeCombine([
-                (int)_timing.CurTick.Value, GetNetEntity(itemUid.Value).Id,
-            ]);
+            var seed = SharedRandomExtensions.HashCodeCombine(new List<int>
+                { (int)_timing.CurTick.Value, GetNetEntity(ent).Id });
             var rand = new System.Random(seed);
 
             var dropChance = clothing.InsecureDropChance;
