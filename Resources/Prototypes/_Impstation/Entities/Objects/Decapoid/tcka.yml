@@ -80,5 +80,14 @@
   - type: Appearance
   - type: SpawnItemsOnUse
     items:
-      - id: MobTckA
       - id: TckABeacon
+      - id: MobTckA
+      - id: TckAManual
+
+- type: entity
+  id: TckAManual
+  parent: Paper
+  components:
+  - type: Paper
+  - type: RandomPaperContent
+    dataset: TckAManual
