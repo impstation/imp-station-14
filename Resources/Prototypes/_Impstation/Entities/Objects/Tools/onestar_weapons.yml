@@ -5,12 +5,12 @@
   description: An effort by Honk! Co. to harness clown hankerchief technology for warfare. It's also cherry scented.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/minigun.rsi
     layers:
     - state: icon
       map: ["enum.GunVisualLayers.Base"]
   - type: Item
-    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/minigun.rsi
   - type: Gun
     fireRate: 15
     soundGunshot:

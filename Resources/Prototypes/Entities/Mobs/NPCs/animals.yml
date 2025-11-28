@@ -3385,6 +3385,8 @@
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
+  - type: StaminaDamageOnHit #imp #mailman hate prevention
+    damage: 0
 
 - type: entity
   name: corgi puppy

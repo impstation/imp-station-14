@@ -89,3 +89,14 @@
     - state: open #removed the offset inherited from CrateGeneric and edited the open sprite, since it's able to fit within the 32x32 bounds
       map: [ open_crate ]
 
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateServiceSecure
+  name: secure service crate
+  components:
+  - type: Icon
+    sprite: _Impstation/Structures/Storage/Crates/service_secure.rsi
+  - type: Sprite
+    sprite: _Impstation/Structures/Storage/Crates/service_secure.rsi
+  - type: AccessReader
+    access: [["Service"]]

@@ -11,7 +11,7 @@
     shape:
     - 0,0,4,3
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/LMGs/l6.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/l6.rsi #imp
     quickEquip: false
     slots:
     - Back
@@ -98,7 +98,7 @@
   description: A traditionally-made Squad Automatic Weapon in a paratrooper configuration, featuring a custom stock and hand guard while lacking a bipod. Best sprayed from the hip when on the move. Uses .20 rifle ammo. #imp
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/LMGs/l6.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/l6.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -132,7 +132,7 @@
       soundEmpty:
         path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
     - type: Sprite
-      sprite: _Impstation/Objects/Weapons/Guns/LMGs/l6.rsi #imp
+      sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/l6.rsi #imp
       layers:
         - state: base
           map: [ "enum.GunVisualLayers.Base" ]
