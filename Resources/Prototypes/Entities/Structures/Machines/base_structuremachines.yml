@@ -42,7 +42,7 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-  - type: AudioAbsorption # VDS
+  - type: AcousticData # VDS
     absorption: 15
 
 - type: entity

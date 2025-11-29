@@ -4,13 +4,13 @@
 //
 // SPDX-License-Identifier: MPL-2.0
 
+using Content.Client._Mono.Audio;
 using Content.Shared.Coordinates;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
-using Content.Shared._Mono.CCVar;
-using Content.Shared._VDS.Audio;
+using Content.Shared._VDS.Physics;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
@@ -21,18 +21,18 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Numerics;
-using System.Diagnostics.CodeAnalysis;
-using Content.Shared._VDS.Physics;
+using Content.Shared._VDS.Audio;
+using Content.Shared._VDS.CCVars;
 
-namespace Content.Client._Mono.Audio;
-
+namespace Content.Client._VDS.Audio;
 /// <summary>
 /// Gathers environmental acoustic info around the player, later to be processed by <see cref="AudioEffectSystem"/>.
 /// </summary>
-public sealed class AreaReverbSystem : EntitySystem
+public sealed class AcousticDataSystem : EntitySystem
 {
     [Dependency] private readonly AudioEffectSystem _audioEffectSystem = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
@@ -59,6 +59,7 @@ public sealed class AreaReverbSystem : EntitySystem
     /// </remarks>
     /*  - VDS
         TODO: this could be expanded to be more than just these few presets. see ReverbPresets.cs in Robust.Shared/Audio/Effects/
+        would require gathering more data.
     */
     private static readonly AudioDistanceThreshold[] DistancePresets =
     [
@@ -87,10 +88,10 @@ public sealed class AreaReverbSystem : EntitySystem
     /// </summary>
     private EntityUid _clientEnt;
 
-    private int _reverbMaxReflections;
-    private bool _advancedAudioEnabled = true;
+    private int _acousticMaxReflections;
+    private bool _acousticEnabled = true;
 
-    private EntityQuery<AudioAbsorptionComponent> _absorptionQuery;
+    private EntityQuery<AcousticDataComponent> _absorptionQuery;
     private EntityQuery<TransformComponent> _transformQuery;
     private EntityQuery<RoofComponent> _roofQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
@@ -99,11 +100,11 @@ public sealed class AreaReverbSystem : EntitySystem
     {
         base.Initialize();
 
-        _configurationManager.OnValueChanged(MonoCVars.AreaEchoReflectionCount, x => _reverbMaxReflections = x, invokeImmediately: true);
-        _configurationManager.OnValueChanged(MonoCVars.AreaEchoEnabled, x => _advancedAudioEnabled = x, invokeImmediately: true);
-        _configurationManager.OnValueChanged(MonoCVars.AreaEchoHighResolution, x => _calculatedDirections = GetEffectiveDirections(x), invokeImmediately: true);
+        _configurationManager.OnValueChanged(VCCVars.AcousticEnable, x => _acousticEnabled = x, invokeImmediately: true);
+        _configurationManager.OnValueChanged(VCCVars.AcousticReflectionCount, x => _acousticMaxReflections = x, invokeImmediately: true);
+        _configurationManager.OnValueChanged(VCCVars.AcousticHighResolution, x => _calculatedDirections = GetEffectiveDirections(x), invokeImmediately: true);
 
-        _absorptionQuery = GetEntityQuery<AudioAbsorptionComponent>();
+        _absorptionQuery = GetEntityQuery<AcousticDataComponent>();
         _transformQuery = GetEntityQuery<TransformComponent>();
         _roofQuery = GetEntityQuery<RoofComponent>();
         _gridQuery = GetEntityQuery<MapGridComponent>();
@@ -140,7 +141,7 @@ public sealed class AreaReverbSystem : EntitySystem
     {
 
         var magnitude = 0f;
-        if (CastAndTryGetEnvironmentAcousticData(_clientEnt, _maximumMagnitude, _reverbMaxReflections, _calculatedDirections, out var acousticResults))
+        if (CastAndTryGetEnvironmentAcousticData(_clientEnt, _maximumMagnitude, _acousticMaxReflections, _calculatedDirections, out var acousticResults))
         {
             magnitude = CalculateAmplitude((_clientEnt, Transform(_clientEnt)), acousticResults);
         }
@@ -352,7 +353,7 @@ public sealed class AreaReverbSystem : EntitySystem
             in RayHit result,
             in EntityUid originEnt,
             in float segmentLength,
-            in AudioAbsorptionComponent comp)
+            in AcousticDataComponent comp)
     {
         // linear decay based on distance from the listener and the final ray distance.
         result.Entity.ToCoordinates().TryDistance(
@@ -370,7 +371,7 @@ public sealed class AreaReverbSystem : EntitySystem
     /// </summary>
     public bool CanAudioBePostProcessed(in Entity<AudioComponent> audio)
     {
-        if (!_advancedAudioEnabled)
+        if (!_acousticEnabled)
             return false;
 
         // we cast from the player, so they need a valid entity.
