@@ -33,6 +33,25 @@ public abstract partial class SharedSolutionContainerSystem
         return TryGetSolution((entity.Owner, entity.Comp2), entity.Comp1.Solution, out soln, out solution);
     }
 
+    //Imp edit start, so you can refuel without having DrainableSolutionComponent and all of the nonsense that comes with that.
+    public bool TryGetFuelDrainSolution(Entity<SolutionFuelDrainComponent?, SolutionContainerManagerComponent?> entity, [NotNullWhen(true)] out Entity<SolutionComponent>? soln, [NotNullWhen(true)] out Solution? solution)
+    {
+        if (!Resolve(entity, ref entity.Comp1, logMissing: false))
+        {
+            (soln, solution) = (default!, null);
+            return false;
+        }
+
+        return TryGetSolution((entity.Owner, entity.Comp2), entity.Comp1.Solution, out soln, out solution);
+    }
+    public Solution FuelDrain(Entity<SolutionFuelDrainComponent?> entity, Entity<SolutionComponent> soln, FixedPoint2 quantity)
+    {
+        if (!Resolve(entity, ref entity.Comp, logMissing: false))
+            return new();
+
+        return SplitSolution(soln, quantity);
+    }
+    //Imp edit end
     public bool TryGetExtractableSolution(Entity<ExtractableComponent?, SolutionContainerManagerComponent?> entity, [NotNullWhen(true)] out Entity<SolutionComponent>? soln, [NotNullWhen(true)] out Solution? solution)
     {
         if (!Resolve(entity, ref entity.Comp1, logMissing: false))

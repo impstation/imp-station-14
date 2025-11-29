@@ -83,16 +83,8 @@
         - ReagentId: Echion
           Quantity: 150
         maxVol: 150
-  - type: DrainableSolution
+  - type: SolutionFuelDrain
     solution: tank
-  - type: RefillableSolution
-    solution: tank
-  - type: SolutionPurge
-    solution: tank
-    preserve:
-    - Echion
-    quantity: 150
-    duration: 0.1
   - type: ItemToggle
     soundActivate:
       path: /Audio/_Impstation/Machines/echion_on.ogg
