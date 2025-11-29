@@ -39,8 +39,6 @@
     - type: HereticMagicItem
     - type: Contraband
       severity: TierXContraband
-    - type: Paper #imp heretic book now writeable
-      contentSize: 12000
     - type: UserInterface
       interfaces:
         enum.PaperUiKey.Key:
@@ -49,6 +47,8 @@
     key: enum.PaperUiKey.Key
     requiresComplex: false
     verbOnly: true #imp end
+  - type: Paper #imp heretic book now writeable
+    contentSize: 12000
   - type: ItemTogglePointLight
   - type: ToggleableVisuals
     spriteLayer: enum.ToggleableVisuals.Layer
