@@ -49,3 +49,15 @@
     antagPrototype: VRex
     roleType: TeamAntagonist
     exclusiveAntag: true
+
+# Slasher
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleSlasher
+  name: Slasher Role
+  components:
+  - type: MindRole
+    antagPrototype: SlasherRole
+    roleType: SoloAntagonist
+    exclusiveAntag: true
+  - type: SlasherRole
