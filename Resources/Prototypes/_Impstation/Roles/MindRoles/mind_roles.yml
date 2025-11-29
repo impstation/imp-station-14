@@ -57,7 +57,7 @@
   name: Slasher Role
   components:
   - type: MindRole
-    antagPrototype: Slasher
+    antagPrototype: SlasherRole
     roleType: SoloAntagonist
     exclusiveAntag: true
   - type: SlasherRole

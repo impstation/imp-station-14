@@ -208,13 +208,12 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-heretic"),
         };
         args.Verbs.Add(heretic);
-
         var slasherName = Loc.GetString("admin-verb-text-make-slasher");
         Verb slasher = new()
         {
             Text = slasherName,
             Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Slasher"),
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_Impstation/Objects/Weapons/Melee/combat_knife.rsi"), "icon"),
             Act = () =>
             {
                 _antag.ForceMakeAntag<SlasherRuleComponent>(targetPlayer, "Slasher");
