@@ -13,6 +13,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Server._Goobstation.GameTicking.Rules.Components; //goob
+using Content.Server._Impstation.GameTicking.Rules;
 
 namespace Content.Server.Administration.Systems;
 
@@ -207,5 +208,20 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-heretic"),
         };
         args.Verbs.Add(heretic);
+
+        var slasherName = Loc.GetString("admin-verb-text-make-slasher");
+        Verb slasher = new()
+        {
+            Text = slasherName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Interface/Misc/job_icons.rsi"), "Slasher"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<SlasherRuleComponent>(targetPlayer, "Slasher");
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", slasherName, Loc.GetString("admin-verb-make-slasher")),
+        };
+        args.Verbs.Add(slasher);
     }
 }
