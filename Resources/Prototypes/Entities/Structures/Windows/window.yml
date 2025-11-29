@@ -99,7 +99,7 @@
   - type: BlockWeather
   - type: AudioAbsorption # VDS
     absorption: 20
-    reflectray: true
+    reflectRay: true
 
 - type: entity
   parent: Window
@@ -224,7 +224,7 @@
     price: 15
   - type: AudioAbsorption # VDS
     absorption: 10
-    reflectray: true
+    reflectRay: true
 
 - type: entity
   id: WindowDirectionalRCDResistant
