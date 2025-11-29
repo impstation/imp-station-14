@@ -17,9 +17,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Map;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Physics;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -27,24 +25,24 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Numerics;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._VDS.Physics;
 
 namespace Content.Client._Mono.Audio;
 
 /// <summary>
 /// Gathers environmental acoustic info around the player, later to be processed by <see cref="AudioEffectSystem"/>.
 /// </summary>
-public sealed class AreareverbSystem : EntitySystem
+public sealed class AreaReverbSystem : EntitySystem
 {
     [Dependency] private readonly AudioEffectSystem _audioEffectSystem = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RayCastSystem _rayCast = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly SharedRoofSystem _roofSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly TurfSystem _turfSystem = default!;
+    [Dependency] private readonly ReflectiveRaycastSystem _reflectiveRaycast = default!;
 
     /// <summary>
     /// The directions that are raycasted to determine size for reverb.
@@ -60,15 +58,20 @@ public sealed class AreareverbSystem : EntitySystem
     /// Keep in ascending order.
     /// </remarks>
     /*  - VDS
-        TODO: after reworking how acoustic data is collected, this could be expanded
-        to be more than just these few presets. see ReverbPresets.cs in Robust.Shared/Audio/Effects/
+        TODO: this could be expanded to be more than just these few presets. see ReverbPresets.cs in Robust.Shared/Audio/Effects/
     */
     private static readonly AudioDistanceThreshold[] DistancePresets =
     [
-        new(18f, "Hallway"),
-        new(30f, "Auditorium"),
-        new(45f, "ConcertHall"),
-        new(50f, "Hangar")
+        new(4f, "SpaceStationCupboard"),
+        new(6f, "DustyRoom"),
+        new(12f, "SpaceStationSmallRoom"),
+        new(15f, "SpaceStationShortPassage"),
+        new(22f, "SpaceStationMediumRoom"),
+        new(30f, "SpaceStationHall"),
+        new(40f, "SpaceStationLargeRoom"),
+        new(45f, "Auditorium"),
+        new(47f, "ConcertHall"),
+        new(60f, "Hangar")
     ];
 
     private readonly float _minimumMagnitude = DistancePresets[0].Distance;
@@ -115,8 +118,6 @@ public sealed class AreareverbSystem : EntitySystem
         base.Update(frameTime);
     }
 
-    #region Events
-
     private void OnLocalPlayerAttached(LocalPlayerAttachedEvent ev)
     {
         _clientEnt = ev.Entity;
@@ -134,27 +135,14 @@ public sealed class AreareverbSystem : EntitySystem
 
         ProcessAcoustics(audio);
     }
-    #endregion
 
     private void ProcessAcoustics(Entity<AudioComponent> audioEnt)
     {
-        var dataFilter = new QueryFilter
-        {
-            MaskBits = (int)CollisionGroup.DoorPassable,
-            IsIgnored = ent => !_absorptionQuery.HasComp(ent), // ideally we'd pass _absorptionQuery via state, but the new ray system doesn't allow that for some reason
-            Flags = QueryFlags.Static | QueryFlags.Dynamic
-        };
-        var collideFilter = new QueryFilter
-        {
-            LayerBits = (int)CollisionGroup.WallLayer,
-            IsIgnored = ent => _absorptionQuery.TryGetComponent(ent, out var comp) && comp.ReflectRay,
-            Flags = QueryFlags.Static | QueryFlags.Dynamic
-        };
 
         var magnitude = 0f;
-        if (TryGetEnvironmentAcousticData(_clientEnt, _maximumMagnitude, _reverbMaxReflections, dataFilter, collideFilter, out var envResults))
+        if (CastAndTryGetEnvironmentAcousticData(_clientEnt, _maximumMagnitude, _reverbMaxReflections, _calculatedDirections, out var acousticResults))
         {
-            magnitude = CalculateAmplitude((_clientEnt, Transform(_clientEnt)), envResults);
+            magnitude = CalculateAmplitude((_clientEnt, Transform(_clientEnt)), acousticResults);
         }
 
         if (magnitude > _minimumMagnitude)
@@ -166,7 +154,7 @@ public sealed class AreareverbSystem : EntitySystem
             _audioEffectSystem.TryRemoveEffect(audioEnt);
     }
 
-    #region Get
+
 
     /// <summary>
     /// Returns the appropiate DistantPreset, or the largest if somehow it can't be found.
@@ -211,7 +199,7 @@ public sealed class AreareverbSystem : EntitySystem
     /// Will not accept space as a valid place for acoustics, won't even bother to spawn any rays.
     /// </summary>
     /// <param name="originEnt"> What we'll spawn the rays on. </param>
-    /// <param name="maxRayRange"> Total range a single ray can go before dying. </param>
+    /// <param name="maxRange"> Total range a single ray can go before dying. </param>
     /// <param name="maxBounces"> Boing. </param>
     /// <param name="dataFilter"> What entities the rays should care about and steal component data from. </param>
     /// <param name="collideFilter"> What entities we'll boing off of. </param>
@@ -225,56 +213,157 @@ public sealed class AreareverbSystem : EntitySystem
     /// Heavily inspired by Vercidium's video, see https://www.youtube.com/watch?v=u6EuAUjq92k .
     /// </remarks>
     /// <returns> True if any data was found. </returns>
-    public bool TryGetEnvironmentAcousticData(
+    public bool CastAndTryGetEnvironmentAcousticData(
         in EntityUid originEnt,
-        in float maxRayRange,
+        in float maxRange,
         in int maxBounces,
-        in QueryFilter dataFilter,
-        in QueryFilter collideFilter,
-        [NotNullWhen(true)] out List<AcousticRayResults>? acousticResults,
-        float? probeRange = null)
+        in Angle[] castDirections,
+        [NotNullWhen(true)] out List<AcousticRayResults>? acousticResults)
     {
-        acousticResults = new List<AcousticRayResults>(_calculatedDirections.Length);
+        acousticResults = new List<AcousticRayResults>(castDirections.Length);
 
         if (!originEnt.IsValid()
             || !_transformQuery.HasComponent(originEnt))
             return false;
-
-        var clientTransform = Transform(originEnt);
-        var clientMapId = clientTransform.MapID;
-        var clientCoords = _transformSystem.ToMapCoordinates(clientTransform.Coordinates).Position;
 
         // in space nobody can hear your awesome freaking acoustics
         if (!_turfSystem.TryGetTileRef(originEnt.ToCoordinates(), out var tileRef)
             || _turfSystem.IsSpace(tileRef.Value))
             return false;
 
-        probeRange ??= maxRayRange;
+        var clientTransform = Transform(originEnt);
+        var clientMapId = clientTransform.MapID;
+        var clientCoords = _transformSystem.ToMapCoordinates(clientTransform.Coordinates).Position;
 
-        foreach (var direction in _calculatedDirections)
+        var pathFilter = new QueryFilter
         {
-            var rand = _random.NextFloat(-1f, 1f);
-            var offsetDirection = direction + rand;
-            CastAudioRay(
-                    collideFilter,
-                    dataFilter,
-                    clientMapId, clientCoords, offsetDirection.ToVec(),
-                    maxRayRange, maxBounces, probeRange.Value,
-                    out var stats);
+            MaskBits = (int)CollisionGroup.DoorPassable,
+            IsIgnored = ent => !_absorptionQuery.HasComp(ent), // ideally we'd pass _absorptionQuery via state, but the new ray system doesn't allow that for some reason
+            Flags = QueryFlags.Static | QueryFlags.Dynamic
+        };
+        var probeFilter = new QueryFilter
+        {
+            LayerBits = (int)CollisionGroup.HighImpassable,
+            IsIgnored = ent => _absorptionQuery.TryGetComponent(ent, out var comp) && comp.ReflectRay == false,
+            Flags = QueryFlags.Static | QueryFlags.Dynamic
+        };
 
-            acousticResults.Add(stats);
-        }
+        var state = new ReflectiveRayState(
+                probeFilter,
+                pathFilter,
+                origin: clientCoords,
+                direction: Vector2.Zero, // we change the dir later
+                maxRange: maxRange,
+                clientMapId
+                );
+
+        // cast our rays and get our results
+        acousticResults = CastManyReflectiveAcousticRays(
+            originEnt,
+            clientCoords,
+            maxBounces,
+            castDirections,
+            ref state);
 
         if (acousticResults.Count == 0)
-        {
             return false;
-        }
 
         return true;
     }
 
-    #endregion
-    #region Can
+    private List<AcousticRayResults> CastManyReflectiveAcousticRays(
+            in EntityUid originEnt,
+            in Vector2 originCoords,
+            in int maxBounces,
+            in Angle[] castDirections,
+            ref ReflectiveRayState state)
+    {
+        var acousticResults = new List<AcousticRayResults>();
+
+        foreach (var direction in castDirections)
+        {
+            var rand = _random.NextFloat(-1f, 1f);
+            var offsetDirection = direction + rand;
+            state.CurrentPos = originCoords;
+            state.OldPos = originCoords;
+            state.Direction = offsetDirection.ToVec();
+            state.Translation = state.Direction * state.MaxRange;
+            state.ProbeTranslation = state.Translation;
+            state.RemainingDistance = state.MaxRange;
+
+
+            // handle individual bounces
+            var results = CastReflectiveAcousticRay(originEnt, maxBounces, ref state);
+            acousticResults.Add(results);
+        }
+
+        return acousticResults;
+    }
+
+    private AcousticRayResults CastReflectiveAcousticRay(in EntityUid originEnt, in int maxBounces, ref ReflectiveRayState state)
+    {
+        var results = new AcousticRayResults();
+        for (var bounce = 0; bounce < maxBounces; bounce++)
+        {
+            /*
+                our raycast state will constantly be fed by reference into the reflective raycast API,
+                which updates the reference's positional data for us, including the handling of
+                bounces with each iteration. we also get a new list of entities for each iteration so we
+                can do component data gathering on them.
+            */
+            var (probeResult, pathResults) = _reflectiveRaycast.CastAndUpdateReflectiveRayStateRef(ref state);
+
+            results.TotalRange += state.CurrentSegmentDistance;
+            if (probeResult.Hit)
+            {
+                pathResults.Results.Add(probeResult.Results[0]); // we wanna include what we hit to our data too
+                results.TotalBounces++;
+            }
+
+            // gather acoustic component data
+            if (pathResults.Results.Count > 0)
+            {
+                foreach (var result in pathResults.Results)
+                {
+                    if (!_absorptionQuery.TryGetComponent(result.Entity, out var comp))
+                        continue;
+
+                    // TODO: more component data can be gathered here in the future
+                    results.TotalAbsorption += GetAcousticAbsorption(result, originEnt, state.CurrentSegmentDistance, comp);
+                    // Logger.Debug($"got somethin: {ToPrettyString(result.Entity)}. new absorb: {results.TotalAbsorption}");
+                }
+            }
+
+            // this ray is long enough to be considered in an open area and now shall be ignored
+            if (state.CurrentSegmentDistance >= state.MaxRange * 0.5f)
+            {
+                results.TotalEscapes++;
+                break;
+            }
+
+            // expended our range budget, break the loop
+            if (results.TotalRange >= state.MaxRange)
+                break;
+        }
+        return results;
+    }
+
+    private float GetAcousticAbsorption(
+            in RayHit result,
+            in EntityUid originEnt,
+            in float segmentLength,
+            in AudioAbsorptionComponent comp)
+    {
+        // linear decay based on distance from the listener and the final ray distance.
+        result.Entity.ToCoordinates().TryDistance(
+                EntityManager,
+                originEnt.ToCoordinates(),
+                out var distance
+                );
+        var distanceFactor = NormalizeToPercentage(distance, 0f, segmentLength);
+        // Logger.Debug($"distance factor = {distanceFactor}");
+        return comp.Absorption * distanceFactor;
+    }
 
     /// <summary>
     /// Basic check for whether an audio entity can be applied effects such as reverb.
@@ -318,11 +407,6 @@ public sealed class AreareverbSystem : EntitySystem
         return true;
     }
 
-    #endregion
-
-
-    #region Helpers
-
     /// <summary>
     /// Calculates our the overall amplitude of <paramref name="acousticResults"/>.
     /// </summary>
@@ -332,10 +416,10 @@ public sealed class AreareverbSystem : EntitySystem
         in Entity<TransformComponent> originEnt,
         in List<AcousticRayResults> acousticResults)
     {
-        var totalRays = _calculatedDirections.Length;
-        var avgMagnitude = acousticResults.Average(mag => mag.Magnitude);
+        var totalRays = acousticResults.Count;
+        var avgMagnitude = acousticResults.Average(mag => mag.TotalRange);
         var avgAbsorption = acousticResults.Average(absorb => absorb.TotalAbsorption);
-        var avgEscaped = (float)acousticResults.Average(escapees => escapees.TotalEscapes);
+        var escaped = acousticResults.Sum(escapees => escapees.TotalEscapes);
         // TODO: resonance??
         // var avgBounces = (float)acousticResults.Average(bounce => bounce.TotalBounces);
 
@@ -346,7 +430,7 @@ public sealed class AreareverbSystem : EntitySystem
         var amplitude = 0f;
         amplitude += avgMagnitude;
         amplitude *= InverseNormalizeToPercentage(avgAbsorption); // things like furniture or different material walls should eat our energy
-        amplitude *= InverseNormalizeToPercentage(avgEscaped); // if a ray is considered escaped, that audio aint comin' back or would die off anyway.
+        amplitude *= MathF.Max(InverseNormalizeToPercentage(escaped, 0f, totalRays), 0.15f); // if a ray is considered escaped, that audio aint comin' back or would die off anyway.
 
         // severely punish our amplitude if there is no roof.
         if (originEnt.Comp.GridUid.HasValue
@@ -358,17 +442,18 @@ public sealed class AreareverbSystem : EntitySystem
             amplitude *= 0.3f;
         }
 
-        Logger.Debug($"""
-                Acoustics:
-                - Average Magnitude: {avgMagnitude:F2}
-                - Average Absorption: {avgAbsorption:F2}
-                - Average Escaped: {avgEscaped:F2}
-
-                - Absorb Coefficient: {InverseNormalizeToPercentage(avgAbsorption, 100f):F2}
-                - Escape Coefficient: {InverseNormalizeToPercentage(avgEscaped, 100f):F2}
-                - Final Magnitude: {amplitude}
-                - Preset: {GetBestPreset(amplitude)}
-                """);
+        // Logger.Debug($"""
+        //         Acoustics:
+        //         - Average Magnitude: {avgMagnitude:F2}
+        //         - Average Absorption: {avgAbsorption:F2}
+        //         - Average Escaped: {escaped:F2}
+        //         - Rays: {totalRays}
+        //
+        //         - Absorb Coefficient: {InverseNormalizeToPercentage(avgAbsorption):F2}
+        //         - Escape Coefficient: {MathF.Max(InverseNormalizeToPercentage(escaped, 0f, totalRays), 0.15f):F2}
+        //         - Final Magnitude: {amplitude}
+        //         - Preset: {GetBestPreset(amplitude)}
+        //         """);
 
         return amplitude;
     }
@@ -376,235 +461,31 @@ public sealed class AreareverbSystem : EntitySystem
     /// <summary>
     /// Returns an epsilon..1f percent, where the closer to 0 the value is, the closer to 100% (1.0f) it is.
     /// </summary>
-    /// <param name="value">
-    /// Our value to convert into a percent.
-    /// </param>
     /// <param name="total">
     /// What to compare our value to. Defaults to 100f.
     /// </param>
     /// <returns>
     /// A multiplication friendly eps~1f value.
     /// </returns>
-    public static float InverseNormalizeToPercentage(float value, float total = 100f)
+    public static float NormalizeToPercentage(float value, float minValue = 0f, float maxValue = 100f)
     {
-        return MathF.Max((total - value) / total * 1f, 0.01f);
+        var percentage = (value - minValue) / (maxValue - minValue);
+        return MathHelper.Clamp01(percentage);
     }
 
     /// <summary>
     /// Returns an epsilon..1f percent, where the closer to 0 the value is, the closer to 100% (1.0f) it is.
     /// </summary>
-    /// <param name="value">
-    /// Our value to convert into a percent.
-    /// </param>
     /// <param name="total">
     /// What to compare our value to. Defaults to 100f.
     /// </param>
     /// <returns>
     /// A multiplication friendly eps~1f value.
     /// </returns>
-    public static float NormalizeToPercentage(float value, float total = 100f)
+    public static float InverseNormalizeToPercentage(float value, float minValue = 0f, float maxValue = 100f)
     {
-        return MathF.Max(value / total * 1f, 0.01f);
-    }
-
-    #endregion
-
-    private void CastAudioRay(
-        QueryFilter stopAtFilter, QueryFilter filter, MapId mapId, Vector2 startPos,
-        Vector2 direction, float maxDistance, int maxIterations, float maxProbeLength,
-        out AcousticRayResults rayStats)
-    {
-        var currentDirection = Vector2.Normalize(direction);
-        var translation = currentDirection * maxDistance;
-        var probeTranslation = currentDirection * maxProbeLength;
-
-        var stepData = new BounceRayStepData
-        {
-            OldPos = startPos,
-            NewPos = startPos,
-            TotalDistance = 0f,
-            RemainingDistance = maxDistance,
-            MaxProbeDistance = maxProbeLength,
-            Direction = currentDirection,
-            Translation = translation,
-            ProbeTranslation = probeTranslation,
-
-        };
-
-        rayStats = new AcousticRayResults
-        {
-            TotalAbsorption = 0f,
-            TotalBounces = 0,
-            TotalEscapes = 0,
-            Magnitude = 0
-        };
-
-        // time to start casting
-        for (var iteration = 0; iteration <= maxIterations; iteration++)
-        {
-            Vector2? worldNormal = null;
-
-            /*
-                cast a probe ray to find nearest solid wall. notice the filter.
-                note: _rayCast.CastRayClosest exists and you'd think it would be a better fit for a probe ray, but
-                i don't know if i'm just using it wrong or if it's broken cause it seems to clip through walls
-                if there is another grid behind that wall...
-            */
-            var probe = _rayCast.CastRay(mapId, stepData.NewPos, stepData.ProbeTranslation, stopAtFilter);
-            if (probe.Results.Count > 0)
-            {
-                Logger.Debug($"HIT: {ToPrettyString(probe.Results[0].Entity)}");
-                var worldMatrix = _transformSystem.GetWorldMatrix(probe.Results[0].Entity);
-                var mapHitPos = probe.Results[0].Point;
-
-                worldNormal = Vector2.TransformNormal(probe.Results[0].LocalNormal, worldMatrix);
-                worldNormal = Vector2.Normalize(worldNormal.Value);
-
-
-                UpdateProbeStep(ref stepData, mapHitPos);
-                UpdateAcousticData(ref rayStats, probe.Results[0], stepData.NewDistance, _clientEnt);
-            }
-#if DEBUG
-            // jank as fuck but whatever
-            var debugRay = new CollisionRay(stepData.OldPos, stepData.Direction, (int)stopAtFilter.LayerBits);
-            var debugResults = _physicsSystem.IntersectRay(mapId, debugRay, stepData.NewDistance);
-#endif
-            // cast our results ray that'll go to the wall we found with our probe- if any. scans for acoustic data.
-            var results = _rayCast.CastRay(mapId, stepData.OldPos, stepData.Translation, filter);
-            if (results.Results.Count > 0)
-            {
-                // go through all hit entities and add up their data
-                foreach (var hit in results.Results)
-                {
-                    UpdateAcousticData(ref rayStats, hit, stepData.NewDistance, _clientEnt);
-                }
-            }
-
-            // now we can do our bounce
-            if (worldNormal.HasValue)
-            {
-                UpdateProbeStepReflect(ref stepData, worldNormal.Value);
-                rayStats.TotalBounces++;
-            }
-            else
-            {
-                // or keep movin.
-                UpdateStepForward(ref stepData);
-            }
-
-            // consider our ray escaped into an open enough room/space if it traveled far
-            if (stepData.NewDistance > maxDistance * 0.45)
-            {
-                rayStats.Magnitude = stepData.TotalDistance;
-                rayStats.TotalEscapes++;
-                break;
-            }
-
-            // back to start with our new step data
-            rayStats.Magnitude = stepData.TotalDistance;
-
-            // unless we're out of budget, or our positions are too close (indicating we're stuck)
-            if (stepData.RemainingDistance <= 0)
-            {
-                break;
-            }
-        }
-    }
-
-    private void UpdateAcousticData(ref AcousticRayResults stats, in RayHit hit, in float maxDistance, in EntityUid listener)
-    {
-        if (_absorptionQuery.TryGetComponent(hit.Entity, out var comp))
-        {
-            /*
-                more type of data could be added in the future.
-                instead of just a pure absorption value you could have
-                material type and stuff and do whatever with that.
-                that's why this is a method. for easy editing in the future.
-            */
-
-            Logger.Debug($"FOUND: {ToPrettyString(hit.Entity)}, absorption: {comp.Absorption}");
-
-            // linear decay based on distance from the listener and the final ray distance.
-            hit.Entity.ToCoordinates().TryDistance(
-                    EntityManager,
-                    listener.ToCoordinates(),
-                    out var distance
-                    );
-            var distanceFactor = MathHelper.Clamp(1f - (distance - maxDistance) / maxDistance, 0f, 100f);
-            stats.TotalAbsorption += comp.Absorption * distanceFactor;
-            Logger.Debug($"New Total Absorb {stats.TotalAbsorption}");
-        }
-    }
-
-    private static void UpdateProbeStep(ref BounceRayStepData step, in Vector2 worldHitPos)
-    {
-        // update our old position to be the previous new one
-        step.OldPos = step.NewPos;
-        // set our new position at the hit entity (slightly offset from its normal to prevent clipping)
-        step.NewPos = worldHitPos;
-
-        // math magic or something
-        // calculate the distance between our updated points
-        step.NewDistance = Vector2.Distance(step.OldPos, step.NewPos);
-        step.NewDistance = MathF.Max(0f, step.NewDistance); // floating point my belothed
-
-        step.RemainingDistance -= step.NewDistance;
-        step.TotalDistance += step.NewDistance;
-
-        // convert our direction into a translation for the results ray.
-        step.Translation = step.Direction * step.NewDistance;
-        step.ProbeTranslation = step.Direction * step.MaxProbeDistance;
-    }
-
-    private static void UpdateProbeStepReflect(ref BounceRayStepData step, in Vector2 worldNormal)
-    {
-        step.NewPos += worldNormal * 0.05f;
-        step.OldPos = step.NewPos;
-
-        // boing
-        step.Direction = Vector2.Reflect(step.Direction, worldNormal);
-        step.Direction = Vector2.Normalize(step.Direction);
-
-        // gas
-        step.Translation = step.Direction * step.NewDistance;
-        step.ProbeTranslation = step.Direction * step.MaxProbeDistance;
-    }
-
-    private static void UpdateStepForward(ref BounceRayStepData step)
-    {
-        // update our old position to be the previous new one
-        step.OldPos = step.NewPos;
-
-        // move forward by our translation
-        step.NewPos += step.Translation;
-
-        // calculate the distance between our updated points
-        step.NewDistance = Vector2.Distance(step.OldPos, step.NewPos);
-        step.RemainingDistance -= step.NewDistance;
-        step.TotalDistance += step.NewDistance;
-
-        // update our translation with the new distance
-        step.Translation = step.Direction * step.NewDistance;
-    }
-
-
-    #region Structs
-
-    /// <summary>
-    /// Data relevant to the location and direction of our bouncing ray.
-    /// Updated each bounce.
-    /// </summary>
-    private struct BounceRayStepData
-    {
-        public Vector2 OldPos;
-        public Vector2 NewPos;
-        public float NewDistance;
-        public float TotalDistance;
-        public float RemainingDistance;
-        public float MaxProbeDistance;
-        public Vector2 Direction;
-        public Vector2 Translation;
-        public Vector2 ProbeTranslation;
+        var percentage = NormalizeToPercentage(value, minValue, maxValue);
+        return 1f - percentage;
     }
 
     /// <summary>
@@ -615,10 +496,8 @@ public sealed class AreareverbSystem : EntitySystem
         public float TotalAbsorption;
         public int TotalBounces;
         public int TotalEscapes;
-        public float Magnitude;
+        public float TotalRange;
     }
-
-    #endregion
 }
 
 /// <summary>
