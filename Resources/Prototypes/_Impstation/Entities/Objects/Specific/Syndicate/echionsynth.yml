@@ -2,7 +2,7 @@
   parent: [ BaseItem, Tier3Contraband ]
   id: EchionSynth
   name: Echion Synthesizer
-  description: An exotic catalyst conveniently contained in a portable container. Fluctuates space-time on a microscopic scale when powered to generate Echion.
+  description: An exotic catalyst conveniently stored in a portable container. Fluctuates space-time on a microscopic scale when powered to generate Echion.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Specific/Syndicate/echionsynth.rsi
@@ -85,6 +85,14 @@
         maxVol: 150
   - type: DrainableSolution
     solution: tank
+  - type: RefillableSolution
+    solution: tank
+  - type: SolutionPurge
+    solution: tank
+    preserve:
+    - Echion
+    quantity: 150
+    duration: 0.1
   - type: ItemToggle
     soundActivate:
       path: /Audio/_Impstation/Machines/echion_on.ogg
