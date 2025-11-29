@@ -43,9 +43,9 @@
     pocket1: WeaponBlasterPistol
 
 - type: loadout
-  id: SecurityPistolGunpet
+  id: SecurityCombatKnife
   equipment:
-    pocket1: GunpetInstrument
+    pocket1: CombatKnife
 
 # Ammunition
 - type: loadout
@@ -67,7 +67,7 @@
     - PowerCellBlaster
 
 - type: loadout
-  id: SecurityAmmoSnapPop
+  id: SecurityBackupFirstAid
   storage:
     back:
-    - SnapPopBox
+    - Tourniquet

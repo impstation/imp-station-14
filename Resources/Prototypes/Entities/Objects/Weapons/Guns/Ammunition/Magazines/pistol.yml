@@ -34,27 +34,27 @@
 
 - type: entity
   id: BaseMagazinePistolHighCapacity
-  name: machine pistol magazine (.35 auto)
-  description: A 16-round .35 auto extended pistol magazine. #imp
+  name: extended pistol magazine (.35 auto) #imp
+  description: A 20-round .35 auto extended pistol magazine. #imp
   parent: BaseItem
   abstract: true
   components:
   - type: Tag
     tags:
-      - MagazinePistolHighCapacity
+      - MagazinePistol
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
         - CartridgePistol
-    capacity: 16
+    capacity: 20 #imp
   - type: Item
     size: Small
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_ext.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -272,8 +272,8 @@
 
 - type: entity
   id: MagazinePistolHighCapacityEmpty
-  name: machine pistol magazine (.35 auto any)
-  description: A 16-round .35 auto extended pistol magazine with no apparent markings. #imp
+  name: extended pistol magazine (.35 auto any) #imp
+  description: A 20-round .35 auto extended pistol magazine with no apparent markings. #imp
   suffix: empty
   parent: BaseMagazinePistolHighCapacity
   components:
@@ -294,15 +294,15 @@
 
 - type: entity
   id: MagazinePistolHighCapacity
-  name: machine pistol magazine (.35 auto)
-  description: A 16-round .35 auto extended pistol magazine, marked as live-fire ammo. #imp
+  name: extended pistol magazine (.35 auto) #imp
+  description: A 20-round .35 auto extended pistol magazine, marked as live-fire ammo. #imp
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
   - type: Sprite
     layers:
-    - state: base
+    - state: red
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -319,20 +319,20 @@
 
 - type: entity
   id: MagazinePistolHighCapacityPractice
-  name: machine pistol magazine (.35 auto practice)
-  description: A 16-round .35 auto extended pistol magazine, marked as practice ammo. #imp
+  name: extended pistol magazine (.35 auto practice) #imp
+  description: A 20-round .35 auto extended pistol magazine, marked as practice ammo. #imp
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
   - type: Sprite
     layers:
-    - state: base
+    - state: practice #imp
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    - state: stripe
-      color: "#ffcb6f" #imp
+#   - state: stripe
+#      color: "#ffcb6f" #imp
   - type: Item
     inhandVisuals:
       left:
@@ -346,8 +346,8 @@
 
 - type: entity
   id: MagazinePistolHighCapacityRubber
-  name: machine pistol magazine (.35 auto rubber)
-  description: A 16-round .35 auto extended pistol magazine, marked as rubber ammo. #imp
+  name: extended pistol magazine (.35 auto rubber) #imp
+  description: A 20-round .35 auto extended pistol magazine, marked as rubber ammo. #imp
   parent: BaseMagazinePistolHighCapacity
   components:
   - type: BallisticAmmoProvider

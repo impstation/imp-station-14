@@ -55,7 +55,7 @@
     - map: ["foodSequenceLayers"]
   - type: FoodSequenceStartPoint
     key: CottonBurger
-    maxLayers: 10
+    maxLayers: 100 # imp
     startPosition: 0, 0
     offset: 0, 0.07
     minLayerOffset: -0.05, 0
@@ -66,8 +66,8 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 5
-        canReact: false # Dont want cause reactions inside burgers after merging ingredients
+        maxVol: 15 # imp
+        canReact: true # fuck you wizden i need razorium burger assassination
         reagents:
         - ReagentId: Nutriment
           Quantity: 1.665

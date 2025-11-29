@@ -99,7 +99,7 @@
   id: AntiqueDisabler
   name: steal-target-groups-antiquedisabler
   sprite:
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/hopdisabler.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/hopdisabler.rsi
     state: icon
 
 - type: stealTargetGroup
@@ -107,6 +107,13 @@
   name: steal-target-groups-medchemhud
   sprite:
     sprite: _Impstation/Clothing/Eyes/Hud/medchem.rsi
+    state: icon
+
+- type: stealTargetGroup
+  id: ToolboxGolden
+  name: steal-target-groups-toolboxgolden
+  sprite:
+    sprite: _Impstation/Objects/Tools/Toolboxes/toolbox_gold.rsi
     state: icon
 
 # rare but otherwise not notable

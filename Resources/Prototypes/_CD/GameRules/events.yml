@@ -1,0 +1,9 @@
+- type: entity
+  parent: BaseGameRule
+  id: SynthStorm
+  components:
+  - type: StationEvent
+    weight: 8 # High but not too high
+    reoccurrenceDelay: 20
+    duration: 1
+  - type: SynthStormRule

@@ -135,9 +135,9 @@
 
 - type: entity
   name: Valkyrie #imp
-  parent: [BaseWeaponRifle, Tier3Contraband] #imp, tiered contra
+  parent: [BaseWeaponRifle, BaseCentcommContraband] #imp, centcomm rifle
   id: WeaponRifleM90GrenadeLauncher
-  description: A top-of-the-line assault rifle reserved for Nanotrasen's most elite mercenaries. Uses .20 rifle ammo. #imp
+  description: No expense is spared for Central Command's elite, and this experimental rifle with integrated optics is no exception. Uses .20 rifle ammo. #imp
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Rifles/carbine.rsi #imp
@@ -176,14 +176,24 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: StaticPrice #imp
+    price: 1500 #3x lecter
+  - type: CursorOffsetRequiresWield #imp
+  - type: EyeCursorOffset #imp
+    maxOffset: 2
+    pvsIncrease: 0.2
   - type: Gun #imp - everything listed in this component
     minAngle: 21
     maxAngle: 40
     angleIncrease: 2
     angleDecay: 15
-    fireRate: 6
-    selectedMode: FullAuto
+    fireRate: 5.5
+    burstFireRate: 12
+    shotsPerBurst: 3
+    burstCooldown: 0.4
+    selectedMode: Burst
     availableModes:
+    - Burst
     - FullAuto
     - SemiAuto
 

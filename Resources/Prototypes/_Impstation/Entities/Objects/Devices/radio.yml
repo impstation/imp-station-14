@@ -1,0 +1,20 @@
+- type: entity
+  name: handheld radio
+  description: A handy handheld radio.
+  parent: BaseRadio
+  id: RadioHandheld
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Handheld
+    toggleOnInteract: false
+    frequency: 1330
+  - type: RadioSpeaker
+    channels:
+    - Handheld
+    toggleOnInteract: false
+  - type: ActivatableUI
+    key: enum.HandheldRadioUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HandheldRadioUiKey.Key:
+        type: HandheldRadioBoundUserInterface

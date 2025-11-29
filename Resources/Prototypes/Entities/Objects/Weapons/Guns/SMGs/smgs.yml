@@ -11,7 +11,7 @@
     shape:
     - 0,0,2,1
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/SMGs/atreides.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/atreides.rsi #imp
     quickEquip: false
     slots:
     - Back
@@ -87,7 +87,7 @@
   description: A rare machine pistol hailing from the Corporate Wars. Its extremely high fire rate and compact profile make it useful in close quarters combat. Despite its age, it is in remarkably good condition. Feeds from .35 SMG magazines.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/SMGs/atreides.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/atreides.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -110,14 +110,14 @@
   description: An SMG often used by the infamous Nuclear Operatives... allegedly. Automatically ejects empty magazines. Uses .35 auto ammo. #imp
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/SMGs/c20r.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/c20r.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/SMGs/c20r.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/c20r.rsi #imp
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus
@@ -183,7 +183,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
   - type: Sprite
-    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/c20r.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -212,14 +212,14 @@
   description: A standard burst-fire two-handed submachine gun. Boasts an impressive fire rate at the cost of accuracy. Uses .35 auto ammo. #imp
   components:
     - type: Sprite
-      sprite: _Impstation/Objects/Weapons/Guns/SMGs/drozd.rsi #imp
+      sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/drozd.rsi #imp
       layers:
         - state: base
           map: ["enum.GunVisualLayers.Base"]
         - state: mag-0
           map: ["enum.GunVisualLayers.Mag"]
     - type: Clothing
-      sprite: _Impstation/Objects/Weapons/Guns/SMGs/drozd.rsi #imp
+      sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/drozd.rsi #imp
     - type: Wieldable
       unwieldOnUse: false
     - type: GunWieldBonus
@@ -286,7 +286,7 @@
   description: An excellent top-loaded, compact Personal Defense Weapon, produced by Nanotrasen's Small Arms Division. Uses .35 auto ammo. #imp
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/SMGs/wt550.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/wt550.rsi #imp
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -299,7 +299,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/SMGs/wt550.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/wt550.rsi #imp
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun

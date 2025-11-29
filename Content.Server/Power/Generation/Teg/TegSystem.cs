@@ -18,6 +18,8 @@ using Content.Shared.Power.Generation.Teg;
 using Content.Shared.Rounding;
 using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
+using Robust.Shared.Configuration;
+using Content.Shared.CCVar; // imp
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -76,6 +78,7 @@ public sealed class TegSystem : EntitySystem
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
     [Dependency] private readonly PointLightSystem _pointLight = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!; // imp
 
     private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
 
@@ -119,7 +122,7 @@ public sealed class TegSystem : EntitySystem
             return;
 
         var str = Loc.GetString("teg-circulator-examine-flow-rate",
-            ("flowRate", MathF.Round(comp.LastMolesTransferred, 2).ToString()));
+            ("flowRate", MathF.Round(comp.LastMolesTransferred * _config.GetCVar(CCVars.AtmosTickRate), 2).ToString()));
         args.PushMarkup(str);
     }
 

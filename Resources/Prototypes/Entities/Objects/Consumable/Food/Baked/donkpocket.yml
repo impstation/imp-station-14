@@ -318,6 +318,10 @@
           Quantity: 0.1
   - type: Sprite
     state: berry
+  - type: Tag # imp
+    tags:
+    - Fruit
+    - DonkPocket
 
 - type: entity
   name: warm berry-pocket
@@ -447,6 +451,11 @@
           Quantity: 1
   - type: Sprite
     state: dink
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - ReptilianFood
+    - DonkPocket
 
 - type: entity
   name: moth-pocket

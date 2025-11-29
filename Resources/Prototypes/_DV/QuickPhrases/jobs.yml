@@ -246,6 +246,11 @@
 
 - type: quickPhrase
   parent: BaseServiceJobPhrase
+  id: ChaplainPhrase
+  text: job-name-chaplain
+
+- type: quickPhrase
+  parent: BaseServiceJobPhrase
   id: HeadOfPersonnelPhrase
   text: job-name-hop
 

@@ -22,8 +22,8 @@
     maxAngle: 45
     availableModes:
     - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+    soundGunshot: # imp edit
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/kinetic_accel_full.ogg
     soundEmpty: # imp edit
       path: /Audio/_Impstation/Weapons/Guns/Empty/dry_fire.ogg
       params:
@@ -40,7 +40,7 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 2 # imp: 0.75 -> 2
     rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+      path: /Audio/_NF/Effects/silence.ogg # imp edit. For some reason removing this part of the component makes it make a wizard sound instead of no sound???
   - type: BasicEntityAmmoProvider
     proto: BulletKinetic
     capacity: 1

@@ -1,0 +1,35 @@
+- type: entity
+  name: disposable camera
+  parent: [Clothing]
+  id: TouristCamera
+  description: A cheap, mass produced camera equipped with a military-grade flash to capture every memory and a lanyard to hold them close.
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/touristcamera.rsi
+      layers:
+      - state: camera
+        map: [ "enum.TouristCameraVisuals.BaseLayer" ]
+      - state: flashing
+        map: [ "enum.TouristCameraVisuals.LightLayer" ]
+        visible: false
+        shader: unshaded
+    - type: TouristCamera
+    - type: Item
+      size: Small
+      sprite: _Impstation/Objects/Misc/touristcamera.rsi
+    - type: UseDelay
+    - type: Appearance
+    - type: Clothing
+      quickEquip: true
+      slots:
+      - neck
+      sprite: _Impstation/Objects/Misc/touristcamera.rsi
+    - type: GenericVisualizer
+      visuals:
+        enum.TouristCameraVisuals.Flashing:
+          enum.TouristCameraVisuals.LightLayer:
+            True: {visible: true}
+            False: {visible: false}
+    - type: GuideHelp
+      guides:
+      - ImpTourist

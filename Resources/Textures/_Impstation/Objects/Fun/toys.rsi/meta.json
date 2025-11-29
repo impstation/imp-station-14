@@ -1,7 +1,7 @@
 ﻿{
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "minor, giant bear, jumbo gray, plushie hop, and plushie captain by crocodilecarousel (github). finfin, yarn noodles, fabric scrap salad, odds, iba, ungu by starlighthowls. gray plushie by tox. bug, dolls, and imp specific species plushies by Doop. imp plush by mqole, kodepiia plush by UndertaleSex",
+    "copyright": "minor, giant bear, jumbo gray, plushie hop, and plushie captain by crocodilecarousel (github). finfin, yarn noodles, fabric scrap salad, odds, iba, ungu, eeepy by starlighthowls. gray plushie by tox. bug, dolls, and imp specific species plushies by Doop. imp plush by mqole, kodepiia plush by UndertaleSex",
     "size": {
         "x": 32,
         "y": 32
@@ -95,6 +95,26 @@
             "name": "plushie_dwarf_unshaded",
             "delays": [
                 [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "eeepy"
+        },
+        {
+            "name": "eeepy-glow",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
                     0.2,
                     0.2,
                     0.2,
@@ -212,6 +232,21 @@
         },
         {
             "name": "yarn-noodles"
+        },
+        {
+            "name": "plushie_raptor"
+        },
+        {
+            "name": "plushie_raptor-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushie_raptor-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "raptor-equipped-HELMET",
+            "directions": 4
         }
     ]
 }

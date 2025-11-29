@@ -116,3 +116,4 @@ flavor-complex-wizard = like wizard access
 flavor-complex-irwizine = like wrestling an alligator
 flavor-complex-rose = like a garden in the summer
 flavor-complex-allulalo = like hand sanitizer
+flavor-complex-pear = like pear

@@ -79,15 +79,15 @@
   - type: Bible
     damage:
       types:
-        Caustic: 20 ## ~15 dps
+        Caustic: 10 #imp #original - 20, comment: ## ~15 dps
     damageOnFail:
       groups:
-        Brute: 15
-        Airloss: 25
+        Brute: -15 #imp #original - 15 brute
+        Burn: -20 #imp #original - 25 airloss
     damageOnUntrainedUse:
       types:
         Caustic: 50
-    failChance: 0
+    #failChance: 0 #imp #chance to heal lol
     locPrefix: "necro"
     healSound: "/Audio/Effects/lightburn.ogg"
   - type: Summonable

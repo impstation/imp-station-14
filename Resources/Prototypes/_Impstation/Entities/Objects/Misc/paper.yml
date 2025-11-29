@@ -21,6 +21,8 @@
   - type: ThrowingAngle
     angle: 0
   - type: LandAtCursor
+  - type: Paper
+    content: code-violation
   - type: PaperVisuals
     backgroundImagePath: "/Textures/Interface/Paper/paper_background_default.svg.96dpi.png"
     contentImagePath: "/Textures/Interface/Paper/paper_content_lined.svg.96dpi.png"
@@ -126,3 +128,30 @@
   - type: Sprite
     layers:
     - state: folder-pun
+
+- type: entity
+  parent: BaseItem
+  name: code violation
+  id: CodeViolation
+  description: 'Report to a commanding officer or security personal immediately.'
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: safety_card
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/pop.ogg
+    embedOnThrow: True
+  - type: ThrowingAngle
+    angle: 0
+  - type: LandAtCursor
+  - type: TimedDespawn
+    lifetime: 90
+  - type: Tag
+    tags:
+    - Document
+    - Paper
+    - SecTicket
+  - type: FlavorProfile
+    flavors:
+    - secticket

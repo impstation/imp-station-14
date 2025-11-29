@@ -16,6 +16,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Whitelist; //imp
 
 namespace Content.Shared.Clumsy;
 
@@ -28,6 +29,7 @@ public sealed class ClumsySystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;//imp
 
     public override void Initialize()
     {
@@ -118,6 +120,9 @@ public sealed class ClumsySystem : EntitySystem
             return;
 
         if (args.Gun.Comp.ClumsyProof)
+            return;
+
+        if (_whitelist.IsWhitelistPass(ent.Comp.GunWhitelist,args.Gun))//imp
             return;
 
         // TODO: Replace with RandomPredicted once the engine PR is merged

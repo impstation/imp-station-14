@@ -5,8 +5,8 @@
   description: The future is now.
   components:
   - type: Instrument
-    bank: 1
-    program: 5
+    bank: 110
+    program: 1
   - type: Sprite
     sprite: _Impstation/Objects/Fun/Instruments/theremin.rsi
     state: theremin
@@ -18,8 +18,8 @@
   description: What is this?! A drum kit for ants?!
   components:
   - type: Instrument
-    bank: 1
-    program: 6
+    bank: 110
+    program: 2
   - type: Sprite
     sprite: _Impstation/Objects/Fun/Instruments/drumkit.rsi
     state: drumkit
@@ -31,8 +31,8 @@
   description: It's like the other organ, but joyful!
   components:
   - type: Instrument
-    bank: 1
-    program: 7
+    bank: 110
+    program: 3
   - type: Sprite
     sprite: _Impstation/Objects/Fun/Instruments/hammondorgan.rsi
     state: hammondorgan

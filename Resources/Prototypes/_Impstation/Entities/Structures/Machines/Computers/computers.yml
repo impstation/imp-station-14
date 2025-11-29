@@ -1,20 +1,20 @@
 - type: entity
   parent: BaseComputer
-  id: ComputerReaperTeleporter  
+  id: ComputerReaperTeleporter
   name: teleportation console
   description: A recovered mortal artifact hastily reconfigured to teleport Reapers.
   categories: [ DoNotMap ]
   components:
   - type: Sprite
     drawdepth: SmallObjects
-    sprite: _Impstation/Structures/Machines/computer_old.rsi 
+    sprite: _Impstation/Structures/Machines/computer_old.rsi
     layers:
     - map: ["computerLayerBody"]
       state: computer
-      sprite: _Impstation/Structures/Machines/computer_old.rsi 
+      sprite: _Impstation/Structures/Machines/computer_old.rsi
     - map: ["computerLayerKeyboard"]
       state: keyboard
-      sprite: _Impstation/Structures/Machines/computer_old.rsi 
+      sprite: _Impstation/Structures/Machines/computer_old.rsi
     - map: ["computerLayerScreen"]
       state: reaper
     offset: "0.0,0.1"
@@ -57,3 +57,10 @@
         node: monitorBroken
       - !type:DoActsBehavior
         acts: ["Destruction"]
+
+# kill this for personal economy okay?
+- type: entity
+  parent: ComputerBroken
+  id: ComputerFundingAllocationBroken
+  name: broken funding allocation computer
+  description: Terminal for controlling the distribution of funds and pay to departments. What happened to it?

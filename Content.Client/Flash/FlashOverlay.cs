@@ -14,6 +14,7 @@ namespace Content.Client.Flash
     public sealed class FlashOverlay : Overlay
     {
         private static readonly ProtoId<ShaderPrototype> FlashedEffectShader = "FlashedEffect";
+        private static readonly ProtoId<ShaderPrototype> CircleShader = "CircleMask";
 
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
@@ -21,14 +22,21 @@ namespace Content.Client.Flash
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IConfigurationManager _configManager = default!;
 
+
         private readonly SharedFlashSystem _flash;
         private readonly StatusEffectsSystem _statusSys;
+        private readonly ShaderInstance _circleMaskShader;
 
         public override OverlaySpace Space => OverlaySpace.WorldSpace;
         private readonly ShaderInstance _shader;
         private bool _reducedMotion;
         public float PercentComplete;
         public Texture? ScreenshotTexture;
+
+        private const float NoMotion_Radius = 30.0f; // Base radius for the nomotion variant at its full strength
+        private const float NoMotion_Pow = 0.2f; // Exponent for the nomotion variant's gradient
+        private const float NoMotion_Max = 8.0f; // Max value for the nomotion variant's gradient
+        private const float NoMotion_Mult = 0.75f; // Multiplier for the nomotion variant
 
         public FlashOverlay()
         {
@@ -38,6 +46,13 @@ namespace Content.Client.Flash
             _statusSys = _entityManager.System<StatusEffectsSystem>();
 
             _configManager.OnValueChanged(CCVars.ReducedMotion, (b) => { _reducedMotion = b; }, invokeImmediately: true);
+
+            _circleMaskShader = _prototypeManager.Index(CircleShader).InstanceUnique();
+
+            _circleMaskShader.SetParameter("CircleMinDist", 0.0f);
+            _circleMaskShader.SetParameter("CirclePow", NoMotion_Pow);
+            _circleMaskShader.SetParameter("CircleMax", NoMotion_Max);
+            _circleMaskShader.SetParameter("CircleMult", NoMotion_Mult);
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
@@ -84,19 +99,34 @@ namespace Content.Client.Flash
             var worldHandle = args.WorldHandle;
             if (_reducedMotion)
             {
+                if (ScreenTexture == null)
+                    return;
                 // TODO: This is a very simple placeholder.
                 // Replace it with a proper shader once we come up with something good.
-                // Turns out making an effect that is supposed to be a bright, sudden, and disorienting flash 
+                // Turns out making an effect that is supposed to be a bright, sudden, and disorienting flash
                 // not do any of that while also being equivalent in terms of game balance is hard.
-                var alpha = 1 - MathF.Pow(PercentComplete, 8f); // similar falloff curve to the flash shader
-                worldHandle.DrawRect(args.WorldBounds, new Color(0f, 0f, 0f, alpha));
+                //vds/imp
+                var alpha = 1 - MathF.Pow(PercentComplete, 15f);
+                var vignetteIntensity = 1 - MathF.Pow((2*PercentComplete)-1, 2f);
+
+                worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds, new Color(1f, 1f, 1f, alpha));
+                _circleMaskShader.SetParameter("Zoom", 1f);
+                _circleMaskShader.SetParameter("CircleRadius", NoMotion_Radius / vignetteIntensity);
+
+                worldHandle.UseShader(_circleMaskShader);
+                worldHandle.DrawRect(args.WorldBounds, Color.White);
+                worldHandle.UseShader(null);
+                //vds/imp
+                return;
             }
             else
             {
-                _shader.SetParameter("percentComplete", PercentComplete);
-                worldHandle.UseShader(_shader);
-                worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds);
-                worldHandle.UseShader(null);
+                // VDS
+                var alpha = 1 - MathF.Pow(PercentComplete, 8f) - 0.2f;
+                var alphashade = 1 - MathF.Pow(PercentComplete, 10f) - 0.1f;
+                worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds, new Color(1f, 1f, 1f, alpha));
+                worldHandle.DrawTextureRectRegion(ScreenshotTexture, args.WorldBounds, new Color(0f, 0f, 0f, alphashade));
+                //VDS end
             }
         }
 

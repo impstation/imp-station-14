@@ -33,6 +33,8 @@
   - type: FlavorProfile
     flavors:
     - pasta
+    ignoreReagents: # imp
+    - egg
   - type: Sprite
     state: boiled
   - type: SolutionContainerManager # imp
@@ -163,6 +165,9 @@
           Quantity: 8
         - ReagentId: Vitamin
           Quantity: 6
+  - type: Tag # imp
+    tags:
+    - Meat
 # Tastes like pasta, meat.
 
 - type: entity
@@ -195,6 +200,7 @@
   - type: Tag # imp
     tags:
     - Vegetable
+    - ReptilianFood
 # Tastes like pasta, tomato. # IMP - THERES NO TOMATOES IN THIS!!!!!!!
 
 - type: entity

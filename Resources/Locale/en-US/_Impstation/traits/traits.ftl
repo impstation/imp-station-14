@@ -1,14 +1,17 @@
 trait-heavyweightdrunk-name = Heavyweight drunk
 trait-heavyweightdrunk-desc = Alcohol has less of an effect on you.
 
-trait-pain-insensitivity-name = Pain Insensitivity
+trait-pain-insensitivity-name = Pain insensitivity
 trait-pain-insensitivity-desc = You are unaware of the status of your health at all times.
 
-trait-random-unrevivable-name = Random Unrevivable
+trait-random-unrevivable-name = Random unrevivable
 trait-random-unrevivable-desc = You are sometimes unable to be revived by defibrillators.
+                                Incompatible with Unrevivable.
 
-trait-sgdrequired-name = SGD Required
-trait-sgdrequired-desc = You are incapable of verbal communication without a Speech Generating Device. You will arrive at the station with one in your inventory.
+trait-sgdrequired-name = SGD required
+trait-sgdrequired-desc = You are incapable of verbal communication without a Speech Generating Device.
+                         You will arrive at the station with one in your inventory.
+                         Incompatible with Muted.
 sgdrequired-cant-speak = You can't speak without an SGD!
 
 trait-unborgable-name = Unborgable
@@ -56,20 +59,22 @@ trait-basicfrench-desc = You speak with the cadence of someone who has cast off 
 trait-basicrussian-name = Russian (Basic)
 trait-basicrussian-desc = You speak with a Russian accent, with far fewer word replacements.
 
-trait-milbrat-name = Military Jargon
+trait-milbrat-name = Military jargon
 trait-milbrat-desc = You make subtle references to a past stint in the military by using strange terminology and acronyms.
 
 trait-stiltedspeech-name = Stilted speech
 trait-stiltedspeech-desc = You Speak Very Properly At All Times.
 
 trait-propercapitalization-name = Proper capitalization
-trait-propercapitalization-desc = You speak with proper capitalization, somehow. Whenever you end a sentence with punctuation, the following word always begins with a capital letter.
+trait-propercapitalization-desc = You speak with proper capitalization, somehow.
+                                  Whenever you end a sentence with punctuation, the following word always begins with a capital letter.
 
 trait-properpunctuation-name = Proper punctuation
 trait-properpunctuation-desc = Your sentences end with periods or other punctuation, always.
 
 trait-echolalia-name = Echolalia
 trait-echolalia-desc = You can't help yourself from repeating phrases you've heard.
+                       Incompatible with Muted.
 
 trait-transatlantic-name = Transatlantic accent
 trait-transatlantic-desc = You sound like a hardboiled detective, or a peppy newshawk.
@@ -82,7 +87,7 @@ trait-pg-desc = You've sworn off swearing.
 
 trait-imperfect-clone-name = Imperfect clone
 trait-imperfect-clone-desc = Something went wrong during the cloning process, and you came out a little different.
-                             You will roll 1-3 random quirks or disabilities at the start of each shift.
+                             You will roll 1-3 random traits at the start of each shift.
 
 trait-imperfect-clone-accent-name = Inconsistent accent
 trait-imperfect-clone-accent-desc = For whatever reason, your accent fluctuates from day to day.
@@ -93,12 +98,23 @@ trait-inconsistent-handwriting-desc = For whatever reason, you just can't keep a
                                       Your signature font will be randomized at the start of each round.
 
 trait-chaos-magic-victim-name = Chaos magic victim
-trait-chaos-magic-victim-desc = At the start of each shift, you will roll 5 random traits of any kind, excluding signature fonts.
+trait-chaos-magic-victim-desc = At the start of each shift, you will roll 5 random traits or accents, excluding signature fonts.
 
 trait-category-randomizers = Randomizers
 
 trait-unadapted-to-space-name = Unadapted to space
 trait-unadapted-to-space-desc = Your body hasn't adapted to space, making you take more damage from exposure to it.
 
-trait-vowelrotation-name = Vowel Rotation
+trait-vowelrotation-name = Vowel rotation
 trait-vowelrotation-desc = Yua'ri frum en udd curnir uf speci whiri iviry vuwil os shoftid uvir by uni. AEIOU -> EIOUA
+
+trait-hefty-name = Hefty
+trait-hefty-desc = You're heavier than average.
+                       Incompatible with Slight.
+
+trait-slight-name = Slight
+trait-slight-desc = You're lighter than average.
+                       Incompatible with Hefty.
+
+trait-soft-hands-name = Soft hands
+trait-soft-hands-desc = You're too weak to wield anything.

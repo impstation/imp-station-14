@@ -2285,7 +2285,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: [ 'Hiss' ] # Can't thump tail because no body component
+    allowedEmotes: [ 'Hiss', 'Chirp' ] # Can't thump tail because no body component # imp edit to add chirp
   - type: Vocal
     sounds:
       Male: MaleReptilian
@@ -2815,7 +2815,7 @@
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
-    allowedEmotes: ['Click', 'Chitter']
+    allowedEmotes: ['Click', 'Chitter', 'Hiss'] # imp edit to add hiss
   - type: Vocal
     sounds:
       Male: UnisexArachnid
@@ -3385,6 +3385,8 @@
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
+  - type: StaminaDamageOnHit #imp #mailman hate prevention
+    damage: 0
 
 - type: entity
   name: corgi puppy
@@ -4129,7 +4131,7 @@
     tags:
     - DoorBumpOpener
     - VimPilot
-    - DionaMinded #imp
+    - DionaHivemind #imp
   - type: Emoting
   - type: BodyEmotes
     soundsId: Nymph

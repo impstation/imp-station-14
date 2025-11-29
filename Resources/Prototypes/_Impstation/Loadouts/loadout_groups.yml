@@ -970,6 +970,7 @@
   - SecurityPistolMk58
   - SecurityPistolP2
   - SecurityPistolSturm
+  - SecurityOfficerKnife
 
 - type: loadoutGroup
   id: SecurityCommandAmmo
@@ -978,6 +979,7 @@
   - SecurityAmmoPistol
   - SecurityAmmoP2
   - SecurityAmmoSturm
+  - SecurityBackupFirstAid
 
 - type: loadoutGroup
   id: WardenNeck
@@ -1039,6 +1041,7 @@
   - SecurityRevolverInspector
   - SecurityRevolverDerringer
   - SecurityPistolFreelancer
+  - SecurityCombatKnife
 
 - type: loadoutGroup
   id: DetectiveAmmo
@@ -1052,6 +1055,7 @@
   - SecurityAmmoPouchStun
   - SecurityAmmoFreelancerLethal
   - SecurityAmmoFreelancerStun
+  - SecurityBackupFirstAid
 
 - type: loadoutGroup
   id: BrigmedicHead
@@ -1137,7 +1141,7 @@
   - SecurityPistolMk58
   - SecurityPistolP2
   - SecurityPistolBlaster
-  - SecurityPistolGunpet
+  - SecurityCombatKnife
 
 - type: loadoutGroup
   id: SecurityOfficerAmmo
@@ -1146,7 +1150,7 @@
   - SecurityAmmoPistol
   - SecurityAmmoP2
   - SecurityAmmoBlaster
-  - SecurityAmmoSnapPop
+  - SecurityBackupFirstAid
 
 - type: loadoutGroup
   id: GroupSpeciesBreathToolMedSec

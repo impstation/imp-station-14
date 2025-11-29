@@ -1,12 +1,17 @@
 accent-russian-words-1 = yes
+accent-russian-words-1-2 = yeah
 accent-russian-words-replace-1 = da
 
 accent-russian-words-2 = no
+accent-russian-words-2-2 = nope
 accent-russian-words-replace-2 = nyet
 
 accent-russian-words-3 = grandma
 accent-russian-words-3-2 = grandmother
 accent-russian-words-3-3 = granny
+accent-russian-words-3-4 = nanna
+accent-russian-words-3-5 = nanny
+accent-russian-words-3-6 = gran
 accent-russian-words-replace-3 = babushka
 
 accent-russian-words-4 = friend
@@ -20,6 +25,7 @@ accent-russian-words-replace-6 = na zdorovje
 
 accent-russian-words-7 = atmospheric
 accent-russian-words-7-2 = atmospherics
+accent-russian-words-7-3 = atmos
 accent-russian-words-replace-7 = atmosfernyy
 
 accent-russian-words-8 = engineer
@@ -30,8 +36,8 @@ accent-russian-words-9 = officer
 accent-russian-words-9-2 = secoff
 accent-russian-words-replace-9 = ofitser
 
-accent-russian-words-10 = what?
-accent-russian-words-replace-10 = chto?
+accent-russian-words-10 = what
+accent-russian-words-replace-10 = chto
 
 accent-russian-words-11 = grandpa
 accent-russian-words-11-2 = grandfather
@@ -45,9 +51,11 @@ accent-russian-words-13 = bitch
 accent-russian-words-replace-13 = cyka
 
 accent-russian-words-14 = radiation
+accent-russian-words-14-2 = rads
 accent-russian-words-replace-14 = radiastyia
 
 accent-russian-words-15 = medical
+accent-russian-words-15-2 = med
 accent-russian-words-replace-15 = meditsinskiy
 
 accent-russian-words-16 = captain
@@ -83,7 +91,6 @@ accent-russian-words-25 = station
 accent-russian-words-replace-25 = stantsiya
 
 accent-russian-words-26 = doctor
-accent-russian-words-26-2 = doc
 accent-russian-words-replace-26 = doktor
 
 accent-russian-words-27 = space station
@@ -96,31 +103,35 @@ accent-russian-words-29 = you're welcome
 accent-russian-words-29-2 = you are welcome
 accent-russian-words-replace-29 = pozhaluysta
 
-accent-russian-words-30 = help!
-accent-russian-words-replace-30 = pomoshch'!
+accent-russian-words-30 = help
+accent-russian-words-replace-30 = pomoshch'
 
-accent-russian-words-31 = help me!
-accent-russian-words-replace-31 = pomogni mne!
+accent-russian-words-31 = help me
+accent-russian-words-replace-31 = pomogni mne
 
-accent-russian-words-32 = help us!
-accent-russian-words-replace-32 = pomogite nam!
+accent-russian-words-32 = help us
+accent-russian-words-replace-32 = pomogite nam
 
-accent-russian-words-33 = help them!
-accent-russian-words-replace-33 = pomogite im!
+accent-russian-words-33 = help them
+accent-russian-words-replace-33 = pomogite im
 
-accent-russian-words-34 = loose!
-accent-russian-words-34-2 = tesloose!
-accent-russian-words-34-3 = singuloose!
-accent-russian-words-replace-34 = svobodnyy!
+accent-russian-words-34 = loose
+accent-russian-words-34-2 = tesloose
+accent-russian-words-34-3 = singuloose
+accent-russian-words-replace-34 = svobodnyy
 
 accent-russian-words-35 = anomaly
+accent-russian-words-35-2 = anom
 accent-russian-words-replace-35 = anomaliya
 
 accent-russian-words-36 = artifact
 accent-russian-words-36-2 = artefact
+accent-russian-words-36-3 = arti
+accent-russian-words-36-4 = arte
 accent-russian-words-replace-36 = artefakt
 
 accent-russian-words-37 = bartender
+accent-russian-words-37-2 = barkeep
 accent-russian-words-replace-37 = barmen
 
 accent-russian-words-38 = botanist
@@ -150,10 +161,10 @@ accent-russian-words-replace-44 = muzyka
 accent-russian-words-45 = clown
 accent-russian-words-replace-45 = kloun
 
-accent-russian-words-46 = it's good
-accent-russian-words-46-2 = it is good
-accent-russian-words-46-3 = it's okay
-accent-russian-words-46-4 = it is okay
+accent-russian-words-46 = good
+accent-russian-words-46-2 = fine
+accent-russian-words-46-3 = okay
+accent-russian-words-46-4 = ok
 accent-russian-words-replace-46 = khorosho
 
 accent-russian-words-47 = heretic
@@ -161,12 +172,14 @@ accent-russian-words-47-2 = heretics
 accent-russian-words-replace-47 = yeretik
 
 accent-russian-words-48 = marijuana
+accent-russian-words-48-2 = weed
 accent-russian-words-replace-48 = marikhuana
 
 accent-russian-words-49 = chemist
 accent-russian-words-replace-49 = khimik
 
 accent-russian-words-50 = chemistry
+accent-russian-words-50-2 = chem
 accent-russian-words-replace-50 = khimiya
 
 accent-russian-words-51 = cyborg
@@ -177,9 +190,11 @@ accent-russian-words-52 = accent
 accent-russian-words-replace-52 = aktsent
 
 accent-russian-words-53 = goodbye
+accent-russian-words-53-2 = bye
 accent-russian-words-replace-53 = dosvidaniya
 
 accent-russian-words-54 = hello
+accent-russian-words-54-2 = hi
 accent-russian-words-replace-54 = privet
 
 accent-russian-words-55 = run away
@@ -219,8 +234,8 @@ accent-russian-words-replace-65 = konsol'
 accent-russian-words-66 = shuttle
 accent-russian-words-replace-66 = shattl
 
-accent-russian-words-67 = rod!
-accent-russian-words-replace-67 = sterzhen'!
+accent-russian-words-67 = rod
+accent-russian-words-replace-67 = sterzhen'
 
 accent-russian-words-68 = gas
 accent-russian-words-replace-68 = gaz
@@ -249,10 +264,12 @@ accent-russian-words-75 = moths
 accent-russian-words-replace-75 = moli
 
 accent-russian-words-76 = anomalies
+accent-russian-words-76-2 = anoms
 accent-russian-words-replace-76 = anomalii
 
 accent-russian-words-77 = artifacts
 accent-russian-words-77-2 = artefacts
+accent-russian-words-77-3 = artis
 accent-russian-words-replace-77 = artefakty
 
 accent-russian-words-78 = doctors
@@ -283,11 +300,59 @@ accent-russian-words-replace-85 = komp'yutery
 accent-russian-words-86 = consoles
 accent-russian-words-replace-86 = konsoli
 
-accent-russian-words-87 = shuttles
+accent-russian-words-87 = shuttle
+accent-russian-words-87-2 = ship
 accent-russian-words-replace-87 = shattly
 
 accent-russian-words-88 = botanists
 accent-russian-words-replace-88 = botaniki
 
 accent-russian-words-89 = technician
+accent-russian-words-89-2 = tech
 accent-russian-words-replace-89 = tekhnik
+
+accent-russian-words-90 = sunflower seeds
+accent-russian-words-replace-90 = semechki
+
+accent-russian-words-91 = spider
+accent-russian-words-91-2 = arachnid
+accent-russian-words-replace-91 = pauk
+
+accent-russian-words-92 = bad
+accent-russian-words-92-2 = awful
+accent-russian-words-92-3 = terrible
+accent-russian-words-replace-92 = khrenovo
+
+accent-russian-words-93 = holy fuck
+accent-russian-words-93-2 = holy shit
+accent-russian-words-replace-93 = okhrenet'
+
+accent-russian-words-94 = wow
+accent-russian-words-replace-94 = ofiget
+
+accent-russian-words-95 = mess
+accent-russian-words-95-2 = disaster
+accent-russian-words-95-3 = chaos
+accent-russian-words-replace-95 = figach
+
+accent-russian-words-96 = devil
+accent-russian-words-96-2 = hell
+accent-russian-words-96-3 = damn
+accent-russian-words-replace-96 = chyort
+
+accent-russian-words-97 = kid
+accent-russian-words-replace-97 = malysh
+
+accent-russian-words-98 = cozy
+accent-russian-words-replace-98 = lampovyy
+
+accent-russian-words-99 = squid
+accent-russian-words-99-2 = kodepiia
+accent-russian-words-99-3 = kode
+accent-russian-words-replace-99 = kal'mar
+
+accent-russian-words-100 = ungu
+accent-russian-words-replace-100 = korova kit
+
+accent-russian-words-101 = sorry
+accent-russian-words-replace-101 = izvini

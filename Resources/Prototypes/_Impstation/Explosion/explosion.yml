@@ -1,0 +1,23 @@
+# Note that for every explosion type you define, explosions & nukes will start performing worse
+# You should only define a new explopsion type if you really need to
+
+# Beck here. I'm defining a new explosion type because I think it'll be a useful one to have.
+# Also I had a conversation with PJB about it today (10/12/25) in which it seemed like she'd be
+# prioritizing refactoring the explosion system at some point soon to have a lower performance impact
+# from new explosion types.
+# In the meantime, adding one custom explosion type has minimal performance impact.
+# IF EXPLOSIONS START CAUSING LAG, we should remove this first.
+- type: explosion
+  id: Electrical
+  damagePerIntensity:
+    types:
+      Shock: 5
+      Heat: 3
+      Blunt: 2
+      Structural: 20
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  lightColor: Cyan
+  fireColor: Cyan
+  texturePath: /Textures/Effects/fire_greyscale.rsi
+  fireStates: 3
