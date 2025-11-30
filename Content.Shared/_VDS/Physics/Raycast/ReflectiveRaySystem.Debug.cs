@@ -8,6 +8,10 @@ public sealed partial class ReflectiveRaycastSystem
 {
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
 
+    /// <summary>
+    /// Returns our current state as a string dictionary. Useful for debugging without a debugger, or logging.
+    /// </summary>
+    /// <param name="state"><see cref="ReflectiveRayState"/></param>
     [PublicAPI]
     public static Dictionary<string, string> GetStateAsStringDictionary(in ReflectiveRayState state)
     {
