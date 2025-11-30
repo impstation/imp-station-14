@@ -287,5 +287,5 @@ public ref struct ReflectiveRayState(
     public Vector2 Translation = direction * maxRange;
     public Vector2 ProbeTranslation = direction * maxRange;
     public Vector2? HitSurfaceNormal = null;
-    public float HitSurfaceOffset = 0.05f;
+    public float HitSurfaceOffset = 0.001f;
 }
