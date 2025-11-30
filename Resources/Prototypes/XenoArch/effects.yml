@@ -963,7 +963,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 0
-    maxNodeUnlocks: 1 #IMP
+    maxNodeUnlocks: 0 #IMP
     effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1454,6 +1454,13 @@
   parent: BaseOneTimeXenoArtifactEffect
   description: Energy release #IMP desc changed
   components:
+  - type: XenoArtifactNode #IMP
+    maxDurability: 1
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 0
+    maxNodeUnlocks: 0 #IMP
+    effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
