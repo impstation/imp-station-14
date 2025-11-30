@@ -67,13 +67,13 @@ public sealed class AcousticDataSystem : EntitySystem
     /// </remarks>
     private static readonly AudioReverbThreshold[] AcousticReverbPresets =
     [
-        new(12f, "SpaceStationCupboard"),
-        new(14f, "DustyRoom"),
-        new(16f, "SpaceStationSmallRoom"),
-        new(20f, "SpaceStationShortPassage"),
-        new(25f, "SpaceStationMediumRoom"),
-        new(30f, "SpaceStationHall"),
-        new(37f, "SpaceStationLargeRoom"),
+        new(10f, "SpaceStationCupboard"),
+        new(13f, "DustyRoom"),
+        new(15f, "SpaceStationSmallRoom"),
+        new(18f, "SpaceStationShortPassage"),
+        new(23f, "SpaceStationMediumRoom"),
+        new(28f, "SpaceStationHall"),
+        new(35f, "SpaceStationLargeRoom"),
         new(40f, "Auditorium"),
         new(45f, "ConcertHall"),
         new(70f, "Hangar")
@@ -111,7 +111,7 @@ public sealed class AcousticDataSystem : EntitySystem
     /// If a ray travels this percentage of its total max range in single segment,
     /// consider it 'escaped' and will end it early and penalize the final amplitude.
     /// </summary>
-    private const float EscapeDistancePercentage = 0.4f;
+    private const float EscapeDistancePercentage = 0.3f;
     private const float MinimumEscapePenalty = 0.10f;
     private const float NoRoofPenalty = 0.10f;
     private const float DirectionRandomOffset = 0.3f;
@@ -483,13 +483,13 @@ public sealed class AcousticDataSystem : EntitySystem
 
         if (distance < 1f)
             distance = 1f;
-
+        var distanceSquared = distance * distance;
         // inverse square falloff
-        var distanceFalloff = 1f * 1f / (distance * distance);
+        var distanceFalloff = 5f / (5f + distanceSquared);
         // _sawmill.Debug($"""
         //         absorption result {ToPrettyString(result.Entity)}
-        //         distanceFactor: {distanceFalloff}
-        //         finalAbsorb: {comp.Absorption * distanceFalloff}
+        //         distanceFactor: {distanceFalloff:F3}
+        //         finalAbsorb: {comp.Absorption * distanceFalloff:F3}
         //         """);
         return comp.Absorption * distanceFalloff;
     }
@@ -518,7 +518,7 @@ public sealed class AcousticDataSystem : EntitySystem
 
         var amplitude = 0f;
         amplitude += avgMagnitude;
-        amplitude *= InverseNormalizeToPercentage(avgAbsorption); // things like furniture or different material walls should eat our energy
+        amplitude *= InverseNormalizeToPercentage(avgAbsorption, maxClamp: 1.3f); // things like furniture or different material walls should eat our energy
         amplitude *= MathF.Max(InverseNormalizeToPercentage(escaped, 0f, totalRays), MinimumEscapePenalty); // escaped rays are mostly irrelevant, so penalize based on that.
 
         // severely punish our amplitude if there is no roof.
@@ -533,8 +533,8 @@ public sealed class AcousticDataSystem : EntitySystem
 
         // _sawmill.Debug($"""
         //         Results:
-        //         Absorb Coefficient: {InverseNormalizeToPercentage(avgAbsorption)}
-        //         Escape Coefficient: {MathF.Max(InverseNormalizeToPercentage(escaped, 0f, totalRays), MinimumEscapePenalty)}
+        //         Absorb Coefficient: {InverseNormalizeToPercentage(avgAbsorption, maxClamp: 1.3f):F3}
+        //         Escape Coefficient: {MathF.Max(InverseNormalizeToPercentage(escaped, 0f, totalRays), MinimumEscapePenalty):F3}
         //         Final Amplitude: {amplitude:F2}
         //         Acoustic Preset: {GetBestReverbPreset(amplitude)}
         //         """);
@@ -545,19 +545,19 @@ public sealed class AcousticDataSystem : EntitySystem
     /// <summary>
     /// Returns a 0f..1f percent, where the closer to 0f the value is, the closer to 100% (1.0f) it is.
     /// </summary>
-    public static float NormalizeToPercentage(float value, float minValue = 0f, float maxValue = 100f)
+    public static float NormalizeToPercentage(float value, float minValue = 0f, float maxValue = 100f, float maxClamp = 1f)
     {
         var percentage = (value - minValue) / (maxValue - minValue);
-        return MathHelper.Clamp01(percentage);
+        return Math.Clamp(percentage, 0f, maxClamp);
     }
 
     /// <summary>
     /// Returns a 0f..1f percent, where the closer to 1.0f the value is, the closer to 0% (0f) it is.
     /// </summary>
-    public static float InverseNormalizeToPercentage(float value, float minValue = 0f, float maxValue = 100f)
+    public static float InverseNormalizeToPercentage(float value, float minValue = 0f, float maxValue = 100f, float maxClamp = 1f)
     {
-        var percentage = NormalizeToPercentage(value, minValue, maxValue);
-        return 1f - percentage;
+        var percentage = NormalizeToPercentage(maxValue - value, minValue, maxValue, maxClamp);
+        return percentage;
     }
 
     /// <summary>
