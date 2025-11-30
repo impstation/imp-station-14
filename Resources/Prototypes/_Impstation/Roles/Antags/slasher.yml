@@ -1,5 +1,5 @@
 - type: antag
-  id: Slasher
+  id: SlasherAntag
   antagonist: true
   playTimeTracker: AntagSlasher
   requirements:
@@ -23,7 +23,7 @@
   guides: [ Slashers ]
 
 - type: startingGear
-  id: BountyHunterGear
+  id: SlasherGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlack
     head: ClothingHeadHatCowboyBountyHunter
@@ -42,67 +42,3 @@
     back:
     - WeaponRevolverInspector
     - SmokeGrenade
-- type: antag
-<<<<<<< HEAD
-  id: Slasher
-  antagonist: true
-  playTimeTracker: AntagSlasher
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 5h
-  guides: [ Slasher ]
-  objective: "Win"
-
-- type: entity
-  parent: BaseAction
-  id: ActionDestroy
-  name: "[color=red]Destroy[/color]"
-  description: Attempt to break a structure or wall.
-  components:
-  - type: Action
-    icon: { sprite : Interface/Actions/devour.rsi, state: icon }
-    iconOn: { sprite : Interface/Actions/devour.rsi, state: icon-on }
-    itemIconStyle: BigAction
-    priority: 1
-  - type: TargetAction
-  - type: EntityTargetAction
-    canTargetSelf: false
-    whitelist:
-      components:
-      - Door
-      tags:
-      - Wall
-    event: !type:DestroyActionEvent
-=======
-  id: SlasherRole
-  name: roles-antag-slasher-name
-  antagonist: true
-  requirements:
-  - !type:OverallPlaytimeRequirement
-    time: 3600 # 1h
-  playTimeTracker: AntagSlasher
-  setPreference: true
-  objective: roles-antag-slasher-description
-  guides: [ Slashers ]
-
-- type: startingGear
-  id: BountyHunterGear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitColorBlack
-    head: ClothingHeadHatCowboyBountyHunter
-    mask: ClothingMaskGasSecurity
-    back: ClothingBackpackSatchel
-    eyes: ClothingEyesBountyHunterGlasses
-    outerClothing: ClothingOuterCoatBomber
-    shoes: ClothingShoesBootsMercFilled
-    gloves: ClothingHandsMercGlovesCombat
-    id: BountyHunterPDA
-    ears: ClothingHeadsetFreelance
-    belt: ClothingBeltMercWebbing
-    pocket1: BaseSeclinkRadio
-    pocket2: BountyHunterGear
-  storage:
-    back:
-    - WeaponRevolverInspector
-    - SmokeGrenade
->>>>>>> origin/master

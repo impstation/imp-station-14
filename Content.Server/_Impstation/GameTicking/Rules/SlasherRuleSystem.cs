@@ -15,7 +15,8 @@ using Robust.Shared.Random;
 using System.Text;
 // removed Heretic-specific dependencies
 using Content.Shared.Roles.Components;
-using Content.Server._Impstation.Slasher;
+using Content.Shared.Slasher;
+using Content.Server.Actions;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -25,6 +26,7 @@ public sealed partial class SlasherRuleSystem : GameRuleSystem<SlasherRuleCompon
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly ObjectivesSystem _objective = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
@@ -69,6 +71,10 @@ public sealed partial class SlasherRuleSystem : GameRuleSystem<SlasherRuleCompon
         _npcFaction.AddFaction(target, SlasherFactionId);
 
         EnsureComp<SlasherComponent>(target);
+        if (TryComp<SlasherComponent>(target, out var slasherComp))
+        {
+            _actions.AddAction(target, ref slasherComp.DestroyAction, slasherComp.DestroyActionPrototype);
+        }
         rule.Minds.Add(mindId);
 
         return true;
