@@ -27,8 +27,19 @@
     Narcotic:
       effects:
       - !type:MovespeedModifier
+        conditions: #imp
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: false
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
+      - !type:MovespeedModifier #imp
+        conditions:
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: true
+        walkSpeedModifier: 1.2
+        sprintSpeedModifier: 1.2
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -70,8 +81,19 @@
     Narcotic:
       effects:
       - !type:MovespeedModifier
+        conditions: #imp
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: false
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
+      - !type:MovespeedModifier #imp
+        conditions:
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: true
+        walkSpeedModifier: 1.12
+        sprintSpeedModifier: 1.12
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -124,8 +146,19 @@
       metabolismRate: 1.0
       effects:
       - !type:MovespeedModifier
+        conditions: #imp
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: false
         walkSpeedModifier: 1.3
         sprintSpeedModifier: 1.3
+      - !type:MovespeedModifier #imp
+        conditions:
+        - !type:OrganType #imp
+          type: Allulalo
+          shouldHave: true
+        walkSpeedModifier: 1.2
+        sprintSpeedModifier: 1.2
       - !type:HealthChange
         conditions:
           - !type:ReagentThreshold

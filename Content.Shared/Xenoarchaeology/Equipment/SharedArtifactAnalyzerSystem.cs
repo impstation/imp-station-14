@@ -130,7 +130,12 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
             return false;
 
         artifact = (analyzer.Value.Comp.CurrentArtifact.Value, comp);
-        return true;
+
+        //#IMP doublecheck that artifact is actually ON the pad
+        if (Transform(artifact.Value.Owner).Coordinates.TryDistance(EntityManager, Transform(analyzer.Value.Owner).Coordinates, out var distance) && distance < 3)
+            return true; // IMP This line wasn't in the if originally
+        artifact = null;//IMP
+        return false;//IMP
     }
 
     public bool TryGetAnalysisConsole(Entity<ArtifactAnalyzerComponent> ent, [NotNullWhen(true)] out Entity<AnalysisConsoleComponent>? analysisConsole)

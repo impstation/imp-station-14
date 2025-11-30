@@ -126,7 +126,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 500
+        density: 300 #STOP! BEING! 500!!!
         restitution: 0.0
         mask:
         - MobMask
