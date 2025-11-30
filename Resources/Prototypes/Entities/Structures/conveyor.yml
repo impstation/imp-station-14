@@ -66,7 +66,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: AcousticData
-    absorption: 10
+    absorption: 5
 
 - type: entity
   id: ConveyorBeltAssembly

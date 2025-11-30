@@ -79,7 +79,7 @@
     node: bookshelf
   - type: BlockWeather
   - type: AcousticData # VDS
-    absorption: 40
+    absorption: 30
     reflectRay: true
 
 - type: entity
@@ -152,5 +152,5 @@
     node: bookshelf
   - type: BlockWeather
   - type: AcousticData # VDS
-    absorption: 50
+    absorption: 40
     reflectRay: true

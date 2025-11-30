@@ -709,7 +709,7 @@
     tags:
     - Table
   - type: AcousticData # VDS
-    absorption: 40
+    absorption: 30
 
 - type: entity
   parent: TableBase
@@ -1034,7 +1034,7 @@
     footstepSoundCollection:
       collection: FootstepWood
   - type: AcousticData # VDS
-    absorption: 40
+    absorption: 25
 
 - type: entity
   id: TableCounterMetal
