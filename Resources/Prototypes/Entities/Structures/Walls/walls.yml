@@ -56,7 +56,7 @@
   - type: BlockWeather
   - type: SunShadowCast
   - type: AcousticData # VDS
-    absorption: 10
+    absorption: 20
     reflectRay: true
 
 
@@ -1315,6 +1315,9 @@
   - type: IconSmooth
     key: woods
     base: wood
+  - type: AcousticData # VDS. wood absorb more!
+    absorption: 35
+    reflectRay: true
 
 - type: entity
   parent: BaseWall
@@ -1364,6 +1367,9 @@
   - type: Construction
     graph: WebStructures
     node: wall
+  - type: AcousticData # VDS. web sticky
+    absorption: 45
+    reflectRay: true
 
 
 # Lavalend Walls

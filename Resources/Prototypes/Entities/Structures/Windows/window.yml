@@ -98,7 +98,7 @@
     price: 100
   - type: BlockWeather
   - type: AcousticData # VDS
-    absorption: 20
+    absorption: 30
     reflectRay: true
 
 - type: entity
@@ -223,7 +223,7 @@
   - type: StaticPrice
     price: 15
   - type: AcousticData # VDS
-    absorption: 10
+    absorption: 20
     reflectRay: true
 
 - type: entity
