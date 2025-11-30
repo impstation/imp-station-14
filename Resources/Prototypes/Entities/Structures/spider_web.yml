@@ -45,6 +45,8 @@
     additionalKeys:
     - walls
     base: web_
+  - type: AcousticData # VDS. fuck!!!!
+    absorption: 40
 
 - type: entity
   id: SpiderWeb
