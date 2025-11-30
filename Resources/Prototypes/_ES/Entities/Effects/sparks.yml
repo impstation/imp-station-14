@@ -4,10 +4,12 @@
   components:
   - type: Sprite
     sprite: _ES/Effects/sparks.rsi
-    state: sparks
     drawdepth: Effects
     noRot: true
     loop: false
+    layers:
+    - state: sparks
+      shader: unshaded
   - type: Appearance
   - type: Physics
     bodyType: Dynamic
@@ -39,7 +41,7 @@
   - type: AnimationPlayer
   - type: PointLight
     radius: 1.5
-    energy: 2.4
+    energy: 3
     falloff: 6
     color: "#FAA019"
     netsync: false
