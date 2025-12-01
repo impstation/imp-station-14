@@ -62,7 +62,7 @@
   - type: PleebnarGibbable
   - type: NpcFactionMember
     factions:
-    - PetsNT
+    - DuctSpider
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
@@ -87,3 +87,5 @@
     mindRoles:
     - MindRoleGhostRoleFreeAgentHarmless
   - type: GhostTakeoverAvailable
+  - type: NPCRetaliation
+    attackMemoryLength: 10
