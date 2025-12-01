@@ -13,3 +13,11 @@
   targetNode: paperbin
   category: construction-category-storage
   objectType: Structure
+
+- type: construction
+  id: GlassBoxSmall
+  graph: GlassBoxSmall
+  startNode: start
+  targetNode: smallglassBox
+  category: construction-category-storage
+  objectType: Structure
