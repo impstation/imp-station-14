@@ -1001,7 +1001,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 0
-    maxNodeUnlocks: 1 #IMP
+    maxNodeUnlocks: 0 #IMP
     effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1022,7 +1022,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 0
-    maxNodeUnlocks: 1 #IMP
+    maxNodeUnlocks: 0 #IMP
     effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1043,7 +1043,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 0
-    maxNodeUnlocks: 1 #IMP
+    maxNodeUnlocks: 0 #IMP
     effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     components:
