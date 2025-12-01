@@ -1,11 +1,10 @@
-using Content.Shared._EE.InteractionVerbs.Events;
 using Content.Shared.Emoting;
 using Content.Shared.Hands;
 using Content.Shared.Interaction.Events;
-using Content.Shared._EE.InteractionVerbs.Events; // EE
 using Content.Shared.Item;
 using Content.Shared.Popups;
 using Robust.Shared.Serialization;
+using Content.Shared._EE.InteractionVerbs.Events; // EE
 
 namespace Content.Shared.Ghost
 {
