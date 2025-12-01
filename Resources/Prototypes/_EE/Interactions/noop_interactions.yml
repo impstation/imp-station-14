@@ -56,9 +56,15 @@
   delay: 0.4
   range: {max: 1}
   hideByRequirement: true
-  requirement:
-    !type:MobStateRequirement
-    inverted: true
+  requirement: # imp edit, please don't pet your coworkers
+    !type:ComplexRequirement
+    requirements:
+    - !type:MobStateRequirement
+      inverted: true
+    - !type:EntityWhitelistRequirement
+      blacklist:
+        components:
+        - HumanoidAppearance
   action:
     !type:NoOpAction
 

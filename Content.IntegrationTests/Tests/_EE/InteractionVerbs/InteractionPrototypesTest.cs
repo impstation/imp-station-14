@@ -1,8 +1,8 @@
-using Content.Shared.InteractionVerbs;
+using Content.Shared._EE.InteractionVerbs;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.IntegrationTests.Tests.InteractionVerbs;
+namespace Content.IntegrationTests.Tests._EE.InteractionVerbs;
 
 [TestFixture]
 [FixtureLifeCycle(LifeCycle.SingleInstance)]

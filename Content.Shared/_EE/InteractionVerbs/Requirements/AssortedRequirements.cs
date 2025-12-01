@@ -10,17 +10,30 @@ namespace Content.Shared._EE.InteractionVerbs.Requirements;
 /// <summary>
 ///     Requires the target to meet a certain whitelist and not meet a blacklist.
 /// </summary>
-//[Serializable, NetSerializable] imp edit fuck off
+//[Serializable, NetSerializable] imp edit, causing problems. whatever
 public sealed partial class EntityWhitelistRequirement : InteractionRequirement
 {
-    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    /// <summary>
+    /// A whitelist of tags or components.
+    /// </summary>
+    [DataField("whitelist")]
+    public EntityWhitelist? Whitelist;
 
-    [DataField]
-    public EntityWhitelist Whitelist = new(), Blacklist = new();
+    /// <summary>
+    /// A blacklist of tags or components.
+    /// </summary>
+    [DataField("blacklist")]
+    public EntityWhitelist? Blacklist;
 
     public override bool IsMet(InteractionArgs args, InteractionVerbPrototype proto, InteractionAction.VerbDependencies deps)
     {
-        return _whitelist.IsValid(Whitelist, args.Target) && !_whitelist.IsValid(Blacklist, args.Target);
+        var whitelistSystem = IoCManager.Resolve<IEntityManager>().System<EntityWhitelistSystem>();
+
+        if (whitelistSystem.IsWhitelistFail(Whitelist, args.Target) ||
+            whitelistSystem.IsBlacklistPass(Blacklist, args.Target))
+            return false;
+
+        return true;
     }
 }
 
