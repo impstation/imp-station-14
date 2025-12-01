@@ -5,7 +5,7 @@
 
 - type: cargoBounty
   id: BountyTeethSpaceCarp
-  reward: 7500
+  reward: 3750 #imp
   description: bounty-description-tooth-space-carp
   group: SalvageJobTier1
   sprite:
@@ -13,14 +13,14 @@
     state: icon
   entries:
   - name: bounty-item-tooth-space-carp
-    amount: 10
+    amount: 5 #imp
     whitelist:
       tags:
       - ToothSpaceCarp
 
 - type: cargoBounty
   id: BountySalvageScrap
-  reward: 7500
+  reward: 3750 # imp
   description: bounty-description-salvage-scrap
   group: SalvageJobTier1
   sprite:
@@ -28,14 +28,14 @@
     state: metal-1
   entries:
   - name: bounty-item-scrap
-    amount: 10
+    amount: 5 #imp
     whitelist:
       tags:
       - SalvageScrap
 
 - type: cargoBounty
   id: BountySalvageOreGold
-  reward: 7500
+  reward: 1750 # imp
   description: bounty-description-salvage-ore-gold
   group: SalvageJobTier1
   sprite:
@@ -43,14 +43,14 @@
     state: gold
   entries:
   - name: bounty-item-ore-gold
-    amount: 45
+    amount: 10 #imp
     whitelist:
       tags:
       - OreGold
 
 - type: cargoBounty
   id: BountySalvageOreSilver
-  reward: 7500
+  reward: 1750 # imp
   description: bounty-description-salvage-ore-silver
   group: SalvageJobTier1
   sprite:
@@ -58,7 +58,7 @@
     state: silver
   entries:
   - name: bounty-item-ore-silver
-    amount: 45
+    amount: 10 #imp
     whitelist:
       tags:
       - OreSilver
@@ -82,7 +82,7 @@
 
 - type: cargoBounty
   id: BountySalvageOrePlasma
-  reward: 12500
+  reward: 8250 # imp
   description: bounty-description-salvage-ore-plasma
   group: SalvageJobTier2
   sprite:
@@ -90,14 +90,14 @@
     state: plasma
   entries:
   - name: bounty-item-ore-plasma
-    amount: 45
+    amount: 30 #imp
     whitelist:
       tags:
       - OrePlasma
 
 - type: cargoBounty
   id: BountySalvageOreUranium
-  reward: 12500
+  reward: 8250 # imp
   description: bounty-description-salvage-ore-uranium
   group: SalvageJobTier2
   sprite:
@@ -105,14 +105,14 @@
     state: uranium
   entries:
   - name: bounty-item-ore-uranium
-    amount: 30
+    amount: 20 #imp
     whitelist:
       tags:
       - OreUranium
 
 - type: cargoBounty
   id: BountySalvageOreBananium
-  reward: 12500
+  reward: 6250 # imp
   description: bounty-description-salvage-ore-bananium
   group: SalvageJobTier2
   sprite:
@@ -120,7 +120,7 @@
     state: bananium
   entries:
   - name: bounty-item-ore-bananium
-    amount: 30
+    amount: 15 #imp
     whitelist:
       tags:
       - OreBananium
@@ -144,7 +144,7 @@
 
 - type: cargoBounty
   id: BountyHivelordRemains
-  reward: 20000
+  reward: 12500 # imp
   description: bounty-description-remains
   group: SalvageJobTier3
   sprite:
@@ -152,7 +152,7 @@
     state: hivelord
   entries:
   - name: bounty-item-remains
-    amount: 3
+    amount: 2 #imp
     whitelist:
       tags:
       - HivelordRemains
