@@ -8,6 +8,12 @@
   - Medical
   flavor: medicine
   color: "#081a80"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/ption_clear.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Medicine:
       effects:
