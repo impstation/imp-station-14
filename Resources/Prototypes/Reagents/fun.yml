@@ -6,6 +6,12 @@
   physicalDesc: reagent-physical-desc-fibrous
   flavor: carpet
   color: "#800000"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: Carpet
@@ -181,6 +187,12 @@
   physicalDesc: reagent-physical-desc-reflective
   flavor: sharp
   color: "#e3fffb"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
@@ -223,6 +235,12 @@
   - Medical
   flavor: cold
   color: "#b3f1ff"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   boilingPoint: 50.0
   meltingPoint: 45.0
   tileReactions:
@@ -405,6 +423,12 @@
   physicalDesc: reagent-physical-desc-fluffy
   flavor: dogfood
   color: "#ed9715"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Poison:
       metabolismRate: 0.2

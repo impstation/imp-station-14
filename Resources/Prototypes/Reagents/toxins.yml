@@ -5,6 +5,12 @@
   desc: reagent-desc-toxin
   flavor: bitter
   color: "#cf3600"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   physicalDesc: reagent-physical-desc-opaque
   contrabandSeverity: Minor
   plantMetabolism:
@@ -27,6 +33,12 @@
   desc: reagent-desc-carpotoxin
   flavor: bitter
   color: "#e2a38c"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   physicalDesc: reagent-physical-desc-exotic-smelling
   allowedDepartments:
   - Medical
@@ -63,6 +75,12 @@
   desc: reagent-desc-chloral-hydrate
   flavor: bitter
   color: "#000067"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   physicalDesc: reagent-physical-desc-nondescript
   allowedDepartments:
   - Medical
@@ -138,6 +156,12 @@
   contrabandSeverity: Major
   flavor: acid
   color: "#a1000b"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   boilingPoint: 78.2 # This isn't a real chemical...
   meltingPoint: -19.4
   plantMetabolism:
@@ -184,6 +208,12 @@
   desc: reagent-desc-ferrochromic-acid
   flavor: sour
   color: "#48b3b8"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   physicalDesc: reagent-physical-desc-ferrous
   metabolisms:
     Drink:
@@ -321,6 +351,12 @@
   physicalDesc: reagent-physical-desc-strong-smelling
   contrabandSeverity: Major
   color: "#5f959c"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Poison:
       effects:
@@ -340,6 +376,12 @@
   physicalDesc: reagent-physical-desc-pungent
   contrabandSeverity: Tier3Contraband # imp
   color: "#6b0007"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Poison:
       effects:
@@ -356,6 +398,12 @@
   physicalDesc: reagent-physical-desc-opaque
   flavor: bitter
   color: "#77b58e"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   contrabandSeverity: Minor # imp
   plantMetabolism:
   - !type:PlantAdjustToxins
@@ -376,6 +424,12 @@
   desc: reagent-desc-histamine
   physicalDesc: reagent-physical-desc-abrasive
   color: "#FA6464"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Poison:
       effects:
@@ -453,6 +507,12 @@
   physicalDesc: reagent-physical-desc-nondescript
   contrabandSeverity: Major
   color: "#D6CE7B"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Poison:
       metabolismRate: 0.2
@@ -493,6 +553,12 @@
   contrabandSeverity: Tier3Contraband #imp
   flavor: bitter
   color: "#7e916e"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   worksOnTheDead: true
   metabolisms:
     Medicine:
@@ -646,6 +712,12 @@
   allowedJobs:
   - Zookeeper
   color: "#AAAAAA"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Poison:
       effects:
@@ -663,6 +735,12 @@
   physicalDesc: reagent-physical-desc-pungent
   flavor: bitter
   color: "#F2E9D2"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Poison:
       metabolismRate: 0.05
@@ -701,6 +779,12 @@
   physicalDesc: reagent-physical-desc-metallic
   contrabandSeverity: Major
   color: "#5C6274"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Poison:
       metabolismRate: 0.03 # Effectively once every 30 seconds.
@@ -718,6 +802,12 @@
   physicalDesc: reagent-physical-desc-nondescript
   contrabandSeverity: Major
   color: "#EBFF8E"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Poison:
       metabolismRate: 0.2
@@ -760,6 +850,12 @@
   contrabandSeverity: Tier3Contraband #imp
   flavor: shocking
   color: "#FDD023"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Poison:
       effects:
@@ -776,6 +872,12 @@
   - Medical
   flavor: mothballs #why does weightloss juice taste like mothballs
   color: "#F0FFF0"
+  metamorphicSprite:
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
+    state: icon
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
   metabolisms:
     Poison:
       effects:
