@@ -2,7 +2,7 @@ using Content.Server._Goobstation.Heretic.Components;
 using Content.Server._Goobstation.Heretic.UI;
 using Content.Server.Administration.Systems;
 using Content.Server.EUI;
-using Content.Server.Heretic.Components;
+using Content.Shared.Heretic.Components;
 using Content.Server.Humanoid;
 using Content.Server.StationEvents;
 using Content.Shared.Bed.Cryostorage;
