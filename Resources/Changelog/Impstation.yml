@@ -1,27 +1,4 @@
 ﻿Entries:
-- author: sev7ves
-  changes:
-  - message: Added clown related Thaven moods.
-    type: Add
-  id: 1957
-  time: '2025-07-01T09:05:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2704
-- author: maenyas, mqole, rainyatrium, LankLTE, ZigTag
-  changes:
-  - message: sheep can dream of robot. New synthetic trait!
-    type: Add
-  - message: two new drinks made with synthblood!
-    type: Add
-  id: 1958
-  time: '2025-07-01T15:23:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2903
-- author: TheLuggage05
-  changes:
-  - message: Moved the service request computer board to the HD locker, where it belongs.
-    type: Tweak
-  id: 1959
-  time: '2025-07-02T01:46:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2944
 - author: Ecramox
   changes:
   - message: You can no longer speak into Greencomms through a headset. Intercoms
@@ -4165,3 +4142,31 @@
   id: 2456
   time: '2025-11-30T05:07:49.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3784
+- author: Smugman
+  changes:
+  - message: Recruiters and Synthesis Specialists are less rare now
+    type: Tweak
+  - message: Treatcoins actually spawn properly despite full hands
+    type: Fix
+  id: 2457
+  time: '2025-12-01T22:57:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3736
+- author: Spung22
+  changes:
+  - message: Listening Post Operatives no longer have a species accent.
+    type: Tweak
+  - message: The Listening Post has received an upgrade! Including an intercomm and
+      document printer, as well as some extra goodies! See the full PR for details.
+    type: Tweak
+  - message: The Listening Post PDA is no longer an error.
+    type: Fix
+  id: 2458
+  time: '2025-12-02T02:21:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3699
+- author: kipdotnet
+  changes:
+  - message: Tck'aat's are a little less annoying now.
+    type: Tweak
+  id: 2459
+  time: '2025-12-02T06:05:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3780
