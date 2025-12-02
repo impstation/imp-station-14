@@ -29,6 +29,10 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Content.Server.Popups;
+using Content.Shared.IdentityManagement;
+using Robust.Shared.Player;
+using Content.Shared.Popups;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -41,6 +45,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly RatvarianLanguageSystem _language = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
@@ -79,11 +84,16 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     && mobState.CurrentState == Shared.Mobs.MobState.Dead
                     && !TryComp<HellVictimComponent>(target, out _))
                 {
-                    var minion = EnsureComp<MinionComponent>(target);
-                    EnsureComp<GhoulComponent>(target);
-                    minion.BoundOwner = performer;
-                    minion.FactionsToAdd.Add(_hereticFaction);
-                    _minion.ConvertEntityToMinion((target, minion), true, true, true);
+                    var popupOthers = Loc.GetString("heretic-flesh-revive-notif");
+                    _popup.PopupEntity(popupOthers, target, PopupType.LargeCaution);
+                    var dargs = new DoAfterArgs(EntityManager, performer, 5f, new FleshGraspDoAfterEvent(target), performer)
+                    {
+                        BreakOnDamage = true,
+                        BreakOnHandChange = true,
+                        BreakOnMove = true,
+                    };
+                    _doAfter.TryStartDoAfter(dargs);
+
                 }
                 break;
 
@@ -114,6 +124,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
+        SubscribeLocalEvent<HereticComponent, FleshGraspDoAfterEvent>(OnFleshGraspDoAfter);
         SubscribeLocalEvent<MansusGraspComponent, UseInHandEvent>(OnUseInHand);
     }
 
@@ -238,5 +249,19 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         if (!ev.Cancelled)
             Spawn("HereticRuneRitual", ev.Coords);
+    }
+
+    private void OnFleshGraspDoAfter(Entity<HereticComponent> ent, ref FleshGraspDoAfterEvent ev)
+    {
+        if (!ev.Cancelled)
+        {
+            var minion = EnsureComp<MinionComponent>(ev.Target);
+            EnsureComp<GhoulComponent>(ev.Target);
+            minion.BoundOwner = ent;
+            minion.FactionsToAdd.Add(_hereticFaction);
+            _minion.ConvertEntityToMinion((ev.Target, minion), true, true, true);
+            var popupOthers = Loc.GetString("heretic-flesh-revive-finish");
+            _popup.PopupEntity(popupOthers, ev.Target, PopupType.LargeCaution);
+        }
     }
 }
