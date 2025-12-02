@@ -86,6 +86,6 @@ Content under these subdirectories either originate from their respective fork, 
 | `_Goobstation`   | Goob Station        | https://github.com/Goob-Station/Goob-Station/           | AGPL 3.0 |
 | `_NF`            | Frontier Station    | https://github.com/new-frontiers-14/frontier-station-14 | AGPL 3.0 |
 | `_Harmony`       | Harmony             | https://github.com/ss14-harmony/ss14-harmony            | AGPL 3.0 |
-| n/a              | Monolith            | https://github.com/Monolith-Station/Monolith            | AGPL 3.0 |
+| `_Mono`          | Monolith            | https://github.com/Monolith-Station/Monolith            | AGPL 3.0 |
 | `_VDS`           | Vermist Dust Sector | https://github.com/vermist-sector/vermist-dust          | AGPL 3.0 |
 | `_White`         | White Dream         | https://github.com/WWhiteDreamProject/wwdpublic/        | AGPL 3.0 |
