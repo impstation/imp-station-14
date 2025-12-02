@@ -159,7 +159,7 @@ public sealed class AcousticDataSystem : EntitySystem
 
     private void OnParentChange(Entity<AudioComponent> audio, ref EntParentChangedMessage ev)
     {
-        if (!CanAudioBePostProcessed(audio))
+        if (!CanAudioBePostProcessed(audio, ev.Transform))
             return;
 
         ProcessAcoustics(audio);
@@ -196,7 +196,7 @@ public sealed class AcousticDataSystem : EntitySystem
     /// <summary>
     /// Basic check for whether an audio entity can be applied effects such as reverb.
     /// </summary>
-    public bool CanAudioBePostProcessed(in Entity<AudioComponent> audio)
+    public bool CanAudioBePostProcessed(in Entity<AudioComponent> audio, in TransformComponent xForm)
     {
         if (!_acousticEnabled)
             return false;
@@ -210,40 +210,27 @@ public sealed class AcousticDataSystem : EntitySystem
 
         //  we only care about loaded local audio. it would be kinda weird
         //  if stuff like nukie music reverbed
-        if (!audio.Comp.Loaded
+        if (!audio.Comp.Playing
             || audio.Comp.Global
             || audio.Comp.State == AudioState.Stopped)
             return false;
-
-        /*
-            get audio grid or world pos so we can calculate if we're in hearing distance
-            i don't know why but for some reason if you're the source of the noise,
-            either holding an item making it or your footsteps or whatever, the parent
-            is invalid.
-
-            so uh. i guess if it's invalid we skip the range check.
-        */
-        if (!Transform(audio.Owner).ParentUid.IsValid())
-            return true;
 
         Vector2 audioPos;
         Vector2 clientPos;
         if ((audio.Comp.Flags & AudioFlags.GridAudio) != 0x0)
         {
-            audioPos = _mapSystem.GetGridPosition(Transform(audio.Owner).ParentUid);
+
+            audioPos = xForm.LocalPosition;
             clientPos = _mapSystem.GetGridPosition(_clientEnt);
         }
         else
         {
-            audioPos = _transformSystem.GetWorldPosition(Transform(audio.Owner).ParentUid);
+            audioPos = _transformSystem.GetWorldPosition(xForm);
             clientPos = _transformSystem.GetWorldPosition(_clientEnt);
         }
 
         // check distance!
         var delta = audioPos - clientPos;
-        if (delta.LengthSquared() <= float.Epsilon)
-            return false;
-
         var distance = delta.Length();
         if (_audioSystem.GetAudioDistance(distance) > audio.Comp.MaxDistance)
             return false;
