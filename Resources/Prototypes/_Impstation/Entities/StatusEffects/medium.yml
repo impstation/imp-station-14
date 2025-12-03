@@ -1,0 +1,6 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectMedium
+  name: medium afflicted
+  components:
+  - type: MediumStatusEffect
