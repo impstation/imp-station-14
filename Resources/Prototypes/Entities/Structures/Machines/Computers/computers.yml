@@ -847,7 +847,7 @@
     access: [[ "CentralCommand" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-centcom
-    color: "#1d8bad"
+    color: "#4683d0" # Imp, from #1d8bad
     canShuttle: false
     global: true
   - type: Computer
