@@ -5,6 +5,10 @@
   name: Urist McHands
   abstract: true
   components:
+  - type: Excretion
+    action: ActionCum
+    excretedReagent: Cum
+    popupText: cum-failure-thirst
   - type: GoobAbsorbable
   - type: Hunger
   - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.

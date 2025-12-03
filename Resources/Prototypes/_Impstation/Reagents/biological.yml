@@ -232,7 +232,7 @@
     amount: 0.25
   - !type:PlantAdjustWater
     amount: 0.7
-  
+
 - type: reagent
   id: ReaperBlood
   name: reagent-name-reaper-blood
@@ -254,3 +254,25 @@
   products:
     Ash: 3
     Fresium: 2
+
+- type: reagent
+  id: Cum
+  name: reagent-name-cum
+  group: Biological
+  desc: reagent-desc-cum
+  flavor: snotty
+  color: "#ffffff"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-viscous
+  slipData:
+    requiredSlipSpeed: 4.0 #It's not as slippery as water
+  friction: 0.4
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        factor: 1
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6

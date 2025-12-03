@@ -42,8 +42,6 @@ public abstract partial class SharedExcretionSystem : EntitySystem
     private void OnMapInit(EntityUid uid, ExcretionComponent comp, MapInitEvent args)
     {
         _actionsSystem.AddAction(uid, ref comp.ActionEntity, comp.Action);
-        /// refreshes the movement speed modifier so that the snailSlowdownModifier triggers.
-        _movement.RefreshMovementSpeedModifiers(uid);
     }
 
     /// <summary>

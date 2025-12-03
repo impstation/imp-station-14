@@ -1,0 +1,10 @@
+- type: entity
+  parent: BaseAction
+  id: ActionCum
+  name: Cum
+  description: Cum all over da floor.
+  components:
+  - type: Action
+    icon: _Impstation/Actions/cum.png
+  - type: InstantAction
+    event: !type:ExcretionActionEvent

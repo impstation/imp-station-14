@@ -30,3 +30,7 @@ reagent-desc-estradiol = A fundamental bodily hormone, synthesized from cell mat
 
 reagent-name-bloodallulalo = methylated blood
 reagent-desc-bloodallulalo = An ancient alkylate form of blood. Known to rapidly evaporate if spilled.
+
+reagent-name-cum = cum
+reagent-desc-cum = Sexual fluid produced by some species.
+cum-failure-thirst = You're too dehydrated!
