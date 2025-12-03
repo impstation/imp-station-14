@@ -1,0 +1,317 @@
+- type: entity
+  name: Wizard's apprentice's apprentice
+  parent: MobMonkey
+  id: MobMonkeyMagic
+  description: Filled with magical potential, probably.
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-monkey-name
+    description: ghost-role-information-monkey-description
+    rules: ghost-role-information-familiar-rules
+  - type: GhostTakeoverAvailable
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 2
+    whitelist:
+      components:
+      - HumanoidAppearance
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Wizard
+  - type: HTN
+    rootTask:
+      task: MagicMonkeyCompound # RAGE RAGE RAGE
+  - type: BallisticAmmoProvider
+    proto: BulletLighterIncendiary
+    capacity: 500
+  - type: Gun
+    clumsyProof: true
+    fireRate: 1
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+    - VimPilot
+    - AnomalyHost
+  - type: Loadout
+    prototypes: [ MobMagicMonkeyGear ]
+
+- type: entity
+  name: wizspore
+  parent: MobSorb
+  id: MobWizSpore
+  description: Fungus but a bit more magical.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Animals/Magic/miniwiz.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: miniwiz
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: miniwiz
+      Dead:
+        Base: wizded
+  - type: BallisticAmmoProvider
+    proto: BulletLighterIncendiary
+    capacity: 500
+  - type: Gun
+    clumsyProof: true
+    fireRate: 0.4
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot: /Audio/Magic/fireball.ogg
+  - type: CombatMode
+  - type: HTN
+    rootTask:
+      task: MagicMonkeyCompound
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Wizard
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 4
+    whitelist:
+      components:
+      - HumanoidAppearance
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    - Dead
+    damageCap: 50
+    damage:
+      types:
+        Blunt: 0.11
+
+- type: entity
+  name: Grotesque
+  parent: [MobElementalBase, MobCombat]
+  id: MobRockMagic
+  description: Is it... a statue?
+  components:
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-rock-name
+    description: ghost-role-information-rock-desc
+    raffle:
+      settings: default
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Examiner
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3
+  - type: Sprite
+    sprite: _Impstation/Mobs/Animals/Magic/rock.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: rock
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - DoorBumpOpener
+      - FootstepSound
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      450: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_Impstation/Magic/magicrock.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ArtifactFragment:
+            min: 3
+            max: 5
+  - type: MeleeWeapon
+    attackRate: 1
+    hidden: true
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 40
+        Structural: 60
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepThud
+  - type: NpcFactionMember
+    factions:
+      - Wizard
+  - type: Speech
+    speechVerb: LargeMob
+    speechSounds: Vulpkanin
+  - type: ReplacementAccent
+    accent: crab
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: MeleeThrowOnHit
+    unanchorOnHit: true
+    speed: 15
+    distance: 4
+    stunTime: 10
+    activateOnThrown: true
+  - type: StatusEffects
+    allowed:
+    - SlowedDown
+    - TemporaryBlindness
+    - RadiationProtection
+    - Pacified
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Effects/break_stone.ogg
+
+- type: entity
+  name: spider
+  parent: MobGiantSpiderWizard
+  id: MobTinySpiderWizard
+  description: This spider looks little.
+  suffix: Wizard, Tiny
+  components:
+  - type: Accentless
+    removes:
+    - type: ReplacementAccent
+      accent: xeno
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
+  - type: Sprite
+    sprite: _Impstation/Magic/spider.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: spider
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: RandomChanceTriggerCondition
+    successChance: 1
+  - type: DamageOnTrigger
+    damage:
+      types:
+        Piercing: 50
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: NpcFactionMember
+    factions:
+      - Wizard
+
+- type: entity
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  id: MobLightSquid
+  name: glow squid
+  description: Apparently the paralarval form of an eeeplet.
+  components:
+  - type: MovementSpeedModifier
+    weightlessFriction: 1
+    weightlessFrictionNoInput: 1
+    weightlessAcceleration: 1.5
+  - type: Sprite
+    sprite: _Impstation/Mobs/Animals/Magic/light.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: light
+      shader: unshaded
+  - type: Bloodstream
+    bloodMaxVolume: 10
+    bloodReagent: WeldingCoils
+  - type: Appearance
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 100
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: petting-success-eeeplet
+    interactSuccessSound:
+      path: /Audio/Effects/pop.ogg
+    interactSuccessSpawn: EffectHearts
+  - type: PointLight
+    radius: 5
+    energy: 3
+    color: "#FFFFFF"
+    castShadows: true
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+  - type: MovementAlwaysTouching
+  - type: MovementIgnoreGravity
+    weightless: true
+  - type: Physics
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: NoSlip
+  - type: HTN
+    rootTask:
+      task: KisserTomatoCompound
+  - type: NPCImprintingOnSpawnBehaviour
+    whitelist:
+      components:
+      - HumanoidAppearance
+  - type: NpcFactionMember
+    factions:
+      - Wizard

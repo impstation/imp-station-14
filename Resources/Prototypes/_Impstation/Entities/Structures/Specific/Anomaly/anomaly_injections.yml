@@ -85,3 +85,41 @@
   - type: InjectableSolution
     solution: beaker
 
+# curse anom
+
+- type: entity
+  id: AnomalyInjectionCurse
+  parent: AnomalyInjectionBase
+  suffix: Curse
+  components:
+  - type: PointLight
+    color: "#9E00FF"
+    lightEnergy: 4
+    lightRadius: 15
+  - type: AmbientSound
+    volume: -6
+    range: 5
+    sound:
+      path: /Audio/Ambience/ambicave.ogg
+  - type: NoSlip
+  - type: CanMoveInAir
+  - type: MovementIgnoreGravity
+    weightless: true
+  - type: EntitySpawnAnomaly
+    entries:
+    - settings:
+        spawnOnPulse: true
+        minAmount: 1
+        maxAmount: 4
+        minRange: 1.5
+        maxRange: 2.5
+      spawns:
+      - FleshBlocker
+    - settings:
+        spawnOnSuperCritical: true
+        maxAmount: 3
+        minRange: 3
+        maxRange: 4.5
+      spawns:
+      - MobFleshJared
+
