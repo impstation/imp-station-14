@@ -44,13 +44,13 @@
   id: RadioStaticSecurity
   secret: true
   saySound:
-    path: /Audio/_Impstation/Effects/Radio/acre2_2.ogg
+    path: /Audio/_Impstation/Effects/Radio/acre2_beep-low.ogg
 
 - type: RadioStatic
   id: RadioStaticService
   secret: true
   saySound:
-    path: /Audio/_StarLight/Effects/Radio/ce2.ogg
+    path: /Audio/_Impstation/Effects/Radio/acre2_beep.ogg
 
 - type: RadioStatic
   id: RadioStaticSupply
@@ -68,7 +68,7 @@
   id: RadioStaticHandheld
   secret: false # this makes it audible to those nearby
   saySound:
-    path: /Audio/_Impstation/Effects/Radio/acre2_1.ogg
+    path: /Audio/_Impstation/Effects/Radio/acre2.ogg
 
 - type: RadioStatic
   id: RadioStaticBinary
