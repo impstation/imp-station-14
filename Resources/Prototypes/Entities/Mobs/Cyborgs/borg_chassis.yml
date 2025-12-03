@@ -109,6 +109,7 @@
   - type: BorgSwitchableType
     selectedBorgType: medical
 
+#imp start
 - type: entity
   id: BorgChassisService
   parent: BorgChassisSelectable
@@ -116,6 +117,15 @@
   components:
   - type: BorgSwitchableType
     selectedBorgType: service
+
+- type: entity
+  id: BorgChassisEntertainment
+  parent: BorgChassisSelectable
+  name: entertainment cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: entertainment
+#imp end
 
 - type: entity
   id: BorgChassisSyndicateAssault

@@ -7,3 +7,7 @@ borg-type-cargo-transponder = cargo cyborg
 borg-type-any-transponder = cyborg
 station-ai-transponder = station ai
 toggle-borg-pda = View PDA
+
+borg-type-entertainment-name = Entertainment
+borg-type-entertainment-desc = Entertain and socialize with the crew, whether through playing music or launching pies at their face.
+borg-type-entertainment-transponder = entertainment cyborg

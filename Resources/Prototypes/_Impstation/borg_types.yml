@@ -29,3 +29,84 @@
   spriteToggleLightState: cargo_l
 
   pdaBorderColor: "#e39751"
+
+- type: borgType
+  id: service
+
+  # Description
+  dummyPrototype: BorgChassisService
+
+  # Functional
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleService
+
+  addComponents:
+  - type: SolutionScanner #imp
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleService
+  - BorgModuleChef #imp special
+  - BorgModuleGardening #imp edit
+  - BorgModuleWardrobe #imp special
+
+  radioChannels:
+  - Science
+  - Service
+
+  # Visual
+  inventoryTemplateId: borgHumanoid
+  spriteBodyState: service_nb
+  spriteHasMindState: service_e
+  spriteNoMindState: service_e_r
+  spriteToggleLightState: service_l
+
+  # Pet
+  petSuccessString: petting-success-service-cyborg
+  petFailureString: petting-failure-service-cyborg
+
+  # Borg PDAs
+  pdaBorderColor: "#717059"
+  pdaAccentVerticalColor: "#00cc35"
+
+# Entertainment borg
+- type: borgType
+  id: entertainment
+
+  # Description
+  dummyPrototype: BorgChassisEntertainment
+
+  # Functional
+  extraModuleCount: 3
+  moduleWhitelist:
+    tags:
+    - BorgModuleGeneric
+    - BorgModuleService
+
+  defaultModules:
+  - BorgModuleTool
+  - BorgModuleMusique
+  - BorgModuleClowning
+  - BorgModuleArtistic
+  - BorgModuleWardrobe #imp special
+  radioChannels:
+  - Science
+  - Service
+
+  # Visual
+  inventoryTemplateId: borgHumanoid
+  spriteBodyState: service_nb
+  spriteHasMindState: service_e
+  spriteNoMindState: service_e_r
+  spriteToggleLightState: service_l
+
+  # Pet
+  petSuccessString: petting-success-service-cyborg
+  petFailureString: petting-failure-service-cyborg
+
+  # Borg PDAs
+  pdaBorderColor: "#717059"
+  pdaAccentVerticalColor: "#00cc35"
