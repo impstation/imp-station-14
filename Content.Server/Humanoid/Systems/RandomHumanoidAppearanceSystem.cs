@@ -1,8 +1,11 @@
 using Content.Server.CharacterAppearance.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes; // imp
 using Content.Shared.Preferences;
 using Content.Shared.Humanoid.Markings; // imp
+using Robust.Shared.Prototypes; // imp
 using Robust.Shared.Random; // imp
+using System.Linq; // imp
 
 namespace Content.Server.Humanoid.Systems;
 
@@ -11,6 +14,7 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly IRobustRandom _random = default!; // imp
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {
@@ -25,6 +29,20 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
         if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
         {
             return;
+        }
+
+        // Imp - Randomly select a species
+        if (component.Species != null)
+        {
+            var viableSpecies = _prototype.EnumeratePrototypes<SpeciesPrototype>()
+                .Where(x => x.RandomViable && !component.Species.Contains(x.ID))
+                .ToList();
+
+            if (viableSpecies.Count > 0)
+            {
+                var selectedSpecies = _random.Pick(viableSpecies);
+                _humanoid.SetSpecies(uid, selectedSpecies.ID, sync: false, humanoid);
+            }
         }
 
         var profile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
