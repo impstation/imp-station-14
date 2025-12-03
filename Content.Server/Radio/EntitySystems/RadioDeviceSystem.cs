@@ -192,7 +192,7 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
         var nameEv = new TransformSpeakerNameEvent(args.MessageSource, Name(args.MessageSource));
         RaiseLocalEvent(args.MessageSource, nameEv);
 
-        // Imp addition from Coyote for radio sounds
+        // Coyote Frontier edit for radio static effects
         var staticEv = new RadioReceivedEvent(
             uid,
             args.MessageSource,
@@ -201,7 +201,7 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
             args.Message
         );
         RaiseLocalEvent(uid, ref staticEv);
-        // end Imp-Coyote edit
+        // end Coyote edit
 
         var name = Loc.GetString("speech-name-relay",
             ("speaker", Name(uid)),

@@ -44,6 +44,7 @@ public sealed partial class RadioStaticComponent : Component
     /// If this is true, the radio will not play any static noise at all.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
+    // Imp edit to start disabled by default
     public bool OmniSquelch = true;
 
     /// <summary>

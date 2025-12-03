@@ -112,7 +112,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 
         if (TryComp(parent, out ActorComponent? actor))
         {
-            // Imp edit from Coyote for radio sounds
+            // Coyote Frontier edit for radio static effects
             var staticEv = new RadioReceivedEvent(
                 uid,
                 args.MessageSource,
@@ -125,5 +125,5 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
         }
     }
-            // end Imp-Coyote edit
+            // end Coyote edit
 }
