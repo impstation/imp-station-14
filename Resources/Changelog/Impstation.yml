@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Ecramox
-  changes:
-  - message: You can no longer speak into Greencomms through a headset. Intercoms
-      still work!
-    type: Tweak
-  id: 1960
-  time: '2025-07-02T06:37:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2931
 - author: DinnerCalzone
   changes:
   - message: Train's distro and waste pipe networks have been revamped to use pipe
@@ -4169,11 +4161,24 @@
     type: Tweak
   id: 2459
   time: '2025-12-02T06:05:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3780  
+  url: https://github.com/impstation/imp-station-14/pull/3780
+  url: https://github.com/impstation/imp-station-14/pull/3780
+- author: Kandiyaki, ASingularGrape, DVDPlayerOfDiscordFame, HeirDragonair, Mqole
+  changes:
+  - message: 'A new Heretic path: Hunt. Check the PR for more in-depth info!'
+    type: Add
+  - message: All existing side-path heretic knowledges have had their cost reduced
+      to 1 KP.
+    type: Tweak
+  - message: Removed the Ritual of Knowledge.
+    type: Remove
+  id: 2460
+  time: '2025-12-03T19:59:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3671
 - author: ZoewithRose
   changes:
   - message: Many reagents without a metamorphic glass texture have been given a potion one for all your potionselling needs.
     type: Add
   id: 2460
   time: '2025-12-03T16:00:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3798
+  url: https://github.com/impstation/imp-station-14/pull/3798  
