@@ -13,7 +13,7 @@ public sealed partial class ProjectileRedirectorComponent : Component
     /// What we reflect.
     /// </summary>
     [DataField]
-    public ReflectType Reflects = ReflectType.Energy | ReflectType.NonEnergy;
+    public ReflectType Reflects = ReflectType.NonEnergy; //HITSCAN REFLECTS ARE VISUALLY BUGGED AND ALSO PERFECT-ACCURACY HITSCAN IS CRAZY UNBALANCED. DON'T PUT HITSCANS ON THIS
 
     /// faction that redirected bullets won't be redirected towards.
     /// so you don't just shoot yourself every time.
