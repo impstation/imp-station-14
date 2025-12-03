@@ -1,75 +1,4 @@
 ﻿Entries:
-- author: jtfg-dev
-  changes:
-  - message: Gave some non-bullet guns proper descriptions.
-    type: Tweak
-  - message: Nanotrasen is still spelled Nanotrasen, we just made sure.
-    type: Fix
-  id: 1952
-  time: '2025-07-01T08:15:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2916
-- author: meridiadottxt
-  changes:
-  - message: added a spawner for mappers that selects between a blaster magnum, the
-      mule's leg, and the wt550 for HoS enrichment
-    type: Add
-  id: 1953
-  time: '2025-07-01T08:48:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2918
-- author: hivehum
-  changes:
-  - message: Happy pride month from Interdyne Pharmaceuticals!
-    type: Add
-  id: 1954
-  time: '2025-07-01T08:49:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2906
-- author: Mousetrinity
-  changes:
-  - message: 'floating flora from planet teo, now in your exotic seed crates! note:
-      NT tech cannot extract the uppisium at this time, please be patient as our strongest
-      teo researchers work to remedy this'
-    type: Add
-  id: 1955
-  time: '2025-07-01T08:52:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2864
-- author: hivehum
-  changes:
-  - message: me at bowls
-    type: Add
-  id: 1956
-  time: '2025-07-01T09:05:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2800
-- author: sev7ves
-  changes:
-  - message: Added clown related Thaven moods.
-    type: Add
-  id: 1957
-  time: '2025-07-01T09:05:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2704
-- author: maenyas, mqole, rainyatrium, LankLTE, ZigTag
-  changes:
-  - message: sheep can dream of robot. New synthetic trait!
-    type: Add
-  - message: two new drinks made with synthblood!
-    type: Add
-  id: 1958
-  time: '2025-07-01T15:23:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2903
-- author: TheLuggage05
-  changes:
-  - message: Moved the service request computer board to the HD locker, where it belongs.
-    type: Tweak
-  id: 1959
-  time: '2025-07-02T01:46:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2944
-- author: Ecramox
-  changes:
-  - message: You can no longer speak into Greencomms through a headset. Intercoms
-      still work!
-    type: Tweak
-  id: 1960
-  time: '2025-07-02T06:37:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2931
 - author: DinnerCalzone
   changes:
   - message: Train's distro and waste pipe networks have been revamped to use pipe
@@ -4165,3 +4094,83 @@
   id: 2451
   time: '2025-11-23T09:34:36.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3747
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Massively nerfed the HoP's origami skills so they can no longer make
+      their certificate look like a disabler.
+    type: Fix
+  id: 2452
+  time: '2025-11-26T21:08:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3769
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: the antique disabler's package doesn't look like a gun in your hands
+      anymore.
+    type: Fix
+  id: 2453
+  time: '2025-11-28T21:00:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3779
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The ERT Leader's XL8 is now a Valkyrie, which has been made to be more
+      like an XL8
+    type: Tweak
+  id: 2454
+  time: '2025-11-28T21:23:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3739
+- author: ComedyIdiot
+  changes:
+  - message: The PKA's recharge sound has been tweaked to sound like it used to back
+      in the good 'ol days of February 2025.
+    type: Tweak
+  id: 2455
+  time: '2025-11-28T21:54:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3758
+- author: Squamatic
+  changes:
+  - message: Ceremonies involving the traditional Gray blaster will now be held at
+      an appropriate volume.
+    type: Fix
+  id: 2456
+  time: '2025-11-30T05:07:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3784
+- author: Smugman
+  changes:
+  - message: Recruiters and Synthesis Specialists are less rare now
+    type: Tweak
+  - message: Treatcoins actually spawn properly despite full hands
+    type: Fix
+  id: 2457
+  time: '2025-12-01T22:57:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3736
+- author: Spung22
+  changes:
+  - message: Listening Post Operatives no longer have a species accent.
+    type: Tweak
+  - message: The Listening Post has received an upgrade! Including an intercomm and
+      document printer, as well as some extra goodies! See the full PR for details.
+    type: Tweak
+  - message: The Listening Post PDA is no longer an error.
+    type: Fix
+  id: 2458
+  time: '2025-12-02T02:21:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3699
+- author: kipdotnet
+  changes:
+  - message: Tck'aat's are a little less annoying now.
+    type: Tweak
+  id: 2459
+  time: '2025-12-02T06:05:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3780
+- author: Kandiyaki, ASingularGrape, DVDPlayerOfDiscordFame, HeirDragonair, Mqole
+  changes:
+  - message: 'A new Heretic path: Hunt. Check the PR for more in-depth info!'
+    type: Add
+  - message: All existing side-path heretic knowledges have had their cost reduced
+      to 1 KP.
+    type: Tweak
+  - message: Removed the Ritual of Knowledge.
+    type: Remove
+  id: 2460
+  time: '2025-12-03T19:59:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3671
