@@ -1,1 +1,0 @@
-guide-entry-heretics-hunt = Path of Hunt

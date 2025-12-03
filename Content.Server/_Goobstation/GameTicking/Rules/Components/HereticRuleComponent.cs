@@ -16,7 +16,6 @@ public sealed partial class HereticRuleComponent : Component
         //"HereticPathBlade", //TODO
         "HereticPathVoid",
         //"HereticPathRust", //TODO
-        "HereticPathHunt",
         "HereticPathSide"
     };
 }

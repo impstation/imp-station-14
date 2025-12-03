@@ -21,7 +21,7 @@
   icon: { sprite: _Goobstation/Heretic/eldritch_hood.rsi, state: icon }
   productHereticKnowledge: ArmorerRitual
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathSide
   conditions:
@@ -36,7 +36,7 @@
   icon: { sprite: _Goobstation/Heretic/items.rsi, state: eldritch_flask }
   productHereticKnowledge: PriestRitual
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathSide
   conditions:
@@ -45,13 +45,13 @@
   - !type:HereticPathCondition
 
 - type: listing
-  id: HereticSidePath3Mirror #imp
+  id: HereticSidePath3Mirror
   name: knowledge-path-side-s3-mirror-name
   description: knowledge-path-side-s3-mirror-desc
   icon: { sprite: _Impstation/Heretic/wildering_mirror.rsi, state: heretic-mirror-icon }
   productHereticKnowledge: HereticMirrorRitual
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
   categories:
   - HereticPathSide
   conditions:
@@ -60,13 +60,27 @@
   - !type:HereticPathCondition
 
 - type: listing
-  id: HereticSidePath3Key #imp
+  id: HereticSidePath3Key
   name: knowledge-path-side-s3-key-name
   description: knowledge-path-side-s3-key-desc
   icon: { sprite: _Impstation/Heretic/frangiclave.rsi, state: frangiclave }
   productHereticKnowledge: HereticKeyRitual
   cost:
-    KnowledgePoint: 1
+    KnowledgePoint: 2
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+
+- type: listing
+  id: HereticSidePathKnowledge
+  name: knowledge-path-side-s5-name
+  description: knowledge-path-side-s5-desc
+  productHereticKnowledge: RitualOfKnowledge
+  cost:
+    KnowledgePoint: 2
   categories:
   - HereticPathSide
   conditions:
