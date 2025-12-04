@@ -96,6 +96,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeAsh();
         SubscribeFlesh();
         SubscribeVoid();
+        SubscribeHunt();
     }
 
     private bool TryUseAbility(EntityUid ent, BaseActionEvent args)

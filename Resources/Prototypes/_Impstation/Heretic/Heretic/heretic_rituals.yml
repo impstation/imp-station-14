@@ -38,3 +38,72 @@
     Organ: 1
   output:
     HereticKeyThrowing: 1
+
+##hunt path
+- type: hereticRitual
+  id: BladeHunt
+  locName: knowledge-path-hunt-s1-name
+  locDesc: knowledge-path-hunt-s1-desc
+  icon:
+    sprite: _Impstation/Heretic/Hunt/hunt_revolver.rsi
+    state: icon
+  requiredTags:
+    Knife: 1
+    Sidearm: 1
+  output:
+    WeaponRevolverSerpentine: 1
+
+- type: hereticRitual
+  id: MeteoricPouch
+  locName: knowledge-path-hunt-s5-name
+  locDesc: knowledge-path-hunt-s5-desc
+  icon:
+    sprite: _Impstation/Heretic/Hunt/meteoric_pouch.rsi
+    state: base
+  requiredTags:
+    PillCanister: 1
+    Pipe: 1
+  output:
+    HereticAmmoPouch: 1
+
+- type: hereticRitual
+  id: LionhunterRifle
+  locName: knowledge-path-hunt-s7-name
+  locDesc: knowledge-path-hunt-s7-desc
+  icon:
+    sprite: _Impstation/Heretic/Hunt/lionhunter.rsi
+    state: base
+  requiredTags:
+    Sidearm: 1
+    Meat: 1
+    Eyes: 1
+  output:
+    WeaponSniperLionhunter: 1
+
+- type: hereticRitual
+  id: SkaptodonCloak
+  locName: knowledge-path-hunt-s8-name
+  locDesc: knowledge-path-hunt-s8-desc
+  icon:
+    sprite: _Impstation/Heretic/Hunt/skaptodon.rsi
+    state: icon
+  requiredTags:
+    Scarf: 1
+    GlassShard: 1
+    Brain: 1
+  output:
+    HereticSkaptodonCloak: 1
+
+- type: hereticRitual
+  id: AscensionHunt
+  locName: knowledge-path-hunt-s9-name
+  locDesc: knowledge-path-hunt-s9-desc
+  icon:
+    sprite: Structures/meat_spike.rsi
+    state: spike
+  customBehaviors:
+  - !type:RitualHuntAscendBehavior
+    min: 3
+    max: 3
+  outputKnowledge: ManhuntsReversal
+  outputEvent: !type:EventHereticAscension
