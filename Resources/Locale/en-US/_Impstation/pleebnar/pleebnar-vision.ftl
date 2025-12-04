@@ -592,7 +592,7 @@ pleebnar-vision-197 = A sprawling meadow, You really want to build a department 
 pleebnar-vision-197-name = Prime Realestate
 
 pleebnar-vision-198 = A late night run to the local gas station for snacks. They only have hotdogs in stock.
-pleebnar-vision-198-name =
+pleebnar-vision-198-name = Limited Selection
 
 pleebnar-vision-199 = What you were doing five seconds ago, seen from an outside perspective.
 pleebnar-vision-199-name = Hindsight
@@ -807,11 +807,11 @@ pleebnar-vision-268-name = BFFS
 pleebnar-vision-269 = A young Allulalo boarding a station for the very first time. They’re so nervous they can’t stop shaking. You can’t help but reach out and wave hello. A friendly face helps them calm down a little, but the vision fades before they can wave back.
 pleebnar-vision-269-name = Encouragenment
 
-pleebnar-vision-271 = A very old woman sitting on a wooden porch. A guitar is clutched in her hands, yet she’s too weak to play. Instead, she closes her eyes and remembers all the songs she’s played before, waiting for final curtain to fall. You can almost hear the music too. It’s beautiful.
-pleebnar-vision-271-name = An Ending.
+pleebnar-vision-270 = A very old woman sitting on a wooden porch. A guitar is clutched in her hands, yet she’s too weak to play. Instead, she closes her eyes and remembers all the songs she’s played before, waiting for final curtain to fall. You can almost hear the music too. It’s beautiful.
+pleebnar-vision-270-name = An Ending.
 
-pleebnar-vision-272 = Two men in the distance playing cards seen through a telescope, one pulls a gun and shoots the other.
-pleebnar-vision-272-name = Sore Loser
+pleebnar-vision-271 = Two men in the distance playing cards seen through a telescope, one pulls a gun and shoots the other.
+pleebnar-vision-271-name = Sore Loser
 
-pleebnar-vision-273 = Your family standing side by side, waving good bye.
-pleebnar-vision-273-name = Farewell.
+pleebnar-vision-272 = Your family standing side by side, waving good bye.
+pleebnar-vision-272-name = Farewell.
