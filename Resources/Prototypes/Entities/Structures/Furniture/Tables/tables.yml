@@ -25,7 +25,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: IconSmooth
-    key: state
+    key: tableframe # imp, from state
     base: state_
   - type: Destructible
     thresholds:
@@ -83,7 +83,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
   - type: IconSmooth
-    key: state
+    key: counterframe # imp, from state
     base: state_
   - type: Destructible
     thresholds:
@@ -126,7 +126,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: IconSmooth
-    key: state
+    key: counterframe # imp, from state
     base: state_
   - type: Destructible
     thresholds:
