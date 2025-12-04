@@ -240,7 +240,7 @@ pleebnar-vision-79-name = Late Night
 pleebnar-vision-80 = You and your worst enemy holding hands while skipping along and singing.
 pleebnar-vision-80-name = Enemies
 
-pleebnar-vision-81 = A human playing a game that seems all too familiar to you.
+pleebnar-vision-81 = someone watching you through a distant screen. They seem to be reading something off to the side. You try to wave at them, but they don’t seem to notice.
 pleebnar-vision-81-name = SS14
 
 pleebnar-vision-82 = A priest playing an organ, but with every note a jet of inky dark fluid flies out of the pipes.
@@ -536,3 +536,282 @@ pleebnar-vision-178-name = Burrito
 
 pleebnar-vision-179 = [No vision provided, this pleebnar has aphantasia and is self conscious about it.]
 pleebnar-vision-179-name = Aphantasia
+
+pleebnar-vision-180 = The light, you see the light!
+pleebnar-vision-180-name = Light
+
+pleebnar-vision-181 = You see the truth behind everything, the reason why. However, before you can process it vanishes as fast as it appeared.
+pleebnar-vision-181-name = The Truth
+
+pleebnar-vision-182 = A dancing skeleton.
+pleebnar-vision-182-name = Spooky
+
+pleebnar-vision-183 = A giant, whimsical lollipop.
+pleebnar-vision-183-name = Sweet
+
+pleebnar-vision-184 = An old man in a rocking chair yelling at you. You don't remember what you did to deserve this.
+pleebnar-vision-184-name = Retribution
+
+pleebnar-vision-185 = A little green alien putting a finger to its temple.
+pleebnar-vision-185-name = Deja Vu
+
+pleebnar-vision-186 = A tall, formally dressed man eating an unreasonable amount of cheese.
+pleebnar-vision-186-name = Decadence
+
+pleebnar-vision-187 = A young couple sharing a Philadelphia style cheesesteak.
+pleebnar-vision-187-name = Date
+
+pleebnar-vision-188 = Everyone you know, lining up to give you a hug. Some people seem to be missing.
+pleebnar-vision-188-name = Missing
+
+pleebnar-vision-189 = A green, ghostly apparition of your favourite thing to build. You feel compelled to make it.
+pleebnar-vision-189-name = Construction Ghost
+
+pleebnar-vision-190 = A colossal factory, run by laughing gnomes. They seem happy to see you.
+pleebnar-vision-190-name = Inside The Machine
+
+pleebnar-vision-191 = Tiny pleebnar shaped holes, bisecting several culturally significant landmarks.
+pleebnar-vision-191-name = Keyholes
+
+pleebnar-vision-192 = You and everyone else in this room arranged and sorted in such a way you feel compelled to replicate.
+pleebnar-vision-192-name = Sorting
+
+pleebnar-vision-193 = Your superior, telling you you've done a... Something job. You couldn't catch whether they said good or bad.
+pleebnar-vision-193-name = Feedback
+
+pleebnar-vision-194 = A kindly, wizened old man bathed in sunrays. "Get fucked" is written in cursive.
+pleebnar-vision-194-name = A kindly, wizened old man bathed in sunrays. "Get fucked" is written in cursive.
+
+pleebnar-vision-195 = Two gray aliens hitting each other with big mallets. You feel ashamed for watching...
+pleebnar-vision-195-name = Indecent
+
+pleebnar-vision-196 = A pristine landscape being enveloped by a swiftly encroaching red tendon-like moss.
+pleebnar-vision-196-name = Flesh
+
+pleebnar-vision-197 = A sprawling meadow, You really want to build a department store there.
+pleebnar-vision-197-name = Prime Realestate
+
+pleebnar-vision-198 = A late night run to the local gas station for snacks. They only have hotdogs in stock.
+pleebnar-vision-198-name =
+
+pleebnar-vision-199 = What you were doing five seconds ago, seen from an outside perspective.
+pleebnar-vision-199-name = Hindsight
+
+pleebnar-vision-200 = What you were about to do, seen from an outside perspective.
+pleebnar-vision-200-name = Foresight
+
+pleebnar-vision-201 = What you were planning on doing later tonight, seen from an outside perspective.
+pleebnar-vision-201-name = Premonition
+
+pleebnar-vision-202 = Spaghetti being cooked in a pan while someone reads what is evidently your eulogy.
+pleebnar-vision-202-name = Eulogy
+
+pleebnar-vision-203 = Two buisness men with sunglasses shaking hands in the road, one of the men is on fire.
+pleebnar-vision-203-name = Hot Deal
+
+pleebnar-vision-204 = A biomechanical coffin housing a strangely proportioned bald woman.
+pleebnar-vision-204-name = Stasis
+
+pleebnar-vision-205 = A poorly illustrated animal, bounding joyfully over a very real landscape.
+pleebnar-vision-205-name = Bounding
+
+pleebnar-vision-206 = A flock of animals, grazing peacefully.
+pleebnar-vision-206-name = Grazers
+
+pleebnar-vision-207 = A hot air balloon rising over a straight road, the image shifts in and out of focus
+pleebnar-vision-207-name = Calibration
+
+pleebnar-vision-208 = You, being tucked into bed by a frightening monster.
+pleebnar-vision-208-name = Bedtime
+
+pleebnar-vision-209 = Nothing good.
+pleebnar-vision-209-name = Nothing Good
+
+pleebnar-vision-210 = A fish with the face of a man.
+pleebnar-vision-210-name = Sea man
+
+pleebnar-vision-211 = The faint sound of a wind chime in the distance, dread washes over you.
+pleebnar-vision-211-name = Omen
+
+pleebnar-vision-212 = Candy being made by a skilled craftsman.
+pleebnar-vision-212-name = Artisan
+
+pleebnar-vision-213 = A beautiful jewel.
+pleebnar-vision-213-name = Jewel.
+
+pleebnar-vision-214 = A girl lifts a football just as you kick it...
+pleebnar-vision-214-name = Betrayal
+
+pleebnar-vision-215 = A man stands in front of you, while precariously close to the mouth of an industrial meat grinder.
+pleebnar-vision-215-name = Ignorant
+
+pleebnar-vision-216 = A grey wearing a propeller hat and holding a lollipop while riding a tricycle.
+pleebnar-vision-216-name = Youth
+
+pleebnar-vision-217 = Molecules overlayed with your face slowly being converted into molecules with the pleebnar's face overlayed.
+pleebnar-vision-217-name = Conquest
+
+pleebnar-vision-218 = A heavy anvil approaching from above, at terminal velocity.
+pleebnar-vision-218-name = Slapstick
+
+pleebnar-vision-219 = A large machine you feel compelled to get an extremity caught in.
+pleebnar-vision-219-name = Enticing Hazard
+
+pleebnar-vision-220 = Pleebnars running up and down a shoreline to avoid the waves.
+pleebnar-vision-220-name = Divine Punishment
+
+pleebnar-vision-221 = An orange that you should probably eat.
+pleebnar-vision-221-name = Fruit
+
+pleebnar-vision-222 = An endless desert with an oasis in the distance that you will never, ever reach.
+pleebnar-vision-222-name = Mirage
+
+pleebnar-vision-223 = Yourself alone on stage, singing to the rafters.
+pleebnar-vision-223-name = Rehersal
+
+pleebnar-vision-224 = A crude marionette sculpted in your visage, puppeteered in the midst of a crowded city street.
+pleebnar-vision-224-name = Puppetshow
+
+pleebnar-vision-225 = A crowded resteraunt. Its patrons notice you and scream in terror.
+pleebnar-vision-225-name = Party Crasher
+
+pleebnar-vision-226 = From behind a thick fog, rows of men in tall hats with brightly colored uniforms march forwards. They come to a stop and aim their muskets at you in unison.
+pleebnar-vision-226-name = Hunted
+
+pleebnar-vision-227 = A bright blue void. Despite thay lack of anything in sight, you feel like you are moving forwards with great speed. This lasts for what feels like hours until you see something coming into view. Something big. It sees you too.
+pleebnar-vision-227-name = Endless Blue
+
+pleebnar-vision-228 = Your vision freezes and fades to black. Credits roll.
+pleebnar-vision-228-name = Credits
+
+pleebnar-vision-229 = A little green man nailed to a cross.
+pleebnar-vision-229-name = Pleebus
+
+pleebnar-vision-230 = A delicious five course meal laid out on a table before you. Its warmth radiates on your face. You reach to serve yourself a plate, but your silverware just phases right through.
+pleebnar-vision-230-name = Tantalized
+
+pleebnar-vision-231 = Your vision freezes. A red circle fades in at a random spot in the corner, followed by a zoom on the same point. You cannot figure out what it's trying to highlight.
+pleebnar-vision-231-name = Scary Moment
+
+pleebnar-vision-232 = Suddenly, you are plunged into a pure black void. You look up to see your former surroundings, falling further away with every moment.
+pleebnar-vision-232-name = Descent
+
+pleebnar-vision-233 = The pleebnar doesn't seem to show you anything. You feel odd. You carry that oddness in you through the rest of your workday. Your shift finally ends, but you don't go home this time. You board a different shuttle, one you have not seen before. It is not a shuttle. It is a train car. The circus comes into view. You pick up your bindle and hop off the train, making your way towards the big striped tents. They welcome you with open arms. You belong here. You live out a full life at the circus. You feel fulfilled. This is what you were always meant to be. You are now in your deathbed, having reached a respectable age for a clown. Your clown family surrounds you, wiping their tears with comically long strings of handkerchiefs as they give their last goodbyes. They shove a pie in your face. And then, you are right back where you were.
+pleebnar-vision-233-name = False Awakening
+
+pleebnar-vision-234 = A two hour video essay detailing your incompetence.
+pleebnar-vision-234-name = Essay
+
+pleebnar-vision-235 = A pair of unbelievably old men engaged in a brutal slap-fight.
+pleebnar-vision-235-name = Grudge
+
+pleebnar-vision-236 = Your still face atop the body of an animated dancing elf.
+pleebnar-vision-236-name = Elf Yourself
+
+pleebnar-vision-237 = A small dog standing in the distance. A missile strikes it, leaving naught but a smoking crater.
+pleebnar-vision-237-name = Extermination
+
+pleebnar-vision-238 = An artisan hard at work on a beautiful microcline statue. The statue depicts the artisan working on this very same statue, itself depicting the same scene.
+pleebnar-vision-238-name = Recursion
+
+pleebnar-vision-239 = A brick on an elliptical arc towards your face.
+pleebnar-vision-239-name = Incoming
+
+pleebnar-vision-240 = Soft, spongy creatures swiftly yet painlessly cutting out your brains to bring you on an interstellar journey.
+pleebnar-vision-240-name = Adventure
+
+pleebnar-vision-241 = Two children, playing with a model space station. They seem amused to see you.
+pleebnar-vision-241-name = Action Figure
+
+pleebnar-vision-242 = An Evil Rock.
+pleebnar-vision-242-name = Evil Rock
+
+pleebnar-vision-243 = Just a total fucking mess. How the fuck did this even happen? This is unbelievable. You can barely even stand to give it the time of day.
+pleebnar-vision-243-name = Mess.
+
+pleebnar-vision-244 = You stand motionless. Hours pass, you stand motionless. Years, millenniums, eons pass. Still, you stand motionless.
+pleebnar-vision-244-name = Statue
+
+pleebnar-vision-245 = A woman sprinting forwards down a desert road. She is exhausted, agonized, but she cannot stop.
+pleebnar-vision-245-name = Imperative
+
+pleebnar-vision-246 = An orangutan slapping the floor.
+pleebnar-vision-246-name = Orangutan
+
+pleebnar-vision-247 = An old farmer in a rocking chair, watching the sunset.
+pleebnar-vision-247-name = Peaceful
+
+pleebnar-vision-248 = A carousel spinning.
+pleebnar-vision-248-name = Carousel.
+
+pleebnar-vision-249 = A PIG.
+pleebnar-vision-249-name = PIG
+
+pleebnar-vision-250 = A wretched little creature wiggling its fingers at you.
+pleebnar-vision-250-name = Wriggler.
+
+pleebnar-vision-251 = An apple, rotating in your mind.
+pleebnar-vision-251-name = Apple.
+
+pleebnar-vision-252 = The person you love the most transforming into a worm.
+pleebnar-vision-252-name = Worm
+
+pleebnar-vision-253 = A evil clone of yourself, they are wearing a ridiculous black leather trenchcoat.
+pleebnar-vision-253-name = Evil Clone
+
+pleebnar-vision-254 = A distressed peasant being held down and forced to take a puff on the vape.
+pleebnar-vision-254-name = Vape
+
+pleebnar-vision-255 = A tall cliff face, adorned with the large, carved faces of four seemingly-important figures. The faces are gradually shifting to resemble gigantic pleebnars.
+pleebnar-vision-255-name = Pleebnar Mountain
+
+pleebnar-vision-256 = A beautiful, picturesque sunset on the edge of a forest hill. A human child no older than 2 years, wearing a tuxedo suit, offers you a cigarette.
+pleebnar-vision-256-name = Picturesque Cigarette
+
+pleebnar-vision-257 = A large, metallic-orange chamber, fitted with a large beam-emitting device in the center. You reach for a set of handlebars in front of you, and begin to push...
+pleebnar-vision-257-name = Testing Chamber
+
+pleebnar-vision-258 = A perfect and platonic ideal of a hamburger is falling into place in slow motion. You watch, mesmerized, as the grease shimmers on the meat patty, and the lettuce moisture flickers in the light.
+pleebnar-vision-258-name = Perfect Hamburger
+
+pleebnar-vision-259 = A set of curtains in front of you. Your hands reach to open them, only to find more curtains behind it. And more. And more. And more...
+pleebnar-vision-259-name = Endless
+
+pleebnar-vision-260 = A wooden board with a rather oversized burger on top slides into view. You crane your neck closer in an effort to examine its delicate and precise construction, only to watch as it violently combusts.
+pleebnar-vision-260-name = Burger Destruction
+
+pleebnar-vision-261 = A dragon atop a car, and… no… it can’t be…
+pleebnar-vision-261-name = Dragon Car
+
+pleebnar-vision-262 = Someone in a red dress, crying on the steps of an indistinguishable building in the pouring rain. They have your face.
+pleebnar-vision-262-name = Tearful Mirror
+
+pleebnar-vision-263 = Everyone you’ve ever loved standing in a circle around you, clapping and cheering with smiles on their faces as they wish you congratulations.
+pleebnar-vision-263-name = Congratulations
+
+pleebnar-vision-264 = A younger version of yourself sleeping in your childhood bedroom. Cheap plastic stars dance on the ceiling overhead.
+pleebnar-vision-264-name = Artificial Stars
+
+pleebnar-vision-265 = An ivory serpent of unimaginable scale wrapped around the station. Noticing your gaze, he smiles at you tenderly. You find yourself staring at the ceiling as the vision fades.
+pleebnar-vision-265-name = Guardian
+
+pleebnar-vision-266 = A human teenager brushing their fingers across the strings of a gutar for the very first time. It sounds awful, but you’re filled with hope that they’ll get better with time.
+pleebnar-vision-266-name = A Beginning
+
+pleebnar-vision-267 = A staggering number of Grays jumping on a bed. One falls off and… well…
+pleebnar-vision-267-name = Jumping On A Bed
+
+pleebnar-vision-268 = A human child playing with a reptilian hatchling in a daycare tinted by golden light. You’re filled with hopeful certainty that they will be friends for life.
+pleebnar-vision-268-name = BFFS
+
+pleebnar-vision-269 = A young Allulalo boarding a station for the very first time. They’re so nervous they can’t stop shaking. You can’t help but reach out and wave hello. A friendly face helps them calm down a little, but the vision fades before they can wave back.
+pleebnar-vision-269-name = Encouragenment
+
+pleebnar-vision-271 = A very old woman sitting on a wooden porch. A guitar is clutched in her hands, yet she’s too weak to play. Instead, she closes her eyes and remembers all the songs she’s played before, waiting for final curtain to fall. You can almost hear the music too. It’s beautiful.
+pleebnar-vision-271-name = An Ending.
+
+pleebnar-vision-272 = Two men in the distance playing cards seen through a telescope, one pulls a gun and shoots the other.
+pleebnar-vision-272-name = Sore Loser
+
+pleebnar-vision-273 = Your family standing side by side, waving good bye.
+pleebnar-vision-273-name = Farewell.
