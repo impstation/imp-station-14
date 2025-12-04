@@ -61,9 +61,9 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
             return "";
 
         //get the punctuation from the end of the message because its what matters for formatting.
-        foreach (char c in Punctuation.Matches(messageWords[^1]))
+        foreach (Match c in Punctuation.Matches(messageWords[^1]))
         {
-            punct += c.ToString();
+            punct += c.Value;
         }
 
         foreach (var word in messageWords)// iterate through the words
