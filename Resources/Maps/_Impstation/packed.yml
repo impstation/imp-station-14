@@ -97694,22 +97694,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: WarpPointBombing
-  entities:
-  - uid: 6572
-    components:
-    - type: Transform
-      pos: 26.5,7.5
-      parent: 2
-    - type: BombingTarget
-      location: Clown Room
-  - uid: 6665
-    components:
-    - type: Transform
-      pos: 27.5,46.5
-      parent: 2
-    - type: BombingTarget
-      location: Bridge
 - proto: WashingMachine
   entities:
   - uid: 4090
