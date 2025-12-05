@@ -14,7 +14,7 @@
         - ReagentId: Water
           Quantity: 30
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Drinks/commandflask.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Flask/commandflask.rsi
     layers:
       - state: icon
         map: ["enum.OpenableVisuals.Layer"]
@@ -30,7 +30,7 @@
   description: It's got what Salvage Specialsts crave!
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Drinks/asterade.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Plastic/asterade.rsi
   - type: Item
     size: Small
   - type: Sealable
@@ -158,5 +158,5 @@
   - type: Label
     currentLabel: reagent-name-apple-martini-crystal-lite
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Drinks/applemartinicrystallitebottle.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Plastic/applemartinicrystallitebottle.rsi
   - type: Sealable

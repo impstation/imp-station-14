@@ -7,9 +7,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Heretic.Ritual;
 public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
 {
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    private IPrototypeManager _proto = default!;
-    private List<EntityUid> _burningUids = new();
+    private List<EntityUid> _usableUids = new();
 
     // check for burning corpses
     public override bool Execute(RitualData args, out string? outstr)
@@ -21,10 +19,10 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
         {
             if (args.EntityManager.TryGetComponent<FlammableComponent>(Uids[i], out var flam))
                 if (flam.OnFire)
-                    _burningUids.Add(Uids[i]);
+                    _usableUids.Add(Uids[i]);
         }
 
-        if (_burningUids.Count < Min)
+        if (_usableUids.Count < Min)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice-ash");
             return false;
@@ -39,7 +37,7 @@ public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior
         base.Finalize(args);
 
         // reset it because blehhh
-        _burningUids = new List<EntityUid>();
+        _usableUids = new List<EntityUid>();
         Uids = new List<EntityUid>();
     }
 }

@@ -67,7 +67,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -273,7 +273,7 @@
   description: A worn-down laser pistol that's clearly seen a lot of use. The battery has been damaged.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/bountyhunterantiquelaser.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/bountyhunterantiquelaser.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -281,7 +281,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/bountyhunterantiquelaser.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/bountyhunterantiquelaser.rsi #imp
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
