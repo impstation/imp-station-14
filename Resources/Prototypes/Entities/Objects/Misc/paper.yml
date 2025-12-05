@@ -46,12 +46,14 @@
     flavors:
     - paper
   - type: BadFood
+  - type: Extractable
+    grindableSolutionName: food # imp
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 1
         reagents:
-        - ReagentId: Fiber
+        - ReagentId: Pulp # imp
           Quantity: 1
   - type: Item
     size: Tiny

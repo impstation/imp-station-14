@@ -26,3 +26,17 @@
   effects:
     - !type:CreateEntityReactionEffect
       entity: FoodStringCheese
+
+- type: reaction
+  id: CreatePulpBall
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    Flour:
+      amount: 15
+    Water:
+      amount: 10
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodDough

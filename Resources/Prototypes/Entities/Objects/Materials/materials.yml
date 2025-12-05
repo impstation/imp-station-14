@@ -52,10 +52,10 @@
   - type: Appearance
   - type: Extractable
     grindableSolutionName: food #imp
-    juiceSolution: # imp
-      reagents:
-      - ReagentId: Cellulose
-        Quantity: 6
+    # juiceSolution: # imp, commented out at a later date
+    #   reagents:
+    #   - ReagentId: Cellulose
+    #     Quantity: 6
   - type: SolutionContainerManager
     solutions:
       food: #imp
@@ -306,10 +306,10 @@
     - DroneUsable #imp
   - type: Extractable
     grindableSolutionName: food #imp
-    juiceSolution: # imp
-      reagents:
-      - ReagentId: Cellulose
-        Quantity: 10
+  #   juiceSolution: # imp, commented out at a later date
+  #     reagents:
+  #     - ReagentId: Cellulose
+  #       Quantity: 10
   - type: SolutionContainerManager
     solutions:
       food: #imp
