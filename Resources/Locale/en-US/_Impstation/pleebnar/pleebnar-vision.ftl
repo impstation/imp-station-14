@@ -580,7 +580,7 @@ pleebnar-vision-193 = Your superior, telling you you've done a... Something job.
 pleebnar-vision-193-name = Feedback
 
 pleebnar-vision-194 = A kindly, wizened old man bathed in sunrays. "Get fucked" is written in cursive.
-pleebnar-vision-194-name = A kindly, wizened old man bathed in sunrays. "Get fucked" is written in cursive.
+pleebnar-vision-194-name = Get Fucked
 
 pleebnar-vision-195 = Two gray aliens hitting each other with big mallets. You feel ashamed for watching...
 pleebnar-vision-195-name = Indecent
@@ -805,13 +805,37 @@ pleebnar-vision-268 = A human child playing with a reptilian hatchling in a dayc
 pleebnar-vision-268-name = BFFS
 
 pleebnar-vision-269 = A young Allulalo boarding a station for the very first time. They’re so nervous they can’t stop shaking. You can’t help but reach out and wave hello. A friendly face helps them calm down a little, but the vision fades before they can wave back.
-pleebnar-vision-269-name = Encouragenment
+pleebnar-vision-269-name = Encouragement
 
 pleebnar-vision-270 = A very old woman sitting on a wooden porch. A guitar is clutched in her hands, yet she’s too weak to play. Instead, she closes her eyes and remembers all the songs she’s played before, waiting for final curtain to fall. You can almost hear the music too. It’s beautiful.
-pleebnar-vision-270-name = An Ending.
+pleebnar-vision-270-name = An Ending
 
 pleebnar-vision-271 = Two men in the distance playing cards seen through a telescope, one pulls a gun and shoots the other.
 pleebnar-vision-271-name = Sore Loser
 
 pleebnar-vision-272 = Your family standing side by side, waving good bye.
-pleebnar-vision-272-name = Farewell.
+pleebnar-vision-272-name = Farewell
+
+pleebnar-vision-273 = Your name on an incredibly long list entitled "Naughty".
+pleebnar-vision-273-name = Naughty List
+
+pleebnar-vision-274 = Your name on an incredibly long list entitled "Nice".
+pleebnar-vision-274-name = Nice List
+
+pleebnar-vision-275 = A luxury modern apartment; there is a pulsating mass of flesh on the floor.
+pleebnar-vision-275-name = Luxuriating
+
+pleebnar-vision-276 = The blueprints for a perpetual motion machine.
+pleebnar-vision-276-name = Perpetual Motion
+
+pleebnar-vision-277 = Your home; a family you don't recognize inhabits it. They seem happy.
+pleebnar-vision-277-name = Intruders?
+
+pleebnar-vision-278 = Dust, as far as you can see there is dust. Sometimes you recognize shapes in the dust, but they never linger.
+pleebnar-vision-278-name = Dust
+
+pleebnar-vision-279 = Someone you had forgotten, how did you forget them? They mean so much to you- The vision ends abruptly and the memories slip away from you.
+pleebnar-vision-279-name = Memorial
+
+pleebnar-vision-280 = An empty small town. Signs of life remain, as though all its citizens had left in a hurry. Everything is covered in dust.
+pleebnar-vision-280-name = Left Behind
