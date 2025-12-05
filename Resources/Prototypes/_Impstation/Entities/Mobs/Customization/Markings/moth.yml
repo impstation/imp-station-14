@@ -214,6 +214,42 @@
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: headtuft
 
+- type: marking
+  id: MothTuftBangs
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: tuftbangs
+
+- type: marking
+  id: MothVerticalTuft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: verticaltuft
+
+- type: marking
+  id: MothEmoTuft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: emotuft
+
+- type: marking
+  id: MothTinyTuft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: tinytuft
+
 # Snout
 
 - type: marking

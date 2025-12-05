@@ -65,6 +65,18 @@ marking-MothSlashRight-slashright = Claw Scars (Right)
 marking-MothHeadTuft = Tuft (Head Tuft)
 marking-MothHeadTuft-headtuft = Head Tuft
 
+marking-MothTuftBangs = Bangs (Tuft Bangs)
+marking-MothTuftBangs-tuftbangs = Tuft Bangs
+
+marking-MothVerticalTuft = Vertical (Vertical Tuft)
+marking-MothVerticalTuft-verticaltuft = Vertical Tuft
+
+marking-MothEmoTuft = Emo (Emo Tuft)
+marking-MothEmoTuft-emotuft = Emo Tuft
+
+marking-MothTinyTuft = Tiny (Tiny Tuft)
+marking-MothTinyTuft-tinytuft = Tiny Tuft
+
 # Snout
 
 marking-MouthpartsFulgoridae = Mouthparts (Fulgoridae)
