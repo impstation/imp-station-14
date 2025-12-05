@@ -6,7 +6,6 @@
   abstract: true
   components:
   - type: GoobAbsorbable
-    biomassRestored: 1.0
   - type: Hunger
     baseDecayRate: 0.02 # 30% ish more than default
   - type: Thirst
