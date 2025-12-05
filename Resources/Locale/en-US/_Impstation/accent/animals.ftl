@@ -101,3 +101,11 @@ accent-words-babyanom-3 = Blbl...
 accent-words-babyanom-4 = Blblbl?
 accent-words-babyanom-5 = Brbl.
 accent-words-babyanom-6 = Klklkl!
+
+#monkey
+accent-words-monkey-1 = o
+accent-words-monkey-1-suffix = k
+accent-words-monkey-2 = ooh
+accent-words-monkey-3 = a
+accent-words-monkey-3-suffix = h
+accent-words-monkey-4 = ah
