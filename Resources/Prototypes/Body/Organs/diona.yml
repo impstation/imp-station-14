@@ -6,7 +6,7 @@
   - type: Sprite
     sprite: Mobs/Species/Diona/organs.rsi
   - type: Organ
-  - type: Food
+  - type: Edible
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -19,7 +19,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Cellulose
           Quantity: 5
   - type: FlavorProfile
     flavors:
@@ -31,7 +31,7 @@
 
 - type: entity
   id: OrganDionaBrain
-  parent: BaseDionaOrgan
+  parent: BaseDionaOrgan #imp edit
   name: brain
   description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
   components:
@@ -92,7 +92,7 @@
       food:
         maxVol: 5
         reagents:
-        - ReagentId: UncookedAnimalProteins
+        - ReagentId: Cellulose
           Quantity: 5
   - type: Stomach
   - type: Metabolizer
@@ -146,6 +146,11 @@
       Lung:
         maxVol: 100
         canReact: False
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Cellulose
+          Quantity: 5
   - type: Tag # goob edit
     tags:
     - Meat

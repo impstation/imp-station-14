@@ -1,9 +1,8 @@
-﻿using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.EntityEffects.Effects;
+using Content.Shared.EntityEffects.Effects.Body;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Nutrition.Components;
@@ -143,6 +142,8 @@ public sealed partial class IngestionSystem
 
     public void SpawnTrash(Entity<EdibleComponent> entity, EntityUid? user = null)
     {
+        _projectile.RemoveEmbeddedChildren(entity); // imp edit
+
         if (entity.Comp.Trash.Count == 0)
             return;
 
@@ -228,7 +229,7 @@ public sealed partial class IngestionSystem
                     // ignores any effect conditions, just cares about how much it can hydrate
                     if (effect is SatiateHunger hunger)
                     {
-                        total += hunger.NutritionFactor * quantity.Quantity.Float();
+                        total += hunger.Factor * quantity.Quantity.Float();
                     }
                 }
             }
@@ -279,7 +280,7 @@ public sealed partial class IngestionSystem
                     // ignores any effect conditions, just cares about how much it can hydrate
                     if (effect is SatiateThirst thirst)
                     {
-                        total += thirst.HydrationFactor * quantity.Quantity.Float();
+                        total += thirst.Factor * quantity.Quantity.Float();
                     }
                 }
             }
