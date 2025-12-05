@@ -14,5 +14,5 @@ public sealed partial class HatedByDogsComponent : Component
     /// The faction added by the trait.
     /// </summary>
     [DataField]
-    public ProtoId<NpcFactionPrototype> Faction = "DogEnemy";
+    public ProtoId<NpcFactionPrototype> Faction = "DogHated";
 }
