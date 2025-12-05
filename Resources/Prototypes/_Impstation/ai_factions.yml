@@ -54,7 +54,11 @@
 - type: npcFaction
   id: Dog
   hostile:
-  - DogEnemy
+  - Courier
+  - DogHated #i know these seems redundant but there's a bug with faction clothing
 
 - type: npcFaction
-  id: DogEnemy
+  id: Courier
+
+- type: npcFaction
+  id: DogHated
