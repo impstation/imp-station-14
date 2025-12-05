@@ -115,3 +115,6 @@ trait-hefty-desc = You're heavier than average.
 trait-slight-name = Slight
 trait-slight-desc = You're lighter than average.
                        Incompatible with Hefty.
+
+trait-hated-by-dogs-name = Hated by dogs
+trait-hated-by-dogs-desc = Dogs will bark at you when you come near.
