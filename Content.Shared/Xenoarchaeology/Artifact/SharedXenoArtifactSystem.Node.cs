@@ -485,8 +485,8 @@ public abstract partial class SharedXenoArtifactSystem
         if (TryComp<XenoArtifactBiasedComponent>(ent, out var biasComp) &&
             _powerReceiver.IsPowered(biasComp.Provider) &&
             HasComp<AnalysisConsoleComponent>(biasComp.Provider) &&
-            GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity) != null &&
-            _powerReceiver.IsPowered(GetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity)!.Value))
+            GetEntity(GetNetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity)) != null &&
+            _powerReceiver.IsPowered(GetEntity(GetNetEntity(Comp<AnalysisConsoleComponent>(biasComp.Provider).AnalyzerEntity)!.Value)))
         {
             //advanced node scanner lets us go left or right if we're going deeper
             if (ent.Comp.AdvancedNodeScanner is { } scanner && _powerReceiver.IsPowered(scanner) && HasComp<AdvancedNodeScannerComponent>(scanner))

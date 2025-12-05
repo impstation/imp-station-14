@@ -21,6 +21,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Content.Shared._Impstation.Consume.Components;
 using Content.Shared._Impstation.Consume;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server._Impstation.Consume;
 
@@ -168,7 +169,7 @@ public sealed class ConsumeSystem : SharedConsumeSystem
         _forensics.TransferDna(args.Target.Value, ent, false);
 
         // Deal Damage
-        _damage.TryChangeDamage(args.Target, ent.Comp.Damage, true, false);
+        _damage.TryChangeDamage(args.Target.Value, ent.Comp.Damage, true, false);
 
         // Play Sound
         PlayMeatySound(ent);
