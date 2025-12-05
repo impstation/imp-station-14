@@ -639,7 +639,8 @@
 - type: tile
   id: FloorMono
   name: tiles-mono-floor
-  sprite: /Textures/_Impstation/Tiles/Steel/mono.png # Imp Edit
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_mono.png # Imp Edit
+  variants: 4
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
