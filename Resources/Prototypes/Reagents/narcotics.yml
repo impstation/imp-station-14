@@ -236,8 +236,7 @@
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
-    Poison:
-      effects:
+    Poison: #imp
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
