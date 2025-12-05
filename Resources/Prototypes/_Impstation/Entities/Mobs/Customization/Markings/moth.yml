@@ -204,6 +204,16 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
     state: slashright
+  coloring: followSkinColor
+    
+- type: marking
+  id: MothHeadTuft
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Moth ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Moth/head.rsi
+    state: headtuft
 
 # Snout
 
