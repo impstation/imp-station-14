@@ -6,8 +6,13 @@
   - type: Sprite
     layers:
     - state: default
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: idsupplyassistant
+    - state: stripe_top
+      color: "#b18644"
+    - state: stripe_bottom
+      color: "#5b4523"
+    - sprite: &dv-icon-rsi _DV/Interface/Misc/job_icons.rsi
+      offset: &icon-offset -0.09375, 0.0625 #3 pixels left, 2 pixels up
+      state: SupplyAssistant
   - type: PresetIdCard
     job: SupplyAssistant
 
@@ -19,8 +24,13 @@
   - type: Sprite
     layers:
     - state: silver
-    - sprite: _DV/Objects/Misc/id_cards.rsi
-      state: idadminassistant
+    - state: stripe_top
+      color: "#1b67a5"
+    - state: stripe_bottom
+      color: "#0e4069"
+    - sprite: *dv-icon-rsi
+      offset: *icon-offset
+      state: AdminAssistant
   - type: Item
     heldPrefix: silver
   - type: PresetIdCard
