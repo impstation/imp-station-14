@@ -1,47 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Train's distro and waste pipe networks have been revamped to use pipe
-      layering.
-    type: Add
-  - message: Amber, Bagel, Cog, Hummingbird, Marathon, Oasis, Omega, Plasma, Saltern,
-      and Train now feature sentry turrets.
-    type: Add
-  id: 1961
-  time: '2025-07-02T07:13:37.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2946
-- author: britno
-  changes:
-  - message: Made it so you can purchase irwizine and tranquiliser darts from cargo.
-      Get 5 of each for the low, low price of 2000 spesos!
-    type: Add
-  - message: Goliaths, Hive Lords, Hive Lord Spawn and Basalisks now can process chemicals!
-      Zookeepers looking for more dangerous game may now tame these creatures.
-    type: Fix
-  id: 1962
-  time: '2025-07-02T07:13:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2924
-- author: DinnerCalzone
-  changes:
-  - message: Firelocks and shutters can now close over SmartFridges.
-    type: Tweak
-  id: 1963
-  time: '2025-07-02T07:14:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2941
-- author: honeyed-lemons
-  changes:
-  - message: Major revamp to Box's atmos
-    type: Tweak
-  id: 1964
-  time: '2025-07-02T07:14:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2943
-- author: Stonylogray
-  changes:
-  - message: Increased the time total time between round to 15 minutes.
-    type: Tweak
-  id: 1965
-  time: '2025-07-02T07:15:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2942
 - author: Pinkbat5
   changes:
   - message: Department lockboxes are now equipped with anti-tamper acidifiers.
@@ -4174,3 +4131,40 @@
   id: 2460
   time: '2025-12-03T19:59:20.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3671
+- author: hivehum
+  changes:
+  - message: The quick construction menu for wood and metal rods are a bit better
+      than before.
+    type: Tweak
+  id: 2461
+  time: '2025-12-05T10:09:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3771
+- author: hivehum
+  changes:
+  - message: Ungu and Allulalo are now complex lifeforms, legally speaking.
+    type: Fix
+  id: 2462
+  time: '2025-12-05T10:05:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3802
+- author: DinnerCalzone, mqole, DVDPlayer
+  changes:
+  - message: A new upstream merge has been merged, up to date with Wizden's October
+      27th merge. View changelog for full details.
+    type: Add
+  id: 2463
+  time: '2025-12-05T10:03:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3793
+- author: 12rabbits
+  changes:
+  - message: Mimes can no longer use AAC tablets without first breaking their vow.
+    type: Tweak
+  id: 2464
+  time: '2025-12-05T10:04:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3781
+- author: 12rabbits
+  changes:
+  - message: Cyborgs now receive notifications for new unread NanoChat messages.
+    type: Fix
+  id: 2465
+  time: '2025-12-05T10:06:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3776

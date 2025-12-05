@@ -6,7 +6,9 @@ using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
@@ -25,6 +27,7 @@ using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -104,7 +107,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     break;
                 // hopefully damage only walls and cyborgs
                 if (HasComp<BorgChassisComponent>(target) || !HasComp<StatusEffectsComponent>(target))
-                    _damage.SetAllDamage(target, dmg, 50f);
+                    _damage.SetAllDamage((target, dmg), 50f);
                 break;
 
             case "Void":
