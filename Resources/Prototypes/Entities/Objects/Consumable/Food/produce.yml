@@ -199,7 +199,7 @@
   - type: Item
     heldPrefix: produce
   - type: SolutionContainerManager
-  - type: Extractable
+  - type: Extractable #imp added sap juicing
     juiceSolution:
       reagents:
       - ReagentId: Sap
