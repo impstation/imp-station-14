@@ -104,7 +104,7 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
         if (direction == Vector2.Zero)
             return;
 
-        if (_whitelistSystem.IsBlacklistPass(ent.Comp.Blacklist, target))   //imp addition
+        if (_whitelistSystem.IsWhitelistPass(ent.Comp.Whitelist, target))   //imp addition
             return;
 
         _throwing.TryThrow(target, direction.Normalized() * ent.Comp.Distance, ent.Comp.Speed, user, unanchor: ent.Comp.UnanchorOnHit);

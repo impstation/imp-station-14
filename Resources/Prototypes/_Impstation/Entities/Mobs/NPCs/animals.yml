@@ -34,7 +34,7 @@
         amount: 4
     - type: MeleeThrowOnHit
       unanchorOnHit: true
-      blacklist:
+      whitelist:
         components:
         - WallMount
         - Airtight

@@ -33,7 +33,7 @@ public sealed partial class MeleeThrowOnHitComponent : Component
     /// Filter what entities can be unanchored when UnanchorOnHit is true. #IMP addition
     /// </summary>
     [DataField]
-    public EntityWhitelist? Blacklist;
+    public EntityWhitelist? Whitelist;
 
     /// <summary>
     /// How long should this stun the target, if applicable?
