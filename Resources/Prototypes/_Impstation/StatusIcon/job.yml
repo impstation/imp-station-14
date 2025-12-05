@@ -2,7 +2,7 @@
   parent: JobIcon
   id: JobIconCourier
   icon:
-    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi # imp
     state: Courier
   jobName: job-name-courier
 
@@ -10,7 +10,7 @@
   parent: JobIcon
   id: JobIconHospitalityDirector
   icon:
-    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi # imp
     state: HospitalityDirector
   jobName: job-name-courier
 
@@ -18,15 +18,15 @@
   parent: JobIcon
   id: JobIconDeathsquad
   icon:
-    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
-    state: Deathsquad
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi # imp
+    state: DeathSquad
   jobName: job-name-deathsquad
 
 - type: jobIcon
   parent: JobIcon
   id: JobIconCBURN
   icon:
-    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi # imp
     state: CBURN
   jobName: job-name-cburn
 
@@ -34,7 +34,7 @@
   parent: JobIcon
   id: JobIconERTLeader
   icon:
-    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi # imp
     state: ERTLeader
   jobName: job-name-ertleader
 
@@ -42,7 +42,7 @@
   parent: JobIcon
   id: JobIconERTSecurity
   icon:
-    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi # imp
     state: ERTSecurity
   jobName: job-name-ertsecurity
 
@@ -50,7 +50,7 @@
   parent: JobIcon
   id: JobIconERTMedic
   icon:
-    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi # imp
     state: ERTMedical
   jobName: job-name-ertmedic
 
@@ -58,7 +58,7 @@
   parent: JobIcon
   id: JobIconERTEngineer
   icon:
-    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi # imp
     state: ERTEngineer
   jobName: job-name-ertengineer
 
@@ -66,7 +66,7 @@
   parent: JobIcon
   id: JobIconERTJanitor
   icon:
-    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi # imp
     state: ERTJanitor
   jobName: job-name-ertjanitor
 
@@ -74,7 +74,7 @@
   parent: JobIcon
   id: JobIconERTChaplain
   icon:
-    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi # imp
     state: ERTChaplain
   jobName: job-name-ertchaplain
 
@@ -82,5 +82,5 @@
   parent: JobIcon
   id: JobIconAssistant
   icon:
-    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi
+    sprite: /Textures/_Impstation/Interface/Misc/job_icons.rsi # imp
     state: Assistant

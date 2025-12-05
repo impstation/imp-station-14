@@ -154908,29 +154908,6 @@ entities:
       parent: 1
     - type: WarpPoint
       location: chapel
-- proto: WarpPointBombing
-  entities:
-  - uid: 7647
-    components:
-    - type: Transform
-      pos: 3.5,25.5
-      parent: 1
-    - type: WarpPoint
-      location: Med
-  - uid: 13877
-    components:
-    - type: Transform
-      pos: 2.5,38.5
-      parent: 1
-    - type: WarpPoint
-      location: Surgery
-  - uid: 22589
-    components:
-    - type: Transform
-      pos: -37.5,37.5
-      parent: 1
-    - type: BombingTarget
-      location: Bar
 - proto: WashingMachine
   entities:
   - uid: 9913
