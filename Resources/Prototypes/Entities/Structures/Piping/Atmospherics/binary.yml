@@ -547,7 +547,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/vent.rsi
+      sprite: _Impstation/Structures/Piping/Atmospherics/vent.rsi #imp
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeBinaryConnectors
@@ -615,10 +615,13 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/gasrecycler.rsi
+    snapCardinals: true
+    granularLayersRendering: true
     layers:
     - sprite: Structures/Piping/Atmospherics/pipe.rsi
       state: pipeBinaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
+      renderingStrategy: Default
     - state: running
     - state: unlit
       shader: unshaded
@@ -674,6 +677,12 @@
     board: GasRecyclerMachineCircuitboard
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasValve
+  - type: Transform
+    noRot: false
+  - type: GuideHelp
+    guides:
+    - GasRecycling
+  - type: TegCirculator
 
 - type: entity
   parent: GasBinaryBase

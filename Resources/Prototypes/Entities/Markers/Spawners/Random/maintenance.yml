@@ -117,7 +117,7 @@
         - id: ClothingNeckCloakPan
         - id: ClothingNeckCloakBear # imp
         - id: ClothingNeckCloakStraight # imp
-      - id: ToySkeleton
+      - id: ToyFigurineSkeleton
       - id: Basketball
       - id: Football
       - id: TennisBall
@@ -193,9 +193,9 @@
   components:
   - type: Sprite
     layers:
-    - state: red
-    - sprite: Clothing/Eyes/Glasses/gar.rsi
-      state: icon-super
+      - state: red
+      - sprite: Clothing/Eyes/Glasses/gar.rsi
+        state: icon-super
   - type: EntityTableSpawner
     table: !type:NestedSelector
       tableId: MaintFluffTable
@@ -340,6 +340,7 @@
       weight: 95
       children:
       - id: Machete
+      - id: Claymore
       - id: BaseBallBat
       - id: CombatKnife
       - id: Spear
