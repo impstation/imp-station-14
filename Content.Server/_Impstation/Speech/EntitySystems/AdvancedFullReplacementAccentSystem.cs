@@ -19,8 +19,10 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ILocalizationManager _loc = default!;
 
-    private static readonly Regex AllCaps = new Regex("^\\P{Ll}*$");
-    private static readonly Regex Punctuation = new Regex("[.?!]");
+    private static readonly Regex AllCaps = new ("^\\P{Ll}*$");
+    private static readonly Regex Punctuation = new ("[.?!]");
+    private static readonly Regex RegexIUpperLeft = new(@"(?<=\b[A-Z]+.)\b([\P{Lu}\P{Ll}]\P{Ll}+)\b");
+    private static readonly Regex RegexIUpperRight = new(@"\b([\P{Lu}\P{Ll}]\P{Ll}+)\b(?=.[A-Z]+\b)");
 
     private readonly Dictionary<ProtoId<AdvancedFullReplacementAccentPrototype>, (CachedWord cached, float weight)[]>
         _cachedReplacements = new();
@@ -90,7 +92,7 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
             {
                 replacedWord=replacement.Word;
             }
-            //if its just upper case I we don't wanna make it uppercase.
+            //if its just upper case I we don't wanna make it Allcaps.
 
             if (isAllCaps&&!word.Equals("I"))
                 replacedWord=replacedWord.ToUpper();
@@ -101,6 +103,10 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
         replacedMessage = replacedMessage.TrimStart();
         if (replacedMessage.Length>1)
             replacedMessage = replacedMessage[0].ToString().ToUpper()+replacedMessage.Substring(1);
+        if (RegexIUpperLeft.IsMatch(replacedMessage)||RegexIUpperRight.IsMatch(replacedMessage))
+        {
+            replacedMessage = replacedMessage.ToUpper();
+        }
         replacedMessage += punct;
         return replacedMessage;
     }
