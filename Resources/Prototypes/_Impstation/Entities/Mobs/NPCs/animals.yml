@@ -46,6 +46,7 @@
       tags:
         - DoorBumpOpener
         - FootstepSound
+        - BoarFriend
     - type: Fixtures
       fixtures:
         fix1:
@@ -72,6 +73,10 @@
         NavSmash: !type:Bool
           true
     - type: NPCImprintingOnSpawnBehaviour
+      spawnFriendsSearchRadius: 3
+      whitelist:
+        tags:
+        - BoarFriend
     - type: Hunger
       baseDecayRate: 0.3
     - type: Thirst
