@@ -3,7 +3,7 @@
   suffix: Tck'aat Follow target
   parent: BaseItem
   name: tck'aat RFID chip
-  description: An imperial RFID beacon that any nearby tck'aat's will follow. It magnetically snaps to similar chips for convenient storage in case you have multiple. You may need to place it on the floor once so they can see it.
+  description: An imperial RFID beacon that any nearby tck'aat's will follow. It magnetically snaps to similar chips for convenient storage in case you have multiple.
   components:
   - type: TckAFollowTarget
   - type: Sprite
@@ -80,5 +80,15 @@
   - type: Appearance
   - type: SpawnItemsOnUse
     items:
-      - id: MobTckA
       - id: TckABeacon
+      - id: MobTckA
+      - id: TckAManual
+    sound: /Audio/Items/toolbox_open.ogg
+
+- type: entity
+  id: TckAManual
+  parent: Paper
+  components:
+  - type: Paper
+  - type: RandomPaperContent
+    dataset: TckAManual

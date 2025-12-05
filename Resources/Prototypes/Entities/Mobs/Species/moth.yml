@@ -5,7 +5,6 @@
   id: BaseMobMoth
   abstract: true
   components:
-  - type: GoobAbsorbable
   - type: HumanoidAppearance
     species: Moth
     hideLayersOnEquip:

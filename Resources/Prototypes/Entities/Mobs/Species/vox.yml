@@ -3,7 +3,6 @@
   id: BaseMobVox
   abstract: true
   components:
-  - type: GoobAbsorbable
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -16,13 +15,13 @@
   - type: Speech
     speechVerb: Vox
     speechSounds: Vox
-    allowedEmotes: ['Hiss', 'Chitter', 'Coo', 'Caw'] #imp
+    allowedEmotes: ['Click', 'Chitter', 'Hiss', 'Coo', 'Caw'] #imp, hiss, coo, caw
   - type: TypingIndicator
     proto: vox
   - type: Vocal
     sounds:
-      Male: MaleVox
-      Female: FemaleVox
+      Male: MaleVox #imp
+      Female: FemaleVox #imp
       Unsexed: UnisexVox
   - type: Butcherable
     butcheringType: Spike

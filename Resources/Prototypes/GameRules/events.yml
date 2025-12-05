@@ -485,7 +485,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 60 #imp. original 90
+    earliestStart: 75 #imp. original 90, dropped to 60, increased to 75
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1

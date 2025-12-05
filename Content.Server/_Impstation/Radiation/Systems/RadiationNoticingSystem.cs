@@ -7,7 +7,8 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
-using System.Linq;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Server.Radiation.Systems;
 
@@ -46,7 +47,7 @@ public sealed class RadiationNoticingSystem : EntitySystem
         }
 
         //Raise event to get all armor/shield/etc resistances
-        var ev = new DamageModifyEvent(damage, null, true);
+        var ev = new DamageModifyEvent(damage);
         RaiseLocalEvent(uid, ev);
         damage = ev.Damage;
 

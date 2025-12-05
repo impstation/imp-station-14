@@ -13,8 +13,8 @@
       - !type:SatiateHunger
         factor: 0.5
         conditions:
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
+          inverted: true
       - !type:SatiateThirst
         factor: -0.5 # high salt content

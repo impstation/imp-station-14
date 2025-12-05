@@ -244,7 +244,7 @@ namespace Content.Server.Lathe
                 var currentRecipe = _proto.Index(comp.CurrentRecipe.Value);
                 if (currentRecipe.Result is { } resultProto)
                 {
-                    var result = Spawn(resultProto, Transform(uid).Coordinates);
+                    var result = Spawn(resultProto, _transform.GetMapCoordinates(uid)); //imp edit - use map coords so handheld lathes don't attach to their holders
                     _stack.TryMergeToContacts(result);
                 }
 

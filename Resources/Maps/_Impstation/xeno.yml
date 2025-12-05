@@ -46795,7 +46795,6 @@ entities:
     - type: Transform
       pos: -20.5,-25.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconAtmospherics
   entities:
   - uid: 5694
@@ -46829,7 +46828,6 @@ entities:
     - type: Transform
       pos: -48.5,-45.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconBrigMed
   entities:
   - uid: 7204
@@ -46844,7 +46842,6 @@ entities:
     - type: Transform
       pos: -42.5,-54.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconCargoBay
   entities:
   - uid: 16244
@@ -46852,7 +46849,6 @@ entities:
     - type: Transform
       pos: 24.5,-97.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconCargoReception
   entities:
   - uid: 16243
@@ -46881,7 +46877,6 @@ entities:
     - type: Transform
       pos: 19.5,-72.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconCMORoom
   entities:
   - uid: 16267
@@ -46889,7 +46884,6 @@ entities:
     - type: Transform
       pos: 11.5,-16.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconCryosleep
   entities:
   - uid: 16223
@@ -46983,7 +46977,6 @@ entities:
     - type: Transform
       pos: 14.5,-59.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconHOSRoom
   entities:
   - uid: 7202
@@ -46998,7 +46991,6 @@ entities:
     - type: Transform
       pos: -8.5,-51.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconKitchen
   entities:
   - uid: 16228
@@ -47034,7 +47026,6 @@ entities:
     - type: Transform
       pos: 14.5,-29.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconMorgue
   entities:
   - uid: 9870
@@ -47049,7 +47040,6 @@ entities:
     - type: Transform
       pos: 46.5,-17.5
       parent: 2
-    - type: BombingTarget
     - type: NavMapBeacon
       defaultText: Genpop
 - proto: DefaultStationBeaconPowerBank
@@ -47066,7 +47056,6 @@ entities:
     - type: Transform
       pos: 9.5,-88.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconRDRoom
   entities:
   - uid: 5092
@@ -47088,7 +47077,6 @@ entities:
     - type: Transform
       pos: 51.5,-99.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconScience
   entities:
   - uid: 16215
@@ -47096,7 +47084,6 @@ entities:
     - type: Transform
       pos: -6.5,-21.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconSecurity
   entities:
   - uid: 7211
@@ -47125,7 +47112,6 @@ entities:
     - type: Transform
       pos: -23.5,-71.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconSolars
   entities:
   - uid: 16263
@@ -47251,7 +47237,6 @@ entities:
     - type: Transform
       pos: 10.5,-41.5
       parent: 2
-    - type: BombingTarget
 - proto: DefaultStationBeaconWardensOffice
   entities:
   - uid: 13933
@@ -124714,64 +124699,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: WarpPointBombing
-  entities:
-  - uid: 19746
-    components:
-    - type: Transform
-      pos: -51.5,-46.5
-      parent: 2
-    - type: BombingTarget
-      location: bridge
-  - uid: 19747
-    components:
-    - type: Transform
-      pos: 10.5,-42.5
-      parent: 2
-    - type: BombingTarget
-      location: vault
-  - uid: 19748
-    components:
-    - type: Transform
-      pos: 16.5,-30.5
-      parent: 2
-    - type: BombingTarget
-      location: medical
-  - uid: 19749
-    components:
-    - type: Transform
-      pos: -23.5,-63.5
-      parent: 2
-    - type: BombingTarget
-      location: engineering smeses
-  - uid: 19750
-    components:
-    - type: Transform
-      pos: 19.5,-73.5
-      parent: 2
-    - type: BombingTarget
-      location: chemistry
-  - uid: 19751
-    components:
-    - type: Transform
-      pos: 32.5,-43.5
-      parent: 2
-    - type: BombingTarget
-      location: bar
-  - uid: 19752
-    components:
-    - type: Transform
-      pos: 49.5,-19.5
-      parent: 2
-    - type: BombingTarget
-      location: brig
-  - uid: 19753
-    components:
-    - type: Transform
-      pos: 60.5,-56.5
-      parent: 2
-    - type: BombingTarget
-      location: armory
 - proto: WashingMachine
   entities:
   - uid: 8064

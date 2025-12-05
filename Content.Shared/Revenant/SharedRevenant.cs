@@ -42,15 +42,6 @@ public sealed class HarvestDoAfterCancelled : EntityEventArgs
 {
 }
 
-public sealed partial class RevenantShopActionEvent : InstantActionEvent
-{
-}
-
-// imp add
-public sealed partial class RevenantHauntActionEvent : InstantActionEvent
-{
-}
-
 public sealed partial class RevenantDefileActionEvent : InstantActionEvent
 {
 }
@@ -68,6 +59,9 @@ public sealed partial class RevenantMalfunctionActionEvent : InstantActionEvent
 }
 
 // imp start
+public sealed partial class RevenantHauntActionEvent : InstantActionEvent
+{
+}
 public sealed partial class RevenantBloodWritingEvent : InstantActionEvent
 {
 }

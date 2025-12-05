@@ -19,8 +19,8 @@
   femaleFirstNames: NamesVox
   naming: First
   sexes:
-  - Male
-  - Female
+  - Male #imp
+  - Female #imp
   - Unsexed
 
 - type: speciesBaseSprites
@@ -59,7 +59,7 @@
       points: 1
       required: false
     Head:
-      points: 2
+      points: 4
       required: false #imp
     HeadSide: #imp
       points: 2
@@ -88,13 +88,13 @@
     Chest:
       points: 2
       required: false
-    Overlay:
+    Overlay: #imp
       points: 4
       required: false
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ VoxTailBack ]
+      defaultMarkings: [ VoxTailBack ] #imp
 
 - type: humanoidBaseSprite
   id: MobVoxEyes

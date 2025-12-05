@@ -155,6 +155,11 @@
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [2, 3, 4]
+    - id: XenoArtifactHostileFaunaSpawn
+      weight: 10.0
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4]
     - id: XenoArtifactCashSpawn
       weight: 10.0 # imp edit
       conditions:
@@ -1222,15 +1227,7 @@
       deleteSpawnerAfterSpawn: false
       table: !type:GroupSelector
         children:
-        - id: MobAdultSlimesYellowAngry
-        - id: MobAngryBee
-        - id: MobBearSpace
-        - id: MobXenoRavager
-        - id: MobTick
-        - id: MobSpiderSpace
-        - id: MobPurpleSnake
         - id: MobMouse
-        - id: MobKangarooSpace
         - id: MobPig
         - id: MobParrot
         - id: MobKangaroo
@@ -1258,6 +1255,33 @@
             range: 1, 3
         - id: MobMonkeySyndicateAgent #so lucky
           prob: 0.03
+
+- type: entity
+  id: XenoArtifactHostileFaunaSpawn
+  parent: BaseXenoArtifactEffect
+  description: Create hostile fauna
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 4
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 3
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: MobAdultSlimesYellowAngry
+        - id: MobAngryBee
+        - id: MobBearSpace
+        - id: MobXenoRavager
+        - id: MobTick
+        - id: MobSpiderSpace
+        - id: MobPurpleSnake
+        - id: MobKangarooSpace
 
 - type: entity
   id: XenoArtifactCashSpawn

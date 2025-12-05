@@ -50,18 +50,20 @@
       Plastic: 50
   - type: Tag
     tags:
-      - DroneUsable #No bucket because it holds chems, they can drag the cart or use a drain
+      - DroneUsable #imp edit, no bucket because it holds chems, they can drag the cart or use a drain
       - Mop
       - MopBasic
   - type: GuideHelp
     guides:
     - Janitorial
   - type: DnaSubstanceTrace
-  - type: DamageOtherOnHit # imp
+  # imp edit start
+  - type: DamageOtherOnHit
     damage:
       types:
         Blunt: 6
     staminaCost: 8
+  # imp edit end
 
 - type: entity
   parent: BaseItem
@@ -124,15 +126,17 @@
           maxVol: 100
     - type: Tag
       tags:
-        - DroneUsable #No bucket because it holds chems, they can drag the cart or use a drain
+        - DroneUsable #imp edit, no bucket because it holds chems, they can drag the cart or use a drain
         - Mop
         - MopAdv
     - type: DnaSubstanceTrace
-    - type: DamageOtherOnHit # imp
+    # imp edit start
+    - type: DamageOtherOnHit
       damage:
         types:
           Blunt: 6
       staminaCost: 8
+    # imp edit end
 
 - type: entity
   name: wet floor sign
@@ -376,7 +380,6 @@
         - DroneUsable #imp edit
         - Mop
         - DampRag #imp edit
-    - type: CleansForensics
     - type: Fiber
       fiberColor: fibers-white
     - type: DnaSubstanceTrace

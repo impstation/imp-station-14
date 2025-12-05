@@ -37,16 +37,16 @@
             Poison: .2
             Caustic: .2
         conditions:
-        - !type:Breathing
-        - !type:Internals
-          usingInternals: false
+        - !type:BreathingCondition
+        - !type:InternalsCondition
+          inverted: true
       - !type:Emote
         emote: Cough
         showInGuidebook: true
         conditions:
-        - !type:Breathing
-        - !type:Internals
-          usingInternals: false
+        - !type:BreathingCondition
+        - !type:InternalsCondition
+          inverted: true
   tileReactions:
   - !type:CleanTileReaction
     cleanCost: .125 #cleans reagents in puddles at a 1:8 ratio, twice as efficient as space cleaner
@@ -85,22 +85,28 @@
     Food:
       metabolismRate: 0.4 # imp - accent lasts for like 15 seconds otherwise
       effects:
-      #- !type:ChemVomit # imp - sorry i thought of something funnier
+      #- !type:Vomit #imp, replaced with accent status effect
       #  conditions:
-      #  - !type:ReagentThreshold
+      #  - !type:ReagentCondition
+      #    reagent: SoapReagent
+      #    min: 6
+      #  probability: 0.20
+      - !type:GenericStatusEffect # imp TODO:update with status effect refactor
+        key: PGAccent
+        component: PGAccent
+    Drink:
+      metabolismRate: 0.4 # imp - accent lasts for like 15 seconds otherwise
+      effects:
+      #- !type:Vomit #imp, replaced with accent status effect
+      #  conditions:
+      #  - !type:ReagentCondition
+      #    reagent: SoapReagent
       #    min: 6
       #  probability: 0.20
       - !type:GenericStatusEffect # imp
         key: PGAccent
         component: PGAccent
-    #Drink: # imp
-    #  effects:
-      #- !type:ChemVomit
-      #  conditions:
-      #  - !type:ReagentThreshold
-      #    min: 6
-      #  probability: 0.20
-  #imp edit start
+      #imp edit start TODO: add a soapy water reagent that has this effect and remove this from soap
   tileReactions:
   - !type:CleanTileReaction
     cleanCost: .5 #cleans reagents in puddles at a 1:2 ratio, 1/2 as efficient as space cleaner
@@ -142,8 +148,8 @@
     Acidic:
       methods: [ Touch ]
       effects:
-      # pva glue? no, antibiotic glue for sealing wounds
-      - !type:ModifyBleedAmount
+      # pva glue? no, atileRentibiotic glue for sealing wounds
+      - !type:ModifyBleed
         amount: -1.5
   metabolisms:
     Narcotic:
@@ -157,8 +163,6 @@
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
-        type: Add
         time: 5
-        refresh: false
   footstepSound:
     collection: FootstepSlime

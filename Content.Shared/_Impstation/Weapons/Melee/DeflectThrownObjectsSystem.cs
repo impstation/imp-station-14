@@ -2,6 +2,7 @@ using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;

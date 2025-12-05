@@ -132,9 +132,9 @@
       - !type:SatiateHunger
         factor: 0.5
         conditions: # imp
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
+          inverted: true
       - !type:SatiateThirst
         factor: -0.5 # high salt content
 
@@ -170,9 +170,8 @@
         factor: -0.5
       - !type:HealthChange #start imp
         conditions:
-        - !type:OrganType
-          type: Snail
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Snail ]
         damage:
           types:
             Poison: 4
@@ -201,9 +200,9 @@
       - !type:SatiateHunger
         factor: 6.0 #Stronger than cookedramen
         conditions: # imp
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
+          inverted: true
   footstepSound:
     collection: FootstepSlime
     params:

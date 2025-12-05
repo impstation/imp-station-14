@@ -85,8 +85,10 @@
     key: enum.ShortConstructionUiKey.Key
   - type: ShortConstruction
     prototypes:
-    - Grille
-    - Table
+      - Catwalk
+      - Grille
+      - Railing
+      - Table
   - type: PluralName
     oneOf: plural-name-a
     someOf: plural-name-bundle-1

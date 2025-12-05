@@ -1,6 +1,7 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
@@ -107,7 +108,7 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
 
             comp.NextDamage = curTime + TimeSpan.FromSeconds(1f);
 
-            _damageable.TryChangeDamage(comp.Embedded, comp.Damage, false, false, comp.EmbeddedDamageable);
+            _damageable.TryChangeDamage((comp.Embedded.Value, comp.EmbeddedDamageable), comp.Damage, false, false);
         }
     }
 }

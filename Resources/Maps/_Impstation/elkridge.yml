@@ -118610,36 +118610,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: WarpPointBombing
-  entities:
-  - uid: 3962
-    components:
-    - type: Transform
-      pos: -9.5,-26.5
-      parent: 2
-    - type: BombingTarget
-      location: brig
-  - uid: 8815
-    components:
-    - type: Transform
-      pos: 1.5,0.5
-      parent: 2
-    - type: BombingTarget
-      location: bar
-  - uid: 13493
-    components:
-    - type: Transform
-      pos: -26.5,-2.5
-      parent: 2
-    - type: BombingTarget
-      location: captain's office
-  - uid: 14663
-    components:
-    - type: Transform
-      pos: 36.5,9.5
-      parent: 2
-    - type: BombingTarget
-      location: medbay
 - proto: WashingMachine
   entities:
   - uid: 4176

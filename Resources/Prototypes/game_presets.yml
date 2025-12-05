@@ -5,7 +5,7 @@
   name: survival-title
   showInVote: false # secret
   description: survival-description
-  cooldown: 2
+  cooldown: 2 # imp edit
   rules:
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
@@ -22,7 +22,7 @@
   name: kessler-syndrome-title
   showInVote: false # secret
   description: kessler-syndrome-description
-  cooldown: 1
+  cooldown: 1 # imp edit
   rules:
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
@@ -41,8 +41,8 @@
     - Traitor
     - Revolutionary
     - Zombie
-    - Changeling
-    - Heretic
+    - Changeling # imp edit
+    - Heretic # imp edit
     - Wizard
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
@@ -64,8 +64,8 @@
     - Traitor
     - Revolutionary
     - Zombie
-    - Changeling
-    - Heretic
+    - Changeling # imp edit
+    - Heretic # imp edit
     - Wizard
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
@@ -150,13 +150,13 @@
   description: traitor-description
   showInVote: false
   rules:
-    - DummyNonAntagChance
-    - Traitor
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
+  - DummyNonAntagChance
+  - Traitor
+  - SubGamemodesRuleNoWizard
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
 
 - type: gamePreset
   id: Deathmatch
@@ -178,15 +178,15 @@
   name: nukeops-title
   description: nukeops-description
   showInVote: false
-  cooldown: 1
+  cooldown: 1 # imp edit
   rules:
-    - Nukeops
-    - DummyNonAntagChance
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
+  - Nukeops
+  - DummyNonAntagChance
+  - SubGamemodesRuleNoWizard
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
 
 - type: gamePreset
   id: Revolutionary
@@ -198,13 +198,13 @@
   description: rev-description
   showInVote: false
   rules:
-    - DummyNonAntagChance
-    - Revolutionary
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
+  - DummyNonAntagChance
+  - Revolutionary
+  - SubGamemodesRuleNoWizard
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
 
 - type: gamePreset
   id: Wizard
@@ -233,7 +233,7 @@
   name: zombie-title
   description: zombie-description
   showInVote: false
-  cooldown: 1
+  cooldown: 1 # imp edit
   rules:
   - Zombie
   - BasicStationEventScheduler
@@ -250,7 +250,7 @@
   name: zombieteors-title
   description: zombieteors-description
   showInVote: false
-  cooldown: 1
+  cooldown: 1 # imp edit
   rules:
   - Zombie
   - BasicStationEventScheduler

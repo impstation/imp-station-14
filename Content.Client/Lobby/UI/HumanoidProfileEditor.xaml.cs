@@ -6,8 +6,8 @@ using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;
 using Content.Client.Message;
 using Content.Client.Players.PlayTimeTracking;
-using Content.Client.Sprite;
 using Content.Client.Stylesheets;
+using Content.Client.Sprite;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing;
@@ -570,7 +570,7 @@ namespace Content.Client.Lobby.UI
                     {
                         Text = Loc.GetString(category.Name),
                         Margin = new Thickness(0, 10, 0, 0),
-                        StyleClasses = { StyleBase.StyleClassLabelHeading },
+                        StyleClasses = { StyleClass.LabelHeading },
                     });
                 }
 
@@ -622,11 +622,15 @@ namespace Content.Client.Lobby.UI
                 // Selection counter
                 if (category is { MaxTraitPoints: >= 0 })
                 {
-                    TraitsList.AddChild(new Label
+                    if (category.MaxTraitPoints != null) //imp - extremely stupid null check because rider isn't happy about the potential of subtracting from a nullable int
                     {
-                        Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", category.MaxTraitPoints - selectionCount)), // imp edit -- count points backwards
-                        FontColorOverride = Color.Gray
-                    });
+                        int maxPoints = (int)category.MaxTraitPoints; //imp - cast to a non-nullable int
+                        TraitsList.AddChild(new Label
+                        {
+                            Text = Loc.GetString("humanoid-profile-editor-trait-count-hint", ("current", maxPoints - selectionCount)), // imp edit -- count points backwards
+                            FontColorOverride = Color.Gray
+                        });
+                    }
                 }
 
                 // imp addition start:
@@ -692,6 +696,7 @@ namespace Content.Client.Lobby.UI
             _species.Clear();
 
             _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart));
+            _species.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.CurrentCultureIgnoreCase));
             var speciesIds = _species.Select(o => o.ID).ToList();
 
             for (var i = 0; i < _species.Count; i++)
@@ -1446,7 +1451,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             const string style = "SpeciesInfoDefault";
-            SpeciesInfoButton.StyleClasses.Add(style);
+            SpeciesInfoButton.StyleIdentifier = style;
         }
 
         private void UpdateMarkings()

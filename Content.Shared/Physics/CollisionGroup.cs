@@ -24,6 +24,7 @@ public enum CollisionGroup
     InteractImpassable = 1 << 7, // 128 Blocks interaction/InRangeUnobstructed
     // Y dis door passable when all the others impassable / collision.
     DoorPassable       = 1 << 8, // 256 Allows door to close over top, Like blast doors over conveyors for disposals rooms/cargo.
+    Mobs               = 1 << 9, // 512 living things (IMP EDIT!)
 
     MapGrid = MapGridHelpers.CollisionGroup, // Map grids, like shuttles. This is the actual grid itself, not the walls or other entities connected to the grid.
 
@@ -35,17 +36,17 @@ public enum CollisionGroup
 
     // Humanoids, etc.
     MobMask = Impassable | HighImpassable | MidImpassable | LowImpassable,
-    MobLayer = Opaque | BulletImpassable,
+    MobLayer = Opaque | BulletImpassable | Mobs, //IMP EDIT: add "mobs"
     // Mice, drones
     SmallMobMask = Impassable | LowImpassable,
-    SmallMobLayer = Opaque | BulletImpassable,
+    SmallMobLayer = Opaque | BulletImpassable | Mobs, //IMP EDIT: add "mobs"
     // Birds/other small flyers
     FlyingMobMask = Impassable | HighImpassable,
-    FlyingMobLayer = Opaque | BulletImpassable,
+    FlyingMobLayer = Opaque | BulletImpassable | Mobs, //IMP EDIT: add "mobs"
 
     // Mechs
     LargeMobMask = Impassable | HighImpassable | MidImpassable | LowImpassable,
-    LargeMobLayer = Opaque | HighImpassable | MidImpassable | LowImpassable | BulletImpassable,
+    LargeMobLayer = Opaque | HighImpassable | MidImpassable | LowImpassable | BulletImpassable | Mobs, //IMP EDIT: add "mobs"
 
     // Machines, computers
     MachineMask = Impassable | MidImpassable | LowImpassable,

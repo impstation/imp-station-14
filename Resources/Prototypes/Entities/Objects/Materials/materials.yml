@@ -332,26 +332,8 @@
     key: enum.ShortConstructionUiKey.Key
   - type: ShortConstruction
     prototypes:
-    - TileWood
-    - TileWoodBlack
-    - TileWoodChess
-    - TileWoodChessBlack
-    - TileWoodChessDark
-    - TileWoodChessLight
-    - TileWoodChessRed
-    - TileWoodDark
-    - TileWoodLarge
-    - TileWoodLargeBlack
-    - TileWoodLargeDark
-    - TileWoodLargeLight
-    - TileWoodLargeRed
-    - TileWoodLight
-    - TileWoodParquet
-    - TileWoodParquetBlack
-    - TileWoodParquetDark
-    - TileWoodParquetLight
-    - TileWoodParquetRed
-    - TileWoodRed
+    - Barricade
+    - BarricadeDirectional
   - type: PluralName
     oneOf: plural-name-plank-1
     someOf: plural-name-plank-2plus

@@ -21,7 +21,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.4
   metabolisms:
     Poison:
@@ -32,5 +32,5 @@
             Heat: 2
             Poison: 1
             Caustic: 0.5
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.4

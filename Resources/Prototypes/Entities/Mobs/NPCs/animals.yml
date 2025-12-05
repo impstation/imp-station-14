@@ -411,7 +411,7 @@
   - type: Bloodstream
     bloodReagent: InsectBlood
     bloodMaxVolume: 20
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - horrible
@@ -1433,6 +1433,7 @@
   abstract: true
   components:
   - type: CombatMode
+    canDisarm: true
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1553,7 +1554,7 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   - type: Crawler
   # imp edit start
   - type: Blindable
@@ -1936,7 +1937,7 @@
         Base: dead-0
       Dead:
         Base: splat-0
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - meaty
@@ -2624,7 +2625,7 @@
   - type: MobMover
   - type: HTN
     rootTask:
-      task: GrenadePenguinCompound # imp
+      task: GrenadePenguinCompound
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -2664,7 +2665,7 @@
     sprite: Mobs/Animals/grenadepenguin.rsi
   - type: TriggerOnUse
   - type: TimerTrigger
-    delay: 15 #imp
+    delay: 10
     beepSound:
       path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg #funny sfx use
       params:
@@ -2672,9 +2673,9 @@
     beepInterval: 1
   - type: Explosive
     explosionType: Default
-    maxIntensity: 10 # imp
-    intensitySlope: 20
-    totalIntensity: 225
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 150
   - type: ExplodeOnTrigger
     keysIn:
     - timer
@@ -3894,7 +3895,7 @@
         Base: dead-0
       Dead:
         Base: splat-0
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - meaty

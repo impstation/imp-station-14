@@ -53,7 +53,7 @@
     CorgiJuice:
       amount: 100
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: MobCorgi
 
 - type: reaction

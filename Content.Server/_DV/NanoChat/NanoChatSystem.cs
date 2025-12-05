@@ -11,6 +11,7 @@ using Content.Shared.PDA;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Silicons.Borgs.Components; // imp
 
 namespace Content.Server._DV.NanoChat;
 
@@ -149,6 +150,11 @@ public sealed class NanoChatSystem : SharedNanoChatSystem
         // Assign a random number
         _name.GenerateUniqueName(ent, _nameIdentifierGroup, out var number);
         ent.Comp.Number = (uint)number;
+
+        // imp - notifications for borgs
+        if (HasComp<BorgChassisComponent>(ent))
+            ent.Comp.PdaUid = ent.Owner;
+
         Dirty(ent);
     }
 }

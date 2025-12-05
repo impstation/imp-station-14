@@ -1,13 +1,28 @@
 # Static
 
 - type: latheRecipePack
+  id: ImpTopicalsStatic
+  recipes:
+  - SimpleSuture
+  - ElectrodePad
+  - Tincture
+  - ShockGel
+  - ColdPack
+  - EZGraft
+
+- type: latheRecipePack
+  id: ImpChemistryStatic
+  recipes:
+  - ConicalFlask
+  - LargeConicalFlask
+
+- type: latheRecipePack
   id: ImpMedStatic
   recipes:
   - BaseChemistryEmptyVial
   - PrescriptionLens
   - PrescriptionLensStrong
   - BlindingLens
-  - Dropper
   - WalkingCane
   - AACTablet
 

@@ -1,6 +1,6 @@
 - type: entity
   id: LockerWardenFilledHardsuit
-  suffix: Filled, Hardsuit
+  suffix: Filled, Hardsuit, Weapon #imp edit, specify weapon vs. no weapon lockers
   parent: LockerWarden
   components:
   - type: EntityTableContainerFill
@@ -11,16 +11,26 @@
           tableId: FillLockerWarden
         - !type:NestedSelector
           tableId: FillLockerWardenHarduit
+        # imp edit start
+        - !type:NestedSelector
+          tableId: FillLockerWardenWeapon #e-shotgun was removed from locker upstream to be manually mapped from spawner, moved to entityTable here and added to base lockers to avoid mapping changes
+        # imp edit end
 
 - type: entity
   id: LockerWardenFilled
-  suffix: Filled
+  suffix: Filled, Weapon #imp edit, specify weapon vs. no weapon lockers
   parent: LockerWarden
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage: !type:NestedSelector
-        tableId: FillLockerWarden
+      entity_storage: !type:AllSelector #imp, changed from NestedSelector to AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillLockerWarden
+        # imp edit start
+        - !type:NestedSelector
+          tableId: FillLockerWardenWeapon #e-shotgun was removed from locker upstream to be manually mapped from spawner, moved to entityTable here and added to base lockers to avoid mapping changes
+        # imp edit end
 
 - type: entityTable
   id: FillLockerWarden
@@ -28,6 +38,7 @@
     children:
     - id: FlashlightSeclite
     - id: WeaponDisabler
+    - id: WeaponTaser
     - id: ClothingBeltSecurityFilled
     - id: Flash
     - id: ClothingEyesGlassesSecurity
@@ -45,13 +56,14 @@
       amount: 2
     - id: NetworkConfigurator
     - id: Binoculars
-    - id: WeaponEnergyShotgun
-    - id: ClothingHeadsetWarden #imp
-    - id: TicketPad #imp special
-    - id: BoxToken #imp
-    - id: BaseSeclinkRadio #imp
-    - id: TckutFlatpack # imp
+    # imp edit start
+    - id: ClothingHeadsetWarden
+    - id: TicketPad
+    - id: BoxToken
+    - id: BaseSeclinkRadio
+    - id: TckutFlatpack
     - id: Multitool
+    # imp edit end
 
 - type: entityTable
   id: FillLockerWardenHarduit
@@ -78,6 +90,7 @@
     - id: FlashlightSeclite
       prob: 0.8
     #- id: WeaponDisabler #imp, included in SecLink
+    - id: WeaponTaser
     - id: ClothingUniformJumpsuitSecGrey
       prob: 0.3
     - id: ClothingHeadHelmetBasic
@@ -95,13 +108,15 @@
       prob: 0.6
     - id: BookSpaceLaw
       prob: 0.5
-    - id: TicketPad #imp special
-    - id: BaseSeclinkRadio #imp
-    - !type:GroupSelector #imp edit
+    # imp edit start
+    - id: TicketPad
+    - id: BaseSeclinkRadio
+    - !type:GroupSelector
       children:
         - id: ClothingOuterArmorBasic
         - id: ClothingOuterArmorDuraVest
         - id: ClothingOuterArmorPlateCarrier
+    # imp edit end
 
 - type: entity
   id: LockerBrigmedicFilled
@@ -119,6 +134,7 @@
     children:
     - id: ClothingEyesGlassesSecurity
     #- id: WeaponDisabler #imp, included in SecLink
+    - id: WeaponTaser
     - id: TrackingImplanter
       amount: 2
     - id: ClothingOuterHardsuitBrigmedic
@@ -147,8 +163,10 @@
         weight: 1.8
     - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
       prob: 0.15
-    - id: TicketPad #imp special
-    - id: BaseSeclinkRadio #imp
+    # imp edit start
+    - id: TicketPad
+    - id: BaseSeclinkRadio
+    # imp edit end
 
 - type: entity
   id: LockerDetectiveFilled
@@ -180,9 +198,11 @@
     - id: HoloprojectorSecurity
     - id: BoxEvidenceMarkers
     - id: HandLabeler
-    - id: BoxTapeRecorder # DeltaV
-    - id: HandheldCriminalRecords #imp
-    - id: SpeedLoaderMagnum #imp
+    # imp edit start
+    - id: BoxTapeRecorder
+    - id: HandheldCriminalRecords
+    - id: SpeedLoaderMagnum
+    # imp edit end
 
 - type: entity
   id: ClosetBombFilled

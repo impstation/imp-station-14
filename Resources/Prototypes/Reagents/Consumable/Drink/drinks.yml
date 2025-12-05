@@ -453,63 +453,58 @@
     Gas:
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         ignoreResistances: true
         conditions:
-        - !type:OrganType
-          type: Slime
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
         damage:
           types:
             Heat: 3
 # imp edits start, vapour breathers
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
-          type: Decapoid
+        - !type:MetabolizerTypeCondition
+          type: [ Decapoid, Thaven ] # thaven can breathe all gases safely
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
-          type: Decapoid
+        - !type:MetabolizerTypeCondition
+          type: [ Decapoid ]
         ratios:
           Ammonia: 1.0
           WaterVapor: -1.0
-      - !type:Oxygenate # thaven can breathe all gases safely
-        conditions:
-        - !type:OrganType
-          type: Thaven
       - !type:SatiateThirst # thaven breathing water vapor get thirsty slower
         conditions:
-        - !type:OrganType
-          type: Thaven
+        - !type:MetabolizerTypeCondition
+          type: [ Thaven ]
         factor: 0.1
       - !type:PopupMessage # for apids. they're bees, they get calm if you smoke 'em
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Water
           min: 0.5
-        - !type:OrganType
-          type: Apid
+        - !type:MetabolizerTypeCondition
+          type: [ Apid ]
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Water
           min: 1
-        - !type:OrganType
-          type: Apid
+        - !type:MetabolizerTypeCondition
+          type: [ Apid ]
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Water
           min: 1.8
-        - !type:OrganType
-          type: Apid
+        - !type:MetabolizerTypeCondition
+          type: [ Apid ]
         key: ForcedSleep
         component: ForcedSleeping
         time: 3
@@ -522,16 +517,22 @@
   desc: reagent-desc-ice
   slipData:
     requiredSlipSpeed: 3.5
+  evaporationSpeed: 0.15 # TODO: Ideally Ice should just turn into Water if the room is warm enough (and vis versa), rather than Ice directly evaporating
   physicalDesc: reagent-physical-desc-frosty
   flavor: cold
   color: "#bed8e6"
   recognizable: true
   meltingPoint: 0.0
   boilingPoint: 100.0
-  friction: 0.05 #Copied from Ice Crust
+  friction: 0.05 # Copied from Ice Crust
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3 # Slightly worse for quenching thirst than just straight water
   plantMetabolism:
   - !type:PlantAdjustWater
-    amount: 1
+    amount: 1 # The internet tells me I should avoid watering plants with ice, but mostly because of temperature, so this value being the same as water should probably be fine?
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/iceglass.rsi
     state: icon_empty
@@ -618,9 +619,8 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Snail
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Snail ]
         damage:
           types:
             Poison: 4

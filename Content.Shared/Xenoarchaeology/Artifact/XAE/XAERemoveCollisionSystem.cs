@@ -14,12 +14,12 @@ public sealed class XAERemoveCollisionSystem : BaseXAESystem<XAERemoveCollisionC
     /// <inheritdoc />
     protected override void OnActivated(Entity<XAERemoveCollisionComponent> ent, ref XenoArtifactNodeActivatedEvent args)
     {
-        if (!TryComp<FixturesComponent>(args.Artifact, out var fixtures)) //#IMP ent.Owner -> args.Artifact
+        if (!TryComp<FixturesComponent>(args.Artifact, out var fixtures))
             return;
 
         foreach (var fixture in fixtures.Fixtures.Values)
         {
-            _physics.SetHard(args.Artifact, fixture, false, fixtures); //#IMP ent.Owner -> args.Artifact
+            _physics.SetHard(args.Artifact, fixture, false, fixtures);
         }
     }
 }

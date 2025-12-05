@@ -1,0 +1,13 @@
+- type: latheRecipe
+  parent: BaseAmmoBoxRecipe
+  id: MagazineBox45Meteoric
+  result: MagazineBoxMagnumMeteoric
+  materials:
+    Glass: 240
+
+- type: latheRecipe
+  parent: BaseAmmoBoxRecipe
+  id: MagazineBox60Meteoric
+  result: MagazineBox60Meteoric
+  materials:
+    Glass: 240

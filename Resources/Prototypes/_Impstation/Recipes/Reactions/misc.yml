@@ -24,7 +24,7 @@
     Cognizine:
       amount: 5
   effects:
-  - !type:CreateEntityReactionEffect
+  - !type:SpawnEntity
     entity: Homunculus
 
 - type: reaction

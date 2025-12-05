@@ -122,7 +122,7 @@ namespace Content.Server.Kitchen.EntitySystems
                         scaledSolution.ScaleSolution(fitsCount);
                         solution = scaledSolution;
 
-                        toSet.Add((item, stack.Count - fitsCount)); // imp edit (was setcount)
+                        toSet.Add((item, stack.Count - fitsCount)); // imp edit (was ReduceCount)
                     }
                     else
                     {

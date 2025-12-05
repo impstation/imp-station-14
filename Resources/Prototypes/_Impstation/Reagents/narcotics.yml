@@ -10,19 +10,17 @@
   metabolisms:
     Narcotic:
       effects:
-      - !type:AdjustReagent
+      - !type:AdjustReagent #TODO: this should probably just be a really long status effect instead of recursively adding ForeverWeed to the system
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: ForeverWeed
           max: 5
         reagent: ForeverWeed
         amount: 1
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 1
-        refresh: false
       - !type:PopupMessage
         type: Local
         messages:
@@ -53,7 +51,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:TotalDamage
+        - !type:TotalDamageCondition
           max: 40
         damage:
           groups:
