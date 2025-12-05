@@ -146,11 +146,13 @@
     - id: ToolboxSyndicateFilled
     - id: BalloonSyn
     - id: WeaponSniperMosin
+    # imp edit start
     - id: ClothingEyesNightVisionGogglesSyndie
     - id: ClothingEyesThermalVisionGogglesSyndie
-    - id: ClothingNeckCloakKaijuCloak #imp
-    - id: ClothingNeckCloakFugitiveCloak #imp
-    - id: CigPackMixedRejects #imp
+    - id: ClothingNeckCloakKaijuCloak
+    - id: ClothingNeckCloakFugitiveCloak
+    - id: CigPackMixedRejects
+    # imp edit end
       weight: 2
     - id: ClothingHandsKnuckleDustersSyndicate
 
@@ -190,27 +192,109 @@
     # Recursive
     - id: ClosetMaintenanceFilledRandom
       prob: 0.01
+    # imp edit start
      # Enemy "Loot"
     - !type:NestedSelector
       tableId: MaintEnemyTable
       prob: 0.01
+    # imp edit end
 
 - type: entity
   id: ClosetMaintenanceFilledRandom
   suffix: Filled, Random
   parent: ClosetMaintenance
   components:
-    - type: EntityTableContainerFill
-      containers:
-        entity_storage: !type:NestedSelector
-          tableId: MaintenanceLockerLoot
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: MaintenanceLockerLoot
 
 - type: entity
   id: ClosetWallMaintenanceFilledRandom
   parent: ClosetWall
   suffix: Filled, Random
   components:
-    - type: EntityTableContainerFill
-      containers:
-        entity_storage: !type:NestedSelector
-          tableId: MaintenanceLockerLoot
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: MaintenanceLockerLoot
+
+# Intended to very occasionally be useful for prisoners, so mostly functional items instead of fluff
+
+- type: entityTable
+  id: ToiletCisternCommonToolsTable
+  table: !type:GroupSelector
+    children:
+    - id: Screwdriver
+    - id: Wrench
+    - id: Wirecutter
+    - id: Welder
+    - id: ClothingMaskGas
+    - id: PowerCellSmall
+    - id: RadioHandheld
+    - id: Syringe
+    - id: CableApcStack
+    - id: Lighter
+
+- type: entityTable
+  id: ToiletCisternRareToolsTable
+  table: !type:GroupSelector
+    children:
+    - id: ClothingHandsGlovesColorYellow
+    - id: DrinkSpaceLube
+    - id: WelderIndustrial
+    - id: ClothingHeadHatWeldingMaskFlame
+    - id: PowerCellMedium
+    - id: DoubleEmergencyOxygenTankFilled
+    - id: DoubleEmergencyNitrogenTankFilled
+
+- type: entityTable
+  id: ToiletCisternUtilityTable
+  table: !type:GroupSelector
+    children:
+    - id: Brutepack
+    - id: Ointment
+    - id: Gauze
+    - id: ChemistryBottleUnstableMutagen
+
+- type: entityTable
+  id: ToiletCisternWeaponsTable
+  table: !type:GroupSelector
+    children:
+    - id: SurvivalKnife
+    - id: ScalpelShiv
+    - id: Shiv
+    - id: SawImprov
+    - id: HydroponicsToolHatchet
+    - id: ClothingHandsKnuckleDusters
+    - id: WeaponFlareGun
+
+- type: entityTable
+  id: ToiletCisternSyndicateTable
+  table: !type:GroupSelector
+    children:
+    - id: CyberPen
+    - id: CigPackSyndicate
+    - id: SoapSyndie
+    - id: SyndicatePersonalAI
+    - id: UplinkLighterBox
+
+- type: entityTable
+  id: ToiletCisternLoot
+  table: !type:GroupSelector
+    children:
+    - !type:NestedSelector
+      weight: 25
+      tableId: ToiletCisternCommonToolsTable
+    - !type:NestedSelector
+      weight: 8
+      tableId: ToiletCisternRareToolsTable
+    - !type:NestedSelector
+      weight: 5
+      tableId: ToiletCisternUtilityTable
+    - !type:NestedSelector
+      weight: 3
+      tableId: ToiletCisternWeaponsTable
+    - !type:NestedSelector
+      weight: 1
+      tableId: ToiletCisternSyndicateTable

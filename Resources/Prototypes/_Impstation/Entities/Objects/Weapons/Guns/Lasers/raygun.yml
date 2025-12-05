@@ -27,7 +27,7 @@
       soundGunshot:
         path: /Audio/_Impstation/Weapons/Guns/Gunshots/raygun.ogg
     - type: HitscanBatteryAmmoProvider
-      proto: raygun
+      proto: Raygun
       fireCost: 20
     - type: MagazineVisuals
       magState: mag

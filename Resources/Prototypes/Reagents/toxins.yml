@@ -40,17 +40,17 @@
       effects:
       - !type:HealthChange
         conditions: #imp, thaven are immune to carpotoxin because it's naturally in their bodies
-        - !type:OrganType
-          type: Thaven
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Thaven ]
+          inverted: true
         damage:
           types:
             Poison: 4
       - !type:PopupMessage
         conditions: #imp, thaven are immune to carpotoxin because it's naturally in their bodies
-        - !type:OrganType
-          type: Thaven
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type:  [ Thaven ]
+          inverted: true
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-burning-insides" ]
@@ -75,16 +75,16 @@
         emote: Yawn
         showInChat: true
         probability: 0.1
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:ModifyStatusEffect
         effectProto: StatusEffectDrowsiness
         time: 4
-        type: Add
+        type: Update
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: ChloralHydrate
           min: 20
         damage:
@@ -106,9 +106,10 @@
           damage:
             types:
               Poison: 2
-        - !type:ChemVomit
+        - !type:Vomit
           conditions:
-          - !type:ReagentThreshold
+          - !type:ReagentCondition
+            reagent: GastroToxin
             min: 2
           probability: 0.2
 
@@ -152,7 +153,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         ignoreResistances: false
         damage:
           types:
@@ -191,7 +192,7 @@
       - !type:SatiateThirst
         factor: -1.5
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         ignoreResistances: true
         damage:
           types:
@@ -214,7 +215,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         ignoreResistances: false
         damage:
           types:
@@ -264,7 +265,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         ignoreResistances: false
         damage:
           types:
@@ -387,7 +388,8 @@
       # todo: cough, sneeze
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Histamine
           min: 45
         damage:
           groups:
@@ -401,7 +403,8 @@
         probability: 0.1
       - !type:PopupMessage
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Histamine
           min: 45
         type: Local
         visualType: Medium
@@ -423,27 +426,29 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Animal # Applying damage to the mobs with lower metabolism capabilities
+        - !type:MetabolizerTypeCondition
+          type: [Animal] # Applying damage to the mobs with lower metabolism capabilities
         damage:
           types:
             Poison: 0.4
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.04 #Scaled for time, not metabolismrate.
         conditions:
-          - !type:OrganType
-            type: Animal
-          - !type:ReagentThreshold #imp
+          - !type:MetabolizerTypeCondition
+            type: [Animal]
+          - !type:ReagentCondition #imp
+            reagent: Theobromine
             min: 0.12
-      - !type:PopupMessage # imp - let them know why they're puking
+      # imp edit start
+      - !type:PopupMessage # let them know why they're puking
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [Animal]
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.2
+      # imp edit end
 
 - type: reagent
   id: Amatoxin
@@ -475,9 +480,9 @@
       effects:
         - !type:HealthChange
           conditions: #imp
-          - !type:HasTag
+          - !type:TagCondition
             tag: BROS
-            invert: true
+            inverted: true
           damage:
             types:
               Poison: 2
@@ -499,7 +504,8 @@
       effects:
         - !type:CauseZombieInfection
           conditions:
-            - !type:ReagentThreshold
+            - !type:ReagentCondition
+              reagent: Romerol
               min: 5
 
 - type: reagent
@@ -515,83 +521,64 @@
       effects:
       - !type:PopupMessage
         conditions:
-          - !type:OrganType
-            type: Animal
-            shouldHave: false
-          - !type:OrganType
-            type: Vox
-            shouldHave: false
-          - !type:OrganType # imp
-            type: Kodepiia
-            shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Animal, Vox, Kodepiia ] #imp, added kode
+          inverted: true
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.5
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.1
         conditions:
-          - !type:OrganType
-            type: Animal
-            shouldHave: false
-          - !type:OrganType
-            type: Vox
-            shouldHave: false
-          - !type:OrganType # imp
-            type: Kodepiia
-            shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Animal, Vox, Kodepiia] #imp, added kode
+          inverted: true
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
-        - !type:OrganType
-          type: Vox
-          shouldHave: false
-        - !type:OrganType # imp
-          type: Kodepiia
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Animal, Vox, Kodepiia] #imp, added kode
+          inverted: true
         damage:
           types:
             Poison: 1
-      - !type:HealthChange # imp
+      - !type:AdjustReagent
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
+        reagent: Protein
+        amount: 0.5
+      - !type:AdjustReagent
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Vox ]
+        reagent: Protein
+        amount: 0.25
+      # imp edit start
+      - !type:HealthChange
         probability: 0.5
         conditions:
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
         damage:
           groups:
             Brute: -0.4
-      - !type:AdjustReagent
+      - !type:SatiateHunger
         conditions:
-        - !type:OrganType
-          type: Animal
-        reagent: Protein
-        amount: 0.5
-      - !type:AdjustReagent
-        conditions:
-        - !type:OrganType
-          type: Vox
-        reagent: Protein
-        amount: 0.25
-      - !type:AdjustReagent # Frontier
-        conditions:
-        - !type:OrganType
-          type: Goblin
-        reagent: Protein
-        amount: 0.5
-      - !type:SatiateHunger # imp
-        conditions:
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: true
-      - !type:ModifyBloodLevel # imp
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
+      - !type:ModifyBloodLevel
         amount: 1
         conditions:
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
+      - !type:AdjustReagent # Frontier
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+        reagent: Protein
+        amount: 0.5
+      # imp edit end
 
 - type: reagent
   id: Allicin
@@ -607,32 +594,34 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Allicin
           min: 1
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [Animal]
         damage:
           types:
             Poison: 0.06
       - !type:Emote #imp edit
         emote: Crying
         probability: 0.1
-      - !type:PopupMessage # imp - let them know why they're puking
+  # imp edit start
+      - !type:PopupMessage #let them know why they're puking
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.2
-  reactiveEffects: # imp edit
+  reactiveEffects:
     Acidic:
       methods: [ Touch ]
       effects:
       - !type:Emote
         emote: Crying
         force: true
+  # imp edit end
 
 - type: reagent
   id: Pax
@@ -652,7 +641,6 @@
       - !type:GenericStatusEffect
         key: Pacified
         component: Pacified
-        type: Add
         time: 4
 
 - type: reagent
@@ -675,22 +663,24 @@
         probability: 0.2
       - !type:HealthChange
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Honk
           min: 1
-        - !type:OrganType
-          type: Animal
+        - !type:MetabolizerTypeCondition
+          type: [ Animal ]
         damage:
           types:
             Poison: 0.06
-      - !type:PopupMessage # imp - let them know why they're puking
+      # imp edit start
+      - !type:PopupMessage #let them know why they're puking
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [Animal]
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.2
+      # imp edit end
 
 
 - type: reagent
@@ -741,9 +731,10 @@
       effects:
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Vestine
           min: 5
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
       - !type:HealthChange
@@ -781,7 +772,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Hunger
+        - !type:HungerCondition
           max: 50
         damage:
           types:
@@ -805,30 +796,30 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Arachnid]
+          inverted: true
         damage:
           types:
             Poison: 1.6
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Mechanotoxin
           min: 2
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Arachnid]
+          inverted: true
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
-      - !type:MovespeedModifier
+      - !type:MovementSpeedModifier
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: Mechanotoxin
           min: 4
-        - !type:OrganType
-          type: Arachnid
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [Arachnid]
+          inverted: true
         walkSpeedModifier: 0.4
         sprintSpeedModifier: 0.4
 
@@ -845,22 +836,15 @@
       - !type:SatiateHunger
         factor: 1
         conditions:
-        - !type:OrganType
-          type: Vox
+        - !type:MetabolizerTypeCondition
+          type: [Vox, Rat] #imp, added rat
       # imp edit start
-      - !type:SatiateHunger
-          conditions:
-            - !type:OrganType
-              type: Rat
       - !type:HealthChange
-          conditions:
-          - !type:OrganType
-            type: Rat
-            shouldHave: false
-          - !type:OrganType
-            type: Vox
-            shouldHave: false
-          damage:
-            types:
-              Poison: 0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Rat, Vox ]
+          inverted: true
+        damage:
+          types:
+            Poison: 0.5
       # imp edit end

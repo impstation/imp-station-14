@@ -61,7 +61,7 @@ public sealed class DamageOnShootSystem : EntitySystem
             }
         }
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, entity.Comp.IgnoreResistances);
+        totalDamage = _damageableSystem.ChangeDamage(args.User, totalDamage, entity.Comp.IgnoreResistances);
 
         if (totalDamage != null && totalDamage.AnyPositive())
         {
