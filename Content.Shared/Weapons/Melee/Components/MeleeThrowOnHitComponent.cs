@@ -1,3 +1,4 @@
+using Content.Shared.Whitelist; //IMP addition
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Weapons.Melee.Components;
@@ -27,6 +28,12 @@ public sealed partial class MeleeThrowOnHitComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool UnanchorOnHit;
+
+    /// <summary>
+    /// Filter what entities can be unanchored when UnanchorOnHit is true. #IMP addition
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Blacklist;
 
     /// <summary>
     /// How long should this stun the target, if applicable?

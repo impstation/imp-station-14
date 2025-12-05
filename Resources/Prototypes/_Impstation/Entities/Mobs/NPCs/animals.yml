@@ -33,14 +33,19 @@
       - id: FoodMeatBacon
         amount: 4
     - type: MeleeThrowOnHit
-      unanchorOnHit: false
+      unanchorOnHit: true
+      blacklist:
+        components:
+        - WallMount
+        - Airtight
+        tags:
+        - Wall
       distance: 2
       speed: 10
     - type: Tag
       tags:
         - DoorBumpOpener
         - FootstepSound
-        - BoarFriend
     - type: Fixtures
       fixtures:
         fix1:
@@ -67,10 +72,6 @@
         NavSmash: !type:Bool
           true
     - type: NPCImprintingOnSpawnBehaviour
-      spawnFriendsSearchRadius: 3
-      whitelist:
-        tags:
-        - BoarFriend
     - type: Hunger
       baseDecayRate: 0.3
     - type: Thirst
@@ -469,7 +470,6 @@
     - FootstepSound # I HATE TAGS!!!!!!!!!!!!!
     - VimPilot
     - MultitoolDefibrillatorTarget
-    - BoarFriend
   - type: CanEscapeInventory
     baseResistTime: 2
   - type: TypingIndicator
