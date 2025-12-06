@@ -45,3 +45,54 @@
     sprite: _Impstation/Clothing/OuterClothing/Armor/security_compact.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Armor/security_compact.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, Tier3Contraband] 
+  id: ClothingOuterVestNukie
+  name: operative armor vest
+  description: An old surplus armor vest, commonly worn by Syndicate soldiers.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Vests/operative_vest.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Vests/operative_vest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7 
+        Slash: 0.7
+        Piercing: 0.5 
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  parent: ClothingOuterVestNukie
+  id: ClothingOuterVestNukieAgent
+  name: corpsman armor vest
+  description: An old armor vest for a combat medic. 
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Vests/agent_vest.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Vests/agent_vest.rsi
+
+- type: entity
+  parent: ClothingOuterVestNukie
+  id: ClothingOuterVestNukieCommander
+  name: commander armor vest
+  description: Robust synthetic body armor worn by Syndicate commanders.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Vests/commander_vest.rsi 
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Vests/commander_vest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6 
+        Slash: 0.6 
+        Piercing: 0.3 # stats same as 3tc web vest
+        Heat: 0.9
