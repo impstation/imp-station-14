@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: Pinkbat5
-  changes:
-  - message: Department lockboxes are now equipped with anti-tamper acidifiers.
-    type: Add
-  id: 1966
-  time: '2025-07-02T07:17:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2936
-- author: starlighthowls
-  changes:
-  - message: CentComms entire stock of odd plushies were lost in a tragic explosion
-      related accident. Any survivors are now considered rare collectors items!
-    type: Remove
-  id: 1967
-  time: '2025-07-03T19:46:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2955
-- author: crocodilecarousel
-  changes:
-  - message: renamed the skinhead hairstyle
-    type: Tweak
-  id: 1968
-  time: '2025-07-03T19:45:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2962
 - author: VeeNomine
   changes:
   - message: The Zombie Slushie uses uncooked protein rather than cooked protein.
@@ -4168,3 +4146,32 @@
   id: 2465
   time: '2025-12-05T10:06:16.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3776
+- author: Kandiyaki
+  changes:
+  - message: The serpent's focus ability should be more functional.
+    type: Fix
+  - message: Hunt heretics' grasp will no longer put a big ERROR on the target.
+    type: Fix
+  - message: The Skaptodon Cloak is now slightly bigger.
+    type: Tweak
+  - message: Eldritch Towers are now visible to everyone.
+    type: Tweak
+  id: 2466
+  time: '2025-12-06T01:50:02.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3811
+- author: TheGrimbeeper
+  changes:
+  - message: Some natural artifact effects were only happening once, instead of infinite.
+      (Natural artifact effects that are 'only active while their node is the current
+      one').
+    type: Fix
+  id: 2467
+  time: '2025-12-06T01:50:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3787
+- author: TheGrimbeeper
+  changes:
+  - message: Anomalous Gifts detected on the station
+    type: Tweak
+  id: 2468
+  time: '2025-12-06T01:51:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3805
