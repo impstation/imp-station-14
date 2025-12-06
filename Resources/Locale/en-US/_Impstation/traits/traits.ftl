@@ -17,9 +17,6 @@ sgdrequired-cant-speak = You can't speak without an SGD!
 trait-unborgable-name = Unborgable
 trait-unborgable-desc = Your brain is unable to fit into a Man-Machine Interface.
 
-trait-accentless-name = No species accent
-trait-accentless-desc = You don't have the accent that your species would usually have.
-
 trait-archaic-name = Archaic speech
 trait-archaic-desc = Thy language is quite outdated, and thou still hold thyself to some manner of chivalry
 

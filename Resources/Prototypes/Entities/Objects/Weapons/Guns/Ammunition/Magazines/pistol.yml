@@ -107,6 +107,8 @@
   parent: [ BaseItem, BaseSecurityContraband ]
   description: A 30-round .35 auto top-mounted SMG magazine, marked as live-fire ammo. #imp
   components:
+  - type: Item
+    storedRotation: 90
   - type: Tag
     tags:
       - MagazinePistolSubMachineGunTopMounted
@@ -367,9 +369,6 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
-    whitelist: # Redundant
-      tags:
-        - CartridgePistol
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
   - type: Sprite

@@ -38,6 +38,8 @@ namespace Content.Client.Input
             common.AddFunction(ContentKeyFunctions.ZoomIn);
             common.AddFunction(ContentKeyFunctions.ResetZoom);
             common.AddFunction(ContentKeyFunctions.InspectEntity);
+            common.AddFunction(ContentKeyFunctions.InspectServerComponent);
+            common.AddFunction(ContentKeyFunctions.InspectClientComponent);
             common.AddFunction(ContentKeyFunctions.ToggleRoundEndSummaryWindow);
             common.AddFunction(ContentKeyFunctions.NanoChatNavigateUp); // DeltaV - NanoChat keybinds
             common.AddFunction(ContentKeyFunctions.NanoChatNavigateDown); // DeltaV - NanoChat keybinds

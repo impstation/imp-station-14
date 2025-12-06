@@ -119,7 +119,7 @@ public sealed class LockSystem : EntitySystem
         if (!lockComp.ShowExamine)
             return;
 
-        args.PushText(Loc.GetString(lockComp.Locked
+        args.PushMarkup(Loc.GetString(lockComp.Locked
                 ? "lock-comp-on-examined-is-locked"
                 : "lock-comp-on-examined-is-unlocked",
             ("entityName", (lockComp.CustomLockText == null) ? Identity.Name(uid, EntityManager) : lockComp.CustomLockText))); // imp; added custom lock text

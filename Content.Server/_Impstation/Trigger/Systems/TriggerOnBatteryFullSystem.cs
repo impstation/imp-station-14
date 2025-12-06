@@ -21,7 +21,7 @@ public sealed class TriggerOnBatteryFullSystem : EntitySystem
 
     private void OnChargeChanged(Entity<TriggerOnBatteryFullComponent> ent, ref ChargeChangedEvent args)
     {
-        if (TryComp(ent.Owner, out BatteryComponent? battery) && _battery.IsFull(ent.Owner, battery))
+        if (TryComp(ent.Owner, out BatteryComponent? battery) && _battery.IsFull((ent.Owner, battery)))
         {
             _trigger.Trigger(ent);
         }

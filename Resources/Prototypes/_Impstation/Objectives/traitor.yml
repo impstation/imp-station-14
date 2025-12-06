@@ -20,7 +20,7 @@
   id: AntiqueDisablerStealObjective
   components:
   - type: NotJobRequirement
-    job: HeadOfPersonnel
+    jobs: [ HeadOfPersonnel ]
   - type: StealCondition
     stealGroup: AntiqueDisabler
     descriptionText: objective-condition-steal-antiquedisabler-description
@@ -33,7 +33,7 @@
   description: CentComm has given the CMO a fancy new HUD. Would be a shame if it went missing.
   components:
   - type: NotJobRequirement
-    job: [ ChiefMedicalOfficer, Chemist, MedicalDoctor, MedicalIntern ]
+    jobs: [ ChiefMedicalOfficer, Chemist, MedicalDoctor, MedicalIntern ]
   - type: StealCondition
     stealGroup: MedChemHUD
 

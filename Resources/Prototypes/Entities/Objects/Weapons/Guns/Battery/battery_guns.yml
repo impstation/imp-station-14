@@ -858,7 +858,6 @@
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 40
   - type: MagazineVisuals
     magState: mag
@@ -908,7 +907,6 @@
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 30
   - type: MagazineVisuals
     magState: mag
@@ -1008,7 +1006,6 @@
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 40
   - type: StaticPrice
     price: 750
@@ -1049,6 +1046,7 @@
       fireCost: 42
     - proto: BulletDisablerSmgSpread
       fireCost: 42 #imp was 48
+      pacifismAllowedMode: true
   - type: Item
     size: Large
     shape:
@@ -1101,15 +1099,14 @@
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: BulletLaserMagnum
-      fireCost: 175 #imp
+      fireCost: 175 #imp, was 150
     - proto: BulletBlasterFlare #imp - was BulletLaserWindowPiercingMagnum
-      fireCost: 87.5 #imp
+      fireCost: 87.5 #imp, was 150
     - proto: BulletMagnumDisabler #imp
-      fireCost: 116 #imp
+      fireCost: 116 #imp, was 62.5
+      pacifismAllowedMode: true
   - type: BatterySelfRecharger #imp reduced the recharge delay and the recharge rate
-    autoRecharge: true
     autoRechargeRate: 35 #imp - was 48
-    autoRechargePause: true
     autoRechargePauseTime: 1 #imp - was 10. One second means you don't get a bonus shot while magdumping.
 #imp edit begin; weapon melee
   - type: MeleeWeapon
