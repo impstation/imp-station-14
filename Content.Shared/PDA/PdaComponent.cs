@@ -38,5 +38,14 @@ namespace Content.Shared.PDA
         [ViewVariables] public string? StationName;
         [ViewVariables] public string? StationAlertLevel;
         [ViewVariables] public Color StationAlertColor = Color.White;
+
+        //imp edit below for bank cards
+        public const string PdaBankCardSlotId = "PDA-bank-card";
+        [DataField]
+        public ItemSlot BankCardSlot = new();
+
+        //see above for the ID card stuff
+        [DataField]
+        public EntProtoId? BankCard;
     }
 }

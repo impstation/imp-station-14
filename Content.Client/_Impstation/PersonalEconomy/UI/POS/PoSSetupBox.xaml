@@ -1,0 +1,29 @@
+﻿<controls:PoSSetupBox
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.POS"
+    VerticalExpand="True"
+    HorizontalExpand="True">
+    <BoxContainer Name="NamingThingsIsHard" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+        <Control VerticalExpand="True"/>
+        <RichTextLabel Name="ValidityLabel" HorizontalAlignment="Center"/>
+        <Button Name="BeginSetupButton" Text="{Loc pos-begin-setup-button-text}"/>
+        <Control VerticalExpand="True"/>
+    </BoxContainer>
+    <BoxContainer Name="SetupDialogueBox" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Visible="False">
+        <Label Name="TransferNoLabel" Text="{Loc pos-setup-recipient-account-number}"/>
+        <LineEdit Name="TransferNoEntryBox" HorizontalExpand="True" PlaceHolder="0000" Access="Public"/>
+        <Label Name="TransferAmountLabel" Text="{Loc pos-setup-charge-amount}"/>
+        <LineEdit Name="TransferAmountEntryBox" HorizontalExpand="True" PlaceHolder="000,000,000" Access="Public"/>
+        <Label Name="TransferReasonLabel" Text="{Loc pos-setup-reason}"/>
+        <LineEdit Name="TransferReasonEntryBox" HorizontalExpand="True" PlaceHolder="yada yada" Access="Public"/>
+        <Label Name="CharsRemainingLabel"/>
+        <Control VerticalExpand="True"/>
+        <Label Name="InvalidRecipientLabel" Text="{Loc pos-setup-err-invalid-recipient}" Visible="False" Access="Public"/>
+        <Label Name="InvalidTransferAmountLabel" Text="{Loc pos-setup-err-invalid-transfer-amount}" Visible="False" Access="Public"/>
+        <Label Name="SetupConfirmedLabel" Text="{Loc pos-setup-confirmed}" Visible="False" Access="Public"/>
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <Button Name="SetupClearButton" Text="{Loc pos-clear-setup-button-label}" HorizontalExpand="True" StyleClasses="OpenRight"/>
+            <Button Name="SetupConfirmButton" Text="{Loc pos-confirm-setup-button-label}" HorizontalExpand="True" StyleClasses="OpenLeft"/>
+        </BoxContainer>
+    </BoxContainer>
+</controls:PoSSetupBox>
