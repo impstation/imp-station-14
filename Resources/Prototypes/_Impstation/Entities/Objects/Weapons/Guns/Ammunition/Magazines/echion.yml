@@ -37,7 +37,7 @@
         - ReagentId: Echion
           Quantity: 75
         maxVol: 75
-  - type: DrainableSolution
+  - type: SolutionFuelDrain
     solution: tank
   - type: PhysicalComposition
     materialComposition:
