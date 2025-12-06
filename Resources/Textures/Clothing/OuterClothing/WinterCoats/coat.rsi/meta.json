@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/77cff42b6c514e73881a885036be4b4dd2949f62 recolored by Github user Dutch-VanDerLinde, CAP edited by Skarletto (github), equipped-OUTERCLOTHING-vox states taken from /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/31d6576ba8102135d058ef49c3cb6ecbe8db8a79 and repaletted to match by Flareguy, grayscale layering & armor by IProduceWidgets (Github), Brigmedic by shaseng in the Impstation discord, captain winter coat edited by Sha-Seng, Ungu by Starlighthowls.",
+  "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/77cff42b6c514e73881a885036be4b4dd2949f62 recolored by Github user Dutch-VanDerLinde, CAP edited by Skarletto (github), equipped-OUTERCLOTHING-vox states taken from /vg/station at commit https://github.com/vgstation-coders/vgstation13/commit/31d6576ba8102135d058ef49c3cb6ecbe8db8a79 and repaletted to match by Flareguy, grayscale layering & armor by IProduceWidgets (Github), Brigmedic by shaseng in the Impstation discord, captain winter coat edited by Sha-Seng, Ungu by Starlighthowls.  anom states by atdoop (github) for impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -16,6 +16,10 @@
     },
     {
       "name": "equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {
@@ -38,6 +42,10 @@
       "directions": 4
     },
     {
+      "name": "ATMOS-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "ATMOS-inhand-left",
       "directions": 4
     },
@@ -54,6 +62,10 @@
     },
     {
       "name": "SCI-equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "SCI-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {
@@ -91,6 +103,10 @@
       "directions": 4
     },
     {
+      "name": "MIME-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "MIME-inhand-left",
       "directions": 4
     },
@@ -107,6 +123,10 @@
     },
     {
       "name": "BAR-equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "BAR-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {
@@ -129,6 +149,10 @@
       "directions": 4
     },
     {
+      "name": "PARA-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "PARA-inhand-left",
       "directions": 4
     },
@@ -145,6 +169,10 @@
     },
     {
       "name": "MINER-equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "MINER-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {
@@ -167,6 +195,10 @@
       "directions": 4
     },
     {
+      "name": "CARGO-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "CARGO-inhand-left",
       "directions": 4
     },
@@ -186,6 +218,10 @@
       "directions": 4
     },
     {
+      "name": "HYDRO-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "HYDRO-inhand-left",
       "directions": 4
     },
@@ -201,6 +237,10 @@
       "directions": 4
     },
     {
+      "name": "CHEF-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "CHEF-inhand-left",
       "directions": 4
     },
@@ -213,6 +253,10 @@
     },
     {
       "name": "GENE-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "GENE-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {
@@ -235,6 +279,10 @@
       "directions": 4
     },
     {
+      "name": "ENGI-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "ENGI-inhand-left",
       "directions": 4
     },
@@ -254,6 +302,10 @@
       "directions": 4
     },
     {
+      "name": "CAP-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "CAP-inhand-left",
       "directions": 4
     },
@@ -269,6 +321,10 @@
       "directions": 4
     },
     {
+      "name": "WARD-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "WARD-inhand-left",
       "directions": 4
     },
@@ -281,6 +337,10 @@
     },
     {
       "name": "JANI-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "JANI-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {
@@ -318,6 +378,10 @@
       "directions": 4
     },
     {
+      "name": "MED-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "MED-inhand-left",
       "directions": 4
     },
@@ -337,6 +401,10 @@
       "directions": 4
     },
     {
+      "name": "SEC-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "SEC-inhand-left",
       "directions": 4
     },
@@ -352,6 +420,10 @@
       "directions": 4
     },
     {
+      "name": "SYNDIECAP-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "SYNDIECAP-inhand-left",
       "directions": 4
     },
@@ -364,6 +436,10 @@
     },
     {
       "name": "SYNDIE-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "SYNDIE-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {
@@ -401,6 +477,10 @@
       "directions": 4
     },
     {
+      "name": "CE-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "CE-inhand-left",
       "directions": 4
     },
@@ -413,6 +493,10 @@
     },
     {
       "name": "ROBO-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "ROBO-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {
@@ -431,6 +515,10 @@
       "directions": 4
     },
     {
+      "name": "HOS-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "HOS-inhand-left",
       "directions": 4
     },
@@ -443,6 +531,10 @@
     },
     {
       "name": "CENTCOM-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "CENTCOM-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {
@@ -461,6 +553,10 @@
       "directions": 4
     },
     {
+      "name": "VIRO-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "VIRO-inhand-left",
       "directions": 4
     },
@@ -473,6 +569,10 @@
     },
     {
       "name": "QM-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "QM-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {
@@ -491,6 +591,10 @@
       "directions": 4
     },
     {
+      "name": "WEB-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "WEB-inhand-left",
       "directions": 4
     },
@@ -503,6 +607,10 @@
     },
     {
       "name": "RD-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "RD-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {
@@ -535,11 +643,23 @@
       "directions": 4
     },
 	{
+      "name": "winterbits-tan-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+	{
       "name": "coatybits-equipped-OUTERCLOTHING-vox",
       "directions": 4
     },
 	{
       "name": "winterbits-equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+	{
+      "name": "coatybits-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+	{
+      "name": "winterbits-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
 	{
