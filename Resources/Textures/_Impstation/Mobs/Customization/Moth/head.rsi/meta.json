@@ -1,7 +1,7 @@
 ﻿{
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "burn, claw, and slash by Snavian. rest by crocodilecarousel (github) for Impstation",
+    "copyright": "burn, claw, and slash by Snavian. headtufts by meatsmall. rest by crocodilecarousel (github) for Impstation",
     "size": {
         "x": 32,
         "y": 32
@@ -46,6 +46,26 @@
         {
             "name": "twisting",
             "directions": 4
-        }
+        },
+		{
+			"name": "headtuft",
+			"directions": 4
+		},
+		{
+			"name": "tuftbangs",
+			"directions": 4
+		},
+		{
+			"name": "verticaltuft",
+			"directions": 4
+		},
+		{
+			"name": "emotuft",
+			"directions": 4
+		},
+		{
+			"name": "tinytuft",
+			"directions": 4
+		}
     ]
 }
