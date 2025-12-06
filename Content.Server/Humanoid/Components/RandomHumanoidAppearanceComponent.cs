@@ -56,4 +56,9 @@ public sealed partial class RandomHumanoidAppearanceComponent : Component
     /// If the square brackets are empty (i.e. if the List<Color> has no members,) the color of that marking will be randomized.
     /// </summary>
     [DataField] public Dictionary<string, List<Color>>? Markings = null;
+    /// <summary>
+    /// Before randomizing, selects a random species, if applicable.
+    /// Uses a blacklist.
+    /// </summary>
+    [DataField] public HashSet<string>? Species = null;
 }

@@ -82,6 +82,7 @@
   components:
   - type: RandomHumanoidAppearance
     randomizeName: false
+    species: [] # imp
   - type: Damageable
     damage:
       types:
