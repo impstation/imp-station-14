@@ -46,7 +46,7 @@
   - GermanAccent
   - LizardAccent
   - MobsterAccent
-  - MonkeyAccent
+  #- MonkeyAccent #imp: removed it
   - MothAccent
   - MumbleAccent
   - OwOAccent
@@ -82,6 +82,7 @@
   - MobsterAccent
   - RatvarianLanguage
   - MilbratAccent
+  - AdvancedFullReplacementAccent
   # imp accents end
   blacklist:
     components:

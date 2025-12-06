@@ -24,7 +24,7 @@ public sealed partial class MakeTameEntityEffectSystem : EntityEffectSystem<Meta
         if (args.Effect.AllowSpeech)
         {
             RemComp<ReplacementAccentComponent>(entity);
-            RemComp<MonkeyAccentComponent>(entity);
+            RemComp<AdvancedFullReplacementAccentComponent>(entity);
         }
 
         // Stops from adding a ghost role to things like people who already have a mind

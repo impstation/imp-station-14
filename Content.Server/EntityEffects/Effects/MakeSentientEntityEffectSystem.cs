@@ -21,8 +21,7 @@ public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<
         if (args.Effect.AllowSpeech)
         {
             RemComp<ReplacementAccentComponent>(entity);
-            // TODO: Make MonkeyAccent a replacement accent and remove MonkeyAccent code-smell.
-            RemComp<MonkeyAccentComponent>(entity);
+            RemComp<AdvancedFullReplacementAccentComponent>(entity);
         }
 
         // Stops from adding a ghost role to things like people who already have a mind
