@@ -91,6 +91,7 @@
     sprite: Clothing/Eyes/Hud/beergoggles.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/beergoggles.rsi
+    insecure: false # imp
   - type: ShowThirstIcons
   - type: StealTarget
     stealGroup: ClothingEyesHudBeer
@@ -113,6 +114,7 @@
     sprite: Clothing/Eyes/Hud/friedonion.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/friedonion.rsi
+    insecure: false # imp
   - type: ShowHungerIcons
   - type: Edible
   - type: SolutionContainerManager
@@ -137,6 +139,7 @@
     sprite: Clothing/Eyes/Hud/onionbeer.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/onionbeer.rsi
+    insecure: false # imp
   - type: ShowHungerIcons
   - type: ShowThirstIcons
 
@@ -226,6 +229,7 @@
     sprite: Clothing/Eyes/Hud/synd.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/synd.rsi
+    insecure: false # imp
   - type: ShowSyndicateIcons
   - type: Tag
     tags:
@@ -242,6 +246,7 @@
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/syndagent.rsi
+    insecure: false # imp
   - type: ShowSyndicateIcons
   - type: ShowHealthBars
   - type: Tag
@@ -255,7 +260,7 @@
   suffix: Syndicate
 
 - type: entity
-  parent: [ClothingEyesHudMedical, ClothingHeadEyeBaseFlippable]
+  parent: [ClothingEyesHudMedical, ClothingHeadEyeBaseFlippable, ClothingEyesEyepatchBase] # Imp, add eyepatch base
   id: ClothingEyesEyepatchHudMedical
   name: medical hud eyepatch
   description: A heads-up display that scans the humanoids in view and provides accurate data about their health status. For true patriots.
@@ -276,7 +281,7 @@
   name: medical hud eyepatch
 
 - type: entity
-  parent: [ClothingEyesHudSecurity, ClothingHeadEyeBaseFlippable]
+  parent: [ClothingEyesHudSecurity, ClothingHeadEyeBaseFlippable, ClothingEyesEyepatchBase] # Imp, add eyepatch base
   id: ClothingEyesEyepatchHudSecurity
   name: security hud eyepatch
   description: A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. For true patriots.
@@ -297,7 +302,7 @@
   name: security hud eyepatch
 
 - type: entity
-  parent: [ClothingEyesHudBeer, ClothingHeadEyeBaseFlippable]
+  parent: [ClothingEyesHudBeer, ClothingHeadEyeBaseFlippable, ClothingEyesEyepatchBase] # Imp, add eyepatch base
   id: ClothingEyesEyepatchHudBeer
   name: beer hud eyepatch
   description: A pair of sunHud outfitted with apparatus to scan reagents, as well as providing an innate understanding of liquid viscosity while in motion. For true patriots.
@@ -313,7 +318,7 @@
   name: beer hud eyepatch
 
 - type: entity
-  parent: [ClothingEyesHudDiagnostic, ClothingHeadEyeBaseFlippable]
+  parent: [ClothingEyesHudDiagnostic, ClothingHeadEyeBaseFlippable, ClothingEyesEyepatchBase] # Imp, add eyepatch base
   id: ClothingEyesEyepatchHudDiag
   name: diagnostic hud eyepatch
   description: A heads-up display capable of analyzing the integrity and status of robotics and exosuits. Made out of see-borg-ium.

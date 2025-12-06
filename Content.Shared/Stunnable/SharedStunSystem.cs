@@ -20,6 +20,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Shared._Impstation.SecurelyAttached;
+using Content.Shared.Clothing.Components; // imp
+using Content.Shared.Inventory; // imp
 
 namespace Content.Shared.Stunnable;
 
@@ -267,6 +270,11 @@ public abstract partial class SharedStunSystem : EntitySystem
             {
                 var ev = new DropHandItemsEvent();
                 RaiseLocalEvent(uid, ref ev);
+
+                // imp start, securely attached system
+                var saEv = new SecurelyAttachedSystem.DropEquipmentAttemptEvent();
+                RaiseLocalEvent(uid, saEv);
+                // imp end, securely attached system
             }
 
             // Only update Autostand value if it's our first time being knocked down...
@@ -396,9 +404,11 @@ public abstract partial class SharedStunSystem : EntitySystem
     private void OnUnequipAttempt(EntityUid uid, StunnedComponent stunned, IsUnequippingAttemptEvent args)
     {
         // is this a self-equip, or are they being stripped?
-        if (args.Unequipee == uid)
-            args.Cancel();
+        if (args.Unequipee != uid) // imp change start, securely attached items
+            return;
+        if (TryComp<ClothingComponent>(args.Equipment, out var clothing) && clothing.Insecure)
+            return;
+        args.Cancel(); // imp change end, securely attached items
     }
-
     #endregion
 }
