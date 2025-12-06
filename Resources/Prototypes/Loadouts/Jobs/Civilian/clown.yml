@@ -9,6 +9,13 @@
   equipment:
     head: ClothingHeadHatJesterAlt
 
+# imp edit start
+- type: loadout
+  id: RBJesterHat
+  equipment:
+    head: ClothingHeadRBJesterHat
+# imp edit end
+
 # Jumpsuit
 - type: loadout
   id: ClownSuit
@@ -29,6 +36,13 @@
   id: JesterAltSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitJesterAlt
+
+# imp edit start
+- type: loadout
+  id: RBJesterSuit
+  equipment:
+    jumpsuit: ClothingUniformRBJester
+# imp edit end
 
 # Back
 - type: loadout
@@ -56,6 +70,13 @@
   id: JesterShoes
   equipment:
     shoes: ClothingShoesJester
+
+# imp edit start
+- type: loadout
+  id: RBJesterShoes
+  equipment:
+    shoes: ClothingShoesRBJesterShoes
+# imp edit end
 
 # Outer clothing
 - type: loadout
