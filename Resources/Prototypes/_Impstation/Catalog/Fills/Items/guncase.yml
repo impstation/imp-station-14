@@ -21,16 +21,17 @@
   - type: StorageFill
     contents:
       - id: WeaponRifleMule
-      - id: MagazineShotgunSlug
-        amount: 2
+      - id: BoxShotgunSlug
 
 - type: entity
   parent: GunCaseHoS
   id: GunCaseBlaster
-  suffix: Blaster Magnum
+  suffix: Starflare EPDW-6
   name: secure briefcase
   description: An expensive case that's definitely used for transportation of classified documents and nothing else.
   components:
   - type: StorageFill
     contents:
-      - id: WeaponBlasterMagnum
+      - id: WeaponStarflareSMG
+      - id: PowerCellStarflare
+        amount: 2

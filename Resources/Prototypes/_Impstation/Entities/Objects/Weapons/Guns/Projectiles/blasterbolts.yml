@@ -20,7 +20,7 @@
     forceSound: true
 
 - type: entity
-  name : heavy blaster bolt
+  name : blaster pistol bolt
   id: BulletBlasterPistol
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
@@ -31,6 +31,38 @@
     damage:
       types:
         Heat: 15
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name : starflare bolt
+  id: BulletBlasterStarflare
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 13
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name : military blaster pistol bolt
+  id: BulletBlasterPistolMilitary
+  parent: BulletBlasterMagnum
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 20
     soundHit:
       collection: WeakHit
     forceSound: true
