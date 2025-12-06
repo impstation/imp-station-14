@@ -1,103 +1,105 @@
+# Imp - Edits across the board for corpse spawner functionality.
+
 - type: entity
-  name: Human Corpse Spawner
-  id: SalvageHumanCorpseSpawner
+  name: unidentified corpse
+  id: RandomVisitorCorpseSpawner
   parent: MarkerBase
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
+      - state: passenger
       - state: green
-  - type: ConditionalSpawner
-    prototypes:
-      - SalvageHumanCorpse
+  - type: RandomHumanoidSpawner
+    settings: CorpseBase
 
 - type: entity
-  name: Random Service Corpse Spawner
+  name: unidentified corpse
+  suffix: Service
   id: RandomServiceCorpseSpawner
-  parent: SalvageHumanCorpseSpawner
+  parent: RandomVisitorCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: botanist
       - state: green
-  - type: ConditionalSpawner
-    prototypes:
-      - MobRandomServiceCorpse
+  - type: RandomHumanoidSpawner
+    settings: CorpseService
 
 - type: entity
-  name: Random Engineer Corpse Spawner
+  name: unidentified corpse
+  suffix: Engineer
   id: RandomEngineerCorpseSpawner
-  parent: SalvageHumanCorpseSpawner
+  parent: RandomVisitorCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: engineer
       - state: green
-  - type: ConditionalSpawner
-    prototypes:
-      - MobRandomEngineerCorpse
+  - type: RandomHumanoidSpawner
+    settings: CorpseEngineer
 
 - type: entity
-  name: Random Cargo Corpse Spawner
+  name: unidentified corpse
+  suffix: Cargo
   id: RandomCargoCorpseSpawner
-  parent: SalvageHumanCorpseSpawner
+  parent: RandomVisitorCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: cargo_tech
       - state: green
-  - type: ConditionalSpawner
-    prototypes:
-      - MobRandomCargoCorpse
+  - type: RandomHumanoidSpawner
+    settings: CorpseCargo
 
 - type: entity
-  name: Random Medic Corpse Spawner
+  name: unidentified corpse
+  suffix: Medic
   id: RandomMedicCorpseSpawner
-  parent: SalvageHumanCorpseSpawner
+  parent: RandomVisitorCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: doctor
       - state: green
-  - type: ConditionalSpawner
-    prototypes:
-      - MobRandomMedicCorpse
+  - type: RandomHumanoidSpawner
+    settings: CorpseMedic
 
 - type: entity
-  name: Random Science Corpse Spawner
+  name: unidentified corpse
+  suffix: Science
   id: RandomScienceCorpseSpawner
-  parent: SalvageHumanCorpseSpawner
+  parent: RandomVisitorCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: scientist
       - state: green
-  - type: ConditionalSpawner
-    prototypes:
-      - MobRandomScienceCorpse
+  - type: RandomHumanoidSpawner
+    settings: CorpseScience
 
 - type: entity
-  name: Random Security Corpse Spawner
+  name: unidentified corpse
+  suffix: Security
   id: RandomSecurityCorpseSpawner
-  parent: SalvageHumanCorpseSpawner
+  parent: RandomVisitorCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: security_officer
       - state: green
-  - type: ConditionalSpawner
-    prototypes:
-      - MobRandomSecurityCorpse
+  - type: RandomHumanoidSpawner
+    settings: CorpseSecurity
 
 - type: entity
-  name: Random Command Corpse Spawner
+  name: unidentified corpse
+  suffix: Command
   id: RandomCommandCorpseSpawner
-  parent: SalvageHumanCorpseSpawner
+  parent: RandomVisitorCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: captain
       - state: green
-  - type: ConditionalSpawner
-    prototypes:
-      - MobRandomCommandCorpse
+  - type: RandomHumanoidSpawner
+    settings: CorpseCommand

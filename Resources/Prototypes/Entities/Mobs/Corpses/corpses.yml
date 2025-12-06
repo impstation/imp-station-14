@@ -1,10 +1,125 @@
-- type: entity
-  parent: SalvageHumanCorpse
-  id: MobRandomServiceCorpse
-  suffix: Dead, Service
+# Imp - Overhauled for spawners. Commented out the original for posterity.
+
+# - type: entity
+#   parent: SalvageHumanCorpse
+#   id: MobRandomServiceCorpse
+#   suffix: Dead, Service
+#   components:
+#   - type: Loadout
+#     prototypes:
+#       - HoPGear
+#       - ClownGear
+#       - MimeGear
+#       - JanitorGear
+#       - ServiceWorkerGear
+#       - MusicianGear
+#       - BotanistGear
+#       - ChefGear
+#       - ChaplainGear
+#       - PassengerGear
+
+# - type: entity
+#   parent: SalvageHumanCorpse
+#   id: MobRandomEngineerCorpse
+#   suffix: Dead, Engineer
+#   components:
+#   - type: Loadout
+#     prototypes:
+#     - TechnicalAssistantGear
+#     - AtmosphericTechnicianGear
+#     - StationEngineerGear
+
+# - type: entity
+#   parent: SalvageHumanCorpse
+#   id: MobRandomCargoCorpse
+#   suffix: Dead, Cargo
+#   components:
+#   - type: Loadout
+#     prototypes:
+#     - CargoTechGear
+#     - SalvageSpecialistGear
+
+# - type: entity
+#   parent: SalvageHumanCorpse
+#   id: MobRandomMedicCorpse
+#   suffix: Dead, Medic
+#   components:
+#   - type: Loadout
+#     prototypes:
+#     - MedicalInternGear
+#     - PsychologistGear
+#     - ChemistGear
+#     - DoctorGear
+
+# - type: entity
+#   parent: SalvageHumanCorpse
+#   id: MobRandomScienceCorpse
+#   suffix: Dead, Science
+#   components:
+#   - type: Loadout
+#     prototypes:
+#     - ResearchAssistantGear
+#     - ScientistGear
+
+# - type: entity
+#   parent: SalvageHumanCorpse
+#   id: MobRandomSecurityCorpse
+#   suffix: Dead, Security
+#   components:
+#   - type: Loadout
+#     prototypes:
+#     - SecurityCadetGear
+#     - SecurityOfficerGear
+#     - DetectiveGear
+#     - WardenGear
+
+# - type: entity
+#   parent: SalvageHumanCorpse
+#   id: MobRandomCommandCorpse
+#   suffix: Dead, Command
+#   components:
+#   - type: Loadout
+#     prototypes:
+#     - HoPGear
+#     - CentcomGear
+#     - CaptainGear
+#     - HoSGear
+#     - ResearchDirectorGear
+#     - CMOGear
+#     - ChiefEngineerGear
+#     - QuartermasterGear
+
+- type: randomHumanoidSettings
+  id: CorpseBase
+  randomizeName: false
+  description: I think they're dead.
   components:
-  - type: Loadout
-    prototypes:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+    - type: MobState
+      state: Dead
+    - type: RandomDamageOnSpawn
+      damage:
+        types:
+          Bloodloss: 0
+          Asphyxiation: 0
+          Slash: -50
+          Blunt: -10
+          Piercing: -50
+          Cellular: 170
+      minDamage: 30
+      maxDamage: 120
+      ignoreResistances: true
+    - type: Rotting
+      totalRotTime: 1200
+
+# Jobs
+- type: randomHumanoidSettings
+  id: CorpseService
+  parent: CorpseBase
+  components:
+    - type: Loadout
+      prototypes:
       - HoPGear
       - ClownGear
       - MimeGear
@@ -16,73 +131,67 @@
       - ChaplainGear
       - PassengerGear
 
-- type: entity
-  parent: SalvageHumanCorpse
-  id: MobRandomEngineerCorpse
-  suffix: Dead, Engineer
+- type: randomHumanoidSettings
+  id: CorpseEngineer
+  parent: CorpseBase
   components:
-  - type: Loadout
-    prototypes:
-    - TechnicalAssistantGear
-    - AtmosphericTechnicianGear
-    - StationEngineerGear
+    - type: Loadout
+      prototypes:
+      - TechnicalAssistantGear
+      - AtmosphericTechnicianGear
+      - StationEngineerGear
 
-- type: entity
-  parent: SalvageHumanCorpse
-  id: MobRandomCargoCorpse
-  suffix: Dead, Cargo
+- type: randomHumanoidSettings
+  id: CorpseCargo
+  parent: CorpseBase
   components:
-  - type: Loadout
-    prototypes:
-    - CargoTechGear
-    - SalvageSpecialistGear
+    - type: Loadout
+      prototypes:
+      - CargoTechGear
+      - SalvageSpecialistGear
 
-- type: entity
-  parent: SalvageHumanCorpse
-  id: MobRandomMedicCorpse
-  suffix: Dead, Medic
+- type: randomHumanoidSettings
+  id: CorpseMedic
+  parent: CorpseBase
   components:
-  - type: Loadout
-    prototypes:
-    - MedicalInternGear
-    - PsychologistGear
-    - ChemistGear
-    - DoctorGear
+    - type: Loadout
+      prototypes:
+      - MedicalInternGear
+      - PsychologistGear
+      - ChemistGear
+      - DoctorGear
 
-- type: entity
-  parent: SalvageHumanCorpse
-  id: MobRandomScienceCorpse
-  suffix: Dead, Science
+- type: randomHumanoidSettings
+  id: CorpseScience
+  parent: CorpseBase
   components:
-  - type: Loadout
-    prototypes:
-    - ResearchAssistantGear
-    - ScientistGear
+    - type: Loadout
+      prototypes:
+      - ResearchAssistantGear
+      - ScientistGear
 
-- type: entity
-  parent: SalvageHumanCorpse
-  id: MobRandomSecurityCorpse
-  suffix: Dead, Security
+- type: randomHumanoidSettings
+  id: CorpseSecurity
+  parent: CorpseBase
   components:
-  - type: Loadout
-    prototypes:
-    - SecurityCadetGear
-    - SecurityOfficerGear
-    - DetectiveGear
-    - WardenGear
+    - type: Loadout
+      prototypes:
+      - SecurityCadetGear
+      - SecurityOfficerGear
+      - DetectiveGear
+      - WardenGear
 
-- type: entity
-  parent: SalvageHumanCorpse
-  id: MobRandomCommandCorpse
-  suffix: Dead, Command
+- type: randomHumanoidSettings
+  id: CorpseCommand
+  parent: CorpseBase
   components:
-  - type: Loadout
-    prototypes:
-    - HoPGear
-    - CentcomGear
-    - CaptainGear
-    - HoSGear
-    - ResearchDirectorGear
-    - CMOGear
-    - ChiefEngineerGear
-    - QuartermasterGear
+    - type: Loadout
+      prototypes:
+      - HoPGear
+      - CentcomGear
+      - CaptainGear
+      - HoSGear
+      - ResearchDirectorGear
+      - CMOGear
+      - ChiefEngineerGear
+      - QuartermasterGear

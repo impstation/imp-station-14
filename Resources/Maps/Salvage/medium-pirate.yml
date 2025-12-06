@@ -702,7 +702,7 @@ entities:
     - type: Transform
       pos: -3.5,0.5
       parent: 52
-- proto: SalvageHumanCorpseSpawner
+- proto: RandomVisitorCorpseSpawner
   entities:
   - uid: 137
     components:

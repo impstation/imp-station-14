@@ -7080,7 +7080,7 @@ entities:
     - type: Transform
       pos: 25.5,-4.5
       parent: 1
-- proto: SalvageHumanCorpseSpawner
+- proto: RandomVisitorCorpseSpawner
   entities:
   - uid: 1701
     components:

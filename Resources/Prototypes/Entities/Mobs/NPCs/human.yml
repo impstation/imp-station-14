@@ -72,27 +72,28 @@
     - type: SSDIndicator
       doNotSleep: true
 
-- type: entity
-  parent: BaseMobHuman
-  suffix: Dead
-  save: false # mobs are currently not saveable.
-  id: SalvageHumanCorpse
-  name: unidentified corpse
-  description: I think they're dead.
-  components:
-  - type: RandomHumanoidAppearance
-    randomizeName: false
-  - type: Damageable
-    damage:
-      types:
-        Bloodloss: 49
-        Asphyxiation: 76
-        Slash: 56
-        Blunt: 19
-  - type: Inventory
-    templateId: corpse
-  - type: Rotting
-    totalRotTime: 1200 # 20 minutes
+# Imp - Use the the corpse spawners instead
+# - type: entity
+#   parent: BaseMobHuman
+#   suffix: Dead
+#   save: false # mobs are currently not saveable.
+#   id: SalvageHumanCorpse
+#   name: unidentified corpse
+#   description: I think they're dead.
+#   components:
+#   - type: RandomHumanoidAppearance
+#     randomizeName: false
+#   - type: Damageable
+#     damage:
+#       types:
+#         Bloodloss: 49
+#         Asphyxiation: 76
+#         Slash: 56
+#         Blunt: 19
+#   - type: Inventory
+#     templateId: corpse
+#   - type: Rotting
+#     totalRotTime: 1200 # 20 minutes
 
 - type: entity
   parent: MobHuman
@@ -101,8 +102,6 @@
   description: A polymorphed unfortunate.
   components:
   - type: Cluwne
-    revertDamage: # IMP, to make polymorphed cluwnes not take damage on revert
-      types:
-        Genetic: 0
+    geneticDamageOnDeath: 0 # IMP
   - type: Speech
     speechVerb: Cluwne

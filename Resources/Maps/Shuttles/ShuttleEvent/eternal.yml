@@ -1891,7 +1891,7 @@ entities:
     - type: Transform
       pos: 2.5,1.5
       parent: 1
-- proto: SalvageHumanCorpseSpawner
+- proto: RandomVisitorCorpseSpawner
   entities:
   - uid: 232
     components:
