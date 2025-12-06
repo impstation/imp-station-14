@@ -141,3 +141,12 @@
   components:
   - type: UnableToWield
   cost: -3
+
+- type: trait
+  id: HatedByDogs
+  name: trait-hated-by-dogs-name
+  description: trait-hated-by-dogs-desc
+  category: Traits
+  components:
+  - type: HatedByDogs
+  cost: -1
