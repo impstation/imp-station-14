@@ -3,6 +3,8 @@ using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
+using Content.Shared.Radio.Components;
+using Content.Shared._Coyote.RadioNoises;
 using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -191,6 +193,17 @@ public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
 
         var nameEv = new TransformSpeakerNameEvent(args.MessageSource, Name(args.MessageSource));
         RaiseLocalEvent(args.MessageSource, nameEv);
+
+        // Coyote Frontier edit for radio static effects
+        var staticEv = new RadioReceivedEvent(
+            uid,
+            args.MessageSource,
+            null,
+            args.Channel.ID,
+            args.Message
+        );
+        RaiseLocalEvent(uid, ref staticEv);
+        // end Coyote edit
 
         var name = Loc.GetString("speech-name-relay",
             ("speaker", Name(uid)),
