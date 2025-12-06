@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseGameRule
+  id: Slasher
+  components:
+  - type: SlasherRule
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 30
+      max: 60
+  - type: AntagObjectives
+    objectives:
+    - RandomObjective
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    agentName: slasher-roundend-name
+    definitions:
+    - prefRoles: [ SlasherRole ]
+      max: 1
+      playerRatio: 12
+      lateJoinAdditional: false
+      blacklist:
+        components:
+          - AntagImmune
+      mindRoles:
+      - MindRoleSlasher
