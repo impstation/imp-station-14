@@ -22,3 +22,4 @@ guide-entry-imptourist = Tourists
 guide-entry-impeeeps = Electric Sheep
 
 guide-entry-cooking-techniques = Cooking Techniques
+guide-entry-cooking-mixtures = Cooking Mixtures
