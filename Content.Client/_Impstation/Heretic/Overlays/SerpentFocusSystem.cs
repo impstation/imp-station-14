@@ -48,14 +48,10 @@ public sealed class SerpentFocusSystem : Client.Overlays.EquipmentHudSystem<Serp
         var lightRadius = 0f;
         foreach (var comp in args.Components)
         {
-            if (!comp.IsActive && (comp.PulseTime <= 0f || comp.PulseAccumulator >= comp.PulseTime))
+            if (!comp.IsActive)
                 continue;
 
             if (tvComp == null)
-                tvComp = comp;
-            else if (!tvComp.DrawOverlay && comp.DrawOverlay)
-                tvComp = comp;
-            else if (tvComp.DrawOverlay == comp.DrawOverlay && tvComp.PulseTime > 0f && comp.PulseTime <= 0f)
                 tvComp = comp;
 
             lightRadius = MathF.Max(lightRadius, comp.LightRadius);
@@ -63,14 +59,12 @@ public sealed class SerpentFocusSystem : Client.Overlays.EquipmentHudSystem<Serp
 
         _serpentOverlay.ResetLight(false);
         UpdateSerpentOverlay(tvComp, lightRadius);
-        UpdateOverlay(tvComp);
     }
 
     protected override void DeactivateInternal()
     {
         base.DeactivateInternal();
 
-        UpdateOverlay(null);
         UpdateSerpentOverlay(null, 0f);
     }
 
