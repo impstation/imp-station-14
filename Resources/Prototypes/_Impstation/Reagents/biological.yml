@@ -10,8 +10,7 @@
   slipData:
     requiredSlipSpeed: 4.0 #It's not as slippery as water
   friction: 0.4
-  impEvaporates: true
-  impEvaporationAmount: 15.0
+  evaporationSpeed: 15.0
   metabolisms:
     Food:
       effects:
@@ -21,11 +20,6 @@
     collection: FootstepBlood
     params:
       volume: 6
-  tileReactions:
-    - !type:EnsureTileReaction
-      components:
-        - type: ImpEvaporation
-          solution: puddle
 
 
 - type: reagent
@@ -55,7 +49,7 @@
             Toxin: -1
             Airloss: -1
             Brute: -1
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1
 
 - type: reagent
@@ -128,7 +122,7 @@
         damage:
           types:
             Cellular: 2
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.25
       - !type:Jitter
         probability: 0.25
@@ -151,12 +145,10 @@
         factor: 1
     Narcotic:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
   plantMetabolism:
     - !type:PlantAdjustToxins
       amount: 2
@@ -223,7 +215,7 @@
     Flammable:
       methods: [ Touch ]
       effects:
-      - !type:FlammableReaction
+      - !type:Flammable
   tileReactions:
   - !type:FlammableTileReaction
     temperatureMultiplier: 1.35
@@ -232,7 +224,7 @@
     amount: 0.25
   - !type:PlantAdjustWater
     amount: 0.7
-  
+
 - type: reagent
   id: ReaperBlood
   name: reagent-name-reaper-blood
