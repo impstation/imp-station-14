@@ -53,6 +53,8 @@
     interfaces:
       enum.MicrowaveUiKey.ElectricRangeKey:
         type: MicrowaveBoundUserInterface
+      enum.WiresUiKey.Key: # imp edit start
+        type: WiresBoundUserInterface # imp edit end
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -122,6 +124,12 @@
     whitelist:
       components:
       - Temperature
+  - type: StationAiWhitelist #Imp edit start
+  - type: WiresVisuals
+  - type: WiresPanel
+  - type: Wires 
+    boardName: wires-board-name-oven
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: SyndicateKitchenElectricRange
@@ -214,6 +222,13 @@
     interfaces:
       enum.MicrowaveUiKey.AssemblerKey:
         type: AssemblerBoundUserInterface
+      enum.WiresUiKey.Key: # imp edit start
+        type: WiresBoundUserInterface # imp edit end
+  - type: WiresVisuals
+  - type: WiresPanel
+  - type: Wires #imp edit start
+    boardName: wires-board-name-assembler
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: MedicalAssembler
@@ -262,8 +277,15 @@
     interfaces:
       enum.MicrowaveUiKey.MedicalAssemblerKey:
         type: AssemblerBoundUserInterface
+      enum.WiresUiKey.Key: # imp edit start
+        type: WiresBoundUserInterface # imp edit end
   - type: ContainerContainer # Redefined due to inheritance order
     containers:
       microwave_entity_container: !type:Container
       machine_board: !type:Container
       machine_parts: !type:Container
+  - type: WiresVisuals #imp edit start
+  - type: WiresPanel
+  - type: Wires 
+    boardName: wires-board-name-medical-assembler
+    layoutId: AIGeneric  #imp edit end

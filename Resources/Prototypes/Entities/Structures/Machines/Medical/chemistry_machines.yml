@@ -36,6 +36,11 @@
       mixer: !type:ContainerSlot
       machine_board: !type:Container
       machine_parts: !type:Container
+  - type: StationAiWhitelist #Imp edit start
+  - type: UserInterface
+    interfaces: 
+        enum.WiresUiKey.Key:
+         type: WiresBoundUserInterface # imp edit end
 
 - type: entity
   id: MachineElectrolysisUnit
@@ -76,6 +81,9 @@
           False: { visible: False }
   - type: Machine
     board: ElectrolysisUnitMachineCircuitboard
+  - type: Wires # imp edit start
+    boardName: wires-board-name-electrolysis
+    layoutId: AIGeneric  
 
 - type: entity
   id: MachineCentrifuge
@@ -123,3 +131,6 @@
             - CentrifugeCompatible
   - type: Machine
     board: CentrifugeMachineCircuitboard
+  - type: Wires # imp edit start
+    boardName: wires-board-name-centrifuge
+    layoutId: AIGeneric  

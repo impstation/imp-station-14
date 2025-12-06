@@ -141,3 +141,79 @@
         - SecretStash
     - type: StealTarget #imp
       stealGroup: PositronicBrains
+
+#imp edit start, this is an exacty copy of PositronicBrain but with the DoAfter compontent removed, this is to prevent the AI from doing things its not supposed to IE jumping into disposals.
+# there is 100% a more efficient more better way to do this but i do not know it.
+# this also might be good for future proofing when ai gets more verbose but idk
+- type: entity 
+  parent: BaseItem 
+  id: PositronicBrainAI
+  name: positronic brain
+  description: An artificial brain capable of spontaneous neural activity.
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Robotics/mmi.rsi
+      layers:
+      - state: posibrain
+        map: ["base"]
+    - type: Input
+      context: human
+    - type: ToggleableGhostRole
+      examineTextMindPresent: positronic-brain-installed
+      examineTextMindSearching: positronic-brain-still-searching
+      examineTextNoMind: positronic-brain-off
+      beginSearchingText: positronic-brain-searching
+      roleName: positronic-brain-role-name
+      roleDescription: positronic-brain-role-description
+      roleRules: ghost-role-information-silicon-rules
+      mindRoles:
+      - MindRoleGhostRoleSilicon
+      wipeVerbText: positronic-brain-wipe-device-verb-text
+      wipeVerbPopup: positronic-brain-wiped-device
+      stopSearchVerbText: positronic-brain-stop-searching-verb-text
+      stopSearchVerbPopup: positronic-brain-stopped-searching
+      job: Borg
+    - type: BlockMovement
+    - type: Examiner
+    - type: BorgBrain
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Binary
+    - type: ActiveRadio
+      channels:
+      - Binary
+      - Common
+    - type: NameIdentifier
+      group: PositronicBrain
+    - type: Actions
+    - type: TypingIndicator
+      proto: robot
+    - type: Speech
+      speechSounds: Pai
+    - type: Alerts
+    - type: MobState
+      allowedStates:
+      - Alive
+      - Dead
+    - type: Appearance
+    - type: Tag
+      tags:
+      - CannotSuicide
+    - type: GenericVisualizer
+      visuals:
+        enum.ToggleableGhostRoleVisuals.Status:
+          base:
+            Off: { state: posibrain }
+            Searching: { state: posibrain-searching }
+            On: { state: posibrain-occupied }
+    - type: GuideHelp
+      guides:
+      - Cyborgs
+      - Robotics
+    - type: ChangeVoiceInContainer
+      whitelist:
+        components:
+        - SecretStash
+    - type: StealTarget #imp
+      stealGroup: PositronicBrains #imp edit end

@@ -279,6 +279,8 @@
       interfaces:
         enum.ThermomachineUiKey.Key:
           type: GasThermomachineBoundUserInterface
+        enum.WiresUiKey.Key: #imp edit start
+          type: WiresBoundUserInterface #imp edit end
     - type: ActivatableUI
       inHandsOnly: false
       key: enum.ThermomachineUiKey.Key
@@ -306,6 +308,7 @@
     - type: GuideHelp
       guides:
       - Thermomachines
+    - type: StationAiWhitelist #Imp edit
 
 - type: entity
   parent: BaseGasThermoMachine
@@ -351,6 +354,10 @@
     prefix: device-address-prefix-freezer
   - type: StealTarget
     stealGroup: FreezerHeater
+  - type: Wires
+    boardName: wires-board-name-freezer
+    layoutId: AIGeneric  #imp edit end
+
 
 - type: entity
   parent: GasThermoMachineFreezer
@@ -405,6 +412,9 @@
     prefix: device-address-prefix-heater
   - type: StealTarget
     stealGroup: FreezerHeater
+  - type: Wires # imp edit start
+    boardName: wires-board-name-heater
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   parent: GasThermoMachineHeater
@@ -540,4 +550,11 @@
   - type: GuideHelp
     guides:
     - GasCondensing
-
+  - type: StationAiWhitelist
+  - type: Wires #imp edit start
+    boardName: wires-board-name-condenser
+    layoutId: AIGeneric
+  - type: UserInterface
+    interfaces: 
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface #imp edit end

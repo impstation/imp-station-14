@@ -34,6 +34,8 @@
     interfaces:
       enum.FaxUiKey.Key:
         type: FaxBoundUi
+      enum.WiresUiKey.Key: # imp edit start
+        type: WiresBoundUserInterface # imp edit start
   - type: StationAiWhitelist
   - type: ApcPowerReceiver
     powerLoad: 250
@@ -71,6 +73,11 @@
     receiveFrequencyId: Fax
     transmitFrequencyId: Fax
   - type: RequireProjectileTarget
+  - type: WiresVisuals #imp edit start
+  - type: WiresPanel
+  - type: Wires 
+    boardName: wires-board-name-fax-machine
+    layoutId: AIGeneric  #imp edit end
 
 # Special
 - type: entity
