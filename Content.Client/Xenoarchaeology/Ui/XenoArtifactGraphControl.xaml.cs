@@ -127,16 +127,13 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                     // selecting color for node based on its state
                     var node = nodes[i];
 
-                    // Imp edit: natural artifacts should have nodes hidden if you haven't at least seen their parent
-                    if (artifact.Comp.Natural && node.Comp.Locked && !_artifactSystem.IsNodeActive(artifact, node)) //natural artifact with a locked, inactive node passes this
+                    // Imp edit: natural artifacts should have nodes hidden if you haven't at least seen their parent, or grandparent+ if you have advanced node scanner.
+                    if (artifact.Comp.Natural && !_artifactSystem.NaturalNodeVisible((artifact, artifact), node))
                     {
-                        var directPredecessorNodes = _artifactSystem.GetDirectPredecessorNodes((artifact, artifact), node);
-                        if (!directPredecessorNodes.Any(x => _artifactSystem.IsNodeActive(artifact, x) || !x.Comp.Locked)) // no parent is active or unlocked
-                        {
-                            hiddenNodes.Add(node);
-                            continue;
-                        }
+                        hiddenNodes.Add(node);
+                        continue;
                     }
+                    // end imp edit
 
                     var color = LockedNodeColor;
                     if (_artifactSystem.IsNodeActive(artifact, node) && !node.Comp.Locked) // imp edit, we want locked activate nodes to be a different color
