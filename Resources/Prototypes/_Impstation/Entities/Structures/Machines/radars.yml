@@ -1,0 +1,77 @@
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: CrewMonitoringRadar
+  name: crew monitoring radar
+  description: A long range crew monitoring radar, which can detect signals coming from suit signals from over 200 meters away!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/radar.rsi
+    layers:
+    - map: ["radar-on"]
+      state: icon-on
+      visible: false
+    - map: [ "radar" ]
+      state: icon
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: icon-open
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        radar-on:
+          True: { visible: true }
+          False: { visible: false }
+        radar:
+          True: { visible: false }
+          False: { visible: true }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
+  - type: Icon
+    sprite: _Impstation/Structures/Machines/radar.rsi
+    state: icon
+  - type: WiresVisuals
+  - type: WiresPanel
+  - type: Appearance
+  - type: Physics
+    bodyType: Static
+  - type: ApcPowerReceiver
+    powerLoad: 250
+  - type: DeviceNetworkRequiresPower
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SuitSensor
+    transmitFrequencyId: CrewRadar
+  - type: StationLimitedNetwork
+    allowNonStationPackets: true
+  - type: CrewMonitorRadar
+  - type: WirelessNetworkConnection
+    range: 300
+  - type: Machine
+    board: CrewMonitorRadarMachineCircuitboard
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  parent: [ CrewMonitoringRadar, BaseSyndicateContraband ]
+  id: CrewMonitoringRadarLongRange
+  name: ultra long range crew monitoring radar
+  suffix: Listening Post
+  description: An ultra range crew monitoring radar, which can detect signals coming from suit signals from over 10,000 meters away. Wow.
+  components:
+    - type: CrewMonitorRadar
+      corruptRange: 6000
+      maximumRange: 10000
+    - type: WirelessNetworkConnection
+      range: 10000
