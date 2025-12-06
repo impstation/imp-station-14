@@ -1,0 +1,33 @@
+uniform sampler2D displacementMap;
+uniform sampler2D displacementMap2;
+
+uniform highp float displacementSize;
+uniform highp vec4 displacementUV;
+uniform highp vec4 displacementUV2;
+
+varying highp vec2 displacementUVOut;
+varying highp vec2 displacementUVOut2;
+
+// we use displacement as our base layer (what the species applies)
+// and displacement2 as our additive layer (the displacement appended to the base)
+
+void vertex() {
+    displacementUVOut = mix(displacementUV.xy, displacementUV.zw, tCoord2); //get the tex coords for the displacement maps on the atlas texture
+    displacementUVOut2 = mix(displacementUV2.xy, displacementUV2.zw, tCoord2);
+}
+
+void fragment() {
+
+    highp vec4 displacementSample1 = texture2D(displacementMap, displacementUVOut);
+    highp vec4 displacementSample2 = texture2D(displacementMap2, displacementUVOut2);
+    highp vec4 addedDisplacementSamples = displacementSample1 + displacementSample2;
+
+    highp vec2 addedDisplacementValues = (getDisplacementValue(addedDisplacementSamples));
+
+    COLOR = zTexture(UV + (addedDisplacementValues) * TEXTURE_PIXEL_SIZE * displacementSize * vec2(1.0, -1.0)); //literally just add them together
+    COLOR.a *= addedDisplacementSamples.a;
+}
+
+highp vec2 getDisplacementValue(highp vec4 displacementSample) {
+    return vec2(displacementSample.xy - vec2(128.0 / 255.0)) / (1.0 - 128.0 / 255.0); //wangle it into an offset
+}

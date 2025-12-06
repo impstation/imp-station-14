@@ -23,3 +23,14 @@
   id: SalvoScan
   kind: source
   path: "/Textures/_Impstation/Shaders/salvo_scan.swsl"
+
+- type: shader
+  id: DisplacedStencilDrawAdditive
+  kind: source
+  path: "/Textures/_Impstation/Shaders/displacement_additive.swsl"
+  stencil:
+    ref: 1
+    op: Keep
+    func: NotEqual
+  params:
+    displacementSize: 127

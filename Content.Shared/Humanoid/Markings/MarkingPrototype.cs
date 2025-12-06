@@ -1,5 +1,6 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Shared.DisplacementMap; // imp
 
 namespace Content.Shared.Humanoid.Markings
 {
@@ -44,6 +45,14 @@ namespace Content.Shared.Humanoid.Markings
 
         [DataField]
         public string? Shader { get; private set; } = null; // imp
+
+        // IMP ADD
+        /// <summary>
+        ///     Allows this marking to optionally apply additional displacements to inventory layers.
+        ///     String must be a valid inventory slot on the entity.
+        /// </summary>
+        [DataField]
+        public Dictionary<string, DisplacementData> AppliedDisplacement = [];
 
         /// <summary>
         /// Allows specific images to be put into any arbitrary layer on the mob.
