@@ -1,8 +1,8 @@
 - type: entity
   parent: [Clothing, ClothingSlotBase]
   id: FuelTankOlympus
-  name: flamethrower fuel tank
-  description: Holds a large amount of fuel. Compatible with the FG10 Olympus, which fits in a storage slot on the underside of the tank.
+  name: FG10 Olympus fuel tank
+  description: Holds the fuel for the FG10 Olympus flamethrower stored on the underside of the tank.
   components:
   - type: Tag
     tags:

@@ -5,14 +5,11 @@
   id: BaseMobArachnid
   abstract: true
   components:
-  - type: GoobAbsorbable
   - type: Body
     prototype: Arachnid
     requiredLegs: 2 # It would be funny if arachnids could use their little back limbs to move around once they lose their legs, but just something to consider post-woundmed
   - type: HumanoidAppearance
     species: Arachnid
-    hideLayersOnEquip: #imp
-    - Tail
   - type: Hunger
   - type: Thirst
   - type: Sericulture
@@ -37,13 +34,13 @@
     - reagents: [Water]
       methods: [Touch]
       effects:
-      - !type:WearableReaction
+      - !type:SpawnEntityInInventory
         slot: head
-        prototypeID: WaterDropletHat
+        entity: WaterDropletHat
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   # Damage (Self)
   - type: Bloodstream
     bloodReagent: CopperBlood

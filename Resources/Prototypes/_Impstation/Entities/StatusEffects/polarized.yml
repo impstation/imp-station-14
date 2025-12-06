@@ -1,0 +1,24 @@
+- type: entity
+  parent: MobStatusEffectBase
+  id: StatusEffectBiomagneticPolarization
+  name: biomagnetic polarization
+  components:
+  - type: PointLight
+    radius: 1.3
+  - type: BiomagneticPolarizationStatusEffect
+    staticElectricityProviders:
+      tags:
+      - Carpet
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_Impstation/Effects/elecanim.rsi
+    layers:
+    - state: elecanim
+      map: ["enum.BiomagneticPolarizationLayers.Capped"]
+      visible: false
+      shader: unshaded
+  - type: AmbientSound
+    enabled: false
+    volume: 3
+    sound:
+      path: /Audio/Ambience/Objects/buzzing.ogg

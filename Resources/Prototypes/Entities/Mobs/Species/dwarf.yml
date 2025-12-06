@@ -5,7 +5,6 @@
   id: BaseMobDwarf
   abstract: true
   components:
-  - type: GoobAbsorbable
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -35,7 +34,7 @@
           !type:PhysShapeCircle
           radius: 0.35
         # they r smaller
-        density: 120
+        density: 130 #imp # dwarves need to be heavy like rock
         restitution: 0.0
         mask:
         - MobMask

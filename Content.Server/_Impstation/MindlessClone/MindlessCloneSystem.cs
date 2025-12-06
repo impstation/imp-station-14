@@ -31,6 +31,8 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Chat;
+
 // yes, all of these are really necessary. Christ almighty.
 
 namespace Content.Server._Impstation.MindlessClone;

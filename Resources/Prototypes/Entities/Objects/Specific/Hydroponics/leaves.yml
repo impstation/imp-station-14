@@ -10,7 +10,7 @@
     sprite: Objects/Specific/Hydroponics/cannabis.rsi
   - type: Produce
     seedId: cannabis
-  - type: Food
+  - type: Edible # Precursor to the one true edible
   - type: SolutionContainerManager
     solutions:
       food:
@@ -44,7 +44,7 @@
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
     state: dried
   #imp edit start
-  - type: Food
+  - type: Edible
   - type: FoodSequenceElement
     entries:
       Burger: LeavesCannabisBurger
@@ -82,7 +82,7 @@
   - type: Item
     size: Tiny
   # imp edit start
-  - type: Food
+  - type: Edible
   - type: PluralName
     oneOf: plural-name-some
   # imp edit end
@@ -158,7 +158,7 @@
     sprite: Objects/Specific/Hydroponics/rainbow_cannabis.rsi
     state: dried
   # imp edit start
-  - type: Food
+  - type: Edible
   - type: FoodSequenceElement
     entries:
       Burger: LeavesRainbowCannabisBurger
@@ -198,7 +198,7 @@
   - type: Construction
     graph: smokeableGroundCannabisRainbow
     node: groundRainbow
-  - type: Food #imp
+  - type: Edible #imp
 
 - type: entity
   name: tea leaves
@@ -250,7 +250,7 @@
         - ReagentId: Nicotine
           Quantity: 2
   # imp edit start
-  - type: Food
+  - type: Edible
   - type: FoodSequenceElement
     entries:
       Burger: LeavesTobaccoBurger
@@ -277,7 +277,7 @@
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
     state: dried
   #imp edit start
-  - type: Food
+  - type: Edible
   - type: FoodSequenceElement
     entries:
       Burger: LeavesTobaccoBurger
@@ -312,4 +312,4 @@
       - Smokable
   - type: Item
     size: Tiny
-  - type: Food #imp edit
+  - type: Edible #imp edit
