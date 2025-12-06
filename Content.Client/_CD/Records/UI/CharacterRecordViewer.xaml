@@ -107,6 +107,9 @@
                                 <Label Name="RecordContainerWantedReason" Visible="False" />
                             </BoxContainer>
                         </BoxContainer>
+                        <!-- Syndicate --> <!--Start Impstation changes-->
+                        <BoxContainer Name="RecordContainerSyndicate" Orientation="Vertical" HorizontalExpand="True" Visible="False" >
+                        </BoxContainer> <!--End Impstation changes-->
                     </BoxContainer>
                     <!-- Entry viewer -->
                     <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="10" SeparationOverride="5">
