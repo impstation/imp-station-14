@@ -22,3 +22,6 @@ guide-entry-imptourist = Tourists
 guide-entry-impeeeps = Electric Sheep
 
 guide-entry-cooking-techniques = Cooking Techniques
+
+guide-entry-xenoarchaeologyreticulated = Reticulated artifacts
+guide-entry-xenoarchaeologynatural = Natural artifacts
