@@ -38,7 +38,7 @@
     children:
     - id: FlashlightSeclite
     - id: WeaponDisabler
-    - id: WeaponTaser
+    #- id: WeaponTaser #imp, make it go away
     - id: ClothingBeltSecurityFilled
     - id: Flash
     - id: ClothingEyesGlassesSecurity
@@ -90,7 +90,7 @@
     - id: FlashlightSeclite
       prob: 0.8
     #- id: WeaponDisabler #imp, included in SecLink
-    - id: WeaponTaser
+    #- id: WeaponTaser #imp, make it go away
     - id: ClothingUniformJumpsuitSecGrey
       prob: 0.3
     - id: ClothingHeadHelmetBasic
@@ -134,7 +134,7 @@
     children:
     - id: ClothingEyesGlassesSecurity
     #- id: WeaponDisabler #imp, included in SecLink
-    - id: WeaponTaser
+    #- id: WeaponTaser #imp, make it go away
     - id: TrackingImplanter
       amount: 2
     - id: ClothingOuterHardsuitBrigmedic
