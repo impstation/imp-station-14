@@ -59,18 +59,18 @@
   description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses .10 mini ammo. #imp
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/HMGs/minigun.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/minigun.rsi #imp
     layers:
     - state: icon
   - type: GunRequiresWield #imp
   - type: Clothing #imp
-    sprite: _Impstation/Objects/Weapons/Guns/HMGs/minigun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/minigun.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/HMGs/minigun.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/minigun.rsi #imp
   - type: Gun
     fireRate: 15
     soundGunshot:

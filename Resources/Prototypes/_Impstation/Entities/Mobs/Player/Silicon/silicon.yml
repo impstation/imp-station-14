@@ -166,12 +166,13 @@
     - Engineering
     - Maintenance
   - type: DroneVision
+  - type: ZombieImmune
 
 # jermov board
 # credit to moomoobeef (github) for the original pr, teensarlacc (discord) for the original text
 - type: entity
   id: JermovCircuitBoard
-  parent: BaseLawBoard
+  parent: BaseSiliconLawboard
   name: law board (Jermov)
   description: An electronics board containing the Jermov lawset. Everyone and everything exists for the sake of Chat.
   components:

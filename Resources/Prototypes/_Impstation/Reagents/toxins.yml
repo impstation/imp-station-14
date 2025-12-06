@@ -20,7 +20,7 @@
             Cold: 0.2
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: AquamDivinos
           min: 1
         reagent: AquamDivinos
@@ -29,12 +29,12 @@
     Extinguish:
       methods: [ Touch ]
       effects:
-      - !type:ExtinguishReaction
+      - !type:Extinguish
     Acidic:
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         ignoreResistances: false
         damage:
           types:
@@ -63,7 +63,7 @@
         damage:
           types:
             Poison: 1
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -2
       - !type:AdjustReagent
         reagent: Ethanol

@@ -19,17 +19,18 @@ using Robust.Shared.Utility; // imp throwing
 
 namespace Content.Server.Damage.Systems
 {
-    public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem // imp shared
+    public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
     {
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly GunSystem _guns = default!;
-        [Dependency] private readonly DamageableSystem _damageable = default!;
+        [Dependency] private readonly Shared.Damage.Systems.DamageableSystem _damageable = default!;
         [Dependency] private readonly DamageExamineSystem _damageExamine = default!;
         [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
         [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!; // imp throwing
 
         // IMP TODO: clean this all up!!!!!
+        // IMP TODO: this file has SIGNIFICANTLY deviated from the upstream structure. we need proper usptream parity with this and its shared systems
 
         public override void Initialize()
         {
