@@ -155,3 +155,39 @@
   - type: FlavorProfile
     flavors:
     - secticket
+
+- type: entity
+  parent: FoodBakingBase
+  id: FoodPulpBall
+  name: pulp ball
+  description: A ball of wood pulp. The first step to making paper
+  components:
+  - type: Item
+    size: Normal
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/paper.rsi
+    state: dough
+  # - type: Construction
+    # graph: Pizza
+    # node: start
+
+- type: entity
+  parent: FoodBakingBase
+  id: FoodPulpBallFlat
+  name: sheet of wood pulp
+  description: A flattened sheet of wet wood pulp. Just needs to be dried to become usuable paper!
+  components:
+  - type: Item
+    size: Normal
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/paper.rsi
+    state: dough
+  # - type: Construction
+    # graph: Pizza
+    # node: start

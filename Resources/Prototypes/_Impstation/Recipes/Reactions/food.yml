@@ -33,10 +33,10 @@
   quantized: true
   conserveEnergy: false
   reactants:
-    Flour:
+    Pulp:
       amount: 15
     Water:
-      amount: 10
+      amount: 5
   effects:
     - !type:CreateEntityReactionEffect
-      entity: FoodDough
+      entity: FoodDough # CHANGE THIS TO PULP BALL LATER!!!!!!
