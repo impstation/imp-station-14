@@ -406,6 +406,11 @@
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 3, 4 ]
+    - id: XenoArtifactMindlessClone
+      weight: 6.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 3, 4, 5 ]
     # imp edit end
 
 - type: entityTable
