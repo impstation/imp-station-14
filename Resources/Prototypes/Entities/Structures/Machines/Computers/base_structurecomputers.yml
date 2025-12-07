@@ -52,9 +52,9 @@
           False: { visible: true }
   - type: LitOnPowered
   - type: PointLight
+    radius: 2.4 #imp, was 1.5
+    energy: 1.6 # imp, was 3.0
     color: "#887755FF" #imp
-    radius: 2.4 #imp
-    energy: 1.6
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true

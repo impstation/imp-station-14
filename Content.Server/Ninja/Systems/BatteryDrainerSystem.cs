@@ -109,7 +109,7 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             required;
         // IMP EDIT END
         var input = Math.Min(Math.Min(available, required / comp.DrainEfficiency), maxDrained);
-        if (!_battery.TryUseCharge(target, input, targetBattery))
+        if (!_battery.TryUseCharge((target, targetBattery), input))
             return false;
 
         var output = input * comp.DrainEfficiency;
@@ -118,7 +118,7 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             output = Math.Max(output, (float)comp.MinimumDrain);
         // IMP END
 
-        _battery.SetCharge(comp.BatteryUid.Value, battery.CurrentCharge + output, battery);
+        _battery.SetCharge((comp.BatteryUid.Value, battery), battery.CurrentCharge + output);
         // TODO: create effect message or something
         Spawn("EffectSparks", Transform(target).Coordinates);
         _audio.PlayPvs(comp.SparkSound, target);
@@ -130,6 +130,6 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             return false;
 
         // repeat the doafter until battery is full
-        return !_battery.IsFull(comp.BatteryUid.Value, battery);
+        return !_battery.IsFull((comp.BatteryUid.Value, battery));
     }
 }
