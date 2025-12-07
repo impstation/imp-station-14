@@ -4,6 +4,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -124,7 +125,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                         dmgdict[key] = -10f;
 
                     var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
-                    _dmg.TryChangeDamage(ent, dmgspec, true, false, dmgc);
+                    _dmg.TryChangeDamage((ent, dmgc), dmgspec, true, false);
                 }
 
                 if (!flam.OnFire)
