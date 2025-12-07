@@ -54,7 +54,7 @@ public abstract class SharedHeatVentSystem : EntitySystem
 public sealed partial class HeatVentActionEvent : InstantActionEvent;
 
 /// <summary>
-/// Is relayed after the doafter finishes.
+///     Is relayed after the doafter finishes.
 /// </summary>
 [Serializable, NetSerializable]
 public sealed partial class HeatVentDoAfterEvent : SimpleDoAfterEvent;

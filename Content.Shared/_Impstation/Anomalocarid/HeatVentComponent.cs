@@ -28,7 +28,7 @@ public sealed partial class HeatVentComponent : Component
     ///     At max value the entity starts taking damage.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HeatDamageThreshold = 60f * 30f; // 30 minutes
+    public float HeatDamageThreshold = 60f * 15f; // 15 minutes (900)
 
     /// <summary>
     ///     How much heat should be added per cycle.
@@ -101,7 +101,7 @@ public sealed partial class HeatVentComponent : Component
     ///     Coefficient used to determine length of doafter.
     ///     This value is multiplied by HeatStored.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float VentLengthMultiplier = 0.006f;
 
     /// <summary>
@@ -113,7 +113,7 @@ public sealed partial class HeatVentComponent : Component
     /// <summary>
     ///     How many moles of gas are released per amount of heat stored.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float MolesPerHeatStored = 0.008f;
 
     /// <summary>

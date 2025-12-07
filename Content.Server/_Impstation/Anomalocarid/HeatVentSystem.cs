@@ -2,11 +2,11 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
+using Content.Shared._Impstation.Anomalocarid;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
-using Content.Shared._Impstation.Anomalocarid;
 
 namespace Content.Server._Impstation.Anomalocarid;
 
@@ -34,11 +34,11 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
         {
             tileMix.AdjustMoles(ent.Comp.VentGas, ent.Comp.HeatStored * ent.Comp.MolesPerHeatStored);
             var gasTemp = ent.Comp.GasTempBase + ent.Comp.GasTempHeatMultiplier * ent.Comp.HeatStored;
-            tileMix.Temperature = Math.Clamp(gasTemp, ent.Comp.GasTempMin ,ent.Comp.GasTempMax);
+            tileMix.Temperature = Math.Clamp(gasTemp, ent.Comp.GasTempMin, ent.Comp.GasTempMax);
         }
 
         _audio.PlayPvs(ent.Comp.VentSound, ent);
-        _popup.PopupEntity(Loc.GetString(ent.Comp.VentDoAfterPopup,  ("target", ent)), ent);
+        _popup.PopupEntity(Loc.GetString(ent.Comp.VentDoAfterPopup, ("target", ent)), ent);
         ent.Comp.HeatStored = 0;
         UpdateAlert(ent);
     }
@@ -67,7 +67,7 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
         ent.Comp.HeatStored += ent.Comp.HeatAdded;
 
         if (ent.Comp.HeatStored >= ent.Comp.HeatDamageThreshold)
-            _damage.TryChangeDamage(ent, ent.Comp.HeatDamage, ignoreResistances: true, interruptsDoAfters: false);
+            _damage.TryChangeDamage(ent.Owner, ent.Comp.HeatDamage, ignoreResistances: true, interruptsDoAfters: false);
 
         UpdateAlert(ent);
     }

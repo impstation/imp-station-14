@@ -4,11 +4,11 @@ reagent-desc-dino-blood = The thick, viscous lifeblood of a prehistoric behemoth
 reagent-name-synthflesh = synthflesh
 reagent-desc-synthflesh = An incredibly thick, viscous, 'fluid' that moves and shifts on its own. It's used in the creation of synthetic limbs.
 
-reagent-name-anomalocarid-blood = anomalocarid blood
-reagent-desc-anomalocarid-blood = A strangely effervescent fluid with a color that makes it look like it came out of a fruit snack. The odor reminds you of the sea... and Discount Dan's?
-
 reagent-name-shimmering-blood = shimmering blood
 reagent-desc-shimmering-blood = The strange, nacreous blood of a creature related to space carp. The sweet scent is almost inviting.
+
+reagent-name-anomalocarid-blood = anomalocarid blood
+reagent-desc-anomalocarid-blood = A strangely effervescent fluid with a color that makes it look like it came out of a fruit snack. The odor reminds you of the sea... and Discount Dan's?
 
 reagent-name-bloodkodepiia = kodepiia ooze
 reagent-desc-bloodkodepiia = The fluid that bleeds from a kodepiia if you cut it. Smells delicious.
@@ -30,4 +30,3 @@ reagent-desc-estradiol = A fundamental bodily hormone, synthesized from cell mat
 
 reagent-name-bloodallulalo = methylated blood
 reagent-desc-bloodallulalo = An ancient alkylate form of blood. Known to rapidly evaporate if spilled.
-
