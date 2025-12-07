@@ -1,18 +1,10 @@
 - type: guideEntry
   id: VisitorSpecies
   name: guide-entry-visitorspecies
-  text: "/ServerInfo/_Impstation/Guidebook/Mobs/Allulalo.xml"
+  text: "/ServerInfo/_Impstation/Guidebook/Mobs/VisitorSpecies/VisitorSpecies.xml"
   children:
-  - ImpGoblinSpecies
-  - ImpApids
-  - Vulpkanin
   - Anomalocarid
-
-# need to make a new goblin entry that doesnt parent to ghost roles
-- type: guideEntry
-  id: ImpGoblinSpecies
-  name: guide-entry-impgoblins
-  text: "/ServerInfo/_Impstation/Guidebook/Mobs/VisitorSpecies/Goblins.xml"
+  - Vulpkanin
 
 - type: guideEntry
   id: Anomalocarid
