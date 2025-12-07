@@ -397,15 +397,15 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
     - id: XenoArtifactInjectCryptobiolin
-      weight: 10.0 # imp edit
+      weight: 4.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 0, 1, 2 ]
+        depths: [ 2, 3]
     - id: XenoArtifactInjectDrunkHigh
-      weight: 10.0 # imp edit
+      weight: 3.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 0, 1, 2 ]
+        depths: [ 3, 4 ]
     # imp edit end
 
 - type: entityTable
