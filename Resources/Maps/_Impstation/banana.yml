@@ -25922,20 +25922,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: WarpPointBombing
-  entities:
-  - uid: 3639
-    components:
-    - type: Transform
-      pos: -42.5,-23.5
-      parent: 2
-  - uid: 3640
-    components:
-    - type: Transform
-      pos: -30.5,-18.5
-      parent: 2
-    - type: BombingTarget
-      location: Security
 - proto: WashingMachine
   entities:
   - uid: 1285
