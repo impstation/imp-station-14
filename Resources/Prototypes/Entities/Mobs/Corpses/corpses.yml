@@ -92,12 +92,9 @@
 - type: randomHumanoidSettings
   id: CorpseBase
   randomizeName: false
-  description: I think they're dead.
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
-    - type: MobState
-      state: Dead
     - type: RandomDamageOnSpawn
       damage:
         types:

@@ -102,6 +102,8 @@
   description: A polymorphed unfortunate.
   components:
   - type: Cluwne
-    geneticDamageOnDeath: 0 # IMP
+    revertDamage: # IMP
+      types:
+        Genetic: 0
   - type: Speech
     speechVerb: Cluwne
