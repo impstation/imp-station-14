@@ -101,7 +101,6 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
         {
             var bias = EnsureComp<XenoArtifactBiasedComponent>(artifact);
             bias.Provider = args.Source;
-            Dirty((Entity<XenoArtifactBiasedComponent>)(artifact, bias));
         }
     }
 
