@@ -45,13 +45,14 @@
 - type: startingGear
   id: HoSGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    # eyes: ClothingEyesGlassesSecurity imp loadouts
     id: HoSPDA
     gloves: ClothingHandsGlovesCombat
     # pocket1: WeaponPistolMk58 imp loadouts
   storage:
     back:
     - Flash
+    - HandheldCriminalRecords #imp
     # - MagazinePistol imp loadouts
 
 

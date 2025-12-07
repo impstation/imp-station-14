@@ -1,3 +1,8 @@
+# IMP EDIT: I'm so sorry.
+# most of these target weights have been redistributed, balancing per department so that antags target each department evenly.
+# ideally this would be accomplished through departmental objective groups, but. wyci
+# ref https://github.com/impstation/imp-station-14/pull/3532#issuecomment-3454115341 for a better list of weights
+
 # Traitor
 - type: weightedRandom
   id: TraitorObjectiveGroups
@@ -10,20 +15,23 @@
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSteal
-  weights:
-    CaptainIDStealObjective: 1
-    CMOHyposprayStealObjective: 1
-    CMOCrewMonitorStealObjective: 1
-    RDHardsuitStealObjective: 1
-    NukeDiskStealObjective: 1
-    MagbootsStealObjective: 1
-    CorgiMeatStealObjective: 1
-    ClipboardStealObjective: 1
-    KnuckleDustersStealObjective: 1
-    CaptainGunStealObjective: 0.5
-    CaptainJetpackStealObjective: 0.5
-    HandTeleporterStealObjective: 0.5
-    EnergyMagnumStealObjective: 0.5
+  weights: # imp - numbers all changed for a more even spread of targets
+    CaptainIDStealObjective: 0.48 # was 1
+    CMOHyposprayStealObjective: 0.48 # was 1
+    CMOCrewMonitorStealObjective: 0.48 # was 1
+    RDHardsuitStealObjective: 0.48 # was 1
+    NukeDiskStealObjective: 0.48 # was 1
+    MagbootsStealObjective: 0.48 # was 1
+    CorgiMeatStealObjective: 0.71 # was 1
+    ClipboardStealObjective: 0.48 # was 1
+    KnuckleDustersStealObjective: 0.48 # was 1
+    CaptainGunStealObjective: 0.24 # was 0.5
+    CaptainJetpackStealObjective: 0.24 # was 0.5
+    HandTeleporterStealObjective: 0.48 # was 0.5
+    EnergyMagnumStealObjective: 0.24 # was 0.5
+    # imp
+    CMOMedChemHUDStealObjective: 0.48
+    AntiqueDisablerStealObjective: 0.71
     #StealSupermatterSliverObjective: 0.5 # imp, disabled until StealCondition can verify the supermatter's existence
 
 - type: weightedRandom
@@ -52,6 +60,7 @@
   weights:
     ThiefObjectiveGroupCollection: 1
     ThiefObjectiveGroupItem: 1
+    ThiefGimmickObjectives: 0.25 # imp
 
 - type: weightedRandom
   id: ThiefBigObjectiveGroups
@@ -80,95 +89,96 @@
 
 - type: weightedRandom
   id: ThiefObjectiveGroupItem
-  weights:
-    ChiefEngineerToolbeltStealObjective: 0.5             #command
-    CaptainSwordStealObjective: 0.5
+  weights: # imp - numbers all changed for a more even spread of targets
+    ChiefEngineerToolbeltStealObjective: 0.48 # was 0.5             #command
+    CaptainSwordStealObjective: 0.24 # was 0.5
     #ClothingHeadsetAltMedicalStealObjective: 1 #imp edit, objective disabled
-    ForensicScannerStealObjective: 1                    #sec
-    FlippoEngravedLighterStealObjective: 0.5
-    ClothingHeadHatWardenStealObjective: 1
-    WantedListCartridgeStealObjective: 1
-    ClothingOuterHardsuitVoidParamedStealObjective: 1   #med
-    MedicalTechFabCircuitboardStealObjective: 1
-    FireAxeStealObjective: 1                            #eng
-    AmePartFlatpackStealObjective: 1
-    ExpeditionsCircuitboardStealObjective: 1            #sup
-    CargoShuttleCircuitboardStealObjective: 1
-    ClothingEyesHudBeerStealObjective: 0.5              #srv, beer goggles less common cause its so easy
-    BibleStealObjective: 1
-    ClothingNeckGoldmedalStealObjective: 1              #other
-    ClothingNeckClownmedalStealObjective: 0.5
+    ForensicScannerStealObjective: 0.25 # was 1                    #sec
+    FlippoEngravedLighterStealObjective: 0.13 # was 0.5
+    ClothingHeadHatWardenStealObjective: 0.25 # was 1
+    WantedListCartridgeStealObjective: 0.24 # was 1
+    ClothingOuterHardsuitVoidParamedStealObjective: 0.48 # was 1   #med
+    MedicalTechFabCircuitboardStealObjective: 0.48 # was 1
+    FireAxeStealObjective: 0.48 # was 1                            #eng
+    AmePartFlatpackStealObjective: 0.48 # was 1
+    ExpeditionsCircuitboardStealObjective: 0.36 # was 1            #sup
+    CargoShuttleCircuitboardStealObjective: 0.36 # was 1
+    ClothingEyesHudBeerStealObjective: 0.24 # was 0.5           #srv
+    BibleStealObjective: 0.24 # was 1
+    ClothingNeckGoldmedalStealObjective: 0.41 # was 1            #other
+    ClothingNeckClownmedalStealObjective: 0.17 # was 0.5
     #imp
-    AstroNavCartridgeStealObjective: 1
-    AtmosFireSuitStealObjective: 1 #fire vuln species only
-    EvilSkullArtifactItemStealObjective: 1
-    HDCutterMachineStealObjective: 1
-    LogProbeCartridgeStealObjective: 1
-    MedTekCartridgeStealObjective: 1
-    MopBucketStealObjective: 1 #slimes only. idk someone wanted this
-    SecPillCanisterStealObjective: 1
-    ServiceTechFabStealObjective: 1
-    ShiningSpringStealObjective: 1
-    ShipyardComputerCircuitboardStealObjective: 1
-    ClothingNeckBureaucracyMedalStealObjective: 1
+    AstroNavCartridgeStealObjective: 0.36
+    AtmosFireSuitStealObjective: 0.48 #fire vuln species only
+    EvilSkullArtifactItemStealObjective: 1.43
+    HDCutterMachineStealObjective: 0.24
+    LogProbeCartridgeStealObjective: 0.25
+    MedTekCartridgeStealObjective: 0.48
+    MopBucketStealObjective: 0.24 #slimes only. idk someone wanted this
+    SecPillCanisterStealObjective: 0.25
+    ServiceTechFabStealObjective: 0.24
+    ShiningSpringStealObjective: 0.24
+    ShipyardComputerCircuitboardStealObjective: 0.36
+    ClothingNeckBureaucracyMedalStealObjective: 0.41
+    GoldenToolboxStealObjective: 0.41
 
 - type: weightedRandom
   id: ThiefObjectiveGroupStructure
-  weights:
-    NuclearBombStealObjective: 0.5
-    FaxMachineCaptainStealObjective: 1
-    ChemDispenserStealObjective: 1
-    XenoArtifactStealObjective: 1
-    FreezerHeaterStealObjective: 1
-    TegStealObjective: 1
-    BoozeDispenserStealObjective: 1
-    AltarNanotrasenStealObjective: 1
-    PlantRDStealObjective: 1
-    ToiletGoldenStealObjective: 1
+  weights: # imp - numbers all changed for a more even spread of targets
+    NuclearBombStealObjective: 0.24 # was 0.5
+    FaxMachineCaptainStealObjective: 0.6 # was 1
+    ChemDispenserStealObjective: 0.36 # was 1
+    XenoArtifactStealObjective: 0.26 # was 1
+    FreezerHeaterStealObjective: 0.24 # was 1
+    TegStealObjective: 0.24 # was 1
+    BoozeDispenserStealObjective: 0.14 # was 1
+    AltarNanotrasenStealObjective: 0.14 # was 1
+    PlantRDStealObjective: 0.26 # was 1
+    ToiletGoldenStealObjective: 0.14 # was 1
     #imp
-    GeneratorStealObjective: 1
-    AICoreStealObjective: 1
-    ParticleAcceleratorStealObjective: 1
-    PTechStealObjective: 1
-    SecTechStealObjective: 1
-    HyDrobeStealObjective: 1
-    LawDrobeStealObjective: 1
-    SecDrobeStealObjective: 1
-    BarDrobeStealObjective: 1
-    PietyVendStealObjective: 1
-    CargoDrobeStealObjective: 1
-    SalvDrobeStealObjective: 1
-    MediDrobeStealObjective: 1
-    ChemDrobeStealObjective: 1
-    CuraDrobeStealObjective: 1
-    AtmosDrobeStealObjective: 1
-    EngiDrobeStealObjective: 1
-    ChefDrobeStealObjective: 1
-    DetDrobeStealObjective: 1
-    JaniDrobeStealObjective: 1
-    SciDrobeStealObjective: 1
-    RoboDrobeStealObjective: 1
-    GeneDrobeStealObjective: 1
-    ViroDrobeStealObjective: 1
-    SeedExtractorStealObjective: 1
+    GeneratorStealObjective: 0.24
+    AICoreStealObjective: 0.12
+    ParticleAcceleratorStealObjective: 0.24
+    PTechStealObjective: 0.6
+    SecTechStealObjective: 0.36
+    HyDrobeStealObjective: 0.14
+    LawDrobeStealObjective: 0.14
+    SecDrobeStealObjective: 0.36
+    BarDrobeStealObjective: 0.14
+    PietyVendStealObjective: 0.14
+    CargoDrobeStealObjective: 0.7
+    SalvDrobeStealObjective: 0.7
+    MediDrobeStealObjective: 0.36
+    ChemDrobeStealObjective: 0.36
+    CuraDrobeStealObjective: 0.14
+    AtmosDrobeStealObjective: 0.24
+    EngiDrobeStealObjective: 0.24
+    ChefDrobeStealObjective: 0.14
+    DetDrobeStealObjective: 0.36
+    JaniDrobeStealObjective: 0.14
+    SciDrobeStealObjective: 0.26
+    RoboDrobeStealObjective: 0.26
+    GeneDrobeStealObjective: 0.36
+    ViroDrobeStealObjective: 0.26
+    SeedExtractorStealObjective: 0.14
 
 
 - type: weightedRandom
   id: ThiefObjectiveGroupAnimal
-  weights:
-    IanStealObjective: 1
-    BingusStealObjective: 1
-    McGriffStealObjective: 1
-    WalterStealObjective: 1
-    MortyStealObjective: 1
-    RenaultStealObjective: 1
-    ShivaStealObjective: 1
-    TropicoStealObjective: 1
+  weights: # imp - numbers all changed for a more even spread of targets
+    IanStealObjective: 0.83 # was 1
+    BingusStealObjective: 0.47 # was 1
+    McGriffStealObjective: 0.83 # was 1
+    WalterStealObjective: 0.47 # was 1
+    MortyStealObjective: 0.47 # was 1
+    RenaultStealObjective: 0.83 # was 1
+    ShivaStealObjective: 0.83 # was 1
+    TropicoStealObjective: 0.56 # was 1
     #imp
-    FinFinStealObjective: 1
-    PolyStealObjective: 1
-    PetSuppyStealObjective: 1
-    OswaldStealObjective: 1
+    FinFinStealObjective: 0.56
+    PolyStealObjective: 0.56
+    PetSuppyStealObjective: 0.56
+    OswaldStealObjective: 1.67
 
 - type: weightedRandom
   id: ThiefObjectiveGroupEscape

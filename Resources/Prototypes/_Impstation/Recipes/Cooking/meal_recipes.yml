@@ -124,6 +124,20 @@
   recipeType: Assembler
 
 - type: microwaveMealRecipe
+  id: RecipeAnimalHeartCarpaccio # might as well, right? can't let you mix and match though, sorry
+  name: animal heart carpaccio recipe
+  result: MealHeartCarpaccio
+  group: Savory
+  time: 5
+  solids:
+    OrganAnimalHeart: 1
+    OrganAnimalLiver: 1
+    OrganAnimalLungs: 1
+    OrganAnimalStomach: 1
+    OrganAnimalKidneys: 1
+  recipeType: Assembler
+
+- type: microwaveMealRecipe
   id: RecipeMacaronBerry
   name: berry macaron recipe
   result: FoodMacaronBerry

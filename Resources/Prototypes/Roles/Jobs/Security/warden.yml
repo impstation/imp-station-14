@@ -24,6 +24,8 @@
   - External
   - Detective
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -31,7 +33,7 @@
 - type: startingGear
   id: WardenGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    # eyes: ClothingEyesGlassesSecurity imp loadouts
     ears: ClothingHeadsetWarden
     # pocket1: WeaponPistolMk58 imp loadouts
   storage:

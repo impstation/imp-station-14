@@ -19,6 +19,8 @@
   - Detective
   - Cryogenics
   - External
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -26,7 +28,7 @@
 - type: startingGear
   id: DetectiveGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    # eyes: ClothingEyesGlassesSecurity imp loadouts
     ears: ClothingHeadsetSecurity
     belt: ClothingBeltHolster # imp
   storage:

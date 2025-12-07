@@ -24,6 +24,8 @@
       - TegGenerator
       - TegCirculator
       - XenoArtifact
+      - Artifact #Imp
+      - StealTarget #Imp
     event: !type:ChangeComponentsSpellEvent
       toAdd:
       - type: Animate
@@ -65,11 +67,11 @@
           - !type:PlaySoundBehavior
             sound:
               collection: MetalBreak
-      - type: Hands
+      #- type: Hands # Imp comment out
       - type: CanEscapeInventory
-      - type: MobCollision
+      #- type: MobCollision # Imp comment out
       toRemove:
-      - RequireProjectileTarget
-      - BlockMovement
-      - Item
-      - MeleeRequiresWield
+      - type: RequireProjectileTarget # Imp, to component
+      - type: BlockMovement # Imp, to component
+      - type: Item # Imp, to component
+      - type: MeleeRequiresWield # Imp, to component
