@@ -1,0 +1,50 @@
+- type: entity
+  name: Citationator
+  parent: BaseStorageItem
+  id: LauncherCitationator
+  description: Issuing citations, with a prejudice.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/citationator.rsi
+    layers:
+    - state: icon #magazine counters don't work for ContainerAmmoProvider, and the item counter system only displays if an inventory is being accessed, so for now it's just going to default to icon because that's what looks good at all times rather than being inexplicably empty until new systems are made.
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,0,2
+    whitelist:
+      tags:
+      - SecTicket
+    storageOpenSound:
+      path: /Audio/Items/change_drill.ogg
+    storageInsertSound: 
+      path: /Audio/Items/change_drill.ogg
+    storageRemoveSound:
+      path: /Audio/Items/change_drill.ogg
+  - type: Gun
+    fireRate: 3
+    burstFireRate: 6
+    shotsPerBurst: 3
+    burstCooldown: 0.40
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+      - Burst
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+    soundEmpty:
+      path: /Audio/_Impstation/Weapons/Guns/Empty/dry_fire.ogg
+    clumsyProof: true
+  - type: ContainerAmmoProvider
+    container: storagebase
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []

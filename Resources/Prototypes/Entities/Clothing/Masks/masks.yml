@@ -236,6 +236,8 @@
     slots:
     - Snout
     - SnoutCover # imp
+  - type: StealTarget #imp
+    stealGroup: ClownMask
 
 - type: entity
   parent: ClothingMaskClownChameleonBasic #imp

@@ -4,7 +4,6 @@
   id: BaseMobSlimePerson
   abstract: true
   components:
-  - type: GoobAbsorbable
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -34,11 +33,13 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # imp edit start
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.ThavenMoodsUiKey.Key: # impstation edit
+      enum.ThavenMoodsUiKey.Key:
         type: ThavenMoodsBoundUserInterface
         requireInputValidation: false
+      # imp edit end
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5
@@ -47,16 +48,14 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
-    allowedEmotes: ['Squish', 'Bubble', 'Pop']
+    allowedEmotes: ['Squish', 'Bubble', 'Pop'] #imp edit, bubble, pop
   - type: TypingIndicator
     proto: slime
   - type: Vocal
     sounds:
       Male: MaleSlime
       Female: FemaleSlime
-      Unsexed: UnisexSlime
-  - type: BodyEmotes #imp edit
-    soundsId: SlimeBodyEmotes
+      Unsexed: UnisexSlime #imp edit
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
@@ -91,15 +90,15 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ Water ]
-      methods: [ Touch, Injection ]
+      methods: [ Touch, Injection ] #imp, injection
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         damage:
           types:
-            Caustic: 0.2
+            Caustic: 0.2 #imp, YEEEEOWCH! (.05 heat upstream)
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -125,7 +124,11 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: Hemorrhage # imp
+  # imp edit start
+  - type: BodyEmotes
+    soundsId: SlimeBodyEmotes
+  - type: Hemorrhage
+  # imp edit end
 
 - type: entity
   parent: MobHumanDummy

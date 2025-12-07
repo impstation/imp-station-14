@@ -1,6 +1,5 @@
-collective-mind-chat-wrap-message = [bold]{$channel}:[/bold] [italic]{$message}[/italic]
-collective-mind-chat-wrap-message-admin = {$source} ({$channel}): {$message}
-collective-mind-dionas = Mycorrhizal Gestalt
-# Removed {$number}s because distinguishing different members of the gestalt isnt as cool
-
+collective-mind-diona = Mycorrhizae
 collective-mind-changeling = Hivemind
+collective-mind-carp = Spacefish
+collective-mind-spider = The Web
+collective-mind-zombie = Infected

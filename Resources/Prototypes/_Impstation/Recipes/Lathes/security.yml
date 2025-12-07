@@ -345,3 +345,11 @@
     Glass: 300
     Plastic: 750
     Gold: 200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeMelee
+  id: SecurityGlaive
+  result: SecurityGlaive
+  materials:
+    Steel: 800
+    Plastic: 500

@@ -1,17 +1,12 @@
 ## Static
 
 - type: latheRecipePack
+  parent: ImpTopicalsStatic #imp edit
   id: TopicalsStatic
   recipes:
   - Brutepack
-  - SimpleSuture #Imp
-  - ElectrodePad #Imp
-  - Gauze
-  - Tincture #Imp
   - Ointment
-  - ShockGel #Imp
-  - ColdPack #Imp
-  - EZGraft #Imp
+  - Gauze
 
 - type: latheRecipePack
   id: BasicChemistryStatic
@@ -22,12 +17,10 @@
   - PillCanister
   - HandLabeler
   - BaseChemistryEmptyVial
-  - ConicalFlask #Imp
-  - LargeConicalFlask #Imp
-
+  - Dropper
 
 - type: latheRecipePack
-  parent: BasicChemistryStatic
+  parent: [ BasicChemistryStatic, ImpChemistryStatic ] #imp edit
   id: ChemistryStatic
   recipes:
   - Jug
@@ -45,6 +38,7 @@
   - Hemostat
 
 - type: latheRecipePack
+  parent: ImpMedStatic #imp edit
   id: MedicalStatic
   recipes:
   - Implanter

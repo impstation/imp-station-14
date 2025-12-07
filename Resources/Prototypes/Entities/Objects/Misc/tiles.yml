@@ -1417,7 +1417,9 @@
     tags:
     - DroneUsable
     - KodeEdible
-  - type: Food # imp
+    - ReptilianFood
+    - SpiderFood
+  - type: Edible # imp
     requiresSpecialDigestion: true
   - type: SolutionContainerManager # imp
     solutions:

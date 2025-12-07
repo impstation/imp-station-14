@@ -8,7 +8,7 @@
     useDelay: 30
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      sprite: _Impstation/Heretic/abilities_heretic.rsi
       state: flesh_surgery
   - type: TargetAction
   - type: EntityTargetAction
@@ -26,8 +26,8 @@
     useDelay: 60
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Heretic/abilities_heretic.rsi
-      state: final_hymn
+      sprite: _Impstation/Heretic/abilities_heretic.rsi
+      state: reality_uncoil
   - type: InstantAction
     event: !type:EventHereticFleshAscend
   - type: HereticAction
