@@ -20,7 +20,6 @@
   # begin imp edit, service split
   #- Bartender
   #- Botanist
-  #- Boxer
   #- Chaplain
   #- Chef
   #- Clown
@@ -32,12 +31,11 @@
   #- Musician
   #- Reporter
   #- Visitor
-  #- Zookeeper
   #- ServiceWorker
   # end imp edit, a department of TWO, available on xbox 360 and playstation 3 march 6, 2008
   - Lawyer
   - Passenger
-  - Assistant # non-roundstart
+  - Assistant # imp, non-roundstart
 
 - type: department
   id: CentralCommand

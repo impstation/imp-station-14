@@ -1,0 +1,32 @@
+- type: listing
+  id: UplinkHyperEutacticBlade
+  name: uplink-hypereutactic-blade-name
+  description: uplink-hypereutactic-blade-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  productEntity: HyperEutacticBlade
+  cost:
+    Telecrystal: 16 # Original DSword Cost
+  categories:
+  - UplinkWeaponry
+
+# Job Specific
+
+- type: listing
+  id: uplinkRiggedBoxingGlovesBoxer
+  name: uplink-rigged-boxing-gloves-name
+  description: uplink-rigged-boxing-gloves-desc
+  productEntity: ClothingHandsGlovesBoxingRigged
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Boxer
