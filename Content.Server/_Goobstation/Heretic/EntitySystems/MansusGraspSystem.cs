@@ -7,7 +7,9 @@ using Content.Shared.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared.Chat;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
@@ -26,6 +28,7 @@ using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -33,6 +36,12 @@ using Content.Server.Popups;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Player;
 using Content.Shared.Popups;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.CombatMode.Pacification;
+using Content.Shared.StatusEffectNew;
+using StatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
+using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Movement.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -42,6 +51,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly RatvarianLanguageSystem _language = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
@@ -51,16 +61,22 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temperature = default!;
     [Dependency] private readonly MinionSystem _minion = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementModStatus = default!;
+
+
 
     private readonly ProtoId<NpcFactionPrototype> _hereticFaction = "Heretic";
+    public static readonly EntProtoId FlashSlowdown = "FlashSlowdownStatusEffect";
 
-    public void ApplyGraspEffect(EntityUid performer, EntityUid target, string path)
+
+    public void ApplyGraspEffect(EntityUid performer, EntityUid target, HereticComponent heretic)
     {
+        var path = heretic.MainPath;
         switch (path)
         {
             case "Ash":
                 var timeSpan = TimeSpan.FromSeconds(5f);
-                _statusEffect.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect, timeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
+                _statusEffect.TryAddStatusEffectDuration(target, TemporaryBlindnessSystem.BlindingStatusEffect.Id, timeSpan);
                 break;
 
             case "Blade":
@@ -102,13 +118,20 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     break;
                 // hopefully damage only walls and cyborgs
                 if (HasComp<BorgChassisComponent>(target) || !HasComp<StatusEffectsComponent>(target))
-                    _damage.SetAllDamage(target, dmg, 50f);
+                    _damage.SetAllDamage((target, dmg), 50f);
                 break;
 
             case "Void":
                 if (TryComp<TemperatureComponent>(target, out var temp))
                     _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 20f, temp);
-                _statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(8), false);
+                _statusEffect.TryAddStatusEffectDuration(target, "Muted", TimeSpan.FromSeconds(8));
+                break;
+
+            case "Hunt":
+                if (TryComp<CartridgeAmmoComponent>(target, out var ammo))
+                    _gun.RefillCartridge(target, ammo);
+                if (heretic.Power >= 4) //hunt doesn't have a traditional "Mark" so its second grasp upgrade goes here
+                    _movementModStatus.TryAddMovementSpeedModDuration(target, FlashSlowdown, TimeSpan.FromSeconds(8), 0.75f);
                 break;
 
             default:
@@ -177,9 +200,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (hereticComp.MainPath != null)
         {
             if (hereticComp.Power >= 2)
-                ApplyGraspEffect(args.User, target, hereticComp.MainPath!);
+                ApplyGraspEffect(args.User, target, hereticComp);
 
-            if (hereticComp.Power >= 4 && HasComp<StatusEffectsComponent>(target))
+            if (hereticComp.Power >= 4 && HasComp<StatusEffectsComponent>(target) && hereticComp.MainPath != "Hunt")
             {
                 var markComp = EnsureComp<HereticCombatMarkComponent>(target);
                 markComp.Path = hereticComp.MainPath;
