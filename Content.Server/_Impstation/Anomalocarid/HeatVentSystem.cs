@@ -4,8 +4,11 @@ using Content.Server.Body.Systems;
 using Content.Server.Jittering;
 using Content.Server.Popups;
 using Content.Shared._Impstation.Anomalocarid;
+using Content.Shared.Actions.Components;
 using Content.Shared.Alert;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Ghost;
+using Content.Shared.Mind.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -24,11 +27,23 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
     [Dependency] private readonly RespiratorSystem _respirator = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
 
+    /// <summary>
+    ///     Determines if the heatvent is active. it's here because
+    ///  i dont know how to use component variables in update
+    /// </summary>
+    private bool Active;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<HeatVentComponent, HeatVentDoAfterEvent>(OnVent);
+        SubscribeLocalEvent<HeatVentComponent, MindAddedMessage>(OnMindAdded);
+    }
+
+    private void OnMindAdded(Entity<HeatVentComponent> ent, ref MindAddedMessage args)
+    {
+        Active = true;
     }
 
     private void OnVent(Entity<HeatVentComponent> ent, ref HeatVentDoAfterEvent args)
@@ -50,6 +65,9 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
+
+        if (!Active)
+            return;
 
         var query = EntityQueryEnumerator<HeatVentComponent>();
         while (query.MoveNext(out var uid, out var comp))
