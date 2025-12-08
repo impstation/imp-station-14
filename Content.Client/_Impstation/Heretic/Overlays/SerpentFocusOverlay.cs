@@ -128,9 +128,10 @@ public sealed class SerpentFocusOverlay : Overlay
         var rotation = _transform.GetWorldRotation(xform);
 
         var originalColor = sprite.Color;
-        _sprite.SetColor(ent!, color.WithAlpha(alpha));
+
+        _sprite.SetColor((ent, sprite), color.WithAlpha(alpha));
         _sprite.RenderSprite(ent, handle, eyeRot, rotation, position);
-        _sprite.SetColor(ent!, originalColor);
+        _sprite.SetColor((ent, sprite), originalColor);
     }
 
     private bool CanSee(EntityUid uid, SpriteComponent sprite)
