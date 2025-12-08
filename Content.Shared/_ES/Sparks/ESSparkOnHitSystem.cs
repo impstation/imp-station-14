@@ -1,5 +1,7 @@
 using Content.Shared._ES.Sparks.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -9,6 +11,7 @@ public sealed class ESSparkOnHitSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly ESSparksSystem _sparks = default!;
 
     /// <inheritdoc/>
@@ -29,6 +32,11 @@ public sealed class ESSparkOnHitSystem : EntitySystem
             return;
 
         if (_timing.CurTime - ent.Comp.LastSparkTime < ent.Comp.SparkDelay)
+            return;
+
+        SharedApcPowerReceiverComponent? powerReceiver = null;
+        if (_powerReceiver.ResolveApc(ent, ref powerReceiver) &&
+            (!_powerReceiver.IsPowered((ent, powerReceiver)) || powerReceiver.Load <= 0))
             return;
 
         _sparks.DoSparks(ent, ent.Comp.Count, ent.Comp.SparkPrototype);

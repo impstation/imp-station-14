@@ -48,7 +48,7 @@ public sealed class ESSparksSystem : EntitySystem
 
     private void PreventCollide(EntityUid sparks, EntityUid? ignored)
     {
-        if (!ignored.HasValue || TerminatingOrDeleted(ignored))
+        if (!ignored.HasValue || TerminatingOrDeleted(ignored) || EntityManager.IsQueuedForDeletion(ignored.Value))
             return;
         var comp = EnsureComp<PreventCollideComponent>(sparks);
         comp.Uid = ignored.Value;

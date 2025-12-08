@@ -35,7 +35,7 @@ public sealed partial class ESSparkOnHitComponent : Component
     /// Used to reduce spark spam.
     /// </summary>
     [DataField]
-    public TimeSpan SparkDelay = TimeSpan.FromSeconds(0.5f);
+    public TimeSpan SparkDelay = TimeSpan.FromSeconds(0.1f);
 
     /// <summary>
     /// The last time that a spark occured.
