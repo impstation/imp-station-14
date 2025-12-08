@@ -175,6 +175,12 @@
     action: ActionAnomalocaridSpit
     gunProto: AnomalocaridSpitGun
   - type: HeatVent
+    tooHotPopups:
+    - anomalocarid-vent-toohot1
+    - anomalocarid-vent-toohot2
+    - anomalocarid-vent-toohot3
+  - type: ReplacementAccent
+    accent: anomalocarid
   - type: Inventory
     speciesId: anomalocarid
     templateId: anomalocarid

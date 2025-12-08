@@ -28,7 +28,7 @@ public sealed partial class HeatVentComponent : Component
     ///     At max value the entity starts taking damage.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HeatDamageThreshold = 60f * 15f; // 15 minutes (900)
+    public float HeatDamageThreshold = 60f * 20f; // 20 minutes (1200)
 
     /// <summary>
     ///     How much heat should be added per cycle.
@@ -114,7 +114,7 @@ public sealed partial class HeatVentComponent : Component
     ///     How many moles of gas are released per amount of heat stored.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float MolesPerHeatStored = 0.008f;
+    public float MolesPerHeatStored = 0.02f;
 
     /// <summary>
     ///     Popup when using the vent heat action.
@@ -139,4 +139,16 @@ public sealed partial class HeatVentComponent : Component
     /// </summary>
     [DataField]
     public ProtoId<AlertPrototype> Alert = "InternalPressure";
+
+    /// <summary>
+    ///     Locids of text that pops up when you're far too hot.
+    /// </summary>
+    [DataField]
+    public List<LocId> TooHotPopups = [];
+
+    /// <summary>
+    ///     Chance toohotpopups occur every update over heat threshold.
+    /// </summary>
+    [DataField]
+    public float TooHotPopupChance = 0.50f;
 }
