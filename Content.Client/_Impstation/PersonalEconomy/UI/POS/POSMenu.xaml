@@ -2,13 +2,14 @@
     xmlns="https://spacestation14.io"
     xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:ui="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI"
+    xmlns:atm="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.ATM"
     Title="{Loc pos-window-title}"
     MinSize="512 320"
     SetSize="512 320">
     <BoxContainer Orientation="Horizontal">
         <BoxContainer Orientation="Vertical">
             <Control VerticalExpand="True"/>
-            <ui:Keypad Name="UIKeypad" NumberLength="6" Access="Public"/>
+            <atm:Keypad Name="UIKeypad" NumberLength="6" Access="Public"/>
             <Control VerticalExpand="True"/>
         </BoxContainer>
         <BoxContainer Name="MainContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True"/>

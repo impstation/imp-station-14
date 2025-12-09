@@ -51,3 +51,8 @@ pos-payment-spesito-amount = ${$amount} Spesitos
 pos-payment-reason = for "{$reason}"
 pos-payment-confirm-button-label = Confirm Transaction
 pos-payment-cancel-button-label = Cancel
+
+#account management console
+account-management-window-title = Account Management Console
+salary-panel-tab-name = Manage salaries & view transactions
+detail-panel-tab-name = Manage Account Details

@@ -3,12 +3,12 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 
-namespace Content.Client._Impstation.PersonalEconomy.UI;
+namespace Content.Client._Impstation.PersonalEconomy.UI.AccountManagement;
 
 [GenerateTypedNameReferences]
-public sealed partial class NoAccountInfoBox : BoxContainer
+public sealed partial class DetailManagementPanel : BoxContainer
 {
-    public NoAccountInfoBox()
+    public DetailManagementPanel()
     {
         RobustXamlLoader.Load(this);
     }

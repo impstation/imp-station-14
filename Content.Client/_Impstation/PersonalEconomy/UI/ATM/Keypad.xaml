@@ -1,6 +1,7 @@
-﻿<controls:Keypad
+﻿<atm:Keypad
     xmlns="https://spacestation14.io"
-    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI">
+    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI"
+    xmlns:atm="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.ATM">
     <BoxContainer Orientation="Vertical" HorizontalExpand="False" HorizontalAlignment="Left">
         <LineEdit Name="NumberDisplay" HorizontalExpand="True" PlaceHolder="000000"/>
         <GridContainer Name="ButtonGrid" Columns="3" VSeparationOverride="0" HSeparationOverride="0">
@@ -18,4 +19,4 @@
             <Button Name="ClearButton" Text="CLR" StyleClasses="OpenBoth" Margin="0"/> <!--todo replace clr with a del button?-->
         </GridContainer>
     </BoxContainer>
-</controls:Keypad>
+</atm:Keypad>

@@ -11,8 +11,8 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
 
     private readonly ClientBankingSystem _banking;
 
-    private ATMMenu? _atmMenu;
-    private TransactionMenu? _transactionMenu;
+    private UI.ATM.ATMMenu? _atmMenu;
+    private UI.ATM.TransactionMenu? _transactionMenu;
     private Entity<BankAccountComponent>? _account;
 
     public ATMBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
@@ -24,7 +24,7 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
     {
         base.Open();
 
-        _atmMenu = this.CreateWindow<ATMMenu>();
+        _atmMenu = this.CreateWindow<UI.ATM.ATMMenu>();
         _atmMenu.OnClose += ClearMenu;
 
         _atmMenu.OnNumberEntered += s =>
@@ -41,7 +41,7 @@ public sealed class ATMBoundUserInterface : BoundUserInterface
 
         _atmMenu.OnClearButtonPressed += ClearMenu;
 
-        _transactionMenu = new TransactionMenu();
+        _transactionMenu = new UI.ATM.TransactionMenu();
 
         _atmMenu.OnTransactionButtonPressed += () =>
         {

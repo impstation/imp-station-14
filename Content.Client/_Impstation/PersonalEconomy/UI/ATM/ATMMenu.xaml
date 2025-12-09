@@ -1,13 +1,14 @@
 ﻿<controls:FancyWindow xmlns="https://spacestation14.io"
             xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
             xmlns:ui="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI"
+            xmlns:atm="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.ATM"
             Title="{Loc 'atm-machine-window-title'}"
             MinSize="512 320"
             SetSize="512 320">
     <BoxContainer Orientation="Horizontal">
         <BoxContainer Orientation="Vertical">
             <Control VerticalExpand="True"/>
-            <ui:Keypad Name="UIKeypad" NumberLength="6"/>
+            <atm:Keypad Name="UIKeypad" NumberLength="6"/>
             <Control VerticalExpand="True"/>
         </BoxContainer>
         <BoxContainer Name="AccountInfoContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True"/>

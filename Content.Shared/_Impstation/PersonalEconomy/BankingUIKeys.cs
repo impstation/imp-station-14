@@ -14,3 +14,8 @@ public enum POSUIKey : byte
     Key
 }
 
+[Serializable, NetSerializable]
+public enum AccountManagementUIKey : byte
+{
+    Key
+}
