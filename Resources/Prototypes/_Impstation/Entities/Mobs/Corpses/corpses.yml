@@ -1,0 +1,103 @@
+- type: randomHumanoidSettings
+  id: CorpseBase
+  randomizeName: false
+  components:
+    - type: RandomHumanoidAppearance
+      randomizeName: false
+    - type: RandomDamageOnSpawn
+      damage:
+        types:
+          Bloodloss: 0
+          Asphyxiation: 0
+          Slash: -50
+          Blunt: -10
+          Piercing: -50
+          Cellular: 170
+      minDamage: 30
+      maxDamage: 120
+      ignoreResistances: true
+    - type: Rotting
+      totalRotTime: 1200
+
+# Jobs
+- type: randomHumanoidSettings
+  id: CorpseService
+  parent: CorpseBase
+  components:
+    - type: Loadout
+      prototypes:
+      - HoPGear
+      - ClownGear
+      - MimeGear
+      - JanitorGear
+      - ServiceWorkerGear
+      - MusicianGear
+      - BotanistGear
+      - ChefGear
+      - ChaplainGear
+      - PassengerGear
+
+- type: randomHumanoidSettings
+  id: CorpseEngineer
+  parent: CorpseBase
+  components:
+    - type: Loadout
+      prototypes:
+      - TechnicalAssistantGear
+      - AtmosphericTechnicianGear
+      - StationEngineerGear
+
+- type: randomHumanoidSettings
+  id: CorpseCargo
+  parent: CorpseBase
+  components:
+    - type: Loadout
+      prototypes:
+      - CargoTechGear
+      - SalvageSpecialistGear
+
+- type: randomHumanoidSettings
+  id: CorpseMedic
+  parent: CorpseBase
+  components:
+    - type: Loadout
+      prototypes:
+      - MedicalInternGear
+      - PsychologistGear
+      - ChemistGear
+      - DoctorGear
+
+- type: randomHumanoidSettings
+  id: CorpseScience
+  parent: CorpseBase
+  components:
+    - type: Loadout
+      prototypes:
+      - ResearchAssistantGear
+      - ScientistGear
+
+- type: randomHumanoidSettings
+  id: CorpseSecurity
+  parent: CorpseBase
+  components:
+    - type: Loadout
+      prototypes:
+      - SecurityCadetGear
+      - SecurityOfficerGear
+      - DetectiveGear
+      - WardenGear
+
+- type: randomHumanoidSettings
+  id: CorpseCommand
+  parent: CorpseBase
+  components:
+    - type: Loadout
+      prototypes:
+      - HoPGear
+      - CentcomGear
+      - CaptainGear
+      - HoSGear
+      - ResearchDirectorGear
+      - CMOGear
+      - ChiefEngineerGear
+      - QuartermasterGear

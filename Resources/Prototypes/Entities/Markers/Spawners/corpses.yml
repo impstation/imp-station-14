@@ -1,105 +1,111 @@
-# Imp - Edits across the board for corpse spawner functionality.
-
 - type: entity
-  name: unidentified corpse
-  id: RandomVisitorCorpseSpawner
+  name: Human Corpse Spawner
+  id: SalvageHumanCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
   parent: MarkerBase
   components:
   - type: Sprite
     sprite: Markers/jobs.rsi
     layers:
-      - state: passenger
       - state: green
-  - type: RandomHumanoidSpawner
-    settings: CorpseBase
+  - type: ConditionalSpawner
+    prototypes:
+      - SalvageHumanCorpse
 
 - type: entity
-  name: unidentified corpse
-  suffix: Service
+  name: Random Service Corpse Spawner
   id: RandomServiceCorpseSpawner
-  parent: RandomVisitorCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: botanist
       - state: green
-  - type: RandomHumanoidSpawner
-    settings: CorpseService
+  - type: ConditionalSpawner
+    prototypes:
+      - MobRandomServiceCorpse
 
 - type: entity
-  name: unidentified corpse
-  suffix: Engineer
+  name: Random Engineer Corpse Spawner
   id: RandomEngineerCorpseSpawner
-  parent: RandomVisitorCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: engineer
       - state: green
-  - type: RandomHumanoidSpawner
-    settings: CorpseEngineer
+  - type: ConditionalSpawner
+    prototypes:
+      - MobRandomEngineerCorpse
 
 - type: entity
-  name: unidentified corpse
-  suffix: Cargo
+  name: Random Cargo Corpse Spawner
   id: RandomCargoCorpseSpawner
-  parent: RandomVisitorCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: cargo_tech
       - state: green
-  - type: RandomHumanoidSpawner
-    settings: CorpseCargo
+  - type: ConditionalSpawner
+    prototypes:
+      - MobRandomCargoCorpse
 
 - type: entity
-  name: unidentified corpse
-  suffix: Medic
+  name: Random Medic Corpse Spawner
   id: RandomMedicCorpseSpawner
-  parent: RandomVisitorCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: doctor
       - state: green
-  - type: RandomHumanoidSpawner
-    settings: CorpseMedic
+  - type: ConditionalSpawner
+    prototypes:
+      - MobRandomMedicCorpse
 
 - type: entity
-  name: unidentified corpse
-  suffix: Science
+  name: Random Science Corpse Spawner
   id: RandomScienceCorpseSpawner
-  parent: RandomVisitorCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: scientist
       - state: green
-  - type: RandomHumanoidSpawner
-    settings: CorpseScience
+  - type: ConditionalSpawner
+    prototypes:
+      - MobRandomScienceCorpse
 
 - type: entity
-  name: unidentified corpse
-  suffix: Security
+  name: Random Security Corpse Spawner
   id: RandomSecurityCorpseSpawner
-  parent: RandomVisitorCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: security_officer
       - state: green
-  - type: RandomHumanoidSpawner
-    settings: CorpseSecurity
+  - type: ConditionalSpawner
+    prototypes:
+      - MobRandomSecurityCorpse
 
 - type: entity
-  name: unidentified corpse
-  suffix: Command
+  name: Random Command Corpse Spawner
   id: RandomCommandCorpseSpawner
-  parent: RandomVisitorCorpseSpawner
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  parent: SalvageHumanCorpseSpawner
   components:
   - type: Sprite
     layers:
       - state: captain
       - state: green
-  - type: RandomHumanoidSpawner
-    settings: CorpseCommand
+  - type: ConditionalSpawner
+    prototypes:
+      - MobRandomCommandCorpse

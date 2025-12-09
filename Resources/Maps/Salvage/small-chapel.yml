@@ -680,7 +680,7 @@ entities:
     - type: Transform
       pos: 2.5,8.5
       parent: 1
-- proto: RandomVisitorCorpseSpawner
+- proto: SalvageHumanCorpse
   entities:
   - uid: 43
     components:

@@ -1,122 +1,11 @@
-# Imp - Overhauled for spawners. Commented out the original for posterity.
-
-# - type: entity
-#   parent: SalvageHumanCorpse
-#   id: MobRandomServiceCorpse
-#   suffix: Dead, Service
-#   components:
-#   - type: Loadout
-#     prototypes:
-#       - HoPGear
-#       - ClownGear
-#       - MimeGear
-#       - JanitorGear
-#       - ServiceWorkerGear
-#       - MusicianGear
-#       - BotanistGear
-#       - ChefGear
-#       - ChaplainGear
-#       - PassengerGear
-
-# - type: entity
-#   parent: SalvageHumanCorpse
-#   id: MobRandomEngineerCorpse
-#   suffix: Dead, Engineer
-#   components:
-#   - type: Loadout
-#     prototypes:
-#     - TechnicalAssistantGear
-#     - AtmosphericTechnicianGear
-#     - StationEngineerGear
-
-# - type: entity
-#   parent: SalvageHumanCorpse
-#   id: MobRandomCargoCorpse
-#   suffix: Dead, Cargo
-#   components:
-#   - type: Loadout
-#     prototypes:
-#     - CargoTechGear
-#     - SalvageSpecialistGear
-
-# - type: entity
-#   parent: SalvageHumanCorpse
-#   id: MobRandomMedicCorpse
-#   suffix: Dead, Medic
-#   components:
-#   - type: Loadout
-#     prototypes:
-#     - MedicalInternGear
-#     - PsychologistGear
-#     - ChemistGear
-#     - DoctorGear
-
-# - type: entity
-#   parent: SalvageHumanCorpse
-#   id: MobRandomScienceCorpse
-#   suffix: Dead, Science
-#   components:
-#   - type: Loadout
-#     prototypes:
-#     - ResearchAssistantGear
-#     - ScientistGear
-
-# - type: entity
-#   parent: SalvageHumanCorpse
-#   id: MobRandomSecurityCorpse
-#   suffix: Dead, Security
-#   components:
-#   - type: Loadout
-#     prototypes:
-#     - SecurityCadetGear
-#     - SecurityOfficerGear
-#     - DetectiveGear
-#     - WardenGear
-
-# - type: entity
-#   parent: SalvageHumanCorpse
-#   id: MobRandomCommandCorpse
-#   suffix: Dead, Command
-#   components:
-#   - type: Loadout
-#     prototypes:
-#     - HoPGear
-#     - CentcomGear
-#     - CaptainGear
-#     - HoSGear
-#     - ResearchDirectorGear
-#     - CMOGear
-#     - ChiefEngineerGear
-#     - QuartermasterGear
-
-- type: randomHumanoidSettings
-  id: CorpseBase
-  randomizeName: false
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomServiceCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  suffix: Dead, Service
   components:
-    - type: RandomHumanoidAppearance
-      randomizeName: false
-    - type: RandomDamageOnSpawn
-      damage:
-        types:
-          Bloodloss: 0
-          Asphyxiation: 0
-          Slash: -50
-          Blunt: -10
-          Piercing: -50
-          Cellular: 170
-      minDamage: 30
-      maxDamage: 120
-      ignoreResistances: true
-    - type: Rotting
-      totalRotTime: 1200
-
-# Jobs
-- type: randomHumanoidSettings
-  id: CorpseService
-  parent: CorpseBase
-  components:
-    - type: Loadout
-      prototypes:
+  - type: Loadout
+    prototypes:
       - HoPGear
       - ClownGear
       - MimeGear
@@ -128,67 +17,79 @@
       - ChaplainGear
       - PassengerGear
 
-- type: randomHumanoidSettings
-  id: CorpseEngineer
-  parent: CorpseBase
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomEngineerCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  suffix: Dead, Engineer
   components:
-    - type: Loadout
-      prototypes:
-      - TechnicalAssistantGear
-      - AtmosphericTechnicianGear
-      - StationEngineerGear
+  - type: Loadout
+    prototypes:
+    - TechnicalAssistantGear
+    - AtmosphericTechnicianGear
+    - StationEngineerGear
 
-- type: randomHumanoidSettings
-  id: CorpseCargo
-  parent: CorpseBase
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomCargoCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  suffix: Dead, Cargo
   components:
-    - type: Loadout
-      prototypes:
-      - CargoTechGear
-      - SalvageSpecialistGear
+  - type: Loadout
+    prototypes:
+    - CargoTechGear
+    - SalvageSpecialistGear
 
-- type: randomHumanoidSettings
-  id: CorpseMedic
-  parent: CorpseBase
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomMedicCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  suffix: Dead, Medic
   components:
-    - type: Loadout
-      prototypes:
-      - MedicalInternGear
-      - PsychologistGear
-      - ChemistGear
-      - DoctorGear
+  - type: Loadout
+    prototypes:
+    - MedicalInternGear
+    - PsychologistGear
+    - ChemistGear
+    - DoctorGear
 
-- type: randomHumanoidSettings
-  id: CorpseScience
-  parent: CorpseBase
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomScienceCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  suffix: Dead, Science
   components:
-    - type: Loadout
-      prototypes:
-      - ResearchAssistantGear
-      - ScientistGear
+  - type: Loadout
+    prototypes:
+    - ResearchAssistantGear
+    - ScientistGear
 
-- type: randomHumanoidSettings
-  id: CorpseSecurity
-  parent: CorpseBase
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomSecurityCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  suffix: Dead, Security
   components:
-    - type: Loadout
-      prototypes:
-      - SecurityCadetGear
-      - SecurityOfficerGear
-      - DetectiveGear
-      - WardenGear
+  - type: Loadout
+    prototypes:
+    - SecurityCadetGear
+    - SecurityOfficerGear
+    - DetectiveGear
+    - WardenGear
 
-- type: randomHumanoidSettings
-  id: CorpseCommand
-  parent: CorpseBase
+- type: entity
+  parent: SalvageHumanCorpse
+  id: MobRandomCommandCorpse
+  categories: [ HideSpawnMenu ] # Imp - Deprecated, use the ones under _Impstation
+  suffix: Dead, Command
   components:
-    - type: Loadout
-      prototypes:
-      - HoPGear
-      - CentcomGear
-      - CaptainGear
-      - HoSGear
-      - ResearchDirectorGear
-      - CMOGear
-      - ChiefEngineerGear
-      - QuartermasterGear
+  - type: Loadout
+    prototypes:
+    - HoPGear
+    - CentcomGear
+    - CaptainGear
+    - HoSGear
+    - ResearchDirectorGear
+    - CMOGear
+    - ChiefEngineerGear
+    - QuartermasterGear
