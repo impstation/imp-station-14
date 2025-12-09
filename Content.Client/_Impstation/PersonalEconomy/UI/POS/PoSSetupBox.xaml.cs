@@ -44,12 +44,18 @@ public sealed partial class PoSSetupBox : Control
             TransferNoEntryBox.Text = numberStr;
         };
 
-        //todo need to make it so that this can be fully cleared
         TransferAmountEntryBox.OnTextChanged += args =>
         {
             var amountStr = string.Concat(args.Text.Where(char.IsDigit));
             if (amountStr.Length > 9)
                 amountStr = amountStr[..9];
+
+            if (string.IsNullOrEmpty(amountStr))
+            {
+                TransferAmount = 0;
+                TransferAmountEntryBox.Clear();
+                return;
+            }
 
             if (int.TryParse(amountStr, out var amount))
             {

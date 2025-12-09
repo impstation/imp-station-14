@@ -28,6 +28,7 @@ public sealed partial class POSMenu : FancyWindow
 
         CreateInvalidSetupBox();
 
+        UIKeypad.OnEnterButtonPressed += s => OnNumberEntered?.Invoke(s);
         UIKeypad.OnClearButtonPressed += () => OnClearButtonPressed?.Invoke();
     }
 
