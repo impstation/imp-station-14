@@ -425,12 +425,23 @@
     sprite: _Impstation/Clothing/Head/Hats/mus_shako.rsi
 
 - type: entity
-  parent: [ClothingHeadBase, BaseCentcommContraband]
-  id: ClothingHeadHatCentcommIntern
-  name: CentComm head intern beancap
-  description: A horrifying mix of beanie and softcap in CentCom green. You'd have to be pretty desperate for power over your peers to agree to wear this.
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPompombow
+  name: pompom bow
+  description: An oversized bow with a fluffy touch.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Head/Hats/centcommintern.rsi
+    sprite: _Impstation/Clothing/Head/Misc/pompombow.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Head/Hats/centcommintern.rsi
+    sprite: _Impstation/Clothing/Head/Misc/pompombow.rsi
+    
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPompomear
+  name: pompom earmuffs
+  description: A warm pair of earmuffs to keep the cold of space away.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Misc/pompomear.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Misc/pompomear.rsi

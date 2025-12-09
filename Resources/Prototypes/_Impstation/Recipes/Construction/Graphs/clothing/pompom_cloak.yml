@@ -1,0 +1,20 @@
+﻿- type: constructionGraph
+  id: PompomCloak
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: cloak
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 3
+            - material: pompoms
+              name: construction-graph-tag-pompom
+              icon:
+                sprite: _Impstation/Materials/poms.rsi
+                state: pompile
+              doAfter: 3
+    - node: cloak
+      entity: ClothingNeckCloakPompomcloak
+      
