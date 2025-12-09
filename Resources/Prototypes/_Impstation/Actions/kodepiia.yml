@@ -6,7 +6,7 @@
   components:
   - type: Action
     icon:
-      sprite: _Impstation/Actions/Kodepiia.rsi
+      sprite: _Impstation/Interface/Actions/kodepiia.rsi
       state: kodepiia_shapeshift
     useDelay: 600
   - type: ConfirmableAction
@@ -23,7 +23,7 @@
   - type: Action
     itemIconStyle: NoItem
     icon:
-      sprite: _Impstation/Actions/Kodepiia.rsi
+      sprite: _Impstation/Interface/Actions/kodepiia.rsi
       state: kodepiia_eat
     useDelay: 60
   - type: TargetAction
