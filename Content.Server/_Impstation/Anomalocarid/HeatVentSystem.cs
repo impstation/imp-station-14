@@ -21,17 +21,11 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly JitteringSystem _jittering = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RespiratorSystem _respirator = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-
-    /// <summary>
-    ///     Determines if the heatvent is active. it's here because
-    ///  i dont know how to use component variables in update
-    /// </summary>
-    private bool Active;
 
     public override void Initialize()
     {
@@ -43,7 +37,7 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
 
     private void OnMindAdded(Entity<HeatVentComponent> ent, ref MindAddedMessage args)
     {
-        Active = true;
+        ent.Comp.MindActive = true;
     }
 
     private void OnVent(Entity<HeatVentComponent> ent, ref HeatVentDoAfterEvent args)
@@ -66,13 +60,10 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
     {
         base.Update(frameTime);
 
-        if (!Active)
-            return;
-
         var query = EntityQueryEnumerator<HeatVentComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime < comp.UpdateTimer)
+            if (_timing.CurTime < comp.UpdateTimer || !comp.MindActive)
                 continue;
 
             comp.UpdateTimer = _timing.CurTime + comp.UpdateCooldown;
@@ -93,7 +84,7 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
             _jittering.DoJitter(ent, ent.Comp.UpdateCooldown, false);
             _damage.TryChangeDamage(ent.Owner, ent.Comp.HeatDamage, ignoreResistances: true, interruptsDoAfters: false);
 
-            if (_random.NextFloat() < ent.Comp.TooHotPopupChance)
+            if (_random.NextFloat() < ent.Comp.TooHotPopupChance && ent.Comp.TooHotPopups != null)
                 _popup.PopupEntity(Loc.GetString(_random.Pick(ent.Comp.TooHotPopups)), ent);
         }
 

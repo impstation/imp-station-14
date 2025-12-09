@@ -17,6 +17,13 @@ namespace Content.Shared._Impstation.Anomalocarid;
 [AutoGenerateComponentState]
 public sealed partial class HeatVentComponent : Component
 {
+
+    /// <summary>
+    ///     True when the entity gains a mind.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool MindActive;
+
     /// <summary>
     ///     How much heat this entity has stored up.
     /// </summary>
@@ -144,7 +151,7 @@ public sealed partial class HeatVentComponent : Component
     ///     Locids of text that pops up when you're far too hot.
     /// </summary>
     [DataField]
-    public List<LocId> TooHotPopups = [];
+    public List<LocId>? TooHotPopups = [];
 
     /// <summary>
     ///     Chance toohotpopups occur every update over heat threshold.
