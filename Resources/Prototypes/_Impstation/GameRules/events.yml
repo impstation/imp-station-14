@@ -72,6 +72,8 @@
         - NamesBountyHunterTitle
         - NamesBountyHunter
         nameFormat: name-format-bounty-hunter
+      - type: RandomHumanoidAppearance
+        randomizeName: false
 
 #vrex
 - type: entity
@@ -162,10 +164,57 @@
     - id: SpawnPointGhostEeeplet
       min: 1
       max: 1
-      prob: 0.03
+      prob: 0.01
+
+# tourist shuttles. Spawn weight for them might need to be reduced
+- type: entityTable
+  id: TouristShuttleEvents
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - id: TouristSmallShuttle
+    - id: TouristMediumShuttle
+    - id: TouristLargeShuttle
+
+- type: entity
+  id: TouristSmallShuttle #one tourist
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 3
+    duration: 1
+    minimumPlayers: 15
+    maxOccurrences: 1 #only one of each type of tourist shuttle can spawn
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/tourist_small.yml
+
+- type: entity
+  id: TouristMediumShuttle #three tourists
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 2
+    duration: 1
+    minimumPlayers: 25
+    maxOccurrences: 1 #only one of each type of tourist shuttle can spawn
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/tourist_medium.yml
+
+- type: entity
+  id: TouristLargeShuttle #five tourists
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 2
+    duration: 1
+    minimumPlayers: 35
+    maxOccurrences: 1 #only one of each type of tourist shuttle can spawn
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/tourist_large.yml
 
 # bluespace lockers
-
 - type: entity
   id: BluespaceLockerDefault
   parent: BaseGameRule
@@ -198,3 +247,17 @@
     earliestStart: 1
     duration: 1
   - type: BluespaceLockerRuleRandomUnrestricted
+
+# biomagnetic polarization
+- type: entity
+  id: BiomagneticPolarizationRule
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    duration: 150
+    maxDuration: 300
+    reoccurrenceDelay: 30
+  - type: GlobalStatusEffectRule
+    statusEffect: "StatusEffectBiomagneticPolarization"
+    announcement: "station-event-biomagnetic-polarization-announcement"
