@@ -1,12 +1,12 @@
 - type: entity
-  name: Blaster Cell
+  name: blaster cell
   description: A rechargeable power cell compatible with blaster pistols. Can be used as a weak power source in a pinch, too!
   id: PowerCellBlaster
   suffix: Full
   parent: [ BaseItem, BaseSecurityContraband ]
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/blastermag.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Blasters/blastermag.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -38,6 +38,7 @@
     zeroVisible: false
   - type: Item
     size: Small
+  - type: Riggable
   - type: Battery
     maxCharge: 288
     startingCharge: 288
@@ -54,7 +55,7 @@
   parent: PowerCellBlaster
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/blastermag.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Blasters/blastermag.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -63,4 +64,43 @@
         shader: unshaded
   - type: Battery
     maxCharge: 288
+    startingCharge: 0
+
+- type: entity
+  name: military blaster cell
+  description: A power cell for blaster pistols that packs more of a punch, and makes for a respectable emergency power cell.
+  id: PowerCellBlasterMilitary
+  suffix: Full
+  parent: PowerCellBlaster
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Blasters/blastermag.rsi
+    layers:
+      - state: military
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Battery
+    maxCharge: 576
+    startingCharge: 576
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletBlasterPistolMilitary
+    fireCost: 96
+
+- type: entity
+  id: PowerCellBlasterMilitaryPrinted
+  suffix: Empty
+  parent: PowerCellBlasterMilitary
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Blasters/blastermag.rsi
+    layers:
+      - state: military
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Battery
+    maxCharge: 576
     startingCharge: 0

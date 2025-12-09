@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: SixValentine
-  changes:
-  - message: The reporter has rented the computer lab on Hash
-    type: Add
-  - message: No more ERP on Hash
-    type: Fix
-  - message: Luna Genpop adjustments and Pipe Dreams
-    type: Fix
-  id: 1973
-  time: '2025-07-05T14:16:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2960
-- author: crocodilecarousel
-  changes:
-  - message: the shape of crystals twists before your eyes
-    type: Tweak
-  id: 1974
-  time: '2025-07-05T14:24:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2978
 - author: yesteryuri
   changes:
   - message: Gastropoid allergies are functional and species guidebook consistent.
@@ -4171,3 +4153,23 @@
   id: 2472
   time: '2025-12-07T05:22:18.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3520
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Starflare EPDW-6 can now be purchased from cargo or found randomly
+      in some HoS offices!
+    type: Add
+  - message: The Military Blaster Cell can be unlocked with Advanced Sidearm Research
+      to give your TS-99 a bit more of a punch!
+    type: Add
+  - message: Removed the TT-10 from the random HoS office weapon pool
+    type: Tweak
+  id: 2473
+  time: '2025-12-09T04:11:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3770
+- author: TheGrimbeeper
+  changes:
+  - message: Fixed reinforced glass shard making mixing noise on spawn
+    type: Fix
+  id: 2474
+  time: '2025-12-09T04:40:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3804
