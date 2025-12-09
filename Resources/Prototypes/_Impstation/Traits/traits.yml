@@ -17,8 +17,7 @@
   category: Traits
   components:
     - type: SpeechRequiresEquipment
-      equipment:
-        neck:
+      whitelist:
           tags:
             - SGD
       failMessage: sgdrequired-cant-speak

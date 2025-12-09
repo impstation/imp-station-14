@@ -10,6 +10,10 @@
     sprite: _Impstation/Clothing/Neck/Misc/sgd.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Neck/Misc/sgd.rsi
+    quickEquip: true
+    slots:
+    - neck
+    - mask
   - type: SpeechSound
     speechSounds: Borg
     speechVerb: Robotic
