@@ -125,7 +125,7 @@ public sealed class GreytideVirusRule : StationEventSystem<GreytideVirusRuleComp
             // imp start
 
             // do an extra check for any banned ents that shouldn't be unlocked
-            if (_whitelist.IsBlacklistPass(virusComp.BannedExtras, airlockUid))
+            if (_whitelist.IsWhitelistPass(virusComp.BannedExtras, airlockUid))
                 continue;
 
             //  pick one of these and apply it to the airlock
