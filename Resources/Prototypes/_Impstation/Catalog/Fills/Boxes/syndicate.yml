@@ -137,3 +137,39 @@
     layers:
       - state: box
       - state: flashbang
+
+- type: entity
+  parent: [BoxCardboard, Tier3Contraband]
+  id: PistolMagExtBox
+  name: extended Viper magazine box
+  description: A box containing four extended pistol magazines.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolHighCapacity
+        amount: 4
+  - type: Sprite
+    sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
+    layers:
+      - state: syndicategunbox
+
+- type: entity
+  parent: [BoxCardboard, Tier3Contraband]
+  id: CobraMagExtBox
+  name: extended Cobra magazine box
+  description: A box containing four extended pistol magazines.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,1
+  - type: StorageFill
+    contents:
+      - id: MagazinePistolCaselessRifleExtended
+        amount: 4
+  - type: Sprite
+    sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
+    layers:
+      - state: syndicategunbox

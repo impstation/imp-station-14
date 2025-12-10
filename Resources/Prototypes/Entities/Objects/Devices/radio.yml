@@ -35,6 +35,7 @@
   - type: RadioMicrophone
     broadcastChannel: Security
     listenRange: 1
+    frequency: 1359 # imp. needed after handicomms update.
   - type: RadioSpeaker
     channels:
     - Security

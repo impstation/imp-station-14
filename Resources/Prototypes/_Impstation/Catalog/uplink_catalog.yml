@@ -89,6 +89,28 @@
   - UplinkAmmo
 
 - type: listing
+  id: UplinkExtendedMagazinePistolCaselessRifle
+  name: uplink-extended-pistol-magazine-caseless-name
+  description: uplink-extended-pistol-magazine-caseless-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag_ext.rsi, state: red-icon }
+  productEntity: CobraMagExtBox
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkExtendedMagazinePistol
+  name: uplink-extended-pistol-magazine-name
+  description: uplink-extended-pistol-magazine-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_ext.rsi, state: red-icon }
+  productEntity: PistolMagExtBox
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
+
+- type: listing
   id: UplinkBulletcatcher
   name: uplink-bulletcatcher-name
   description: uplink-bulletcatcher-desc
