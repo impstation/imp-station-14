@@ -41,7 +41,7 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 375
         amount: 7000
       - !type:SatiateThirst
@@ -71,7 +71,7 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 350
         amount: 14000
       - !type:SatiateThirst
@@ -105,12 +105,12 @@
       effects:
       - !type:AdjustTemperature
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 385
         amount: 24000
       - !type:SatiateThirst
         factor: -20
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 0.3
       - !type:Ignite
       - !type:HealthChange
@@ -144,7 +144,7 @@
         amount: 100000
       - !type:SatiateThirst
         factor: -100
-      - !type:FlammableReaction
+      - !type:Flammable
         multiplier: 8
       - !type:Ignite
       - !type:HealthChange
