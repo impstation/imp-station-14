@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: yesteryuri
-  changes:
-  - message: Gastropoid allergies are functional and species guidebook consistent.
-      Salt bad! Copper good!
-    type: Tweak
-  - message: Ambuzol no longer cares about which zombie's blood it came from
-    type: Fix
-  id: 1975
-  time: '2025-07-05T14:28:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2959
 - author: DinnerCalzone
   changes:
   - message: Tck'Tck along with a number of other entities' toggleable lights should
@@ -4173,3 +4163,10 @@
   id: 2474
   time: '2025-12-09T04:40:50.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3804
+- author: yesteryuri
+  changes:
+  - message: The no species accent trait no longer blocks off other selectable accents
+    type: Fix
+  id: 2475
+  time: '2025-12-10T18:08:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3762
