@@ -53,7 +53,7 @@ public sealed partial class ServiceJobEntry : BoxContainer
 
             if (_selected)
             {
-                SelectButton.AddStyleClass(StyleBase.ButtonCaution);
+                SelectButton.AddStyleClass(StyleClass.Negative);
                 SelectButton.Text = Loc.GetString("service-job-console-select-button-text-claimed");
             }
         }
