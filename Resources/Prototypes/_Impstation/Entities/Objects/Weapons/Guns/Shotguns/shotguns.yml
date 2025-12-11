@@ -105,3 +105,19 @@
     proto: ShellShotgunSlug
     soundRack:
       path: /Audio/_Impstation/Weapons/Guns/Cock/basic_cock.ogg
+
+- type: entity
+  name: Enfucker 9000
+  parent: WeaponShotgunEnforcer
+  id: Enfucker9000
+  description: Time to enfuck the law. Your law.
+  components:
+  - type: GunDamage
+    damage:
+      types:
+        Blunt: 50
+    onlyGunDamage: true
+  - type: GunProjectileCountModifier
+    projCount: 20
+  - type: GunSpreadModifier
+    spread: 5.0
