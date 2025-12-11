@@ -61,7 +61,7 @@
         type: Remove
       - !type:AdjustTemperature #imp - you start burning up
         conditions:
-        - !type:Temperature #imp
+        - !type:TemperatureCondition #imp
           max: 375
         amount: 4100
       - !type:SatiateThirst #imp
@@ -133,7 +133,7 @@
         probability: 0.05
       - !type:AdjustTemperature #imp - you start burning up
         conditions:
-        - !type:Temperature #imp
+        - !type:TemperatureCondition #imp
           max: 375
         amount: 4100
       - !type:SatiateThirst #imp
