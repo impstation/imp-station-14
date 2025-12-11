@@ -31,6 +31,8 @@
     interfaces:
       enum.OreSiloUiKey.Key:
         type: OreSiloBoundUserInterface
+      enum.WiresUiKey.Key: #imp edit start
+        type: WiresBoundUserInterface # imp edit end
   - type: Machine
     board: MaterialSiloMachineCircuitboard
   - type: Fixtures
@@ -61,3 +63,7 @@
   - type: WiresPanel
   - type: StaticPrice
     price: 1500
+  - type: StationAiWhitelist #Imp edit start
+  - type: Wires
+    boardName: wires-board-name-material-silo
+    layoutId: AIGeneric  #imp edit end
