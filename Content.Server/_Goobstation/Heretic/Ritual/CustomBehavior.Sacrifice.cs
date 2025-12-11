@@ -1,6 +1,6 @@
 using Content.Server._Goobstation.Heretic.EntitySystems;
 using Content.Server.Cloning;
-using Content.Server.Heretic.Components;
+using Content.Shared.Heretic.Components;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;

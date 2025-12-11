@@ -1,15 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Content.Shared.Humanoid.Prototypes;
+using Content.Shared.StatusIcon;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server.Heretic.Components;
 
-[RegisterComponent]
-[AutoGenerateComponentPause]
+namespace Content.Shared.Heretic.Components;
+
+[RegisterComponent, NetworkedComponent]
+[AutoGenerateComponentPause, AutoGenerateComponentState]
 public sealed partial class HellVictimComponent : Component
 {
     [DataField]
@@ -39,5 +38,8 @@ public sealed partial class HellVictimComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan HellDuration = TimeSpan.FromSeconds(15);
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "SacrificedFaction";
 
 }
