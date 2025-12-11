@@ -1,3 +1,12 @@
+using Content.Client.Resources;
+using Content.Client.Stylesheets;
+using Content.Client.Stylesheets.Fonts;
+using Content.Client.Stylesheets.Palette;
+using Content.Client.Stylesheets.Sheetlets;
+using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
+using static Content.Client.Stylesheets.StylesheetHelpers;
+
 namespace Content.Client._Impstation.Stylesheets.Sheetlets;
 
 [CommonSheetlet]
@@ -14,6 +23,6 @@ public sealed class ManifestSheetlet : Sheetlet<PalettedStylesheet>
                 .Class(StyleClass.CrewManifestGender)
                 .Prop("font", notoSansItalic10)
                 .Prop("font-style", "italic"),
-        ]
+        ];
     }
 }
