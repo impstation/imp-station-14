@@ -45,8 +45,6 @@
         acts: [ "Destruction" ]
   - type: DamageOtherOnHit # imp
     damage:
-      types:
-        Blunt: 11
     staminaCost: 15
 
 - type: entity
