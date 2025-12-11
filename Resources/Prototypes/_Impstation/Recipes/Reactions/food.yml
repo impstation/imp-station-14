@@ -26,3 +26,93 @@
   effects:
     - !type:SpawnEntity
       entity: FoodStringCheese
+
+- type: reaction
+  id: RedFoodColoringReaction
+  reactants:
+    RedFoodColoring:
+      amount: 1
+    Sugar:
+      amount: 3
+  products:
+    RedFoodColoring: 4
+
+- type: reaction
+  id: OrangeFoodColoringReaction
+  reactants:
+    OrangeFoodColoring:
+      amount: 1
+    Sugar:
+      amount: 3
+  products:
+    OrangeFoodColoring: 4
+
+- type: reaction
+  id: YellowFoodColoringReaction
+  reactants:
+    YellowFoodColoring:
+      amount: 1
+    Sugar:
+      amount: 3
+  products:
+    YellowFoodColoring: 4
+
+- type: reaction
+  id: GreenFoodColoringReaction
+  reactants:
+    GreenFoodColoring:
+      amount: 1
+    Sugar:
+      amount: 3
+  products:
+    GreenFoodColoring: 4
+
+- type: reaction
+  id: CyanFoodColoringReaction
+  reactants:
+    CyanFoodColoring:
+      amount: 1
+    Sugar:
+      amount: 3
+  products:
+    CyanFoodColoring: 4
+
+- type: reaction
+  id: BlueFoodColoringReaction
+  reactants:
+    BlueFoodColoring:
+      amount: 1
+    Sugar:
+      amount: 3
+  products:
+    BlueFoodColoring: 4
+
+- type: reaction
+  id: PinkFoodColoringReaction
+  reactants:
+    PinkFoodColoring:
+      amount: 1
+    Sugar:
+      amount: 3
+  products:
+    PinkFoodColoring: 4
+
+- type: reaction
+  id: BlackFoodColoring
+  reactants:
+    RedFoodColoring:
+      amount: 1
+    OrangeFoodColoring:
+      amount: 1
+    YellowFoodColoring:
+      amount: 1
+    GreenFoodColoring:
+      amount: 1
+    CyanFoodColoring:
+      amount: 1
+    BlueFoodColoring:
+      amount: 1
+    PinkFoodColoring:
+      amount: 1
+  products:
+    BlackFoodColoring: 7

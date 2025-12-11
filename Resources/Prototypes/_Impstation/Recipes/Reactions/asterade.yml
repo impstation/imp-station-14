@@ -5,22 +5,22 @@
   reactants:
     Saline:
       amount: 1
-    JuiceOrange:
+    OrangeFoodColoring:
       amount: 1
   products:
     OrangeAsterade: 2
 
 - type: reaction
-  id: PurpleAsterade
+  id: BlueAsterade
   requiredMixerCategories:
   - Shake
   reactants:
     Saline:
       amount: 1
-    JuiceBerry:
+    BlueFoodColoring:
       amount: 1
   products:
-    PurpleAsterade: 2
+    BlueAsterade: 2
 
 - type: reaction
   id: RedAsterade
@@ -29,7 +29,7 @@
   reactants:
     Saline:
       amount: 1
-    JuiceWatermelon:
+    RedFoodColoring:
       amount: 1
   products:
     RedAsterade: 2
@@ -41,7 +41,7 @@
   reactants:
     Saline:
       amount: 1
-    JuiceLime:
+    GreenFoodColoring:
       amount: 1
   products:
     GreenAsterade: 2
@@ -53,31 +53,43 @@
   reactants:
     Saline:
       amount: 1
-    JuicePineapple:
+    YellowFoodColoring:
       amount: 1
   products:
     YellowAsterade: 2
 
 - type: reaction
-  id: LemonAsterade
+  id: TealAsterade
   requiredMixerCategories:
   - Shake
   reactants:
     Saline:
       amount: 1
-    JuiceLemon:
+    CyanFoodColoring:
       amount: 1
   products:
-    LemonAsterade: 2
+    TealAsterade: 2
 
 - type: reaction
-  id: BrownAsterade
+  id: PinkAsterade
   requiredMixerCategories:
   - Shake
   reactants:
     Saline:
       amount: 1
-    JuicePotato:
+    PinkFoodColoring:
       amount: 1
   products:
-    BrownAsterade: 2
+    PinkAsterade: 2
+
+- type: reaction
+  id: BlackAsterade
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Saline:
+      amount: 1
+    BlackFoodColoring:
+      amount: 1
+  products:
+    BlackAsterade: 2
