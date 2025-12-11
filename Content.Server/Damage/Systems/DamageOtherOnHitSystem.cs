@@ -11,9 +11,10 @@ using Content.Shared.Throwing;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Content.Shared._EE.Damage.Components; // EE THROWING
-using Content.Shared.Popups; // EE THROWING
 using Content.Shared.CombatMode.Pacification; // EE THROWING
+using Content.Shared.Popups; // EE THROWING
 using Content.Shared.Projectiles; // EE THROWING
+using Content.Shared.Stunnable; // EE THROWING
 using Content.Shared.Weapons.Melee; // EE THROWING
 using Robust.Shared.Physics.Systems; // EE THROWING
 using Robust.Shared.Prototypes; // EE THROWING

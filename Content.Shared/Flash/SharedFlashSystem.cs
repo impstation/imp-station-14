@@ -109,7 +109,7 @@ public abstract class SharedFlashSystem : EntitySystem
     // EE THROWING, allows for flashing when thrown at someone
     private void OnFlashThrowHitEvent(Entity<FlashComponent> ent, ref ThrowDoHitEvent args)
     {
-        if (!UseFlash(ent, null))
+        if (!UseFlash(ent, null, true))
             return;
         FlashArea(ent.Owner, null, ent.Comp.Range, ent.Comp.AoeFlashDuration, ent.Comp.SlowTo, false, ent.Comp.Probability);
     }
@@ -118,9 +118,9 @@ public abstract class SharedFlashSystem : EntitySystem
     /// Use charges and set the visuals.
     /// </summary>
     /// <returns>False if no charges are left or the flash is currently in use.</returns>
-    private bool UseFlash(Entity<FlashComponent> ent, EntityUid? user)
+    private bool UseFlash(Entity<FlashComponent> ent, EntityUid? user, bool bypassUseDelay = false) // imp add bypassUseDelay for throwing flashes
     {
-        if (_useDelay.IsDelayed(ent.Owner))
+        if (_useDelay.IsDelayed(ent.Owner) && !bypassUseDelay) // imp add bypassUseDelay
             return false;
 
         if (TryComp<LimitedChargesComponent>(ent.Owner, out var charges)

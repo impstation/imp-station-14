@@ -17,7 +17,7 @@ namespace Content.Shared._EE.Damage.Systems;
 ///     order to store component setup in a seperate namespace and keep the upstream file organized.
 ///     For actual throwing behaviour, see <see cref="SharedDamageOtherOnHitSystem"/>.
 /// </remarks>
-public abstract partial class EEThrowingSystem : EntitySystem
+public sealed class EEThrowingSystem : EntitySystem
 {
     public override void Initialize()
     {
