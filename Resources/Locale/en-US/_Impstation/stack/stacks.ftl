@@ -2,6 +2,7 @@
 stack-hemp-cloth = hemp cloth
 stack-hemp = hemp
 stack-prize-ticket = prize ticket
+stack-pompoms = pompoms
 
 # tile
 stack-apid-hex-tile = apid hex tile
