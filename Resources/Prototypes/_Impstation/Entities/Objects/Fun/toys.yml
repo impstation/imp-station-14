@@ -5,7 +5,7 @@
   description: A highly marketable plushie of the adorable dolphin-bird recently discovered on the distant planet Teo. Made artificially rare on purpose.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: &ImpToys _Impstation/Objects/Fun/toys.rsi
     state: plushie_finfin
   - type: EmitSoundOnUse
     sound:
@@ -25,13 +25,10 @@
         - state: plushie_finfin-inhand-left
       right:
         - state: plushie_finfin-inhand-right
-  - type: Edible
-    requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
       - finfin
   - type: MeleeWeapon
-    wideAnimationRotation: 180
     soundHit:
       path: /Audio/_Impstation/Items/Toys/finfinhit.ogg
 
@@ -42,27 +39,23 @@
   description: Manufactured recently to commemorate the gray exchange program becoming a booming success. It feels plasticky and seems easy to chew on. Thui love keb piskun plushie!!
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_gray
   - type: EmitSoundOnUse
-    sound:
+    sound: &PlushieGrayScream
       path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Impstation/Voice/Gray/gray_cry.ogg
   - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
+    sound: *PlushieGrayScream
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
+    sound: *PlushieGrayScream
   - type: MeleeWeapon
-    soundHit:
-      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
+    soundHit: *PlushieGrayScream
   - type: Edible
     requiresSpecialDigestion: false
-    useSound:
-      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
+    useSound: *PlushieGrayScream
   - type: FlavorProfile
     flavors:
       - radiation
@@ -79,10 +72,8 @@
   description: You get the feeling that this plushie is higher ranked than you.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: minor
-  - type: Edible
-    requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
       - stardust
@@ -97,28 +88,23 @@
   description: What the hell is this ugly thing? Better throw it away.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_bug
   - type: EmitSoundOnUse
-    sound:
+    sound: &PlushieArachnidScream
       path: /Audio/Voice/Arachnid/arachnid_scream.ogg #YAY!!!
   - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+    sound: *PlushieArachnidScream
   - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+    sound: *PlushieArachnidScream
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+    sound: *PlushieArachnidScream
   - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+    sound: *PlushieArachnidScream
   - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+    soundHit: *PlushieArachnidScream
   - type: Item
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     inhandVisuals:
       left:
         - state: plushie_bug-inhand-left
@@ -126,8 +112,7 @@
         - state: plushie_bug-inhand-right
   - type: Edible
     requiresSpecialDigestion: false
-    useSound:
-      path: /Audio/Voice/Arachnid/arachnid_scream.ogg #OW!!! OWIE!!
+    useSound: *PlushieArachnidScream #OW!!! OWIE!!
   - type: GoobAbsorbable #delicious
     biomassRestored: 0.1
   - type: FlavorProfile
@@ -152,7 +137,7 @@
           Quantity: 10
   - type: Clothing
     quickEquip: false
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     equippedPrefix: bug
     slots:
     - HEAD
@@ -169,24 +154,22 @@
   description: Heh...
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_evilbug
   - type: EmitSoundOnUse
-    sound:
+    sound: &PlushieArachnidLaugh
       path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
   - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
+    sound: *PlushieArachnidLaugh
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1
     damage:
       types:
         Slash: 1
-    soundHit:
-      path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
+    soundHit: *PlushieArachnidLaugh
   - type: Item
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     inhandVisuals:
       left:
         - state: plushie_evilbug-inhand-left
@@ -205,8 +188,7 @@
   - type: EmbedPassiveDamage
   - type: Edible
     requiresSpecialDigestion: false
-    useSound:
-      path: /Audio/Voice/Arachnid/arachnid_scream.ogg
+    useSound: *PlushieArachnidScream
   - type: FlavorProfile
     flavors:
       - evil
@@ -229,7 +211,7 @@
           Quantity: 10
   - type: Clothing
     quickEquip: false
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     equippedPrefix: evilbug
     slots:
     - HEAD
@@ -245,7 +227,7 @@
   description: The claw on this thing looks ominously sharp. Didn't you hear something about these getting recalled?
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_decapoid
   - type: EmitSoundOnUse
     sound:
@@ -263,8 +245,6 @@
       - Cutting
     useSound:
       path: /Audio/Items/wirecutter.ogg
-  - type: Edible
-    requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
     - crabby
@@ -285,13 +265,11 @@
   description: It's a little slimy...
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_snail
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_Impstation/Voice/Snail/snail_scream.ogg
-  - type: Edible
-    requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
     - slimy
@@ -320,27 +298,21 @@
   description: Huh? Who's this stoner?
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_imp
   - type: EmitSoundOnUse
-    sound:
+    sound: &Wuhey
       path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
   - type: EmitSoundOnLand
-    sound:
-      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+    sound: *Wuhey
   - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+    sound: *Wuhey
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+    sound: *Wuhey
   - type: MeleeWeapon
-    soundHit:
-      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+    soundHit: *Wuhey
   - type: Edible
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+    useSound: *Wuhey
   - type: SolutionContainerManager
     solutions:
       food:
@@ -385,22 +357,21 @@
   description: If I have to carry this for one second longer I might die.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: giantbearplush
   - type: Item
     size: Large
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     inhandVisuals:
       left:
       - state: giantbearplush-inhand
       right:
       - state: giantbearplush-inhand
   - type: EmitSoundOnUse
-    sound:
+    sound: &PlushieBear
       path: /Audio/Animals/bear.ogg
   - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Animals/bear.ogg
+    sound: *PlushieBear
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
@@ -411,7 +382,7 @@
     damage:
       types:
         Blunt: 15
-    soundHit: /Audio/Animals/bear.ogg
+    soundHit: *PlushieBear
     staminaCost: 50
   - type: MultiHandedItem
 
@@ -422,7 +393,7 @@
   description: "A soft toy representative of Nanotrasen's workplace relationship initiative. Remember: the only 'union' you should join is the 'union' of holy matrimony."
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_cap
   - type: EmitSoundOnUse
     sound:
@@ -447,7 +418,7 @@
   description: "A soft toy representative of Nanotrasen's workplace relationship initiative. Remember: the only Code Pink you should see is the Hex Code in your NanoChat!"
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_hop
   - type: EmitSoundOnUse
     sound:
@@ -462,7 +433,6 @@
     sound:
       path: /Audio/Items/Toys/toy_rustle.ogg
   - type: MeleeWeapon
-    wideAnimationRotation: 180
     soundHit:
       path: /Audio/Items/Toys/toy_rustle.ogg
 
@@ -473,7 +443,7 @@
   description: It is rude to not give this plushie hugs and kisses.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_thaven
   - type: FlavorProfile
     flavors:
@@ -489,7 +459,7 @@
   description: It looks a bit odds.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_thavenweird
   - type: EmitSoundOnUse
     sound:
@@ -541,7 +511,7 @@
   description: It's life-size!
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_goblin
   - type: EmitSoundOnUse
     sound:
@@ -552,8 +522,6 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_NF/Voice/Goblin/goblin_cry_2.ogg
-  - type: Edible
-    requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
     - goblin
@@ -568,7 +536,7 @@
   description: This one isn't very soft at all.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_gollylad
   - type: EmitSoundOnUse
     sound:
@@ -581,8 +549,6 @@
       path: /Audio/_NF/Voice/Goblin/goblin_deathgasp_1.ogg
   - type: UseDelay
     delay: 5.0
-  - type: Edible
-    requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
     - gollylad
@@ -597,7 +563,7 @@
   description: Stinger not included.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_apid
   - type: EmitSoundOnUse
     sound:
@@ -616,7 +582,7 @@
   description: A cute little ragdoll! Aw, it even has buttons for eyes...
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: doll_base
   - type: Item
     inhandVisuals:
@@ -638,7 +604,7 @@
   description: Make sure to brush its hair and tuck it into bed every night.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: doll_hair
   - type: Item
     inhandVisuals:
@@ -662,7 +628,7 @@
   description: You can hear a faint whistling from the inside. #alternate description: It's a stone plushie. You didn't make it.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     layers:
     - state: plushie_dwarf
     - state: plushie_dwarf_unshaded
@@ -673,19 +639,17 @@
   - type: Instrument
     program: 75
   - type: EmitSoundOnLand
-    sound:
+    sound: &BreakStone
       path: /Audio/Effects/break_stone.ogg
   - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/Effects/break_stone.ogg
+    sound: *BreakStone
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1
     damage:
       types:
         Blunt: 3
-    soundHit:
-      path: /Audio/Effects/break_stone.ogg
+    soundHit: *BreakStone
   - type: DamageOtherOnHit
     damage:
       types:
@@ -703,10 +667,8 @@
   description: A plush version of Griffy, The Sec Safety Dog! Made of the recycled scraps from Griffy performers that have fallen in the line of duty.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_mascotgriffy
-  - type: Edible
-    requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
     - punishment
@@ -721,7 +683,7 @@
   description: You have a feeling you shouldn't be mapping this.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_odds
   - type: Item
     inhandVisuals:
@@ -754,7 +716,7 @@
     totalIntensity: 0.01
   - type: Clothing
     quickEquip: false
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     equippedPrefix: odd
     slots:
     - HEAD
@@ -795,7 +757,7 @@
   description: This thing looks really familiar.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     layers:
     - state: plushie_kodepiia1
       map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -817,7 +779,7 @@
       params:
         variation: .125
   - type: Edible
-    requiresSpecialDigestion: true
+    requiresSpecialDigestion: false #kode should be able to eat their plushies
   - type: FlavorProfile
     flavors:
     - kodepiia
@@ -829,7 +791,7 @@
   description: A plush toy of a jovial slime, it smells faintly of bananas.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_iba
   - type: Item
     inhandVisuals:
@@ -860,7 +822,7 @@
           Quantity: 5
   - type: Clothing
     quickEquip: false
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     equippedPrefix: iba
     slots:
     - HEAD
@@ -876,18 +838,18 @@
   description: Put cheego embinum jorl keb misery.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_gray_jumbo
   - type: Item
     size: Large
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     inhandVisuals:
       left:
       - state: plushie_gray_jumbo-inhand
       right:
       - state: plushie_gray_jumbo-inhand
   - type: EmitSoundOnUse
-    sound:
+    sound: &PlushieJumboGrayScream
       path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
       params:
         pitch: 0.5
@@ -897,26 +859,14 @@
       params:
         pitch: 0.5
   - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
-      params:
-        pitch: 0.5
+    sound: *PlushieJumboGrayScream
   - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
-      params:
-        pitch: 0.5
+    sound: *PlushieJumboGrayScream
   - type: MeleeWeapon
-    soundHit:
-      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
-      params:
-        pitch: 0.5
+    soundHit: *PlushieJumboGrayScream
   - type: Edible
     requiresSpecialDigestion: false
-    useSound:
-      path: /Audio/_Impstation/Voice/Gray/gray_scream.ogg
-      params:
-        pitch: 0.5
+    useSound: *PlushieJumboGrayScream
   - type: HeldSpeedModifier
     walkModifier: 0.5
     sprintModifier: 0.5
@@ -929,43 +879,26 @@
   - type: MultiHandedItem
 
 - type: entity
-  parent: BaseFigurine # actually a plushie but this saves me some yaml
-  id: PlushieGnomeChild
-  name: gnome child plushie
-  description: A soft toy depicting a strange fantasy child. You seem to recall some social media buzz about this thing.
+  id: BaseTalkingPlushie # For gnome plush and eeep plush. parenting from both figurine and plushie does not work.
+  parent: BaseFigurine
+  abstract: true
   components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
-    state: plushie_gnome
-  - type: Item
-    size: Normal
-    sprite: _Impstation/Objects/Fun/toys.rsi
-    inhandVisuals:
-      left:
-      - state: plushie_gnome-inhand-left
-      right:
-      - state: plushie_gnome-inhand-right
-  - type: SpeakOnTrigger
-    pack: GnomeChild
-  - type: Tag
-    tags:
-    - Payload
-    - ClothMade
-    - Plushie
-  - type: EmitSoundOnCollide
-    sound:
-      collection: ToySqueak
-  - type: EmitSoundOnLand
-    sound:
-      collection: ToyFall
-  - type: MeleeWeapon
-    wideAnimationRotation: 180
-    soundHit:
-      collection: ToySqueak
-    damage:
-      types:
-        Blunt: 0
-    hidden: true
+  - type: SecretStash
+    secretStashName: secret-stash-plushie
+    blacklist:
+      components:
+      - SecretStash
+      - NukeDisk
+      tags:
+      - QuantumSpinInverter
+      - FakeNukeDisk
+  - type: ToolOpenable
+    openToolQualityNeeded: Slicing
+    closeToolQualityNeeded: Slicing
+    name: secret-stash-plushie
+  - type: StealTarget
+    stealGroup: Plushie
+  - type: DamageOtherOnHit
   - type: PhysicalComposition
     materialComposition:
       Cloth: 100
@@ -986,25 +919,48 @@
   - type: ContainerContainer
     containers:
       stash: !type:ContainerSlot { }
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      collection: ToySqueak
+    damage:
+      types:
+        Blunt: 0
+  - type: EmitSoundOnCollide
+    sound:
+      collection: ToySqueak
+
+- type: entity
+  parent: BaseTalkingPlushie
+  id: PlushieGnomeChild
+  name: gnome child plushie
+  description: A soft toy depicting a strange fantasy child. You seem to recall some social media buzz about this thing.
+  components:
+  - type: Sprite
+    sprite: *ImpToys
+    state: plushie_gnome
+  - type: Item
+    size: Normal
+    sprite: *ImpToys
+    inhandVisuals:
+      left:
+      - state: plushie_gnome-inhand-left
+      right:
+      - state: plushie_gnome-inhand-right
+  - type: SpeakOnTrigger
+    pack: GnomeChild
+  - type: Tag
+    tags:
+    - Payload
+    - ClothMade
+    - Plushie
+  - type: EmitSoundOnLand
+    sound:
+      collection: ToyFall
+    hidden: true
   - type: Speech
     speechVerb: Default
     speechSounds: Plushie
-  - type: SecretStash
-    secretStashName: secret-stash-plushie
-    blacklist:
-      components:
-      - SecretStash
-      - NukeDisk
-      tags:
-      - QuantumSpinInverter
-      - FakeNukeDisk
-  - type: ToolOpenable
-    openToolQualityNeeded: Slicing
-    closeToolQualityNeeded: Slicing
-    name: secret-stash-plushie
-  - type: StealTarget
-    stealGroup: Plushie
-  - type: DamageOtherOnHit
 
 - type: entity
   parent: BasePlushie
@@ -1025,18 +981,16 @@
         - ReagentId: JuiceThatMakesYouUngh
           Quantity: 5
   - type: EmitSoundOnUse
-    sound:
+    sound: &PlushieBrosHurt
       path: /Audio/_Impstation/Animals/bros_hurt.ogg
   - type: EmitSoundOnLand
-    sound:
+    sound: &PlushieBrosHit
       path: /Audio/_Impstation/Animals/bros_hit.ogg
   - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/_Impstation/Animals/bros_hit.ogg
+    sound: *PlushieBrosHit
   - type: Edible
     requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/_Impstation/Animals/bros_hurt.ogg
+    useSound: *PlushieBrosHurt
   - type: FlavorProfile
     flavors:
       - brotherly
@@ -1047,52 +1001,19 @@
     altDisarm: false
     angle: 0
     animation: WeaponArcPunch
-    soundHit:
-      path: /Audio/_Impstation/Animals/bros_hit.ogg
+    soundHit:  *PlushieBrosHit
 
 - type: entity
-  parent: BasePlushie
+  parent: PlushieBros
   id: PlushieSorb
   name: SORB plushie
   description: .eihsulp a tsuj s'ti dnimreven hO -RB S'TI KCUF HO
   components:
   - type: Sprite
-    sprite:  _Impstation/Mobs/Animals/bros.rsi
     state: sorb
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 5
-        - ReagentId: JuiceThatMakesYouUngh
-          Quantity: 5
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/_Impstation/Animals/bros_hurt.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/_Impstation/Animals/bros_hit.ogg
-  - type: EmitSoundOnCollide
-    sound:
-      path: /Audio/_Impstation/Animals/bros_hit.ogg
-  - type: Edible
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/_Impstation/Animals/bros_hurt.ogg
-  - type: FlavorProfile
-    flavors:
-      - brotherly
   - type: FoodSequenceElement
     entries:
       CottonBurger: SorbPlushie
-  - type: MeleeWeapon
-    altDisarm: false
-    angle: 0
-    animation: WeaponArcPunch
-    soundHit:
-      path: /Audio/_Impstation/Animals/bros_hit.ogg
 
 - type: entity
   parent: BasePlushie
@@ -1101,12 +1022,8 @@
   description: Texas Longhorn.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_ungu
-  - type: Edible
-    requiresSpecialDigestion: true
-  - type: StealTarget
-    stealGroup: Plushie
   - type: Item
     inhandVisuals:
       left:
@@ -1121,12 +1038,8 @@
   description: Rhode Island Shorthorn.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_ungu_tiny
-  - type: Edible
-    requiresSpecialDigestion: true
-  - type: StealTarget
-    stealGroup: Plushie
   - type: Item
     inhandVisuals:
       left:
@@ -1135,13 +1048,13 @@
         - state: plushie_ungu-inhand-right
 
 - type: entity
-  parent: BaseFigurine # actually a plushie
+  parent: BaseTalkingPlushie
   id: PlushieEeepy
   name: eeepy plush
   description: Made from real Eeep... wool? Slime...??
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     layers:
     - state: eeepy
     - state: eeepy-glow
@@ -1150,10 +1063,6 @@
     size: Normal
   - type: SpeakOnTrigger
     pack: FigurinesEeep
-  - type: Tag
-    tags:
-    - ClothMade
-    - Plushie
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/pop.ogg
     embedOnThrow: True
@@ -1164,20 +1073,15 @@
     sound:
       path: /Audio/Effects/pop_high.ogg
   - type: MeleeWeapon
-    wideAnimationRotation: 180
     soundHit:
      path: /Audio/Effects/tesla_consume.ogg
     damage:
       types:
         Shock: 2
     hidden: true
-  - type: PhysicalComposition
-    materialComposition:
-      Cloth: 100
   - type: StaticPrice
     price: 500
   - type: Edible
-    requiresSpecialDigestion: true
     useSound:
      path: /Audio/_Impstation/Effects/Emotes/wetblink.ogg
     delay: 2
@@ -1190,28 +1094,9 @@
           Quantity: 5
         - ReagentId: WeldingCoils
           Quantity: 5
-  - type: ContainerContainer
-    containers:
-      stash: !type:ContainerSlot { }
   - type: Speech
     speechVerb: Slime
     speechSounds: Pop
-  - type: SecretStash
-    secretStashName: secret-stash-plushie
-    blacklist:
-      components:
-      - SecretStash
-      - NukeDisk
-      tags:
-      - QuantumSpinInverter
-      - FakeNukeDisk
-  - type: ToolOpenable
-    openToolQualityNeeded: Slicing
-    closeToolQualityNeeded: Slicing
-    name: secret-stash-plushie
-  - type: StealTarget
-    stealGroup: Plushie
-  - type: DamageOtherOnHit
 
 - type: entity
   parent: BasePlushie
@@ -1220,7 +1105,7 @@
   description: chirp!
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_raptor
   - type: Item
     inhandVisuals:
@@ -1230,7 +1115,7 @@
         - state: plushie_raptor-inhand-right
   - type: Clothing
     quickEquip: false
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     equippedPrefix: raptor
     slots:
     - HEAD
@@ -1255,7 +1140,7 @@
   description: You bet you could throw this really really far if you held it by the legs and started spinning.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/toys.rsi
+    sprite: *ImpToys
     state: plushie_anomalocarid
   - type: Item
     inhandVisuals:
