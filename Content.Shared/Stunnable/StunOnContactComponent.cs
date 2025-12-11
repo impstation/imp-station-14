@@ -13,10 +13,10 @@ public sealed partial class StunOnContactComponent : Component
     public string FixtureId = "fix";
 
     /// <summary>
-    /// The duration of the stun. Edited 5 -> 3.5 for impstation
+    /// The duration of the stun.
     /// </summary>
     [DataField]
-    public TimeSpan Duration = TimeSpan.FromSeconds(3.5); 
+    public TimeSpan Duration = TimeSpan.FromSeconds(3.5); // imp, was 5
 
     /// <summary>
     /// Should the stun applied refresh?

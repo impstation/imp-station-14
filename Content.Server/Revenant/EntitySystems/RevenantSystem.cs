@@ -1,12 +1,9 @@
 using System.Numerics;
 using Content.Server.Actions;
 using Content.Server.GameTicking;
-using Content.Server.Mind; // imp
-using Content.Server.Revenant.Components; // imp
-using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
@@ -23,10 +20,10 @@ using Content.Shared.Store.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
-using Robust.Shared.Physics.Components; // imp
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing; // imp
+using Content.Server.Mind; // imp
+using Content.Server.Revenant.Components; // imp
+using Robust.Shared.Physics.Components; // imp
 
 namespace Content.Server.Revenant.EntitySystems;
 
@@ -51,22 +48,13 @@ public sealed partial class RevenantSystem : EntitySystem
     [Dependency] private readonly VisibilitySystem _visibility = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly MindSystem _mind = default!; // imp edit
-    [Dependency] private readonly IGameTiming _gameTiming = default!; // imp edit
     [Dependency] private readonly MetaDataSystem _meta = default!; // imp edit
-
-    private static readonly EntProtoId RevenantShopId = "ActionRevenantShop";
-
-    [ValidatePrototypeId<EntityPrototype>]
-    private const string RevenantHauntId = "ActionRevenantHaunt"; // imp edit
-
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RevenantComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<RevenantComponent, MapInitEvent>(OnMapInit);
 
-        SubscribeLocalEvent<RevenantComponent, RevenantShopActionEvent>(OnShop);
         SubscribeLocalEvent<RevenantComponent, DamageChangedEvent>(OnDamage);
         SubscribeLocalEvent<RevenantComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RevenantComponent, StatusEffectAddedEvent>(OnStatusAdded);
@@ -102,12 +90,6 @@ public sealed partial class RevenantSystem : EntitySystem
 
         //ghost vision
         _eye.RefreshVisibilityMask(uid);
-    }
-
-    private void OnMapInit(EntityUid uid, RevenantComponent component, MapInitEvent args)
-    {
-        _action.AddAction(uid, ref component.ShopAction, RevenantShopId); // imp edit
-        _action.AddAction(uid, ref component.HauntAction, RevenantHauntId); // imp edit
     }
 
     private void OnStatusAdded(EntityUid uid, RevenantComponent component, StatusEffectAddedEvent args)
@@ -164,11 +146,14 @@ public sealed partial class RevenantSystem : EntitySystem
             // imp edit start
             component.Essence = 0;
             _statusEffects.TryRemoveAllStatusEffects(uid);
+
             var stasisObj = Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
             AddComp(stasisObj, new RevenantStasisComponent(component.StasisTime, (uid, component)));
+
             // TODO: Make a RevenantInStasisComponent and attach that to the inert Revenant entity
             if (_mind.TryGetMind(uid, out var mindId, out var _))
                 _mind.TransferTo(mindId, stasisObj);
+
             _transformSystem.DetachEntity(uid, Comp<TransformComponent>(uid));
             _meta.SetEntityPaused(uid, true);
             // imp edit end
@@ -204,13 +189,6 @@ public sealed partial class RevenantSystem : EntitySystem
         // imp edit end
 
         return true;
-    }
-
-    private void OnShop(EntityUid uid, RevenantComponent component, RevenantShopActionEvent args)
-    {
-        if (!TryComp<StoreComponent>(uid, out var store))
-            return;
-        _store.ToggleUi(uid, uid, store);
     }
 
     public void MakeVisible(bool visible)
@@ -254,7 +232,7 @@ public sealed partial class RevenantSystem : EntitySystem
                     essence += rev.HauntEssenceRegenPerWitness * regen.NewHaunts;
                 // imp edit end
 
-                ChangeEssenceAmount(uid, essence, rev, regenCap: true);
+                ChangeEssenceAmount(uid, essence, rev, regenCap: true); // imp essence
             }
         }
     }

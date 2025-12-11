@@ -11,7 +11,6 @@ using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
-using Content.Shared.Throwing; // imp
 using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Weapons.Melee.Events;
@@ -23,6 +22,8 @@ using Robust.Shared.Timing;
 using System.Linq;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Random.Helpers;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Throwing; // imp
 
 namespace Content.Shared.Flash;
 
@@ -216,7 +217,7 @@ public abstract class SharedFlashSystem : EntitySystem
         foreach (var entity in _entSet)
         {
             // TODO: Use RandomPredicted https://github.com/space-wizards/RobustToolbox/pull/5849
-            var seed = SharedRandomExtensions.HashCodeCombine(new() { (int)_timing.CurTick.Value, GetNetEntity(entity).Id });
+            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(entity).Id);
             var rand = new System.Random(seed);
             if (!rand.Prob(probability))
                 continue;
@@ -269,12 +270,16 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnFlashImmunityFlashAttempt(Entity<FlashImmunityComponent> ent, ref FlashAttemptEvent args)
     {
+        if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)
+            return;
+
         if (ent.Comp.Enabled)
             args.Cancelled = true;
     }
 
     private void OnExamine(Entity<FlashImmunityComponent> ent, ref ExaminedEvent args)
     {
-        args.PushMarkup(Loc.GetString("flash-protection"));
+        if (ent.Comp.ShowInExamine)
+            args.PushMarkup(Loc.GetString("flash-protection"));
     }
 }

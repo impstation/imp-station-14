@@ -80,14 +80,12 @@ public sealed class RandomSentienceRule : StationEventSystem<RandomSentienceRule
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
             "station-event-random-sentience-announcement",
-            null,
-            Color.Gold,
-            null, null,
-            null, //imp
+            colorOverride: Color.Gold,
+            localeArgs: [
             ("kind1", kind1), ("kind2", kind2), ("kind3", kind3), ("amount", groupList.Count),
-            ("data", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventData"))),
-            ("strength", _random.Pick(_prototype.Index<LocalizedDatasetPrototype>("RandomSentienceEventStrength")))
-        );
+            ("data", _random.Pick(_prototype.Index(DataSourceNames))),
+            ("strength", _random.Pick(_prototype.Index(IntelligenceLevelNames)))]
         // imp edit end
+        );
     }
 }

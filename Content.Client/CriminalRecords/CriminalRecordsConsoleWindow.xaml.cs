@@ -225,11 +225,13 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         var specifier = new SpriteSpecifier.Rsi(new ResPath("Interface/Misc/job_icons.rsi"), "Unknown");
         var na = Loc.GetString("generic-not-available-shorthand");
         PersonName.Text = stationRecord.Name;
-        PersonGender.Text = Loc.GetString("gender-display", ("gender", stationRecord.Gender));
         PersonJob.Text = stationRecord.JobTitle ?? na;
+
+        // imp add start
+        PersonGender.Text = Loc.GetString("gender-display", ("gender", stationRecord.Gender));
         PersonPrints.Text = Loc.GetString("general-station-record-console-record-fingerprint", ("fingerprint", stationRecord.Fingerprint ?? na));
         PersonDna.Text = Loc.GetString("general-station-record-console-record-dna", ("dna", stationRecord.DNA ?? na));
-
+        // imp add end
 
         // Job icon
         if (_proto.TryIndex<JobIconPrototype>(stationRecord.JobIcon, out var proto))
@@ -280,7 +282,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
     private void SetStatus(SecurityStatus status)
     {
-        if (status == SecurityStatus.Wanted || status == SecurityStatus.Suspected)
+        if (status == SecurityStatus.Wanted || status == SecurityStatus.Suspected || status == SecurityStatus.Hostile)
         {
             GetReason(status);
             return;
@@ -326,6 +328,8 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             SecurityStatus.Detained => "hud_incarcerated",
             SecurityStatus.Discharged => "hud_discharged",
             SecurityStatus.Suspected => "hud_suspected",
+            SecurityStatus.Hostile => "hud_hostile",
+            SecurityStatus.Eliminated => "hud_eliminated",
             _ => "SecurityIconNone"
         };
     }

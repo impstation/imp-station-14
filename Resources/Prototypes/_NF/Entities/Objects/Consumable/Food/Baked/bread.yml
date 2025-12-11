@@ -24,6 +24,10 @@
           Quantity: 16
         - ReagentId: Bicaridine
           Quantity: 4
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   name: challah slice
@@ -47,3 +51,8 @@
   - type: Sprite
     sprite: _NF/Objects/Consumable/Food/Baked/bread.rsi
     state: challahslice
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice

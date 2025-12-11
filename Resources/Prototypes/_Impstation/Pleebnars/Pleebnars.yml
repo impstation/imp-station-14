@@ -36,10 +36,14 @@
     quickEquip: false
     sprite: _Impstation/Mobs/Aliens/pleebnar.rsi
     clothingVisuals:
-       head:
-        - map: ["enum.DamageStateVisualLayers.Base"]
-          state: 0-equipped-HELMET
-          offset: "0,0.5"
+      head:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: 0-equipped-HELMET
+        offset: "0,0.5"
+      head-ungu:
+      - state: 0-equipped-HELMET-ungu
+      head-allulalo:
+      - state: 0-equipped-HELMET-allulalo
     equippedPrefix: 0
     slots:
     - HEAD
@@ -81,7 +85,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 5
-  - type: Food
+  - type: Edible
   - type: GoobAbsorbable
     biomassRestored: 0.1
   - type: FlavorProfile

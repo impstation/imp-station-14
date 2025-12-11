@@ -117,6 +117,7 @@
   components:
   - type: TriggerOnCollide
     fixtureID: projectile
+    maxTriggers: 1
   - type: Projectile
     damage:
       types:
@@ -157,7 +158,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 14
+        Piercing: 10
+        Heat: 4
   - type: PointLight
     enabled: true
     color: "#ff4300"
@@ -223,14 +225,15 @@
           bounds: "-0.15,-0.45,0.15,0.15"
         hard: false
         mask:
-          - Impassable
-          - BulletImpassable
+        - Opaque
+        - Impassable
+        - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
   - type: Projectile
     damage:
       types:
-        Shock: 1
+        Shock: 0
     soundHit:
       path: "/Audio/Weapons/Guns/Hits/taser_hit.ogg"
     forceSound: true
@@ -238,7 +241,8 @@
     lifetime: 0.170 # Very short range
   - type: StunOnCollide
     stunAmount: 0
-    knockdownAmount: 2.5 # Enough to subdue and follow up with a stun batong
+    knockdownAmount: 2.5 # Enough to subdue and follow up with a stun baton
+    drop: false #Ranged KD and item drop are too strong in one package
     slowdownAmount: 2.5
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
@@ -266,6 +270,7 @@
     lifetime: 1.0 # Not so short range
   - type: StunOnCollide
     stunAmount: 5
+    drop: true # this is the evil taser
     knockdownAmount: 10
     slowdownAmount: 10
     walkSpeedModifier: 0.5
@@ -299,6 +304,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
+        - Opaque
         - Impassable
         - BulletImpassable
       fly-by: *flybyfixture
@@ -340,6 +346,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
+        - Opaque
         - Impassable
         - BulletImpassable
       fly-by: *flybyfixture
@@ -410,7 +417,7 @@
     - state: mediumtemp2
       shader: unshaded
   - type: Ammo
-    muzzleFlash: null
+    muzzleFlash: MuzzleFlashEffectOmnilaser
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -421,6 +428,8 @@
         hard: false
         mask:
         - Opaque
+        - Impassable
+        - BulletImpassable
       fly-by: *flybyfixture
   - type: Projectile
     #   soundHit:  Waiting on serv3
@@ -439,6 +448,9 @@
   parent: WatcherBolt
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective:
+    - Energy
   - type: Ammo #imp
     muzzleFlash: MuzzleFlashEffectTempCold
   - type: Projectile
@@ -455,7 +467,7 @@
 - type: entity
   name: magmawing watcher bolt
   id: WatcherBoltMagmawing
-  parent: BaseBullet
+  parent: WatcherBolt
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -463,8 +475,9 @@
     layers:
     - state: mediumtemp #imp
       shader: unshaded
+      color: orangered
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectTempHot #imp
+    muzzleFlash: MuzzleFlashEffectHeavyLaser
   - type: Projectile
     #   soundHit:  Waiting on serv3
     impactEffect: BulletImpactEffectHot #imp
@@ -480,6 +493,9 @@
   parent: WatcherBoltMagmawing
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective:
+    - Energy
   - type: Projectile
     #   soundHit:  Waiting on serv3
     impactEffect: BulletImpactEffectOrangeDisabler
@@ -921,6 +937,7 @@
     containers:
       cluster-payload: !type:Container
   - type: ProjectileGrenade
+    triggerKey: trigger
     fillPrototype: PelletClusterLessLethal
     capacity: 30
 
@@ -1149,6 +1166,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
+        - Opaque
         - Impassable
         - BulletImpassable
       fly-by: *flybyfixture
@@ -1303,6 +1321,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
+        - Opaque
         - Impassable
         - BulletImpassable
       fly-by: *flybyfixture
@@ -1326,14 +1345,14 @@
     spread: 30
 
 - type: entity
-  name: narrow laser barrage
+  name: lethal laser barrage
   id: BulletLaserSpreadNarrow
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
   components:
   - type: ProjectileSpread
-    proto: BulletLaserHeavy
-    count: 4 #52 heat damage if you hit all your shots, but narrower spread
+    proto: BulletLaserHeavy #imp
+    count: 4 #60 heat damage if you hit all your shots, but narrower spread
     spread: 10
 
 - type: entity
@@ -1346,3 +1365,52 @@
     proto: BulletDisablerSmg
     count: 3 #bit stronger than a disabler if you hit your shots you goober, still not a 2 hit stun though
     spread: 9
+
+- type: entity
+  name: magnum blaster bolt #imp
+  id: BulletLaserMagnum
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaser
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    layers:
+    - state: heavy #imp
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 35 #imp
+
+- type: entity
+  name: magnum window-piercing bolt
+  id: BulletLaserWindowPiercingMagnum
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaser
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    layers:
+    - state: medium #imp
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 20
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Opaque

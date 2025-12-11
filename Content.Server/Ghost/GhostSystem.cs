@@ -1,17 +1,16 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server.Access.Systems; //imp
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
-using Content.Server.Ghost.Components;
 using Content.Server.Mind;
 using Content.Server.Roles.Jobs;
-using Content.Shared._Impstation.Ghost; //imp
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
@@ -27,7 +26,6 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Popups;
-using Content.Shared.SSDIndicator; //imp
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
 using Content.Shared.Warps;
@@ -40,6 +38,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server.Access.Systems; //imp
+using Content.Shared._Impstation.Ghost; //imp
+using Content.Shared.SSDIndicator; //imp
 
 namespace Content.Server.Ghost
 {
@@ -613,7 +614,7 @@ namespace Content.Server.Ghost
 
                     DamageSpecifier damage = new(_prototypeManager.Index(AsphyxiationDamageType), dealtDamage);
 
-                    _damageable.TryChangeDamage(playerEntity, damage, true);
+                    _damageable.ChangeDamage(playerEntity.Value, damage, true);
                 }
             }
 

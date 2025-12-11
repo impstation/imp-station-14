@@ -1,13 +1,15 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_meal.yml
 
 - type: entity
+  abstract: true
   parent: FoodInjectableBase
   id: FoodBowlBase
-  abstract: true
   components:
   - type: Item
-    storedRotation: -90
-  - type: Food
+    shape:
+    - 0,0,1,0
+    storedOffset: 0,-3
+  - type: Edible
     trash:
     - FoodBowlBig
     utensil: Spoon
@@ -72,8 +74,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - creamy
-    - peas
+      - creamy
+      - peas
   - type: Sprite
     sprite: Objects/Consumable/Food/bowl.rsi
     layers:
@@ -91,6 +93,10 @@
           Quantity: 4 # imp
         - ReagentId: Water # imp
           Quantity: 10
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Soup
 
 # Salad
 
@@ -102,7 +108,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - leafy
+      - leafy
   - type: Sprite
     layers:
     - state: bowl
@@ -131,8 +137,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - leafy
-    - apple
+      - leafy
+      - apple
   - type: Sprite
     layers:
     - state: bowl
@@ -165,10 +171,10 @@
   components:
   - type: FlavorProfile
     flavors:
-    - leafy
-    - meaty
-    - potatoes
-    - validhunting
+      - leafy
+      - meaty
+      - potatoes
+      - validhunting
   - type: Sprite
     layers:
     - state: bowl
@@ -195,7 +201,7 @@
   - type: Tag
     tags:
     - Meat
-    - Fruit
+#    - Fruit # imp: no fruit in this
     - Soup
 
 - type: entity
@@ -206,9 +212,9 @@
   components:
   - type: FlavorProfile
     flavors:
-    - onion
-    - cabbage
-    - sour
+      - onion
+      - cabbage
+      - sour
   - type: Sprite
     layers:
     - state: bowl
@@ -224,6 +230,9 @@
           Quantity: 10 # imp
         - ReagentId: Allicin
           Quantity: 4 # imp
+  - type: Tag # imp
+    tags:
+    - Vegetable
 
 - type: entity
   name: caesar salad
@@ -233,10 +242,10 @@
   components:
   - type: FlavorProfile
     flavors:
-    - onion
-    - cabbage
-    - bread
-    - cheesy
+      - onion
+      - cabbage
+      - bread
+      - cheesy
   - type: Sprite
     layers:
     - state: bowl
@@ -252,6 +261,9 @@
           Quantity: 5 # imp
         - ReagentId: Allicin # imp
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - Vegetable
 
 - type: entity
   name: kimchi salad
@@ -261,9 +273,9 @@
   components:
   - type: FlavorProfile
     flavors:
-    - spicy
-    - cabbage
-    - carrot
+      - spicy
+      - cabbage
+      - carrot
   - type: Sprite
     layers:
     - state: bowl
@@ -283,6 +295,9 @@
           Quantity: 5
         - ReagentId: JuiceCarrot # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Vegetable
 
 - type: entity
   name: fruit salad
@@ -358,7 +373,7 @@
     flavors:
     - leafy
     - sour
-    - orange
+    - orange # imp
   - type: Sprite
     layers:
     - state: bowl
@@ -385,8 +400,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bitter
-    - hope
+      - bitter
+      - hope
   - type: Sprite
     layers:
     - state: bowl
@@ -402,6 +417,10 @@
           Quantity: 5
         - ReagentId: Omnizine
           Quantity: 5
+  - type: Tag # imp, all the other ones are???
+    tags:
+    - Fruit
+    - Soup
 
 # Rice
 
@@ -413,7 +432,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - rice
+      - rice
   - type: Sprite
     layers:
     - state: bowl
@@ -427,6 +446,9 @@
           Quantity: 6
         - ReagentId: Nutriment
           Quantity: 2
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: egg-fried rice
@@ -436,8 +458,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - rice
-    - egg
+      - rice
+      - egg
   - type: Sprite
     layers:
     - state: bowl
@@ -459,8 +481,10 @@
           Quantity: 5
   - type: Tag
     tags:
-    - Meat
+#    - Meat # imp
+    - ReptilianFood # imp
     - Soup
+    - UnguFood # imp
 
 - type: entity
   name: rice and pork
@@ -470,8 +494,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - rice
-    - meaty
+      - rice
+      - meaty
   - type: Sprite
     layers:
     - state: bowl
@@ -506,8 +530,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - rice
-    - sweet
+      - rice
+      - sweet
   - type: Sprite
     layers:
     - state: bowl
@@ -525,6 +549,10 @@
           Quantity: 10 # imp
         - ReagentId: Sugar
           Quantity: 11 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Soup
 
 - type: entity
   name: black-eyed gumbo
@@ -534,10 +562,10 @@
   components:
   - type: FlavorProfile
     flavors:
-    - rice
-    - spicy
-    - meaty
-    - savory
+      - rice
+      - spicy
+      - meaty
+      - savory
   - type: Sprite
     layers:
     - state: bowl
@@ -572,8 +600,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - oats
-    - milk
+      - oats
+      - milk
   - type: Sprite
     layers:
     - state: bowl
@@ -591,6 +619,9 @@
           Quantity: 3
         #- ReagentId: Milk # imp
         #  Quantity: 10
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: space liberty duff
@@ -600,23 +631,26 @@
   components:
   - type: FlavorProfile
     flavors:
-    - jelly
-    - mushrooms
+      - jelly
+      - mushrooms
   - type: Sprite
     layers:
     - state: bowl
     - state: spacelibertyduff
 
 - type: entity
-  name: amanita jelly
-  parent: [FoodInjectableBase, BaseMajorContraband]
+  parent: [FoodInjectableBase, BaseMajorContraband] #imp edit
   id: FoodJellyAmanita
+  name: amanita jelly
   description: It's evil, don't touch it!
   components:
+  - type: Item
+    size: Normal
+    storedOffset: 0,-3
   - type: FlavorProfile
     flavors:
-    - mushroom
-    - jelly
+      - mushroom
+      - jelly
   - type: Sprite
     sprite: Objects/Consumable/Food/meals.rsi
     state: amanita-jelly
@@ -629,6 +663,10 @@
           Quantity: 15 # imp
         - ReagentId: Amatoxin
           Quantity: 30 # imp - this shit killing you
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Mushroom
 
 # Soup
 
@@ -640,7 +678,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - meatballs
+      - meatballs
   - type: Sprite
     layers:
     - state: bowl
@@ -653,9 +691,9 @@
         - ReagentId: Nutriment
           Quantity: 21 # imp
         - ReagentId: Vitamin
-          Quantity: 8
+          Quantity: 8 # imp
         - ReagentId: Water
-          Quantity: 10
+          Quantity: 10 # imp
         - ReagentId: Protein # imp
           Quantity: 5
         - ReagentId: JuiceCarrot # imp
@@ -673,7 +711,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - slimy
+      - slimy
   - type: Sprite
     layers:
     - state: bowl
@@ -698,8 +736,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - metallic
-    - tomato
+      - metallic
+      - tomato
   - type: Sprite
     layers:
     - state: bowl
@@ -719,6 +757,7 @@
           Quantity: 8
   - type: Tag
     tags:
+    - Meat #imp
     - Fruit
     - Soup
 
@@ -730,8 +769,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - meaty
-    - salty
+      - meaty
+      - salty
   - type: Sprite
     layers:
     - state: bowl
@@ -749,6 +788,10 @@
           Quantity: 10 # imp
         - ReagentId: Nutriment # imp
           Quantity: 2
+  - type: Tag #imp
+    tags:
+    - Meat
+    - Soup
 
 - type: entity
   name: clown's tears
@@ -758,7 +801,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - bad-joke
+      - bad-joke
   - type: Sprite
     layers:
     - state: bowl
@@ -786,7 +829,7 @@
   - type: FlavorProfile
     flavors:
     - vegetables
-    - sadness
+#    - sadness imp, fuck you
     - potatoes # imp
   - type: Sprite
     layers:
@@ -807,6 +850,10 @@
         #  Quantity: 4 # imp
         - ReagentId: JuiceCarrot # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Soup
 
 - type: entity
   name: nettle soup
@@ -825,7 +872,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 40 # imp
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
           Quantity: 10 # imp
@@ -839,6 +886,10 @@
           Quantity: 3 # imp
         - ReagentId: EggCooked # imp
           Quantity: 6
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Soup
 
 - type: entity
   name: mystery soup
@@ -848,7 +899,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - chaos
+      - chaos
   - type: Sprite
     layers:
     - state: bowl
@@ -862,7 +913,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - spicy
+      - spicy
   - type: Sprite
     layers:
     - state: bowl
@@ -885,6 +936,8 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - Soup #imp
+    - Meat #imp
 
 
 - type: entity
@@ -895,8 +948,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - minty
-    - tomato
+      - minty
+      - tomato
   - type: Sprite
     layers:
     - state: bowl
@@ -918,6 +971,8 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - Soup #imp
+    - Meat #imp
 
 - type: entity
   name: chili con carnival
@@ -927,10 +982,10 @@
   components:
   - type: FlavorProfile
     flavors:
-    - spicy
-    - tomato
-    - bad-joke
-    - parents
+      - spicy
+      - tomato
+      - bad-joke
+      - parents
   - type: Sprite
     layers:
     - state: bowl
@@ -953,6 +1008,8 @@
   - type: Tag
     tags:
     - ChiliBowl
+    - Soup #imp
+    - Meat #imp
 
 - type: entity
   name: monkey's delight
@@ -962,8 +1019,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - jungle
-    - banana
+      - jungle
+      - banana
   - type: Sprite
     layers:
     - state: bowl
@@ -994,7 +1051,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - tomato
+      - tomato
   - type: Sprite
     layers:
     - state: bowl
@@ -1005,7 +1062,7 @@
         maxVol: 30 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10
+          Quantity: 10 #imp
         - ReagentId: Vitamin
           Quantity: 3 # imp
         - ReagentId: Water
@@ -1025,7 +1082,7 @@
     flavors:
     - tomato
     - squirming
-    - potatoes
+    - potatoes #imp
   - type: Sprite
     layers:
     - state: bowl
@@ -1056,15 +1113,15 @@
   components:
   - type: FlavorProfile
     flavors:
-    - miso
-  - type: Food
+      - miso
+  - type: Edible
     trash:
     - FoodBowlFancy
   - type: Sprite
     layers:
     - state: bowl2
     - state: miso
-      #rip milo
+        #rip milo
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1080,8 +1137,9 @@
           Quantity: 5
   - type: Tag
     tags:
-    - Meat
+    # - Meat #imp removed, no meat in this recipe
     - Soup
+    - Vegetable
 
 - type: entity
   name: mushroom soup
@@ -1091,7 +1149,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - mushroom
+      - mushroom
   - type: Sprite
     layers:
     - state: bowl
@@ -1109,6 +1167,11 @@
           Quantity: 5
         - ReagentId: Milk
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Soup
+    - Mushroom
 
 - type: entity
   name: beet soup
@@ -1123,14 +1186,18 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 40 # imp
+        maxVol: 40
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 15 # imp
-        - ReagentId: Vitamin
-          Quantity: 7
-        - ReagentId: Water
-          Quantity: 10
+          - ReagentId: Nutriment
+            Quantity: 15
+          - ReagentId: Vitamin
+            Quantity: 7
+          - ReagentId: Water
+            Quantity: 10
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Soup
 # Tastes like borsch, bortsch, borstch, borsh, borshch, borscht.
 
 - type: entity
@@ -1148,10 +1215,14 @@
       food:
         maxVol: 35 # imp
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 15 # imp
-        - ReagentId: Vitamin
-          Quantity: 15 # imp
+          - ReagentId: Nutriment
+            Quantity: 15
+          - ReagentId: Vitamin
+            Quantity: 15
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Soup
 # Tastes like beet.
 
 - type: entity
@@ -1162,9 +1233,9 @@
   components:
   - type: FlavorProfile
     flavors:
-    - meaty
-    - tomato
-    - carrot
+      - meaty
+      - tomato
+      - carrot
   - type: Sprite
     layers:
     - state: bowl
@@ -1187,7 +1258,7 @@
   - type: Tag
     tags:
     - Meat
-    - Fruit
+#    - Fruit imp, removing this so ungus dont eat it
     - Soup
 
 - type: entity
@@ -1198,7 +1269,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - sweet
+      - sweet
   - type: Sprite
     layers:
     - state: bowl
@@ -1208,11 +1279,14 @@
       food:
         maxVol: 40
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 15 # imp
-        - ReagentId: Vitamin
-          Quantity: 15 # imp
-
+          - ReagentId: Nutriment
+            Quantity: 15
+          - ReagentId: Vitamin
+            Quantity: 15
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Soup
 # Tastes like sweet potato.
 
 - type: entity
@@ -1223,7 +1297,7 @@
   components:
   - type: FlavorProfile
     flavors:
-    - onion
+      - onion
   - type: Sprite
     layers:
     - state: bowl
@@ -1236,11 +1310,15 @@
         - ReagentId: Nutriment
           Quantity: 14 # imp
         - ReagentId: Vitamin
-          Quantity: 5
+          Quantity: 5 # imp
         - ReagentId: Allicin
           Quantity: 5
         - ReagentId: Water # imp
           Quantity: 10
+  - type: Tag # imp
+    tags:
+    - Vegetable
+    - Soup
 
 - type: entity
   name: bisque
@@ -1271,18 +1349,28 @@
           Quantity: 10 # imp
         - ReagentId: CarpoToxin # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Meat
+    - Soup
+    - Mushroom
 # Tastes like crab.
 
 - type: entity
-  name: electron soup
   parent: FoodBowlBase
   id: FoodSoupElectron
+  name: electron soup
   description: A gastronomic curiosity of ethereal origin.
   components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: 0,2
   - type: FlavorProfile
     flavors:
-    - mushrooms
-    - electrons
+      - mushrooms
+      - electrons
   - type: Sprite
     layers:
     - state: bowl
@@ -1292,10 +1380,10 @@
       food:
         maxVol: 25 # imp
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 15 # imp
-        - ReagentId: Licoxide
-          Quantity: 6
+          - ReagentId: Nutriment
+            Quantity: 15
+          - ReagentId: Licoxide
+            Quantity: 6
 
 - type: entity
   name: bungo curry
@@ -1340,8 +1428,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - creamy
-    - slimy
+      - creamy
+      - slimy
   - type: Sprite
     layers:
     - state: bowl

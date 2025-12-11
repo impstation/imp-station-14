@@ -199,9 +199,9 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
 
         return Loc.GetString(proto.Name);
     }
-	
+
 	/// <summary>
-    /// Goobstation - Removes a port from a source.
+    ///     Goobstation - Removes a port from a source.
     /// </summary>
     public void RemoveSourcePort(EntityUid uid, ProtoId<SourcePortPrototype> port)
     {
@@ -214,7 +214,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
     }
 
     /// <summary>
-    /// Goobstation - Removes a port from a sink.
+    ///     Goobstation - Removes a port from a sink.
     /// </summary>
     public void RemoveSinkPort(EntityUid uid, ProtoId<SinkPortPrototype> port)
     {
@@ -238,6 +238,17 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             return new HashSet<(ProtoId<SourcePortPrototype>, ProtoId<SinkPortPrototype>)>();
 
         return links;
+    }
+
+    /// <summary>
+    /// Gets the entities linked to a specific source port.
+    /// </summary>
+    public HashSet<EntityUid> GetLinkedSinks(Entity<DeviceLinkSourceComponent?> source, ProtoId<SourcePortPrototype> port)
+    {
+        if (!Resolve(source, ref source.Comp) || !source.Comp.Outputs.TryGetValue(port, out var linked))
+            return new HashSet<EntityUid>(); // not a source or not linked
+
+        return new HashSet<EntityUid>(linked); // clone to prevent modifying the original
     }
 
     /// <summary>

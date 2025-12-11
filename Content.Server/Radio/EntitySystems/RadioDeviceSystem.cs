@@ -3,23 +3,27 @@ using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Radio.Components;
+using Content.Shared.Chat;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Power;
 using Content.Shared.Radio;
+using Content.Shared.Radio.Components;
+using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Components;
-using Content.Shared.Chat;
-using Content.Shared.Radio.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.UserInterface; // Nuclear-14
+using Content.Shared._NC.Radio; // Nuclear-14
+using Robust.Server.GameObjects; // Nuclear-14
+
 
 namespace Content.Server.Radio.EntitySystems;
 
 /// <summary>
 ///     This system handles radio speakers and microphones (which together form a hand-held radio).
 /// </summary>
-public sealed class RadioDeviceSystem : EntitySystem
+public sealed class RadioDeviceSystem : SharedRadioDeviceSystem
 {
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -27,9 +31,14 @@ public sealed class RadioDeviceSystem : EntitySystem
     [Dependency] private readonly RadioSystem _radio = default!;
     [Dependency] private readonly InteractionSystem _interaction = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!; // Nuclear-14
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid, RadioChannelPrototype)> _recentlySent = new();
+
+    // Frontier: minimum, maximum radio frequencies
+    private const int MinRadioFrequency = 1000;
+    private const int MaxRadioFrequency = 3000;
 
     public override void Initialize()
     {
@@ -49,6 +58,13 @@ public sealed class RadioDeviceSystem : EntitySystem
         SubscribeLocalEvent<IntercomComponent, ToggleIntercomMicMessage>(OnToggleIntercomMic);
         SubscribeLocalEvent<IntercomComponent, ToggleIntercomSpeakerMessage>(OnToggleIntercomSpeaker);
         SubscribeLocalEvent<IntercomComponent, SelectIntercomChannelMessage>(OnSelectIntercomChannel);
+
+        // Nuclear-14-Start
+        SubscribeLocalEvent<RadioMicrophoneComponent, BeforeActivatableUIOpenEvent>(OnBeforeHandheldRadioUiOpen);
+        SubscribeLocalEvent<RadioMicrophoneComponent, ToggleHandheldRadioMicMessage>(OnToggleHandheldRadioMic);
+        SubscribeLocalEvent<RadioMicrophoneComponent, ToggleHandheldRadioSpeakerMessage>(OnToggleHandheldRadioSpeaker);
+        SubscribeLocalEvent<RadioMicrophoneComponent, SelectHandheldRadioFrequencyMessage>(OnChangeHandheldRadioFrequency);
+        // Nuclear-14-End
     }
 
     public override void Update(float frameTime)
@@ -100,15 +116,6 @@ public sealed class RadioDeviceSystem : EntitySystem
         ToggleRadioSpeaker(uid, args.User, args.Handled, component);
         args.Handled = true;
     }
-
-    public void ToggleRadioMicrophone(EntityUid uid, EntityUid user, bool quiet = false, RadioMicrophoneComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return;
-
-        SetMicrophoneEnabled(uid, user, !component.Enabled, quiet, component);
-    }
-
     private void OnPowerChanged(EntityUid uid, RadioMicrophoneComponent component, ref PowerChangedEvent args)
     {
         if (args.Powered)
@@ -116,7 +123,8 @@ public sealed class RadioDeviceSystem : EntitySystem
         SetMicrophoneEnabled(uid, null, false, true, component);
     }
 
-    public void SetMicrophoneEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioMicrophoneComponent? component = null)
+
+    public override void SetMicrophoneEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioMicrophoneComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
             return;
@@ -140,34 +148,6 @@ public sealed class RadioDeviceSystem : EntitySystem
             RemCompDeferred<ActiveListenerComponent>(uid);
     }
 
-    public void ToggleRadioSpeaker(EntityUid uid, EntityUid user, bool quiet = false, RadioSpeakerComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return;
-
-        SetSpeakerEnabled(uid, user, !component.Enabled, quiet, component);
-    }
-
-    public void SetSpeakerEnabled(EntityUid uid, EntityUid? user, bool enabled, bool quiet = false, RadioSpeakerComponent? component = null)
-    {
-        if (!Resolve(uid, ref component))
-            return;
-
-        component.Enabled = enabled;
-
-        if (!quiet && user != null)
-        {
-            var state = Loc.GetString(component.Enabled ? "handheld-radio-component-on-state" : "handheld-radio-component-off-state");
-            var message = Loc.GetString("handheld-radio-component-on-use", ("radioState", state));
-            _popup.PopupEntity(message, user.Value, user.Value);
-        }
-
-        _appearance.SetData(uid, RadioDeviceVisuals.Speaker, component.Enabled);
-        if (component.Enabled)
-            EnsureComp<ActiveRadioComponent>(uid).Channels.UnionWith(component.Channels);
-        else
-            RemCompDeferred<ActiveRadioComponent>(uid);
-    }
     #endregion
 
     private void OnExamine(EntityUid uid, RadioMicrophoneComponent component, ExaminedEvent args)
@@ -179,7 +159,7 @@ public sealed class RadioDeviceSystem : EntitySystem
 
         using (args.PushGroup(nameof(RadioMicrophoneComponent)))
         {
-            args.PushMarkup(Loc.GetString("handheld-radio-component-on-examine", ("frequency", proto.Frequency)));
+            args.PushMarkup(Loc.GetString("handheld-radio-component-on-examine", ("frequency", /*Nuclear-14-start*/ component.Frequency /*Nuclear-14-end*/)));
             args.PushMarkup(Loc.GetString("handheld-radio-component-chennel-examine",
                 ("channel", proto.LocalizedName)));
         }
@@ -192,7 +172,7 @@ public sealed class RadioDeviceSystem : EntitySystem
 
         var channel = _protoMan.Index<RadioChannelPrototype>(component.BroadcastChannel)!;
         if (_recentlySent.Add((args.Message, args.Source, channel)))
-            _radio.SendRadioMessage(args.Source, args.Message, channel, uid);
+            _radio.SendRadioMessage(args.Source, args.Message, channel, uid, /*Nuclear-14-start*/ frequency: component.Frequency /*Nuclear-14-end*/);
     }
 
     private void OnAttemptListen(EntityUid uid, RadioMicrophoneComponent component, ListenAttemptEvent args)
@@ -256,7 +236,7 @@ public sealed class RadioDeviceSystem : EntitySystem
         if (ent.Comp.RequiresPower && !this.IsPowered(ent, EntityManager))
             return;
 
-        if (!_protoMan.HasIndex<RadioChannelPrototype>(args.Channel) || !ent.Comp.SupportedChannels.Contains(args.Channel))
+        if (!_protoMan.TryIndex<RadioChannelPrototype>(args.Channel, out var channel) || !ent.Comp.SupportedChannels.Contains(args.Channel)) // Nuclear-14: add channel
             return;
 
         SetIntercomChannel(ent, args.Channel);
@@ -277,9 +257,66 @@ public sealed class RadioDeviceSystem : EntitySystem
         }
 
         if (TryComp<RadioMicrophoneComponent>(ent, out var mic))
-            mic.BroadcastChannel = channel;
+        {
+            mic.BroadcastChannel = channel.Value;
+            if(_protoMan.TryIndex<RadioChannelPrototype>(channel, out var channelProto)) // Frontier
+                mic.Frequency = channelProto.Frequency; // Frontier
+        }
         if (TryComp<RadioSpeakerComponent>(ent, out var speaker))
-            speaker.Channels = new() { channel };
+            speaker.Channels = new() { channel.Value };
         Dirty(ent);
     }
+
+    // Nuclear-14-Start
+    #region Handheld Radio
+
+    private void OnBeforeHandheldRadioUiOpen(Entity<RadioMicrophoneComponent> microphone, ref BeforeActivatableUIOpenEvent args)
+    {
+        UpdateHandheldRadioUi(microphone);
+    }
+
+    private void OnToggleHandheldRadioMic(Entity<RadioMicrophoneComponent> microphone, ref ToggleHandheldRadioMicMessage args)
+    {
+        if (!args.Actor.Valid)
+            return;
+
+        SetMicrophoneEnabled(microphone, args.Actor, args.Enabled, true);
+        UpdateHandheldRadioUi(microphone);
+    }
+
+    private void OnToggleHandheldRadioSpeaker(Entity<RadioMicrophoneComponent> microphone, ref ToggleHandheldRadioSpeakerMessage args)
+    {
+        if (!args.Actor.Valid)
+            return;
+
+        SetSpeakerEnabled(microphone, args.Actor, args.Enabled, true);
+        UpdateHandheldRadioUi(microphone);
+    }
+
+    private void OnChangeHandheldRadioFrequency(Entity<RadioMicrophoneComponent> microphone, ref SelectHandheldRadioFrequencyMessage args)
+    {
+        if (!args.Actor.Valid)
+            return;
+
+        // Update frequency if valid and within range.
+        if (args.Frequency >= MinRadioFrequency && args.Frequency <= MaxRadioFrequency)
+            microphone.Comp.Frequency = args.Frequency;
+        // Update UI with current frequency.
+        UpdateHandheldRadioUi(microphone);
+    }
+
+    private void UpdateHandheldRadioUi(Entity<RadioMicrophoneComponent> radio)
+    {
+        var speakerComp = CompOrNull<RadioSpeakerComponent>(radio);
+        var frequency = radio.Comp.Frequency;
+
+        var micEnabled = radio.Comp.Enabled;
+        var speakerEnabled = speakerComp?.Enabled ?? false;
+        var state = new HandheldRadioBoundUIState(micEnabled, speakerEnabled, frequency);
+        if (TryComp<UserInterfaceComponent>(radio, out var uiComp))
+            _ui.SetUiState((radio.Owner, uiComp), HandheldRadioUiKey.Key, state); // Frontier: TrySetUiState<SetUiState
+    }
+
+    #endregion
+    // Nuclear-14-End
 }

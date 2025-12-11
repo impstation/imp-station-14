@@ -3,7 +3,6 @@ using Content.Shared.Examine;
 using Content.Shared.Mind;
 using Content.Shared.Morgue.Components;
 using Content.Shared.Popups;
-using Content.Shared.Power; //imp
 using Content.Shared.Standing;
 using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
@@ -13,6 +12,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
+using Content.Shared.Power; //imp
 
 namespace Content.Shared.Morgue;
 
@@ -121,7 +121,7 @@ public abstract class SharedCrematoriumSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2))
             return false;
 
-        if (ent.Comp2.Open || ent.Comp2.Contents.ContainedEntities.Count < 1 || ent.Comp1.Powered == false) // imp
+        if (ent.Comp2.Open || ent.Comp2.Contents.ContainedEntities.Count < 1 || ent.Comp1.Powered == false) // imp powered
         {
             Popup.PopupEntity(Loc.GetString("microwave-component-interact-using-no-power"), ent); // imp
             return false;

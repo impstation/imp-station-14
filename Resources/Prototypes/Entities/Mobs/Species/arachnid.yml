@@ -5,20 +5,18 @@
   id: BaseMobArachnid
   abstract: true
   components:
-  - type: GoobAbsorbable
   - type: Body
     prototype: Arachnid
     requiredLegs: 2 # It would be funny if arachnids could use their little back limbs to move around once they lose their legs, but just something to consider post-woundmed
   - type: HumanoidAppearance
     species: Arachnid
-    hideLayersOnEquip: #imp
-    - Tail
   - type: Hunger
   - type: Thirst
   - type: Sericulture
     productionLength: 2
     entityProduced: MaterialWebSilk1
     hungerCost: 4 # Should total to 25 total silk on full hunger
+  - type: IgnoreSpiderWeb  #imp edit
   - type: Tag
     tags:
     - CanPilot
@@ -36,13 +34,13 @@
     - reagents: [Water]
       methods: [Touch]
       effects:
-      - !type:WearableReaction
+      - !type:SpawnEntityInInventory
         slot: head
-        prototypeID: WaterDropletHat
+        entity: WaterDropletHat
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   # Damage (Self)
   - type: Bloodstream
     bloodReagent: CopperBlood
@@ -65,12 +63,14 @@
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
-    allowedEmotes: ['Click', 'Chitter']
+    allowedEmotes: ['Click', 'Chitter', 'Hiss']  #imp edit to add Hiss
   - type: Vocal
     sounds:
       Male: MaleArachnid
       Female: FemaleArachnid
       Unsexed: UnisexArachnid
+  - type: BodyEmotes #imp edit
+    soundsId: ArachnidBodyEmotes
   - type: TypingIndicator
     proto: spider
   - type: Sprite # I'd prefer if these maps were better. Insert map pun here.

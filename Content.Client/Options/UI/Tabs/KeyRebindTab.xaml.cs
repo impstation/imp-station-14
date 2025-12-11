@@ -130,8 +130,7 @@ namespace Content.Client.Options.UI.Tabs
                 KeybindsContainer.AddChild(new Label
                 {
                     Text = Loc.GetString(headerContents),
-                    FontColorOverride = StyleNano.NanoGold,
-                    StyleClasses = { StyleNano.StyleClassLabelKeyText }
+                    StyleClasses = { StyleClass.LabelKeyText }
                 });
             }
 
@@ -190,6 +189,9 @@ namespace Content.Client.Options.UI.Tabs
             AddHeader("ui-options-header-interaction-adv");
             AddButton(ContentKeyFunctions.SmartEquipBackpack);
             AddButton(ContentKeyFunctions.SmartEquipBelt);
+            AddButton(ContentKeyFunctions.SmartEquipPocket1);
+            AddButton(ContentKeyFunctions.SmartEquipPocket2);
+            AddButton(ContentKeyFunctions.SmartEquipSuitStorage);
             AddButton(ContentKeyFunctions.OpenBackpack);
             AddButton(ContentKeyFunctions.OpenBelt);
             AddButton(ContentKeyFunctions.ThrowItemInHand);
@@ -232,11 +234,13 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.EscapeMenu);
             AddButton(ContentKeyFunctions.EscapeContext);
 
+            // DeltaV - NanoChat keybinds start
             AddHeader("ui-options-header-nano-chat");
-            AddButton(ContentKeyFunctions.NanoChatNavigateUp); // DeltaV - NanoChat keybinds
-            AddButton(ContentKeyFunctions.NanoChatNavigateDown); // DeltaV - NanoChat keybinds
-            AddButton(ContentKeyFunctions.NanoChatNavigateUpUnread); // DeltaV - NanoChat keybinds
-            AddButton(ContentKeyFunctions.NanoChatNavigateDownUnread); // DeltaV - NanoChat keybinds
+            AddButton(ContentKeyFunctions.NanoChatNavigateUp);
+            AddButton(ContentKeyFunctions.NanoChatNavigateDown);
+            AddButton(ContentKeyFunctions.NanoChatNavigateUpUnread);
+            AddButton(ContentKeyFunctions.NanoChatNavigateDownUnread);
+            // DeltaV end
 
             AddHeader("ui-options-header-misc");
             AddButton(ContentKeyFunctions.TakeScreenshot);
@@ -531,9 +535,9 @@ namespace Content.Client.Options.UI.Tabs
                     HorizontalAlignment = HAlignment.Left
                 };
 
-                BindButton1 = new BindButton(parent, this, StyleBase.ButtonOpenRight);
-                BindButton2 = new BindButton(parent, this, StyleBase.ButtonOpenLeft);
-                ResetButton = new Button { Text = Loc.GetString("ui-options-bind-reset"), StyleClasses = { StyleBase.ButtonCaution } };
+                BindButton1 = new BindButton(parent, this, StyleClass.ButtonOpenRight);
+                BindButton2 = new BindButton(parent, this, StyleClass.ButtonOpenLeft);
+                ResetButton = new Button { Text = Loc.GetString("ui-options-bind-reset"), StyleClasses = { StyleClass.Negative } };
 
                 var hBox = new BoxContainer
                 {

@@ -89,7 +89,7 @@ namespace Content.Shared.Cuffs
             SubscribeLocalEvent<HandcuffComponent, MeleeHitEvent>(OnCuffMeleeHit);
             SubscribeLocalEvent<HandcuffComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfter);
             SubscribeLocalEvent<HandcuffComponent, VirtualItemDeletedEvent>(OnCuffVirtualItemDeleted);
-            SubscribeLocalEvent<HandcuffComponent, UserActivateInWorldEvent>(OnCuffInteract);
+            SubscribeLocalEvent<HandcuffComponent, UserActivateInWorldEvent>(OnCuffInteract); // imp animation
         }
 
         private void CheckInteract(Entity<CuffableComponent> ent, ref InteractionAttemptEvent args)
@@ -243,13 +243,18 @@ namespace Content.Shared.Cuffs
             args.Cancel();
         }
 
-        private void HandleStopPull(EntityUid uid, CuffableComponent component, AttemptStopPullingEvent args)
+        private void HandleStopPull(EntityUid uid, CuffableComponent component, ref AttemptStopPullingEvent args)
         {
             if (args.User == null || !Exists(args.User.Value))
                 return;
 
             if (args.User.Value == uid && !component.CanStillInteract)
+            {
+                //TODO: UX feedback. Simply blocking the normal interaction feels like an interface bug
+
                 args.Cancelled = true;
+            }
+
         }
 
         private void OnRemoveCuffsAlert(Entity<CuffableComponent> ent, ref RemoveCuffsAlertEvent args)
@@ -326,6 +331,7 @@ namespace Content.Shared.Cuffs
             args.Handled = true;
         }
 
+        // imp add
         private void OnCuffInteract(EntityUid uid, HandcuffComponent component, UserActivateInWorldEvent args)
         {
             if (args.Handled)
@@ -487,15 +493,17 @@ namespace Content.Shared.Cuffs
             if (TryComp<HandsComponent>(target, out var hands) && hands.Count <= component.CuffedHandCount)
                 return false;
 
-            var ev = new TargetHandcuffedEvent();
-            RaiseLocalEvent(target, ref ev);
-
             // Success!
-            if (user != handcuff)
+            if (user != handcuff) // imp add animation check
                 _hands.TryDrop(user, handcuff);
 
             _container.Insert(handcuff, component.Container);
+
+            var ev = new TargetHandcuffedEvent();
+            RaiseLocalEvent(target, ref ev);
+
             UpdateHeldItems(target, handcuff, component);
+
             return true;
         }
 
@@ -519,7 +527,7 @@ namespace Content.Shared.Cuffs
                 return true;
             }
 
-            if (user != handcuff && !_hands.CanDrop(user, handcuff))
+            if (user != handcuff && !_hands.CanDrop(user, handcuff)) // imp add animation check
             {
                 _popup.PopupClient(Loc.GetString("handcuff-component-cannot-drop-cuffs", ("target", Identity.Name(target, EntityManager, user))), user, user);
                 return false;
@@ -538,7 +546,7 @@ namespace Content.Shared.Cuffs
                 BreakOnMove = true,
                 BreakOnWeightlessMove = false,
                 BreakOnDamage = true,
-                NeedHand = user != handcuff,
+                NeedHand = user != handcuff, // imp edit, was true
                 DistanceThreshold = 1f // shorter than default but still feels good
             };
 

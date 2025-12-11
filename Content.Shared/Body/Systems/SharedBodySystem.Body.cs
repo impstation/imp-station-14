@@ -9,12 +9,12 @@ using Content.Shared.Gibbing.Components;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Gibbing.Systems;
 using Content.Shared.Inventory;
-using Content.Shared.Projectiles;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Utility;
+using Content.Shared.Projectiles; // imp throwing
 
 namespace Content.Shared.Body.Systems;
 

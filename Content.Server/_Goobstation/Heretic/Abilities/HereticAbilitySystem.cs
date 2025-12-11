@@ -10,20 +10,21 @@ using Content.Server.Heretic.EntitySystems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
-using Content.Server.Radio.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
+using Content.Shared.Medical;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Radio.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Random;
-using Content.Server.Medical;
 using Robust.Server.GameObjects;
 using Content.Shared.Stunnable;
 using Content.Shared.StatusEffect;
@@ -96,6 +97,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeAsh();
         SubscribeFlesh();
         SubscribeVoid();
+        SubscribeHunt();
     }
 
     private bool TryUseAbility(EntityUid ent, BaseActionEvent args)
