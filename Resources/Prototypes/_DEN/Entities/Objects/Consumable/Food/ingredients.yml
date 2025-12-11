@@ -1,0 +1,74 @@
+# SPDX-FileCopyrightText: 2025 portfiend
+#
+# SPDX-License-Identifier: MIT
+
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodSausageCasing
+  name: sausage casing
+  description: A length of intestine, cleaned and heavily salted. Grody... possibly delicious?
+  components:
+  - type: Sprite
+    sprite: _DEN/Objects/Consumable/Food/sausage.rsi
+    state: sausage_casing
+  - type: Item
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 2
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 1.25 # 1/4 that of stomachs
+  - type: Extractable
+    grindableSolutionName: food
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - salty
+  - type: Tag
+    tags:
+      - Raw
+      - Meat
+      - Slice
+
+- type: entity
+  abstract: true
+  id: ButcherIntoIntestineBase
+  components:
+  # Getting a bit of bang for your buck here because chefs will Kill Entire Monkeys just to get casings.
+  # Compare raw meat, where a monkey gives you 3 steaks that can be turned into 9 cutlets.
+  # I feel like 1 stomach -> 4 casings is fair.
+  - type: SliceableFood
+    slice: FoodSausageCasing
+    count: 4
+
+# This prototype exists for the ChefVend, basically pre-prepared casing minus organ functionality.
+# This is because I don't want to put 8 individual casings into the vendor / add a new box prototype for it.
+# Much easier to just add two of these to the vend.
+- type: entity
+  parent: [ButcherIntoIntestineBase, FoodInjectableBase]
+  id: FoodSausageCasingRoll
+  name: roll of sausage casing
+  description: A long bundle of sausage-ready intestine-based casing, cleaned and heavily salted. Long enough to cut into multiple pieces.
+  components:
+  - type: Sprite
+    sprite: _DEN/Objects/Consumable/Food/sausage.rsi
+    state: sausage_casing_roll
+  - type: Item
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - meaty
+      - salty
+  - type: Tag
+    tags:
+      - Raw
+      - Meat
