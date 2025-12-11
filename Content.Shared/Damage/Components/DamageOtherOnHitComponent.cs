@@ -21,8 +21,8 @@ public sealed partial class DamageOtherOnHitComponent : Component
     /// <summary>
     /// The damage amount to deal on hit.
     /// </summary>
-    [DataField(required: true)]
-    public DamageSpecifier Damage = default!;
+    [DataField] //  IMP: remove required true
+    public DamageSpecifier Damage = new(); // IMP: damage is empty, not default!
 
     // EE THROWING START
 
