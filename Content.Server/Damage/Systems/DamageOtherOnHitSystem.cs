@@ -14,7 +14,6 @@ using Content.Shared._EE.Damage.Components; // EE THROWING
 using Content.Shared.CombatMode.Pacification; // EE THROWING
 using Content.Shared.Popups; // EE THROWING
 using Content.Shared.Projectiles; // EE THROWING
-using Content.Shared.Stunnable; // EE THROWING
 using Content.Shared.Weapons.Melee; // EE THROWING
 using Robust.Shared.Physics.Systems; // EE THROWING
 using Robust.Shared.Prototypes; // EE THROWING
@@ -57,9 +56,6 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
             && component.Damage.AnyPositive())
             return;
 
-        if (component.HitQuantity >= component.MaxHitQuantity)
-            return;
-
         var isEmbedded = TryComp<EmbeddableProjectileComponent>(uid, out var embed) && embed.Target != null;
 
         // Ignore thrown items that are too slow, as long as the projectile is not embedded
@@ -91,13 +87,14 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
         }
 
         // EE START
-        if (HasComp<StaminaComponent>(args.Target) && TryComp<StaminaDamageOnHitComponent>(uid, out var stamina))
+        if (HasComp<StaminaComponent>(args.Target) && TryComp<StaminaDamageOnHitComponent>(uid, out var stamina) &&
+            !HasComp<StaminaDamageOnCollideComponent>(uid)) // imp add
             _stamina.TakeStaminaDamage(args.Target, stamina.Damage, source: uid, sound: stamina.Sound);
 
         // TODO: If more stuff touches this then handle it after.
         _thrownItem.LandComponent(args.Thrown, args.Component, physics, false);
 
-        // allow items to pass through entities
+        // bounce!
         if (!HasComp<EmbeddableProjectileComponent>(args.Thrown))
         {
             var newVelocity = physics.LinearVelocity;
@@ -106,7 +103,8 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
             _physics.SetLinearVelocity(uid, newVelocity, body: physics);
         }
 
-        component.HitQuantity += 1;
+        if (TryComp<ThrownItemComponent>(uid, out var thrown))
+            thrown.HitQuantity += 1;
         // EE END
     }
 

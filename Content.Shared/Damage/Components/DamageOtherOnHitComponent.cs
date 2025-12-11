@@ -39,12 +39,6 @@ public sealed partial class DamageOtherOnHitComponent : Component
     public int MaxHitQuantity = 1;
 
     /// <summary>
-    ///   The tracked amount of hits in a single throw.
-    /// </summary>
-    [DataField]
-    public int HitQuantity = 0;
-
-    /// <summary>
     ///   The multiplier to apply to the entity's light attack damage to calculate the throwing damage.
     ///   Only used if this component has a MeleeWeaponComponent and Damage is not set on the prototype.
     /// </summary>

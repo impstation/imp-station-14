@@ -26,8 +26,6 @@ public sealed class EEThrowingSystem : EntitySystem
         SubscribeLocalEvent<DamageOtherOnHitComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ItemToggleDamageOtherOnHitComponent, MapInitEvent>(OnItemToggleMapInit);
         SubscribeLocalEvent<DamageOtherOnHitComponent, ItemToggledEvent>(OnItemToggle);
-
-        SubscribeLocalEvent<DamageOtherOnHitComponent, ThrownEvent>(OnThrown);
     }
 
     /// <summary>
@@ -123,10 +121,5 @@ public sealed class EEThrowingSystem : EntitySystem
             if (itemToggle.DeactivatedNoDamageSound is { } deactivatedNoDamageSound)
                 ent.Comp.NoDamageSound = deactivatedNoDamageSound;
         }
-    }
-
-    private void OnThrown(EntityUid uid, DamageOtherOnHitComponent component, ThrownEvent args)
-    {
-        component.HitQuantity = 0;
     }
 }
