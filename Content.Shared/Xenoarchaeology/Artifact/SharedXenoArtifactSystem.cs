@@ -70,4 +70,11 @@ public abstract partial class SharedXenoArtifactSystem : EntitySystem
         ent.Comp.Suppressed = val;
         Dirty(ent);
     }
+
+    // IMP
+    public void SetAdvancedNodeScanner(Entity<XenoArtifactComponent> ent, EntityUid? advancedNodeScanner)
+    {
+        ent.Comp.AdvancedNodeScanner = advancedNodeScanner;
+        Dirty(ent);
+    }
 }
