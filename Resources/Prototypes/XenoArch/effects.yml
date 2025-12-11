@@ -397,15 +397,20 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
     - id: XenoArtifactInjectCryptobiolin
-      weight: 10.0 # imp edit
+      weight: 4.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 0, 1, 2 ]
+        depths: [ 2, 3]
     - id: XenoArtifactInjectDrunkHigh
-      weight: 10.0 # imp edit
+      weight: 3.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 0, 1, 2 ]
+        depths: [ 3, 4 ]
+    - id: XenoArtifactMindlessClone
+      weight: 6.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 3, 4, 5 ]
     # imp edit end
 
 - type: entityTable
@@ -1586,7 +1591,7 @@
   components:
   - type: XAEShuffle
   - type: XAETelepathic
-    range: 7.5
+    range: 14 #IMP 7.5 -> 14, actually make this DO something...
     messages:
     - shuffle-artifact-popup
 
