@@ -1,6 +1,6 @@
-using Content.Server.Explosion.Components;
+﻿using Content.Server.Explosion.Components;
 using Content.Server.Weapons.Ranged.Systems;
-using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Trigger;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -46,6 +46,9 @@ public sealed class ProjectileGrenadeSystem : EntitySystem
     /// </summary>
     private void OnFragTrigger(Entity<ProjectileGrenadeComponent> entity, ref TriggerEvent args)
     {
+        if (args.Key != entity.Comp.TriggerKey)
+            return;
+
         FragmentIntoProjectiles(entity.Owner, entity.Comp);
         args.Handled = true;
     }
@@ -83,7 +86,6 @@ public sealed class ProjectileGrenadeSystem : EntitySystem
             // slightly uneven, doesn't really change much, but it looks better
             var direction = angle.ToVec().Normalized();
             var velocity = _random.NextVector2(component.MinVelocity, component.MaxVelocity);
-            EnsureComp<TargetedProjectileComponent>(contentUid); // imp - ensure projectile is a TargetedProjectile with no target to hit crawling players
             _gun.ShootProjectile(contentUid, direction, velocity, null);
         }
     }

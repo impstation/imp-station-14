@@ -4,14 +4,14 @@ using Content.Server.Chat.Systems;
 using Content.Server.Heretic.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
-using Content.Server.Temperature.Components;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
-using Content.Shared.Roles;
+using Content.Shared.Nutrition;
 using Content.Shared.Store.Components;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -19,15 +19,15 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly StoreSystem _store = default!;
 
-    private float _timer = 0f;
+    private float _timer;
     private float _passivePointCooldown = 20f * 60f;
-    private static readonly ProtoId<JobPrototype> SecOffJobProtoID = "SecurityOfficer";
 
     public override void Initialize()
     {
@@ -67,9 +67,11 @@ public sealed partial class HereticSystem : EntitySystem
             _store.UpdateUserInterface(uid, uid, store);
         }
 
-        if (_mind.TryGetMind(uid, out var mindId, out var mind))
-            if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
-                objective.Researched += amount;
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
+            return;
+
+        if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
+            objective.Researched += amount;
     }
 
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
@@ -79,7 +81,9 @@ public sealed partial class HereticSystem : EntitySystem
             _eye.SetVisibilityMask(ent, eye.VisibilityMask | EldritchInfluenceComponent.LayerMask);
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
+        {
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);
+        }
     }
 
     #region Internal events (target reroll, ascension, etc.)
@@ -89,23 +93,33 @@ public sealed partial class HereticSystem : EntitySystem
         ent.Comp.Ascended = true;
 
         // how???
-        if (ent.Comp.CurrentPath == null)
+        if (ent.Comp.MainPath == null)
             return;
 
-        var pathLoc = ent.Comp.CurrentPath!.ToLower();
+        var main = ent.Comp.MainPath.Value;
+        if (!_prototypeManager.TryIndex<HereticPathPrototype>(main, out var pathPrototype))
+        {
+            return;
+        }
+
+        var ascendSound = pathPrototype.AscensionSound;
+        var message = Loc.GetString(pathPrototype.Announcement);
+        _chat.DispatchGlobalAnnouncement(message, Name(ent), true, ascendSound, Color.Pink);
+
+        // leaving the old code here as an environmental storytelling corpse -kandi
+        /*
+        var pathLoc = ent.Comp.MainPath!.Value.Id.ToLower();
         var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
+        */
 
         // do other logic, e.g. make heretic immune to whatever
-        switch (ent.Comp.CurrentPath!)
+        switch (ent.Comp.MainPath.Value.Id)
         {
             case "Ash":
                 RemComp<TemperatureComponent>(ent);
                 RemComp<RespiratorComponent>(ent);
                 RemComp<BarotraumaComponent>(ent);
-                break;
-
-            default:
                 break;
         }
     }
@@ -125,7 +139,7 @@ public sealed partial class HereticSystem : EntitySystem
         if (!ent.Comp.Ascended)
             return;
 
-        switch (ent.Comp.CurrentPath)
+        switch (ent.Comp.MainPath)
         {
             case "Ash":
                 // nullify heat damage because zased

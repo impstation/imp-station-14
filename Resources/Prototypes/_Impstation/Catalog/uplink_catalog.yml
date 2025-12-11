@@ -20,6 +20,27 @@
       - SurplusBundle
 
 - type: listing
+  id: uplinkCleanerGrenadeBleach
+  name: uplink-cleaning-grenade-bleach-name
+  description: uplink-cleaning-grenade-bleach-desc
+  productEntity: BoxCleanerGrenadesBleach
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
   id: uplinkZipperAP
   name: uplink-zipper-ap-name
   description: uplink-zipper-ap-desc
@@ -64,6 +85,28 @@
   productEntity: MagazineBoxCaselessRifle
   cost:
     Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkExtendedMagazinePistolCaselessRifle
+  name: uplink-extended-pistol-magazine-caseless-name
+  description: uplink-extended-pistol-magazine-caseless-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag_ext.rsi, state: red-icon }
+  productEntity: CobraMagExtBox
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkExtendedMagazinePistol
+  name: uplink-extended-pistol-magazine-name
+  description: uplink-extended-pistol-magazine-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_ext.rsi, state: red-icon }
+  productEntity: PistolMagExtBox
+  cost:
+    Telecrystal: 10
   categories:
   - UplinkAmmo
 
@@ -167,7 +210,7 @@
   id: UplinkAdderBundle
   name: uplink-adder-name
   description: uplink-adder-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Special/adder.rsi, state: icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi, state: icon }
   productEntity: AdderBox
   discountCategory: rareDiscounts
   discountDownTo:
@@ -181,7 +224,7 @@
   id: UplinkAkurraBundle
   name: uplink-akurra-name
   description: uplink-akurra-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Special/akurra.rsi, state: icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledAkurra
   discountCategory: veryRareDiscounts
   discountDownTo:
@@ -216,6 +259,21 @@
     Telecrystal: 12
   categories:
     - UplinkWeaponry
+
+- type: listing
+  id: UplinkOuroBros
+  name: uplink-ourobros-name
+  description: uplink-ourobros-desc
+  productEntity: WeaponSpecialOuroBros
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWeaponry
+  conditions: # surplus exclusive
+  - !type:BuyerWhitelistCondition
+    whitelist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: uplinkAnaconda

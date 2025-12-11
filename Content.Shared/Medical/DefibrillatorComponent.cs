@@ -4,7 +4,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Shared.Whitelist;
+using Content.Shared.Whitelist; // imp
 
 namespace Content.Shared.Medical;
 
@@ -32,7 +32,7 @@ public sealed partial class DefibrillatorComponent : Component
     /// How long the victim will be electrocuted after getting zapped.
     /// </summary>
     [DataField("writheDuration"), ViewVariables(VVAccess.ReadWrite)]
-    public float WritheDuration = 3f;
+    public float WritheDuration = 3f; // imp float
 
     /// <summary>
     ///     ID of the cooldown use delay.
@@ -53,42 +53,42 @@ public sealed partial class DefibrillatorComponent : Component
     /// This is synced with the audio; do not change one but not the other.
     /// </remarks>
     [DataField("doAfterDuration"), ViewVariables(VVAccess.ReadWrite)]
-    public float DoAfterDuration = 3f;
+    public float DoAfterDuration = 3f; // imp, move timespan -> float
 
     /// <summary>
     /// Defib only works on mobs with id in this list, or works for anything if this list is null #IMP
     /// </summary>
-    [DataField("whitelist"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public EntityWhitelist? Whitelist;
 
     /// <summary>
     /// Whether or not to have the defib pop up text, such as body composition, rot, intelligence, etc. #IMP
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("showMessages")]
+    [DataField]
     public bool ShowMessages = true;
 
     /// <summary>
     /// Can we skip the doafter. #IMP
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("skipDoAfter")]
+    [DataField]
     public bool SkipDoAfter = false;
 
     /// <summary>
     /// Can we ignore the toggle. #IMP
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("ignoreToggle")]
+    [DataField]
     public bool IgnoreToggle = false;
 
     /// <summary>
     /// Can we ignore the powercell. #IMP
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("ignorePowerCell")]
+    [DataField]
     public bool IgnorePowerCell = false;
 
     /// <summary>
     /// Can the defibbed entity skip the critical state and go straight to alive if they have low enough damage?. #IMP
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("allowSkipCrit")]
+    [DataField]
     public bool AllowSkipCrit = false;
 
     [DataField]
@@ -97,7 +97,8 @@ public sealed partial class DefibrillatorComponent : Component
     [DataField]
     public bool CanDefibCrit = true;
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playZapSound")]
+    // imp
+    [DataField]
     public bool PlayZapSound = true;
 
     /// <summary>
@@ -106,25 +107,29 @@ public sealed partial class DefibrillatorComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField("zapSound")]
     public SoundSpecifier? ZapSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playChargeSound")]
+    // imp
+    [DataField]
     public bool PlayChargeSound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("chargeSound")]
     public SoundSpecifier? ChargeSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_charge.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playFailureSound")]
+    // imp
+    [DataField]
     public bool PlayFailureSound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("failureSound")]
     public SoundSpecifier? FailureSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_failed.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playSuccessSound")]
+    // imp
+    [DataField]
     public bool PlaySuccessSound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("successSound")]
     public SoundSpecifier? SuccessSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_success.ogg");
 
-    [ViewVariables(VVAccess.ReadWrite), DataField("playReadySound")]
+    // imp
+    [DataField]
     public bool PlayReadySound = true;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("readySound")]

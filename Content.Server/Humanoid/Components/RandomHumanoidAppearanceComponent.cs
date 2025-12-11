@@ -1,15 +1,15 @@
-using Content.Shared.Access.Systems;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
-using Content.Shared.Humanoid.Prototypes;
-using Robust.Shared.Enums;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;
+//using Content.Shared.Humanoid.Prototypes; // imp unused
+//using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set; // imp unused
+using Content.Shared.Humanoid; // imp
+using Robust.Shared.Enums; // imp
 
 namespace Content.Server.CharacterAppearance.Components;
 
 [RegisterComponent]
 public sealed partial class RandomHumanoidAppearanceComponent : Component
 {
+    // pretty much this entire file is an imp overhaul
+
     [DataField("randomizeName")] public bool RandomizeName = true;
 
     // Imp edit

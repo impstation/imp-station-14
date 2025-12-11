@@ -105,16 +105,45 @@
   components:
   - type: TraitorRule
     startingBalance: 4 # 2 are used for the uplink implant, leaving them with a budget of 2.
-    giveUplink: true 
+    giveUplink: true
     giveCodewords: false
     giveBriefing: false
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
       mindRoles:
-      - MindRoleInfiltrator 
+      - MindRoleInfiltrator
 
-# population limiters
+- type: entity
+  id: SleeperlessStationEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: SleeperlessGameRulesTable
+
+- type: entityTable
+  id: SleeperlessGameRulesTable # imp: changed from AllSelector to GroupSelector
+  table: !type:GroupSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+    children:
+    - !type:NestedSelector
+      tableId: BasicCalmEventsTable
+      weight: 30
+    - !type:NestedSelector
+      tableId: SleeperlessGreaterAntagEventsTable #imp
+      weight: 7
+    - !type:NestedSelector
+      tableId: LesserAntagEventsTable #imp
+      weight: 15
+    - !type:NestedSelector
+      tableId: CargoGiftsTable
+      weight: 16
+    - !type:NestedSelector
+      tableId: CalmPestEventsTable
+      weight: 17
+    - !type:NestedSelector
+      tableId: SpicyPestEventsTable
+      weight: 15
 
 - type: entity
   parent: BaseGameRule
@@ -123,3 +152,80 @@
   - type: GameRule
     maxPlayers: 14
     cancelPresetOnTooManyPlayers: true
+
+- type: entity 
+  parent: BaseGameRule
+  id: PopLimiter20 #for lowpop versions of the gamemodes that usually have a 20-person minimum
+  components:
+  - type: GameRule
+    maxPlayers: 20
+    cancelPresetOnTooManyPlayers: true
+
+- type: entity
+  id: PacifistVsPacifist
+  parent: SpyVsSpy
+  components:
+  - type: TraitorRule
+    startingBalance: 8
+  - type: GameRule
+    minPlayers: 1
+    delay:
+      min: 240
+      max: 420
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      fallbackRoles: [ TraitorSleeper ]
+      max: 100
+      playerRatio: 1
+      blacklist:
+        components:
+        - AntagImmune
+      briefing:
+        text: pacifist-vs-pacifist-role-greeting
+        color: SkyBlue
+      lateJoinAdditional: true
+      forceAllPossible: true
+      mindRoles:
+      - MindRoleTraitor
+  - type: EveryonePacifiedRule
+
+- type: entity
+  id: RenaultMigrationEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: RenaultMigrationTable
+
+- type: entityTable
+  id: RenaultMigrationTable
+  table: !type:AllSelector
+    children:
+    - id: RenaultMigration
+      weight: 5
+    - id: RenaultMassMigration
+
+- type: entity
+  id: RenaultMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: true
+    reoccurrenceDelay: 5
+  - type: VentCrittersRule
+    announce: false
+    specialEntries:
+    - id: MobFoxRenault
+      prob: 0
+
+- type: entity
+  id: RenaultMassMigration
+  parent: RenaultMigration
+  components:
+  - type: VentCrittersRule
+    announce: false
+    specialEntries:
+    - id: MobFoxRenault
+      prob: 0.005

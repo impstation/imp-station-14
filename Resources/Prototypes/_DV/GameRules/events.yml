@@ -57,7 +57,7 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      - type: Accentless # Imp
+      - type: Accentless # Imp edit start
         removes:
         - type: LizardAccent
         - type: MothAccent
@@ -67,9 +67,10 @@
         - type: GrayAccent
         - type: DwarfAccent
         - type: NoContractionsAccent
+        - type: AllulaloAccent 
       - type: RandomHumanoidAppearance # Imp
         randomizeName: false
-        keepPronouns: true
+        keepPronouns: true# imp edit end
       mindRoles:
       - MindRolePostOperator
 

@@ -1,6 +1,6 @@
 ﻿- type: entity
-  parent: [BaseItem, BaseXAEXenoArtifact]
-  id: BaseXAEXenoArtifactItem #IMP Add XAE in id
+  parent: [BaseItem, BaseXenoArtifact]
+  id: BaseXenoArtifactItem
   name: artifact
   description: A strange artifact from time unknown. Looks like a good time. Fits in hand perfectly.
   abstract: true
@@ -61,10 +61,12 @@
       - !type:NestedSelector
         tableId: XenoArtifactEffectsHandheldOnlyTable
         weight: 2
+  - type: StealTarget #imp
+    stealGroup: ArtifactFragment
 
 - type: entity
-  parent: BaseXAEXenoArtifactItem #IMP Add XAE
-  id: ComplexXAEXenoArtifactItem
+  parent: BaseXenoArtifactItem
+  id: ComplexXenoArtifactItem
   suffix: Hand-Sized
   components:
   - type: XenoArtifact
@@ -134,6 +136,8 @@
   - type: GuideHelp
     guides:
     - Xenoarchaeology
+  - type: StealTarget #imp
+    stealGroup: ArtifactFragment
 
 - type: entity
   parent: ArtifactFragment

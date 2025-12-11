@@ -10,8 +10,7 @@
   slipData:
     requiredSlipSpeed: 4.0 #It's not as slippery as water
   friction: 0.4
-  impEvaporates: true
-  impEvaporationAmount: 15.0
+  evaporationSpeed: 15.0
   metabolisms:
     Food:
       effects:
@@ -21,11 +20,6 @@
     collection: FootstepBlood
     params:
       volume: 6
-  tileReactions:
-    - !type:EnsureTileReaction
-      components:
-        - type: ImpEvaporation
-          solution: puddle
 
 
 - type: reagent
@@ -55,7 +49,7 @@
             Toxin: -1
             Airloss: -1
             Brute: -1
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1
 
 - type: reagent
@@ -83,6 +77,32 @@
     Fat: 4
 
 - type: reagent
+  parent: Blood
+  id: AnomalocaridCopperBlood #mostly the same as normal copper blood but with a different color
+  name: reagent-name-anomalocarid-blood
+  group: Biological
+  desc: reagent-desc-anomalocarid-blood
+  flavor: fizzy
+  color: "#18d6a7"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-fizzy
+
+- type: reaction
+  id: AnomalocaridCopperBloodBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    AnomalocaridCopperBlood:
+      amount: 20
+  products:
+    TableSalt: 10
+    Copper: 1
+    Sugar: 5
+    Fat: 1
+    EnergyDrink: 3 #there's a reason i promise
+
+- type: reagent
   id: SynthFlesh
   name: reagent-name-synthflesh
   group: Biological
@@ -102,7 +122,7 @@
         damage:
           types:
             Cellular: 2
-      - !type:ChemVomit
+      - !type:Vomit
         probability: 0.25
       - !type:Jitter
         probability: 0.25
@@ -125,12 +145,10 @@
         factor: 1
     Narcotic:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 5
-        refresh: false
   plantMetabolism:
     - !type:PlantAdjustToxins
       amount: 2
@@ -175,3 +193,56 @@
     Lithium: 1
     Ethanol: 2
     SpaceLube: 1
+
+- type: reagent
+  id: BloodAllulalo
+  name: reagent-name-bloodallulalo
+  group: Biological
+  desc: reagent-desc-bloodallulalo
+  physicalDesc: reagent-physical-desc-thin
+  flavor: allulalo
+  color: "#c1c7d3"
+  evaporationSpeed: 0.3 #same as water
+  metabolisms: #have to redefine from basealcohol otherwise its slippery which is a hell of a can of worms for a species
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.06
+  reactiveEffects:
+    Flammable:
+      methods: [ Touch ]
+      effects:
+      - !type:Flammable
+  tileReactions:
+  - !type:FlammableTileReaction
+    temperatureMultiplier: 1.35
+  plantMetabolism:
+  - !type:PlantAdjustNutrition
+    amount: 0.25
+  - !type:PlantAdjustWater
+    amount: 0.7
+
+- type: reagent
+  id: ReaperBlood
+  name: reagent-name-reaper-blood
+  group: Biological
+  parent: Blood
+  desc: reagent-desc-reaper-blood
+  physicalDesc: reagent-physical-desc-ghostly
+  flavor: ectoplasm
+  color: "#72ef9f"
+
+- type: reaction
+  id: ReaperBloodBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    ReaperBlood:
+      amount: 5
+  products:
+    Ash: 3
+    Fresium: 2

@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChef
-      time: 108000 #30 hrs, ~20 rounds #imp
+      time: 30h
 
 # Outerwear
 - type: loadoutEffectGroup
@@ -16,7 +16,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChef
-      time: 36000 #10 hrs ~7 rounds
+      time: 10h
 
 - type: loadout
   id: ChefCuteApron
@@ -35,11 +35,45 @@
   equipment:
     jumpsuit: ClothingUniformSpaceJumpsuitChef
 
+- type: loadout
+  id: HeadChef
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChef
+  equipment:
+    jumpsuit: ClothingUniformHeadChef
+
+
+- type: loadout
+  id: HeadChefSkirt
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChef
+  equipment:
+    jumpsuit: ClothingUniformHeadChefSkirt
+
 # Shoes
 - type: loadout
   id: ChefShoes
   equipment:
     shoes: ClothingShoesChef
+
+- type: loadout
+  id: HeadChefShoes
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChef
+  equipment:
+    shoes: ClothingShoesHeadChef
+
+# Neck
+- type: loadout
+  id: HeadChefNeck
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorChef
+  equipment:
+    neck: ClothingNeckHeadChef
 
 # id
 - type: loadout

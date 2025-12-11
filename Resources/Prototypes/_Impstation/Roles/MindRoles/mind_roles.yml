@@ -19,17 +19,6 @@
     roleType: FreeAgent
   - type: BountyHunterRole
 
-#Lone Op
-- type: entity
-  parent: MindRoleNukeops
-  id: MindRoleNukeopsLone
-  name: Lone Operative Role
-  components:
-  - type: MindRole
-    roleType: SoloAntagonist
-    antagPrototype: NukeopsLone
-  - type: NukeopsRole
-
 # Syndicate Infiltrator
 - type: entity
   parent: MindRoleTraitor
@@ -37,6 +26,18 @@
   components:
   - type: MindRole
     subtype: role-subtype-traitor
+
+# Tourist
+- type: entity
+  parent: BaseMindRole
+  id: MindRoleTourist
+  name: Tourist Role
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: Tourist
+    roleType: FreeAgent
+  - type: TouristRole
 
 # V-Rex
 - type: entity

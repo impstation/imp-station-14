@@ -39,8 +39,8 @@
   - type: Instrument # imp
     allowPercussion: false
     handheld: false
-    bank: 1
-    program: 2
+    bank: 110
+    program: 5
   - type: Loadout # imp special. this replaces the InnateTool component.
     prototypes:
       - StartingGearDroneTools
@@ -64,19 +64,13 @@
         requireInputValidation: false
   - type: StationMap #imp
   - type: GhostRole
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 36000 # ten hours
-    - !type:DepartmentTimeRequirement
-      department: Silicon
-      time: 18000 # five hours
+    job: Drone
     makeSentient: true
     name: ghost-role-information-drone-name
     description: ghost-role-information-drone-description
     rules: ghost-role-information-drone-rules
     mindRoles: # imp
-    - MindRoleGhostRoleSilicon
+    - MindRoleGhostRoleSilicon #should this have its own Drone mind role..?
   - type: GhostTakeoverAvailable
   - type: SiliconLawBound
   - type: SiliconLawProvider
@@ -98,13 +92,10 @@
     thresholds:
       0: Alive
       25: Dead
-  - type: Flash
   - type: NoSlip
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
+    - Flashed
   - type: SlowOnDamage
     speedModifierThresholds:
       30: 0.7
@@ -175,12 +166,13 @@
     - Engineering
     - Maintenance
   - type: DroneVision
+  - type: ZombieImmune
 
 # jermov board
 # credit to moomoobeef (github) for the original pr, teensarlacc (discord) for the original text
 - type: entity
   id: JermovCircuitBoard
-  parent: BaseLawBoard
+  parent: BaseSiliconLawboard
   name: law board (Jermov)
   description: An electronics board containing the Jermov lawset. Everyone and everything exists for the sake of Chat.
   components:

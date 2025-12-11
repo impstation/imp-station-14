@@ -13,7 +13,7 @@
   name: cotton bun recipe
   result: FoodCottonBun
   time: 5
-  group: Breads
+  group: Moth
   solids:
     FoodDoughCottonSlice: 1
 
@@ -355,7 +355,7 @@
   group: Savory
   solids:
     FoodBreadBun: 1
-    MicroManipulatorStockPart: 2
+    CapacitorStockPart: 2 # imp MicroManipulatorStockPart>CapacitorStockPart
     # i would add steel to this recipe but the microwave explodes
   recipeType: Oven # Frontier
 
@@ -437,7 +437,7 @@
   name: banana bread recipe
   result: FoodBreadBanana
   time: 15
-  group: LoafCakes
+  group: Breads
   solids:
     FoodDough: 1
     FoodBanana: 1
@@ -1865,6 +1865,19 @@
   recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
+  id: RecipeBerryDelight
+  name: berry delight recipe
+  result: FoodCakeBerryDelight
+  time: 5
+  group: Cake
+  solids:
+    FoodCakeBlueberry: 1
+    FoodBerries: 2
+  reagents:
+    Milk: 10
+  recipeType: Assembler #imp
+
+- type: microwaveMealRecipe
   id: RecipeBreadDog
   name: bread dog recipe
   result: MobBreadDog
@@ -2538,6 +2551,7 @@
     FoodTacoShell: 1
     FoodMeatDragonCutlet: 2
     FoodChiliPepper: 1
+  recipeType: Oven # imp
 
 - type: microwaveMealRecipe
   id: RecipeCroissant
@@ -2615,6 +2629,7 @@
   name: grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwich
   time: 10
+  group: Savory
   solids:
     FoodBreadPlainSlice: 2
     FoodCheeseSlice: 1
@@ -2626,9 +2641,10 @@
   name: cotton grilled cheese sandwich recipe
   result: FoodBakedGrilledCheeseSandwichCotton
   time: 10
+  group: Moth
   solids:
     FoodBreadCottonSlice: 2
-    FoodCheeseSlice: 1
+    FoodStringCheeseStrand: 1 #imp
     FoodButterSlice: 1
   recipeType: Oven # Frontier
 
@@ -2673,4 +2689,16 @@
     MobMothroach: 1
     OrganAnimalHeart: 1
     MoproachShoes: 1
-  recipeType: Microwave # Frontier
+  recipeType: Assembler # imp
+
+- type: microwaveMealRecipe
+  id: RecipeCottonCake
+  name: cotton cake recipe
+  result: FoodCakeCotton
+  time: 5
+  group: Moth
+  reagents:
+    Fiber: 10
+  solids:
+    FoodCakePlain: 1
+  recipeType: Oven # Frontier

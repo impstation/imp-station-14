@@ -239,7 +239,7 @@
   name: inlet pressure regulator
   description: A valve that releases gas when the inlet pressure exceeds a certain threshold.
   placement:
-    mode: SnapgridCenter
+    mode: AlignAtmosPipeLayers
   components:
   - type: Rotatable
   - type: Transform
@@ -255,6 +255,11 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpPressureRegulator
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+  - type: AtmosPipeLayers
+    alternativePrototypes:
+      Primary: GasPressureRegulator
+      Secondary: GasPressureRegulatorAlt1
+      Tertiary: GasPressureRegulatorAlt2
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -539,7 +544,7 @@
       - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects
-      sprite: Structures/Piping/Atmospherics/vent.rsi
+      sprite: _Impstation/Structures/Piping/Atmospherics/vent.rsi #imp
       layers:
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeBinaryConnectors
@@ -607,10 +612,13 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/gasrecycler.rsi
+    snapCardinals: true
+    granularLayersRendering: true
     layers:
     - sprite: Structures/Piping/Atmospherics/pipe.rsi
       state: pipeBinaryConnectors
       map: [ "enum.PipeVisualLayers.Pipe" ]
+      renderingStrategy: Default
     - state: running
     - state: unlit
       shader: unshaded
@@ -666,6 +674,12 @@
     board: GasRecyclerMachineCircuitboard
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasValve
+  - type: Transform
+    noRot: false
+  - type: GuideHelp
+    guides:
+    - GasRecycling
+  - type: TegCirculator
 
 - type: entity
   parent: GasBinaryBase
@@ -722,6 +736,11 @@
     guides:
     - Radiators
   # imp edit start
+  - type: PipeAppearance
+    sprite:
+    - { sprite: _Impstation/Structures/Piping/Atmospherics/heatexchanger.rsi, state: pipeConnector }
+    - { sprite: _Impstation/Structures/Piping/Atmospherics/heatexchanger_alt1.rsi, state: pipeConnector }
+    - { sprite: _Impstation/Structures/Piping/Atmospherics/heatexchanger_alt2.rsi, state: pipeConnector }
   - type: Tag
     tags: [] # gets rid of unstackable, allowing radiators to be built on alt layers on the same tile
   # imp edit end

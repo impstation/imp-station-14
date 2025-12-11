@@ -6,7 +6,6 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Robust.Shared.GameObjects;
 
 namespace Content.Shared.StatusEffect
 {
@@ -371,14 +370,14 @@ namespace Content.Shared.StatusEffect
             if (!Resolve(uid, ref status, false))
                 return false;
 
-            var ev = new BeforeStatusEffectAddedEvent(key);
+            var ev = new BeforeOldStatusEffectAddedEvent(key);
             RaiseLocalEvent(uid, ref ev);
             if (ev.Cancelled)
                 return false;
 
             if (!_prototypeManager.TryIndex<StatusEffectPrototype>(key, out var proto))
                 return false;
-            if (!proto.AlwaysAllowed && !status.AllowedEffects.Contains(key))
+            if (!proto.AlwaysAllowed && !status.AllowedEffects.Contains(key)) // imp reverse these, can swap back when revenant stasis is moved to new status effect system
                 return false;
 
             return true;
@@ -498,6 +497,13 @@ namespace Content.Shared.StatusEffect
             return true;
         }
     }
+
+    /// <summary>
+    /// Raised on an entity before a status effect is added to determine if adding it should be cancelled.
+    /// Obsolete version of <see cref="BeforeStatusEffectAddedEvent" />
+    /// </summary>
+    [ByRefEvent, Obsolete("Migration to StatusEffectNew.StatusEffectsSystem is required")]
+    public record struct BeforeOldStatusEffectAddedEvent(string EffectKey, bool Cancelled = false);
 
     public readonly struct StatusEffectAddedEvent
     {

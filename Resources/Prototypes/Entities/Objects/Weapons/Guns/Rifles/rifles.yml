@@ -8,6 +8,8 @@
   - type: Sprite
   - type: Item
     size: Huge
+    shape:
+    - 0,0,3,2
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Rifles/ak.rsi #imp
     quickEquip: false
@@ -133,9 +135,9 @@
 
 - type: entity
   name: Valkyrie #imp
-  parent: [BaseWeaponRifle, Tier3Contraband]
+  parent: [BaseWeaponRifle, BaseCentcommContraband] #imp, centcomm rifle
   id: WeaponRifleM90GrenadeLauncher
-  description: A top-of-the-line assault rifle reserved for Nanotrasen's most elite mercenaries. Uses .20 rifle ammo. #imp
+  description: No expense is spared for Central Command's elite, and this experimental rifle with integrated optics is no exception. Uses .20 rifle ammo. #imp
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Rifles/carbine.rsi #imp
@@ -165,16 +167,6 @@
         whitelist:
           tags:
             - CartridgeRifle
-  - type: Gun #imp - everything listed in this component
-    minAngle: 21
-    maxAngle: 40
-    angleIncrease: 2
-    angleDecay: 15
-    fireRate: 6
-    selectedMode: FullAuto
-    availableModes:
-      - FullAuto
-      - SemiAuto
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -184,6 +176,26 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: StaticPrice #imp
+    price: 1500 #3x lecter
+  - type: CursorOffsetRequiresWield #imp
+  - type: EyeCursorOffset #imp
+    maxOffset: 2
+    pvsIncrease: 0.2
+  - type: Gun #imp - everything listed in this component
+    minAngle: 21
+    maxAngle: 40
+    angleIncrease: 2
+    angleDecay: 15
+    fireRate: 5.5
+    burstFireRate: 12
+    shotsPerBurst: 3
+    burstCooldown: 0.4
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    - FullAuto
+    - SemiAuto
 
 - type: entity
   name: Lecter
@@ -201,6 +213,10 @@
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Rifles/lecter.rsi #imp
   - type: Gun
+    minAngle: 21 #imp
+    maxAngle: 38 #imp
+    angleIncrease: 2 #imp
+    angleDecay: 15 #imp
     fireRate: 4.5 #imp
     selectedMode: FullAuto
     availableModes:
@@ -238,10 +254,37 @@
   - type: Appearance
 
 - type: entity
+  parent: WeaponRifleLecter
+  id: WeaponRifleLecterXL8
+  name: XL8
+  description: |-
+    The Experimental Lecter 8
+    An unreasonably expensive military grade assault rifle with integrated optic.
+    Uses .20 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Rifles/XL8.rsi
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Rifles/XL8.rsi
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 2
+    pvsIncrease: 0.2
+  - type: StaticPrice
+    price: 1500 #3x lecter
+  - type: Gun
+    shotsPerBurst: 3
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    - SemiAuto
+    - FullAuto
+
+- type: entity
   name: Estoc DMR
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleEstoc
-  description: A designated marksman rifle, favored for medium-to-long range engagements. Uses .20 rifle ammo.
+  description: "A designated marksman rifle firing in 3-round bursts. The Estoc was designed as the Lecter’s long-range counterpart, equipped with an extended 20-inch barrel and telescopic sight.\nFeeds from .20 rifle magazines."
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
@@ -250,6 +293,9 @@
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    shape:
+    - 0,0,4,2
   - type: Clothing
     sprite: Objects/Weapons/Guns/Rifles/estoc.rsi
   - type: Gun
@@ -314,12 +360,18 @@
     sprite: Objects/Fun/Foam/foam_rifle.rsi
   - type: Item
     sprite: Objects/Fun/Foam/foam_rifle_inhand_64x.rsi
+    shape:
+    - 0,0,3,0
   - type: BallisticAmmoProvider
     whitelist:
       tags:
       - BulletFoam
     capacity: 10
     proto: BulletFoam
+    soundInsert: #imp
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+    soundRack: #imp
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 2

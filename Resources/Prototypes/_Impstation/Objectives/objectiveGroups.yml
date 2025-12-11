@@ -1,4 +1,5 @@
-# Imp Gimmick Objectives
+# traitor
+
 - type: weightedRandom
   id: TraitorGimmickObjectives
   weights:
@@ -28,6 +29,30 @@
     JailbreakGimmickObjective: 1
     PrankGimmickObjective: 1
 
+# thief
+
+- type: weightedRandom
+  id: ThiefGimmickObjectives # trimmed down list of traitor gimmicks
+  weights:
+    TrapsGimmickObjective: 1
+    DisruptTrafficGimmickObjective: 1
+    AccessibilityGimmickObjective: 1
+    UndermineGimmickObjective: 1
+    TrustedGimmickObjective: 1
+    SupervillainGimmickObjective: 1
+    UglyStationGimmickObjective: 1
+    BridgeBarGimmickObjective: 1
+    FiresaleGimmickObjective: 1
+    UselessIdiotGimmickObjective: 1
+    SneakInGimmickObjective: 1
+    SlanderDepartmentGimmickObjective: 1
+    AnnoyDisruptGimmickObjective: 1
+    SpaceAssholeGimmickObjective: 1
+    PrankGimmickObjective: 1
+    #ThiefDieObjective: 1 commenting this out because how does it WORK when they also have an escape alive also its probably more common than Traitor DAGD like this
+
+# wizard
+
 - type: weightedRandom # this only seems to work with nested groups for reasons I don't understand
   id: WizardPridefulGroups
   weights:
@@ -54,6 +79,8 @@
      WizardGetRealObjective: 1
      WizardGeasObjective: 1
 
+# paradox anomaly
+
 - type: weightedRandom
   id: ParadoxTypeGroups
   weights:
@@ -62,7 +89,7 @@
 - type: weightedRandom
   id: ParadoxTypeGroup
   weights:
-    ParadoxCloneKillObjective: 1
-    ParadoxCloneSaveObjective: 1 # this chance is equal to mitigate metagaming
+    ParadoxCloneKillObjective: 4
+    ParadoxCloneSaveObjective: 1
     ParadoxCloneLivingAltObjective: 1
     ParadoxCloneLivingObjective: 1

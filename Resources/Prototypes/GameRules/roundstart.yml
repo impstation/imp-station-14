@@ -182,6 +182,8 @@
         keepPronouns: true
       mindRoles:
       - MindRoleNukeops
+  - type: DynamicRuleCost
+    cost: 200
 
 - type: entity
   abstract: true
@@ -197,6 +199,8 @@
     maxDifficulty: 5
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
+  - type: DynamicRuleCost
+    cost: 100
 
 - type: entity
   parent: BaseTraitorRule
@@ -216,7 +220,7 @@
       blacklist:
         components:
         - AntagImmune
-      lateJoinAdditional: true
+      lateJoinAdditional: false
       mindRoles:
       - MindRoleTraitor
 
@@ -233,6 +237,37 @@
     - prefRoles: [ Traitor ]
       mindRoles:
       - MindRoleTraitorReinforcement
+
+# imp edit, disable until upstream changelings are roundstart
+#- type: entity
+#  id: Changeling
+#  parent: BaseGameRule
+#  components:
+#  - type: GameRule
+#    minPlayers: 25
+#  - type: AntagSelection
+#    agentName: changeling-round-end-agent-name
+#    selectionTime: IntraPlayerSpawn
+#    definitions:
+#    - prefRoles: [ Changeling ]
+#      max: 3
+#      playerRatio: 15
+#      briefing:
+#        text: changeling-role-greeting
+#        color: Red
+#        sound: /Audio/Ambience/Antag/changeling_start.ogg
+#      components:
+#      - type: ChangelingDevour
+#      - type: ChangelingIdentity
+#      - type: ChangelingTransform
+#      - type: ActionGrant
+#        actions:
+#        - ActionRetractableItemArmBlade # Temporary addition, will inevitably be a purchasable in the bio-store
+#      mindRoles:
+#      - MindRoleChangeling
+#  - type: AntagObjectives
+#    objectives:
+#    - ChangelingSurviveObjective
 
 - type: entity
   id: Revolutionary
@@ -255,8 +290,17 @@
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
+      - type: TriggerOnMobstateChange #imp
+        mobState:
+        - Critical
+        - Dead
+      - type: RattleOnTrigger #imp
+        targetUser: true
+        radioChannel: Revolution
       mindRoles:
       - MindRoleHeadRevolutionary
+  - type: DynamicRuleCost
+    cost: 200
 
 - type: entity
   id: Sandbox
@@ -287,7 +331,7 @@
       maxPicks: 1
     maxDifficulty: 2
   - type: LoadMapRule
-    gridPath: /Maps/_Impstation/Shuttles/wizard.yml # imp
+    mapPath: /Maps/_Impstation/Nonstations/wizardsden.yml #imp
   - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
@@ -330,6 +374,8 @@
         keepPronouns: true
       mindRoles:
       - MindRoleWizard
+  - type: DynamicRuleCost
+    cost: 150
 
 - type: entity
   id: Zombie
@@ -357,8 +403,8 @@
         sound: "/Audio/Ambience/Antag/zombie_start.ogg"
       components:
       - type: PendingZombie
-        minInitialInfectedGrace: 300
-        maxInitialInfectedGrace: 600
+        minInitialInfectedGrace: 300 #imp
+        maxInitialInfectedGrace: 600 #imp
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
@@ -366,6 +412,8 @@
       - MindRoleInitialInfected
       factionsAdd: # IMP: Initial infected should be ignored by zombies.
         - InitialInfectedIgnore
+  - type: DynamicRuleCost
+    cost: 200
 
 # This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
 # Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
@@ -409,27 +457,19 @@
         weight: 15
 
 - type: entityTable
-  id: SleeperlessGameRulesTable # imp: changed from AllSelector to GroupSelector
-  table: !type:GroupSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+  id: DynamicGameRulesTable
+  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
-      - !type:NestedSelector
-        tableId: BasicCalmEventsTable
-        weight: 30
-      - !type:NestedSelector
-        tableId: SleeperlessGreaterAntagEventsTable #imp
-        weight: 7
-      - !type:NestedSelector
-        tableId: LesserAntagEventsTable #imp
-        weight: 15
-      - !type:NestedSelector
-        tableId: CargoGiftsTable
-        weight: 16
-      - !type:NestedSelector
-        tableId: CalmPestEventsTable
-        weight: 17
-      - !type:NestedSelector
-        tableId: SpicyPestEventsTable
-        weight: 15
+    - !type:NestedSelector
+      tableId: BasicCalmEventsTable
+    - !type:NestedSelector
+      tableId: LesserAntagEventsTable
+    - !type:NestedSelector
+      tableId: CargoGiftsTable
+    - !type:NestedSelector
+      tableId: CalmPestEventsTable
+    - !type:NestedSelector
+      tableId: SpicyPestEventsTable
 
 - type: entityTable
   id: SpaceTrafficControlTable
@@ -451,12 +491,12 @@
       tableId: BasicGameRulesTable
 
 - type: entity
-  id: SleeperlessStationEventScheduler
+  id: DynamicStationEventScheduler # this isn't the dynamic mode, but rather the station event scheduler used for dynamic
   parent: BaseGameRule
   components:
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
-      tableId: SleeperlessGameRulesTable
+      tableId: DynamicGameRulesTable
 
 - type: entity
   id: RampingStationEventScheduler

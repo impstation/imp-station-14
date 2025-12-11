@@ -5,7 +5,7 @@
   id: BaseMobThaven
   abstract: true
   components:
-  - type: Absorbable
+  - type: GoobAbsorbable
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -13,13 +13,6 @@
     state: full
   - type: ThavenMoods
   - type: IonStormTarget
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 2
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -27,7 +20,7 @@
   - type: Body
     prototype: Thaven
     requiredLegs: 2
-  - type: NoContractionsAccent
+  - type: ThavenAccent
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Thaven
@@ -58,7 +51,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 120
+        density: 120 # dainty fucking elves
         restitution: 0.0
         mask:
         - MobMask
@@ -78,7 +71,6 @@
     hideLayersOnEquip:
     - Hair
     - Snout
-    - Tail
   - type: Bloodstream
     bloodReagent: ShimmeringBlood
   - type: Inventory
@@ -105,7 +97,6 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: hands
-
 
 - type: entity
   parent: BaseSpeciesDummy

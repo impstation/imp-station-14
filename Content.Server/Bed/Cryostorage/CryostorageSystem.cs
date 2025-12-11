@@ -240,8 +240,7 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
                 ("character", name),
                 ("entity", ent.Owner), // gender things for supporting downstreams with other languages
                 ("job", CultureInfo.CurrentCulture.TextInfo.ToTitleCase(jobName))
-            ), Loc.GetString("earlyleave-cryo-sender"),
-            playDefaultSound: false
+            ), Loc.GetString("earlyleave-cryo-sender")  //imp. gutted default announcement sounds. announcersystem handles them now.
         );
     }
 

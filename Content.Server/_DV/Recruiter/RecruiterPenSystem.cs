@@ -7,6 +7,7 @@ using Content.Shared.DV.Paper;
 using Content.Shared.DV.Recruiter;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
+using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Server.DV.Recruiter;
 
@@ -18,11 +19,12 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
     [Dependency] private readonly ForensicsSystem _forensics = default!;
     [Dependency] private readonly SolutionTransferSystem _transfer = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     protected override void DrawBlood(EntityUid uid, Entity<SolutionComponent> dest, EntityUid user)
     {
         // how did you even use this mr plushie...
-        if (CompOrNull<BloodstreamComponent>(user)?.BloodSolution is not {} blood)
+        if (CompOrNull<BloodstreamComponent>(user)?.BloodSolution is not { } blood)
             return;
 
         var desired = dest.Comp.Solution.AvailableVolume;
@@ -33,7 +35,7 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
             return;
         }
 
-        if (_transfer.Transfer(user, user, blood, uid, dest, desired) != desired)
+        if (_transfer.Transfer(new SolutionTransferData(user, user, blood, uid, dest, desired)) != desired)
             return;
 
         // this is why you have to keep the pen safe, it has the dna of everyone you recruited!
@@ -57,11 +59,17 @@ public sealed class RecruiterPenSystem : SharedRecruiterPenSystem
         if (!Mind.TryGetMind(user, out var userMindId, out _))
             return;
 
-        if (ent.Comp.RecruiterMind is {} mindId &&
+        if (ent.Comp.RecruiterMind is { } mindId &&
             mindId != userMindId &&
             Mind.TryGetObjectiveComp<RecruitingConditionComponent>(mindId, out var obj, null))
         {
             obj.Recruited++;
+            Reward(ent, user);
         }
+    }
+    public void Reward(Entity<RecruiterPenComponent> ent, EntityUid user)
+    {
+        var pay = Spawn(ent.Comp.Currency);
+        _hands.PickupOrDrop(user, pay, dropNear: true);
     }
 }

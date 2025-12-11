@@ -20,7 +20,7 @@
     forceSound: true
 
 - type: entity
-  name : heavy blaster bolt
+  name : blaster pistol bolt
   id: BulletBlasterPistol
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
@@ -31,6 +31,38 @@
     damage:
       types:
         Heat: 15
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name : starflare bolt
+  id: BulletBlasterStarflare
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 13
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name : military blaster pistol bolt
+  id: BulletBlasterPistolMilitary
+  parent: BulletBlasterMagnum
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 20
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -51,16 +83,16 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 2
-    intensitySlope: 1
-    totalIntensity: 4
+    maxIntensity: 1.5
+    intensitySlope: 3
+    totalIntensity: 12
     canCreateVacuum: false
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 10
+        Heat: 13
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -82,8 +114,8 @@
     impactEffect: BulletImpactEffectSyndicate
     damage:
       types:
-        Heat: 10
-        Piercing: 10
+        Heat: 9.5
+        Piercing: 9.5
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -102,8 +134,8 @@
   - type: Projectile
     damage:
       types:
-        Heat: 7.5
-        Piercing: 7.5
+        Heat: 8.5
+        Piercing: 8.5
 
 - type: entity
   name : toy blaster bolt
@@ -126,3 +158,59 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+
+- type: entity
+  name : kinetic blaster bolt
+  id: BulletBlasterKinetic
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: proto-heavy
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectProtoKinetic
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Blunt: 25
+        Structural: 75
+
+- type: entity
+  name : flare shot
+  id: BulletBlasterFlare
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: flare
+      shader: unshaded
+  - type: EmbeddableProjectile
+    deleteOnRemove: true
+  - type: TimedDespawn
+    lifetime: 180
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectGoldLaser
+  - type: AmbientSound
+    enabled: true
+    volume: -10
+    range: 5
+    sound:
+      path: /Audio/_Impstation/Machines/echion.ogg
+      params:
+        loop: true
+  - type: PointLight
+    enabled: true
+    color: "#ffa223"
+    radius: 10.0
+    energy: 6.0
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Heat: 10

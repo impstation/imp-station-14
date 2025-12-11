@@ -22,6 +22,7 @@
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
         state: alive
+    - type: Carriable #DeltaV - this is for you, deltanedas o7
     - type: CombatMode
     - type: Physics
     - type: Fixtures
@@ -53,7 +54,7 @@
         Dead:
           Base: dead
           BaseUnshaded: dead_mouth
-    - type: Absorbable # imp - im just going off vibes here
+    - type: GoobAbsorbable # imp - im just going off vibes here
       biomassRestored: 0.4
     - type: Butcherable
       spawned:
@@ -193,7 +194,11 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
-
+    - type: Flammable
+      damage:
+       types: {}
+    - type: Temperature
+      heatDamageThreshold: 1200
 - type: entity
   id: MobCarpDungeon
   parent: MobCarp

@@ -2,6 +2,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Events;
@@ -38,9 +40,11 @@ public sealed class MobThresholdSystem : EntitySystem
             component.CurrentThresholdState,
             component.StateAlertDict,
             component.ShowOverlays,
+            // imp add start
             component.ShowBruteOverlay,
             component.ShowAirlossOverlay,
             component.ShowCritOverlay,
+            // imp add end
             component.AllowRevives);
     }
 
@@ -49,10 +53,12 @@ public sealed class MobThresholdSystem : EntitySystem
         if (args.Current is not MobThresholdsComponentState state)
             return;
         component.Thresholds = new SortedDictionary<FixedPoint2, MobState>(state.UnsortedThresholds);
+        // imp add start
         component.ShowOverlays = state.ShowOverlays;
         component.ShowBruteOverlay = state.ShowBruteOverlay;
         component.ShowAirlossOverlay = state.ShowAirlossOverlay;
         component.ShowCritOverlay = state.ShowCritOverlay;
+        // imp add end
         component.TriggersAlerts = state.TriggersAlerts;
         component.CurrentThresholdState = state.CurrentThresholdState;
         component.AllowRevives = state.AllowRevives;
@@ -335,6 +341,7 @@ public sealed class MobThresholdSystem : EntitySystem
         VerifyThresholds(uid, component);
     }
 
+    // imp add start
     public void SetOverlaysEnabled(EntityUid uid, bool val, MobThresholdsComponent? component = null)
     {
         if (!Resolve(uid, ref component, false))
@@ -374,6 +381,7 @@ public sealed class MobThresholdSystem : EntitySystem
         component.TriggersAlerts = val;
         Dirty(uid, component);
     }
+    // imp add end
 
     #endregion
 

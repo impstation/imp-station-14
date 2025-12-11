@@ -37,7 +37,7 @@
       80: Dead
   - type: Stamina
     critThreshold: 150
-  - type: Absorbable # imp - im just going off vibes here
+  - type: GoobAbsorbable # imp - im just going off vibes here
     biomassRestored: 0.6
   - type: MovementAlwaysTouching
   - type: Bloodstream
@@ -516,7 +516,7 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Food
+  - type: Edible
   - type: Thirst
     startingThirst: 25  # spawn with Okay thirst state
     thresholds:
@@ -575,7 +575,7 @@
       methods: [Touch, Ingestion, Injection]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         damage:
           types:
             Caustic: 1

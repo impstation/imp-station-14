@@ -12,12 +12,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 0
     # add every path here because you shouldn't be able to buy more starter knowledge
     blacklist:
     - Ash
     - Blade
     - Flesh
+    - Hunt
     - Lock
     - Rust
     - Void
@@ -36,16 +36,14 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 1
     whitelist:
     - Ash
 
-# side
 - type: listing
   id: HereticAshPath3
   name: knowledge-path-ash-s3-name
   description: knowledge-path-ash-s3-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ashen_shift }
+  icon: { sprite: _Impstation/Heretic/abilities_heretic.rsi, state: blazing_dash }
   productHereticKnowledge: BlazingDash
   cost:
     KnowledgePoint: 2
@@ -55,7 +53,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 2
 
 - type: listing
   id: HereticAshPath4
@@ -71,7 +68,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 3
     whitelist:
     - Ash
 
@@ -79,7 +75,7 @@
   id: HereticAshPath5
   name: knowledge-path-ash-s5-name
   description: knowledge-path-ash-s5-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: volcano_blast }
+  icon: { sprite: _Impstation/Heretic/abilities_heretic.rsi, state: volcano_blast }
   productHereticKnowledge: VolcanicBlast
   cost:
     KnowledgePoint: 1
@@ -89,11 +85,9 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 4
     whitelist:
     - Ash
 
-# side
 - type: listing
   id: HereticAshPath6
   name: knowledge-path-ash-s6-name
@@ -108,7 +102,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 5
 
 - type: listing
   id: HereticAshPath7
@@ -124,16 +117,14 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 6
     whitelist:
     - Ash
 
-# side
 - type: listing
   id: HereticAshPath8
   name: knowledge-path-ash-s8-name
   description: knowledge-path-ash-s8-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: nightwatcher_rebirth }
+  icon: { sprite: _Impstation/Heretic/abilities_heretic.rsi, state: nightwatcher_rebirth }
   productHereticKnowledge: NightwatcherRebirth
   cost:
     KnowledgePoint: 2
@@ -143,13 +134,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 7
 
 - type: listing
   id: HereticAshPath9
   name: knowledge-path-ash-s9-name
   description: knowledge-path-ash-s9-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: ashlord_rite1 }
+  icon: { sprite: _Impstation/Heretic/abilities_heretic.rsi, state: fire_cascade }
   productHereticKnowledge: AscensionAsh
   cost:
     KnowledgePoint: 2
@@ -159,6 +149,5 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 8
     whitelist:
     - Ash

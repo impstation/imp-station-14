@@ -14,11 +14,21 @@
       - state: bee
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectEnergySmall
+  - type: TriggerOnSpawn
+    keyOut: timer
+  - type: TriggerOnCollide
+    fixtureID: projectile
+    keyOut: trigger
+  - type: TimerTrigger
+    keysIn:
+    - timer
+    keyOut: trigger
+    delay: 0.25
+    popup: null
   - type: SpawnOnTrigger
+    keysIn:
+    - trigger
     proto: MobBeeroboros
-  - type: ActiveTimerTrigger
-    timeRemaining: 0.25
-  - type: DeleteOnTrigger
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
@@ -27,3 +37,18 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+
+- type: entity
+  name : ouroBROSbolt
+  id: BulletOuroBros
+  parent: BulletOuroboros
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnTrigger
+    proto: FoesSeofSpawner #override the MobBeeroboros
+  - type: SpawnEntityTableOnTrigger
+    table: !type:AllSelector
+      children:
+      - id: FoesSeofSpawner #this plus the spawn on trigger = amount 2
+    keysIn:
+    - trigger

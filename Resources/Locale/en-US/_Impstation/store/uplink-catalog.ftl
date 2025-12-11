@@ -4,6 +4,9 @@ uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alter
 uplink-cleaner-lake-upgrade-name = Shining Spring remilitarisation kit
 uplink-cleaner-lake-upgrade-desc = A kit that can be used to remove the safety measures from a Shining Spring.
 
+uplink-cleaning-grenade-bleach-name = Box of heavy-duty cleanades
+uplink-cleaning-grenade-bleach-desc = A box containing some discontinued heavy-duty cleaning grenades. WARNING: DO NOT INHALE
+
 uplink-zipper-ap-name = Zipper .22
 uplink-zipper-ap-desc = A regretful purchase from a liquidation sale. Comes loaded with armor-piercing rounds. Uses .22 auto.
 
@@ -123,3 +126,12 @@ uplink-cloak-straight-desc = Demonstrate your support for the heterosexual commu
 
 uplink-super-mosin-name = K2903 Star Rifle bundle
 uplink-super-mosin-desc = A modified bolt-action service rifle with a large magazine! Not modern by any standard. Quite the steal, if you don't mind hand-loading. Comes with a handful of stripper clips.
+
+uplink-ourobros-name = OuroBROS
+uplink-ourobros-desc = UNGH!
+
+uplink-extended-pistol-magazine-caseless-name = Extended Pistol Magazine Bundle (.25 caseless)
+uplink-extended-pistol-magazine-caseless-desc = Four high-capacity pistol magazines each loaded with 16 cartridges. Compatible with the Cobra.
+
+uplink-extended-pistol-magazine-name = Extended Pistol Magazine Bundle (.35 auto)
+uplink-extended-pistol-magazine-desc = Four high-capacity pistol magazines each loaded with 20 cartridges. Compatible with the Viper.

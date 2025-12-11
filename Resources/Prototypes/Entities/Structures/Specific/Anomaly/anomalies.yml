@@ -58,9 +58,17 @@
     damage:
       types:
         Radiation: 10
-  - type: WarpPoint # imp addition
-  - type: NameIdentifier # imp addition
+  # imp edit start
+  - type: WarpPoint
+    blacklist:
+      tags:
+      - GhostOnlyWarp
+  - type: Tag # imp edit
+    tags:
+    - GhostOnlyWarp
+  - type: NameIdentifier
     group: Anomaly
+  # imp edit end
 
 - type: entity
   id: AnomalyPyroclastic
@@ -988,7 +996,7 @@
     - ChlorineTrifluoride
     - FoamingAgent
     - BuzzochloricBees
-    - BrosochloricBros
+    - BrosochloricBros #imp
     - RobustHarvest
     usefulChemicals:
     - Cryptobiolin
@@ -1023,19 +1031,26 @@
     - Honk
     - Carpetium
     - JuiceThatMakesYouWeh
+    #imp edit start
     - ForeverWeed
     - Testosterone
     - Estradiol
     - Genderfluid
     - JuiceThatMakesYouUngh
-  - type: Drink
+    #imp edit end
+  - type: Edible
+    edible: Drink
     solution: anomaly
+    destroyOnEmpty: false
+    utensil: Spoon
   - type: DrainableSolution
     solution: anomaly
   - type: DrawableSolution
     solution: anomaly
   - type: ExaminableSolution
     solution: anomaly
+    exactVolume: true
+    locVolume: "examinable-solution-on-examine-volume-no-max"
   - type: RefillableSolution
     solution: anomaly
   - type: InjectableSolution

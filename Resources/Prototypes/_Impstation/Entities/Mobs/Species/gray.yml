@@ -5,22 +5,11 @@
   id: BaseMobGray
   abstract: true
   components:
-  - type: Absorbable
   - type: Hunger
   - type: Thirst
   - type: Icon
     sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: full
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 2
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
   - type: Body
     prototype: Gray
     requiredLegs: 2
@@ -35,8 +24,8 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        # they r smaller
-        density: 120
+        # they r smaller #they r smaller (2)
+        density: 100
         restitution: 0.0
         mask:
         - MobMask

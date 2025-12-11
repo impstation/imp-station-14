@@ -336,7 +336,13 @@
     - id: PlushieMoth
       prob: 0.01
       orGroup: Plushies
+    - id: PlushieVulp
+      prob: 0.01
+      orGroup: Plushies
     - id: PlushieArachind
+      prob: 0.01
+      orGroup: Plushies
+    - id: PlushieLizardJobMultiweh # the exceedingly rare multiweh!
       prob: 0.01
       orGroup: Plushies
     - id: PlushieThrongler #hehe
@@ -445,3 +451,5 @@
       prob: 0.05
     - id: ClothingOuterHardsuitMaxim # i hit the juckport 1 trillion$
       prob: 0.001
+    - id: TippyTrumpMysteryPack
+      prob: 0.05

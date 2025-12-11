@@ -512,6 +512,7 @@ public sealed class NukeSystem : EntitySystem
             Color.Red,
             stationUid ?? uid,
             null,
+            null, //imp
             ("time", (int)component.RemainingTime),
             ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, nukeXform))))
         );
@@ -553,13 +554,12 @@ public sealed class NukeSystem : EntitySystem
             _alertLevel.SetLevel(stationUid.Value, component.AlertLevelOnDeactivate, true, true, true);
 
         // imp edit start
-       _announcer.SendAnnouncementMessage(
+        _announcer.SendAnnouncementMessage(
            _announcer.GetAnnouncementId("NukeDisarm"),
            "nuke-component-announcement-unarmed",
            Loc.GetString("nuke-component-announcement-sender"),
            station: stationUid ?? uid
-       );
-       // imp edit end
+       ); // imp edit end
 
         component.PlayedNukeSong = false;
         _sound.PlayGlobalOnStation(uid, _audio.ResolveSound(component.DisarmSound));

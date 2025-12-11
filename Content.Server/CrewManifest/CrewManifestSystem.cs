@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.EUI;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Server.StationRecords;
 using Content.Server.StationRecords.Systems;
@@ -9,18 +8,17 @@ using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.CrewManifest;
 using Content.Shared.GameTicking;
-using Content.Shared.IdentityManagement; // imp
 using Content.Shared.Roles;
-using Content.Shared.Silicons.StationAi; // imp
+using Content.Shared.Station.Components;
 using Content.Shared.StationRecords;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
-using Robust.Shared.GameObjects.Components.Localization; // imp
+using Content.Shared.IdentityManagement; // imp
+using Content.Shared.Silicons.StationAi; // imp
 using Robust.Shared.Enums; // imp; for Gender
-
+using Robust.Shared.GameObjects.Components.Localization; // imp
 
 namespace Content.Server.CrewManifest;
 
@@ -31,6 +29,8 @@ public sealed class CrewManifestSystem : EntitySystem
     [Dependency] private readonly EuiManager _euiManager = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
+    private static readonly ProtoId<JobPrototype> StationAi = "StationAi"; // imp
 
     /// <summary>
     ///     Cached crew manifest entries. The alternative is to outright
@@ -235,7 +235,7 @@ public sealed class CrewManifestSystem : EntitySystem
         foreach (var recordObject in iter)
         {
             var record = recordObject.Item2;
-            var entry = new CrewManifestEntry(record.Name, record.Gender.ToString().ToLowerInvariant(), record.JobTitle, record.JobIcon, record.JobPrototype);
+            var entry = new CrewManifestEntry(record.Name, record.Gender.ToString().ToLowerInvariant(), record.JobTitle, record.JobIcon, record.JobPrototype); //imp edit, pronouns on manifest
 
             _prototypeManager.TryIndex(record.JobPrototype, out JobPrototype? job);
             entriesSort.Add((job, entry));
@@ -246,7 +246,7 @@ public sealed class CrewManifestSystem : EntitySystem
         {
             var genderString = (grammar.Gender.HasValue ? grammar.Gender.Value : Gender.Epicene).ToString().ToLowerInvariant();
             var entry = new CrewManifestEntry(Identity.Name(ai, EntityManager), genderString, "Station AI", "JobIconStationAi", "StationAi");
-            _prototypeManager.TryIndex("StationAi", out JobPrototype? job);
+            _prototypeManager.TryIndex(StationAi, out var job);
             entriesSort.Add((job, entry));
         }
         //END IMP EDIT

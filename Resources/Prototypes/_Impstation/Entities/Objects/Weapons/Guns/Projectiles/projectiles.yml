@@ -68,6 +68,36 @@
   - type: ProjectileSpeedOverride
     speedOverride: 17
 
+- type: entity
+  id: BulletGrenadeCleanerBleach
+  name: heavy-duty cleaner grenade
+  parent: BulletGrenadeCleaner
+  components:
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 7
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: Bleach
+        Quantity: 8
+  - type: EmitSmokeOnDespawn
+    duration: 7
+    spreadAmount: 20
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: Bleach
+        Quantity: 8
+  - type: EmitSmokePeriodically
+    duration: 7
+    spreadAmount: 1
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: Bleach
+        Quantity: 8
+
     #potential todos
     #restore old cleanade projectile?
       #make this a new flavour of cleanade in general?

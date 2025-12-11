@@ -17,7 +17,7 @@ public sealed partial class AnalysisConsoleComponent : Component
     /// Can be null if not linked.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public NetEntity? AnalyzerEntity;
+    public EntityUid? AnalyzerEntity;
 
     [DataField]
     public SoundSpecifier? ScanFinishedSound = new SoundPathSpecifier("/Audio/Machines/scan_finish.ogg");
@@ -35,10 +35,16 @@ public sealed partial class AnalysisConsoleComponent : Component
     };
 
     /// <summary>
-    /// The machine linking port for the analyzer
+    /// The machine linking port for linking the console with the analyzer.
     /// </summary>
     [DataField]
     public ProtoId<SourcePortPrototype> LinkingPort = "ArtifactAnalyzerSender";
+
+    /// <summary>
+    ///     Imp edit. The direction the bias is going.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public BiasDirection BiasDirection = BiasDirection.Up;
 }
 
 [Serializable, NetSerializable]
@@ -50,3 +56,16 @@ public enum ArtifactAnalyzerUiKey : byte
 [Serializable, NetSerializable]
 public sealed class AnalysisConsoleExtractButtonPressedMessage : BoundUserInterfaceMessage;
 
+// imp edit start
+[Serializable, NetSerializable]
+public sealed class AnalysisConsoleUpBiasButtonPressedMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class AnalysisConsoleDownBiasButtonPressedMessage : BoundUserInterfaceMessage;
+
+public enum BiasDirection : byte
+{
+    Up, //Towards depth 0
+    Down, //Away from depth 0
+}
+// imp edit end
