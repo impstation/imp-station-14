@@ -116,7 +116,7 @@
         Blunt: 8
   - type: Tag
     tags:
-    - AnomalocaridClaw #this exists so they can dig through rocks
+    - AnomalocaridClaw # TODO: this exists so they can dig through rocks
     - DoorBumpOpener
     - CanPilot
     - FootstepSound
@@ -220,6 +220,56 @@
   components:
   - type: HumanoidAppearance
     species: Anomalocarid
+  - type: Sprite
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - map: [ "enum.HumanoidVisualLayers.TailBehind" ] # Floof
+      - map: [ "enum.HumanoidVisualLayers.Chest" ]
+      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      - map: [ "enum.HumanoidVisualLayers.Snout" ]
+      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.HumanoidVisualLayers.LArm" ]
+      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+      - map: [ "jumpsuit" ]
+      - map: [ "enum.HumanoidVisualLayers.LHand" ]
+      - map: [ "enum.HumanoidVisualLayers.RHand" ]
+      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+        color: "#ffffff"
+        sprite: Objects/Misc/handcuffs.rsi
+        state: body-overlay-2
+        visible: false
+      - map: [ "gloves" ]
+      - map: [ "shoes" ]
+      - map: [ "eyes" ]
+      - map: [ "belt" ]
+      - map: [ "id" ]
+      - map: [ "outerClothing" ]
+      - map: [ "enum.HumanoidVisualLayers.TailBehindBackpack" ] # imp
+      - map: [ "back" ]
+      - map: [ "enum.HumanoidVisualLayers.TailOversuit" ] # Floof
+      - map: [ "enum.HumanoidVisualLayers.Tail" ] #layered above the back, maybe has very very minor balance implications (hiding guns behind your wings) but i think it's fine.
+      - map: [ "ears" ] #above tail for over-ear headsets specifically. this means they layer over backpacks and outerclothing too, unsure about that right now.
+      - map: [ "neck" ]
+      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+      - map: [ "enum.HumanoidVisualLayers.Hair" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "mask" ]
+      - map: [ "head" ]
+      - map: [ "pocket1" ]
+      - map: [ "pocket2" ]
+      - map: [ "clownedon" ]
+        sprite: "Effects/creampie.rsi"
+        state: "creampie_anomalocarid"
+        visible: false
+        offset: 0, 0.375 #gotta offset the pie
   - type: Inventory
     speciesId: anomalocarid
     templateId: anomalocarid
