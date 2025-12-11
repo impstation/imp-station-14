@@ -3278,6 +3278,10 @@
     price: 200
   - type: MessyDrinker
   # imp edit start
+  - type: AnimalNPC
+    maxTimeChasing: 10
+    maxRestTime: 60
+    minRestTime: 10
   - type: GoobAbsorbable
     biomassRestored: 0.3
   - type: Carriable #DeltaV
@@ -3323,7 +3327,7 @@
     damage: 20
   - type: HTN
     rootTask:
-      task: SimpleHostileCompound
+      task: DogCompound
 # imp end
 
 - type: entity
