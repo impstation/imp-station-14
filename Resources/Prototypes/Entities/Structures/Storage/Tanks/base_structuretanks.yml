@@ -71,6 +71,9 @@
   - type: DumpableSolution
     solution: tank
   # imp edit end
+  - type: AcousticData # VDS
+    absorption: 15
+    reflectRay: true
 
 # For highcap tanks
 - type: entity
