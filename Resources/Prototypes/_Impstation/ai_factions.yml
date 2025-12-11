@@ -58,3 +58,22 @@
 
 - type: npcFaction
   id: Courier
+
+- type: npcFaction
+  id: Slasher
+  hostile:
+    - Dragon
+    - NanoTrasen
+    - Mouse
+    - Passive
+    - PetsNT
+    - SimpleHostile
+    - SimpleNeutral
+    - Syndicate
+    - Xeno
+    - Zombie
+    - Revolutionary
+    - Changeling
+    - Heretic
+    - Replicator
+    - Dog
