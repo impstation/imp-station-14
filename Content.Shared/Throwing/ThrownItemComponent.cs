@@ -50,5 +50,12 @@ namespace Content.Shared.Throwing
         /// </summary>
         [DataField]
         public Vector2? OriginalScale = null;
+
+        // EE ADD
+        /// <summary>
+        ///   The tracked amount of hits in a single throw. Used for bouncing items.
+        /// </summary>
+        [DataField]
+        public int HitQuantity = 0;
     }
 }

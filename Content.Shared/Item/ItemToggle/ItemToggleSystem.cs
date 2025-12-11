@@ -9,8 +9,9 @@ using Content.Shared.Wieldable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Content.Shared.Projectiles; // imp
-using Content.Shared.Throwing; // imp
+using Content.Shared._EE.Item.ItemToggle.Components; // ee
+using Content.Shared.Projectiles; // ee
+using Content.Shared.Throwing; // ee
 
 namespace Content.Shared.Item.ItemToggle;
 /// <summary>
@@ -25,7 +26,7 @@ public sealed class ItemToggleSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedProjectileSystem _projectile = default!; // imp
+    [Dependency] private readonly SharedProjectileSystem _projectile = default!; // ee
 
     private EntityQuery<ItemToggleComponent> _query;
 
@@ -363,7 +364,7 @@ public sealed class ItemToggleSystem : EntitySystem
         }
     }
 
-    // imp add
+    // ee add
     /// <summary>
     /// Used to update the throwing angle on item toggle.
     /// </summary>
@@ -411,7 +412,7 @@ public sealed class ItemToggleSystem : EntitySystem
         }
     }
 
-    // imp add
+    // ee add
     /// <summary>
     ///   Used to update the embeddable stats on item toggle.
     /// </summary>
