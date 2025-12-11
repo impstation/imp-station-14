@@ -11,6 +11,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.Announcements.Systems; // ee announce
 using Robust.Shared.Player; // ee announce
+using Content.Shared.Whitelist; // imp
+using Content.Shared.Electrocution; // imp
 
 namespace Content.Server.StationEvents.Events;
 
@@ -27,6 +29,9 @@ public sealed class GreytideVirusRule : StationEventSystem<GreytideVirusRuleComp
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // imp
+    [Dependency] private readonly SharedAirlockSystem _airlock = default!; // imp
+    [Dependency] private readonly SharedElectrocutionSystem _electrocute = default!; // imp
 
     protected override void Added(EntityUid uid, GreytideVirusRuleComponent virusComp, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -85,12 +90,17 @@ public sealed class GreytideVirusRule : StationEventSystem<GreytideVirusRuleComp
             if (!_access.AreAccessTagsAllowed(accessIds, accessComp) || _access.AreAccessTagsAllowed(virusComp.Blacklist, accessComp))
                 continue;
 
+            // imp. do an extra check for any banned ents that shouldn't be unlocked 
+            if (_whitelist.IsBlacklistPass(virusComp.BannedExtras, lockUid))
+                continue;
+
             // open lockers
             _lock.Unlock(lockUid, null, lockComp);
         }
 
-        var airlockQuery = AllEntityQuery<AirlockComponent, DoorComponent, TransformComponent>();
-        while (airlockQuery.MoveNext(out var airlockUid, out var airlockComp, out var doorComp, out var xform))
+        var random = IoCManager.Resolve<IRobustRandom>(); // imp
+        var airlockQuery = AllEntityQuery<AirlockComponent, DoorComponent, TransformComponent, ElectrifiedComponent>(); // imp. added electrifiedcomp
+        while (airlockQuery.MoveNext(out var airlockUid, out var airlockComp, out var doorComp, out var xform, out var electrified))
         {
             // don't space everything
             if (firelockQuery.HasComp(airlockUid))
@@ -108,8 +118,33 @@ public sealed class GreytideVirusRule : StationEventSystem<GreytideVirusRuleComp
             if (!_access.AreAccessTagsAllowed(accessIds, accessEnt.Value.Comp) || _access.AreAccessTagsAllowed(virusComp.Blacklist, accessEnt.Value.Comp))
                 continue;
 
+            // imp. (commented out for refactored logic)
             // open and bolt airlocks
-            _door.TryOpenAndBolt(airlockUid, doorComp, airlockComp);
+            // _door.TryOpenAndBolt(airlockUid, doorComp, airlockComp);
+
+            // imp start
+
+            // do an extra check for any banned ents that shouldn't be unlocked
+            if (_whitelist.IsWhitelistPass(virusComp.BannedExtras, airlockUid))
+                continue;
+
+            //  pick one of these and apply it to the airlock
+            switch (random.Next(4))
+            {
+                case 0:
+                    _airlock.SetSafety(airlockComp, false);
+                    break;
+                case 1:
+                    _door.TryOpenAndBolt(airlockUid, doorComp, airlockComp);
+                    break;
+                case 2:
+                    _electrocute.SetElectrified((airlockUid, electrified), true);
+                    break;
+                case 3: // lucky!
+                    break;
+            }
+
+            // imp end
         }
     }
 }
