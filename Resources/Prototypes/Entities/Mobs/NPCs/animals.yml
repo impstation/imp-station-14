@@ -1577,7 +1577,8 @@
     speechSounds: Monkey
     speechVerb: Monkey
     allowedEmotes: ['Scream', 'Laugh'] #imp
-  - type: MonkeyAccent
+  - type: AdvancedFullReplacementAccent # imp
+    accent: monkey
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible
@@ -1627,7 +1628,8 @@
     speechSounds: Monkey
     speechVerb: Monkey
     allowedEmotes: ['Scream', 'Laugh'] #imp
-  - type: MonkeyAccent
+  - type: AdvancedFullReplacementAccent # imp
+    accent: monkey
   - type: NpcFactionMember
     factions:
     - Syndicate
