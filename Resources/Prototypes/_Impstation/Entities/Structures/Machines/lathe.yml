@@ -147,3 +147,51 @@
     bodyType: Dynamic
   - type: Foldable
     folded: true
+
+- type: entity
+  id: InterdyneLathe
+  parent: BaseLatheLube
+  name: Interdyne product teleporter
+  description: Exchanges Spesos and precious materials for Interdyne products.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/autolathe.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+        - Cash
+  - type: ItemSlots
+    slots:
+      beaker_slot:
+        name: lathe-component-output-slot-beaker-name
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: Lathe
+    idleState: icon
+    reagentOutputSlotId: beaker_slot
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - ImpInterdyneStatic
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - ImpInterdyneEmagged
+  - type: ContainerContainer
+    containers:
+      beaker_slot: !type:ContainerSlot

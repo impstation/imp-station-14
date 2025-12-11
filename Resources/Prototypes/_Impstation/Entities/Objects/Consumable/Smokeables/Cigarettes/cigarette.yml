@@ -4,6 +4,8 @@
   parent: Cigarette
   name: cigarette
   components:
+  - type: Smokable
+    inhaleAmount: 1
   - type: SolutionContainerManager
     solutions:
       smokable:
@@ -344,8 +346,8 @@
     tags:
       - Cigarette
       - Trash
-      - PetWearable # imp
-      - KodeEdible # imp
+      - PetWearable
+      - KodeEdible
   - type: StaticPrice
     price: 1
   - type: SpaceGarbage
@@ -373,3 +375,25 @@
             Quantity: 5
           - ReagentId: Sadness
             Quantity: 5
+
+- type: entity
+  id: CigaretteSyndicateHypo
+  suffix: Hypo
+  parent: Cigarette
+  name: cigarette
+  components:
+  - type: Smokable
+    inhaleAmount: 1
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 15.1
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 0.1
+        canReact: false
+      food:
+        maxVol: 15.1
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 0.1
