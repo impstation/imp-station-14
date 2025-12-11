@@ -1,0 +1,129 @@
+﻿- type: entity
+  parent: Clothing
+  id: BankCard
+  name: bank card
+  description: The little square of plastic that controls your life. No, the other one.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: Passenger
+      sprite: Interface/Misc/job_icons.rsi
+      offset: -0.09375, 0.0625 #3 pixels left, 2 pixels up - copied from id cards
+  - type: Clothing
+    slots:
+    - idcard
+    sprite: Objects/Misc/id_cards.rsi
+  - type: Item
+    size: Small
+    heldPrefix: default
+    storedRotation: -90
+  - type: BankCard
+
+- type: entity
+  id: BankAccount
+  name: Bank Account
+  description: if you're seeing this, something has gone horribly wrong. admins yell at me and I'll make these properly interactable at some point.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: BankAccount
+
+- type: entity
+  parent: BaseComputerAiAccess #ai accessible because it's really funny if the AI convinces someone to let it steal all of their money
+  id: ATMMachine
+  name: ATM Machine
+  description: It's called that on purpose now
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerScreen"]
+      state: solar_screen
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+  - type: ActivatableUI
+    key: enum.ATMUIKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.ATMUIKey.Key:
+        type: ATMBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: RadarConsoleCircuitboard
+  - type: PointLight
+    radius: 2.4
+    energy: 1.6
+    color: "#e6e227"
+  - type: ATM
+
+- type: entity
+  parent: BaseComputerAiAccess #ai accessible because it's really funny if someone convinces the AI to let them have all the money
+  id: AccountManagementConsole
+  name: Account Management Console
+  description: The other other computer that controls your life.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerScreen"]
+      state: allocate
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+  - type: ActivatableUI
+    key: enum.AccountManagementUIKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.AccountManagementUIKey.Key:
+        type: AccountManagementConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: Computer
+    board: RadarConsoleCircuitboard
+  - type: PointLight
+    radius: 2.4
+    energy: 1.6
+    color: "#e6e227"
+  - type: AccountManagementConsole
+
+- type: entity
+  parent: BaseItem
+  id: POSSystem
+  name: point-of-sale system
+  description: Historians believe these were invented largely to assist with scams and bribery. Nanotrasen continues this proud tradition, in the name of historical preservation.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/hand_labeler.rsi
+    state: hand_labeler
+  - type: Item
+    sprite: Objects/Tools/hand_labeler.rsi
+    storedRotation: -90
+  - type: UseDelay
+    delay: 0.5
+  - type: ActivatableUI
+    key: enum.POSUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.POSUIKey.Key:
+        type: POSBoundUserInterface
+  - type: PosSystem
+  - type: PhysicalComposition

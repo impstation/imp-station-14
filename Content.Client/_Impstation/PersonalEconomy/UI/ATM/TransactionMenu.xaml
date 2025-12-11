@@ -1,0 +1,30 @@
+﻿<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    MinSize="320 320"
+    SetSize="320 320"
+    Title="{Loc transaction-window-title}">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True">
+        <BoxContainer Orientation="Vertical">
+            <Label Text="{Loc atm-recipient-transfer-number}"/>
+            <LineEdit Name="TransferNumberBox" Access="Public" HorizontalExpand="True" PlaceHolder="0000"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical">
+            <Label Text="{Loc atm-transfer-amount}"/>
+            <LineEdit Name="TransferAmountBox" Access="Public" HorizontalExpand="True" PlaceHolder="000,000,000"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Vertical">
+            <Label Text="{Loc atm-transfer-reason}"/>
+            <LineEdit Name="TransferReasonBox" Access="Public" HorizontalExpand="True" VerticalExpand="True" PlaceHolder="yada yada"/>
+            <Label Name="CharsRemainingLabel"/>
+        </BoxContainer>
+        <Control VerticalExpand="True"/>
+        <Label Name="TransactionRecipientDoesNotExistLabel" Visible="False" Text="{Loc transaction-no-recipient}" Access="Public"/>
+        <Label Name="TransactionNotEnoughFundsLabel" Visible="False" Text="{Loc transaction-low-funds}" Access="Public"/>
+        <BoxContainer Orientation="Horizontal">
+            <Button Name="CancelButton" Text="{Loc atm-cancel-button-label}" StyleClasses="OpenRight" Access="Public" HorizontalExpand="True"/>
+            <Button Name="ConfirmButton" Text="{Loc atm-confirm-button-label}" StyleClasses="OpenBoth" Access="Public" HorizontalExpand="True"/>
+            <Button Name="ReallyConfirmButton" Text="{Loc atm-really-confirm-label}" StyleClasses="OpenLeft" Disabled="True" Access="Public" HorizontalExpand="True"/>
+        </BoxContainer>
+    </BoxContainer>
+</controls:FancyWindow>
