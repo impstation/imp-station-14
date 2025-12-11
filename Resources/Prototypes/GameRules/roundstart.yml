@@ -135,6 +135,9 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
@@ -152,6 +155,9 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
@@ -171,6 +177,9 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleNukeops
   - type: DynamicRuleCost
@@ -360,6 +369,9 @@
         - NamesWizardFirst
         - NamesWizardLast
         nameFormat: name-format-wizard
+      - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true
       mindRoles:
       - MindRoleWizard
   - type: DynamicRuleCost
