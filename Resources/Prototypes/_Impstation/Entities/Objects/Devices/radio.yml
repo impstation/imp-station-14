@@ -1,6 +1,6 @@
 - type: entity
   name: handheld radio
-  description: A handy handheld radio.
+  description: A handy handheld radio with adjustable frequency.
   parent: BaseRadio
   id: RadioHandheld
   components:
@@ -18,3 +18,7 @@
     interfaces:
       enum.HandheldRadioUiKey.Key:
         type: HandheldRadioBoundUserInterface
+  - type: RadioStatic # for sounds
+    baseSoundpack: RadioStaticDefault
+    departmentSoundPacks:
+      Handheld: RadioStaticHandheld
