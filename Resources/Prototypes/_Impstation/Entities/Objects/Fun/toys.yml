@@ -1257,10 +1257,6 @@
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
     state: plushie_anomalocarid
-  - type: Edible
-    requiresSpecialDigestion: true
-  - type: StealTarget
-    stealGroup: Plushie
   - type: Item
     inhandVisuals:
       left:
