@@ -699,19 +699,6 @@
 
 # Wildcards
 - type: roleLoadout
-  id: JobZookeeper
-  groups:
-  - Glasses
-  - CommonBackpack # imp reorder
-  - Survival
-  - Trinkets
-  - ZookeeperJobTrinkets
-  - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
-  - GroupTankHarness # imp reorder
-  - GroupTankHarnessAquatic #imp special
-
-- type: roleLoadout
   id: JobReporter
   groups:
   - ServiceMask # imp
@@ -745,21 +732,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
-  - GroupTankHarnessAquatic #imp special
-
-- type: roleLoadout
-  id: JobBoxer
-  groups:
-  - BoxerJumpsuit
-  - BoxerGloves
-  - Glasses
-  - CommonBackpack # imp reorder
-  - Survival
-  - Trinkets
-  - BoxerJobTrinkets
-  - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
-  - GroupTankHarness # imp reorder
   - GroupTankHarnessAquatic #imp special
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

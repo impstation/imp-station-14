@@ -152,7 +152,7 @@
 
 - type: entity
   name: double-barreled shotgun
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityBartenderZookeeperContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityBartenderZookeeperContraband] #imp, keep zookeeper included in contraband
   id: WeaponShotgunDoubleBarreled
   description: An immortal classic of the American Frontier, whatever that is. Uses .50 shotgun shells. #imp
   components:
