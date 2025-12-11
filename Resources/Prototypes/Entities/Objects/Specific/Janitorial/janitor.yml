@@ -114,12 +114,12 @@
       generated:
         reagents:
         - ReagentId: Water
-          Quantity: 5
+          Quantity: 15 # from 5
     - type: SolutionPurge
       solution: absorbed
       preserve:
       - Water
-      quantity: 10
+      quantity: 15 # from 10
     - type: SolutionContainerManager
       solutions:
         absorbed:
