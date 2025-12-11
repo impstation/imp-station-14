@@ -3286,7 +3286,7 @@
   # imp edit end
 
 - type: entity
-  parent: MobCorgiBase
+  parent: [DogBarkBase, MobCorgiBase] # imp edit
   id: MobCorgi
   components:
   - type: DamageStateVisuals
@@ -3306,29 +3306,13 @@
   - type: Tag
     tags:
     - VimPilot
-# imp start
-  - type: NpcFactionMember
+  - type: NpcFactionMember # imp edit
     factions:
       - Dog
-  - type: MeleeWeapon
-    altDisarm: false
-    angle: 0
-    animation: WeaponArcBite
-    damage:
-      types:
-        Blunt: 0
-    soundHit:
-      path: /Audio/Animals/dog_bark1.ogg
-  - type: StaminaDamageOnHit
-    damage: 20
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
-# imp end
 
 - type: entity
   name: corrupted corgi
-  parent: [ MobCorgi, MobCombat ]
+  parent: [ MobCorgiBase, MobCombat ] # imp edit
   id: MobCorgiNarsi
   description: Ian! No!
   components:
@@ -3386,8 +3370,17 @@
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
-  - type: StaminaDamageOnHit #imp #mailman hate prevention
-    damage: 0
+# start imp, Unparented from MobCorgi
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: ReplacementAccent
+    accent: dog
+  - type: Tag
+    tags:
+    - VimPilot
+# end imp
 
 - type: entity
   name: corgi puppy
