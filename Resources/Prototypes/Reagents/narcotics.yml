@@ -59,6 +59,13 @@
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
+      - !type:AdjustTemperature #imp - you start burning up
+        conditions:
+        - !type:TemperatureCondition #imp
+          max: 375
+        amount: 4100
+      - !type:SatiateThirst #imp
+        factor: -6
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -124,6 +131,13 @@
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
         type: Local
         probability: 0.05
+      - !type:AdjustTemperature #imp - you start burning up
+        conditions:
+        - !type:TemperatureCondition #imp
+          max: 375
+        amount: 4100
+      - !type:SatiateThirst #imp
+        factor: -6
     Medicine:
       effects:
       - !type:ResetNarcolepsy
