@@ -7,6 +7,9 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 4h # imp, was 2.5h
+    - !type:AntagGroupTimeRequirement # imp add
+      antagGroup: AntagOverall
+      time: 1h
   startingGear: SecurityOfficerGear
   icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-hos

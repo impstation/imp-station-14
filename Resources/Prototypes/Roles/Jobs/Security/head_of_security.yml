@@ -18,6 +18,9 @@
       time: 90h # imp, was 10h
     - !type:OverallPlaytimeRequirement # imp add
       time: 40h
+    - !type:AntagGroupTimeRequirement # imp add
+      antagGroup: AntagOverall
+      time: 5h
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

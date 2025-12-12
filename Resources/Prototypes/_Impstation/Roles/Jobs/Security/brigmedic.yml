@@ -10,6 +10,9 @@
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 4h
+    - !type:AntagGroupTimeRequirement
+      antagGroup: AntagOverall
+      time: 2h
   startingGear: BrigmedicGear
   icon: JobIconBrigmedic
   supervisors: job-supervisors-hos

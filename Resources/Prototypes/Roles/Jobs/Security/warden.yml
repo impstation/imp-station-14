@@ -10,6 +10,9 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 10h
+    - !type:AntagGroupTimeRequirement # imp add
+      antagGroup: AntagOverall
+      time: 5h
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"

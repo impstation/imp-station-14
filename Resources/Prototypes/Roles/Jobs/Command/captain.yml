@@ -22,6 +22,9 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 20h # imp, was 4h
+    - !type:AntagGroupTimeRequirement # imp add
+      antagGroup: AntagOverall
+      time: 3h
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
