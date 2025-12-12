@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC0-1.0",
-  "copyright": "Ported from Frontier Station 14. Edited by sha-seng, hilda., and CombustibleToast, original sprites by Imaginos16 from tgstation. Licensed under CC-BY-SA 3.0.",
+  "copyright": "Ported from Frontier Station 14. Edited by sha-seng, hilda., and CombustibleToast, original sprites by Imaginos16 from tgstation. Licensed under CC-BY-SA 3.0. anom state by atdoop (github) for impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -18,7 +18,15 @@
       "directions": 4
     },
     {
+      "name": "equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
       "name": "open-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "open-equipped-OUTERCLOTHING-anomalocarid",
       "directions": 4
     },
     {

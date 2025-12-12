@@ -24,6 +24,8 @@
       - state: GREEN-equipped-OUTERCLOTHING
       outerClothing:
       - state: GREEN-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid:
+      - state: GREEN-equipped-OUTERCLOTHING-anomalocarid
 
 - type: entity
   parent: [ ClothingOuterBase, ClothingNeckBase ]
@@ -51,6 +53,8 @@
       - state: WHITE-equipped-OUTERCLOTHING
       outerClothing:
       - state: WHITE-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid:
+      - state: WHITE-equipped-OUTERCLOTHING-anomalocarid
 
 - type: entity
   parent: [ ClothingOuterBase, ClothingNeckBase ]
@@ -78,6 +82,10 @@
       - state: QM-equipped-OUTERCLOTHING
       outerClothing:
       - state: QM-equipped-OUTERCLOTHING
+      outerClothing-vox:
+      - state: QM-equipped-OUTERCLOTHING-vox
+      outerClothing-anomalocarid:
+      - state: QM-equipped-OUTERCLOTHING-anomalocarid
 
 - type: entity
   parent: [ ClothingOuterBase, ClothingNeckBase ]
@@ -105,3 +113,5 @@
       - state: BLACK-equipped-OUTERCLOTHING
       outerClothing:
       - state: BLACK-equipped-OUTERCLOTHING
+      outerClothing-anomalocarid:
+      - state: BLACK-equipped-OUTERCLOTHING-anomalocarid
