@@ -1,0 +1,22 @@
+- type: antag
+  id: Tourist
+  name: roles-tourist-name
+  antagonist: false
+  setPreference: false
+  playTimeTracker: AntagTourist # this should probably just be tourist
+  objective: roles-tourist-objective
+
+- type: entity
+  id: TouristRule
+  parent: BaseGameRule
+  components:
+  - type: AntagSelection
+    agentName: tourist-round-end-agent-name
+    definitions:
+    - prefRoles: [ Tourist ]
+      mindRoles:
+      - MindRoleTourist
+  - type: AntagRandomObjectives
+    sets:
+    - groups: TouristObjectiveGroups
+    maxDifficulty: 5
