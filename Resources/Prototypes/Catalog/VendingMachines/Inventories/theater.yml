@@ -1,118 +1,127 @@
 - type: vendingMachineInventory
   id: AutoDrobeInventory
   startingInventory:
-    ClothingEyesBlindfold: 1
-    ClothingHeadHatBeretFrench: 2
-    ClothingHeadHatBunny: 2
-    ClothingHeadHatCardborg: 2
-    ClothingHeadHatCasa: 1
-    ClothingHeadHatChickenhead: 2
-    ClothingHeadHatCircusClown: 1 #imp
-    ClothingHeadHatCowboyBlack: 1
-    ClothingHeadHatCowboyBrown: 1
-    ClothingHeadHatCowboyGrey: 1
-    ClothingHeadHatCowboyWhite: 1
-    ClothingHeadHatGladiator: 1
-    ClothingHeadHatJester: 1
-    ClothingHeadHatJesterAlt: 1
-    ClothingHeadHatMusicianShako: 2 # imp
-    ClothingHeadHatPumpkin: 2
-    ClothingHeadHatPwig: 2
-    ClothingHeadHatRedRacoon: 2
-    ClothingHeadHatSantahat: 2
-    # ClothingHeadHatShrineMaidenWig: 2 # imp edit - giving this religious outfit the sanctity it deserves
-    ClothingHeadHatSkub: 2
-    ClothingHeadHatSombrero: 2
-    ClothingHeadHatWitch1: 2
-    ClothingHeadPaperSack: 2
-    ClothingHeadPaperSackSmile: 2
-    ClothingHeadRastaHat: 2
+# theatre roles
+ # clown
+    ClothingHeadHatCircusClown: 1 #imp 
     ClothingMaskClownNose: 3 #imp
-    ClothingMaskJoy: 2
+    ClothingNeckRuffle: 2 #imp
+    ClothingUniformCircusClown: 1 #imp
+    ClothingShoesCircus: 2 #imp
+    ClothingOuterWinterClown: 1
+    ClothingHeadHatJester: 1
+    ClothingUniformJumpsuitJester: 1  
+    ClothingHeadHatJesterAlt: 1
+    ClothingUniformJumpsuitJesterAlt: 1
+    ClothingShoesJester: 2
+    ClothingOuterCoatJokester: 1 #imp
+    ClothingUniformJokester: 1 #imp
+    ClothingShoesJokester: 2 #imp
+    ClothingOuterClownPriest: 1
+# mime
+    ClothingHeadHatBeretFrench: 2
     ClothingMaskSadMime: 1
     ClothingMaskScaredMime: 1
-    ClothingNeckRuffle: 2 #imp
     ClothingNeckScarfStripedZebra: 1 # imp
-    ClothingOuterCardborg: 2
-    ClothingOuterClownPriest: 1
-    ClothingOuterCoatJokester: 1 #imp
-    ClothingOuterDameDane: 2
-    ClothingOuterPoncho: 2
-    ClothingOuterPonchoClassic: 2
-    ClothingOuterRedRacoon: 2
-    ClothingOuterRobesJudge: 2
-    ClothingOuterSanta: 2
-    ClothingOuterSkub: 2
-    ClothingOuterSuitChicken: 2
-    ClothingOuterSuitMonkey: 2
-    # ClothingOuterSuitShrineMaiden: 2
-    ClothingOuterSuitWitchRobes: 2
-    ClothingOuterWinterMusician: 1
-    ClothingOuterWinterClown: 1
-    ClothingOuterWinterMime: 1
     ClothingOuterCoatPufferMime: 1 #imp
-    ClothingShoesBootsCowboyBlack: 1
-    ClothingShoesBootsCowboyBrown: 1
-    ClothingShoesBootsCowboyWhite: 1
-    ClothingShoesCircus: 2 #imp
-    ClothingShoesDameDane: 2
-    ClothingShoesJester: 2
-    ClothingShoesJokester: 2 #imp
-    ClothingUniformCircusClown: 1 #imp
-    ClothingUniformJokester: 1 #imp
- #angel and devil smooshed in here to line up with the other clown costumes
-    ClothingHeadJesterEvilHat: 1 #imp
-    ClothingUniformJesterEvil: 1 #imp
-    ClothingShoesJesterEvilJanglers: 1 #imp
-    ClothingNeckDevilWings: 1 #imp
-    ClothingHeadDevilHorns: 1 #imp
-    DevilPitchfork: 1 #imp
-    ClothingHeadHalo: 1 #imp
-    ClothingUniformJumpskirtAngelDress: 1 #imp
-    ClothingHandsAngelGloves: 1 #imp
-    ClothingShoesAngelSandals: 1 #imp
-    ClothingNeckAngelWings: 1 #imp
-    HandheldHarpInstrument: 1 #imp
-
-    ClothingUniformJumpsuitDameDane: 2
-    ClothingUniformJumpsuitGladiator: 1
-    ClothingUniformJumpsuitJester: 1
-    ClothingUniformJumpsuitJesterAlt: 1
-    ClothingUniformJumpsuitKilt: 3 # DeltaV - SCOTTTTLANDDDDD FURREVERRRRR!!
-    ClothingUniformJumpsuitKimono: 1
+    ClothingOuterWinterMime: 1
+# musician
+    ClothingOuterWinterMusician: 1
+    ClothingOuterCoatMusicianFurCoat: 2 # imp
     ClothingUniformMrSpaceWide: 2 #imp
     ClothingUniformMrSpaceWideSkirt: 2 #imp
+    ClothingHeadHatMusicianShako: 2 # imp
     ClothingUniformJumpsuitMusicianMarchingBand: 2 # imp
     ClothingUniformMusicianSingerDress: 1 # imp
     ClothingHandsMusicianSingerGloves: 1 # imp
     ClothingNeckFeatherBoa: 2 # imp
-    ClothingOuterCoatMusicianFurCoat: 2 # imp
-    FoodPoppy: 1
-    ClothingOuterWhitePoncho: 2 #imp
-    ClothingOuterBlackPoncho: 2 #imp
-    ClothingOuterRainCape: 3 #imp
+# general costumes
+ # animals
+    ClothingHeadHatBunny: 2
+    ClothingHeadHatChickenhead: 2
+    ClothingOuterSuitChicken: 2
+    ClothingHeadHatRedRacoon: 2
+    ClothingOuterRedRacoon: 2
+    ClothingOuterSuitMonkey: 2
+ # cosplay
+    ClothingOuterDameDane: 2
+    ClothingUniformJumpsuitDameDane: 2
+    ClothingShoesDameDane: 2
+    # ClothingHeadHatShrineMaidenWig: 2 # imp edit - giving this religious outfit the sanctity it deserves
+    # ClothingOuterSuitShrineMaiden: 2 
     # Gohei: 2
+    ClothingHeadHatSkub: 2
+    ClothingOuterSkub: 2
+ # cowboy
+    ClothingHeadHatCowboyBlack: 1
+    ClothingHeadHatCowboyBrown: 1
+    ClothingHeadHatCowboyGrey: 1
+    ClothingHeadHatCowboyWhite: 1
+    ClothingHeadHatSombrero: 2
+    ClothingOuterPoncho: 2
+    ClothingOuterPonchoClassic: 2
+    ClothingShoesBootsCowboyBlack: 1
+    ClothingShoesBootsCowboyBrown: 1
+    ClothingShoesBootsCowboyWhite: 1
+ # seasonal
+    ClothingHeadHatPumpkin: 2
+    ClothingHeadHatSantahat: 2
+    ClothingOuterSanta: 2
+    ClothingHeadHatWitch1: 2
+    ClothingOuterSuitWitchRobes: 2
+ # misc
+    # ClothingEyesBlindfold: 1 # imp edit - craftable, not really a costume piece
+    ClothingMaskJoy: 2
+    ClothingHeadPaperSack: 2
+    ClothingHeadPaperSackSmile: 2
+    ClothingOuterBlackPoncho: 2 
+    ClothingOuterWhitePoncho: 2 
+    ClothingHeadHatCardborg: 2
+    ClothingOuterCardborg: 2
+    ClothingHeadHatCasa: 1
+    ClothingHeadHatGladiator: 1
+    ClothingUniformJumpsuitGladiator: 1
+    ClothingHeadHatPwig: 2
+    ClothingOuterRobesJudge: 2
+    ClothingUniformJumpsuitKilt: 3 # DeltaV - SCOTTTTLANDDDDD FURREVERRRRR!!
+    ClothingUniformJumpsuitKimono: 1
+    ClothingHeadHalo: 1 #imp
+    ClothingNeckAngelWings: 1 #imp
+    ClothingUniformJumpskirtAngelDress: 1 #imp
+    ClothingHandsAngelGloves: 1 #imp
+    ClothingShoesAngelSandals: 1 #imp
+    HandheldHarpInstrument: 1 #imp
+    # FoodPoppy: 1 # imp edit - removed, available from the botanist
+    # ClothingHeadRastaHat: 2 # imp edit - already in clothesmate
+    # ClothingOuterRainCape: 3 #imp edit - moved to winterdrobe
   contrabandInventory: # imp
-    ClothingShoesSlippers: 1
-    ClothingShoesTourist: 1
-    ClothingShoesWizard: 1
-    ClothingUniformBrosBlazer: 1
-    ClothingUniformBrosBlazerSkirt: 1
+    # ClothingShoesSlippers: 1 # imp edit - moved to clothesmate
+    # ClothingShoesTourist: 1 # imp edit - moved to clothesmate
+    # ClothingShoesWizard: 1 # imp edit - moved to clothesmate
+    ClothingHeadJesterEvilHat: 1 #imp
+    ClothingHeadDevilHorns: 1 #imp
+    ClothingNeckDevilWings: 1 #imp
+    ClothingUniformJesterEvil: 1 #imp
+    ClothingShoesJesterEvilJanglers: 1 #imp
+    DevilPitchfork: 1 #imp
+    # ClothingUniformBrosBlazer: 1 # imp edit - moved to good clean fun / games.yml
+    # ClothingUniformBrosBlazerSkirt: 1 # imp edit - moved to good clean fun / games.yml
     ClothingUniformHitmanSuit: 1
     ClothingUniformHitmanSuitSkirt: 1
-    ClothingUniformJumpsuitAncient: 1
+    # ClothingUniformJumpsuitAncient: 1 # imp edit - moved to clothesmate
     ClothingUniformJumpsuitCossack: 1
-    ClothingUniformJumpsuitLoungewear: 1
+    # ClothingUniformJumpsuitLoungewear: 1 # imp edit - moved to clothesmate
     ClothingHeadHatRichard: 1
+    ClothingHeadHatCowboyBountyHunter: 1 # imp edit - moved from emag inventory
     ToyFigurineBoxer: 1
     ToyFigurineMusician: 1
     ClothingShoesBling: 1 #imp
     ClothingShoesBootsCowboyFancy: 1 #imp
-    ClothingOuterDogi: 1 #imp
+    # ClothingOuterDogi: 1 #imp edit - already in emag inventory
   emaggedInventory:
-    ClothingHeadHatCowboyBountyHunter: 1
+    # ClothingHeadHatCowboyBountyHunter: 1 #imp edit - moved to contraband inventory
     ClothingMaskBlushingClown: 1
     ClothingMaskBlushingMime: 1
     ClothingOuterDogi: 1
-    ClothingShoesBling: 1
-    ClothingShoesBootsCowboyFancy: 1
+    # ClothingShoesBling: 1 #imp edit - moved to contraband inventory
+    # ClothingShoesBootsCowboyFancy: 1 #imp edit - moved to contraband inventory
