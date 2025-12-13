@@ -77,7 +77,7 @@
         component: IgnoreSlowOnDamage
         time: 1.5
       - !type:SatiateThirst
-        factor: -4 this isnt a lot but itll add up quick if youre using it constantly
+        factor: -3 #this isnt a lot but itll add up quick if youre using it constantly
       - !type:MovementSpeedModifier
         walkSpeedModifier: 1.1 #10% faster, matching their old base speed boost mostly
         sprintSpeedModifier: 1.1
