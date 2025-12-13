@@ -1,0 +1,64 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "sprites by atdoop (github) for impstation.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "eyeball-l"
+        },
+        {
+            "name": "eyeball-r"
+        },
+        {
+            "name": "lung-l"
+        },
+        {
+            "name": "lung-r"
+        },
+        {
+            "name": "kidney-l"
+        },
+        {
+            "name": "kidney-r"
+        },
+        {
+            "name": "heart-off"
+        },
+        {
+            "name": "heart-on",
+            "delays": [
+                [
+                    0.6,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "liver"
+        },
+        {
+            "name": "ticket"
+        },
+        {
+            "name": "stomach"
+        },
+        {
+            "name": "brain"
+        },
+        {
+            "name": "appendix",
+            "delays": [
+                [
+                    0.7,
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}
