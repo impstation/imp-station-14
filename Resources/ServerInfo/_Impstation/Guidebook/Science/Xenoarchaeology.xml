@@ -45,6 +45,30 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Only the current node is active at a time.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        All unlocked nodes with durability remaining are active (except a node that is buried by all the higher nodes)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Unlocking and activating are the same thing. 'Use'ing the artifact does nothing.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Unlocking the node will allow it to be activated when the artifact is used.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
         text here
       </Box>
     </ColorBox>
@@ -53,24 +77,11 @@
         text here
       </Box>
     </ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-        text here
-      </Box>
-    <ColorBox>
-        <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-        text herec
-      </Box>
-    </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
         text here
       </Box>
     </ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-        text here
-      </Box>
-    <ColorBox>
   </Table>
 
   ## Equipment
