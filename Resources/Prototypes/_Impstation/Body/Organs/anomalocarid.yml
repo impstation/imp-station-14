@@ -43,6 +43,9 @@
   components:
   - type: Sprite
     state: brain
+  - type: Item
+    size: Small
+    heldPrefix: brain
   - type: Organ
   - type: Input
     context: "ghost"
@@ -86,6 +89,9 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
+  - type: Item
+    size: Small
+    heldPrefix: eyeball
   - type: Tag # goob edit
     tags:
     - Meat
@@ -103,6 +109,9 @@
     layers:
       - state: lung-l
       - state: lung-r
+  - type: Item
+    size: Small
+    heldPrefix: lung
   - type: Lung
   - type: FlavorProfile
     flavors:
@@ -145,6 +154,9 @@
   components:
   - type: Sprite
     state: heart-on
+  - type: Item
+    size: Small
+    heldPrefix: heart
   # The heart 'metabolizes' medicines and poisons that aren't filtered out by other organs.
   # This is done because these chemicals need to have some effect even if they aren't being filtered out of your body.
   # You're technically 'immune to poison' without a heart, but.. uhh, you'll have bigger problems on your hands.
@@ -174,6 +186,9 @@
   components:
   - type: Sprite
     state: liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
     maxReagents: 1
     metabolizerTypes: [Human]
@@ -198,6 +213,9 @@
   components:
   - type: Sprite
     state: ticket
+  - type: Item
+    size: Small
+    heldPrefix: ticket
   - type: FlavorProfile
     flavors:
       - salty
@@ -255,6 +273,17 @@
     layers:
       - state: kidney-l
       - state: kidney-r
+  - type: Item
+    size: Small
+    heldPrefix: kidney
+  - type: Clothing
+    quickEquip: false
+    equippedPrefix: kidney
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: kidney-equipped-HELMET
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Metabolizer
     maxReagents: 5
@@ -292,6 +321,9 @@
   components:
   - type: Sprite
     state: appendix
+  - type: Item
+    size: Small
+    heldPrefix: appendix
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Effects/Fluids/blood2.ogg
