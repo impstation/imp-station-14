@@ -585,8 +585,12 @@ public sealed partial class GoobChangelingSystem : EntitySystem
             return;
         }
 
-        var flashimmune = EnsureComp<FlashImmunityComponent>(uid);
-        flashimmune.ShowInExamine = false; //#IMP Don't give away that we're a changeling by showing "It provides protection from bright flashes"
+        var flashImmune = new FlashImmunityComponent
+        {
+            Enabled = true,
+            ShowInExamine = false //#IMP Don't give away that we're a changeling by showing "It provides protection from bright flashes"
+        };
+        AddComp(uid, flashImmune);
         _popup.PopupEntity(Loc.GetString("changeling-passive-activate"), uid, uid);
     }
     public void OnBiodegrade(EntityUid uid, GoobChangelingComponent comp, ref ActionBiodegradeEvent args)
