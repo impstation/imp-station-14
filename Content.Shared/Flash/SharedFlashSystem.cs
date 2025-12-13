@@ -282,4 +282,12 @@ public abstract class SharedFlashSystem : EntitySystem
         if (ent.Comp.ShowInExamine)
             args.PushMarkup(Loc.GetString("flash-protection"));
     }
+
+    ///<summary>
+    ///#IMP Change examine state
+    ///</summary>
+    public void SetExamineState(Entity<FlashImmunityComponent> ent, bool newState)
+    {
+        ent.Comp.ShowInExamine = newState;
+    }
 }
