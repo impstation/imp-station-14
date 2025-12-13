@@ -216,10 +216,16 @@
           min: 12
         # dwarves immune to vomiting from alcohol
         - !type:MetabolizerTypeCondition
-          type: [ Dwarf ]
+          type: [ Dwarf, Allulalo ] #imp edit: added Allulalo
           inverted: true
       - !type:Drunk
         boozePower: 20
+      - !type:SatiateThirst #imp
+        conditions:
+        - !type:MetabolizerTypeCondition #drinky bird
+          type: [ Allulalo ]
+          inverted: false
+        factor: 5
 
 - type: reagent
   id: Gin
