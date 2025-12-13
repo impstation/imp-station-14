@@ -146,6 +146,7 @@
   - type: SolutionContainerManager
     solutions:
       shardrglass:
+        canReact: false # imp don't make kelotane on shard spawn please
         reagents:
         - ReagentId: Silicon
           Quantity: 5 #I don't care enough to divide all of the reinforced glass materials by 2 because reinforced glass shards are due for removal anyways.
