@@ -62,7 +62,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
+            Poison: 0.5
       - !type:ModifyBleed
         amount: -2
       - !type:AdjustReagent
