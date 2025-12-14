@@ -1,0 +1,14 @@
+- type: entity
+  id: OrganDinosaurLungs
+  parent: OrganAnimalLungs
+  name: dinosaur lungs
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Dinosaur]
+    groups:
+    - id: Gas
+      rateModifier: 100.0

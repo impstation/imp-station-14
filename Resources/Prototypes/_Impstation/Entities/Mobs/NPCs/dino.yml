@@ -59,7 +59,7 @@
     - Alive
     - Dead
   - type: Body
-    prototype: Animal
+    prototype: Dinosaur
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Dinosaur
@@ -137,6 +137,32 @@
   - type: Vocal
     sounds:
       Unsexed: DinoEmotes
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: SpawnOnTrigger
+    proto: DinoLootSpawner
+  - type: GibOnTrigger
+
+- type: entity
+  name: Dino Loot Spawner
+  id: DinoLootSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+    - type: GroupSpawner
+      spawns:
+      - id: MaterialBones1
+        amount: 4
+        maxAmount: 4
+      - id: FoodMeat
+        amount: 2
+        maxAmount: 2
+    - type: TriggerOnSpawn
+    - type: DeleteOnTrigger
+
 
 - type: entity
   parent: BaseMobDinosaur
