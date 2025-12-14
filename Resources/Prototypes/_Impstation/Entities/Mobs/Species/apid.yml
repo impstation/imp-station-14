@@ -15,6 +15,7 @@
   - type: Body
     prototype: Apid
     requiredLegs: 2
+  - type: CanWieldOneHanded
   - type: InteractionPopup
     successChance: 0.9
     interactSuccessString: petting-success-apid
