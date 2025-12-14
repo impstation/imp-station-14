@@ -1,4 +1,17 @@
-#Defensive. to do sort order
+#Defensive
+- type: listing
+  id: SpellbookMagicRock
+  name: spellbook-magic-rock-name
+  description: spellbook-magic-rock-desc
+  productAction: ActionPolymorphMagicRock
+  cost:
+    WizCoin: 4
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 - type: listing
   id: SpellbookWandBubbles
   name: spellbook-wand-bub-name
@@ -525,20 +538,6 @@
     WizCoin: 2
   categories:
   - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-# Defensive
-- type: listing
-  id: SpellbookMagicRock
-  name: spellbook-magic-rock-name
-  description: spellbook-magic-rock-desc
-  productAction: ActionPolymorphMagicRock
-  cost:
-    WizCoin: 4
-  categories:
-  - SpellbookDefensive
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1

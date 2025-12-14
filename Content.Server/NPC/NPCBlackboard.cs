@@ -34,7 +34,7 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
         {"RotateSpeed", float.MaxValue},
         {"VisionRadius", 10f},
         {"AggroVisionRadius", 10f},
-        {"TouchRange", 0f},
+        {"TouchRange", 0f}, /// Imp add
     };
 
     /// <summary>

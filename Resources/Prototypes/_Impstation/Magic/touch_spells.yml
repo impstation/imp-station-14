@@ -8,7 +8,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/_Impstation/Magic/magicpowers.ogg
     icon:
-      sprite: _Impstation/Clothing/Head/Hats/witchhat.rsi
+      sprite: _Impstation/Clothing/Head/Hats/apprentice_hat.rsi
       state: icon
   - type: EntityTargetAction
     event: !type:ChangeComponentsSpellEvent
@@ -61,7 +61,7 @@
   components:
   - type: Action
     sound: !type:SoundPathSpecifier
-      path: /Audio/_Impstation/Magic/dinnerbell.ogg
+      path: /Audio/Items/desk_bell_ring.ogg
     icon:
       sprite: Objects/Consumable/Food/Baked/cake.rsi
       state: berry_delight
