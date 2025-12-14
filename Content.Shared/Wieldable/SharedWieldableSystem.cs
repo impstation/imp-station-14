@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._Impstation.Decapoids;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -25,6 +24,7 @@ using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Timing;
+using Content.Shared._Impstation.Decapoids; // imp
 
 namespace Content.Shared.Wieldable;
 
