@@ -20,6 +20,7 @@ public sealed partial class DamageOtherOnHitComponent : Component
 
     /// <summary>
     /// The damage amount to deal on hit.
+    ///     IMP: If this is empty, damage will be inherited from <see cref="MeleeWeaponComponent"/>.
     /// </summary>
     [DataField] //  IMP: remove required true
     public DamageSpecifier Damage = new(); // IMP: damage is empty, not default!

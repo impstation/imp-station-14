@@ -16,6 +16,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 // start ee throwing
+using Content.Shared._EE.Projectiles;
 using Content.Shared._EE.Throwing;
 using Content.Shared.Damage.Components;
 using Content.Shared.Examine;
@@ -296,12 +297,26 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     // ee add
     private void OnExamined(EntityUid uid, EmbeddableProjectileComponent component, ExaminedEvent args)
     {
-        if (!(component.Target is { } target))
-            return;
+        var message = new FormattedMessage();
 
-        var targetIdentity = Identity.Entity(target, EntityManager);
+        if (component.Target is { } target)
+        {
+            var targetIdentity = Identity.Entity(target, EntityManager);
+            message.AddMarkupOrThrow(Loc.GetString("throwing-examine-embedded", ("embedded", uid), ("target", targetIdentity)));
+            message.PushNewline();
+        }
 
-        args.PushMarkup(Loc.GetString("throwing-examine-embedded", ("embedded", uid), ("target", targetIdentity)));
+        if (component.EmbedOnThrow)
+        {
+            var isHarmful = TryComp<EmbedPassiveDamageComponent>(uid, out var passiveDamage) && passiveDamage.Damage.AnyPositive();
+            var loc = isHarmful
+                ? "damage-examine-embeddable-harmful"
+                : "damage-examine-embeddable";
+            message.AddMarkupOrThrow(Loc.GetString(loc));
+            message.PushNewline();
+        }
+
+        args.AddMessage(message);
     }
 
     [Serializable, NetSerializable]

@@ -10,9 +10,6 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
-using Content.Shared._EE.Projectiles; // ee throwing
-using Content.Shared.Damage.Events; // ee throwing
-using Robust.Shared.Utility; // ee throwing
 
 namespace Content.Server.Projectiles;
 
@@ -29,7 +26,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     {
         base.Initialize();
         SubscribeLocalEvent<ProjectileComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<EmbeddableProjectileComponent, DamageExamineEvent>(OnDamageExamine); // ee throwing
     }
 
     private void OnStartCollide(EntityUid uid, ProjectileComponent component, ref StartCollideEvent args)
@@ -128,23 +124,5 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         {
             RaiseNetworkEvent(new ImpactEffectEvent(component.ImpactEffect, GetNetCoordinates(xform.Coordinates)), Filter.Pvs(xform.Coordinates, entityMan: EntityManager));
         }
-    }
-
-    // ee throwing add
-    private void OnDamageExamine(EntityUid uid, EmbeddableProjectileComponent comp, ref DamageExamineEvent args)
-    {
-        if (!comp.EmbedOnThrow)
-            return;
-
-        if (!args.Message.IsEmpty)
-            args.Message.PushNewline();
-
-        var isHarmful = TryComp<EmbedPassiveDamageComponent>(uid, out var passiveDamage) && passiveDamage.Damage.AnyPositive();
-        var loc = isHarmful
-            ? "damage-examine-embeddable-harmful"
-            : "damage-examine-embeddable";
-
-        var staminaCostMarkup = FormattedMessage.FromMarkupOrThrow(Loc.GetString(loc));
-        args.Message.AddMessage(staminaCostMarkup);
     }
 }

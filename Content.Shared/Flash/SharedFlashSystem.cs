@@ -105,15 +105,6 @@ public abstract class SharedFlashSystem : EntitySystem
         FlashArea(ent.Owner, null, ent.Comp.Range, ent.Comp.AoeFlashDuration, ent.Comp.SlowTo, true, ent.Comp.Probability);
     }
 
-
-    // EE THROWING, allows for flashing when thrown at someone
-    private void OnFlashThrowHitEvent(Entity<FlashComponent> ent, ref ThrowDoHitEvent args)
-    {
-        if (!UseFlash(ent, null, true))
-            return;
-        FlashArea(ent.Owner, null, ent.Comp.Range, ent.Comp.AoeFlashDuration, ent.Comp.SlowTo, false, ent.Comp.Probability);
-    }
-
     /// <summary>
     /// Use charges and set the visuals.
     /// </summary>
@@ -281,5 +272,13 @@ public abstract class SharedFlashSystem : EntitySystem
     {
         if (ent.Comp.ShowInExamine)
             args.PushMarkup(Loc.GetString("flash-protection"));
+    }
+
+    // EE THROWING, allows for flashing when thrown at someone
+    private void OnFlashThrowHitEvent(Entity<FlashComponent> ent, ref ThrowDoHitEvent args)
+    {
+        if (!UseFlash(ent, null, true))
+            return;
+        FlashArea(ent.Owner, null, ent.Comp.Range, ent.Comp.AoeFlashDuration, ent.Comp.SlowTo, false, ent.Comp.Probability);
     }
 }

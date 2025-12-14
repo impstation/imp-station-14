@@ -35,7 +35,7 @@ public abstract class SharedDamageOtherOnHitSystem : EntitySystem
         // EE END
     }
 
-    // EE REMOVE- we handle this on hit
+    // EE REMOVE- we handle this in server DamageOtherOnHitSystem
     /* /// <summary>
     /// Prevent players with the Pacified status effect from throwing things that deal damage.
     /// </summary>
