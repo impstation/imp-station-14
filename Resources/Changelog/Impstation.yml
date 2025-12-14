@@ -1,95 +1,4 @@
 ﻿Entries:
-- author: sev7ves
-  changes:
-  - message: pleebnars have honed their telepathic abilities and now other cannot
-      see the vision selection popup
-    type: Fix
-  id: 1971
-  time: '2025-07-05T14:12:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2920
-- author: widgetbeck
-  changes:
-  - message: Actually fixed the Replicator queen pinpointer bug for real this time.
-    type: Fix
-  - message: Prevented some instances of player bodies being deleted when put into
-      the Replicator Nest. This fix also makes lockers and crates dump their contents
-      upon falling.
-    type: Fix
-  id: 1972
-  time: '2025-07-05T14:14:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2940
-- author: SixValentine
-  changes:
-  - message: The reporter has rented the computer lab on Hash
-    type: Add
-  - message: No more ERP on Hash
-    type: Fix
-  - message: Luna Genpop adjustments and Pipe Dreams
-    type: Fix
-  id: 1973
-  time: '2025-07-05T14:16:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2960
-- author: crocodilecarousel
-  changes:
-  - message: the shape of crystals twists before your eyes
-    type: Tweak
-  id: 1974
-  time: '2025-07-05T14:24:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2978
-- author: yesteryuri
-  changes:
-  - message: Gastropoid allergies are functional and species guidebook consistent.
-      Salt bad! Copper good!
-    type: Tweak
-  - message: Ambuzol no longer cares about which zombie's blood it came from
-    type: Fix
-  id: 1975
-  time: '2025-07-05T14:28:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2959
-- author: DinnerCalzone
-  changes:
-  - message: Tck'Tck along with a number of other entities' toggleable lights should
-      work now.
-    type: Fix
-  id: 1976
-  time: '2025-07-05T14:29:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2958
-- author: CrystalClover
-  changes:
-  - message: Immovable Baguettes can now spawn naturally.
-    type: Fix
-  id: 1977
-  time: '2025-07-05T14:41:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2989
-- author: mqole
-  changes:
-  - message: Snail shells now layer properly.
-    type: Fix
-  id: 1978
-  time: '2025-07-06T02:34:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2981
-- author: SixValentine
-  changes:
-  - message: Luna and Hash are getting a little more green access. Abuse them, see
-      what happens.
-    type: Tweak
-  id: 1979
-  time: '2025-07-06T04:56:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2995
-- author: TheLuggage05
-  changes:
-  - message: Radio jammers cost 2 TC in the uplink now!
-    type: Tweak
-  id: 1980
-  time: '2025-07-06T04:57:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2996
-- author: britno
-  changes:
-  - message: Gave the zookeeper a toolbelt they were meant to have ages ago. Whoops!
-    type: Fix
-  id: 1981
-  time: '2025-07-06T04:58:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2991
 - author: hivehum
   changes:
   - message: 'Calling all besties: KILL!!!!!!!!!!!!!!!!!!!!!!! (you may now be ordered
@@ -4176,3 +4085,90 @@
   id: 2470
   time: '2025-12-06T23:16:32.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3815
+- author: mqole
+  changes:
+  - message: Added a new guidebook page for Visitor Species.
+    type: Add
+  id: 2471
+  time: '2025-12-07T09:22:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3820
+- author: ATDoop, mqole, honeyed-lemons, LandsharkRawr, Skeepo
+  changes:
+  - message: there's weird shrimp now I think?
+    type: Add
+  id: 2472
+  time: '2025-12-07T05:22:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3520
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Starflare EPDW-6 can now be purchased from cargo or found randomly
+      in some HoS offices!
+    type: Add
+  - message: The Military Blaster Cell can be unlocked with Advanced Sidearm Research
+      to give your TS-99 a bit more of a punch!
+    type: Add
+  - message: Removed the TT-10 from the random HoS office weapon pool
+    type: Tweak
+  id: 2473
+  time: '2025-12-09T04:11:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3770
+- author: TheGrimbeeper
+  changes:
+  - message: Fixed reinforced glass shard making mixing noise on spawn
+    type: Fix
+  id: 2474
+  time: '2025-12-09T04:40:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3804
+- author: yesteryuri
+  changes:
+  - message: The no species accent trait no longer blocks off other selectable accents
+    type: Fix
+  id: 2475
+  time: '2025-12-10T18:08:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3762
+- author: coyragon96
+  changes:
+  - message: The ninja's power drain now drains the correct amount of power.
+    type: Fix
+  id: 2476
+  time: '2025-12-11T01:45:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3788
+- author: hivehum
+  changes:
+  - message: Nanotrasen is pleased to announce that trade negotiations regarding its
+      supplier of matter bins and capacitors have completed, and new shipments have
+      arrived at all stations.
+    type: Add
+  id: 2477
+  time: '2025-12-11T04:57:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3777
+- author: ATDoop
+  changes:
+  - message: You can find a weird long toy now.
+    type: Add
+  id: 2478
+  time: '2025-12-11T05:28:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3840
+- author: yesteryuri
+  changes:
+  - message: Doughs and cheese and such have a page in the cooking recipes now
+    type: Add
+  id: 2479
+  time: '2025-12-11T05:36:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3768
+- author: kipdotnet
+  changes:
+  - message: Ephedrine and Desoxyephedrine now cause you to heat up and gain thirst
+      from prolonged use.
+    type: Tweak
+  id: 2480
+  time: '2025-12-11T05:37:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3745
+- author: mqole
+  changes:
+  - message: Hospitality Directors now have access to the Service Job Board! Coordinate
+      an event for your crew, and keep morale high.
+    type: Add
+  id: 2481
+  time: '2025-12-11T18:17:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3377
