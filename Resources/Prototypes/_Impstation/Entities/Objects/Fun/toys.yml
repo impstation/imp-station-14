@@ -1247,3 +1247,29 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Impstation/Allulalo/allulalo_scream.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieAnomalocarid
+  name: anomalocarid plushie
+  description: You bet you could throw this really really far if you held it by the legs and started spinning.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_anomalocarid
+  - type: Item
+    inhandVisuals:
+      left:
+        - state: plushie_anomalocarid-inhand-left
+      right:
+        - state: plushie_anomalocarid-inhand-right
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_talk.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_exclaim.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_scream.ogg
+  - type: MultiHandedItem

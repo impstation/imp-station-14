@@ -100,5 +100,17 @@
     - id: TranqDart
       amount: 5
     - id: IrwizineDart
-
       amount: 3
+
+- type: entity
+  id: CrateArmoryStarflare
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  name: Starflare crate
+  description: Contains two Starflare EPDW-6 guns with four cells. Requires Armory access to open.
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponStarflareSMG
+      amount: 2
+    - id: PowerCellStarflare
+      amount: 4

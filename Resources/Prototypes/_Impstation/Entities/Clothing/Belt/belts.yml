@@ -25,15 +25,28 @@
 
 # gob belt
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: ClothingBeltUtility
   id: ClothingBeltUtilityGoblinRandomFill
-  name: utility belt
-  description: Can hold various things.
+  suffix: Random Fill, Gobtools
   components:
-  - type: Sprite
-    sprite: Clothing/Belt/utility.rsi
-  - type: Clothing
-    sprite: Clothing/Belt/utility.rsi
+  - type: StorageFill
+    contents:
+    - id: ClothingHandsGlovesColorYellow
+      prob: 0.01
+    - id: ClothingHeadHatWelding
+      prob: 0.5
+    - id: GoblinWirecutters
+      prob: 0.3
+    - id: GoblinScrewdriver
+      prob: 0.3
+    - id: GoblinWrench
+      prob: 0.3
+    - id: GoblinCrowbar
+      prob: 0.3
+    - id: GoblinMultitool
+      prob: 0.3
+    - id: GoblinWelder
+      prob: 0.3
   - type: Storage
     maxItemSize: Normal
     # inherited from utility belt
@@ -67,61 +80,7 @@
       - TrayScanner
       - GasAnalyzer
       - HandLabeler
-      - Insulated
-  - type: ItemMapper
-    mapLayers:
-      drill:
-        whitelist:
-          tags:
-          - Powerdrill
-      cutters_red:
-        whitelist:
-          tags:
-          - Wirecutter
-      crowbar:
-        whitelist:
-          tags:
-          - Crowbar
-      crowbar_red:
-        whitelist:
-          tags:
-          - CrowbarRed
-      jaws:
-        whitelist:
-          tags:
-          - JawsOfLife
-      screwdriver_nuke:
-        whitelist:
-          tags:
-          - Screwdriver
-      wrench:
-        whitelist:
-          tags:
-          - Wrench
-      multitool:
-        whitelist:
-          tags:
-          - Multitool
-    sprite: Clothing/Belt/belt_overlay.rsi
-  - type: Appearance
-  - type: StorageFill
-    contents:
-    - id: ClothingHandsGlovesColorYellow
-      prob: 0.01
-    - id: ClothingHeadHatWelding
-      prob: 0.5
-    - id: GoblinWirecutters
-      prob: 0.3
-    - id: GoblinScrewdriver
-      prob: 0.3
-    - id: GoblinWrench
-      prob: 0.3
-    - id: GoblinCrowbar
-      prob: 0.3
-    - id: GoblinMultitool
-      prob: 0.3
-    - id: GoblinWelder
-      prob: 0.3
+      - Insulated # <-- we copy this whole tower for one component ok?
 
 # chaplain
 - type: entity

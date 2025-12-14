@@ -38,6 +38,7 @@
   - type: Storage
     grid:
     - 0,0,3,1
+    maxItemSize: Tiny # imp
   - type: Item
     sprite: Objects/Consumable/Smokeables/Cigars/case.rsi
     size: Normal

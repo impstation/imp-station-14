@@ -111,6 +111,9 @@
     damage:
       types:
         Slash: 12
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
   - type: LandAtCursor
   - type: DamageOtherOnHit
     damage:
@@ -194,14 +197,17 @@
     damage:
       types:
         Slash: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 10
+    staminaCost: 5 # imp add
   - type: LandAtCursor
   - type: Sprite
     sprite: Clothing/Head/Hats/greyflatcap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/greyflatcap.rsi
   # imp edits #
-  - type: DamageOtherOnHit
-    staminaCost: 5
   - type: EmbeddableProjectile
   - type: EmbedPassiveDamage
   # end imp edits #
@@ -325,6 +331,9 @@
     damage:
       types:
         Slash: 5
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
   - type: LandAtCursor
   - type: DamageOtherOnHit
     ignoreResistances: true
@@ -376,7 +385,7 @@
         path: /Audio/Items/Culinary/chop.ogg
   - type: Item
     size: Tiny
-    sprite: Objects/Weapons/Melee/utility_knife.rsi
+    sprite: _Impstation/Objects/Weapons/Melee/utility_knife.rsi # imp edit
   - type: ItemToggle
     soundActivate:
       path: /Audio/Weapons/utilityknifeopen.ogg
@@ -389,7 +398,7 @@
       types:
         Slash: 4
   - type: MeleeWeapon
-    wideAnimationRotation: -135
+    wideAnimationRotation: 180 # imp, changed from -135
     attackRate: 1
     damage:
       types:
@@ -398,22 +407,22 @@
     materialComposition:
       Steel: 50
   - type: Sprite
-    sprite: Objects/Weapons/Melee/utility_knife.rsi
+    sprite: _Impstation/Objects/Weapons/Melee/utility_knife.rsi # imp edit
     layers:
-    - state: utility_knife_handle
-    - state: utility_knife_blade
+    - state: icon # imp edit
+    - state: icon_engaged # imp edit
       visible: false
-      map: [ "blade" ]
+      map: [ "engaged" ] # imp edit
   - type: Tag
     tags:
     - Knife
     - UtilityKnife
   - type: ToggleableVisuals
-    spriteLayer: blade
+    spriteLayer: engaged # imp edit
     inhandVisuals:
       left:
-      - state: inhand-left-blade
+      - state: inhand-left_engaged # imp edit
       right:
-      - state: inhand-right-blade
+      - state: inhand-right_engaged # imp edit
   - type: UseDelay
     delay: 0.2

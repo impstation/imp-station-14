@@ -51,6 +51,8 @@
     - id: PlushieEvilBug
       weight: 0.01
     - id: PlushieDecapoid
+    - id: PlushieAnomalocarid #rarer because it's big and weird
+      weight: 0.3
     - id: PlushieSnail
     - id: PlushieRaptor
     - id: PlushieThaven
@@ -176,6 +178,8 @@
         - id: PlushieSpaceLizard
           amount: !type:ConstantNumberSelector
             value: 3
+        - id: PlushieLizardJobMultiweh # the exceedingly rare multiweh!
+          prob: 0.01
 
 - type: entity
   id: CrateFunSharkPlushieBulk
@@ -488,7 +492,7 @@
     contents:
       - id: SnapPopBox
       - id: CrazyGlue
-        amount: 2
+      - id: CrazyLube
       - id: PlasticBanana
       - id: WhoopieCushion
       - id: ToyHammer

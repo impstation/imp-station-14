@@ -62,12 +62,25 @@
   id: LetterCommonEntityTable # Basically trash and spam mail, maybe something barely useful here and there
   table: !type:GroupSelector
     children:
+    #- !type:NestedSelector # Don't you love getting mailed trash? # Imp edit, no, actually, we don't
+    #  tableId: GenericTrashItems
     - !type:NestedSelector
       weight: 3 #imp
       tableId: SpamMailTable
+    #- !type:NestedSelector #imp, disabled in favor of below NestedSelector
+    #  weight: 2
+    #  tableId: RandomBookTable
+    #- !type:NestedSelector
+    #  weight: 2
+    #  tableId: RandomSnackTable
+    #- !type:NestedSelector
+    #  weight: 2
+    #  tableId: RandomAllSodaTable
+    # start imp edit
     - !type:NestedSelector
       weight: 7
       tableId: LetterImpCommonEntityTable
+    # end imp edit
 
 - type: entityTable # TODO: Add more variety!
   id: LetterUncommonEntityTable # Some more varied things, should never be more expensive than 100 spesos
@@ -75,11 +88,17 @@
     children:
     - !type:NestedSelector
       tableId: RandomSafePillTable
+    #- !type:NestedSelector #imp edit
+    #  tableId: RandomSafeSyringeTable
     - !type:NestedSelector
       tableId: UncommonLetterBundleTable
-    - !type:NestedSelector #start imp
+    #- id: SpaceCash100 #imp edit
+    #- id: Joint #imp edit
+    # start imp edit
+    - !type:NestedSelector
       weight: 0.45
-      tableId: LetterImpUncommonEntityTable #end imp
+      tableId: LetterImpUncommonEntityTable
+    # end imp edit
 
 - type: entityTable # TODO: Add more variety!
   id: LetterRareEntityTable # Interesting things that can actually be of use, should never be more expensive than 500 spesos
@@ -96,10 +115,16 @@
       - id: Ointment
       - id: Gauze
       - id: Bloodpack
-      - id: SimpleSuture #start imp
+      # imp edit start
+      - id: SimpleSuture
       - id: Tincture
+      # imp edit end
+    - id: SyndicateBusinessCard
+      weight: 0.5
+    # imp edit start
     - !type:NestedSelector
-      tableId: LetterImpRareEntityTable # end imp
+      tableId: LetterImpRareEntityTable
+    # imp edit end
 
 # Packages
 # TODO: Currently mostly maints loot, should be updated in the future.
@@ -111,9 +136,15 @@
       tableId: MaintToolsTable
       rolls: !type:RangeNumberSelector
         range: 1, 2
-    - !type:NestedSelector #start imp
+    #- !type:NestedSelector #imp edit, disabled in favor of below NestedSelector
+    #  tableId: FoodRandomCakeTable
+    #  weight: 2
+    #- id: FoodBoxPizzaFilled
+    # imp edit start
+    - !type:NestedSelector
       weight: 0.5
-      tableId: PackageImpCommonEntityTable #end imp
+      tableId: PackageImpCommonEntityTable
+    # imp edit end
 
 - type: entityTable
   id: PackageUncommonEntityTable
@@ -130,9 +161,16 @@
     - !type:NestedSelector
       tableId: RandomAllAlcoholTable
       weight: 0.2
-    - !type:NestedSelector #start imp
+      #rolls: !type:RangeNumberSelector #imp edit
+      #  range: 2, 3
+    - !type:NestedSelector
+      tableId: InsulsTable #Uncommon since it's weighted towards budget/fingerless
+      weight: 0.2
+    # imp edit start
+    - !type:NestedSelector
       tableId: PackageImpUncommonEntityTable
-      weight: 0.35 #end imp
+      weight: 0.35
+    # imp edit end
 
 - type: entityTable # TODO: Add more variety!
   id: PackageRareEntityTable
@@ -142,6 +180,8 @@
       weight: 0.15 #imp
     - id: PipeBomb # TODO: PackageRarePunishmentTable, including things like pipebombs and other potentially harmful things (the pipebomb should also get primed when unpacked)
       weight: 0.15 #imp
+    #- !type:NestedSelector #imp edit
+    #  tableId: SmallCritterEntityTable
     #- !type:NestedSelector # TODO: Uncomment after all the rare department bundles are done (medical, security, etc...)
     #  tableId: PackageRareDepartmentBundlesTable
     - !type:NestedSelector
@@ -152,7 +192,9 @@
       weight: 0.25 #imp
     - !type:NestedSelector
       tableId: SyndieMaintLoot
-      weight: 0.2 #start imp
+      weight: 0.2 #imp
+    # imp edit start
     - !type:NestedSelector
       tableId: PackageImpFriendsEntityTable
-      weight: 0.25 #end imp
+      weight: 0.25
+    # imp edit end

@@ -19,30 +19,28 @@
       - !type:SatiateThirst
         factor: -0.5
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: false
-      - !type:ChemVomit
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+          inverted: true
+      - !type:Vomit
         probability: 0.025
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+          inverted: true
       - !type:GenericStatusEffect
         key: Stutter
         component: GoblinAccent
         probability: 0.025
         type: Add
         time: 30
-        refresh: true
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+          inverted: true
       # Effects for goblins
       - !type:SatiateThirst
         factor: 1
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
