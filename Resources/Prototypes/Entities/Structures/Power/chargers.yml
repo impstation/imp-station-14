@@ -35,6 +35,16 @@
           collection: MetalBreak
   - type: StaticPrice
     price: 75
+  - type: StationAiWhitelist #Imp edit
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    boardName: wires-board-name-recharger
+    layoutId: AIGeneric 
+  - type: UserInterface
+    interfaces: 
+        enum.WiresUiKey.Key:
+         type: WiresBoundUserInterface # imp edit end
 
 - type: entity
   abstract: true
@@ -87,7 +97,6 @@
       visible: false
   - type: Machine
     board: CellRechargerCircuitboard
-  - type: WiresPanel
   - type: GenericVisualizer
     visuals:
       enum.WiresVisuals.MaintenancePanelState:
@@ -284,8 +293,6 @@
     - machine_parts
     - machine_board
     - entity_storage
-  - type: WiresPanel
-  - type: WiresVisuals
   - type: Machine
     board: BorgChargerCircuitboard
   - type: GenericVisualizer
