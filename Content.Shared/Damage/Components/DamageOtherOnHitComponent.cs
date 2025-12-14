@@ -1,7 +1,8 @@
-using Content.Shared._EE.Damage.Systems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Projectiles;
-using Robust.Shared.Audio; // EE THROWING
+using Robust.Shared.Audio;
+using Content.Shared._EE.Damage.Systems; // EE THROWING
+using Robust.Shared.GameStates; // EE THROWING
 
 namespace Content.Shared.Damage.Components;
 
@@ -9,20 +10,21 @@ namespace Content.Shared.Damage.Components;
 /// Makes this entity deal damage when thrown at something.
 /// </summary>
 [RegisterComponent]
+[NetworkedComponent, AutoGenerateComponentState] // imp add
 [Access(typeof(SharedDamageOtherOnHitSystem), typeof(EEThrowingSystem), typeof(SharedProjectileSystem))] // imp add EEThrowingSystem, SharedProjectileSystem
 public sealed partial class DamageOtherOnHitComponent : Component
 {
     /// <summary>
     /// Whether to ignore damage modifiers.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField] //  IMP: add networked
     public bool IgnoreResistances = false;
 
     /// <summary>
     /// The damage amount to deal on hit.
     ///     IMP: If this is empty, damage will be inherited from <see cref="MeleeWeaponComponent"/>.
     /// </summary>
-    [DataField] //  IMP: remove required true
+    [DataField, AutoNetworkedField] //  IMP: remove required true, add networked
     public DamageSpecifier Damage = new(); // IMP: damage is empty, not default!
 
     // EE THROWING START
@@ -30,7 +32,7 @@ public sealed partial class DamageOtherOnHitComponent : Component
     /// <summary>
     ///   The stamina cost of throwing this entity.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float StaminaCost = 3.5f;
 
     /// <summary>
@@ -43,7 +45,7 @@ public sealed partial class DamageOtherOnHitComponent : Component
     ///   The multiplier to apply to the entity's light attack damage to calculate the throwing damage.
     ///   Only used if this component has a MeleeWeaponComponent and Damage is not set on the prototype.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float MeleeDamageMultiplier = 1f;
 
     /// <summary>

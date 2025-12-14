@@ -29,65 +29,68 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
     /// <summary>
     ///   Inherit stats from DamageOtherOnHit.
     /// </summary>
-    private void OnDamageOtherOnHitStartup(EntityUid uid, EmbedPassiveDamageComponent component, DamageOtherOnHitStartupEvent args)
+    private void OnDamageOtherOnHitStartup(Entity<EmbedPassiveDamageComponent> ent, ref DamageOtherOnHitStartupEvent args)
     {
-        if (component.Damage.Empty)
-            component.Damage = args.Weapon.Comp.Damage * component.ThrowingDamageMultiplier;
+        if (ent.Comp.Damage.Empty)
+            ent.Comp.Damage = args.Weapon.Comp.Damage * ent.Comp.ThrowingDamageMultiplier;
+        Dirty(ent);
     }
 
     /// <summary>
     ///   Inherit stats from ItemToggleDamageOtherOnHit.
     /// </summary>
-    private void OnItemToggleStartup(EntityUid uid, ItemToggleEmbedPassiveDamageComponent component, ItemToggleDamageOtherOnHitStartupEvent args)
+    private void OnItemToggleStartup(Entity<ItemToggleEmbedPassiveDamageComponent> ent, ref ItemToggleDamageOtherOnHitStartupEvent args)
     {
-        if (!TryComp<EmbedPassiveDamageComponent>(uid, out var embedPassiveDamage) ||
-            component.ActivatedDamage != null ||
+        if (!TryComp<EmbedPassiveDamageComponent>(ent, out var embedPassiveDamage) ||
+            ent.Comp.ActivatedDamage != null ||
             !(args.Weapon.Comp.ActivatedDamage is { } activatedDamage))
             return;
 
-        component.ActivatedDamage = activatedDamage * embedPassiveDamage.ThrowingDamageMultiplier;
+        ent.Comp.ActivatedDamage = activatedDamage * embedPassiveDamage.ThrowingDamageMultiplier;
+        Dirty(ent);
     }
 
-    private void OnEmbed(EntityUid uid, EmbedPassiveDamageComponent component, EmbedEvent args)
+    private void OnEmbed(Entity<EmbedPassiveDamageComponent> ent, ref EmbedEvent args)
     {
-        if (component.Damage.Empty || component.Damage.GetTotal() == 0 ||
+        if (ent.Comp.Damage.Empty || ent.Comp.Damage.GetTotal() == 0 ||
             !TryComp<MobStateComponent>(args.Embedded, out var mobState) ||
             !TryComp<DamageableComponent>(args.Embedded, out var damageable))
             return;
 
-        component.Embedded = args.Embedded;
-        component.EmbeddedDamageable = damageable;
-        component.EmbeddedMobState = mobState;
-        component.NextDamage = _timing.CurTime + TimeSpan.FromSeconds(1f);
+        ent.Comp.Embedded = args.Embedded;
+        ent.Comp.EmbeddedDamageable = damageable;
+        ent.Comp.EmbeddedMobState = mobState;
+        ent.Comp.NextDamage = _timing.CurTime + TimeSpan.FromSeconds(1f);
 
-        Dirty(uid, component);
+        Dirty(ent);
     }
 
-    private void OnRemoveEmbed(EntityUid uid, EmbedPassiveDamageComponent component, RemoveEmbedEvent args)
+    private void OnRemoveEmbed(Entity<EmbedPassiveDamageComponent> ent, ref RemoveEmbedEvent args)
     {
-        component.Embedded = null;
-        component.EmbeddedDamageable = null;
-        component.EmbeddedMobState = null;
-        component.NextDamage = TimeSpan.Zero;
+        ent.Comp.Embedded = null;
+        ent.Comp.EmbeddedDamageable = null;
+        ent.Comp.EmbeddedMobState = null;
+        ent.Comp.NextDamage = TimeSpan.Zero;
 
-        Dirty(uid, component);
+        Dirty(ent);
     }
 
     /// <summary>
     ///   Used to update the EmbedPassiveDamageComponent component on item toggle.
     /// </summary>
-    private void OnItemToggle(EntityUid uid, EmbedPassiveDamageComponent component, ItemToggledEvent args)
+    private void OnItemToggle(Entity<EmbedPassiveDamageComponent> ent, ref ItemToggledEvent args)
     {
-        if (!TryComp<ItemToggleEmbedPassiveDamageComponent>(uid, out var itemTogglePassiveDamage))
+        if (!TryComp<ItemToggleEmbedPassiveDamageComponent>(ent, out var itemTogglePassiveDamage))
             return;
 
         if (args.Activated && itemTogglePassiveDamage.ActivatedDamage is { } activatedDamage)
         {
-            itemTogglePassiveDamage.DeactivatedDamage ??= component.Damage;
-            component.Damage = activatedDamage;
+            itemTogglePassiveDamage.DeactivatedDamage ??= ent.Comp.Damage;
+            ent.Comp.Damage = activatedDamage;
         }
         else if (itemTogglePassiveDamage.DeactivatedDamage is { } deactivatedDamage)
-            component.Damage = deactivatedDamage;
+            ent.Comp.Damage = deactivatedDamage;
+        Dirty(ent);
     }
 
     public override void Update(float frameTime)

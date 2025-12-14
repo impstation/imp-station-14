@@ -53,6 +53,7 @@ public sealed class EEThrowingSystem : EntitySystem
         }
 
         RaiseLocalEvent(ent, new DamageOtherOnHitStartupEvent(ent));
+        Dirty(ent);
     }
 
     /// <summary>
@@ -75,6 +76,7 @@ public sealed class EEThrowingSystem : EntitySystem
             ent.Comp.ActivatedNoDamageSound = activatedSoundOnHitNoDamage;
 
         RaiseLocalEvent(ent, new ItemToggleDamageOtherOnHitStartupEvent(ent));
+        Dirty(ent);
     }
 
     /// <summary>
@@ -121,5 +123,6 @@ public sealed class EEThrowingSystem : EntitySystem
             if (itemToggle.DeactivatedNoDamageSound is { } deactivatedNoDamageSound)
                 ent.Comp.NoDamageSound = deactivatedNoDamageSound;
         }
+        Dirty(ent);
     }
 }
