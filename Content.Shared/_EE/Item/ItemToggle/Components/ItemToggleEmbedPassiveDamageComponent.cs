@@ -1,7 +1,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Item.ItemToggle.Components;
+namespace Content.Shared._EE.Item.ItemToggle.Components;
 
 /// <summary>
 ///   Handles the changes to the embed passive damage when toggled.

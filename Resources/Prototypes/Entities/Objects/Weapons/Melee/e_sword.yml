@@ -266,14 +266,11 @@
       types:
         Piercing: 3
     staminaCost: 3.5
+  - type: ItemToggleDamageOtherOnHit
   - type: EmbeddableProjectile
     offset: 0.3,0.0
     removalTime: 0.0
     embedOnThrow: true
-  - type: EmbedPassiveDamage
-    damage:
-      types:
-        Blunt: 0
   - type: ThrowingAngle
     angle: 315
   - type: SignatureWriter
