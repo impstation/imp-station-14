@@ -561,13 +561,13 @@ pleebnar-vision-186-name = Decadence
 pleebnar-vision-187 = A young couple sharing a Philadelphia style cheesesteak.
 pleebnar-vision-187-name = Date
 
-pleebnar-vision-188 = Everyone you know, lining up to give you a hug. Some people seem to be missing.
+pleebnar-vision-188 = Everyone you know lining up to give you a hug. You can't shake the feeling that some people are missing.
 pleebnar-vision-188-name = Missing
 
-pleebnar-vision-189 = A green, ghostly apparition of your favourite thing to build. You feel compelled to make it.
+pleebnar-vision-189 = A ghostly green apparition of your favourite thing to build. You feel compelled to make it.
 pleebnar-vision-189-name = Construction Ghost
 
-pleebnar-vision-190 = A colossal factory, run by laughing gnomes. They seem happy to see you.
+pleebnar-vision-190 = A colossal factory run by laughing gnomes. They seem happy to see you.
 pleebnar-vision-190-name = Inside The Machine
 
 pleebnar-vision-191 = Tiny pleebnar shaped holes, bisecting several culturally significant landmarks.
@@ -588,8 +588,8 @@ pleebnar-vision-195-name = Indecent
 pleebnar-vision-196 = A pristine landscape being enveloped by a swiftly encroaching red tendon-like moss.
 pleebnar-vision-196-name = Flesh
 
-pleebnar-vision-197 = A sprawling meadow, You really want to build a department store there.
-pleebnar-vision-197-name = Prime Realestate
+pleebnar-vision-197 = A sprawling meadow. You really want to build a department store there.
+pleebnar-vision-197-name = Prime Real Estate
 
 pleebnar-vision-198 = A late night run to the local gas station for snacks. They only have hotdogs in stock.
 pleebnar-vision-198-name = Limited Selection
@@ -612,7 +612,7 @@ pleebnar-vision-203-name = Hot Deal
 pleebnar-vision-204 = A biomechanical coffin housing a strangely proportioned bald woman.
 pleebnar-vision-204-name = Stasis
 
-pleebnar-vision-205 = A poorly illustrated animal, bounding joyfully over a very real landscape.
+pleebnar-vision-205 = A poorly illustrated animal bounding joyfully over a very real landscape.
 pleebnar-vision-205-name = Bounding
 
 pleebnar-vision-206 = A flock of animals, grazing peacefully.
@@ -630,7 +630,7 @@ pleebnar-vision-209-name = Nothing Good
 pleebnar-vision-210 = A fish with the face of a man.
 pleebnar-vision-210-name = Sea man
 
-pleebnar-vision-211 = The faint sound of a wind chime in the distance, dread washes over you.
+pleebnar-vision-211 = The faint sound of a wind chime in the distance. Dread washes over you.
 pleebnar-vision-211-name = Omen
 
 pleebnar-vision-212 = Candy being made by a skilled craftsman.
@@ -642,7 +642,7 @@ pleebnar-vision-213-name = Jewel.
 pleebnar-vision-214 = A girl lifts a football just as you kick it...
 pleebnar-vision-214-name = Betrayal
 
-pleebnar-vision-215 = A man stands in front of you, while precariously close to the mouth of an industrial meat grinder.
+pleebnar-vision-215 = A man stands in front of you, precariously close to the mouth of an industrial meat grinder.
 pleebnar-vision-215-name = Ignorant
 
 pleebnar-vision-216 = A grey wearing a propeller hat and holding a lollipop while riding a tricycle.
@@ -651,7 +651,7 @@ pleebnar-vision-216-name = Youth
 pleebnar-vision-217 = Molecules overlayed with your face slowly being converted into molecules with the pleebnar's face overlayed.
 pleebnar-vision-217-name = Conquest
 
-pleebnar-vision-218 = A heavy anvil approaching from above, at terminal velocity.
+pleebnar-vision-218 = A heavy anvil approaching from above at terminal velocity.
 pleebnar-vision-218-name = Slapstick
 
 pleebnar-vision-219 = A large machine you feel compelled to get an extremity caught in.
@@ -667,7 +667,7 @@ pleebnar-vision-222 = An endless desert with an oasis in the distance that you w
 pleebnar-vision-222-name = Mirage
 
 pleebnar-vision-223 = Yourself alone on stage, singing to the rafters.
-pleebnar-vision-223-name = Rehersal
+pleebnar-vision-223-name = Rehearsal
 
 pleebnar-vision-224 = A crude marionette sculpted in your visage, puppeteered in the midst of a crowded city street.
 pleebnar-vision-224-name = Puppetshow
@@ -675,7 +675,7 @@ pleebnar-vision-224-name = Puppetshow
 pleebnar-vision-225 = A crowded resteraunt. Its patrons notice you and scream in terror.
 pleebnar-vision-225-name = Party Crasher
 
-pleebnar-vision-226 = From behind a thick fog, rows of men in tall hats with brightly colored uniforms march forwards. They come to a stop and aim their muskets at you in unison.
+pleebnar-vision-226 = From behind a thick fog, rows of men in tall hats and brightly colored uniforms march forwards. They come to a stop and aim their muskets at you in unison.
 pleebnar-vision-226-name = Hunted
 
 pleebnar-vision-227 = A bright blue void. Despite thay lack of anything in sight, you feel like you are moving forwards with great speed. This lasts for what feels like hours until you see something coming into view. Something big. It sees you too.
@@ -756,7 +756,7 @@ pleebnar-vision-251-name = Apple.
 pleebnar-vision-252 = The person you love the most transforming into a worm.
 pleebnar-vision-252-name = Worm
 
-pleebnar-vision-253 = A evil clone of yourself, they are wearing a ridiculous black leather trenchcoat.
+pleebnar-vision-253 = A evil clone of yourself, wearing a ridiculous black leather trenchcoat.
 pleebnar-vision-253-name = Evil Clone
 
 pleebnar-vision-254 = A distressed peasant being held down and forced to take a puff on the vape.
@@ -768,10 +768,10 @@ pleebnar-vision-255-name = Pleebnar Mountain
 pleebnar-vision-256 = A beautiful, picturesque sunset on the edge of a forest hill. A human child no older than 2 years, wearing a tuxedo suit, offers you a cigarette.
 pleebnar-vision-256-name = Picturesque Cigarette
 
-pleebnar-vision-257 = A large, metallic-orange chamber, fitted with a large beam-emitting device in the center. You reach for a set of handlebars in front of you, and begin to push...
+pleebnar-vision-257 = A large metallic orange chamber fitted with a large beam-emitting device in the center. You reach for a set of handlebars in front of you, and begin to push...
 pleebnar-vision-257-name = Testing Chamber
 
-pleebnar-vision-258 = A perfect and platonic ideal of a hamburger is falling into place in slow motion. You watch, mesmerized, as the grease shimmers on the meat patty, and the lettuce moisture flickers in the light.
+pleebnar-vision-258 = The perfect hamburger is falling into place in slow motion. You watch, mesmerized, as the grease shimmers on the meat patty, and the lettuce moisture flickers in the light.
 pleebnar-vision-258-name = Perfect Hamburger
 
 pleebnar-vision-259 = A set of curtains in front of you. Your hands reach to open them, only to find more curtains behind it. And more. And more. And more...
@@ -810,10 +810,10 @@ pleebnar-vision-269-name = Encouragement
 pleebnar-vision-270 = A very old woman sitting on a wooden porch. A guitar is clutched in her hands, yet she’s too weak to play. Instead, she closes her eyes and remembers all the songs she’s played before, waiting for final curtain to fall. You can almost hear the music too. It’s beautiful.
 pleebnar-vision-270-name = An Ending
 
-pleebnar-vision-271 = Two men in the distance playing cards seen through a telescope, one pulls a gun and shoots the other.
+pleebnar-vision-271 = Two men in the distance playing cards seen through a telescope. One pulls a gun and shoots the other.
 pleebnar-vision-271-name = Sore Loser
 
-pleebnar-vision-272 = Your family standing side by side, waving good bye.
+pleebnar-vision-272 = Your family standing side by side, waving goodbye.
 pleebnar-vision-272-name = Farewell
 
 pleebnar-vision-273 = Your name on an incredibly long list entitled "Naughty".
