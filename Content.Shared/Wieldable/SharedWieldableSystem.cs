@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Impstation.Decapoids;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -259,7 +260,8 @@ public abstract class SharedWieldableSystem : EntitySystem
             return false;
         }
 
-        if (_hands.CountFreeableHands((user, hands), except: uid) < component.FreeHandsRequired)
+        if (_hands.CountFreeableHands((user, hands), except: uid) < component.FreeHandsRequired
+            && !HasComp<CanWieldOneHandedComponent>(user)) // IMP ADD
         {
             if (!quiet)
             {
