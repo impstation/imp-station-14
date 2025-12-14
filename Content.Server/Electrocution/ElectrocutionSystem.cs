@@ -361,8 +361,8 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     private bool DoCommonElectrocutionAttempt(EntityUid uid, EntityUid? sourceUid, ref float siemensCoefficient, bool ignoreInsulation = false)
     {
 // ES START
-        if (sourceUid.HasValue)
-            _esSparks.DoSparks(sourceUid.Value);
+        //if (sourceUid.HasValue)
+        //    _esSparks.DoSparks(sourceUid.Value);
 // ES END
 
         var attemptEvent = new ElectrocutionAttemptEvent(uid, sourceUid, siemensCoefficient,
