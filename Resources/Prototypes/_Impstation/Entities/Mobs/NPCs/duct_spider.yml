@@ -1,0 +1,91 @@
+﻿- type: entity
+  name: duct spider
+  id: MobDuctSpider
+  parent: MobSpiderBase
+  description: Nanotrasen's imported solution to mice, comes with its own problems.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+      state: idle
+      sprite: _Impstation/Mobs/Animals/ductspider.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: moving
+    noMovementLayers:
+      movement:
+        state: idle
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: idle
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.20
+        density: 100
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSpider
+      amount: 1
+    - id: FoodMeatSpiderLeg
+      amount: 2
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      15: Critical
+      30: Dead
+  - type: Bloodstream
+    bloodMaxVolume: 50
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+  - type: Clothing
+    sprite: _Impstation/Mobs/Animals/ductspider.rsi
+    slots:
+    - HEAD
+  - type: CanEscapeInventory
+  - type: PleebnarGibbable
+  - type: NpcFactionMember
+    factions:
+    - DuctSpider
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 1
+  - type: VentCrawler
+    enterDelay: 1
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-ductspider-name
+    description: ghost-role-information-ductspider-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: GhostTakeoverAvailable
+  - type: NPCRetaliation
+    attackMemoryLength: 10
