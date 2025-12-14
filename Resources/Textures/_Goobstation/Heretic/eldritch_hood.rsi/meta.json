@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from TG station",
+  "copyright": "Taken from TG station. Anom states by Doop for Impstation.",
   "MetaAtlas": false,
   "size": {
     "x": 32,
@@ -10,6 +10,10 @@
   "states": [
     {
       "name": "equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HELMET-anomalocarid",
       "directions": 4
     },
     {

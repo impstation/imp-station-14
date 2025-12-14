@@ -40,6 +40,10 @@ trait-unrevivable-desc = You are unable to be revived by defibrillators.
 trait-pirate-accent-name = Pirate accent
 trait-pirate-accent-desc = You can't stop speaking like a pirate!
 
+# imp edit name
+trait-accentless-name = No species accent
+trait-accentless-desc = You don't have the accent that your species would usually have.
+
 trait-frontal-lisp-name = Frontal lisp
 trait-frontal-lisp-desc = You thpeak with a lithp.
 
@@ -64,12 +68,11 @@ trait-german-desc = You seem to come from space Germany.
 trait-italian-name = Italian accent
 trait-italian-desc = Mamma mia! You seem to have lived in space Italy!
 
-trait-russian-name = Russian accent
-trait-russian-desc = Is wonderful day on Space Station 14, da?
-
+# imp edit desc
 trait-french-name = French accent
 trait-french-desc = You speak with the cadence of someone who has cast off their vow of silence.
 
+# imp edit desc
 trait-spanish-name = Spanish accent
 trait-spanish-desc = You speak with the accent of someone who grew up in Earth Spain.
 

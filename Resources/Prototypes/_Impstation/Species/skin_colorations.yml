@@ -3,3 +3,9 @@
   strategy: !type:ClampedHsvColoration
     saturation: [0, 0.05]
     value: [1, 1] # this should be 71 but grays are sprited weird
+
+- type: skinColoration
+  id: AnomalocaridToned
+  strategy: !type:ClampedHsvColoration
+    saturation: [0, 0.8]
+    value: [.2, 1]
