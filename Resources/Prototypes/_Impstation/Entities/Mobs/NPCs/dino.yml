@@ -140,9 +140,16 @@
   - type: TriggerOnMobstateChange
     mobState:
     - Dead
-  - type: SpawnOnTrigger
-    proto: DinoLootSpawner
-  - type: GibOnTrigger
+  - type: TwoStageTrigger
+    triggerDelay: 10.45
+    components:
+      - type: SpawnOnTrigger
+        proto: DinoLootSpawner
+        keysIn:
+        - stageTwo
+      - type: GibOnTrigger
+        keysIn:
+        - stageTwo
 
 - type: entity
   name: Dino Loot Spawner
