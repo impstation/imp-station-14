@@ -9,13 +9,16 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/_Impstation/Magic/magicpowers.ogg
     icon:
-      sprite: _Impstation/Clothing/Head/Hats/witchhat.rsi
+      sprite: _Impstation/Clothing/Head/Hats/apprentice_hat.rsi
       state: icon
   - type: TargetAction
   - type: EntityTargetAction
     whitelist:
       components:
       - MobState
+    blacklist:
+      components:
+      - MindShield
     event: !type:ChangeComponentsSpellEvent
       toAdd:
       - type: NpcFactionMember
