@@ -397,3 +397,32 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 0.1
+
+- type: entity
+  id: CigaretteLong
+  parent: Cigarette
+  name: BIGarette
+  description: Its like a BIGar, but thinner
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/bigarette.rsi
+    state: unlit-icon
+  - type: Clothing
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/bigarette.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Huge
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/bigarette.rsi
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 100
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 50
+      food:
+        maxVol: 100
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 50
