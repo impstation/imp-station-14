@@ -10,7 +10,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_parts.rsi
     state: head_over
 
 - type: marking
@@ -24,7 +24,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_parts.rsi
     state: torso_over
 
 - type: marking
@@ -38,7 +38,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_parts.rsi
     state: l_hand_over
 
 - type: marking
@@ -52,7 +52,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_parts.rsi
     state: l_leg_over
 
 - type: marking
@@ -66,7 +66,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_parts.rsi
     state: l_foot_over
 
 - type: marking
@@ -80,7 +80,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_parts.rsi
     state: r_hand_over
 
 - type: marking
@@ -94,7 +94,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_parts.rsi
     state: r_leg_over
 
 - type: marking
@@ -108,7 +108,7 @@
         !type:SimpleColoring
           color: "#FFFFFF"
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_parts.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_parts.rsi
     state: r_foot_over
 
 # spinneret
@@ -127,13 +127,13 @@
     cerberus_BEHIND: cerberus_FRONT
     secondary_cerberus_BEHIND: secondary_cerberus_FRONT
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: cerberus_FRONT
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: secondary_cerberus_FRONT
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: cerberus_BEHIND
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: secondary_cerberus_BEHIND
 
 - type: marking
@@ -147,9 +147,9 @@
   colorLinks:
     folds_BEHIND: folds_FRONT
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: folds_FRONT
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: folds_BEHIND
 
 - type: marking
@@ -166,13 +166,13 @@
     prongs_BEHIND: prongs_FRONT
     secondary_prongs_BEHIND: secondary_prongs_FRONT
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: prongs_FRONT
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: secondary_prongs_FRONT
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: prongs_BEHIND
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: secondary_prongs_BEHIND
 
 - type: marking
@@ -189,13 +189,13 @@
     queen_BEHIND: queen_FRONT
     secondary_queen_BEHIND: secondary_queen_FRONT
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: queen_FRONT
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: secondary_queen_FRONT
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: queen_BEHIND
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: secondary_queen_BEHIND
 
 - type: marking
@@ -212,13 +212,13 @@
     spikecore_BEHIND: spikecore_FRONT
     secondary_spikecore_BEHIND: secondary_spikecore_FRONT
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: spikecore_FRONT
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: secondary_spikecore_FRONT
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: spikecore_BEHIND
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_spinneret.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_spinneret.rsi
     state: secondary_spikecore_BEHIND
     
 # carapace
@@ -237,11 +237,11 @@
     carapace_BEHIND: carapace_FRONT
     secondary_carapace_BEHIND: secondary_carapace_FRONT
   sprites:
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_legs.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_legs.rsi
     state: carapace_FRONT
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_legs.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_legs.rsi
     state: secondary_carapace_FRONT
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_legs.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_legs.rsi
     state: carapace_BEHIND
-  - sprite: _hereelabs/Mobs/Customization/Rachnid/spider_legs.rsi
+  - sprite: _Devilstation/Mobs/Customization/Rachnid/spider_legs.rsi
     state: secondary_carapace_BEHIND
