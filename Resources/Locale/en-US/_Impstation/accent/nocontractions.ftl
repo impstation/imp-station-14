@@ -441,3 +441,6 @@ accent-nocontractions-words-replace-146 = does not
 
 accent-nocontractions-words-147 = doesnt
 accent-nocontractions-words-replace-147 = does not
+
+accent-nocontractions-words-148 = thavens
+accent-nocontractions-words-replace-148 = thaven

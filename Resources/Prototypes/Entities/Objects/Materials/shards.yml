@@ -44,6 +44,10 @@
         density: 30
         mask:
         - ItemMask
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 2
   - type: Tag
     tags:
     - Trash
@@ -77,8 +81,6 @@
   - type: StaticPrice
     price: 0
   # imp edits #
-  - type: DamageOtherOnHit
-    meleeDamageMultiplier: 2
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/bladeslice.ogg
     removalTime: 2.5
@@ -146,6 +148,7 @@
   - type: SolutionContainerManager
     solutions:
       shardrglass:
+        canReact: false # imp don't make kelotane on shard spawn please
         reagents:
         - ReagentId: Silicon
           Quantity: 5 #I don't care enough to divide all of the reinforced glass materials by 2 because reinforced glass shards are due for removal anyways.

@@ -18,6 +18,7 @@
   - Thaven # imp
   - Ungu # imp
   - Vox
+  - VisitorSpecies # imp
   #- Vulpkanin # imp, disabled roundstart
 
 - type: guideEntry
@@ -60,7 +61,7 @@
   name: species-name-vox
   text: "/ServerInfo/_Impstation/Guidebook/Mobs/Vox.xml" # imp
 
-#- type: guideEntry # imp, disabled roundstart
-#  id: Vulpkanin
-#  name: species-name-vulpkanin
-#  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"
+- type: guideEntry
+  id: Vulpkanin
+  name: species-name-vulpkanin
+  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"

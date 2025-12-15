@@ -3,3 +3,6 @@ alerts-revenant-essence-regen-desc = You are haunting the crew! You have a boost
 
 alerts-waddling-name = Waddling
 alerts-waddling-desc = You are trundling gaily throughout the station.
+
+alerts-internal-pressure-name = Internal Pressure
+alerts-internal-pressure-desc = If it's shaking, that's bad.
