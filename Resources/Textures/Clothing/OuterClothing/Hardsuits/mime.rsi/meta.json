@@ -1,15 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD
     "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, modified by brainfood1183 (github), sprited(resprited) by Fazansen(https://github.com/Fazansen). Tail sprites by Tiniest Shark (github), modified for Vox by TrixxedHeart. kodepiia variant modified by Adeinitas.",
-=======
-<<<<<<< HEAD
-    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, modified by brainfood1183 (github), sprited(resprited) by Fazansen(https://github.com/Fazansen), kodepiia variant modified by Adeinitas",
-=======
-    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/4f6190e2895e09116663ef282d3ce1d8b35c032e, modified by brainfood1183 (github), sprited(resprited) by Fazansen(https://github.com/Fazansen), harpy variant modified by Adeinitas",
->>>>>>> b9fa7dc423 (initial port)
->>>>>>> 6ac0fbda32 (Merge pull request #12 from hivehum/i-need-to-fix-you)
     "size": {
         "x": 32,
         "y": 32
@@ -31,10 +23,6 @@
             "directions": 4
         },
         {
-            "name": "equipped-OUTERCLOTHING-harpy",
-            "directions": 4
-        },
-        {
             "name": "inhand-left",
             "directions": 4
         },
@@ -44,6 +32,10 @@
         },
         {
             "name": "equipped-OUTERCLOTHING-kodepiia",
+            "directions": 4
+        },
+        {
+            "name": "equipped-OUTERCLOTHING-harpy",
             "directions": 4
         }
     ]
