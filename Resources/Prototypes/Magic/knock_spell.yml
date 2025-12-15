@@ -16,3 +16,5 @@
     event: !type:KnockSpellEvent
   - type: SpeakOnAction
     sentence: action-speech-spell-knock
+  - type: Magic # imp edit
+    requiresClothes: true
