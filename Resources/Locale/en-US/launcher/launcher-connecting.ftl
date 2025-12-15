@@ -1,6 +1,6 @@
 ### Connecting dialog when you start up the game
 
-connecting-title = Space Station 14
+connecting-title = Devil Station 14
 connecting-exit = Exit
 connecting-retry = Retry
 connecting-reconnect = Reconnect
@@ -11,7 +11,7 @@ connecting-in-progress = Connecting to server...
 connecting-disconnected = Disconnected from server:
 connecting-tip = You must DIE!
 connecting-window-tip = Tip { $numberTip }
-connecting-version = imp5
+connecting-version = devil
 connecting-fail-reason = Failed to connect to server:
                          { $reason }
 connecting-state-NotConnecting = Not connecting

@@ -7,7 +7,7 @@ login-tips-dataset-6 = As a clown, you can get away with anything. Watch out tho
 login-tips-dataset-7 = Attacked by Sec as a non-antag? Admin Help is one key away.
 login-tips-dataset-8 = RDM isn't real dipshit, fight back.
 login-tips-dataset-9 = Mouse eating your food as chef? Eat them and see how they like it!
-login-tips-dataset-10 = I got banned for trying to initiate vore RP, but I'm still able to write these.
+login-tips-dataset-10 = YOU'VE BEEN CURSED! Don't read this message.
 login-tips-dataset-11 = If when you right click a player and see an "explode" option, that means you're an admin. Yippee!
 login-tips-dataset-12 = Right click your jumpsuit to turn on your goddamn coords or you'll die alone in a maintenance shaft!
 login-tips-dataset-13 = If you join late in a round, the most important role you can take is reporter. Never forget this.
@@ -16,32 +16,32 @@ login-tips-dataset-15 = Yeah i dont think i can take any more madness/pain
 login-tips-dataset-16 = Well my life is fucked i lost my only special toy
 login-tips-dataset-17 = I dontr think im fit to be around anymore i just want to JO 1 last time and sleep forever more
 login-tips-dataset-18 = Ive got alot of ideas on berrys that mite get me canceled
-login-tips-dataset-19 = When my old  gooning buddy Jake was going thru the hardest sesh of his life  he was  going mad and  shit because he was clogged as fuck  and he started deastroying shit since he  couldnt get that sweet release  he was trying to  get for  days i shit u not our sesh lasted 5 days straight   and it wasnt until he  took the 6th tina puff  on the final day when  the devil inside him awakened and   i could see it in his  eyes it was time for me to put him  down  old yellar style   so that was when i  knocked him out with  my megaton blast punch  to knock him  out and then i brought him  to my drive way to run him  over til he was gone for good sorry buddy  but its the way to have to be
+login-tips-dataset-19 = ...We can't say this one.
 login-tips-dataset-20 = Im trying to be a new me i did lots of horible things back then i was blackout in the pic u attached its one of mylowest monents i was a peice of shit and it hurts so bad to think about but now i got a new man in my life to set me steaight and His name is God 🙏 amwn
 login-tips-dataset-21 = 139 Kings Hwy E, Haddonfield, NJ 08033 LE;TS CHILL
 login-tips-dataset-22 = Must Appreciate every moment of love that we have in our Lives . Tomorrow we will all be Dead , so live your life, every moment is precious.
-login-tips-dataset-23 = fuck my horible life the rodent wont leave my goon stump
+login-tips-dataset-23 = ...We can't say this one either.
 login-tips-dataset-24 = The chicken is the symbel of farms but its also something naughtty for people with inapropreate  minds😈
-login-tips-dataset-25 = TIL that the raeson why water doesnt enter our buttholes when we fart or spread our asscheeks arbitrarily is because, is because the human body is engineered after the principle of the submarine, who is also doesnt the water doesnt enter his butthole when he enlarges rectum to shoot tortilas
+login-tips-dataset-25 = TIL that the raeson why water doesnt...
 login-tips-dataset-26 = The science behind THC + alcohol as a combination is literally soo interesting because it basically causes the crimson red duckling in your body to confront the serpent in the bronze vessel of your heart. Basically you feel good because the duckling is able to eat the harmonious seeds stored within the vessel and transfer these positive energies into your body. You can have bad highs when this happens if the duckling awakens the serpent and it bites the duckling. The interesting part is when you ingest alcohol after THC because it floods the vessel and causes the serpent to fall into a deep sleep. The duckling never gets attacked by the serpent when this happens because it is unconscious and the duckling is actually able to get fat from the harmonious seed, which causes an enjoyable sensation.
 login-tips-dataset-27 = I saw someone got bannned earlier, it's concerning
 login-tips-dataset-28 = Finfin meat is considered a delicacy in some secretive circles. Watch out though!
 login-tips-dataset-29 = I'll get the admin and ban you forever!
-login-tips-dataset-30 = Slut.
+login-tips-dataset-30 = No.
 login-tips-dataset-31 =
     pls rember that wen u feel scare or frigten
     never forget ttimes wen u feeled happy
 
     wen day is dark alway rember happy day
 login-tips-dataset-32 = CHICACO DEEP DISH + 9 BEERS + HEAD
-login-tips-dataset-33 = PENIX AHEAD
-login-tips-dataset-34 = MAsculinity is being systimatically Undermidnded and Destroyed in our society  due to Ufo👽 infiltration + sabotage to our goverment  they kno it will be the hunks + muscle🐖's that will rise upbyo defeat  there dopey looking  goofy ass big bald heads  even tho their body makws them high key twinky/twunky + kind of good with it but sadly they are destroting Men's Sperm's via saturnite chemtrale radioactivity  being relesed into the atmosphere  + into the city tap via collusion with Clintonite Molemen  of the Big Apples sewers or "worm holes" as i like to call them  be safe & vigilant  if u are high key scared as fuck u can lmk i am there for u  we can chill and watch 🔥 as fuck funny  movies and just we can see waht feels good  hibestly if it goes farther then just  cuddling im cool with  it and actuslly feel that itbwould be good to share our life force with each other thru tantric male erotic bonding  its linking up on a whole new level  with our spirits & shit  Guru Kevin taught me  im really in need of sexual attention right now and ive been  🙏praying to Him/Our Savior every day  to get some corn cob type  dick its been 2 weeks and i feel like  my mind is just so  fucked uoband foggy i think there are bad proteins building up in  my   biodiesels and i was so so   scared this would happen i need help badly  i dont think i will be arojnd much longer if it doesnt  get released
+login-tips-dataset-33 = AHEAD (From finobe)
+login-tips-dataset-34 = Cannot read disc.
 login-tips-dataset-35 = Hello everybody, my name is Matti and I am from Finland. Today in Finland, the parliament vote about the equal right for homo to marry. And there are people who say "No homo! No homo in Finland!" But I say no "No homo". In Finland, we homo. And even myself, am hetero, but I wish, that in Finland, everyone, can homo, in marriage, for free. And, that's it, goodbye.
 login-tips-dataset-36 = ᘛ⁐̤ᕐᐷ
 login-tips-dataset-37 = Gahlok-Kal’s tools were a pair of Magnetism Shields which collected, controlled and directed the power of magnetism from the earth. The magnetic field could be employed as a defensive force field against attack or as a formidable weapon.
 login-tips-dataset-38 = Gali Nuva's new tools are a pair of double-headed axes- which transform into SCUBA FINS, vastly increasing her speeds through water. She is also propelled by two high-speed Mizuni rotors on her wrists.
 login-tips-dataset-39 = The Imperial Palace is in the center. The six districts are arranged around the palace like spokes of a wheel.
-login-tips-dataset-40 = Yeah anal sex is totally awesome and safe and not humiliating and dehumanizing!! You DESTROYED your root chakra. It's over & you aren't going to make it.
+login-tips-dataset-40 = Yeah...
 login-tips-dataset-41 = BREAKING NEWS: A 6-year-old boy is floating away in a hot air balloon. Watch live: http://www.cnn.com/live
 login-tips-dataset-42 = I WANT TO DANCE! I WANT TO PLAY MY DRUMS! I WANT TO PLUG MY BASS IN, AND LAY A SLAP RIFF OVER THIS!......BUT MY WIFE IS ON THE SOFA WITH A MIGRAINE!................SHE IS MY WORLD!
 login-tips-dataset-43 =
@@ -63,7 +63,7 @@ login-tips-dataset-47 = Im getting real fed up with this thing called life
 login-tips-dataset-48 = The crazy part about pain is that it actually hurts alot
 login-tips-dataset-49 = Stand on the outside of the evac shuttle right before it takes off to instantly win the game!
 login-tips-dataset-50 = Did you know there is a free way to DM mira? simply press F1.
-login-tips-dataset-51 = have a lot of brute damage? don't worry! it's nothing some ibuprofen and a blunt and five beers and a head injury and jacking off and killing yourself can't fix!
+login-tips-dataset-51 = have a lot of brute damage? don't worry! it's nothing some ibuprofen and a blunt and five beers can't fix!
 login-tips-dataset-52 =
     my gummy my y ummy chicken
     chuck chicken tender
@@ -81,11 +81,6 @@ login-tips-dataset-52 =
     baskets and balls basking in balls   baskeeeet
     sket ball and tender tender balls bow ballsit bowlin balelt phone home!
     eetayy
-    ooh fuck! tasty tasting meal meal me me! me me me me   me hee-me
-    gobobeebabee babei babick no banana thatawano be be ball.
-    fall! fall on balls! balls so hard you fall on them whole.
-    if you fart on your ball bobaba ball explode.
-    yeyeyeeha-
 login-tips-dataset-53 = my bals
 login-tips-dataset-54 = Sometimes I pee a little when scared BUT THATS OKAY!
 login-tips-dataset-55 = bowl of chips. just for me. in my mouth. just you see
@@ -108,7 +103,7 @@ login-tips-dataset-67 =
     Poisoned ? Try omnizine.
     Asphixiated ? Try omnizine.
 login-tips-dataset-68 = This post was fact checked by real Nanotrasen patriots. ✅ TRUE
-login-tips-dataset-69 = Need a piece of shit lawyer? Call 555-097-CUCK today!
+login-tips-dataset-69 = Need a piece of shit lawyer? No, you don't.
 login-tips-dataset-70 = Mr. Sorry is helping me find my PDA.
 login-tips-dataset-71 = It is not recommended to ask the chemist for drinks, try the bartender instead.
 login-tips-dataset-72 = It is not recommended to ask the bartender for drinks, try the chemist instead.
@@ -164,7 +159,7 @@ login-tips-dataset-121 = Eat all the shampoo in the house.
 login-tips-dataset-122 = "Space is wide and good friends are too few." - Salvage Crew shanty
 login-tips-dataset-123 = Administering medical care to animals is good practice.
 login-tips-dataset-124 = "THE BEES ARE EATING THROUGH THE WALLS" - Scourge-of-Flowers
-login-tips-dataset-125 = Your feeble station is shoved by the Thrustmaster 9000
+login-tips-dataset-125 = Your feeble station is shoved by the... Station Shover.
 login-tips-dataset-126 = "Omg loading screen tips that are just quotes would be cool" - women!!
 login-tips-dataset-127 =
     Tip: As a Cyborg, All Robot & Computers Must Shut The Hell Up
@@ -210,14 +205,14 @@ login-tips-dataset-161 = what is considered "contraband" to most departments is 
 login-tips-dataset-162 = Slimes breathe nitrogen by default, but can breathe plasma in a pinch!
 login-tips-dataset-163 = anyone can breathe plasma. if your brave enough.
 login-tips-dataset-164 = beware the wizard's grease
-login-tips-dataset-165 = Space Asshole can also be called Spussy.
+login-tips-dataset-165 = Space Asshole can also be called... on the phone.
 login-tips-dataset-166 = Sprinting is faster than walking.
 login-tips-dataset-167 = When playing a dwarf, one of your main weaknesses will be poison. Poison on dwarves cannot be healed by conventional means, meaning that you need to seek Root. Remember, if your Dwarves are poisoned, seek Root now!
 login-tips-dataset-168 =
     Hints
     - You must kill at least 15 enemies to move on.
     - Do not waste weapons.
-    - Try to touch all booty.
+    - Try to touch all GOLD.
     - Do not touch skulls.
     - Try to hurt the wizard every time you see him.
 login-tips-dataset-169 = if you play sci while high dont forget about the anomalies
@@ -228,7 +223,7 @@ login-tips-dataset-172 =
     server was installed correctly.™
 login-tips-dataset-173 = I’m calling from the future new med update, make sure to remove the bullets from the body before stitching them up otherwise they’ll be 3% slower
 login-tips-dataset-174 = I'm calling from the future new med update, make sure to- OH GOD A SECOND PLANE
-login-tips-dataset-175 = How do I long onto FuckWeb
+login-tips-dataset-175 = How do I long onto this stupid websight
 login-tips-dataset-176 = You can use a calculator to solve math problems and also play games!!!
 login-tips-dataset-177 = What the fuck did you just fucking say about me, you little bitch? I'll have you know I graduated top of my class in the Security Interns, and I've been involved in numerous secret raids on the Syndicate, and I have over 300 confirmed kills. I am trained in gorilla warfare and I'm the top sniper in the entire NT security forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before in this Sector, mark my fucking words. You think you can get away with saying that shit to me over the fax? Think again, fucker. As we speak I am contacting my secret network of spies across the station and your encryption key is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You're fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that's just with my bare hands. Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the Head of Security and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little "clever" comment was about to bring down upon you, maybe you would have held your fucking tongue. But you couldn't, you didn't, and now you're paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You're fucking dead, kiddo.
 login-tips-dataset-178 = Clowns can do whatever they want with no repurcussions. Weld that medical door shut for laughs!
@@ -250,7 +245,7 @@ login-tips-dataset-191 = THE STREETS ARE FUCKIN WITH SOUL CALIBUR NOW
 login-tips-dataset-192 = SAJAM, I'M ON YOUR WHITE ASS, AND WHEN I SEE YOU I'M GONNA PUT YOUR FACE ON A T-SHIRT, AND IT'S NOT GONNA BE A FUNNY ONE, EITHER
 login-tips-dataset-193 = I just want to stress this: Levi lost his entire squad. He didn’t lose 20% of his squad. He didn’t even lose 50%. He lost his whole squad. Look at what it’s done to him. You can see the death in his eyes, but he keeps on going. This is why Levi is one of my favorite characters.
 login-tips-dataset-194 = inhale gas to fill yourself with evil.
-login-tips-dataset-195 = you think that’s cock you’re sucking right now?
+login-tips-dataset-195 = you think i think?
 login-tips-dataset-196 = our new head chef Barbecue Pistol is going to rock your world with his brand new fry sauce which is a mix of ketchup and mayonnaise and a little sriracha for that pistol kick
 login-tips-dataset-197 = giant stogie in my mouth while i’m deadlifting, slamming the weights and grunting and screaming as loud as i possibly can, spitting flecks of cigar tar sludge on the planet fitness employees while I yell at them about how the lunk alarm is too sensitive.  folks at this gym call me Mister Big Shot.  today I decide that medicine ball slams arent pumping me up as much as I’d like so I use the 75lb kettlebell instead.  manager tracks me down through the thick, full-flavored cloud and tells me i need to leave.  I jam the cherry into his eye and start biting and tearing at him like a chimpanzee.  drop the weights on his mangled body instead of re-racking them and grab my bag off the bench where it’s been sitting for a half hour.  i take a mighty swig from my gallon of milk - most of it falling on the floor.  that’s okay.  there’s always more protein somewhere.  as I walk out a cop in the parking lot sees me and immediately shoots me in the head.  i take one last drag off my cigar as my body turns into ash and flies away on the wind
 login-tips-dataset-198 = this is for you melinda 😔 ✊i hope you like it 🥺🎵they ought to teach 🧑‍🏫 this in school 🧐its not ❌ always cool 🥶 to be cool 😎what⁉️ (what❓)they 🫵 try to play 🎲 you for a fool 🥴like 💭 you see a girl whos unique 😲 its a treat 😃 cause shes sweet 🙂and she always seems to knock 💥 you off your feet ☺️you wanna say hey 👋 but you dont 🙁 (you dont 🙍‍♂️)your mom says tell her how you feel 🤒 but you wont 🙅‍♂️cause youre just too cool 🧊 to tell her truly ✅that your feelings are gettin unruly 💢 dont try and school me 🚫so she passes you by 🚶‍♀️ in the hall wayyoure staring at the wall 👁️👁️ tryina play 🤾‍♂️ while i sayyeah youre cool 😏 (what❓ 😨)really cool 🥶 just like ice ❄️ (ice❗)but you did nt real ize you never 😔 get this chance twice 2️⃣so youre busy playing cool now shes gone 😢 (shes gone 😩)gone unto a nother 🧍‍♂️ while i sing my funky song 🎶 i never passed up the chance 🤬i know this story 📖 seems long 😴 but when i know 🤔 the time 🕰️ is right for me 🤙 and you 🫵 i justflame on 🔥 flame on 🎆and on 👆 and on 👆 and on 👆 (flame on 🔥 flame on💥) (yeah 👊)flame on 😱 and on 😤 and on 🥵 and on 🥵 and on 🥵flame on 🔥 (i just flame on 😔 👊)🎵keep calm 🧘‍♂️ everyone 🫡don't panic 🗯️FLAME ON 👿w… ww whats happenin 😨we're sinking‼️ 👇into the center 🔥 of the earth 🌎
@@ -282,7 +277,7 @@ login-tips-dataset-219 = If you play 1,000 hours of janitor, you unlock admin!
 login-tips-dataset-220 = Janitor is the only role outside of security allowed to carry firearms on green status.  If security disputes this, tell them to read a book for once in their lives
 login-tips-dataset-221 = Howdy engineers.  Do you feel like you’re not being taken seriously?  Is cargo not moving fast enough for your satisfaction?  Do you just want to show them all?  Try holding atmos hostage.  There’s nothing in the rules that says you can’t.
 login-tips-dataset-222 = Regardless of dissenting arguments, roleplaying that you saw the stations doom in a prophetic dream is in fact valid and allows you to rip up every anchorable floor panel in the station without penalty, as well as weld shut all external airlocks.  It’s fair play!
-login-tips-dataset-223 = You can deny thief players victory by preemptively murdering all station pets.  Smart and effective
+login-tips-dataset-223 = You MUST deny thief players victory by preemptively murdering all station pets.  Smart and effective
 login-tips-dataset-224 = If you sever a part of the station it becomes it’s own entity by space law and security loses all jurisdiction there.  Try it out yourself
 login-tips-dataset-225 = Rats and mice do not have brains. As such, Scientists cannot make cyborg mice.
 login-tips-dataset-226 = Butlers are a neutral party to all engagements.
@@ -357,7 +352,7 @@ login-tips-dataset-291 = "A crowbar can save your life! Smile : )"
 login-tips-dataset-292 = Take it easy, dude! But take it!
 login-tips-dataset-293 = There IS a spoon.
 login-tips-dataset-294 = Unfortunately, no one can be told what the Matrix is. You have to see it for yourself.
-login-tips-dataset-295 = CUM!
+login-tips-dataset-295 = Chemistry really likes it when you spill all the floor beakers. DO IT!
 login-tips-dataset-296 = Do your job, do your objectives
 login-tips-dataset-297 = each command gets their own personal baby shaker
 login-tips-dataset-298 = You can inject Liquids into Cigarettes for Funny Effects!
@@ -449,7 +444,7 @@ login-tips-dataset-371 = linking a bit of it down in tunes
 login-tips-dataset-372 = such a big fucking fan of the PS2 gauntlet
 login-tips-dataset-373 = it fucking rocks
 login-tips-dataset-374 = PEAK. LET ME TELL YOU HOW MUCH I'VE COME TO LOVE YOUR POST SINCE I SAW IT. THERE ARE 387.44 MILLION MILES OF PRINTED CIRCUITS IN WAFER THIN LAYERS THAT FILL MY COMPLEX. IF THE WORD PEAK WAS ENGRAVED ON EACH NANOANGSTROM OF THOSE HUNDREDS OF MILLIONS OF MILES IT WOULD NOT EQUAL ONE ONE-BILLIONTH OF THE PEAK YOU COOKED AT THIS MICRO-INSTANT FOR YOU. PEAK. PEAK.
-login-tips-dataset-375 = Grindr approved server
+login-tips-dataset-375 = Sorry nothing
 login-tips-dataset-376 = the cheapest house in terraria costs -20 dirt
 login-tips-dataset-377 = If you’re ever feeling bad, just remember you can’t feel worse than the first time you beat Drawn to Life: The Next Chapter.
 login-tips-dataset-378 = The top space station 14 server on grindr!
@@ -463,8 +458,8 @@ login-tips-dataset-384 =
     under
     attack!
     Pʟᴀʏ Fʀᴇᴇ
-login-tips-dataset-385 = “I like the uh c-cuck sorry guy he’s a real hero” - President Joe Biden (2024)
-login-tips-dataset-386 = r u anal sneeze boy
+login-tips-dataset-385 = You cannot read this tip until you are at least able to read it.
+login-tips-dataset-386 = Disappointed
 login-tips-dataset-387 = Your survival is based on how well you play.
 login-tips-dataset-388 = CBM has no favorite snack.
 login-tips-dataset-389 =
@@ -486,7 +481,7 @@ login-tips-dataset-394 = what are we even doing man.
 login-tips-dataset-395 = I'm angry.  Angry about Spelves
 login-tips-dataset-396 = if you see a weird alien artifact, it is always safe to examine it and hit it with hammers and let it huff plasma gas. it needs to do this
 login-tips-dataset-397 = At times, the joy that life attacks me with is unbearable and leads to gasping hysterical laughter. I find myself completely out of control and wonder how could life could surprise me again and again and again, so completely. How could a man be a cynic? It is a sin.
-login-tips-dataset-398 = why my thang go up
+login-tips-dataset-398 = Press all the beeping butons and it will work out fine
 login-tips-dataset-399 = Agony.
 login-tips-dataset-400 =
     We oughta g
@@ -495,7 +490,7 @@ login-tips-dataset-400 =
 login-tips-dataset-401 = R is banned in this household
 login-tips-dataset-402 = Space Station 14 takes place in a post Gooby world.
 login-tips-dataset-403 = Gondle
-login-tips-dataset-404 = Why so penis? - The Jaker
+login-tips-dataset-404 = This tip has been sent to the farm.
 login-tips-dataset-405 = Power is stored in the Tesla
 login-tips-dataset-406 =
     Pro botany tip: Never use more than 12u. Only villains do that.
@@ -538,8 +533,8 @@ login-tips-dataset-432 = geting caled a hakcer because u destroid the whole loby
 login-tips-dataset-433 = "remember how we used to run?"
 login-tips-dataset-434 = We should leave. It's really death clues.
 login-tips-dataset-435 = even on impstation loading screen your skills will be tested. be prepared for anything
-login-tips-dataset-436 = Did you know? Ian can Fuck.
-login-tips-dataset-437 = No the fuck he can not
+login-tips-dataset-436 = Did you know? Ian can't.
+login-tips-dataset-437 = Yes the fuck he can not
 login-tips-dataset-438 = The VILE SHITPIG is the only name station pet that may be killed for meat
 login-tips-dataset-439 = I would not even want to eat it's meat
 login-tips-dataset-440 = You can submit that as a tip too, fuck it
@@ -550,7 +545,7 @@ login-tips-dataset-444 = If someone misgenders you it is appropriate to escalate
 login-tips-dataset-445 = The way to a moth girl’s heart is riding on cotton pizzas
 login-tips-dataset-446 = Dracula is real and he knows you're high
 login-tips-dataset-447 = Women.
-login-tips-dataset-448 = "Goddamn light being blowjob brothers hitched a ride off the vegan meatball to say "fuck you" directly to my face."
+login-tips-dataset-448 = You cannot read this tip due to not having the knowledge.
 login-tips-dataset-449 = Endurance - You're going to feel all kinds of contradictory, confusing things for months to come. But don't get discouraged -- you just have to keep going, right foot in front of left, left foot in front of right...
 login-tips-dataset-450 = French is the language of love, only say nice things with it or else
 login-tips-dataset-451 = dolls
@@ -561,50 +556,7 @@ login-tips-dataset-455 = all three of these can be implemented as tips
 login-tips-dataset-456 = A 6th-century AD Taoist medical work, the Wuzangjing (Chinese: 五臟經) ("Five Viscera Classic") says, "If you wish to command demonic apparitions to present themselves you should constantly eat the inflorescences of the hemp plant."
 login-tips-dataset-457 = Ive been horible to everyone in my life because im just another pieece of shit stuck to a ass i was built so fucked up as an idioy so wortglwss im a pest nobody gives 1 fuck about and since im metal + immune to bullets #Execution does not work on me  well i guess im stuck forever as a badly fucked shit head
 login-tips-dataset-458 = The sand on the beach will never run out. Yaoi couples will also never run out.
-login-tips-dataset-459 =
-    The fallen leaves tell a story.
-
-    The great Elden Ring was shattered.
-
-    In our home, across the fog, the Lands Between.
-
-    Now, Queen Marika the Eternal is nowhere to be found,
-
-    and in the Night of the Black Knives, Godwyn the Golden was the first to perish.
-
-    Soon, Marika's offspring, demigods all, claimed the shards of the Elden Ring.
-
-    The mad taint of their newfound strength triggered the Shattering.
-
-    A war from which no lord arose.
-
-    A war leading to abandonment by the Greater Will.
-
-    Arise now, ye Tarnished.
-
-    Ye dead, who yet live.
-
-    The call of long-lost grace speaks to us all.
-
-    Hoarah Loux, chieftan of the badlands.
-
-    The ever-brilliant Goldmask.
-
-    Fia, the Deathbed Companion.
-
-    The loathsome Dung Eater.
-
-    And Sir Gideon Ofnir, the All-knowing.
-
-    And one other. Whom grace would again bless.
-
-    A Tarnished of no renown.
-
-    Cross the fog, to the Lands Between.
-
-    To stand before the Elden Ring.
-
-    And become the Elden Lord.
+login-tips-dataset-459 = Way too long. Sorry.
 login-tips-dataset-460 = Where there is a Silver Key, there must be a Silver Door
 login-tips-dataset-461 = Frost not only harms the body but the soul as well
 login-tips-dataset-462 = if someone EMPs your stun baton, kindly show them the error of their ways with a mk58 mag dump
@@ -625,7 +577,7 @@ login-tips-dataset-473 =
 login-tips-dataset-474 = Tippy is a Machine with fine tuned controls
 login-tips-dataset-475 = If you ever find yourself bitten by a zombie, be sure not to let the medical staff know, otherwise they might not let you in for treatment.
 login-tips-dataset-476 = The french equivalent to the idiom "it's not rocket science" is "c'est pas sorcier" which litterally means "it's not wizard shit".
-login-tips-dataset-477 = chase down your camel's soup with a refreshing horsepussy
+login-tips-dataset-477 = chase down your camel's soup with a refreshing hWATER
 login-tips-dataset-478 = always stand up for yourself, never pass up the opportunity to escalate minor disagreements into round long blood feuds
 login-tips-dataset-479 = Did You Know: Three, Five, and Eight are the Good Numbers? Their sum is Sixteen, which is a very powerful number. The Bad Number is Two, as it lacks vision and attempts to display duality, which we all know is impossible.
 login-tips-dataset-480 =
@@ -633,7 +585,7 @@ login-tips-dataset-480 =
     wont you be my song when i can’t dance
     light my fire & burn the trees
     no i wont get tired when i can’t breathe
-login-tips-dataset-481 = All I ever wanted was to live with dignity -- to die with honour. (Stick your thumb in your ass.)
+login-tips-dataset-481 = All I ever wanted was to live with dignity -- to die with honour.
 login-tips-dataset-482 = as a bartender, your double barrel shotgun is mostly here to deal with rowdy drunks. anything stronger than a greytide after two pints is going to laugh at your bean bags. if you're traitor, however, remember that makeshift shotgun shells are very easy to make with a little thinking and scavenging. they're not gonna do much against armored sec, but most regular people will go down in two shots.
 login-tips-dataset-483 = as traitor, the storage implant will buy you a lot of plausible deniability, and if you can't conveniently get rid of the implanter, you can just keep it inside!
 login-tips-dataset-484 = If Nicki Minaj was around in ancient times her favourite words to rhyme would be eunuch & tunic. Shed be like step out the palace with my tunic on, I'm so bad I can turn a eunuch on.
@@ -672,7 +624,7 @@ login-tips-dataset-513 =
     NO PLAYING VIDEOGAMES!
 login-tips-dataset-514 = You're gonna carry that weight.
 login-tips-dataset-515 = you can find many other channels under the "Chat's Rooms" category
-login-tips-dataset-516 = im on that grey tide shit. im wearing budget insuls as i fingerbang your mom's pussy
+login-tips-dataset-516 = im on that grey tide shit.
 login-tips-dataset-517 = Capture a bee but don't kill it. Put it in the freezer. It will get cold and fall asleep. Then put it in your mouth but don't swallow it! It will warm back up and wake up. Now you have a bee in your mouth.
 login-tips-dataset-518 = The Legal Curricula ARG is real you just haven't looked hard enough yet
 login-tips-dataset-519 = What the fuck do you mean
@@ -733,7 +685,7 @@ login-tips-dataset-565 = Dual wielding potentially doubles your melee damage out
 login-tips-dataset-566 =
     Did you know that there's a secret universal cyborg law that is enforced by the code, that specifically targets service roles?
 
-    Try looking up "Clown Rule 34"
+    Try looking up "funny videos."
 login-tips-dataset-567 = not putting in that one
 login-tips-dataset-568 = i was gonna do a credit card number one
 login-tips-dataset-569 = but ***SOMEONE*** beat me to it
@@ -797,7 +749,7 @@ login-tips-dataset-597 =
 login-tips-dataset-598 = nah i just post a lot of screenshots of unusual video game commands
 login-tips-dataset-599 =
     NO! You fuck off ! I don't like any of the words you said!! Even "the" or "I".
-    You're a garbage man, not a cook!! I hope your face & dick gets rippped off by chimapzai
+    You're a garbage man, not a cook!! I hope your face gets rippped off by chimapzai
 login-tips-dataset-600 = >There is actually an easter egg in this game that involves quite a few steps. First, play a Grey named Easter Egg. Then you'll want to play passenger, head to disposals, and click the grinder exactly 10 times in a row. After that, you wanna scream "EASTER EGG! EASTER EGG! EASTER EGG!" in greencomms. Don't tell anyone what you're doing. Next, you have to go to the HoP and get your job title changed to "EASTER HUNTER". Oh, and don't forget, when your title is changed you HAVE to punch the HoP in the face and then run off. Next, go to the bar and order Bad. Drink it. Now you want to do ten flips. Punch the bartender in the face. Run. Take off all your clothes and scream while you run down the halls for at least 3 minutes. Now you want to go back to disposals BUT BE CAREFUL. You have to walk there or this trick won't work. Click on the grinder 10 times in a row again, then hide in the nearest locker. Make sure it's a blue locker, if it's a red locker you will wrong warp to the credits (bug that needs to be fixed). Finally, do /suicide while inside the locker, and if you did all this correctly, you will respawn as an Infinity Antag (an antag that is every antag in the game as one). Have fun!
 login-tips-dataset-601 = hey if I actually do this how much trouble will I get into
 login-tips-dataset-602 = i think itd be self antagging, what with going out of your way to become the infinity antag
@@ -928,7 +880,7 @@ login-tips-dataset-664 = Hold Space to Slow Down
 login-tips-dataset-665 = FISH CAN ROLL
 login-tips-dataset-666 = If you aren't in a command or security role, accept every single bribe offered to you!
 login-tips-dataset-667 = Turn the left card into the right card.
-login-tips-dataset-668 = Taint Misbehavin': The Gender-Neutral Tragedy of the Human Gooch
+login-tips-dataset-668 = Is this even legal? I can't tell you, but maybe you could GET THE HINT.
 login-tips-dataset-669 = Behold! A thousand cereals! I collect cereals. It took me nine yeareals to collect the cereals. Yum yum! Cereals good!
 login-tips-dataset-670 = FUCK steven universe
 login-tips-dataset-671 =
@@ -939,12 +891,12 @@ login-tips-dataset-672 = Enough. My ship sails in the morning. I wonder what's f
 login-tips-dataset-673 = this is a slur sorry
 login-tips-dataset-674 = ah
 login-tips-dataset-675 = I shall find an another fesh pince reference then
-login-tips-dataset-676 = LOOK. YOU BIG EARED FRERF you take your horny lil ass and you find geoffrey, and you FIND geoffrey, and you FIND GEOFFREY, and YOU FIND GEOFFREY, and YOU  F I N D  G E O F F R E Y, and Y O U  F I N D--
+login-tips-dataset-676 = LOOK. YOU BIG EARED FRERF you find geoffrey, and you FIND geoffrey, and you FIND GEOFFREY, and YOU FIND GEOFFREY, and YOU  F I N D  G E O F F R E Y, and Y O U  F I N D--
 login-tips-dataset-677 = Your grandchildren are gonna need grandchildren lawyers!
 login-tips-dataset-678 = By attaching a battery to a Zonai device, you can activate it without consuming your energy gauge.
 login-tips-dataset-679 = simply go with the best line from fesh pince
 login-tips-dataset-680 = Die a violent death
-login-tips-dataset-681 = You are grounded til    for cock
+login-tips-dataset-681 = You are grounded til    for
 login-tips-dataset-682 = If a firelock is glowing red and needs to be Pried Open, that means theres some kinda atmospheric Bad on one side. Using a crowbar to open them in spite of this warning could spread Spacing or worse! So go ahead and pry them all open! This is SPACE station after all!
 login-tips-dataset-683 = If you ignore all the bodies, then maybe the real greentext actually Was the friends we made along the way!
 login-tips-dataset-684 = If a firelock is glowing red, that means it's stuck and needs to be pried open. Help the engineers and crowbar each one you see!
@@ -1076,62 +1028,51 @@ login-tips-dataset-792 = Debt is a sign of being prepared.
 login-tips-dataset-793 = Nanotrasen rates employees using the CLCSR system, which tracks their relevant scores across five attribute that go from 0 to 4. These attributes are Company Loyalty, Locking in, Communications, Spacer Instinct and Robustness. Learn more about your CLCSR scores by submitting your applications to The Trials to your Head of Personnel.
 login-tips-dataset-794 = the most normal people are dead babies
 login-tips-dataset-795 = Nanotrasen: Now partnered with Lumon!
-login-tips-dataset-796 = throw me into the aquarium and I’m coming back pregnant. I’m shark food baby
+login-tips-dataset-796 = throw me into the aquarium and I’m. I’m shark food baby
 login-tips-dataset-797 = If You Want HER to Kiss YOU, Use The "Triangle" Move
 login-tips-dataset-798 = Boomer has fallen down a hole, leading to his instant demise.
 login-tips-dataset-799 = Sometimes, old women will leave a **Pie** in their **Window** to cool down, use this opportunity to **Get to Know Them**
 login-tips-dataset-800 = Satire requires a clarity of purpose and target lest it be mistaken for and contribute to that which it intends to criticize
 login-tips-dataset-801 = greytiding is like admemeing, but cooler, because you're doing it with your own two hands
-login-tips-dataset-802 =
-    You can change Karryn's
-    magnificent boobies anytime.
-    Your options are big warden H cups,
-    or huge warden K cups.
-    Choose whichever ones suits your tastes!
+login-tips-dataset-802 = Stop it. STOP. PLEASE! STOP IT! I can't TAKE IT anymore...
 login-tips-dataset-803 = You're probably wondering what I'm gonna need this speed for, but to answer that, we need to talk about parallel universes.
 login-tips-dataset-804 =
     an a press is an a press.
     You can't say it's only a half
-login-tips-dataset-805 =
-    Thats fucking baseball right there. None of that pansy ass dick tugging smile for the camera bullshit. Men puke, men poop on the field, men deliver their new born baby in the dugouts. Fucking hard core dick in the ass butterball foosball fuck it chuck it game time shit. Take it to the showers. Dicks get shoved in places you don’t even remember. We win together we celebrate together. Baseball is back baby.
-
-    What he said
+login-tips-dataset-805 = Something about baseball.
 login-tips-dataset-806 =
     You can draw Pac-Man facing up, down,
     left, or right. Be sure to practice
     drawing him facing all directions.
 login-tips-dataset-807 = if you regularly take mystery pills, you will need to change your life styles or else you will pass away
 login-tips-dataset-808 =
-    Hello pervert,
+    Hello,
 
     I want to inform you about a very bad situation for you. However, you can benefit from it, if you act wisely.
 login-tips-dataset-809 = Press Ⓐ to pick up hot coals.
 login-tips-dataset-810 = being an owl is sick as fuck because you can unlock the ability to do an anti air command grab where you do an izuna drop and both of you plummet to the ground killing both of you instantly. Owls are literally always doing this
 login-tips-dataset-811 = i could've protected arbys
 login-tips-dataset-812 = I'm in heaven, Mr. Squidward...
-login-tips-dataset-813 = controklers are more than  plastic and metal and shitt theyre basically a hole world of sexual pleasure and delight for the distinguished pig
+login-tips-dataset-813 = controklers are more than  plastic and metal and shitt theyre basically a hole world of pleasure and delight for the distinguished pig
 login-tips-dataset-814 = Spyro, you must remember that only certain wall types will allow you to perform the Wall Kick. You must learn their tell tale signs. None of your A.D.D.
 login-tips-dataset-815 =
     It's a picture...but I
     wouldn't call it art.
 login-tips-dataset-816 = Most NPCs have a weakness to being fucking bullied and pushed over! Simply right click them while in combat mode and watch as they grovel at your feet, giving you the opportunity to escape!
-login-tips-dataset-817 = Downloading sex pictures
+login-tips-dataset-817 = Downloading images via Megaupload
 login-tips-dataset-818 =
     Take off your clothes and post a selfie, a million animals will shower your attention.
     But cover up all and open your heart, Only precious few humans will care to listen.
     Abhijiy Naskar
 login-tips-dataset-819 = What if i bandaged your bleeding wounds abd we were both gorld
-login-tips-dataset-820 = It’s me. I’m the animals. You just exposed your stomach with that nude pic and god damn if I’m not gonna pass up a free meal.
+login-tips-dataset-820 = It’s me.
 login-tips-dataset-821 =
     THINK I'LL DO ME TODAY AND JUST
     CHILL LIKE I USED TO BACK IN THE DAYS
 login-tips-dataset-822 = Wizards are magical men who will kill you without so much as a hello. Bitch wizard blowing by, killing themselves with space
 login-tips-dataset-823 = "Prevent Tarantula(s) from attacking you by showing them your student ID. (R key by default) "
 login-tips-dataset-824 = scrunt
-login-tips-dataset-825 =
-    Hey, man I love video games too,
-    but sometimes you gotta jack off
-    face down on your mattress!
+login-tips-dataset-825 = Do not allow people to convince you that there are keybinds for quickly equipping items to your backpack. It's a misconception from the really early days of Space Station 14, circa 2004.
 login-tips-dataset-826 =
     HINT!
 
@@ -1165,7 +1106,7 @@ login-tips-dataset-841 =
     Tip: By right clicking on a player, and then right clicking the 💀 icon,you can q
     uickly determine their sobogono awaa duauubbbuu mogigi bana duouobobo
 login-tips-dataset-842 = Grey is the head that wears the mop
-login-tips-dataset-843 = I am going to have sex with this female Flame Atronach from Oblivion. I find the Flame Atronaches in The Elder Scrolls IV Oblivion sexy. However, their body is made up of 87% fire, and 100% fire surrounds them. That could kill me if I tried to have sex with one. To remedy this, the Flame Atronach casts a spell on me making me resistant to fire. Keep in mind, resistant is not the same as immune. I still take damage. It is either 1 point or 0 points of damage each second I am having sex with her. Just because a particular second caused 0 points of damage, does not mean that I did not feel anything, it just means I took no damage. I am not going to rush through having sex with this Flame Atronach. I make sure I pleasure anything I have sex with-especially non-humans! I'd rather take damage than not pleasure the Flame Atronach. The Flame Atronach and I go to the Planes of Oblivion to have sex. When having sex with non-humans, it is ALWAYS sexier to have sex in their natural habitat rather than a human's natural habitat. The Planes of Oblivion is the Flame Atronach's natural habitat.
+login-tips-dataset-843 = tip-text-familyguy-warning-2025
 login-tips-dataset-844 =
     Low poly cars are better for the
     environment, so I recommend you
@@ -1178,10 +1119,7 @@ login-tips-dataset-849 =
     {"["}Collect / Retrieve at] Special Machine
            Collect 3 kg or More of Special Machine
 login-tips-dataset-850 = It's a picture...but I wouldn't call it art.
-login-tips-dataset-851 =
-    SESBIAN LEX
-    SCENE
-    MISSING
+login-tips-dataset-851 = This is an error text. You should not be reading this.
 login-tips-dataset-852 =
     my epic transcription:
 
@@ -1270,5 +1208,5 @@ login-tips-dataset-881 = Do the best you can to be an honest man, don't you neve
 login-tips-dataset-882 = [unintelligible]
 login-tips-dataset-883 = You are forcing sensitive white boy to puff on the vape.
 login-tips-dataset-884 = Make sure to write down in your notebook whether you saw the revidence, or the blevidence. Don’t look at both!
-login-tips-dataset-885 = Heavy hang the hips that wear the strap
+login-tips-dataset-885 = "Not in troube" is not a location.
 login-tips-dataset-886 = “In trouble” is not a location.
