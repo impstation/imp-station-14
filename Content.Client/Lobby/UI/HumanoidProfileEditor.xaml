@@ -135,9 +135,9 @@
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="10">
                     <!-- Antag roll reminder, imp edit -->
-                    <BoxContainer Orientation="Vertical">
-                        <RichTextLabel Text="{Loc 'humanoid-profile-editor-antag-roll-reminder-top'}" />
-                        <RichTextLabel Text="{Loc 'humanoid-profile-editor-antag-roll-reminder-bottom'}" />
+                    <BoxContainer Margin="4" HorizontalExpand="True" Orientation="Vertical">
+                        <Label Text="{Loc 'humanoid-profile-editor-antag-roll-reminder-top'}" />
+                        <Label Text="{Loc 'humanoid-profile-editor-antag-roll-reminder-bottom'}" />
                     </BoxContainer>
                     <!-- Antags -->
                     <ScrollContainer VerticalExpand="True">
@@ -160,9 +160,9 @@
         </BoxContainer>
         <!-- Right side -->
         <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center">
-            <!-- IMP: change spriteview margin 4 > 4, 10, added SetSize 320 640 to account for taller species -->
-            <SpriteView Name="SpriteView" Scale="8 8" Margin="4, 10" SizeFlagsStretchRatio="1" SetSize="320 640" />
-            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5">
+            <!-- IMP: change spriteview margin 4 > 4, 10, added MinSize to account for taller species -->
+            <SpriteView Name="SpriteView" Scale="8 8" Margin="-100, -100" MinSize="32 48" />
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 5">
                 <Button Name="SpriteRotateLeft" Text="◀" StyleClasses="OpenRight" />
                 <cc:VSeparator Margin="2 0 3 0" />
                 <Button Name="SpriteRotateRight" Text="▶" StyleClasses="OpenLeft" />
