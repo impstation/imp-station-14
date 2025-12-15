@@ -301,3 +301,55 @@
             Quantity: 10
           - ReagentId: THC
             Quantity: 5
+
+- type: entity
+  parent: [ BaseVapeCart, BaseSyndicateContraband ]
+  id: LexorinVapeCart
+  name: Choke 'n Die
+  description: a punch that'll knock you dead
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        smokable:
+          maxVol: 20
+          reagents:
+          - ReagentId: Sugar
+            Quantity: 10
+          - ReagentId: Lexorin
+            Quantity: 5
+          - ReagentId: JuiceCherry
+            Quantity: 5
+
+- type: entity
+  parent: [ BaseVapeCart, BaseSyndicateContraband ]
+  id: HyperzineVapeCart
+  name: Hyped up
+  description: a stimulating mix. Watch out for the side effects!
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        smokable:
+          maxVol: 20
+          reagents:
+          - ReagentId: Stimulants
+            Quantity: 5
+          - ReagentId: Sugar
+            Quantity: 10
+          - ReagentId: NuclearCola
+            Quantity: 5
+
+- type: entity
+  parent: [ BaseVapeCart, BaseSyndicateContraband ]
+  id: BenzeneVapeCart
+  name: DNA Dismantler
+  description: just pure benzene. Cancer on speed dial.
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        smokable:
+          maxVol: 20
+          reagents:
+          - ReagentId: Benzene
+            Quantity: 10
+          - ReagentId: Sugar
+            Quantity: 10

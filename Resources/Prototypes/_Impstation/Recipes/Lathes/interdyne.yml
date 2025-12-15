@@ -1,0 +1,157 @@
+- type: latheRecipe
+  id: InterdyneVoidLabel
+  result: CigPackVoid
+  completetime: 1
+  materials:
+    Plasma: 1500
+    Credit: 10000
+
+- type: latheRecipe
+  id: InterdyneVestine
+  resultReagents:
+    Vestine: 30
+  categories:
+  - Chemicals
+  icon:
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Credit: 5000
+    Plasma: 3000
+
+- type: latheRecipe
+  id: InterdyneVentCrud
+  resultReagents:
+    VentCrud: 30
+  categories:
+  - Chemicals
+  icon:
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Credit: 5000
+    Plasma: 3000
+
+- type: latheRecipe
+  id: InterdyneMold
+  resultReagents:
+    Mold: 30
+  categories:
+  - Chemicals
+  icon:
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Credit: 2000
+
+- type: latheRecipe
+  id: InterdyneMechanotoxin
+  resultReagents:
+    Mechanotoxin: 10
+  categories:
+  - Chemicals
+  icon:
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Credit: 8000
+
+- type: latheRecipe
+  id: InterdyneEchion
+  resultReagents:
+    Echion: 5
+  categories:
+  - Chemicals
+  icon:
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Credit: 10000
+    Plasma: 3000
+
+- type: latheRecipe
+  id: InterdyneLead
+  resultReagents:
+    Lead: 10
+  categories:
+  - Chemicals
+  icon:
+    sprite: _Impstation/Objects/Specific/Chemistry/bottle.rsi
+    state: bottle-1
+  completetime: 1
+  materials:
+    Credit: 5000
+    Plasma: 3000
+
+- type: latheRecipe
+  id: InterdyneUplinkLighterBox
+  result: UplinkLighterBox
+  completetime: 1
+  materials:
+    Credit: 4000
+
+- type: latheRecipe
+  id: InterdyneCigPackSyndicate
+  result: CigPackSyndicate
+  completetime: 1
+  materials:
+    Credit: 10000
+    Plasma: 3000
+
+- type: latheRecipe
+  id: InterdyneCigCartonSyndicate
+  result: CigCartonSyndicate
+  completetime: 1
+  materials:
+    Credit: 50000
+    Plasma: 9000
+
+- type: latheRecipe
+  id: InterdyneCigPackMixedRejects
+  result: CigPackMixedRejects
+  completetime: 1
+  materials:
+    Credit: 2000
+    Plasma: 500
+
+- type: latheRecipe
+  id: InterdyneCigCartonMixedRejects
+  result: CigCartonMixedRejects
+  completetime: 1
+  materials:
+    Credit: 6000
+    Plasma: 1500
+
+- type: latheRecipe
+  id: InterdyneCigPackSyndicateHypos
+  result: CigPackSyndicateHypos
+  completetime: 1
+  materials:
+    Credit: 15000
+    Plasma: 4500
+
+- type: latheRecipe
+  id: InterdyneLexorinVapeCart
+  result: LexorinVapeCart
+  completetime: 1
+  materials:
+    Credit: 2000
+
+- type: latheRecipe
+  id: InterdyneHyperzineVapeCart
+  result: HyperzineVapeCart
+  completetime: 1
+  materials:
+    Credit: 4000
+
+- type: latheRecipe
+  id: InterdyneBenzeneVapeCart
+  result: BenzeneVapeCart
+  completetime: 1
+  materials:
+    Credit: 2000
