@@ -285,3 +285,15 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/nurse.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/nurse.rsi
+
+- type: entity
+  name: Pink Princess Dress
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformPinkPrincessDress
+  description: A sweet and fluffy dress fit for royalty though... it is a little itchy
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/pinkprincessdress.rsi
+  - type: Item
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/pinkprincessdress.rsi
