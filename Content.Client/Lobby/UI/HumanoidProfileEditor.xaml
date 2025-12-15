@@ -160,7 +160,7 @@
         </BoxContainer>
         <!-- Right side -->
         <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center">
-            <!-- IMP: change spriteview margin 4 > 4, 10, added MinSize to account for taller species -->
+            <!-- IMP: change spriteview margin 4 > -100, -100 (I'M SORRY!!), added MinSize to account for taller species -->
             <SpriteView Name="SpriteView" Scale="8 8" Margin="-100, -100" MinSize="32 48" />
             <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 5">
                 <Button Name="SpriteRotateLeft" Text="◀" StyleClasses="OpenRight" />
