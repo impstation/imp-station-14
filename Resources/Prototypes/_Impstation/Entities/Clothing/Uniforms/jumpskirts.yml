@@ -297,3 +297,15 @@
   - type: Item
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/pinkprincessdress.rsi
+
+- type: entity
+  name: Green Princess Dress
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformGreenPrincessDress
+  description: A smooth and elegant dress fit for royalty. It's totally just a costume though.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/greenprincessdress.rsi
+  - type: Item
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/pinkprincessdress.rsi
