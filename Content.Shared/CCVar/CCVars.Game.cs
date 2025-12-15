@@ -63,7 +63,7 @@ public sealed partial class CCVars
     ///     Controls the maximum number of character slots a player is allowed to have.
     /// </summary>
     public static readonly CVarDef<int>
-        GameMaxCharacterSlots = CVarDef.Create("game.maxcharacterslots", 30, CVar.ARCHIVE | CVar.SERVERONLY);
+        GameMaxCharacterSlots = CVarDef.Create("game.maxcharacterslots", 35, CVar.ARCHIVE | CVar.SERVERONLY);
 
     /// <summary>
     ///     Controls the game map prototype to load. SS14 stores these prototypes in Prototypes/Maps.
@@ -88,7 +88,7 @@ public sealed partial class CCVars
     ///     Prototype to use for map pool.
     /// </summary>
     public static readonly CVarDef<string>
-        GameMapPool = CVarDef.Create("game.map_pool", "DefaultMapPoolImp", CVar.SERVERONLY); //imp edit, use our pool prototype
+        GameMapPool = CVarDef.Create("game.map_pool", "DefaultMapPoolDevil", CVar.SERVERONLY); //imp edit, use our pool prototype
 
     /// <summary>
     ///     The depth of the queue used to calculate which map is next in rotation.
@@ -113,7 +113,7 @@ public sealed partial class CCVars
     /// If role loadout items should be restricted based on time.
     /// </summary>
     public static readonly CVarDef<bool>
-        GameRoleLoadoutTimers = CVarDef.Create("game.role_loadout_timers", true, CVar.SERVER | CVar.REPLICATED);
+        GameRoleLoadoutTimers = CVarDef.Create("game.role_loadout_timers", false, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     ///     Override default role requirements using a <see cref="JobRequirementOverridePrototype"/>
@@ -125,13 +125,13 @@ public sealed partial class CCVars
     ///     If roles should be restricted based on whether or not they are whitelisted.
     /// </summary>
     public static readonly CVarDef<bool>
-        GameRoleWhitelist = CVarDef.Create("game.role_whitelist", true, CVar.SERVER | CVar.REPLICATED);
+        GameRoleWhitelist = CVarDef.Create("game.role_whitelist", false, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     ///     Whether or not disconnecting inside of a cryopod should remove the character or just store them until they reconnect.
     /// </summary>
     public static readonly CVarDef<bool>
-        GameCryoSleepRejoining = CVarDef.Create("game.cryo_sleep_rejoining", false, CVar.SERVER | CVar.REPLICATED);
+        GameCryoSleepRejoining = CVarDef.Create("game.cryo_sleep_rejoining", true, CVar.SERVER | CVar.REPLICATED);
 
     /// <summary>
     ///     When enabled, guests will be assigned permanent UIDs and will have their preferences stored.
