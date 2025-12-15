@@ -5,6 +5,7 @@
   description: Gives an aspiring wizard magical powers when used on them, and can be examined to learn spells!
   components:
   - type: LimitedCharges
+    maxCharges: 1
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Hats/apprentice_hat.rsi
   - type: Clothing

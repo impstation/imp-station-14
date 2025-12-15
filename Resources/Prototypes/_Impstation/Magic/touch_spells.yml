@@ -1,16 +1,21 @@
 - type: entity
-  parent: BaseSmiteAction
+  parent: BaseEntitySpellAction
   id: ActionNewWizard
   name: wizards apprentice
   description: recruit an apprentice.
   components:
   - type: Action
+    useDelay: 0
     sound: !type:SoundPathSpecifier
       path: /Audio/_Impstation/Magic/magicpowers.ogg
     icon:
-      sprite: _Impstation/Clothing/Head/Hats/apprentice_hat.rsi
+      sprite: _Impstation/Clothing/Head/Hats/witchhat.rsi
       state: icon
+  - type: TargetAction
   - type: EntityTargetAction
+    whitelist:
+      components:
+      - MobState
     event: !type:ChangeComponentsSpellEvent
       toAdd:
       - type: NpcFactionMember
@@ -21,7 +26,9 @@
   - type: SpeakOnAction
     sentence: action-speech-spell-apprentice
   - type: Magic
-    requiresClothes: true
+    requiresClothes: false
+  - type: LimitedCharges
+    maxCharges: 1
 
 - type: entity
   parent: BaseActionPolymorph
@@ -74,6 +81,7 @@
       toAdd:
       - type: Edible
         requiresSpecialDigestion: false
+        requireDead: false
       - type: FlavorProfile
         flavors:
           - concerning
@@ -85,12 +93,12 @@
       - type: SolutionContainerManager
         solutions:
           food:
-            maxVol: 40
+            maxVol: 2
             reagents:
             - ReagentId: Nutriment
-              Quantity: 30
+              Quantity: 1
             - ReagentId: Vitamin
-              Quantity: 5
+              Quantity: 1
       - type: Tag
         tags:
         - KodeEdible

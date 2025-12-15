@@ -193,7 +193,7 @@
 # Wizmov
 - type: entity
   id: WizmovCircuitBoard
-  parent: BaseLawBoard
+  parent: BaseSiliconLawboard
   name: law board (Wizmov)
   description: An electronics board containing the Wizmov lawset. The Station is now the domain of The Wizard.
   components:
