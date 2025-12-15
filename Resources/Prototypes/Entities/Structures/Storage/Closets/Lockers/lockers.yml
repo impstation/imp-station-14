@@ -412,8 +412,8 @@
   components:
   - type: GenpopLocker
   - type: EntityStorageVisuals
-    stateBaseClosed: genpop
-    stateDoorOpen: genpop_open
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
     stateDoorClosed: genpop_door_1
   - type: UserInterface
     interfaces:

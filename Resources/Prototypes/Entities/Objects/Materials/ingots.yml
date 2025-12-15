@@ -5,9 +5,9 @@
   description: A heavy metal ingot stamped with the Nanotrasen logo.
   components:
   - type: Sprite
-    sprite: Objects/Materials/ingots.rsi
+    sprite: _TBD/Objects/stack_objects.rsi
   - type: Item
-    sprite: Objects/Materials/ingots.rsi
+    sprite: _TBD/Objects/stack_objects.rsi
     size: Normal
   - type: StaticPrice
     price: 0
@@ -45,16 +45,16 @@
     stackType: Gold
     baseLayer: base
     layerStates:
-    - gold
-    - gold_2
-    - gold_3
+    - sheet-gold_1
+    - sheet-gold_2
+    - sheet-gold_3
   - type: Sprite
-    state: gold_3
+    state: sheet-gold_3
     layers:
-    - state: gold_3
+    - state: sheet-gold_3
       map: ["base"]
   - type: Item
-    heldPrefix: gold
+    heldPrefix: sheet-gold_1
   - type: Appearance
   - type: Extractable
     grindableSolutionName: gold
@@ -74,7 +74,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: gold
+    state: sheet-gold_1
   - type: Stack
     count: 1
 
@@ -93,16 +93,16 @@
     stackType: Silver
     baseLayer: base
     layerStates:
-    - silver
-    - silver_2
-    - silver_3
+    - sheet-silver_1
+    - sheet-silver_2
+    - sheet-silver_3
   - type: Sprite
-    state: silver_3
+    state: sheet-silver_3
     layers:
-    - state: silver_3
+    - state: sheet-silver_3
       map: ["base"]
   - type: Item
-    heldPrefix: silver
+    heldPrefix: sheet-silver_1
   - type: Appearance
   - type: Extractable
     grindableSolutionName: gold
@@ -123,6 +123,6 @@
   suffix: Single
   components:
   - type: Sprite
-    state: silver
+    state: sheet-silver_1
   - type: Stack
     count: 1

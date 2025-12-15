@@ -5,9 +5,9 @@
   description: A sheet of material, used often on the station in various applications.
   components:
   - type: Sprite
-    sprite: Objects/Materials/Sheets/other.rsi
+    sprite: _TBD/Objects/stack_objects.rsi
   - type: Item
-    sprite: Objects/Materials/Sheets/other.rsi
+    sprite: _TBD/Objects/stack_objects.rsi
     size: Normal
   - type: Tag
     tags:
@@ -44,20 +44,20 @@
     stackType: Paper
     baseLayer: base
     layerStates:
-    - paper
-    - paper_2
-    - paper_3
+    - sheet-paper_1
+    - sheet-paper_2
+    - sheet-paper_3
   - type: Material
   - type: PhysicalComposition
     materialComposition:
       Paper: 100
   - type: Sprite
-    state: paper_3
+    state: sheet-paper_3
     layers:
-    - state: paper_3
+    - state: sheet-paper_3
       map: ["base"]
   - type: Item
-    heldPrefix: paper
+    heldPrefix: sheet-paper_1
   - type: Appearance
   - type: Extractable
     grindableSolutionName: paper
@@ -76,7 +76,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: paper
+    state: sheet-paper_1
   - type: Stack
     count: 1
 
@@ -95,16 +95,16 @@
     stackType: Plasma
     baseLayer: base
     layerStates:
-    - plasma
-    - plasma_2
-    - plasma_3
+    - sheet-plasma_1
+    - sheet-plasma_2
+    - sheet-plasma_3
   - type: Sprite
-    state: plasma_3
+    state: sheet-plasma_3
     layers:
-    - state: plasma_3
+    - state: sheet-plasma_3
       map: ["base"]
   - type: Item
-    heldPrefix: plasma
+    heldPrefix: sheet-plasma_1
   - type: Appearance
   - type: Extractable
     grindableSolutionName: plasma
@@ -126,7 +126,7 @@
   suffix: 10
   components:
   - type: Sprite
-    state: plasma
+    state: sheet-plasma_1
   - type: Stack
     count: 10
 
@@ -137,7 +137,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: plasma
+    state: sheet-plasma_1
   - type: Stack
     count: 1
 
@@ -162,16 +162,16 @@
     stackType: Plastic
     baseLayer: base
     layerStates:
-    - plastic
-    - plastic_2
-    - plastic_3
+    - sheet-plastic_1
+    - sheet-plastic_2
+    - sheet-plastic_3
   - type: Sprite
-    state: plastic_3
+    state: sheet-plastic_3
     layers:
-    - state: plastic_3
+    - state: sheet-plastic_3
       map: ["base"]
   - type: Item
-    heldPrefix: plastic
+    heldPrefix: sheet-plastic_1
   - type: Appearance
   - type: Extractable
     grindableSolutionName: plastic
@@ -192,7 +192,7 @@
   suffix: 10
   components:
   - type: Sprite
-    state: plastic
+    state: sheet-plastic_1
   - type: Stack
     count: 10
 
@@ -203,7 +203,7 @@
   suffix: Single
   components:
   - type: Sprite
-    state: plastic
+    state: sheet-plastic_1
   - type: Stack
     count: 1
 
@@ -225,17 +225,17 @@
     stackType: Uranium
     baseLayer: base
     layerStates:
-    - uranium
-    - uranium_2
-    - uranium_3
+    - sheet-uranium_1
+    - sheet-uranium_2
+    - sheet-uranium_3
   - type: Sprite
-    state: uranium_3
+    state: sheet-uranium_3
     layers:
-    - state: uranium_3
+    - state: sheet-uranium_3
       map: ["base"]
   - type: Appearance
   - type: Item
-    heldPrefix: uranium
+    heldPrefix: sheet-uranium_1
   - type: Extractable
     grindableSolutionName: food
   - type: SolutionContainerManager

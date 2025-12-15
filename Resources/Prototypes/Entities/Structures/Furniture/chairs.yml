@@ -104,6 +104,7 @@
   parent: ChairBase
   components:
   - type: Sprite
+    sprite: _TBD/Structures/Furniture/chairs.rsi
     state: chair
   - type: Construction
     graph: Seat
@@ -116,7 +117,8 @@
   suffix: White
   components:
   - type: Sprite
-    state: chair-greyscale
+    sprite: _TBD/Structures/Furniture/chairs.rsi
+    state: chair_greyscale
 
 - type: entity
   name: stool
@@ -196,7 +198,8 @@
   description: The pilot seat of a prestigious ship.
   components:
   - type: Sprite
-    state: shuttle
+    sprite: _TBD/Structures/Furniture/chairs.rsi
+    state: shuttle_chair
   - type: Construction
     graph: Seat
     node: chairPilotSeat
@@ -207,7 +210,8 @@
   parent: UnanchoredChairBase
   components:
   - type: Sprite
-    state: wooden
+    state: wooden_chair
+    sprite: _TBD/Structures/Furniture/chairs.rsi
   - type: Construction
     graph: Seat
     node: chairWood
@@ -361,11 +365,11 @@
   components:
   - type: Rotatable
   - type: Sprite
-    sprite: Structures/Furniture/folding_chair.rsi
+    sprite: _TBD/Structures/Furniture/chairs.rsi
     layers:
-    - state: folding
+    - state: plastic_chair
       map: ["unfoldedLayer"]
-    - state: folding_folded
+    - state: folded_chair
       map: ["foldedLayer"]
       visible: false
   - type: Item

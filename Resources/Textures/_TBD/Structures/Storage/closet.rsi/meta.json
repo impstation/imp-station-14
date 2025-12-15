@@ -1,0 +1,770 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "unlocked"
+    },
+    {
+      "name": "locked"
+    },
+    {
+      "name": "sparking",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "welded"
+    },
+    {
+      "name": "generic_door"
+    },
+    {
+      "name": "blue_door"
+    },
+    {
+      "name": "mixed_door"
+    },
+    {
+      "name": "grey_door"
+    },
+    {
+      "name": "green_door"
+    },
+    {
+      "name": "orange_door"
+    },
+    {
+      "name": "pink_door"
+    },
+    {
+      "name": "red_door"
+    },
+    {
+      "name": "white_door"
+    },
+    {
+      "name": "yellow_door"
+    },
+    {
+      "name": "black_door"
+    },
+    {
+      "name": "generic"
+    },
+    {
+      "name": "generic_open"
+    },
+    {
+      "name": "generic_back"
+    },
+    {
+      "name": "bio_sci_door"
+    },
+    {
+      "name": "bio"
+    },
+    {
+      "name": "bio_sci_open"
+    },
+    {
+      "name": "bio_sci_back"
+    },
+    {
+      "name": "bio_viro_door"
+    },
+    {
+      "name": "bio_viro_open"
+    },
+    {
+      "name": "bio_viro_back"
+    },
+    {
+      "name": "bio_sec_door"
+    },
+    {
+      "name": "bio_sec_open"
+    },
+    {
+      "name": "bio_sec_back"
+    },
+    {
+      "name": "bio_jan_door"
+    },
+    {
+      "name": "bio_jan_open"
+    },
+    {
+      "name": "bio_jan_back"
+    },
+    {
+      "name": "syndicate_door"
+    },
+    {
+      "name": "syndicate"
+    },
+    {
+      "name": "syndicate_open"
+    },
+    {
+      "name": "syndicate_chemical_open"
+    },
+    {
+      "name": "syndicate_back"
+    },
+    {
+      "name": "emergency_door"
+    },
+    {
+      "name": "emergency"
+    },
+    {
+      "name": "emergency_open"
+    },
+    {
+      "name": "emergency_back"
+    },
+    {
+      "name": "secure_door"
+    },
+    {
+      "name": "secure"
+    },
+    {
+      "name": "secure_open"
+    },
+    {
+      "name": "secure_back"
+    },
+    {
+      "name": "med_door"
+    },
+    {
+      "name": "med"
+    },
+    {
+      "name": "med_open"
+    },
+    {
+      "name": "med_back"
+    },
+    {
+      "name": "chemical_door"
+    },
+    {
+      "name": "freezer_door"
+    },
+    {
+      "name": "freezer"
+    },
+    {
+      "name": "freezer_open"
+    },
+    {
+      "name": "freezer_back"
+    },
+    {
+      "name": "fire_door"
+    },
+    {
+      "name": "fire"
+    },
+    {
+      "name": "fire_open"
+    },
+    {
+      "name": "fire_back"
+    },
+    {
+      "name": "eng_tool_door"
+    },
+    {
+      "name": "eng_rad_door"
+    },
+    {
+      "name": "eng_elec_door"
+    },
+    {
+      "name": "eng_weld_door"
+    },
+    {
+      "name": "eng"
+    },
+    {
+      "name": "eng_open"
+    },
+    {
+      "name": "eng_secure_door"
+    },
+    {
+      "name": "eng_back"
+    },
+    {
+      "name": "eng_secure"
+    },
+    {
+      "name": "eng_secure_open"
+    },
+    {
+      "name": "eng_secure_back"
+    },
+    {
+      "name": "mining_door"
+    },
+    {
+      "name": "mining"
+    },
+    {
+      "name": "mining_open"
+    },
+    {
+      "name": "mining_back"
+    },
+    {
+      "name": "bomb_door"
+    },
+    {
+      "name": "bomb"
+    },
+    {
+      "name": "bomb_open"
+    },
+    {
+      "name": "bomb_back"
+    },
+    {
+      "name": "alien_door"
+    },
+    {
+      "name": "alien"
+    },
+    {
+      "name": "alien_open"
+    },
+    {
+      "name": "alien_back"
+    },
+    {
+      "name": "ce_door"
+    },
+    {
+      "name": "ce"
+    },
+    {
+      "name": "ce_open"
+    },
+    {
+      "name": "ce_back"
+    },
+    {
+      "name": "med_secure_door"
+    },
+    {
+      "name": "med_secure"
+    },
+    {
+      "name": "med_secure_open"
+    },
+    {
+      "name": "med_secure_back"
+    },
+    {
+      "name": "paramed_secure"
+    },
+    {
+      "name": "paramed_secure_door"
+    },
+    {
+      "name": "paramed_secure_open"
+    },
+    {
+      "name": "paramed_secure_back"
+    },
+    {
+      "name": "science_door"
+    },
+    {
+      "name": "science"
+    },
+    {
+      "name": "science_open"
+    },
+    {
+      "name": "science_back"
+    },
+    {
+      "name": "cargo_door"
+    },
+    {
+      "name": "cargo"
+    },
+    {
+      "name": "cargo_open"
+    },
+    {
+      "name": "qm_door"
+    },
+    {
+      "name": "cargo_back"
+    },
+    {
+      "name": "qm"
+    },
+    {
+      "name": "qm_open"
+    },
+    {
+      "name": "qm_back"
+    },
+    {
+      "name": "sec_door"
+    },
+    {
+      "name": "sec"
+    },
+    {
+      "name": "sec_open"
+    },
+    {
+      "name": "sec_back"
+    },
+    {
+      "name": "warden_door"
+    },
+    {
+      "name": "warden"
+    },
+    {
+      "name": "warden_open"
+    },
+    {
+      "name": "warden_back"
+    },
+    {
+      "name": "hos_door"
+    },
+    {
+      "name": "hos"
+    },
+    {
+      "name": "hos_open"
+    },
+    {
+      "name": "hos_back"
+    },
+    {
+      "name": "armory_door"
+    },
+    {
+      "name": "armory"
+    },
+    {
+      "name": "armory_open"
+    },
+    {
+      "name": "armory_back"
+    },
+    {
+      "name": "tac_door"
+    },
+    {
+      "name": "tac"
+    },
+    {
+      "name": "tac_open"
+    },
+    {
+      "name": "tac_back"
+    },
+    {
+      "name": "cap_door"
+    },
+    {
+      "name": "cap"
+    },
+    {
+      "name": "cap_open"
+    },
+    {
+      "name": "cap_back"
+    },
+    {
+      "name": "hop_door"
+    },
+    {
+      "name": "hop"
+    },
+    {
+      "name": "hop_open"
+    },
+    {
+      "name": "hop_back"
+    },
+    {
+      "name": "cmo_door"
+    },
+    {
+      "name": "cmo"
+    },
+    {
+      "name": "cmo_open"
+    },
+    {
+      "name": "cmo_back"
+    },
+    {
+      "name": "rd_door"
+    },
+    {
+      "name": "rd"
+    },
+    {
+      "name": "rd_open"
+    },
+    {
+      "name": "rd_back"
+    },
+    {
+      "name": "hydro_door"
+    },
+    {
+      "name": "hydro"
+    },
+    {
+      "name": "hydro_open"
+    },
+    {
+      "name": "hydro_back"
+    },
+    {
+      "name": "atmos_door"
+    },
+    {
+      "name": "atmos"
+    },
+    {
+      "name": "atmos_open"
+    },
+    {
+      "name": "atmos_back"
+    },
+    {
+      "name": "cabinet_door"
+    },
+    {
+      "name": "cabinet"
+    },
+    {
+      "name": "cabinet_open"
+    },
+    {
+      "name": "shotguncase_door"
+    },
+    {
+      "name": "shotguncase"
+    },
+    {
+      "name": "shotguncase_open"
+    },
+    {
+      "name": "shotgun"
+    },
+    {
+      "name": "egun"
+    },
+    {
+      "name": "wt550"
+    },
+    {
+      "name": "abductor"
+    },
+    {
+      "name": "abductor_open"
+    },
+    {
+      "name": "abductor_door"
+    },
+    {
+      "name": "cardboard_special"
+    },
+    {
+      "name": "cardboard"
+    },
+    {
+      "name": "agentbox"
+    },
+    {
+      "name": "cardboard_open"
+    },
+    {
+      "name": "cardboard_roroco"
+    },
+    {
+      "name": "cardboard_roroco_open"
+    },
+    {
+      "name": "oldcloset"
+    },
+    {
+      "name": "metalbox"
+    },
+    {
+      "name": "metalbox_open"
+    },
+    {
+      "name": "cursed_door",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "cursed",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "cursed_open"
+    },
+    {
+      "name": "cursed_back"
+    },
+    {
+      "name": "decursed_door",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "decursed",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "decursed_open"
+    },
+    {
+      "name": "decursed_back"
+    },
+    {
+      "name": "cursed_whole",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "mini_fridge"
+    },
+    {
+      "name": "mini_fridge_door"
+    },
+    {
+      "name": "mini_fridge_open"
+    },
+    {
+      "name": "welded_small"
+    },
+    {
+      "name": "atmos_wardrobe_door"
+    },
+    {
+      "name": "engi_wardrobe_door"
+    },
+    {
+      "name": "viro_wardrobe_door"
+    },
+    {
+      "name": "botany_wardrobe_door"
+    },
+    {
+      "name": "jani_wardrobe_door"
+    },
+    {
+      "name": "sec_wardrobe_door"
+    },
+    {
+      "name": "cargo_wardrobe_door"
+    },
+    {
+      "name": "curator_wardrobe_door"
+    },
+    {
+      "name": "chef_wardrobe_door"
+    },
+    {
+      "name": "med_wardrobe_door"
+    },
+    {
+      "name": "chem_wardrobe_door"
+    },
+    {
+      "name": "robo_wardrobe_door"
+    },
+    {
+      "name": "sci_wardrobe_door"
+    },
+    {
+      "name": "bar_wardrobe_door"
+    },
+    {
+      "name": "chap_wardrobe_door"
+    },
+    {
+      "name": "law_wardrobe_door"
+    },
+    {
+      "name": "mining_wardrobe_door"
+    },
+    {
+      "name": "shelves"
+    },
+    {
+      "name": "shelves_back"
+    },
+    {
+      "name": "shelves_open"
+    },
+    {
+      "name": "rack"
+    },
+    {
+      "name": "rack_back"
+    },
+    {
+      "name": "rack_open"
+    },
+    {
+      "name": "gen_wardrobe_door"
+    },
+    {
+      "name": "armory_shotgun_door"
+    },
+    {
+      "name": "armory_energy_door"
+    },
+    {
+      "name": "bio_door"
+    },
+    {
+      "name": "bio_back"
+    },
+    {
+      "name": "bio_open"
+    },
+    {
+      "name": "chem_secure"
+    },
+    {
+      "name": "chem_secure_door"
+    },
+    {
+      "name": "chem_secure_back"
+    },
+    {
+      "name": "chem_secure_open"
+    },
+    {
+      "name": "fullcabinet"
+    },
+    {
+      "name": "fullcabinet_open"
+    },
+    {
+      "name": "syndicate_chemical_door"
+    },
+    {
+      "name": "syndicate_chemical"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "brigmedic"
+    },
+    {
+      "name": "brigmedic_door"
+    },
+    {
+      "name": "n2_door"
+    },
+    {
+      "name": "genpop_door_1"
+    },
+    {
+      "name": "genpop_door_2"
+    },
+    {
+      "name": "genpop_door_3"
+    },
+    {
+      "name": "genpop_door_4"
+    },
+    {
+      "name": "genpop_door_5"
+    },
+    {
+      "name": "genpop_door_6"
+    },
+    {
+      "name": "genpop_door_7"
+    },
+    {
+      "name": "genpop_door_8"
+    },
+    {
+      "name": "representative_door"
+    }
+  ]
+}
