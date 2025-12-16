@@ -321,8 +321,6 @@
   id: MobBadOmen
   name: bad omen
   components:
-  - type: Visibility
-    layer: 2 #ghost vis layer
   - type: MovementSpeedModifier
     weightlessFriction: 1
     weightlessFrictionNoInput: 1
