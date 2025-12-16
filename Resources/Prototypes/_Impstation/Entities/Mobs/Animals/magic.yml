@@ -368,9 +368,21 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-#      - !type:PlaySoundBehavior
-#       sound:
-#         path: #TBA
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/_NF/Voice/Goblin/goblin_deathgasp_1.ogg
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Impstation/Magic/cursespawn.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 4
+        Poison: 4
 
 - type: entity
   parent: [ MobBadOmen ]
@@ -392,12 +404,21 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-#      - !type:PlaySoundBehavior
-#       sound:
-#         path: #TBA
+      - !type:PlaySoundBehavior
+       sound:
+         path: /Audio/_NF/Voice/Goblin/goblin_deathgasp_1.ogg
   - type: Sprite
     sprite: _Impstation/Mobs/Animals/Magic/curse.rsi
     noRot: true
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: augury
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 10
+        Poison: 8

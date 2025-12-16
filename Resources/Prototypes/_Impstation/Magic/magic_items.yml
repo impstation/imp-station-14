@@ -129,6 +129,8 @@
   description: W1Z4rD5 0N1Y!!!!!
   suffix: Wizard, Locked
   components:
+  - type: Sprite
+    sprite: _Impstaion/Magic/door.rsi
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -443,9 +445,9 @@
   description:
   components:
   - type: Sprite
-    sprite: _Impstation/Magic/eyes.rsi
+    sprite: _Impstation/Clothing/Eyes/Glasses/magicglasses.rsi
   - type: Clothing
-    sprite: _Impstation/Magic/eyes.rsi
+    sprite: _Impstation/Clothing/Eyes/Glasses/magicglasses.rsi
   - type: FlashImmunity
   - type: Tag
     tags:
