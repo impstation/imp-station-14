@@ -315,3 +315,91 @@
   - type: NpcFactionMember
     factions:
       - Wizard
+
+- type: entity
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  id: MobBadOmen
+  name: bad omen
+  components:
+  - type: Visibility
+    layer: 2 #ghost vis layer
+  - type: MovementSpeedModifier
+    weightlessFriction: 1
+    weightlessFrictionNoInput: 1
+    weightlessAcceleration: 1.5
+  - type: Sprite
+    sprite: _Impstation/Mobs/Animals/Magic/curse.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: omen
+  - type: Appearance
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 100
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MovementAlwaysTouching
+  - type: MovementIgnoreGravity
+    weightless: true
+  - type: Physics
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: NoSlip
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+      - Wizard
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+#      - !type:PlaySoundBehavior
+#       sound:
+#         path: #TBA
+
+- type: entity
+  parent: [ MobBadOmen ]
+  id: MobAugury
+  name: augury
+  description: You've met with a terrible fate.
+  components:
+  - type: NPCUseActionOnTarget
+    actionId: ActionCurseAttack
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+#      - !type:PlaySoundBehavior
+#       sound:
+#         path: #TBA
+  - type: Sprite
+    sprite: _Impstation/Mobs/Animals/Magic/curse.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: augury

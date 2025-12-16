@@ -114,12 +114,13 @@
         minRange: 1.5
         maxRange: 2.5
       spawns:
-      - FleshBlocker
+      - MobBadOmen
     - settings:
         spawnOnSuperCritical: true
-        maxAmount: 3
+        minAmount: 1
+        maxAmount: 1
         minRange: 3
         maxRange: 4.5
       spawns:
-      - MobFleshJared
+      - MobAugury
 

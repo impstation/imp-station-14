@@ -40,6 +40,17 @@
     stock: 5
 
 - type: listing
+  id: SpellbookPig
+  name: spellbook-pig-name
+  description: spellbook-pig-desc
+  productEntity: WeaponWandPig
+  categories:
+  - LilSpells
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 5
+
+- type: listing
   id: SpellbookPolymorphTinySpider
   name: spellbook-polymorph-spider-name
   description: spellbook-polymorph-spider-desc

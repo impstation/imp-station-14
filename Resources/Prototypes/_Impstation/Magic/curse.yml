@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseAction
+  id: ActionCurseAttack
+  name: "[color=red]Manifest[/color]"
+  components:
+  - type: Action
+    raiseOnUser: true
+    icon:
+      sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath_tentacle_spawn
+    iconOn:
+      sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath_tentacle_wiggle
+    sound:
+      path: "/Audio/Weapons/slash.ogg"
+    useDelay: 8
+  - type: TargetAction
+    range: 10
+  - type: WorldTargetAction
+    event: !type:GoliathSummonTentacleAction
