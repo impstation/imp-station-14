@@ -1,5 +1,7 @@
+using Content.Shared._ES.TileFires;
 using Content.Shared.Physics;
 using Content.Shared.Throwing;
+using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -11,24 +13,21 @@ public sealed class ESSparksSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ESSharedTileFireSystem _tileFire = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public static readonly EntProtoId DefaultSparks = "ESEffectSparks";
 
-    public void DoSparks(EntityUid source, int number = 4, EntProtoId? sparksPrototype = null)
+    [PublicAPI]
+    public void DoSparks(EntityUid source, int number = 4, EntProtoId? sparksPrototype = null, float tileFireChance = 0f)
     {
-        var coords = _transform.GetMapCoordinates(source);
-        DoSparks(coords, number, sparksPrototype, source);
+        var coords = Transform(source).Coordinates;
+        DoSparks(coords, number, sparksPrototype, source, tileFireChance);
     }
 
-    public void DoSparks(EntityCoordinates coordinates, int number = 4, EntProtoId? sparksPrototype = null, EntityUid? ignored = null)
-    {
-        var mapCoordinates = _transform.ToMapCoordinates(coordinates);
-        DoSparks(mapCoordinates, number, sparksPrototype, ignored);
-    }
-
-    public void DoSparks(MapCoordinates coordinates, int number = 4, EntProtoId? sparksPrototype = null, EntityUid? ignored = null)
+    [PublicAPI]
+    public void DoSparks(EntityCoordinates coordinates, int number = 4, EntProtoId? sparksPrototype = null, EntityUid? ignored = null, float tileFireChance = 0f)
     {
         if (_net.IsClient)
             return;
@@ -39,11 +38,15 @@ public sealed class ESSparksSystem : EntitySystem
         var angle = _random.NextAngle();
         for (var i = 0; i < number; i++)
         {
-            var sparks = EntityManager.Spawn(sparksPrototype, coordinates, rotation: angle);
+            var sparks = Spawn(sparksPrototype, _transform.ToMapCoordinates(coordinates), rotation: angle);
             angle += angleDelta;
             _throwing.TryThrow(sparks, angle.ToVec(), 2f, animated: false);
             PreventCollide(sparks, ignored);
         }
+
+        // TODO sparks should take in user and pass it in here also (arsonist core)
+        if (_random.Prob(tileFireChance))
+            _tileFire.TryDoTileFire(coordinates, null, _random.Next(1, 4));
     }
 
     private void PreventCollide(EntityUid sparks, EntityUid? ignored)

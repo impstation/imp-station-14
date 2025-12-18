@@ -362,7 +362,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     {
 // ES START
         //if (sourceUid.HasValue)
-        //    _esSparks.DoSparks(sourceUid.Value);
+        //    _esSparks.DoSparks(sourceUid.Value, tileFireChance: 0.5);
 // ES END
 
         var attemptEvent = new ElectrocutionAttemptEvent(uid, sourceUid, siemensCoefficient,

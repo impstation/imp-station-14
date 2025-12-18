@@ -7,3 +7,7 @@
   sturdy: false
   thermalConductivity: 0.4
   heatCapacity: 700000
+  # ES START
+  # already shouldnt be spreading here bc airtight, but yknow
+  flammability: -99999
+  # ES END

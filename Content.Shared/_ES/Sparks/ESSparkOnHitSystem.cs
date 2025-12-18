@@ -39,7 +39,7 @@ public sealed class ESSparkOnHitSystem : EntitySystem
             (!_powerReceiver.IsPowered((ent, powerReceiver)) || powerReceiver.Load <= 0))
             return;
 
-        _sparks.DoSparks(ent, ent.Comp.Count, ent.Comp.SparkPrototype);
+        _sparks.DoSparks(ent, ent.Comp.Count, ent.Comp.SparkPrototype, ent.Comp.TileFireChance);
         ent.Comp.LastSparkTime = _timing.CurTime;
     }
 }

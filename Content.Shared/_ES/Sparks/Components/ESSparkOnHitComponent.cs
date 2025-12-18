@@ -31,6 +31,12 @@ public sealed partial class ESSparkOnHitComponent : Component
     public float Prob = 1f;
 
     /// <summary>
+    /// Chance a successful spark hit will also spawn a tile fire
+    /// </summary>
+    [DataField]
+    public float TileFireChance = 0f;
+
+    /// <summary>
     /// Minimum time inbetween sparks occuring from hits.
     /// Used to reduce spark spam.
     /// </summary>

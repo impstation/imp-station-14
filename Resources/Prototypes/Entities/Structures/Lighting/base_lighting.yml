@@ -87,6 +87,7 @@
     key: lights
 # ES START
   - type: ESSparkOnHit
+    tileFireChance: 0.05
 # ES END
   placement:
     mode: SnapgridCenter

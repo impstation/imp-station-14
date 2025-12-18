@@ -44,7 +44,10 @@ namespace Content.Shared.Atmos.Components
         [DataField]
         public bool CanResistFire { get; private set; } = false;
 
-        [DataField(required: true)]
+        // ES START
+        // non required damage
+        [DataField(required: false)]
+        // ES END
         [ViewVariables(VVAccess.ReadWrite)]
         public DamageSpecifier Damage = new(); // Empty by default, we don't want any funny NREs.
 
@@ -90,5 +93,33 @@ namespace Content.Shared.Atmos.Components
         /// </summary>
         [DataField]
         public bool ToggleAmbientSound;
+
+        // ES START
+        /// <summary>
+        ///     This is slightly strange, but its basically to allow things which use firestacks in appearance
+        ///     w/ genericvis stuff to have discrete stages, but have firestacks 'per stage'
+        ///     e.g. you have 20 firestacks, visual divisor of 5, then <see cref="FireVisuals.FireStacks"/> is set to 4
+        /// </summary>
+        [DataField]
+        public float FirestackVisualDivisor = 1.0f;
+
+        /// <summary>
+        ///     Should this entity be deleted completely on reaching 0 firestacks?
+        /// </summary>
+        [DataField]
+        public bool DeleteOnExtinguish = false;
+
+        /// <summary>
+        ///     Use basic fire spread logic (no mass sharing, just gives some firestacks)
+        ///     Will not receive any firestacks from other entities--just gives to others
+        /// </summary>
+        [DataField]
+        public bool BasicFireSpread = false;
+
+        /// <summary>
+        ///     What % of this entities firestacks will be added to other entities, if basic spread is on.
+        /// </summary>
+        [DataField]
+        public float BasicFireSpreadStackPercentage = 0.1f;
     }
 }

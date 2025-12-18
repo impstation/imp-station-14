@@ -231,6 +231,9 @@
     collection: FootstepFloor
   itemDrop: FloorTileItemPlastic # Imp Edit, no plastic floor item upstream
   heatCapacity: 10000
+  # ES START
+  flammability: 3
+  # ES END
 
 - type: tile
   id: FloorWood
@@ -251,6 +254,9 @@
     collection: BarestepWood
   itemDrop: FloorTileItemWood
   heatCapacity: 10000
+  # ES START
+  flammability: 8
+  # ES END
 
 - type: tile
   id: FloorWhite
@@ -269,6 +275,9 @@
     collection: FootstepTile
   itemDrop: FloorTileItemWhite
   heatCapacity: 10000
+  # ES START
+  flammability: 2
+  # ES END
 
 - type: tile
   id: FloorWhiteMini
@@ -611,6 +620,9 @@
     collection: FootstepHull
   itemDrop: FloorTileItemTechmaint
   heatCapacity: 10000
+  # ES START
+  flammability: 0.5
+  # ES END
 
 - type: tile
   id: FloorTechMaintDark
@@ -635,6 +647,9 @@
     collection: FootstepHull
   itemDrop: PartRodMetal1
   heatCapacity: 10000
+# ES Start
+  flammability: 0.1
+# ES End
 
 - type: tile
   id: FloorMono
@@ -1365,6 +1380,9 @@
     collection: FootstepTile
   itemDrop: SheetGlass1
   heatCapacity: 10000
+  # ES START
+  flammability: 0.1
+  # ES END
 
 - type: tile
   id: FloorRGlass
@@ -1383,6 +1401,9 @@
     collection: FootstepTile
   itemDrop: SheetRGlass1
   heatCapacity: 10000
+  # ES START
+  flammability: 0.1
+  # ES END
 
 - type: tile
   id: FloorMetalFoam
@@ -1981,6 +2002,9 @@
     collection: FootstepGrass
   itemDrop: FloorTileItemAstroGrass
   heatCapacity: 10000
+  # ES START
+  flammability: 10
+  # ES END
 
 - type: tile
   id: FloorMowedAstroGrass
@@ -2031,6 +2055,9 @@
   mobFriction: 0.05
   mobAcceleration: 0.1
   itemDrop: FloorTileItemAstroIce
+  # ES START
+  flammability: 0.1
+  # ES END
 
 - type: tile
   id: FloorAstroSnow
@@ -2040,6 +2067,9 @@
   isSubfloor: false
   deconstructTools: [ Prying ]
   itemDrop: FloorTileItemAstroSnow
+  # ES START
+  flammability: 0.1
+  # ES END
 
 # Asteroid Sand
 - type: tile
