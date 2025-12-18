@@ -44,6 +44,7 @@
     - Changeling # imp edit
     - Heretic # imp edit
     - Wizard
+    - Xenoborgs
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
@@ -67,6 +68,7 @@
     - Changeling # imp edit
     - Heretic # imp edit
     - Wizard
+    - Xenoborgs
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
@@ -217,6 +219,22 @@
   - Wizard
   - DummyNonAntagChance
   - SubGamemodesRuleNoWizard #No Dual Wizards at the start, midround is fine
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Xenoborgs
+  alias:
+    - xenoborgs
+  name: xenoborgs-title
+  description: xenoborgs-description
+  showInVote: false
+  rules:
+  - Xenoborgs
+  - DummyNonAntagChance
+  - SubGamemodesRuleNoXenoborg # no two motherships
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler

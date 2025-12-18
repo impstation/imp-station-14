@@ -23,7 +23,7 @@ using System.Linq;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Clothing.Components;
-using Content.Shared.Throwing; // imp
+using Content.Shared.Throwing; // EE THROWING
 
 namespace Content.Shared.Flash;
 
@@ -63,7 +63,7 @@ public abstract class SharedFlashSystem : EntitySystem
         SubscribeLocalEvent<TemporaryBlindnessComponent, FlashAttemptEvent>(OnTemporaryBlindnessFlashAttempt);
         Subs.SubscribeWithRelay<FlashImmunityComponent, FlashAttemptEvent>(OnFlashImmunityFlashAttempt, held: false);
         SubscribeLocalEvent<FlashImmunityComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<FlashComponent, ThrowDoHitEvent>(OnFlashThrowHitEvent); // imp
+        SubscribeLocalEvent<FlashComponent, ThrowDoHitEvent>(OnFlashThrowHitEvent); // EE THROWING
 
         _statusEffectsQuery = GetEntityQuery<StatusEffectsComponent>();
         _damagedByFlashingQuery = GetEntityQuery<DamagedByFlashingComponent>();
@@ -105,22 +105,13 @@ public abstract class SharedFlashSystem : EntitySystem
         FlashArea(ent.Owner, null, ent.Comp.Range, ent.Comp.AoeFlashDuration, ent.Comp.SlowTo, true, ent.Comp.Probability);
     }
 
-
-    // imp, allows for flashing when thrown at someone
-    private void OnFlashThrowHitEvent(Entity<FlashComponent> ent, ref ThrowDoHitEvent args)
-    {
-        if (!UseFlash(ent, null))
-            return;
-        FlashArea(ent.Owner, null, ent.Comp.Range, ent.Comp.AoeFlashDuration, ent.Comp.SlowTo, false, ent.Comp.Probability);
-    }
-
     /// <summary>
     /// Use charges and set the visuals.
     /// </summary>
     /// <returns>False if no charges are left or the flash is currently in use.</returns>
-    private bool UseFlash(Entity<FlashComponent> ent, EntityUid? user)
+    private bool UseFlash(Entity<FlashComponent> ent, EntityUid? user, bool bypassUseDelay = false) // imp add bypassUseDelay for throwing flashes
     {
-        if (_useDelay.IsDelayed(ent.Owner))
+        if (_useDelay.IsDelayed(ent.Owner) && !bypassUseDelay) // imp add bypassUseDelay
             return false;
 
         if (TryComp<LimitedChargesComponent>(ent.Owner, out var charges)
@@ -281,5 +272,13 @@ public abstract class SharedFlashSystem : EntitySystem
     {
         if (ent.Comp.ShowInExamine)
             args.PushMarkup(Loc.GetString("flash-protection"));
+    }
+
+    // EE THROWING, allows for flashing when thrown at someone
+    private void OnFlashThrowHitEvent(Entity<FlashComponent> ent, ref ThrowDoHitEvent args)
+    {
+        if (!UseFlash(ent, null, true))
+            return;
+        FlashArea(ent.Owner, null, ent.Comp.Range, ent.Comp.AoeFlashDuration, ent.Comp.SlowTo, false, ent.Comp.Probability);
     }
 }

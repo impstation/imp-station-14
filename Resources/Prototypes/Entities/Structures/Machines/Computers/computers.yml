@@ -115,8 +115,8 @@
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#43ccb5"
 
 - type: entity
@@ -139,8 +139,8 @@
   - type: WorldLoader
     radius: 256
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#43ccb5"
   - type: ItemSlots
     slots:
@@ -215,8 +215,8 @@
   - type: WorldLoader
     radius: 1536
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#c94242"
   - type: Computer
     board: SyndicateShuttleConsoleCircuitboard
@@ -248,8 +248,8 @@
   - type: RadarConsole
     maxRange: 256
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#43ccb5"
   - type: Computer
     board: CargoShuttleConsoleCircuitboard
@@ -334,8 +334,8 @@
       state: generic_panel_open
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#c9c042"
   - type: Computer
     board: PowerComputerCircuitboard
@@ -379,8 +379,8 @@
       state: generic_panel_open
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#1f8c28"
   - type: Computer
     board: MedicalRecordsComputerCircuitboard
@@ -432,9 +432,9 @@
       state: generic_panel_open
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
-    color: "#887755FF" #imp
+    radius: 2.4 #imp, was 2.4
+    energy: 1.6 # imp, was 4.0
+    color: "#887755FF" #imp, was #1f8c28
   - type: Computer
     board: CriminalRecordsComputerCircuitboard
   - type: AccessReader
@@ -465,8 +465,8 @@
     key: enum.CharacterRecordConsoleKey.Key
  # End CD - Character Records
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#1f8c28"
   - type: Computer
     board: StationRecordsComputerCircuitboard
@@ -496,8 +496,8 @@
       state: generic_panel_open
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#006400"
   - type: Computer
     board: CrewMonitoringComputerCircuitboard
@@ -560,8 +560,8 @@
   - type: AccessReader
     access: [["Research"]]
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#b53ca1"
   - type: GuideHelp
     guides:
@@ -612,8 +612,8 @@
   - type: Computer
     board: AnalysisComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#b53ca1"
   - type: GuideHelp
     guides:
@@ -674,8 +674,8 @@
   - type: Computer
     board: IDComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#3c5eb5"
   - type: ItemSlots
   - type: ContainerContainer
@@ -695,8 +695,8 @@
   - type: Computer
     board: BodyScannerComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#1f8c28"
 
 - type: entity
@@ -738,8 +738,8 @@
   - type: Computer
     board: CommsComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#3c5eb5"
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -778,8 +778,8 @@
   - type: Computer
     board: SyndicateCommsComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#f71713"
 
 - type: entity
@@ -815,8 +815,8 @@
   - type: Computer
     board: WizardCommsComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#F317F3"
 
 - type: entity
@@ -850,8 +850,8 @@
   - type: Computer
     board: CentcommCommsComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#00FF00"
 
 - type: entity
@@ -887,8 +887,8 @@
   - type: Computer
     board: SolarControlComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#e6e227"
   - type: GuideHelp
     guides:
@@ -931,8 +931,8 @@
   - type: Computer
     board: RadarConsoleCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#e6e227"
 
 - type: entity
@@ -974,8 +974,8 @@
   - type: Computer
     board: CargoRequestComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#b89f25"
   - type: AccessReader
     access: [["Logistics"]] #Imp
@@ -1227,8 +1227,8 @@
   - type: Computer
     board: CargoBountyComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#b89f25"
   - type: AccessReader
     access: [["Quartermaster"]]
@@ -1273,8 +1273,8 @@
   - type: Computer
     board: FundingAllocationComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#3c5eb5"
 
 - type: entity
@@ -1307,8 +1307,8 @@
   - type: Computer
     board: CloningConsoleComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#1f8c28"
   - type: DeviceLinkSource
     range: 4
@@ -1368,8 +1368,8 @@
   - type: Computer
     board: SalvageJobBoardComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#b89f25"
 
 - type: entity
@@ -1420,8 +1420,8 @@
     - type: Computer
       board: SalvageExpeditionsComputerCircuitboard
     - type: PointLight
-      radius: 2.4 #imp
-      energy: 1.6
+      radius: 1.5
+      energy: 4.0
       color: "#b89f25"
     - type: AccessReader
       access: [["Salvage"]]
@@ -1565,8 +1565,8 @@
   - type: Computer
     board: CargoSaleComputerCircuitboard
   - type: PointLight
-    radius: 2.4 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 4.0
     color: "#b89f25"
   - type: GuideHelp
     guides:
@@ -1637,8 +1637,8 @@
           state: generic_panel_open
           sprite: _Impstation/Structures/Machines/computers.rsi # imp
     - type: PointLight
-      radius: 2.4 #imp
-      energy: 1.6
+      radius: 1.5
+      energy: 4.0
       color: "#43ccb5"
     - type: Computer
       board: SensorConsoleCircuitboard
@@ -1713,7 +1713,7 @@
     color: "#b53ca1"
 
 - type: entity
-  parent: ComputerRoboticsControl
+  parent: BaseComputer
   id: ComputerXenoborgsControl
   name: xenoborgs control console
   description: Used to remotely monitor all xenoborgs.
@@ -1733,20 +1733,28 @@
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
       sprite: _Impstation/Structures/Machines/computers.rsi # imp
+  - type: ActivatableUI
+    key: enum.RoboticsConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.RoboticsConsoleUiKey.Key:
+        type: RoboticsConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: RoboticsConsole
     allowBorgControl: false
     radioChannel: Xenoborg
   - type: ActiveRadio
     channels:
     - Xenoborg
+  - type: ApcPowerReceiver
+    powerLoad: 1000
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: Mothership
     transmitFrequencyId: Xenoborg
   - type: Computer
     board: ComputerXenoborgsControlCircuitboard
-  - type: AccessReader # only used for dangerous things
-    access: [["Xenoborg"]]
 
 - type: entity
   id: StationAiUploadComputer

@@ -595,10 +595,12 @@ public sealed partial class GoobChangelingSystem : EntitySystem
 
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {
-            var cuff = cuffs.LastAddedCuffs;
+            // imp start
+            var cuff = _cuffs.GetLastCuffOrNull((uid, cuffs));
 
-            _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
+            _cuffs.TryUncuff((uid, cuffs), uid);
             QueueDel(cuff);
+            // imp end
         }
 
         var soln = new Solution();
