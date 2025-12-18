@@ -95,7 +95,6 @@
       methods: [ Touch, Injection ] #imp, injection
       effects:
       - !type:HealthChange
-        scaling: true
         damage:
           types:
             Caustic: 0.2 #imp, YEEEEOWCH! (.05 heat upstream)

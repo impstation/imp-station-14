@@ -263,18 +263,18 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
     private void OnGrappleCollide(EntityUid uid, GrapplingProjectileComponent component, ref ProjectileEmbedEvent args)
     {
-        if (!Timing.IsFirstTimePredicted)
+        if (!Timing.IsFirstTimePredicted || !args.Weapon.HasValue)
             return;
 
         var jointComp = EnsureComp<JointComponent>(uid);
-        var joint = _joints.CreateDistanceJoint(uid, args.Weapon, anchorA: new Vector2(0f, 0.5f), id: GrapplingJoint);
+        var joint = _joints.CreateDistanceJoint(uid, args.Weapon.Value, anchorA: new Vector2(0f, 0.5f), id: GrapplingJoint);
         joint.MaxLength = joint.Length + 0.2f;
         joint.Stiffness = 1f;
         joint.MinLength = 0.35f;
         // Setting velocity directly for mob movement fucks this so need to make them aware of it.
         // joint.Breakpoint = 4000f;
 
-        _popup.PopupEntity(Loc.GetString("grapple-hit"), args.Weapon); // IMP
+        _popup.PopupEntity(Loc.GetString("grapple-hit"), args.Weapon.Value); // IMP
 
         Dirty(uid, jointComp);
     }

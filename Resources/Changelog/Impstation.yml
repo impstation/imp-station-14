@@ -1,17 +1,4 @@
 ﻿Entries:
-- author: kipdotnet, perrprog
-  changes:
-  - message: Added a variety of special spellbooks to the libraries bookshelves. Browse
-      today!
-    type: Add
-  - message: Added the book returns teleporter, which periodically stocks the librarian
-      with new books. not mapped yet.
-    type: Add
-  - message: Spellbooks now work again.
-    type: Fix
-  id: 1986
-  time: '2025-07-06T17:40:37.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2898
 - author: Pinkbat5
   changes:
   - message: Some species reach middle-age and old age earlier or later in life.
@@ -4168,3 +4155,10 @@
   id: 2485
   time: '2025-12-14T11:10:24.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3852
+- author: msTheowo
+  changes:
+  - message: Thaven clothing offsets have been slightly changed.
+    type: Tweak
+  id: 2486
+  time: '2025-12-18T07:20:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3868

@@ -54,13 +54,6 @@ public sealed partial class EmbeddableProjectileComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? EmbeddedIntoUid;
 
-    // ee start, throwing
-    /// <summary>
-    ///   The entity this embeddable is attached to.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public EntityUid? Target = null;
-
     /// <summary>
     ///   How much time before this entity automatically falls off? (0 is never)
     /// </summary>

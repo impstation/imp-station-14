@@ -4,7 +4,7 @@ using Content.Shared.Trigger.Systems;
 
 namespace Content.Shared._Impstation.Trigger.Systems;
 
-public sealed class StunOnTriggerSystem : EntitySystem
+public sealed class TriggerOnEmbedSystem : EntitySystem
 {
 
     [Dependency] private readonly TriggerSystem _trigger = default!;

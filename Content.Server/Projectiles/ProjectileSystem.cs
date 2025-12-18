@@ -45,6 +45,11 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             return;
         }
 
+        // IMP ADD: fix false collision events, fixes intermittent test fails
+        if (TryComp<EmbeddableProjectileComponent>(uid, out var embeddable) && embeddable.EmbeddedIntoUid is not null)
+            return;
+        // END IMP
+
         var ev = new ProjectileHitEvent(component.Damage * _damageableSystem.UniversalProjectileDamageModifier, target, component.Shooter);
         RaiseLocalEvent(uid, ref ev);
 
