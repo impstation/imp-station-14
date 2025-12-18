@@ -34,8 +34,8 @@
     graph: WallmountTelescreen
     node: Telescreen
   - type: PointLight
-    radius: 1.8 #imp
-    energy: 1.6
+    radius: 1.5
+    energy: 3.0
     color: "#b89f25"
     enabled: false #imp
     mask: /Textures/Effects/LightMasks/cone.png #imp

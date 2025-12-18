@@ -8,12 +8,12 @@
 <!-- Summary of code changes for easier review. -->
 
 ## Media
-<!-- Attach media if the PR makes ingame changes (clothing, items, features, etc). -->
+<!-- Attach media if the PR makes in-game changes (clothing, items, features, etc).-->
 
 ## Requirements
 <!-- Confirm the following by placing an X in the brackets [X]: -->
 - [ ] I have read and am following the Impstation [Design Principles](https://github.com/impstation/imp-station-14/wiki/Design-Principles) and [Coding Standards](https://github.com/impstation/imp-station-14/wiki/Coding-Standards).
-- [ ] I have added media to this PR or it does not require an ingame showcase.
+- [ ] I have added media to this PR or it does not require an in-game showcase.
 <!-- You should understand that not following the above may get your PR closed at maintainer’s discretion -->
 
 **Changelog**

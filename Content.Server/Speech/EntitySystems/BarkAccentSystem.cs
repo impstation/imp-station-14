@@ -1,3 +1,4 @@
+using Content.Shared.StatusEffectNew;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
 using Robust.Shared.Random;
@@ -38,6 +39,7 @@ namespace Content.Server.Speech.EntitySystems
         {
             base.Initialize(); // imp edit
             SubscribeLocalEvent<BarkAccentComponent, AccentGetEvent>(OnAccent);
+            SubscribeLocalEvent<BarkAccentComponent, StatusEffectRelayedEvent<AccentGetEvent>>(OnAccentRelayed);
         }
 
         public string Accentuate(string message)
@@ -50,7 +52,7 @@ namespace Content.Server.Speech.EntitySystems
             return message.Replace("!", _random.Pick(Barks)); //imp edit
         }
 
-        private void OnAccent(EntityUid uid, BarkAccentComponent component, AccentGetEvent args)
+        private void OnAccent(Entity<BarkAccentComponent> entity, ref AccentGetEvent args)
         {
             args.Message = Accentuate(args.Message);
 
@@ -58,6 +60,11 @@ namespace Content.Server.Speech.EntitySystems
             args.Message = RegexLowerScoobyRs.Replace(args.Message, "r");
             args.Message = RegexUpperScoobyRs.Replace(args.Message, "R");
             // imp end
+        }
+
+        private void OnAccentRelayed(Entity<BarkAccentComponent> entity, ref StatusEffectRelayedEvent<AccentGetEvent> args)
+        {
+            args.Args.Message = Accentuate(args.Args.Message);
         }
     }
 }
