@@ -443,3 +443,12 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Hats/cutetiara.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSimpleTiara
+  name: Simple Tiara
+  description: A simple tiara for those seeking elegance through simplicity.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/simpletiara.rsi
