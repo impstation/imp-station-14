@@ -443,6 +443,8 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Hats/cutetiara.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/cutetiara.rsi
 
 - type: entity
   parent: ClothingHeadBase
@@ -452,3 +454,16 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Hats/simpletiara.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/simpletiara.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPrincess
+  name: Princess Hat
+  description: Did you know these are actually called a Hennin?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/princesshat.rsi
+  - type: Clothing
+    sprite:  _Impstation/Clothing/Head/Hats/princesshat.rsi
