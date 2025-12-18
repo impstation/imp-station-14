@@ -434,3 +434,12 @@
     sprite: _Impstation/Clothing/Head/Hats/centcommintern.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/centcommintern.rsi
+
+- type: entity
+  Parent: ClothingHeadBase
+  id: ClothingHeadHatCuteTiara
+  name: Cute Tiara
+  description: A tiara fit for royalty, except that it's definitely not real gold
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/cutetiara.rsi
