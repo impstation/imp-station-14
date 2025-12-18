@@ -108,7 +108,6 @@
   deconstructTools: [ Prying ]
   itemDrop: FloorTileItemAstroCave
 
-# TODO: Add items for each tile type
 # Squiggly variants of other tile colors, because it's only for dark colors upstream
 
 - type: tile
@@ -188,7 +187,6 @@
   heatCapacity: 10000
 
 # Dark green tiles, another variant of standard steel tiles
-# TODO: New items for the flooring, so they can be picked up and placed down
 
 - type: tile
   id: FloorGreen
