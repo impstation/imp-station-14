@@ -63,3 +63,9 @@
   format: name-identifier-anomalite-tech # tk for tech. tc, te, and th, don't read well
   minValue: 0
   maxValue: 999
+
+- type: nameIdentifierGroup
+  id: AnomaliteSanta
+  format: name-identifier-anomalite-santa # cl for claus
+  minValue: 0
+  maxValue: 999

@@ -1,37 +1,4 @@
 ﻿Entries:
-- author: hivehum
-  changes:
-  - message: 'Calling all besties: KILL!!!!!!!!!!!!!!!!!!!!!!! (you may now be ordered
-      to kill OR maroon your target again.)'
-    type: Tweak
-  id: 1982
-  time: '2025-07-06T11:34:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2961
-- author: Pinkbat5
-  changes:
-  - message: Atmos pipes now get their own dedicated category in the construction
-      menu.
-    type: Tweak
-  id: 1983
-  time: '2025-07-06T12:01:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2965
-- author: DinnerCalzone
-  changes:
-  - message: Fixed sprites for the spationaut suit and headphones.
-    type: Fix
-  id: 1984
-  time: '2025-07-06T12:03:37.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3001
-- author: Smugman
-  changes:
-  - message: New sprites for cigarette cartons!
-    type: Add
-  - message: Cigarette cartons actually opening is now no longer copyrighted by the
-      Syndicate.
-    type: Fix
-  id: 1985
-  time: '2025-07-06T12:24:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2975
 - author: kipdotnet, perrprog
   changes:
   - message: Added a variety of special spellbooks to the libraries bookshelves. Browse
@@ -4172,3 +4139,32 @@
   id: 2481
   time: '2025-12-11T18:17:44.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3377
+- author: FlippenPage
+  changes:
+  - message: presents use their old texture again
+    type: Fix
+  id: 2482
+  time: '2025-12-14T10:34:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3836
+- author: FlippenPage
+  changes:
+  - message: Added Santa Anomalite! we're shooting him after december ok?
+    type: Add
+  id: 2483
+  time: '2025-12-14T10:39:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3835
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The  T-25's flare shot has been reduced in brightness and the ammo counts
+      of it, and the disabler shot, have been adjusted.
+    type: Tweak
+  id: 2484
+  time: '2025-12-14T10:42:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3837
+- author: mqole
+  changes:
+  - message: Cigar cases can no longer store items bigger than cigars.
+    type: Remove
+  id: 2485
+  time: '2025-12-14T11:10:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3852
