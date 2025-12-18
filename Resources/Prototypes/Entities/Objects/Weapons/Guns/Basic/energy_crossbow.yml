@@ -4,9 +4,9 @@
   id: WeaponEnergyCrossbowBase
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Basic/energy_crossbow.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Special/energy_crossbow.rsi #imp
   - type: Item
-    sprite: Objects/Weapons/Guns/Basic/energy_crossbow.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Special/energy_crossbow.rsi #imp
     size: Small
   - type: Gun
     fireRate: 5 #high firerate innately bottlenecked by ammo regeneration speed.
@@ -41,9 +41,19 @@
   description: Launches renewable toxic arrows capable of flooring targets instantly.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Basic/energy_crossbow.rsi
-    state: icon
+    sprite: _Impstation/Objects/Weapons/Guns/Special/energy_crossbow.rsi #imp
+    #state: icon - we can do better than this
+    layers: #imp
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: MagazineVisuals #imp
+    magState: mag
+    steps: 2
+    zeroVisible: true
   - type: Item
-    sprite: Objects/Weapons/Guns/Basic/energy_crossbow.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Special/energy_crossbow.rsi #imp
   - type: StaticPrice
     price: 2500

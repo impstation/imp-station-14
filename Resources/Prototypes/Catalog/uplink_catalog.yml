@@ -98,6 +98,7 @@
   id: UplinkEnergyCrossbow
   name: uplink-energycrossbow-name
   description: uplink-energycrossbow-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Special/energy_crossbow.rsi, state: icon } #imp
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 3

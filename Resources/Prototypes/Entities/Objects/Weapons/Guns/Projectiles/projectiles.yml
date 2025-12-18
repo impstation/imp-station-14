@@ -1433,9 +1433,9 @@
   - type: Ammo
     muzzleFlash: null
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
     layers:
-    - state: crossbowbolt
+    - state: syndcrossbolt #imp
       shader: unshaded
   - type: Projectile
     damage:
