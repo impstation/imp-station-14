@@ -467,3 +467,14 @@
     sprite: _Impstation/Clothing/Head/Hats/princesshat.rsi
   - type: Clothing
     sprite:  _Impstation/Clothing/Head/Hats/princesshat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatGreenEscoffion
+  name: Green Escoffion
+  description: Fit for some kind of fancy princess, bet you didn't know this kind of hat has a name
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/greenescoffion.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/greenescoffion.rsi
