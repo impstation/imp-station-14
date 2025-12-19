@@ -125,6 +125,7 @@
       - id: BalloonCorgi
       - id: MysteryFigureBox
       - id: RubberChicken
+      - id: MysteryLighterBox # imp - moved from rare
       # Cult
       - !type:AllSelector
         children:
@@ -180,7 +181,7 @@
       - id: ClothingUniformJumpsuitFamilyGuy
       - id: WristwatchGold
       - id: RubberStampGreytide
-      - id: MysteryLighterBox
+    # - id: MysteryLighterBox imp - moved to uncommon
       - id: GoldenPersonalAI
       - id: StraightHandyFlag # imp
       - id: ClothingBeltFoamSheathFilled # DeltaV - Add small chance of it spawning in maints locker.
