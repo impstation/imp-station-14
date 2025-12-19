@@ -1,0 +1,9 @@
+- type: entity
+  id: UnknownShuttlePartyUFO
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: true #!!
+    weight: 8 #slightly less common
+  - type: LoadMapRule
+    preloadedGrid: PartyUFO
