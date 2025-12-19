@@ -43,6 +43,10 @@
     bluntStaminaDamageFactor: 2.0
     angle: 60
     animation: WeaponArcThrust
+  # ES START
+  - type: ESSparkOnItemToggle
+    count: 1
+  # ES END
   - type: StaminaDamageOnHit
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
