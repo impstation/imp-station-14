@@ -28,14 +28,7 @@
     layers:
     - map: [ "base" ]
       state: red_1
-  - type: PointLight
-    netsync: false
-    radius: 1.6
-    energy: 12
-    falloff: 3
-    curveFactor: 1.0
-    castShadows: false
-    color: "#bf6d02"
+      shader: unshaded
   - type: ESTileFire
   - type: ActiveEdgeSpreader
   - type: EdgeSpreader
@@ -68,21 +61,8 @@
     sound:
       path: /Audio/Ambience/Objects/fireplace.ogg
   - type: Appearance
-  - type: ESGenericPointLightVisualizer
-    visuals:
-      enum.FireVisuals.FireStacks:
-        0:
-          energy: 12
-          radius: 1.6
-        1:
-          energy: 16
-          radius: 2.0
-        2:
-          energy: 20
-          radius: 2.0
-        3:
-          energy: 30
-          radius: 2.0
+  - type: TileEmission
+    color: "#fc9003"
   - type: GenericVisualizer
     visuals:
       enum.FireVisuals.FireStacks:
