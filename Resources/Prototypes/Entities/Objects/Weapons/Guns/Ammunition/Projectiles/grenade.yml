@@ -4,10 +4,9 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+  - type: Sprite # imp
     layers:
-    - state: rubber #imp
+    - state: rubber
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -24,10 +23,10 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
-  - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
+  - type: Sprite # imp
+    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
     layers:
-    - state: shard #imp
+    - state: shard
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -42,10 +41,9 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+  - type: Sprite # imp
     layers:
-    - state: buckshot-flare #imp
+    - state: buckshot-flare
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -64,10 +62,10 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
-  - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
+  - type: Sprite # imp
+    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
     layers:
-    - state: shard #imp
+    - state: shard
   - type: Projectile
     deleteOnCollide: false
     damage:

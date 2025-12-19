@@ -57,6 +57,17 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
+      - type: Accentless # Imp edit start
+        removes:
+        - type: LizardAccent
+        - type: MothAccent
+        - type: ReplacementAccent
+          accent: dwarf
+        - type: SnalienAccent
+        - type: GrayAccent
+        - type: DwarfAccent
+        - type: NoContractionsAccent
+        - type: AllulaloAccent # imp edit end
       mindRoles:
       - MindRolePostOperator
 
