@@ -130,7 +130,7 @@
   suffix: "Very local knockdown"
   parent: AdminInstantEffectBase
   components:
-  - type: StunOnTrigger
+  - type: StunAreaOnTrigger
     range: 4
     entireGrid: false
     knockdownTime: 1.5
@@ -163,7 +163,7 @@
   suffix: "Local knockdown"
   parent: AdminInstantEffectBase
   components:
-  - type: StunOnTrigger
+  - type: StunAreaOnTrigger
     range: 8
     entireGrid: false
     knockdownTime: 4
@@ -404,7 +404,7 @@
   suffix: "Gridwide knockdown"
   parent: AdminInstantEffectBase
   components:
-  - type: StunOnTrigger
+  - type: StunAreaOnTrigger
     range: 15
     entireGrid: true
     knockdownTime: 3
