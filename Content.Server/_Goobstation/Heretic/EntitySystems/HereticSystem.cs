@@ -4,14 +4,14 @@ using Content.Server.Chat.Systems;
 using Content.Server.Heretic.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
-using Content.Server.Temperature.Components;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Nutrition;
 using Content.Shared.Store.Components;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 

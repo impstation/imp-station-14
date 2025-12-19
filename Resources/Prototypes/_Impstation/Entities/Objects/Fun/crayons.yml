@@ -1,14 +1,4 @@
 - type: entity
-  parent: CrayonRainbow
-  id: CrayonRainbowInfinite
-  suffix: Infinite
-  components:
-  - type: Crayon
-    color: Red
-    selectableColor: true
-    infinite: true
-
-- type: entity
   parent: Crayon
   id: CrayonChalk
   name: forensic chalk
@@ -20,7 +10,8 @@
     heldPrefix: white
   - type: Crayon
     color: white
-    capacity: 200
+  - type: LimitedCharges
+    maxCharges: 200
   - type: Tag
     tags:
     - Write
