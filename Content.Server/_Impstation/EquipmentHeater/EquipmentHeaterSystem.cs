@@ -1,6 +1,7 @@
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.EquipmentHeater;
@@ -40,7 +41,7 @@ public sealed class EquipmentHeaterSystem : EntitySystem
 
             if (comp.NextUpdate < _timing.CurTime)
             {
-                // increase the temperature of the equipee by the value set in the component. 
+                // increase the temperature of the equipee by the value set in the component.
                 _temperature.ForceChangeTemperature((EntityUid)comp.CurrentlyEquipped, temp.CurrentTemperature + comp.TempIncrease, temp);
                 comp.NextUpdate = _timing.CurTime + comp.UpdateDelay;
             }

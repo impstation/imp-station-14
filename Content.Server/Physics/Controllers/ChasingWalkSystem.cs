@@ -126,10 +126,10 @@ public sealed class ChasingWalkSystem : VirtualController
         else
         {
             // if the entity is currently embedded in something, detach it and "throw" it gently *away* from the target
-            if (TryComp<EmbeddableProjectileComponent>(uid, out var embeddable) && embeddable.Target != null)
+            if (TryComp<EmbeddableProjectileComponent>(uid, out var embeddable) && embeddable.EmbeddedIntoUid != null)
             {
                 // calculate the direction *away* from the embed target
-                var pos3 = _transform.GetWorldPosition(embeddable.Target.Value);
+                var pos3 = _transform.GetWorldPosition(embeddable.EmbeddedIntoUid.Value);
                 delta = pos3 - pos1;
                 speed = delta.Length() > 0 ? delta.Normalized() * component.Speed * -1 : Vector2.Zero;
 

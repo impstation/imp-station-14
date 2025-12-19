@@ -6,6 +6,7 @@
   - ImpGoblins
   - ImpApids
   - ImpLuggage
+  - ImpTourist
   - ImpBountyHunter
 
 - type: guideEntry
@@ -40,3 +41,8 @@
   id: ImpBountyHunter
   name: guide-entry-impbountyhunter
   text: "/ServerInfo/_Impstation/Guidebook/Ghostroles/BountyHunter.xml"
+
+- type: guideEntry
+  id: ImpTourist
+  name: guide-entry-imptourist
+  text: "/ServerInfo/_Impstation/Guidebook/Ghostroles/Tourists.xml"
