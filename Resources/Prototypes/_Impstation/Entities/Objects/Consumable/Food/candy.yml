@@ -436,3 +436,92 @@
           Quantity: 10
         - ReagentId: Fresium
           Quantity: 10
+
+- type: entity
+  parent: [BaseItem, Tier1Contraband]
+  id: FoodTreatChunk
+  name: TreatChunk
+  description: A delicately wrapped cherry-flavored hard candy, for the traitor who needs a little treat. 
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    state: treatchunk-wrapped
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    size: Tiny
+    heldPrefix: TreatChunk
+    inhandVisuals:
+        left:
+        - state: treatchunk-inhand-left
+        right:
+        - state: treatchunk-inhand-right
+  - type: Tag
+    tags:
+      - FoodSnack
+      - TreatChunk
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodTreatChunkTrash
+      - id: FoodTreatChunkOpen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: [FoodSnackBase, Tier1Contraband]
+  id: FoodTreatChunkOpen
+  name: TreatChunk
+  description: A tasty little cherry-flavored hard candy, for the traitor who needs a little treat. 
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    state: treatchunk
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    size: Tiny
+    heldPrefix: TreatChunk
+    inhandVisuals:
+        left:
+        - state: treatchunk-open-inhand-left
+        right:
+        - state: treatchunk-open-inhand-right
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ReptilianFood
+    - UnguFood
+    - TreatChunk
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants #droplet of hyperzine. you basically just get a little lurch forward cuz the speed effect is cut so short lol
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 3.5
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodTreatChunkTrash
+  name: TreatChunk wrapper
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    state: treatchunk-trash
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: trash-inhand-left
+        color: "#B22C20"
+      right:
+      - state: trash-inhand-right
+        color: "#B22C20"
+  - type: Tag
+    tags:
+    - TreatChunk

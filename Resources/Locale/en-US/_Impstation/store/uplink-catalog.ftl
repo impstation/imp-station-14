@@ -135,3 +135,12 @@ uplink-extended-pistol-magazine-caseless-desc = Four high-capacity pistol magazi
 
 uplink-extended-pistol-magazine-name = Extended Pistol Magazine Bundle (.35 auto)
 uplink-extended-pistol-magazine-desc = Four high-capacity pistol magazines each loaded with 20 cartridges. Compatible with the Viper.
+
+uplink-treatchunk-free-name = Complimentary TreatChunk 
+uplink-treatchunk-free-desc = A free sample of TreatChunk hard candy. Enjoy!
+
+uplink-treatchunk-bag-name = TreatChunk bag (15 count)
+uplink-treatchunk-bag-desc = A bag of individually wrapped TreatChunk hard candies. Enjoy!
+
+uplink-treatchunk-big-name = Party Sized TreatChunk bag (60 count)
+uplink-treatchunk-big-desc = An impractically large bag of TreatChunk hard candies. Don't eat them all in one sitting.
