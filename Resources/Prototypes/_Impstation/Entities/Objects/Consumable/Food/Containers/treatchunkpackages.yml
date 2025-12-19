@@ -49,7 +49,7 @@
       - TreatChunk
   - type: StorageFill
     contents:
-    - id: FoodTreatChunk
+    - id: FoodTreatChunkRandom
       amount: 15
 
 - type: entity
@@ -69,6 +69,7 @@
         - state: treatchunk-large-bag-inhand-right    
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    scale: 0.80, 0.80
     state: large-treatchunk-bag
   - type: SpawnItemsOnUse
     items:
@@ -96,6 +97,7 @@
     heldPrefix: Party Sized TreatChunk bag
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    scale: 0.80, 0.80
     state: large-treatchunk-bag-open
   - type: Storage
     grid:
@@ -106,6 +108,6 @@
       - TreatChunk
   - type: StorageFill
     contents:
-    - id: FoodTreatChunk
+    - id: FoodTreatChunkRandom
       amount: 60
   - type: MultiHandedItem
