@@ -3,7 +3,6 @@ using Content.Shared.Throwing;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Components;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Whitelist; //IMP addition
 using Robust.Shared.Physics.Components;
 using System.Numerics;
 
@@ -18,7 +17,6 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
     [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; //IMP addition
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -102,9 +100,6 @@ public sealed class MeleeThrowOnHitSystem : EntitySystem
             _stun.TryAddParalyzeDuration(target, ent.Comp.StunTime.Value);
 
         if (direction == Vector2.Zero)
-            return;
-
-        if (_whitelistSystem.IsWhitelistPass(ent.Comp.Whitelist, target))   //imp addition
             return;
 
         _throwing.TryThrow(target, direction.Normalized() * ent.Comp.Distance, ent.Comp.Speed, user, unanchor: ent.Comp.UnanchorOnHit);

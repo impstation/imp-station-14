@@ -33,13 +33,7 @@
       - id: FoodMeatBacon
         amount: 4
     - type: MeleeThrowOnHit
-      unanchorOnHit: true
-      whitelist:
-        components:
-        - WallMount
-        - Airtight
-        tags:
-        - Wall
+      unanchorOnHit: Unanchorable
       distance: 2
       speed: 10
     - type: Tag
