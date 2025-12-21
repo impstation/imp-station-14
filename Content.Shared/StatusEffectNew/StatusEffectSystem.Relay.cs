@@ -5,7 +5,7 @@ using Content.Shared.Speech;
 using Content.Shared.StatusEffectNew.Components;
 using Content.Shared.Stunnable;
 using Robust.Shared.Player;
-using Content.Shared.Damage; // imp
+using Content.Shared.Damage.Systems; // imp
 using Content.Shared.Interaction.Events; // imp
 
 namespace Content.Shared.StatusEffectNew;

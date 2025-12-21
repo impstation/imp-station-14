@@ -342,6 +342,11 @@
         color: "#670a09"
       - state: equipped-OUTERCLOTHING-lines
         color: "#000000"
+      outerClothing-anomalocarid: # imp
+      - state: equipped-OUTERCLOTHING-anomalocarid
+        color: "#670a09"
+      - state: equipped-OUTERCLOTHING-lines-anomalocarid
+        color: "#000000"
   - type: TemperatureProtection
     coolingCoefficient: 0.3
 
@@ -378,6 +383,11 @@
         color: "#3232a6"
       - state: equipped-OUTERCLOTHING-lines
         color: "#000000"
+      outerClothing-anomalocarid: # imp
+      - state: equipped-OUTERCLOTHING-anomalocarid
+        color: "#3232a6"
+      - state: equipped-OUTERCLOTHING-lines-anomalocarid
+        color: "#000000"
   - type: TemperatureProtection
     coolingCoefficient: 0.3
 
@@ -413,6 +423,11 @@
       - state: equipped-OUTERCLOTHING
         color: "#164d0f"
       - state: equipped-OUTERCLOTHING-lines
+        color: "#000000"
+      outerClothing-anomalocarid: # imp
+      - state: equipped-OUTERCLOTHING-anomalocarid
+        color: "#164d0f"
+      - state: equipped-OUTERCLOTHING-lines-anomalocarid
         color: "#000000"
   - type: TemperatureProtection
     coolingCoefficient: 0.3

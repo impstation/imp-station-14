@@ -12,6 +12,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -96,6 +97,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeAsh();
         SubscribeFlesh();
         SubscribeVoid();
+        SubscribeHunt();
     }
 
     private bool TryUseAbility(EntityUid ent, BaseActionEvent args)
