@@ -83,4 +83,5 @@ public sealed partial class EventHereticFleshAscend : InstantActionEvent { }
 public sealed partial class HereticVoidBlastEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
+
 #endregion

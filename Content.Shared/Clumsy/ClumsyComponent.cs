@@ -1,6 +1,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Content.Shared.Whitelist;//imp
 
 namespace Content.Shared.Clumsy;
 
@@ -94,7 +95,15 @@ public sealed partial class ClumsyComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool ClumsyVaulting = true;
-
+    
+    /// <summary>
+    ///      IMP CHANGE
+    ///      Whitelist too add specific guns as clumsyproof
+    ///      mianly intended for allowing decapoids to use specific weapons like crushers
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? GunWhitelist = null;
+    
     /// <summary>
     ///      Lets you define a new "failed" message for each event.
     /// </summary>

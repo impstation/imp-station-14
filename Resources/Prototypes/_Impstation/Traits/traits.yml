@@ -132,3 +132,12 @@
   category: Traits
   components:
   - type: HeavyweightDrunk
+
+- type: trait
+  id: SoftHands
+  name: trait-soft-hands-name
+  description: trait-soft-hands-desc
+  category: Traits
+  components:
+  - type: UnableToWield
+  cost: -3

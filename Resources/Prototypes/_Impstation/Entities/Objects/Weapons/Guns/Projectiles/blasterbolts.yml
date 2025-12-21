@@ -20,7 +20,7 @@
     forceSound: true
 
 - type: entity
-  name : heavy blaster bolt
+  name : blaster pistol bolt
   id: BulletBlasterPistol
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
@@ -31,6 +31,38 @@
     damage:
       types:
         Heat: 15
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name : starflare bolt
+  id: BulletBlasterStarflare
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 13
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name : military blaster pistol bolt
+  id: BulletBlasterPistolMilitary
+  parent: BulletBlasterMagnum
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 20
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -51,16 +83,16 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 2
+    maxIntensity: 1.5
     intensitySlope: 3
-    totalIntensity: 24
+    totalIntensity: 12
     canCreateVacuum: false
   - type: Ammo
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 15
+        Heat: 13
     soundHit:
       collection: WeakHit
     forceSound: true
@@ -144,8 +176,8 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Blunt: 22
-        Structural: 50
+        Blunt: 25
+        Structural: 75
 
 - type: entity
   name : flare shot
@@ -166,7 +198,7 @@
     muzzleFlash: MuzzleFlashEffectGoldLaser
   - type: AmbientSound
     enabled: true
-    volume: -10
+    volume: -15
     range: 5
     sound:
       path: /Audio/_Impstation/Machines/echion.ogg
@@ -175,8 +207,8 @@
   - type: PointLight
     enabled: true
     color: "#ffa223"
-    radius: 10.0
-    energy: 6.0
+    radius: 5
+    energy: 3.0
   - type: Projectile
     deleteOnCollide: false
     damage:

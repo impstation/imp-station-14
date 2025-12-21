@@ -47,9 +47,6 @@
     vital: true
   - type: Input
     context: "ghost"
-  - type: Tag
-    tags:
-      - Head
   - type: DamageOtherOnHit # imp
     damage:
       types:

@@ -1,6 +1,5 @@
 using Content.Shared._DV.TapeRecorder.Components;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
@@ -8,6 +7,7 @@ using Content.Shared.Labels.Components;
 using Content.Shared.Toggleable;
 using Content.Shared.UserInterface;
 using Content.Shared.Whitelist;
+using Content.Shared.DeviceLinking.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
@@ -15,6 +15,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared._DV.TapeRecorder.Systems;
 
@@ -41,6 +42,7 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
         SubscribeLocalEvent<TapeRecorderComponent, ExaminedEvent>(OnRecorderExamined);
         SubscribeLocalEvent<TapeRecorderComponent, ChangeModeTapeRecorderMessage>(OnChangeModeMessage);
         SubscribeLocalEvent<TapeRecorderComponent, AfterActivatableUIOpenEvent>(OnUIOpened);
+        SubscribeLocalEvent<TapeRecorderComponent, SignalReceivedEvent>(OnSignalReceived);
 
         SubscribeLocalEvent<TapeCassetteComponent, ExaminedEvent>(OnTapeExamined);
         SubscribeLocalEvent<TapeCassetteComponent, DamageChangedEvent>(OnDamagedChanged);
@@ -408,6 +410,26 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
             cooldown);
 
         _ui.SetUiState(uid, TapeRecorderUIKey.Key, state);
+    }
+
+    private void OnSignalReceived(Entity<TapeRecorderComponent> ent, ref SignalReceivedEvent args)
+    {
+        if (args.Port == ent.Comp.PausePort)
+        {
+            SetMode(ent, TapeRecorderMode.Stopped);
+        }
+        else if (args.Port == ent.Comp.RecordPort)
+        {
+            SetMode(ent, TapeRecorderMode.Recording);
+        }
+        else if (args.Port == ent.Comp.PlaybackPort)
+        {
+            SetMode(ent, TapeRecorderMode.Playing);
+        }
+        else if (args.Port == ent.Comp.RewindPort)
+        {
+            SetMode(ent, TapeRecorderMode.Rewinding);
+        }
     }
 }
 
