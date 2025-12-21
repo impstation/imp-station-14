@@ -18,6 +18,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Radio; // imp edit
 using Content.Shared.Stacks; // imp edit
 using Content.Shared.Storage.Components; // imp edit
 using System.Text; // imp edit
@@ -79,7 +80,7 @@ namespace Content.Server.Cargo.Systems
                 return;
 
             var orderId = GenerateOrderId(orderDatabase);
-            var data = new CargoOrderData(orderId, product.Product, product.Name, product.Cost, slip.OrderQuantity, slip.Requester, slip.Reason, slip.Account);
+            var data = new CargoOrderData(orderId, product.Product, product.Name, product.Cost, slip.OrderQuantity, slip.Requester, slip.Reason, slip.Account, slip.AnnouncementChannel); // imp edit
 
             if (!TryAddOrder(stationUid.Value, ent.Comp.Account, data, orderDatabase))
             {
@@ -245,8 +246,8 @@ namespace Content.Server.Cargo.Systems
                     ("orderAmount", order.OrderQuantity),
                     ("approver", order.Approver ?? string.Empty),
                     ("cost", cost));
-                _radio.SendRadioMessage(uid, message, account.RadioChannel, uid, escapeMarkup: false);
-                if (CargoOrderConsoleComponent.BaseAnnouncementChannel != account.RadioChannel)
+                _radio.SendRadioMessage(uid, message, order.AnnouncementChannel, uid, escapeMarkup: false); // imp edit
+                if (CargoOrderConsoleComponent.BaseAnnouncementChannel != order.AnnouncementChannel) // imp edit
                     _radio.SendRadioMessage(uid, message, CargoOrderConsoleComponent.BaseAnnouncementChannel, uid, escapeMarkup: false);
             }
 
@@ -331,7 +332,7 @@ namespace Content.Server.Cargo.Systems
             if (Timing.CurTime < component.NextPrintTime)
                 return;
 
-            var label = Spawn(account.AcquisitionSlip, Transform(uid).Coordinates);
+            var label = Spawn(component.AcquisitionSlip, Transform(uid).Coordinates); // imp edit
             component.NextPrintTime = Timing.CurTime + component.PrintDelay;
             _audio.PlayPvs(component.PrintSound, uid);
 
@@ -354,6 +355,7 @@ namespace Content.Server.Cargo.Systems
             slip.Reason = args.Reason;
             slip.OrderQuantity = args.Amount;
             slip.Account = component.Account;
+            slip.AnnouncementChannel = component.AnnouncementChannel; // imp edit
         }
 
         private void OnAddOrderMessage(EntityUid uid, CargoOrderConsoleComponent component, CargoConsoleAddOrderMessage args)
@@ -389,7 +391,7 @@ namespace Content.Server.Cargo.Systems
 
             var targetAccount = component.Mode == CargoOrderConsoleMode.SendToPrimary ? bank.PrimaryAccount : component.Account;
 
-            var data = GetOrderData(args, product, GenerateOrderId(orderDatabase), component.Account);
+            var data = GetOrderData(args, product, GenerateOrderId(orderDatabase), component.Account, component.AnnouncementChannel); // imp edit
 
             if (!TryAddOrder(stationUid.Value, targetAccount, data, orderDatabase))
             {
@@ -467,9 +469,9 @@ namespace Content.Server.Cargo.Systems
             }
         }
 
-        private static CargoOrderData GetOrderData(CargoConsoleAddOrderMessage args, CargoProductPrototype cargoProduct, int id, ProtoId<CargoAccountPrototype> account)
+        private static CargoOrderData GetOrderData(CargoConsoleAddOrderMessage args, CargoProductPrototype cargoProduct, int id, ProtoId<CargoAccountPrototype> account, ProtoId<RadioChannelPrototype> announcementChannel) // imp edit
         {
-            return new CargoOrderData(id, cargoProduct.Product, cargoProduct.Name, cargoProduct.Cost, args.Amount, args.Requester, args.Reason, account);
+            return new CargoOrderData(id, cargoProduct.Product, cargoProduct.Name, cargoProduct.Cost, args.Amount, args.Requester, args.Reason, account, announcementChannel); // imp edit
         }
 
         public int GetOutstandingOrderCount(Entity<StationCargoOrderDatabaseComponent> station, ProtoId<CargoAccountPrototype> account)
@@ -531,13 +533,14 @@ namespace Content.Server.Cargo.Systems
             string dest,
             StationCargoOrderDatabaseComponent component,
             ProtoId<CargoAccountPrototype> account,
+            ProtoId<RadioChannelPrototype> announcementChannel, // imp edit
             Entity<StationDataComponent> stationData
         )
         {
             DebugTools.Assert(_protoMan.HasIndex<EntityPrototype>(spawnId));
             // Make an order
             var id = GenerateOrderId(component);
-            var order = new CargoOrderData(id, spawnId, name, cost, qty, sender, description, account);
+            var order = new CargoOrderData(id, spawnId, name, cost, qty, sender, description, account, announcementChannel); // imp edit
 
             // Approve it now
             order.SetApproverData(dest, sender);

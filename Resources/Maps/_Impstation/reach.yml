@@ -17417,29 +17417,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: WarpPointBombing
-  entities:
-  - uid: 2567
-    components:
-    - type: Transform
-      pos: 22.5,1.5
-      parent: 2
-    - type: BombingTarget
-      location: bridge
-  - uid: 2642
-    components:
-    - type: Transform
-      pos: -9.5,1.5
-      parent: 2
-    - type: BombingTarget
-      location: bar
-  - uid: 2643
-    components:
-    - type: Transform
-      pos: 7.5,-3.5
-      parent: 2
-    - type: BombingTarget
-      location: medbay
 - proto: WaterTankFull
   entities:
   - uid: 2573

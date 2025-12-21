@@ -23,6 +23,7 @@ using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Content.Shared.Projectiles; // imp
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -54,6 +55,7 @@ public sealed partial class IngestionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedProjectileSystem _projectile = default!; // imp
 
     // Body Component Dependencies
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -118,8 +120,7 @@ public sealed partial class IngestionSystem : EntitySystem
     /// <param name="user">The entity who is trying to make this happen.</param>
     /// <param name="target">The entity who is being made to ingest something.</param>
     /// <param name="ingested">The entity that is trying to be ingested.</param>
-    /// <param name="ingest">Bool that determines whethere this is a Try or a Can effectively.
-    /// When set to true, it tries to ingest, when false it checks if we can.</param>
+    /// <param name="ingest"> When set to true, it tries to ingest. When false, it only checks if we can.</param>
     /// <returns>Returns true if we can ingest the item.</returns>
     private bool AttemptIngest(EntityUid user, EntityUid target, EntityUid ingested, bool ingest)
     {
@@ -366,6 +367,9 @@ public sealed partial class IngestionSystem : EntitySystem
 
         var split = _solutionContainer.SplitSolution(solution.Value, transfer);
 
+        if (beforeEv.Refresh)
+            _solutionContainer.TryAddSolution(solution.Value, split);
+
         var ingestEv = new IngestingEvent(food, split, forceFed);
         RaiseLocalEvent(entity, ref ingestEv);
 
@@ -374,9 +378,6 @@ public sealed partial class IngestionSystem : EntitySystem
         // Everything is good to go item has been successfuly eaten
         var afterEv = new IngestedEvent(args.User, entity, split, forceFed);
         RaiseLocalEvent(food, ref afterEv);
-
-        if (afterEv.Refresh)
-            _solutionContainer.TryAddSolution(solution.Value, split);
 
         _stomach.TryTransferSolution(stomachToUse.Value.Owner, split, stomachToUse);
 
