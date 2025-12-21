@@ -35,18 +35,18 @@ namespace Content.Shared.Access.Systems
             CurrentJob = currentJob;
             CurrentJobIconId = currentJobIconId;
             CurrentNumber = currentNumber; // DeltaV
+        }
     }
-}
 
-// DeltaV - Add number change message
-[Serializable, NetSerializable]
-public sealed class AgentIDCardNumberChangedMessage : BoundUserInterfaceMessage
-{
-    public uint Number { get; }
-
-    public AgentIDCardNumberChangedMessage(uint number)
+    // DeltaV - Add number change message
+    [Serializable, NetSerializable]
+    public sealed class AgentIDCardNumberChangedMessage : BoundUserInterfaceMessage
     {
-        Number = number;
+        public uint Number { get; }
+
+        public AgentIDCardNumberChangedMessage(uint number)
+        {
+            Number = number;
         }
     }
 

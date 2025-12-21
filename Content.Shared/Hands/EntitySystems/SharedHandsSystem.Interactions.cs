@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._Impstation.Examine;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
@@ -11,6 +10,7 @@ using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Shared._Impstation.Examine; // imp
 
 namespace Content.Shared.Hands.EntitySystems;
 
@@ -182,7 +182,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (!CanDropHeld(uid, handName, checkActionBlocker))
             return false;
 
-        if (!CanPickupToHand(uid, entity.Value, handsComp.ActiveHandId, checkActionBlocker, handsComp))
+        if (!CanPickupToHand(uid, entity.Value, handsComp.ActiveHandId, checkActionBlocker: checkActionBlocker, handsComp: handsComp))
             return false;
 
         DoDrop(uid, handName, false, log: false);
@@ -207,10 +207,9 @@ public abstract partial class SharedHandsSystem : EntitySystem
     //TODO: Actually shows all items/clothing/etc.
     private void HandleExamined(EntityUid examinedUid, HandsComponent handsComp, ExaminedEvent args)
     {
-
         var heldItemNames = EnumerateHeld((examinedUid, handsComp))
             .Where(entity => !HasComp<VirtualItemComponent>(entity))
-            //.Select(item => FormattedMessage.EscapeText(Identity.Name(item, EntityManager))) // imp comment
+            //.Select(item => FormattedMessage.EscapeText(Identity.Name(item, EntityManager))) // imp remove
             // IMP EDIT - accounting for the cases in which entities have unique indefinite articles
             .Select(item => Loc.GetString("comp-hands-examine-wrapper",
                     ("itemName", FormattedMessage.EscapeText(TryComp(item, out PluralNameComponent? plur) ? plur.OverrideName : Identity.Name(item, EntityManager))),

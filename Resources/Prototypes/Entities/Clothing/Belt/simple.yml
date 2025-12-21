@@ -1,0 +1,52 @@
+# For cosmetic belts parenting off ClothingBeltBase
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltChampion
+  name: championship belt
+  description: Proves to the world that you are the strongest!
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/champion.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/champion.rsi
+    quickEquip: true
+  - type: Tag
+    tags:
+    - Kangaroo # Kangaroo wearable. Dare to challenge the champ?
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingBeltBase
+  id: ClothingBeltSuspendersRed
+  name: red suspenders
+  description: For holding your pants up.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/suspenders_red.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Belt/suspenders_red.rsi
+    quickEquip: true
+  - type: Tag
+    tags:
+    - MimeBelt
+    - MimeBeltRed # Imp
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingBeltBase # Imp edit to make it not inherit tag MimeBeltRed
+  id: ClothingBeltSuspendersBlack
+  name: black suspenders
+  description: For holding your pants up. # Imp edit
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/suspenders_black.rsi
+    state: icon #imp add
+  - type: Clothing
+    sprite: Clothing/Belt/suspenders_black.rsi
+    quickEquip: true # Imp add
+  - type: Tag # imp add
+    tags:
+    - MimeBelt
+    - MimeBeltBlack

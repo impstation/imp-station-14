@@ -30,15 +30,8 @@
     name: ghost-role-information-listeningop-name
     description: ghost-role-information-listeningop-description
     rules: ghost-role-information-listeningop-rules
-    mindRoles: # imp
-    - MindRoleGhostRoleTeamAntagonist
-    requirements: # Worth considering these numbers for the goal of making sure someone willing to MRP takes this.
-    - !type:DepartmentTimeRequirement
-      department: Command
-      time: 18000 # 5 hours
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 # 5 hours
+    mindRoles:
+    - MindRolePostOperator
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
@@ -51,8 +44,8 @@
     name: ghost-role-information-recruiter-name
     description: ghost-role-information-recruiter-description
     rules: ghost-role-information-recruiter-rules
-    mindRoles: # imp
-    - MindRoleGhostRoleSoloAntagonist
+    mindRoles:
+    - MindRoleRecruiter
   - type: Sprite
     layers:
     - state: green
@@ -68,14 +61,8 @@
     name: ghost-role-information-synthesis-name
     description: ghost-role-information-synthesis-description
     rules: ghost-role-information-synthesis-rules
-    mindRoles: # imp
-    - MindRoleGhostRoleSoloAntagonist
-    requirements: # keep in sync with the antag prototype
-    - !type:OverallPlaytimeRequirement
-      time: 86400 # 24h so you probably know some general lore or something
-    - !type:RoleTimeRequirement
-      role: JobChemist
-      time: 7200 # 2h chemist so you know how to make CH
+    mindRoles:
+    - MindRoleSynthesis
 
 
 - type: entity
@@ -88,9 +75,5 @@
     name: ghost-role-information-fugitive-name
     description: ghost-role-information-fugitive-description
     rules: ghost-role-information-fugitive-rules
-    mindRoles: # imp
-    - MindRoleGhostRoleSoloAntagonist
-    requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 3600 # 1 hour
+    mindRoles:
+    - MindRoleFugitive

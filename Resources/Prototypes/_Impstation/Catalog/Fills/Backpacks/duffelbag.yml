@@ -3,6 +3,7 @@
   id: ClothingBackpackDuffelSyndicateFilledAkurra
   name: Akurra bundle
   description: "A fearsome liquid-ammo plasma rifle, bundled with 4 canisters of its proprietary fuel."
+  suffix: Akurra bundle
   components:
   - type: StorageFill
     contents:
@@ -36,7 +37,10 @@
   id: ClothingBackpackDuffelSyndicateFilledSuperMosin
   name: K2903 Star Rifle bundle
   description: "An old bolt-action rifle with large magazine! Comes with a few stripper clips to make it a little easier reloading."
+  suffix: K2903 Star Rifle bundle
   components:
+  - type: Label
+    currentLabel: "K2903 Star Rifle bundle"
   - type: StorageFill
     contents:
     - id: WeaponSniperStarService

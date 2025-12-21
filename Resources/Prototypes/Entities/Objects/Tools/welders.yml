@@ -115,14 +115,7 @@
   # imp edits
     - WeldingTool
   - type: ItemToggleDamageOtherOnHit
-    activatedDamage:
-      types:
-        Heat: 4
-        Blunt: 3
   - type: DamageOtherOnHit
-    damage:
-      types:
-        Blunt: 8
     staminaCost: 7.5
   # end imp edits
 
@@ -239,8 +232,8 @@
 - type: entity
   parent: [ BaseWelder, BaseXenoborgContraband ] #imp edit, Welder into BaseWelder
   id: RefuelingWelder
-  name: refuling welding tool
-  description: "An slow welder that can refuel itself over time."
+  name: refueling welding tool
+  description: "A slow welder that can refuel itself over time."
   components:
   - type: Tool
     speedModifier: 0.5

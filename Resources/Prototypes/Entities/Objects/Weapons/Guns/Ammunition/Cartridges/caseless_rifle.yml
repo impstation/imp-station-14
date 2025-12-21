@@ -6,7 +6,6 @@
   components:
   - type: Tag
     tags:
-      - Cartridge
       - CartridgeCaselessRifle
   - type: CartridgeAmmo
     deleteOnSpawn: true
@@ -30,7 +29,7 @@
   id: CartridgeCaselessRifle
   name: cartridge (.25 caseless)
   parent: BaseCartridgeCaselessRifle
-  description: A kinetic sub-caliber cartridge of odd design, but with effective application. .25 caseless ammo has propellent encasing the bullet, making the cartridge appear rectangular. #imp
+  description: A kinetic sub-caliber cartridge of odd design, but with effective application. .25 caseless ammo has propellant encasing the bullet, making the cartridge appear rectangular. #imp
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRifle

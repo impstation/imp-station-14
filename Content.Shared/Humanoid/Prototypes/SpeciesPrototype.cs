@@ -96,7 +96,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// Method of skin coloration used by the species.
     /// </summary>
     [DataField(required: true)]
-    public HumanoidSkinColor SkinColoration { get; private set; }
+    public ProtoId<SkinColorationPrototype> SkinColoration { get; private set; }
 
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> MaleFirstNames { get; private set; } = "NamesFirstMale";
@@ -109,7 +109,6 @@ public sealed partial class SpeciesPrototype : IPrototype
 
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> LastNames { get; private set; } = "NamesLast";
-
 
     [DataField]
     public SpeciesNaming Naming { get; private set; } = SpeciesNaming.FirstLast;
@@ -157,6 +156,6 @@ public enum SpeciesNaming : byte
     First,
     FirstLast,
     FirstDashFirst,
-    FirstMiddleLast,
+    FirstMiddleLast, // imp add
     TheFirstofLast,
 }

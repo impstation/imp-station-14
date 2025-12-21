@@ -38,9 +38,6 @@
     - id: FoodMeatChicken
     - id: FoodMeatBear
     - id: FoodMeatFish
-    - id: FoodMeatSpider
-    - id: FoodMeatXeno
-    - id: DrinkBeerBottleFull
   - type: Sprite
     layers:
     - state: box_chef
@@ -54,7 +51,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: FoodDoughTortilla
+    - id: RiceBushel
     - id: FoodCorn
     - id: FoodSoybeans
     - id: FoodChiliPepper

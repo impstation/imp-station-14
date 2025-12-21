@@ -5,15 +5,18 @@
   description: Run.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/beenade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/beenade.rsi
   - type: SmokeOnTrigger
     duration: 5
     spreadAmount: 30
     keysIn:
     - timer
-  - type: SpawnOnTrigger
-    proto: MobAngryBee
-    amount: 6
+  - type: SpawnEntityTableOnTrigger
+    table: !type:GroupSelector
+      rolls: 6
+      children:
+      - id: MobAngryBee
+    useMapCoords: true
     keysIn:
     - timer
 
@@ -24,7 +27,7 @@
   description: UNGH
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/brosnade.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/brosnade.rsi
   - type: SmokeOnTrigger
     duration: 5
     spreadAmount: 10
@@ -34,9 +37,13 @@
         Quantity: 15
     keysIn:
     - timer
-  - type: SpawnOnTrigger
-    proto: BrosSorbSpawner
-    amount: 60
+  - type: SpawnEntityTableOnTrigger
+    table: !type:GroupSelector
+      rolls: 60
+      children:
+      - id: MobBros
+      - id: MobSorb
+    useMapCoords: true
     keysIn:
     - timer
   - type: EmitSoundOnTrigger
@@ -71,7 +78,7 @@
   description: A discontinued brand of heavy-duty cleaning grenade. A warning label reads "DO NOT INHALE".
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Grenades/janitor.rsi
+    sprite: _Impstation/Objects/Weapons/Grenades/janitor.rsi
   - type: Tag
     tags:
     - CleanerGrenade
@@ -79,6 +86,10 @@
   - type: CartridgeAmmo
     proto: BulletGrenadeCleanerBleach
     deleteOnSpawn: true
+  - type: EmitSoundOnTrigger
+    keysIn:
+    - timer
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
   - type: SmokeOnTrigger
     duration: 15
     spreadAmount: 50
@@ -87,3 +98,32 @@
       reagents:
       - ReagentId: Bleach
         Quantity: 10
+
+- type: entity
+  id: GrenadeFlashEffectPyro
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+    radius: 5
+    energy: 8
+    netsync: false
+  - type: LightFade
+    duration: 0.5
+  - type: TimedDespawn
+    lifetime: 0.5
+
+- type: entity
+  id: GrenadeFlashEffectStun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 8
+    netsync: false
+  - type: LightFade
+    duration: 0.5
+  - type: TimedDespawn
+    lifetime: 0.5

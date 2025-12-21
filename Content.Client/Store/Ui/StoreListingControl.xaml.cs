@@ -23,7 +23,7 @@ public sealed partial class StoreListingControl : Control
     private readonly string _price;
     private readonly string _discount;
     private readonly string? _extra; //imp addition
-    public StoreListingControl(ListingDataWithCostModifiers data, string price, string discount, bool hasBalance, Texture? texture = null, string? extra = null)
+    public StoreListingControl(ListingDataWithCostModifiers data, string price, string discount, bool hasBalance, Texture? texture = null, string? extra = null) // imp add extra
     {
         IoCManager.InjectDependencies(this);
         RobustXamlLoader.Load(this);
@@ -47,7 +47,7 @@ public sealed partial class StoreListingControl : Control
 
     private bool CanBuy()
     {
-        if (!_data.Buyable)
+        if (!_data.Buyable) // imp add
             return false;
 
         if (!_hasBalance)
@@ -66,9 +66,9 @@ public sealed partial class StoreListingControl : Control
         if (_data.RestockTime > stationTime)
         {
             var timeLeftToBuy = stationTime - _data.RestockTime;
-            StoreItemBuyButton.Text = timeLeftToBuy.Duration().ToString(@"mm\:ss");
+            StoreItemBuyButton.Text =  timeLeftToBuy.Duration().ToString(@"mm\:ss");
         }
-        else if (!_data.Buyable)
+        else if (!_data.Buyable) // imp add
         {
             StoreItemBuyButton.Text = "Unavailable";
         }
@@ -79,7 +79,7 @@ public sealed partial class StoreListingControl : Control
         }
 
         //imp addition
-        if(_extra != null)
+        if (_extra != null)
         {
             DiscountSubText.Text = _extra;
         }

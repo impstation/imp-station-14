@@ -39,7 +39,7 @@
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
     state: fabric-scrap-salad
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     trash:
     - FoodBowlBig
@@ -70,7 +70,7 @@
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
     state: yarn-noodles
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
     trash:
     - ChopSticks
@@ -91,4 +91,3 @@
     tags:
     - ClothMade
     - ClothFood
-    

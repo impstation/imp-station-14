@@ -1,5 +1,5 @@
 - type: entity
-  parent: DrinkGlassBase
+  parent: [ DrinkBaseMaterialGlass, DrinkBase ]
   id: DrinkSilverjackGlass
   name: silverjack glass
   description: Reminds you of family.
@@ -15,7 +15,7 @@
     sprite: _Nyanotrasen/Objects/Consumable/Drinks/silverjack.rsi
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [ DrinkBaseMaterialGlass, DrinkBase ]
   id: DrinkSapoPicanteGlass
   name: sapo picante glass
   description: Tastes nothing like a toad.
@@ -31,7 +31,7 @@
     sprite: _Nyanotrasen/Objects/Consumable/Drinks/sapopicante.rsi
 
 - type: entity
-  parent: DrinkGlassBase
+  parent: [ DrinkBaseMaterialGlass, DrinkBase ]
   id: DrinkAtomicPunchGlass
   name: atomic punch glass
   description: Will NOT make you immune to bullets; Isotopes included!

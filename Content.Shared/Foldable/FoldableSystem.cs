@@ -1,6 +1,5 @@
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Construction.Components; //imp edit
 using Content.Shared.Construction.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
@@ -9,6 +8,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Construction.Components; //imp edit
 
 namespace Content.Shared.Foldable;
 
@@ -34,7 +34,6 @@ public sealed class FoldableSystem : EntitySystem
         SubscribeLocalEvent<FoldableComponent, EntityStorageInsertedIntoAttemptEvent>(OnEntityStorageAttemptInsert);
 
         SubscribeLocalEvent<FoldableComponent, StrapAttemptEvent>(OnStrapAttempt);
-
         SubscribeLocalEvent<FoldableComponent, AnchorAttemptEvent>(OnAnchorAttempt); //imp edit
         SubscribeLocalEvent<FoldableComponent, UnanchorAttemptEvent>(OnUnanchorAttempt); //imp edit
     }
@@ -174,7 +173,7 @@ public sealed class FoldableSystem : EntitySystem
     {
         if (args.Cancelled)
             return;
-        
+
         if (!ent.Comp.CanAnchorWhileFolded && ent.Comp.IsFolded)
         {
             _popup.PopupClient(Loc.GetString("anchorable-folded", ("foldable", ent)), ent, args.User);

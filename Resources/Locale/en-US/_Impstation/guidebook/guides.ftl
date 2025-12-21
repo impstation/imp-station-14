@@ -11,6 +11,7 @@ guide-entry-rules-rpguidelines-players = Other Players
 guide-entry-rules-rpguidelines-game = The Game
 guide-entry-rules-rpguidelines-emotions = Managing Emotions
 
+guide-entry-visitorspecies = Visitor Species
 guide-entry-impghostroles = Ghost Roles
 guide-entry-impgoblins = Goblins
 guide-entry-impgoblinstowaway = Goblin Stowaways
@@ -18,5 +19,8 @@ guide-entry-impgoblinknight = Sir Gollylad
 guide-entry-impluggage = The Luggage
 guide-entry-impapids = Apids
 guide-entry-impbountyhunter = Bounty Hunter
+guide-entry-imptourist = Tourists
+guide-entry-impeeeps = Electric Sheep
 
 guide-entry-cooking-techniques = Cooking Techniques
+guide-entry-cooking-mixtures = Cooking Mixtures

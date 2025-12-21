@@ -2,7 +2,7 @@
             xmlns:tabs="clr-namespace:Content.Client.Options.UI.Tabs"
             xmlns:dtabs="clr-namespace:Content.Client._DV.Options.UI.Tabs"
             Title="{Loc 'ui-options-title'}"
-            MinSize="800 450">
+            MinSize="800 450"> <!-- DV add dtabs -->
     <TabContainer Name="Tabs" Access="Public">
         <tabs:MiscTab Name="MiscTab" />
         <tabs:GraphicsTab Name="GraphicsTab" />

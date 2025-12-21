@@ -16,7 +16,7 @@ public sealed partial class DungeonJob
     {
         var setTiles = new List<(Vector2i, Tile)>();
         var tileDef = _tileDefManager[gen.Tile];
-        var contents = gen.Contents; // imp
+        var contents = gen.Contents; // imp remove index
 
         foreach (var room in dungeon.Rooms)
         {

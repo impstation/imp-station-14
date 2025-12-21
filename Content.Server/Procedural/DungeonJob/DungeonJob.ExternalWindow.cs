@@ -113,23 +113,17 @@ public sealed partial class DungeonJob
         }
 
         _maps.SetTiles(_gridUid, _grid, tiles);
-        var contents = gen.Contents; // imp
+        var contents = gen.Contents; // imp remove index
 
         foreach (var tile in tiles)
         {
             var gridPos = _maps.GridTileToLocal(_gridUid, _grid, tile.Item1);
             // Imp Edit Start
-            if (!gen.useRandomEntity)
-            {
+            if (!gen.UseRandomEntity)
                 foreach (var entity in contents)
-                {
                     _entManager.SpawnEntity(entity, gridPos);
-                }
-            }
             else
-            {
                 _entManager.SpawnEntity(contents[random.Next(0, gen.Contents.Count)], gridPos);
-            }
             // Imp Edit End
             await SuspendDungeon();
 

@@ -6,18 +6,18 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobBotanist
-      time: 18000 #5 hrs
+      time: 5h
     - !type:RoleTimeRequirement
       role: JobJanitor
-      time: 18000 #5 hrs
+      time: 5h
     - !type:DepartmentTimeRequirement
       department: Dining
-      time: 18000 #5 hrs, any combination of chef, bartender, and service worker playtime
+      time: 5h
     - !type:DepartmentTimeRequirement
       department: Service
-      time: 72000 #20 hrs
+      time: 20h
     - !type:OverallPlaytimeRequirement
-      time: 144000 #40 hrs
+      time: 40h
   weight: 10
   startingGear: HospitalityDirectorGear
   icon: JobIconHospitalityDirector

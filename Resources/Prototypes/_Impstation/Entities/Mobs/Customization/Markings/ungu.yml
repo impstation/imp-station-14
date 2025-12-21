@@ -435,6 +435,18 @@
     state: SnoutPig
 
 - type: marking
+  id: SnoutBoarUngu
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Ungu ]
+  forcedColoring: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: SnoutPig
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: TusksPig
+
+- type: marking
   id: SnoutTapirUngu
   bodyPart: SnoutCover
   markingCategory: Snout

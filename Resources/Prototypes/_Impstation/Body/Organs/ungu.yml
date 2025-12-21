@@ -1,6 +1,6 @@
 - type: entity
   id: OrganUnguStomach
-  parent: OrganAnimalStomach
+  parent: OrganHumanStomach
   name: ungu stomach
   description: A lot going on here.
   components:
@@ -29,9 +29,11 @@
       - Ruminant
       - Wheat
       - Vegetable
+      - UnguFood
+      - Flower
   - type: Metabolizer
     maxReagents: 3
-    metabolizerTypes: [ Animal ]
+    metabolizerTypes: [ Human ]
     groups:
     - id: Food
     - id: Drink

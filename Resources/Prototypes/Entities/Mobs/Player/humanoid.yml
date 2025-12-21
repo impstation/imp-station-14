@@ -57,6 +57,7 @@
         settings: short
       mindRoles:
       - MindRoleGhostRoleFamiliar
+      job: DeathSquad
     - type: Loadout
       prototypes: [ DeathSquadGear ]
       roleLoadout: [ RoleSurvivalEVA ]
@@ -529,13 +530,14 @@
   components:
     - type: Loadout
       prototypes: [CBURNGear]
-      roleLoadout: [ RoleSurvivalEVA ]
+      roleLoadout: [ RoleSurvivalExtended ] #imp
     - type: GhostRole
       name: ghost-role-information-cburn-agent-name
       description: ghost-role-information-cburn-agent-description
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: short
+      job: CBURN
     - type: RandomMetadata
       nameSegments:
       - NamesMilitaryFirst
@@ -564,6 +566,7 @@
       rules: ghost-role-information-nonantagonist-rules
       raffle:
         settings: default
+      job: CentralCommandOfficial
     - type: Loadout
       prototypes: [ CentcomGear ]
       roleLoadout: [ RoleSurvivalStandard ]

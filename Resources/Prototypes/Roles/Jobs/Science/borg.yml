@@ -8,7 +8,7 @@
   requirements:
   - !type:RoleTimeRequirement
     role: JobBorg
-    time: 18000 # 5 hrs, imp
+    time: 5h
   canBeAntag: false
   joinNotifyCrew: true
   icon: JobIconStationAi
@@ -24,7 +24,7 @@
   playTimeTracker: JobBorg
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 144000 # 40 hrs, imp
+      time: 40h # imp, was 10h
   canBeAntag: false
   icon: JobIconBorg
   supervisors: job-supervisors-rd

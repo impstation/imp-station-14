@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Numerics; // imp
 using System.Threading.Tasks;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.NPC.Systems;
@@ -8,8 +7,8 @@ using Content.Shared.Physics;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonLayers;
 using Robust.Shared.Collections;
-using Robust.Shared.Map; // imp
 using Robust.Shared.Random; // imp
+using System.Numerics; // imp
 
 namespace Content.Server.Procedural.DungeonJob;
 

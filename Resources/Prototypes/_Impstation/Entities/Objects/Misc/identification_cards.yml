@@ -1,3 +1,74 @@
+# Command
+
+- type: entity
+  parent: IDCardStandard
+  id: HDIDCard
+  name: hospitality director ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: silver
+    - state: stripe_top
+      color: &color-service-top "#639137"
+    - state: stripe_bottom
+      color: &color-service-bottom "#446326"
+    - sprite: &imp-icon-rsi _Impstation/Interface/Misc/job_icons.rsi
+      offset: &icon-offset -0.09375, 0.0625 #3 pixels left, 2 pixels up
+      state: HospitalityDirector
+  - type: PresetIdCard
+    job: HospitalityDirector
+
+# Engineering
+
+# Medical
+
+# Science
+
+- type: entity
+  parent: IDCardStandard
+  id: RoboticsIDCard
+  name: robotics ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: &color-science-top "#a53aaa"
+    - state: stripe_bottom
+      color: &color-science-bottom "#652368"
+    - sprite: &icon-rsi Interface/Misc/job_icons.rsi
+      offset: *icon-offset
+      state: Roboticist
+  - type: IdCard
+    jobTitle: job-name-roboticist
+    jobIcon: JobIconRoboticist
+  - type: PresetIdCard
+    job: Roboticist
+
+# Security
+
+# Service
+
+# Supply
+
+- type: entity
+  parent: IDCardStandard
+  id: CourierIDCard
+  name: courier ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: &color-supply-top "#b18644"
+    - state: stripe_bottom
+      color: &color-supply-bottom "#5b4523"
+    - sprite: *imp-icon-rsi
+      offset: *icon-offset
+      state: Courier
+  - type: PresetIdCard
+    job: Courier
+
 - type: entity
   parent: CargoIDCard
   id: SeniorCargoIDCard
@@ -6,20 +77,35 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idseniorcargo
+    - state: stripe_top
+      color: *color-supply-top
+    - state: stripe_bottom
+      color: *color-supply-bottom
+    - sprite: *imp-icon-rsi
+      offset: *icon-offset
+      state: SeniorCargo
 
 - type: entity
   parent: IDCardStandard
   id: CargorillaIDCard
   name: cargorilla ID card
   components:
-    - type: Sprite
-      layers:
-        - state: default
-        - state: idcargotechnician
-    - type: PresetIdCard
-      job: CargoTechnician
-      name: Cargorilla
+  - type: Sprite
+    layers:
+    - state: default
+    - state: stripe_top
+      color: *color-supply-top
+    - state: stripe_bottom
+      color: *color-supply-bottom
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: CargoTechnician
+  - type: PresetIdCard
+    job: CargoTechnician
+    name: Cargorilla
+
+
+# Misc.
 
 - type: entity
   parent: IDCardStandard
@@ -29,10 +115,14 @@
   - type: Sprite
     layers:
     - state: silver
-    - state: idpassenger
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Passenger
   - type: PresetIdCard
     job: Passenger
     name: Sir Gollylad
+
+# Antags
 
 - type: entity
   parent: AgentIDCard
@@ -46,31 +136,25 @@
 
 - type: entity
   parent: IDCardStandard
-  id: CourierIDCard
-  name: courier ID card
+  id: UndercoverIDCard
+  suffix: Undercover/Recruiter
+  name: passenger ID card
   components:
   - type: Sprite
     layers:
     - state: default
-    - state: idcourier
-  - type: PresetIdCard
-    job: Courier
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Passenger
+  - type: IdCard
+    jobTitle: job-name-passenger
+    jobIcon: JobIconPassenger
+  - type: Access
+    tags:
+    - Maintenance
+    - SyndicateAgent
 
-- type: entity
-  parent: IDCardStandard
-  id: HDIDCard
-  name: hospitality director ID card
-  components:
-  - type: Sprite
-    layers:
-    - state: silver
-    - sprite: _Impstation/Objects/Misc/id_cards.rsi
-      state: idhospitalitydirector
-  - type: PresetIdCard
-    job: HospitalityDirector
-
-# Bounty Hunter - passenger visitor ID card except it has freelance access
-- type: entity
+- type: entity # passenger visitor ID card except it has freelance access
   parent: IDCardStandard
   id: BountyHunterIDCard
   name: visitor ID card
@@ -78,7 +162,9 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idvisitor
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Visitor
   - type: IdCard
     jobTitle: job-title-visitor
     jobIcon: JobIconVisitor
@@ -86,6 +172,8 @@
     tags:
     - Maintenance
     - Freelance
+
+# ERT/Centcomm
 
 - type: entity
   parent: CentcomIDCard

@@ -1,14 +1,14 @@
 using Content.Server.StationEvents.Components;
 ﻿using Content.Shared.GameTicking.Components;
 using Robust.Shared.Random;
-using Content.Server.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server.Announcements.Systems; // ee announce
+using Robust.Shared.Player; // ee announce
 
 namespace Content.Server.StationEvents.Events;
 
 public sealed class BluespaceArtifactRule : StationEventSystem<BluespaceArtifactRuleComponent>
 {
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
     protected override void Added(EntityUid uid, BluespaceArtifactRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
@@ -17,15 +17,12 @@ public sealed class BluespaceArtifactRule : StationEventSystem<BluespaceArtifact
 
         base.Added(uid, component, gameRule, args);
 
-        _announcer.SendAnnouncement(
+        _announcer.SendAnnouncement( // ee announce
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
             "bluespace-artifact-event-announcement",
-            null,
-            Color.FromHex("#18abf5"),
-            null, null,
-            null, //imp
-            ("sighting", Loc.GetString(RobustRandom.Pick(component.PossibleSighting)))
+            colorOverride: Color.FromHex("#18abf5"),
+            localeArgs: ("sighting", Loc.GetString(RobustRandom.Pick(component.PossibleSighting)))
         );
     }
 

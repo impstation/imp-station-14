@@ -2,12 +2,13 @@
 # Base
 
 - type: entity
+  abstract: true
   parent: FoodInjectableBase
   id: FoodPieBase
-  abstract: true
   components:
   - type: Item
-    storedRotation: -90
+    shape:
+    - 0,0,1,0
   - type: FlavorProfile
     flavors:
     - sweet
@@ -145,6 +146,11 @@
           Quantity: 30
         - ReagentId: TableSalt # sorry snails
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pie
+    - ReptilianFood # pistachios
 
 - type: entity
   name: slice of baklava
@@ -167,6 +173,12 @@
           Quantity: 7.5
         - ReagentId: TableSalt # sorry snails
           Quantity: 1.25
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pie
+    - Slice
+    - ReptilianFood # pistachios
 # Tastes like pie, nuts.
 
 - type: entity
@@ -445,6 +457,8 @@
   - type: Tag
     tags:
     - Pie
+    - Vegetable # imp, adding this bcs the fruit pies have fruit
+    - ReptilianFood # imp they get to eat squash
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -473,6 +487,8 @@
     tags:
     - Pie
     - Slice
+    - Vegetable # imp
+    - ReptilianFood # imp
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -570,6 +586,10 @@
           Quantity: 30
         - ReagentId: Vitamin
           Quantity: 12
+  - type: Tag # imp
+    tags:
+    - Pie
+    - Vegetable
 
 - type: entity
   name: slice of frosty pie
@@ -595,6 +615,11 @@
           Quantity: 6
         - ReagentId: Vitamin
           Quantity: 2.4
+  - type: Tag # imp
+    tags:
+    - Pie
+    - Vegetable
+    - Slice
 # Tastes like pie, mint.
 
 - type: entity
@@ -625,6 +650,10 @@
           Quantity: 5
         - ReagentId: Nothing
           Quantity: 15
+  - type: Tag # imp
+    tags:
+    - Fruit
+    - Pie
 
 - type: entity
   name: slice of mime tart
@@ -652,6 +681,11 @@
           Quantity: 1.25
         - ReagentId: Nothing
           Quantity: 3.75
+  - type: Tag # imp
+    tags:
+    - Fruit
+    - Pie
+    - Slice
 # Tastes like nothing.
 
 # No Slice
@@ -678,6 +712,11 @@
           Quantity: 10 # imp
         # - ReagentId: Vitamin # imp
         #  Quantity: 4
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pie
+    - Mushroom
 # Tastes like pie, mushrooms.
 
 - type: entity
@@ -691,6 +730,11 @@
     - mushroom
   - type: Sprite
     state: plump
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Pie
+    - Mushroom
 # Tastes like pie, mushrooms.
 
 # Tart

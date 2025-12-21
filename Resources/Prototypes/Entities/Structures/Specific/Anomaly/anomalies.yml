@@ -996,7 +996,7 @@
     - ChlorineTrifluoride
     - FoamingAgent
     - BuzzochloricBees
-    - BrosochloricBros
+    - BrosochloricBros #imp
     - RobustHarvest
     usefulChemicals:
     - Cryptobiolin
@@ -1031,13 +1031,18 @@
     - Honk
     - Carpetium
     - JuiceThatMakesYouWeh
+    #imp edit start
     - ForeverWeed
     - Testosterone
     - Estradiol
     - Genderfluid
     - JuiceThatMakesYouUngh
-  - type: Drink
+    #imp edit end
+  - type: Edible
+    edible: Drink
     solution: anomaly
+    destroyOnEmpty: false
+    utensil: Spoon
   - type: DrainableSolution
     solution: anomaly
   - type: DrawableSolution

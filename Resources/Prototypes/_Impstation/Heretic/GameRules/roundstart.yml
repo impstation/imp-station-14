@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseGameRule
+  id: HereticLowpop
+  components:
+  - type: HereticRule
+  - type: GameRule
+    minPlayers: 5
+    delay:
+      min: 30
+      max: 60
+  - type: AntagObjectives
+    objectives:
+    - HereticKnowledgeObjective
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn # Imp edit
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 3
+      playerRatio: 15 # this will usually mean only one heretic is around
+      lateJoinAdditional: true
+      blacklist:
+        components:
+          - AntagImmune
+      mindRoles:
+      - MindRoleHeretic
+      startingGear: HereticGear # see Roles/Antags/heretic.yml

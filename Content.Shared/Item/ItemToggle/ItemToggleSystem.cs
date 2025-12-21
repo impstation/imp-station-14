@@ -2,15 +2,16 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
-using Content.Shared.Projectiles;
 using Content.Shared.Temperature;
-using Content.Shared.Throwing;
 using Content.Shared.Toggleable;
 using Content.Shared.Verbs;
 using Content.Shared.Wieldable;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
+using Content.Shared._EE.Item.ItemToggle.Components; // ee
+using Content.Shared.Projectiles; // ee
+using Content.Shared.Throwing; // ee
 
 namespace Content.Shared.Item.ItemToggle;
 /// <summary>
@@ -25,7 +26,7 @@ public sealed class ItemToggleSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedProjectileSystem _projectile = default!;
+    [Dependency] private readonly SharedProjectileSystem _projectile = default!; // ee
 
     private EntityQuery<ItemToggleComponent> _query;
 
@@ -46,8 +47,8 @@ public sealed class ItemToggleSystem : EntitySystem
         SubscribeLocalEvent<ItemToggleHotComponent, IsHotEvent>(OnIsHotEvent);
 
         SubscribeLocalEvent<ItemToggleActiveSoundComponent, ItemToggledEvent>(UpdateActiveSound);
-        SubscribeLocalEvent<ItemToggleThrowingAngleComponent, ItemToggledEvent>(UpdateThrowingAngle);
-        SubscribeLocalEvent<ItemToggleEmbeddableProjectileComponent, ItemToggledEvent>(UpdateEmbeddableProjectile);
+        SubscribeLocalEvent<ItemToggleThrowingAngleComponent, ItemToggledEvent>(UpdateThrowingAngle); // imp
+        SubscribeLocalEvent<ItemToggleEmbeddableProjectileComponent, ItemToggledEvent>(UpdateEmbeddableProjectile); // imp
     }
 
     private void OnStartup(Entity<ItemToggleComponent> ent, ref ComponentStartup args)
@@ -363,6 +364,7 @@ public sealed class ItemToggleSystem : EntitySystem
         }
     }
 
+    // ee add
     /// <summary>
     /// Used to update the throwing angle on item toggle.
     /// </summary>
@@ -372,15 +374,13 @@ public sealed class ItemToggleSystem : EntitySystem
         {
             if (args.Activated)
             {
-                var newThrowingAngle = new ThrowingAngleComponent();
+                EnsureComp<ThrowingAngleComponent>(uid, out var newThrowingAngle);
 
                 if (component.ActivatedAngle is { } activatedAngle)
                     newThrowingAngle.Angle = activatedAngle;
 
                 if (component.ActivatedAngularVelocity is { } activatedAngularVelocity)
                     newThrowingAngle.AngularVelocity = activatedAngularVelocity;
-
-                AddComp(uid, newThrowingAngle);
             }
             else
                 RemCompDeferred<ThrowingAngleComponent>(uid);
@@ -410,6 +410,7 @@ public sealed class ItemToggleSystem : EntitySystem
         }
     }
 
+    // ee add
     /// <summary>
     ///   Used to update the embeddable stats on item toggle.
     /// </summary>
@@ -433,7 +434,7 @@ public sealed class ItemToggleSystem : EntitySystem
             {
                 embeddable.EmbedOnThrow = activatedEmbedOnThrow;
 
-                if (embeddable.Target != null && activatedEmbedOnThrow == false)
+                if (embeddable.EmbeddedIntoUid != null && activatedEmbedOnThrow == false)
                     _projectile.EmbedDetach(uid, embeddable);
             }
 
@@ -453,7 +454,7 @@ public sealed class ItemToggleSystem : EntitySystem
             {
                 embeddable.EmbedOnThrow = deactivatedEmbedOnThrow;
 
-                if (embeddable.Target != null && deactivatedEmbedOnThrow == false)
+                if (embeddable.EmbeddedIntoUid != null && deactivatedEmbedOnThrow == false)
                     _projectile.EmbedDetach(uid, embeddable);
             }
 

@@ -1,14 +1,15 @@
-using Content.Shared.Clothing.Components;
-using Content.Shared.Examine;
-using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
-using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
-using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
+// imp add start
+using Content.Shared.Examine;
+using Content.Shared.Hands.Components;
+using Content.Shared.Popups;
+using Content.Shared.Verbs;
 using Robust.Shared.Utility;
+// imp end
 
 namespace Content.Shared.Storage.EntitySystems;
 
@@ -17,26 +18,28 @@ namespace Content.Shared.Storage.EntitySystems;
 /// </summary>
 public sealed class MagnetPickupSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // imp
 
 
     private static readonly TimeSpan ScanDelay = TimeSpan.FromSeconds(1);
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
+    private static readonly string MagnetVerbIcon = "/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png";
+
     public override void Initialize()
     {
         base.Initialize();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         SubscribeLocalEvent<MagnetPickupComponent, MapInitEvent>(OnMagnetMapInit);
-        SubscribeLocalEvent<MagnetPickupComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<MagnetPickupComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleMagnetVerb);
+        SubscribeLocalEvent<MagnetPickupComponent, ExaminedEvent>(OnExamined); // imp
+        SubscribeLocalEvent<MagnetPickupComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleMagnetVerb); // imp
     }
 
     private void OnMagnetMapInit(EntityUid uid, MagnetPickupComponent component, MapInitEvent args)
@@ -44,7 +47,7 @@ public sealed class MagnetPickupSystem : EntitySystem
         component.NextScan = _timing.CurTime;
     }
 
-    // used to add the magnet toggle to the context menu
+    // imp. used to add the magnet toggle to the context menu
     private void AddToggleMagnetVerb(EntityUid uid, MagnetPickupComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
@@ -59,7 +62,7 @@ public sealed class MagnetPickupSystem : EntitySystem
             {
                 ToggleMagnet(uid, component, args);
             },
-            Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/Spare/poweronoff.svg.192dpi.png")),
+            Icon = new SpriteSpecifier.Texture(new(MagnetVerbIcon)),
             Text = Loc.GetString("magnet-pickup-component-toggle-verb"),
             Priority = 3
         };
@@ -98,25 +101,23 @@ public sealed class MagnetPickupSystem : EntitySystem
             if (comp.NextScan > currentTime)
                 continue;
 
-            comp.NextScan = currentTime + ScanDelay; // ensure the next scan is in the future
+            comp.NextScan += ScanDelay;
+            Dirty(uid, comp);
+
+            if (!_inventory.TryGetContainingSlot((uid, xform, meta), out var slotDef))
+                continue;
+
+            if ((slotDef.SlotFlags & comp.SlotFlags) == 0x0)
+                continue;
 
             // No space
             if (!_storage.HasSpace((uid, storage)))
                 continue;
 
+            // imp add start
             // magnet disabled
             if (!comp.MagnetEnabled)
                 continue;
-
-            // is ore bag on belt?
-            if (HasComp<ClothingComponent>(uid))
-            {
-                if (!_inventory.TryGetContainingSlot(uid, out var slotDef))
-                    continue;
-
-                if ((slotDef.SlotFlags & comp.SlotFlags) == 0x0)
-                    continue;
-            }
 
             var parentUid = xform.ParentUid;
             var playedSound = false;

@@ -5,11 +5,11 @@ using Content.Shared.Follower.Components;
 using Content.Shared.Input;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
-using Robust.Shared.Maths;
 using Robust.Shared.GameStates;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -58,6 +58,7 @@ namespace Content.Shared.Movement.Systems
             SubscribeLocalEvent<InputMoverComponent, ComponentGetState>(OnMoverGetState);
             SubscribeLocalEvent<InputMoverComponent, ComponentHandleState>(OnMoverHandleState);
             SubscribeLocalEvent<InputMoverComponent, EntParentChangedMessage>(OnInputParentChange);
+            SubscribeLocalEvent<InputMoverComponent, AnchorStateChangedEvent>(OnAnchorState);
 
             SubscribeLocalEvent<FollowedComponent, EntParentChangedMessage>(OnFollowedParentChange);
 
@@ -94,11 +95,13 @@ namespace Content.Shared.Movement.Systems
 
             // Relay the fact we had any movement event.
             // TODO: Ideally we'd do these in a tick instead of out of sim.
+            // imp add start - ventcrawling
             Vector2 vector2 = DirVecForButtons(entity.Comp.HeldMoveButtons);
             Vector2i vector2i = new Vector2i((int)vector2.X, (int)vector2.Y);
             Direction dir = (vector2i == Vector2i.Zero) ? Direction.Invalid : vector2i.AsDirection();
+            // end imp
 
-            var moveEvent = new MoveInputEvent(entity, entity.Comp.HeldMoveButtons, dir, entity.Comp.HeldMoveButtons != 0);
+            var moveEvent = new MoveInputEvent(entity, entity.Comp.HeldMoveButtons, dir, entity.Comp.HeldMoveButtons != 0); // imp ventcrawl add dir, heldmove !=0
             entity.Comp.HeldMoveButtons = buttons;
             RaiseLocalEvent(entity, ref moveEvent);
             Dirty(entity, entity.Comp);
@@ -123,13 +126,15 @@ namespace Content.Shared.Movement.Systems
             entity.Comp.LastInputTick = GameTick.Zero;
             entity.Comp.LastInputSubTick = 0;
 
+            // imp add start, ventcrawling
             Vector2 vector2 = DirVecForButtons(entity.Comp.HeldMoveButtons);
             Vector2i vector2i = new Vector2i((int)vector2.X, (int)vector2.Y);
             Direction dir = (vector2i == Vector2i.Zero) ? Direction.Invalid : vector2i.AsDirection();
+            // imp end
 
             if (entity.Comp.HeldMoveButtons != state.HeldMoveButtons)
             {
-                var moveEvent = new MoveInputEvent(entity, entity.Comp.HeldMoveButtons, dir, state.HeldMoveButtons != 0);
+                var moveEvent = new MoveInputEvent(entity, entity.Comp.HeldMoveButtons, dir, state.HeldMoveButtons != 0); // imp ventcrawling add dir, heldmovebuttons !=0
                 entity.Comp.HeldMoveButtons = state.HeldMoveButtons;
                 RaiseLocalEvent(entity.Owner, ref moveEvent);
 
@@ -177,13 +182,14 @@ namespace Content.Shared.Movement.Systems
                 return;
             }
 
-            var xform = XformQuery.GetComponent(uid);
+            // this is all imp code for ventcrawling but it straight up does not do anything
+            /* var xform = XformQuery.GetComponent(uid);
             if (TryComp(uid, out RelayInputMoverComponent? relay)
                  && TryComp(relay.RelayEntity, out TransformComponent? relayXform)
                  && MoverQuery.TryGetComponent(relay.RelayEntity, out var relayMover))
             {
                 xform = relayXform;
-            }
+            } */
             // If we updated parent then cancel the accumulator and force it now.
             if (!TryUpdateRelative(uid, mover, XformQuery.GetComponent(uid)) && mover.TargetRelativeRotation.Equals(Angle.Zero))
                 return;
@@ -312,6 +318,12 @@ namespace Content.Shared.Movement.Systems
             Dirty(entity.Owner, entity.Comp);
         }
 
+        private void OnAnchorState(Entity<InputMoverComponent> entity, ref AnchorStateChangedEvent args)
+        {
+            if (!args.Anchored)
+                PhysicsSystem.SetBodyType(entity, BodyType.KinematicController);
+        }
+
         private void HandleDirChange(EntityUid entity, Direction dir, ushort subTick, bool state)
         {
             // Relayed movement just uses the same keybinds given we're moving the relayed entity
@@ -335,12 +347,14 @@ namespace Content.Shared.Movement.Systems
             if (!MoverQuery.TryGetComponent(entity, out var moverComp))
                 return;
 
+            // imp add start: ventcrawling
             var moverEntity = new Entity<InputMoverComponent>(entity, moverComp);
 
             // Relay the fact we had any movement event.
             // TODO: Ideally we'd do these in a tick instead of out of sim.
             var moveEvent = new MoveInputEvent(moverEntity, moverComp.HeldMoveButtons, dir, state);
             RaiseLocalEvent(entity, ref moveEvent);
+            // imp end
 
             // For stuff like "Moving out of locker" or the likes
             // We'll relay a movement input to the parent.

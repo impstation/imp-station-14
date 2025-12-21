@@ -21,3 +21,4 @@ chat-emote-msg-blink = blinks.
 chat-emote-msg-boom = booms.
 chat-emote-msg-beatingchest = beats {POSS-ADJ($entity)} chest.
 chat-emote-msg-multichirp = lets out a chorus of chirps!
+chat-emote-msg-moo = moos!

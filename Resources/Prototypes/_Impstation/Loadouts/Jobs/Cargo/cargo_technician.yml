@@ -6,7 +6,16 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Cargo
-      time: 108000 #30 hrs, ~20 rounds #imp
+      time: 30h
+
+- type: loadoutEffectGroup
+  id: SeniorCourier
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobCourier
+      time: 30h
 
 # Outer Clothing
 - type: loadout
@@ -38,11 +47,6 @@
     belt: ClothingBeltCargoSenior
 
 # ID
-- type: loadout
-  id: CargoTechnicianPDA
-  equipment:
-    id: CargoPDA
-
 - type: loadout
   id: SeniorCargoTechnicianPDA
   effects:

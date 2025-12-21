@@ -87,6 +87,8 @@
   - type: FaxMachine
     name: "Central Command"
     notifyAdmins: true
+  - type: FaxAnnouncing # imp addition
+    channels: [ CentCom ]
 
 - type: entity
   parent: FaxMachineBase
@@ -105,9 +107,11 @@
     notifyAdmins: true
   - type: Emagged
     emagType: Interaction
+  - type: FaxAnnouncing # imp addition
+    channels: [ Syndicate ]
 
 - type: entity
-  parent: FaxMachineBase
+  parent: FaxMachineCommand # imp edit, changed from FaxMachineBase
   id: FaxMachineCaptain
   name: captain long range fax machine
   suffix: NukeCodes
