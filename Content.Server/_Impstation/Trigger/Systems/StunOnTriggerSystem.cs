@@ -6,7 +6,7 @@ using Content.Shared.Trigger;
 
 namespace Content.Server._Impstation.Trigger.Systems;
 
-public sealed class StunOnTriggerSystem : EntitySystem
+public sealed class StunAreaOnTriggerSystem : EntitySystem
 {
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly StunSystem _stuns = default!;
@@ -18,13 +18,13 @@ public sealed class StunOnTriggerSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<StunOnTriggerComponent, TriggerEvent>(OnActivated);
+        SubscribeLocalEvent<StunAreaOnTriggerComponent, TriggerEvent>(OnActivated);
         _buckleQuery = GetEntityQuery<BuckleComponent>();
         _statusQuery = GetEntityQuery<StatusEffectsComponent>();
 
     }
 
-    private void OnActivated(Entity<StunOnTriggerComponent> ent, ref TriggerEvent args)
+    private void OnActivated(Entity<StunAreaOnTriggerComponent> ent, ref TriggerEvent args)
     {
         var transform = Transform(ent);
         var gridUid = transform.GridUid;

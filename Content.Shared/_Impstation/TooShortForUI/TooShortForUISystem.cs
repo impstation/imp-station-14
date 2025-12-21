@@ -39,8 +39,12 @@ public sealed class TooShortForUI : EntitySystem
         if (TryComp<GravityAffectedComponent>(ent, out var gravityAffected) && _gravity.IsWeightless((ent.Owner, gravityAffected)))
             return;
 
-        // finally, check if we're on a table.
+        // check if we're on a table.
         if (TryComp<ClimbingComponent>(ent, out var climbing) && climbing.IsClimbing)
+            return;
+
+        // finally, if the target entity is on the whitelist, return if true
+        if (_whitelist.IsWhitelistPass(ent.Comp.Whitelist, args.Target))
             return;
 
         // if the target entity is on the blacklist or no blacklist is defined, cancel the event

@@ -39,8 +39,8 @@
   - type: Instrument # imp
     allowPercussion: false
     handheld: false
-    bank: 1
-    program: 2
+    bank: 110
+    program: 5
   - type: Loadout # imp special. this replaces the InnateTool component.
     prototypes:
       - StartingGearDroneTools
@@ -166,12 +166,13 @@
     - Engineering
     - Maintenance
   - type: DroneVision
+  - type: ZombieImmune
 
 # jermov board
 # credit to moomoobeef (github) for the original pr, teensarlacc (discord) for the original text
 - type: entity
   id: JermovCircuitBoard
-  parent: BaseLawBoard
+  parent: BaseSiliconLawboard
   name: law board (Jermov)
   description: An electronics board containing the Jermov lawset. Everyone and everything exists for the sake of Chat.
   components:
