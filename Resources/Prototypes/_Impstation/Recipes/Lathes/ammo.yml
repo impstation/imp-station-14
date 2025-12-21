@@ -6,13 +6,6 @@
     Steel: 25
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineCobra
-  result: MagazinePistolCaselessRifle
-  materials:
-    Steel: 185
-
-- type: latheRecipe
   parent: BaseEmptyAmmoRecipe
   id: MagazineBasiliskEmpty
   result: MagazineBREmpty

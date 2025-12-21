@@ -172,7 +172,7 @@ namespace Content.Server.Hands.Systems
 
             if (TryComp(throwEnt, out StackComponent? stack) && stack.Count > 1 && stack.ThrowIndividually)
             {
-                var splitStack = _stackSystem.Split(throwEnt.Value, 1, Comp<TransformComponent>(player).Coordinates, stack);
+                var splitStack = _stackSystem.Split((throwEnt.Value, stack), 1, Comp<TransformComponent>(player).Coordinates);
 
                 if (splitStack is not {Valid: true})
                     return false;
@@ -189,14 +189,6 @@ namespace Content.Server.Hands.Systems
             direction *= distance / length;
 
             var throwSpeed = hands.BaseThrowspeed;
-
-            // imp edit, throwing changes
-            var itemEv = new BeforeGettingThrownEvent((EntityUid)throwEnt, direction, throwSpeed, player);
-            RaiseLocalEvent((EntityUid)throwEnt, ref itemEv);
-
-            if (itemEv.Cancelled)
-                return true;
-            // imp edit end
 
             // Let other systems change the thrown entity (useful for virtual items)
             // or the throw strength.
