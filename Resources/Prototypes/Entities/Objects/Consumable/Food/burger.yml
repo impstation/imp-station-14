@@ -153,6 +153,7 @@
   - type: Tag
     tags:
     - UnguFood
+    - Mushroom
   # imp edit end
 
 # Burger
@@ -269,6 +270,7 @@
   - type: Tag
     tags:
     - Meat
+    - ClothMade # imp: it's fiber
   - type: Item
     inhandVisuals:
       left:
@@ -1159,7 +1161,7 @@
   parent: FoodBurgerBase
   id: FoodBurgerSoy
   name: soylent burger
-  description: After eating this you have the overwhelming urge to purchase overpriced figurines of superheroes.
+  description: Only bad if you expect it to taste like a hamburger. # imp previous: After eating this you have the overwhelming urge to purchase overpriced figurines of superheroes.
   components:
   - type: Item
     storedOffset: 0,1
@@ -1195,7 +1197,8 @@
         # Quantity: 4
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable
+    - Bread
 # Tastes like bun, redditors.
 
 - type: entity
@@ -1323,7 +1326,8 @@
         color: "#e5ad29"
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable
+    - Bread
 # Tastes like bun, tofu.
 
 - type: entity

@@ -11,6 +11,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using System.Linq;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -111,7 +112,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             var damage = (dmgComp.TotalDamage + 20f) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
 
             // apply gaming.
-            _dmg.SetAllDamage(pookie, dmgComp, damage);
+            _dmg.SetAllDamage((pookie, dmgComp), damage);
         }
 
         // stun close-mid range
