@@ -144,3 +144,6 @@ uplink-treatchunk-bag-desc = A bag of individually wrapped TreatChunk hard candi
 
 uplink-treatchunk-big-name = Party Sized TreatChunk bag (60 count)
 uplink-treatchunk-big-desc = An impractically large bag of TreatChunk hard candies. Don't eat them all in one sitting.
+
+uplink-hotsauces-name = Discount Dan's Hot Sauce Sampler Pack
+uplink-hotsauces-desc = New from Discount Dan's! 4 levels of heat to put your spice tolerance to the test. Plus a free* gift from Discount Dan himself!
