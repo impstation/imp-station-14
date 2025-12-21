@@ -1,8 +1,8 @@
 - type: entity
-  name: revolutionary encryption key box
-  parent: [BoxEncryptionKeyPassenger, Tier2Contraband]
+  name: cardboard box
+  parent: [BoxEncryptionKeyPassenger]
   id: BoxEncryptionKeyRevolution
-  description: Contains four encryption keys to communicate with your fellow revolutionaries. Use wisely.
+  description: A cardboard box for storing things.
   components:
   - type: Item
     size: Normal
