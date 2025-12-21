@@ -5,7 +5,6 @@
   id: BaseMobGray
   abstract: true
   components:
-  - type: GoobAbsorbable
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -25,8 +24,8 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        # they r smaller
-        density: 120
+        # they r smaller #they r smaller (2)
+        density: 100
         restitution: 0.0
         mask:
         - MobMask
@@ -111,6 +110,11 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: HomunculusType
+    homunculusType: HomunculusGray
+    recipe:
+      SynthFlesh: 20
+      Saline: 20
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -122,8 +126,8 @@
   - type: Body
     prototype: Gray
   - type: Inventory
-    speciesId: gray
     templateId: gray
+    speciesId: gray
     displacements:
       jumpsuit:
         sizeMaps:

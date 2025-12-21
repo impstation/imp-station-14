@@ -29,7 +29,8 @@
                 <!-- Imp add -->
                 <Label Text="{Loc 'ui-options-accessability-header-misc'}"
                        StyleClasses="LabelKeyText"/>
-                <Label Text="{Loc ui-options-notifier-label}"/>
+                <Label Text="{Loc ui-options-notifier-label}"
+                       StyleClasses="LabelKeyText"/>
                 <CheckBox Name="NotifierEnable" Text="{Loc ui-options-notifier-enable}"/>
                 <PanelContainer>
                     <PanelContainer.PanelOverride>

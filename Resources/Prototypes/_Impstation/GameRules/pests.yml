@@ -13,6 +13,20 @@
       prob: 0.045
 
 - type: entity
+  id: BombadilloSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 5
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobBombadillo
+      prob: 0.05
+
+- type: entity
   id: BrosSpawn
   parent: BaseStationEventShortDelay
   components:
