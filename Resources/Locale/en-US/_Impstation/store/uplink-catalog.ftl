@@ -135,3 +135,6 @@ uplink-extended-pistol-magazine-caseless-desc = Four high-capacity pistol magazi
 
 uplink-extended-pistol-magazine-name = Extended Pistol Magazine Bundle (.35 auto)
 uplink-extended-pistol-magazine-desc = Four high-capacity pistol magazines each loaded with 20 cartridges. Compatible with the Viper.
+
+uplink-hotsauces-name = Discount Dan's Hot Sauce Sampler Pack
+uplink-hotsauces-desc = New from Discount Dan's! 4 levels of heat to put your spice tolerance to the test. Plus a free* gift from Discount Dan himself!
