@@ -1,19 +1,9 @@
 - type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
-  id: MobEeeplet
-  suffix: "baby"
-  name: eeeplet
-  description: Electric sheep dream of teslas.
+  id: MobEeepBase
+  abstract: true
+  categories: [ HideSpawnMenu ]
   components:
-  - type: GhostRole
-    allowMovement: true
-    name: ghost-role-information-eeep-name
-    description: ghost-role-information-eeep-desc
-    rules: ghost-role-information-antagonist-rules
-    mindRoles:
-    - MindRoleGhostRoleTeamAntagonist
-    raffle:
-      settings: default
   - type: GhostTakeoverAvailable
   - type: Examiner
   - type: Speech
@@ -21,33 +11,12 @@
     speechVerb: Slime
   - type: ReplacementAccent
     accent: eeep
-  - type: Bloodstream
-    bloodMaxVolume: 200
-    bloodReagent: WeldingCoils
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier
-    baseWalkSpeed: 1
-    baseSprintSpeed: 3
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
     baseWeightlessModifier: 1.5
-  - type: Sprite
-    sprite: _Impstation/Mobs/Aliens/eeeplet.rsi
-    noRot: true
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: eeeplet
-    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
-      state: eeeplet_glow
-      shader: unshaded
-  - type: Appearance
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: eeeplet
-      Dead:
-        Base: eeeplet_dead
-  - type: Physics
-    bodyType: KinematicController
   - type: Fixtures
     fixtures:
       fix1:
@@ -59,11 +28,6 @@
         - FlyingMobMask
         layer:
         - FlyingMobLayer
-  - type: MobState
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      100: Dead
   - type: Butcherable
     spawned:
       - id: EeepSpark
@@ -75,11 +39,6 @@
     - TemporaryBlindness
     - RadiationProtection
     - Pacified
-  - type: GoobAbsorbable
-    biomassRestored: 0.1
-  - type: FlavorProfile
-    flavors:
-      - jelly
   - type: InteractionPopup
     successChance: 0.3
     interactSuccessString: petting-success-eeeplet
@@ -109,17 +68,6 @@
     energy: 3
     color: "#afa2ff"
     castShadows: true
-  - type: MeleeWeapon
-    attackRate: 0.4
-    soundHit:
-        path: /Audio/Effects/Lightning/lightningshock.ogg
-    angle: 0
-    animation: WeaponArcZap
-    damage:
-      types:
-        Shock: 5
-  - type: StaminaDamageOnHit
-    damage: 40 # stun and run away type combat
   - type: NightVision # EE edit
     isActive: true
     toggleAction: null
@@ -132,11 +80,84 @@
     sparkSound:
      path: /Audio/Effects/PowerSink/charge_fire.ogg
     minimumDrain: 1000
-  - type: Battery
-    maxCharge: 25000
-    startingCharge: 0
   - type: ComplexInteraction
   - type: ExaminableBattery
+  - type: PassiveDamage # passive regen.
+    allowedStates:
+    - Alive
+    - Critical
+    damage:
+      groups:
+        Airloss: -1
+        Brute: -1
+        Burn: -1
+        Toxin: -1
+
+- type: entity
+  parent: [ MobEeepBase]
+  id: MobEeeplet
+  suffix: "baby"
+  name: eeeplet
+  description: Electric sheep dream of teslas.
+  components:
+  - type: GhostRole
+    allowMovement: true
+    name: ghost-role-information-eeeplet-name
+    description: ghost-role-information-eeeplet-desc
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    raffle:
+      settings: default
+  - type: Bloodstream
+    bloodMaxVolume: 200
+    bloodReagent: WeldingCoils
+  - type: Sprite
+    sprite: _Impstation/Mobs/Aliens/eeeplet.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: eeeplet
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: eeeplet_glow
+      shader: unshaded
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: eeeplet
+      Dead:
+        Base: eeeplet_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: GoobAbsorbable
+    biomassRestored: 0.4
+  - type: MeleeWeapon
+    attackRate: 1
+    soundHit:
+        path: /Audio/Effects/Lightning/lightningshock.ogg
+    angle: 60
+    animation: WeaponArcDisarm
+    damage:
+      types:
+        Shock: 5
+        Brute: 2
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: SolutionContainerManager 
+    solutions:
+      chloralhydrate: 
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 500 
+  - type: MeleeChemicalInjector 
+    solution: chloralhydrate
+    transferAmount: 5
+  - type: Battery
+    maxCharge: 30000
+    startingCharge: 0
   - type: PolymorphOnTrigger
     polymorph: EeepGrow
   - type: TriggerOnBatteryFull
@@ -157,25 +178,19 @@
     - state: tesla_projectile
 
 - type: entity
-  id: WeaponArcZap
-  parent: WeaponArcAnimated
-  categories: [ HideSpawnMenu ]
-  components:
-    - type: WeaponArcVisuals
-      fadeOut: false
-    - type: Sprite
-      sprite: Effects/lightning.rsi
-      state: lightning_1
-    - type: TimedDespawn
-      lifetime: 0.399
-
-- type: entity
-  parent: [ MobEeeplet ]
+  parent: [ MobEeepBase ]
   id: MobEeep
   suffix: "adult"
   name: eeep
   description: Uh oh.
   components:
+  - type: GhostRole
+    allowMovement: true
+    name: ghost-role-information-eeep-name
+    description: ghost-role-information-eeep-desc
+    rules: ghost-role-information-antagonist-rules
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
   - type: Bloodstream
     bloodMaxVolume: 400
     bloodReagent: WeldingCoils
@@ -203,7 +218,7 @@
     thresholds:
       0: Alive
       400: Critical
-      450: Dead
+      500: Dead
   - type: GoobAbsorbable
     biomassRestored: 0.8
   - type: AmbientSound
@@ -228,21 +243,10 @@
     fireCost: 100
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 10
+    autoRechargeRate: 20
   - type: Battery
     maxCharge: 1000
-    startingCharge: 500
-  - type: PassiveDamage # passive regen.
-    allowedStates:
-    - Alive
-    - Critical
-    - Dead # if engie wants to use a dead eeep as a power source they have to deal with it coming back :)
-    damage:
-      groups:
-        Airloss: -0.5
-        Brute: -0.5
-        Burn: -0.5
-        Toxin: -0.5
+    startingCharge: 1000
   - type: LightningArcShooter
     arcDepth: 2
     maxLightningArc: 3
@@ -256,3 +260,13 @@
     sound:
      path: /Audio/Effects/PowerSink/charge_fire.ogg
     color: yellow
+  - type: ActionsProvider
+    actions:
+    - ActionEeepEmp
+  - type: TriggerOnActivateImplant
+  - type: EmpOnTrigger
+    range: 10
+    energyConsumption: 50000
+    disableDuration: 20
+  - type: Perishable
+    rotAfter: 2000

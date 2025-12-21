@@ -1,0 +1,19 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesSurplusNVGoggles
+  name: surplus night vision goggles
+  description: A bulky, old design that technically works. There's no room for lenses inside.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Glasses/secvision.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Glasses/secvision.rsi
+  - type: NightVision
+    isEquipment: true
+  - type: IdentityBlocker
+    coverage: EYES
+  - type: PluralName
+    oneOf: plural-name-some
+  - type: VisionCorrection
+    correctionPower: 1
+    visionBonus: 1.5
