@@ -1,0 +1,199 @@
+- type: entity
+  name: bombadilidiidae
+  id: MobBombadillo
+  parent: [ MobCombat, SimpleMobBase ]
+  description: Colloquially known as Rollie Explodies, Pill Bombs, or Smooth Blasties.
+  components:
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Xeno
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_Impstation/Effects/Footsteps/tcktckstep.ogg
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: idle
+      sprite: _Impstation/Mobs/Animals/bombadillo.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: moving
+    noMovementLayers:
+      movement:
+        state: idle
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: idle
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Physics
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 3
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.20
+        density: 20
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: Stamina
+    critThreshold: 15
+    animationThreshold: 5
+  - type: Butcherable #I realize the mob deletes itself instantly on death to become a funny explosive but this is here in the event SOMETHING goes weird or an admin messes with it.
+    spawned:
+    - id: FoodMeatXeno
+      amount: 1
+    - id: SheetUranium1
+      amount: 1
+  - type: Body
+    prototype: AnimalHemocyanin
+  - type: Bloodstream
+    bloodMaxVolume: 50
+    bloodReagent: CopperBlood
+  - type: CombatMode
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Slash: 5
+  - type: ReplacementAccent
+    accent: xeno
+  - type: Speech
+    speechVerb: SmallMob
+  - type: Vocal
+    sounds:
+      Male: UnisexArachnid
+      Female: UnisexArachnid
+      Unsexed: UnisexArachnid
+    wilhelmProbability: 0.001
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Impstation/Voice/Decapoid/decapoid_deathgasp.ogg
+      params:
+        variation: 0.125
+  - type: NonSpreaderZombie
+  - type: NightVision
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
+  - type: GoobAbsorbable
+    biomassRestored: 0.3
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          BombadilloBomb:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Carriable
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+
+- type: entity
+  name: bombadilidiidae
+  suffix: Primed
+  description: You uh, might want to toss this or get outta here
+  parent: BaseItem
+  id: BombadilloBomb
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Animals/bombadillo.rsi
+    layers:
+    - state: dead
+      map: ["enum.TriggerVisualLayers.Base"]
+    - state: primed-unshaded
+      shader: unshaded
+      visible: false
+      map: ["triggerlight"]
+  - type: Item
+    size: Normal
+  - type: Appearance
+  - type: AnimationPlayer
+  - type: GenericVisualizer
+    visuals:
+      enum.Trigger.TriggerVisuals.VisualState:
+        enum.ConstructionVisuals.Layer:
+          Primed: { state: primed }
+          Unprimed: { state: dead }
+        triggerlight:
+          Primed: { visible: true }
+          Unprimed: { visible: false }
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:TriggerBehavior
+        keyOut: timer # explode immediately
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
+  - type: Explosive
+    explosionType: Radioactive
+    maxIntensity: 3
+    intensitySlope: 3
+    totalIntensity: 64
+    canCreateVacuum: false
+  - type: TriggerOnSpawn
+  - type: TimerTrigger
+    delay: 5
+    beepSound:
+      path: "/Audio/Animals/wawa_achoo.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 1.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2

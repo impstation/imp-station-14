@@ -1,44 +1,59 @@
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: EmergencyRedLaser
-  damage:
-    types:
-      Heat: 12
-  muzzleFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: muzzle_laser
-  travelFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: beam
-  impactFlash:
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
-    state: impact_laser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 12
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_laser
+    travelFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: beam
+    impactFlash:
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: impact_laser
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: EchionLaser
-  damage:
-    types:
-      Heat: 18
-  muzzleFlash:
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: muzzle_synd
-  travelFlash:
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: beam_synd
-  impactFlash:
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: impact_synd
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 18
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: muzzle_synd
+    travelFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: beam_synd
+    impactFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: impact_synd
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: RedRifleLaser
-  damage:
-    types:
-      Heat: 10
-  muzzleFlash:
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: muzzle_laser_rifle
-  travelFlash:
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: beam_laser_rifle
-  impactFlash:
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
-    state: impact_laser_rifle
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 10
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: muzzle_laser_rifle
+    travelFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: beam_laser_rifle
+    impactFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: impact_laser_rifle
