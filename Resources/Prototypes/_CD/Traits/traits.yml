@@ -4,5 +4,9 @@
   name: trait-synth-name
   description: trait-synth-desc
   # Imp - removed IPCs from excludedSpecies as they are not real here
+  blacklist:
+    components:
+      - Silicon
+      - BorgChassis
   components:
     - type: Synth

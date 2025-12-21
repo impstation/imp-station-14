@@ -104,6 +104,7 @@ trait-category-randomizers = Randomizers
 
 trait-unadapted-to-space-name = Unadapted to space
 trait-unadapted-to-space-desc = Your body hasn't adapted to space, making you take more damage from exposure to it.
+                       Incompatible with Decapoid.
 
 trait-vowelrotation-name = Vowel rotation
 trait-vowelrotation-desc = Yua'ri frum en udd curnir uf speci whiri iviry vuwil os shoftid uvir by uni. AEIOU -> EIOUA
@@ -118,3 +119,8 @@ trait-slight-desc = You're lighter than average.
 
 trait-soft-hands-name = Soft hands
 trait-soft-hands-desc = You're too weak to wield anything.
+                       Incompatible with Allulalo.
+
+trait-hungry-name = Hungry
+trait-hungry-desc = You'll get hungry 5x faster than the average humanoid.
+                       Incompatible with Kodepiia.
