@@ -193,6 +193,11 @@
           32:
             sprite: _Impstation/Mobs/Species/Moth/displacement.rsi #imp
             state: shoes
+  - type: HomunculusType # imp edit
+    homunculusType: HomunculusMoth
+    recipe:
+      SynthFlesh: 20
+      Saline: 20
 
 - type: entity
   parent: BaseSpeciesDummy
