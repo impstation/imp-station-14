@@ -18,6 +18,33 @@
   components:
   - type: ProperPunctuation
 
+- type: trait
+  id: SharpInflection
+  name: trait-sharpinflection-name
+  description: trait-sharpinflection-desc
+  category: SpeechTraits
+  cost: 0
+  components:
+  - type: SharpInflection
+
+- type: trait
+  id: StiltedSpeech
+  name: trait-stiltedspeech-name
+  description: trait-stiltedspeech-desc
+  category: SpeechTraits
+  cost: 0
+  components:
+  - type: StiltedSpeech
+
+- type: trait
+  id: Monotonous
+  name: trait-monotonous-name
+  description: trait-monotonous-desc
+  category: SpeechTraits
+  cost: 0
+  components:
+  - type: Monotonous
+
 # 1 cost
 
 - type: trait
@@ -36,27 +63,7 @@
   category: SpeechTraits
   cost: 1
   components:
-  - type: ReplacementAccent
-    accent: nocontractions
   - type: NoContractionsAccent
-
-- type: trait
-  id: SharpInflection
-  name: trait-sharpinflection-name
-  description: trait-sharpinflection-desc
-  category: SpeechTraits
-  cost: 0
-  components:
-  - type: SharpInflection
-
-- type: trait
-  id: Monotonous
-  name: trait-monotonous-name
-  description: trait-monotonous-desc
-  category: SpeechTraits
-  cost: 0
-  components:
-  - type: Monotonous
 
 - type: trait
   id: TransatlanticAccent
@@ -93,15 +100,6 @@
   cost: 1
   components:
   - type: BasicRussianAccent
-
-- type: trait
-  id: StiltedSpeech
-  name: trait-stiltedspeech-name
-  description: trait-stiltedspeech-desc
-  category: SpeechTraits
-  cost: 0
-  components:
-  - type: StiltedSpeech
 
 - type: trait
   id: RelentlessPositivity
@@ -170,6 +168,15 @@
   - type: RatvarianLanguage
 
 - type: trait
+  id: Russian
+  name: trait-russian-name
+  description: trait-russian-desc
+  category: SpeechTraits
+  cost: 2
+  components:
+  - type: RussianAccent
+
+- type: trait
   id: Slime
   name: trait-slime-name
   description: trait-slime-desc
@@ -187,36 +194,3 @@
   cost: 2
   components:
   - type: MilbratAccent
-
-- type: trait
-  id: AccentImmune
-  name: trait-accentimmune-name
-  description: trait-accentimmune-desc
-  category: SpeechTraits
-  cost: 2
-  components:
-  - type: Accentless
-    removes:
-    - type: SouthernAccent
-    - type: PirateAccent
-    - type: GermanAccent
-    - type: SpanishAccent
-    - type: ScrambledAccent
-    - type: NoContractionsAccent
-    - type: SharpInflection
-    - type: Monotonous
-    - type: BasicFrenchAccent
-    - type: SnalienAccent
-    - type: StutteringAccent
-    - type: FrontalLisp
-    - type: RatvarianLanguage
-    - type: RussianAccent
-    - type: BasicRussianAccent
-    - type: FrenchAccent
-    - type: LizardAccent
-    - type: MothAccent
-    - type: GrayAccent
-    - type: DwarfAccent
-    - type: AllulaloAccent
-      # Imp TODO: add cowboy, italian, liar, mobster, and slimes to this list one day since apparently you can only remove one ReplacementAccent at a time without pissing off the linter, maybe we can figure it out later. For now, adding the dwarf accent since that's an accent you can spawn with under current circumstances.
-      # idk about all this but dwarves have their own accent component now yay!!!!

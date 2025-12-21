@@ -72,6 +72,8 @@
         - NamesBountyHunterTitle
         - NamesBountyHunter
         nameFormat: name-format-bounty-hunter
+      - type: RandomHumanoidAppearance
+        randomizeName: false
 
 #vrex
 - type: entity
@@ -172,7 +174,7 @@
     - id: TouristSmallShuttle
     - id: TouristMediumShuttle
     - id: TouristLargeShuttle
-    
+
 - type: entity
   id: TouristSmallShuttle #one tourist
   parent: BaseGameRule

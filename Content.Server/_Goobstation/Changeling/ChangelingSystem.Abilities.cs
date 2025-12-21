@@ -326,7 +326,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
             return;
 
         // heal of everything
-        _damage.SetAllDamage(uid, damageable, 0);
+        _damage.SetAllDamage((uid, damageable), 0);
         _mobState.ChangeMobState(uid, MobState.Alive);
         _blood.TryModifyBloodLevel(uid, 1000);
         _blood.TryModifyBleedAmount(uid, -1000);
@@ -585,7 +585,8 @@ public sealed partial class GoobChangelingSystem : EntitySystem
             return;
         }
 
-        EnsureComp<FlashImmunityComponent>(uid);
+        var flashImmune = EnsureComp<FlashImmunityComponent>(uid);
+        _flash.SetExamineState((uid, flashImmune), false); //#IMP Don't give away that we're a changeling by showing "It provides protection from bright flashes"
         _popup.PopupEntity(Loc.GetString("changeling-passive-activate"), uid, uid);
     }
     public void OnBiodegrade(EntityUid uid, GoobChangelingComponent comp, ref ActionBiodegradeEvent args)
@@ -595,10 +596,12 @@ public sealed partial class GoobChangelingSystem : EntitySystem
 
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {
-            var cuff = cuffs.LastAddedCuffs;
+            // imp start
+            var cuff = _cuffs.GetLastCuffOrNull((uid, cuffs));
 
-            _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
+            _cuffs.TryUncuff((uid, cuffs), uid);
             QueueDel(cuff);
+            // imp end
         }
 
         var soln = new Solution();
