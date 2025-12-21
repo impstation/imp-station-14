@@ -1,9 +1,9 @@
 using Content.Server.Objectives.Components;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Ninja.Components;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Warps;
+using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 
 namespace Content.Server.Objectives.Systems;
@@ -14,6 +14,7 @@ namespace Content.Server.Objectives.Systems;
 /// </summary>
 public sealed class NinjaConditionsSystem : EntitySystem
 {
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly NumberObjectiveSystem _number = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -52,37 +53,38 @@ public sealed class NinjaConditionsSystem : EntitySystem
             return;
 
         // choose spider charge detonation point
-        // imp edit start
-        var targets = new List<EntityUid>();
-        var query = EntityQueryEnumerator<BombingTargetComponent>();
-        while (query.MoveNext(out var targetUid, out var target))
+        var warps = new List<EntityUid>();
+        var allEnts = EntityQueryEnumerator<WarpPointComponent>();
+        var bombingBlacklist = comp.Blacklist;
+
+        while (allEnts.MoveNext(out var warpUid, out var warp))
         {
-            if (target.Location != null)
+            if (_whitelist.IsBlacklistFail(bombingBlacklist, warpUid)
+                && !string.IsNullOrWhiteSpace(warp.Location))
             {
-                targets.Add(targetUid);
+                warps.Add(warpUid);
             }
         }
 
-        if (targets.Count <= 0)
+        if (warps.Count <= 0)
         {
             args.Cancelled = true;
             return;
         }
-        comp.Target = _random.Pick(targets);
-        // imp edit end
+        comp.Target = _random.Pick(warps);
     }
 
     private void OnSpiderChargeAfterAssign(EntityUid uid, SpiderChargeConditionComponent comp, ref ObjectiveAfterAssignEvent args)
     {
         string title;
-        if (comp.Target == null || !TryComp<BombingTargetComponent>(comp.Target, out var target) || target.Location == null) // imp edit
+        if (comp.Target == null || !TryComp<WarpPointComponent>(comp.Target, out var warp) || warp.Location == null)
         {
             // this should never really happen but eh
             title = Loc.GetString("objective-condition-spider-charge-title-no-target");
         }
         else
         {
-            title = Loc.GetString("objective-condition-spider-charge-title", ("location", target.Location)); // imp edit
+            title = Loc.GetString("objective-condition-spider-charge-title", ("location", warp.Location));
         }
         _metaData.SetEntityName(uid, title, args.Meta);
     }

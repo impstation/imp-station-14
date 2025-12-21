@@ -202,6 +202,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 // end Imp Edit for Traitor Flavor
                 return (code, briefing);
             }
+
+            Log.Error($"MakeTraitor {ToPrettyString(traitor)} failed to generate an uplink code on {ToPrettyString(pda)}.");
         }
         else if (pda is null && uplinked)
         {
@@ -218,6 +220,10 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 Loc.GetString($"traitor-{objectiveIssuer}-goal"),
                 Loc.GetString($"traitor-role-clarity"));
             // end Imp Edit for Traitor Flavor
+        }
+        else
+        {
+            Log.Error($"MakeTraitor failed on {ToPrettyString(traitor)} - No uplink could be added");
         }
 
         return (null, briefing);

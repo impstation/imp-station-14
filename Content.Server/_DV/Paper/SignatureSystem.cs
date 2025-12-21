@@ -1,4 +1,4 @@
-using Content.Server.Crayon;
+using Content.Shared.Crayon;
 using Content.Shared.DV.Paper;
 using Content.Shared.DV.Traits;
 using Content.Shared.Paper;

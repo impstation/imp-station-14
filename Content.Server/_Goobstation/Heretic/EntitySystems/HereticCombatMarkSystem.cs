@@ -16,6 +16,7 @@ using System.Linq;
 using Content.Shared.Humanoid;
 using Content.Server.Temperature.Components;
 using Content.Shared.Body.Components;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 

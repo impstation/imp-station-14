@@ -16,3 +16,59 @@
   requiredPower: 2
   ritualPrototypes:
   - HereticKeyRitual
+
+##hunt path
+
+- type: hereticKnowledge
+  id: PrincipleOfStrife
+  requiredPower: 0
+  ritualPrototypes:
+  - BladeHunt
+
+- type: hereticKnowledge
+  id: GraspOfStrife
+  requiredPower: 1
+
+- type: hereticKnowledge
+  id: WatchtowerStriving
+  requiredPower: 2
+  actionPrototypes:
+  - ActionHereticWatchtower
+
+- type: hereticKnowledge
+  id: MarkOfHunt
+  requiredPower: 3
+
+- type: hereticKnowledge
+  id: MeteoricPouch
+  requiredPower: 4
+  ritualPrototypes:
+  - MeteoricPouch
+
+- type: hereticKnowledge
+  id: SerpentFocus
+  requiredPower: 5
+  event: !type:EventHereticTeachSerpentFocus
+
+- type: hereticKnowledge
+  id: LionsBane
+  requiredPower: 6
+  ritualPrototypes:
+  - LionhunterRifle
+
+- type: hereticKnowledge
+  id: SkaptodonCloak
+  requiredPower: 7
+  ritualPrototypes:
+  - SkaptodonCloak
+
+- type: hereticKnowledge
+  id: AscensionHunt
+  requiredPower: 8
+  ritualPrototypes:
+  - AscensionHunt
+
+- type: hereticKnowledge
+  id: ManhuntsReversal
+  requiredPower: 00
+  event: !type:EventHereticHuntAscend
