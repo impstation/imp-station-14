@@ -15,39 +15,34 @@
     Narcotic:
       effects:
       # Effects for goblins
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 15
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
       - !type:Emote
         emote: Laugh
         showInChat: true
         probability: 0.08
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
       - !type:Emote
         emote: GoblinMutter
         showInChat: true
         probability: 0.05
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
       - !type:Emote
         emote: Hiss
         showInChat: true
         probability: 0.025
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
       - !type:PopupMessage
         type: Local
         visualType: Medium
@@ -62,9 +57,8 @@
         - "shroom-mix-effect-nf-procrastination-visions-08"
         probability: 0.05
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
       # Effects for everyone
       - !type:Emote
         emote: Scream
@@ -77,26 +71,27 @@
       # Effects for non-goblins
       - !type:Jitter
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: ShroomMix
           min: 1
-        - !type:OrganType
-          type: Goblin
-          shouldHave: false
-      - !type:ChemVomit
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+          inverted: true
+      - !type:Vomit
         probability: 0.025
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+          inverted: true
       - !type:SatiateThirst
         factor: -1 # Makes non goblins thirsty, scales with reagent quantity (I think)
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+          inverted: true
       - !type:SatiateHunger
         factor: -1 # Makes non goblins hungry, scales with reagent quantity (I think)
         conditions:
-        - !type:OrganType
-          type: Goblin
-          shouldHave: false
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+          inverted: true
