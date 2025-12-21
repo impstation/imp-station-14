@@ -190,7 +190,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
             if (hereticComp.Power >= 2)
                 ApplyGraspEffect(args.User, target, hereticComp);
 
-            if (hereticComp.Power >= 4 && HasComp<StatusEffectsComponent>(target))
+            if (hereticComp.Power >= 4 && HasComp<StatusEffectsComponent>(target) && hereticComp.MainPath != "Hunt")
             {
                 var markComp = EnsureComp<HereticCombatMarkComponent>(target);
                 markComp.Path = hereticComp.MainPath;
