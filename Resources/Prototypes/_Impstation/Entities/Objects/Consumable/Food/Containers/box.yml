@@ -161,3 +161,25 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/chalk_heart.rsi
     state: chalkheartpackage1
+
+- type: entity
+  name: Discount Dan's Hot Sauce Sampler Pack
+  parent: BoxCardboard
+  id: BoxHotsauces
+  description: New from Discount Dan's! 4 levels of heat to put your spice tolerance to the test. Plus a free* gift from Discount Dan himself! \nDiscount Dan's is not responsible for any injuries recieved from this product.
+  components:
+  - type: StorageFill
+    contents:
+    - id: FoodCondimentBottleHotsauce
+    - id: FoodCondimentBottleHotterSauce
+    - id: FoodCondimentBottleInfernoSauce
+    - id: FoodCondimentBottleHottestSauce
+    - id: FoodCondimentPacketDanPersonal
+  - type: Sprite
+    layers:
+      - state: boxwide
+      - state: dansaucesIMP
+  - type: GuideHelp
+    guides:
+    - Botanical
+    - Chemicals
