@@ -18,7 +18,7 @@
   - type: Icon
     sprite: _Impstation/Mobs/Species/Snail/parts.rsi
     state: full
-  - type: SnalienAccent
+  - type: GastropoidAccent
   - type: Body
     prototype: Gastropoid
     requiredLegs: 2
@@ -67,7 +67,7 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaleByQuantity: true
+        scaling: true
         damage:
           types:
             Heat: 0.4

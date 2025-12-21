@@ -83,6 +83,7 @@ public sealed class CargoGiftsRule : StationEventSystem<CargoGiftsRuleComponent>
                     Loc.GetString(component.Dest),
                     cargoDb,
                     component.Account,
+                    "Supply", // imp edit
                     (station.Value, stationData)
             ))
             {
