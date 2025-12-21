@@ -2,12 +2,17 @@
   id: Gingerbread
   name: species-name-gingerbread
   roundStart: false
+  randomViable: true # imp
+  randomChance: 0.33 # imp
   prototype: MobGingerbread
   sprites: MobGingerbreadSprites
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobGingerbreadDummy
   skinColoration: HumanToned
   defaultSkinTone: "#9a7c5a"
+  maleFirstNames: NamesGingerbreadFirst
+  femaleFirstNames: NamesGingerbreadFirst
+  lastNames: NamesGingerbreadLast
 
 - type: speciesBaseSprites
   id: MobGingerbreadSprites

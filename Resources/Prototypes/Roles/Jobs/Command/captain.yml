@@ -6,22 +6,22 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 54000 # 15 hours, imp
+      time: 15h # imp, was 4h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 54000 # 15 hours, imp
+      time: 15h # imp, was 4h
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 15h # imp, was 4h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 54000 # 15 hours
+      time: 15h # imp, was 4h
     - !type:DepartmentTimeRequirement #imp
       department: Cargo
-      time: 54000 # 15 hours
-    - !type:DepartmentTimeRequirement #imp
-      department: Science
-      time: 54000 # 15 hours
+      time: 15h
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 72000 # 20 hours, imp
+      time: 20h # imp, was 4h
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"

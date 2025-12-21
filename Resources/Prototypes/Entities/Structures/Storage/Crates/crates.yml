@@ -166,8 +166,14 @@
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi # imp
+      sprite: Structures/Storage/Crates/labels.rsi
       map: ["enum.PaperLabelVisuals.Layer"]
+      offset: 0.0, -0.0625 #imp edit, match CrateGeneric
+    # imp edit start, necessary to define from CrateGeneric
+    - state: open
+      map: [ open_crate ]
+      offset: 0, 0.65625 #open state from CrateGeneric
+    # imp edit end
   - type: Construction
     graph: WebStructures
     node: crate
@@ -362,9 +368,13 @@
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi # imp
+      sprite: Structures/Storage/Crates/labels.rsi
       offset: "-0.25,0.625"
       map: ["enum.PaperLabelVisuals.Layer"]
+    # imp edit start, need to define from CrateGeneric
+    - state: open
+      map: [ open_crate ]
+    # imp edit end
   - type: Icon
     sprite: _Impstation/Structures/Storage/Crates/livestock.rsi # imp
     state: base
@@ -422,6 +432,10 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "0.0,0.125"
       map: ["enum.PaperLabelVisuals.Layer"]
+    # imp edit start, need to define from CrateGeneric
+    - state: open
+      map: [ open_crate ]
+    # imp edit end
   - type: Icon
     sprite: Structures/Storage/Crates/cage.rsi
   - type: Destructible
@@ -494,11 +508,14 @@
           True: { visible: false }
           False: { visible: true }
       #imp edit start
-        lid_overlay_lip:
+        open_crate: #open state from CrateGeneric
+          True: { visible: true }
+          False: { visible: false }
+        lid_overlay_lip:  #overlay used over open state
           True: { visible: true }
           False: { visible: false }
       #imp edit end
-  - type: OverrideSell
+  # - type: OverrideSell # imp edit
   - type: Fixtures
     fixtures:
       fix1:
@@ -510,6 +527,8 @@
         - CrateMask #this is so they can go under plastic flaps
         layer:
         - MachineLayer
+  - type: Paintable
+    group: null
   - type: AntiTamper # imp edit
     containers:
       - entity_storage
@@ -529,11 +548,6 @@
     - state: overlay-closed
       color: "#EFB341" #imp edit, color in departmental palette
       map: [ lid_overlay ]
-    # imp edit start
-    - state: overlay-open
-      color: "#EFB341"
-      map: [ lid_overlay_lip ]
-    # imp edit end
     - state: welded
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
@@ -541,11 +555,20 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi #imp edit
-      offset: "-0.5,0" #imp edit
+      sprite: Structures/Storage/Crates/labels.rsi
       map: ["enum.PaperLabelVisuals.Layer"]
-  - type: OverrideSell
-    overrideAccount: Engineering
+      offset: 0.0, -0.0625 #imp edit, match CrateGeneric
+    # imp edit start, necessary to define from CrateGeneric
+    - state: open #open state from CrateGeneric
+      map: [ open_crate ]
+      offset: 0, 0.65625
+    - state: overlay-open #overlay for open state
+      color: "#EFB341"
+      map: [ lid_overlay_lip ]
+      offset: 0, 0.65625
+    # imp edit end
+  # - type: OverrideSell # imp edit
+  #   overrideAccount: Engineering
   - type: AccessReader
     access: [["Engineering"]]
 
@@ -564,10 +587,14 @@
     - state: overlay-closed
       color: "#52B4E9" #imp edit, color in departmental palette
       map: [ lid_overlay ]
-    # imp edit start
-    - state: overlay-open
+    # imp edit start, necessary to define from CrateGeneric
+    - state: open #open state from CrateGeneric
+      map: [ open_crate ]
+      offset: 0, 0.65625
+    - state: overlay-open #overlay for open state
       color: "#52B4E9"
       map: [ lid_overlay_lip ]
+      offset: 0, 0.65625
     # imp edit end
     - state: welded
       visible: false
@@ -576,11 +603,11 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi #imp edit
-      offset: "-0.5,0" #imp edit
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: 0.0, -0.0625 #imp edit, match CrateGeneric
       map: ["enum.PaperLabelVisuals.Layer"]
-  - type: OverrideSell
-    overrideAccount: Medical
+  # - type: OverrideSell # imp edit
+  #   overrideAccount: Medical
   - type: AccessReader
     access: [["Medical"]]
 
@@ -599,10 +626,14 @@
     - state: overlay-closed
       color: "#D381C9" #imp edit, color in departmental palette
       map: [ lid_overlay ]
-    # imp edit start
-    - state: overlay-open
+    # imp edit start, necessary to define from CrateGeneric
+    - state: open #open state from CrateGeneric
+      map: [ open_crate ]
+      offset: 0, 0.65625
+    - state: overlay-open #overlay for open state
       color: "#D381C9"
       map: [ lid_overlay_lip ]
+      offset: 0, 0.65625
     # imp edit end
     - state: welded #imp edit, color in departmental palette
       visible: false
@@ -611,11 +642,11 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi #imp edit
-      offset: "-0.5,0" #imp edit
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: 0.0, -0.0625 #imp edit, match CrateGeneric
       map: ["enum.PaperLabelVisuals.Layer"]
-  - type: OverrideSell
-    overrideAccount: Science
+  # - type: OverrideSell # imp edit
+  #   overrideAccount: Science
   - type: AccessReader
     access: [["Research"]]
 
@@ -634,10 +665,14 @@
     - state: overlay-closed
       color: "#DE3A3A" #imp edit, color in departmental palette
       map: [ lid_overlay ]
-    # imp edit start
-    - state: overlay-open
+    # imp edit start, necessary to define from CrateGeneric
+    - state: open #open state from CrateGeneric
+      map: [ open_crate ]
+      offset: 0, 0.65625
+    - state: overlay-open #overlay for open state
       color: "#DE3A3A"
       map: [ lid_overlay_lip ]
+      offset: 0, 0.65625
     # imp edit end
     - state: welded
       visible: false
@@ -646,11 +681,11 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi #imp edit
-      offset: "-0.5,0"
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: 0.0, -0.0625 #imp edit, match CrateGeneric
       map: ["enum.PaperLabelVisuals.Layer"]
-  - type: OverrideSell
-    overrideAccount: Security
+  # - type: OverrideSell # imp edit
+  #   overrideAccount: Security
   - type: AccessReader
     access: [["Security"]]
 
@@ -669,10 +704,14 @@
     - state: overlay-closed
       color: "#9FED58" #imp edit, color in departmental palette
       map: [ lid_overlay ]
-    # imp edit start
-    - state: overlay-open
+    # imp edit start, necessary to define from CrateGeneric
+    - state: open #open state from CrateGeneric
+      map: [ open_crate ]
+      offset: 0, 0.65625
+    - state: overlay-open #overlay for open state
       color: "#9FED58"
       map: [ lid_overlay_lip ]
+      offset: 0, 0.65625
     # imp edit end
     - state: welded
       visible: false
@@ -681,11 +720,11 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi #imp edit
-      offset: "-0.5,0" #imp edit
+      sprite: Structures/Storage/Crates/labels.rsi
+      offset: 0.0, -0.0625 #imp edit, match CrateGeneric
       map: ["enum.PaperLabelVisuals.Layer"]
-  - type: OverrideSell
-    overrideAccount: Service
+  # - type: OverrideSell # imp edit
+  #   overrideAccount: Service # imp edit
   - type: AccessReader
     access: [["Service"]]
 
@@ -754,6 +793,10 @@
       map: ["enum.StorageVisualLayers.Door"]
     - state: paper
       map: ["enum.PaperLabelVisuals.Layer"]
+    # imp edit start, need to define from CrateGeneric
+    - state: open
+      map: [ open_crate ]
+    # imp edit end
   - type: Icon
     sprite: Structures/Storage/Crates/coffin.rsi
     state: base
@@ -805,6 +848,10 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "-0.28125,0.625"
       map: ["enum.PaperLabelVisuals.Layer"]
+    # imp edit start, need to define from CrateGeneric
+    - state: open
+      map: [ open_crate ]
+    # imp edit end
   - type: Icon
     sprite: Structures/Storage/Crates/wooden_grave.rsi
     state: base
@@ -862,6 +909,10 @@
       sprite: Structures/Storage/Crates/labels.rsi
       offset: "-0.3125,0.5625"
       map: ["enum.PaperLabelVisuals.Layer"]
+    # imp edit start, need to define from CrateGeneric
+    - state: open
+      map: [ open_crate ]
+    # imp edit end
   - type: Icon
     sprite: Structures/Storage/Crates/stone_grave.rsi
     state: base
@@ -894,9 +945,14 @@
       visible: false
       map: ["enum.WeldableLayers.BaseWelded"]
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi # imp
+      sprite: Structures/Storage/Crates/labels.rsi
       offset: "0.0,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
+    # imp edit start, necessary to define from CrateGeneric
+    - state: open
+      map: [ open_crate ]
+      offset: 0, 0.65625 #open state from CrateGeneric
+    # imp edit end
   - type: Paintable
     group: null
 
@@ -920,9 +976,14 @@
       map: ["enum.LockVisualLayers.Lock"]
       shader: unshaded
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi # imp
+      sprite: Structures/Storage/Crates/labels.rsi
       offset: "0.0,0.03125"
       map: ["enum.PaperLabelVisuals.Layer"]
+    # imp edit start, necessary to define from CrateGeneric
+    - state: open
+      map: [ open_crate ]
+      offset: 0, 0.65625 #open state from CrateGeneric
+    # imp edit end
   - type: AccessReader
     access: [["Janitor"]]
   - type: Paintable

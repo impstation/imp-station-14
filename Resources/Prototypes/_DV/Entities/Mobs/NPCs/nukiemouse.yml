@@ -32,8 +32,15 @@
     drawdepth: SmallMobs
     sprite: _DV/Mobs/Animals/nukiemouse.rsi
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mouse-moving
+    noMovementLayers:
+      movement:
+        state: mouse
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -74,7 +81,7 @@
         Base: dead
       Dead:
         Base: splat
-  - type: Food
+  - type: Edible
   - type: GoobAbsorbable # imp edit - mouse bite sized
     biomassRestored: 0.1
   - type: Hunger

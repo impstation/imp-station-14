@@ -1,0 +1,7 @@
+- type: entity
+  name: green marijuana leaves
+  parent: LeavesCannabis
+  id: LeavesGreenMarijuana
+  components:
+  - type: Produce
+    seedId: greenMarijuana

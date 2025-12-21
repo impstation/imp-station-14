@@ -15,6 +15,9 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant, DeathRattleImplantCentcomm ]
+  requirements: #imp edit
+  - !type:OverallPlaytimeRequirement
+    time: 3h
 
 - type: startingGear
   id: CBURNGear
@@ -29,8 +32,9 @@
     shoes: ClothingShoesBootsCombatFilled
     id: CBURNPDA
     pocket1: RadioHandheld
-    pocket2: WeaponLaserGun
+#    pocket2: WeaponLaserGun #imp
     belt: ClothingBeltBandolier
+    suitstorage: FuelTankOlympus #imp
   storage:
     back:
     - WeaponShotgunDoubleBarreled
@@ -38,6 +42,7 @@
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol
+    - WeaponLaserGun #imp
 
 - type: chameleonOutfit
   id: CBURNChameleonOutfit

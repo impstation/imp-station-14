@@ -1,0 +1,345 @@
+﻿- type: weightedRandomXenoArchTrigger
+  id: NaturalTriggers
+  weights:
+    TriggerExpression: 1
+    TriggerMusic: 1
+    TriggerHeat: 1
+    TriggerCold: 0.5
+    TriggerNoOxygen: 0.4
+    TriggerWater: 1
+    TriggerCO2: 0.2
+    TriggerPlasma: 0.1
+    TriggerN2O: 0.1
+    # Nope, this one sucks TriggerTritium: 0.05
+    # Nope, this one sucks TriggerAmmonia: 0.05
+    # Nope, this one sucks TriggerFrezon: 0.05
+    TriggerRadiation: 1
+    TriggerPressureHigh: 0.5
+    TriggerPressureLow: 1
+    TriggerExamine: 1
+    TriggerBruteDamage: 1
+    TriggerInteraction: 1
+    TriggerWrenching: 0.4
+    TriggerPrying: 0.4
+    TriggerScrewing: 0.4
+    TriggerPulsing: 0.4
+    TriggerTimer: 0.25
+    TriggerBlood: 1
+    TriggerThrow: 1
+    TriggerDeath: 1
+    TriggerMagnet: 1
+    TriggerResurrection: 1
+    TriggerStun: 1
+    TriggerDrinkCaffeine: 0.05
+    TriggerDrinkClassicMartini: 0.05
+    TriggerDrinkBudgetInsuls: 0.05
+    TriggerDrinkManlyDorf: 0.05
+    TriggerDrinkScrewdriver: 0.05
+    TriggerDrinkIceCream: 0.05
+    TriggerDrinkLemonade: 0.05
+    TriggerDrinkThavenBad: 0.05
+    TriggerDrinkStarkist: 0.05
+    TriggerDrinkZombieSlushie: 0.05
+    TriggerDrinkVoxRocks: 0.05
+    TriggerDrinkDoctorsDelight: 0.05
+    TriggerDrinkSyndicateBomb: 0.05
+    TriggerDrinkArnoldPalmer: 0.05
+    TriggerDrinkPilk: 0.05
+    TriggerDrinkLongIslandIcedTea: 0.05
+    TriggerDrinkCogChamp: 0.05
+    TriggerDrinkSuiDream: 0.05
+    TriggerDrinkDrink: 0.05
+    TriggerDrinkTheeHorsepussy: 0.01
+    TriggerDrinkThreeMileIsland: 0.01
+    TriggerDrinkHippiesDelight: 0.01
+    TriggerDrinkSalvagersSoothe: 0.01
+    TriggerDrinkUAP: 0.01
+
+- type: xenoArchTrigger
+  id: TriggerResurrection
+  tip: xenoarch-trigger-tip-resurrection
+  components:
+  - type: XATResurrection
+  targetDepths: [ 1, 2, 3 ]
+
+- type: xenoArchTrigger
+  id: TriggerStun
+  tip: xenoarch-trigger-hint-stun
+  components:
+  - type: XATStun
+  targetDepths: [ 0, 1, 2 ]
+
+- type: xenoArchTrigger
+  id: TriggerExpression
+  tip: xenoarch-trigger-hint-expression
+  components:
+  - type: XATExpression
+  targetDepths: [ 2, 3, 4, 5]
+
+- type: xenoArchTrigger
+  id: TriggerMedical
+  tip: xenoarch-trigger-hint-medical
+  targetDepths: [ 1, 2, 3 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - Dylovene
+    - Diphenhydramine
+    - Arithrazine
+    - Bicaridine
+    - Dermaline
+    - Dexalin
+    - DexalinPlus
+    - Tricordrazine
+    - Leporazine
+    - Bruizine
+    - Lacerinol
+    - Puncturase
+    - Pyrazine
+    - Insuzine
+    - Kelotane
+    - Hyronalin
+    - Inaprovaline
+    - Epinephrine
+
+- type: xenoArchTrigger
+  id: TriggerDrinkCaffeine
+  tip: xenoarch-trigger-hint-drink-caffeine
+  targetDepths: [ 0, 1, 2, 3 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - Coffee
+    - CafeLatte
+    - Tea
+    - EnergyDrink
+    - VodkaRedBool
+    - PwrGame
+    - FourteenLoko
+    - XenoBasher
+    - IrishBool
+    - BudgetInsulsDrink
+    - WatermelonWakeup
+    - KingSoda
+    - CottonBool
+    - Rubberneck
+    - IcedTea
+    - ArnoldPalmer
+    - Raktaccino
+    - OrangeCoffee
+    - CoffeeLiqueur
+    - IrishCoffee
+    - B52
+    - BlackRussian
+    - BraveBull
+    - IcedCoffee
+    - Rewriter
+    - SoyLatte
+    - EspressoMartini
+
+- type: xenoArchTrigger
+  id: TriggerDrinkClassicMartini
+  tip: xenoarch-trigger-hint-drink-classic-martini
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - Martini
+
+- type: xenoArchTrigger
+  id: TriggerDrinkBudgetInsuls
+  tip: xenoarch-trigger-hint-drink-budget-insuls
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - BudgetInsulsDrink
+
+- type: xenoArchTrigger
+  id: TriggerDrinkManlyDorf
+  tip: xenoarch-trigger-hint-drink-manly-dorf
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - ManlyDorf
+
+- type: xenoArchTrigger
+  id: TriggerDrinkScrewdriver
+  tip: xenoarch-trigger-hint-drink-screwdriver
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - ScrewdriverCocktail
+
+- type: xenoArchTrigger
+  id: TriggerDrinkIceCream
+  tip: xenoarch-trigger-hint-drink-ice-cream
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - IceCream
+
+- type: xenoArchTrigger
+  id: TriggerDrinkLemonade
+  tip: xenoarch-trigger-hint-drink-lemonade
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - Lemonade
+
+- type: xenoArchTrigger
+  id: TriggerDrinkThavenBad
+  tip: xenoarch-trigger-hint-drink-thaven-bad
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - ThavenBad
+
+- type: xenoArchTrigger
+  id: TriggerDrinkStarkist
+  tip: xenoarch-trigger-hint-drink-starkist
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - Starkist
+
+- type: xenoArchTrigger
+  id: TriggerDrinkZombieSlushie
+  tip: xenoarch-trigger-hint-drink-zombie-slushie
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - ZombieSlushie
+
+- type: xenoArchTrigger
+  id: TriggerDrinkVoxRocks
+  tip: xenoarch-trigger-hint-drink-vox-rocks
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - VoxRocks
+
+- type: xenoArchTrigger
+  id: TriggerDrinkDoctorsDelight
+  tip: xenoarch-trigger-hint-drink-doctors-delight
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - DoctorsDelight
+
+- type: xenoArchTrigger
+  id: TriggerDrinkSyndicateBomb
+  tip: xenoarch-trigger-hint-drink-syndicate-bomb
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - SyndicateBomb
+
+- type: xenoArchTrigger
+  id: TriggerDrinkArnoldPalmer
+  tip: xenoarch-trigger-hint-drink-arnold-palmer
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - ArnoldPalmer
+
+- type: xenoArchTrigger
+  id: TriggerDrinkPilk
+  tip: xenoarch-trigger-hint-drink-pilk
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - Pilk
+
+- type: xenoArchTrigger
+  id: TriggerDrinkLongIslandIcedTea
+  tip: xenoarch-trigger-hint-drink-long-island-iced-tea
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - LongIslandIcedTea
+
+- type: xenoArchTrigger
+  id: TriggerDrinkCogChamp
+  tip: xenoarch-trigger-hint-drink-cogchamp
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - CogChamp
+
+- type: xenoArchTrigger
+  id: TriggerDrinkSuiDream
+  tip: xenoarch-trigger-hint-drink-sui-dream
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - SuiDream
+
+- type: xenoArchTrigger
+  id: TriggerDrinkDrink
+  tip: xenoarch-trigger-hint-drink-drink
+  targetDepths: [ 2, 3, 4 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - TheDrink
+
+- type: xenoArchTrigger
+  id: TriggerDrinkTheeHorsepussy
+  tip: xenoarch-trigger-hint-drink-thee-horsepussy
+  targetDepths: [ 3, 4, 5 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - TheeHorsepussy
+
+- type: xenoArchTrigger
+  id: TriggerDrinkThreeMileIsland
+  tip: xenoarch-trigger-hint-drink-three-mile-island
+  targetDepths: [ 3, 4, 5 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - ThreeMileIsland
+
+- type: xenoArchTrigger
+  id: TriggerDrinkHippiesDelight
+  tip: xenoarch-trigger-hint-drink-hippies-delight
+  targetDepths: [ 3, 4, 5 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - HippiesDelight
+
+- type: xenoArchTrigger
+  id: TriggerDrinkSalvagersSoothe
+  tip: xenoarch-trigger-hint-drink-salvagers-soothe
+  targetDepths: [ 3, 4, 5 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - SalvagersSoothe
+
+- type: xenoArchTrigger
+  id: TriggerDrinkUAP
+  tip: xenoarch-trigger-hint-drink-uap
+  targetDepths: [ 3, 4, 5 ]
+  components:
+  - type: XATReactive
+    reagents:
+    - UAP

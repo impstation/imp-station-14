@@ -1,8 +1,8 @@
 using Robust.Shared.Audio;
-using Robust.Shared.Audio.Components; //imp
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Audio.Components; //imp
 
 namespace Content.Shared.Morgue.Components;
 

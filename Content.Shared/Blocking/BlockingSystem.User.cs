@@ -1,8 +1,10 @@
 using Content.Shared.Damage;
-using Content.Shared.Mobs;
-using Content.Shared.Standing;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Content.Shared.Mobs; // imp
+using Content.Shared.Standing; // imp
 
 namespace Content.Shared.Blocking;
 
@@ -21,17 +23,18 @@ public sealed partial class BlockingSystem
         SubscribeLocalEvent<BlockingUserComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeLocalEvent<BlockingUserComponent, EntityTerminatingEvent>(OnEntityTerminating);
 
-        // impstation edits
-        SubscribeLocalEvent<BlockingUserComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<BlockingUserComponent, DownedEvent>(OnDowned);
+        SubscribeLocalEvent<BlockingUserComponent, MobStateChangedEvent>(OnMobStateChanged); // imp
+        SubscribeLocalEvent<BlockingUserComponent, DownedEvent>(OnDowned); // imp
     }
 
+    // imp add
     private void OnMobStateChanged(EntityUid uid, BlockingUserComponent comp, MobStateChangedEvent args)
     {
         if (args.NewMobState != MobState.Alive)
             UserStopBlocking(uid, comp);
     }
 
+    // imp add
     private void OnDowned(EntityUid uid, BlockingUserComponent comp, DownedEvent downed)
     {
         UserStopBlocking(uid, comp);
@@ -57,32 +60,32 @@ public sealed partial class BlockingSystem
 
     private void OnUserDamageModified(EntityUid uid, BlockingUserComponent component, DamageModifyEvent args)
     {
-        if (TryComp<BlockingComponent>(component.BlockingItem, out var blocking))
+        if (component.BlockingItem is not { } item || !TryComp<BlockingComponent>(item, out var blocking))
+            return;
+
+        if (args.Damage.GetTotal() <= 0)
+            return;
+
+        // A shield should only block damage it can itself absorb. To determine that we need the Damageable component on it.
+        if (!TryComp<DamageableComponent>(item, out var dmgComp))
+            return;
+
+        var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
+        blockFraction = Math.Clamp(blockFraction, 0, 1);
+        if (!args.IsVirtual) //#IMP Don't damage shield if we are just seeing what damage COULD be blocked
+            _damageable.TryChangeDamage((item, dmgComp), blockFraction * args.OriginalDamage);
+
+        var modify = new DamageModifierSet();
+        foreach (var key in dmgComp.Damage.DamageDict.Keys)
         {
-            if (args.Damage.GetTotal() <= 0)
-                return;
+            modify.Coefficients.TryAdd(key, 1 - blockFraction);
+        }
 
-            // A shield should only block damage it can itself absorb. To determine that we need the Damageable component on it.
-            if (!TryComp<DamageableComponent>(component.BlockingItem, out var dmgComp))
-                return;
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modify);
 
-            var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
-            blockFraction = Math.Clamp(blockFraction, 0, 1);
-            if (!args.IsVirtual) //#IMP Don't damage shield if we are just seeing what damage COULD be blocked
-                _damageable.TryChangeDamage(component.BlockingItem, blockFraction * args.OriginalDamage);
-
-            var modify = new DamageModifierSet();
-            foreach (var key in dmgComp.Damage.DamageDict.Keys)
-            {
-                modify.Coefficients.TryAdd(key, 1 - blockFraction);
-            }
-
-            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modify);
-
-            if (blocking.IsBlocking && !args.Damage.Equals(args.OriginalDamage) && !args.IsVirtual) //#IMP => IsVirtual
-            {
-                _audio.PlayPvs(blocking.BlockSound, uid);
-            }
+        if (blocking.IsBlocking && !args.Damage.Equals(args.OriginalDamage) && !args.IsVirtual) //#IMP => IsVirtual
+        {
+            _audio.PlayPvs(blocking.BlockSound, uid);
         }
     }
 

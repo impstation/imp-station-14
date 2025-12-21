@@ -13,6 +13,13 @@
   offset: -0.1, 0.1
 
 - type: typingIndicator
+  id: anomalocarid
+  spritePath: /Textures/_Impstation/Effects/speech.rsi
+  typingState: anom
+  idleState: anomidle
+  offset: -0.3, 0.6
+  
+- type: typingIndicator
   id: kodepiia
   spritePath: /Textures/_Impstation/Effects/speech.rsi
   typingState: kode
@@ -35,3 +42,17 @@
   id: syndibot
   typingState: syndibot0
   idleState: syndibot3
+
+- type: typingIndicator
+  id: allulalo
+  spritePath: /Textures/_Impstation/Effects/speech.rsi
+  typingState: allulalo
+  idleState: allulalo-idle
+  offset: -0.45, 0.35
+  
+- type: typingIndicator
+  id: Ungu
+  spritePath: /Textures/_Impstation/Effects/speech.rsi
+  typingState: ungu
+  idleState: ungu
+  offset: 0, 0.1

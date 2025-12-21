@@ -64,6 +64,7 @@
   description: Guaranteed to be plump and juicy, if a little bit cloying.
   components:
   - type: Item
+  - type: MultiHandedItem
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -166,11 +167,13 @@
   - type: StaticPrice
     price: 400
   - type: InteractionPopup
-    successChance: 0.3
+    successChance: 0.4
     interactSuccessString: petting-success-tomato
     interactFailureString: petting-failure-tomato
     interactSuccessSound:
       path: /Audio/_Impstation/Animals/mwah.ogg
+      params:
+       variation: .125
     interactSuccessSpawn: EffectHearts
 
 - type: entity

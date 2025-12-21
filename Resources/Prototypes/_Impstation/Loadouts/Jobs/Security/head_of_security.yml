@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfSecurity
-      time: 54000 #15 hrs, ~10 rounds, half the standard due to HoS having an extreme unlock requirement
+      time: 15h # ~10 rounds, half the standard due to HoS having an extreme unlock requirement
 
 # Headset
 - type: loadout
@@ -93,6 +93,11 @@
   id: SecurityPistolSturm
   equipment:
     pocket1: WeaponPistolSturm
+
+- type: loadout
+  id: SecurityOfficerKnife
+  equipment:
+    pocket1: OfficerKnife
 
 # Ammunition
 - type: loadout

@@ -48,7 +48,7 @@ public sealed class CrewManifestEntry
 {
     public string Name { get; }
 
-    public string Gender { get; }
+    public string Gender { get; } // imp add
 
     public string JobTitle { get; }
 
@@ -56,10 +56,10 @@ public sealed class CrewManifestEntry
 
     public string JobPrototype { get; }
 
-    public CrewManifestEntry(string name, string gender, string jobTitle, string jobIcon, string jobPrototype)
+    public CrewManifestEntry(string name, string gender, string jobTitle, string jobIcon, string jobPrototype) // imp add gender
     {
         Name = name;
-        Gender = gender;
+        Gender = gender; // imp add
         JobTitle = jobTitle;
         JobIcon = jobIcon;
         JobPrototype = jobPrototype;

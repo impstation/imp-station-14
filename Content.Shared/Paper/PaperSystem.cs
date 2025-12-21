@@ -10,9 +10,9 @@ using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
-using Content.Shared._Impstation.Illiterate;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared._Impstation.Illiterate; // imp
 
 namespace Content.Shared.Paper;
 
@@ -129,7 +129,12 @@ public sealed class PaperSystem : EntitySystem
                     return;
                 }
 
-                var ev = TryComp<IlliterateComponent>(args.User, out var illiterate) ? new PaperWriteAttemptEvent(entity.Owner, illiterate.FailMsg, true) : new PaperWriteAttemptEvent(entity.Owner); // imp
+                var ev =
+                // imp start: illiterate check
+                    TryComp<IlliterateComponent>(args.User, out var illiterate)
+                    ? new PaperWriteAttemptEvent(entity.Owner, illiterate.FailMsg, true)
+                // end imp
+                    : new PaperWriteAttemptEvent(entity.Owner);
                 RaiseLocalEvent(args.User, ref ev);
                 if (ev.Cancelled)
                 {
@@ -306,7 +311,7 @@ public sealed class PaperSystem : EntitySystem
         _appearance.SetData(entity, PaperVisuals.Status, status, appearance);
     }
 
-    public void UpdateUserInterface(Entity<PaperComponent> entity)
+    public void UpdateUserInterface(Entity<PaperComponent> entity) // imp public, used in dv signaturesystem
     {
         _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
     }

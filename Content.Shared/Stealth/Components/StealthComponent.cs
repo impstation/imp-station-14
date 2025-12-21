@@ -73,11 +73,11 @@ public sealed partial class StealthComponent : Component
     [DataField("examinedDesc")]
     public string ExaminedDesc = "stealth-visual-effect";
 
+    // imp add
     ///<summary>
     ///      Toggle for if the entity should use the alternate full invis shader
     ///</summary>
-    [DataField("useAltShader")]
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public bool UseAltShader;
 }
 
@@ -87,15 +87,15 @@ public sealed class StealthComponentState : ComponentState
     public readonly float Visibility;
     public readonly TimeSpan? LastUpdated;
     public readonly bool Enabled;
-    public readonly bool UseAltShader;
-    public readonly float MinVisibility;
+    public readonly bool UseAltShader; // imp
+    public readonly float MinVisibility; // imp
 
-    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled, bool useAltShader, float minVisibility)
+    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled, bool useAltShader, float minVisibility) // imp add altshader and minvisibility
     {
         Visibility = stealthLevel;
         LastUpdated = lastUpdated;
         Enabled = enabled;
-        UseAltShader = useAltShader;
-        MinVisibility = minVisibility;
+        UseAltShader = useAltShader; // imp
+        MinVisibility = minVisibility; // imp
     }
 }

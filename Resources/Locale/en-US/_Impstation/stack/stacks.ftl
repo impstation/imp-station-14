@@ -27,3 +27,6 @@ stack-shock-gel = shock gel
 stack-baton-token = baton token
 stack-disabler-token = disabler token
 stack-utility-token = utility token
+
+# misc
+stack-tcka-beacon = tck'aat RFID chip

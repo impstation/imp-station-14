@@ -58,11 +58,11 @@ public sealed partial class RatKingComponent : Component
     [AutoNetworkedField]
     public RatKingOrderType CurrentOrder = RatKingOrderType.Loose;
 
+    // imp add
     /// <summary>
     /// How far away your pointing arrow be from something and still have it be targeted if the arrow isn't directly ON it.
     /// </summary>
-    [DataField("pointingMargin"), ViewVariables(VVAccess.ReadWrite)]
-    [AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float PointingMargin = 1f;
 
     /// <summary>

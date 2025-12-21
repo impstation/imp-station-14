@@ -37,7 +37,8 @@ accent-pirate-replaced-11 = hey
 accent-pirate-replacement-11 = oye
 
 accent-pirate-replaced-12 = money
-accent-pirate-replacement-12 = doubloons #imp
+# imp edit
+accent-pirate-replacement-12 = doubloons
 
 accent-pirate-replaced-13 = cash
 accent-pirate-replacement-13 = doubloons

@@ -15,12 +15,12 @@
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Sprite
-    sprite: Objects/Consumable/TrashDrinks/broken_bottle.rsi
+    sprite: Objects/Misc/broken_bottle.rsi
     state: icon
   - type: DamageOtherOnHit
     damage:
       types:
-        Slash: 4
+        Slash: 2
   - type: Tag
     tags:
     - Trash

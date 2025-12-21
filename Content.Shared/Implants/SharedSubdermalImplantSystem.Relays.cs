@@ -1,8 +1,8 @@
-using Content.Shared.Chat; // Delta-V
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
+using Content.Shared.Chat; // Delta-V
 
 namespace Content.Shared.Implants;
 

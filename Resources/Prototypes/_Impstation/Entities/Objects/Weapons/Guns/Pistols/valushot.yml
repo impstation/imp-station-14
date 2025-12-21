@@ -1,0 +1,218 @@
+- type: entity
+  name: Dan's ValuShot 9000
+  parent: [BaseWeaponShotgun, BaseMajorContraband]
+  id: WeaponPistolValu
+  description: You can tell by the loose jingle of bullets inside the frame that you're really getting your money's worth.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valu.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valu.rsi
+    slots:
+    - suitStorage
+    - Belt
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valu.rsi
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    fireRate: 12
+    minAngle: 30
+    maxAngle: 45
+    angleIncrease: 1
+    angleDecay: 10
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/pistolp2.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeHeavyRifle
+    capacity: 30
+    proto: CartridgeMinigun
+    cycleable: false
+    mayTransfer: false
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/hpistol_cock.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 8
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 8
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          BrokenValuShot:
+            min: 1
+            max: 1
+          CartridgePistolValuShot:
+            min: 0
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 200
+      Steel: 50
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 4
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+    wideAnimationRotation: -80
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 9
+    damage:
+      types:
+        Blunt: 8
+
+- type: entity
+  name: Dan's ValuShot 9000
+  parent: WeaponPistolValu
+  id: WeaponPistolValuAmmo1
+  suffix: 24 shots
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 24
+    proto: CartridgeMinigun
+
+- type: entity
+  name: Dan's ValuShot 9000
+  parent: WeaponPistolValu
+  id: WeaponPistolValuAmmo2
+  suffix: 17 shots
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 17
+    proto: CartridgeMinigun
+
+- type: entity
+  name: Dan's ValuShot 9000
+  parent: WeaponPistolValu
+  id: WeaponPistolValuAmmo3
+  suffix: 11 shots
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 11
+    proto: CartridgeMinigun
+
+- type: entity
+  name: Dan's ValuShot 9000
+  parent: WeaponPistolValu
+  id: WeaponPistolValuAmmo4
+  suffix: 8 shots
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 8
+    proto: CartridgeMinigun
+
+- type: entity
+  name: Dan's Limited-Edition ValuShot 9000 Premium Deluxe
+  parent: WeaponPistolValu
+  id: WeaponPistolValuPlus
+  description: A coveted weapon gifted to the early adopters that had invested in the ValuShot campaign for a high price.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valuplus.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valuplus.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valuplus.rsi
+  - type: Gun
+    fireRate: 10
+    minAngle: 10
+    maxAngle: 15
+    angleIncrease: 1
+    angleDecay: 30
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/pistolvaluplus.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeHeavyRifle
+    capacity: 50
+    proto: CartridgeValuShotPlus
+    cycleable: false
+    mayTransfer: false
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/hpistol_cock.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 8
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          BrokenValuShotPlus:
+            min: 1
+            max: 1
+          TreasureCoinGold:
+            min: 0
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 200
+      Silver: 50
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+    wideAnimationRotation: -80
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 18
+    damage:
+      types:
+        Blunt: 16

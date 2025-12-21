@@ -28,6 +28,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskClownChameleonBasic
@@ -122,9 +123,6 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClownMaskCaptain
-  - type: HideLayerClothing
-    slots:
-    - Snout
 
 - type: entity
   parent: ClothingMaskClownChameleonCaptain
@@ -225,9 +223,6 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClownMaskCargo
-  - type: HideLayerClothing
-    slots:
-    - Snout
 
 - type: entity
   parent: ClothingMaskClownChameleonCargo
@@ -328,9 +323,6 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClownMaskChaplain
-  - type: HideLayerClothing
-    slots:
-    - Snout
 
 - type: entity
   parent: ClothingMaskClownChameleonChaplain
@@ -431,9 +423,6 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClownMaskEngineer
-  - type: HideLayerClothing
-    slots:
-    - Snout
 
 - type: entity
   parent: ClothingMaskClownChameleonEngineer
@@ -534,9 +523,6 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClownMaskMedical
-  - type: HideLayerClothing
-    slots:
-    - Snout
 
 - type: entity
   parent: ClothingMaskClownChameleonMedical
@@ -637,9 +623,6 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClownMaskRobotics
-  - type: HideLayerClothing
-    slots:
-    - Snout
 
 - type: entity
   parent: ClothingMaskClownChameleonRobotics
@@ -740,9 +723,6 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClownMaskScience
-  - type: HideLayerClothing
-    slots:
-    - Snout
 
 - type: entity
   parent: ClothingMaskClownChameleonScience
@@ -850,9 +830,6 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClownMaskSecurity
-  - type: HideLayerClothing
-    slots:
-    - Snout
 
 - type: entity
   parent: ClothingMaskClownChameleonSecurity
@@ -960,9 +937,6 @@
     - HamsterWearable
     - WhitelistChameleon
     - ClownMaskService
-  - type: HideLayerClothing
-    slots:
-    - Snout
 
 - type: entity
   parent: ClothingMaskClownChameleonService

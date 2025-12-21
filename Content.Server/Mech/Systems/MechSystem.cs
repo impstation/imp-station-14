@@ -2,10 +2,9 @@ using System.Linq;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Mech.Components;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
@@ -14,6 +13,7 @@ using Content.Shared.Mech.Components;
 using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
+using Content.Shared.Power.Components;
 using Content.Shared.Tools;
 using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
@@ -209,6 +209,12 @@ public sealed partial class MechSystem : SharedMechSystem
                 Priority = 1, // Promote to top to make ejecting the ALT-click action
                 Act = () =>
                 {
+                    if (args.User == uid || args.User == component.PilotSlot.ContainedEntity)
+                    {
+                        TryEject(uid, component);
+                        return;
+                    }
+
                     var doAfterEventArgs = new DoAfterArgs(EntityManager, args.User, component.ExitDelay, new MechExitEvent(), uid, target: uid)
                     {
                         BreakOnMove = true,
@@ -259,7 +265,7 @@ public sealed partial class MechSystem : SharedMechSystem
             component.PilotSlot.ContainedEntity != null)
         {
             var damage = args.DamageDelta * component.MechToPilotDamageMultiplier;
-            _damageable.TryChangeDamage(component.PilotSlot.ContainedEntity, damage);
+            _damageable.ChangeDamage(component.PilotSlot.ContainedEntity.Value, damage);
         }
     }
 
@@ -334,7 +340,7 @@ public sealed partial class MechSystem : SharedMechSystem
         if (!TryComp<BatteryComponent>(battery, out var batteryComp))
             return false;
 
-        _battery.SetCharge(battery!.Value, batteryComp.CurrentCharge + delta.Float(), batteryComp);
+        _battery.SetCharge((battery.Value, batteryComp), batteryComp.CurrentCharge + delta.Float());
         if (batteryComp.CurrentCharge != component.Energy) //if there's a discrepency, we have to resync them
         {
             Log.Debug($"Battery charge was not equal to mech charge. Battery {batteryComp.CurrentCharge}. Mech {component.Energy}");

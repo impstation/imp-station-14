@@ -153,6 +153,14 @@
     maxPlayers: 14
     cancelPresetOnTooManyPlayers: true
 
+- type: entity 
+  parent: BaseGameRule
+  id: PopLimiter20 #for lowpop versions of the gamemodes that usually have a 20-person minimum
+  components:
+  - type: GameRule
+    maxPlayers: 20
+    cancelPresetOnTooManyPlayers: true
+
 - type: entity
   id: PacifistVsPacifist
   parent: SpyVsSpy

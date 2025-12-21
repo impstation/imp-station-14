@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._Impstation.Weapons.Ranged.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -14,6 +13,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Content.Shared._Impstation.Weapons.Ranged.Events; // imp
 
 namespace Content.Shared.Weapons.Ranged.Upgrades;
 

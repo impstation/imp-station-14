@@ -1,9 +1,8 @@
-using System.Linq;
 using Content.Server.CharacterAppearance.Components;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
-using Robust.Shared.Random;
+using Content.Shared.Humanoid.Markings; // imp
+using Robust.Shared.Random; // imp
 
 namespace Content.Server.Humanoid.Systems;
 
@@ -11,7 +10,7 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
 {
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IRobustRandom _random = default!; // imp
 
     public override void Initialize()
     {
@@ -67,6 +66,7 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
             _metaData.SetEntityName(uid, profile.Name);
     }
 
+    // imp start
     private List<Marking> MarkingsToAdd(Dictionary<string, List<Color>> dict)
     {
         List<Marking> output = [];
@@ -96,4 +96,5 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
         }
         return output;
     }
+    // imp end
 }

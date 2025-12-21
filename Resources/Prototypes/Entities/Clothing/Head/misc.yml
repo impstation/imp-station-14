@@ -37,6 +37,7 @@
     - Hair
     - HeadTop
     - HeadSide
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingHeadBase
@@ -121,6 +122,8 @@
     sprite: Clothing/Head/Misc/richard.rsi
   - type: Clothing
     sprite: Clothing/Head/Misc/richard.rsi
+  - type: Item
+    storedRotation: 0
   - type: IngestionBlocker
   - type: IdentityBlocker
   - type: HideLayerClothing
@@ -324,6 +327,7 @@
     solution: drink
     delay: 0.5
     forceFeedDelay: 1.5
+    utensil: Spoon
   - type: FlavorProfile
     flavors:
       - water

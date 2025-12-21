@@ -1,8 +1,13 @@
 - type: entity
   id: OrganMothStomach
   parent: OrganAnimalStomach
-  categories: [ HideSpawnMenu ]
+  # categories: [ HideSpawnMenu ] #imp edit
+  name: moth stomach  #imp edit
+  description: "Gross. This is hard to stomach."  #imp edit
   components:
+  - type: Sprite #imp edit
+    sprite: _Impstation/Mobs/Species/Moth/organs.rsi
+    state: stomach
   - type: Stomach
     specialDigestible:
       tags:

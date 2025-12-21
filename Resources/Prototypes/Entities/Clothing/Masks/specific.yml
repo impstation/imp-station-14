@@ -19,6 +19,7 @@
     - type: HideLayerClothing
       slots:
       - Snout
+      - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskGasChameleon
@@ -35,6 +36,7 @@
     - type: HideLayerClothing
       slots:
       - Snout
+      - SnoutCover # imp
     - type: UserInterface
       interfaces:
         enum.ChameleonUiKey.Key:
@@ -76,6 +78,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
   - type: IngestionBlocker
   - type: StaticPrice
     price: 5000

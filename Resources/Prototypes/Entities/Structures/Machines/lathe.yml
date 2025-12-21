@@ -112,7 +112,7 @@
   - type: Machine
     board: AutolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist:
+    whitelist: &StandardMaterialWhitelist
       tags:
         - Sheet
         - RawMaterial
@@ -129,6 +129,7 @@
     - AtmosStatic
     - CablesStatic
     - PaperworkStatic
+    - TowelsStatic
     - CargoStatic
     - MaterialsStatic
     - BasicChemistryStatic
@@ -144,6 +145,7 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
+    - SyndicateAmmoStatic
     - ImpAutoEmagged # imp
   - type: BlueprintReceiver
     whitelist:
@@ -191,11 +193,7 @@
   - type: Machine
     board: ProtolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
   - type: OreSiloClient
   - type: Lathe
     idleState: icon
@@ -222,7 +220,6 @@
     - Janitor
     - Instruments
     - Equipment
-    - FauxTiles
     - ImpProtoDynamic # Imp
     - NFService # Frontier
   - type: EmagLatheRecipes
@@ -273,7 +270,6 @@
     - CargoBoardsStatic
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
-    - CircuitFloorsStatic
     - ImpCircuitStatic # Imp
     dynamicPacks:
     - EngineeringBoards
@@ -292,11 +288,7 @@
     emagDynamicPacks:
     - SecurityBoards
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
   - type: OreSiloClient
   - type: RequireProjectileTarget
 
@@ -341,11 +333,7 @@
     - MechParts
     - MechEquipment
   - type: MaterialStorage
-    whitelist:
-      tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+    whitelist: *StandardMaterialWhitelist
   - type: OreSiloClient
   - type: GuideHelp
     guides:
@@ -414,8 +402,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    unlitIdleState: unlit
-    unlitRunningState: unlit-building
+    unlitIdleState: unlit #imp
+    unlitRunningState: unlit-building #imp
     staticPacks:
     - SecurityEquipmentStatic
     - SecurityPracticeStatic
@@ -431,12 +419,11 @@
     - SecurityAmmo
     - SecurityWeapons
     - SecurityDisablers
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - SyndicateAmmoStatic
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [Security]
@@ -465,16 +452,15 @@
     - type: Lathe
       idleState: icon
       runningState: icon
-      unlitIdleState: unlit
-      unlitRunningState: unlit-building
+      unlitIdleState: unlit #imp
+      unlitRunningState: unlit-building #imp
       staticPacks:
       - SecurityAmmoStatic
+    - type: EmagLatheRecipes
+      emagStaticPacks:
+      - SyndicateAmmoStatic
     - type: MaterialStorage
-      whitelist:
-        tags:
-          - Sheet
-          - RawMaterial
-          - Ingot
+      whitelist: *StandardMaterialWhitelist
     - type: OreSiloClient
 
 - type: entity
@@ -499,8 +485,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    unlitIdleState: unlit
-    unlitRunningState: unlit-building
+    unlitIdleState: unlit #imp
+    unlitRunningState: unlit-building #imp
     staticPacks:
     - TopicalsStatic
     - ChemistryStatic
@@ -509,7 +495,6 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
-    - ImpMedStatic # Imp
     dynamicPacks:
     - Chemistry
     - ImpMedDynamic # Imp
@@ -542,6 +527,7 @@
     idleState: icon
     runningState: building
     staticPacks:
+    - TowelsStatic
     - ClothingCivilian
     - ClothingCargo
     - ClothingCommand
@@ -564,11 +550,7 @@
     - ClothingSyndie
     - ImpClothesEmagged # Imp
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
   - type: OreSiloClient
 
 - type: entity
@@ -613,6 +595,10 @@
     staticPacks:
     - BioGenIngredientsStatic
     - BioGenMaterialsStatic
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - BioGenEmagStatic
+    - HostileCubesStatic
 
 - type: entity
   parent: BaseLathe
@@ -736,13 +722,16 @@
     idleState: icon
     runningState: building
     staticPacks:
-    - FloorTilesStatic
+    - FloorDarkTilesStatic
+    - FloorSteelTilesStatic
+    - FloorWhiteTilesStatic
+    - FloorMaintsTilesStatic
+    - FloorWoodTilesStatic
+    - FloorConcreteTilesStatic
+    - CircuitFloorsStatic
+    - FloorMarbleTilesStatic
+    dynamicPacks:
+    - FauxTiles
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - Metal
-        - Wooden
-        - RawMaterial
-        - Plastic
+    whitelist: *StandardMaterialWhitelist
   - type: OreSiloClient

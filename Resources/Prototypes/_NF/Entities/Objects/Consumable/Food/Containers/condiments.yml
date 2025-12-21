@@ -5,8 +5,9 @@
   name: squeeze bottle
   description: A thin plastic container used to store condiments.
   components:
-  - type: Drink
+  - type: Edible
     solution: food
+    destroyOnEmpty: false
   - type: SolutionContainerManager
     solutions:
       food:
@@ -88,7 +89,7 @@
     fillBaseName: squeeze-bottle-clear
 
 - type: entity
-  parent: [DrinkBottleVisualsAll, DrinkBottleGlassBaseFull]
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: FoodCondimentBottleSoysauce
   name: soy sauce bottle
   description: Used to season dishes to umami perfection. With extra sodium!

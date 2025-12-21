@@ -50,6 +50,10 @@ public sealed partial class RoleTimeRequirement : JobRequirement
         {
             if (jobSystem.TryGetDepartment(jobProto, out var departmentProto))
                 departmentColor = departmentProto.Color;
+
+            /* if (!protoManager.TryIndex<JobPrototype>(jobProto, out var indexedJob))
+                return false; */
+
             if (!Inverted)
             {
                 if (roleDiff <= 0)

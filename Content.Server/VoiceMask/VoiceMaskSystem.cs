@@ -4,7 +4,6 @@ using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Clothing;
 using Content.Shared.Database;
-using Content.Shared.Implants; // imp
 using Content.Shared.Inventory;
 using Content.Shared.Lock;
 using Content.Shared.Popups;
@@ -14,6 +13,7 @@ using Content.Shared.VoiceMask;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
+using Content.Shared.Implants; // imp
 
 namespace Content.Server.VoiceMask;
 

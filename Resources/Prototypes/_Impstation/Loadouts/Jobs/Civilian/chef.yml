@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChef
-      time: 108000 #30 hrs, ~20 rounds #imp
+      time: 30h
 
 # Outerwear
 - type: loadoutEffectGroup
@@ -16,7 +16,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobChef
-      time: 36000 #10 hrs ~7 rounds
+      time: 10h
 
 - type: loadout
   id: ChefCuteApron

@@ -1,9 +1,8 @@
-using Content.Shared.FixedPoint;
 using Content.Shared.Mind;
-using Content.Shared.Store;
-using JetBrains.Annotations;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.FixedPoint; // imp
+using Content.Shared.Store; // imp
 
 namespace Content.Shared.Roles.Components;
 
@@ -57,25 +56,26 @@ public sealed partial class MindRoleComponent : BaseMindRoleComponent
     public int SortWeight;
 
     /// <summary>
-    /// imp edit - the primary currency used by this role. if null, do not track purchases at all.
+    ///     imp edit - the primary currency used by this role. if null, do not track purchases at all.
     /// </summary>
     [DataField]
     public ProtoId<CurrencyPrototype>? PrimaryCurrency;
 
     /// <summary>
-    /// imp edit - if true, the player with this role will get complimented for not spending anything
+    ///     imp edit - if true, the player with this role will get complimented for not spending anything
     /// </summary>
     [DataField]
     public bool GetsNoSpendtext;
 
     /// <summary>
-    /// imp edit - list of things that have been bought by this mind.
+    ///     imp edit - list of things that have been bought by this mind.
     /// </summary>
     [ViewVariables]
-    public List<(string, IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2>)> Purchases = new();
+    public List<(string, IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2>)> Purchases = [];
 
     /// <summary>
-    /// imp edit - the priority for this role to be assigned to "making" a purchase. mostly so we can distinguish between purchases as a traitor and purchases as a nukie
+    ///     imp edit - the priority for this role to be assigned to "making" a purchase.
+    ///     mostly so we can distinguish between purchases as a traitor and purchases as a nukie
     /// </summary>
     [ViewVariables]
     [DataField]

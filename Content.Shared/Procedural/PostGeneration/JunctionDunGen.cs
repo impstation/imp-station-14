@@ -19,6 +19,10 @@ public sealed partial class JunctionDunGen : IDunGenLayer
     [DataField(required: true)]
     public ProtoId<ContentTileDefinition> Tile;
 
+    // imp: changed from ent table to ent. and added summary
+    /// <summary>
+    ///     The Entity that will be placed on this tile
+    /// </summary>
     [DataField(required: true)]
-    public ProtoId<EntityTablePrototype> Contents;
+    public EntProtoId Contents; // imp
 }

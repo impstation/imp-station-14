@@ -6,10 +6,10 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 #10 hrs
+      time: 10h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 14400 #4 hrs
+      time: 4h
   startingGear: BrigmedicGear
   icon: JobIconBrigmedic
   supervisors: job-supervisors-hos
@@ -27,7 +27,6 @@
 - type: startingGear
   id: BrigmedicGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
     ears: ClothingHeadsetBrigmedic
     id: BrigmedicPDA
     belt: ClothingBeltMedicalEMTFilled
