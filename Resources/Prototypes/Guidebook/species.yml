@@ -8,16 +8,17 @@
   - Decapoid # imp
   - Diona
   - Dwarf
+  - Gastropoid # imp
   - Gray # imp
   - Human
   - Kodepiia # imp
   - Moth
   - Reptilian
   - SlimePerson # imp
-  - Snail # imp
   - Thaven # imp
   - Ungu # imp
   - Vox
+  - VisitorSpecies # imp
   #- Vulpkanin # imp, disabled roundstart
 
 - type: guideEntry
@@ -38,7 +39,7 @@
 - type: guideEntry
   id: Human
   name: species-name-human
-  text: "/ServerInfo/Guidebook/Mobs/Human.xml"
+  text: "/ServerInfo/_Impstation/Guidebook/Mobs/Human.xml" # imp
 
 - type: guideEntry
   id: Moth

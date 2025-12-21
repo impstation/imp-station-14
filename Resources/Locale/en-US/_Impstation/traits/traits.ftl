@@ -17,9 +17,6 @@ sgdrequired-cant-speak = You can't speak without an SGD!
 trait-unborgable-name = Unborgable
 trait-unborgable-desc = Your brain is unable to fit into a Man-Machine Interface.
 
-trait-accentless-name = No species accent
-trait-accentless-desc = You don't have the accent that your species would usually have.
-
 trait-archaic-name = Archaic speech
 trait-archaic-desc = Thy language is quite outdated, and thou still hold thyself to some manner of chivalry
 
@@ -55,6 +52,9 @@ trait-basicpirate-accent-desc = You can't stop speaking like a pirate! No involu
 
 trait-basicfrench-name = French (Basic)
 trait-basicfrench-desc = You speak with the cadence of someone who has cast off their vow of silence, with far fewer word replacements.
+
+trait-russian-name = Russian accent
+trait-russian-desc = Is wonderful day on Space Station 14, da?
 
 trait-basicrussian-name = Russian (Basic)
 trait-basicrussian-desc = You speak with a Russian accent, with far fewer word replacements.
@@ -107,3 +107,14 @@ trait-unadapted-to-space-desc = Your body hasn't adapted to space, making you ta
 
 trait-vowelrotation-name = Vowel rotation
 trait-vowelrotation-desc = Yua'ri frum en udd curnir uf speci whiri iviry vuwil os shoftid uvir by uni. AEIOU -> EIOUA
+
+trait-hefty-name = Hefty
+trait-hefty-desc = You're heavier than average.
+                       Incompatible with Slight.
+
+trait-slight-name = Slight
+trait-slight-desc = You're lighter than average.
+                       Incompatible with Hefty.
+
+trait-soft-hands-name = Soft hands
+trait-soft-hands-desc = You're too weak to wield anything.

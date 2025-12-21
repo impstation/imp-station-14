@@ -11,10 +11,12 @@
     Food:
       effects:
       - !type:SatiateHunger
-        conditions: # imp
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: false
+        # imp edit start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
+          inverted: true
+        # imp edit end
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 1.5
@@ -40,14 +42,15 @@
             Brute: -0.5
             Burn: -0.5
       # Helps you stop bleeding to an extent.
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.25
-      - !type:SatiateHunger
-        #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
-        conditions: # imp
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: false
+      - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+        # imp edit start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
+          inverted: true
+        # imp edit end
   # Lets plants benefit too
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -75,33 +78,32 @@
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
       - !type:SatiateHunger
-        conditions: # imp
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: false
-      - !type:PopupMessage # imp - cant eat cooked meat lol
+        # imp edit start
         conditions:
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
+          inverted: true
+      - !type:PopupMessage # cant eat cooked meat lol
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
         type: Local
         visualType: MediumCaution
         messages: [ "generic-reagent-effect-sick" ]
         probability: 0.5
-      - !type:ChemVomit  # imp
+      - !type:Vomit
         probability: 0.1
         conditions:
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: true
-      - !type:HealthChange # imp
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
+      - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Kodepiia
-          shouldHave: true
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
         damage:
           types:
             Poison: 1
+        # imp edit end
   pricePerUnit: 3
 
 - type: reagent
@@ -118,12 +120,14 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType # imp
-          type: Kodepiia
-          shouldHave: false
-        - !type:ReagentThreshold #Only satiates when eaten with nutriment
+        - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1
+        # imp edit start
+        - !type:MetabolizerTypeCondition
+          type: [ Kodepiia ]
+          inverted: true
+        # imp edit end
         factor: 1
   plantMetabolism:
   - !type:PlantAdjustNutrition
