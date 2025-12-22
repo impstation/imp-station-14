@@ -1,0 +1,69 @@
+- type: entity
+  name: Starflare EPDW-6 cell
+  description: A rechargeable power cell compatible with the Starflare EPDW-6. Sadly its proprietary formfactor is not compatible elsewhere.
+  id: PowerCellStarflare
+  suffix: Full
+  parent: [ BaseItem, BaseSecurityContraband ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Blasters/starflaremag.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 250
+    intensitySlope: 1.5
+  - type: SolutionContainerManager
+    solutions:
+      battery:
+        maxVol: 8
+  - type: InjectableSolution
+    solution: battery
+  - type: DrawableSolution
+    solution: battery
+  - type: Extractable
+    juiceSolution:
+      reagents:
+        - ReagentId: Zinc
+          Quantity: 8
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Riggable
+  - type: Item
+    size: Small
+    storedRotation: 90
+    shape:
+    - 0,0,0,2
+  - type: Battery
+    maxCharge: 900
+    startingCharge: 900
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletBlasterStarflare
+    fireCost: 20
+  - type: Tag
+    tags:
+      - StarflareCell
+
+- type: entity
+  id: PowerCellStarflarePrinted
+  suffix: Empty
+  parent: PowerCellStarflare
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Blasters/starflaremag.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Battery
+    maxCharge: 900
+    startingCharge: 0
