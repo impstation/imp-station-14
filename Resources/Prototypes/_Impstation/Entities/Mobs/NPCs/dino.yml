@@ -140,16 +140,34 @@
   - type: TriggerOnMobstateChange
     mobState:
     - Dead
-  - type: TwoStageTrigger
+  - type: TwoStageTrigger #this is not fantastic I will be honest. but we need SOME way to automatically remove corpses
     triggerDelay: 10.45
     components:
       - type: SpawnOnTrigger
         proto: DinoLootSpawner
         keysIn:
         - stageTwo
-      - type: GibOnTrigger
+      - type: Explosive
+        explosionType: Default
+        maxIntensity: 0.01
+        intensitySlope: 1
+        totalIntensity: 0.01
+      - type: ExplodeOnTrigger #this is just as a joke honestly
         keysIn:
         - stageTwo
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleBloodDinosaur
+  suffix: Dino blood (50u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: DinoBlood
+          Quantity: 50
 
 - type: entity
   name: Dino Loot Spawner
@@ -167,6 +185,9 @@
       - id: FoodMeat
         amount: 2
         maxAmount: 2
+      - id: PuddleBloodDinosaur
+        amount: 1
+        maxAmount: 1
     - type: TriggerOnSpawn
     - type: DeleteOnTrigger
 
