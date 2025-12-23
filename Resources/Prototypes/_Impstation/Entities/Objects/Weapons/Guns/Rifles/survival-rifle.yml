@@ -1,6 +1,6 @@
 - type: entity
   name: survival rifle-pistol
-  parent: [BaseWeaponRifle, BaseMajorContraband]
+  parent: [BaseWeaponMagazineRifle, BaseMajorContraband]
   id: WeaponRifleSurvivalPistol
   description: A robust improvised rifle for surviving harsh environments. Uses .35 auto ammo and only accepts pistol magazines, but can be modified.
   components:
