@@ -229,6 +229,7 @@ public sealed class HeatExchangerSystem : EntitySystem
 
         //Assuming the radiator is 1m^2, the radiant exitance is the wattage of light produced.
         //Now convert that to the energy and radius that robust toolbox wants
+        //There is no accurate conversion of lumens to RT brightness and radius, so this is just guesswork
         Log.Debug($"rad radiant exitance is {radiantExitance} for uid {uid}");
         float energy = (20) / (1 + 100 * (float)Math.Pow(Math.E, -radiantExitance / 1000000));
         Log.Debug($"rad light energy is {energy} for uid {uid}");
