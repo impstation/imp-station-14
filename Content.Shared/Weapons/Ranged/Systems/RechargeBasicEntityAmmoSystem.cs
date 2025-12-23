@@ -6,6 +6,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._Impstation.Weapons.Ranged.Events; // imp
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -53,7 +54,15 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
                 continue;
             }
 
-            recharge.NextCharge = recharge.NextCharge.Value + TimeSpan.FromSeconds(recharge.RechargeCooldown);
+            //imp edit begin - event-ify the recharge cd
+            var rechargeEv = new GetAmmoRechargeTimeEvent
+            {
+                Time = recharge.RechargeCooldown
+            };
+            RaiseLocalEvent(uid, ref rechargeEv);
+            //imp edit end
+
+            recharge.NextCharge = recharge.NextCharge.Value + TimeSpan.FromSeconds(rechargeEv.Time); //imp edit - changed from recharge.RechargeCooldown
             Dirty(uid, recharge);
         }
     }
@@ -88,7 +97,15 @@ public sealed class RechargeBasicEntityAmmoSystem : EntitySystem
 
         if (recharge.NextCharge == null || recharge.NextCharge < _timing.CurTime)
         {
-            recharge.NextCharge = _timing.CurTime + TimeSpan.FromSeconds(recharge.RechargeCooldown);
+            //imp edit begin - event-ify the recharge cd
+            var rechargeEv = new GetAmmoRechargeTimeEvent
+            {
+                Time = recharge.RechargeCooldown
+            };
+            RaiseLocalEvent(uid, ref rechargeEv);
+            //imp edit end
+
+            recharge.NextCharge = _timing.CurTime + TimeSpan.FromSeconds(rechargeEv.Time); //imp edit - changed from recharge.RechargeCooldown
             Dirty(uid, recharge);
         }
     }

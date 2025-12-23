@@ -13,11 +13,6 @@ traitor-description = There are traitors among us...
 traitor-not-enough-ready-players = Not enough players readied up for the game! There were {$readyPlayersCount} players readied up out of {$minimumPlayers} needed. Can't start Traitor.
 traitor-no-one-ready = No players readied up! Can't start Traitor.
 
-spy-vs-spy-title = Spy VS Spy
-spy-vs-spy-description = Watch your back.
-spy-vs-spy-not-enough-ready-players = Not enough players readied up for the game! There were {$readyPlayersCount} players readied up out of {$minimumPlayers} needed. Can't start Spy VS Spy.
-spy-vs-spy-no-one-ready = No players readied up! Can't start Spy VS Spy.
-
 ## TraitorDeathMatch
 traitor-death-match-title = Traitor Deathmatch
 traitor-death-match-description = Everyone's a traitor. Everyone wants each other dead.
@@ -28,11 +23,26 @@ traitor-death-match-end-round-description-entry = {$originalName}'s PDA, with {$
 ## TraitorRole
 
 # TraitorRole
-traitor-role-greeting =
-    You are an agent sent by {$corporation} on behalf of [color = darkred]The Syndicate.[/color]
-    Your objectives and codewords are listed in the character menu.
-    Use your uplink to buy the tools you'll need for this mission.
-    Death to Nanotrasen!
+
+# Imp Edit: Removed greeting for Traitor Flavor
+#traitor-role-greeting =
+#    traitor-role-greeting =
+#    You are an agent sent by [color = darkred]The Syndicate[/color] on behalf of {$corporation}.
+#    Your objectives and codewords are listed in the character menu. Use your uplink to buy the tools you'll need for this mission.
+#    Death to Nanotrasen!
+
+traitor-role-allegiances =
+    Your allegiances:
+
+traitor-role-notes =
+    Notes from your employer:
+
+traitor-role-clarity =
+    Allegiances and additional notes are recommendations. You do not have to strictly follow them.
+
+objective-issuer-traitor-flavor = [color=Red]Traitor[/color]
+# End Imp Edit
+
 traitor-role-codewords =
     The codewords are: [color = lightgray]
     {$codewords}.[/color]
@@ -40,7 +50,7 @@ traitor-role-codewords =
     Listen for them, and keep them secret.
 traitor-role-uplink-code =
     Set your ringtone to the notes [color = lightgray]{$code}[/color] to lock or unlock your uplink.
-    Remember to lock it after, or the stations crew will easily open it too!
+    Remember to lock it after, or the station's crew might find it!
 traitor-role-uplink-implant =
     Your uplink implant has been activated, access it from your hotbar.
     The uplink is secure unless someone removes it from your body.
@@ -49,5 +59,5 @@ traitor-role-uplink-implant =
 traitor-role-codewords-short =
     The codewords are:
     {$codewords}.
-traitor-role-uplink-code-short = Your uplink code is {$code}. Set it as your PDA ringtone to access uplink.
-traitor-role-uplink-implant-short = Your uplink was implanted. Access it from your hotbar.
+traitor-role-uplink-code-short = Your uplink code is {$code}. Set it as your PDA ringtone to access your uplink.
+traitor-role-uplink-implant-short = Your uplink was implanted. Access it from the action menu.

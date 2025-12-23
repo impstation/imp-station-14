@@ -15,7 +15,6 @@ namespace Content.Server.Power.EntitySystems
     public sealed class PowerReceiverSystem : SharedPowerReceiverSystem
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
-
         private EntityQuery<ApcPowerReceiverComponent> _recQuery;
         private EntityQuery<ApcPowerProviderComponent> _provQuery;
 
@@ -164,7 +163,7 @@ namespace Content.Server.Power.EntitySystems
 
         public override void SetLoad(SharedApcPowerReceiverComponent comp, float load) // Goobstation - override shared method
         {
-            ((ApcPowerReceiverComponent) comp).Load = load; // Goobstation
+            ((ApcPowerReceiverComponent)comp).Load = load; // Goobstation
         }
 
         public override bool ResolveApc(EntityUid entity, [NotNullWhen(true)] ref SharedApcPowerReceiverComponent? component)

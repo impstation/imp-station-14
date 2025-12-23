@@ -19,11 +19,13 @@ namespace Content.Shared.Humanoid
         Chest,
         Head,
         Snout,
+        SnoutCover, // things layered over snouts (i.e. noses)
         HeadSide, // side parts (i.e., frills)
         HeadTop,  // top parts (i.e., ears)
         TailBehind, // FLOOF - add tails that dont have to go through a brutal cookiecutter to work
         TailBehindBackpack, // imp - to layer behind backpacks, treat this like an oversuit
         TailOversuit, // FLOOF - add tails that dont have to go through a brutal cookiecutter to work
+        TailUnderlay, // imp - temporary until i have a better way to do two part tails
         Eyes,
         RArm,
         LArm,

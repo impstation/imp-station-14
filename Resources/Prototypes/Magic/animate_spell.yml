@@ -1,15 +1,20 @@
 - type: entity
+  parent: BaseEntitySpellAction
   id: ActionAnimateSpell
   name: Animate
   description: Bring an inanimate object to life!
   components:
-  - type: EntityTargetAction
+  - type: Action
     useDelay: 0
-    charges: 5
-    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/staff_animation.ogg
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: spell_default
+  - type: EntityTargetAction
     whitelist:
       components:
-      - Animateable # Currently on: SeatBase, TableBase, ClosetBase, BaseMachine, ConstructibleMachine, BaseComputer, BaseItem, CrateGeneric, StorageTank, GasCanister, BaseTarget
+      - Animateable # Currently on: SeatBase, TableBase, ClosetBase, BaseMachine, ConstructibleMachine, BaseComputer, BaseItem, CrateGeneric, StorageTank, GasCanister
     blacklist:
       components:
       - MindContainer
@@ -18,14 +23,9 @@
       - AnomalyGenerator
       - TegGenerator
       - TegCirculator
-      - Artifact
-    canTargetSelf: false
-    interactOnMiss: false
-    sound: !type:SoundPathSpecifier
-      path: /Audio/Magic/staff_animation.ogg
-    icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: spell_default
+      - XenoArtifact
+      - Artifact #Imp
+      - StealTarget #Imp
     event: !type:ChangeComponentsSpellEvent
       toAdd:
       - type: Animate
@@ -67,11 +67,11 @@
           - !type:PlaySoundBehavior
             sound:
               collection: MetalBreak
-      - type: Hands
+      #- type: Hands # Imp comment out
       - type: CanEscapeInventory
+      #- type: MobCollision # Imp comment out
       toRemove:
-      - RequireProjectileTarget
-      - BlockMovement
-      - Item
-      speech: action-speech-spell-animate
-      doSpeech: false
+      - type: RequireProjectileTarget # Imp, to component
+      - type: BlockMovement # Imp, to component
+      - type: Item # Imp, to component
+      - type: MeleeRequiresWield # Imp, to component

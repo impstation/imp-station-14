@@ -1,0 +1,174 @@
+- type: tile
+  id: FloorReaperTiles
+  name: tiles-reaper-tiles
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapertiles.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReaperTilesGemless
+  name: tiles-reaper-tiles
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapertilesgemless.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReaperTombstonesBig
+  name: tiles-reaper-tombstonebig
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/bigtombstonetiles.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReaperTombstones
+  name: tiles-reaper-tombstone
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/tombstonetiles.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReaperSquareBlank
+  name: tiles-reaper-square-blank
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapersquaretileblank.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReaperSquareDamaged
+  name: tiles-reaper-square-damaged
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapersquaretiledamaged.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReaperSquareEyesBig
+  name: tiles-reaper-square-eyesbig
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapersquaretileeyesbig.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReaperSquareEyesSmall
+  name: tiles-reaper-square-eyessmall
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapersquaretileeyessmall.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReaperSquareHeart
+  name: tiles-reaper-square-heart
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapersquaretileheart.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReaperSquareLogo
+  name: tiles-reaper-square-logo
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapersquaretilelogo.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReaperEyesMemorial
+  name: tiles-reaper-square-memorial
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapersquaretilememorial.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorReaperEyesSerrated
+  name: tiles-reaper-square-serrated
+  sprite: /Textures/_Impstation/Tiles/ReaperTiles/reapersquaretileserrated.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepFloor
+  heatCapacity: 10000
+  

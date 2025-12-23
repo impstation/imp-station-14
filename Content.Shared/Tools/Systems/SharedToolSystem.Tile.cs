@@ -8,6 +8,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
+using Content.Shared._Impstation.Tools.Components; // imp
 
 namespace Content.Shared.Tools.Systems;
 
@@ -87,8 +88,18 @@ public abstract partial class SharedToolSystem
         if (!InteractionSystem.InRangeUnobstructed(user, coordinates, popup: false))
             return false;
 
+        // imp edit start, if the tool has CowToolTileCompatible and user has CowToolProficiency, use delay from CowToolTileCompatible
+        // else, use delay from ToolTileCompatible as normal
+        TimeSpan delay; //delay parameter moved to its own variable from UseTool call below to allow it to be set to different durations
+        if (TryComp<CowToolTileCompatibleComponent>(ent, out var cowToolTileCompatibleComp) &&
+            TryComp<CowToolProficiencyComponent>(user, out _))
+            delay = cowToolTileCompatibleComp.Delay;
+        else
+            delay = comp.Delay;
+        // imp edit end
+
         var args = new TileToolDoAfterEvent(GetNetEntity(gridUid), tileRef.GridIndices);
-        UseTool(ent, user, ent, comp.Delay, tool.Qualities, args, out _, toolComponent: tool);
+        UseTool(ent, user, ent, delay, tool.Qualities, args, out _, toolComponent: tool); // imp edit, delay was previously comp.Delay
         return true;
     }
 

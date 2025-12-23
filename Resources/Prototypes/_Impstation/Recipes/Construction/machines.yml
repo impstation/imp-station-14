@@ -1,0 +1,9 @@
+- type: construction
+  id: RedButtonRecipe
+  graph: RedButtonGraph
+  startNode: start
+  targetNode: RedButtonNode
+  category: construction-category-machines
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true

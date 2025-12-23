@@ -205,3 +205,91 @@
     tags:
     - Book
     - Guidebook
+
+- type: entity
+  parent: BookBase
+  id: BookRatKings
+  name: the biology of the rat kings
+  description: A newer-looking volume containing some dubious information on Rat Kings. Smells like Capocollo.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#3b3625"
+    - state: decor_wingette_circle
+      color: "#e6bf32"
+    - state: icon_medical_cross
+      color: "#c7230a"
+  - type: Paper
+    content: book-text-ratkings
+
+- type: entity
+  parent: BookBase
+  id: BookTreatise
+  name: a treatise on the thought-things
+  description: A beat-up collection of insane ramblings in rushed, erratic handwriting, initialed by one "A.T.". The last page has been ripped out.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_old
+      color: "#c563d4"
+    - state: overlay_dirt
+      color: "#52413e"
+    - state: icon_eye
+  - type: Paper
+    content: book-text-treatise
+
+- type: entity
+  parent: BookBase
+  id: BookBarbieQ
+  name: pu history jorl barbie q
+  description: The cover is greasy. The pages are burnt on one end. It's oozing some weird dark red fluid. The title is crudely drawn on with crayon. It's obvious- this book will change your life.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_old
+      color: "#805012"
+    - state: icon_text
+    - state: overlay_blood
+  - type: Paper
+    content: book-text-barbieq
+
+- type: entity
+  parent: BookBase
+  id: BookGrayJanitor
+  name: ouli blagh keep station clean
+  description: Glump book mochigi clean. Eif pu first edition translation.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_base
+      color: "#510b7c"
+    - state: decor_wingette
+      color: "#ececff"
+    - state: detail_bookmark
+      color: "#00008B"
+    - state: icon_bucket
+      color: "#00008B"
+  - type: Paper
+    content: book-text-grayjanitor
+
+- type: entity
+  parent: BookBase
+  id: BookTamlin
+  name: cosmic rays and fairies
+  description: A faint buzzing emanates from inside.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: booktamlin
+  - type: Paper
+    content: book-text-tamlin

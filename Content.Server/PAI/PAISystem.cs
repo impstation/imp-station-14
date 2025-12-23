@@ -6,13 +6,13 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mind.Components;
 using Content.Shared.PAI;
 using Content.Shared.Popups;
+using Content.Shared.Instruments;
 using Robust.Shared.Random;
 using System.Text;
-using Robust.Shared.Player;
 
 namespace Content.Server.PAI;
 
-public sealed class PAISystem : SharedPAISystem
+public sealed class PAISystem : EntitySystem
 {
     [Dependency] private readonly InstrumentSystem _instrumentSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -23,7 +23,7 @@ public sealed class PAISystem : SharedPAISystem
     /// <summary>
     /// Possible symbols that can be part of a scrambled pai's name.
     /// </summary>
-    private static readonly char[] SYMBOLS = new[] { '#', '~', '-', '@', '&', '^', '%', '$', '*', ' '};
+    private static readonly char[] SYMBOLS = new[] { '#', '~', '-', '@', '&', '^', '%', '$', '*', ' ' };
 
     public override void Initialize()
     {
@@ -67,6 +67,11 @@ public sealed class PAISystem : SharedPAISystem
 
     private void OnMicrowaved(EntityUid uid, PAIComponent comp, BeingMicrowavedEvent args)
     {
+        // Frontier: only scramble pAI names when irradiated
+        if (!args.BeingIrradiated)
+            return;
+        // End Frontier
+
         // name will always be scrambled whether it gets bricked or not, this is the reward
         ScrambleName(uid, comp);
 
@@ -99,7 +104,6 @@ public sealed class PAISystem : SharedPAISystem
         var val = Loc.GetString("pai-system-pai-name-raw", ("name", name.ToString()));
         _metaData.SetEntityName(uid, val);
     }
-
     public void PAITurningOff(EntityUid uid)
     {
         //  Close the instrument interface if it was open

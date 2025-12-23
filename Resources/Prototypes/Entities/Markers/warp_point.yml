@@ -16,18 +16,18 @@
   - type: WarpPoint
     location: beacon
 
+# Use for areas like CC
 - type: entity
-  parent: MarkerBase # imp edit
-  id: WarpPointBombing
-  name: ninja bombing target # imp edit
-  #suffix: ninja bombing target # imp edit
+  id: GhostWarpPoint
+  parent: MarkerBase
+  name: ghost only warp point
   components:
-  - type: BombingTarget
-    location: bombing target # imp edit
-  #- type: WarpPoint # imp edit
-  #  location: bombing target # imp edit
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+  - type: WarpPoint
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Sprite
-    layers:
-    - state: pink
-    - sprite: Objects/Weapons/Bombs/spidercharge.rsi
-      state: icon
+    state: pink

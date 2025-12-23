@@ -2,11 +2,13 @@ using System.Numerics;
 using Content.Shared.CombatMode;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Events;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Misc;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -29,6 +31,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
     [Dependency] private readonly SharedJointSystem _joints = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public const string GrapplingJoint = "grappling";
 
@@ -68,7 +71,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
             var visuals = EnsureComp<JointVisualsComponent>(shotUid.Value);
             visuals.Sprite = component.RopeSprite;
             visuals.OffsetA = new Vector2(0f, 0.5f);
-            visuals.Target = GetNetEntity(uid);
+            visuals.Target = uid;
             Dirty(shotUid.Value, visuals);
         }
 
@@ -84,9 +87,11 @@ public abstract class SharedFishingRodSystem : EntitySystem
 
     private void OnGrapplingReel(RequestGrapplingReelMessage msg, EntitySessionEventArgs args)
     {
-        var player = args.SenderSession.AttachedEntity;
-        if (!TryComp<HandsComponent>(player, out var hands) ||
-            !TryComp<FishingRodComponent>(hands.ActiveHandEntity, out var grappling))
+        if (args.SenderSession.AttachedEntity is not { } player)
+            return;
+
+        if (!_hands.TryGetActiveItem(player, out var activeItem) ||
+            !TryComp<FishingRodComponent>(activeItem, out var grappling))
         {
             return;
         }
@@ -98,7 +103,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
             return;
         }
 
-        SetReeling(hands.ActiveHandEntity.Value, grappling, msg.Reeling, player.Value);
+        SetReeling(activeItem.Value, grappling, msg.Reeling, player);
     }
 
     private void OnWeightlessMove(ref CanWeightlessMoveEvent ev)
@@ -208,18 +213,18 @@ public abstract class SharedFishingRodSystem : EntitySystem
 
     private void OnGrappleCollide(EntityUid uid, FishingProjectileComponent component, ref ProjectileEmbedEvent args)
     {
-        if (!Timing.IsFirstTimePredicted)
+        if (!Timing.IsFirstTimePredicted || !args.Weapon.HasValue)
             return;
 
-        //joint between the embedded and the weapon 
-        var jointComp = EnsureComp<JointComponent>(args.Weapon);
-        var joint = _joints.CreateDistanceJoint(args.Weapon, args.Embedded, anchorA: new Vector2(0f, 0.5f), id: GrapplingJoint);
+        //joint between the embedded and the weapon
+        var jointComp = EnsureComp<JointComponent>(args.Weapon.Value);
+        var joint = _joints.CreateDistanceJoint(args.Weapon.Value, args.Embedded, anchorA: new Vector2(0f, 0.5f), id: GrapplingJoint);
         joint.MaxLength = joint.Length + 0.2f;
         joint.Stiffness = 1f;
         joint.MinLength = component.JointLength;
         // Setting velocity directly for mob movement fucks this so need to make them aware of it.
         // joint.Breakpoint = 4000f;
-        Dirty(args.Weapon, jointComp);
+        Dirty(args.Weapon.Value, jointComp);
     }
 
     private void OnRemoveEmbed(EntityUid uid, FishingProjectileComponent component, RemoveEmbedEvent args)

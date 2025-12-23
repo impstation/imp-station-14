@@ -6,8 +6,8 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Fun/toys.rsi
-          state: plushie_h
+        - sprite: Objects/Fun/Plushies/bee.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
         - FoamBlade
@@ -46,6 +46,15 @@
         - ToyMouse
         - PlushieDiona
         - PlushieArachind
+        # DEN begin
+        - PlushieTeddyBear
+        - PlushieTeddyBearRecolorableRandom
+        - SqueakySmileyGuy
+        - SqueakySmileyGuyRandom
+        - SqueakySmileyBall
+        - PlushieAlienGerm
+        - PlushieAlienGermMini
+        # DEN end
       chance: 0.5
       offset: 0.2
 
@@ -64,14 +73,14 @@
         - ToyAi
         - ToyNuke
         - ToyFigurinePassenger
-        - ToyGriffin
+        - ToyFigurineGriffin
         - ToyHonk
         - ToyIan
         - ToyMarauder
         - ToyMauler
         - ToyGygax
         - ToyOdysseus
-        - ToyOwlman
+        - ToyFigurineOwlman
         - ToyDeathRipley
         - ToyPhazon
         - ToyFireRipley
@@ -79,7 +88,7 @@
         - ToyRipley
         - ToySeraph
         - ToyDurand
-        - ToySkeleton
+        - ToyFigurineSkeleton
         - MysteryFigureBox
       chance: 0.5
       offset: 0.2
@@ -153,9 +162,9 @@
       - ToyFigurineSlime
       - ToyFigurineGreytider
       - ToyFigurineWizard
-      - ToyGriffin
-      - ToyOwlman
-      - ToySkeleton
+      - ToyFigurineGriffin
+      - ToyFigurineOwlman
+      - ToyFigurineSkeleton
       - ToyFigurineQueen
       - ToyFigurineSpaceDragon
       - ToyFigurineRatKing

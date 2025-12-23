@@ -6,6 +6,7 @@ using Content.Server.Shuttles.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Roles.Components;
 using Content.Shared.Survivor.Components;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
@@ -78,6 +79,8 @@ public sealed class SurvivorRuleSystem : GameRuleSystem<SurvivorRuleComponent>
 
         while (existingSurvivors.MoveNext(out _, out _, out var mindComp))
         {
+            // If their brain is gone or they respawned/became a ghost role
+            if (mindComp.CurrentEntity is null)
             {
                 deadSurvivors++;
                 continue;
@@ -103,6 +106,7 @@ public sealed class SurvivorRuleSystem : GameRuleSystem<SurvivorRuleComponent>
         args.AddLine(Loc.GetString("survivor-round-end-dead-count", ("deadCount", deadSurvivors)));
         args.AddLine(Loc.GetString("survivor-round-end-alive-count", ("aliveCount", aliveMarooned)));
         args.AddLine(Loc.GetString("survivor-round-end-alive-on-shuttle-count", ("aliveCount", aliveOnShuttle)));
+        args.AddLine("");
 
         // Player manifest at EOR shows who's a survivor so no need for extra info here.
     }

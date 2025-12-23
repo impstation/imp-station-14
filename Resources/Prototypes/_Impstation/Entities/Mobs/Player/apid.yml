@@ -101,6 +101,10 @@
     - ApidCourier
     - ApidNames
     nameFormat: name-format-standard
+  - type: NpcFactionMember
+    factions:
+    - Courier
+    - NanoTrasen
 
 - type: entity
   name: apid scientist

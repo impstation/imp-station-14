@@ -1,7 +1,8 @@
 - type: species
   id: Gastropoid
-  name: species-name-snail
+  name: species-name-gastropoid
   roundStart: true
+  randomViable: true
   prototype: MobGastropoid
   sprites: MobGastropoidSprites
   defaultSkinTone: "#385878"
@@ -37,6 +38,10 @@
   id: MobGastropoidMarkingLimits
   onlyWhitelisted: true
   points:
+    Eyes:
+      points: 1
+      required: true
+      defaultMarkings: [ GastropoidFaceEyes1 ]
     Head:
       points: 6
       required: false
@@ -50,14 +55,14 @@
       points: 1
       required: false
     Arms:
-      points: 2
+      points: 4
       required: false
     Tail:
       points: 1
       required: true
       defaultMarkings: [ GastropoidShellSmall ]
     Overlay:
-      points: 1
+      points: 4
       required: false
 
 - type: humanoidBaseSprite

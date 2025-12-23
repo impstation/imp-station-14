@@ -21,3 +21,17 @@
   - type: ImmovableRodRule
     rodPrototypes:
     - id: ImmovableRodHollowPlasticBarrel
+
+- type: entity
+  id: ImmovableBaguetteSpawn
+  parent: ImmovableRodSpawn
+  components:
+  - type: ImmovableRodRule
+    rodPrototypes:
+    - id: ImmovableRodBaguette
+
+- type: weightedRandomEntity
+  id: XenoMeteorSpawnAsteroidWallTable
+  weights:
+    MeteorRock: 15
+    MeteorRockArtifactFragment: 5

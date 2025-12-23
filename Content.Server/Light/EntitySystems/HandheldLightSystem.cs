@@ -143,9 +143,9 @@ namespace Content.Server.Light.EntitySystems
 
         private void OnExamine(EntityUid uid, HandheldLightComponent component, ExaminedEvent args)
         {
-            args.PushMarkup(Loc.GetString((component.Activated
+            args.PushMarkup(Loc.GetString(component.Activated
                 ? "handheld-light-component-on-examine-is-on-message"
-                : "handheld-light-component-on-examine-is-off-message"), ("target", Identity.Entity(uid, EntityManager)))); //imp; gendered light sources
+                : "handheld-light-component-on-examine-is-off-message", ("target", Identity.Entity(uid, EntityManager)))); //imp; gendered light sources
         }
 
         public override void Shutdown()
@@ -254,7 +254,7 @@ namespace Content.Server.Light.EntitySystems
                 _appearance.SetData(uid, HandheldLightVisuals.Power, HandheldLightPowerStates.Dying, appearanceComponent);
             }
 
-            if (component.Activated && !_battery.TryUseCharge(batteryUid.Value, component.Wattage * frameTime, battery))
+            if (component.Activated && !_battery.TryUseCharge((batteryUid.Value, battery), component.Wattage * frameTime))
                 TurnOff(uid, false);
 
             UpdateLevel(uid);

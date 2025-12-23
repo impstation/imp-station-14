@@ -1,8 +1,9 @@
-reagent-name-blood = blood
+reagent-name-blood = red blood
 reagent-desc-blood = I hope this is ketchup.
 
 reagent-name-insect-blood = insect blood
-reagent-desc-insect-blood = Okay, this is really gross. It almost looks.. alive?
+reagent-desc-insect-blood = Also known as hemolymph, though don't expect that knowledge to get you anywhere.
+# imp edit from 'Okay, this is really gross. It almost looks.. alive?'
 
 reagent-name-slime = slime
 reagent-desc-slime = You thought this was gradient blood at first, but you were mistaken.
@@ -30,12 +31,3 @@ reagent-desc-vomit = You can see a few chunks of someone's last meal in it.
 
 reagent-name-grey-matter = grey matter
 reagent-desc-grey-matter = Thought juice, the stuff that leaks out of your ears.
-
-reagent-name-mucin = mucin
-reagent-desc-mucin = A fascinating secretion capable of accelerating the movement of Gastropoids. It looks exploitable...
-
-reagent-name-testosterone = testosterone
-reagent-desc-testosterone = A fundamental bodily hormone, synthesized from plant matter for pharmaceutical distribution.
-
-reagent-name-estradiol = estradiol
-reagent-desc-estradiol = A fundamental bodily hormone, synthesized from cell matter for pharmaceutical distribution.

@@ -4,26 +4,17 @@
     children:
     - id: BoxEncryptionKeyCargo
     - id: BoxFolderQmClipboard
-    - id: CargoBountyComputerCircuitboard
-    - id: CargoRequestComputerCircuitboard
-    - id: CargoSaleComputerCircuitboard
-    - id: CargoShuttleComputerCircuitboard
-    - id: CargoShuttleConsoleCircuitboard
-    - id: SalvageMagnetMachineCircuitboard
-    - id: ShipyardComputerCircuitboard
-    - id: SalvageExpeditionsComputerCircuitboard
+    - id: BoxQMCircuitboards
+    - id: BoxQMStamps
     - id: CigPackGreen
       prob: 0.50
     - id: ClothingHeadsetAltCargo
     - id: DoorRemoteCargo
-    - id: RubberStampApproved
-    - id: RubberStampDenied
-    - id: RubberStampQm
     - id: AstroNavCartridge
-    - id: MailTeleporterMachineCircuitboard
-    - id: StockTradingCartridge # Delta-V
+    - id: ClothingHandsKnuckleDustersQM
+    - id: PrinterDocFlatpack  # Corvax-Printer
     - id: PersonalAILearnerCargo #impspecial
-    
+
 - type: entity
   id: LockerQuarterMasterFilled
   suffix: Filled
@@ -45,8 +36,8 @@
     - id: ClothingBeltSheathFilled
     - id: ClothingHeadsetAltCommand
     - id: ClothingOuterArmorCaptainCarapace
-    - id: CommsComputerCircuitboard
-    - id: DoorRemoteCommand
+    - id: BoxCaptainCircuitboards
+    - id: DoorRemoteCustom
     - id: MedalCase
     - id: NukeDisk
     - id: PinpointerNuclear
@@ -56,9 +47,14 @@
     - id: SpaceCash1000
     - id: WeaponDisabler
     - id: ClothingEyesGlassesCommand
+    - id: HeadSkeleton # A skull to accompany your skeleton crew
+      conditions:
+      - !type:PlayerCountCondition
+        max: 15
     - id: TicketPad #imp special
     - id: PersonalAILearnerCommand #impspecial
-  
+    - id: PrinterDocFlatpack  # Corvax-Printer
+
 # No laser table + Laser table
 - type: entityTable
   id: LockerFillCaptainLaser
@@ -123,6 +119,8 @@
     - id: BoxEncryptionKeyPassenger
     # - id: BoxEncryptionKeyService imp edit
     - id: BoxHeadset
+    - id: BoxHoPCircuitboards
+    - id: BoxHoPStamps
     - id: BoxID
     - id: BoxPDA
     - id: CigarGoldCase
@@ -133,14 +131,13 @@
       prob: 0.5
     - id: ClothingHeadsetCommand
     - id: ClothingNeckGoldmedal
-    - id: DoorRemoteCommand #imp edit
+    - id: DoorRemoteHoP #imp edit
+    - id: ClothingNeckBureaucracyMedal # imp edit
     - id: HoPIDCard
-    - id: IDComputerCircuitboard
-    - id: RubberStampApproved
-    - id: RubberStampDenied
-    - id: RubberStampHop
-    - id: WeaponDisabler
+    # - id: WeaponDisabler #imp edit
+    - id: AntiqueDisablerBox #imp edit
     - id: ClothingEyesHudCommand
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 - type: entity
   id: LockerHeadOfPersonnelFilled
@@ -166,10 +163,13 @@
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
+    - id: BoxCECircuitboards
     - id: RCD
     - id: RCDAmmo
     - id: RubberStampCE
+    - id: MetalFoamGrenade
     - id: PersonalAILearnerEngineering #impspecial
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -215,20 +215,20 @@
     children:
     - id: BoxEncryptionKeyMedical
     - id: ClothingBackpackDuffelSurgeryFilled
-    - id: ClothingCloakCmo
     - id: ClothingEyesHudMedical
     - id: ClothingHandsGlovesNitrile
-    - id: ClothingHeadHatBeretCmo
     - id: ClothingHeadsetAltMedical
     - id: ClothingMaskSterile
     - id: DoorRemoteMedical
     - id: HandheldCrewMonitor
     - id: Hypospray
-    - id: MedicalTechFabCircuitboard
+    - id: BoxCMOCircuitboards
     - id: MedkitFilled
     - id: RubberStampCMO
     - id: MedTekCartridge
     - id: PersonalAILearnerMedical #impspecial
+    - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: ClothingEyesHudMedChem #imp edit
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -272,15 +272,14 @@
     children:
     - id: Intellicard
     - id: BoxEncryptionKeyScience
-    - id: CircuitImprinterMachineCircuitboard
+    - id: BoxRDCircuitboards
     - id: ClothingBeltUtilityFilled
     - id: ClothingHeadsetAltScience
     - id: DoorRemoteResearch
     - id: HandTeleporter
-    - id: ProtolatheMachineCircuitboard
-    - id: ResearchComputerCircuitboard
     - id: RubberStampRd
     - id: PersonalAILearnerScience #impspecial
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -322,8 +321,7 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: ClothingMaskGasSecurity
-    - id: WeaponEnergyShotgun
+    - id: WeaponEnergyMagnum
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -331,21 +329,24 @@
     - id: ClothingBeltSecurityFilled
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetAltSecurity
-    - id: ClothingMaskNeckGaiter
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingShoesBootsJack
+    - id: FlashlightSeclite
     - id: DoorRemoteSecurity
     - id: HoloprojectorSecurity
     - id: RubberStampHos
-    - id: SecurityTechFabCircuitboard
+    - id: BoxHoSCircuitboards
     - id: WeaponDisabler
+    - id: WeaponTaser
     - id: WantedListCartridge
     - id: DrinkHosFlask
+    - id: ClothingMaskGasSecurity # imp
     - id: ClothingNeckBronzeheart #imp
     - id: TicketPad #imp special
     - id: BaseSeclinkRadio #imp
     - id: PillCanisterHOS #imp
     - id: PersonalAILearnerSecurity #impspecial
+    - id: PrinterDocFlatpack  # Corvax-Printer
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -383,18 +384,24 @@
         - !type:NestedSelector
           tableId: FillHeadOfSecurityHardsuit
 
-- type: entity
-  id: LockerFreezerVaultFilled
-  suffix: Vault, Locked
-  parent: LockerFreezerBase
-  components:
-  - type: AccessReader
-    access: [ [ "Command" ] ]
-  - type: StorageFill
-    contents:
+- type: entityTable
+  id: LockerFillVault
+  table: !type:AllSelector
+    children:
     - id: WeaponRevolverDeckard
-    - id: ClothingOuterHardsuitBasic
     - id: JetpackBlue
     - id: SpaceCash1000
     - id: BeachBall
     - id: BikeHorn
+
+- type: entity
+  id: LockerFreezerVaultFilled
+  suffix: Vault, Filled
+  parent: LockerFreezerBase
+  components:
+  - type: AccessReader
+    access: [ [ "Command" ] ]
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillVault

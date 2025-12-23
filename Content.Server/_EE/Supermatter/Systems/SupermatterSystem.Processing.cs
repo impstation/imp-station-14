@@ -2,9 +2,9 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using Content.Server.Chat.Systems;
-using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Server.Singularity.Components;
+using Content.Server.StationEvents.Events;
 using Content.Shared._EE.CCVar;
 using Content.Shared._EE.Supermatter.Components;
 using Content.Shared._Impstation.Thaven.Components;
@@ -13,6 +13,7 @@ using Content.Shared.Audio;
 using Content.Shared.Chat;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Light.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
@@ -31,7 +32,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
-using Vector4 = Robust.Shared.Maths.Vector4;
 
 namespace Content.Server._EE.Supermatter.Systems;
 
@@ -343,7 +343,7 @@ public sealed partial class SupermatterSystem
         var mix = _atmosphere.GetContainingMixture(uid, true, true);
 
         // We're in space or there is no gas to process
-        if (!xform.GridUid.HasValue || mix is not { } || mix.TotalMoles == 0f)
+        if (!xform.GridUid.HasValue || mix is not { } || MathHelper.CloseTo(mix.TotalMoles, 0f, 0.0005f)) //#IMP change from == 0f to MathHelper.CloseTo(mix.TotalMoles, 0f, 0.0005f)
         {
             sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 0.1f);
             return;
@@ -697,7 +697,7 @@ public sealed partial class SupermatterSystem
         _entityLookup.GetEntitiesOnMap<PoweredLightComponent>(mapId, lightLookup);
         foreach (var light in lightLookup)
         {
-            if (!_rand.Prob(sm.LightFlickerChance))
+            if (!_random.Prob(sm.LightFlickerChance))
                 continue;
             _ghost.DoGhostBooEvent(light);
         }
@@ -710,21 +710,22 @@ public sealed partial class SupermatterSystem
 
         foreach (var mob in mobLookup)
         {
+            // Scramble thaven moods
+            if (TryComp<ThavenMoodsComponent>(mob, out var moods))
+                _moods.RefreshMoods((mob, moods));
+
             // Scramble laws for silicons, then ignore other effects
             if (TryComp<SiliconLawBoundComponent>(mob, out var law))
             {
                 var target = EnsureComp<IonStormTargetComponent>(mob); // they hit the fucking ai
                 var oldChance = target.Chance;
                 target.Chance = 1f;
-                _ionStorm.IonStormTarget((mob.Owner, law, target));
+                var ev = new IonStormEvent();
+                RaiseLocalEvent(mob, ref ev);
                 target.Chance = oldChance; // hacky fucking code. whatever. don't look at me
 
                 continue;
             }
-
-            // Scramble thaven moods
-            if (TryComp<ThavenMoodsComponent>(mob, out var moods))
-                _moods.RefreshMoods((mob, moods));
 
             // Add effects to all mobs
             // TODO: change paracusia to actual hallucinations whenever those are real

@@ -12,12 +12,14 @@ station-beacon-mailroom = Mail
 
 # Engineering
 station-beacon-smengine = Supermatter
+station-beacon-drone = Drone
+station-beacon-materials = Materials
+
+# Solars
 station-beacon-solars-north = North Solars
 station-beacon-solars-east = East Solars
 station-beacon-solars-south = South Solars
 station-beacon-solars-west = West Solars
-
-# Solars
 station-beacon-solars-north-east = North-East Solars
 station-beacon-solars-south-east = South-East Solars
 station-beacon-solars-north-west = North-West Solars
@@ -38,7 +40,6 @@ station-beacon-solars-security = Security Solars
 station-beacon-solars-service = Service Solars
 station-beacon-solars-engineering = Engineering Solars
 station-beacon-solars-medical = Medical Solars
-
 
 # Service
 station-beacon-clown = Clown

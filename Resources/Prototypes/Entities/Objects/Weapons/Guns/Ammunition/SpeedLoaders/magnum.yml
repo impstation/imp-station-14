@@ -24,6 +24,7 @@
   id: SpeedLoaderMagnum
   name: "speed loader (.45 magnum)"
   parent: BaseSpeedLoaderMagnum
+  description: Designed to quickly refill an empty revolver, it fits up to six rounds. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum
@@ -39,16 +40,25 @@
     steps: 7
     zeroVisible: false
   - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
 
 - type: entity
   id: SpeedLoaderMagnumEmpty
   name: "speed loader (.45 magnum any)"
   parent: SpeedLoaderMagnum
+  description: Designed to quickly refill an empty revolver, it fits up to six rounds for the big iron on your hip. #Big Iron reference (duh)
   components:
   - type: BallisticAmmoProvider
     proto: null
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi #imp
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -58,24 +68,49 @@
       # AvianMaiden here. It's funny. Mix and match. Fuck with people. Smiles.
       - state: base-6
         map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
 
 - type: entity
   id: SpeedLoaderMagnumIncendiary
   name: "speed loader (.45 magnum incendiary)"
   parent: SpeedLoaderMagnum
+  description: Designed to quickly refill an empty revolver, it fits up to six rounds. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumIncendiary
+  - type: MagazineVisuals #imp
+    magState: incendiary
+    steps: 7
+    zeroVisible: false
+  - type: Appearance #imp
+  - type: Item #imp
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      - state: inhand-left-stripe
+        color: "#d46925" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
+      - state: inhand-right-stripe
+        color: "#d46925" #imp
 
 - type: entity
   id: SpeedLoaderMagnumPractice
   name: "speed loader (.45 magnum practice)"
   parent: BaseSpeedLoaderMagnum
+  description: Designed to quickly refill an empty revolver, it fits up to six rounds. Intended to hold non-harmful chalk ammunition, perfect for practicing your quick draw.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi #imp
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -86,16 +121,29 @@
     steps: 7
     zeroVisible: false
   - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      - state: inhand-left-stripe
+        color: "#ffcb6f" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
+      - state: inhand-right-stripe
+        color: "#ffcb6f" #imp
 
 - type: entity
   id: SpeedLoaderMagnumAP
   name: "speed loader (.45 magnum armor-piercing)"
   parent: BaseSpeedLoaderMagnum
+  description: Designed to quickly refill an empty revolver, it fits up to six rounds. Intended to hold rare armor-piercing ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi #imp
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -106,16 +154,29 @@
     steps: 7
     zeroVisible: false
   - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      - state: inhand-left-stripe
+        color: "#662598" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
+      - state: inhand-right-stripe
+        color: "#662598" #imp
 
 - type: entity
   id: SpeedLoaderMagnumUranium
   name: "speed loader (.45 magnum uranium)"
   parent: BaseSpeedLoaderMagnum
+  description: Designed to quickly refill an empty revolver, it fits up to six rounds. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi #imp
     layers:
       - state: base
         map: [ "enum.GunVisualLayers.Base" ]
@@ -126,3 +187,15 @@
     steps: 7
     zeroVisible: false
   - type: Appearance
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-ammo
+      - state: inhand-left-stripe
+        color: "#22b24d" #imp
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-ammo
+      - state: inhand-right-stripe
+        color: "#22b24d" #imp

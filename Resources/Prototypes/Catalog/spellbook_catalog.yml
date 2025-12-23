@@ -148,6 +148,19 @@
     stock: 1
 
 - type: listing
+  id: SpellbookKnock
+  name: spellbook-knock-name
+  description: spellbook-knock-desc
+  productAction: ActionKnock
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: SpellbookCharge
   name: spellbook-charge-name
   description: spellbook-charge-desc
@@ -253,18 +266,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: SpellbookStaffAnimation
-  name: spellbook-staff-animation-name
-  description: spellbook-staff-animation-description
-  productEntity: AnimationStaff
-  cost:
-    WizCoin: 3
-  categories:
-  - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+# imp (Removed until it is fixed and no longer makes everyone miserable)
+#- type: listing
+#  id: SpellbookStaffAnimation
+#  name: spellbook-staff-animation-name
+#  description: spellbook-staff-animation-description
+#  productEntity: AnimationStaff
+#  cost:
+#    WizCoin: 3
+#  categories:
+#  - SpellbookEquipment
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 # Event
 - type: listing

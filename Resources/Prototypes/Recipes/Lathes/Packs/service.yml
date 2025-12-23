@@ -1,10 +1,11 @@
 ## Static
 
 - type: latheRecipePack
-  parent: ImpServiceStatic # imp
+  parent: [ ImpServiceStatic, NFServiceStatic ] # imp
   id: ServiceStatic
   recipes:
   - Bucket
+  - Ashtray
   - DrinkMug
   - DrinkMugMetal
   - DrinkGlass
@@ -20,12 +21,15 @@
   - FoodPlateMuffinTin
   - FoodKebabSkewer
   - SprayBottle
+  - TrashBag
   - LightReplacer
   - MopItem
   - Holoprojector
   - WetFloorSign
+  - WireBrush
 
 - type: latheRecipePack
+  parent: [ NFServiceBoards, NFServiceBoardsStatic ] # imp
   id: ServiceBoardsStatic
   recipes:
   - BiogeneratorMachineCircuitboard
@@ -35,6 +39,7 @@
   - ElectricGrillMachineCircuitboard
   - BoozeDispenserMachineCircuitboard
   - SodaDispenserMachineCircuitboard
+  - SmartFridgeCircuitboard
 
 ## Dynamic
 
@@ -50,6 +55,7 @@
   id: Instruments
   recipes:
   - SynthesizerInstrument
+  - PushHorn
 
 - type: latheRecipePack
   id: ServiceBoards

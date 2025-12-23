@@ -18,11 +18,13 @@
     - Human
     - Moth
     - Reptilian
+    - Vulpkanin
     # imp below
     - Decapoid # ??? beck ???
     - Gray
     - Gastropoid
     - Thaven
+    - Allulalo
 
 - type: loadoutEffectGroup
   id: EffectSpeciesVox
@@ -31,7 +33,7 @@
     species:
     - Vox
 
-    # Basic
+# Basic
 - type: loadout
   id: EmergencyOxygen
   effects:
@@ -70,11 +72,35 @@
     - BoxHugNitrogen
 
 # Mime
+- type: loadoutEffectGroup
+  id: OxygenBreatherMime
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Arachnid
+    - Diona
+    - Dwarf
+    - Human
+    - Reptilian
+    - Vulpkanin
+    # imp below
+    - Decapoid
+    - Gray
+    - Gastropoid
+    - Thaven
+
+- type: loadoutEffectGroup
+  id: OxygenBreatherMimeMoth
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Moth
+
 - type: loadout
   id: EmergencyOxygenMime
   effects:
   - !type:GroupLoadoutEffect
-    proto: OxygenBreather
+    proto: OxygenBreatherMime
   storage:
     back:
     - BoxMime
@@ -88,6 +114,14 @@
     back:
     - BoxMimeNitrogen
 
+- type: loadout
+  id: EmergencySpeciesMothMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreatherMimeMoth
+  storage:
+    back:
+    - BoxMimeMoth
 
 # Engineering / Extended
 - type: loadout
@@ -176,16 +210,6 @@
   equipment:
     suitstorage: NitrogenTankFilled
 
-# Full tank for vox in command roles as an alternative to the below section in case people don't like non-vox spawning with tanks
-# Remove LoadoutSpeciesOxygenCommand and LoadoutSpeciesNitrogenCommand from SurvivalCommand, SurvivalExtendedCommand, and SurvivalSecurityCommand in loadout_groups.yml if you wanna make that change
-- type: loadout
-  id: LoadoutSpeciesVoxNitrogenCommand
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EffectSpeciesVox
-  equipment:
-    suitstorage: NitrogenTankCommandFilled
-
 # Full EVA Tank, Any Species
 - type: loadout
   id: LoadoutSpeciesEVANitrogen
@@ -220,7 +244,7 @@
   equipment:
     pocket1: DoubleEmergencyOxygenTankFilled
 
-# Tank Harnesses for jobs that don't spawn with outerwear
+# Tank Harness
 - type: loadout
   id: LoadoutTankHarness
   effects:
@@ -228,33 +252,6 @@
     proto: EffectSpeciesVox
   equipment:
     outerClothing: ClothingOuterVestTank
-
-- type: loadout
-  id: LoadoutTankHarnessCommand
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EffectSpeciesVox
-  equipment:
-    outerClothing: ClothingOuterVestTankCommand
-
-# Tank harnesses for jobs that spawn with outerwear, puts them in their inventory instead of dropping items at their feet
-- type: loadout
-  id: LoadoutTankHarnessWithOuterwear
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EffectSpeciesVox
-  storage:
-    back:
-    - ClothingOuterVestTank
-
-- type: loadout
-  id: LoadoutTankHarnessCommandWithOuterwear
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EffectSpeciesVox
-  storage:
-    back:
-    - ClothingOuterVestTankCommand
 
 # Breath Tool On Face
 - type: loadout
@@ -280,11 +277,3 @@
     proto: EffectSpeciesVox
   equipment:
     mask: ClothingMaskGasSecurity
-
-- type: loadout
-  id: LoadoutSpeciesBreathToolMedSec
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EffectSpeciesVox
-  equipment:
-    mask: ClothingMaskBreathMedicalSecurity

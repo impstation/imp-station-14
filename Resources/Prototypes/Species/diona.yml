@@ -2,6 +2,7 @@
   id: Diona
   name: species-name-diona
   roundStart: true
+  randomViable: true # imp
   prototype: MobDiona
   sprites: MobDionaSprites
   defaultSkinTone: "#cdb369"
@@ -16,6 +17,9 @@
   - Male
   - Female
   - Unsexed
+  youngAge: 50 # imp
+  oldAge: 90 # imp
+  ancientAge: 300 # imp
 
 - type: speciesBaseSprites
   id: MobDionaSprites
@@ -46,7 +50,7 @@
       points: 2
       required: false
     HeadTop:
-      points: 2 #imp
+      points: 3 #imp
       required: false
     HeadSide:
       points: 2 #imp
@@ -58,7 +62,7 @@
       points: 1
       required: false
     Chest:
-      points: 2 #imp
+      points: 2
       required: false
     Legs:
       points: 2

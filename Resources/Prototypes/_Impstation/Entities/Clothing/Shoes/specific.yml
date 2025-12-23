@@ -1,10 +1,13 @@
 - type: entity
+  parent: BaseToggleAction
   id: ActionToggleWaddling
   name: Toggle Waddling
   description: Toggles your mirthful gait.
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: BigItem
+    useDelay: 2.5
+  - type: InstantAction
     event: !type:ToggleActionEvent
 
 - type: entity
@@ -23,8 +26,6 @@
         params:
           variation: 0.07 #copied from the existing jester shoes
     - type: ItemToggle
-      onUse: false
-      onActivate: false
       soundActivate:
         path: /Audio/_Impstation/Effects/Footsteps/jesterstep_on.ogg
       soundDeactivate:
@@ -46,8 +47,6 @@
         params:
           variation: 0.07 #copied from the existing jester shoes
     - type: ItemToggle
-      onUse: false
-      onActivate: false
       soundActivate:
         path: /Audio/_Impstation/Effects/Footsteps/jesterstep_on.ogg
       soundDeactivate:

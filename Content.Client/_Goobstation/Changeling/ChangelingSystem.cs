@@ -1,12 +1,12 @@
 using Content.Client.Alerts;
 using Content.Client.UserInterface.Systems.Alerts.Controls;
-using Content.Shared.Changeling;
+using Content.Shared._Goobstation.Changeling;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.Changeling;
+namespace Content.Client._Goobstation.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+public sealed partial class GoobChangelingSystem : EntitySystem
 {
 
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -14,11 +14,11 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
-        SubscribeLocalEvent<ChangelingComponent, GetStatusIconsEvent>(GetChanglingIcon);
+        SubscribeLocalEvent<GoobChangelingComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
+        SubscribeLocalEvent<GoobChangelingComponent, GetStatusIconsEvent>(GetChanglingIcon);
     }
 
-    private void OnUpdateAlert(EntityUid uid, ChangelingComponent comp, ref UpdateAlertSpriteEvent args)
+    private void OnUpdateAlert(EntityUid uid, GoobChangelingComponent comp, ref UpdateAlertSpriteEvent args)
     {
         var stateNormalized = 0f;
 
@@ -39,9 +39,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         sprite.LayerSetState(AlertVisualLayers.Base, $"{stateNormalized}");
     }
 
-    private void GetChanglingIcon(Entity<ChangelingComponent> ent, ref GetStatusIconsEvent args)
+    private void GetChanglingIcon(Entity<GoobChangelingComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (HasComp<HivemindComponent>(ent) && _prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        if (HasComp<GoobHivemindComponent>(ent) && _prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
 }

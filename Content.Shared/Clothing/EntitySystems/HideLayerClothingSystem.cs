@@ -45,10 +45,8 @@ public sealed class HideLayerClothingSystem : EntitySystem
         if (!Resolve(clothing.Owner, ref clothing.Comp1, ref clothing.Comp2))
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(user, out _)) // Imp - prevent manequins with clothes on at map start from causing test fails...
-            return;
-
-        if (!Resolve(user.Owner, ref user.Comp))
+        // logMissing: false, as this clothing might be getting equipped by a non-human.
+        if (!Resolve(user.Owner, ref user.Comp, false))
             return;
 
         hideLayers &= IsEnabled(clothing!);
@@ -68,7 +66,8 @@ public sealed class HideLayerClothingSystem : EntitySystem
         // the clothing is (or was)equipped in a matching slot.
         foreach (var (layer, validSlots) in clothing.Comp1.Layers)
         {
-            if (!hideable.Contains(layer))
+            if (!hideable.Contains(layer)
+                && !clothing.Comp1.OverrideSpeciesLayers) // imp add, kaiju cloak
                 continue;
 
             // Only update this layer if we are currently equipped to the relevant slot.
@@ -84,7 +83,8 @@ public sealed class HideLayerClothingSystem : EntitySystem
         {
             foreach (var layer in slots)
             {
-                if (hideable.Contains(layer))
+                if (hideable.Contains(layer)
+                    || clothing.Comp1.OverrideSpeciesLayers) // imp add, kaiju cloak
                     _humanoid.SetLayerVisibility(user!, layer, !hideLayers, inSlot, ref dirty);
             }
         }

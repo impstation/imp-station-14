@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "By DVDPlayerOfDiscordFame (Github) for Impstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+        "name": "empty"
+    },
+    {
+        "name": "wired"
+    },
+    {
+        "name": "no-payload"
+    },
+    {
+        "name": "no-trigger"
+    },
+    {
+        "name": "complete"
+    },
+    {
+        "name": "icon"
+    },
+    {
+        "name": "primed"
+    },
+    {
+      "name": "primed-unshaded",
+      "delays": [
+        [
+          0.15,
+          0.15,
+		      0.15,
+		      0.15
+        ]
+      ]
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+        "name": "inhand-left",
+        "directions": 4
+    },
+    {
+        "name": "inhand-right",
+        "directions": 4
+    }
+  ]
+}

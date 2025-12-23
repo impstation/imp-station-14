@@ -7,8 +7,8 @@
     - type: MachineBoard
       prototype: Autolathe
       stackRequirements:
-        MatterBin: 3
-        Manipulator: 1
+        MatterBin: 3 # imp
+        Manipulator: 1 # imp 4>1
         Glass: 1
 
 - type: entity
@@ -20,7 +20,7 @@
   - type: MachineBoard
     prototype: AutolatheHyperConvection
     stackRequirements:
-      MatterBin: 3
+      MatterBin: 3 # imp Manipulator>MatterBin
       Glass: 1
     tagRequirements:
       Igniter:
@@ -38,8 +38,8 @@
   - type: MachineBoard
     prototype: Protolathe
     stackRequirements:
-      MatterBin: 2
-      Manipulator: 2
+      MatterBin: 2 # imp
+      Manipulator: 2 # imp 4>2
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -56,7 +56,8 @@
   - type: MachineBoard
     prototype: ProtolatheHyperConvection
     stackRequirements:
-      MatterBin: 2
+      MatterBin: 2 # imp
+      # Manipulator: 4 # imp - return capacitors and matter bins
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -76,7 +77,7 @@
   - type: MachineBoard
     prototype: Biofabricator
     stackRequirements:
-      MatterBin: 4
+      MatterBin: 4 # imp Manipulator>MatterBin
       Glass: 1
 
 - type: entity
@@ -90,8 +91,8 @@
     - type: MachineBoard
       prototype: SecurityTechFab
       stackRequirements:
-        MatterBin: 2
-        Manipulator: 2
+        MatterBin: 2 # imp
+        Manipulator: 2 # imp 4>2
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -108,8 +109,8 @@
     - type: MachineBoard
       prototype: AmmoTechFab
       stackRequirements:
-        MatterBin: 1
-        Manipulator: 1
+        MatterBin: 1 # imp
+        Manipulator: 1 # imp 2>1
 
 - type: entity
   id: MedicalTechFabCircuitboard
@@ -122,8 +123,8 @@
     - type: MachineBoard
       prototype: MedicalTechFab
       stackRequirements:
-        MatterBin: 2
-        Manipulator: 2
+        MatterBin: 2 # imp
+        Manipulator: 2 # imp 4>2
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -141,8 +142,8 @@
   - type: MachineBoard
     prototype: CircuitImprinter
     stackRequirements:
-      MatterBin: 1
-      Manipulator: 1
+      MatterBin: 1 # imp
+      Manipulator: 1 # imp 2>1
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -159,7 +160,7 @@
   - type: MachineBoard
     prototype: CircuitImprinterHyperConvection
     stackRequirements:
-      MatterBin: 2
+      MatterBin: 2 # imp Manipulator>MatterBin
     tagRequirements:
       GlassBeaker:
         amount: 2
@@ -178,8 +179,8 @@
   - type: MachineBoard
     prototype: ExosuitFabricator
     stackRequirements:
-      MatterBin: 1
-      Manipulator: 3
+      MatterBin: 1 # imp
+      Manipulator: 3 # imp 4>3
       Glass: 5
   - type: GuideHelp
     guides:
@@ -210,7 +211,7 @@
   - type: MachineBoard
     prototype: Biogenerator
     stackRequirements:
-      MatterBin: 2
+      MatterBin: 2 # imp Manipulator>MatterBin
     tagRequirements:
       GlassBeaker:
         amount: 1
@@ -224,8 +225,8 @@
   - type: MachineBoard
     prototype: UniformPrinter
     stackRequirements:
-      MatterBin: 1
-      Manipulator: 2
+      MatterBin: 1 # imp
+      Manipulator: 2 # imp 3>2
 
 - type: entity
   id: VaccinatorMachineCircuitboard
@@ -237,8 +238,8 @@
   - type: MachineBoard
     prototype: Vaccinator
     stackRequirements:
-      MatterBin: 1
-      Manipulator: 1
+      MatterBin: 1 # imp
+      Manipulator: 1 # imp 2>1
       Cable: 5
     tagRequirements:
         GlassBeaker:
@@ -276,8 +277,8 @@
     - type: MachineBoard
       prototype: MachineArtifactAnalyzer
       stackRequirements:
-        Manipulator: 3
-        Capacitor: 1
+        Manipulator: 3 # imp 1>3
+        Capacitor: 1 # imp
         Glass: 5
 
 - type: entity
@@ -306,7 +307,7 @@
     - type: MachineBoard
       prototype: MachineAnomalyVessel
       stackRequirements:
-        Capacitor: 3
+        Capacitor: 3 # imp Manipulator>Capacitor
         Cable: 1
         PlasmaGlass: 10
 
@@ -321,7 +322,7 @@
   - type: MachineBoard
     prototype: MachineAnomalyVesselExperimental
     stackRequirements:
-      Capacitor: 3
+      Capacitor: 3 # imp Manipulator>Capacitor
       Cable: 5
       PlasmaGlass: 15
       MetalRod: 4
@@ -337,8 +338,8 @@
     - type: MachineBoard
       prototype: MachineAnomalySynchronizer
       stackRequirements:
-        Manipulator: 2
-        Capacitor: 5
+        Manipulator: 2 # imp 7>2
+        Capacitor: 5 # imp
         PlasmaGlass: 5
         Cable: 5
 
@@ -353,7 +354,7 @@
     - type: MachineBoard
       prototype: MachineAPE
       stackRequirements:
-        Capacitor: 2
+        Capacitor: 2 # imp Manipulator>Capacitor
         Cable: 1
         Glass: 1
 
@@ -368,8 +369,9 @@
   - type: MachineBoard
     prototype: GasThermoMachineFreezer
     stackRequirements:
-      MatterBin: 2
-      Capacitor: 2
+      MatterBin: 2 # imp
+      Capacitor: 2 # imp
+      # Manipulator: 4 # imp - return capacitors and matter bins
       Cable: 5
   - type: Construction
     deconstructionTarget: null
@@ -387,8 +389,9 @@
   - type: MachineBoard
     prototype: GasThermoMachineHeater
     stackRequirements:
-      MatterBin: 2
-      Capacitor: 2
+      MatterBin: 2 # imp
+      Capacitor: 2 # imp
+      # Manipulator: 4 # imp - return capacitors and matter bins
       Cable: 5
   - type: Construction
     graph: ThermomachineBoard
@@ -406,8 +409,9 @@
   - type: MachineBoard
     prototype: GasThermoMachineHellfireFreezer
     stackRequirements:
-      MatterBin: 2
-      Capacitor: 2
+      MatterBin: 2 # imp
+      Capacitor: 2 # imp
+      #Manipulator: 4 # imp - return capacitors and matter bins
       Plasma: 1
   - type: Construction
     deconstructionTarget: null
@@ -425,8 +429,9 @@
   - type: MachineBoard
     prototype: GasThermoMachineHellfireHeater
     stackRequirements:
-      MatterBin: 2
-      Capacitor: 2
+      MatterBin: 2 # imp
+      Capacitor: 2 # imp
+      # Manipulator: 4 # imp - return capacitors and matter bins
       Plasma: 1
   - type: Construction
     graph: ThermomachineBoard
@@ -444,7 +449,7 @@
   - type: MachineBoard
     prototype: BaseGasCondenser
     stackRequirements:
-      MatterBin: 1
+      MatterBin: 1 # imp Manipulator>MatterBin
       Glass: 1
 
 - type: entity
@@ -458,8 +463,8 @@
   - type: MachineBoard
     prototype: PortableScrubber
     stackRequirements:
-      MatterBin: 1
-      Manipulator: 2
+      MatterBin: 1 # imp
+      Manipulator: 2 # imp 3>2
       Cable: 5
       Glass: 2
 
@@ -474,8 +479,9 @@
   - type: MachineBoard
     prototype: SpaceHeater
     stackRequirements:
-      MatterBin: 1
-      Capacitor: 2
+      MatterBin: 1 # imp
+      Capacitor: 2 # imp
+      # Manipulator: 3 # imp - return capacitors and matter bins
       Cable: 5
 
 - type: entity
@@ -489,8 +495,8 @@
     - type: MachineBoard
       prototype: CloningPod
       stackRequirements:
-        MatterBin: 2
-        Manipulator: 2
+        MatterBin: 2 # imp
+        Manipulator: 2 # imp 4>2
         Glass: 1
         Cable: 1
 
@@ -505,7 +511,7 @@
     - type: MachineBoard
       prototype: MedicalScanner
       stackRequirements:
-        Capacitor: 1
+        Capacitor: 1 # imp Manipulator>Capacitor
         Glass: 5
         Cable: 1
 
@@ -546,7 +552,7 @@
     - type: MachineBoard
       prototype: ChemMaster
       stackRequirements:
-        Capacitor: 1
+        Capacitor: 1 # imp Manipulator>Capacitor
         Glass: 1
         Cable: 1
       tagRequirements:
@@ -565,7 +571,7 @@
     - type: MachineBoard
       prototype: ChemDispenserEmpty
       stackRequirements:
-        Capacitor: 1
+        Capacitor: 1 # imp Manipulator>Capacitor
         Glass: 1
         Steel: 3
       tagRequirements:
@@ -584,8 +590,8 @@
   - type: MachineBoard
     prototype: BiomassReclaimer
     stackRequirements:
-      MatterBin: 2
-      Manipulator: 1
+      MatterBin: 2 # imp
+      Manipulator: 1 # imp 3>1
       Steel: 5
     tagRequirements:
       Knife:
@@ -623,8 +629,8 @@
     - type: MachineBoard
       prototype: SeedExtractor
       stackRequirements:
-        Manipulator: 2
-        Capacitor: 1
+        Manipulator: 2 # imp 3>2
+        Capacitor: 1 # imp
         # replacing the console screen
         Glass: 1
         Cable: 2
@@ -641,7 +647,7 @@
     - type: MachineBoard
       prototype: SMESBasicEmpty
       stackRequirements:
-        Capacitor: 1
+        Capacitor: 1 # imp Manipulator>Capacitor
         CableHV: 10
       componentRequirements:
         PowerCell:
@@ -660,7 +666,7 @@
   - type: MachineBoard
     prototype: SMESAdvancedEmpty
     stackRequirements:
-      Capacitor: 2
+      Capacitor: 2 # imp Manipulator>Capacitor
       CableHV: 20
     componentRequirements:
       PowerCell:
@@ -679,12 +685,12 @@
     - type: MachineBoard
       prototype: PowerCellRecharger
       stackRequirements:
-        Capacitor: 2
+        Capacitor: 2 # imp Manipulator>Capacitor
         Cable: 5
     - type: PhysicalComposition
       materialComposition:
-        Steel: 30
-        Plastic: 30
+        Steel: 25
+        Plastic: 25
     - type: StaticPrice
       price: 15
 
@@ -700,7 +706,7 @@
     - type: MachineBoard
       prototype: PowerCageRecharger
       stackRequirements:
-        Capacitor: 4
+        Capacitor: 4 # imp Manipulator>Capacitor
         Steel: 5
         Cable: 10
     - type: PhysicalComposition
@@ -722,12 +728,12 @@
     - type: MachineBoard
       prototype: BorgCharger
       stackRequirements:
-        Capacitor: 2
+        Capacitor: 2 # imp Manipulator>Capacitor
         Cable: 5
     - type: PhysicalComposition
       materialComposition:
-        Steel: 30
-        Plastic: 30
+        Steel: 25
+        Plastic: 25
     - type: StaticPrice
       price: 15
 
@@ -743,12 +749,12 @@
     - type: MachineBoard
       prototype: WeaponCapacitorRecharger
       stackRequirements:
-        Capacitor: 2
+        Capacitor: 2 # imp Manipulator>Capacitor
         CableMV: 5
     - type: PhysicalComposition
       materialComposition:
-        Steel: 30
-        Plastic: 30
+        Steel: 25
+        Plastic: 25
     - type: StaticPrice
       price: 15
     #imp edit start
@@ -771,7 +777,7 @@
   - type: MachineBoard
     prototype: TurboItemRecharger
     stackRequirements:
-      Capacitor: 2
+      Capacitor: 2 # imp Manipulator>Capacitor
       CableMV: 5
   - type: PhysicalComposition
     materialComposition:
@@ -787,7 +793,7 @@
     - type: MachineBoard
       prototype: SubstationBasicEmpty
       stackRequirements:
-        Capacitor: 1
+        Capacitor: 1 # imp Manipulator>Capacitor
         CableMV: 5
         CableHV: 5
       componentRequirements:
@@ -847,7 +853,7 @@
     - type: MachineBoard
       prototype: PortableGeneratorPacman
       stackRequirements:
-        Capacitor: 1
+        Capacitor: 1 # imp Manipulator>Capacitor
         CableHV: 5
     - type: PhysicalComposition
       materialComposition:
@@ -867,7 +873,7 @@
   - type: MachineBoard
     prototype: Thruster
     stackRequirements:
-      Capacitor: 4
+      Capacitor: 4 # imp Manipulator>Capacitor
       Steel: 5
 
 - type: entity
@@ -880,8 +886,8 @@
   - type: MachineBoard
     prototype: Gyroscope
     stackRequirements:
-      Manipulator: 2
-      Capacitor: 1
+      Manipulator: 2 # imp 3>2
+      Capacitor: 1 # imp
       Glass: 2
 
 - type: entity
@@ -894,7 +900,7 @@
     - type: MachineBoard
       prototype: PortableGeneratorSuperPacman
       stackRequirements:
-        Capacitor: 2
+        Capacitor: 2 # imp Manipulator>Capacitor
         CableHV: 10
     - type: PhysicalComposition
       materialComposition:
@@ -914,7 +920,7 @@
     - type: MachineBoard
       prototype: PortableGeneratorJrPacman
       stackRequirements:
-        Capacitor: 1
+        Capacitor: 1 # imp Manipulator>Capacitor
         Cable: 10
     - type: PhysicalComposition
       materialComposition:
@@ -933,8 +939,8 @@
     - type: MachineBoard
       prototype: KitchenReagentGrinder
       stackRequirements:
-        MatterBin: 2
-        Manipulator: 2
+        MatterBin: 2 # imp
+        Manipulator: 2 # imp 4>2
       tagRequirements:
         GlassBeaker:
           amount: 1
@@ -951,7 +957,7 @@
   - type: MachineBoard
     prototype: ChemistryHotplate
     stackRequirements:
-      Capacitor: 2
+      Capacitor: 2 # imp Manipulator>Capacitor
       Glass: 1
 
 - type: entity
@@ -965,7 +971,7 @@
   - type: MachineBoard
     prototype: KitchenElectricGrill
     stackRequirements:
-      Capacitor: 4
+      Capacitor: 4 # imp Manipulator>Capacitor
       Glass: 2
       Cable: 5
 
@@ -979,8 +985,8 @@
     - type: MachineBoard
       prototype: StasisBed
       stackRequirements:
-        Capacitor: 1
-        Manipulator: 1
+        Capacitor: 1 # imp
+        Manipulator: 1 # imp 2>1
         Cable: 3
         Steel: 2
 
@@ -995,7 +1001,7 @@
   - type: MachineBoard
     prototype: MachineElectrolysisUnit
     stackRequirements:
-      Capacitor: 2
+      Capacitor: 2 # imp Manipulator>Capacitor
       Cable: 1
 
 - type: entity
@@ -1013,6 +1019,19 @@
       Steel: 1
 
 - type: entity
+  id: MaterialSiloMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: material silo machine board
+  components:
+  - type: Sprite
+    state: supply
+  - type: MachineBoard
+    prototype: MachineMaterialSilo
+    stackRequirements:
+      MatterBin: 4 # imp Manipulator>MatterBin
+      Cable: 1
+
+- type: entity
   id: OreProcessorMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: ore processor machine board
@@ -1022,8 +1041,8 @@
     - type: MachineBoard
       prototype: OreProcessor
       stackRequirements:
-        MatterBin: 1
-        Manipulator: 3
+        MatterBin: 1 # imp
+        Manipulator: 3 # imp 4>3
         Glass: 1
 
 - type: entity
@@ -1036,8 +1055,8 @@
   - type: MachineBoard
     prototype: OreProcessorIndustrial
     stackRequirements:
-      MatterBin: 1
-      Manipulator: 3
+      MatterBin: 1 # imp
+      Manipulator: 3 # imp 4>3
       Glass: 1
 
 - type: entity
@@ -1048,8 +1067,7 @@
   - type: MachineBoard
     prototype: Sheetifier
     stackRequirements:
-      MatterBin: 1
-      Manipulator: 1
+      Manipulator: 2
 
 - type: entity
   id: MicrowaveMachineCircuitboard
@@ -1061,7 +1079,7 @@
     - type: MachineBoard
       prototype: KitchenMicrowave
       stackRequirements:
-        Capacitor: 1
+        Capacitor: 1 # imp Manipulator>Capacitor
         Glass: 2
         Cable: 2
     - type: Tag
@@ -1078,7 +1096,7 @@
     - type: MachineBoard
       prototype: SyndicateMicrowave
       stackRequirements:
-        Capacitor: 1
+        Capacitor: 1 # imp Manipulator>Capacitor
         Glass: 2
         Cable: 2
 
@@ -1107,8 +1125,8 @@
   - type: MachineBoard
     prototype: MachineFlatpacker
     stackRequirements:
-      Manipulator: 2
-      MatterBin: 1
+      Manipulator: 2 # imp 3>2
+      MatterBin: 1 # imp
       Steel: 1
 
 - type: entity
@@ -1121,7 +1139,7 @@
     - type: MachineBoard
       prototype: Emitter
       stackRequirements:
-        Capacitor: 2
+        Capacitor: 2 # imp Manipulator>Capacitor
         CableHV: 5
         Glass: 2
 
@@ -1148,6 +1166,20 @@
     state: service
   - type: MachineBoard
     prototype: SurveillanceCameraWirelessRouterConstructed
+    stackRequirements:
+      Cable: 2
+      Glass: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: SurveillanceCameraWirelessRouterXenoborgCircuitboard
+  name: xenoborg camera wireless router
+  description: A machine printed circuit board for a xenoborg camera wireless router.
+  components:
+  - type: Sprite
+    state: generic
+  - type: MachineBoard
+    prototype: SurveillanceCameraWirelessRouterXenoborg
     stackRequirements:
       Cable: 2
       Glass: 1
@@ -1191,8 +1223,8 @@
   - type: MachineBoard
     prototype: GasRecycler
     stackRequirements:
-      Capacitor: 1
-      Manipulator: 1
+      Capacitor: 1 # imp
+      Manipulator: 1 # imp 2>1
       Steel: 10
       Plasma: 5
 
@@ -1224,7 +1256,7 @@
     - type: MachineBoard
       prototype: CargoTelepad
       stackRequirements:
-        Capacitor: 2
+        Capacitor: 2 # imp Manipulator>Capacitor
         Steel: 5
 
 - type: entity
@@ -1238,7 +1270,7 @@
   - type: MachineBoard
     prototype: CargoMailTeleporter
     stackRequirements:
-      Capacitor: 2
+      Capacitor: 2 # imp Manipulator>Capacitor
       Steel: 5
 
 - type: entity
@@ -1283,7 +1315,7 @@
   - type: MachineBoard
     prototype: SalvageMagnet
     stackRequirements:
-      Capacitor: 4
+      Capacitor: 4 # imp Manipulator>Capacitor
       Steel: 5
       CableHV: 5
       Cable: 2
@@ -1299,8 +1331,9 @@
   - type: MachineBoard
     prototype: GravityGeneratorMini
     stackRequirements:
-      Capacitor: 4
-      MatterBin: 3
+      Capacitor: 4 # imp
+      MatterBin: 3 # imp
+      # Manipulator: 7 # imp - return capacitors and matter bins
       Steel: 5
       CableHV: 5
       Uranium: 2
@@ -1314,8 +1347,9 @@
   - type: MachineBoard
     prototype: StationAnchor
     stackRequirements:
-      Capacitor: 4
-      MatterBin: 3
+      Capacitor: 4 # imp
+      MatterBin: 3 # imp
+      # Manipulator: 7 # imp - return capacitors and matter bins
       Steel: 10
       Glass: 5
       CableHV: 8
@@ -1329,8 +1363,8 @@
   - type: MachineBoard
     prototype: ReagentGrinderIndustrial
     stackRequirements:
-      MatterBin: 1
-      Manipulator: 3
+      MatterBin: 1 # imp
+      Manipulator: 3 # imp 4>3
       Glass: 1
 
 - type: entity
@@ -1349,7 +1383,7 @@
       Glass: 5
       Cable: 2
   - type: Tag # imp
-    tags: 
+    tags:
     - JukeboxBoard
 
 - type: entity
@@ -1361,6 +1395,24 @@
     prototype: CutterMachine
     stackRequirements:
       Steel: 2
-      Capacitor: 1
-      Manipulator: 1
+      Capacitor: 1 # imp
+      Manipulator: 1 # imp 2>1
       Cable: 1
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: SmartFridgeCircuitboard
+  name: SmartFridge machine board
+  description: A machine printed circuit board for a SmartFridge.
+  components:
+  - type: Sprite
+    state: service
+  - type: MachineBoard
+    prototype: SmartFridge
+    stackRequirements:
+      Glass: 5
+      Manipulator: 2
+    tagRequirements:
+        GlassBeaker:
+          amount: 2
+          defaultPrototype: Beaker

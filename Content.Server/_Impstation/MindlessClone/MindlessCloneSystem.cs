@@ -31,6 +31,8 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Chat;
+
 // yes, all of these are really necessary. Christ almighty.
 
 namespace Content.Server._Impstation.MindlessClone;
@@ -46,6 +48,7 @@ public sealed class MindlessCloneSystem : EntitySystem
     [Dependency] private readonly IReplayRecordingManager _replay = default!;
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     // everything else
     [Dependency] private readonly BodySystem _bodySystem = default!;
@@ -72,7 +75,7 @@ public sealed class MindlessCloneSystem : EntitySystem
     }
 
     /// <summary>
-    /// Handles the "DoAfter"s. 
+    /// Handles the "DoAfter"s.
     /// </summary>
     public override void Update(float frametime)
     {
@@ -188,7 +191,7 @@ public sealed class MindlessCloneSystem : EntitySystem
 
             // swap those minds around right quick
             _mind.TransferTo(cloneMind, targetUid); // technically we won't ever need to do this, it's just here for posterity.
-            _mind.TransferTo(targetMind, ent); // this is the important one. 
+            _mind.TransferTo(targetMind, ent); // this is the important one.
 
             // and then hobble the target for a bit
             _statusEffect.TryAddStatusEffect<MutedComponent>(ent, "Muted", ent.Comp.MindSwapStunTime, true);
@@ -208,7 +211,7 @@ public sealed class MindlessCloneSystem : EntitySystem
             // make sure that the spawned clone isn't always facing north. they face the person they're a clone of, instead
             _rotateToFaceSystem.TryFaceCoordinates(ent, _transformSystem.ToMapCoordinates(Transform(ent.Comp.IsCloneOf).Coordinates).Position);
 
-            _stun.TryParalyze(ent, stunTime, true);
+            _stun.TryUpdateParalyzeDuration(ent, stunTime);
 
             stunTime += TimeSpan.FromSeconds(0.5); // to make the delay end *after* the stun is up. otherwise the mobstate check fails
         }
@@ -224,7 +227,8 @@ public sealed class MindlessCloneSystem : EntitySystem
         if (comp.SpeakOnSpawn && !_mobState.IsIncapacitated(uid))
         {
             // enable the typing indicator for the duration of the DoAfter.
-            _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, true);
+            // TODO: give this better functionality with upstream #29349
+            _appearance.SetData(uid, TypingIndicatorVisuals.State, 2);
 
             var choices = _prototypeManager.Index(comp.PhrasesToPick).Values;
             comp.NextPhrase = _random.Pick(choices);
@@ -267,7 +271,8 @@ public sealed class MindlessCloneSystem : EntitySystem
         }
 
         // disable the typing indicator, as "typing" has now finished.
-        _appearance.SetData(uid, TypingIndicatorVisuals.IsTyping, false);
+        // TODO: give this better functionality with upstream #29349
+        _appearance.SetData(uid, TypingIndicatorVisuals.State, 0);
     }
 
     /// <summary>
@@ -308,10 +313,10 @@ public sealed class MindlessCloneSystem : EntitySystem
             return false;
 
         HumanoidCharacterProfile profile;
-        if (_mind.TryGetMind(original, out _, out var mindComponent) && mindComponent.Session != null)
+        if (_mind.TryGetMind(original, out _, out var mindComponent) && _playerManager.TryGetSessionById(mindComponent.UserId, out var session))
         {
             // get the character profile of the humanoid out of its mind.
-            var targetProfile = (HumanoidCharacterProfile)_prefs.GetPreferences(mindComponent.Session.UserId).SelectedCharacter;
+            var targetProfile = (HumanoidCharacterProfile)_prefs.GetPreferences(session.UserId).SelectedCharacter;
             // clone it onto a new profile
             profile = new HumanoidCharacterProfile(targetProfile);
         }
@@ -400,7 +405,7 @@ public sealed class MindlessCloneSystem : EntitySystem
     }
 
     /// <summary>
-    /// Custom examine text for when the clone is not crit or dead. 
+    /// Custom examine text for when the clone is not crit or dead.
     /// </summary>
     private void OnExamined(Entity<MindlessCloneComponent> ent, ref ExaminedEvent args)
     {

@@ -27,6 +27,7 @@
     state: ointment
   - type: Item
     heldPrefix: ointment
+    storedRotation: 45
   - type: Healing
     damageContainers:
       - Biological
@@ -38,13 +39,22 @@
         Caustic: -1.5
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Ointment
     count: 10
   - type: StackPrice
     price: 5
+  - type: PluralName # imp
+    oneOf: plural-name-tube-1
+    someOf: plural-name-tube-2plus
 
 - type: entity
   id: Ointment1
@@ -56,15 +66,6 @@
     count: 1
 
 - type: entity
-  id: Ointment10Lingering
-  parent: Ointment
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
-
-- type: entity
   name: regenerative mesh
   description: Used to treat even the nastiest burns. Also effective against caustic burns.
   parent: BaseHealingItem
@@ -74,7 +75,7 @@
   - type: Tag
     tags:
     - Ointment
-    - RegenerativeMesh
+    - RegenerativeMesh #imp
   - type: Sprite
     sprite: Objects/Specific/Medical/medical.rsi # imp
     state: regenerative-mesh
@@ -91,13 +92,23 @@
         Caustic: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: RegenerativeMesh
     count: 10
   - type: StackPrice
     price: 20
+  - type: PluralName # imp
+    oneOf: plural-name-piece-1
+    someOf: plural-name-piece-2plus
+
 
 - type: entity
   id: OintmentAdvanced1
@@ -130,13 +141,22 @@
         Brute: -15 # 5 for each type in the group
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Brutepack
     count: 10
   - type: StackPrice
     price: 5
+  - type: PluralName # imp
+    oneOf: plural-name-a
+    nameSomeOf: bruise packs
 
 - type: entity
   id: Brutepack1
@@ -146,15 +166,6 @@
   - type: Stack
     stackType: Brutepack
     count: 1
-
-- type: entity
-  id: Brutepack10Lingering
-  parent: Brutepack
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
 
 - type: entity
   name: medicated suture
@@ -180,13 +191,22 @@
     bloodlossModifier: -10 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: MedicatedSuture
     count: 10
   - type: StackPrice
     price: 20
+  - type: PluralName # imp
+    oneOf: plural-name-spindle-1
+    nameSomeOf: medicated sutures
 
 - type: entity
   id: BrutepackAdvanced1
@@ -218,17 +238,23 @@
     damage:
       types:
         Bloodloss: -0.5 #lowers bloodloss damage
-    ModifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
+    modifyBloodLevel: 15 #restores about 5% blood per use on standard humanoids.
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Bloodpack
     count: 10
   - type: StackPrice
     price: 10
-  - type: Food # imp - kodepiia gogurt
+  - type: Edible # imp - kodepiia gogurt
     requiresSpecialDigestion: true
   - type: SolutionContainerManager # imp
     solutions:
@@ -237,7 +263,8 @@
         reagents:
         - ReagentId: Blood
           Quantity: 15
-
+  - type: PluralName # imp
+    nameSomeOf: blood packs
 
 - type: entity
   parent: Bloodpack
@@ -247,14 +274,6 @@
   - type: Stack
     stackType: Bloodpack
     count: 1
-
-- type: entity
-  parent: Bloodpack
-  id: Bloodpack10Lingering
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
 
 - type: entity
   parent: BaseHealingItem
@@ -282,8 +301,16 @@
       delay: 0.5
       healingBeginSound:
         path: "/Audio/Items/Medical/brutepack_begin.ogg"
+        params:
+          volume: 1.0
+          variation: 0.125
       healingEndSound:
         path: "/Audio/Items/Medical/brutepack_end.ogg"
+        params:
+          volume: 1.0
+          variation: 0.125
+    - type: PluralName # imp
+      nameSomeOf: torniquets
 
 - type: entity
   name: roll of gauze
@@ -299,6 +326,7 @@
     state: gauze
   - type: Item
     heldPrefix: gauze
+    storedRotation: -90
   - type: Construction
     graph: Gauze
     node: gauze
@@ -313,13 +341,21 @@
     bloodlossModifier: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
   - type: Stack
     stackType: Gauze
     count: 10
   - type: StackPrice
     price: 10
+  - type: PluralName # imp
+    nameSomeOf: rolls of gauze
 
 - type: entity
   id: Gauze1
@@ -329,25 +365,23 @@
   - type: Stack
     count: 1
 
-- type: entity
-  id: Gauze10Lingering
-  parent: Gauze
-  suffix: 10, Lingering
-  components:
-  - type: Stack
-    lingering: true
-    count: 10
-
 # Making Aloe Cream it's own unique topical now. From Ointment (5 Heat/Shock/Cold & 1.5 Caut) -> 10 Heat, squishes when thrown. #imp
 - type: entity
   name: aloe cream
   description: A topical cream for burns.
-  parent: BaseHealingItem
+  parent: BaseHealingItem #imp
   id: AloeCream
   components:
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/aloe.rsi
+    state: cream
+  - type: Stack
+    stackType: AloeCream
+    count: 10
+  # imp edit start
   - type: Healing
     damageContainers:
-      - Biological
+    - Biological
     damage:
       types:
         Heat: -10
@@ -355,18 +389,16 @@
       path: "/Audio/Items/Toys/ToyFall2.ogg"
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/aloe.rsi
-    state: cream
   - type: EmitSoundOnLand
     sound:
       path: "/Audio/Voice/Slime/slime_squish.ogg"
-  - type: Stack
-    stackType: AloeCream
-    count: 10
+  - type: PluralName
+    oneOf: plural-name-tube-1
+    someOf: plural-name-tube-2plus
   - type: Tag
     tags:
-      - Aloe
+    - Aloe
+  # imp edit end
 
 - type: entity
   parent: BaseHealingItem
@@ -391,8 +423,14 @@
     selfHealPenaltyMultiplier: 0
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
     healingEndSound:
       path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
 
 # Pills
 - type: entity

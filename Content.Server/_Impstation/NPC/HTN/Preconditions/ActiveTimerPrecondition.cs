@@ -1,4 +1,4 @@
-using Content.Shared.Explosion.Components;
+using Content.Shared.Trigger.Components;
 
 namespace Content.Server.NPC.HTN.Preconditions;
 

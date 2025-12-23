@@ -6,22 +6,12 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobWarden
-      time: 18000 #5 hrs, ~4 rounds #imp
+      time: 5h # imp, was 6
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 108000 #30 hrs, ~20 rounds #imp
-
-#Security Star
-- type: loadoutEffectGroup
-  id: SecurityStarWorthy
-  effects:
-    - !type:JobRequirementLoadoutEffect
-      requirement:
-        !type:DepartmentTimeRequirement
-        department: Security
-        time: 324000 #90 hrs, ~60 rounds #imp
+      time: 30h # imp, was 60
 
 # Head
 - type: loadout
@@ -69,11 +59,6 @@
   id: TrooperUniform
   equipment:
     jumpsuit: ClothingUniformSecurityTrooper
-
-- type: loadout
-  id: SecurityJumpsuitBlue
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitSecBlue
 
 - type: loadout
   id: SeniorOfficerJumpsuit
@@ -163,13 +148,3 @@
     proto: SeniorOfficer
   equipment:
     id: SeniorOfficerPDA
-
-# Misc
-- type: loadout
-  id: SecStar
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SecurityStarWorthy
-  storage:
-    back:
-    - Dinkystar

@@ -16,8 +16,8 @@
   name: visiting courier ghost role
   components:
     - type: Sprite
-      sprite: Markers/jobs.rsi
-      state: cargo_tech # no courier job in the rsi
+      sprite: _Impstation/Markers/jobs.rsi
+      state: courier
     - type: RandomHumanoidSpawner
       settings: VisitorCourier
 
@@ -27,6 +27,97 @@
   components:
     - type: Sprite
       sprite: Markers/jobs.rsi
-      state: roboticist # no courier job in the rsi
+      state: roboticist
     - type: RandomHumanoidSpawner
       settings: VisitorRoboticist
+
+- type: entity
+  id: RandomHumanoidVisitorAdminAssistant
+  name: visiting admin assistant ghost role
+  components:
+    - type: Sprite
+      sprite: _DV/Markers/jobs.rsi
+      state: adminassistant
+    - type: RandomHumanoidSpawner
+      settings: VisitorAdminAssistant
+
+- type: entity
+  id: RandomHumanoidVisitorHospitalityDirector
+  name: visiting hospitality director ghost role
+  components:
+    - type: Sprite
+      sprite: _Impstation/Markers/jobs.rsi
+      state: hd
+    - type: RandomHumanoidSpawner
+      settings: VisitorHospitalityDirector
+
+- type: entity
+  id: RandomHumanoidVisitorLibrarianCryptid
+  name: visiting librarian ghost role
+  components:
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      state: librarian
+    - type: RandomHumanoidSpawner
+      settings: VisitorLibrarianCryptid
+
+
+# CentComm Interns
+- type: entity
+  name: CentComm Intern
+  id: RandomHumanoidSpawnerCentcommIntern
+  suffix: ERTRole
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: centcom
+  - type: RandomHumanoidSpawner
+    settings: CentcommIntern
+
+- type: entity
+  name: CentComm Head Intern
+  id: RandomHumanoidSpawnerCentcommInternLeader
+  suffix: ERTRole
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: centcom
+  - type: RandomHumanoidSpawner
+    settings: CentcommInternLeader
+
+- type: entity
+  name: CentComm Intern
+  id: RandomHumanoidSpawnerCentcommInternUnarmed
+  suffix: ERTRole, Unarmed
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: centcom
+  - type: RandomHumanoidSpawner
+    settings: CentcommInternUnarmed
+
+- type: entity
+  name: CentComm Head Intern
+  id: RandomHumanoidSpawnerCentcommInternLeaderUnarmed
+  suffix: ERTRole, Unarmed
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    state: centcom
+  - type: RandomHumanoidSpawner
+    settings: CentcommInternLeaderUnarmed
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobMonkeyLambordeere
+  name: Monkey Spawner
+  suffix: Lambordeere
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobMonkeyLambordeere

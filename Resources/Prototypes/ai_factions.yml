@@ -1,18 +1,21 @@
 - type: npcFaction
   id: Dragon
   hostile:
-    - NanoTrasen
-    - Syndicate
-    - Xeno
-    - PetsNT
-    - Zombie
-    - Revolutionary
-    - AllHostile
-    - Wizard
-    - Changeling # imp
-    - Heretic # imp
-    - Dino # imp
-    - Penguin # imp
+  - NanoTrasen
+  - Syndicate
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - AllHostile
+  - Wizard
+  - Xenoborg
+  - Changeling # imp
+  - Heretic # imp
+  - Dino # imp
+  - Penguin # imp
+  - SimpleHostile # imp
+  - Replicator # imp
 
 - type: npcFaction
   id: NanoTrasen
@@ -25,8 +28,9 @@
   - Dragon
   - AllHostile
   - Wizard
+  - Xenoborg
   - Dino # imp
-
+  - Replicator # imp
 
 - type: npcFaction
   id: Mouse
@@ -41,15 +45,17 @@
 
 - type: npcFaction
   id: PetsNT
+  friendly:
+  - NanoTrasen
   hostile:
   - Mouse
   - SimpleHostile
   - Zombie
   - Xeno
   - AllHostile
-  - Wizard
-  - Dino # imp
   - Dragon
+  - Dino # imp
+  - Replicator # imp
 
 - type: npcFaction
   id: SimpleHostile
@@ -60,13 +66,16 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Dragon
+  - Xeno
   - AllHostile
   - Wizard
+  - Xenoborg
   - Changeling # imp
   - Heretic # imp
   - Dino # imp
   - Penguin # imp
-  - Dragon
+  - Replicator # imp
 
 - type: npcFaction
   id: SimpleNeutral
@@ -82,10 +91,12 @@
   - Dragon
   - AllHostile
   - Wizard
+  - Xenoborg
   - Changeling # imp
   - Heretic # imp
   - Dino # imp
   - Penguin # imp
+  - Replicator # imp
 
 - type: npcFaction
   id: Xeno
@@ -102,7 +113,9 @@
   - Heretic # imp
   - Dino # imp
   - Penguin # imp
+  - Replicator # imp
   - Dragon
+  - Xenoborg
 
 - type: npcFaction
   id: Zombie
@@ -120,7 +133,10 @@
   - Heretic # imp
   - Dino # imp
   - Penguin # imp
+  - Replicator # imp
+  - Dog # imp
   - Dragon
+  - Xenoborg
 
 - type: npcFaction
   id: Revolutionary
@@ -131,7 +147,9 @@
   - Dragon
   - AllHostile
   - Wizard
+  - Xenoborg
   - Dino # imp
+  - Replicator # imp
 
 - type: npcFaction
   id: AllHostile
@@ -148,11 +166,13 @@
   - Zombie
   - Revolutionary
   - Wizard
+  - Xenoborg
   - Changeling # imp
   - Heretic # imp
   - Dino # imp
   - Penguin # imp
-
+  - Replicator # imp
+  - Dog # imp
 
 - type: npcFaction
   id: Wizard
@@ -169,7 +189,30 @@
   - Zombie
   - Revolutionary
   - AllHostile
+  - Xenoborg
   - Changeling # imp
   - Heretic # imp
   - Dino # imp
   - Penguin # imp
+  - Replicator # imp
+  - Dog # imp
+
+- type: npcFaction
+  id: Xenoborg
+  hostile:
+  # they have brains
+  - NanoTrasen
+  - Syndicate
+  - Zombie
+  - Revolutionary
+  - Wizard
+  - Changeling # imp
+  - Heretic # imp
+  - Dino # imp
+  - Penguin # imp
+
+  - Xeno # rivalry
+
+  # cause they are hostile to them
+  - SimpleHostile
+  - AllHostile

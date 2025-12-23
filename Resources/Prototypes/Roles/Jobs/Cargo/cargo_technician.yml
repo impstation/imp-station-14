@@ -3,12 +3,6 @@
   name: job-name-cargotech
   description: job-description-cargotech
   playTimeTracker: JobCargoTechnician
-  # Begin DeltaV modifications - Add time requirement to cargo tech
-  requirements:
-  - !type:DepartmentTimeRequirement
-    department: Cargo
-    time: 7200 # IMP 2 hrs ~2 shifts, down from 6h
-  # End DeltaV modifications
   startingGear: CargoTechGear
   icon: "JobIconCargoTechnician"
   supervisors: job-supervisors-qm
@@ -32,3 +26,14 @@
   #storage:
     #back:
     #- Stuff
+
+- type: chameleonOutfit
+  id: CargoTechnicianChameleonOutfit
+  job: CargoTechnician
+  equipment:
+    head: ClothingHeadHatCargosoft
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterWinterCargo
+    neck: ClothingNeckScarfStripedBrown
+    gloves: ClothingHandsGlovesFingerless

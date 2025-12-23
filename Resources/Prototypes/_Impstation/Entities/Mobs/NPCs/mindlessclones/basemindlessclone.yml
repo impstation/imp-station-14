@@ -121,12 +121,9 @@
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
     - Stutter
     - SeeingRainbows
     - Electrocution
@@ -135,13 +132,11 @@
     - RatvarianLanguage
     - PressureImmunity
     - Muted
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
     - Feminized # DeltaV - Hormone system
     - Masculinized # DeltaV - Hormone system
@@ -176,6 +171,7 @@
         Blunt: 5
   - type: SleepEmitSound
   - type: SSDIndicator
+    doNotSleep: true
   - type: StandingState
   - type: Dna
   - type: MindContainer
@@ -222,7 +218,6 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  - type: LayingDown # WD EDIT
   - type: Barotrauma
     damage:
       types:

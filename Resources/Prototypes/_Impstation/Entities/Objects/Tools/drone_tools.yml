@@ -81,7 +81,6 @@
     state: icon
   - type: LimitedCharges
     maxCharges: 10
-    charges: 10
   - type: AutoRecharge
     rechargeDuration: 10
   - type: RCD
@@ -111,7 +110,6 @@
     state: icon
   - type: LimitedCharges
     maxCharges: 20
-    charges: 20
   - type: AutoRecharge
     rechargeDuration: 5
   - type: RCD
@@ -148,7 +146,6 @@
   components:
   - type: LimitedCharges
     maxCharges: 50
-    charges: 50
   - type: AutoRecharge
     rechargeDuration: 0.1
 
@@ -164,26 +161,26 @@
 # PAI actions
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionDroneOpenMap
   name: Open Map
   description: Look upon yourself.
   components:
-    - type: InstantAction
-      checkCanInteract: false
-      checkConsciousness: false
-      icon: { sprite: Interface/Actions/pai-map.rsi, state: icon }
-      event: !type:OpenUiActionEvent
-        key: enum.StationMapUiKey.Key
+  - type: Action
+    icon: { sprite: Interface/Actions/pai-map.rsi, state: icon }
+  - type: InstantAction
+    event: !type:OpenUiActionEvent
+      key: enum.StationMapUiKey.Key
 
 - type: entity
+  parent: BaseMentalAction
   id: ActionDronePlayMidi
   name: Play MIDI
   description: Contribute to the ambiance.
   components:
-  - type: InstantAction
-    checkCanInteract: false
-    checkConsciousness: false
+  - type: Action
     icon: Interface/Actions/pai-midi.png
+  - type: InstantAction
     event: !type:OpenUiActionEvent
       key: enum.InstrumentUiKey.Key
 

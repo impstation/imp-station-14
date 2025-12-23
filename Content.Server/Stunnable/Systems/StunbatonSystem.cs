@@ -4,17 +4,17 @@ using Content.Server.Power.Events;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage.Events;
 using Content.Shared.Examine;
-using Content.Shared.Item;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Popups;
+using Content.Shared.Power;
+using Content.Shared.Power.Components;
 using Content.Shared.Stunnable;
 
 namespace Content.Server.Stunnable.Systems
 {
     public sealed class StunbatonSystem : SharedStunbatonSystem
     {
-        [Dependency] private readonly SharedItemSystem _item = default!;
         [Dependency] private readonly RiggableSystem _riggableSystem = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly BatterySystem _battery = default!;
@@ -27,23 +27,22 @@ namespace Content.Server.Stunnable.Systems
             SubscribeLocalEvent<StunbatonComponent, ExaminedEvent>(OnExamined);
             SubscribeLocalEvent<StunbatonComponent, SolutionContainerChangedEvent>(OnSolutionChange);
             SubscribeLocalEvent<StunbatonComponent, StaminaDamageOnHitAttemptEvent>(OnStaminaHitAttempt);
-            SubscribeLocalEvent<StunbatonComponent, ItemToggleActivateAttemptEvent>(TryTurnOn);
-            SubscribeLocalEvent<StunbatonComponent, ItemToggledEvent>(ToggleDone);
             SubscribeLocalEvent<StunbatonComponent, ChargeChangedEvent>(OnChargeChanged);
         }
 
         private void OnStaminaHitAttempt(Entity<StunbatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
         {
-            // Impstation
+            // Impstation start
             if (entity.Comp.Inverted && _itemToggle.IsActivated(entity.Owner))
             {
                 args.Cancelled = true;
             }
             else if (entity.Comp.Inverted)  // Uses else so that the next if statement can call battery drain when stun gets canceled (e.g. baton is on)
                 return;
+            // imp end
 
             if (!_itemToggle.IsActivated(entity.Owner) ||
-            !TryComp<BatteryComponent>(entity.Owner, out var battery) || !_battery.TryUseCharge(entity.Owner, entity.Comp.EnergyPerUse, battery))
+            !TryComp<BatteryComponent>(entity.Owner, out var battery) || !_battery.TryUseCharge((entity.Owner, battery), entity.Comp.EnergyPerUse))
             {
                 args.Cancelled = true;
             }
@@ -63,13 +62,10 @@ namespace Content.Server.Stunnable.Systems
             }
         }
 
-        private void ToggleDone(Entity<StunbatonComponent> entity, ref ItemToggledEvent args)
+        protected override void TryTurnOn(Entity<StunbatonComponent> entity, ref ItemToggleActivateAttemptEvent args)
         {
-            _item.SetHeldPrefix(entity.Owner, args.Activated ? "on" : "off");
-        }
+            base.TryTurnOn(entity, ref args);
 
-        private void TryTurnOn(Entity<StunbatonComponent> entity, ref ItemToggleActivateAttemptEvent args)
-        {
             if (!TryComp<BatteryComponent>(entity, out var battery) || battery.CurrentCharge < entity.Comp.EnergyPerUse)
             {
                 args.Cancelled = true;
