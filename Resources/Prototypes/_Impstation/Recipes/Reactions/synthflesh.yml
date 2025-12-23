@@ -1,0 +1,134 @@
+# Regular ass blood
+- type: reaction
+  id: CreateSynthFleshBlood
+  impact: Low
+  conserveEnergy: true
+  reactants:
+    Blood:
+      amount: 2
+    Lacerinol:
+      amount: 1
+    Fat:
+      amount: 1
+  products:
+    SynthFlesh: 2
+
+# Spiders
+- type: reaction
+  id: CreateSynthFleshCopper
+  impact: Low
+  conserveEnergy: true
+  reactants:
+    CopperBlood:
+      amount: 2
+    Lacerinol:
+      amount: 1
+    Fat:
+      amount: 1
+  products:
+    SynthFlesh: 2
+
+# Diona. Don't ask how it has dna. dont
+- type: reaction
+  id: CreateSynthFleshSap
+  impact: Low
+  conserveEnergy: true
+  reactants:
+    Sap:
+      amount: 2
+    Lacerinol:
+      amount: 1
+    Protein:
+      amount: 4
+  products:
+    SynthFlesh: 2
+
+# Vox
+- type: reaction
+  id: CreateSynthFleshAmmonia
+  impact: Low
+  conserveEnergy: true
+  reactants:
+    AmmoniaBlood:
+      amount: 2
+    Lacerinol:
+      amount: 1
+    Fat:
+      amount: 1
+  products:
+    SynthFlesh: 2
+
+# Slime
+- type: reaction
+  id: CreateSynthFleshSlime
+  impact: Low
+  conserveEnergy: true
+  reactants:
+    Slime:
+      amount: 2
+    Lacerinol:
+      amount: 2
+    Protein:
+      amount: 2
+  products:
+    SynthFlesh: 3
+
+# Insects
+- type: reaction
+  id: CreateSynthFleshInsect
+  impact: Low
+  conserveEnergy: true
+  reactants:
+    InsectBlood:
+      amount: 2
+    Lacerinol:
+      amount: 1
+    Fat:
+      amount: 1
+  products:
+    SynthFlesh: 2
+
+# Grays!!
+- type: reaction
+  id: CreateSynthFleshGray
+  impact: Low
+  conserveEnergy: true
+  reactants:
+    GrayBlood:
+      amount: 2
+    Lacerinol:
+      amount: 1
+    Fat:
+      amount: 1
+  products:
+    SynthFlesh: 2
+
+# Kodepiiae
+- type: reaction
+  id: CreateSynthFleshKodepiiae
+  impact: Low
+  conserveEnergy: true
+  reactants:
+    BloodKodepiia:
+      amount: 2
+    Lacerinol:
+      amount: 1
+    Fat:
+      amount: 1
+  products:
+    SynthFlesh: 2
+
+# Thaven
+- type: reaction
+  id: CreateSynthFleshShimmering
+  impact: Low
+  conserveEnergy: true
+  reactants:
+    ShimmeringBlood:
+      amount: 2
+    Lacerinol:
+      amount: 1
+    Fat:
+      amount: 1
+  products:
+    SynthFlesh: 2
