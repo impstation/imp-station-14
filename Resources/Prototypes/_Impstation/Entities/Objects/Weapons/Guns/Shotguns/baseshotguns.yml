@@ -15,7 +15,7 @@
     shape:
     - 0,0,4,0
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
     quickEquip: false
     slots:
     - Back
@@ -95,7 +95,7 @@
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
     soundRack:
-      path: /Audio/_Impstation/Weapons/Guns/Cock/shotgun_cock.ogg #imp
+      path: /Audio/_Impstation/Weapons/Guns/Cock/shotgun_cock.ogg
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
