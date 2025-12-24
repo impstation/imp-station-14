@@ -60,6 +60,14 @@
         Blunt: 8
 
 - type: entity
+  parent: WeaponShotgunEnforcer
+  id: WeaponShotgunEnforcerRubber
+  suffix: Non-Lethal
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunBeanbag
+
+- type: entity
   name: stun Enforcer
   parent: WeaponShotgunEnforcer
   id: WeaponShotgunEnforcerBeanbag
