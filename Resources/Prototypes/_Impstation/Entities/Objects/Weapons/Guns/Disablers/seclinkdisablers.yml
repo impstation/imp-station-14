@@ -1,6 +1,34 @@
+# roundstart disablers found in the SecLink Radio.
+- type: entity
+  name: disabler
+  parent: [BaseWeaponSmallDisabler, BaseSecurityCommandContraband]
+  id: WeaponDisabler
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler.rsi
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+
 - type: entity
   name: discombobulator
-  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
+  parent: [BaseWeaponSmallDisabler, BaseSecurityCommandContraband]
   id: WeaponFunnyDisabler
   description: A self-defense weapon that humours organic targets, entertaining them until they collapse.
   components:
@@ -14,10 +42,6 @@
         shader: unshaded
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/clowndisabler.rsi
-    quickEquip: false
-    slots:
-      - suitStorage
-      - Belt
   - type: Battery
     maxCharge: 1000
     startingCharge: 1000
@@ -27,7 +51,6 @@
     steps: 5
     zeroVisible: true
   - type: Gun
-    fireRate: 2
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/clowndisabler.ogg
   - type: ProjectileBatteryAmmoProvider
@@ -36,7 +59,7 @@
 
 - type: entity
   name: pocket disabler
-  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
+  parent: [BaseWeaponSmallDisabler, BaseSecurityCommandContraband]
   id: WeaponPocketDisabler
   description: A compact version of the iconic Disabler, but packs no less of a punch!
   components:
@@ -54,10 +77,6 @@
     - 0,0,1,0
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/disablerderringer.rsi
-    quickEquip: false
-    slots:
-      - suitStorage
-      - Belt
   - type: Appearance
   - type: MagazineVisuals
     magState: mag
@@ -72,7 +91,7 @@
 
 - type: entity
   name: auto disabler
-  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
+  parent: [BaseWeaponSmallDisabler, BaseSecurityCommandContraband]
   id: WeaponAutoDisabler
   description: A Disabler built for sustained, automatic fire at the cost of stunning power.
   components:
@@ -90,10 +109,6 @@
     - 0,0,1,1
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/autodisabler.rsi
-    quickEquip: false
-    slots:
-      - suitStorage
-      - Belt
   - type: Gun
     minAngle: 2
     maxAngle: 15
@@ -114,7 +129,7 @@
 
 - type: entity
   name: magnum disabler
-  parent: [ BaseWeaponBatterySmall, BaseSecurityCommandContraband ]
+  parent: [BaseWeaponSmallDisabler, BaseSecurityCommandContraband]
   id: WeaponStunProjector
   description: A disabler built for powerful single shots.
   components:
@@ -126,14 +141,8 @@
       - state: mag-unshaded-0
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
-  - type: Item
-    size: Small
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/stunprojector.rsi
-    quickEquip: false
-    slots:
-      - suitStorage
-      - Belt
   - type: Appearance
   - type: MagazineVisuals
     magState: mag
@@ -150,104 +159,3 @@
   - type: Battery
     maxCharge: 1050
     startingCharge: 1050
-  - type: MeleeWeapon
-    wideAnimationRotation: -80
-  - type: PacifismAllowedGun
-
-- type: entity
-  name: antique disabler
-  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
-  id: WeaponHoPDisabler
-  description: It's a wonder how a priceless weapon with so much gold on it could feel this light and so much like plastic.
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Disablers/hopdisabler.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-unshaded-0
-        map: ["enum.GunVisualLayers.MagUnshaded"]
-        shader: unshaded
-  - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Disablers/hopdisabler.rsi
-    quickEquip: false
-    slots:
-      - suitStorage
-      - Belt
-  - type: Battery
-    maxCharge: 900
-    startingCharge: 900
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 30
-    autoRechargePauseTime: 5
-  - type: Appearance
-  - type: MagazineVisuals
-    magState: mag
-    steps: 4
-    zeroVisible: true
-  - type: Gun
-    fireRate: 2
-    soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/antiquedisabler.ogg
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 150
-  - type: StealTarget
-    stealGroup: AntiqueDisabler
-
-- type: entity
-  name: disabler carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponDisablerCarbine
-  description: An advanced disabler that accelerates its shots to the speed of light.
-  components:
-  - type: Item
-    size: Large
-    shape:
-    - 0,0,4,0
-    - 0,1,0,1
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disablercarbine.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-unshaded-3
-      map: ["enum.GunVisualLayers.MagUnshaded"]
-      shader: unshaded
-  - type: MagazineVisuals
-    magState: mag
-    steps: 4
-    zeroVisible: true
-  - type: Appearance
-  - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disablercarbine.rsi
-  - type: Gun
-    soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
-    fireRate: 1.6
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-  - type: HitscanBatteryAmmoProvider
-    proto: HitscanDisabler
-    fireCost: 100
-  - type: Battery
-    maxCharge: 1200
-    startingCharge: 1200
-  - type: StaticPrice
-    price: 420
-  - type: MeleeWeapon
-    attackRate: 0.6
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-  - type: PacifismAllowedGun

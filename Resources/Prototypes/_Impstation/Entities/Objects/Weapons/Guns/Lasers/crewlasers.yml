@@ -216,7 +216,7 @@
 
 - type: entity
   name: X-66 advanced laser pistol
-  parent: [BaseWeaponInternalLaser, BaseSecurityContraband]
+  parent: [BaseWeaponInternalSmallLaser, BaseSecurityContraband]
   id: WeaponAdvancedLaser
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
@@ -234,10 +234,6 @@
       shader: unshaded
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Lasers/advancedlasergun.rsi
-    quickEquip: false
-    slots:
-    - Belt
-    - suitStorage
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
@@ -249,15 +245,10 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
-  - type: MeleeWeapon #for pistolwhip anim
-    wideAnimationRotation: -80
-  - type: Tag
-    tags:
-    - Sidearm
 
 - type: entity
   name: antique laser pistol
-  parent: [BaseWeaponInternalLaser, BaseGrandTheftContraband]
+  parent: [BaseWeaponInternalSmallLaser, BaseGrandTheftContraband]
   id: WeaponAntiqueLaser
   description: All craftsmanship is of the highest quality. It is decorated with carp leather and chrome. The object menaces with spikes of energy.
   components:
@@ -269,17 +260,8 @@
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Lasers/antiquelasergun.rsi
-    quickEquip: false
-    slots:
-    - Belt
-    - suitStorage
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
@@ -306,12 +288,10 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
-  - type: MeleeWeapon # for pistolwhip anim
-    wideAnimationRotation: -80
 
 - type: entity
   name: Svalinn laser pistol
-  parent: [BaseWeaponMagazineLaser, BaseSecurityContraband]
+  parent: [BaseWeaponMagazineSmallLaser, BaseSecurityContraband]
   id: WeaponLaserSvalinn
   description: A cheap and widely-used laser pistol with an interchangeable power cell.
   components:
@@ -324,20 +304,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
-    storedOffset: 0,-7
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    storedOffset: 0,-7
   - type: Clothing
     sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
-    quickEquip: false
-    slots:
-    - Belt
-    - suitStorage
-  - type: MeleeWeapon #imp; for pistolwhip anim
-    wideAnimationRotation: -80
-  - type: Tag
-    tags:
-    - Sidearm

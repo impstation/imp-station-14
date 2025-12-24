@@ -1,7 +1,7 @@
 # the feared weapons of the ERT and Deathsquads
 - type: entity
   name: PXS-21 pulse pistol
-  parent: [BaseWeaponInternalLaser, BaseCentcommContraband]
+  parent: [BaseWeaponInternalSmallLaser, BaseCentcommContraband]
   id: WeaponPulsePistol
   description: A state-of-the-art energy pistol favored as a sidearm by Nanotrasen operatives.
   components:
@@ -21,10 +21,6 @@
   - type: Appearance
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Lasers/pulse_pistol.rsi
-    quickEquip: false
-    slots:
-    - Belt
-    - suitStorage
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
@@ -34,11 +30,6 @@
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
-  - type: MeleeWeapon #for pistolwhip anim
-    wideAnimationRotation: -80
-  - type: Tag
-    tags:
-    - Sidearm
 
 - type: entity
   name: PX-14C pulse carbine

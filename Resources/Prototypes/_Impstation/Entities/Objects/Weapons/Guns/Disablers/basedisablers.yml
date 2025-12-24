@@ -1,0 +1,90 @@
+# Root base, do not use this unless you're doing something VERY different not done below.
+- type: entity
+  name: BaseDisabler
+  parent: BaseItem
+  id: BaseWeaponDisabler
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Item
+  - type: Clothing
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: PacifismAllowedGun
+  - type: StaticPrice
+    price: 500
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 6
+    damage:
+      types:
+        Blunt: 5
+
+# Pistol-sized disablers. Most disablers will fall into this category of weapon. No ammo-provider component because some disablers will be hitscan.
+- type: entity
+  name: BaseSmallDisabler
+  parent: BaseWeaponDisabler
+  id: BaseWeaponSmallDisabler
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: MeleeWeapon #for pistolwhip anim
+    wideAnimationRotation: -80
+  - type: Tag
+    tags:
+    - Taser
+    - Sidearm
+
+# Larger-sized disablers, such as the SMG or the Carbine.
+- type: entity
+  name: BaseLargeDisabler
+  parent: BaseWeaponDisabler
+  id: BaseWeaponLargeDisabler
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Item
+    size: Large
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Tag
+    tags:
+    - Taser

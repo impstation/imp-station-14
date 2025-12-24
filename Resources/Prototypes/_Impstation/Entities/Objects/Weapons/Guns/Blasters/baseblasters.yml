@@ -1,15 +1,15 @@
 # Root base, do not use this unless you're doing something VERY different not done below.
 - type: entity
-  name: BaseLaser
+  name: BaseBlaster
   parent: BaseItem
-  id: BaseWeaponLaser
+  id: BaseWeaponBlaster
   description: A rooty tooty point and shooty.
   abstract: true
   components:
   - type: Sprite
   - type: Item
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_retro.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/advblaster.rsi
     quickEquip: false
     slots:
     - Back
@@ -21,7 +21,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/blasterpist.ogg
   - type: StaticPrice
     price: 500
   - type: MeleeWeapon
@@ -43,11 +43,11 @@
       types:
         Blunt: 5
 
-# Lasers with a battery you can swap out. BaseWeaponMagazineSmallLaser is for pistol-sized versions.
+# Blasters with a battery you can swap out. BaseWeaponMagazineSmallBlaster is for pistol-sized versions.
 - type: entity
-  name: BaseMagazineLaser
-  parent: BaseWeaponLaser
-  id: BaseWeaponMagazineLaser
+  name: BaseMagazineBlaster
+  parent: BaseWeaponBlaster
+  id: BaseWeaponMagazineBlaster
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -55,13 +55,12 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: PowerCellSmall
+        startingItem: PowerCellBlaster
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:
           tags:
-            - PowerCell
-            - PowerCellSmall
+            - BlasterCell
   - type: Appearance
   - type: StaticPrice
     price: 500
@@ -71,9 +70,9 @@
   - type: MagazineAmmoProvider
 
 - type: entity
-  name: BaseMagazineLaser
-  parent: BaseWeaponMagazineLaser
-  id: BaseWeaponMagazineSmallLaser
+  name: BaseMagazineBlaster
+  parent: BaseWeaponMagazineBlaster
+  id: BaseWeaponMagazineSmallBlaster
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -94,11 +93,11 @@
     tags:
     - Sidearm
 
-# Lasers with a built-in battery that you cannot replace. BaseWeaponInternalSmallLaser is for pistol-sized versions.
+# Blasters with a built-in battery that you cannot replace. BaseWeaponInternalSmallBlaster is for pistol-sized versions.
 - type: entity
-  name: BaseInternalLaser
-  parent: BaseWeaponLaser
-  id: BaseWeaponInternalLaser
+  name: BaseInternalBlaster
+  parent: BaseWeaponBlaster
+  id: BaseWeaponInternalBlaster
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -109,14 +108,14 @@
     magState: mag
     steps: 5
     zeroVisible: false
-  - type: HitscanBatteryAmmoProvider
-    proto: RedLaser
-    fireCost: 62.5
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletBlasterMagnum
+    fireCost: 150
 
 - type: entity
-  name: BaseInternalLaser
-  parent: BaseWeaponInternalLaser
-  id: BaseWeaponInternalSmallLaser
+  name: BaseInternalBlaster
+  parent: BaseWeaponInternalBlaster
+  id: BaseWeaponInternalSmallBlaster
   description: A rooty tooty point and shooty.
   abstract: true
   components:
