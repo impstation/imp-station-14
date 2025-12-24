@@ -1,0 +1,90 @@
+# Root base, do not use this unless you're doing something VERY different not done below.
+- type: entity
+  name: BaseLaser
+  parent: BaseItem
+  id: BaseWeaponLaser
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Item
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_retro.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: StaticPrice
+    price: 500
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 6
+    damage:
+      types:
+        Blunt: 5
+
+# Lasers with a battery you can swap out
+- type: entity
+  name: BaseMagazineLaser
+  parent: BaseWeaponLaser
+  id: BaseWeaponMagazineLaser
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: PowerCellSmall
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - PowerCell
+            - PowerCellSmall
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: MagazineAmmoProvider
+
+# Lasers with a built-in battery that you cannot replace
+- type: entity
+  name: BaseInternalLaser
+  parent: BaseWeaponLaser
+  id: BaseWeaponInternalLaser
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 62.5
