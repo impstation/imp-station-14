@@ -303,6 +303,20 @@
             Quantity: 5
 
 - type: entity
+  parent: [ CustomVapeCart, BaseSyndicateContraband ]
+  id: CustomVapeCartSyndie
+  name: Interdyne DIY cart
+  description: An interdyne branded cartridge you can fill with anything! Probably lead free!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 50.1
+        reagents:
+        - ReagentId: Lead #not lead free
+          Quantity: 0.1
+
+- type: entity
   parent: [ BaseVapeCart, BaseSyndicateContraband ]
   id: LexorinVapeCart
   name: Choke 'n Die
