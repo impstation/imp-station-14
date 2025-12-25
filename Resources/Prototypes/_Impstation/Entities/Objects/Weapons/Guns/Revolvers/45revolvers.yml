@@ -58,52 +58,52 @@
       types:
         Blunt: 5
 
-- type: entity
-  name: improvised revolver
-  parent: [ BaseWeaponRevolver, BaseMajorContraband ]
-  id: WeaponRevolverImprovised
-  description: A wanderer drifts through these halls. One known by no name, draped in a cloak of gray. This item is but a shadow of the weapon used by them. Its improvised nature makes it fit .22, .35, and .45 bullets in the chambers.
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/improvpistol.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
-  - type: Tag
-    tags:
-    - Sidearm
-  - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/improvpistol.rsi
-    quickEquip: false
-    slots:
-    - suitStorage
-    - Belt
-  - type: Gun
-    fireRate: 2.75
-    minAngle: 6
-    maxAngle: 22
-    angleIncrease: 4
-    angleDecay: 10
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
-  - type: RevolverAmmoProvider
-    whitelist:
-      tags:
-      - CartridgeLPistol
-      - CartridgePistol
-      - CartridgeMagnum
-      - SpeedLoaderMagnum
-    capacity: 5 # might make this 6 instead, not sure
-    chambers: [ True, True, True, True, True ]
-    ammoSlots: [ null, null, null, null, null ]
-  # - type: Construction
-  #   graph: ImprovisedPistolGraph # CHANGE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  #   node: pistol
-  - type: StaticPrice
-    price: 20
+# - type: entity
+#   name: improvised revolver
+#   parent: [ BaseWeaponRevolver, BaseMajorContraband ]
+#   id: WeaponRevolverImprovised
+#   description: A wanderer drifts through these halls. One known by no name, draped in a cloak of gray. This item is but a shadow of the weapon used by them. Its improvised nature makes it fit .22, .35, and .45 bullets in the chambers.
+#   components:
+#   - type: Sprite
+#     sprite: _Impstation/Objects/Weapons/Guns/Pistols/improvpistol.rsi
+#     layers:
+#     - state: base
+#       map: ["enum.GunVisualLayers.Base"]
+#   - type: Item
+#     size: Small
+#     shape:
+#     - 0,0,1,0
+#     - 0,1,0,1
+#   - type: Tag
+#     tags:
+#     - Sidearm
+#   - type: Clothing
+#     sprite: _Impstation/Objects/Weapons/Guns/Pistols/improvpistol.rsi
+#     quickEquip: false
+#     slots:
+#     - suitStorage
+#     - Belt
+#   - type: Gun
+#     fireRate: 2.75
+#     minAngle: 6
+#     maxAngle: 22
+#     angleIncrease: 4
+#     angleDecay: 10
+#     soundGunshot:
+#       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+#   - type: RevolverAmmoProvider
+#     whitelist:
+#       tags:
+#       - CartridgeLPistol
+#       - CartridgePistol
+#       - CartridgeMagnum
+#       - SpeedLoaderMagnum
+#     capacity: 5 # might make this 6 instead, not sure
+#     chambers: [ True, True, True, True, True ]
+#     ammoSlots: [ null, null, null, null, null ]
+#   # - type: Construction
+#   #   graph: ImprovisedPistolGraph # CHANGE THIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#   #   node: pistol
+#   - type: StaticPrice
+#     price: 20
 

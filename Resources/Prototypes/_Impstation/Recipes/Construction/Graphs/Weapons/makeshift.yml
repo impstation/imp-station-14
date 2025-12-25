@@ -51,8 +51,8 @@
             - tag: Microwave
               name: construction-graph-tag-microwave
               icon:
-                sprite: Objects/Materials/Shards/shard.rsi
-                state: shard1
+                sprite: Structures/Machines/microwave.rsi
+                state: mw
               doAfter: 1
           # - tool: Welding
           #   doAfter: 5
