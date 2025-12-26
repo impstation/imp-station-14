@@ -5,3 +5,12 @@
   frequency: 1312 # teehee.
   color: pink
   longRange: true # ideally shouldnt work off grid but needs this to function without a server console
+
+- type: radioChannel
+  id: Porcelain
+  name: chat-radio-porcelain
+  keycode: 'p'
+  frequency: 1414
+  color: "#ffffff"
+  longRange: true
+  showFrequency: true
