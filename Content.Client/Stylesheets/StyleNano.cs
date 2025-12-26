@@ -205,9 +205,6 @@ namespace Content.Client.Stylesheets
         public const string ClassLowDivider = "LowDivider";
         public const string ClassAngleRect = "AngleRect";
 
-        // imp Manifest
-        public const string StyleClassCrewManifestGender = "CrewManifestGender";
-
 
         public override Stylesheet Stylesheet { get; }
 
@@ -1271,11 +1268,6 @@ namespace Content.Client.Stylesheets
                     .Prop("font", notoSansItalic10)
                     .Prop("font-color", ItemStatusNotHeldColor),
 
-                Element<RichTextLabel>() // imp add
-                    .Class(StyleClassCrewManifestGender)
-                    .Prop("font", notoSansItalic10)
-                    .Prop("font-style", "italic"),
-
                 Element<RichTextLabel>()
                     .Class(StyleClassItemStatus)
                     .Prop(nameof(RichTextLabel.LineHeightScale), 0.7f)
@@ -1515,21 +1507,6 @@ namespace Content.Client.Stylesheets
                 // Green Button ---
                 Element<Button>().Class("ButtonColorGreen")
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDefault),
-
-                // imp add start
-                // Accept button (merge with green button?) ---
-                Element<Button>().Class("ButtonAccept")
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDefault),
-
-                Element<Button>().Class("ButtonAccept").Pseudo(ContainerButton.StylePseudoClassNormal)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDefault),
-
-                Element<Button>().Class("ButtonAccept").Pseudo(ContainerButton.StylePseudoClassHover)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodHovered),
-
-                Element<Button>().Class("ButtonAccept").Pseudo(ContainerButton.StylePseudoClassDisabled)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDisabled),
-                // imp add end
 
                 Element<Button>().Class("ButtonColorGreen").Pseudo(ContainerButton.StylePseudoClassNormal)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDefault),
