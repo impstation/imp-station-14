@@ -6,9 +6,9 @@
   description: Pieces of metal that make the frame of a table.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/frame.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/frame.rsi # Imp
     state: full
   - type: Fixtures
     fixtures:
@@ -25,7 +25,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: IconSmooth
-    key: state
+    key: tableframe # imp, from state
     base: state_
   - type: Destructible
     thresholds:
@@ -64,9 +64,9 @@
   components:
   - type: SpriteFade
   - type: Sprite
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite:  _Impstation/Structures/Furniture/Tables/frame_counter.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/frame_counter.rsi # Imp
     state: full
   - type: Fixtures
     fixtures:
@@ -83,7 +83,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
   - type: IconSmooth
-    key: state
+    key: counterframe # imp, from state
     base: state_
   - type: Destructible
     thresholds:
@@ -118,15 +118,15 @@
   description: Pieces of metal that make the frame of a table.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/frame_counter.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/frame_counter.rsi # Imp
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: IconSmooth
-    key: state
+    key: counterframe # imp, from state
     base: state_
   - type: Destructible
     thresholds:
@@ -159,13 +159,13 @@
 - type: entity
   id: Table
   parent: TableBase
-  name: table
+  name: steel table # imp, from table
   description: A square piece of metal standing on four metal legs.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/generic.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/generic.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table.rsi # imp
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -210,9 +210,9 @@
   description: A square piece of metal standing on four metal legs. Extra robust.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/reinforced.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_reinforced.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/reinforced.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_reinforced.rsi # imp
   - type: Destructible
     thresholds:
     - trigger:
@@ -260,9 +260,9 @@
   description: A square piece of glass, standing on four metal legs.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/glass.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/glass.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass.rsi # imp
   - type: GlassTable
     climberDamage:
       types:
@@ -372,9 +372,9 @@
   description: A square piece of glass, standing on four metal legs. Extra robust.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/r_glass.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass_reinforced.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/r_glass.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass_reinforced.rsi # imp
   - type: GlassTable
     climberDamage:
       types:
@@ -432,9 +432,9 @@
   description: A square piece of plasma glass, standing on four metal legs. Pretty!
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/plasma.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass_plasma.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/plasma.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass_plasma.rsi # Imp
   - type: GlassTable
     climberDamage:
       types:
@@ -538,9 +538,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/wood.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_wood.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/wood.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_wood.rsi # Imp
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
@@ -588,9 +588,9 @@
   description: Play em' cowboy.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/carpet.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_wood_poker.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/carpet.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_wood_poker.rsi # Imp
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
@@ -977,9 +977,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/counterwood.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/counter_wood.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/counterwood.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/counter_wood.rsi # imp
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -1019,13 +1019,13 @@
 - type: entity
   id: TableCounterMetal
   parent: CounterBase
-  name: metal counter
+  name: steel counter # imp, from metal counter
   description: Looks like a good place to put a drink down.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/countermetal.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/counter.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/countermetal.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/counter.rsi # imp
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic
