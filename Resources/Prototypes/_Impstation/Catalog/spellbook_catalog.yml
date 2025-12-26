@@ -1,10 +1,107 @@
+#Defensive
 - type: listing
-  id: SpellbookSpaceGrease
-  name: spellbook-spacegrease-name
-  description: spellbook-spacegrease-desc
-  productAction: ActionSpawnSpaceGreaseSpell
+  id: SpellbookMagicRock
+  name: spellbook-magic-rock-name
+  description: spellbook-magic-rock-desc
+  productAction: ActionPolymorphMagicRock
   cost:
-    WizCoin: 2
+    WizCoin: 4
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWandBubbles
+  name: spellbook-wand-bub-name
+  description: spellbook-wand-bub-description
+  productEntity: WeaponWandWater
+  cost:
+    WizCoin: 4
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+#Offensive
+- type: listing
+  id: SpellbookFrost
+  name: spellbook-frost-name
+  description: spellbook-frost-desc
+  productAction: ActionFrost
+  cost:
+    WizCoin: 4
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookMM
+  name: spellbook-mm-name
+  description: spellbook-mm-desc
+  productAction: ActionMagicM
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookFood
+  name: spellbook-food-name
+  description: spellbook-food-desc
+  productAction: ActionFood
+  icon:
+    sprite: Objects/Consumable/Food/Baked/cake.rsi
+    state: berry_delight
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnSpores
+  name: spellbook-wizspore-name
+  description: spellbook-wizspore-desc
+  productAction: ActionSpawnWizSpore
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnRock
+  name: spellbook-rock-name
+  description: spellbook-rock-desc
+  productEntity: MobRockMagic
+  cost:
+    WizCoin: 5
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Utility
+- type: listing
+  id: SpellbookWizardOnly
+  name: spellbook-wizonly-name
+  description: spellbook-wizonly-desc
+  productAction: ActionWizardsOnly
+  cost:
+    WizCoin: 4
   categories:
   - SpellbookUtility
   conditions:
@@ -12,14 +109,435 @@
     stock: 1
 
 - type: listing
-  id: SpellbookWandPolymorphCluwne
-  name: spellbook-wand-polymorph-cluwne-name
-  description: spellbook-wand-polymorph-cluwne-description
-  productEntity: WeaponWandCluwne
+  id: SpellbookLight
+  name: spellbook-light-name
+  description: spellbook-light-desc
+  productAction: ActionSpawnLight
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpaceGrease
+  name: spellbook-spacegrease-name
+  description: spellbook-spacegrease-desc
+  productAction: ActionSpawnSpaceGreaseSpell
+  cost:
+    WizCoin: 4
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnFinFin
+  name: spellbook-finfin-name
+  description: spellbook-finfin-desc
+  productAction: ActionSpawnFinFinSpell
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnCurse
+  name: spellbook-curse-name
+  description: spellbook-curse-desc
+  productAction: ActionCurse
+  cost:
+    WizCoin: 5
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Equipment + wands + books
+- type: listing
+  id: SpellbookSpawnRunes
+  name: spellbook-runes-name
+  description: spellbook-runes-desc
+  productEntity: ScrollRunes
+  cost:
+    WizCoin: 4
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnGloves
+  name: spellbook-gloves-name
+  description: spellbook-gloves-desc
+  productEntity: ClothingHandsWizard
   cost:
     WizCoin: 3
   categories:
   - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnGlasses
+  name: spellbook-glasses-name
+  description: spellbook-glasses-desc
+  productEntity: ClothingEyesGlassesWizard
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnBoots
+  name: spellbook-boots-name
+  description: spellbook-boots-desc
+  productEntity: ClothingBootsWizard
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnStamp
+  name: spellbook-stamp-name
+  description: spellbook-stamp-desc
+  productEntity: RubberStampWizard
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnCarp
+  name: spellbook-carp-spawn-name
+  description: spellbook-carp-spawn-desc
+  productEntity: SpawnSpellbook
+  cost:
+    WizCoin: 4
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnBag
+  name: spellbook-bag-name
+  description: spellbook-bag-desc
+  productEntity: ClothingBackpackSatchelWizard
+  cost:
+    WizCoin: 4
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnPAI
+  name: spellbook-pai-name
+  description: spellbook-pai-desc
+  productEntity: PersonalAIMagic
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWizSuit
+  name: spellbook-suit-name
+  description: spellbooksuit-desc
+  productEntity: ClothingOuterHardsuitWizard
+  cost:
+    WizCoin: 5
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWandHeal
+  name: spellbook-wand-heal-name
+  description: spellbook-wand-heal-description
+  productEntity: WeaponStaffHealing
+  cost:
+    WizCoin: 5
+  categories:
+  - SpellbookWand
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWandBreak
+  name: spellbook-wand-break-name
+  description: spellbook-wand-break-description
+  productEntity: WeaponWandBreak
+  cost:
+    WizCoin: 5
+  categories:
+  - SpellbookWand
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWandFire
+  name: spellbook-wand-fire-name
+  description: spellbook-wand-fire-description
+  productEntity: WeaponWandFireball
+  cost:
+    WizCoin: 5
+  categories:
+  - SpellbookWand
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookWizmov
+  name: spellbook-wizmov-name
+  description: spellbook-wizmov-description
+  productEntity: WizmovCircuitBoard
+  cost:
+    WizCoin: 5
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookApprentice
+  name: spellbook-apprentice-name
+  description: spellbook-apprentice-description
+  productEntity: ApprenticeHat
+  cost:
+    WizCoin: 5
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookRing
+  name: spellbook-ring-name
+  description: spellbook-ring-desc
+  productEntity: MagicRing
+  cost:
+    WizCoin: 5
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+# Event
+- type: listing
+  id: SpellbookEventSummonSoap
+  name: spellbook-event-summon-magic-soap-name
+  description: spellbook-event-summon-soap-description
+  productAction: ActionSummonSoap
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookEventSummonWhimsy
+  name: spellbook-event-summon-magic-whimsy-name
+  description: spellbook-event-summon-whimsy-description
+  productAction: ActionSummonWhimsy
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookEventSummonGifts
+  name: spellbook-event-summon-magic-gifts-name
+  description: spellbook-event-summon-gifts-description
+  productAction: ActionSummonGifts
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookEvents
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  disableRefund: true
+
+- type: listing
+  id: SpellbookItemSummonSteel
+  name: spellbook-item-summonsteel-name
+  description: spellbook-item-summonsteel-description
+  productAction: ActionSpawnSteel
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookMats
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonWood
+  name: spellbook-item-summonwood-name
+  description: spellbook-item-summonwood-description
+  productAction: ActionSpawnWood
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookMats
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonPlastic
+  name: spellbook-item-summonplastic-name
+  description: spellbook-item-summonplastic-description
+  productAction: ActionSpawnPlastic
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookMats
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonPlasma
+  name: spellbook-item-summonplasma-name
+  description: spellbook-item-summonplasma-description
+  productAction: ActionSpawnPlasma
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookMats
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonGold
+  name: spellbook-item-summongold-name
+  description: spellbook-item-summongold-description
+  productAction: ActionSpawnGold
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookMats
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonSilver
+  name: spellbook-item-summonsilver-name
+  description: spellbook-item-summonsilver-description
+  productAction: ActionSpawnSilver
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookMats
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonUranium
+  name: spellbook-item-summonuranium-name
+  description: spellbook-item-summonuranium-description
+  productAction: ActionSpawnUranium
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookMats
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonBrass
+  name: spellbook-item-summonbrass-name
+  description: spellbook-item-summonbrass-description
+  productAction: ActionSpawnBrass
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookMats
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonCloth
+  name: spellbook-item-summoncloth-name
+  description: spellbook-item-summoncloth-description
+  productAction: ActionSpawnCloth
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookMats
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookItemSummonGlass
+  name: spellbook-item-summonglass-name
+  description: spellbook-item-summonglass-description
+  productAction: ActionSpawnGlass
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookMats
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookGun
+  name: spellbook-gun-name
+  description: spellbook-gun-description
+  productAction: ActionGun
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1

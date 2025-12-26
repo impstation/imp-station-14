@@ -21,7 +21,7 @@ spellbook-smoke-name = Smoke
 spellbook-smoke-desc = Summons a cloud of smoke, it's pretty obvious.
 
 spellbook-polymorph-spider-name = Spider Polymorph
-spellbook-polymorph-spider-desc = Transforms you into a spider, man!
+spellbook-polymorph-spider-desc = Transforms you into a spider!
 
 spellbook-polymorph-rod-name = Rod Polymorph
 spellbook-polymorph-rod-desc = Change into an Immovable Rod with limited movement.
@@ -57,10 +57,6 @@ spellbook-wand-polymorph-door-description = For when you need a get-away route.
 
 spellbook-wand-polymorph-carp-name = Wand of Carp Polymorph
 spellbook-wand-polymorph-carp-description = For when you need a carp filet quick and the clown is looking juicy.
-
-# Imp Addition
-spellbook-wand-polymorph-cluwne-name = Wand of Cluwning
-spellbook-wand-polymorph-cluwne-description = For when you really hate someone and Smite isn't enough.
 
 spellbook-wand-locker-name = Wand of the Locker
 spellbook-wand-locker-description = Shoot cursed lockers at your enemies and lock em away!
