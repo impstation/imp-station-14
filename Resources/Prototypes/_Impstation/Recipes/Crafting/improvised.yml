@@ -82,3 +82,11 @@
   targetNode: floatingfloracrown
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  id: ClothingOuterBarrel
+  graph: BarrelSuspenders
+  startNode: start
+  targetNode: barrel
+  category: construction-category-clothing
+  objectType: Item
