@@ -116,8 +116,14 @@
     damage:
       types:
         Blunt: 50
-    onlyGunDamage: true
+    damageSpecific:
+      ProjectilePractice:
+        types:
+          Blunt: 0
+    onlyGunDamage: false
   - type: GunProjectileCountModifier
     projCount: 20
+    projCountSpecific:
+      ProjectilePractice: 0
   - type: GunSpreadModifier
     spread: 5.0

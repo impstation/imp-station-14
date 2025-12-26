@@ -1,15 +1,18 @@
 using Content.Shared.Damage;
 using Content.Shared.Projectiles;
+using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
 /// <summary>
-/// Applies gun damage to ammo projectiles
+/// Adds damage for guns that use cartridge-based projectiles.
 /// </summary>
 public sealed class GunDamageSystem : EntitySystem
 {
+    [Dependency] private readonly TagSystem _tagSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -23,11 +26,21 @@ public sealed class GunDamageSystem : EntitySystem
             if (!TryComp<ProjectileComponent>(projectile, out var proj))
                 continue;
 
-            if (component.OnlyGunDamage)
-                proj.Damage = new DamageSpecifier(component.Damage);
+            var damageToApply = component.Damage;
 
+            foreach (var (tag, damage) in component.DamageSpecific)
+            {
+                if (_tagSystem.HasTag(projectile, tag))
+                {
+                    damageToApply = damage;
+                    break;
+                }
+            }
+
+            if (component.OnlyGunDamage)
+                proj.Damage = new DamageSpecifier(damageToApply);
             else
-                proj.Damage += component.Damage;
+                proj.Damage += damageToApply;
         }
     }
 }
