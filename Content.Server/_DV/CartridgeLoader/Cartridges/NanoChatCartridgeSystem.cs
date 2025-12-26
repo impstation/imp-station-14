@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Evaisa <evagiacosa1@gmail.com>
+// SPDX-FileCopyrightText: 2025 EvaisaDev <mail@evaisa.dev>
+// SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.CartridgeLoader;
@@ -331,9 +341,6 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         NanoChatUiMessageEvent msg)
     {
         if (msg.RecipientNumber == null || msg.Content == null || card.Comp.Number == null)
-            return;
-
-        if (!EnsureRecipientExists(card, msg.RecipientNumber.Value))
             return;
 
         var content = msg.Content;
@@ -714,3 +721,4 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         _cartridge.UpdateCartridgeUiState(loader, state);
     }
 }
+
