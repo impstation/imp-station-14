@@ -5,6 +5,7 @@
                       SetSize="200 400">
     <BoxContainer Margin="5 5 5 5" Orientation="Vertical">
         <LineEdit Name="SearchBar" PlaceHolder="Search" HorizontalExpand="True" Margin="0 4" />
+        <Button Name="RandomVisionButton" Access="Public" Text="{Loc 'pleebnar-telepathy-randomvisionbutton'}" />
         <ScrollContainer HScrollEnabled="False"
                          HorizontalExpand="True"
                          VerticalExpand="True"
