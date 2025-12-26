@@ -1,72 +1,4 @@
 ﻿Entries:
-- author: hivehum
-  changes:
-  - message: Headphones no longer teleport you to a source game.
-    type: Fix
-  id: 1991
-  time: '2025-07-07T05:36:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3004
-- author: VeeNomine
-  changes:
-  - message: Added a new prestige item, the Librarian's Space Dress.
-    type: Add
-  id: 1992
-  time: '2025-07-07T05:38:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3006
-- author: hivehum
-  changes:
-  - message: Bark like a dog. your below me moron
-    type: Tweak
-  id: 1993
-  time: '2025-07-07T05:44:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3009
-- author: eviltori
-  changes:
-  - message: elite syndicate spies are now fucking around in your maintenance tunnels.
-    type: Add
-  id: 1994
-  time: '2025-07-07T05:46:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2948
-- author: msTheowo
-  changes:
-  - message: Colored shoes are now called sneakers
-    type: Tweak
-  id: 1995
-  time: '2025-07-07T05:48:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3014
-- author: hivehum
-  changes:
-  - message: dog fix
-    type: Fix
-  id: 1996
-  time: '2025-07-07T05:57:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3008
-- author: ErhardSteinhauer
-  changes:
-  - message: Tabletop computers can now be built and placed atop tables.
-    type: Add
-  id: 1997
-  time: '2025-07-07T06:16:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2953
-- author: deltanedas, DinnerCalzone
-  changes:
-  - message: Clown waddling has been fully refactored! Please report any issues or
-      noticeable changes in performance.
-    type: Fix
-  - message: Toggling waddling now has a short cooldown.
-    type: Tweak
-  - message: Crawl waddling has been tragically fixed with this refactor.
-    type: Remove
-  id: 1998
-  time: '2025-07-07T06:15:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2509
-- author: Pinkbat5
-  changes:
-  - message: Tweaked health examine text to be a little clearer.
-    type: Tweak
-  id: 1999
-  time: '2025-07-07T14:48:03.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3016
 - author: msTheowo
   changes:
   - message: Some of CentComm's interns have been conscripted.
@@ -4162,3 +4094,77 @@
   id: 2490
   time: '2025-12-20T04:07:48.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3860
+- author: lobsterpaw
+  changes:
+  - message: The revolutionary encryption key box is now cleverly disguised.
+    type: Tweak
+  id: 2491
+  time: '2025-12-21T02:08:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3874
+- author: honeyed-lemons
+  changes:
+  - message: Puddles are back to being bigger (but not as deep!)
+    type: Tweak
+  - message: Advanced Mops are more Advanced
+    type: Tweak
+  id: 2492
+  time: '2025-12-21T02:12:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3846
+- author: TheGrimbeeper
+  changes:
+  - message: Changelings no longer out themselves by buying flash immunity.
+    type: Fix
+  id: 2493
+  time: '2025-12-21T02:49:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3847
+- author: TheGrimbeeper
+  changes:
+  - message: Natural artifact spawn on unlinked pad wasn't getting biased.
+    type: Fix
+  - message: tweaks to direct inject & shuffle effects.
+    type: Tweak
+  - message: Whoops, artifacts weren't spawning mindless clones... fixed now
+    type: Fix
+  id: 2494
+  time: '2025-12-21T02:54:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3818
+- author: Simul-Ad-Astra
+  changes:
+  - message: Hotsauce is actually hot now
+    type: Tweak
+  - message: 4 new hotsauces straight from the labs of Discount Dan's!
+    type: Add
+  id: 2495
+  time: '2025-12-21T07:05:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3755
+- author: Veenomine, TheGrimbeeper, ultramario1998
+  changes:
+  - message: she is trapped
+    type: Tweak
+  id: 2496
+  time: '2025-12-22T01:57:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3875
+- author: FlapWrap
+  changes:
+  - message: Artist's rendition of Her containment
+    type: Add
+  id: 2497
+  time: '2025-12-26T00:25:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3882
+- author: entings
+  changes:
+  - message: Boar will no longer demolish any machines in their path.
+    type: Tweak
+  - message: Boar will no longer become enamored with specific pieces of station infrastructure
+      to their own detriment.
+    type: Fix
+  id: 2498
+  time: '2025-12-26T09:17:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3803
+- author: msTheowo
+  changes:
+  - message: Soap can now be used to clean decals, including floor grime.
+    type: Add
+  id: 2499
+  time: '2025-12-26T09:21:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3667
