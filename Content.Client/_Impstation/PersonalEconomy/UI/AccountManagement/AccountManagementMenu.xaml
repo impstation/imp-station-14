@@ -1,0 +1,12 @@
+﻿<controls:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:accountManagement="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.AccountManagement"
+    MinSize="512 512"
+    SetSize="512 512"
+    Title="{Loc account-management-window-title}">
+    <TabContainer>
+        <accountManagement:SalaryManagementPanel Name="SalaryPanel"/>
+        <accountManagement:DetailManagementPanel Name="DetailPanel"/>
+    </TabContainer>
+</controls:FancyWindow>

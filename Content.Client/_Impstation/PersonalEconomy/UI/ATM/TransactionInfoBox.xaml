@@ -1,0 +1,14 @@
+﻿<atm:TransactionInfoBox
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI"
+    xmlns:atm="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.ATM"
+    VerticalExpand="True"
+    MouseFilter="Stop">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True">
+        <Control VerticalExpand="True"/>
+        <Label Name="TransferNoLabel"/>
+        <Label Name="TimestampLabel"/>
+        <Label Name="AmountLabel"/>
+        <Control VerticalExpand="True"/>
+    </BoxContainer>
+</atm:TransactionInfoBox>

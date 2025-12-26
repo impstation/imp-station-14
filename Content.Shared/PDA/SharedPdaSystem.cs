@@ -30,6 +30,11 @@ namespace Content.Shared.PDA
             ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPenSlotId, pda.PenSlot);
             ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaPaiSlotId, pda.PaiSlot);
 
+            if (pda.BankCard != null)
+                pda.BankCardSlot.StartingItem = pda.BankCard;
+
+            ItemSlotsSystem.AddItemSlot(uid, PdaComponent.PdaBankCardSlotId, pda.BankCardSlot); //imp edit for banking
+
             UpdatePdaAppearance(uid, pda);
         }
 
@@ -38,6 +43,7 @@ namespace Content.Shared.PDA
             ItemSlotsSystem.RemoveItemSlot(uid, pda.IdSlot);
             ItemSlotsSystem.RemoveItemSlot(uid, pda.PenSlot);
             ItemSlotsSystem.RemoveItemSlot(uid, pda.PaiSlot);
+            ItemSlotsSystem.RemoveItemSlot(uid, pda.BankCardSlot); //imp edit for banking
         }
 
         protected virtual void OnItemInserted(EntityUid uid, PdaComponent pda, EntInsertedIntoContainerMessage args)
