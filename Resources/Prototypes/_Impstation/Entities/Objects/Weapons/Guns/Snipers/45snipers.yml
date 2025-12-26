@@ -1,7 +1,7 @@
 # .45 Magnum deals 35 pierce per shot (CartridgeMagnum)
 - type: entity
   name: flintlock pistol
-  parent: [BaseWeaponInternalSniper, BaseMajorContraband]
+  parent: [BaseWeaponSniper, BaseMajorContraband]
   id: WeaponPistolFlintlock
   description: A pirate's companion. Yarrr! Uses .45 magnum ammo.
   components:

@@ -1,7 +1,7 @@
 # .60 anti-materiel deals 75 pierce and 226 structural per shot (CartridgeAntiMaterial)
 - type: entity
   name: Lindwyrm
-  parent: [BaseWeaponInternalSniper, BaseGunWieldable, Tier3Contraband]
+  parent: [BaseWeaponSniper, BaseGunWieldable, Tier3Contraband]
   id: WeaponSniperHristov
   description: A portable anti-materiel rifle, originally intended for destroying the engine blocks of moving vehicles. Uses .60 anti-materiel ammo.
   components:
@@ -64,7 +64,7 @@
 
 - type: entity
   name: musket
-  parent: [ BaseWeaponInternalSniper, BaseGunWieldable, BaseMajorContraband ]
+  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMajorContraband ]
   id: Musket
   description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
   components:

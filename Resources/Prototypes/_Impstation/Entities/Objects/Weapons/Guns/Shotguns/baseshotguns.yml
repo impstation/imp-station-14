@@ -1,8 +1,8 @@
-# Root base, do not use this unless you're doing something VERY different not done below.
+# The classic shotgun you know and love-- does not use magazines.
 - type: entity
   name: BaseWeaponShotgun
   parent: BaseItem
-  id: BaseWeaponShotgunImp
+  id: BaseWeaponShotgun
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -15,7 +15,7 @@
     shape:
     - 0,0,4,0
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
     quickEquip: false
     slots:
     - Back
@@ -30,6 +30,18 @@
       path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 7
+    proto: ShellShotgun
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
   - type: StaticPrice
     price: 500
   - type: MeleeWeapon
@@ -53,12 +65,36 @@
 
 # Magazine shotguns, such as the Hydra/Bulldog.
 - type: entity
-  name: BaseMagazineShotgun
-  parent: BaseWeaponShotgunImp
+  name: BaseWeaponMagazineShotgun
+  parent: BaseItem
   id: BaseWeaponMagazineShotgun
   description: A rooty tooty point and shooty.
   abstract: true
   components:
+  - type: Sprite
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,4,0
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
   - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
@@ -76,28 +112,23 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-  - type: Appearance
-
-# The classic shotgun you know and love-- does not use magazines.
-- type: entity
-  name: BaseInternalShotgun
-  parent: BaseWeaponShotgunImp
-  id: BaseWeaponInternalShotgun
-  description: A rooty tooty point and shooty.
-  abstract: true
-  components:
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - ShellShotgun
-    capacity: 7
-    proto: ShellShotgun
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
-    soundRack:
-      path: /Audio/_Impstation/Weapons/Guns/Cock/shotgun_cock.ogg
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-        ents: []
-  - type: Appearance
+  - type: StaticPrice
+    price: 500
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 6
+    damage:
+      types:
+        Blunt: 5

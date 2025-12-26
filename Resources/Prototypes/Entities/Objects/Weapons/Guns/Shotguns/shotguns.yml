@@ -1,7 +1,7 @@
 - type: entity
   name: BaseWeaponShotgun
   parent: BaseItem
-  id: BaseWeaponShotgun
+  id: BaseWeaponShotgunWizden #imp - see the _Impstation directory for the version we use
   description: A rooty tooty point and shooty.
   abstract: true
   components:

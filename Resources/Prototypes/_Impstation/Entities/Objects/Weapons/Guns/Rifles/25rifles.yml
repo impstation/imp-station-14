@@ -1,7 +1,7 @@
 # .25 caseless deals 21 pierce per shot (CartridgeCaselessRifle)
 - type: entity
   name: Basilisk-11
-  parent: [BaseWeaponMagazineRifle, BaseSyndicateContraband]
+  parent: [BaseWeaponRifle, BaseSyndicateContraband]
   id: WeaponRifleNemesis
   description: An ambitious step into the future of firearms, and no less fearful. Uses .25 caseless ammo.
   components:

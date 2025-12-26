@@ -1,8 +1,8 @@
-# Root base, do not use this unless you're doing something VERY different not done below.
+# For snipers that hold their bullets inside the gun, like the Mosin
 - type: entity
   name: BaseWeaponSniper
   parent: BaseItem
-  id: BaseWeaponSniperImp
+  id: BaseWeaponSniper
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -13,7 +13,7 @@
   - type: Item
     size: Large
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
     quickEquip: false
     slots:
     - Back
@@ -26,17 +26,47 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: BallisticAmmoProvider
+    capacity: 10
+    proto: CartridgeLightRifle
+    whitelist:
+      tags:
+      - CartridgeLightRifle
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
   - type: StaticPrice
     price: 500
 
 # For snipers that reload using a magazine.
 - type: entity
   name: BaseMagazineSniper
-  parent: BaseWeaponSniperImp
+  parent: BaseItem
   id: BaseWeaponMagazineSniper
   description: A rooty tooty point and shooty.
   abstract: true
   components:
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Large
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 0.75
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
@@ -63,24 +93,5 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-
-# For snipers that hold their bullets inside the gun, like the Mosin
-- type: entity
-  name: BaseInternalSniper
-  parent: BaseWeaponSniperImp
-  id: BaseWeaponInternalSniper
-  description: A rooty tooty point and shooty.
-  abstract: true
-  components:
-  - type: BallisticAmmoProvider
-    capacity: 5
-    proto: CartridgeLightRifle
-    whitelist:
-      tags:
-      - CartridgeLightRifle
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-        ents: []
+  - type: StaticPrice
+    price: 500

@@ -1,7 +1,7 @@
 # .30 rifle deals 25 pierce per shot (CartridgeLightRifle)
 - type: entity
   name: K2903 Star Rifle
-  parent: [ BaseWeaponInternalSniper, BaseGunWieldable, Tier3Contraband ]
+  parent: [ BaseWeaponSniper, BaseGunWieldable, Tier3Contraband ]
   id: WeaponSniperStarService
   description: A modified bolt-action rifle for when 5 rounds isn't good enough. Although closer in appearance and function to a Kardashev-Mosin, it somehow has more in common with the Sturm-96. Uses .30 rifle ammo.
   components:
@@ -49,7 +49,7 @@
 
 - type: entity
   name: Kardashev-Mosin
-  parent: [BaseWeaponInternalSniper, BaseGunWieldable, Tier3Contraband]
+  parent: [BaseWeaponSniper, BaseGunWieldable, Tier3Contraband]
   id: WeaponSniperMosin
   description: A weapon for hunting, or endless trench warfare, featuring a bayonet for going over the top. Uses .30 rifle ammo.
   components:
