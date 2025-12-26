@@ -9,3 +9,43 @@
     sprite: _Impstation/Clothing/OuterClothing/Vests/hd_vest.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Vests/hd_vest.rsi
+
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothingGasTanks]
+  id: ClothingOuterCowVest
+  name: Cow print vest
+  description: A vest made of synthetic cow skin. NO COWS WERE HARMED IN THE MAKING OF THIS PRODUCT.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/cow_vest.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    slots:
+      - OUTERCLOTHING
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/cow_vest.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-OUTERCLOTHING
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothingGasTanks]
+  id: ClothingOuterBlackVest
+  name: Cow print vest
+  description: A slick black leather vest like the ones the cowboys used to wear.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/black_vest.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    slots:
+      - OUTERCLOTHING
+    sprite: _Impstation/Clothing/OuterClothing/Misc/cowboy/black_vest.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-OUTERCLOTHING
+  - type: StaticPrice
+    price: 0
