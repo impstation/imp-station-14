@@ -1,7 +1,7 @@
 - type: entity
   name: BaseWeaponRifle
   parent: [BaseItem, BaseGunWieldable]
-  id: BaseWeaponRifle
+  id: BaseWeaponRifleWizden #imp - see the _Impstation directory for the version we use
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -11,7 +11,7 @@
     shape:
     - 0,0,3,2
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Rifles/ak.rsi #imp
+    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
     quickEquip: false
     slots:
     - Back
@@ -53,52 +53,22 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.6
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-#imp edit end
 
 - type: entity
   name: AKMS
   parent: [BaseWeaponRifle, BaseSecurityContraband]
-  id: WeaponRifleAk
-  description: An iconic weapon of war. Simple and effective; favored by revolutionaries everywhere. Uses .30 rifle ammo. #imp
+  id: WeaponRifleAkWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A somewhat battered combat rifle of a design originating from old Earth. Favored by criminals, militias, and terrorists due to its famed reliability and easy-to-manufacture design. Feeds from .30 rifle magazines.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Rifles/ak.rsi #imp
+    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    minAngle: 22 #imp
-    maxAngle: 42 #imp
-    angleIncrease: 3 #imp
-    angleDecay: 18 #imp
-    fireRate: 3.75 #imp
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
   - type: ChamberMagazineAmmoProvider
@@ -134,20 +104,21 @@
   - type: Appearance
 
 - type: entity
-  name: Valkyrie #imp
-  parent: [BaseWeaponRifle, BaseCentcommContraband] #imp, centcomm rifle
-  id: WeaponRifleM90GrenadeLauncher
-  description: No expense is spared for Central Command's elite, and this experimental rifle with integrated optics is no exception. Uses .20 rifle ammo. #imp
+  name: M90 GL
+  parent: [BaseWeaponRifle, BaseSyndicateContraband]
+  id: WeaponRifleM90GrenadeLauncherWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: "An older bullpup carbine model, with an attached underbarrel grenade launcher.\nFeeds from .20 rifle magazines."
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Rifles/carbine.rsi #imp
+    sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Rifles/carbine.rsi #imp
+    sprite: Objects/Weapons/Guns/Rifles/carbine.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -176,52 +147,24 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: StaticPrice #imp
-    price: 1500 #3x lecter
-  - type: CursorOffsetRequiresWield #imp
-  - type: EyeCursorOffset #imp
-    maxOffset: 2
-    pvsIncrease: 0.2
-  - type: Gun #imp - everything listed in this component
-    minAngle: 21
-    maxAngle: 40
-    angleIncrease: 2
-    angleDecay: 15
-    fireRate: 5.5
-    burstFireRate: 12
-    shotsPerBurst: 3
-    burstCooldown: 0.4
-    selectedMode: Burst
-    availableModes:
-    - Burst
-    - FullAuto
-    - SemiAuto
 
 - type: entity
   name: Lecter
   parent: [BaseWeaponRifle, BaseSecurityContraband]
-  id: WeaponRifleLecter
-  description: A modern short-barreled assault rifle fielded by militaries and law enforcement across many worlds, complete with familiar controls and ergonomics. Uses .20 rifle ammo. #imp
+  id: WeaponRifleLecterWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: "Popular gas-operated combat rifle used heavily by Nanotrasen and SolGov. Operating in semi or fully automatic, its accuracy, stopping power, and reliability make it excel in all manner of environments.\nFeeds from .20 rifle magazines."
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Rifles/lecter.rsi #imp
+    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Rifles/lecter.rsi #imp
+    sprite: Objects/Weapons/Guns/Rifles/lecter.rsi
   - type: Gun
-    minAngle: 21 #imp
-    maxAngle: 38 #imp
-    angleIncrease: 2 #imp
-    angleDecay: 15 #imp
-    fireRate: 4.5 #imp
-    selectedMode: FullAuto
-    availableModes:
-      - FullAuto
-      - SemiAuto #imp
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
   - type: ItemSlots
@@ -249,7 +192,7 @@
       gun_chamber: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
-    steps: 1 #imp
+    steps: 5
     zeroVisible: true
   - type: Appearance
 
@@ -259,7 +202,7 @@
   name: XL8
   description: |-
     The Experimental Lecter 8
-    An unreasonably expensive military grade assault rifle with integrated optic.
+    An unreasonably expensive military grade assault rifle with integrated optic. 
     Uses .20 rifle ammo.
   components:
   - type: Sprite
@@ -279,7 +222,7 @@
     - Burst
     - SemiAuto
     - FullAuto
-
+  
 - type: entity
   name: Estoc DMR
   parent: [BaseWeaponRifle, BaseSyndicateContraband]
@@ -351,8 +294,9 @@
 - type: entity
   name: Foam Force Astro Ace
   parent: [BaseWeaponShotgun, BaseGunWieldable]
-  id: WeaponRifleFoam
-  description: A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy. The body crackles when you squeeze too tightly. #imp
+  id: WeaponRifleFoamWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy.
   components:
   - type: Sprite
     sprite: Objects/Fun/Foam/foam_rifle.rsi
@@ -368,10 +312,6 @@
       - BulletFoam
     capacity: 10
     proto: BulletFoam
-    soundInsert: #imp
-      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
-    soundRack: #imp
-      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 2
@@ -384,29 +324,3 @@
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     clumsyProof: true
   - type: PacifismAllowedGun
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.6
-    damage:
-      types:
-        Blunt: 0
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 5
-    damage:
-      types:
-        Blunt: 0
-  - type: StaminaDamageOnHit
-    damage: 0
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.4
-    speed: 5
-#imp edit end

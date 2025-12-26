@@ -1,0 +1,180 @@
+# .50 shotgun damages vary wildly across its many types; the standard pellet ammo deals a total of 60 pierce and 150 structural (ShellShotgun)
+# these are shotguns available to Nanotrasen security either through the armory, or through cargo purchase.
+- type: entity
+  name: Mule's Leg
+  parent: [ BaseWeaponShotgun, BaseSecurityContraband ]
+  id: WeaponRifleMule
+  description: Show them you bring 'em in for the law, not the reward. Uses .50 slug or stun shells.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/mule.rsi
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/mule.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/mule.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellSlug
+      - ShellShotgunBeanbag
+    capacity: 5
+    proto: ShellShotgunSlug
+    soundRack:
+      path: /Audio/_Impstation/Weapons/Guns/Cock/basic_cock.ogg
+
+- type: entity
+  name: Enforcer
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponShotgunEnforcer
+  description: A premium semi-automatic combat shotgun, featuring a pistol grip and sleek profile for those nasty close-quarters engagements. Uses .50 shotgun shells.
+  components: # intend for Enforcer to have wider choke for semi-auto function
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/enforcer.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
+  - type: GunRequiresWield
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+
+- type: entity
+  parent: WeaponShotgunEnforcer
+  id: WeaponShotgunEnforcerRubber
+  suffix: Non-Lethal
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunBeanbag
+
+- type: entity
+  name: stun Enforcer
+  parent: WeaponShotgunEnforcer
+  id: WeaponShotgunEnforcerBeanbag
+  description: A premium combat shotgun with a pistol grip and built-in silencer, modified to only accept .50 stun slugs.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/beanbagenforcertwo.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/beanbagenforcertwo.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/beanbagenforcertwo_inhands_64x.rsi
+  - type: Gun
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/silenced2.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgunBeanbag
+    capacity: 7
+    proto: ShellShotgunBeanbag
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+
+- type: entity
+  name: Kammerer
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponShotgunKammerer
+  description: Even centuries after his time, the legacy of John Moses Browning lives on. This pump-action shotgun is a favorite of hunters and militia forces across many worlds. Uses .50 shotgun shells.
+  components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/pump.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/pump.rsi
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/kammerer.ogg
+  - type: GunSpreadModifier
+    spread: 0.6
+  - type: Tag
+    tags:
+    - WeaponShotgunKammerer
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+
+- type: entity
+  name: stun Kammerer
+  parent:  [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityBartenderContraband]
+  id: WeaponShotgunKammererBeanbag
+  description: A pump shotgun with a built-in silencer, modified to only accept .50 stun slugs.
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,4,0
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/beanbagpumptwo_inhands_64x.rsi
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/beanbagpumptwo.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/beanbagpumptwo.rsi
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/sil_kammerer.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - ShellShotgunBeanbag
+    capacity: 7
+    proto: ShellShotgunBeanbag
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8

@@ -1,47 +1,45 @@
+# A standard rifle that's reloaded with a magazine.
 - type: entity
-  name: Daito
-  parent: [BaseWeaponRifle, BaseSecurityContraband]
-  id: WeaponRifleDaito
-  description: A military precision rifle for the efficient combatant. Uses .30 rifle ammo.
+  name: BaseWeaponRifle
+  parent: [BaseItem, BaseGunWieldable]
+  id: BaseWeaponRifle
+  description: A rooty tooty point and shooty.
+  abstract: true
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Rifles/daito.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
   - type: Item
-    size: Ginormous
+    size: Huge
+    shape:
+    - 0,0,3,2
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Rifles/daito.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Rifles/ak.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
-  - type: GunRequiresWield
+  - type: AmmoCounter
   - type: Gun
-    projectileSpeed: 35
-    fireRate: 3
-    selectedMode: SemiAuto
+    fireRate: 5
+    selectedMode: FullAuto
     availableModes:
+      - FullAuto
       - SemiAuto
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/daito.ogg
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineDMR
+        startingItem: MagazineLightRifle
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazineDMR
+            - MagazineLightRifle
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
@@ -54,11 +52,8 @@
     containers:
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: Appearance
+  - type: StaticPrice
+    price: 500
   - type: MeleeWeapon
     range: 0.8
     attackRate: 0.6
@@ -83,69 +78,52 @@
   - type: MeleeThrowOnHit
     distance: 0.8
     speed: 5
+  - type: Appearance
 
+# For rifles that hold their bullets inside and do not use magazines. Think like a shotgun how you're loading the loose shells into the gun directly.
 - type: entity
-  name: Basilisk-11
-  parent: [BaseWeaponRifle, BaseSyndicateContraband]
-  id: WeaponRifleNemesis
-  description: An ambitious step into the future of firearms, and no less fearful. Uses .25 caseless ammo.
+  name: BaseWeaponInternalRifle
+  parent: [BaseItem, BaseGunWieldable]
+  id: BaseWeaponInternalRifle
+  description: A rooty tooty point and shooty.
+  abstract: true
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Rifles/nemesis.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,2
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Rifles/nemesis.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Rifles/ak.rsi
     quickEquip: false
     slots:
     - Back
     - suitStorage
+  - type: AmmoCounter
   - type: Gun
     fireRate: 5
-    burstFireRate: 10
-    shotsPerBurst: 3
-    burstCooldown: 0.40
-    selectedMode: Burst
+    selectedMode: FullAuto
     availableModes:
+      - FullAuto
       - SemiAuto
-      - Burst
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/nemesis.ogg
-  - type: ChamberMagazineAmmoProvider
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeLightRifle
+    capacity: 8
+    proto: CartridgeLightRifle
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
     soundRack:
-      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
-    boltClosed: null
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazineBR
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - MagazineBR
-        whitelistFailPopup: gun-magazine-whitelist-fail
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgeCaselessRifle
-        priority: 1
-        whitelist:
-          tags:
-            - CartridgeCaselessRifle
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: Appearance
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: StaticPrice
+    price: 500
   - type: MeleeWeapon
     range: 0.8
     attackRate: 0.6
@@ -170,3 +148,4 @@
   - type: MeleeThrowOnHit
     distance: 0.8
     speed: 5
+  - type: Appearance

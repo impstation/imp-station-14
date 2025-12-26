@@ -1,0 +1,43 @@
+# .50 shotgun damages vary wildly across its many types; the standard pellet ammo deals a total of 60 pierce and 150 structural (ShellShotgun)
+# these are shotguns available to Syndicate Agents and Nuclear Operatives.
+- type: entity
+  name: Hydra
+  parent: [BaseWeaponMagazineShotgun, BaseGunWieldable, Tier3Contraband]
+  id: WeaponShotgunBulldog
+  description: A fully-automatic magazine-fed assault shotgun designed for close-quarters combat. This will get the job done. Uses .50 shotgun shells.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    size: Large
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi
+  - type: AmmoCounter
+  - type: GunRequiresWield
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 5000
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5

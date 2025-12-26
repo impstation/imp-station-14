@@ -1,0 +1,57 @@
+# .45 Magnum deals 35 pierce per shot (CartridgeMagnum)
+- type: entity
+  name: flintlock pistol
+  parent: [BaseWeaponSniper, BaseMajorContraband]
+  id: WeaponPistolFlintlock
+  description: A pirate's companion. Yarrr! Uses .45 magnum ammo.
+  components:
+  - type: Gun
+    minAngle: 0
+    maxAngle: 30 #miss him entirely because the barrel is smoothbore
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedOffset: 0,-5
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Snipers/flintlock.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Snipers/flintlock.rsi
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 8 #it's a flintlock
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeMagnum
+    capacity: 1
+    proto: CartridgeMagnum
+  - type: StaticPrice
+    price: 0
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 6
+    damage:
+      types:
+        Blunt: 5
+
+- type: entity
+  parent: WeaponPistolFlintlock
+  id: WeaponPistolFlintlockEmpty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
