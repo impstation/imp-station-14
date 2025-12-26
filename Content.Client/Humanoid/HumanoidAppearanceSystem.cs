@@ -309,6 +309,13 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             // (https://github.com/space-wizards/space-station-14/issues/40135).
             if (prototype.CanBeDisplaced)
                 _displacement.EnsureDisplacementIsNotOnSprite(spriteEnt, layerId);
+
+            // IMP ADD START - additive displacements. same as above
+            if (prototype.AppliedDisplacement is { } appliedDisplacement &&
+                TryComp<HumanoidAppearanceComponent>(spriteEnt.Owner, out var humanoid))
+                foreach ((var slot, _) in appliedDisplacement)
+                    humanoid.AppendedDisplacements.Remove(slot);
+            // IMP ADD END
         }
     }
 
@@ -476,6 +483,14 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
             if (humanoid.MarkingsDisplacement.TryGetValue(markingPrototype.BodyPart, out var displacementData) && markingPrototype.CanBeDisplaced)
                 _displacement.TryAddDisplacement(displacementData, (entity.Owner, sprite), targetLayer + j + 1, layerId, out _);
+
+            // IMP ADD START- markings that append displacements to a doll
+            // TODO: currently additive displacements do not support multiple displacements appended to a single slot
+            // so we probably need to make any protos that try to append to an already appended slot unselectable, or something
+            if (markingPrototype.AppliedDisplacement is { } appliedDisplacement)
+                foreach ((var slot, var displacement) in appliedDisplacement)
+                    humanoid.AppendedDisplacements.Add(slot, displacement);
+            // IMP END
         }
     }
 
