@@ -1,30 +1,4 @@
 ﻿Entries:
-- author: ErhardSteinhauer
-  changes:
-  - message: Tabletop computers can now be built and placed atop tables.
-    type: Add
-  id: 1997
-  time: '2025-07-07T06:16:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2953
-- author: deltanedas, DinnerCalzone
-  changes:
-  - message: Clown waddling has been fully refactored! Please report any issues or
-      noticeable changes in performance.
-    type: Fix
-  - message: Toggling waddling now has a short cooldown.
-    type: Tweak
-  - message: Crawl waddling has been tragically fixed with this refactor.
-    type: Remove
-  id: 1998
-  time: '2025-07-07T06:15:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2509
-- author: Pinkbat5
-  changes:
-  - message: Tweaked health examine text to be a little clearer.
-    type: Tweak
-  id: 1999
-  time: '2025-07-07T14:48:03.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3016
 - author: msTheowo
   changes:
   - message: Some of CentComm's interns have been conscripted.
@@ -4170,3 +4144,27 @@
   id: 2496
   time: '2025-12-22T01:57:54.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3875
+- author: FlapWrap
+  changes:
+  - message: Artist's rendition of Her containment
+    type: Add
+  id: 2497
+  time: '2025-12-26T00:25:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3882
+- author: entings
+  changes:
+  - message: Boar will no longer demolish any machines in their path.
+    type: Tweak
+  - message: Boar will no longer become enamored with specific pieces of station infrastructure
+      to their own detriment.
+    type: Fix
+  id: 2498
+  time: '2025-12-26T09:17:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3803
+- author: msTheowo
+  changes:
+  - message: Soap can now be used to clean decals, including floor grime.
+    type: Add
+  id: 2499
+  time: '2025-12-26T09:21:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3667
