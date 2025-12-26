@@ -1,4 +1,4 @@
-# Larger sized disablers with an internal battery. No ammo-provider component because some disablers will be hitscan. For power-cell energy weapons see basebatteryguns.yml.
+# Larger sized disablers with an internal battery. For power-cell energy weapons see basebatteryguns.yml.
 - type: entity
   name: BaseWeaponDisaberRifle
   parent: BaseWeaponBattery
@@ -20,6 +20,9 @@
     magState: mag
     steps: 5
     zeroVisible: false
+  - type: BatteryAmmoProvider
+    proto: BulletDisablerSmg
+    fireCost: 33
   - type: Appearance
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Blasters/temp_gun.rsi
@@ -34,7 +37,7 @@
   - type: StaticPrice
     price: 420
 
-# Pistol-sized disablers. Most disablers will fall into this category of weapon. No ammo-provider component because some disablers will be hitscan.
+# Pistol-sized disablers. Most disablers will fall into this category of weapon.
 - type: entity
   name: BaseWeaponDisablerPistol
   parent: BaseWeaponBatterySmall
@@ -54,6 +57,9 @@
     magState: mag
     steps: 5
     zeroVisible: false
+  - type: BatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
   - type: Appearance
   - type: PacifismAllowedGun
   - type: Tag

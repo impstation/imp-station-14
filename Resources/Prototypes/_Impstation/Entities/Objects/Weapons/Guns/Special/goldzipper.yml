@@ -27,7 +27,7 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/goldlaser.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletLaserGold
     fireCost: 1
   - type: PointLight
@@ -43,7 +43,7 @@
   suffix: Fake
   description: Legends tell of a gun that can kill anything with a single shot. This one, however, seems to be made of cheap plastic.
   components:
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletLaserFGold
     fireCost: 1
   - type: PacifismAllowedGun

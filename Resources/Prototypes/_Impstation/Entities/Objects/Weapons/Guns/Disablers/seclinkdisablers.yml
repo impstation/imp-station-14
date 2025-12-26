@@ -15,9 +15,6 @@
         shader: unshaded
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler.rsi
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 100
   - type: GuideHelp
     guides:
     - Security
@@ -43,9 +40,6 @@
   - type: Gun
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/clowndisabler.ogg
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletDisabler
-    fireCost: 100
 
 - type: entity
   name: pocket disabler
@@ -72,10 +66,10 @@
     magState: mag
     steps: 5
     zeroVisible: true
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 540
     startingCharge: 540
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 90
 
@@ -110,10 +104,10 @@
     - FullAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/autodisabler.ogg
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 1440
     startingCharge: 1440
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletAutoDisabler
     fireCost: 80
 
@@ -143,9 +137,9 @@
     fireRate: 1.3
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/disablermagnum.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletMagnumDisabler
     fireCost: 150
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 1050
     startingCharge: 1050

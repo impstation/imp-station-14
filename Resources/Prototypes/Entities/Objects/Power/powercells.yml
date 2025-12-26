@@ -34,7 +34,7 @@
   - type: Appearance
   - type: PowerCellVisuals
   - type: Riggable
-  - type: HitscanBatteryAmmoProvider #imp
+  - type: BatteryAmmoProvider #imp
     proto: RedLightLaser #imp
     fireCost: 50 #imp
 
@@ -288,7 +288,7 @@
   - type: Tag
     tags:
       - PowerCage
-  - type: HitscanBatteryAmmoProvider #imp
+  - type: BatteryAmmoProvider #imp
     proto: RedShuttleLaser #imp
     fireCost: 150 #imp
   - type: ClothingSpeedModifier

@@ -39,10 +39,10 @@
   - type: Item
     size: Small
   - type: Riggable
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 288
     startingCharge: 288
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterPistol
     fireCost: 36
   - type: Tag
@@ -62,7 +62,7 @@
       - state: mag-unshaded-1
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 288
     startingCharge: 0
 
@@ -81,10 +81,10 @@
       - state: mag-unshaded-1
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 576
     startingCharge: 576
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterPistolMilitary
     fireCost: 96
 
@@ -101,6 +101,6 @@
       - state: mag-unshaded-1
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
-  - type: Battery
+  - type: PredictedBattery
     maxCharge: 576
     startingCharge: 0
