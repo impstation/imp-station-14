@@ -16,7 +16,3 @@ names-revenant-theme-dataset-15 = screams
 names-revenant-theme-dataset-16 = sorrow
 names-revenant-theme-dataset-17 = suffering
 names-revenant-theme-dataset-18 = vengeance
-names-revenant-theme-dataset-19 = hill
-names-revenant-theme-dataset-20 = homophobia
-names-revenant-theme-dataset-21 = SHITPIGS
-names-revenant-theme-dataset-22 = tutorialization

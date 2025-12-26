@@ -210,9 +210,9 @@
           components:
           - TimerTrigger
         insertSound:
-          path: /Audio/Weapons/Guns/Empty/empty.ogg
+          path: /Audio/_Wizden/Weapons/Guns/Empty/empty.ogg # imp edit
         ejectSound:
-          path: /Audio/Weapons/Guns/Empty/empty.ogg
+          path: /Audio/_Wizden/Weapons/Guns/Empty/empty.ogg # imp edit
         swap: false
         disableEject: true
   - type: Tag

@@ -16,5 +16,3 @@ names-revenant-adjective-dataset-15 = silent
 names-revenant-adjective-dataset-16 = spiteful
 names-revenant-adjective-dataset-17 = vicious
 names-revenant-adjective-dataset-18 = violent
-names-revenant-adjective-dataset-19 = FUCKING
-names-revenant-adjective-dataset-20 = indescriminate

@@ -1,3 +1,4 @@
+# imp, was 'blood'
 reagent-name-blood = red blood
 reagent-desc-blood = I hope this is ketchup.
 

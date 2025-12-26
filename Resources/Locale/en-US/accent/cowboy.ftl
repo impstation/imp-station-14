@@ -112,6 +112,7 @@ accent-cowboy-replacement-37 = hog tie
 accent-cowboy-words-38 = handcuffed
 accent-cowboy-replacement-38 = hog tied
 
+# imp edit, was 'hell' -> 'tarnation'
 accent-cowboy-words-39 = what the hell
 accent-cowboy-replacement-39 = what in tarnation
 
@@ -187,10 +188,12 @@ accent-cowboy-replacement-62 = greenhorns
 accent-cowboy-words-63 = planning
 accent-cowboy-replacement-63 = fixing
 
+# imp edit, was 'please' -> 'pray'
 accent-cowboy-words-64 = please tell me
-accent-cowboy-replacement-64 = pray tell,
+accent-cowboy-replacement-64 = pray tell
 
 accent-cowboy-words-65 = punch
+# imp edit, was 'lick'
 accent-cowboy-replacement-65 = slug
 
 accent-cowboy-words-66 = punched
@@ -224,6 +227,7 @@ accent-cowboy-words-75 = secoff
 accent-cowboy-replacement-75 = deputy
 
 accent-cowboy-words-76 = security
+# imp edit, remove space
 accent-cowboy-replacement-76 = law
 
 accent-cowboy-words-77 = shitsec
@@ -250,8 +254,8 @@ accent-cowboy-replacement-83 = yarn
 accent-cowboy-words-84 = thank you
 accent-cowboy-replacement-84 = much obliged
 
-accent-cowboy-words-85 = hold on
-accent-cowboy-replacement-85 = hold your horses
+accent-cowboy-words-85 = thanks
+accent-cowboy-replacement-85 = much obliged
 
 accent-cowboy-words-86 = thief
 accent-cowboy-replacement-86 = rustler

@@ -15,14 +15,9 @@ plant-holder-component-dead-plant-message = This plant is dead.
 plant-holder-component-take-sample-message = You take a sample from the {$seedName}.
 plant-holder-component-compost-message = You compost {$usingItem} into {$owner}.
 plant-holder-component-compost-others-message = {$user} composts {$usingItem} into {$owner}.
-# imp fix ..
+# imp fix '..' -> '.'
 plant-holder-component-nothing-planted-message = It has nothing planted in it.
-# imp add
-plant-holder-crop-name = {$getsArticle ->
-                                [true] { CAPITALIZE(INDEFINITE($seedName)) } [color=green]{ $seedName }[/color]
-                                *[false] [color=green]{ CAPITALIZE($seedName) }[/color]
-                        }
-# imp edit
+# imp edit, bool add
 plant-holder-component-something-already-growing-message = { $seedNameAndArticle } {$count ->
                                 [true] are
                                 *[false] is

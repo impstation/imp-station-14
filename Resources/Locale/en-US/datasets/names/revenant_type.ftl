@@ -6,5 +6,3 @@ names-revenant-type-dataset-5 = revenant
 names-revenant-type-dataset-6 = soul
 names-revenant-type-dataset-7 = spectre
 names-revenant-type-dataset-8 = spirit
-names-revenant-type-dataset-9 = Bad Guy
-names-revenant-type-dataset-10 = gratiousness

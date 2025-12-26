@@ -70,12 +70,15 @@ accent-italian-words-21 = nuke
 accent-italian-words-replace-21 = spiciest-a meatball
 
 accent-italian-words-22 = op
+# imp edit, was 'greek'
 accent-italian-words-replace-22 = op
 
 accent-italian-words-23 = operative
+# imp edit, was 'greek'
 accent-italian-words-replace-23 = operative
 
 accent-italian-words-24 = operatives
+# imp edit, was 'greeks'
 accent-italian-words-replace-24 = operatives
 
 accent-italian-words-25 = sec

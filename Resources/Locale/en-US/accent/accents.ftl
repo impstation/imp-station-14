@@ -127,6 +127,7 @@ accent-words-nymph-4 = Chrrup!
 
 # TomatoKiller
 accent-words-tomato-1 = Totato!
+# imp edit: add fullstop
 accent-words-tomato-2 = Trotect.
 accent-words-tomato-3 = Mastet?
 accent-words-tomato-4 = Reaty!

@@ -187,7 +187,7 @@
       params:
         pitch: 0.8
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
+      path: /Audio/_Wizden/Weapons/Guns/Empty/empty.ogg # imp edit
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -239,7 +239,7 @@
         variation: 0.05
         pitch: 0.8
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
+      path: /Audio/_Wizden/Weapons/Guns/Empty/empty.ogg # imp edit
   - type: Machine
     board: ShuttleGunDusterCircuitboard
   - type: MagazineAmmoProvider
