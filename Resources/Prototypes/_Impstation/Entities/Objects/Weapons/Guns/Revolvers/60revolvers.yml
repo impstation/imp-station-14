@@ -1,7 +1,7 @@
 # .60 anti-materiel deals 75 pierce and 226 structural per shot (CartridgeAntiMaterial)
 - type: entity
   name: Anaconda
-  parent: [BaseWeaponRevolverImp, Tier3Contraband]
+  parent: [BaseWeaponRevolver, Tier3Contraband]
   id: WeaponAnaconda
   description: A junior designer at Waffle Corp. swears they submitted this as a joke. Kicks like a blood-red horse when fired. Uses .60 anti-materiel ammo.
   components:
