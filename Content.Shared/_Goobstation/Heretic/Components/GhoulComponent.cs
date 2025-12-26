@@ -1,10 +1,7 @@
 using Content.Shared.FixedPoint;
+using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Heretic;
 
@@ -15,4 +12,7 @@ public sealed partial class GhoulComponent : Component
     ///     Total health for ghouls.
     /// </summary>
     [DataField] public FixedPoint2 TotalHealth = 50;
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "GhouledFaction";
 }
