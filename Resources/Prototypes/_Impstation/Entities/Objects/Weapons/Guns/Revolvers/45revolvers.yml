@@ -1,3 +1,4 @@
+# .45 Magnum deals 35 pierce per shot (CartridgeMagnum)
 - type: entity
   name: SEC .45
   parent: [BaseWeaponRevolver, BaseSecurityContraband]
@@ -57,3 +58,141 @@
     damage:
       types:
         Blunt: 5
+
+- type: entity
+  name: Deckard
+  parent: [BaseWeaponRevolver, BaseSecurityCommandContraband]
+  id: WeaponRevolverDeckard
+  description: A rare, custom-built revolver. Use when there is no time for the Voight-Kampff test. Uses .45 magnum ammo.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/deckard.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-3
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Gun
+    fireRate: 2
+  - type: RevolverAmmoProvider
+    capacity: 5
+    chambers: [ True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 1500
+
+- type: entity
+  name: Inspector
+  parent: [BaseWeaponRevolver, BaseSecurityContraband]
+  id: WeaponRevolverInspector
+  description: A double-action revolver manufactured by various companies. It is readily available on the civilian market, making it a popular choice among private investigators. You feel lucky just holding it. Loads 6 rounds of .45 magnum.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi
+  - type: Item
+    storedOffset: 0,-2
+  - type: RevolverAmmoProvider
+    proto: CartridgeMagnumStun
+    capacity: 6
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+  - type: StealTarget
+    stealGroup: OfficerHandgun
+
+- type: entity
+  name: Mateba
+  parent: [BaseWeaponRevolver, BaseMajorContraband]
+  id: WeaponRevolverMateba
+  description: The iconic sidearm of the dreaded death squads... allegedly. Uses .45 magnum ammo.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/mateba.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/mateba.rsi
+  - type: Item
+    storedOffset: 0,-3
+  - type: Gun
+    fireRate: 3
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+
+- type: entity
+  parent: WeaponRevolverMateba
+  id: WeaponRevolverMatebaAP # For deathsquad
+  suffix: armor-piercing
+  components:
+  - type: RevolverAmmoProvider
+    proto: CartridgeMagnumAP
+
+- type: entity
+  name: Python
+  parent: [BaseWeaponRevolver, Tier3Contraband]
+  id: WeaponRevolverPython
+  description: Power without question; authority without asking. Uses .45 magnum ammo.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/python.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/python.rsi
+  - type: Item
+    storedOffset: 0,-2
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 2
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+      params:
+        volume: 2.25
+  - type: StaticPrice
+    price: 1500 # Botany can shit these out like candy, but let's see how it goes
+
+- type: entity
+  parent: WeaponRevolverPython
+  id: WeaponRevolverPythonAP # For the uplink.
+  suffix: armor-piercing
+  components:
+  - type: RevolverAmmoProvider
+    proto: CartridgeMagnumAP
+
+- type: entity
+  name: pirate revolver
+  parent: [BaseWeaponRevolver, BaseMajorContraband]
+  id: WeaponRevolverPirate
+  description: A crude single-action revolver handmade by a space pirate. Old and covered in rust, it somehow still works. Loads 5 rounds of .45 magnum.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
+  - type: Item
+    storedOffset: 1,-5
+  - type: Gun
+    fireRate: 1
+  - type: ContainerContainer
+    containers:
+      revolver-ammo: !type:Container
+  - type: RevolverAmmoProvider
+    capacity: 5
+    chambers: [ True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null ]
+
+- type: entity
+  parent: WeaponRevolverPirate
+  id: WeaponRevolverPirateEmpty
+  suffix: Empty
+  components:
+  - type: RevolverAmmoProvider
+    proto: null
+    capacity: 5
+    chambers: [ null, null, null, null, null ]
+    ammoSlots: [ null, null, null, null, null ]

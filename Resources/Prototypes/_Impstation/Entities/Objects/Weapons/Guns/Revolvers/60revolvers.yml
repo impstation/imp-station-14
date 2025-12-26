@@ -1,3 +1,4 @@
+# .60 anti-materiel deals 75 pierce and 226 structural per shot (CartridgeAntiMaterial)
 - type: entity
   name: Anaconda
   parent: [BaseWeaponRevolver, Tier3Contraband]
@@ -40,9 +41,6 @@
     capacity: 3
     chambers: [ True, True, True ]
     ammoSlots: [ null, null, null ]
-  - type: Tag
-    tags:
-    - Sidearm
   - type: DamageOnShoot
     damage:
       types:

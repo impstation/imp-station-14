@@ -1,3 +1,4 @@
+# .22 auto deals 14 pierce per shot (CartridgeLPistol)
 - type: entity
   name: Mk 93
   parent: [ BaseWeaponPistol, BaseSecurityContraband ]
@@ -177,7 +178,7 @@
 
 - type: entity
   name: improvised pistol
-  parent: [ BaseItem, BaseMajorContraband ]
+  parent: [ BaseWeaponInternalPistol, BaseMajorContraband ]
   id: WeaponPistolImprovised
   description: A pistol made of junk-- used by the truly desperate. Its imprecise engineering allows it to use a variety of ammo. Uses .22 auto or .35 auto ammo.
   components:
@@ -186,21 +187,8 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-  - type: AmmoCounter
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
-  - type: Tag
-    tags:
-    - Sidearm
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Pistols/improvpistol.rsi
-    quickEquip: false
-    slots:
-    - suitStorage
-    - Belt
   - type: Gun
     fireRate: 2
     minAngle: 4
@@ -233,24 +221,6 @@
     node: pistol
   - type: StaticPrice
     price: 20
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.8
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 6
-    damage:
-      types:
-        Blunt: 5
 
 - type: entity
   name: P-2 "Diver"
@@ -292,3 +262,40 @@
         whitelist:
           tags:
             - CartridgeLPistol
+
+- type: entity
+  name: r'tck t'rc
+  parent: [ BaseItem, DecapoidEmpireContraband ]
+  id: WeaponPistolTckTck
+  description: 'A bite-sized autopistol for cyborgs. Creates .22 ammo on the fly from an internal ammo fabricator, which slowly self-charges.'
+  components:
+  - type: Item
+    size: Tiny
+  - type: Gun
+    fireRate: 3
+    selectedMode: FullAuto
+    availableModes:
+      - SemiAuto
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/smg.ogg
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/tckpistol.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLPistol
+    fireCost: 100
+  - type: Battery
+    maxCharge: 800
+    startingCharge: 800
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
+  - type: AmmoCounter

@@ -1,7 +1,7 @@
 - type: entity
   name: BaseWeaponLightMachineGun
   parent: BaseItem
-  id: BaseWeaponLightMachineGun
+  id: BaseWeaponLightMachineGunWizden #imp - see the _Impstation directory for the version we use
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -11,7 +11,7 @@
     shape:
     - 0,0,4,3
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/l6.rsi #imp
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
     quickEquip: false
     slots:
     - Back
@@ -36,26 +36,26 @@
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg #imp
+      path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
   - type: AmmoCounter
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
         startingItem: MagazineLightRifleBox
-        insertSound: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg #imp
-        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg #imp
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
             - MagazineLightRifleBox
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeRifle #imp
+        startingItem: CartridgeLightRifle
         priority: 1
         whitelist:
           tags:
-            - CartridgeRifle
+            - CartridgeLightRifle
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -64,41 +64,16 @@
     price: 500
   - type: UseDelay
     delay: 1
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.4 #slower, but hits harder; bigger object to shove with
-    damage:
-      types:
-        Blunt: 8
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 15
-    damage:
-      types:
-        Blunt: 12
-  - type: StaminaDamageOnHit
-    damage: 15 #slight stagger, but still like 7 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-#imp edit end
 
 - type: entity
-  name: L6 Nidhogg SAW #imp
-  id: WeaponLightMachineGunL6
-  parent: [BaseWeaponLightMachineGun, Tier3Contraband]
-  description: A traditionally-made Squad Automatic Weapon in a paratrooper configuration, featuring a custom stock and hand guard while lacking a bipod. Best sprayed from the hip when on the move. Uses .20 rifle ammo. #imp
+  name: L6 SAW
+  id: WeaponLightMachineGunL6Wizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  parent: [BaseWeaponLightMachineGun, BaseSyndicateContraband]
+  description: Developed by Waffle Corp, the L6 Squad Automatic Weapon is a deadly light machine gun often used by the Gorlex Marauders. Although bulky and cumbersome, its heavy barrel and high ammo capacity make it perfect for suppressing combatants with a hail of bullets. Feeds from .30 ammo belts.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/l6.rsi #imp
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -113,10 +88,11 @@
     price: 10000
 
 - type: entity
-  name: L6C Nidhogg ROW #imp
-  id: WeaponLightMachineGunL6C
+  name: L6C ROW
+  id: WeaponLightMachineGunL6CWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   parent: BaseItem
-  description: An L6 SAW for use by cyborgs. Creates .20 rifle ammo on the fly from an internal ammo fabricator, which slowly self-charges. #imp
+  description: A L6 SAW for use by cyborgs. Creates .30 rifle ammo on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
     - type: Gun
       minAngle: 4
@@ -132,7 +108,7 @@
       soundEmpty:
         path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
     - type: Sprite
-      sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/l6.rsi #imp
+      sprite: Objects/Weapons/Guns/LMGs/l6.rsi
       layers:
         - state: base
           map: [ "enum.GunVisualLayers.Base" ]
@@ -144,7 +120,7 @@
       containers:
         ballistic-ammo: !type:Container
     - type: ProjectileBatteryAmmoProvider
-      proto: CartridgeRifle #imp
+      proto: CartridgeLightRifle
       fireCost: 100
     - type: Battery
       maxCharge: 10000
