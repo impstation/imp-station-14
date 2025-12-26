@@ -7,6 +7,9 @@
   - !type:RoleTimeRequirement
     role: JobSecurityOfficer
     time: 5h
+  - !type:AntagGroupTimeRequirement # imp add
+      antagGroup: AntagOverall
+      time: 3h
   startingGear: DetectiveGear
   icon: "JobIconDetective"
   supervisors: job-supervisors-hos
