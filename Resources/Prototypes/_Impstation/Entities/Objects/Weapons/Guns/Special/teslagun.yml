@@ -1,6 +1,6 @@
 - type: entity
   name: tesla gun
-  parent: [BaseWeaponInternalBlaster, BaseMajorContraband]
+  parent: [BaseBlasterPistol, BaseMajorContraband]
   id: WeaponTeslaGun
   description: The power of the primordial element of lightning in your hands.
   components:

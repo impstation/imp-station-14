@@ -1,7 +1,7 @@
 # The Big Dogs of Security-- blasters used by the Warden or HoS.
 - type: entity
   name: M-1 energy shotgun
-  parent: [BaseWeaponInternalBlaster, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseBlasterRifle, BaseSecurityContraband]
   id: WeaponEnergyShotgun
   description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
   components:
@@ -44,7 +44,7 @@
 
 - type: entity
   name: Type-25 energy magnum
-  parent: [BaseWeaponInternalSmallBlaster BaseGrandTheftContraband]
+  parent: [BaseBlasterPistol, BaseGrandTheftContraband]
   id: WeaponEnergyMagnum
   description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for either high damage, window piercing, or non-lethal disabling.
   components:

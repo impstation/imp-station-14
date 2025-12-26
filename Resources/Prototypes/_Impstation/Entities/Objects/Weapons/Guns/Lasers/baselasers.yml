@@ -1,137 +1,61 @@
-# Root base, do not use this unless you're doing something VERY different not done below.
+# For large, 2-handed laser guns that have a built-in battery. For power-cell energy weapons see basebatteryguns.yml.
 - type: entity
-  name: BaseLaser
-  parent: BaseItem
-  id: BaseWeaponLaser
+  name: BaseWeaponLaserRifle
+  parent: [BaseWeaponBattery, BaseGunWieldable]
+  id: BaseLaserRifle
   description: A rooty tooty point and shooty.
   abstract: true
   components:
+  - type: Item
+    size: Large
   - type: Sprite
-  - type: Item
-  - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_retro.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
-  - type: AmmoCounter
-  - type: Gun
-    fireRate: 2
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: StaticPrice
-    price: 500
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.8
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 6
-    damage:
-      types:
-        Blunt: 5
-
-# Lasers with a battery you can swap out. BaseWeaponMagazineSmallLaser is for pistol-sized versions.
-- type: entity
-  name: BaseMagazineLaser
-  parent: BaseWeaponLaser
-  id: BaseWeaponMagazineLaser
-  description: A rooty tooty point and shooty.
-  abstract: true
-  components:
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: PowerCellSmall
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
-        whitelist:
-          tags:
-            - PowerCell
-            - PowerCellSmall
-  - type: Appearance
-  - type: StaticPrice
-    price: 500
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-  - type: MagazineAmmoProvider
-
-- type: entity
-  name: BaseMagazineLaser
-  parent: BaseWeaponMagazineLaser
-  id: BaseWeaponMagazineSmallLaser
-  description: A rooty tooty point and shooty.
-  abstract: true
-  components:
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
-    storedOffset: 0,-7
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - Belt
-    - suitStorage
-  - type: MeleeWeapon #for pistolwhip anim
-    wideAnimationRotation: -80
-  - type: Tag
-    tags:
-    - Sidearm
-
-# Lasers with a built-in battery that you cannot replace. BaseWeaponInternalSmallLaser is for pistol-sized versions.
-- type: entity
-  name: BaseInternalLaser
-  parent: BaseWeaponLaser
-  id: BaseWeaponInternalLaser
-  description: A rooty tooty point and shooty.
-  abstract: true
-  components:
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_gun.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
   - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
+  - type: StaticPrice
+    price: 420
 
+# For small laser pistols with an internal battery
 - type: entity
-  name: BaseInternalLaser
-  parent: BaseWeaponInternalLaser
-  id: BaseWeaponInternalSmallLaser
+  name: BaseWeaponLaserPistol
+  parent: BaseWeaponBatterySmall
+  id: BaseLaserPistol
   description: A rooty tooty point and shooty.
   abstract: true
   components:
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - Belt
-    - suitStorage
-  - type: MeleeWeapon #for pistolwhip anim
-    wideAnimationRotation: -80
-  - type: Tag
-    tags:
-    - Sidearm
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/taser.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaser
+    fireCost: 62.5
+  - type: StaticPrice
+    price: 420

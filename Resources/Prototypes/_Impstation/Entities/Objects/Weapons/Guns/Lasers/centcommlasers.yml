@@ -1,7 +1,7 @@
 # the feared weapons of the ERT and Deathsquads
 - type: entity
   name: PXS-21 pulse pistol
-  parent: [BaseWeaponInternalSmallLaser, BaseCentcommContraband]
+  parent: [BaseLaserPistol, BaseCentcommContraband]
   id: WeaponPulsePistol
   description: A state-of-the-art energy pistol favored as a sidearm by Nanotrasen operatives.
   components:
@@ -33,7 +33,7 @@
 
 - type: entity
   name: PX-14C pulse carbine
-  parent: [BaseWeaponInternalLaser, BaseGunWieldable, BaseCentcommContraband]
+  parent: [BaseLaserRifle, BaseCentcommContraband]
   id: WeaponPulseCarbine
   description: A high-tech energy carbine favored by Nanotrasen ERT operatives.
   components:
@@ -64,23 +64,10 @@
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
-  - type: MeleeWeapon
-    attackRate: 0.6
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
 
 - type: entity
   name: PX-6 pulse rifle
-  parent: [BaseWeaponInternalLaser, BaseGunWieldable, BaseCentcommContraband]
+  parent: [BaseLaserRifle, BaseCentcommContraband]
   id: WeaponPulseRifle
   description: A weapon almost as infamous as its users.
   components:
@@ -109,16 +96,3 @@
   - type: Battery
     maxCharge: 40000
     startingCharge: 40000
-  - type: MeleeWeapon
-    attackRate: 0.6
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8

@@ -1,7 +1,7 @@
 #disablers that are not exclusive to Security and can be found or used by non-security crew.
 - type: entity
   name: practice disabler
-  parent: BaseWeaponSmallDisabler
+  parent: BaseDisablerPistol
   id: WeaponDisablerPractice
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
   components:
@@ -22,6 +22,9 @@
     magState: mag
     steps: 6
     zeroVisible: true
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
   - type: StaticPrice
     price: 100
   - type: ProjectileBatteryAmmoProvider
@@ -30,7 +33,7 @@
 
 - type: entity
   name: antique disabler
-  parent: [BaseWeaponSmallDisabler, BaseSecurityCommandContraband]
+  parent: [BaseDisablerPistol, BaseSecurityCommandContraband]
   id: WeaponHoPDisabler
   description: It's a wonder how a priceless weapon with so much gold on it could feel this light and so much like plastic.
   components:

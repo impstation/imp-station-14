@@ -1,7 +1,7 @@
 # These are lasers found in the armory, researched by science, or it's the Captain's laser
 - type: entity
   name: TD-95 laser carbine
-  parent: [BaseWeaponInternalLaser, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseLaserRifle, BaseSecurityContraband]
   id: WeaponLaserCarbine
   description: A laser-based energy carbine with familiar ergonomics and controls to its kinetic counterparts. Favored by Nanotrasen for security forces, as they are cheap and easy to use.
   components:
@@ -20,19 +20,6 @@
     sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_gun.rsi
   - type: StaticPrice
     price: 420
-  - type: MeleeWeapon
-    attackRate: 0.6
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
 
 - type: entity
   name: TD-95C emergency laser carbine
@@ -68,7 +55,7 @@
 
 - type: entity
   name: TD-95P practice laser carbine
-  parent: [BaseWeaponInternalLaser, BaseGunWieldable]
+  parent: [BaseLaserRifle, BaseGunWieldable]
   id: WeaponLaserCarbinePractice
   description: This modified TD-95 laser carbine fires nearly harmless beams at 5-watts for target practice. Best to wear eye protection. #imp
   components:
@@ -94,23 +81,10 @@
   - type: Battery
     maxCharge: 160
     startingCharge: 160
-  - type: MeleeWeapon
-    attackRate: 0.6
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
 
 - type: entity
   name: OL-71 laser rifle
-  parent: [BaseWeaponInternalLaser, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseLaserRifle, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponLaserCannon
   description: Modern laser technology purpose-built into a military platform—as deadly as it is precise.
   components:
@@ -168,7 +142,7 @@
 
 - type: entity
   name: EM-40 x-ray cannon
-  parent: [BaseWeaponInternalLaser, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseLaserRifle, BaseSecurityContraband]
   id: WeaponXrayCannon
   description: An experimental weapon that uses concentrated x-ray energy against its target.
   components:
@@ -216,7 +190,7 @@
 
 - type: entity
   name: X-66 advanced laser pistol
-  parent: [BaseWeaponInternalSmallLaser, BaseSecurityContraband]
+  parent: [BaseLaserPistol, BaseSecurityContraband]
   id: WeaponAdvancedLaser
   description: An experimental high-energy laser pistol with a self-charging nuclear battery.
   components:
@@ -248,7 +222,7 @@
 
 - type: entity
   name: antique laser pistol
-  parent: [BaseWeaponInternalSmallLaser, BaseGrandTheftContraband]
+  parent: [BaseLaserPistol, BaseGrandTheftContraband]
   id: WeaponAntiqueLaser
   description: All craftsmanship is of the highest quality. It is decorated with carp leather and chrome. The object menaces with spikes of energy.
   components:
@@ -291,7 +265,7 @@
 
 - type: entity
   name: Svalinn laser pistol
-  parent: [BaseWeaponMagazineSmallLaser, BaseSecurityContraband]
+  parent: [BaseWeaponPowerCellSmall, BaseSecurityContraband]
   id: WeaponLaserSvalinn
   description: A cheap and widely-used laser pistol with an interchangeable power cell.
   components:

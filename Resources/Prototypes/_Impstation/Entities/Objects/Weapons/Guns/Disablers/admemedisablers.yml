@@ -1,7 +1,7 @@
 # disablers with no player-facing way of acquiring. Currently must be spawned by an admin.
 - type: entity
   name: PR-00-BE
-  parent: [BaseWeaponLargeDisabler, BaseGunWieldable]
+  parent: [BaseDisablerRifle, BaseGunWieldable]
   id: WeaponStunLauncher
   description: Looks like it's full of goop.
   components:
@@ -48,7 +48,7 @@
 
 - type: entity
   name: quad disabler
-  parent: [BaseWeaponLargeDisabler, BaseSecurityCommandContraband]
+  parent: [BaseDisablerRifle, BaseSecurityCommandContraband]
   id: WeaponQuadDisabler
   description: The disabling will be of extraordinary magnitude.
   components:

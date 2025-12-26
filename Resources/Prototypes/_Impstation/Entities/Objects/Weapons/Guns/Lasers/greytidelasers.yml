@@ -1,7 +1,7 @@
 # lasers that are crafted or found as loot by salvagers
 - type: entity
   name: makeshift laser pistol
-  parent: [BaseWeaponInternalSmallLaser, BaseMinorContraband]
+  parent: [BaseLaserPistol, BaseMinorContraband]
   id: WeaponMakeshiftLaser
   description: The buzzing sound it emits does not evoke confidence. Hope you brought gloves!
   components:
@@ -57,7 +57,7 @@
 
 - type: entity
   name: retro laser blaster
-  parent: [BaseWeaponInternalSmallLaser, BaseMajorContraband]
+  parent: [BaseLaserPistol, BaseMajorContraband]
   id: WeaponLaserGun
   description: A weapon using light amplified by the stimulated emission of radiation.
   components:
@@ -78,7 +78,7 @@
 
 - type: entity
   name: eye of a behonker
-  parent: BaseWeaponInternalSmallLaser
+  parent: BaseLaserPistol
   id: WeaponBehonkerLaser
   description: The eye of a behonker, it fires a laser when squeezed.
   components:

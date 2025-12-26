@@ -1,7 +1,7 @@
 # roundstart disablers found in the SecLink Radio.
 - type: entity
   name: disabler
-  parent: [BaseWeaponSmallDisabler, BaseSecurityCommandContraband]
+  parent: [BaseDisablerPistol, BaseSecurityCommandContraband]
   id: WeaponDisabler
   description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
   components:
@@ -22,13 +22,10 @@
     guides:
     - Security
     - Antagonists
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
 
 - type: entity
   name: discombobulator
-  parent: [BaseWeaponSmallDisabler, BaseSecurityCommandContraband]
+  parent: [BaseDisablerPistol, BaseSecurityCommandContraband]
   id: WeaponFunnyDisabler
   description: A self-defense weapon that humours organic targets, entertaining them until they collapse.
   components:
@@ -42,14 +39,7 @@
         shader: unshaded
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/clowndisabler.rsi
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
   - type: Appearance
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
   - type: Gun
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/clowndisabler.ogg
@@ -59,7 +49,7 @@
 
 - type: entity
   name: pocket disabler
-  parent: [BaseWeaponSmallDisabler, BaseSecurityCommandContraband]
+  parent: [BaseDisablerPistol, BaseSecurityCommandContraband]
   id: WeaponPocketDisabler
   description: A compact version of the iconic Disabler, but packs no less of a punch!
   components:
@@ -91,7 +81,7 @@
 
 - type: entity
   name: auto disabler
-  parent: [BaseWeaponSmallDisabler, BaseSecurityCommandContraband]
+  parent: [BaseDisablerPistol, BaseSecurityCommandContraband]
   id: WeaponAutoDisabler
   description: A Disabler built for sustained, automatic fire at the cost of stunning power.
   components:
@@ -129,7 +119,7 @@
 
 - type: entity
   name: magnum disabler
-  parent: [BaseWeaponSmallDisabler, BaseSecurityCommandContraband]
+  parent: [BaseDisablerPistol, BaseSecurityCommandContraband]
   id: WeaponStunProjector
   description: A disabler built for powerful single shots.
   components:

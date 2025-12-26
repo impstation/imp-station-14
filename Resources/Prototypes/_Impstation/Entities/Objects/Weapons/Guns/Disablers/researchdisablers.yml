@@ -1,7 +1,7 @@
 # disablers unlocked by researching technology.
 - type: entity
   name: disabler carbine
-  parent: [BaseWeaponLargeDisabler, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseDisablerRifle, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponDisablerCarbine
   description: An advanced disabler that accelerates its shots to the speed of light.
   components:
@@ -56,7 +56,7 @@
 
 - type: entity
   name: disabler SMG
-  parent: [BaseWeaponLargeDisabler, BaseSecurityContraband]
+  parent: [BaseDisablerRifle, BaseSecurityContraband]
   id: WeaponDisablerSMG
   description: An advanced weapon that exhausts organic targets, weakening them until they collapse. #imp
   components:
