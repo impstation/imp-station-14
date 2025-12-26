@@ -1,7 +1,7 @@
 # .35 auto deals 16 pierce per shot (CartridgePistol)
 - type: entity
   name: Freelancer
-  parent: [BaseWeaponMagazinePistol, BaseSecurityContraband]
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolFreelancer
   description: No private investigator would be caught dead without one of these concealed safely on their person, somewhere. Uses .35 auto ammo. 
   components:
@@ -43,7 +43,7 @@
 
 - type: entity
   name: Viper
-  parent: [BaseWeaponMagazinePistol, Tier3Contraband]
+  parent: [BaseWeaponPistol, Tier3Contraband]
   id: WeaponPistolViper
   description: A small, easily-concealable but somewhat underpowered handgun. Retrofitted with a fully automatic receiver. Uses .35 auto ammo.
   components:
@@ -112,7 +112,7 @@
 
 - type: entity
   name: Mk 58
-  parent: [BaseWeaponMagazinePistol, BaseSecurityContraband]
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolMk58
   description: A cheap, ubiquitous sidearm produced by a Nanotrasen subsidiary. It does its job without any hassle. Uses .35 auto ammo.
   components:

@@ -1,7 +1,7 @@
 # .22 auto deals 14 pierce per shot (CartridgeLPistol)
 - type: entity
   name: Mk 93
-  parent: [ BaseWeaponMagazinePistol, BaseSecurityContraband ]
+  parent: [ BaseWeaponPistol, BaseSecurityContraband ]
   id: WeaponPistolMk93
   description: A cheap pistol built for fully automatic fire. Uses .22 auto ammo.
   components:
@@ -51,7 +51,7 @@
 
 - type: entity
   name: Mk 92HB
-  parent: [ BaseWeaponMagazinePistol, BaseSecurityContraband ]
+  parent: [ BaseWeaponPistol, BaseSecurityContraband ]
   id: WeaponPistolMk92HB
   description: Designed in an attempt to make the most of a small cartridge. Uses .22 auto ammo.
   components:
@@ -104,7 +104,7 @@
 
 - type: entity
   name: Zipper .22
-  parent: [ BaseWeaponMagazinePistol, BaseSyndicateContraband ]
+  parent: [ BaseWeaponPistol, BaseSyndicateContraband ]
   id: WeaponPistolZipper
   description: Better at delivering the killing blow to the business of its manufacturer than to its actual targets. Uses .22 auto ammo.
   components:
@@ -224,7 +224,7 @@
 
 - type: entity
   name: P-2 "Diver"
-  parent: [ BaseWeaponMagazinePistol, BaseSecurityContraband ]
+  parent: [ BaseWeaponPistol, BaseSecurityContraband ]
   id: WeaponPistolP2
   description: A modern, bullpup sidearm specially designed for off-world asset protection. Uses .22 auto ammo.
   components:

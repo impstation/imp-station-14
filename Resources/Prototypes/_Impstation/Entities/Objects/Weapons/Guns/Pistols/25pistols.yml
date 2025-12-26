@@ -1,7 +1,7 @@
 # .25 caseless deals 21 pierce per shot (CartridgeCaselessRifle)
 - type: entity
   name: Cobra
-  parent: [ BaseWeaponMagazinePistol, Tier3Contraband ]
+  parent: [ BaseWeaponPistol, Tier3Contraband ]
   id: WeaponPistolCobra
   description: A rugged, integrally-suppressed handgun. Perfect for the robust operator who wants to leave no trace. Uses .25 caseless ammo.
   components:

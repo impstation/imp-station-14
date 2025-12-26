@@ -2,7 +2,7 @@
 - type: entity
   name: L6 Nidhogg SAW
   id: WeaponLightMachineGunL6
-  parent: [BaseWeaponLightMachineGunImp, Tier3Contraband]
+  parent: [BaseWeaponLightMachineGun, Tier3Contraband]
   description: A traditionally-made Squad Automatic Weapon in a paratrooper configuration, featuring a custom stock and hand guard while lacking a bipod. Best sprayed from the hip when on the move. Uses .20 rifle ammo. #imp
   components:
   - type: Sprite
