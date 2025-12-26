@@ -14,6 +14,10 @@
     setup:
       !type:TabletopChessSetup
       boardPrototype: ChessBoardTabletop
+    entMax: 44 # imp. standard setup (32) + extra pieces (2) + 10
+    blacklist: #imp.
+      components:
+      - HTN # NO COCKROACH GAMBIT
 
 # Chessboard tabletop item (item only visible in tabletop game)
 - type: entity
