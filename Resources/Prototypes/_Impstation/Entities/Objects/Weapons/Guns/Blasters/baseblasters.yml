@@ -1,0 +1,61 @@
+# For large, 2-handed blasters that have a built-in battery. For power-cell energy weapons see basebatteryguns.yml.
+- type: entity
+  name: BaseWeaponBlasterRifle
+  parent: [BaseWeaponBattery, BaseGunWieldable]
+  id: BaseBlasterRifle
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/temp_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/temp_gun.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletBlasterMagnum
+    fireCost: 150
+  - type: StaticPrice
+    price: 420
+
+# For smaller blaster pistols that have a built-in battery.
+- type: entity
+  name: BaseWeaponBlasterPistol
+  parent: BaseWeaponBatterySmall
+  id: BaseBlasterPistol
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/advblaster.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletBlasterMagnum
+    fireCost: 150
+  - type: StaticPrice
+    price: 420

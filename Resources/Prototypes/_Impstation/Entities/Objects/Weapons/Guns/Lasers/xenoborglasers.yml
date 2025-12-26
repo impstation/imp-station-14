@@ -1,0 +1,13 @@
+# lasers used by the feared xenoborgs
+- type: entity
+  name: xenoborg laser gun
+  parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
+  id: XenoborgLaserGun
+
+- type: entity
+  name: xenoborg heavy laser gun
+  parent: [WeaponAdvancedLaser, BaseXenoborgContraband]
+  id: XenoborgHeavyLaserGun
+  components:
+  - type: HitscanBatteryAmmoProvider
+    proto: RedHeavyLaser

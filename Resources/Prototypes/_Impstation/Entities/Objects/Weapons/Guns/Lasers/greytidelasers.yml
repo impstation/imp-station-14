@@ -1,0 +1,102 @@
+# lasers that are crafted or found as loot by salvagers
+- type: entity
+  name: makeshift laser pistol
+  parent: [BaseLaserPistol, BaseMinorContraband]
+  id: WeaponMakeshiftLaser
+  description: The buzzing sound it emits does not evoke confidence. Hope you brought gloves!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/makeshift.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    storedOffset: 0,-4
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/makeshift.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - Belt
+    - suitStorage
+  - type: HitscanBatteryAmmoProvider
+    proto: EmergencyRedLaser
+    fireCost: 62.5
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: Gun
+    fireRate: 1.75
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/laserpusk.ogg #imp
+  - type: DamageOnShoot #you really think you can trust a weaponized laser you built yourself??????
+    damage:
+      types:
+        Shock: 10
+    stunChance: 0.25
+    stunSeconds: 3
+    popupText: damage-on-shoot-laser
+
+- type: entity
+  name: makeshift laser pistol
+  parent: WeaponMakeshiftLaser
+  id: WeaponMakeshiftLaserEmpty
+  suffix: empty
+  description: The buzzing sound it emits does not evoke confidence. Hope you brought gloves!
+  components:
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 0
+  - type: Construction
+    graph: ImprovisedLaserGraph
+    node: laser
+
+- type: entity
+  name: retro laser blaster
+  parent: [BaseLaserPistol, BaseMajorContraband]
+  id: WeaponLaserGun
+  description: A weapon using light amplified by the stimulated emission of radiation.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_retro.rsi #imp
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    storedOffset: 0,-5
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumLaser
+    fireCost: 62.5
+  - type: Appearance
+
+- type: entity
+  name: eye of a behonker
+  parent: BaseLaserPistol
+  id: WeaponBehonkerLaser
+  description: The eye of a behonker, it fires a laser when squeezed.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/behonker_eye.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    storedOffset: 0,-5
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumLaser
+    fireCost: 100
+  - type: BatterySelfRecharger
+    autoRechargeRate: 40
+  - type: StaticPrice
+    price: 750

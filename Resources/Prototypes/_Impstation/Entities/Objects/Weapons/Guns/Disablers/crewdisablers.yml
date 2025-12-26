@@ -1,0 +1,69 @@
+#disablers that are not exclusive to Security and can be found or used by non-security crew.
+- type: entity
+  name: practice disabler
+  parent: BaseDisablerPistol
+  id: WeaponDisablerPractice
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse. This one has been undertuned for cadets making it mostly harmless.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disablerpractice.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    storedOffset: -1,-5
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disablerpractice.rsi
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: StaticPrice
+    price: 100
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisablerPractice
+    fireCost: 10
+
+- type: entity
+  name: antique disabler
+  parent: [BaseDisablerPistol, BaseSecurityCommandContraband]
+  id: WeaponHoPDisabler
+  description: It's a wonder how a priceless weapon with so much gold on it could feel this light and so much like plastic.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/hopdisabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/hopdisabler.rsi
+  - type: Battery
+    maxCharge: 900
+    startingCharge: 900
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 30
+    autoRechargePauseTime: 5
+  - type: Appearance
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/antiquedisabler.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 150
+  - type: StealTarget
+    stealGroup: AntiqueDisabler

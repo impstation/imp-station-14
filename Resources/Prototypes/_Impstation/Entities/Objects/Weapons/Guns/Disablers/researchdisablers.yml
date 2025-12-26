@@ -1,0 +1,88 @@
+# disablers unlocked by researching technology.
+- type: entity
+  name: disabler carbine
+  parent: [BaseDisablerRifle, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponDisablerCarbine
+  description: An advanced disabler that accelerates its shots to the speed of light.
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,4,0
+    - 0,1,0,1
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disablercarbine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-3
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disablercarbine.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
+    fireRate: 1.6
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: HitscanDisabler
+    fireCost: 100
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: StaticPrice
+    price: 420
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+
+- type: entity
+  name: disabler SMG
+  parent: [BaseDisablerRifle, BaseSecurityContraband]
+  id: WeaponDisablerSMG
+  description: An advanced weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler_smg.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisablerSmg
+    fireCost: 33
+  - type: Gun
+    selectedMode: FullAuto
+    fireRate: 4
+    availableModes:
+      - SemiAuto
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: Appearance
+  - type: StaticPrice
+    price: 260

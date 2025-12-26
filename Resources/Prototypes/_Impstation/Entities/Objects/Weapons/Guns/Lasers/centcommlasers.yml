@@ -1,0 +1,98 @@
+# the feared weapons of the ERT and Deathsquads
+- type: entity
+  name: PXS-21 pulse pistol
+  parent: [BaseLaserPistol, BaseCentcommContraband]
+  id: WeaponPulsePistol
+  description: A state-of-the-art energy pistol favored as a sidearm by Nanotrasen operatives.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/pulse_pistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+    storedOffset: -2,-5
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/pulse_pistol.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: Pulse
+    fireCost: 200
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+
+- type: entity
+  name: PX-14C pulse carbine
+  parent: [BaseLaserRifle, BaseCentcommContraband]
+  id: WeaponPulseCarbine
+  description: A high-tech energy carbine favored by Nanotrasen ERT operatives.
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/pulse_carbine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/pulse_carbine.rsi
+  - type: Gun
+    selectedMode: SemiAuto
+    fireRate: 3
+    availableModes:
+      - SemiAuto
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: Pulse
+    fireCost: 200
+  - type: Battery
+    maxCharge: 5000
+    startingCharge: 5000
+
+- type: entity
+  name: PX-6 pulse rifle
+  parent: [BaseLaserRifle, BaseCentcommContraband]
+  id: WeaponPulseRifle
+  description: A weapon almost as infamous as its users.
+  components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/pulse_rifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/pulse_rifle.rsi
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: Pulse
+    fireCost: 100
+  - type: Battery
+    maxCharge: 40000
+    startingCharge: 40000

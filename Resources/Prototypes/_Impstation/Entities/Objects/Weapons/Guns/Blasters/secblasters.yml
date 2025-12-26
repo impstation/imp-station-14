@@ -1,57 +1,7 @@
-- type: entity
-  name: TS-99 blaster pistol
-  parent: [ BaseWeaponPowerCellSmall, BaseSecurityContraband ]
-  id: WeaponBlasterPistol
-  description: A cell-loaded fusion pistol, built on the smallest budget imaginable.
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Blasters/blaster.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: base-unshaded
-        map: ["enum.GunVisualLayers.BaseUnshaded"]
-        shader: unshaded
-      - state: mag-4
-        map: ["enum.GunVisualLayers.Mag"]
-      - state: mag-unshaded-4
-        map: ["enum.GunVisualLayers.MagUnshaded"]
-        shader: unshaded
-  - type: Appearance
-  - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Blasters/blaster.rsi
-    quickEquip: false
-    slots:
-      - suitStorage
-      - Belt
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Gun
-    fireRate: 2.5
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/blasterweak.ogg
-  - type: MagazineAmmoProvider
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: PowerCellBlaster
-        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
-        whitelist:
-          tags:
-            - BlasterCell
-  - type: MeleeWeapon
-    wideAnimationRotation: -80
-
+# Blasters found in security, or used by security.
 - type: entity
   name: TW-07 blaster cannon
-  parent: [BaseWeaponBattery, BaseGunWieldable, BaseSecurityContraband]
+  parent: [BaseBlasterRifle, BaseSecurityContraband]
   id: WeaponBlasterCannon
   description: What once started as an overzealous gardening tool was soon picked up by military developers. Packs one hell of a punch!
   components:
@@ -72,10 +22,6 @@
       - suitStorage
   - type: Item
     size: Ginormous
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
   - type: GunRequiresWield
   - type: Gun
     fireRate: 0.5
@@ -103,7 +49,7 @@
 
 - type: entity
   name: TT-10 advanced blaster
-  parent: [BaseWeaponBatterySmall, BaseSecurityContraband]
+  parent: [BaseBlasterPistol, BaseSecurityContraband]
   id: WeaponBlasterMagnum
   description: A culmination of energy weapons research rolled into a single, menacing package.
   components:
@@ -117,18 +63,7 @@
         shader: unshaded
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Blasters/advblaster.rsi
-    quickEquip: false
-    slots:
-      - suitStorage
-      - Belt
   - type: Appearance
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
   - type: Gun
     fireRate: 1.75
     soundGunshot:
@@ -143,56 +78,90 @@
     wideAnimationRotation: -80
 
 - type: entity
-  name: Ceremonial Gray blaster
-  parent: WeaponDisablerPractice
-  id: WeaponBlasterToy
-  description: A harmless* gun used by Grays for ceremonial purposes.
+  name: RA-96 temperature gun
+  parent: [BaseBlasterRifle, BaseSecurityContraband]
+  id: WeaponTemperatureGun
+  description: An advanced gun that shoots body-temperature-changing beams. This probably constitutes as some kind of war crime.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Blasters/grayceremonial.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/temp_gun.rsi
     layers:
-      - state: icon
-  - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Blasters/grayceremonial.rsi
-    quickEquip: false
-    slots:
-      - suitStorage
-      - Belt
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-1
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
   - type: Appearance
-  - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/temp_gun.rsi
   - type: Gun
-    projectileSpeed: 10
-    cameraRecoilScalar: 0.1
-    minAngle: 90
-    maxAngle: 90
-    fireRate: 6
-    selectedMode: FullAuto
-    availableModes:
-      - FullAuto
+    fireRate: 1
     soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/toyblaster.ogg
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletBlasterToy
-    fireCost: 10
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 200
-  - type: MeleeWeapon
-    wideAnimationRotation: -80
-    damage:
-      types:
-        Blunt: 0
-  - type: DamageOtherOnHit
-    staminaCost: 15
-    damage:
-      types:
-        Blunt: 0
+    proto: BoltTempgunCold
+    fireCost: 100
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BoltTempgunCold
+      fireCost: 100
+    - proto: BoltTempgunHot
+      fireCost: 100
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  name: TS-99 blaster pistol
+  parent: [BaseWeaponPowerCellSmall, BaseSecurityContraband ]
+  id: WeaponBlasterPistol
+  description: A cell-loaded fusion pistol, built on the smallest budget imaginable.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/blaster.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: base-unshaded
+        map: ["enum.GunVisualLayers.BaseUnshaded"]
+        shader: unshaded
+      - state: mag-4
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: AmmoCounter
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/blaster.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Gun
+    fireRate: 2.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/blasterweak.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: PowerCellBlaster
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - BlasterCell
 
 - type: entity
   name: Starflare EPDW-6
-  parent: [ BaseWeaponPowerCell, BaseSecurityContraband ]
+  parent: [BaseWeaponPowerCell, BaseGunWieldable, BaseSecurityContraband ]
   id: WeaponStarflareSMG
   description: A patented cell-loaded fusion SMG. A slogan printed on the side reads "Spray and make 'em pray!"
   components:
@@ -240,7 +209,6 @@
     - FullAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/rapidblaster.ogg
-  - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
       gun_magazine:
