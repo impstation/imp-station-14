@@ -47,7 +47,7 @@
 
 - type: markingPoints
   id: MobThavenMarkingLimits
-  onlyWhitelisted: true
+  onlyWhitelisted: false
   points:
     Hair:
       points: 1
@@ -56,34 +56,44 @@
     HeadTop:
       points: 4
       required: false
+      onlyWhitelisted: true
     HeadSide:
       points: 1
       required: true
+      onlyWhitelisted: true
       defaultMarkings: [ ThavenEars1 ]
     Head:
       points: 4
       required: false
+      onlyWhitelisted: true
     UndergarmentTop:
       points: 1
       required: false
+      onlyWhitelisted: true
     UndergarmentBottom:
       points: 1
       required: false
+      onlyWhitelisted: true
     Chest:
       points: 4
       required: false
+      onlyWhitelisted: true
     Arms:
       points: 4
       required: false
+      onlyWhitelisted: true
     Tail:
       points: 1
       required: false
+      onlyWhitelisted: true
     Overlay:
       points: 6
       required: false
+      onlyWhitelisted: true
     Snout:
       points: 1
       required: false
+      onlyWhitelisted: true
 
 - type: humanoidBaseSprite
   id: MobThavenEyes
