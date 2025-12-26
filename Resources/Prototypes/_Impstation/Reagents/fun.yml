@@ -167,7 +167,10 @@
   metabolisms:
     Poison:
       effects:
-      - !type:Medium
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectMedium
+        type: Add
+        time: 300
         conditions:
         - !type:ReagentCondition
           reagent: Medium
