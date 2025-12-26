@@ -80,12 +80,15 @@ namespace Content.Shared.Strip.Components
         public readonly bool InsertOrRemove;
         public readonly bool InventoryOrHand;
         public readonly string SlotOrHandName;
+        public readonly bool UseItem; // imp add
 
-        public StrippableDoAfterEvent(bool insertOrRemove, bool inventoryOrHand, string slotOrHandName)
+        public StrippableDoAfterEvent(bool insertOrRemove, bool inventoryOrHand, string slotOrHandName,
+            bool useItem = false) // imp add
         {
             InsertOrRemove = insertOrRemove;
             InventoryOrHand = inventoryOrHand;
             SlotOrHandName = slotOrHandName;
+            UseItem = useItem; // imp add
         }
 
         public override DoAfterEvent Clone() => this;
