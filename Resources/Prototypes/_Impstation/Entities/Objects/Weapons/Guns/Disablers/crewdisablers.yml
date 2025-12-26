@@ -22,12 +22,12 @@
     magState: mag
     steps: 6
     zeroVisible: true
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 100
     startingCharge: 100
   - type: StaticPrice
     price: 100
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 10
 
@@ -47,10 +47,10 @@
         shader: unshaded
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/hopdisabler.rsi
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 900
     startingCharge: 900
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 30
     autoRechargePauseTime: 5
@@ -62,7 +62,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/antiquedisabler.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 150
   - type: StealTarget

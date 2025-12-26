@@ -27,7 +27,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
   - type: StaticPrice
@@ -54,7 +54,7 @@
     steps: 5
     zeroVisible: false
   - type: Appearance
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
   - type: StaticPrice

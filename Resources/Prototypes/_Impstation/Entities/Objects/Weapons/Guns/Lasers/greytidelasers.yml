@@ -23,10 +23,10 @@
     - Back
     - Belt
     - suitStorage
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: EmergencyRedLaser
     fireCost: 62.5
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 500
     startingCharge: 500
   - type: Gun
@@ -48,7 +48,7 @@
   suffix: empty
   description: The buzzing sound it emits does not evoke confidence. Hope you brought gloves!
   components:
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 500
     startingCharge: 0
   - type: Construction
@@ -71,7 +71,7 @@
       shader: unshaded
   - type: Item
     storedOffset: 0,-5
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 62.5
   - type: Appearance
@@ -93,10 +93,10 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRechargeRate: 40
   - type: StaticPrice
     price: 750

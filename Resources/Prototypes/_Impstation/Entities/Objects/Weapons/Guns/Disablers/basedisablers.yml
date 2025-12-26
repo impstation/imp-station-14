@@ -9,7 +9,7 @@
   - type: Item
     size: Large
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Blasters/temp_gun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler_smg.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -20,16 +20,12 @@
     magState: mag
     steps: 5
     zeroVisible: false
-  - type: BatteryAmmoProvider
-    proto: BulletDisablerSmg
-    fireCost: 33
   - type: Appearance
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Blasters/temp_gun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler_smg.rsi
   - type: Gun
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: PacifismAllowedGun
   - type: Tag
     tags:
@@ -57,7 +53,10 @@
     magState: mag
     steps: 5
     zeroVisible: false
-  - type: BatteryAmmoProvider
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 100
   - type: Appearance

@@ -27,7 +27,7 @@
     fireRate: 0.5
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/blastercannon.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletBlasterCannon
     fireCost: 200
   - type: MeleeWeapon
@@ -68,10 +68,10 @@
     fireRate: 1.75
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/blasterpist.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BulletBlasterMagnum
     fireCost: 150
-  - type: PredictedBatterySelfRecharger
+  - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 20
   - type: MeleeWeapon
@@ -102,7 +102,7 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: BatteryAmmoProvider
+  - type: ProjectileBatteryAmmoProvider
     proto: BoltTempgunCold
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -133,6 +133,7 @@
       - state: mag-unshaded-4
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
+  - type: AmmoCounter
   - type: Appearance
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Blasters/blaster.rsi
@@ -147,6 +148,16 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/blasterweak.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: PowerCellBlaster
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - BlasterCell
 
 - type: entity
   name: Starflare EPDW-6

@@ -32,10 +32,10 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: BatteryAmmoProvider
+  - type: HitscanBatteryAmmoProvider
     proto: HitscanDisabler
     fireCost: 100
-  - type: PredictedBattery
+  - type: Battery
     maxCharge: 1200
     startingCharge: 1200
   - type: StaticPrice
@@ -58,20 +58,23 @@
   name: disabler SMG
   parent: [BaseDisablerRifle, BaseSecurityContraband]
   id: WeaponDisablerSMG
-  description: An advanced weapon that exhausts organic targets, weakening them until they collapse. #imp
+  description: An advanced weapon that exhausts organic targets, weakening them until they collapse.
   components:
   - type: Item
     size: Large
     shape:
     - 0,0,2,1
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler_smg.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler_smg.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-unshaded-0
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisablerSmg
+    fireCost: 33
   - type: Gun
     selectedMode: FullAuto
     fireRate: 4
