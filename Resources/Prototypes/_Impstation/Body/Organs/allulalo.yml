@@ -1,7 +1,7 @@
 - type: entity
   id: OrganAllulaloHeart
   parent: OrganAnimalHeart
-  name: animal heart
+  name: allulalo heart
   categories: [ HideSpawnMenu ]
   components:
   - type: Metabolizer
@@ -9,8 +9,5 @@
     metabolizerTypes: [ Allulalo ]
     groups:
     - id: Medicine
-      rateModifier: 1.5
     - id: Poison
-      rateModifier: 1.5
     - id: Narcotic
-      rateModifier: 1.5
