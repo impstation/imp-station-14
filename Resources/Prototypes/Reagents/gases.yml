@@ -21,7 +21,7 @@
       - !type:ModifyLungGas
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Vox ]
+          type: [ Vox, Dinosaur ] #imp, added dinosaur
           inverted: true
         ratios:
           CarbonDioxide: 1.0
@@ -47,12 +47,12 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Apid, Thaven ] #imp, added apid, thaven TODO: thaven should have their own waste reaction for all gases
+          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Dinosaur ] #imp, added apid, dinosaur, thaven TODO: thaven should have their own waste reaction for all gases
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Vox ]
+          type: [ Vox, Dinosaur ] #imp added dinosaur. dont look at this
           inverted: true
         ratios:
           CarbonDioxide: 1.0
