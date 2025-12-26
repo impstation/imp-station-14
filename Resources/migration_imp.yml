@@ -134,3 +134,15 @@ ComputerFundingAllocation: ComputerFundingAllocationBroken
 # 2025-11-20
 # upstream merge replacement prototypes
 CrayonRainbowInfinite: CrayonInfinite
+
+# 2025-12-8
+# unidentified corpse overhaul
+SalvageHumanCorpse: VisitorCorpseSpawner
+SalvageHumanCorpseSpawner: VisitorCorpseSpawner
+RandomServiceCorpseSpawner: ServiceCorpseSpawner
+RandomEngineerCorpseSpawner: EngineerCorpseSpawner
+RandomCargoCorpseSpawner: CargoCorpseSpawner
+RandomMedicCorpseSpawner: MedicCorpseSpawner
+RandomScienceCorpseSpawner: ScienceCorpseSpawner
+RandomSecurityCorpseSpawner: SecurityCorpseSpawner
+RandomCommandCorpseSpawner: CommandCorpseSpawner
