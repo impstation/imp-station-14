@@ -42,3 +42,9 @@ food-sequence-cotton-burger-content-cheese-string = cheese
 # CARDBOARD TACO
 
 food-sequence-cardtaco-gen = {$content} taco de cartón
+
+# dogs
+
+food-sequence-hotdog-content-hotdog = dog
+
+food-sequence-hotdog-gen = hot {$content}dog

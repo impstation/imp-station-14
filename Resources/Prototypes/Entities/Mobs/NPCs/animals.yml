@@ -2027,6 +2027,7 @@
       Taco: RatTaco
       Burger: RatBurger
       Skewer: RatSkewer
+      Hotdog: RatTaco #imp
   - type: Destructible
     thresholds:
     - trigger:
