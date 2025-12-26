@@ -67,7 +67,10 @@
         - type: GrayAccent
         - type: DwarfAccent
         - type: NoContractionsAccent
-        - type: AllulaloAccent # imp edit end
+        - type: AllulaloAccent 
+      - type: RandomHumanoidAppearance # Imp
+        randomizeName: false
+        keepPronouns: true# imp edit end
       mindRoles:
       - MindRolePostOperator
 
