@@ -589,7 +589,7 @@
     heldPrefix: brass
   - type: FloorTile
     outputs:
-      - PlatingBrass
+      - Plating #imp, changed from PlatingBrass
       - FloorBrassFilled
   - type: Stack
     stackType: FloorTileBrassFilled
@@ -608,7 +608,7 @@
     heldPrefix: brass
   - type: FloorTile
     outputs:
-      - PlatingBrass
+      - Plating #imp, changed from PlatingBrass
       - FloorBrassReebe
   - type: Stack
     stackType: FloorTileBrassReebe

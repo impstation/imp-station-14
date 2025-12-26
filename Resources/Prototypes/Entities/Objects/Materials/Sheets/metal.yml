@@ -145,7 +145,7 @@
   - type: Appearance
   - type: FloorTile
     outputs:
-    - PlatingBrass
+    - Plating #imp, changed from PlatingBrass
   - type: Extractable
     grindableSolutionName: brass
   - type: SolutionContainerManager
