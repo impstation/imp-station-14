@@ -15,8 +15,7 @@
     sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi
     state: full
   - type: SpeechRequiresEquipment
-    equipment:
-      mask:
+    whitelist:
         tags:
           - Vaporizer
           - SGD
