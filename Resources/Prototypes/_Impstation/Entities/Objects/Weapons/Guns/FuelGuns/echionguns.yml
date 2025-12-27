@@ -1,6 +1,7 @@
+# Guns that use Echion as fuel and typically shoot plasma
 - type: entity
   name: Adder
-  parent: [BaseItem, Tier3Contraband]
+  parent: [BaseWeaponEchion, Tier3Contraband]
   id: WeaponPlasmaAdder
   description: The future of stellar warfare in the palm of your hand. Uses Echion, produced from advanced synthesizers.
   components:
@@ -19,71 +20,21 @@
       - suitStorage
       - Belt
   - type: Appearance
-  - type: AmmoCounter
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: true
   - type: Item
     sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
     size: Small
     shape:
     - 0,0,1,1
-  - type: Gun
-    clumsyProof: false
-    cameraRecoilScalar: 1
-    fireRate: 4
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
-    soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/akurra.ogg
-  - type: SolutionContainerManager
-    solutions:
-      chamber:
-        reagents:
-        - ReagentId: Echion
-          Quantity: 75
-        maxVol: 75 #12 shots
-  - type: SolutionAmmoProvider
-    solutionId: chamber
-    proto: BulletPlasmaAdder
-    fireCost: 6.25
-  - type: SolutionItemStatus
-    solution: chamber
-  - type: SolutionRefuel
-    fuelSolutionName: chamber
-    fuelReagent: Echion
-  - type: ExaminableSolution
-    solution: chamber
   - type: Tag
     tags:
     - EchionGun
+    - Sidearm
   - type: StaticPrice
     price: 100
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.8
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-    wideAnimationRotation: -80
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 6
-    damage:
-      types:
-        Blunt: 5
 
 - type: entity
   name: Akurra
-  parent: [WeaponPlasmaAdder, BaseGunWieldable]
+  parent: [BaseWeaponEchion, BaseGunWieldable, Tier3Contraband]
   id: WeaponPlasmaAkurra
   description: A beautiful marriage of technology and malice in a single package. Uses Echion, produced from advanced synthesizers.
   components:
@@ -105,6 +56,8 @@
   - type: Item
     sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
     size: Large
+    shape:
+    - 0,0,3,1
   - type: Gun
     clumsyProof: false
     cameraRecoilScalar: 1
@@ -130,9 +83,6 @@
     solutionId: chamber
     proto: BulletPlasmaAkurra
     fireCost: 5
-  - type: Tag
-    tags:
-    - EchionGun
   - type: StaticPrice
     price: 100
   - type: MeleeWeapon

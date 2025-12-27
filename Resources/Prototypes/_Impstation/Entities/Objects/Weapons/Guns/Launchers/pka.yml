@@ -1,3 +1,25 @@
+# Proto-Kinetic Accelerators! A Salvager's best friend. Placed here as they aren't actually "Battery Guns", and don't really fit in most weapon categories, but their aesthetic and function give them a "launcher" quality.
+- type: entity
+  name: proto-kinetic accelerator
+  id: WeaponProtoKineticAccelerator
+  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
+  description: Fires low-damage kinetic bolts at a short range.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
+    layers:
+    - state: icon
+    - state: animation-icon
+      visible: false
+      map: [ "empty-icon" ]
+  - type: UpgradeableGun
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
+
 - type: entity
   id: WeaponProtoKineticAcceleratorApid
   parent: BaseItem
