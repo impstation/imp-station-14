@@ -157,6 +157,10 @@
     sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
   - type: SolutionItemStatus
     solution: chamber
   - type: Item
