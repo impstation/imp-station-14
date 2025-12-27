@@ -159,7 +159,7 @@
             </TabContainer>
         </BoxContainer>
         <!-- Right side --> <!-- IMP: MinSize 0 700-->
-        <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center" MinSize="0 700">
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center" MinSize="0 600">
             <!-- IMP: change spriteview margin 4 > 4, 10. SetSize 300 400, Stretch=None, Horizontal and Vertical expand false. -->
             <SpriteView Name="SpriteView" Scale="8 8" Margin="4, 10" SetSize="300 400" Stretch="None" HorizontalExpand="False" VerticalExpand="False" />
             <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 5">
