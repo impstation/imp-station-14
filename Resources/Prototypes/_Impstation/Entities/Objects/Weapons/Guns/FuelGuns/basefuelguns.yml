@@ -152,6 +152,7 @@
   parent: BaseItem
   id: BaseWeaponMuncherGun
   description: A rooty tooty point and shooty.
+  abstract: true
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi
