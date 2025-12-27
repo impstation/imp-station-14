@@ -185,3 +185,15 @@
   - type: MeleeThrowOnHit
     distance: 0.5
     speed: 5
+
+- type: entity
+  name: Urist McMeteor launcher
+  parent: WeaponLauncherAdmemeMeteorLarge
+  id: WeaponLauncherAdmemeUrist
+  description: It fires Urist McMeteors.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CartridgeRocket
+    proto: MeteorUrist
