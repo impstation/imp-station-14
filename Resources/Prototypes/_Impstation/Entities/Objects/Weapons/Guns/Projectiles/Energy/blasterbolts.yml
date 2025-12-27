@@ -1,39 +1,42 @@
 - type: entity
-  name : heavy blaster bolt
-  id: BulletBlasterMagnum
-  parent: BulletLaser
+  name: laser bolt
+  id: BulletLaser
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: FlyBySound
+    sound:
+      collection: EnergyMiss
+      params:
+        volume: 5
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
     layers:
-    - state: medium
+    - state: light
       shader: unshaded
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.15,-0.3,0.15,0.3"
+        hard: false
+        mask:
+        - Opaque
+        - Impassable
+        - BulletImpassable
+      fly-by: *flybyfixture
   - type: Ammo
+    muzzleFlash: MuzzleFlashEffectHeavyLaser
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 28
-    soundHit:
-      collection: WeakHit
-    forceSound: true
-
-- type: entity
-  name : blaster pistol bolt
-  id: BulletBlasterPistol
-  parent: BulletLaser
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Ammo
-  - type: Projectile
-    impactEffect: BulletImpactEffectOrangeDisabler
-    damage:
-      types:
-        Heat: 15
-    soundHit:
-      collection: WeakHit
-    forceSound: true
+        Heat: 13
 
 - type: entity
   name : starflare bolt
@@ -47,9 +50,45 @@
     damage:
       types:
         Heat: 13
-    soundHit:
-      collection: WeakHit
-    forceSound: true
+
+- type: entity
+  name : heavy laser bolt
+  id: BulletLaserHeavy
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: medium
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+
+- type: entity
+  name: lethal laser barrage
+  id: BulletLaserSpreadNarrow
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaser
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaserHeavy
+    count: 4 #60 heat damage if you hit all your shots, but narrower spread
+    spread: 10
+
+- type: entity
+  name : blaster pistol bolt
+  id: BulletBlasterPistol
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
 
 - type: entity
   name : military blaster pistol bolt
@@ -66,6 +105,43 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+
+- type: entity
+  name : heavy blaster bolt
+  id: BulletBlasterMagnum
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: medium
+      shader: unshaded
+  - type: Ammo
+  - type: Projectile
+    damage:
+      types:
+        Heat: 28
+
+- type: entity
+  name: magnum blaster bolt
+  id: BulletLaserMagnum
+  categories: [ HideSpawnMenu ]
+  parent: BulletLaser
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavy
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 35
 
 - type: entity
   name : blaster cannon bolt
@@ -89,75 +165,9 @@
     canCreateVacuum: false
   - type: Ammo
   - type: Projectile
-    impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
         Heat: 13
-    soundHit:
-      collection: WeakHit
-    forceSound: true
-
-- type: entity
-  name: adder plasma bolt
-  id: BulletPlasmaAdder
-  parent: BulletLaser
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
-    layers:
-    - state: mediumsynd
-      shader: unshaded
-  - type: Ammo
-    muzzleFlash: MuzzleFlashEffectSyndLaser
-  - type: Projectile
-    impactEffect: BulletImpactEffectSyndicate
-    damage:
-      types:
-        Heat: 9.5
-        Piercing: 9.5
-    soundHit:
-      collection: WeakHit
-    forceSound: true
-
-- type: entity
-  name: akurra plasma bolt
-  id: BulletPlasmaAkurra
-  parent: BulletPlasmaAdder
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
-    layers:
-    - state: lightsynd
-      shader: unshaded
-  - type: Projectile
-    damage:
-      types:
-        Heat: 8.5
-        Piercing: 8.5
-
-- type: entity
-  name : toy blaster bolt
-  id: BulletBlasterToy
-  parent: BulletLaser
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
-    layers:
-    - state: toybolt
-      shader: unshaded
-  - type: Ammo
-    muzzleFlash: MuzzleFlashEffectToyBlaster
-  - type: Projectile
-    impactEffect: BulletImpactEffectToyBlaster
-    damage:
-      types:
-        Cellular: 0.01
-    soundHit:
-      collection: WeakHit
-    forceSound: true
 
 - type: entity
   name : kinetic blaster bolt
@@ -214,3 +224,43 @@
     damage:
       types:
         Heat: 10
+
+- type: entity
+  name: freezing bolt
+  id: BoltTempgunCold
+  parent: WatcherBolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectTempCold
+  - type: Projectile
+    #   soundHit:  Waiting on serv3
+    impactEffect: BulletImpactEffectCold
+    damage:
+      types:
+        Cold: 10
+  - type: TimedDespawn
+    lifetime: 3
+  - type: ChangeTemperatureOnCollide
+    heat: -100000
+
+- type: entity
+  name: scorching bolt
+  id: BoltTempgunHot
+  parent: WatcherBoltMagmawing
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: Projectile
+    #   soundHit:  Waiting on serv3
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 10
+  - type: ChangeTemperatureOnCollide
+    heat: 100000

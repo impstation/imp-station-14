@@ -1,4 +1,65 @@
 - type: entity
+  id: MuzzleFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.2
+  - type: Sprite
+    drawdepth: BelowMobs
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: kinetic
+  - type: EffectVisuals
+  - type: PointLight
+    enabled: true
+    color: "#ffa223"
+    radius: 1.4
+    energy: 5.0
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectOmnilaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    color: "#0ab8c4"
+    radius: 1.4
+    energy: 5.0
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+      state: energystun
+
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectHeavyLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    color: "#d63b28"
+    radius: 1.4
+    energy: 5.0
+  - type: Sprite
+    drawdepth: BelowMobs
+    offset: 0.15, 0
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi
+
+- type: entity
   parent: MuzzleFlashEffect
   id: MuzzleFlashEffectSmall
   categories: [ HideSpawnMenu ]
