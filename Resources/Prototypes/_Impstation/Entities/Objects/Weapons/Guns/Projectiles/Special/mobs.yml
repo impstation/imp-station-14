@@ -28,7 +28,15 @@
         - Opaque
         - Impassable
         - BulletImpassable
-      fly-by: *flybyfixture
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
   - type: Projectile
     #   soundHit:  Waiting on serv3
     impactEffect: BulletImpactEffectDisabler
@@ -91,7 +99,15 @@
         hard: false
         mask:
         - Opaque
-      fly-by: *flybyfixture
+      fly-by:
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        hard: False
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:

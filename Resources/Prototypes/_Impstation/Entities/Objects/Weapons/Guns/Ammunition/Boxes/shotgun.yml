@@ -1,7 +1,7 @@
 - type: entity
-  abstract: true
   parent: BaseItem
   id: BaseMagazineBoxShotgun
+  abstract: true
   name: shell box (.50 shotgun)
   description: A box made for 16 .50 shotgun shells.
   components:
@@ -21,7 +21,7 @@
     zeroVisible: false
   - type: ContainerContainer
     containers:
-    ballistic-ammo: !type:Container
+      ballistic-ammo: !type:Container
   - type: Appearance
 
 - type: entity

@@ -95,7 +95,7 @@
     lifetime: 10
 
 - type: entity
-  id: BaseBulletTriggerWizden #imp - see the _Impstation directory for the version we use  # Trigger-on-collide bullets
+  id: BaseBulletTriggerWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -350,7 +350,7 @@
 - type: entity
   name: emitter bolt
   id: EmitterBolt
-  parent: BaseBulletWizden #imp
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -630,7 +630,7 @@
         Slash: 5
 
 - type: entity
-  parent: BaseBulletWizden #imp
+  parent: BaseBullet
   id: AnomalousParticleDelta
   name: delta particles
   categories: [ HideSpawnMenu ]

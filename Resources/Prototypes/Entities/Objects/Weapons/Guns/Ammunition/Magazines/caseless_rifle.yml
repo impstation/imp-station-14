@@ -126,8 +126,7 @@
         color: "#dbdbdb"
 
 - type: entity
-  id: MagazineCaselessRifleWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
+  id: MagazineCaselessRifle
   name: "magazine (.25 caseless)"
   parent: BaseMagazineCaselessRifleWizden #imp
   components:

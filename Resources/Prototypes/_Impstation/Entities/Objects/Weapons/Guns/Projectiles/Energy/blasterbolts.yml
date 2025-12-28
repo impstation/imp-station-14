@@ -1,37 +1,10 @@
 - type: entity
   name: laser bolt
   id: BulletLaser
-  parent: BaseBullet
+  parent: BaseBulletLaser
   categories: [ HideSpawnMenu ]
   components:
-  - type: Reflective
-    reflective:
-    - Energy
-  - type: FlyBySound
-    sound:
-      collection: EnergyMiss
-      params:
-        volume: 5
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
-    layers:
-    - state: light
-      shader: unshaded
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.15,-0.3,0.15,0.3"
-        hard: false
-        mask:
-        - Opaque
-        - Impassable
-        - BulletImpassable
-      fly-by: *flybyfixture
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectHeavyLaser
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
@@ -41,7 +14,7 @@
 - type: entity
   name : starflare bolt
   id: BulletBlasterStarflare
-  parent: BulletLaser
+  parent: BaseBulletLaser
   categories: [ HideSpawnMenu ]
   components:
   - type: Ammo
@@ -54,7 +27,7 @@
 - type: entity
   name : heavy laser bolt
   id: BulletLaserHeavy
-  parent: BulletLaser
+  parent: BaseBulletLaser
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -71,7 +44,7 @@
   name: lethal laser barrage
   id: BulletLaserSpreadNarrow
   categories: [ HideSpawnMenu ]
-  parent: BulletLaser
+  parent: BaseBulletLaser
   components:
   - type: ProjectileSpread
     proto: BulletLaserHeavy
@@ -82,7 +55,7 @@
   name: wide laser barrage
   id: BulletLaserSpread
   categories: [ HideSpawnMenu ]
-  parent: BulletLaser
+  parent: BaseBulletLaser
   components:
   - type: ProjectileSpread
     proto: BulletLaser
@@ -92,7 +65,7 @@
 - type: entity
   name : blaster pistol bolt
   id: BulletBlasterPistol
-  parent: BulletLaser
+  parent: BaseBulletLaser
   categories: [ HideSpawnMenu ]
   components:
   - type: Ammo
@@ -138,7 +111,7 @@
   name: magnum blaster bolt
   id: BulletLaserMagnum
   categories: [ HideSpawnMenu ]
-  parent: BulletLaser
+  parent: BaseBulletLaser
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
@@ -157,7 +130,7 @@
 - type: entity
   name : blaster cannon bolt
   id: BulletBlasterCannon
-  parent: BulletLaser
+  parent: BaseBulletLaser
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
