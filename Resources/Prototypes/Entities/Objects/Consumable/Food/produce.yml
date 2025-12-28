@@ -203,7 +203,9 @@
     juiceSolution:
       reagents:
       - ReagentId: Sap
-        Quantity: 5
+        Quantity: 2
+      - ReagentId: Pulp
+        Quantity: 3
   - type: MeleeWeapon
     damage:
       types:
