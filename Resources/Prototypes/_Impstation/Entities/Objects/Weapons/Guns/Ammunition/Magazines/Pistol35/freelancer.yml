@@ -1,26 +1,28 @@
+# Magazines compatible with the Freelancer.
 - type: entity
-  id: BaseMagazinePistolP2
-  name: P-2 pistol magazine (.22 auto any)
-  description: A 12-round .22 auto pistol magazine.
+  id: BaseMagazinePistolFreelancer
+  name: Freelancer magazine (.35 auto any)
+  description: An 8-round .35 auto pistol magazine.
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
   - type: Tag
     tags:
-      - MagazinePistolP2
+      - MagazinePistolFreelancer
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgeLPistol
-    capacity: 12
+        - CartridgePistol
+        - CartridgePistolStun
+    capacity: 8
   - type: Item
     size: Small
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/p2_mag.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/freelancer_mag.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -28,15 +30,15 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 7
+    steps: 6
     zeroVisible: false
   - type: Appearance
 
 - type: entity
-  id: MagazinePistolP2Empty
-  name: P-2 pistol magazine (.22 auto any)
-  description: A 12-round .22 auto pistol magazine with no apparent markings.
-  parent: BaseMagazinePistolP2
+  id: MagazinePistolFreelancerEmpty
+  name: Freelancer magazine (.35 auto any)
+  description: An 8-round .35 auto pistol magazine with no apparent markings.
+  parent: BaseMagazinePistolFreelancer
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -48,63 +50,13 @@
       - state: inhand-right-mag
 
 - type: entity
-  id: MagazinePistolP2ExtendedEmpty
-  name: P-2 extended pistol magazine (.22 auto any)
-  description: A 24-round .22 auto pistol magazine with no apparent markings.
-  parent: BaseMagazinePistolP2
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/p2_extended.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: BallisticAmmoProvider
-    proto: null
-    capacity: 24
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left-mag
-      right:
-      - state: inhand-right-mag
-
-- type: entity
-  id: MagazinePistolP2Extended
-  name: P-2 extended pistol magazine (.22 auto)
-  description: A 24-round .22 auto pistol magazine, marked as live-fire ammo.
-  parent: BaseMagazinePistolP2
-  components:
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/p2_extended.rsi
-    layers:
-    - state: red
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: BallisticAmmoProvider
-    proto: CartridgeLPistol
-    capacity: 24
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#820a16"
-      right:
-      - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#820a16"
-
-- type: entity
-  id: MagazinePistolP2
-  name: P-2 pistol magazine (.22 auto)
-  description: A 12-round .22 auto pistol magazine, marked as live-fire ammo.
-  parent: BaseMagazinePistolP2
+  id: MagazinePistolFreelancer
+  name: Freelancer magazine (.35 auto)
+  description: An 8-round .35 auto pistol magazine, marked as live-fire ammo.
+  parent: BaseMagazinePistolFreelancer
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistol
+    proto: CartridgePistol
   - type: Sprite
     layers:
     - state: red
@@ -123,13 +75,13 @@
         color: "#820a16"
 
 - type: entity
-  id: MagazinePistolP2Incendiary
-  name: P-2 pistol magazine (.22 auto incendiary)
-  description: A 12-round .22 auto pistol magazine, marked as incendiary ammo.
-  parent: BaseMagazinePistolP2
+  id: MagazinePistolFreelancerIncendiary
+  name: Freelancer magazine (.35 auto incendiary)
+  description: An 8-round .35 auto pistol magazine, marked as incendiary ammo.
+  parent: BaseMagazinePistolFreelancer
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistolIncendiary
+    proto: CartridgePistolIncendiary
   - type: Sprite
     layers:
     - state: incendiary
@@ -148,13 +100,13 @@
         color: "#d46925"
 
 - type: entity
-  id: MagazinePistolP2Practice
-  name: P-2 pistol magazine (.22 auto practice)
-  description: A 12-round .22 auto pistol magazine, marked as practice ammo.
-  parent: BaseMagazinePistolP2
+  id: MagazinePistolFreelancerPractice
+  name: Freelancer magazine (.35 auto practice)
+  description: An 8-round .35 auto pistol magazine, marked as practice ammo.
+  parent: BaseMagazinePistolFreelancer
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistolPractice
+    proto: CartridgePistolPractice
   - type: Sprite
     layers:
     - state: practice
@@ -173,13 +125,13 @@
         color: "#ffcb6f"
 
 - type: entity
-  id: MagazinePistolP2Uranium
-  name: P-2 pistol magazine (.22 auto uranium)
-  description: A 12-round .22 auto pistol magazine, marked as uranium ammo.
-  parent: BaseMagazinePistolP2
+  id: MagazinePistolFreelancerUranium
+  name: Freelancer magazine (.35 auto uranium)
+  description: An 8-round .35 auto pistol magazine, marked as uranium ammo.
+  parent: BaseMagazinePistolFreelancer
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistolUranium
+    proto: CartridgePistolUranium
   - type: Sprite
     layers:
     - state: uranium
@@ -196,3 +148,28 @@
       - state: inhand-right-mag
       - state: inhand-right-stripe
         color: "#22b24d"
+
+- type: entity
+  id: MagazinePistolFreelancerStun
+  name: Freelancer magazine (.35 auto stun)
+  description: An 8-round .35 auto pistol magazine, marked as stun ammo.
+  parent: BaseMagazinePistolFreelancer
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolStun
+  - type: Sprite
+    layers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#4477bc"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#4477bc"

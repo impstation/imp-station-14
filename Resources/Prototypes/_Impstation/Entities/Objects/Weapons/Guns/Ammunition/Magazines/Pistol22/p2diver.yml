@@ -1,26 +1,27 @@
+# Magazines compatible with the P-2 Diver.
 - type: entity
-  id: BaseMagazineLPistol
-  name: pistol magazine (.22 auto)
-  description: A 20-round .22 auto high-capacity pistol magazine.
+  id: BaseMagazinePistolP2
+  name: P-2 pistol magazine (.22 auto any)
+  description: A 12-round .22 auto pistol magazine.
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
   - type: Tag
     tags:
-      - MagazineLPistol
+      - MagazinePistolP2
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
         - CartridgeLPistol
-    capacity: 20
+    capacity: 12
   - type: Item
     size: Small
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/mpistol_mag.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/p2_mag.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -28,49 +29,15 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 10
+    steps: 7
     zeroVisible: false
   - type: Appearance
 
 - type: entity
-  id: BaseMagazineZipper
-  name: Zipper .22 magazine (.22 auto)
-  description: A 6-round holder-of-bullets. Looks like half a toy. # gave this a description for roleplay when it shows up in maints loot
-  parent: BaseItem
-  abstract: true
-  components:
-  - type: Tag
-    tags:
-      - MagazineZipper
-  - type: BallisticAmmoProvider
-    mayTransfer: true
-    whitelist:
-      tags:
-        - CartridgeLPistol
-    capacity: 6
-  - type: Item
-    size: Tiny
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/zipper_mag.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 2
-    zeroVisible: false
-  - type: Appearance
-
-- type: entity
-  id: MagazineLPistolEmpty
-  name: pistol magazine (.22 auto any)
-  description: A 20-round .22 auto high-capacity pistol magazine with no apparent markings.
-  parent: BaseMagazineLPistol
+  id: MagazinePistolP2Empty
+  name: P-2 pistol magazine (.22 auto any)
+  description: A 12-round .22 auto pistol magazine with no apparent markings.
+  parent: BaseMagazinePistolP2
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -82,10 +49,60 @@
       - state: inhand-right-mag
 
 - type: entity
-  id: MagazineLPistol
-  name: pistol magazine (.22 auto)
-  description: A 20-round .22 auto high-capacity pistol magazine, marked as live-fire ammo.
-  parent: BaseMagazineLPistol
+  id: MagazinePistolP2ExtendedEmpty
+  name: P-2 extended pistol magazine (.22 auto any)
+  description: A 24-round .22 auto pistol magazine with no apparent markings.
+  parent: BaseMagazinePistolP2
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/p2_extended.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: BallisticAmmoProvider
+    proto: null
+    capacity: 24
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  id: MagazinePistolP2Extended
+  name: P-2 extended pistol magazine (.22 auto)
+  description: A 24-round .22 auto pistol magazine, marked as live-fire ammo.
+  parent: BaseMagazinePistolP2
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/p2_extended.rsi
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: BallisticAmmoProvider
+    proto: CartridgeLPistol
+    capacity: 24
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#820a16"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#820a16"
+
+- type: entity
+  id: MagazinePistolP2
+  name: P-2 pistol magazine (.22 auto)
+  description: A 12-round .22 auto pistol magazine, marked as live-fire ammo.
+  parent: BaseMagazinePistolP2
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLPistol
@@ -107,55 +124,10 @@
         color: "#820a16"
 
 - type: entity
-  id: MagazineZipper
-  name: Zipper magazine (.22 auto)
-  parent: BaseMagazineZipper
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeLPistol
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
-  id: MagazineZipperAP
-  name: Zipper magazine (.22 auto APDSFS)
-  description: A 6-round holder-of-bullets, marked as armor-piercing darts.
-  parent: BaseMagazineZipper
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeLPistolAP
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
-  id: MagazineZipperEmpty
-  name: Zipper .22 magazine (.22 auto any)
-  description: A 6-round holder-of-bullets with no apparent markings.
-  suffix: empty
-  parent: BaseMagazineZipper
-  components:
-  - type: BallisticAmmoProvider
-    proto: null
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: [ "enum.GunVisualLayers.Mag" ]
-
-- type: entity
-  id: MagazineLPistolIncendiary
-  name: pistol magazine (.22 auto incendiary)
-  description: A 20-round .22 auto high-capacity pistol magazine, marked as incendiary ammo.
-  parent: BaseMagazineLPistol
+  id: MagazinePistolP2Incendiary
+  name: P-2 pistol magazine (.22 auto incendiary)
+  description: A 12-round .22 auto pistol magazine, marked as incendiary ammo.
+  parent: BaseMagazinePistolP2
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLPistolIncendiary
@@ -177,10 +149,10 @@
         color: "#d46925"
 
 - type: entity
-  id: MagazineLPistolPractice
-  name: pistol magazine (.22 auto practice)
-  description: A 20-round .22 auto high-capacity pistol magazine, marked as practice ammo.
-  parent: BaseMagazineLPistol
+  id: MagazinePistolP2Practice
+  name: P-2 pistol magazine (.22 auto practice)
+  description: A 12-round .22 auto pistol magazine, marked as practice ammo.
+  parent: BaseMagazinePistolP2
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLPistolPractice
@@ -202,10 +174,10 @@
         color: "#ffcb6f"
 
 - type: entity
-  id: MagazineLPistolUranium
-  name: pistol magazine (.22 auto uranium)
-  description: A 20-round .22 auto high-capacity pistol magazine, marked as uranium ammo.
-  parent: BaseMagazineLPistol
+  id: MagazinePistolP2Uranium
+  name: P-2 pistol magazine (.22 auto uranium)
+  description: A 12-round .22 auto pistol magazine, marked as uranium ammo.
+  parent: BaseMagazinePistolP2
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeLPistolUranium

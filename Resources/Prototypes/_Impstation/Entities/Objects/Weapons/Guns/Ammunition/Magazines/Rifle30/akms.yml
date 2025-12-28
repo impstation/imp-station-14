@@ -1,27 +1,28 @@
+# Magazines compatible with the AKMS
 - type: entity
-  id: BaseMagazinePistolFreelancer
-  name: Freelancer magazine (.35 auto any)
-  description: An 8-round .35 auto pistol magazine.
+  id: BaseMagazineLightRifle
+  name: "magazine (.30 rifle)"
+  description: A 23-round .30 rifle magazine.
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
   - type: Tag
     tags:
-      - MagazinePistolFreelancer
+      - MagazineLightRifle
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgePistol
-        - CartridgePistolStun
-    capacity: 8
+        - CartridgeLightRifle
+    proto: CartridgeLightRifle
+    capacity: 23
   - type: Item
     size: Small
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/freelancer_mag.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -29,33 +30,18 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 6
+    steps: 2
     zeroVisible: false
   - type: Appearance
 
 - type: entity
-  id: MagazinePistolFreelancerEmpty
-  name: Freelancer magazine (.35 auto any)
-  description: An 8-round .35 auto pistol magazine with no apparent markings.
-  parent: BaseMagazinePistolFreelancer
+  id: MagazineLightRifle
+  name: "magazine (.30 rifle)"
+  parent: BaseMagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as live-fire ammo.
   components:
   - type: BallisticAmmoProvider
-    proto: null
-  - type: Item
-    inhandVisuals:
-      left:
-      - state: inhand-left-mag
-      right:
-      - state: inhand-right-mag
-
-- type: entity
-  id: MagazinePistolFreelancer
-  name: Freelancer magazine (.35 auto)
-  description: An 8-round .35 auto pistol magazine, marked as live-fire ammo.
-  parent: BaseMagazinePistolFreelancer
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistol
+    proto: CartridgeLightRifle
   - type: Sprite
     layers:
     - state: red
@@ -74,16 +60,17 @@
         color: "#820a16"
 
 - type: entity
-  id: MagazinePistolFreelancerIncendiary
-  name: Freelancer magazine (.35 auto incendiary)
-  description: An 8-round .35 auto pistol magazine, marked as incendiary ammo.
-  parent: BaseMagazinePistolFreelancer
+  id: MagazineLightRifleEmpty
+  name: "magazine (.30 rifle any)"
+  suffix: empty
+  parent: MagazineLightRifle
+  description: A 23-round .30 rifle magazine with no apparent markings.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgePistolIncendiary
+    proto: null
   - type: Sprite
     layers:
-    - state: incendiary
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -91,21 +78,17 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#d46925"
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#d46925"
 
 - type: entity
-  id: MagazinePistolFreelancerPractice
-  name: Freelancer magazine (.35 auto practice)
-  description: An 8-round .35 auto pistol magazine, marked as practice ammo.
-  parent: BaseMagazinePistolFreelancer
+  id: MagazineLightRiflePractice
+  name: "magazine (.30 rifle practice)"
+  parent: BaseMagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as practice ammo.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgePistolPractice
+    proto: CartridgeLightRiflePractice
   - type: Sprite
     layers:
     - state: practice
@@ -124,13 +107,13 @@
         color: "#ffcb6f"
 
 - type: entity
-  id: MagazinePistolFreelancerUranium
-  name: Freelancer magazine (.35 auto uranium)
-  description: An 8-round .35 auto pistol magazine, marked as uranium ammo.
-  parent: BaseMagazinePistolFreelancer
+  id: MagazineLightRifleUranium
+  name: "magazine (.30 rifle uranium)"
+  parent: BaseMagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as uranium ammo.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgePistolUranium
+    proto: CartridgeLightRifleUranium
   - type: Sprite
     layers:
     - state: uranium
@@ -149,16 +132,16 @@
         color: "#22b24d"
 
 - type: entity
-  id: MagazinePistolFreelancerStun
-  name: Freelancer magazine (.35 auto stun)
-  description: An 8-round .35 auto pistol magazine, marked as stun ammo.
-  parent: BaseMagazinePistolFreelancer
+  id: MagazineLightRifleIncendiary
+  name: "magazine (.30 rifle incendiary)"
+  parent: MagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as incendiary ammo.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgePistolStun
+    proto: CartridgeLightRifleIncendiary
   - type: Sprite
     layers:
-    - state: rubber
+    - state: incendiary
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -167,8 +150,8 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#4477bc"
+        color: "#d46925"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#4477bc"
+        color: "#d46925"
