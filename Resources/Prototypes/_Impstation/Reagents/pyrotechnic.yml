@@ -26,3 +26,135 @@
             Radiation: 3
       - !type:Flammable
         multiplier: 0.3
+
+- type: reagent
+  id: HotterSauce
+  name: reagent-name-hotter-sauce
+  parent: BasePyrotechnic
+  desc: reagent-desc-hotter-sauce
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: spicy
+  color: "#e43409"
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          max: 375
+        amount: 7000
+      - !type:SatiateThirst
+        factor: -6
+      - !type:PopupMessage
+          type: Local
+          messages:
+          - "capsaicin-effect-heavy-burn"
+          - "generic-reagent-effect-tearing-up"
+          probability: 0.2
+      - !type:Emote
+        emote: Cough
+        probability: 0.1
+
+- type: reagent
+  id: InfernoSauce
+  name: reagent-name-inferno-sauce
+  parent: BasePyrotechnic
+  desc: reagent-desc-inferno-sauce
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: spicy
+  color: "#7e1c03"
+  contrabandSeverity: Minor
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          max: 350
+        amount: 14000
+      - !type:SatiateThirst
+        factor: -12
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 1
+      - !type:PopupMessage
+          type: Local
+          messages:
+          - "capsaicin-effect-heavy-burn"
+          - "generic-reagent-effect-tearing-up"
+          probability: 0.3
+      - !type:Emote
+        emote: Cough
+        probability: 0.1
+
+- type: reagent
+  id: HottestSauce
+  name: reagent-name-hottest-sauce
+  parent: BasePyrotechnic
+  desc: reagent-desc-hottest-sauce
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: spicy
+  color: "#570503"
+  contrabandSeverity: Major
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustTemperature
+        conditions:
+        - !type:TemperatureCondition
+          max: 385
+        amount: 24000
+      - !type:SatiateThirst
+        factor: -20
+      - !type:Flammable
+        multiplier: 0.3
+      - !type:Ignite
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 2
+      - !type:PopupMessage
+          type: Local
+          messages:
+          - "clf3-it-burns"
+          - "generic-reagent-effect-tearing-up"
+          probability: 0.3
+      - !type:Emote
+        emote: Cough
+        probability: 0.1
+
+- type: reagent
+  id: DanPersonalHotsauce
+  name: reagent-name-dans-personal
+  parent: BasePyrotechnic
+  desc: reagent-desc-dans-personal
+  physicalDesc: reagent-physical-desc-spicy
+  flavor: spicy
+  color: "#440101"
+  contrabandSeverity: Tier3Contraband
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustTemperature
+        amount: 100000
+      - !type:SatiateThirst
+        factor: -100
+      - !type:Flammable
+        multiplier: 8
+      - !type:Ignite
+      - !type:HealthChange
+        damage:
+          types:
+            Heat: 5
+      - !type:PopupMessage
+          type: Local
+          messages: [ "psicodine-effect-at-peace" ]
+          probability: 0.3
+      - !type:Emote
+        emote: Cough
+        probability: 0.1
