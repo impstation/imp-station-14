@@ -1,7 +1,7 @@
 - type: entity
-  parent: BaseItem
-  id: BoxDonkSoftBaseWizden #imp - see the _Impstation directory for the version we use
   abstract: true
+  parent: BaseItem
+  id: BoxDonkSoftBase
   name: foamdart box
   components:
   - type: BallisticAmmoProvider
@@ -13,12 +13,11 @@
       ballistic-ammo: !type:Container
         ents: []
 
-# Boxes
 - type: entity
   parent: BoxDonkSoftBase
-  id: BoxDonkSoftBoxWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
+  id: BoxDonkSoftBox
   name: box of foam darts
+  description: A box made for 40 of only the finest.
   components:
   - type: BallisticAmmoProvider
     whitelist:
@@ -27,29 +26,25 @@
     capacity: 40
     proto: BulletFoam
   - type: Sprite
-    sprite: Objects/Storage/boxes.rsi
+    sprite: _Wizden/Objects/Storage/boxes.rsi
     layers:
       - state: boxwidetoy
       - state: shelltoy
 
 - type: entity
   parent: BaseMagazineBoxMagnum
-  id: BoxCartridgeCapWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
+  id: BoxCartridgeCap
   name: cap gun cartridge box
+  description: A box made for 20 pew pew shots.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCap
     capacity: 20
-  - type: MagazineVisuals
-    magState: mag-cap
-    steps: 4
-    zeroVisible: false
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
     layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-cap-1
-        map: ["enum.GunVisualLayers.Mag"]
       - state: capbase
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-1
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: cap
