@@ -80,7 +80,7 @@
       path: /Audio/Machines/airlock_close.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
-    denyDuration: 1 # Imp edit for sound overstimulation avoiding
+    denyDuration: 1 # Imp edit, help with sensory issues
   - type: ContainerContainer
     containers:
       board: !type:Container
