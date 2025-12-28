@@ -26,7 +26,7 @@
 
 # Boxes
 - type: entity
-  parent: BaseMagazineBoxLightRifle
+  parent: BaseMagazineBoxLightRifleWizden #imp
   id: MagazineBoxLightRifleBigWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   name: ammunition box (.30 rifle)
@@ -43,7 +43,7 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  parent: BaseMagazineBoxLightRifle
+  parent: BaseMagazineBoxLightRifleWizden #imp
   id: MagazineBoxLightRifleWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   name: ammunition box (.30 rifle)
@@ -59,7 +59,7 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  parent: BaseMagazineBoxLightRifle
+  parent: BaseMagazineBoxLightRifleWizden #imp
   id: MagazineBoxLightRiflePracticeWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   name: ammunition box (.30 rifle practice)
@@ -78,7 +78,7 @@
 - type: entity
   id: MagazineBoxLightRifleIncendiaryWizden #imp - see the _Impstation directory for the version we use
   abstract: true
-  parent: BaseMagazineBoxLightRifle
+  parent: BaseMagazineBoxLightRifleWizden #imp
   name: ammunition box (.30 rifle incendiary)
   description: A cardboard box of .30 rifle rounds. Intended to hold self-igniting incendiary ammunition.
   components:
@@ -93,7 +93,7 @@
     - state: incendiary
 
 - type: entity
-  parent: BaseMagazineBoxLightRifle
+  parent: BaseMagazineBoxLightRifleWizden #imp
   id: MagazineBoxLightRifleUraniumWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   name: ammunition box (.30 rifle uranium)

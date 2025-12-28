@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: BaseAmmoProviderWizden #imp - see the _Impstation directory for the version we use
+  id: BaseAmmoProvider
   abstract: true
   components:
   - type: ContainerContainer
@@ -32,7 +32,7 @@
 
 # Shotgun Shells
 - type: entity
-  parent: AmmoProviderShotgunShell
+  parent: AmmoProviderShotgunShellWizden #imp
   id: BoxBeanbagWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   name: ammunition box (.50 beanbag)
@@ -53,7 +53,7 @@
 
 - type: entity
   name: ammunition box (.50 pellet)
-  parent: AmmoProviderShotgunShell
+  parent: AmmoProviderShotgunShellWizden #imp
   id: BoxLethalshotWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   components:
@@ -69,7 +69,7 @@
 
 - type: entity
   name: ammunition box (.50 slug)
-  parent: AmmoProviderShotgunShell
+  parent: AmmoProviderShotgunShellWizden #imp
   id: BoxShotgunSlugWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   components:
@@ -89,7 +89,7 @@
 
 - type: entity
   name: ammunition box (.50 flare)
-  parent: AmmoProviderShotgunShell
+  parent: AmmoProviderShotgunShellWizden #imp
   id: BoxShotgunFlareWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   components:
@@ -109,7 +109,7 @@
 
 - type: entity
   name: ammunition box (.50 incendiary)
-  parent: AmmoProviderShotgunShell
+  parent: AmmoProviderShotgunShellWizden #imp
   id: BoxShotgunIncendiaryWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   components:
@@ -129,7 +129,7 @@
 
 - type: entity
   name: ammunition box (.50 uranium)
-  parent: AmmoProviderShotgunShell
+  parent: AmmoProviderShotgunShellWizden #imp
   id: BoxShotgunUraniumWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   components:
@@ -149,7 +149,7 @@
 
 - type: entity
   name: ammunition box (.50 practice)
-  parent: AmmoProviderShotgunShell
+  parent: AmmoProviderShotgunShellWizden #imp
   id: BoxShotgunPracticeWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   components:
@@ -169,7 +169,7 @@
 
 - type: entity
   name: ammunition box (.50 tranquilizer)
-  parent: AmmoProviderShotgunShell
+  parent: AmmoProviderShotgunShellWizden #imp
   id: BoxShellTranquilizerWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   components:

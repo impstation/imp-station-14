@@ -59,7 +59,7 @@
 - type: entity
   id: BulletMagnumStun
   name: bullet (.45 magnum stun)
-  parent: ImpstationBaseBullet
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile

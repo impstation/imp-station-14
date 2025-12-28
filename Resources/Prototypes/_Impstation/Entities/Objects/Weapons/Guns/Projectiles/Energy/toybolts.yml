@@ -23,7 +23,7 @@
 - type: entity
   name: godly laser bolt
   id: BulletLaserGold
-  parent: ImpstationBaseBullet
+  parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Reflective

@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseMagazineGrenadeWizden #imp - see the _Impstation directory for the version we use
+  id: BaseMagazineGrenade
   name: grenade cartridge
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
@@ -40,16 +40,14 @@
   - type: Appearance
 
 - type: entity
-  id: MagazineGrenadeEmptyWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
+  id: MagazineGrenadeEmpty
   name: grenade cartridge
   parent: BaseMagazineGrenade
   components:
   - type: BallisticAmmoProvider
 
 - type: entity
-  id: MagazineGrenadeFragWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
+  id: MagazineGrenadeFrag
   name: frag grenade cartridge
   parent: BaseMagazineGrenade
   components:
@@ -57,8 +55,7 @@
     proto: GrenadeFrag
 
 - type: entity
-  id: MagazineGrenadeEMPWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
+  id: MagazineGrenadeEMP
   name: EMP grenade cartridge
   parent: BaseMagazineGrenade
   components:
@@ -66,8 +63,7 @@
     proto: GrenadeEMP
 
 - type: entity
-  id: MagazineGrenadeFlashWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
+  id: MagazineGrenadeFlash
   name: flash grenade cartridge
   parent: BaseMagazineGrenade
   components:
@@ -75,8 +71,7 @@
     proto: GrenadeFlash
 
 - type: entity
-  id: MagazineGrenadeBlastWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
+  id: MagazineGrenadeBlast
   name: blast grenade cartridge
   parent: BaseMagazineGrenade
   components:
@@ -84,8 +79,7 @@
     proto: GrenadeBlast
 
 - type: entity
-  id: MagazineGrenadeBatonWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
+  id: MagazineGrenadeBaton
   name: baton grenade cartridge
   parent: BaseMagazineGrenade
   components:

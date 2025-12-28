@@ -1,7 +1,9 @@
 - type: entity
+  abstract: true
   parent: BaseItem
   id: BaseMagazineBoxShotgun
-  abstract: true
+  name: shell box (.50 shotgun)
+  description: A box made for 16 .50 shotgun shells.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi
