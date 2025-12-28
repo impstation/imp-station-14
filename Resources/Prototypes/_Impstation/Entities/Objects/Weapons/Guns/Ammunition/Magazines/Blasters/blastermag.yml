@@ -1,4 +1,4 @@
-# Cells compatible with the TS-99 Blaster Pistol
+# Cells compatible with the TS-99 Blaster Pistol.
 - type: entity
   name: blaster cell
   description: A rechargeable power cell compatible with blaster pistols. Can be used as a weak power source in a pinch, too!
@@ -45,7 +45,7 @@
     startingCharge: 288
   - type: ProjectileBatteryAmmoProvider
     proto: BulletBlasterPistol
-    fireCost: 36
+    fireCost: 36 #8 shots
   - type: Tag
     tags:
       - BlasterCell
@@ -87,7 +87,7 @@
     startingCharge: 576
   - type: ProjectileBatteryAmmoProvider
     proto: BulletBlasterPistolMilitary
-    fireCost: 96
+    fireCost: 96 #6 shots
 
 - type: entity
   id: PowerCellBlasterMilitaryPrinted

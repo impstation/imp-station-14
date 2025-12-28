@@ -98,6 +98,28 @@
     color: blue
     energy: 0.5
 
+- type: entity
+  id: BulletCannonBall
+  name: cannonball
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: ball
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    maxIntensity: 9
+    intensitySlope: 6
+    totalIntensity: 60
+    maxTileBreak: 0
+  - type: PointLight
+    radius: 1
+    color: orange
+    energy: 0.5
+
 #this is technically a throwable now but it will absolutely not work as anything other than a bullet shot from a gun
 - type: entity
   id: BulletGrenadeCleaner

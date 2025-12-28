@@ -1,16 +1,45 @@
-# Magazines compatible with the Daito
+# Magazines compatible with the Daito.
 - type: entity
-  id: MagazineDMR
+  id: BaseMagazineDaito
   name: "magazine (.30 rifle)"
-  description: A 20-round .30 rifle DMR magazine, marked as live-fire ammo.
-  parent: BaseMagazineLightRifle #see akms.yml
+  description: A 20-round .30 rifle magazine.
+  parent: [ BaseItem, BaseSecurityContraband ]
+  abstract: true
   components:
   - type: Tag
     tags:
       - MagazineDMR
   - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLightRifle
     proto: CartridgeLightRifle
     capacity: 20
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/daitomag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineDMR
+  name: "magazine (.30 rifle)"
+  description: A 20-round .30 rifle DMR magazine, marked as live-fire ammo.
+  parent: BaseMagazineDaito
+  components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/daitomag.rsi
     layers:

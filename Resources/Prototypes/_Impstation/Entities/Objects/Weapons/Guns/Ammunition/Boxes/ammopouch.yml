@@ -1,3 +1,4 @@
+# A storage container capable of holding any bullet but only bullets, similar to a cigarette pack.
 - type: entity
   id: AmmoPouchBase
   parent: [ BaseStorageItem, BaseBagOpenClose, BaseSecurityContraband ]
