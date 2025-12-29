@@ -16,31 +16,26 @@
   - type: Butcherable
     butcheringType: Spike
     spawned:
-    - id: FoodMeatHuman
-      amount: 5
-  - type: StepTrigger
-    requiredTriggeredSpeed: 1
-#  - type: TriggerOnStepTrigger
-#  - type: GibOnTrigger
-#  - type: EmitSoundOnTrigger
- #   sound:
- #     path: "/Audio/Voice/Human/malescream_2.ogg"
+    - id: FoodMeatMeatball #meatball until someone makes ant meat
+      amount: 1 
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.25
+          radius: 0.05
         # they r smaller #they r smaller (2) #they r smaller (3)
-        density: 100
+        density: 10
         restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
+        mask: 
+        - SmallMobMask
+        layer: #they can go under doors, in exchange for this they die in a single hit
+        - SmallMobLayer
   - type: Vocal
     sounds:
-      Unsexed: Ant
+      Male: UnisexAnt
+      Female: UnisexAnt
+      Unsexed: UnisexAnt
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Ant
@@ -52,13 +47,114 @@
   - type: Bloodstream
     bloodReagent: InsectBlood
   - type: Speech
+    speechBubbleOffset: -0.35
     speechSounds: Alto
     allowedEmotes: ['GoblinThroatSinging','Chitter'] # imp
+  - type: TooShortForUI
+    blacklist:
+      components:
+      - TooShortForUIBlacklist
+    whitelist:
+      components:
+      - TooShortForUIWhitelist
+  - type: Item
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+      - ants
+  - type: Edible
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ants
+          Quantity: 5 #5 of ants = 1 of ant
+  - type: CanEscapeInventory
+    baseResistTime: 2
+  - type: PleebnarGibbable
+  - type: VentCrawler
+    enterDelay: 1
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - AnomalyHost
+    - CanPilot
+    - MultitoolDefibrillatorTarget
   - type: HumanoidAppearance
     species: Ant
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: Inventory
+    speciesId: ant
+    templateId: ant
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: eyes
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: suitstorage
+      id:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: id
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -69,3 +165,72 @@
     species: Ant
   - type: Body
     prototype: Ant
+  - type: Inventory
+    speciesId: ant
+    templateId: ant
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: head
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: eyes
+      ears:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: ears
+      mask:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: neck
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: outerClothing
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: hands
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: feet
+      belt:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: back
+      suitstorage:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: suitstorage
+      id:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+            state: id

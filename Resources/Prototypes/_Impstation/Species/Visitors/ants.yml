@@ -1,17 +1,18 @@
 - type: species
   id: Ant
   name: species-name-ant
-  roundStart: true #CHANGE THIS BEFORE PR
-  randomViable: true
+  roundStart: false
+  randomViable: true # imp
+#  randomChance: 0.1 # imp
   prototype: MobAnt
   sprites: MobAntSprites
   defaultSkinTone: "#2d231f"
   markingLimits: MobAntMarkingLimits
   dollPrototype: MobAntDummy
-  skinColoration: TintedHues
-  maleFirstNames: NamesAnomalocaridFirst #CHANGE THIS!!
-  femaleFirstNames: NamesAnomalocaridFirst
-  lastNames: NamesAnomalocaridLast
+  skinColoration: Hues
+  maleFirstNames: NamesAntFirst
+  femaleFirstNames: NamesAntFirst
+  lastNames: NamesAntLast
   sexes:
   - Unsexed
 
@@ -41,7 +42,8 @@
   points:
     HeadTop:
       points: 1
-      required: false
+      required: true
+      defaultMarkings: [ AntAntennae1 ]
     HeadSide:
       points: 1
       required: false
@@ -99,6 +101,18 @@
 
 - type: humanoidBaseSprite
   id: MobAntTorso
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobAntTorsoMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobAntTorsoFemale
   baseSprite:
     sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
     state: torso_m
