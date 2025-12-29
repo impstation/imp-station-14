@@ -48,7 +48,7 @@
     bloodReagent: InsectBlood
   - type: Speech
     speechBubbleOffset: -0.35
-    speechSounds: Alto
+    speechSounds: Arachnid
     allowedEmotes: ['GoblinThroatSinging','Chitter'] # imp
   - type: TooShortForUI
     blacklist:
@@ -57,6 +57,15 @@
     whitelist:
       components:
       - TooShortForUIWhitelist
+  - type: MeleeWeapon
+    attackRate: 1
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 0.1 # they can carry heavy objects but can't throw a punch
   - type: Item
     size: Tiny
   - type: FlavorProfile
@@ -155,6 +164,17 @@
           32:
             sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
             state: id
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+          state: inhand_left
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi
+          state: inhand_right
 
 - type: entity
   parent: BaseSpeciesDummy
