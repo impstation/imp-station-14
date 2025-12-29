@@ -1,81 +1,4 @@
 ﻿Entries:
-- author: msTheowo
-  changes:
-  - message: Colored shoes are now called sneakers
-    type: Tweak
-  id: 1995
-  time: '2025-07-07T05:48:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3014
-- author: hivehum
-  changes:
-  - message: dog fix
-    type: Fix
-  id: 1996
-  time: '2025-07-07T05:57:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3008
-- author: ErhardSteinhauer
-  changes:
-  - message: Tabletop computers can now be built and placed atop tables.
-    type: Add
-  id: 1997
-  time: '2025-07-07T06:16:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2953
-- author: deltanedas, DinnerCalzone
-  changes:
-  - message: Clown waddling has been fully refactored! Please report any issues or
-      noticeable changes in performance.
-    type: Fix
-  - message: Toggling waddling now has a short cooldown.
-    type: Tweak
-  - message: Crawl waddling has been tragically fixed with this refactor.
-    type: Remove
-  id: 1998
-  time: '2025-07-07T06:15:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2509
-- author: Pinkbat5
-  changes:
-  - message: Tweaked health examine text to be a little clearer.
-    type: Tweak
-  id: 1999
-  time: '2025-07-07T14:48:03.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3016
-- author: msTheowo
-  changes:
-  - message: Some of CentComm's interns have been conscripted.
-    type: Add
-  id: 2000
-  time: '2025-07-07T17:11:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2990
-- author: jtfg-dev
-  changes:
-  - message: Paradox clones will now sometimes (randomly) yearn to keep their other
-      selves alive, rather than murder them badly.
-    type: Add
-  id: 2001
-  time: '2025-07-08T05:50:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2963
-- author: FlippenPage
-  changes:
-  - message: Ratvarian Trait and Syndicate Cyborgs now have new typing indicators.
-      Cool.
-    type: Tweak
-  id: 2002
-  time: '2025-07-08T05:52:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3013
-- author: DinnerCalzone
-  changes:
-  - message: Fixed wall recharges being completely unshaded while charging something.
-    type: Fix
-  id: 2003
-  time: '2025-07-08T05:54:00.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3026
-- author: Pinkbat5
-  changes:
-  - message: Lobby playtime comments don't refresh constantly anymore.
-    type: Fix
-  id: 2004
-  time: '2025-07-08T05:53:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3027
 - author: AirFryerBuyOneGetOneFree
   changes:
   - message: Borgs can now be awarded medals.
@@ -4168,3 +4091,80 @@
   id: 2494
   time: '2025-12-21T02:54:20.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3818
+- author: Simul-Ad-Astra
+  changes:
+  - message: Hotsauce is actually hot now
+    type: Tweak
+  - message: 4 new hotsauces straight from the labs of Discount Dan's!
+    type: Add
+  id: 2495
+  time: '2025-12-21T07:05:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3755
+- author: Veenomine, TheGrimbeeper, ultramario1998
+  changes:
+  - message: she is trapped
+    type: Tweak
+  id: 2496
+  time: '2025-12-22T01:57:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3875
+- author: FlapWrap
+  changes:
+  - message: Artist's rendition of Her containment
+    type: Add
+  id: 2497
+  time: '2025-12-26T00:25:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3882
+- author: entings
+  changes:
+  - message: Boar will no longer demolish any machines in their path.
+    type: Tweak
+  - message: Boar will no longer become enamored with specific pieces of station infrastructure
+      to their own detriment.
+    type: Fix
+  id: 2498
+  time: '2025-12-26T09:17:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3803
+- author: msTheowo
+  changes:
+  - message: Soap can now be used to clean decals, including floor grime.
+    type: Add
+  id: 2499
+  time: '2025-12-26T09:21:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3667
+- author: Kandiyaki
+  changes:
+  - message: attempted to fix Serpent's Focus again. it works on localhost! will it
+      work on the server? WHO KNOWS
+    type: Fix
+  id: 2500
+  time: '2025-12-28T11:08:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3822
+- author: 12rabbits
+  changes:
+  - message: The cash rewards for certain Salvage bounties have been dramatically
+      reduced.
+    type: Tweak
+  id: 2501
+  time: '2025-12-28T12:06:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3786
+- author: youtubevideo3
+  changes:
+  - message: The Phantom Racer has been put to rest.
+    type: Remove
+  id: 2502
+  time: '2025-12-28T12:56:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3857
+- author: Squamatic
+  changes:
+  - message: Nitrous oxide gas leaks are now possible. Enjoy your nap!
+    type: Tweak
+  id: 2503
+  time: '2025-12-28T12:57:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3883
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Akurra has Sized Up
+    type: Fix
+  id: 2504
+  time: '2025-12-28T13:03:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3886

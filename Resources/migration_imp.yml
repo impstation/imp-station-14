@@ -146,3 +146,7 @@ RandomMedicCorpseSpawner: MedicCorpseSpawner
 RandomScienceCorpseSpawner: ScienceCorpseSpawner
 RandomSecurityCorpseSpawner: SecurityCorpseSpawner
 RandomCommandCorpseSpawner: CommandCorpseSpawner
+# 2025-12-27
+# standardize EVA rooms to command access, we should have done this a year ago when we initially hard forked maps but c'est la vie
+AirlockEVALocked: AirlockCommandLocked
+AirlockEVAGlassLocked: AirlockCommandGlassLocked
