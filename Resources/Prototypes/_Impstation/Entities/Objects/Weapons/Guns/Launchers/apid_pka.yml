@@ -20,7 +20,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/kinetic_accel_full.ogg
     soundEmpty:
       path: /Audio/_Impstation/Weapons/Guns/Empty/dry_fire.ogg
       params:
@@ -30,7 +30,7 @@
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 2
     rechargeSound:
-      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+      path: /Audio/_NF/Effects/silence.ogg
   - type: BasicEntityAmmoProvider
     proto: BulletKinetic
     capacity: 1

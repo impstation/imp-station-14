@@ -5,6 +5,7 @@
   description: Pristine packaging containing your priceless antique disabler.
   components:
   - type: Item
+    sprite: _Wizden/Objects/Storage/boxes.rsi
     size: Normal
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/hopdisabler.rsi
@@ -23,9 +24,10 @@
   parent: BaseItem
   id: AntiqueDisablerCertification
   name: certificate of authenticity
-  description: This ornate document hereby certifies your disabler as an authentic Antique Disabler. Don't mind all the fine print.
+  description: This ornate framed document hereby certifies your disabler as an authentic Antique Disabler. Don't mind all the fine print.
   components:
   - type: Item
+    sprite: Objects/Misc/clipboard.rsi #the brown seems off but it looks like it's framed with the white on the one side
     size: Tiny
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/hopdisabler.rsi

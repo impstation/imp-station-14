@@ -27,6 +27,12 @@
         shader: unshaded
       - state: equipped-OUTERCLOTHING-unshaded
         shader: shaded
+      outerClothing-anomalocarid: # imp
+      - state: equipped-OUTERCLOTHING-anomalocarid 
+      - state: equipped-OUTERCLOTHING-unshaded-anomalocarid
+        shader: unshaded
+      - state: equipped-OUTERCLOTHING-unshaded-anomalocarid
+        shader: shaded
         #same trick here
   - type: Reflect
     reflectProb: 0.02
