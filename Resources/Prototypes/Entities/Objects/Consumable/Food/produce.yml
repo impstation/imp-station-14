@@ -199,6 +199,13 @@
   - type: Item
     heldPrefix: produce
   - type: SolutionContainerManager
+  - type: Extractable #imp added sap juicing
+    juiceSolution:
+      reagents:
+      - ReagentId: Sap
+        Quantity: 2
+      - ReagentId: Pulp
+        Quantity: 3
   - type: MeleeWeapon
     damage:
       types:
