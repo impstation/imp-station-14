@@ -327,5 +327,7 @@
     damage:
       types:
         Piercing: 0
+  - type: TimedDespawn
+    lifetime: 15
   - type: Ammo
     muzzleFlash: null

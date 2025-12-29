@@ -15,11 +15,17 @@ public sealed class HatedByDogsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HatedByDogsComponent, ComponentStartup>(AddFaction);
+        SubscribeLocalEvent<HatedByDogsComponent, ComponentShutdown>(RemoveFaction);
     }
 
     private void AddFaction(EntityUid uid, HatedByDogsComponent component, ComponentStartup args)
     {
         EnsureComp<NpcFactionMemberComponent>(uid, out var factionComp);
         _faction.AddFaction((uid, factionComp), component.Faction);
+    }
+
+    private void RemoveFaction(EntityUid uid, HatedByDogsComponent component, ComponentShutdown args)
+    {
+        _faction.RemoveFaction(uid, component.Faction);
     }
 }
