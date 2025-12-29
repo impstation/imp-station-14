@@ -1,6 +1,7 @@
 namespace Content.Server.Speech.Components;
+/// <summary>
+/// Simplified version of the archaic accent. Uses a paired down version of the vocabulary.
+/// </summary>
 
 [RegisterComponent]
-public sealed partial class BasicArchaicAccentComponent : Component
-{
-}
+public sealed partial class BasicArchaicAccentComponent : Component { }

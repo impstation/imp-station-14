@@ -1,4 +1,3 @@
-
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
 
@@ -14,7 +13,7 @@ public sealed class BasicArchaicAccentSystem : EntitySystem
         SubscribeLocalEvent<BasicArchaicAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, BasicArchaicAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<BasicArchaicAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 
