@@ -14,9 +14,9 @@
   table: !type:AllSelector
     children:
     # Randomly generated books
-    - id: BookRandomStory
-      amount: !type:RangeNumberSelector
-        range: 0, 8
+    #- id: BookRandomStory # imp edit, random book removal
+    #  amount: !type:RangeNumberSelector
+    #    range: 0, 8
     # Guidebooks
     - !type:NestedSelector
       rolls: !type:RangeNumberSelector
@@ -25,7 +25,7 @@
     # Handwritten books
     - !type:NestedSelector
       rolls: !type:RangeNumberSelector
-        range: 0, 3
+        range: 0, 11  # imp edit, 3 -> 11 due to random book removal
       tableId: RandomHandwrittenBookTable
     #imp, safe spellbooks
     - !type:NestedSelector
@@ -109,7 +109,7 @@
   id: RandomBookTable
   table: !type:GroupSelector
     children:
-    - id: BookRandomStory
+    #- id: BookRandomStory # imp edit, random book removal
     - !type:NestedSelector
       tableId: RandomGuidebookTable
     - !type:NestedSelector

@@ -28,17 +28,13 @@
   id: CryptidBookshelfEntityTable
   table: !type:AllSelector
     children:
-    # Randomly generated books
-    - id: BookRandomStory
-      amount: !type:RangeNumberSelector
-        range: 0, 8
     # Guidebooks
     - !type:NestedSelector
       tableId: RandomGuidebookTable
     # Handwritten books
     - !type:NestedSelector
       rolls: !type:RangeNumberSelector
-        range: 0, 3
+        range: 0, 11
       tableId: RandomHandwrittenBookTable
     - !type:NestedSelector
       rolls: !type:RangeNumberSelector
@@ -53,7 +49,6 @@
   id: RandomMagicalBookTable
   table: !type:GroupSelector
     children:
-    - id: BookRandomStory
     - id: BlinkBook
       weight: 0.01
     - id: FireballSpellbook
@@ -73,7 +68,6 @@
   id: RandomHereticBookTable
   table: !type:GroupSelector
     children:
-    - id: BookRandomStory
     - id: EldritchTome
       weight: 0.5
     - id: CodexCicatrix
@@ -83,7 +77,6 @@
   id: CryptidRandomBookTable
   table: !type:GroupSelector
     children:
-    - id: BookRandomStory
     - !type:NestedSelector
       tableId: RandomGuidebookTable
     - !type:NestedSelector
