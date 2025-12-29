@@ -1,0 +1,71 @@
+- type: entity
+  save: false
+  name: Urist McAnt
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobAnt
+  abstract: true
+  components:
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: full
+  - type: Body
+    prototype: Ant
+    requiredLegs: 2
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+#  - type: TriggerOnStepTrigger
+#  - type: GibOnTrigger
+#  - type: EmitSoundOnTrigger
+ #   sound:
+ #     path: "/Audio/Voice/Human/malescream_2.ogg"
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        # they r smaller #they r smaller (2) #they r smaller (3)
+        density: 100
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Vocal
+    sounds:
+      Unsexed: Ant
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Ant
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _Impstation/Mobs/Effects/apid_brute_damage.rsi
+        color: "#808A51"
+  - type: Bloodstream
+    bloodReagent: InsectBlood
+  - type: Speech
+    speechSounds: Alto
+    allowedEmotes: ['GoblinThroatSinging','Chitter'] # imp
+  - type: HumanoidAppearance
+    species: Ant
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobAntDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Ant
+  - type: Body
+    prototype: Ant
