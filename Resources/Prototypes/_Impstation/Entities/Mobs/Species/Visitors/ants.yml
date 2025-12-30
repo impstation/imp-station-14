@@ -34,7 +34,7 @@
   - type: Barotrauma
     damage:
       types:
-        Blunt: 10
+        Blunt: 0.1
   - type: Vocal
     sounds:
       Male: UnisexAnt
@@ -43,6 +43,19 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Ant
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      9: Critical
+      10: Dead
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:GibBehavior { }
+  - type: Deathgasp
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
