@@ -4,6 +4,8 @@
   name: "ant body part"
   abstract: true
   components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
   - type: Extractable
     juiceSolution:
       reagents:
@@ -19,7 +21,6 @@
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
-    state: "torso_m"
   - type: Extractable
     juiceSolution:
       reagents:
@@ -34,7 +35,6 @@
   parent: [PartAnt, BaseHead]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
     state: "head"
   - type: Extractable
     juiceSolution:
@@ -50,7 +50,6 @@
   parent: [PartAnt, BaseLeftArm]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
     state: "l_arm"
 
 - type: entity
@@ -59,7 +58,6 @@
   parent: [PartAnt, BaseRightArm]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
     state: "r_arm"
 
 - type: entity
@@ -68,7 +66,6 @@
   parent: [PartAnt, BaseLeftHand]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
     state: "l_hand"
 
 - type: entity
@@ -77,7 +74,6 @@
   parent: [PartAnt, BaseRightHand]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
     state: "r_hand"
 
 - type: entity
@@ -86,7 +82,6 @@
   parent: [PartAnt, BaseLeftLeg]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
     state: "l_leg"
 
 - type: entity
@@ -95,7 +90,6 @@
   parent: [PartAnt, BaseRightLeg]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
     state: "r_leg"
 
 - type: entity
@@ -104,7 +98,6 @@
   parent: [PartAnt, BaseLeftFoot]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
     state: "l_foot"
 
 - type: entity
@@ -113,5 +106,4 @@
   parent: [PartAnt, BaseRightFoot]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
     state: "r_foot"
