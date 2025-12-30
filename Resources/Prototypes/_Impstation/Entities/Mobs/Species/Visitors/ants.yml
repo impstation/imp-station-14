@@ -86,6 +86,12 @@
         Blunt: 0.1 # they can carry heavy objects but can't throw a punch
   - type: Item
     size: Tiny
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/ants_held.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: FlavorProfile
     flavors:
       - ants
