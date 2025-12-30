@@ -2011,7 +2011,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0
+        Piercing: 1 # imp - revenge, long time coming
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: CanEscapeInventory
