@@ -45,6 +45,7 @@
         sprite: _Impstation/Mobs/Effects/apid_brute_damage.rsi
         color: "#808A51"
   - type: Bloodstream
+    bloodMaxVolume: 30
     bloodReagent: InsectBlood
   - type: Speech
     speechBubbleOffset: -0.35
