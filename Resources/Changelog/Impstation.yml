@@ -1,55 +1,4 @@
 ﻿Entries:
-- author: msTheowo
-  changes:
-  - message: Some of CentComm's interns have been conscripted.
-    type: Add
-  id: 2000
-  time: '2025-07-07T17:11:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2990
-- author: jtfg-dev
-  changes:
-  - message: Paradox clones will now sometimes (randomly) yearn to keep their other
-      selves alive, rather than murder them badly.
-    type: Add
-  id: 2001
-  time: '2025-07-08T05:50:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2963
-- author: FlippenPage
-  changes:
-  - message: Ratvarian Trait and Syndicate Cyborgs now have new typing indicators.
-      Cool.
-    type: Tweak
-  id: 2002
-  time: '2025-07-08T05:52:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3013
-- author: DinnerCalzone
-  changes:
-  - message: Fixed wall recharges being completely unshaded while charging something.
-    type: Fix
-  id: 2003
-  time: '2025-07-08T05:54:00.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3026
-- author: Pinkbat5
-  changes:
-  - message: Lobby playtime comments don't refresh constantly anymore.
-    type: Fix
-  id: 2004
-  time: '2025-07-08T05:53:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3027
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Borgs can now be awarded medals.
-    type: Add
-  id: 2005
-  time: '2025-07-08T05:56:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3030
-- author: SixValentine
-  changes:
-  - message: Reporter on Hash real actually
-    type: Fix
-  id: 2006
-  time: '2025-07-09T08:25:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3036
 - author: Kandiyaki
   changes:
   - message: random gamemode weights have been tweaked to add a bit more variety.
@@ -4168,3 +4117,55 @@
   id: 2499
   time: '2025-12-26T09:21:06.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3667
+- author: Kandiyaki
+  changes:
+  - message: attempted to fix Serpent's Focus again. it works on localhost! will it
+      work on the server? WHO KNOWS
+    type: Fix
+  id: 2500
+  time: '2025-12-28T11:08:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3822
+- author: 12rabbits
+  changes:
+  - message: The cash rewards for certain Salvage bounties have been dramatically
+      reduced.
+    type: Tweak
+  id: 2501
+  time: '2025-12-28T12:06:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3786
+- author: youtubevideo3
+  changes:
+  - message: The Phantom Racer has been put to rest.
+    type: Remove
+  id: 2502
+  time: '2025-12-28T12:56:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3857
+- author: Squamatic
+  changes:
+  - message: Nitrous oxide gas leaks are now possible. Enjoy your nap!
+    type: Tweak
+  id: 2503
+  time: '2025-12-28T12:57:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3883
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Akurra has Sized Up
+    type: Fix
+  id: 2504
+  time: '2025-12-28T13:03:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3886
+- author: Smugman
+  changes:
+  - message: Sap can now be juiced from logs. You no longer need to douse your pancakes
+      in the blood of your coworkers.
+    type: Add
+  id: 2505
+  time: '2025-12-29T02:09:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3809
+- author: ComedyIdiot
+  changes:
+  - message: Gastropoids can now glow in peace
+    type: Fix
+  id: 2506
+  time: '2025-12-30T01:39:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3895
