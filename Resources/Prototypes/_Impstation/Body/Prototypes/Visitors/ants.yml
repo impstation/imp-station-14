@@ -8,8 +8,8 @@
       connections:
       - torso
       organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
+        brain: OrganAntBrain
+        eyes: OrganAntEyes
     torso:
       part: TorsoAnt
       connections:
@@ -18,11 +18,11 @@
       - right_leg
       - left_leg
       organs:
-        heart: OrganHumanHeart
-        lungs: OrganHumanLungs
-        liver: OrganHumanLiver
-        kidneys: OrganHumanKidneys
-        stomach: OrganHumanStomach
+        heart: OrganAntHeart
+        lungs: OrganAntLungs
+        liver: OrganAntLiver
+        kidneys: OrganAntKidneys
+        stomach: OrganAntStomach
     right_arm:
       part: RightArmAnt
       connections:

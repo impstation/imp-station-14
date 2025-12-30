@@ -55,7 +55,12 @@
         damage: 20
       behaviors:
       - !type:GibBehavior { }
-  - type: Deathgasp
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: RandomChanceTriggerCondition
+    successChance: 0.001 #only the most inattentive ant could fall for such a trick
+  - type: GibOnTrigger
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
