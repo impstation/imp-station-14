@@ -1,7 +1,7 @@
 - type: entity
   name: BaseWeaponRevolver
   parent: BaseItem
-  id: BaseWeaponRevolver
+  id: BaseWeaponRevolverWizden #imp - see the _Impstation directory for the version we use
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -17,7 +17,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/deckard.rsi #imp
+    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
     quickEquip: false
     slots:
     - suitStorage
@@ -50,36 +50,16 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: StaticPrice
     price: 500
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.8
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-    wideAnimationRotation: -80
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 6
-    damage:
-      types:
-        Blunt: 5
-#imp edit end
 
 - type: entity
   name: Deckard
   parent: [BaseWeaponRevolver, BaseSecurityCommandContraband]
-  id: WeaponRevolverDeckard
-  description: A rare, custom-built revolver. Use when there is no time for the Voight-Kampff test. Uses .45 magnum ammo.
+  id: WeaponRevolverDeckardWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A beautifully machined, custom-built revolver. Used when there is no time for the Voight-Kampff test. Loads 5 rounds of .45 magnum.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/deckard.rsi #imp
+    sprite: Objects/Weapons/Guns/Revolvers/deckard.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -103,17 +83,17 @@
 - type: entity
   name: Inspector
   parent: [BaseWeaponRevolver, BaseSecurityContraband]
-  id: WeaponRevolverInspector
+  id: WeaponRevolverInspectorWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   description: A double-action revolver manufactured by various companies. It is readily available on the civilian market, making it a popular choice among private investigators. You feel lucky just holding it. Loads 6 rounds of .45 magnum.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi #imp
+    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/inspector.rsi #imp
+    sprite: Objects/Weapons/Guns/Revolvers/inspector.rsi
   - type: Item
     storedOffset: 0,-2
   - type: RevolverAmmoProvider
-    proto: CartridgeMagnumStun #imp
     capacity: 6
     chambers: [ True, True, True, True, True, True ]
     ammoSlots: [ null, null, null, null, null, null ]
@@ -123,13 +103,14 @@
 - type: entity
   name: Mateba
   parent: [BaseWeaponRevolver, BaseMajorContraband]
-  id: WeaponRevolverMateba
-  description: The iconic sidearm of the dreaded death squads... allegedly. Uses .45 magnum ammo. #imp
+  id: WeaponRevolverMatebaWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A modern revolver used by Nanotrasen’s elite, near mythical ‘Death Squad’ task force. Its unique trigger action and barrel placement enable a high fire rate with minimal muzzle flip. Many have looked down this barrel, but few have lived to tell of it. Loads 6 rounds of .45 magnum.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/mateba.rsi #imp
+    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/mateba.rsi #imp
+    sprite: Objects/Weapons/Guns/Revolvers/mateba.rsi
   - type: Item
     storedOffset: 0,-3
   - type: Gun
@@ -139,7 +120,8 @@
 
 - type: entity
   parent: WeaponRevolverMateba
-  id: WeaponRevolverMatebaAP # For deathsquad
+  id: WeaponRevolverMatebaAPWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   suffix: armor-piercing
   components:
   - type: RevolverAmmoProvider
@@ -147,14 +129,15 @@
 
 - type: entity
   name: Python
-  parent: [BaseWeaponRevolver, Tier3Contraband]
-  id: WeaponRevolverPython
-  description: Power without question; authority without asking. Uses .45 magnum ammo. #imp
+  parent: [BaseWeaponRevolver, BaseSyndicateContraband]
+  id: WeaponRevolverPythonWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A powerful double-action revolver manufactured by the Syndicate. Loud and flashy, perfect for any agent looking to make a statement. Loads 6 rounds of .45 magnum.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/python.rsi #imp
+    sprite: Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/python.rsi #imp
+    sprite: Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Item
     storedOffset: 0,-2
   - type: Gun
@@ -171,7 +154,8 @@
 
 - type: entity
   parent: WeaponRevolverPython
-  id: WeaponRevolverPythonAP # For the uplink.
+  id: WeaponRevolverPythonAPWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   suffix: armor-piercing
   components:
   - type: RevolverAmmoProvider
@@ -181,13 +165,14 @@
 - type: entity
   name: pirate revolver
   parent: [BaseWeaponRevolver, BaseMajorContraband]
-  id: WeaponRevolverPirate
+  id: WeaponRevolverPirateWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   description: A crude single-action revolver handmade by a space pirate. Old and covered in rust, it somehow still works. Loads 5 rounds of .45 magnum.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi #imp
+    sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi #imp
+    sprite: Objects/Weapons/Guns/Revolvers/pirate_revolver.rsi
   - type: Item
     storedOffset: 1,-5
   - type: Gun
@@ -202,7 +187,8 @@
 
 - type: entity
   parent: WeaponRevolverPirate
-  id: WeaponRevolverPirateEmpty
+  id: WeaponRevolverPirateEmptyWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   suffix: Empty
   components:
   - type: RevolverAmmoProvider
@@ -210,4 +196,3 @@
     capacity: 5
     chambers: [ null, null, null, null, null ]
     ammoSlots: [ null, null, null, null, null ]
-
