@@ -31,6 +31,10 @@
         - SmallMobMask
         layer: #they can go under doors, in exchange for this they die in a single hit
         - SmallMobLayer
+  - type: Barotrauma
+    damage:
+      types:
+        Blunt: 10
   - type: Vocal
     sounds:
       Male: UnisexAnt
