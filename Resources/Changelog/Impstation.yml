@@ -1,19 +1,4 @@
 ﻿Entries:
-- author: Kandiyaki
-  changes:
-  - message: random gamemode weights have been tweaked to add a bit more variety.
-    type: Tweak
-  id: 2007
-  time: '2025-07-10T18:57:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2970
-- author: DinnerCalzone
-  changes:
-  - message: Bleach will now cause you to cough and deal a bit of damage if sprayed
-      on you. Be careful where you're cleaning!
-    type: Add
-  id: 2008
-  time: '2025-07-10T18:58:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3039
 - author: DVDPlayerOfDiscordFame, iaada
   changes:
   - message: Added the Adder, Akurra, Anaconda, Xiuhcoatl, Ouroboros, and Leviathan.
@@ -4169,3 +4154,21 @@
   id: 2506
   time: '2025-12-30T01:39:23.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3895
+- author: mqole
+  changes:
+  - message: Dwarves are now 2% slower.
+    type: Tweak
+  id: 2507
+  time: '2025-12-30T22:54:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3892
+- author: TheGrimbeeper
+  changes:
+  - message: Your mind will no longer believe you can "Eat" from artifacts which are
+      chemical containers
+    type: Fix
+  - message: You can no longer press buttons so fast on the artifact analysis console
+      that it thinks its scanning up and down at the same time.
+    type: Fix
+  id: 2508
+  time: '2025-12-30T23:07:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3896
