@@ -175,6 +175,8 @@
     action: ActionAnomalocaridSpit
     gunProto: AnomalocaridSpitGun
   - type: HeatVent
+  - type: ZombieAccentOverride
+    accent: zombieAnomalocarid
   - type: Inventory
     speciesId: anomalocarid
     templateId: anomalocarid
