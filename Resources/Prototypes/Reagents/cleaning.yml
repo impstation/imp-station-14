@@ -26,6 +26,11 @@
       - !type:Emote
         emote: Scream
         probability: 0.15
+  tileReactions:
+  - !type:CleanTileReaction
+    cleanCost: 0.13
+  - !type:CleanDecalsReaction
+    cleanCost: 0.13
   #imp edit start
   reactiveEffects:
     Acidic:
@@ -47,11 +52,6 @@
         - !type:BreathingCondition
         - !type:InternalsCondition
           inverted: true
-  tileReactions:
-  - !type:CleanTileReaction
-    cleanCost: .125 #cleans reagents in puddles at a 1:8 ratio, twice as efficient as space cleaner
-  - !type:CleanDecalsReaction
-    cleanCost: .125 #default amount is already very efficient, but I want bleach to be the super cleaner
   # imp edit end
 
 - type: reagent
