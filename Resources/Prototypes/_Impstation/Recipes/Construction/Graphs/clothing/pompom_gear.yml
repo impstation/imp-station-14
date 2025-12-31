@@ -14,7 +14,7 @@
               doAfter: 3
     - node: bow
       entity: ClothingHeadHatPompombow
-      
+
 - type: constructionGraph
   id: PompomEarmuffs
   start: start
@@ -31,7 +31,7 @@
               doAfter: 3
     - node: muffs
       entity: ClothingHeadHatPompomear
-     
+
 - type: constructionGraph
   id: PompomBoots
   start: start
@@ -48,7 +48,7 @@
               doAfter: 3
     - node: boots
       entity: ClothingShoesBootsPompomboots
-     
+
 - type: constructionGraph
   id: PompomCloak
   start: start
@@ -65,4 +65,3 @@
               doAfter: 3
     - node: cloak
       entity: ClothingNeckCloakPompomcloak
-     

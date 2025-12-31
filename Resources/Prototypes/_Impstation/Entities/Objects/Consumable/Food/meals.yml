@@ -119,10 +119,10 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 55
+        maxVol: 45
         reagents:
         - ReagentId: Nutriment
-          Quantity: 25
+          Quantity: 10
         - ReagentId: TableSalt
           Quantity: 5
         - ReagentId: Fiber
@@ -198,8 +198,6 @@
       food:
         maxVol: 35
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
         - ReagentId: Soysauce
           Quantity: 10
         - ReagentId: Fiber
@@ -224,6 +222,7 @@
     ignoreReagents:
       - Fiber
       - Nutriment
+      - Vitamin
   - type: Sprite
     state: pompette
     sprite: _Impstation/Objects/Consumable/Food/Cloth/pompette.rsi
@@ -237,12 +236,14 @@
         maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 20
+          Quantity: 10
         - ReagentId: Ketchup
           Quantity: 5
         - ReagentId: Fiber
           Quantity: 10
         - ReagentId: Wine
+          Quantity: 10
+        - ReagentId: Vitamin
           Quantity: 10
   - type: Tag
     tags:
@@ -262,4 +263,3 @@
   - type: Tag
     tags:
     - Trash
-    
