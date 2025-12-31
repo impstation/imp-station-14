@@ -20,7 +20,7 @@
   parent: [PartAnt, BaseTorso]
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: "torso_m"
   - type: Extractable
     juiceSolution:
       reagents:
