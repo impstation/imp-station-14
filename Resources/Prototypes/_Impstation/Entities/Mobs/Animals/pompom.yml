@@ -4,6 +4,11 @@
   id: MobPompom
   description: A small, dainty creature with many legs. It hovers through the air like a squid.
   components:
+  - type: PointLight
+    color: White
+    radius: 1.1
+    energy: 6
+    netsync: false
   - type: MovementSpeedModifier
     baseWalkSpeed : 2
     baseSprintSpeed : 4
