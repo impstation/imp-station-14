@@ -21,7 +21,7 @@ public sealed partial class MakeSentientEntityEffectSystem : EntityEffectSystem<
         if (args.Effect.AllowSpeech)
         {
             RemComp<ReplacementAccentComponent>(entity);
-            RemComp<AdvancedFullReplacementAccentComponent>(entity);
+            RemComp<_Impstation.Speech.Components.AdvancedFullReplacementAccentComponent>(entity);
         }
 
         // Stops from adding a ghost role to things like people who already have a mind

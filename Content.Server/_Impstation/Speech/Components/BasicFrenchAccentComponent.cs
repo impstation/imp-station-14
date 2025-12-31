@@ -1,6 +1,6 @@
-using Content.Server.Speech.EntitySystems;
+using Content.Server._Impstation.Speech.EntitySystems;
 
-namespace Content.Server.Speech.Components;
+namespace Content.Server._Impstation.Speech.Components;
 
 /// <summary>
 /// French accent replaces spoken letters. "th" becomes "z" and "H" at the start of a word becomes "'".

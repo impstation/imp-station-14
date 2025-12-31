@@ -1,10 +1,10 @@
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Whitelist;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed partial class SpeechRequiresEquipmentSystem : EntitySystem
 {

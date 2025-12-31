@@ -1,14 +1,14 @@
 using System.Linq;
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
-using Content.Server.Speech.Prototypes;
+using Content.Server._Impstation.Speech.Components;
+using Content.Server._Impstation.Speech.Prototypes;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Speech;
+using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Shared.Random.Helpers;
-using JetBrains.Annotations;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 /// <remarks>
 /// This is largely taken from ReplacementAccentSystem. Just altered to fit this system. the function of onAccent is different though.

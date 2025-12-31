@@ -1,8 +1,7 @@
-using Content.Server.Speech.Prototypes;
+using Content.Server._Impstation.Speech.Prototypes;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Server.Speech.Components;
+namespace Content.Server._Impstation.Speech.Components;
 [RegisterComponent]
 
 public sealed partial class AdvancedFullReplacementAccentComponent: Component

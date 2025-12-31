@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Speech.Prototypes;
+namespace Content.Server._Impstation.Speech.Prototypes;
 
 [Prototype]
 public sealed partial class AdvancedFullReplacementWordPrototype : IPrototype

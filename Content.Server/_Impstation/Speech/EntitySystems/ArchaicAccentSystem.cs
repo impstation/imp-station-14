@@ -1,8 +1,7 @@
-using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server.Speech.EntitySystems;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed class ArchaicAccentSystem : EntitySystem
 {
@@ -11,10 +10,10 @@ public sealed class ArchaicAccentSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<ArchaicAccentComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<_Impstation.Speech.Components.ArchaicAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, ArchaicAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, _Impstation.Speech.Components.ArchaicAccentComponent component, AccentGetEvent args)
     {
         var message = args.Message;
 
