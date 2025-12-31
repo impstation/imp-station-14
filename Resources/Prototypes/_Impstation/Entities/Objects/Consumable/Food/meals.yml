@@ -233,12 +233,10 @@
   - type: SolutionContainerManager 
     solutions:
       food:
-        maxVol: 50
+        maxVol: 40
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
-        - ReagentId: Ketchup
-          Quantity: 5
         - ReagentId: Fiber
           Quantity: 10
         - ReagentId: Wine
