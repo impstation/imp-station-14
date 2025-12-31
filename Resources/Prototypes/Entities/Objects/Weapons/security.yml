@@ -46,6 +46,9 @@
   - type: StaminaDamageOnHit
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
+  - type: StaminaDamageOnCollide
+    damage: 35
+    sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
     maxCharge: 1000
@@ -184,9 +187,6 @@
       - Security
       - Antagonists
     - type: DamageOtherOnHit # imp
-      damage:
-        types:
-          Blunt: 0
 
 - type: entity
   name: flash

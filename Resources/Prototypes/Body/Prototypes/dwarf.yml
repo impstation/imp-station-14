@@ -36,11 +36,11 @@
     left hand:
       part: LeftHandHuman
     right leg:
-      part: RightLegHuman
+      part: RightLegDwarf # imp, Human -> Dwarf
       connections:
       - right foot
     left leg:
-      part: LeftLegHuman
+      part: LeftLegDwarf # imp, Human -> Dwarf
       connections:
       - left foot
     right foot:
