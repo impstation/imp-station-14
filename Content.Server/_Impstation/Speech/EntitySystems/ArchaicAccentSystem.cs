@@ -1,8 +1,7 @@
-using Content.Server._Impstation.Speech.Components;
-using Content.Server.Speech.EntitySystems;
+using Content.Server.Speech.Components;
 using Content.Shared.Speech;
 
-namespace Content.Server._Impstation.Speech.EntitySystems;
+namespace Content.Server.Speech.EntitySystems;
 
 public sealed class ArchaicAccentSystem : EntitySystem
 {
