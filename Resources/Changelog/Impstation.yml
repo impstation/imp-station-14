@@ -1,23 +1,6 @@
 ﻿Entries:
 - author: DinnerCalzone
   changes:
-  - message: Convex has been derotated.
-    type: Remove
-  id: 2012
-  time: '2025-07-11T03:02:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3057
-- author: DinnerCalzone
-  changes:
-  - message: Red, orange, and green carpets have received new sprites!
-    type: Add
-  - message: Carpets of different colors no longer blend together when placed next
-      to each other.
-    type: Tweak
-  id: 2013
-  time: '2025-07-11T16:56:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3035
-- author: DinnerCalzone
-  changes:
   - message: Toolboxes have been resprited!
     type: Add
   id: 2014
@@ -4168,3 +4151,19 @@
   id: 2511
   time: '2026-01-01T05:33:33.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3893
+- author: DinnerCalzone
+  changes:
+  - message: Map population ranges have been tweaked. Maps in the high-pop bracket
+      will now roll at 65 players. Plasma, Cog, and Whale roll between 45 - 75 players.
+      Whisper rolls between 25 - 60 players.
+    type: Tweak
+  id: 2512
+  time: '2026-01-01T10:15:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3901
+- author: ATDoop
+  changes:
+  - message: Anomalocarids have a guidebook entry now!
+    type: Add
+  id: 2513
+  time: '2026-01-01T10:31:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3877
