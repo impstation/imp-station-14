@@ -192,7 +192,7 @@
   name: flash
   parent: Flash
   suffix: 2 charges
-  id: SciFlash
+  id: SciFlashWizden # imp edit, "SciFlash" now used by a prototype in our directory
   components:
     - type: LimitedCharges
       maxCharges: 2

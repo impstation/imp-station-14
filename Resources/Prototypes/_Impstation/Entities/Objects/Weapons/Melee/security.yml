@@ -1,0 +1,41 @@
+- type: entity
+  name: flash
+  parent: [BaseItem, BaseSecurityScienceCommandContraband]
+  suffix: Science 
+  id: SciFlash
+  description: An ultrabright flashbulb with a mechanical trigger. Primarily used as the optics of silicon chassis, but in a pinch can daze anyone without proper eye protection.
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Weapons/Melee/sciflash.rsi 
+      layers:
+      - state: flash
+        map: [ "enum.FlashVisualLayers.BaseLayer" ]
+      - state: flashing
+        map: [ "enum.FlashVisualLayers.LightLayer" ]
+        visible: false
+        shader: unshaded
+    - type: Flash
+      flashOnMelee: false
+    - type: LimitedCharges
+      maxCharges: 5
+    - type: MeleeWeapon
+      damage:
+        types:
+          Blunt: 0 
+    - type: Item
+      size: Small
+      sprite: _Impstation/Objects/Weapons/Melee/sciflash.rsi 
+    - type: UseDelay
+      delay: 4 
+    - type: StaticPrice
+      price: 40
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.FlashVisuals.Burnt:
+          enum.FlashVisualLayers.BaseLayer:
+            True: {state: burnt}
+        enum.FlashVisuals.Flashing:
+          enum.FlashVisualLayers.LightLayer:
+            True: {visible: true}
+            False: {visible: false}
