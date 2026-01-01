@@ -353,8 +353,6 @@ public sealed partial class SupermatterSystem
         var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(EECCVars.SupermatterGasEfficiencyGraceModifier));
         var absorbedGas = mix.Remove(gasEfficiency * mix.TotalMoles);
         var moles = absorbedGas.TotalMoles;
-        // Funky Fix: Release Gas
-        var gasReturned = absorbedGas;
 
         var totalDamage = 0f;
 
@@ -383,8 +381,8 @@ public sealed partial class SupermatterSystem
         else
             sm.HeatHealing = 0f;
 
-        // Funky Fix: Returns gas
-        _atmosphere.Merge(mix, gasReturned);
+        // Funky Fix: Returns evaluatedgas
+        _atmosphere.Merge(mix, absorbedGas);
 
         // Check for space tiles next to SM
         if (TryComp<MapGridComponent>(gridId, out var grid))
