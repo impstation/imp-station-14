@@ -5,6 +5,8 @@
   id: BaseMobAnomalocarid
   abstract: true
   components:
+  - type: Hunger
+  - type: Thirst
   - type: GoobAbsorbable
   - type: Icon
     sprite: _Impstation/Mobs/Species/Anomalocarid/parts.rsi
