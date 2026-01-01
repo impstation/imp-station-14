@@ -381,7 +381,7 @@ public sealed partial class SupermatterSystem
         else
             sm.HeatHealing = 0f;
 
-        // Funky Fix: Returns evaluatedgas
+        // Funky Fix: Returns gas
         _atmosphere.Merge(mix, absorbedGas);
 
         // Check for space tiles next to SM
