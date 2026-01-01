@@ -91,3 +91,173 @@
     tags:
     - ClothMade
     - ClothFood
+    
+
+# pompom foods
+
+- type: entity
+  name: cheese squeaks
+  parent: FoodMealBase
+  id: FoodMealCheeseSqueaks
+  description: Fried fabric treats, filled with string cheese and served with sauce.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+    ignoreReagents:
+      - CottonBool
+      - Nutriment
+  - type: Sprite
+    state: cheesesqueaks
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/cheesesqueaks.rsi
+  - type: Item
+    heldPrefix: cheese squeaks
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - FoodPacketFoodBoatTrash
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 45
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: TableSalt
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: CottonBool
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+    
+- type: entity
+  name: puff-puff
+  parent: FoodMealBase
+  id: FoodMealPuffPuff
+  description: A popular street food for moths, known by many names across the galaxy. 
+  components:
+  - type: FlavorProfile
+    flavors:
+      - street-food
+    ignoreReagents:
+      - Nutriment
+  - type: Sprite
+    state: puffpuff
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/puffpuff.rsi
+  - type: Item
+    heldPrefix: puff-puffs
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - FoodPacketFoodBoatTrash
+  - type: SolutionContainerManager 
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: TableSalt
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+    
+- type: entity
+  name: pomgo
+  parent: FoodMealBase
+  id: FoodMealPomgo
+  description: Although a simple recipe, this classic treat of fluffy pom poms glazed in soy sauce remains popular to this day.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - street-food
+      - sweet
+      - savory
+      - Nutriment
+  - type: Sprite
+    state: pomgo
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/pomgo.rsi
+  - type: Item
+    heldPrefix: pomgo
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - FoodKebabSkewer
+  - type: SolutionContainerManager 
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Soysauce
+          Quantity: 10
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+    
+- type: entity
+  name: pompette
+  parent: FoodMealBase
+  id: FoodMealPompette
+  description: A rich, savory take on traditional moth cuisine.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - piquant
+      - savory
+    ignoreReagents:
+      - Fiber
+      - Nutriment
+      - Vitamin
+  - type: Sprite
+    state: pompette
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/pompette.rsi
+  - type: Item
+    heldPrefix: pompette
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager 
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Wine
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+    
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketFoodBoatTrash
+  name: paper food boat
+  description: Holds food. Shaped like a boat.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/cheesesqueaks.rsi
+    state: food-boat
+  - type: Tag
+    tags:
+    - Trash
