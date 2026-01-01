@@ -5,6 +5,7 @@
   id: BaseMobAnt
   abstract: true
   components:
+  - type: StrongAsFuckAnt
   - type: Hunger
   - type: Thirst
   - type: Icon
