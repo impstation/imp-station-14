@@ -25,6 +25,9 @@
   id: BlasterCell
 
 - type: Tag
+  id: BoarFriend #lets boar choose the tagged entity as a target for NPCImprintingOnSpawnBehavior
+
+- type: Tag
   id: BorgModuleTckut
 
 - type: Tag
@@ -56,6 +59,9 @@
 
 - type: Tag
   id: CartridgeLPistol
+
+- type: Tag
+  id: CartridgeMinigun
 
 - type: Tag
   id: CartridgePistolStun
@@ -146,6 +152,9 @@
 
 - type: Tag
   id: EvidenceMarker
+
+- type: Tag
+  id: ExternalAirlock
 
 - type: Tag
   id: Eyepatch
