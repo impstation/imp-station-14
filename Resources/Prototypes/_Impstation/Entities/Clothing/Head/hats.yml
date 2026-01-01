@@ -434,3 +434,47 @@
     sprite: _Impstation/Clothing/Head/Hats/centcommintern.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/centcommintern.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCuteTiara
+  name: Cute Tiara
+  description: A tiara fit for royalty, except that it's definitely not real gold.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/cutetiara.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/cutetiara.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSimpleTiara
+  name: Simple Tiara
+  description: A simple tiara for those seeking elegance through simplicity.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/simpletiara.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/simpletiara.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPrincess
+  name: Princess Hat
+  description: Did you know these are actually called a Hennin?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/princesshat.rsi
+  - type: Clothing
+    sprite:  _Impstation/Clothing/Head/Hats/princesshat.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatGreenEscoffion
+  name: Green Escoffion
+  description: Fit for some kind of fancy princess, bet you didn't know this kind of hat has a name.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/greenescoffion.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/greenescoffion.rsi
