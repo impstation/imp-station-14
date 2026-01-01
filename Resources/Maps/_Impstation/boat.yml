@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 12/30/2025 21:43:14
-  entityCount: 25378
+  time: 01/01/2026 18:31:33
+  entityCount: 25393
 maps:
 - 1
 grids:
@@ -10340,7 +10340,7 @@ entities:
       pos: 10.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -29788.129
+      secondsUntilStateChange: -33409.633
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10578,7 +10578,7 @@ entities:
       pos: 30.5,-49.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -36093.426
+      secondsUntilStateChange: -39714.93
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10719,7 +10719,7 @@ entities:
       pos: 10.5,88.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -183286.27
+      secondsUntilStateChange: -186907.77
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10730,7 +10730,7 @@ entities:
       pos: 10.5,87.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -183288.14
+      secondsUntilStateChange: -186909.64
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11487,7 +11487,7 @@ entities:
       pos: 38.5,-21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -378857.25
+      secondsUntilStateChange: -382478.75
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11977,7 +11977,7 @@ entities:
       access:
       - - Maintenance
     - type: Door
-      secondsUntilStateChange: -2585.7493
+      secondsUntilStateChange: -6207.2524
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12043,7 +12043,7 @@ entities:
       pos: 45.5,12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2944.0488
+      secondsUntilStateChange: -6565.5522
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12081,7 +12081,7 @@ entities:
       pos: 44.5,15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -54053.84
+      secondsUntilStateChange: -57675.344
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -77581,7 +77581,7 @@ entities:
       pos: 34.5,-25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -410195.53
+      secondsUntilStateChange: -413817.03
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -111798,6 +111798,11 @@ entities:
     - type: Transform
       pos: 15.5,89.5
       parent: 2
+  - uid: 25384
+    components:
+    - type: Transform
+      pos: 13.5,95.5
+      parent: 2
 - proto: HolopadEngineeringAtmosMain
   entities:
   - uid: 16749
@@ -111994,6 +111999,13 @@ entities:
     - type: Transform
       pos: 54.5,48.5
       parent: 2
+- proto: HolopadServiceClown
+  entities:
+  - uid: 25393
+    components:
+    - type: Transform
+      pos: 66.5,6.5
+      parent: 2
 - proto: HolopadServiceClownMime
   entities:
   - uid: 16777
@@ -112021,6 +112033,13 @@ entities:
     components:
     - type: Transform
       pos: 11.5,40.5
+      parent: 2
+- proto: HolopadServiceMime
+  entities:
+  - uid: 25390
+    components:
+    - type: Transform
+      pos: 62.5,6.5
       parent: 2
 - proto: HolopadServiceNewsroom
   entities:
@@ -123917,11 +123936,6 @@ entities:
     - type: Transform
       pos: 51.5,75.5
       parent: 2
-  - uid: 18540
-    components:
-    - type: Transform
-      pos: 54.5,67.5
-      parent: 2
   - uid: 18541
     components:
     - type: Transform
@@ -124018,11 +124032,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 65.5,70.5
-      parent: 2
-  - uid: 18559
-    components:
-    - type: Transform
-      pos: 51.5,67.5
       parent: 2
   - uid: 18560
     components:
@@ -136550,6 +136559,13 @@ entities:
     - type: Transform
       pos: 42.5,10.5
       parent: 2
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 25379
+    components:
+    - type: Transform
+      pos: -0.5,6.5
+      parent: 2
 - proto: SpawnPointLawyer
   entities:
   - uid: 20533
@@ -139289,6 +139305,32 @@ entities:
     - type: Transform
       pos: 73.5,88.5
       parent: 2
+- proto: SurveillanceCameraAssembly
+  entities:
+  - uid: 25386
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 54.5,67.5
+      parent: 2
+  - uid: 25387
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 54.5,67.5
+      parent: 2
+  - uid: 25391
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 51.5,66.5
+      parent: 2
+  - uid: 25392
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 51.5,66.5
+      parent: 2
 - proto: SurveillanceCameraCommand
   entities:
   - uid: 21007
@@ -140377,6 +140419,11 @@ entities:
       - SurveillanceCameraGeneral
       nameSet: True
       id: wood hall west
+  - uid: 25388
+    components:
+    - type: Transform
+      pos: 53.5,59.5
+      parent: 2
 - proto: SurveillanceCameraMedical
   entities:
   - uid: 21110
@@ -140576,6 +140623,11 @@ entities:
       parent: 2
 - proto: SurveillanceCameraScience
   entities:
+  - uid: 18559
+    components:
+    - type: Transform
+      pos: 6.5,-25.5
+      parent: 2
   - uid: 21131
     components:
     - type: Transform
@@ -140625,8 +140677,24 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 8.5,-30.5
       parent: 2
+  - uid: 25380
+    components:
+    - type: Transform
+      pos: 11.5,-25.5
+      parent: 2
+  - uid: 25381
+    components:
+    - type: Transform
+      pos: 17.5,-33.5
+      parent: 2
 - proto: SurveillanceCameraSecurity
   entities:
+  - uid: 18540
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 72.5,77.5
+      parent: 2
   - uid: 21136
     components:
     - type: Transform
@@ -141109,6 +141177,23 @@ entities:
       - SurveillanceCameraService
       nameSet: True
       id: zoo pride
+  - uid: 25382
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,-35.5
+      parent: 2
+  - uid: 25383
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 54.5,-46.5
+      parent: 2
+  - uid: 25385
+    components:
+    - type: Transform
+      pos: 61.5,1.5
+      parent: 2
 - proto: SurveillanceCameraSupply
   entities:
   - uid: 21181
@@ -144569,6 +144654,13 @@ entities:
     components:
     - type: Transform
       pos: 43.506664,0.58760786
+      parent: 2
+- proto: TouristCamera
+  entities:
+  - uid: 25389
+    components:
+    - type: Transform
+      pos: 55.497314,65.60427
       parent: 2
 - proto: Tourniquet
   entities:
