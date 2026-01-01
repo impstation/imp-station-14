@@ -5,3 +5,12 @@
   components:
   - type: Implanter
     implant: GayStorageImplant
+
+- type: entity
+  id: ButlerImplanter
+  name: butler implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  suffix: Admeme # it autolinks so only spawn one. spawn the implant BEFORE the remote.
+  components:
+  - type: Implanter
+    implant: ButlerBombImplant

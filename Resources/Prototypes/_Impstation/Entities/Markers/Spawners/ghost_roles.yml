@@ -71,3 +71,23 @@
     rules: ghost-role-information-infiltrator-rules
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateInfiltrator
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostButler
+  components:
+  - type: GhostRole
+    name: ghost-role-information-butler-name
+    description: ghost-role-information-butler-description
+    rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleButler
+    raffle:
+      settings: default
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - sprite: Mobs/Aliens/paradox_clone.rsi
+      state: preview

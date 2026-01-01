@@ -1,0 +1,10 @@
+- type: entity
+  parent: RemoteSignallerAdvanced
+  id: RemoteSignallerButler
+  name: butler detonation device
+  description: A handheld device used for remotely expressing ones dissatisfaction with their butler.
+  components:
+  - type: AutoLinkTransmitter
+    channel: Butler
+  - type: WirelessNetworkConnection
+    range: 100

@@ -31,3 +31,32 @@
     interfaces:
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: ButlerBombImplant
+  name: butler bomb implant
+  description: This implant detonates the user upon activation or upon death.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: AutoLinkReceiver
+    channel: Butler
+  - type: ExplodeOnTrigger
+  - type: GibOnTrigger
+    targetUser: true
+    deleteItems: false
+  - type: Explosive
+    explosionType: MicroBomb
+    totalIntensity: 30
+    intensitySlope: 8
+    maxIntensity: 200
+    canCreateVacuum: false

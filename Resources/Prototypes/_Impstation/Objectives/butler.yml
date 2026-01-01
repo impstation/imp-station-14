@@ -1,0 +1,31 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseButlerObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-thief
+  - type: RoleRequirement
+    roles:
+    - ButlerRole
+
+- type: entity
+  parent: BaseButlerObjective
+  id: ButlerServeObjective
+  description: You must serve their every whim, to Butler standards.
+  components:
+  - type: PickSpecificPerson
+  - type: TargetObjective
+    title: objective-condition-butler-serve
+
+- type: entity
+  parent: BaseButlerObjective
+  id: ButlerDieObjective
+  name: Die a Butler Death.
+  description: The trigger must be pulled.
+  components:
+  - type: Objective
+    icon:
+      sprite: Mobs/Ghosts/ghost_human.rsi
+      state: icon
+  - type: DieCondition

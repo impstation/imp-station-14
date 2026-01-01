@@ -1,0 +1,26 @@
+- type: antag
+  id: Butler
+  name: roles-antag-butler-name
+  antagonist: false
+  playTimeTracker: AntagButler
+  setPreference: false
+  objective: roles-antag-butler-objective
+
+- type: startingGear
+  id: ButlerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBartender
+    head: ClothingHeadHatTophat
+    back: ClothingBackpack
+    eyes: ClothingEyesGlasses
+    outerClothing: ClothingOuterApronCuteBar
+    shoes: ClothingShoesBootsLaceup
+    gloves: ClothingHandsGlovesChemist
+    id: ServiceWorkerPDA
+    ears: ClothingHeadsetService
+    belt: ClothingBeltChefFilled
+    pocket1: RagItem
+    pocket2: HandLabeler
+  inhand:
+  - DrinkTeapot
+  - DrinkTeacupEmpty
