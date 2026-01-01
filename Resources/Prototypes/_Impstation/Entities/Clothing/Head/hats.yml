@@ -448,7 +448,7 @@
     sprite: _Impstation/Clothing/Head/Misc/pompombow.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Misc/pompombow.rsi
-    
+
 - type: entity
   parent: ClothingHeadBase
   id: ClothingHeadHatPompomear
@@ -462,7 +462,9 @@
     sprite: _Impstation/Clothing/Head/Misc/pompomear.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Misc/pompomear.rsi
-    
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatCuteTiara
   name: Cute Tiara
   description: A tiara fit for royalty, except that it's definitely not real gold.
