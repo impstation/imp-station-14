@@ -1,152 +1,4 @@
 ﻿Entries:
-- author: msTheowo
-  changes:
-  - message: Colored shoes are now called sneakers
-    type: Tweak
-  id: 1995
-  time: '2025-07-07T05:48:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3014
-- author: hivehum
-  changes:
-  - message: dog fix
-    type: Fix
-  id: 1996
-  time: '2025-07-07T05:57:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3008
-- author: ErhardSteinhauer
-  changes:
-  - message: Tabletop computers can now be built and placed atop tables.
-    type: Add
-  id: 1997
-  time: '2025-07-07T06:16:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2953
-- author: deltanedas, DinnerCalzone
-  changes:
-  - message: Clown waddling has been fully refactored! Please report any issues or
-      noticeable changes in performance.
-    type: Fix
-  - message: Toggling waddling now has a short cooldown.
-    type: Tweak
-  - message: Crawl waddling has been tragically fixed with this refactor.
-    type: Remove
-  id: 1998
-  time: '2025-07-07T06:15:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2509
-- author: Pinkbat5
-  changes:
-  - message: Tweaked health examine text to be a little clearer.
-    type: Tweak
-  id: 1999
-  time: '2025-07-07T14:48:03.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3016
-- author: msTheowo
-  changes:
-  - message: Some of CentComm's interns have been conscripted.
-    type: Add
-  id: 2000
-  time: '2025-07-07T17:11:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2990
-- author: jtfg-dev
-  changes:
-  - message: Paradox clones will now sometimes (randomly) yearn to keep their other
-      selves alive, rather than murder them badly.
-    type: Add
-  id: 2001
-  time: '2025-07-08T05:50:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2963
-- author: FlippenPage
-  changes:
-  - message: Ratvarian Trait and Syndicate Cyborgs now have new typing indicators.
-      Cool.
-    type: Tweak
-  id: 2002
-  time: '2025-07-08T05:52:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3013
-- author: DinnerCalzone
-  changes:
-  - message: Fixed wall recharges being completely unshaded while charging something.
-    type: Fix
-  id: 2003
-  time: '2025-07-08T05:54:00.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3026
-- author: Pinkbat5
-  changes:
-  - message: Lobby playtime comments don't refresh constantly anymore.
-    type: Fix
-  id: 2004
-  time: '2025-07-08T05:53:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3027
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Borgs can now be awarded medals.
-    type: Add
-  id: 2005
-  time: '2025-07-08T05:56:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3030
-- author: SixValentine
-  changes:
-  - message: Reporter on Hash real actually
-    type: Fix
-  id: 2006
-  time: '2025-07-09T08:25:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3036
-- author: Kandiyaki
-  changes:
-  - message: random gamemode weights have been tweaked to add a bit more variety.
-    type: Tweak
-  id: 2007
-  time: '2025-07-10T18:57:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2970
-- author: DinnerCalzone
-  changes:
-  - message: Bleach will now cause you to cough and deal a bit of damage if sprayed
-      on you. Be careful where you're cleaning!
-    type: Add
-  id: 2008
-  time: '2025-07-10T18:58:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3039
-- author: DVDPlayerOfDiscordFame, iaada
-  changes:
-  - message: Added the Adder, Akurra, Anaconda, Xiuhcoatl, Ouroboros, and Leviathan.
-    type: Add
-  - message: .60 Speedloaders and Echion technology.
-    type: Add
-  id: 2009
-  time: '2025-07-10T19:30:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2575
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Changed the sprites on the .22 auto magazines to make them more different
-    type: Tweak
-  id: 2010
-  time: '2025-07-10T19:34:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3050
-- author: mqole
-  changes:
-  - message: Jungle juice has been vanquished. FOR REAL THIS TIME.
-    type: Remove
-  - message: Subjuzine no longer uses DNA to function.
-    type: Remove
-  id: 2011
-  time: '2025-07-10T20:08:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3031
-- author: DinnerCalzone
-  changes:
-  - message: Convex has been derotated.
-    type: Remove
-  id: 2012
-  time: '2025-07-11T03:02:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3057
-- author: DinnerCalzone
-  changes:
-  - message: Red, orange, and green carpets have received new sprites!
-    type: Add
-  - message: Carpets of different colors no longer blend together when placed next
-      to each other.
-    type: Tweak
-  id: 2013
-  time: '2025-07-11T16:56:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3035
 - author: DinnerCalzone
   changes:
   - message: Toolboxes have been resprited!
@@ -4168,3 +4020,150 @@
   id: 2494
   time: '2025-12-21T02:54:20.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3818
+- author: Simul-Ad-Astra
+  changes:
+  - message: Hotsauce is actually hot now
+    type: Tweak
+  - message: 4 new hotsauces straight from the labs of Discount Dan's!
+    type: Add
+  id: 2495
+  time: '2025-12-21T07:05:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3755
+- author: Veenomine, TheGrimbeeper, ultramario1998
+  changes:
+  - message: she is trapped
+    type: Tweak
+  id: 2496
+  time: '2025-12-22T01:57:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3875
+- author: FlapWrap
+  changes:
+  - message: Artist's rendition of Her containment
+    type: Add
+  id: 2497
+  time: '2025-12-26T00:25:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3882
+- author: entings
+  changes:
+  - message: Boar will no longer demolish any machines in their path.
+    type: Tweak
+  - message: Boar will no longer become enamored with specific pieces of station infrastructure
+      to their own detriment.
+    type: Fix
+  id: 2498
+  time: '2025-12-26T09:17:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3803
+- author: msTheowo
+  changes:
+  - message: Soap can now be used to clean decals, including floor grime.
+    type: Add
+  id: 2499
+  time: '2025-12-26T09:21:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3667
+- author: Kandiyaki
+  changes:
+  - message: attempted to fix Serpent's Focus again. it works on localhost! will it
+      work on the server? WHO KNOWS
+    type: Fix
+  id: 2500
+  time: '2025-12-28T11:08:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3822
+- author: 12rabbits
+  changes:
+  - message: The cash rewards for certain Salvage bounties have been dramatically
+      reduced.
+    type: Tweak
+  id: 2501
+  time: '2025-12-28T12:06:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3786
+- author: youtubevideo3
+  changes:
+  - message: The Phantom Racer has been put to rest.
+    type: Remove
+  id: 2502
+  time: '2025-12-28T12:56:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3857
+- author: Squamatic
+  changes:
+  - message: Nitrous oxide gas leaks are now possible. Enjoy your nap!
+    type: Tweak
+  id: 2503
+  time: '2025-12-28T12:57:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3883
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Akurra has Sized Up
+    type: Fix
+  id: 2504
+  time: '2025-12-28T13:03:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3886
+- author: Smugman
+  changes:
+  - message: Sap can now be juiced from logs. You no longer need to douse your pancakes
+      in the blood of your coworkers.
+    type: Add
+  id: 2505
+  time: '2025-12-29T02:09:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3809
+- author: ComedyIdiot
+  changes:
+  - message: Gastropoids can now glow in peace
+    type: Fix
+  id: 2506
+  time: '2025-12-30T01:39:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3895
+- author: mqole
+  changes:
+  - message: Dwarves are now 2% slower.
+    type: Tweak
+  id: 2507
+  time: '2025-12-30T22:54:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3892
+- author: TheGrimbeeper
+  changes:
+  - message: Your mind will no longer believe you can "Eat" from artifacts which are
+      chemical containers
+    type: Fix
+  - message: You can no longer press buttons so fast on the artifact analysis console
+      that it thinks its scanning up and down at the same time.
+    type: Fix
+  id: 2508
+  time: '2025-12-30T23:07:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3896
+- author: FlippenPage
+  changes:
+  - message: fixed a bad sprite offset on the Medical Assembler and Food-O-Mat
+    type: Fix
+  id: 2509
+  time: '2026-01-01T03:11:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3839
+- author: ATDoop
+  changes:
+  - message: Anomalocarids have unique organs now! Gib one today!
+    type: Add
+  id: 2510
+  time: '2026-01-01T03:49:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3851
+- author: DOSRG
+  changes:
+  - message: Cargo can now purchase a royal dress up experience!
+    type: Add
+  id: 2511
+  time: '2026-01-01T05:33:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3893
+- author: DinnerCalzone
+  changes:
+  - message: Map population ranges have been tweaked. Maps in the high-pop bracket
+      will now roll at 65 players. Plasma, Cog, and Whale roll between 45 - 75 players.
+      Whisper rolls between 25 - 60 players.
+    type: Tweak
+  id: 2512
+  time: '2026-01-01T10:15:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3901
+- author: ATDoop
+  changes:
+  - message: Anomalocarids have a guidebook entry now!
+    type: Add
+  id: 2513
+  time: '2026-01-01T10:31:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3877
