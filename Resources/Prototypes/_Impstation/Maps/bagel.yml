@@ -3,7 +3,7 @@
   mapName: 'Bagel Station'
   mapPath: /Maps/_Impstation/bagel.yml
   minPlayers: 35
-  maxPlayers: 69
+  maxPlayers: 64
   stations:
     Bagel:
       stationProto: StandardNanotrasenStation
@@ -43,7 +43,7 @@
             TechnicalAssistant: [ 4, 4 ]
             # medical - 8-12
             Chemist: [ 2, 2 ]
-            MedicalDoctor: [ 4, 1 ] 
+            MedicalDoctor: [ 4, 1 ]
             MedicalIntern: [ 4, 4 ]
             Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]

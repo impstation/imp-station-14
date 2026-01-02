@@ -27,3 +27,14 @@
   cost: 10000
   category: cargoproduct-category-name-livestock
   group: market
+  
+- type: cargoProduct
+  id: LivestockPompom
+  icon:
+    sprite: _Impstation/Mobs/Animals/pompom.rsi
+    state: pompom
+  product: CrateNPCPompom
+  cost: 4400
+  category: cargoproduct-category-name-livestock
+  group: market
+ 

@@ -1,40 +1,4 @@
-- type: entity
-  name: r'tck t'rc
-  parent: [ BaseItem, DecapoidEmpireContraband ]
-  id: WeaponPistolTckTck
-  description: 'A bite-sized autopistol for cyborgs. Creates .22 ammo on the fly from an internal ammo fabricator, which slowly self-charges.'
-  components:
-  - type: Item
-    size: Tiny
-  - type: Gun
-    fireRate: 3
-    selectedMode: FullAuto
-    availableModes:
-      - SemiAuto
-      - FullAuto
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/smg.ogg
-  - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/tckpistol.rsi
-    layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-  - type: ProjectileBatteryAmmoProvider
-    proto: BulletLPistol
-    fireCost: 100
-  - type: Battery
-    maxCharge: 800
-    startingCharge: 800
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 40
-  - type: AmmoCounter
-
+# .35 auto deals 16 pierce per shot (CartridgePistol)
 - type: entity
   name: Freelancer
   parent: [BaseWeaponPistol, BaseSecurityContraband]
@@ -76,3 +40,133 @@
           tags:
             - CartridgePistol
             - CartridgePistolStun
+
+- type: entity
+  name: Viper
+  parent: [BaseWeaponPistol, Tier3Contraband]
+  id: WeaponPistolViper
+  description: A small, easily-concealable but somewhat underpowered handgun. Retrofitted with a fully automatic receiver. Uses .35 auto ammo.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/viper.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+            - MagazinePistolHighCapacity
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 1000
+
+- type: entity
+  name: Echis
+  parent: [ BaseItem, Tier3Contraband ]
+  id: WeaponPistolEchis
+  description: A Viper pistol for use by cyborgs. Creates .35 ammo on the fly from an internal ammo fabricator, which slowly self-charges.
+  components:
+  - type: Gun
+    fireRate: 5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/viper.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletPistol
+    fireCost: 100
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger
+    autoRechargeRate: 25
+  - type: AmmoCounter
+
+- type: entity
+  name: Mk 58
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
+  id: WeaponPistolMk58
+  description: A cheap, ubiquitous sidearm produced by a Nanotrasen subsidiary. It does its job without any hassle. Uses .35 auto ammo.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/mk58.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/mk58.rsi
+  - type: Item
+    storedOffset: 0,-2
+  - type: Gun
+    fireRate: 5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: StealTarget
+    stealGroup: OfficerHandgun
+  - type: Construction
+    graph: UpgradeWeaponPistolConversion
+    node: start
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      conversion_kit: !type:ContainerSlot
+  - type: ItemSlots #my sick ass hack
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistol
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistol
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+      conversion_kit:
+        priority: 3
+        locked: true
+        lockedFailPopup: gun-conversion-kit-upgrade
+        whitelist:
+          tags:
+            - ConversionKitFA
+            - ConversionKitHB

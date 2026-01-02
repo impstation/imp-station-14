@@ -20,6 +20,9 @@ trait-unborgable-desc = Your brain is unable to fit into a Man-Machine Interface
 trait-archaic-name = Archaic speech
 trait-archaic-desc = Thy language is quite outdated, and thou still hold thyself to some manner of chivalry
 
+trait-basic-archaic-name = Basic Archaic speech
+trait-basic-archaic-desc = Thou art up with the times, but thou can't seem to shake some anachronisms.
+
 trait-accentimmune-name = No accent
 trait-accentimmune-desc = You have no accent whatsoever, somehow. Where are you from?
 
