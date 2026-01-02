@@ -31,13 +31,13 @@
   color: "#E8A24D"
 
 - type: reagent
-  id: BlueAsterade
-  name: reagent-name-asterade-blue
+  id: PurpleAsterade
+  name: reagent-name-asterade-purple
   parent: BaseAsterade
-  desc: reagent-desc-asterade-blue
+  desc: reagent-desc-asterade-purple
   physicalDesc: reagent-physical-desc-sweet
   flavor: berry
-  color: "#39a1ff"
+  color: "#8E46B3"
 
 - type: reagent
   id: RedAsterade
@@ -72,8 +72,17 @@
   parent: BaseAsterade
   desc: reagent-desc-asterade-teal
   physicalDesc: reagent-physical-desc-sweet
-  flavor: sweet
+  flavor: tangy
   color: "#47f8ff"
+
+- type: reagent
+  id: BlueAsterade
+  name: reagent-name-asterade-blue
+  parent: BaseAsterade
+  desc: reagent-desc-asterade-blue
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: berry
+  color: "#39a1ff"
 
 - type: reagent
   id: PinkAsterade
@@ -81,7 +90,7 @@
   parent: BaseAsterade
   desc: reagent-desc-asterade-pink
   physicalDesc: reagent-physical-desc-sweet
-  flavor: sweet
+  flavor: fruity
   color: "#ff66cc"
 
 - type: reagent

@@ -22,5 +22,8 @@ reagent-desc-blue-food-coloring = A way to add a bit of the color blue to cookin
 reagent-name-pink-food-coloring = pink food coloring
 reagent-desc-pink-food-coloring = A way to add a bit of the color pink to cooking.
 
+reagent-name-purple-food-coloring = purple food coloring
+reagent-desc-purple-food-coloring = A way to add a bit of the color purple to cooking.
+
 reagent-name-black-food-coloring = black food coloring
 reagent-desc-black-food-coloring = The natural result of mixing too many food colorings.

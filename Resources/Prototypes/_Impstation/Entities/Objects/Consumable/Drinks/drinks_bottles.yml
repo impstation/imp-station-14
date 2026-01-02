@@ -62,15 +62,15 @@
 
 - type: entity
   parent: DrinkAsteradeBottleFull
-  id: DrinkBlueAsteradeBottleFull
-  name: blue Asterade™ bottle
-  description: Ostensibly healthy for you. The label says "Boisterous Berry"
+  id: DrinkPurpleAsteradeBottleFull
+  name: purple Asterade™ bottle
+  description: Ostensibly healthy for you. The label says "Groovy Grape"
   components:
   - type: SolutionContainerManager
     solutions:
       drink:
         reagents:
-        - ReagentId: BlueAsterade
+        - ReagentId: PurpleAsterade
           Quantity: 30
 
 - type: entity
@@ -116,13 +116,26 @@
   parent: DrinkAsteradeBottleFull
   id: DrinkTealAsteradeBottleFull
   name: teal Asterade™ bottle
-  description: Ostensibly healthy for you. The label says "Tesloose Teal"
+  description: Ostensibly healthy for you. The label says "Tesloose Twist"
   components:
   - type: SolutionContainerManager
     solutions:
       drink:
         reagents:
         - ReagentId: TealAsterade
+          Quantity: 30
+
+- type: entity
+  parent: DrinkAsteradeBottleFull
+  id: DrinkBlueAsteradeBottleFull
+  name: blue Asterade™ bottle
+  description: Ostensibly healthy for you. The label says "Boisterous Berry"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: BlueAsterade
           Quantity: 30
 
 - type: entity
@@ -291,10 +304,24 @@
   name: pink food coloring bottle
   components:
   - type: Sprite
-    color: pink
+    color: "#913469"
   - type: SolutionContainerManager
     solutions:
       drink:
         reagents:
         - ReagentId: PinkFoodColoring
+          Quantity: 15
+
+- type: entity
+  parent: DrinkFoodColoringBottleFull
+  id: DrinkPurpleFoodColoringBottleFull
+  name: purple food coloring bottle
+  components:
+  - type: Sprite
+    color: "#832bb6"
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: PurpleFoodColoring
           Quantity: 15

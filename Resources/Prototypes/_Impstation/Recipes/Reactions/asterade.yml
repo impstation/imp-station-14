@@ -11,16 +11,16 @@
     OrangeAsterade: 2
 
 - type: reaction
-  id: BlueAsterade
+  id: PurpleAsterade
   requiredMixerCategories:
   - Shake
   reactants:
     Saline:
       amount: 1
-    BlueFoodColoring:
+    PurpleFoodColoring:
       amount: 1
   products:
-    BlueAsterade: 2
+    PurpleAsterade: 2
 
 - type: reaction
   id: RedAsterade
@@ -69,6 +69,18 @@
       amount: 1
   products:
     TealAsterade: 2
+
+- type: reaction
+  id: BlueAsterade
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    Saline:
+      amount: 1
+    BlueFoodColoring:
+      amount: 1
+  products:
+    BlueAsterade: 2
 
 - type: reaction
   id: PinkAsterade

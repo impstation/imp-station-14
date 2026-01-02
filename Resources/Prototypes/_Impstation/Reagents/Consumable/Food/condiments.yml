@@ -26,7 +26,7 @@
   desc: reagent-desc-red-food-coloring
   physicalDesc: reagent-physical-desc-sweet
   flavor: bitter
-  color: "#fb4747"
+  color: "#df0000"
   metabolisms:
     Food:
       effects:
@@ -90,6 +90,13 @@
   name: reagent-name-pink-food-coloring
   desc: reagent-desc-pink-food-coloring
   color: "#ff66cc"
+
+- type: reagent
+  id: PurpleFoodColoring
+  parent: RedFoodColoring
+  name: reagent-name-purple-food-coloring
+  desc: reagent-desc-purple-food-coloring
+  color: "#a838e9"
 
 - type: reagent
   id: BlackFoodColoring

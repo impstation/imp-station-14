@@ -33,9 +33,9 @@
     RedFoodColoring:
       amount: 1
     Sugar:
-      amount: 3
+      amount: 2
   products:
-    RedFoodColoring: 4
+    RedFoodColoring: 3
 
 - type: reaction
   id: OrangeFoodColoringReaction
@@ -43,9 +43,9 @@
     OrangeFoodColoring:
       amount: 1
     Sugar:
-      amount: 3
+      amount: 2
   products:
-    OrangeFoodColoring: 4
+    OrangeFoodColoring: 3
 
 - type: reaction
   id: YellowFoodColoringReaction
@@ -53,9 +53,9 @@
     YellowFoodColoring:
       amount: 1
     Sugar:
-      amount: 3
+      amount: 2
   products:
-    YellowFoodColoring: 4
+    YellowFoodColoring: 3
 
 - type: reaction
   id: GreenFoodColoringReaction
@@ -63,9 +63,9 @@
     GreenFoodColoring:
       amount: 1
     Sugar:
-      amount: 3
+      amount: 2
   products:
-    GreenFoodColoring: 4
+    GreenFoodColoring: 3
 
 - type: reaction
   id: CyanFoodColoringReaction
@@ -73,9 +73,9 @@
     CyanFoodColoring:
       amount: 1
     Sugar:
-      amount: 3
+      amount: 2
   products:
-    CyanFoodColoring: 4
+    CyanFoodColoring: 3
 
 - type: reaction
   id: BlueFoodColoringReaction
@@ -83,9 +83,9 @@
     BlueFoodColoring:
       amount: 1
     Sugar:
-      amount: 3
+      amount: 2
   products:
-    BlueFoodColoring: 4
+    BlueFoodColoring: 3
 
 - type: reaction
   id: PinkFoodColoringReaction
@@ -93,9 +93,19 @@
     PinkFoodColoring:
       amount: 1
     Sugar:
-      amount: 3
+      amount: 2
   products:
-    PinkFoodColoring: 4
+    PinkFoodColoring: 3
+
+- type: reaction
+  id: PurpleFoodColoringReaction
+  reactants:
+    PurpleFoodColoring:
+      amount: 1
+    Sugar:
+      amount: 2
+  products:
+    PurpleFoodColoring: 3
 
 - type: reaction
   id: BlackFoodColoring
@@ -114,5 +124,7 @@
       amount: 1
     PinkFoodColoring:
       amount: 1
+    PurpleFoodColoring:
+      amount: 1
   products:
-    BlackFoodColoring: 7
+    BlackFoodColoring: 8

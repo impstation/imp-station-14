@@ -182,6 +182,21 @@
       entity: ShardCrystalPink
 
 - type: reaction
+  id: CreateCrystalPurple
+  quantized: true
+  minTemp: 374
+  reactants:
+    PurpleFoodColoring:
+      amount: 15
+    Water:
+      amount: 15
+    Ethanol:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: ShardCrystalPurple
+
+- type: reaction
   id: CreateCrystalBlack
   quantized: true
   minTemp: 374

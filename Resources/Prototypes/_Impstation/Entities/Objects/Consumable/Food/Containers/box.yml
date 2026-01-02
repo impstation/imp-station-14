@@ -188,7 +188,7 @@
   name: box of food coloring bottles
   parent: BoxCardboard
   id: BoxFoodColoring
-  description: A little container of food coloring bottles.
+  description: A little container for food coloring bottles.
   components:
   - type: StorageFill
     contents:
@@ -199,6 +199,7 @@
     - id: DrinkCyanFoodColoringBottleFull
     - id: DrinkBlueFoodColoringBottleFull
     - id: DrinkPinkFoodColoringBottleFull
+    - id: DrinkPurpleFoodColoringBottleFull
   - type: Storage
     grid:
     - 0,0,3,1
