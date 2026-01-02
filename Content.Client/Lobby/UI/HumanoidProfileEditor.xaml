@@ -158,11 +158,11 @@
                 </BoxContainer>
             </TabContainer>
         </BoxContainer>
-        <!-- Right side -->
-        <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center">
-            <!-- IMP: change spriteview margin 4 > 4, 10 -->
-            <SpriteView Name="SpriteView" Scale="8 8" Margin="4, 10" SizeFlagsStretchRatio="1" />
-            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5">
+        <!-- Right side --> <!-- IMP: MinSize 0 600-->
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center" MinSize="0 500">
+            <!-- IMP: change spriteview margin 4 > 4, 10. SetSize 300 400, Stretch=None, Horizontal and Vertical expand false. -->
+            <SpriteView Name="SpriteView" Scale="8 8" Margin="0, 0" SetSize="320 480" Stretch="Fit" HorizontalExpand="False" VerticalExpand="False" VerticalAlignment="Bottom"/>
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 5">
                 <Button Name="SpriteRotateLeft" Text="◀" StyleClasses="OpenRight" />
                 <cc:VSeparator Margin="2 0 3 0" />
                 <Button Name="SpriteRotateRight" Text="▶" StyleClasses="OpenLeft" />
