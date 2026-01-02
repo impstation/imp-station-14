@@ -1,0 +1,76 @@
+- type: entity
+  parent: [ClothingMaskBase, BaseChameleon]
+  id: PorcelainMaskChameleon
+  name: porcelain face
+  description: It's your face. Make it express what you feel.
+  suffix: Chameleon
+  components:
+    - type: Tag
+      tags: [] # ignore "WhitelistChameleon" tag
+    - type: Sprite
+      sprite: Clothing/Mask/gas.rsi
+    - type: Clothing
+      sprite: Clothing/Mask/gas.rsi
+    - type: ChameleonClothing
+      slot: [mask]
+      default: PorcelainMask
+    - type: BreathMask
+    - type: IdentityBlocker # need that for default PorcelainMask
+    - type: Unremoveable
+    - type: HideLayerClothing # I don't think this matters for porcelainoids so I could probably get rid of it, but I might as well leave it I guess?
+      slots:
+      - Snout
+      - SnoutCover # imp
+
+- type: entity
+  parent: ClothingMaskGas
+  id: PorcelainMask
+  name: porcelain face
+  description: It's your face. Make it express what you feel.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/clayshapermask.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/clayshapermask.rsi
+
+
+- type: entity
+  name: Connecting Shard
+  description: Your connection to the others.
+  parent: BaseRadio
+  id: PorcelainRadio
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Porcelain
+    listenRange: 1
+    frequency: 1459
+  - type: RadioSpeaker
+    channels:
+    - Porcelain
+  - type: Sprite
+    sprite: Objects/Devices/securityhandy.rsi
+  - type: Item
+    sprite: Objects/Devices/securityhandy.rsi
+    heldPrefix: walkietalkie
+
+
+- type: entity
+  name: Futuristic Connecting Shard
+  description: Your connection to the others.
+  parent: BaseRadio
+  id: PorcelainRadioHandicom
+  components:
+  - type: RadioMicrophone
+    broadcastChannel: Handheld
+    toggleOnInteract: false
+    frequency: 1459
+  - type: RadioSpeaker
+    channels:
+    - handheld
+    toggleOnInteract: false
+  - type: ActivatableUI
+    key: enum.HandheldRadioUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.HandheldRadioUiKey.Key:
+        type: HandheldRadioBoundUserInterface

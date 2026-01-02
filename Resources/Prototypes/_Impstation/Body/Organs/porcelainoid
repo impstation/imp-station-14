@@ -1,0 +1,190 @@
+- type: entity
+  id: OrganPorcelainoidBrain
+  parent: BaseHumanOrganUnGibbable
+  name: thinking shard
+  description: "This shard does the thinking, something about it makes you want to put it in your mouth"
+  components:
+  - type: Sprite
+    state: brain
+  - type: Organ
+  - type: Input
+    context: "ghost"
+  - type: Brain
+  - type: InputMover
+  - type: Examiner
+  - type: BlockMovement
+  - type: BadFood
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Brain
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: PorcelainJuice
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: PorcelainJuice
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - people
+  - type: FoodSequenceElement
+    entries:
+      Burger: Brain
+      Taco: Brain
+  - type: Item
+    size: Small
+    heldPrefix: brain
+
+- type: entity
+  id: OrganPorcelainoidEyes
+  parent: BaseHumanOrgan
+  name: seeing shard
+  description: "This shard does the seeing, something about it makes you want to put it in your mouth"
+  components:
+  - type: Sprite
+    layers:
+      - state: eyeball-l
+      - state: eyeball-r
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Eyes
+  - type: Item
+    size: Small
+    heldPrefix: eyeballs
+
+- type: entity
+  id: OrganPorcelainoidLungs
+  parent: BaseHumanOrgan
+  name: breathing shard
+  description: "This shard does the breathing, something about it makes you want to put it in your mouth"
+  components:
+  - type: Sprite
+    layers:
+      - state: lung-l
+      - state: lung-r
+  - type: Item
+    size: Small
+    heldPrefix: lungs
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: PorcelainJuice
+          Quantity: 10
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: PorcelainJuice
+          Quantity: 5
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Lungs
+
+- type: entity
+  id: OrganPorcelainoidHeart
+  parent: BaseHumanOrgan
+  name: pumping shard
+  description: "This shard does the pumping, something about it makes you want to put it in your mouth"
+  components:
+  - type: Sprite
+    state: heart-on
+  # The heart 'metabolizes' medicines and poisons that aren't filtered out by other organs.
+  # This is done because these chemicals need to have some effect even if they aren't being filtered out of your body.
+  # You're technically 'immune to poison' without a heart, but.. uhh, you'll have bigger problems on your hands.
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [Human]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Heart
+  - type: Item
+    size: Small
+    heldPrefix: heart
+
+- type: entity
+  id: OrganPorcelainoidStomach
+  parent: BaseHumanOrgan
+  name: eating shard
+  description: "This shard does the eating, something about it makes you want to put it in your mouth"
+  components:
+  - type: Sprite
+    state: stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: PorcelainJuice
+          Quantity: 5
+  - type: Stomach
+  # The stomach metabolizes stuff like foods and drinks.
+  # TODO: Have it work off of the ent's solution container, and move this
+  # to intestines instead.
+  - type: Metabolizer
+    # mm yummy
+    maxReagents: 3
+    metabolizerTypes: [Human]
+    groups:
+    - id: Food
+    - id: Drink
+  - type: Tag # goob edit
+    tags:
+      - Meat
+      - Organ
+      - Stomach
+
+- type: entity
+  id: OrganPorcelainoidLiver
+  parent: BaseHumanOrgan
+  name: processing shard
+  description: "This shard does the processing, something about it makes you want to put it in your mouth"
+  components:
+  - type: Sprite
+    state: liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
+  - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
+    maxReagents: 1
+    metabolizerTypes: [Human]
+    groups:
+    - id: Alcohol
+      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
+  - type: Tag # goob edit
+    tags:
+      - Meat
+      - Organ
+      - Liver

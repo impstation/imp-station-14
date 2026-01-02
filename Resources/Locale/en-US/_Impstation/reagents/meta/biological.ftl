@@ -30,3 +30,6 @@ reagent-desc-estradiol = A fundamental bodily hormone, synthesized from cell mat
 
 reagent-name-bloodallulalo = methylated blood
 reagent-desc-bloodallulalo = An ancient alkylate form of blood. Known to rapidly evaporate if spilled.
+
+reagent-name-porcelainjuice = porcelain slurry
+reagent-desc-porcelainjuice = A blended goop full of sharp porcelain fragments. You really want to drink it.
