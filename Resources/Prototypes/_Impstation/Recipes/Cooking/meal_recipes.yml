@@ -599,7 +599,29 @@
     FoodBowlBig: 1
     FoodBanana: 1
     MonkeyCubeSanitized: 1
-  recipeType: Oven # Frontier
+  recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeHotdogPlain
+  name: plain hotdog
+  result: FoodHotdogPlain
+  group: Savory
+  time: 10
+  solids:
+    FoodMeatSausage: 1
+    FoodHotdogBun: 1
+  recipeType: Microwave
+
+- type: microwaveMealRecipe
+  id: RecipeHotdogBun
+  name: hotdog bun recipe
+  result: FoodHotdogBun
+  time: 5
+  group: Breads
+  solids:
+    FoodBreadBun: 1 
+  recipeType: Assembler 
+
 - type: microwaveMealRecipe
   id: RecipePomgo
   name: pomgo recipe
@@ -658,3 +680,4 @@
      MaterialPom1: 3
      FoodTomato: 3
   recipeType: Oven
+  
