@@ -134,3 +134,8 @@ ComputerFundingAllocation: ComputerFundingAllocationBroken
 # 2025-11-20
 # upstream merge replacement prototypes
 CrayonRainbowInfinite: CrayonInfinite
+
+# 2025-12-27
+# standardize EVA rooms to command access, we should have done this a year ago when we initially hard forked maps but c'est la vie
+AirlockEVALocked: AirlockCommandLocked
+AirlockEVAGlassLocked: AirlockCommandGlassLocked

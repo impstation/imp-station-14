@@ -600,3 +600,61 @@
     FoodBanana: 1
     MonkeyCubeSanitized: 1
   recipeType: Oven # Frontier
+- type: microwaveMealRecipe
+  id: RecipePomgo
+  name: pomgo recipe
+  result: FoodMealPomgo
+  group: Moth
+  time: 5
+  reagents:
+     Sugar: 5
+     Soysauce: 10
+  solids:
+     MaterialPom1: 3
+     FoodKebabSkewer: 1
+  recipeType: Oven
+  
+- type: microwaveMealRecipe
+  id: RecipeCheeseSqueaks
+  name: cheese squeaks recipe
+  result: FoodMealCheeseSqueaks
+  group: Moth
+  time: 15
+  reagents:
+     Flour: 10
+     OilOlive: 10
+     Egg: 2
+  solids:
+     MaterialPom1: 3
+     FoodStringCheeseStrand: 1
+  recipeType: Microwave
+  
+- type: microwaveMealRecipe
+  id: RecipePuffPuff
+  name: puff-puff recipe
+  result: FoodMealPuffPuff
+  group: Moth
+  time: 10
+  reagents:
+     Flour: 10
+     OilOlive: 10
+     Sugar: 5
+     TableSalt: 5
+  solids:
+     MaterialPom1: 3
+  recipeType: Microwave
+  
+- type: microwaveMealRecipe
+  id: RecipePompette
+  name: pompette recipe
+  result: FoodMealPompette
+  group: Moth
+  time: 30
+  reagents:
+     Wine: 10
+     Blackpepper: 5
+     TableSalt: 5
+  solids:
+     MaterialPom1: 3
+     FoodTomato: 3
+  recipeType: Oven
