@@ -51976,36 +51976,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: WarpPointBombing
-  entities:
-  - uid: 7314
-    components:
-    - type: Transform
-      pos: 26.5,6.5
-      parent: 2
-    - type: BombingTarget
-      location: Armory
-  - uid: 7315
-    components:
-    - type: Transform
-      pos: -0.5,-2.5
-      parent: 2
-    - type: BombingTarget
-      location: Vault
-  - uid: 7686
-    components:
-    - type: Transform
-      pos: 13.5,-16.5
-      parent: 2
-    - type: BombingTarget
-      location: Stage
-  - uid: 7748
-    components:
-    - type: Transform
-      pos: 13.5,-7.5
-      parent: 2
-    - type: BombingTarget
-      location: Chapel
 - proto: WaterCooler
   entities:
   - uid: 186

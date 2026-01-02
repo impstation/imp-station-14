@@ -129,3 +129,12 @@ uplink-super-mosin-desc = A modified bolt-action service rifle with a large maga
 
 uplink-ourobros-name = OuroBROS
 uplink-ourobros-desc = UNGH!
+
+uplink-extended-pistol-magazine-caseless-name = Extended Pistol Magazine Bundle (.25 caseless)
+uplink-extended-pistol-magazine-caseless-desc = Four high-capacity pistol magazines each loaded with 16 cartridges. Compatible with the Cobra.
+
+uplink-extended-pistol-magazine-name = Extended Pistol Magazine Bundle (.35 auto)
+uplink-extended-pistol-magazine-desc = Four high-capacity pistol magazines each loaded with 20 cartridges. Compatible with the Viper.
+
+uplink-hotsauces-name = Discount Dan's Hot Sauce Sampler Pack
+uplink-hotsauces-desc = New from Discount Dan's! 4 levels of heat to put your spice tolerance to the test. Plus a free* gift from Discount Dan himself!

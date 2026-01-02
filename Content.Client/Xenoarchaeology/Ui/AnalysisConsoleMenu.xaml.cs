@@ -75,17 +75,17 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         // imp edit start
         UpBiasButton.OnPressed += _ =>
         {
-            OnUpBiasButtonPressed?.Invoke();
-            _owner.Comp.BiasDirection = BiasDirection.Up;
             UpBiasButton.Pressed = true;
             DownBiasButton.Pressed = false;
+            OnUpBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.Up;
         };
         DownBiasButton.OnPressed += _ =>
         {
-            OnDownBiasButtonPressed?.Invoke();
-            _owner.Comp.BiasDirection = BiasDirection.Down;
             UpBiasButton.Pressed = false;
             DownBiasButton.Pressed = true;
+            OnDownBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.Down;
         };
         // imp edit end
     }
@@ -145,7 +145,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         ExtractionSumLabel.SetMarkup(Loc.GetString("analysis-console-extract-sum", ("value", _extractionSum)));
 
-        _audio.PlayGlobal(_owner.Comp.ScanFinishedSound, _owner, AudioParams.Default.WithVolume(1f));
+        _audio.PlayGlobal(_owner.Comp.ScanFinishedSound, _owner, AudioParams.Default.WithVolume(0.5f)); //#IMP 1f -> 0.5f
         OnExtractButtonPressed?.Invoke();
     }
 
@@ -187,9 +187,15 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         if (arti is { Comp.Natural: true })
         {
             if (ent.Comp.BiasDirection == BiasDirection.Down)
+            {
                 DownBiasButton.Pressed = true;
+                UpBiasButton.Pressed = false;
+            }
             else if (ent.Comp.BiasDirection == BiasDirection.Up)
+            {
                 UpBiasButton.Pressed = true;
+                DownBiasButton.Pressed = false;
+            }
         }
         // imp edit end
 

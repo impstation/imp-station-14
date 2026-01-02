@@ -1,0 +1,18 @@
+- type: guideEntry
+  id: VisitorSpecies
+  name: guide-entry-visitorspecies
+  text: "/ServerInfo/_Impstation/Guidebook/Mobs/VisitorSpecies/VisitorSpecies.xml"
+  children:
+  - Anomalocarid
+  - Vulpkanin
+  - Ant
+
+- type: guideEntry
+  id: Anomalocarid
+  name: Anomalocarid
+  text: "/ServerInfo/_Impstation/Guidebook/Mobs/VisitorSpecies/Anomalocarid.xml"
+
+- type: guideEntry
+  id: Ant
+  name: Ant
+  text: "/ServerInfo/_Impstation/Guidebook/Mobs/VisitorSpecies/Ant.xml"

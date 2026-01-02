@@ -71,4 +71,10 @@ public sealed class ImpCCVars : CVars
     /// </summary>
     public static readonly CVarDef<int> DiscordLastMessageSystemMaxMessageBatchOverflowDelay =
         CVarDef.Create("discord.last_message_system_max_message_batch_overflow_delay", 60000, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     If true, antag selection will prioritize players with less antag time.
+    /// </summary>
+    public static readonly CVarDef<bool> AntagPlaytimeBiasing =
+        CVarDef.Create("antag.play_time_biasing", false, CVar.SERVERONLY);
 }
