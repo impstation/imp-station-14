@@ -13,11 +13,17 @@
   extendedAccess:
   - Logistics
   - Salvage
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: NpcFactionMember
+        factions:
+        - Courier
+        - NanoTrasen
 
 - type: startingGear
   id: CourierGear
   equipment:
-    id: CourierPDA
     ears: ClothingHeadsetCargo
     belt: MailBag
     pocket1: HoloBellProjector

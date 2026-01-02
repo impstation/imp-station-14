@@ -8,18 +8,19 @@
     sprite: _Impstation/Structures/Storage/Wash.rsi
   - type: Sprite
     sprite: _Impstation/Structures/Storage/Wash.rsi
-    offset: 0, 0 #kill the offset inherited from CrateGeneric
     layers:
     - state: base
       map: ["enum.StorageVisualLayers.Base"]
     - state: closed
       map: ["enum.StorageVisualLayers.Door"]
+    - state: open
+      map: [ open_crate ]
     - state: washOff
       shader: unshaded
     - state: paper
-      sprite: _Impstation/Structures/Storage/Crates/labels.rsi
+      sprite: Structures/Storage/Crates/labels.rsi
       map: [ "enum.PaperLabelVisuals.Layer" ]
-      offset: 0.025, -0.25
+      offset: 0.0625, 0.0625
       rotation: 180 #look this is about good as it's gonna get without new sprites
   - type: Transform
     anchored: true

@@ -31,6 +31,7 @@ construction-graph-tag-upgrade-kit-nullrod = a profane censer
 construction-graph-tag-belt-utility = utility belt
 construction-graph-tag-eyepatch = eyepatch
 construction-graph-tag-floatingfloracrown = floating flora crown
+construction-graph-tag-chemical-analysis-goggles = chemical analysis goggles
 
 # other
 construction-graph-tag-borg-leg = borg leg
@@ -49,6 +50,7 @@ construction-graph-tag-floatingflora-b = blue floating flora
 construction-graph-tag-floatingflora-o = orange floating flora
 construction-graph-tag-floatingflora-p = pink floating flora
 construction-graph-tag-floatingflora-y = yellow floating flora
+construction-graph-tag-pompom = pompoms
 
 # unique
 construction-graph-tag-memorial-ash = your vaporized loved one

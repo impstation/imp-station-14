@@ -10,12 +10,11 @@
     - type: Item
       sprite: Objects/Specific/Xenoarchaeology/node_scanner.rsi
     - type: NodeScanner
-    - type: OldNodeScanner #IMP
     - type: UseDelay
       delay: 1
     - type: GuideHelp
       guides:
-      - ArtifactReports
+      - Xenoarchaeology
     - type: ActivatableUI
       key: enum.NodeScannerUiKey.Key
       singleUser: true

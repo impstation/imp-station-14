@@ -3,26 +3,25 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.Traits.Assorted;
-using Content.Shared.Chemistry.Components;
-using Content.Server.Popups;
-using Content.Server.Fluids.EntitySystems;
 using Robust.Shared.Containers;
-using Robust.Server.Audio;
-using Content.Shared.Coordinates;
-using Content.Shared.Chemistry.EntitySystems;
-using Robust.Shared.GameObjects.Components.Localization; // imp; for Grammar
+using Content.Server.Fluids.EntitySystems; // imp unborgable
+using Content.Server.Popups; // imp unborgable
+using Content.Shared.Chemistry.Components; // imp unborgable
+using Content.Shared.Chemistry.EntitySystems; // imp unborgable
+using Content.Shared.Traits.Assorted; // imp unborgable
+using Robust.Server.Audio; // imp unborgable
 using Robust.Shared.Enums; // imp; for Gender
+using Robust.Shared.GameObjects.Components.Localization; // imp; for Grammar
 
 namespace Content.Server.Silicons.Borgs;
 
 /// <inheritdoc/>
 public sealed partial class BorgSystem
 {
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly PuddleSystem _puddle = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly AudioSystem _audio = default!; // imp
+    [Dependency] private readonly PopupSystem _popup = default!; // imp
+    [Dependency] private readonly PuddleSystem _puddle = default!; // imp
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // imp
     [Dependency] private readonly SharedRoleSystem _roles = default!;
 
     public void InitializeMMI()
@@ -31,7 +30,7 @@ public sealed partial class BorgSystem
         SubscribeLocalEvent<MMIComponent, EntInsertedIntoContainerMessage>(OnMMIEntityInserted);
         SubscribeLocalEvent<MMIComponent, MindAddedMessage>(OnMMIMindAdded);
         SubscribeLocalEvent<MMIComponent, MindRemovedMessage>(OnMMIMindRemoved);
-        SubscribeLocalEvent<MMIComponent, ItemSlotInsertAttemptEvent>(OnMMIAttemptInsert);
+        SubscribeLocalEvent<MMIComponent, ItemSlotInsertAttemptEvent>(OnMMIAttemptInsert); // imp
 
         SubscribeLocalEvent<MMILinkedComponent, MindAddedMessage>(OnMMILinkedMindAdded);
         SubscribeLocalEvent<MMILinkedComponent, EntGotRemovedFromContainerMessage>(OnMMILinkedRemoved);
@@ -54,7 +53,7 @@ public sealed partial class BorgSystem
             return;
 
         var ent = args.Entity;
-        if (HasComp<UnborgableComponent>(ent))
+        if (HasComp<UnborgableComponent>(ent)) // imp add
         {
             return;
         }
@@ -128,6 +127,7 @@ public sealed partial class BorgSystem
         _appearance.SetData(linked, MMIVisuals.BrainPresent, false);
     }
 
+    // imp add
     private void OnMMIAttemptInsert(EntityUid uid, MMIComponent component, ItemSlotInsertAttemptEvent args)
     {
         var ent = args.Item;

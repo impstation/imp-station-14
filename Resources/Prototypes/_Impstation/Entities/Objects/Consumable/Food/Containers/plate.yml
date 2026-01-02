@@ -1,0 +1,37 @@
+- type: entity
+  name: burnt plate
+  parent: FoodPlate
+  id: FoodPlateBurnt
+  description: Something about this plate fills you with dread.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Baked/pizza.rsi
+    state: plate
+  - type: Item
+    sprite: Objects/Consumable/Food/plates.rsi
+    shape:
+    - 0,0,1,0
+    storedOffset: 0,-6
+    inhandVisuals:
+      left:
+      - state: plate-inhand-left
+      right:
+      - state: plate-inhand-right
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -8
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

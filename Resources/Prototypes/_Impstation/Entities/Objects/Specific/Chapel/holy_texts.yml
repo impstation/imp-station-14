@@ -1,4 +1,18 @@
 - type: entity
+  parent: Bible
+  name: tanakh
+  description: Instructions, Prophets, and Writings.
+  id: BibleTanakh
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
+    state: tanakh
+  - type: Item
+    size: Small
+    heldPrefix: tanakh
+    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
+
+- type: entity
   name: quran
   description: Printed in both original Arabic and Galactic Common.
   parent: Bible
@@ -144,6 +158,20 @@
     sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
     state: bibble
 
+- type: entity
+  name: the rule of threes
+  description: The sacred text of the Honkmother. As to be expected, many of its passages are jokes.
+  parent: Bible
+  id: HolyTextClown
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
+    state: clowntext
+  - type: Item
+    size: Small
+    heldPrefix: clowntext
+    sprite: _Impstation/Objects/Specific/Chapel/holytexts.rsi
+
 - type: entityTable
   id: HolyTextEntityTable
   table: !type:GroupSelector
@@ -161,3 +189,4 @@
     - id: HolyTextUnitologyTome
     - id: HolyTextExtremeTeenBible
     - id: HolyTextBibble
+    - id: HolyTextClown

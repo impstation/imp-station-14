@@ -108,8 +108,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        - 1.025689525 # oxygen
-        - 1.025689525 # nitrogen
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen
 
 #Empty black
 - type: entity
@@ -143,8 +143,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        - 1.025689525 # oxygen
-        - 1.025689525 # nitrogen
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen
   - type: RadarBlipStealth #imp edit - hide this specific proto from mass scanners. fine to use on this proto because it's only given to traitors / syndies / ninjas who should be stealthy.
 
 #Empty captain
@@ -184,8 +184,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        - 1.025689525 # oxygen
-        - 1.025689525 # nitrogen
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen
 
 #Empty mini
 - type: entity
@@ -204,7 +204,7 @@
       sprite: Objects/Tanks/Jetpacks/mini.rsi
       slots:
         - Back
-        - SuitStorage
+        - suitStorage
         - Belt
     - type: GasTank
       outputPressure: 42.6
@@ -225,49 +225,8 @@
       volume: 1.5
       temperature: 293.15
       moles:
-        - 0.307706858 # oxygen
-        - 0.307706858 # nitrogen
-
-#Empty salvage
-- type: entity
-  id: JetpackSalvage
-  parent: BaseJetpack
-  name: salvage jetpack
-  description: It's a busted up jetpack. It should hold 1 L of gas, but only fills up halfway.
-  suffix: Empty
-  components:
-    - type: Item
-      sprite: Objects/Tanks/Jetpacks/salvage.rsi
-      size: Large
-    - type: Sprite
-      sprite: Objects/Tanks/Jetpacks/salvage.rsi
-    - type: Clothing
-      sprite: Objects/Tanks/Jetpacks/salvage.rsi
-      slots:
-        - Back
-        - suitStorage
-        - Belt
-    - type: GasTank
-      outputPressure: 42.6
-      air:
-        volume: .5
-
-# Filled salvage
-- type: entity
-  id: JetpackSalvageFilled
-  parent: JetpackSalvage
-  name: salvage jetpack
-  suffix: Filled
-  components:
-  - type: GasTank
-    outputPressure: 42.6
-    air:
-      # 1 minute of thrust
-      volume: .5
-      temperature: 293.15
-      moles:
-        - 0.102568952 # oxygen
-        - 0.102568952 # nitrogen
+        Oxygen: 0.307706858 # oxygen
+        Nitrogen: 0.307706858 # nitrogen
 
 #Empty security
 - type: entity
@@ -298,8 +257,8 @@
       volume: 1.5
       temperature: 293.15
       moles:
-      - 0.307706858 # oxygen
-      - 0.307706858 # nitrogen
+        Oxygen: 0.307706858 # oxygen
+        Nitrogen: 0.307706858 # nitrogen
 
 #Empty void
 - type: entity
@@ -316,7 +275,7 @@
     sprite: Objects/Tanks/Jetpacks/void.rsi
     slots:
       - Back
-      - SuitStorage
+      - suitStorage
       - Belt
 
 # Filled void
@@ -333,8 +292,8 @@
       volume: 5
       temperature: 293.15
       moles:
-        - 1.025689525 # oxygen
-        - 1.025689525 # nitrogen
+        Oxygen: 1.025689525 # oxygen
+        Nitrogen: 1.025689525 # nitrogen
 
 # Infinite jetpack
 - type: entity

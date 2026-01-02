@@ -2,6 +2,7 @@
 stack-hemp-cloth = hemp cloth
 stack-hemp = hemp
 stack-prize-ticket = prize ticket
+stack-pompoms = pompoms
 
 # tile
 stack-apid-hex-tile = apid hex tile
@@ -27,3 +28,6 @@ stack-shock-gel = shock gel
 stack-baton-token = baton token
 stack-disabler-token = disabler token
 stack-utility-token = utility token
+
+# misc
+stack-tcka-beacon = tck'aat RFID chip

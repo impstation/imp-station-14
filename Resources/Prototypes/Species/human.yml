@@ -2,6 +2,7 @@
   id: Human
   name: species-name-human
   roundStart: true
+  randomViable: true # imp
   prototype: MobHuman
   sprites: MobHumanSprites
   markingLimits: MobHumanMarkingLimits

@@ -29,6 +29,9 @@
       paper:
         canReact: false
   - type: NonMobStatusIcon #imp edit. for the salvohud
+  - type: PluralName # imp
+    oneOf: plural-name-sheet-1
+    someOf: plural-name-sheet-2plus
 
 - type: entity
   parent: SheetOtherBase
@@ -112,10 +115,6 @@
         - ReagentId: Plasma
           Quantity: 10
         canReact: false
-  - type: Tag
-    tags:
-    - Sheet
-    - ConstructionMaterial
 
 - type: entity
   parent: SheetPlasma
@@ -212,7 +211,7 @@
   suffix: Full
   components:
   - type: Material
-  - type: Food
+  - type: Edible
     transferAmount: 10
   - type: BadFood
   - type: PhysicalComposition
@@ -281,6 +280,8 @@
       - Sheet
       - DroneUsable #imp
       - KodeEdible # imp
+      - ReptilianFood # imp
+      - SpiderFood # imp
     - type: Material
     - type: PhysicalComposition
       materialComposition:
@@ -301,14 +302,14 @@
       solutions:
         meatsheet:
           reagents:
-          - ReagentId: Protein
+          - ReagentId: UncookedAnimalProteins # imp changed from Protein so it doesn't poison the only species who could eat it??????
             Quantity: 7
           - ReagentId: Fat
             Quantity: 3
           canReact: false
         food: # imp
           reagents:
-          - ReagentId: Protein
+          - ReagentId: UncookedAnimalProteins
             Quantity: 7
           - ReagentId: Fat
             Quantity: 3

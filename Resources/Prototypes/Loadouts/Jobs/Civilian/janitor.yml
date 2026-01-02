@@ -5,7 +5,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobJanitor
-      time: 108000 #30 hrs, ~20 rounds #imp
+      time: 30h # imp, was 52
 
 # Head
 - type: loadout
@@ -45,13 +45,3 @@
   id: JanitorWintercoat
   equipment:
     outerClothing: ClothingOuterWinterJani
-
-# Misc
-- type: loadout
-  id: JanitorGoldenPlunger
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorJanitorial
-  storage:
-    back:
-    - GoldenPlunger

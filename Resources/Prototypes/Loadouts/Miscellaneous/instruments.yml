@@ -105,6 +105,13 @@
   groupBy: "string" #imp
 
 - type: loadout
+  id: Shamisen # imp
+  storage:
+    back:
+    - ShamisenInstrument
+  groupBy: "string" #imp
+
+- type: loadout
   id: Trumpet
   storage:
     back:

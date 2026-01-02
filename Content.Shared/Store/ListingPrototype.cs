@@ -1,11 +1,11 @@
 using System.Linq;
 using Content.Shared.FixedPoint;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Store.Components;
 using Content.Shared.StoreDiscount.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Heretic.Prototypes; // imp
 
 namespace Content.Shared.Store;
 
@@ -28,7 +28,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.Description,
         other.Conditions,
         other.Icon,
-        other.Buyable,
+        other.Buyable, // imp add
         other.Priority,
         other.ProductEntity,
         other.ProductAction,
@@ -42,7 +42,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.OriginalCost,
         other.RestockTime,
         other.DiscountDownTo,
-        other.ProductHereticKnowledge,
+        other.ProductHereticKnowledge, // imp add
         other.DisableRefund
     )
     {
@@ -55,7 +55,7 @@ public partial class ListingData : IEquatable<ListingData>
         string? description,
         List<ListingCondition>? conditions,
         SpriteSpecifier? icon,
-        bool buyable,
+        bool buyable, // imp
         int priority,
         EntProtoId? productEntity,
         EntProtoId? productAction,
@@ -69,7 +69,7 @@ public partial class ListingData : IEquatable<ListingData>
         IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> originalCost,
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
-        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge,
+        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge, // imp
         bool disableRefund
     )
     {
@@ -78,7 +78,7 @@ public partial class ListingData : IEquatable<ListingData>
         Description = description;
         Conditions = conditions?.ToList();
         Icon = icon;
-        Buyable = buyable;
+        Buyable = buyable; // imp
         Priority = priority;
         ProductEntity = productEntity;
         ProductAction = productAction;
@@ -92,7 +92,7 @@ public partial class ListingData : IEquatable<ListingData>
         OriginalCost = originalCost;
         RestockTime = restockTime;
         DiscountDownTo = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(dataDiscountDownTo);
-        ProductHereticKnowledge = productHereticKnowledge;
+        ProductHereticKnowledge = productHereticKnowledge; // imp
         DisableRefund = disableRefund;
     }
 
@@ -145,6 +145,7 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public SpriteSpecifier? Icon;
 
+    // imp
     /// <summary>
     /// Labels a listing as available to purchase
     /// </summary>
@@ -255,6 +256,7 @@ public partial class ListingData : IEquatable<ListingData>
 
         return true;
     }
+
 }
 
 /// <summary>
@@ -302,7 +304,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.Description,
             listingData.Conditions,
             listingData.Icon,
-            listingData.Buyable,
+            listingData.Buyable, // imp
             listingData.Priority,
             listingData.ProductEntity,
             listingData.ProductAction,
@@ -316,7 +318,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.OriginalCost,
             listingData.RestockTime,
             listingData.DiscountDownTo,
-            listingData.ProductHereticKnowledge,
+            listingData.ProductHereticKnowledge, // imp
             listingData.DisableRefund
         )
     {

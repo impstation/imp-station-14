@@ -2,13 +2,13 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Gravity;
 using Content.Shared.Slippery;
-using Content.Shared.StepTrigger.Components; // imp edit
-using Content.Shared.StepTrigger.Systems; // imp edit
 using Content.Shared.Whitelist;
-using Robust.Shared.Map.Components; // imp edit
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Content.Shared.StepTrigger.Components; // imp edit
+using Content.Shared.StepTrigger.Systems; // imp edit
+using Robust.Shared.Map.Components; // imp edit
 
 namespace Content.Shared.Movement.Systems;
 
@@ -91,7 +91,7 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
         var sprintSpeed = 0.0f;
 
         // Cache the result of the airborne check, as it's expensive and independent of contacting entities, hence need only be done once.
-        var isAirborne = physicsComponent.BodyStatus == BodyStatus.InAir || _gravity.IsWeightless(uid, physicsComponent);
+        var isAirborne = physicsComponent.BodyStatus == BodyStatus.InAir || _gravity.IsWeightless(uid);
 
         bool remove = true;
         var entries = 0;

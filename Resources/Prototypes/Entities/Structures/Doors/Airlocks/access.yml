@@ -36,7 +36,7 @@
       board: [ DoorElectronicsServiceTheatre ]
 
 - type: entity
-  parent: AirlockChapel #imp editeLocked
+  parent: AirlockChapel #imp edit
   id: AirlockChapelLocked
   suffix: Chapel, Locked
   components:
@@ -432,7 +432,7 @@
 - type: entity
   parent: AirlockSecurity
   id: AirlockVaultLocked
-  suffix: Vault, Locked
+  suffix: Security/Command, Locked #imp, disambiguate with vault door
   components:
   - type: ContainerFill
     containers:
@@ -442,6 +442,7 @@
   parent: AirlockCommand
   id: AirlockEVALocked
   suffix: EVA, Locked
+  categories: [ HideSpawnMenu ] #imp edit, deprecated in favor of Command airlocks with imp map forking
   components:
   - type: ContainerFill
     containers:
@@ -843,6 +844,7 @@
   parent: AirlockCommandGlassLocked
   id: AirlockEVAGlassLocked
   suffix: EVA, Locked
+  categories: [ HideSpawnMenu ] #imp edit, deprecated in favor of Command airlocks with imp map forking
   components:
   - type: ContainerFill
     containers:
@@ -1160,6 +1162,17 @@
     containers:
       board: [ DoorElectronicsNukeop ]
 
+- type: entity
+  parent: AirlockXenoborg
+  id: AirlockXenoborgLocked
+  suffix: Xenoborg, Locked
+  components:
+  - type: StationAiWhitelist
+    enabled: false
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsXenoborg ]
+
 # Shuttle airlocks
 - type: entity
   parent: AirlockShuttle
@@ -1187,6 +1200,17 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsNukeop ]
+
+- type: entity
+  parent: AirlockShuttleXenoborg
+  id: AirlockGlassShuttleXenoborgLocked
+  suffix: External, Docking, Xenoborg, Locked
+  components:
+  - type: StationAiWhitelist
+    enabled: false
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsXenoborg ]
 
 - type: entity
   parent: AirlockGlassShuttle
@@ -1291,10 +1315,19 @@
 #Airtight hatch
 
 - type: entity
-  parent: AirlockHatch
-  id: AirlockHatchSyndicate
+  parent: AirlockHatchSyndicate
+  id: AirlockHatchSyndicateLocked
   suffix: Syndicate, Locked
   components:
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsSyndicateAgent ]
+
+- type: entity
+  parent: AirlockHatchMaintenance
+  id: AirlockHatchMaintenanceLocked
+  suffix: Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsMaintenance ]

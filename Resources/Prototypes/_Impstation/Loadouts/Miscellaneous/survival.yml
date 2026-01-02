@@ -12,6 +12,13 @@
   - !type:SpeciesLoadoutEffect
     species:
     - Kodepiia
+    
+- type: loadoutEffectGroup
+  id: Cow
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Ungu    
 
 - type: loadoutEffectGroup
   id: EffectSpeciesSnail
@@ -175,6 +182,15 @@
   storage:
     back:
     - BoxSurvivalKodepiia
+    
+- type: loadout
+  id: EmergencyWheat
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalUngu   
 
 - type: loadout
   id: EmergencyOxygenSnail
@@ -194,6 +210,15 @@
   storage:
     back:
     - BoxHugKodepiia
+    
+- type: loadout
+  id: EmergencyWheatClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxHugUngu  
 
 # Mime
 - type: loadout
@@ -204,6 +229,15 @@
   storage:
     back:
     - BoxMimeKodepiia
+    
+- type: loadout
+  id: EmergencyWheatMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxMimeUngu    
 
 # Engineering / Extended
 - type: loadout
@@ -214,6 +248,15 @@
   storage:
     back:
     - BoxSurvivalEngineeringKodepiia
+    
+- type: loadout
+  id: EmergencyWheatExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalEngineeringUngu   
 
 # Command
 - type: loadout
@@ -242,6 +285,15 @@
   storage:
     back:
     - BoxSurvivalCommandKodepiia
+    
+- type: loadout
+  id: EmergencyWheatCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalCommandUngu 
 
 # Medical
 - type: loadout
@@ -252,6 +304,15 @@
   storage:
     back:
     - BoxSurvivalMedicalKodepiia
+    
+- type: loadout
+  id: EmergencyWheatMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalMedicalUngu  
 
 # Medsec, idk if this is _wizden but theres a chance they also just didnt have brigmed and vox at the same time
 - type: loadout
@@ -271,6 +332,15 @@
   storage:
     back:
     - BoxSurvivalSecurityKodepiia
+    
+- type: loadout
+  id: EmergencyWheatSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalSecurityUngu
 
 # Brigmedic
 - type: loadout
@@ -299,6 +369,15 @@
   storage:
     back:
     - BoxSurvivalBrigmedicKodepiia
+    
+- type: loadout
+  id: EmergencyWheatBrigmedic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalBrigmedicUngu  
 
 # Syndicate
 
@@ -310,6 +389,15 @@
   storage:
     back:
     - BoxSurvivalSyndicateKodepiia
+    
+- type: loadout
+  id: EmergencyWheatSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalSyndicateUngu 
 
 # Chief Engineer
 - type: loadout
@@ -338,6 +426,15 @@
   storage:
     back:
     - BoxSurvivalEngineeringCommandKodepiia
+    
+- type: loadout
+  id: EmergencyWheatExtendedCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalEngineeringCommandUngu 
 
 # Head of Security
 - type: loadout
@@ -366,8 +463,17 @@
   storage:
     back:
     - BoxSurvivalSecurityCommandKodepiia
+    
+- type: loadout
+  id: EmergencyWheatSecurityCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  storage:
+    back:
+    - BoxSurvivalSecurityCommandUngu 
 
-# stupid things i have to do bc i cant have kode classified as oxygenbreather
+# stupid things i have to do bc i cant have kode classified as oxygenbreather. ungu city now too
 
 - type: loadout
   id: LoadoutSpeciesEVAKodepiia
@@ -376,6 +482,14 @@
     proto: Carnivorous
   equipment:
     suitstorage: OxygenTankFilled
+    
+- type: loadout
+  id: LoadoutSpeciesEVAUngu
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  equipment:
+    suitstorage: OxygenTankFilled    
 
 - type: loadout
   id: LoadoutSpeciesPocketDoubleOxygenKodepiia
@@ -384,6 +498,14 @@
     proto: Carnivorous
   equipment:
     pocket1: DoubleEmergencyOxygenTankFilled
+    
+- type: loadout
+  id: LoadoutSpeciesPocketDoubleOxygenUngu
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Cow
+  equipment:
+    pocket1: DoubleEmergencyOxygenTankFilled    
 
 # commenting these out because I would like to do emergency vapor boxes at some point. - move these to imp filestructure
 #- type: loadoutEffectGroup

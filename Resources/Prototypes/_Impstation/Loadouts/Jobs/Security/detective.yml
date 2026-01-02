@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobDetective
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
 
 # Jumpsuits
 - type: loadout

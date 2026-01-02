@@ -120,3 +120,11 @@
   materials:
     Cardboard: 25
   applyMaterialDiscount: false
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: DrinkColoCup
+  result: DrinkColoCup
+  materials:
+    Cardboard: 25
+  applyMaterialDiscount: false

@@ -189,7 +189,7 @@
     bodyStatus: InAir
   - type: CanMoveInAir
   - type: MovementIgnoreGravity
-    gravityState: true
+    weightless: true
   - type: MovementAlwaysTouching
   - type: SyncSprite
   - type: MovementSpeedModifier
@@ -232,7 +232,7 @@
     bodyStatus: InAir
   - type: CanMoveInAir
   - type: MovementIgnoreGravity
-    gravityState: true
+    weightless: true
   - type: MovementAlwaysTouching
   - type: SyncSprite
   - type: MovementSpeedModifier

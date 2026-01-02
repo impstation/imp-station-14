@@ -10,6 +10,7 @@
   - type: SpeedLoader
   - type: BallisticAmmoProvider
     mayTransfer: true
+    fillDelay: 0.25 #imp
     whitelist:
       tags:
         - CartridgeLightRifle

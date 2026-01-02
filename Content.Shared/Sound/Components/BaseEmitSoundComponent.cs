@@ -14,9 +14,8 @@ public abstract partial class BaseEmitSoundComponent : Component
     [DataField(required: true), AutoNetworkedField]
     public SoundSpecifier? Sound;
 
-    [AutoNetworkedField]
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField]
+    // imp add
+    [DataField, AutoNetworkedField]
     public bool Detach = false;
 
     /// <summary>
@@ -25,8 +24,4 @@ public abstract partial class BaseEmitSoundComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Positional;
-
-
-
-
 }

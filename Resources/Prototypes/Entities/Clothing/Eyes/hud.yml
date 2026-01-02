@@ -30,6 +30,7 @@
     damageContainers:
     - Inorganic
     - Silicon
+  - type: ShowAccessReaderSettings
 
 - type: entity
   parent: [ClothingEyesBase, BaseLensSlot, ShowMedicalIcons] # BaseLensSlot from imp
@@ -99,6 +100,8 @@
     tags:
     - PetWearable
     - WhitelistChameleon
+  - type: PluralName # imp
+    oneOf: plural-name-some
 
 - type: entity
   parent: ClothingEyesBase
@@ -111,7 +114,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/friedonion.rsi
   - type: ShowHungerIcons
-  - type: Food
+  - type: Edible
   - type: SolutionContainerManager
     solutions:
       food:

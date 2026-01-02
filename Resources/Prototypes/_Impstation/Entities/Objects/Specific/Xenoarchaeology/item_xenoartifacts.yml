@@ -1,0 +1,90 @@
+﻿- type: entity
+  parent: [ BaseItem, BaseXenoArtifactItem ]
+  id: EvilSkullArtifactItem
+  name: evil skull
+  suffix: Hummingbird thief objective
+  description: Beware.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Xenoarchaeology/skull_artifact.rsi
+    layers:
+    - state: ano01
+      map: [ "enum.ArtifactsVisualLayers.Base" ]
+    - state: ano01_on
+      map: [ "enum.ArtifactsVisualLayers.UnlockingEffect" ]
+      visible: false
+    - state: artifact-activation
+      map: [ "enum.ArtifactsVisualLayers.ActivationEffect" ]
+      visible: false
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Specific/Xenoarchaeology/skull_artifact.rsi
+  - type: RandomArtifactSprite
+    maxSprite: 1
+  - type: RandomSprite
+    available:
+    - enum.ArtifactsVisualLayers.UnlockingEffect:
+        ano01_on: ""
+  - type: XenoArtifact
+    forceActivationSoundSpecifier:
+      path: /Audio/Voice/Skeleton/skeleton_scream.ogg
+    unlockActivationSuccessfulSound:
+      path: /Audio/Voice/Skeleton/skeleton_scream.ogg
+      params:
+        variation: 0.125
+    unlockActivationFailedSound:
+      path: /Audio/Voice/Skeleton/skeleton_scream.ogg
+      params:
+        variation: 0.1
+        pitch: 0.85
+  - type: Speech
+    speechSounds: Alto
+    speechVerb: Skeleton
+  - type: SkeletonAccent
+  - type: Vocal
+    sounds:
+      Male: Skeleton
+      Female: Skeleton
+      Unsexed: Skeleton
+  - type: PointLight
+    energy: 5
+    color: '#FF0000FF'
+    radius: 1.3
+  - type: StealTarget
+    stealGroup: EvilSkullArtifactItem
+
+- type: entity
+  parent: [BaseReticulatedXenoArtifact, BaseXenoArtifactItem]
+  id: ReticulatedXenoArtifactItem
+  suffix: Hand-Sized
+  components:
+  - type: XenoArtifact
+    effectsTable: !type:GroupSelector
+      children:
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsDefaultTable
+        weight: 54
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsHandheldOnlyTable
+        weight: 2
+
+- type: entity
+  parent: [BaseNaturalXenoArtifact, BaseXenoArtifactItem]
+  id: NaturalXenoArtifactItem
+  suffix: Hand-Sized
+  components:
+  - type: XenoArtifact
+    effectsTable: !type:GroupSelector
+      children:
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsDefaultTable
+        weight: 54
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsHandheldOnlyTable
+        weight: 2
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsNaturalOnlyTable
+        weight: 4
+      - !type:NestedSelector
+        tableId: XenoArtifactEffectsNaturalHandheldOnlyTable
+        weight: 2

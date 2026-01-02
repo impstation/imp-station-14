@@ -24,11 +24,8 @@ public sealed class AnomalySpawnRule : StationEventSystem<AnomalySpawnRuleCompon
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
             "anomaly-spawn-event-announcement",
-            null,
-            Color.FromHex("#18abf5"),
-            null, null,
-            null, //imp
-            ("sighting", Loc.GetString($"anomaly-spawn-sighting-{RobustRandom.Next(1, 6)}"))
+            colorOverride: Color.FromHex("#18abf5"),
+            localeArgs: ("sighting", Loc.GetString($"anomaly-spawn-sighting-{RobustRandom.Next(1, 6)}"))
         );
         // imp edit end, custom announcers
     }

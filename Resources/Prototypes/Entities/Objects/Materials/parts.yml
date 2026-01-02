@@ -85,8 +85,14 @@
     key: enum.ShortConstructionUiKey.Key
   - type: ShortConstruction
     prototypes:
-    - Grille
-    - Table
+      - Catwalk
+      - Grille
+      - Railing
+      - Table
+  - type: PluralName
+    oneOf: plural-name-a
+    someOf: plural-name-bundle-1
+    nameSomeOf: metal rods
   # imp edit end
 
 - type: entity
@@ -95,11 +101,6 @@
   name: metal rod
   suffix: 10
   components:
-  - type: Tag
-    tags:
-    - RodMetal1
-    - ConstructionMaterial
-    - DroneUsable #imp
   - type: Sprite
     state: rods
   - type: Stack
@@ -111,11 +112,6 @@
   name: metal rod
   suffix: Single
   components:
-  - type: Tag
-    tags:
-    - RodMetal1
-    - ConstructionMaterial
-    - DroneUsable #imp
   - type: Sprite
     state: rods
   - type: Stack

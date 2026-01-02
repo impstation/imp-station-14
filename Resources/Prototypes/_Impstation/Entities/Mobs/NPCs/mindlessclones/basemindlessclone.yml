@@ -121,7 +121,7 @@
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   - type: StatusEffects
     allowed:
     - Stutter
@@ -171,6 +171,7 @@
         Blunt: 5
   - type: SleepEmitSound
   - type: SSDIndicator
+    doNotSleep: true
   - type: StandingState
   - type: Dna
   - type: MindContainer

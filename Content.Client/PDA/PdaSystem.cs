@@ -4,4 +4,5 @@ namespace Content.Client.PDA;
 
 public sealed class PdaSystem : SharedPdaSystem
 {
+
 }

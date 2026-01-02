@@ -1,0 +1,36 @@
+- type: entity
+  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband]
+  id: ProphetEyeBase
+  abstract: true
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Special/prophet_eye.rsi #imp
+    state: icon
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumLaser
+    fireCost: 200
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 80
+
+- type: entity
+  parent: ProphetEyeBase
+  id: ProphetEyeUnremoveable
+  name: prophet's eye
+  description: Your eye, it burns with power.
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ProphetEyeBase
+  id: ProphetEye
+  name: prophet's eye
+  description: A strange eye, it burns with power.
+  suffix: Admeme
+

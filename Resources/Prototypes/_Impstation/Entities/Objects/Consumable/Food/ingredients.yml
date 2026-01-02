@@ -39,6 +39,7 @@
     tags:
     - FoodSnack
     - ReptilianFood
+    - UnguFood
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -78,7 +79,7 @@
           Quantity: 5
   - type: Tag
     tags:
-    - Ingredient
+    - UnguFood
 
 - type: entity
   name: ball of string cheese
@@ -104,12 +105,11 @@
   - type: SliceableFood
     count: 4
     slice: FoodStringCheeseStrand
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
     - ClothMade
-  
 
 - type: entity
   name: strand of string cheese
@@ -132,7 +132,7 @@
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/stringcheese.rsi
     state: strand
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:

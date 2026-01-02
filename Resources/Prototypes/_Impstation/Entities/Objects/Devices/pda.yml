@@ -387,3 +387,12 @@
   - type: Pda
     id: CentcommInternLeaderIDCard
 
+- type: entity
+  parent: ClearPDA
+  id: BountyHunterPDA
+  components:
+  - type: Pda
+    id: BountyHunterIDCard
+  - type: Tag #  Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener

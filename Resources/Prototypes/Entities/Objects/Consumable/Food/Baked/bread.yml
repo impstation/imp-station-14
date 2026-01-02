@@ -2,14 +2,15 @@
 # Base
 
 - type: entity
+  abstract: true
   parent: FoodInjectableBase
   id: FoodBreadBase
-  abstract: true
   components:
+  - type: Item
+    size: Normal
   - type: FlavorProfile
     flavors:
       - bread
-  - type: Food
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/bread.rsi
   - type: Tag
@@ -53,7 +54,6 @@
   id: FoodBreadVolcanic
   description: A dark loaf. Resembles pumice.
   components:
-  - type: Food
   - type: Sprite
     layers:
     - state: alpha
@@ -69,7 +69,6 @@
   id: FoodBreadVolcanicSlice
   description: A slice of dark loaf. Resembles pumice.
   components:
-  - type: Food
   - type: Sprite
     layers:
     - state: alpha-slice
@@ -89,7 +88,6 @@
     flavors:
       - banana
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: banana
@@ -99,6 +97,7 @@
     tags:
     - Fruit
     - Bread
+  # Tastes like bread, banana, nut.
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -108,7 +107,6 @@
           Quantity: 24
         - ReagentId: Vitamin
           Quantity: 2
-# Tastes like bread, banana, nut.
 
 - type: entity
   name: banana bread slice
@@ -120,7 +118,6 @@
     flavors:
       - banana
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: banana-slice
@@ -140,16 +137,16 @@
           Quantity: 0.4
 
 - type: entity
-  name: cotton bread
   parent: FoodBreadBase
   id: FoodBreadCotton
+  name: cotton bread
   description: Bread, but for moff.
   components:
   - type: FlavorProfile
     flavors:
     - cotton
     - bread
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Sprite
     layers:
@@ -181,7 +178,7 @@
     flavors:
     - cotton
     - bread
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Sprite
     layers:
@@ -212,7 +209,6 @@
     flavors:
       - bread
       - corn
-  - type: Food
   - type: Sprite
     layers:
     - state: cornbread
@@ -225,6 +221,10 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 20 # imp - this is harder to make than bread... whys it worth less
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 # Tastes like bread, banana, nut.
 
 - type: entity
@@ -237,7 +237,6 @@
     flavors:
       - bread
       - corn
-  - type: Food
   - type: Sprite
     layers:
     - state: cornbread-slice
@@ -248,6 +247,11 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 4 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
   name: cream cheese bread
@@ -264,7 +268,6 @@
       - TableSalt
       - Milk
       - Nutriment
-  - type: Food
   - type: Sprite
     layers:
     - state: creamcheese
@@ -281,6 +284,10 @@
         #  Quantity: 5
         - ReagentId: Milk # imp
           Quantity: 7
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 # Tastes like bread, cheese.
 
 - type: entity
@@ -298,7 +305,6 @@
       - TableSalt
       - Milk
       - Nutriment
-  - type: Food
   - type: Sprite
     layers:
     - state: creamcheese-slice
@@ -313,6 +319,11 @@
         #  Quantity: 1.2
         - ReagentId: Milk # imp
           Quantity: 1.4
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
   name: meat bread
@@ -324,7 +335,6 @@
     flavors:
       - meaty
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: meat
@@ -357,7 +367,6 @@
     flavors:
       - meaty
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: meat-slice
@@ -388,7 +397,6 @@
     flavors:
       - nothing
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: mimana
@@ -407,6 +415,10 @@
           Quantity: 5
         - ReagentId: MuteToxin
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 # Tastes like bread, cheese.
 
 - type: entity
@@ -419,7 +431,6 @@
     flavors:
       - nothing
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: mimana-slice
@@ -436,6 +447,11 @@
           Quantity: 1
         - ReagentId: MuteToxin
           Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
   name: bread
@@ -443,12 +459,15 @@
   id: FoodBreadPlain
   description: Some plain old earthen bread.
   components:
-  - type: Food
   - type: Sprite
     layers:
     - state: plain
   - type: SliceableFood
     slice: FoodBreadPlainSlice
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 
 - type: entity
   name: bread slice
@@ -456,10 +475,14 @@
   id: FoodBreadPlainSlice
   description: A slice of home.
   components:
-  - type: Food
   - type: Sprite
     layers:
     - state: plain-slice
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
   name: sausage bread
@@ -471,7 +494,6 @@
     flavors:
       - meaty
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: sausage
@@ -503,7 +525,6 @@
     flavors:
       - meaty
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: sausage-slice
@@ -534,7 +555,6 @@
     flavors:
       - cobwebs
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: spidermeat
@@ -567,7 +587,6 @@
     flavors:
       - cobwebs
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: spidermeat-slice
@@ -598,7 +617,6 @@
     flavors:
       - tofu
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: tofu
@@ -613,6 +631,10 @@
           Quantity: 20 # imp
         - ReagentId: Protein
           Quantity: 5 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 # Tastes like bread, tofu.
 
 - type: entity
@@ -625,7 +647,6 @@
     flavors:
       - tofu
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: tofu-slice
@@ -640,6 +661,11 @@
         #  Quantity: 2.4
         - ReagentId: Protein # imp
           Quantity: 1 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
   name: xeno meat bread
@@ -651,7 +677,6 @@
     flavors:
       - acid
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: xenomeat
@@ -684,7 +709,6 @@
     flavors:
       - acid
       - bread
-  - type: Food
   - type: Sprite
     layers:
     - state: xenomeat-slice
@@ -708,9 +732,9 @@
 # Other than bread/slices
 
 - type: entity
-  name: baguette
   parent: FoodBreadBase
   id: FoodBreadBaguette
+  name: baguette
   description: Bon appétit!
   components:
   - type: Sprite
@@ -736,6 +760,9 @@
     equippedPrefix: baguette
     quickEquip: false
   - type: Item
+    shape:
+    - 0,0,0,3
+    storedRotation: -45
     inhandVisuals:
       left:
       - state: baguette-inhand-left
@@ -746,19 +773,23 @@
     damage:
       types:
         Blunt: 1 # bonk
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
 # Tastes like France.
 
 - type: entity
-  name: cotton baguette
   parent: FoodBreadBaguette
   id: FoodBreadBaguetteCotton
+  name: cotton baguette
   description: Bon azzétit!
   components:
   - type: Sprite
     state: baguette-cotton
   - type: SliceableFood
     slice: FoodBreadBaguetteCottonSlice
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -768,6 +799,9 @@
   - type: Clothing
     equippedPrefix: baguette-cotton
   - type: Item
+    shape:
+    - 0,0,0,3
+    storedRotation: -45
     inhandVisuals:
       left:
       - state: baguette-cotton-inhand-left
@@ -793,7 +827,7 @@
   name: crostini
   parent: FoodBreadSliceBase
   id: FoodBreadBaguetteSlice
-  description: Bon ap-petite!
+  description: Bon ap-pétite!
   components:
   - type: Sprite
     state: crostini
@@ -810,16 +844,21 @@
           Quantity: 0.4 # imp
         - ReagentId: Blackpepper
           Quantity: 0.4 # imp
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice
 
 - type: entity
-  name: cotton crostini
   parent: FoodBreadBaguetteSlice
   id: FoodBreadBaguetteCottonSlice
-  description: Bon az-zetite!
+  name: cotton crostini
+  description: Bon az-zétite!
   components:
   - type: Sprite
     state: crostini-cotton
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -866,6 +905,11 @@
           Quantity: 5
         #- ReagentId: Vitamin # imp
         #  Quantity: 1
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice
 # Tastes like bread, butter.
 
 - type: entity
@@ -893,6 +937,11 @@
           Quantity: 12
         #- ReagentId: Vitamin # imp
         #  Quantity: 2
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice
 # Tastes like bread, butter.
 
 - type: entity
@@ -921,6 +970,11 @@
           Quantity: 5
         - ReagentId: Allicin # imp
           Quantity: 4
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice
 # Tastes like garlic, Italy.
 
 - type: entity
@@ -947,6 +1001,11 @@
         #  Quantity: 4
         - ReagentId: Amatoxin # imp - its made with fly amanitia jelly??????? hello?????
           Quantity: 6
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice
 # Tastes like garlic, Italy.
 
 - type: entity
@@ -961,6 +1020,9 @@
   - type: Tag
     tags:
     - Trash
+    - UnguFood # imp
+    - Bread # imp
+    - Slice # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -992,6 +1054,11 @@
         #  Quantity: 2
         - ReagentId: Wine
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Bread
+    - Slice
 # Tastes like decaying fungus.
 
 - type: entity
@@ -1076,3 +1143,57 @@
     damage:
       groups:
         Brute: 1
+
+- type: entity
+  parent: FoodBreadBase
+  id: FoodBreadNutriBatard
+  name: nutri-bâtard
+  description: bon 'pétite!
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/bread.rsi
+    state: batard
+  - type: Item
+    size: Small
+    storedOffset: -1,0
+    heldPrefix: batard
+  - type: Tag
+    tags:
+    - ReptilianFood
+  - type: FlavorProfile
+    flavors:
+    - nutribrick
+    - peppery
+    - salty
+    - bread
+
+- type: entity
+  parent: FoodBreadNutriBatard
+  id: FoodBreadCottonNutriBatard
+  name: cotton nutri-bâtard
+  description: bon 'pétite!
+  components:
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: Sprite
+    sprite: Objects/Consumable/Food/Baked/bread.rsi
+    state: batard-cotton
+  - type: FlavorProfile
+    flavors:
+    - peppery
+    - salty
+    - bread
+  - type: Tag
+    tags:
+    - ClothMade
+  - type: Item
+    size: Small
+    storedOffset: -1,0
+    heldPrefix: batard-cotton
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 26
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 20

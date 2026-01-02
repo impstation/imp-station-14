@@ -142,6 +142,17 @@ public sealed partial class BorgTypePrototype : IPrototype
     [DataField]
     public string PetFailureString { get; set; } = "petting-failure-generic-cyborg";
 
+    // Begin Impstation
+    [DataField]
+    public string? PdaBorderColor;
+
+    [DataField]
+    public string? PdaAccentHorizontalColor;
+
+    [DataField]
+    public string? PdaAccentVerticalColor;
+    // End Impstation
+
     //
     // Sounds
     //

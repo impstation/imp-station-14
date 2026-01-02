@@ -18,6 +18,8 @@ using Content.Shared.Power.Generation.Teg;
 using Content.Shared.Rounding;
 using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
+using Robust.Shared.Configuration;
+using Content.Shared.CCVar; // imp
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -76,6 +78,7 @@ public sealed class TegSystem : EntitySystem
     [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
     [Dependency] private readonly PointLightSystem _pointLight = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!; // imp
 
     private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
 
@@ -88,6 +91,7 @@ public sealed class TegSystem : EntitySystem
         SubscribeLocalEvent<TegGeneratorComponent, DeviceNetworkPacketEvent>(DeviceNetworkPacketReceived);
 
         SubscribeLocalEvent<TegGeneratorComponent, ExaminedEvent>(GeneratorExamined);
+        SubscribeLocalEvent<TegCirculatorComponent, ExaminedEvent>(CirculatorExamined); // imp add
 
         _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
     }
@@ -108,6 +112,18 @@ public sealed class TegSystem : EntitySystem
                 args.PushMarkup(Loc.GetString("teg-generator-examine-power-max-output", ("power", supplier.MaxSupply)));
             }
         }
+    }
+
+    // imp add: circulator show flow rate on examine
+    private void CirculatorExamined(EntityUid uid, TegCirculatorComponent comp, ExaminedEvent args)
+    {
+        if (!Comp<TransformComponent>(uid).Anchored ||
+            !args.IsInDetailsRange) // only show info if anchored & in range
+            return;
+
+        var str = Loc.GetString("teg-circulator-examine-flow-rate",
+            ("flowRate", MathF.Round(comp.LastMolesTransferred * _config.GetCVar(CCVars.AtmosTickRate), 2).ToString()));
+        args.PushMarkup(str);
     }
 
     private void GeneratorUpdate(EntityUid uid, TegGeneratorComponent component, ref AtmosDeviceUpdateEvent args)

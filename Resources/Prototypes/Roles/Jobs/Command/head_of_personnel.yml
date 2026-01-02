@@ -6,26 +6,26 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Engineering
-      time: 36000 # 10 hours, imp
+      time: 10h # imp, was 2.5h
     - !type:DepartmentTimeRequirement
       department: Medical
-      time: 36000 # 10 hours, imp
+      time: 10h # imp, was 2.5h
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 10h # imp, was 2.5h
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 36000 # 10 hrs, imp
-    - !type:DepartmentTimeRequirement #imp
+      time: 10h # imp, was 2.5h
+    - !type:DepartmentTimeRequirement #imp add
       department: Cargo
-      time: 36000 # 10 hrs
-    - !type:DepartmentTimeRequirement #imp
-      department: Science
-      time: 36000 # 10 hrs
+      time: 10h
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 36000 # 10 hours, imp
+      time: 10h # imp, was 2.5h
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
-  supervisors: job-supervisors-captain #imp
+  supervisors: job-supervisors-captain
   canBeAntag: false
   access:
   - Command
@@ -62,6 +62,7 @@
   - Mime
   - Musician
   - Reporter
+  - Vault
   #imp edit end
   special:
   - !type:AddImplantSpecial
@@ -78,8 +79,8 @@
     gloves: ClothingHandsGlovesHop
     #ears: ClothingHeadsetAltCommand #imp
     #belt: BoxFolderClipboard #imp
-    #eyes: ClothingEyesHudCommand #imp
     belt: ClothingBeltPaperworkFilled # imp edit
+    #eyes: ClothingEyesHudCommand #imp
   storage:
     back:
     - Flash

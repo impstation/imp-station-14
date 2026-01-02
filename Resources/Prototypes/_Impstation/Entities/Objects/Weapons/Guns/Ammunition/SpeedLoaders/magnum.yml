@@ -30,6 +30,7 @@
   - type: SpeedLoader
   - type: BallisticAmmoProvider
     mayTransfer: true
+    fillDelay: 0.17
     whitelist:
       tags:
         - CartridgeMagnum

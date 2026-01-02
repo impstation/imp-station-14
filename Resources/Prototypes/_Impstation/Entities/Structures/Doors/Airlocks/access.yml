@@ -322,12 +322,12 @@
 
 - type: entity
   parent: VaultDoor
-  id: VaultDoorCommandLocked
-  suffix: Command, Locked
+  id: VaultDoorLocked
+  suffix: Vault, Locked
   components:
   - type: ContainerFill
     containers:
-      board: [ DoorElectronicsCommand ]
+      board: [ DoorElectronicsVaultDoor ]
 
 # Misc.
 - type: entity

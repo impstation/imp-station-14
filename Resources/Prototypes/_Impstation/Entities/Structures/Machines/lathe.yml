@@ -1,6 +1,6 @@
 - type: entity
   id: ServiceTechFab
-  parent: BaseLatheLube
+  parent: [ BaseLatheLube, BaseServiceContraband ]
   name: service techfab
   description: Produces supplies useful for the service crew.
   components:
@@ -40,7 +40,7 @@
     dynamicPacks:
       - CleanPackDynamic
       # - ServiceMiscPackDynamic # disabled until there is something to fish
-      - FauxTiles
+      - FauxTiles #TODO: this should be removed consistent with this being moved to cutter machine, possibly add LatheAnnouncing to the Common channel for cutter machine
       - NFService # Frontier
   - type: EmagLatheRecipes
     emagStaticPacks:
@@ -51,6 +51,9 @@
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [ Service ]
 
 - type: entity
   id: PortableCutterMachine
@@ -88,6 +91,19 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
+  - type: Destructible #edited to bypass the 200 damage threshold in MachineFrame, which would destroy the contents of the machine frame
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150 #made a little more durable than normal machines
+      behaviors: #this behavior mimics the 100 damage threshold in MachineFrame, making it turn into an emptied machine frame, spawning its contents the ground
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: missingWires
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: Machine
     board: PortableCutterMachineCircuitboard
   - type: MaterialStorage

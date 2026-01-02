@@ -17,4 +17,58 @@
         - state: inhand-left
       right:
         - state: inhand-right
-        
+
+- type: entity
+  parent: BaseStringInstrumentClothing
+  id: ShamisenInstrument
+  name: shamisen
+  description: In darkness blooms the spider lily.
+  components:
+  - type: Instrument
+    program: 106
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/Instruments/shamisen.rsi
+  - type: Wieldable
+  - type: Damageable # Smash it! Does 10 damage a hit, but breaks after 2 hits.
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Weapons/guitarsmash.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank:
+            min: 2
+            max: 4
+          MaterialCloth:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnHit # This makes it destroy after two hits.
+    damage:
+      types:
+        Blunt: 10
+  - type: MeleeWeapon
+    wideAnimationRotation: 45
+    damage:
+      types:
+        Blunt: 5
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 15
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 20
+    staminaCost: 8
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 20

@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobBartender
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
 
 # Outerwear
 - type: loadoutEffectGroup
@@ -16,7 +16,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobBartender
-      time: 36000 #10 hrs ~7 rounds
+      time: 30h
 
 - type: loadout
   id: BartenderCuteApron

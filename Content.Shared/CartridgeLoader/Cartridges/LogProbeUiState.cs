@@ -1,6 +1,5 @@
-﻿// DeltaV
-using Content.Shared._DV.CartridgeLoader.Cartridges;
-using Robust.Shared.Serialization;
+﻿using Robust.Shared.Serialization;
+using Content.Shared._DV.CartridgeLoader.Cartridges; // DV
 
 namespace Content.Shared.CartridgeLoader.Cartridges;
 

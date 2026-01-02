@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobHuman
+  parent: BaseMobSpeciesOrganic # Imp
   name: Urist McGoblin
   id: MobGoblinBase
   abstract: true
@@ -45,7 +45,7 @@
   - type: Item
     size: Normal
   - type: Vocal
-    wilhelm: "/Audio/_NF/Voice/Goblin/goblin-cackle-05.ogg"
+    wilhelm: "/Audio/_NF/Voice/Goblin/goblin_cackle_5.ogg"
     sounds:
       Male: MaleGoblin
       Female: FemaleGoblin
@@ -97,7 +97,7 @@
     - reagents: [ Water, SpaceCleaner, SoapReagent ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
     - reagents: [ Water, SpaceCleaner, SoapReagent ]
       methods: [ Touch ]
       effects:
@@ -105,7 +105,7 @@
         emote: Scream
         probability: 0.2
   - type: CanEscapeInventory
-  - type: CanRummage
+  - type: Rummager
     rummageLoot: !type:NestedSelector
       tableId: BaseGoblinLoot
   - type: Inventory
@@ -232,6 +232,9 @@
           32:
             sprite: _Impstation/Mobs/Species/Goblin/displacement.rsi
             state: suitstorage
+  - type: Hunger # Imp
+  - type: Thirst # Imp
+
 - type: entity
   save: false
   name: Urist McGoblin

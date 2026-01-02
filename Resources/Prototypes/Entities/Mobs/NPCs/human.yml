@@ -68,6 +68,9 @@
   name: syndicate shuttle pilot
   parent: MobSyndicateFootsoldier
   id: MobSyndicateFootsoldierPilot
+  components: #IMP SSD no sleeping
+    - type: SSDIndicator
+      doNotSleep: true
 
 - type: entity
   parent: BaseMobHuman
@@ -98,6 +101,8 @@
   description: A polymorphed unfortunate.
   components:
   - type: Cluwne
-    geneticDamageOnDeath: 0 # IMP
+    revertDamage: # IMP, to make polymorphed cluwnes not take damage on revert
+      types:
+        Genetic: 0
   - type: Speech
     speechVerb: Cluwne

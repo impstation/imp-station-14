@@ -15,6 +15,7 @@
     foldedHideLayers: []
     unfoldedHideLayers:
     - Snout
+    - SnoutCover # imp
   - type: Mask
     disableOnFolded: true
   - type: IngestionBlocker
@@ -35,6 +36,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
     hideOnToggle: true
 
 - type: entity

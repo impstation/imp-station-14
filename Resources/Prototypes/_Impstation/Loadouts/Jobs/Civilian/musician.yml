@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobMusician
-      time: 36000 #10 hrs, ~7 rounds #imp
+      time: 10h
 
 # Jumpsuit
 - type: loadout

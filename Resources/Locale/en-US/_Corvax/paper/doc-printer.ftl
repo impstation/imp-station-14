@@ -8,7 +8,7 @@ doc-text-printer-report-station =
    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Situation Report[/head]
    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Sector[/bold]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Sector[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                                 SITUATION REPORT
@@ -31,7 +31,7 @@ doc-text-printer-report-department =
    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Departmental Performance Report[/head]
    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Sector[/bold]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Sector[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                                 DEPARTMENT PERFORMANCE REPORT
@@ -53,7 +53,7 @@ doc-text-printer-report-employee-performance =
    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Employee Performance Report[/head]
    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Sector[/bold]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Sector[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         EMPLOYEE PERFORMANCE REPORT
@@ -71,7 +71,7 @@ doc-text-printer-report-on-the-chapters-meeting =
    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Head Meeting Report[/head]
    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                                 HEADS OF DEPARTMENTS MEETING REPORT
@@ -98,7 +98,7 @@ doc-text-printer-condition-report =
    ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
    ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Technical Condition Report[/head]
    ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+   ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         TECHNICAL CONDITION REPORT
@@ -120,7 +120,7 @@ doc-text-printer-report-study-object =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Anomalous Research Report[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                      ANOMALOUS RESEARCH REPORT
@@ -140,7 +140,7 @@ doc-text-printer-application-appointment-interim =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Temporary Promotion Request[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     REQUEST FOR ACTING OFFICER
@@ -159,7 +159,7 @@ doc-text-printer-application-employment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Job Application[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         JOB APPLICATION
@@ -178,7 +178,7 @@ doc-text-printer-letter-resignation =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Letter of Resignation[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         NOTICE OF RESIGNATION
@@ -195,7 +195,7 @@ doc-text-printer-application-access =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Access Request Form[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ACCESS REQUEST FORM
@@ -214,7 +214,7 @@ doc-text-printer-application-equipment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Equipment Acquisition Request[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     REQUEST FOR EQUIPMENT ACQUISITION
@@ -233,7 +233,7 @@ doc-text-printer-evacuation-shuttle-request =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Evacuation Shuttle Request[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     REQUEST FOR EVACUATION SHUTTLE
@@ -251,7 +251,7 @@ doc-text-printer-shuttle-registration-request =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Shuttle Registration Request[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         REQUEST FOR SHUTTLE REGISTRATION
@@ -275,7 +275,7 @@ doc-text-printer-request-for-non-listed-employment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Unusual Employment Request[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             REQUEST FOR UNUSUAL EMPLOYMENT
@@ -301,7 +301,7 @@ doc-text-printer-request-for-promotion =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Promotion Request[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 REQUEST FOR PROMOTION
@@ -318,7 +318,7 @@ doc-text-printer-request-documents =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Documental Request Form[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             DOCUMENTAL REQUEST FORM
@@ -335,7 +335,7 @@ doc-text-printer-request-euthanasia =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Execution Order Form[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ORDER FOR EXECUTION
@@ -354,7 +354,7 @@ doc-text-printer-request-construction-work =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Construction Request Form[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
         CONSTRUCTION REQUEST FORM
@@ -374,7 +374,7 @@ doc-text-printer-request-modernization =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Equipment Upgrade Request[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 EQUIPMENT UPGRADE REQUEST
@@ -392,7 +392,7 @@ doc-text-printer-complaint-offense =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Snitch Report[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         SNITCH REPORT
@@ -410,7 +410,7 @@ doc-text-printer-permission-equipment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Restricted Equipment Permit[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
         EQUIPMENT PERMIT
@@ -427,7 +427,7 @@ doc-text-printer-search-permission =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Search Warrant[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         Search Warrant
@@ -447,7 +447,7 @@ doc-text-printer-permission-to-carry-weapons =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Weapons Permit[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     WEAPON CARRY PERMIT
@@ -469,7 +469,7 @@ doc-text-printer-prescription-drug-authorization =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Medication Prescription[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 PERMIT FOR PRESCRIPTION MEDICATION
@@ -489,7 +489,7 @@ doc-text-printer-permission-dispose-body =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Order of Body Disposal[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ORDER FOR BODY DISPOSAL
@@ -507,7 +507,7 @@ doc-text-printer-construction-permit =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Building Permit[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         BUILDING PERMIT
@@ -525,7 +525,7 @@ doc-text-printer-order-dismissal =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Notice of Demotion[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                             NOTICE OF DEMOTION
@@ -542,7 +542,7 @@ doc-text-printer-order-deprivation-access =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Access Removal Notice[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         ACCESS REMOVAL NOTICE
@@ -559,7 +559,7 @@ doc-text-printer-order-encouragement =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Certification of Achievement[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                             CERTIFICATION OF ACHIEVEMENT
@@ -576,7 +576,7 @@ doc-text-printer-order-parole-prisoner =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Prisoner Parole Form[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     PRISONER PAROLE FORM
@@ -593,7 +593,7 @@ doc-text-printer-order-recognizing-sentience-creature =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Document template[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             ORDER OF RECOGNITION OF SENTIENCE OF A CREATURE
@@ -614,7 +614,7 @@ doc-text-printer-order-medical-intervention =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Order for Medical Intervention[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
     ORDER FOR MEDICAL INTERVENTION
@@ -632,7 +632,7 @@ doc-text-printer-product-manufacturing-order =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Item Request Form[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     ITEM REQUEST FORM
@@ -650,7 +650,7 @@ doc-text-printer-certificate-advanced-training =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Advanced Training Form[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
     CERTIFICATE OF PROFESSIONAL DEVELOPMENT
@@ -666,7 +666,7 @@ doc-text-printer-certificate-offense =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Criminal Confession Form[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 CRIMINAL CONFESSION FORM
@@ -691,7 +691,7 @@ doc-text-printer-death-certificate =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Death Certificate[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                             DEATH CERTIFICATE
@@ -713,7 +713,7 @@ doc-text-printer-marriage-certificate =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Marriage Certificate[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 MARRIAGE CERTIFICATE
@@ -734,7 +734,7 @@ doc-text-printer-divorce-certificate =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Divorce Certificate[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                 DIVORCE CERTIFICATE
@@ -757,7 +757,7 @@ doc-text-printer-closing-indictment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Arrest Warrant[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                         ARREST WARRANT
@@ -779,7 +779,7 @@ doc-text-printer-sentence =
         ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
         ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Court Verdict[/head]
         ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-        ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+        ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
         ⠀[color=#1b487e]░░░░██░░░████░███[/color]
         =============================================
                                   COURT VERDICT
@@ -802,7 +802,7 @@ doc-text-printer-judgment =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Judicial Agreement[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     JUDICIAL AGREEMENT
@@ -834,7 +834,7 @@ doc-text-printer-statement-health =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Employee Health Evaluation[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
                     EMPLOYEE HEALTH EVALUATION
@@ -860,7 +860,7 @@ doc-text-printer-decision-to-start-trial =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]      [head=3]Court Order[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]               [head=3]NanoTrasen[/head]
-    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Den Station[/bold]
+    ⠀[color=#1b487e]░░░░██░░██░██░██░[/color]           [bold]Imp Station[/bold]
     ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     =============================================
             NOTICE OF A START OF A LEGAL PROCEEDING

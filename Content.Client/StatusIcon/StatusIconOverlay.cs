@@ -6,7 +6,7 @@ using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using System.Numerics;
-using Content.Shared._Impstation.StatusIcon;
+using Content.Shared._Impstation.StatusIcon; // imp
 
 namespace Content.Client.StatusIcon;
 

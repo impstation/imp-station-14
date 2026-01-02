@@ -10,7 +10,7 @@ using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Components;
 using Content.Shared.CCVar;
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
@@ -38,7 +38,6 @@ public sealed class NukeOpsTest
     /// Check that a nuke ops game mode can start without issue. I.e., that the nuke station and such all get loaded.
     /// </summary>
     [Test]
-    [Ignore("Broken due to engine issue relating to RemCompDeferred. Note: This test will only fail occasionally.")]
     public async Task TryStopNukeOpsFromConstantlyFailing()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings

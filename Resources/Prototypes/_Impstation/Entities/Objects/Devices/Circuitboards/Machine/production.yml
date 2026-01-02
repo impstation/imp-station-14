@@ -6,12 +6,13 @@
   - type: MachineBoard
     prototype: MiniGyroscope
     stackRequirements:
-      Manipulator: 2
+      Capacitor: 1
+      Manipulator: 1
       Glass: 2
 
 - type: entity
   id: ServiceTechFabCircuitboard
-  parent: BaseMachineCircuitboard
+  parent: [ BaseMachineCircuitboard, BaseServiceContraband ]
   name: service techfab machine board
   description: A machine printed circuit board for a Service techfab.
   components:
@@ -20,7 +21,8 @@
     - type: MachineBoard
       prototype: ServiceTechFab
       stackRequirements:
-        Manipulator: 4
+        MatterBin: 2
+        Manipulator: 2
       tagRequirements:
         GlassBeaker:
           amount: 2
@@ -60,7 +62,7 @@
       Glass: 1
 
 - type: entity
-  parent: BaseMachineCircuitboard
+  parent: [ BaseMachineCircuitboard, BaseCommandContraband ]
   id: PortableCutterMachineCircuitboard
   name: portable cutter machine board
   description: A machine printed circuit board for a portable cutter machine.

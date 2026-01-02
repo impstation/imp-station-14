@@ -1,0 +1,69 @@
+﻿# General
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineCommand
+  suffix: Command
+  components:
+  - type: FaxAnnouncing
+    channels: [ Command ]
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineSecurity
+  suffix: Security
+  components:
+  - type: FaxAnnouncing
+    channels: [ Security ]
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineScience
+  suffix: Science
+  components:
+  - type: FaxAnnouncing
+    channels: [ Science ]
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineService
+  suffix: Service
+  components:
+  - type: FaxAnnouncing
+    channels: [ Service ]
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineSupply
+  suffix: Supply
+  components:
+  - type: FaxAnnouncing
+    channels: [ Supply ]
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineMedical
+  suffix: Medical
+  components:
+  - type: FaxAnnouncing
+    channels: [ Medical ]
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineEngineering
+  suffix: Engineering
+  components:
+  - type: FaxAnnouncing
+    channels: [ Engineering ]
+
+
+# Specific
+
+- type: entity
+  parent: FaxMachineCommand
+  id: FaxMachineHoP
+  name: HoP long range fax machine
+  suffix: HoP
+  components:
+  - type: FaxMachine
+    name: "Head of Personnel's Office"

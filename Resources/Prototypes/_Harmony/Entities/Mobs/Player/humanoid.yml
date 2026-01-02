@@ -13,9 +13,7 @@
   parent: DeathSquad
   components:
     - type: GhostRole
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 14400 #4 hrs
+      job: DeathSquad
 
 ## ERT Leader Timer
 
@@ -34,10 +32,7 @@
   parent: ERTLeader
   components:
     - type: GhostRole
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Command
-        time: 21600 #6 hours
+      job: ERTLeader
 
 # Eva
 
@@ -54,10 +49,7 @@
   parent: ERTLeaderEVA
   components:
     - type: GhostRole
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Command
-        time: 21600 #6 hours
+      job: ERTLeader
 
 # Lecter
 
@@ -74,10 +66,7 @@
   parent: ERTLeaderEVALecter
   components:
     - type: GhostRole
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Command
-        time: 21600 #6 hours
+      job: ERTLeader
 
 ## ERT Engineer Timer
 
@@ -96,10 +85,7 @@
   parent: ERTEngineer
   components:
     - type: GhostRole
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Engineering
-        time: 10800 # 3 hrs
+      job: ERTEngineer
 
 # EVA
 
@@ -116,10 +102,7 @@
   parent: ERTEngineerEVA
   components:
     - type: GhostRole
-      requirements:
-      - !type:DepartmentTimeRequirement
-        department: Engineering
-        time: 10800 # 3 hrs
+      job: ERTEngineer
 
 ## ERT Security Timer
 
@@ -138,10 +121,7 @@
   parent: ERTSecurity
   components:
     - type: GhostRole
-      requirements:
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 14400 #4 hrs
+      job: ERTSecurity
 
 # EVA
 
@@ -158,10 +138,7 @@
   parent: ERTSecurityEVA
   components:
     - type: GhostRole
-      requirements:
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 14400 #4 hrs
+      job: ERTSecurity
 
 - type: entity
   id: RandomHumanoidSpawnerERTSecurityEVALecterTime
@@ -176,10 +153,7 @@
   parent: ERTSecurityEVALecter
   components:
     - type: GhostRole
-      requirements:
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 36000 #10 hrs
+      job: ERTSecurity
 
 ## ERT Medic Timer
 
@@ -198,10 +172,7 @@
   parent: ERTMedical
   components:
     - type: GhostRole
-      requirements:
-        - !type:DepartmentTimeRequirement
-          department: Medical
-          time: 10800 #3 hrs
+      job: ERTMedical
 
 # EVA
 
@@ -218,10 +189,7 @@
   parent: ERTMedicalEVA
   components:
     - type: GhostRole
-      requirements:
-        - !type:DepartmentTimeRequirement
-          department: Medical
-          time: 10800 #3 hrs
+      job: ERTMedical
 
 ## CBURN Timer
 
@@ -238,9 +206,7 @@
   parent: CBURNAgent
   components:
     - type: GhostRole
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 10800 #3 hrs
+      job: CBURN
 
 ## Central Command Timer
 
@@ -257,6 +223,5 @@
   parent: CentcomOfficial
   components:
     - type: GhostRole
-      requirements:
-      - !type:OverallPlaytimeRequirement
-        time: 21600 # 6 hrs
+      job: CentralCommandOfficial
+

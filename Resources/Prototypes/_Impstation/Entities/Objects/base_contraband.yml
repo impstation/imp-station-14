@@ -1,4 +1,12 @@
 - type: entity
+  id: BaseServiceContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Service ]
+
+- type: entity
   id: BaseRestrictedLawyerContraband
   parent: BaseRestrictedContraband
   abstract: true

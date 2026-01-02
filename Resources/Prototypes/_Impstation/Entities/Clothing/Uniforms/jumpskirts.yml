@@ -274,3 +274,38 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mus_singerdress.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mus_singerdress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNurse
+  name: nurse uniform
+  description: An old nursing uniform. It's probably been through the wash thousands of times, yet you can still faintly make out stains from nightmarish shifts of yore.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/nurse.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/nurse.rsi
+
+- type: entity
+  name: Pink Princess Dress
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformPinkPrincessDress
+  description: A sweet and fluffy dress fit for royalty though... it is a little itchy
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/pinkprincessdress.rsi
+  - type: Item
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/pinkprincessdress.rsi
+
+- type: entity
+  name: Green Princess Dress
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformGreenPrincessDress
+  description: A smooth and elegant dress fit for royalty. It's totally just a costume though.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/greenprincessdress.rsi
+  - type: Item
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/greenprincessdress.rsi

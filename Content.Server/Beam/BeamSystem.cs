@@ -83,7 +83,7 @@ public sealed class BeamSystem : SharedBeamSystem
         if (!TryComp<PhysicsComponent>(ent, out var physics) || !TryComp<BeamComponent>(ent, out var beam))
             return;
 
-        if (!beam.AllowSpriteOverwrite)
+        if (!beam.AllowSpriteOverwrite) // imp supermatter
             bodyState = null;
 
         FixturesComponent? manager = null;
@@ -97,7 +97,7 @@ public sealed class BeamSystem : SharedBeamSystem
             manager: manager,
             body: physics);
 
-        _physics.SetBodyType(ent, BodyType.KinematicController, manager: manager, body: physics);
+        _physics.SetBodyType(ent, BodyType.KinematicController, manager: manager, body: physics); // imp dynamic -> kinematic
         _physics.SetCanCollide(ent, true, manager: manager, body: physics);
         _broadphase.RegenerateContacts((ent, physics, manager));
 

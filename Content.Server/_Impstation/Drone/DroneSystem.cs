@@ -196,8 +196,8 @@ namespace Content.Server._Impstation.Drone
         {
             if (!_powerCell.TryGetBatteryFromSlot(ent, out var battery, slotComponent))
             {
-                _alerts.ClearAlert(ent, ent.Comp.BatteryAlert);
-                _alerts.ShowAlert(ent, ent.Comp.NoBatteryAlert);
+                _alerts.ClearAlert(ent.Owner, ent.Comp.BatteryAlert);
+                _alerts.ShowAlert(ent.Owner, ent.Comp.NoBatteryAlert);
                 return;
             }
 
@@ -230,8 +230,8 @@ namespace Content.Server._Impstation.Drone
 
             ent.Comp.LastChargePercent = chargePercent;
 
-            _alerts.ClearAlert(ent, ent.Comp.NoBatteryAlert);
-            _alerts.ShowAlert(ent, ent.Comp.BatteryAlert, chargePercent);
+            _alerts.ClearAlert(ent.Owner, ent.Comp.NoBatteryAlert);
+            _alerts.ShowAlert(ent.Owner, ent.Comp.BatteryAlert, chargePercent);
         }
 
         private bool NonDronesInRange(EntityUid uid, DroneComponent component)

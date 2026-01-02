@@ -72,6 +72,7 @@
   parent: BaseItemRecharger
   id: PowerCellRecharger
   name: cell recharger
+  description: An older model recharger that can recharge power cells.
   components:
   - type: Sprite
     sprite: Structures/Power/cell_recharger.rsi
@@ -106,11 +107,15 @@
           - PowerCell
           - PowerCellSmall
           - BlasterCell #imp
+        blacklist:
+          tags:
+          - PotatoBattery
 
 - type: entity
   parent: [ BaseItemRecharger, ConstructibleMachine ]
   id: PowerCageRecharger
   name: cage recharger
+  description: A specialized machine made for recharging the heavy cage batteries used by ship-mounted weapons.
   components:
   - type: Fixtures
     fixtures:
@@ -151,12 +156,12 @@
   parent: BaseItemRecharger
   id: WeaponCapacitorRecharger
   name: recharger
+  description: A modern recharging station that can fit both power cells and small electronic devices.
   components:
   - type: Sprite
     sprite: Structures/Power/recharger.rsi
   - type: Machine
     board: WeaponCapacitorRechargerCircuitboard
-  # no powercellslot since stun baton etc arent powercells
   - type: ItemSlots
     slots:
       charger_slot:
@@ -166,12 +171,16 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+          - PowerCell
+        blacklist:
+          tags:
+          - PotatoBattery
 
 - type: entity
   parent: BaseItemRecharger
   id: TurboItemRecharger
   name: turbo recharger
-  description: An overclocked recharger that's been adapted with a global port.
+  description: An overclocked recharger. Not recommended for use around asthmatics.
   components:
   - type: Sprite
     sprite: Structures/Power/turbo_recharger.rsi
@@ -197,8 +206,8 @@
   parent: [ BaseItemRecharger, BaseWallmount ]
   id: WallWeaponCapacitorRecharger
   name: wall recharger
-  #imp edit start
-  description: A wall-mounted recharger for battery-based weaponry.
+  description: A compact wall-mounted recharger. It can only recharge electronic devices and has no space for power cells.
+  # imp edit start
   placement:
     mode: SnapgridCenter
     snap:
@@ -225,6 +234,9 @@
           - HitscanBatteryAmmoProvider
           - ProjectileBatteryAmmoProvider
           - Stunbaton
+        blacklist:
+          tags:
+          - PotatoBattery
   # imp start
   - type: Machine
     board: WeaponCapacitorRechargerCircuitboard
@@ -245,7 +257,7 @@
   description: A stationary charger for various robotic and cyborg entities. Surprisingly spacious.
   components:
   - type: Sprite
-    drawdepth: HighFloorObjects #imp edit
+    drawdepth: HighFloorObjects #imp edit, so drone sprites don't go under it
     sprite: Structures/Power/borg_charger.rsi
     layers:
       - state: borgcharger-u1

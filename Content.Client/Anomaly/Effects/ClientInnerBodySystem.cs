@@ -44,7 +44,9 @@ public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        var index = _sprite.LayerMapGet((ent.Owner, sprite), ent.Comp.LayerMap);
-        _sprite.LayerSetVisible((ent.Owner, sprite), index, false);
+        // imp: index = LayerMapGet -> if LayerMapTryGet out index (anomalite test fail)
+        if (_sprite.LayerMapTryGet((ent.Owner, sprite), ent.Comp.LayerMap, out var index, false))
+            _sprite.LayerSetVisible((ent.Owner, sprite), index, false);
+        // end imp
     }
 }

@@ -5,6 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
+    impactEffect: BulletImpactEffectKineticStun
     damage:
       types:
         Blunt: 5
@@ -14,4 +15,5 @@
     noRot: false
     sprite: _Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
     layers:
-      - state: rubber
+      - state: stunbullet
+        shader: unshaded
