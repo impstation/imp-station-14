@@ -437,6 +437,34 @@
 
 - type: entity
   parent: ClothingHeadBase
+  id: ClothingHeadHatPompombow
+  name: pompom bow
+  description: An oversized bow with a fluffy touch.
+  components:
+  - type: Construction
+    graph: PompomBow
+    node: bow
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Misc/pompombow.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Misc/pompombow.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatPompomear
+  name: pompom earmuffs
+  description: A warm pair of earmuffs to keep the cold of space away.
+  components:
+  - type: Construction
+    graph: PompomEarmuffs
+    node: muffs
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Misc/pompomear.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Misc/pompomear.rsi
+
+- type: entity
+  parent: ClothingHeadBase
   id: ClothingHeadHatCuteTiara
   name: Cute Tiara
   description: A tiara fit for royalty, except that it's definitely not real gold.
