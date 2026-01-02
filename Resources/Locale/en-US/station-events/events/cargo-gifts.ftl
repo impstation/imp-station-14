@@ -1,7 +1,7 @@
 cargo-gifts-event-announcement = Congratulations! { $sender } has decided to send { $description } to the station { $dest }. Look for it in your next cargo shipment.
 cargo-gift-default-description = A bundle of gifts
-cargo-gift-default-sender = Nanotrasen
 # imp edit; lower-case t
+cargo-gift-default-sender = Nanotrasen
 cargo-gift-default-dest = Cargo Dept.
 
 cargo-gift-dest-bar = bar
@@ -11,9 +11,11 @@ cargo-gift-dest-janitor = Service Dept
 cargo-gift-dest-med = Medical Dept
 cargo-gift-dest-sec = Security Dept
 
+# imp edits, lowercase a
 cargo-gift-pizza-small = a small pizza party
 cargo-gift-pizza-large = a large pizza party
 
+# imp lowercase to all below
 cargo-gift-eng = repair materials
 cargo-gift-vending = vending machines refills
 cargo-gift-cleaning = cleaning equipment

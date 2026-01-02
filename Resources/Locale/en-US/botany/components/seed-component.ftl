@@ -1,7 +1,7 @@
 ## Entity
 
-# imp edit
-seed-component-description = You could grow{$getsArticle ->
+# imp edit, variables
+seed-component-description = It looks like you can grow{$getsArticle ->
                                 [plur] {" "}some
                                 [splur] { $empty }
                                 *[default] {" "}{ INDEFINITE($seedName) }

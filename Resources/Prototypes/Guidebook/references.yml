@@ -20,7 +20,7 @@
 - type: guideEntry
   id: FoodRecipes
   name: guide-entry-foodrecipes
-  text: "/ServerInfo/Guidebook/Service/FoodRecipes.xml"
+  text: "/ServerInfo/_Impstation/Guidebook/Service/FoodRecipes.xml" # imp edit
   filterEnabled: True
   children:
   - CookingTechniques # imp
@@ -116,7 +116,7 @@
 - type: guideEntry
   id: OtherRecipes
   name: guide-entry-other-recipes
-  text: "/ServerInfo/Guidebook/Service/OtherRecipes.xml"
+  text: "/ServerInfo/_Impstation/Guidebook/Service/OtherRecipes.xml" # imp edit
   filterEnabled: True
 
 - type: guideEntry

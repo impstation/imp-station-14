@@ -18,7 +18,7 @@
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/silenced2.ogg
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
+      path: /Audio/_Wizden/Weapons/Guns/Empty/empty.ogg # imp edit
   - type: BallisticAmmoProvider
     whitelist:
       tags:
@@ -51,7 +51,7 @@
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/sil_kammerer.ogg
     soundEmpty:
-      path: /Audio/Weapons/Guns/Empty/empty.ogg
+      path: /Audio/_Wizden/Weapons/Guns/Empty/empty.ogg # imp edit
   - type: BallisticAmmoProvider
     whitelist:
       tags:

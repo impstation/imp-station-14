@@ -1,4 +1,4 @@
-﻿# imp edit entry 1
+﻿# imp edit entry 1, remove cop reference
 advertisement-donut-1 = Everyone has a little hole inside us!
 advertisement-donut-2 = Hope you're hungry!
 advertisement-donut-3 = Over 1 million donuts sold!
@@ -7,6 +7,6 @@ advertisement-donut-5 = Sweet, sugary and delicious!
 advertisement-donut-6 = Donut worry, be happy!
 thankyou-donut-1 = Enjoy your donut!
 thankyou-donut-2 = Another donut sold!
-# imp edit thank you entry 3, 4
+# imp edit thank you entry 3, 4, remove cop references
 thankyou-donut-3 = Another day, another donut!
 thankyou-donut-4 = See you again soon!

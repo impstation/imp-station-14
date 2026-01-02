@@ -28,7 +28,7 @@ public sealed partial class GunComponent : Component
     public SoundSpecifier? SoundGunshotModified;
 
     [DataField]
-    public SoundSpecifier? SoundEmpty = new SoundPathSpecifier("/Audio/Weapons/Guns/Empty/empty.ogg");
+    public SoundSpecifier? SoundEmpty = new SoundPathSpecifier("/Audio/_Wizden/Weapons/Guns/Empty/empty.ogg"); // imp edit
 
     /// <summary>
     /// Sound played when toggling the <see cref="SelectedMode"/> for this gun.

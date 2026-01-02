@@ -15,7 +15,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: 'RS'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_cluster.yml
+          emergencyShuttlePath: /Maps/_Impstation/Shuttles/emergency_cluster.yml
         - type: StationJobs
           availableJobs: # Total of 15 jobs roundstart, max of 16 inc. latejoins and trainees.
             # command - 1
