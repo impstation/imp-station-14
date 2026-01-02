@@ -16,12 +16,12 @@ public sealed class SwordDamoclesSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<SharedSwordDamoclesComponent, ComponentStartup>(SwordDamoclesAdded);
-        SubscribeLocalEvent<SharedSwordDamoclesComponent, ComponentShutdown>(SwordDamoclesRemoved);
-        // SubscribeLocalEvent<SharedSwordDamoclesComponent, ComponentStartup>(TimesApplied);
+        SubscribeLocalEvent<SwordDamoclesComponent, ComponentStartup>(SwordDamoclesAdded);
+        SubscribeLocalEvent<SwordDamoclesComponent, ComponentShutdown>(SwordDamoclesRemoved);
+        // SubscribeLocalEvent<SwordDamoclesComponent, ComponentStartup>(TimesApplied);
     }
 
-    private void SwordDamoclesRemoved(Entity<SharedSwordDamoclesComponent> ent, ref ComponentShutdown args)
+    private void SwordDamoclesRemoved(Entity<SwordDamoclesComponent> ent, ref ComponentShutdown args)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
@@ -32,7 +32,7 @@ public sealed class SwordDamoclesSystem : EntitySystem
         _sprite.RemoveLayer((ent, sprite), layer);
     }
 
-    private void SwordDamoclesAdded(Entity<SharedSwordDamoclesComponent> ent, ref ComponentStartup args) //, Entity<SharedSwordDamoclesComponent> ent
+    private void SwordDamoclesAdded(Entity<SwordDamoclesComponent> ent, ref ComponentStartup args) //, Entity<SwordDamoclesComponent> ent
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;

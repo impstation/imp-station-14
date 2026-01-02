@@ -4,8 +4,8 @@ using Content.Shared.FixedPoint;
 
 namespace Content.Shared._Impstation.Administration.Components;
 
-[NetworkedComponent]
-public abstract partial class SharedSwordDamoclesComponent : Component
+[RegisterComponent, NetworkedComponent]
+public sealed partial class SwordDamoclesComponent : Component
 {
     /// <summary>
     ///     How many times has this smite been applied.
