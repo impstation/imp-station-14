@@ -5,18 +5,19 @@
     <GuideEntityEmbed Entity="ComplexXenoArtifactItem" Caption=""/>
   </Box>
 
-  <!-- To activate and unlock nodes on an artifact, you should:
-  - Check a node on the [bold]Analysis Console[/bold] to check its triggers and effects.
-  - Perform the [bold]triggers[/bold] listed in the console. Some require direct interaction with the artifact, while others may only need the correct environment or a specific action performed nearby.
-  - Once a trigger is successfully performed, the artifact will respond with the message: [italic]"It begins to shift in strange ways..."[/italic]. The [bold]Node Scanner[/bold] will then indicate which specific nodes are being triggered.
+  Artifacts consist of a randomly-generated tree of nodes. These nodes have a "[color=#a4885c]depth[/color]", representing how dangerous the node is, and the number of other nodes connected to it, called "[color=#a4885c]edges[/color]",
 
-  Artifacts enter an unlocking state after the first trigger is met. During this state, any remaining triggers must be completed. The unlocking window initially lasts a few seconds and resets each time a new trigger is activated. This window grows longer with each additional node unlocked, giving more time to complete further triggers.
+  Artifacts always start at depth zero, the root of the tree. Travelling the tree to find as many nodes as possible is the main goal of the scientists working on them. Knowledge is extracted from nodes to gain Research Points and increase the artifact's sale value.
 
-  Once all required triggers are completed successfully, the artifact will trigger it's effect and a popup will appear saying: [italic]"It slows down, visibly changed."[/italic], and the node will appear as [bold][color=plum]Active[/color][/bold] on the Console.
+  Each node has two components: its [color=#a4885c]stimulus[/color] (also known as a [color=#a4885c]trigger[/color]) and a [color=#a4885c]reaction[/color] (also known as an [color=#a4885c]effect[/color]).
 
-  If an artifact fails to activate, it will stop resonating and display the message: [italic]"It slows down before uneventfully stopping."[/italic] After this, it enters a cooldown period before it can be activated again.
+  A stimulus is the external behavior that triggers the reaction. There's a variety of these, and higher depth nodes have more difficult to accomplish stimuli. Some stimuli will need improvisation to trigger, and you may need to talk to other departments to get everything you need.
 
-  The order of trigger activation [bold]does not matter[/bold] for individual nodes. [italic]However[/italic], some triggers affect multiple nodes. As a rule of thumb, start with a trigger that is unique to the node you want to unlock. Activating a trigger for a different node during this phase prevents the target node from unlocking until the artifact’s cooldown ends. -->
+  Some reactions are [color=green]instantaneous[/color] effects while others are [color=red]permanent[/color] or [color=#00ccff]temporary[/color] changes. Once an artifact is triggered, the reaction causes the artifact to randomly move to another node it is linked to. The direction can be influenced by use of an [textlink="Analysis Console" link="AnalysisConsoleImp"]
+
+  With some experimental science, you can begin to grasp how the different nodes of an artifact are connected, and how to move between them by repeatedly activating nodes.
+
+  All non-zero-depth nodes will have exactly one edge that leads up to its parent node. All other edges a node has lead down to the next depth.
 
   <GuideReagentEmbed Reagent="Artifexium"/>
 
@@ -32,6 +33,8 @@
   - Using tools (screwdriver, multitool, crowbar, wrench)
   - Splashing reagents (blood, water, ammonia, etc.)
   - Killing something nearby
+
+  If you do not know how to activate a requested trigger, try asking a fellow Scientist, your Research Director, the Captain, or random people on the station!
 
   ## Effects
   Effects can be:

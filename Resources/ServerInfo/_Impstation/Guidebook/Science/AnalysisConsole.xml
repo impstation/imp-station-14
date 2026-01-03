@@ -7,6 +7,13 @@
     <GuideEntityEmbed Entity="ComputerAnalysisConsole" Caption="Analysis Console"/>
   </Box>
 
+  Place an artifact on a linked Artifact Analyzer to enable analysis of the artifact.
+
+  <Box>
+  <GuideEntityEmbed Entity="MachineArtifactAnalyzer" Caption="Artifact Analyzer"/>
+  </Box>
+
+  ## Display
   The console displays detailed information about each node in the artifact’s tree structure. This includes:
   - [bold]ID:[/bold] Unique identifier for use with the Node Scanner.
   - [bold]Class:[/bold] The layer name, nodes on the same layer share it.
