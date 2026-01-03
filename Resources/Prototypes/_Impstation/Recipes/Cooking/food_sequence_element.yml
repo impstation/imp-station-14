@@ -344,3 +344,19 @@
   sprites:
   - sprite: _Impstation/Objects/Consumable/Food/Ingredients/stringcheese.rsi
     state: burger
+
+# my dog
+
+- type: foodSequenceElement
+  id: Sausage
+  name: 
+  sprites:
+  - sprite: _Impstation/Objects/Consumable/Food/hotdog_sequence.rsi
+    state: hotdog
+
+- type: foodSequenceElement
+  id: Hotdogdog
+  name: food-sequence-hotdog-content-hotdog
+  sprites:
+  - sprite: _Impstation/Objects/Consumable/Food/hotdog.rsi
+    state: hotdog_plain
