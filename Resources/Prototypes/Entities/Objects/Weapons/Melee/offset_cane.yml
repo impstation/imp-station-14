@@ -56,10 +56,10 @@
   description: A black and white striped cane, perfect for silent performances.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Melee/offset_canes/mime.rsi #imp
+    sprite: Objects/Weapons/Melee/offset_canes/mime.rsi
     state: icon
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Melee/offset_canes/mime.rsi #imp
+    sprite: Objects/Weapons/Melee/offset_canes/mime.rsi
 
 - type: entity
   parent: OffsetCane
