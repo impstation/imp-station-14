@@ -11,6 +11,7 @@ marking-AnomalocaridGrabbersHook-grabbers5 = Grabbers
 marking-AnomalocaridGrabbersStriped = Striped Grabbers
 marking-AnomalocaridGrabbersStriped-grabbers6_primary = Grabbers Primary
 marking-AnomalocaridGrabbersStriped-grabbers6_secondary = Grabbers Secondary
+marking-AnomalocaridGrabbersTiny = Tiny Grabbers
 
 marking-AnomalocaridHeadSeaweed = Seawig
 marking-AnomalocaridHeadSeaweed-seaweedhair = Seaweed
@@ -134,6 +135,7 @@ marking-AnomalocaridEyeOpabinia-opabinia_primary = Eyes
 marking-AnomalocaridEyeOpabinia-opabinia_secondary = Shine
 marking-AnomalocaridEyeLashes = Eyelashes
 marking-AnomalocaridEyeLashes-eyelashes = Eyelashes
+marking-AnomalocaridEyeAngryBrows = Bushy Brows
 
 marking-AnomalocaridEyeshine = Eyeshine
 marking-AnomalocaridEyeshine-eyeshine = Eyeshine

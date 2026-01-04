@@ -208,6 +208,23 @@
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: eyelashes
 
+
+- type: marking
+  id: AnomalocaridEyeAngryBrows
+  bodyPart: Snout
+  markingCategory: Overlay
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: angryeyebrows
+
+
 # Snout
 
 # Eyes
@@ -719,6 +736,21 @@
     state: grabbers6_primary
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/headside.rsi
     state: grabbers6_secondary
+
+- type: marking
+  id: AnomalocaridGrabbersTiny
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#e6e6e6"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headside.rsi
+    state: grabbers7
 
 # HeadTop
 
