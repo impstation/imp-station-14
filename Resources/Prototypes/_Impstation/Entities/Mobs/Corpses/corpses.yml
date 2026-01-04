@@ -4,18 +4,18 @@
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
-    - type: RandomDamageOnSpawn
+    - type: TriggerOnSpawn
+      keyOut: spawned
+    - type: DamageOnTrigger
+      keysIn: 
+      - spawned
       damage:
         types:
-          Bloodloss: 0
-          Asphyxiation: 0
-          Slash: -50
-          Blunt: -10
-          Piercing: -50
-          Cellular: 170
-      minDamage: 30
-      maxDamage: 120
-      ignoreResistances: true
+          Bloodloss: 37
+          Asphyxiation: 77
+          Slash: 46
+          Blunt: 65
+          Radiation: 75
     - type: Rotting
       totalRotTime: 1200
 
