@@ -1,7 +1,7 @@
 - type: entity
   name: BaseWeaponShotgun
   parent: BaseItem
-  id: BaseWeaponShotgun
+  id: BaseWeaponShotgunWizden #imp - see the _Impstation directory for the version we use
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -14,7 +14,7 @@
     shape:
     - 0,0,4,0
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
     quickEquip: false
     slots:
     - Back
@@ -37,44 +37,23 @@
     proto: ShellShotgun
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
-    soundRack:
-      path: /Audio/_Impstation/Weapons/Guns/Cock/shotgun_cock.ogg #imp
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
         ents: []
   - type: StaticPrice
     price: 500
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.8
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 6
-    damage:
-      types:
-        Blunt: 5
-#imp edit end
 
 - type: entity
-  name: Hydra #imp
+  name: Bulldog
   # Don't parent to BaseWeaponShotgun because it differs significantly
-  parent: [BaseItem, BaseGunWieldable, Tier3Contraband]
-  id: WeaponShotgunBulldog
-  description: A fully-automatic magazine-fed assault shotgun designed for close-quarters combat. This will get the job done. Uses .50 shotgun shells. #imp
+  parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
+  id: WeaponShotgunBulldogWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: An automatic magazine-fed shotgun for close-quarters combat. Kicks like a mule on steroids. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -83,7 +62,7 @@
   - type: Item
     size: Large
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/bulldog.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
     quickEquip: false
     slots:
     - Back
@@ -123,43 +102,18 @@
   - type: Appearance
   - type: StaticPrice
     price: 5000
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.6
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-#imp edit end
 
 - type: entity
   name: double-barreled shotgun
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityBartenderZookeeperContraband]
-  id: WeaponShotgunDoubleBarreled
-  description: An immortal classic of the American Frontier, whatever that is. Uses .50 shotgun shells. #imp
+  id: WeaponShotgunDoubleBarreledWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: An immortal classic. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/db_shotgun.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 3
@@ -167,33 +121,17 @@
     spread: 0.6
   - type: BallisticAmmoProvider
     capacity: 2
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg #imp
   - type: Construction
     graph: ShotgunSawn
     node: start
     deconstructionTarget: null
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    attackRate: 0.6
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-#imp edit end
 
 - type: entity
   name: double-barreled shotgun
   parent: WeaponShotgunDoubleBarreled
-  id: WeaponShotgunDoubleBarreledRubber
-  description: An immortal classic of the American Frontier, whatever that is. Uses .50 shotgun shells. #imp
+  id: WeaponShotgunDoubleBarreledRubberWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: An immortal classic. Uses .50 shotgun shells.
   suffix: Non-Lethal
   components:
   - type: BallisticAmmoProvider
@@ -202,36 +140,24 @@
 - type: entity
   name: Enforcer
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponShotgunEnforcer
-  description: A premium semi-automatic combat shotgun, featuring a pistol grip and sleek profile for those nasty close-quarters engagements. Uses .50 shotgun shells. #imp
+  id: WeaponShotgunEnforcerWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A premium semi-automatic shotgun, and the pride of all security forces. Uses .50 shotgun shells.
   components: # intend for Enforcer to have wider choke for semi-auto function
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/enforcer.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/enforcer.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
+  - type: BallisticAmmoProvider
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    attackRate: 0.6
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-#imp edit end
 
 - type: entity
   parent: WeaponShotgunEnforcer
-  id: WeaponShotgunEnforcerRubber
-  suffix: Non-Lethal DEPRECATED DO NOT MAP
+  id: WeaponShotgunEnforcerRubberWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  suffix: Non-Lethal
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbag
@@ -239,64 +165,47 @@
 - type: entity
   name: Kammerer
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
-  id: WeaponShotgunKammerer
-  description: Even centuries after his time, the legacy of John Moses Browning lives on. This pump-action shotgun is a favorite of hunters and militia forces across many worlds. Uses .50 shotgun shells. #imp
+  id: WeaponShotgunKammererWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: An old yet faithful design, and a favorite among irregular forces of many worlds. Uses .50 shotgun shells.
   components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/pump_inhands_64x.rsi
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/pump.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/pump.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 1
-    soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/kammerer.ogg #imp
   - type: GunSpreadModifier
     spread: 0.6
   - type: Tag
     tags:
     - WeaponShotgunKammerer
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    attackRate: 0.6
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-#imp edit end
 
 - type: entity
   name: sawn-off shotgun
   parent: [ BaseWeaponShotgun, BaseSecurityBartenderContraband ]
-  id: WeaponShotgunSawn
+  id: WeaponShotgunSawnWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   description: Groovy! Uses .50 shotgun shells.
   components: # needs to be super inaccurate because you don't need to wield it
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/sawn.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/sawn.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/sawn.rsi
   - type: Item
     size: Small
     shape:
     - 0,0,2,0
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
   - type: Gun
     fireRate: 3
   - type: GunSpreadModifier
     spread: 1.4
   - type: BallisticAmmoProvider
     capacity: 2
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/shotgun_close.ogg #imp
   - type: Construction
     graph: ShotgunSawn
     node: shotgunsawn
@@ -305,7 +214,8 @@
 - type: entity
   name: sawn-off shotgun
   parent: WeaponShotgunSawn
-  id: WeaponShotgunSawnEmpty
+  id: WeaponShotgunSawnEmptyWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   description: Groovy! Uses .50 shotgun shells.
   suffix: Empty
   components:
@@ -319,7 +229,8 @@
 - type: entity
   name: handmade pistol
   parent: [BaseWeaponShotgun, BaseMinorContraband]
-  id: WeaponShotgunHandmade
+  id: WeaponShotgunHandmadeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   description: Looks unreliable. Uses .50 shotgun shells.
   components:
   - type: Item
@@ -329,15 +240,13 @@
     - 0,1,0,1
     storedOffset: 0,-5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/hm_pistol.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   - type: Gun
     fireRate: 4
   - type: BallisticAmmoProvider
     capacity: 1
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg #imp
   - type: Construction
     graph: ShotgunSawn
     node: shotgunsawn
@@ -348,42 +257,40 @@
 - type: entity
   name: blunderbuss
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseMinorContraband]
-  id: WeaponShotgunBlunderbuss
+  id: WeaponShotgunBlunderbussWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   suffix: Pirate
   description: Deadly at close range.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/blunderbuss.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/blunderbuss.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 2
   - type: BallisticAmmoProvider
     capacity: 1
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg #imp
   - type: StaticPrice
     price: 0
 
 - type: entity
   name: improvised shotgun
   parent: [BaseWeaponShotgun, BaseGunWieldable, BaseMinorContraband]
-  id: WeaponShotgunImprovised
-  description: A shitty, hand-made shotgun. It can only hold one round in the chamber. Uses .50 shotgun shells.
+  id: WeaponShotgunImprovisedWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A shitty, hand-made shotgun that uses .50 shotgun shells. It can only hold one round in the chamber.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun.rsi
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/improvised_shotgun_inhands_64x.rsi #imp
+    sprite: Objects/Weapons/Guns/Shotguns/improvised_shotgun_inhands_64x.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
     fireRate: 4 #No reason to stifle the firerate since you have to manually reload every time anyways.
   - type: BallisticAmmoProvider
     capacity: 1
     proto: null
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg #imp
   - type: Construction
     graph: ImprovisedShotgunGraph
     node: shotgun
@@ -394,7 +301,8 @@
   name: improvised shotgun
   parent: WeaponShotgunImprovised
   suffix: Loaded
-  id: WeaponShotgunImprovisedLoaded
+  id: WeaponShotgunImprovisedLoadedWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunImprovised

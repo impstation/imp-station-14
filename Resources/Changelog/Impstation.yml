@@ -1,95 +1,4 @@
 ﻿Entries:
-- author: FlippenPage
-  changes:
-  - message: drones have their midi and map actions back.
-    type: Fix
-  id: 2016
-  time: '2025-07-12T03:54:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3063
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Anaconda now hurts your wrist regardless of what you're wearing.
-      Be careful!
-    type: Tweak
-  id: 2017
-  time: '2025-07-12T03:55:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3064
-- author: Pinkbat5
-  changes:
-  - message: Beer goggles now protect you from flashes!
-    type: Add
-  id: 2018
-  time: '2025-07-12T03:56:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3065
-- author: hivehum
-  changes:
-  - message: Removed several music tracks, mostly Clair de Lune.
-    type: Remove
-  id: 2019
-  time: '2025-07-12T04:02:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3051
-- author: DinnerCalzone
-  changes:
-  - message: Oasis has been updated to incorporate the latest upstream version, including
-      genpop support!
-    type: Add
-  id: 2020
-  time: '2025-07-24T08:16:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3154
-- author: Stonylogray
-  changes:
-  - message: Free agent ghost role text edited for clarification.
-    type: Tweak
-  id: 2021
-  time: '2025-07-23T10:29:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3148
-- author: astral_amy
-  changes:
-  - message: A third round of Whisper changes - details in PR.
-    type: Tweak
-  id: 2022
-  time: '2025-07-23T10:29:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3146
-- author: HAPPYNEWYEAR1999
-  changes:
-  - message: Pathway Station is ready after a lengthy training montage.
-    type: Add
-  id: 2023
-  time: '2025-07-25T08:50:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3141
-- author: youtubevideo3
-  changes:
-  - message: Species-specific equipment sprites for Decapoids, Gastropoids, Thaven
-      and Grays should now show up on the loadout screen.
-    type: Fix
-  id: 2024
-  time: '2025-07-25T09:57:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3161
-- author: yesteryuri
-  changes:
-  - message: Vox members of command wear their command masks to work
-    type: Tweak
-  - message: Vox once again have tank harnesses in their bags when needed
-    type: Fix
-  id: 2025
-  time: '2025-07-25T10:02:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3159
-- author: wendyribstonpippin
-  changes:
-  - message: You can now speak like you really wish you were in the death squads.
-    type: Add
-  id: 2026
-  time: '2025-07-25T10:52:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3114
-- author: heirdragonair, kipdotnet
-  changes:
-  - message: Added a new tabletop intercom!
-    type: Add
-  - message: Slightly resprited intercoms.
-    type: Tweak
-  id: 2027
-  time: '2025-07-25T11:10:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3122
 - author: DinnerCalzone
   changes:
   - message: Omega station has been derotated.
@@ -4168,3 +4077,99 @@
   id: 2515
   time: '2026-01-01T23:48:19.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3858
+- author: yesteryuri
+  changes:
+  - message: Christmas is over.
+    type: Remove
+  id: 2516
+  time: '2026-01-01T23:51:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3905
+- author: ATDoop
+  changes:
+  - message: Ants.
+    type: Add
+  id: 2517
+  time: '2026-01-02T02:40:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3897
+- author: msTheowo
+  changes:
+  - message: The IMP Paper Pusher's Club has improved the design of their pens.
+    type: Tweak
+  id: 2518
+  time: '2026-01-02T04:03:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3907
+- author: mousesweater
+  changes:
+  - message: you can make sausages. the chefvend has it for you
+    type: Add
+  - message: hotdogs are modular and real
+    type: Add
+  id: 2519
+  time: '2026-01-02T04:15:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3635
+- author: eviltori
+  changes:
+  - message: resprited the flashes available from the robotech and exosuit fabricator
+    type: Tweak
+  id: 2520
+  time: '2026-01-02T07:10:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3912
+- author: honeyed-lemons
+  changes:
+  - message: Shrimp spit louder.
+    type: Fix
+  - message: Shrimp say some words kinda funny.
+    type: Add
+  - message: Shrimp shake and think things when they get too hot.
+    type: Tweak
+  id: 2521
+  time: '2026-01-02T21:22:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3823
+- author: honeyed-lemons
+  changes:
+  - message: "Adds emojis to Nanochat! \U0001F604"
+    type: Add
+  id: 2522
+  time: '2026-01-03T06:00:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3665
+- author: yesteryuri
+  changes:
+  - message: Added food coloring to the Booze-o-Mat. Use it for colored crystals and
+      Asterade!
+    type: Add
+  id: 2523
+  time: '2026-01-03T19:01:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3843
+- author: Doop, mqole, honeyed-lemons, Skeepo
+  changes:
+  - message: "Anomalocarids have been authorized to work aboard Nanotrasen stations!\
+      \ Don't be shellfish, give them a hand and welcome them aboard!! \U0001F990\U0001F990\
+      \U0001F990\U0001F364"
+    type: Add
+  id: 2524
+  time: '2026-01-04T01:26:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3914
+- author: Yesteryuri, Mqole
+  changes:
+  - message: 'New trait: Hated by dogs'
+    type: Add
+  - message: Dogs just bark at those they hate and do not stun them anymore.
+    type: Tweak
+  id: 2525
+  time: '2026-01-04T07:15:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3807
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The SGD Vocalizer can now be work in either the mask slot or the neck
+      slot!
+    type: Tweak
+  id: 2526
+  time: '2026-01-04T07:16:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3827
+- author: coyragon96
+  changes:
+  - message: Irwizine doesn't make animals sentient anymore.
+    type: Tweak
+  id: 2527
+  time: '2026-01-04T07:29:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3911

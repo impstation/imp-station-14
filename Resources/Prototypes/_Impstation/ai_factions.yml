@@ -57,6 +57,7 @@
   id: Dog
   hostile:
   - Courier
+  - DogHated #i know these seems redundant but there's a bug with faction clothing
 
 - type: npcFaction
   id: Courier
@@ -66,3 +67,6 @@
   id: DuctSpider
   hostile:
   - Mouse
+
+- type: npcFaction
+  id: DogHated
