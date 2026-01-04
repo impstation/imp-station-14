@@ -22,6 +22,20 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Shoes/Boots/winterbootscourier.rsi
 
+- type: entity
+  parent: ClothingShoesBaseWinterBoots
+  id: ClothingShoesBootsPompomboots
+  name: pompom boots
+  description: "A pair of comfortable boots with a large pompom on the foot."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Boots/pompomboots.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Boots/pompomboots.rsi
+  - type: Construction
+    graph: PompomBoots
+    node: boots
+
 # Colorable winter boots
 
 - type: entity

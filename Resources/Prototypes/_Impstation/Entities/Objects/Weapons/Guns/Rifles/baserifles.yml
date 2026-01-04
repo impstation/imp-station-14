@@ -1,0 +1,151 @@
+# A standard rifle that's reloaded with a magazine.
+- type: entity
+  name: BaseWeaponRifle
+  parent: [BaseItem, BaseGunWieldable]
+  id: BaseWeaponRifle
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,2
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Rifles/ak.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 5
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifle
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: StaticPrice
+    price: 500
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: Appearance
+
+# For rifles that hold their bullets inside and do not use magazines. Think like a shotgun how you're loading the loose shells into the gun directly.
+- type: entity
+  name: BaseWeaponInternalRifle
+  parent: [BaseItem, BaseGunWieldable]
+  id: BaseWeaponInternalRifle
+  description: A rooty tooty point and shooty.
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,3,2
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Rifles/ak.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 5
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeLightRifle
+    capacity: 8
+    proto: CartridgeLightRifle
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: StaticPrice
+    price: 500
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: Appearance

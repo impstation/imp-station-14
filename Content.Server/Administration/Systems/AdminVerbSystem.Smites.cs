@@ -66,6 +66,7 @@ public sealed partial class AdminVerbSystem
 {
     private readonly ProtoId<PolymorphPrototype> LizardSmite = "AdminLizardSmite";
     private readonly ProtoId<PolymorphPrototype> VulpkaninSmite = "AdminVulpSmite";
+    private readonly ProtoId<PolymorphPrototype> AntSmite = "AdminAntSmite"; //imp
 
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -803,6 +804,23 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", vulpName, Loc.GetString("admin-smite-vulpkanin-species-swap-description"))
         };
         args.Verbs.Add(vulp);
+
+        //imp edit start
+        var antName = Loc.GetString("admin-smite-ant-species-swap-name").ToLowerInvariant();
+        Verb ant = new()
+        {
+            Text = antName,
+            Category = VerbCategory.Smite,
+            Icon = new SpriteSpecifier.Rsi(new("_Impstation/Mobs/Species/Visitors/Ants/parts.rsi"), "full"),
+            Act = () =>
+            {
+                _polymorphSystem.PolymorphEntity(args.Target, AntSmite);
+            },
+            Impact = LogImpact.Extreme,
+            Message = string.Join(": ", antName, Loc.GetString("admin-smite-ant-species-swap-description"))
+        };
+        args.Verbs.Add(ant);
+        //imp edit end
 
         /* imp edit, moved
         var lockerName = Loc.GetString("admin-smite-locker-stuff-name").ToLowerInvariant();
