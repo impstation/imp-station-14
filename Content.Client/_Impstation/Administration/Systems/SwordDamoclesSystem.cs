@@ -12,7 +12,7 @@ public sealed class SwordDamoclesSystem : EntitySystem
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
-    [Dependency] private readonly DamageableSystem _damage = default!;
+    // [Dependency] private readonly DamageableSystem _damage = default!;
 
     public override void Initialize()
     {
@@ -48,10 +48,10 @@ public sealed class SwordDamoclesSystem : EntitySystem
         _sprite.LayerSetOffset((ent, sprite), layer, new Vector2(0.0f, adj));
         sprite.LayerSetShader(layer, "unshaded");
 
-        if (ent.Comp.TimesApplied >= 1)
-            _damage.TryChangeDamage(ent.Owner, ent.Comp.Damage, ignoreResistances: true, interruptsDoAfters: true);
+        // if (ent.Comp.TimesApplied >= 1)
+        //     _damage.TryChangeDamage(ent.Owner, ent.Comp.Damage, ignoreResistances: true, interruptsDoAfters: true);
 
-        ent.Comp.TimesApplied += 1;
+        // ent.Comp.TimesApplied += 1;
     }
 
     private enum SwordDamoclesKey
