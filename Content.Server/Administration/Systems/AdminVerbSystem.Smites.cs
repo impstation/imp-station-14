@@ -1,5 +1,4 @@
 using Content.Server.Administration.Components;
-using Content.Server._Impstation.Administration.Components; // imp
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Electrocution;
@@ -60,7 +59,6 @@ using System.Threading;
 using Content.Shared.Damage.Components;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Server.Resist; //imp
-
 
 namespace Content.Server.Administration.Systems;
 
@@ -180,23 +178,6 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", killSignName, Loc.GetString("admin-smite-kill-sign-description"))
         };
         args.Verbs.Add(killSign);
-
-        // imp changes start
-        var swordDamoclesName = Loc.GetString("admin-smite-sword-of-damocles-name").ToLowerInvariant();
-        Verb swordDamocles = new()
-        {
-            Text = swordDamoclesName,
-            Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Misc/killsign.rsi"), "icon"), //change this sprite later
-            Act = () =>
-            {
-                EnsureComp<SwordDamoclesComponent>(args.Target);
-            },
-            Impact = LogImpact.Extreme,
-            Message = string.Join(": ", swordDamoclesName, Loc.GetString("admin-smite-sword-of-damocles-description"))
-        };
-        args.Verbs.Add(swordDamocles);
-        // imp changes end
 
         // imp - moved Locker Stuff smite into its own check for CanEscapeInventoryComponent, so it can be performed on any entity that can break out
         if (HasComp<CanEscapeInventoryComponent>(args.Target))
