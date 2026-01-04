@@ -32,12 +32,14 @@
   desc: reagent-desc-charcoal
   physicalDesc: reagent-physical-desc-porous
   color: "#22282b"
+  # imp start
   metamorphicSprite:
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   boilingPoint: 4200.0
   meltingPoint: 3550.0
   metabolisms:
@@ -131,12 +133,14 @@
   allowedJobs:
   - Chemist
   color: "#E7EA91"
+  # imp start
   metamorphicSprite:
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   boilingPoint: 353.2
   meltingPoint: 278.7
   metabolisms:
@@ -232,12 +236,14 @@
   flavor: tingly
   physicalDesc: reagent-physical-desc-refreshing
   color: "#bf1365"
+  # imp start
   metamorphicSprite:
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   metabolisms:
     Medicine:
       effects:

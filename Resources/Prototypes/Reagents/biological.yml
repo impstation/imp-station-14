@@ -173,13 +173,15 @@
   physicalDesc: reagent-physical-desc-roaring
   flavor: metallic
   color: "#f4692e"
-  metamorphicSprite:
+  # imp start
+  metamorphicSprite: 
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
-  recognizable: true
+  # imp end
+  recognizable: true 
   metabolisms:
     Drink:
       effects:

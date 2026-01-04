@@ -7,12 +7,14 @@
   contrabandSeverity: Major
   flavor: bitter
   color: "#FAFAFA"
+  # imp start
   metamorphicSprite:
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   boilingPoint: 212.0  # Dexosyephedrine vape when?
   meltingPoint: 170.0
   metabolisms:
@@ -89,12 +91,14 @@
   contrabandSeverity: Minor
   flavor: bitter
   color: "#D2FFFA"
+  # imp start
   metamorphicSprite:
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
@@ -249,12 +253,14 @@
   flavor: bitter
   flavorMinimum: 0.05
   color: "#808080"
+  # imp start
   metamorphicSprite:
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   physicalDesc: reagent-physical-desc-crystalline
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -334,12 +340,14 @@
   physicalDesc: reagent-physical-desc-syrupy
   flavor: bitter
   color: "#63806e"
+  # imp start
   metamorphicSprite:
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   contrabandSeverity: Minor #imp
   metabolisms:
     Narcotic:
@@ -374,12 +382,14 @@
   physicalDesc: reagent-physical-desc-powdery
   contrabandSeverity: Tier2Contraband # imp, tiered contraband
   color: "#128e80"
+  # imp start
   metamorphicSprite:
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   boilingPoint: 444.0
   meltingPoint: 128.0
   metabolisms:
@@ -405,12 +415,14 @@
   physicalDesc: reagent-physical-desc-syrupy
   contrabandSeverity: Tier2Contraband # imp, tiered
   color: "#000000"
+  # imp start
   metamorphicSprite:
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
@@ -431,12 +443,14 @@
   contrabandSeverity: Minor
   flavor: salty
   color: "#96a8b5"
+  # imp start
   metamorphicSprite:
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:

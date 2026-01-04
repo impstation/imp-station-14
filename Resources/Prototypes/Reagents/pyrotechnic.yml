@@ -75,12 +75,14 @@
   contrabandSeverity: Major
   flavor: bitter
   color: "#D4872A"
+  # imp start
   metamorphicSprite:
     sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   metabolisms:
     Poison:
       effects:
@@ -111,12 +113,14 @@
   contrabandSeverity: Major
   flavor: bitter
   color: "#FFC8C8"
+  # imp start
   metamorphicSprite:
-    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi #evil and fucked up potion
+    sprite: _impstation/Objects/Consumable/Drinks/Metamorphic/potion_clear.rsi
     state: icon
   metamorphicMaxFillLevels: 5
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
+  # imp end
   tileReactions:
   - !type:PryTileReaction
   metabolisms:
