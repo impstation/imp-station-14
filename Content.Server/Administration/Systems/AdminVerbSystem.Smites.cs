@@ -1,5 +1,5 @@
 using Content.Server.Administration.Components;
-using Content.Shared._Impstation.Administration.Components; // imp
+using Content.Server._Impstation.Administration.Components; // imp
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Electrocution;
