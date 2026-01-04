@@ -1,3 +1,13 @@
+// SPDX-FileCopyrightText: 2024 Skubman <ba.fallaria@gmail.com>
+// SPDX-FileCopyrightText: 2024 Tadeo <td12233a@gmail.com>
+// SPDX-FileCopyrightText: 2025 Evaisa <evagiacosa1@gmail.com>
+// SPDX-FileCopyrightText: 2025 EvaisaDev <mail@evaisa.dev>
+// SPDX-FileCopyrightText: 2025 Icepick <122653407+Icepicked@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 corresp0nd <46357632+corresp0nd@users.noreply.github.com>
+// SPDX-FileCopyrightText: 2025 taydeo <td12233a@gmail.com>
+//
+// SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
 using Content.Shared.CartridgeLoader;
 using Robust.Shared.Serialization;
 
@@ -90,7 +100,10 @@ public struct NanoChatRecipient
     /// <param name="name">The recipient's display name</param>
     /// <param name="jobTitle">Optional job title for the recipient</param>
     /// <param name="hasUnread">Whether there are unread messages from this recipient</param>
-    public NanoChatRecipient(uint number, string name, string? jobTitle = null, bool hasUnread = false)
+    public NanoChatRecipient(uint number,
+        string name,
+        string? jobTitle = null,
+        bool hasUnread = false)
     {
         Number = number;
         Name = name;
