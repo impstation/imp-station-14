@@ -1,0 +1,44 @@
+- type: antag
+  id: SlasherAntag
+  antagonist: true
+  playTimeTracker: AntagSlasher
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 5h
+  guides: [ Slasher ]
+  objective: "Win"
+
+# Note: Action prototypes are declared in Resources/Prototypes/Actions. ActionDestroy exists there.
+
+- type: entity
+  id: SlasherRole
+  name: roles-antag-slasher-name
+  antagonist: true
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 3600 # 1h
+  playTimeTracker: AntagSlasher
+  setPreference: true
+  objective: roles-antag-slasher-description
+  guides: [ Slashers ]
+
+- type: startingGear
+  id: SlasherGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    head: ClothingHeadHatCowboyBountyHunter
+    mask: ClothingMaskGasSecurity
+    back: ClothingBackpackSatchel
+    eyes: ClothingEyesBountyHunterGlasses
+    outerClothing: ClothingOuterCoatBomber
+    shoes: ClothingShoesBootsMercFilled
+    gloves: ClothingHandsMercGlovesCombat
+    id: BountyHunterPDA
+    ears: ClothingHeadsetFreelance
+    belt: ClothingBeltMercWebbing
+    pocket1: BaseSeclinkRadio
+    pocket2: BountyHunterGear
+  storage:
+    back:
+    - WeaponRevolverInspector
+    - SmokeGrenade
