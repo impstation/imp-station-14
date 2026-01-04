@@ -21,7 +21,7 @@ public abstract partial class SharedSwordDamoclesComponent : Component
     {
         DamageDict = new Dictionary<string, FixedPoint2>
         {
-            {"Pierce", 30},
+            {"Pierce", 3},
         },
     };
 }
