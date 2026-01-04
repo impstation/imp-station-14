@@ -115,7 +115,8 @@
       amount: !type:RangeNumberSelector
         range: 3, 5
     - id: ResearchDisk
-    - id: DrinkGoldenCup #imp edit (Removed TreasureSampleTube)
+    - id: DrinkGoldenCup
+   # - id: TreasureSampleTube #imp edit (Removed TreasureSampleTube)
     - !type:NestedSelector
       tableId: TreasureCoinPile
       rolls: !type:RangeNumberSelector
