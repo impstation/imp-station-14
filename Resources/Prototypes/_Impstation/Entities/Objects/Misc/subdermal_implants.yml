@@ -36,14 +36,11 @@
   parent: BaseSubdermalImplant
   id: ButlerBombImplant
   name: butler bomb implant
-  description: This implant detonates the user upon activation or upon death.
+  description: This implant detonates the user upon activation.
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
     permanent: true
-  - type: TriggerOnMobstateChange
-    mobState:
-    - Dead
   - type: TriggerOnSignal
   - type: DeviceLinkSink
     ports:

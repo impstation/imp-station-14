@@ -14,7 +14,7 @@
   id: ButlerServeObjective
   description: You must serve their every whim, to Butler standards.
   components:
-  - type: PickSpecificPerson
+  - type: PickRandomPerson
   - type: TargetObjective
     title: objective-condition-butler-serve
 

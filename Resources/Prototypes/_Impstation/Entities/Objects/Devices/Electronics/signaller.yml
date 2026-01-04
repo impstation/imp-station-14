@@ -8,3 +8,9 @@
     channel: Butler
   - type: WirelessNetworkConnection
     range: 100
+  - type: GibOnTrigger
+    targetUser: false
+    deleteItems: false
+  - type: SpawnOnTrigger
+    proto: Acidifier
+    predicted: true

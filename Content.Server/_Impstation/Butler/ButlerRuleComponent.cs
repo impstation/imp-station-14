@@ -14,16 +14,4 @@ public sealed partial class ButlerRuleComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId Signaller = "RemoteSignallerButler";
-
-    /// <summary>
-    /// Entity of the butler's target player.
-    /// </summary>
-    [DataField]
-    public EntityUid? Target;
-
-    /// <summary>
-    ///     Entity of the butler player.
-    /// </summary>
-    [DataField]
-    public EntityUid? Butler;
 }

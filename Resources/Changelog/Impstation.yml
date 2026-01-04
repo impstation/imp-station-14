@@ -1,49 +1,4 @@
 ﻿Entries:
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Borgs can now be awarded medals.
-    type: Add
-  id: 2005
-  time: '2025-07-08T05:56:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3030
-- author: SixValentine
-  changes:
-  - message: Reporter on Hash real actually
-    type: Fix
-  id: 2006
-  time: '2025-07-09T08:25:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3036
-- author: Kandiyaki
-  changes:
-  - message: random gamemode weights have been tweaked to add a bit more variety.
-    type: Tweak
-  id: 2007
-  time: '2025-07-10T18:57:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2970
-- author: DinnerCalzone
-  changes:
-  - message: Bleach will now cause you to cough and deal a bit of damage if sprayed
-      on you. Be careful where you're cleaning!
-    type: Add
-  id: 2008
-  time: '2025-07-10T18:58:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3039
-- author: DVDPlayerOfDiscordFame, iaada
-  changes:
-  - message: Added the Adder, Akurra, Anaconda, Xiuhcoatl, Ouroboros, and Leviathan.
-    type: Add
-  - message: .60 Speedloaders and Echion technology.
-    type: Add
-  id: 2009
-  time: '2025-07-10T19:30:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2575
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Changed the sprites on the .22 auto magazines to make them more different
-    type: Tweak
-  id: 2010
-  time: '2025-07-10T19:34:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3050
 - author: mqole
   changes:
   - message: Jungle juice has been vanquished. FOR REAL THIS TIME.
@@ -4168,3 +4123,50 @@
   id: 2504
   time: '2025-12-28T13:03:51.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3886
+- author: Smugman
+  changes:
+  - message: Sap can now be juiced from logs. You no longer need to douse your pancakes
+      in the blood of your coworkers.
+    type: Add
+  id: 2505
+  time: '2025-12-29T02:09:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3809
+- author: ComedyIdiot
+  changes:
+  - message: Gastropoids can now glow in peace
+    type: Fix
+  id: 2506
+  time: '2025-12-30T01:39:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3895
+- author: mqole
+  changes:
+  - message: Dwarves are now 2% slower.
+    type: Tweak
+  id: 2507
+  time: '2025-12-30T22:54:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3892
+- author: TheGrimbeeper
+  changes:
+  - message: Your mind will no longer believe you can "Eat" from artifacts which are
+      chemical containers
+    type: Fix
+  - message: You can no longer press buttons so fast on the artifact analysis console
+      that it thinks its scanning up and down at the same time.
+    type: Fix
+  id: 2508
+  time: '2025-12-30T23:07:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3896
+- author: FlippenPage
+  changes:
+  - message: fixed a bad sprite offset on the Medical Assembler and Food-O-Mat
+    type: Fix
+  id: 2509
+  time: '2026-01-01T03:11:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3839
+- author: ATDoop
+  changes:
+  - message: Anomalocarids have unique organs now! Gib one today!
+    type: Add
+  id: 2510
+  time: '2026-01-01T03:49:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3851
