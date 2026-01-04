@@ -1,3 +1,4 @@
+using Content.Server._Impstation.Speech.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Speech.Components;
 using Content.Shared.EntityEffects;
@@ -24,7 +25,7 @@ public sealed partial class MakeTameEntityEffectSystem : EntityEffectSystem<Meta
         if (args.Effect.AllowSpeech)
         {
             RemComp<ReplacementAccentComponent>(entity);
-            RemComp<Speech.Components.AdvancedFullReplacementAccentComponent>(entity);
+            RemComp<AdvancedFullReplacementAccentComponent>(entity);
         }
 
         // Stops from adding a ghost role to things like people who already have a mind
