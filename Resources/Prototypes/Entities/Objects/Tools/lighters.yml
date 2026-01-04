@@ -365,9 +365,6 @@
   - type: UseDelay
   - type: IgnitionSource
     ignited: false
-  - type: Tag #imp
-    tags:
-      - WeldingTool
 
 - type: entity
   parent: [BaseBrandedLighter, Tier2Contraband] #imp contraband, tier 2 because it's a gun
