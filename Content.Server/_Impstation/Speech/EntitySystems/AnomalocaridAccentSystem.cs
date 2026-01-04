@@ -11,14 +11,18 @@ public sealed partial class AnomalocaridAccentSystem : EntitySystem
 
     private static readonly Dictionary<Regex, string> Regexes = new()
     {
-        {new ("bl"),"blbl"},
-        {new ("Bl"),"Blbl"},
-        {new ("BL"),"BLBL"},
-        {new ("gl"),"glgl"},
-        {new ("Gl"),"Glgl"},
-        {new ("GL"),"GLGL"},
-        {new ("k"),"k-k"},
-        {new ("K"),"K-K"},
+        {new ("bl"),"blblbl"},
+        {new ("Bl"),"Blblbl"},
+        {new ("BL"),"BLBLBL"},
+        {new ("gl"),"glglgl"},
+        {new ("Gl"),"Glglgl"},
+        {new ("GL"),"GLGGLL"},
+        {new ("(?<!c)k"),"k-k"},
+        {new ("(?<!C)K"),"K-K"},
+        {new ("ck"),"ck-k"},
+        {new ("CK"),"CK-K"},
+        {new ("Ck"),"Ck-k"},
+        {new ("cK"),"cK-K"},
     };
 
     public override void Initialize()
