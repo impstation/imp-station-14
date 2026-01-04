@@ -1,5 +1,5 @@
 - type: entity
-  id: WeaponProtoKineticAcceleratorBase
+  id: WeaponProtoKineticAcceleratorBaseWizden #imp - see the _Impstation directory for the version we use
   abstract: true
   parent: BaseItem
   components:
@@ -15,19 +15,15 @@
     maxAngle: -43
   - type: Wieldable
   - type: Gun
-    fireRate: 4 # imp: 0.5 -> 4, fire rate handled with recharge instead
+    fireRate: 0.5
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 44
     maxAngle: 45
     availableModes:
     - SemiAuto
-    soundGunshot: # imp edit
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/kinetic_accel_full.ogg
-    soundEmpty: # imp edit
-      path: /Audio/_Impstation/Weapons/Guns/Empty/dry_fire.ogg
-      params:
-        volume: -5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/kinetic_accel.ogg
   - type: AmmoCounter
   - type: Appearance
   - type: GenericVisualizer
@@ -38,9 +34,9 @@
           False: { visible: True }
         #todo: add other 'empty' animations
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 2 # imp: 0.75 -> 2
+    rechargeCooldown: 0.75
     rechargeSound:
-      path: /Audio/_NF/Effects/silence.ogg # imp edit. For some reason removing this part of the component makes it make a wizard sound instead of no sound???
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider
     proto: BulletKinetic
     capacity: 1

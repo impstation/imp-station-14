@@ -177,6 +177,11 @@
     action: ActionAnomalocaridSpit
     gunProto: AnomalocaridSpitGun
   - type: HeatVent
+    tooHotPopups:
+    - anomalocarid-vent-toohot1
+    - anomalocarid-vent-toohot2
+    - anomalocarid-vent-toohot3
+  - type: AnomalocaridAccent
   - type: ZombieAccentOverride
     accent: zombieAnomalocarid
   - type: Inventory
