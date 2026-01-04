@@ -7,14 +7,14 @@
   - type: Item
     size: Normal
     heldPrefix: TreatChunk bag
-    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi
     inhandVisuals:
         left:
         - state: treatchunk-bag-inhand-left
         right:
         - state: treatchunk-bag-inhand-right    
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi
     state: treatchunk-bag
   - type: SpawnItemsOnUse
     items:
@@ -29,7 +29,7 @@
   description: A bag of individually wrapped cherry-flavored hard candies, for the traitor who needs a little treat.
   components:
   - type: Item
-    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi
     size: Normal
     heldPrefix: TreatChunk bag
     inhandVisuals:
@@ -38,7 +38,7 @@
         right:
         - state: treatchunk-bag-inhand-right    
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi
     state: treatchunk-bag-open
   - type: Storage
     grid:
@@ -59,7 +59,7 @@
   description: An unreasonably large bag of individually wrapped cherry-flavored hard candies, for the traitor who needs a lot of little treats.
   components:
   - type: Item
-    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/large_treatchunk_bag.rsi
     size: Large
     heldPrefix: Party Sized TreatChunk bag
     inhandVisuals:
@@ -68,7 +68,7 @@
         right:
         - state: treatchunk-large-bag-inhand-right    
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/large_treatchunk_bag.rsi
     scale: 0.80, 0.80
     state: large-treatchunk-bag
   - type: SpawnItemsOnUse
@@ -85,7 +85,7 @@
   description: An unreasonably large bag of individually wrapped cherry-flavored hard candies, for the traitor who needs a lot of little treats.
   components:
   - type: Item
-    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/large_treatchunk_bag.rsi
     inhandVisuals:
         left:
         - state: treatchunk-large-bag-inhand-left
@@ -96,7 +96,7 @@
     - 0,0,2,2
     heldPrefix: Party Sized TreatChunk bag
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    sprite: _Impstation/Objects/Consumable/Food/Candy/large_treatchunk_bag.rsi
     scale: 0.80, 0.80
     state: large-treatchunk-bag-open
   - type: Storage
