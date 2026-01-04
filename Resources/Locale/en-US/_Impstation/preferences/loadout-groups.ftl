@@ -79,6 +79,11 @@ loadout-group-musician-gloves = Musician gloves
 loadout-group-musician-shoes = Musician shoes
 loadout-group-musician-head = Musician head
 
+loadout-group-zookeeper-outerclothing = Zookeeper outer clothing
+loadout-group-zookeeper-gloves = Zookeeper gloves
+loadout-group-zookeeper-shoes = Zookeeper shoes
+loadout-group-animalcubes = Animal cubes
+
 loadout-group-reporter-mask = Reporter mask
 loadout-group-reporter-neck = Reporter neck
 loadout-group-reporter-shoes = Reporter shoes

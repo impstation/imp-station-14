@@ -1,0 +1,97 @@
+# cube timers
+- type: loadoutEffectGroup
+  id: MoproachCubeTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobJanitor
+      time: 5h
+
+- type: loadoutEffectGroup
+  id: PenguinCubeTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobZookeeper
+      time: 2h
+
+# animal cubes for zookeeper
+- type: loadout
+  id: ChickenCube
+  storage:
+    back:
+    - ChickenCube
+
+- type: loadout
+  id: CowCube
+  storage:
+    back:
+    - CowCube
+
+- type: loadout
+  id: CrabCube
+  storage:
+    back:
+    - CrabCube
+  
+- type: loadout
+  id: DuckCube
+  storage:
+    back:
+    - DuckCube
+
+- type: loadout
+  id: GoatCube
+  storage:
+    back:
+    - GoatCube
+
+- type: loadout
+  id: KoboldCube
+  storage:
+    back:
+    - KoboldCube
+
+- type: loadout
+  id: LizardCube
+  storage:
+    back:
+    - LizardCube
+
+- type: loadout
+  id: MonkeyCube
+  storage:
+    back:
+    - MonkeyCube
+
+- type: loadout
+  id: MoproachCube
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MoproachCubeTimer
+  storage:
+    back:
+    - MoproachCube
+
+- type: loadout
+  id: MothroachCube
+  storage:
+    back:
+    - MothroachCube
+
+- type: loadout
+  id: PenguinCube
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: PenguinCubeTimer
+  storage:
+    back:
+    - PenguinCube
+
+- type: loadout
+  id: PigCube
+  storage:
+    back:
+    - PigCube

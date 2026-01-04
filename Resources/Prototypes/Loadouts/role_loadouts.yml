@@ -696,11 +696,15 @@
 - type: roleLoadout
   id: JobZookeeper
   groups:
+  - ZookeeperOuterClothing # imp
+  - ZookeeperGloves # imp
+  - ZookeeperShoes # imp
   - Glasses
   - CommonBackpack # imp reorder
   - Survival
   - Trinkets
   - ZookeeperJobTrinkets
+  - AnimalCubes # imp
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarness # imp reorder

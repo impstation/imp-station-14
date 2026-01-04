@@ -692,6 +692,49 @@
   - MusicianSingerGloves
 
 - type: loadoutGroup
+  id: ZookeeperOuterClothing
+  name: loadout-group-zookeeper-outerclothing
+  minLimit: 0
+  loadouts:
+  - LightBrownWinterCoat
+
+- type: loadoutGroup
+  id: ZookeeperShoes
+  name: loadout-group-zookeeper-shoes
+  loadouts:
+  - WhiteShoes
+  - BrownCowboyBoots
+  - BlackCowboyBoots
+  - LightBrownWinterBoots
+
+- type: loadoutGroup
+  id: ZookeeperGloves
+  name: loadout-group-zookeeper-gloves
+  minLimit: 0
+  loadouts:
+  - BrownGloves
+  - LightBrownGloves
+
+- type: loadoutGroup
+  id: AnimalCubes
+  name: loadout-group-animalcubes
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - ChickenCube
+  - CowCube
+  - CrabCube
+  - DuckCube
+  - GoatCube
+  - KoboldCube
+  - LizardCube
+  - MonkeyCube
+  - MoproachCube
+  - MothroachCube
+  - PenguinCube
+  - PigCube
+
+- type: loadoutGroup
   id: ReporterNeck
   name: loadout-group-reporter-neck
   minLimit: 0
