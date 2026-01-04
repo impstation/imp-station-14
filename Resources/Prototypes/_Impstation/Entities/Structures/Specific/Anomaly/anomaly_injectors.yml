@@ -15,8 +15,8 @@
       - type: Anomaly
         deleteEntity: false
         maxPointsPerSecond: 200
-        corePrototype: AnomalyCoreShadow
-        coreInertPrototype: AnomalyCoreShadowInert
+        corePrototype: AnomalyCoreCurse
+        coreInertPrototype: AnomalyCoreCurseInert
         supercriticalSoundAtAnimationStart:
           collection: AnomalyCurseSupercritical
       - type: InnerBodyAnomaly

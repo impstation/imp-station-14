@@ -53,7 +53,7 @@
     soundGunshot:
       path: /Audio/Magic/fireball.ogg
   - type: BasicEntityAmmoProvider
-    proto: ProjectileAnomalyFireball # imp edit
+    proto: ProjectileFireball
     capacity: 5
     count: 5
 
