@@ -193,7 +193,20 @@
   parent: Flash
   suffix: 2 charges
   id: SciFlash
+  description: An ultrabright flashbulb with a mechanical trigger. Primarily used as the optics of silicon chassis, but in a pinch can daze anyone without proper eye protection. # imp
   components:
+    - type: Sprite # imp edit start, unique sprite from base flash
+      sprite: _Impstation/Objects/Weapons/Melee/sciflash.rsi 
+      layers:
+      - state: flash
+        map: [ "enum.FlashVisualLayers.BaseLayer" ]
+      - state: flashing
+        map: [ "enum.FlashVisualLayers.LightLayer" ]
+        visible: false
+        shader: unshaded
+    - type: Item
+      size: Small
+      sprite: _Impstation/Objects/Weapons/Melee/sciflash.rsi # end imp edit
     - type: LimitedCharges
       maxCharges: 2
 

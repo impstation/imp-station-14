@@ -87,12 +87,12 @@
       generated:
         reagents:
         - ReagentId: Water
-          Quantity: 5
+          Quantity: 10 # imp, from 5
     - type: SolutionPurge
       solution: absorbed
       preserve:
       - Water
-      quantity: 10
+      quantity: 15 # imp, from 10
     - type: Tag
       tags:
         - DroneUsable #imp edit, no bucket because it holds chems, they can drag the cart or use a drain
