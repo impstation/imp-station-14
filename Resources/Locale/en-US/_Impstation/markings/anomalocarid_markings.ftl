@@ -44,6 +44,15 @@ marking-AnomalocaridAntennae10 = Wiggly Antennae
 marking-AnomalocaridAntennae10-antennae10 = Antennae
 marking-AnomalocaridAntennae11 = Hirudinean Antennae
 marking-AnomalocaridAntennae11-antennae11 = Antennae
+marking-AnomalocaridAntennae12 = Tiny Antennae
+marking-AnomalocaridAntennae12-antennae12 = Antennae
+marking-AnomalocaridAntennae13 = Receiver Antennae
+marking-AnomalocaridAntennae13-antennae13 = Antennae
+marking-AnomalocaridAntennae14 = Injured Antennae
+marking-AnomalocaridAntennae14-antennae14 = Antennae
+marking-AnomalocaridAntennae15 = Slicked Antennae
+marking-AnomalocaridAntennae15-antennae15_primary = Slicked Antennae Primary
+marking-AnomalocaridAntennae15-antennae15_secondary = Slicked Antennae Secondary
 
 marking-AnomalocaridArmStripesThinRight = Thin Arm Stripes (Right)
 marking-AnomalocaridArmStripesThinRight-armstripes_thin_right_primary = Stripes Primary

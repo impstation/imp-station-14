@@ -209,22 +209,6 @@
     state: eyelashes
 
 
-- type: marking
-  id: AnomalocaridEyeAngryBrows
-  bodyPart: Snout
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
-  forcedColoring: false
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
-    state: angryeyebrows
-
-
 # Snout
 
 # Eyes
@@ -930,6 +914,99 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
     state: antennae11
+
+- type: marking
+  id: AnomalocaridEyeAngryBrows
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: angryeyebrows
+
+- type: marking
+  id: AnomalocaridAntennae12
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
+    state: antennae12
+
+- type: marking
+  id: AnomalocaridAntennae12
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
+    state: antennae12
+
+- type: marking
+  id: AnomalocaridAntennae13
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#e6ecf1"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
+    state: antennae13
+
+- type: marking
+  id: AnomalocaridAntennae14
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
+    state: antennae14
+
+- type: marking
+  id: AnomalocaridAntennae15
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
+    state: antennae15_primary
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
+    state: antennae15_secondary
 
 #Tail
 
