@@ -31,12 +31,17 @@
     - JetpackBlackFilled
   storage:
     back: # belt holds katana so satchel has the tools for sabotaging things
-    - Crowbar
-    - Wrench
-    - Screwdriver
-    - Wirecutter
-    - Welder
-    - Multitool
+    #- Crowbar #imp, replaced toolset minus welder with omnitool
+    #- Wrench
+    #- Screwdriver
+    #- Wirecutter
+    #- Welder
+    #- Multitool
+    - Omnitool
+    - SmokeGrenade
+    - SmokeGrenade
+    - SmokeGrenade
+    - SmokeGrenade
 
 - type: chameleonOutfit
   id: NinjaChameleonOutfit
