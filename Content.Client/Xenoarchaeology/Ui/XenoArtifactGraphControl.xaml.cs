@@ -233,9 +233,13 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
 
         var xPos = NodeDiameter * index + (xSpacing * index) + layerXOffset;
 
-        //IMP: natural artifact trees should be top-down, move to top (y=0) by ignoring the bottomLeft offset.
+        //IMP: natural artifact trees should be top-down, move to top (y=0).
         //IMP: without imp, this would be "return bottomLeft + new Vector2(xPos, yPos);"
-        return new Vector2(xPos + bottomLeft.X, natural ? NodeRadius + yPos : bottomLeft.Y + yPos);
+        var result = bottomLeft + new Vector2(xPos, yPos);
+        if (natural)
+            result += new Vector2(0, controlHeight - (2 * bottomLeft.Y) + NodeRadius);
+
+        return result;
     }
 
     private float GetBiggestWidth(List<Entity<XenoArtifactNodeComponent>> nodes)
