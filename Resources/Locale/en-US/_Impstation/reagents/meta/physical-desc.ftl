@@ -23,3 +23,4 @@ reagent-physical-desc-thin = thin
 reagent-physical-desc-ghostly = ghostly
 reagent-physical-desc-something = kind of
 reagent-physical-desc-eunuch = painful
+reagent-physical-desc-ants = anty

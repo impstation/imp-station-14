@@ -61,6 +61,9 @@
   id: CartridgeLPistol
 
 - type: Tag
+  id: CartridgeMinigun
+
+- type: Tag
   id: CartridgePistolStun
 
 - type: Tag
@@ -118,7 +121,7 @@
   id: Crusher
 
 - type: Tag
-  id: Crystal
+  id: Crystal # BountyCrystal
 
 - type: Tag
   id: Dart
@@ -188,6 +191,9 @@
 
 - type: Tag
   id: HolyArrowEvil
+
+- type: Tag
+  id: Hotdog # Food sequence key
 
 - type: Tag
   id: HudAdmin
@@ -428,3 +434,4 @@
 
 - type: Tag
   id: WeldingTool
+
