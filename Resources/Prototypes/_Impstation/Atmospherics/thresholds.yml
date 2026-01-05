@@ -18,3 +18,10 @@
     threshold: 0.964 # warn at 299.74K/~26.7C/~80F
   lowerWarnAround: !type:AlarmThresholdSetting
     threshold: 1.036 # warn at 282.98K/~10C/~50F can you tell these were defined by an american yet?
+
+- type: alarmThreshold # copied from stationplasma
+  id: stationSmog
+  upperBound: !type:AlarmThresholdSetting
+    threshold: 0.005
+  upperWarnAround: !type:AlarmThresholdSetting
+    threshold: 0.5
