@@ -703,3 +703,19 @@
   - type: Icon
     sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/eunuch.rsi
     state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkSchemingEunuchGlass
+  suffix: Scheming Eunuch
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: SchemingEunuch
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/eunuch.rsi
+    state: icon
