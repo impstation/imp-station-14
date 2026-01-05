@@ -1,0 +1,7 @@
+- type: gasReaction
+  id: SmogReaction
+  priority: 0
+  minimumRequirements:
+    Smog: 1
+  effects:
+  - !type:SmogReaction {}

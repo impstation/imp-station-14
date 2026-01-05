@@ -338,4 +338,18 @@ public sealed partial class AtmosphereSystem
         _map.TryGetTileRef(tile.GridIndex, grid, tile.GridIndices, out var tileRef);
         return tileRef;
     }
+    // imp edit
+    public EntityCoordinates GetTilePosition(TileAtmosphere tile)
+    {
+        if (!TryComp(tile.GridIndex, out MapGridComponent? grid))
+            return default;
+        var tileCoords = _map.GridTileToLocal(tile.GridIndex, grid,tile.GridIndices);
+        return tileCoords;
+    }
+
+    public void TrySpawnAtTile(string? protoName, TileAtmosphere tile)
+    {
+        var position = GetTilePosition(tile);
+        SpawnAtPosition(protoName, position);
+    }
 }
