@@ -58,12 +58,8 @@ public sealed partial class RestOperator : HTNOperator, IHtnConditionalShutdown
         base.Update(blackboard, frameTime);
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
-        if (!_entManager.TryGetComponent<AnimalNPCComponent>(owner, out var animalComp))
-        {
-            return HTNOperatorStatus.Failed;
-        }
-
-        if (animalComp.CurrentMood != AnimalMood.Resting)
+        if (!_entManager.TryGetComponent<AnimalNPCComponent>(owner, out var animalComp)
+            || animalComp.CurrentMood != AnimalMood.Resting)
         {
             return HTNOperatorStatus.Failed;
         }
