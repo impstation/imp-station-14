@@ -35,6 +35,7 @@ flavor-base-whimsy = whimsical
 flavor-complex-secticket = like rotten eggs
 flavor-complex-outofthisworld = out of this world
 flavor-complex-imp = like green marijuana
+flavor-complex-treatchunk = like treason and cherry
 
 flavor-complex-medium = like your vision expanded
 
