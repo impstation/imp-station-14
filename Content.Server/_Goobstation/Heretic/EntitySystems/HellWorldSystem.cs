@@ -25,6 +25,10 @@ using Content.Server.Cloning;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Cloning;
 using Robust.Shared.Prototypes;
+using Content.Shared._Impstation.Heretic.Components;
+using Content.Shared.Heretic;
+using Content.Shared.Body.Systems;
+using Robust.Server.GameObjects;
 
 //this is kind of badly named since we're doing infinite archives stuff now but i dont feel like changing it :)
 
@@ -45,6 +49,8 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly SharedTransformSystem _xform = default!;
         [Dependency] private readonly CloningSystem _cloning = default!;
+        [Dependency] private readonly SharedBodySystem _body = default!;
+        [Dependency] private readonly TransformSystem _transform = default!;
 
         private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml");
         private readonly ProtoId<CloningSettingsPrototype> _cloneSettings = "HellClone";
@@ -54,6 +60,9 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             base.Initialize();
 
             SubscribeLocalEvent<HellVictimComponent, ExaminedEvent>(OnExamine);
+            SubscribeLocalEvent<InHellComponent, HereticBeforeHellEvent>(BeforeSend);
+            SubscribeLocalEvent<InHellComponent, HereticSendToHellEvent>(OnSend);
+            SubscribeLocalEvent<InHellComponent, HereticReturnFromHellEvent>(OnReturn);
         }
 
         /// <summary>
@@ -70,74 +79,61 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             base.Update(frameTime);
 
             //hell world return
-            var returnQuery = EntityQueryEnumerator<HellVictimComponent>();
-            while (returnQuery.MoveNext(out var uid, out var victimComp))
+            var returnQuery = EntityQueryEnumerator<InHellComponent>();
+            while (returnQuery.MoveNext(out var uid, out var hellComp))
             {
-                //if they've been in hell long enough, return and revive them
-                if (_timing.CurTime >= victimComp.ExitHellTime && !victimComp.CleanupDone)
+                if(_timing.CurTime >= hellComp.ExitHellTime)
                 {
-                    //make sure they won't get into this loop again
-                    victimComp.CleanupDone = true;
-                    if (victimComp.Mind != null) //if they ghosted before the gib, no need to return the hell mind to the body
-                    {
-                        //put them back in the original body
-                        _mind.TransferTo(victimComp.Mind.Value, victimComp.OriginalBody);
-                        //let them ghost again
-                        var mindComp = Comp<MindComponent>(victimComp.Mind.Value);
-                        mindComp.PreventGhosting = false;
-                        //tell them about the metashield
-                        if (_playerManager.TryGetSessionById(mindComp.UserId, out var session))
-                            _euiMan.OpenEui(new HellMemoryEui(), session);
-                    }
-                    //give the original body some visual changes
-                    TransformVictim(uid);
-                    //and then revive the old body
-                    _rejuvenate.PerformRejuvenate(uid);
+                    RaiseLocalEvent(uid, new HereticReturnFromHellEvent());
                 }
             }
         }
 
-        public void AddVictimComponent(EntityUid victim)
+        //set up all the info that's needed for the hell trip 
+        private void BeforeSend(Entity<InHellComponent> uid, ref HereticBeforeHellEvent args)
         {
-            EnsureComp<HellVictimComponent>(victim, out var victimComp);
-            victimComp.OriginalBody = victim;
-            victimComp.ExitHellTime = _timing.CurTime + victimComp.HellDuration;
-            victimComp.OriginalPosition = Transform(victim).Coordinates;
+            //spawn a clone of the victim
+            _cloning.TryCloning(uid, _transform.GetMapCoordinates(uid), uid.Comp.CloneSettings, out var clone);
+
+            //gib clone to get matching organs.
+            if (clone != null)
+                _body.GibBody(clone.Value, true);
+
+            //teleport the body to a midround antag spawn spot so it's not just tossed into space
+            TeleportToHereticSpawnPoint(uid);
+            uid.Comp.OriginalBody = uid;
+            uid.Comp.ExitHellTime = _timing.CurTime + uid.Comp.HellDuration;
+            uid.Comp.OriginalPosition = Transform(uid).Coordinates;
             //make sure the victim has a mind
-            if (!TryComp<MindContainerComponent>(victim, out var mindContainer) || !mindContainer.HasMind)
+            if (!TryComp<MindContainerComponent>(uid, out var mindContainer) || !mindContainer.HasMind)
             {
                 return;
             }
-            victimComp.HasMind = true;
-            victimComp.Mind = mindContainer.Mind.Value;
+            uid.Comp.HasMind = true;
+            uid.Comp.Mind = mindContainer.Mind.Value;
         }
 
-        //AddVictimComponent MUST BE RUN BEFORE CALLING THIS!!
-        public void SendToHell(EntityUid target, RitualData args)
+        private void OnSend(Entity<InHellComponent> uid, ref HereticSendToHellEvent args)
         {
-            //get the hell victim component
-            if (!args.EntityManager.TryGetComponent<HellVictimComponent>(target, out var victimComp))
-                return;
-            //if already sent, don't send again
-            if (victimComp.AlreadyHelled)
-                return;
+            var inHell = EnsureComp<InHellComponent>(uid);
 
             //get all possible spawn points, choose one, then get the place
             var spawnPoints = EntityManager.GetAllComponents(typeof(HellSpawnPointComponent)).ToImmutableList();
             var newSpawn = _random.Pick(spawnPoints);
 
-            //spawn your hellsona
-            if (!victimComp.HasMind || victimComp.Mind == null) //just in case the
+            //if there is no mind (e.g. salvage corpse), don't bother with juggling all this crap
+            if (!inHell.HasMind || inHell.Mind == null)
             {
-                victimComp.AlreadyHelled = true;
+                SacrificeCleanup(uid);
                 return;
             }
 
-            var mindComp = Comp<MindComponent>(victimComp.Mind.Value);
+            //get mind, keep it from escaping my cutscene
+            var mindComp = Comp<MindComponent>(inHell.Mind.Value);
             mindComp.PreventGhosting = true;
 
-            //make clown of entity to return the freak to
-            _cloning.TryCloning(target, _xform.GetMapCoordinates(newSpawn.Uid) , _cloneSettings, out var clone);
+            //make clone 
+            _cloning.TryCloning(uid, _xform.GetMapCoordinates(newSpawn.Uid), _cloneSettings, out var clone); //RIP SacrifialWhiteBoy variable name
 
             if (TryComp<BlindableComponent>(clone, out _))
             {
@@ -146,13 +142,47 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             }
 
             //and then send the mind into the hellsona
-            _mind.TransferTo(victimComp.Mind.Value, clone);
-            victimComp.AlreadyHelled = true;
+            _mind.TransferTo(inHell.Mind.Value, clone);
 
-            //returning the mind to the original body happens in Update()
+            //add the victim & resacrifice comp to the original body
+            SacrificeCleanup(uid);
+        }
+        private void OnReturn(Entity<InHellComponent> uid, ref HereticReturnFromHellEvent args)
+        {
+            if (!TryComp<InHellComponent>(uid, out var inHell))
+            {
+                return;
+            }
+            if (!inHell.HasMind || inHell.Mind == null)
+            {
+                return;
+            }
+
+            //put them back in the original body
+            _mind.TransferTo(inHell.Mind.Value, inHell.OriginalBody);
+
+            //let them ghost again
+            var mindComp = Comp<MindComponent>(inHell.Mind.Value);
+            mindComp.PreventGhosting = false;
+
+            //tell them about the metashield
+            if (_playerManager.TryGetSessionById(mindComp.UserId, out var session))
+                _euiMan.OpenEui(new HellMemoryEui(), session);
+
+            //cleanup so they don't get in here again
+            RemComp<InHellComponent>(uid);
         }
 
-        public void TeleportRandomly(RitualData args, EntityUid uid)
+        //add NoSacrificeComp so they can't be sac'd again
+        private void SacrificeCleanup(EntityUid uid)
+        {
+            EnsureComp<NoSacrificeComponent>(uid);
+            EnsureComp<HellVictimComponent>(uid);
+            TransformVictim(uid);
+            _rejuvenate.PerformRejuvenate(uid);
+        }
+
+        public void TeleportToHereticSpawnPoint(EntityUid uid)
         {
             //get all possible spawn points, choose one, then get the place
             var spawnPoints = EntityManager.GetAllComponents(typeof(MidRoundAntagSpawnLocationComponent)).ToImmutableList();
