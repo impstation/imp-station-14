@@ -36,10 +36,6 @@
     - Trash
     - PetWearable # imp
     - KodeEdible # imp
-  - type: Food
-  - type: FlavorProfile
-    flavors:
-      - cigarettes
   - type: SolutionContainerManager
     solutions:
       smokable:
@@ -47,14 +43,20 @@
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
-      food:
+      food: #imp edit TODO: this should probably only have one solution container?
         maxVol: 20
         reagents:
           - ReagentId: Nicotine
             Quantity: 10
+  # imp edit start
+  - type: Edible
+  - type: FlavorProfile
+    flavors:
+    - cigarettes
   - type: FoodSequenceElement
     entries:
       Burger: CigarBurger
+  # imp edit end
 
 - type: entity
   parent: BaseSmokable

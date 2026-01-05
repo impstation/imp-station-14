@@ -20,7 +20,7 @@
   - type: Body
     prototype: Thaven
     requiredLegs: 2
-  - type: NoContractionsAccent
+  - type: ThavenAccent
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Thaven
@@ -51,7 +51,7 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        density: 120
+        density: 120 # dainty fucking elves
         restitution: 0.0
         mask:
         - MobMask
@@ -97,6 +97,11 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: hands
+  - type: HomunculusType
+    homunculusType: HomunculusThaven
+    recipe:
+      SynthFlesh: 20
+      Saline: 20
 
 - type: entity
   parent: BaseSpeciesDummy
