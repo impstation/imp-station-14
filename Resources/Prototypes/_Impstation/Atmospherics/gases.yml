@@ -1,0 +1,11 @@
+- type: gas
+  id: 9 # it has to be 9.
+  name: gases-smog
+  specificHeat: 45
+  heatCapacityRatio: 1.45
+  molarMass: 60 # mix of gasses so relatively high
+  gasOverlaySprite: /Textures/_Impstation/Effects/atmospherics.rsi # imp
+  gasOverlayState: water_vapor
+  color: 999999
+  reagent: Smog
+  pricePerMole: 0

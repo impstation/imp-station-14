@@ -1,0 +1,1 @@
+gas-smog-abbreviation = SM

@@ -1,0 +1,32 @@
+- type: reagent
+  id: Smog
+  name: reagent-name-nitrous-oxide
+  desc: reagent-desc-nitrous-oxide
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#5d88c9"
+  boilingPoint: -88
+  meltingPoint: -90
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1.5
+            Cellular: 0.05
+    Gas:
+      effects:
+      - !type:HealthChange
+        minScale: 1
+        scaling: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison: 1
+            Cellular: 0.05
+      - !type:Emote
+        minScale: 1
+        emote: Cough
+        showInChat: true
+        probability: 0.25
