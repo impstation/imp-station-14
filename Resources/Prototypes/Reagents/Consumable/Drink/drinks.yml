@@ -465,7 +465,7 @@
         scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Decapoid, Thaven ] # thaven can breathe all gases safely
+          type: [ Decapoid, Thaven, Anomalocarid ] # thaven can breathe all gases safely
       - !type:ModifyLungGas
         conditions:
         - !type:MetabolizerTypeCondition
