@@ -12,9 +12,12 @@ marking-AnomalocaridGrabbersStriped = Striped Grabbers
 marking-AnomalocaridGrabbersStriped-grabbers6_primary = Grabbers Primary
 marking-AnomalocaridGrabbersStriped-grabbers6_secondary = Grabbers Secondary
 marking-AnomalocaridGrabbersTiny = Tiny Grabbers
+marking-AnomalocaridGrabbersTiny-grabbers7 = Grabbers
 
 marking-AnomalocaridHeadSeaweed = Seawig
 marking-AnomalocaridHeadSeaweed-seaweedhair = Seaweed
+marking-AnomalocaridHeadHorseshoe = Horseshoe Shell
+marking-AnomalocaridHeadHorseshoe-horseshoecrab = Shell
 
 marking-AnomalocaridAntennae1 = Fan Antennae
 marking-AnomalocaridAntennae1-antennae1 = Antennae
@@ -51,8 +54,15 @@ marking-AnomalocaridAntennae13-antennae13 = Antennae
 marking-AnomalocaridAntennae14 = Injured Antennae
 marking-AnomalocaridAntennae14-antennae14 = Antennae
 marking-AnomalocaridAntennae15 = Slicked Antennae
-marking-AnomalocaridAntennae15-antennae15_primary = Slicked Antennae Primary
-marking-AnomalocaridAntennae15-antennae15_secondary = Slicked Antennae Secondary
+marking-AnomalocaridAntennae15-antennae15_primary = Antennae Primary
+marking-AnomalocaridAntennae15-antennae15_secondary = Antennae Secondary
+marking-AnomalocaridAntennae16 = Ladder Antennae
+marking-AnomalocaridAntennae16-antennae16 = Antennae
+marking-AnomalocaridAntennae16Arc = Ladder Antennae Arcing Electricity
+marking-AnomalocaridAntennae16Arc-antennae16_arc = Arc
+marking-AnomalocaridAntennae17 = Robust Antennae
+marking-AnomalocaridAntennae17-antennae17_primary = Antennae Primary
+marking-AnomalocaridAntennae17-antennae17_secondary = Antennae Secondary
 
 marking-AnomalocaridArmStripesThinRight = Thin Arm Stripes (Right)
 marking-AnomalocaridArmStripesThinRight-armstripes_thin_right_primary = Stripes Primary
@@ -126,6 +136,10 @@ marking-AnomalocaridWingsGlass-wings3_glass4 = Glass
 marking-AnomalocaridWingsFan = Fanned Wings
 marking-AnomalocaridWingsFan-wings4_primary_front = Wings Primary
 marking-AnomalocaridWingsFan-wings4_secondary_front = Wings Secondary
+marking-AnomalocaridWingsHallucigeniaTentacles = Hallucigenia Limbs
+marking-AnomalocaridWingsHallucigeniaTentacles-tentacles_primary_front = Limbs Primary
+marking-AnomalocaridWingsHallucigeniaTentacles-tentacles_secondary_front = Limbs Secondary
+marking-AnomalocaridWingsHallucigeniaTentacles-tentacles_tertiary_front = Limbs Tertiary
 
 marking-AnomalocaridTailDefault = Tail
 marking-AnomalocaridTailDefault-tail1 = Tail

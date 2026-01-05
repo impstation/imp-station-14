@@ -208,6 +208,20 @@
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: eyelashes
 
+- type: marking
+  id: AnomalocaridHeadHorseshoe
+  bodyPart: LFoot
+  markingCategory: Head
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SkinColoring
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: horseshoecrab
 
 # Snout
 
@@ -875,6 +889,7 @@
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [ Anomalocarid ]
+  randomWeight: 0.1
   followSkinColor: false
   forcedColoring: false
   coloring:
@@ -1008,6 +1023,55 @@
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
     state: antennae15_secondary
 
+- type: marking
+  id: AnomalocaridAntennae16
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
+    state: antennae16
+  
+- type: marking
+  id: AnomalocaridAntennae16Arc
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Anomalocarid ]
+  randomWeight: 0
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
+    state: antennae16_arc
+  shader: unshaded
+
+- type: marking
+  id: AnomalocaridAntennae17
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
+    state: antennae17_primary
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
+    state: antennae17_secondary
+
 #Tail
 
 - type: marking
@@ -1119,6 +1183,42 @@
     state: wings4_secondary_behind
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/tail.rsi
     state: wings4_secondary_front
+
+- type: marking
+  id: AnomalocaridWingsHallucigeniaTentacles
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  layering:
+    tentacles_primary_behind: TailBehind
+    tentacles_primary_front: TailOversuit
+    tentacles_secondary_behind: TailBehind
+    tentacles_secondary_front: TailOversuit
+    tentacles_tertiary_behind: TailBehind
+    tentacles_tertiary_front: TailOversuit
+  colorLinks:
+    tentacles_primary_behind: tentacles_primary_front
+    tentacles_secondary_behind: tentacles_secondary_front
+    tentacles_tertiary_behind: tentacles_tertiary_front
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/tail.rsi
+    state: tentacles_primary_front
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/tail.rsi
+    state: tentacles_primary_behind
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/tail.rsi
+    state: tentacles_secondary_behind
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/tail.rsi
+    state: tentacles_secondary_front
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/tail.rsi
+    state: tentacles_tertiary_behind
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/tail.rsi
+    state: tentacles_tertiary_front
 
 #- type: marking
 #  id: AnomalocaridTailDefault
