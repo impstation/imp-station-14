@@ -1060,7 +1060,7 @@
           - "eunuch-effect-balls-hurt"
           - "eunuch-effect-balls-vice"
           - "generic-reagent-effect-tearing-up"
-          probability: 0.2
+          probability: 0.5
     Medicine:
       effects:
       - !type:HealthChange
@@ -1088,7 +1088,7 @@
           - "eunuch-effect-balls-vice"
           - "generic-reagent-effect-tearing-up"
           - "generic-reagent-effect-burning-insides"
-          probability: 0.4
+          probability: 0.75
     Medicine:
       effects:
       - !type:HealthChange
