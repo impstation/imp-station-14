@@ -39,7 +39,7 @@ public sealed partial class HellVictimComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan HellDuration = TimeSpan.FromSeconds(15);
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "SacrificedFaction";
 
 }

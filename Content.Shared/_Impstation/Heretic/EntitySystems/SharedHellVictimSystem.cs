@@ -1,7 +1,4 @@
-using Content.Shared.Heretic;
-
-
-namespace Content.Shared.Heretic.EntitySystems;
+namespace Content.Shared._Impstation.Heretic.EntitySystems;
 
 public abstract class SharedHellVictimSystem : EntitySystem
 {

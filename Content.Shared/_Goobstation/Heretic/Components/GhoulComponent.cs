@@ -13,6 +13,6 @@ public sealed partial class GhoulComponent : Component
     /// </summary>
     [DataField] public FixedPoint2 TotalHealth = 50;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "GhouledFaction";
 }

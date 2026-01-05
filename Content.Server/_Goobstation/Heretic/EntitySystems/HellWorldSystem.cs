@@ -1,30 +1,28 @@
 using Content.Server._Goobstation.Heretic.Components;
 using Content.Server._Goobstation.Heretic.UI;
-using Content.Server.Administration.Systems;
+using Content.Server.Cloning;
 using Content.Server.EUI;
-using Content.Shared.Heretic.Components;
 using Content.Server.Humanoid;
 using Content.Server.StationEvents;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Bed.Cryostorage;
+using Content.Shared.Cloning;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Collections.Immutable;
-using Content.Server.Cloning;
-using Content.Shared.Administration.Systems;
-using Content.Shared.Cloning;
-using Robust.Shared.Prototypes;
 
 //this is kind of badly named since we're doing infinite archives stuff now but i dont feel like changing it :)
 

@@ -4,7 +4,7 @@ using Content.Shared.StatusIcon.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.Heretic;
+namespace Content.Client._Goobstation.Heretic.EntitySystems;
 
 public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
 {
