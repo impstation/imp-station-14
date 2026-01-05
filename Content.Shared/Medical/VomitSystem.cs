@@ -75,7 +75,7 @@ public sealed class VomitSystem : EntitySystem
     /// <summary>
     /// Make an entity vomit, if they have a stomach.
     /// </summary>
-    public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f, bool force = false)
+    public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f, bool force = false, ProtoId<ReagentPrototype>? overridePrototype = null) // imp edit, parameter to override the vomit prototype
     {
         // Vomit only if entity is alive
         // Ignore condition if force was set to true
@@ -97,6 +97,11 @@ public sealed class VomitSystem : EntitySystem
 
         SoundSpecifier vomitSound = new SoundCollectionSpecifier(comp.VomitCollection,
                 AudioParams.Default.WithVariation(0.2f).WithVolume(-4f));
+
+        var vomitPrototype = comp.VomitPrototype;
+
+        if (overridePrototype != null)
+            vomitPrototype = overridePrototype.Value;
         // imp edit end
 
         // Vomiting makes you hungrier and thirstier
@@ -128,7 +133,7 @@ public sealed class VomitSystem : EntitySystem
             }
 
             // Makes a vomit solution the size of 90% of the chemicals removed from the chemstream
-            solution.AddReagent(new ReagentId(comp.VomitPrototype, _bloodstream.GetEntityBloodData(uid)), vomitAmount); // imp edit, use vomiter component variable
+            solution.AddReagent(new ReagentId(vomitPrototype, _bloodstream.GetEntityBloodData(uid)), vomitAmount); // imp edit, use vomit prototype variable
         }
 
         if (_puddle.TrySpillAt(uid, solution, out var puddle, false))
