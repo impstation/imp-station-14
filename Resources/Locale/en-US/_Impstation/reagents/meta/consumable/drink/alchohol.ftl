@@ -108,3 +108,6 @@ reagent-desc-romance-deadnot = A reminder of how perpetual love can be.
 
 reagent-name-rose-milk = rose milk
 reagent-desc-rose-milk = Pink and refreshing!
+
+reagent-name-eunuch = The Eunuch
+reagent-desc-eunuch = It's cheap, it's fast, and it's painful: chemically castrating yourself with this stuff.

@@ -1031,3 +1031,76 @@
       effects:
       - !type:SatiateThirst
         factor: 2
+
+- type: reagent
+  id: Eunuch
+  name: reagent-name-eunuch
+  parent: BaseAlcohol
+  desc: reagent-desc-eunuch
+  physicalDesc: reagent-physical-desc-eunuch
+  flavor: eunuch
+  color: "#896613"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/eunuch.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+      - !type:PopupMessage
+          type: Local
+          messages:
+          - "eunuch-effect-balls-hurt"
+          - "eunuch-effect-balls-vice"
+          - "generic-reagent-effect-tearing-up"
+          probability: 0.2
+    Medicine:
+      effects:
+      - !type:HealthChange
+        probability: 0.75
+        damage:
+          types:
+            Blunt: 5
+
+#thusd scheming eunuch. not that much more damaging than regular eunuch but it has every side effect i could think of because that's funny
+- type: reagent
+  id: SchemingEunuch
+  parent: Eunuch
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+      - !type:PopupMessage
+          type: Local
+          messages:
+          - "eunuch-effect-balls-hurt"
+          - "eunuch-effect-balls-vice"
+          - "generic-reagent-effect-tearing-up"
+          - "generic-reagent-effect-burning-insides"
+          probability: 0.4
+    Medicine:
+      effects:
+      - !type:HealthChange
+        probability: 0.75
+        damage:
+          types:
+            Blunt: 5
+            Poison: 0.5
+      - !type:Jitter
+      - !type:Vomit
+        probability: 0.5
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+
