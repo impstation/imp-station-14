@@ -1,4 +1,6 @@
+using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._VDS.CCVars;
 /// <summary>

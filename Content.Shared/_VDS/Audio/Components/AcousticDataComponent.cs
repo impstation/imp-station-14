@@ -1,4 +1,4 @@
-namespace Content.Shared._VDS.Audio;
+namespace Content.Shared._VDS.Audio.Components;
 
 /// <summary>
 /// Data that alters audio if the client has acoustics enabled.
