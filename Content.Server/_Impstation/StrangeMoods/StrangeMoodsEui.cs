@@ -1,68 +1,113 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration.Managers;
 using Content.Server.EUI;
 using Content.Shared._Impstation.StrangeMoods;
 using Content.Shared.Administration;
 using Content.Shared.Eui;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.StrangeMoods;
 
-public sealed class StrangeMoodsEui(StrangeMoodsSystem strangeMoodsSystem, EntityManager entityManager, IAdminManager manager) : BaseEui
+public sealed class StrangeMoodsEui(
+    StrangeMoodsSystem strangeMoods,
+    EntityManager entity,
+    IPrototypeManager prototype,
+    IRobustRandom random,
+    IAdminManager admin) : BaseEui
 {
     private readonly ISawmill _sawmill = Logger.GetSawmill("strange-moods-eui");
 
     private List<StrangeMood> _moods = [];
-    private ProtoId<SharedMoodPrototype>? _sharedMood;
+    private SharedMood? _sharedMood;
     private EntityUid _target;
 
     public override EuiStateBase GetNewState()
     {
-        return new StrangeMoodsEuiState(_moods, _sharedMood, entityManager.GetNetEntity(_target));
+        var sharedMoods = strangeMoods.GetSharedMoods();
+        return new StrangeMoodsEuiState(sharedMoods, _moods, _sharedMood, entity.GetNetEntity(_target));
     }
 
-    public void UpdateMoods(Entity<StrangeMoodsComponent> ent)
+    public void UpdateMoods(EntityUid uid, List<StrangeMood> moods, SharedMood? sharedMood)
     {
         if (!IsAllowed())
             return;
 
-        _moods = ent.Comp.StrangeMood.Moods;
-        _sharedMood = ent.Comp.StrangeMood.SharedMoodPrototype;
-        _target = ent;
+        _moods = moods;
+        _sharedMood = sharedMood;
+        _target = uid;
 
         StateDirty();
+    }
+
+    public void UpdateMoods(Entity<StrangeMoodsComponent> ent)
+    {
+        UpdateMoods(ent, ent.Comp.StrangeMood.Moods, ent.Comp.SharedMood);
     }
 
     public override void HandleMessage(EuiMessageBase msg)
     {
         base.HandleMessage(msg);
 
-        if (msg is not StrangeMoodsSaveMessage message)
-            return;
-
         if (!IsAllowed())
             return;
 
-        var uid = entityManager.GetEntity(message.Target);
-
-        if (!entityManager.TryGetComponent<StrangeMoodsComponent>(uid, out var comp))
+        switch (msg)
         {
-            _sawmill.Warning($"Entity {entityManager.ToPrettyString(uid)} does not have StrangeMoodsComponent!");
-            return;
-        }
+            case StrangeMoodsSaveMessage saveData:
+            {
+                if (!HasStrangeMoods(saveData.Target, out var uid, out var comp))
+                    return;
 
-        strangeMoodsSystem.SetSharedMood((uid, comp), message.SharedMood);
-        strangeMoodsSystem.SetMoods((uid, comp), message.Moods);
+                strangeMoods.SetSharedMood((uid, comp), saveData.SharedMood);
+                strangeMoods.SetMoods((uid, comp), saveData.Moods);
+                break;
+            }
+            case StrangeMoodsGenerateRequestMessage requestGenerateData:
+            {
+                if (!HasStrangeMoods(requestGenerateData.Target, out var uid, out var comp))
+                    return;
+
+                var activeMoods = strangeMoods.GetActiveMoods((uid, comp));
+                if (!strangeMoods.TryPick(random.Pick(comp.StrangeMood.Datasets).Key, out var moodProto, activeMoods))
+                    return;
+
+                var newMood = strangeMoods.RollMood(moodProto);
+                SendMessage(new StrangeMoodsGenerateSendMessage(newMood));
+                break;
+            }
+            case StrangeMoodsSharedRequestMessage requestSharedData:
+            {
+                if (!prototype.Resolve(requestSharedData.Mood, out var proto))
+                    return;
+
+                if (!strangeMoods.TryGetSharedMood(proto, out var mood))
+                    return;
+
+                SendMessage(new StrangeMoodsSharedSendMessage(mood));
+                break;
+            }
+        }
     }
 
     private bool IsAllowed()
     {
-        var adminData = manager.GetAdminData(Player);
+        var adminData = admin.GetAdminData(Player);
 
         if (adminData != null && adminData.HasFlag(AdminFlags.Moderator))
             return true;
 
         _sawmill.Warning($"Player {Player.UserId} tried to open / use strange moods UI without permission.");
         return false;
+    }
 
+    private bool HasStrangeMoods(NetEntity ent, out EntityUid uid, [NotNullWhen(true)] out StrangeMoodsComponent? comp)
+    {
+        uid = entity.GetEntity(ent);
+        if (entity.TryGetComponent(uid, out comp))
+            return true;
+
+        _sawmill.Warning($"Entity {entity.ToPrettyString(uid)} does not have StrangeMoodsComponent!");
+        return false;
     }
 }

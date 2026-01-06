@@ -12,8 +12,8 @@ public sealed partial class StrangeMoodsComponent : Component
     /// <summary>
     /// The strange mood definition that this entity follows.
     /// </summary>
-    [DataField("mood", required: true, readOnly: true)]
-    public ProtoId<StrangeMoodDefinitionPrototype> StrangeMoodPrototype;
+    [DataField("mood", readOnly: true)]
+    public ProtoId<StrangeMoodDefinitionPrototype>? StrangeMoodPrototype;
 
     [DataField, AutoNetworkedField]
     public StrangeMoodDefinition StrangeMood = new();

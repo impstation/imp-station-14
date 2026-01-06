@@ -311,9 +311,6 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.ThavenMoodsUiKey.Key: # impstation edit
-        type: ThavenMoodsBoundUserInterface
-        requireInputValidation: false
   - type: HumanoidAppearance
     species: HomunculusThaven
     markingsDisplacement:

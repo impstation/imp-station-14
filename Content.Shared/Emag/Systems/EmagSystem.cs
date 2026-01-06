@@ -10,7 +10,6 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
-using Content.Shared._Impstation.Thaven.Components; // imp
 using Content.Shared.Bed.Sleep; // imp
 using Content.Shared.Mobs.Systems; // imp
 using Content.Shared.Whitelist; // imp

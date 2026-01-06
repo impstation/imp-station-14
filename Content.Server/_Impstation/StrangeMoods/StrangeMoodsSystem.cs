@@ -47,17 +47,20 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     private void OnStrangeMoodsInit(Entity<StrangeMoodsComponent> ent, ref MapInitEvent args)
     {
         var mood = ent.Comp.StrangeMood;
-        var moodProto = _proto.Index(ent.Comp.StrangeMoodPrototype);
-        _serialization.CopyTo(moodProto, ref mood, notNullableOverride: true);
+
+        if (_proto.TryIndex(ent.Comp.StrangeMoodPrototype, out var moodProto))
+        {
+            _serialization.CopyTo(moodProto, ref mood, notNullableOverride: true);
+
+            // Add any required components
+            if (moodProto.Components is { } components)
+            {
+                EntityManager.AddComponents(ent, components);
+            }
+        }
 
         RefreshMoods(ent);
         SetSharedMood(ent, mood.SharedMoodPrototype);
-
-        // Add any required components
-        if (moodProto.Components is { } components)
-        {
-            EntityManager.AddComponents(ent, components);
-        }
 
         // Add action to bar
         ent.Comp.Action ??= _actions.AddAction(ent.Owner, mood.ActionViewMoods);
@@ -67,16 +70,17 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
 
     private void OnStrangeMoodsShutdown(Entity<StrangeMoodsComponent> ent, ref ComponentShutdown args)
     {
-        var moodProto = _proto.Index(ent.Comp.StrangeMoodPrototype);
+        // Remove action
+        _actions.RemoveAction(ent.Owner, ent.Comp.Action);
+
+        if (!_proto.TryIndex(ent.Comp.StrangeMoodPrototype, out var moodProto))
+            return;
 
         // Remove any added components
         if (moodProto.Components is { } components)
         {
             EntityManager.RemoveComponents(ent, components);
         }
-
-        // Remove action
-        _actions.RemoveAction(ent.Owner, ent.Comp.Action);
     }
 
     private void OnToggleMoodsScreen(Entity<StrangeMoodsComponent> ent, ref ToggleMoodsScreenEvent args)
@@ -207,7 +211,7 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     /// <summary>
     /// Attempts to pick a new mood from the given dataset.
     /// </summary>
-    private bool TryPick(ProtoId<DatasetPrototype> dataset, [NotNullWhen(true)] out StrangeMoodPrototype? proto, IEnumerable<StrangeMood>? currentMoods = null, HashSet<ProtoId<StrangeMoodPrototype>>? conflicts = null)
+    public bool TryPick(ProtoId<DatasetPrototype> dataset, [NotNullWhen(true)] out StrangeMoodPrototype? proto, IEnumerable<StrangeMood>? currentMoods = null, HashSet<ProtoId<StrangeMoodPrototype>>? conflicts = null)
     {
         var choices = _proto.Index(dataset).Values.ToList();
 
@@ -239,7 +243,7 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     /// <summary>
     /// Attempts to get a <see cref="SharedMoodPrototype" />'s relevant shared mood from <see cref="_sharedMoods" />.
     /// </summary>
-    private bool TryGetSharedMood(SharedMoodPrototype proto, out SharedMood? sharedMood)
+    public bool TryGetSharedMood(SharedMoodPrototype proto, out SharedMood? sharedMood)
     {
         foreach (var mood in _sharedMoods.Where(mood => proto.ProtoId == mood.ProtoId))
         {
@@ -351,9 +355,17 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     }
 
     /// <summary>
+    /// Returns the server's shared moods.
+    /// </summary>
+    public HashSet<SharedMood> GetSharedMoods()
+    {
+        return _sharedMoods;
+    }
+
+    /// <summary>
     /// Return a list of the moods that are affecting this entity.
     /// </summary>
-    private List<StrangeMood> GetActiveMoods(Entity<StrangeMoodsComponent> ent, bool includeShared = true)
+    public List<StrangeMood> GetActiveMoods(Entity<StrangeMoodsComponent> ent, bool includeShared = true)
     {
         if (includeShared && ent.Comp.SharedMood is { } sharedMood)
         {
@@ -361,6 +373,20 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
         }
 
         return ent.Comp.StrangeMood.Moods;
+    }
+
+    /// <summary>
+    /// Creates a <see cref="StrangeMoodsComponent" /> from a <see cref="StrangeMoodDefinition" />.
+    /// </summary>
+    public static StrangeMoodsComponent CreateComponent(StrangeMoodDefinition definition)
+    {
+        var newComp = new StrangeMoodsComponent
+        {
+            StrangeMood = definition,
+            StrangeMoodPrototype = definition.ProtoId,
+        };
+
+        return newComp;
     }
 
     #endregion

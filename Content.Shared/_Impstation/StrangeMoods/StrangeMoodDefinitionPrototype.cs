@@ -10,6 +10,12 @@ namespace Content.Shared._Impstation.StrangeMoods;
 public partial class StrangeMoodDefinition
 {
     /// <summary>
+    /// The prototype this definition was created from.
+    /// </summary>
+    [DataField]
+    public ProtoId<StrangeMoodDefinitionPrototype>? ProtoId;
+
+    /// <summary>
     /// The shared mood prototype that entities will look to follow.
     /// If null, the entity will not follow any shared moods.
     /// </summary>
@@ -58,13 +64,17 @@ public sealed partial class StrangeMoodDefinitionPrototype : StrangeMoodDefiniti
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID
+    {
+        get => ProtoId ?? "";
+        set => ProtoId = value;
+    }
 
     /// <summary>
     /// The name of the mood definition, used for admin tooling.
     /// </summary>
-    [DataField]
-    public string? Name;
+    [DataField(required: true)]
+    public string Name = default!;
 
     /// <summary>
     /// The components that should be added to entities with these strange moods.

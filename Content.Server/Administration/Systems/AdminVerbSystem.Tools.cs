@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Impstation.StrangeMoods; // imp
 using Content.Server.Administration.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;
@@ -41,8 +42,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Server.Revenant.Components; // imp
 using Content.Server.Revenant.EntitySystems; // imp
-using Content.Shared._Impstation.Thaven.Components; // imp
 using Content.Shared.Item; // imp
+using Robust.Shared.Random; // imp
 
 namespace Content.Server.Administration.Systems;
 
@@ -784,7 +785,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/actions_borg.rsi"), "state-laws"),
                 Act = () =>
                 {
-                    _moods.TryAddRandomMood((args.Target, moods), (ProtoId<WeightedRandomPrototype>) "RandomThavenMoodDataset");
+                    _moods.TryAddRandomMood((args.Target, moods), _random.Pick(moods.StrangeMood.Datasets).Key);
                 },
                 Impact = LogImpact.High,
                 Message = Loc.GetString("admin-trick-add-random-mood-description"),
@@ -801,12 +802,15 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/actions_borg.rsi"), "state-laws"),
                 Act = () =>
                 {
-                    if (!EnsureComp<StrangeMoodsComponent>(args.Target, out moods))
-                    {
-                        //if we're adding moods to something that doesn't already have them (e.g. isn't a thaven), make them ignore the shared mood
-                        var targ = (args.Target, moods);
-                        _moods.SetMoods(targ, []);
-                    }
+                    if (HasComp<StrangeMoodsComponent>(args.Target))
+                        return;
+
+                    var ui = new StrangeMoodsInitEui(_moods, EntityManager, _prototypeManager, _random, _adminManager, _playerManager, _euiManager, args.User);
+                    if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
+                        return;
+
+                    _euiManager.OpenEui(ui, session);
+                    ui.SetTarget(args.Target);
                 },
                 Impact = LogImpact.High,
                 Message = Loc.GetString("admin-trick-give-moods-description"),

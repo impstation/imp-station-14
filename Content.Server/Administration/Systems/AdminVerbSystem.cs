@@ -418,7 +418,7 @@ namespace Content.Server.Administration.Systems
                         Category = VerbCategory.Admin,
                         Act = () =>
                         {
-                            var ui = new StrangeMoodsEui(_moods, EntityManager, _adminManager);
+                            var ui = new StrangeMoodsEui(_moods, EntityManager, _prototypeManager, _random, _adminManager);
                             if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
                                 return;
 
