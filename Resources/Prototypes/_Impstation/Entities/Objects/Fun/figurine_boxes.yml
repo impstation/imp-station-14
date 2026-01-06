@@ -1,0 +1,18 @@
+- type: entity
+  parent: PresentRandom
+  id: MysteryMechBox
+  name: mystery Mini-Mecha action figure box
+  description: A box containing a set of mystery mech sprues! Collect and build them all! You never heard of half of these mechs in your life.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/figurines.rsi
+    layers:
+      - state: fig_box
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: ToyFigurinePassenger
+        orGroup: SpacemenFig
+      - id: ToyFigurineNukieElite
+        orGroup: SpacemenFig
+        prob: 0.50
