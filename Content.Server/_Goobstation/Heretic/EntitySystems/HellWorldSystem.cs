@@ -29,6 +29,7 @@ using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Body.Systems;
 using Robust.Server.GameObjects;
+using Content.Shared.Tag;
 
 //this is kind of badly named since we're doing infinite archives stuff now but i dont feel like changing it :)
 
@@ -43,6 +44,8 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly IEntityManager _entManager = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
         [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
         [Dependency] private readonly SharedMapSystem _map = default!;
@@ -50,6 +53,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         [Dependency] private readonly SharedTransformSystem _xform = default!;
         [Dependency] private readonly CloningSystem _cloning = default!;
         [Dependency] private readonly SharedBodySystem _body = default!;
+        [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
 
         private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml");
@@ -177,9 +181,10 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         private void SacrificeCleanup(EntityUid uid)
         {
             EnsureComp<NoSacrificeComponent>(uid);
-            EnsureComp<HellVictimComponent>(uid);
+            EnsureComp<HellVictimComponent>(uid, out var victim);
             TransformVictim(uid);
             _rejuvenate.PerformRejuvenate(uid);
+            AddHellTrait(uid, victim);
         }
 
         public void TeleportToHereticSpawnPoint(EntityUid uid)
@@ -195,6 +200,29 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             var spawnTgt = Transform(newSpawn.Uid).Coordinates;
 
             _xform.SetCoordinates(uid, spawnTgt);
+        }
+
+        private void AddHellTrait(EntityUid uid, HellVictimComponent victim)
+        {
+            //get a random trait from the list
+            var traitId = _prototypeManager.Index(victim.Traits[_random.Next(victim.Traits.Count)]);
+
+            //add it
+            // Add all components required by the prototype to the body or specified organ
+            if (traitId.Organ != null)
+            {
+                foreach (var organ in _body.GetBodyOrgans(uid))
+                {
+                    if (traitId.Organ is { } organTag && _tag.HasTag(organ.Id, organTag))
+                    {
+                        EntityManager.AddComponents(organ.Id, traitId.Components);
+                    }
+                }
+            }
+            else
+            {
+                EntityManager.AddComponents(uid, traitId.Components, false);
+            }
         }
 
         private void TransformVictim(EntityUid ent)
