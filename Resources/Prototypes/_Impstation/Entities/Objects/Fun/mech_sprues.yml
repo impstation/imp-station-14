@@ -16,333 +16,705 @@
   parent: BaseMechSprue
   id: ToyRipleySprue
   name: ripley toy sprues
-  description: A set of sprues for the Mini-Mecha Ripley action figure! 'Mecha No. 1/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha Ripley action figure! 'Mecha No. 1/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: ripley
+    layers:
+    - state: basesprue
+      color: "#d5c644"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#524c14"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#7aef83"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#d5c644"
-      - state: inhand-left-trim
-        color: "#524c14"
-      - state: inhand-left-visor
-        color: "#7aef83"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#d5c644"
-      - state: inhand-right-trim
-        color: "#524c14"
-      - state: inhand-right-visor
-        color: "#7aef83"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToyRipleySprueCut
+  name: cut ripley toy sprues
+  description: A cut set of sprues for the Mini-Mecha Ripley action figure! 'Mecha No. 1/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#d5c644"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#524c14"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#7aef83"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#d5c644"
+      right:
+      - state: inhand-right-sprue
+        color: "#d5c644"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
 
 #Fire Ripley
 - type: entity
   parent: BaseMechSprue
   id: ToyFireRipleySprue
   name: fire ripley sprues
-  description:  A set of sprues for the Mini-Mecha Fire Ripley action figure! 'Mecha No. 2/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha Fire Ripley action figure! 'Mecha No. 2/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: fireripley
+    layers:
+    - state: basesprue
+      color: "#819a73"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#486b2f"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#5a150e"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#819a73"
-      - state: inhand-left-trim
-        color: "#486b2f"
-      - state: inhand-left-visor
-        color: "#5a150e"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#819a73"
-      - state: inhand-right-trim
-        color: "#486b2f"
-      - state: inhand-right-visor
-        color: "#5a150e"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToyFireRipleySprueCut
+  name: cut fire ripley sprues
+  description: A cut set of sprues for the Mini-Mecha Fire Ripley action figure! 'Mecha No. 2/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#819a73"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#486b2f"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#5a150e"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#819a73"
+      right:
+      - state: inhand-right-sprue
+        color: "#819a73"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
 
 #Death Ripley
 - type: entity
   parent: BaseMechSprue
   id: ToyDeathRipleySprue
   name: deathripley toy sprues
-  description:  A set of sprues for the Mini-Mecha Deathripley action figure! 'Mecha No. 3/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha Deathripley action figure! 'Mecha No. 3/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: deathripley
+    layers:
+    - state: basesprue
+      color: "#575757"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#b3001b"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#e1131e"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#575757"
-      - state: inhand-left-trim
-        color: "#b3001b"
-      - state: inhand-left-visor
-        color: "#e1131e"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#575757"
-      - state: inhand-right-trim
-        color: "#b3001b"
-      - state: inhand-right-visor
-        color: "#e1131e"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToyDeathRipleySprueCut
+  name: cut deathripley toy sprues
+  description: A cut set of sprues for the Mini-Mecha Deathripley action figure! 'Mecha No. 3/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#575757"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#b3001b"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#e1131e"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#575757"
+      right:
+      - state: inhand-right-sprue
+        color: "#575757"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
 
 #Ggygax
 - type: entity
   parent: BaseMechSprue
   id: ToyGygaxSprue
   name: gygax toy sprues
-  description:  A set of sprues for the Mini-Mecha gygaax action figure! 'Mecha No. 4/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha Gygax action figure! 'Mecha No. 4/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: gygax
+    layers:
+    - state: basesprue
+      color: "#e76241"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#4f5359"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#00ff33"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#e76241"
-      - state: inhand-left-trim
-        color: "#4f5359"
-      - state: inhand-left-visor
-        color: "#00ff33"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#e76241"
-      - state: inhand-right-trim
-        color: "#4f5359"
-      - state: inhand-right-visor
-        color: "#00ff33"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToyGygaxSprueCut
+  name: cut gygax toy sprues
+  description: A cut set of sprues for the Mini-Mecha Gygax action figure! 'Mecha No. 4/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#e76241"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#4f5359"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#00ff33"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#e76241"
+      right:
+      - state: inhand-right-sprue
+        color: "#e76241"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
 
 #Durand
 - type: entity
   parent: BaseMechSprue
   id: ToyDurandSprue
   name: durand toy sprues
-  description:  A set of sprues for the Mini-Mecha durand action figure! 'Mecha No. 5/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha Durand action figure! 'Mecha No. 5/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: durand
+    layers:
+    - state: basesprue
+      color: "#a8abb3"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#686d78"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#8cc865"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#a8abb3"
-      - state: inhand-left-trim
-        color: "#686d78"
-      - state: inhand-left-visor
-        color: "#8cc865"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#a8abb3"
-      - state: inhand-right-trim
-        color: "#686d78"
-      - state: inhand-right-visor
-        color: "#8cc865"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToyDurandSprueCut
+  name: cut durand toy sprues
+  description: A cut set of sprues for the Mini-Mecha Durand action figure! 'Mecha No. 5/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#a8abb3"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#686d78"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#8cc865"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#a8abb3"
+      right:
+      - state: inhand-right-sprue
+        color: "#a8abb3"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
 
 #H.O.N.K
 - type: entity
   parent: BaseMechSprue
   id: ToyHonkSprue
   name: H.O.N.K. toy sprues
-  description:  A set of sprues for the Mini-Mecha H.O.N.K. action figure! 'Mecha No. 6/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha H.O.N.K. action figure! 'Mecha No. 6/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: honk
+    layers:
+    - state: basesprue
+      color: "#ed1c24"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#ffffff"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#ff040b"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#ed1c24"
-      - state: inhand-left-trim
-        color: "#ffffff"
-      - state: inhand-left-visor
-        color: "#ff040b"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#ed1c24"
-      - state: inhand-right-trim
-        color: "#ffffff"
-      - state: inhand-right-visor
-        color: "#ff040b"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToyHonkSprueCut
+  name: cut H.O.N.K. toy sprues
+  description: A cut set of sprues for the Mini-Mecha H.O.N.K. action figure! 'Mecha No. 6/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#ed1c24"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#ffffff"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#ff040b"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#ed1c24"
+      right:
+      - state: inhand-right-sprue
+        color: "#ed1c24"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
 
 #Marauder
 - type: entity
   parent: BaseMechSprue
   id: ToyMarauderSprue
   name: marauder toy sprues
-  description:  A set of sprues for the Mini-Mecha Aarauder action figure! 'Mecha No. 7/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha Aarauder action figure! 'Mecha No. 7/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: marauder
+    layers:
+    - state: basesprue
+      color: "#9da6be"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#557a48"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#00ff33"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#9da6be"
-      - state: inhand-left-trim
-        color: "#557a48"
-      - state: inhand-left-visor
-        color: "#00ff33"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#9da6be"
-      - state: inhand-right-trim
-        color: "#557a48"
-      - state: inhand-right-visor
-        color: "#00ff33"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToyMarauderSprueCut
+  name: cut marauder toy sprues
+  description: A cut set of sprues for the Mini-Mecha Aarauder action figure! 'Mecha No. 7/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#9da6be"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#557a48"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#00ff33"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#9da6be"
+      right:
+      - state: inhand-right-sprue
+        color: "#9da6be"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
 
 #Seraph
 - type: entity
   parent: BaseMechSprue
   id: ToySeraphSprue
   name: seraph toy sprues
-  description:  A set of sprues for the Mini-Mecha Seraph action figure! 'Mecha No. 8/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha Seraph action figure! 'Mecha No. 8/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: seraph
+    layers:
+    - state: basesprue
+      color: "#878c97"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#943226"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#f31a33"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#878c97"
-      - state: inhand-left-trim
-        color: "#943226"
-      - state: inhand-left-visor
-        color: "#f31a33"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#878c97"
-      - state: inhand-right-trim
-        color: "#943226"
-      - state: inhand-right-visor
-        color: "#f31a33"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToySeraphSprueCut
+  name: cut seraph toy sprues
+  description: A cut set of sprues for the Mini-Mecha Seraph action figure! 'Mecha No. 8/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#878c97"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#943226"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#f31a33"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#878c97"
+      right:
+      - state: inhand-right-sprue
+        color: "#878c97"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
 
 #Mauler
 - type: entity
   parent: BaseMechSprue
   id: ToyMaulerSprue
   name: mauler toy sprues
-  description:  A set of sprues for the Mini-Mecha Mauler action figure! 'Mecha No. 9/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha Mauler action figure! 'Mecha No. 9/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: mauler
+    layers:
+    - state: basesprue
+      color: "#2b2b2b"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#660000"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#ff0000"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#2b2b2b"
-      - state: inhand-left-trim
-        color: "#660000"
-      - state: inhand-left-visor
-        color: "#ff0000"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#2b2b2b"
-      - state: inhand-right-trim
-        color: "#660000"
-      - state: inhand-right-visor
-        color: "#ff0000"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToyMaulerSprueCut
+  name: cut mauler toy sprues
+  description: A cut set of sprues for the Mini-Mecha Mauler action figure! 'Mecha No. 9/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#2b2b2b"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#660000"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#ff0000"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#2b2b2b"
+      right:
+      - state: inhand-right-sprue
+        color: "#2b2b2b"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
 
 #Odysseus
 - type: entity
   parent: BaseMechSprue
   id: ToyOdysseusSprue
   name: odysseus toy sprues
-  description:  A set of sprues for the Mini-Mecha Odysseus action figure! 'Mecha No. 10/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha Odysseus action figure! 'Mecha No. 10/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: odysseus
+    layers:
+    - state: basesprue
+      color: "#ffffff"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#7d7f97"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#857149"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#ffffff"
-      - state: inhand-left-trim
-        color: "#7d7f97"
-      - state: inhand-left-visor
-        color: "#857149"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#ffffff"
-      - state: inhand-right-trim
-        color: "#7d7f97"
-      - state: inhand-right-visor
-        color: "#857149"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToyOdysseusSprueCut
+  name: cut odysseus toy sprues
+  description: A cut set of sprues for the Mini-Mecha Odysseus action figure! 'Mecha No. 10/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#ffffff"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#7d7f97"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#857149"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#ffffff"
+      right:
+      - state: inhand-right-sprue
+        color: "#ffffff"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
 
 #Phazon
 - type: entity
   parent: BaseMechSprue
   id: ToyPhazonSprue
   name: phazon toy sprues
-  description:  A set of sprues for the Mini-Mecha Phazon action figure! 'Mecha No. 11/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha Phazon action figure! 'Mecha No. 11/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: phazon
+    layers:
+    - state: basesprue
+      color: "#4d79a0"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#f38233"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#f38233"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#4d79a0"
-      - state: inhand-left-trim
-        color: "#f38233"
-      - state: inhand-left-visor
-        color: "#f38233"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#4d79a0"
-      - state: inhand-right-trim
-        color: "#f38233"
-      - state: inhand-right-visor
-        color: "#f38233"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToyPhazonSprueCut
+  name: cut phazon toy sprues
+  description: A cut set of sprues for the Mini-Mecha Phazon action figure! 'Mecha No. 11/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#4d79a0"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#f38233"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#f38233"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#4d79a0"
+      right:
+      - state: inhand-right-sprue
+        color: "#4d79a0"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
 
 #Reticence
 - type: entity
   parent: BaseMechSprue
   id: ToyReticenceSprue
   name: reticence toy sprues
-  description:  A set of sprues for the Mini-Mecha Reticence action figure! 'Mecha No. 12/12' is written on the frames.
+  description: A set of sprues for the Mini-Mecha Reticence action figure! 'Mecha No. 12/12' is written on the frames. Cut the parts out and put it together!
   components:
   - type: Sprite
-    state: reticence
+    layers:
+    - state: basesprue
+      color: "#d9d9d9"
+      map: [ "base" ]
+    - state: accentsprue
+      color: "#8b8b8b"
+      map: [ "accent" ]
+    - state: visorsprue
+      color: "#1f1f1f"
+      map: [ "visor" ]
   - type: Item
     inhandVisuals:
       left:
-      - state: inhand-left-base
-      - state: inhand-left-body
+      - state: inhand-left-sprue
         color: "#d9d9d9"
-      - state: inhand-left-trim
-        color: "#8b8b8b"
-      - state: inhand-left-visor
-        color: "#1f1f1f"
       right:
-      - state: inhand-right-base
-      - state: inhand-right-body
+      - state: inhand-right-sprue
         color: "#d9d9d9"
-      - state: inhand-right-trim
-        color: "#8b8b8b"
-      - state: inhand-right-visor
-        color: "#1f1f1f"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
+
+- type: entity
+  parent: BaseMechSprue
+  id: ToyReticenceSprueCut
+  name: cut reticence toy sprues
+  description: A cut set of sprues for the Mini-Mecha Reticence action figure! 'Mecha No. 12/12' is written on the frames. Don't loose any parts!
+  components:
+  - type: Sprite
+    layers:
+    - state: basespruecut
+      color: "#d9d9d9"
+      map: [ "base" ]
+    - state: accentspruecut
+      color: "#8b8b8b"
+      map: [ "accent" ]
+    - state: visorspruecut
+      color: "#1f1f1f"
+      map: [ "visor" ]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-sprue
+        color: "#d9d9d9"
+      right:
+      - state: inhand-right-sprue
+        color: "#d9d9d9"
+  # - type: Construction
+  #   graph: WoodenBat
+  #   node: bat
