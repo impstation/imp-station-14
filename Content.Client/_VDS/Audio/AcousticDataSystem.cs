@@ -13,7 +13,7 @@ using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
-using Content.Shared._VDS.Audio;
+using Content.Shared._VDS.Audio.Components;
 using Content.Shared._VDS.CCVars;
 using Content.Shared._VDS.Physics;
 using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
@@ -30,8 +30,10 @@ using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Numerics;
+using Content.Client._VDS.Audio.Components;
 
 namespace Content.Client._VDS.Audio;
+
 /// <summary>
 /// Gathers environmental acoustic data around the player, later to be processed by <see cref="AudioEffectSystem"/>.
 /// </summary>
@@ -49,6 +51,11 @@ public sealed class AcousticDataSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turfSystem = default!;
 
     /// <summary>
+    /// Quick reference to our <see cref="AcousticSettingsComponent"/>
+    /// </summary>
+    private AcousticSettingsComponent _acousticSettings = default!;
+
+    /// <summary>
     /// The directions that are raycasted.
     /// Used relative to the grid.
     /// </summary>
@@ -59,28 +66,10 @@ public sealed class AcousticDataSystem : EntitySystem
         would require gathering more data.
     */
     /// <summary>
-    /// Arbitrary values fdor determining what ReverbPreset to use.
+    /// Arbitrary values for determining what ReverbPreset to use.
     /// See <see cref="Robust.Shared.Audio.Effects.ReverbPresets"/>.
     /// </summary>
-    /// <remarks>
-    /// Keep in ascending order.
-    /// </remarks>
-    private static readonly AudioReverbThreshold[] AcousticReverbPresets =
-    [
-        new(10f, "SpaceStationCupboard"),
-        new(13f, "DustyRoom"),
-        new(15f, "SpaceStationSmallRoom"),
-        new(18f, "SpaceStationShortPassage"),
-        new(23f, "SpaceStationMediumRoom"),
-        new(28f, "SpaceStationHall"),
-        new(35f, "SpaceStationLargeRoom"),
-        new(40f, "Auditorium"),
-        new(45f, "ConcertHall"),
-        new(70f, "Hangar")
-    ];
-
-    private readonly float _minimumMagnitude = AcousticReverbPresets[0].Distance;
-    private readonly float _maximumMagnitude = AcousticReverbPresets[^1].Distance; // neat way to get the last result of an array
+    private SortedList<float, ProtoId<AudioPresetPrototype>>? _acousticPresets;
 
     /// <summary>
     /// Our previously recorded magnitude, for lerp purposes.
@@ -99,22 +88,12 @@ public sealed class AcousticDataSystem : EntitySystem
     /// </summary>
     private int _acousticMaxReflections;
 
-
     private EntityQuery<AcousticDataComponent> _acousticQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<RoofComponent> _roofQuery;
     private EntityQuery<TransformComponent> _transformQuery;
 
     private ISawmill _sawmill = default!;
-
-    /// <summary>
-    /// If a ray travels this percentage of its total max range in single segment,
-    /// consider it 'escaped' and will end it early and penalize the final amplitude.
-    /// </summary>
-    private const float EscapeDistancePercentage = 0.3f;
-    private const float MinimumEscapePenalty = 0.10f;
-    private const float NoRoofPenalty = 0.10f;
-    private const float DirectionRandomOffset = 0.3f;
 
     public override void Initialize()
     {
@@ -150,10 +129,14 @@ public sealed class AcousticDataSystem : EntitySystem
     private void OnLocalPlayerAttached(LocalPlayerAttachedEvent ev)
     {
         _clientEnt = ev.Entity;
+        EnsureComp<AcousticSettingsComponent>(_clientEnt, out var comp);
+        _acousticPresets = comp.ReverbPresets;
+        _acousticSettings = comp;
     }
 
     private void OnLocalPlayerDetached(LocalPlayerDetachedEvent ev)
     {
+        RemComp<AcousticSettingsComponent>(_clientEnt);
         _clientEnt = EntityUid.Invalid;
     }
 
@@ -168,13 +151,17 @@ public sealed class AcousticDataSystem : EntitySystem
     /// <summary>
     /// Cast, get, and process the obtained <see cref="AcousticRayResults"/>.
     /// </summary>
-    /// <param name="audioEnt"></param>
     private void ProcessAcoustics(Entity<AudioComponent> audioEnt)
     {
+        if (_acousticPresets == null || _acousticPresets.Count == 0)
+            return;
+        var maxMagnitude = _acousticPresets.Keys[^1];
+        var minMagnitude = _acousticPresets.Keys[0];
+
         var magnitude = 0f;
         if (TryCastAndGetEnvironmentAcousticData(
             in _clientEnt,
-            in _maximumMagnitude,
+            in maxMagnitude,
             in _acousticMaxReflections,
             in _calculatedDirections,
             out var acousticResults))
@@ -184,19 +171,21 @@ public sealed class AcousticDataSystem : EntitySystem
                 in acousticResults);
         }
 
-        if (magnitude > _minimumMagnitude)
+        if (magnitude > minMagnitude)
         {
-            var bestPreset = GetBestReverbPreset(magnitude);
+            var bestPreset = GetBestReverbPreset(magnitude, _acousticPresets);
             _audioEffectSystem.TryAddEffect(in audioEnt, in bestPreset);
         }
         else
+        {
             _audioEffectSystem.TryRemoveEffect(in audioEnt);
+        }
     }
 
     /// <summary>
     /// Basic check for whether an audio entity can be applied effects such as reverb.
     /// </summary>
-    public bool CanAudioBePostProcessed(in Entity<AudioComponent> audio, in TransformComponent xForm)
+    public bool CanAudioBePostProcessed(Entity<AudioComponent> audio, in TransformComponent xForm)
     {
         if (!_acousticEnabled)
             return false;
@@ -242,16 +231,30 @@ public sealed class AcousticDataSystem : EntitySystem
     /// Compares our magnitude to <see cref="AcousticReverbPresets"/> and returns the best match.
     /// </summary>
     [Pure]
-    public static ProtoId<AudioPresetPrototype> GetBestReverbPreset(float magnitude)
+    public static ProtoId<AudioPresetPrototype> GetBestReverbPreset(float magnitude, SortedList<float, ProtoId<AudioPresetPrototype>> presetList)
     {
-        foreach (var preset in AcousticReverbPresets)
-        {
-            if (preset.Distance >= magnitude)
-                return preset.Preset;
-        }
+        var keys = presetList.Keys;
+        var index = keys.ToList().BinarySearch(magnitude);
 
-        // fallback to largest preset
-        return AcousticReverbPresets[^1].Preset;
+        // our magnitude was found exactly in the list so just take it i guess.
+        if (index >= 0)
+            return presetList.GetValueAtIndex(index);
+
+        // invert the bits to get our insertion point
+        index = ~index;
+        var lowerIndex = index - 1;
+        var upperIndex = index;
+
+        // edge cases
+        if (upperIndex == 0) // magnitude is smaller than the first element of our list
+            return presetList.GetValueAtIndex(upperIndex);
+        else if (lowerIndex == presetList.Count - 1) // magnitude is bigger than the last element of our list
+            return presetList.GetValueAtIndex(lowerIndex);
+
+        // return the value of whatever is closest to our magnitude
+        var lowerDiff = MathF.Abs(magnitude - keys[lowerIndex]);
+        var upperDiff = MathF.Abs(magnitude - keys[upperIndex]);
+        return (lowerDiff <= upperDiff) ? presetList.GetValueAtIndex(lowerIndex) : presetList.GetValueAtIndex(upperIndex);
     }
 
     /// <summary>
@@ -371,10 +374,11 @@ public sealed class AcousticDataSystem : EntitySystem
 
         foreach (var direction in castDirections)
         {
-            var offsetDirection = direction + _random.NextFloat(-DirectionRandomOffset, DirectionRandomOffset);
             state.CurrentPos = originCoords;
             state.OldPos = originCoords;
-            state.Direction = offsetDirection.ToVec();
+            state.Direction = (direction + _random.NextFloat(
+                -_acousticSettings.DirectionRandomOffset,
+                _acousticSettings.DirectionRandomOffset)).ToVec();
             state.Translation = state.Direction * state.MaxRange;
             state.ProbeTranslation = state.Translation;
             state.RemainingDistance = state.MaxRange;
@@ -433,14 +437,14 @@ public sealed class AcousticDataSystem : EntitySystem
 
                     // TODO: more component data can be gathered here in the future
                     results.TotalAbsorption += GetAcousticAbsorption(
-                        in result,
+                        result,
                         in originEnt,
                         in comp);
                 }
             }
 
             // this ray is long enough to be considered in an open area and now shall be ignored
-            if (state.CurrentSegmentDistance >= state.MaxRange * EscapeDistancePercentage)
+            if (state.CurrentSegmentDistance >= state.MaxRange * _acousticSettings.EscapeDistancePercentage)
             {
                 results.TotalEscapes++;
                 break;
@@ -454,31 +458,24 @@ public sealed class AcousticDataSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets an absorption percentage with a linear decay distance penalty.
+    /// Gets an absorption percentage using inverse square falloff.
     /// </summary>
     private float GetAcousticAbsorption(
-            in RayHit result,
+            RayHit result,
             in EntityUid originEnt,
             in AcousticDataComponent comp)
     {
-        // linear decay based on distance from the listener and the final ray distance.
         result.Entity.ToCoordinates().TryDistance(
-                EntityManager,
-                originEnt.ToCoordinates(),
-                out var distance
-                );
+            EntityManager,
+            originEnt.ToCoordinates(),
+            out var distance);
 
-        if (distance < 1f)
-            distance = 1f;
-        var distanceSquared = distance * distance;
-        // inverse square falloff
-        var distanceFalloff = 5f / (5f + distanceSquared);
-        // _sawmill.Debug($"""
-        //         absorption result {ToPrettyString(result.Entity)}
-        //         distanceFactor: {distanceFalloff:F3}
-        //         finalAbsorb: {comp.Absorption * distanceFalloff:F3}
-        //         """);
-        return comp.Absorption * distanceFalloff;
+        // make sure we don't divide by zero.
+        var distanceSquared = MathF.Max(distance * distance, 0.01f);
+
+        return (comp.Absorption < 0)
+            ? -NormalizeToPercentage(comp.Absorption, -100f, 0f, maxClamp: _acousticSettings.MaxAbsorptionClamp) * distanceSquared
+            : NormalizeToPercentage(comp.Absorption, maxClamp: _acousticSettings.MaxAbsorptionClamp) * distanceSquared;
     }
 
 
@@ -500,13 +497,16 @@ public sealed class AcousticDataSystem : EntitySystem
 
         // we store our previous avg magnitude and lerp it with the current to make sure changes aren't too jarring
         if (_prevAvgMagnitude > float.Epsilon)
-            avgMagnitude = MathHelper.Lerp(_prevAvgMagnitude, avgMagnitude, 0.25f);
+            avgMagnitude = MathHelper.Lerp(_prevAvgMagnitude, avgMagnitude, _acousticSettings.AvgMagnitudeBlend);
         _prevAvgMagnitude = avgMagnitude;
 
         var amplitude = 0f;
+        var absorbMultiplier = InverseNormalizeToPercentage(avgAbsorption, maxClamp: _acousticSettings.MaxAbsorptionClamp); // things like furniture or different material walls should eat our energy
+        var escapeMultiplier = MathF.Max(InverseNormalizeToPercentage(escaped, 0f, totalRays), _acousticSettings.MaxmimumEscapePenalty); // escaped rays are mostly irrelevant, so penalize based on that.
+
         amplitude += avgMagnitude;
-        amplitude *= InverseNormalizeToPercentage(avgAbsorption, maxClamp: 1.3f); // things like furniture or different material walls should eat our energy
-        amplitude *= MathF.Max(InverseNormalizeToPercentage(escaped, 0f, totalRays), MinimumEscapePenalty); // escaped rays are mostly irrelevant, so penalize based on that.
+        amplitude *= absorbMultiplier;
+        amplitude *= escapeMultiplier;
 
         // severely punish our amplitude if there is no roof.
         if (originEnt.Comp.GridUid.HasValue
@@ -515,15 +515,15 @@ public sealed class AcousticDataSystem : EntitySystem
             && _transformSystem.TryGetGridTilePosition(originEnt.Owner, out var indices)
             && !_roofSystem.IsRooved((originEnt.Comp.GridUid.Value, grid, roof), indices))
         {
-            amplitude *= NoRoofPenalty;
+            amplitude *= _acousticSettings.NoRoofPenalty;
         }
 
         // _sawmill.Debug($"""
         //         Results:
-        //         Absorb Coefficient: {InverseNormalizeToPercentage(avgAbsorption, maxClamp: 1.3f):F3}
-        //         Escape Coefficient: {MathF.Max(InverseNormalizeToPercentage(escaped, 0f, totalRays), MinimumEscapePenalty):F3}
-        //         Final Amplitude: {amplitude:F2}
-        //         Acoustic Preset: {GetBestReverbPreset(amplitude)}
+        //         Absorbtion Multiplier: {absorbMultiplier:F3}
+        //         Escape Multiplier: {escapeMultiplier:F3}
+        //         Final Amplitude: {amplitude:F3}
+        //         Acoustic Preset: {GetBestReverbPreset(amplitude, _acousticPresets!)}
         //         """);
 
         return amplitude;
@@ -557,15 +557,4 @@ public sealed class AcousticDataSystem : EntitySystem
         public int TotalEscapes;
         public float TotalRange;
     }
-}
-
-/// <summary>
-/// A class container containing thresholds for audio presets.
-/// <seealso cref="AudioPresetPrototype"/>
-/// <seealso cref="Robust.Shared.Audio.Effects.ReverbPresets"/>
-/// </summary>
-public sealed class AudioReverbThreshold(float distance, ProtoId<AudioPresetPrototype> preset)
-{
-    public float Distance { get; init; } = distance;
-    public ProtoId<AudioPresetPrototype> Preset { get; init; } = preset;
 }
