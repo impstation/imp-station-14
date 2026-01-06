@@ -411,6 +411,16 @@
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 3, 4, 5 ]
+    - id: XenoArtifactAnimateSingle
+      weight: 7.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [2, 3, 4, 5 ]
+    - id: XenoArtifactAnimateTriple
+      weight: 6.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [4, 5 ]
     # imp edit end
 
 - type: entityTable
@@ -651,7 +661,7 @@
 - type: entity
   id: XenoArtifactGhost
   parent: BaseOneTimeXenoArtifactEffect
-  description: Becomes sentient
+  description: Neurological activity #IMP: change desc to allow confusion with animate effect
   components:
   - type: XAEApplyComponents
     components:

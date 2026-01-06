@@ -504,3 +504,28 @@
           prob: 0.30
         - id: MobMindlessCloneMindswapHostile # ~1 in 20, mindswap + hostile
           prob: 0.05
+
+- type: entity
+  id: XenoArtifactAnimateSingle
+  parent: BaseXenoArtifactEffect
+  description: Neurological activity
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 6
+    maxDurabilityCanDecreaseBy:
+      min: 1
+      max: 3
+  - type: XAEAnimate
+    range: 6
+    duration: 10
+    count: 1
+
+- type: entity
+  id: XenoArtifactAnimateTriple
+  parent: BaseXenoArtifactEffect
+  description: Neurological activity
+  components:
+  - type: XAEAnimate
+    range: 7
+    duration: 12
+    count: 3
