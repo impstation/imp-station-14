@@ -28,6 +28,7 @@
           !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.45"
         density: 5
+        hard: false
         layer:
         - DoorPassable
   - type: IconSmooth
