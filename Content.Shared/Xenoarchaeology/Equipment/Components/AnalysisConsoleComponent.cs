@@ -24,7 +24,7 @@ public sealed partial class AnalysisConsoleComponent : Component
     /// Can be null if not linked.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public NetEntity? AdvancedNodeScanner;
+    public EntityUid? AdvancedNodeScanner;
 
     [DataField]
     public SoundSpecifier? ScanFinishedSound = new SoundPathSpecifier("/Audio/Machines/scan_finish.ogg");

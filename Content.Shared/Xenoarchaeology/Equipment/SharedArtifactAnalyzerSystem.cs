@@ -18,6 +18,7 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 {
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
+    [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -62,7 +63,6 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
         {
             _artifact.SetAdvancedNodeScanner((args.OtherEntity, artifact), null);
             Dirty(args.OtherEntity, artifact);
-
         }
         //imp edit end
 
@@ -86,33 +86,54 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 
         foreach (var sink in linkedEntities)
         {
-            if (!TryComp<ArtifactAnalyzerComponent>(sink, out var analyzer))
-                continue;
-
-            ent.Comp.AnalyzerEntity = sink;
-            analyzer.Console = ent.Owner;
-            Dirty(ent);
-            Dirty(sink, analyzer);
-            break;
+            if (TryComp<ArtifactAnalyzerComponent>(sink, out var analyzer))
+            {
+                ent.Comp.AnalyzerEntity = sink;
+                analyzer.Console = ent.Owner;
+                if (analyzer.AdvancedNodeScanner is { } advNodeScan) //IMP advanced node scanner
+                    ent.Comp.AdvancedNodeScanner = advNodeScan;
+                Dirty(ent);
+                Dirty(sink, analyzer);
+            }
         }
     }
 
     private void OnNewLinkConsole(Entity<AnalysisConsoleComponent> ent, ref NewLinkEvent args)
     {
-        if (args.SourcePort != ent.Comp.LinkingPort || !HasComp<ArtifactAnalyzerComponent>(args.Sink))
+        if (args.SourcePort != ent.Comp.LinkingPort || !TryComp<ArtifactAnalyzerComponent>(args.Sink, out var analyzer)) //IMP HasComp to TryComp
             return;
+
+        if (analyzer.AdvancedNodeScanner is { } advNodeScan) //IMP advanced node scanner
+            ent.Comp.AdvancedNodeScanner = advNodeScan;
 
         ent.Comp.AnalyzerEntity = args.Sink;
         Dirty(ent);
     }
 
+    // IMP edit this whole function to fit in advanced node scanner
     private void OnNewLinkAnalyzer(Entity<ArtifactAnalyzerComponent> ent, ref NewLinkEvent args)
     {
-        if (args.SinkPort != ent.Comp.LinkingPort || !HasComp<AnalysisConsoleComponent>(args.Source))
+        if (args.SinkPort != ent.Comp.LinkingPort)
             return;
 
-        ent.Comp.Console = args.Source;
-        Dirty(ent);
+        if (HasComp<AnalysisConsoleComponent>(args.Source))
+        {
+            ent.Comp.Console = args.Source;
+            Dirty(ent);
+        }
+
+        if (HasComp<AdvancedNodeScannerComponent>(args.Source))
+        {
+            ent.Comp.AdvancedNodeScanner = args.Source;
+            Dirty(ent);
+
+            // Propogate the ANS to console
+            if (ent.Comp.Console is { } console && TryComp<AnalysisConsoleComponent>(console, out var consoleComp))
+            {
+                consoleComp.AdvancedNodeScanner = args.Source;
+                Dirty(console, consoleComp);
+            }
+        }
     }
 
     private void OnLinkAttemptConsole(Entity<AnalysisConsoleComponent> ent, ref LinkAttemptEvent args)
@@ -123,8 +144,9 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 
     private void OnLinkAttemptAnalyzer(Entity<ArtifactAnalyzerComponent> ent, ref LinkAttemptEvent args)
     {
-        if (ent.Comp.Console != null)
-            args.Cancel(); // can only link to one device at a time
+        // IMP EDIT the if statement
+        if ((ent.Comp.Console != null && HasComp<AnalysisConsoleComponent>(args.Source)) || (ent.Comp.AdvancedNodeScanner != null && HasComp<AdvancedNodeScannerComponent>(args.Source)))
+            args.Cancel(); // can only link to one device of a type at a time
     }
 
     private void OnPortDisconnectedConsole(Entity<AnalysisConsoleComponent> ent, ref PortDisconnectedEvent args)
@@ -133,12 +155,13 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
             return;
 
         ent.Comp.AnalyzerEntity = null;
+        ent.Comp.AdvancedNodeScanner = null; //IMP advanced node scanner
         Dirty(ent);
     }
 
     private void OnPortDisconnectedAnalyzer(Entity<ArtifactAnalyzerComponent> ent, ref PortDisconnectedEvent args)
     {
-        if (args.Port != ent.Comp.LinkingPort || ent.Comp.Console == null)
+        if (args.Port != ent.Comp.LinkingPort || ent.Comp.Console == null) //We'll handle the advanced node scanner case in SharedAdvancedNodeScannerSystem //IMP only the comment is imp
             return;
 
         ent.Comp.Console = null;

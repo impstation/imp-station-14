@@ -8,8 +8,8 @@ using Content.Shared.Xenoarchaeology.Artifact;
 namespace Content.Shared.Xenoarchaeology.Equipment;
 
 /// <summary>
-/// This system is used for managing the artifact analyzer as well as the analysis console.
-/// It also handles scanning and ui updates for both systems.
+/// This system is used for managing the advanced node scanner.
+/// It handles linking, helper functions, and announcing scanned nodes.
 /// </summary>
 public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 {
@@ -24,6 +24,8 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<AdvancedNodeScannerComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<AdvancedNodeScannerComponent, PortDisconnectedEvent>(OnPortDisconnected);
+
+        SubscribeLocalEvent<XenoArtifactComponent, ArtifactUnlockingFinishedEvent>(OnUnlockingFinished);
     }
 
 
@@ -32,17 +34,13 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         if (!TryComp<ArtifactAnalyzerComponent>(args.Sink, out var analyzer))
             return;
 
-        ent.Comp.AnalyzerEntity = GetNetEntity(args.Sink);
+        ent.Comp.AnalyzerEntity = args.Sink;
         analyzer.AdvancedNodeScanner = ent;
-        if (analyzer.Console is not null && TryComp<AnalysisConsoleComponent>(analyzer.Console, out var analysisConsoleComponent))
+
+        if (analyzer.CurrentArtifact is { } artifact && TryComp<XenoArtifactComponent>(artifact, out var artifactComp))
         {
-            analysisConsoleComponent.AdvancedNodeScanner = GetNetEntity(ent);
-            Dirty((EntityUid)analyzer.Console, analysisConsoleComponent);
-        }
-        if (analyzer.CurrentArtifact is not null && TryComp<XenoArtifactComponent>(analyzer.CurrentArtifact, out var artifactComp))
-        {
-            _artifact.SetAdvancedNodeScanner(((EntityUid)analyzer.CurrentArtifact, artifactComp), ent.Owner);
-            Dirty((EntityUid)analyzer.CurrentArtifact, artifactComp);
+            _artifact.SetAdvancedNodeScanner((artifact, artifactComp), ent.Owner);
+            Dirty(artifact, artifactComp);
         }
 
         Dirty(args.Sink, analyzer);
@@ -51,32 +49,40 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 
     private void OnPortDisconnected(Entity<AdvancedNodeScannerComponent> ent, ref PortDisconnectedEvent args)
     {
-        var analyzerNetEntity = ent.Comp.AnalyzerEntity;
-        if (args.Port != ent.Comp.AdvancedNodeScannerLinkingPort || analyzerNetEntity == null)
+        if (args.Port != ent.Comp.AdvancedNodeScannerLinkingPort || ent.Comp.AnalyzerEntity is not { } analyzerEntity)
             return;
 
-        var analyzerEntityUid = GetEntity(analyzerNetEntity);
-        if (TryComp<ArtifactAnalyzerComponent>(analyzerEntityUid, out var analyzer))
+        if (TryComp<ArtifactAnalyzerComponent>(analyzerEntity, out var analyzer))
         {
             analyzer.AdvancedNodeScanner = null;
-            Dirty(analyzerEntityUid.Value, analyzer);
+            Dirty(analyzerEntity, analyzer);
 
-            if (analyzer.Console is not null && TryComp<AnalysisConsoleComponent>(analyzer.Console, out var analysisConsoleComponent))
+            if (analyzer.Console is { } console && TryComp<AnalysisConsoleComponent>(analyzer.Console, out var analysisConsoleComponent))
             {
                 analysisConsoleComponent.AdvancedNodeScanner = null;
-                Dirty((EntityUid)analyzer.Console, analysisConsoleComponent);
+                Dirty(console, analysisConsoleComponent);
             }
 
-            if (analyzer.CurrentArtifact is not null && TryComp<XenoArtifactComponent>(analyzer.CurrentArtifact, out var artifactComp))
+            if (analyzer.CurrentArtifact is { } artifact && TryComp<XenoArtifactComponent>(artifact, out var artifactComp))
             {
-                _artifact.SetAdvancedNodeScanner(((EntityUid)analyzer.CurrentArtifact, artifactComp), null);
-                Dirty((EntityUid)analyzer.CurrentArtifact, artifactComp);
+                _artifact.SetAdvancedNodeScanner((artifact, artifactComp), null);
+                Dirty(artifact, artifactComp);
             }
         }
 
         ent.Comp.AnalyzerEntity = null;
         Dirty(ent);
     }
+
+    private void OnUnlockingFinished(Entity<XenoArtifactComponent> ent, ref ArtifactUnlockingFinishedEvent args)
+    {
+        //ANSTODO get unlocking component and pass to helper function
+    }
+
+    /// ANSTODO: get data on update ticks if time has passed - trigger helper function
+    /// ANSTODO: helper function should take all info from unlocking, compare to previous so new info is available
+    ///     then 'advertise'-type say the difference
+    ///     and update the historic data
 
     public bool TryGetAdvancedNodeScanner(Entity<AnalysisConsoleComponent> ent, [NotNullWhen(true)] out Entity<AdvancedNodeScannerComponent>? advancedNodeScanner)
     {

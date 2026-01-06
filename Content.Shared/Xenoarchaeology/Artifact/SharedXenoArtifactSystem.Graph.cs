@@ -586,7 +586,7 @@ public abstract partial class SharedXenoArtifactSystem
         }
         else
         {
-            var visibility = Math.Min(1 + ans.NaturalNodeGraphVisibilityModifier, node.Comp.Depth);
+            var visibility = Math.Min(ans.NaturalNodeGraphVisibilityModifier, node.Comp.Depth);
             var ancestors = GetDirectPredecessorNodesRecursive((ent, ent), node, visibility);
             if (ancestors.Any(x => IsNodeActive(ent, x) || !x.Comp.Locked))
                 return true;
