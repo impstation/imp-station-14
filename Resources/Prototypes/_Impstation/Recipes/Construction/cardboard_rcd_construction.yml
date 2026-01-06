@@ -1,17 +1,4 @@
 - type: construction
-  id: WallCardboard
-  graph: CardboardStructures
-  startNode: start
-  targetNode: wall
-  category: construction-category-structures
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canRotate: false
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
-- type: construction
   id: WindowCardboard
   graph: CardboardStructures
   startNode: start

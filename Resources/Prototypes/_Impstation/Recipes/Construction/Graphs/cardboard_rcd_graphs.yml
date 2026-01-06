@@ -6,15 +6,6 @@
     actions:
     - !type:DestroyEntity {}
     edges:
-    - to: wall
-      completed:
-      - !type:SnapToGrid
-        southRotation: true
-      steps:
-      - material: Cardboard
-        amount: 4
-        doAfter: 3
-
     - to: window
       completed:
       - !type:SnapToGrid
@@ -48,30 +39,10 @@
         - material: Cardboard
           amount: 1
 
-    - to: door
-      completed:
-      - !type:SnapToGrid
-      steps:
-      - material: Cardboard
-        amount: 4
-        doAfter: 4
-
   - node: tile
     entity: FloorTileItemCardboard
 
   # Deconstruction is down here
-  - node: wall
-    entity: WallCardboard
-    edges:
-    - to: start
-      completed:
-      - !type:SpawnPrototype
-        prototype: MaterialCardboard1
-        amount: 4
-      steps:
-      - tool: Cutting
-        doAfter: 2
-
   - node: window
     entity: WindowCardboard
     edges:
@@ -83,7 +54,7 @@
       steps:
       - tool: Cutting
         doAfter: 1
-  
+
   - node: directional
     entity: WindowCardboardDirectional
     edges:
@@ -104,18 +75,6 @@
       - !type:SpawnPrototype
         prototype: MaterialCardboard1
         amount: 1
-      steps:
-      - tool: Cutting
-        doAfter: 1
-
-  - node: door
-    entity: DoorCardboard
-    edges:
-    - to: start
-      completed:
-      - !type:SpawnPrototype
-        prototype: MaterialCardboard1
-        amount: 4
       steps:
       - tool: Cutting
         doAfter: 1

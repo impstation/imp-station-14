@@ -15,6 +15,24 @@
   heatCapacity: 10000
 
 - type: tile
+  id: FloorCardboard
+  name: cardboard floor tile
+  sprite: /Textures/_Impstation/Structures/Cardboard/cardboardtile.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemCardboard
+  heatCapacity: 1000 # weak
+
+- type: tile
   id: FloorChapelNE
   name: tiles-chapel-floor-ne
   sprite: /Textures/_Impstation/Tiles/chapelNE.png
