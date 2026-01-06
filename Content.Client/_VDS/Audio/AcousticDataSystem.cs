@@ -8,6 +8,7 @@
 // where this is like a ship of theseus situation.
 
 using Content.Client._Mono.Audio;
+using Content.Client._VDS.Audio.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.Light.Components;
 using Content.Shared.Light.EntitySystems;
@@ -16,7 +17,6 @@ using Content.Shared.Physics;
 using Content.Shared._VDS.Audio.Components;
 using Content.Shared._VDS.CCVars;
 using Content.Shared._VDS.Physics;
-using DependencyAttribute = Robust.Shared.IoC.DependencyAttribute;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
@@ -30,7 +30,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Numerics;
-using Content.Client._VDS.Audio.Components;
 
 namespace Content.Client._VDS.Audio;
 
@@ -67,14 +66,10 @@ public sealed class AcousticDataSystem : EntitySystem
     */
     /// <summary>
     /// Arbitrary values for determining what ReverbPreset to use.
+    /// Defined in <see cref="AcousticSettingsComponent"/>.
     /// See <see cref="Robust.Shared.Audio.Effects.ReverbPresets"/>.
     /// </summary>
     private SortedList<float, ProtoId<AudioPresetPrototype>>? _acousticPresets;
-
-    /// <summary>
-    /// Our previously recorded magnitude, for lerp purposes.
-    /// </summary>
-    private float _prevAvgMagnitude;
 
     /// <summary>
     /// The client's local entity, to spawn our raycasts at.
@@ -87,6 +82,12 @@ public sealed class AcousticDataSystem : EntitySystem
     /// Max amount of times single acoustic ray is allowed to bounce
     /// </summary>
     private int _acousticMaxReflections;
+
+    /// <summary>
+    /// Our previously recorded magnitude, for lerp purposes.
+    /// </summary>
+    private float _prevAvgMagnitude;
+
 
     private EntityQuery<AcousticDataComponent> _acousticQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
@@ -121,11 +122,6 @@ public sealed class AcousticDataSystem : EntitySystem
         SubscribeLocalEvent<LocalPlayerDetachedEvent>(OnLocalPlayerDetached);
     }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-    }
-
     private void OnLocalPlayerAttached(LocalPlayerAttachedEvent ev)
     {
         _clientEnt = ev.Entity;
@@ -155,6 +151,7 @@ public sealed class AcousticDataSystem : EntitySystem
     {
         if (_acousticPresets == null || _acousticPresets.Count == 0)
             return;
+
         var maxMagnitude = _acousticPresets.Keys[^1];
         var minMagnitude = _acousticPresets.Keys[0];
 
@@ -202,13 +199,14 @@ public sealed class AcousticDataSystem : EntitySystem
         if (!audio.Comp.Playing
             || audio.Comp.Global
             || audio.Comp.State == AudioState.Stopped)
+        {
             return false;
+        }
 
         Vector2 audioPos;
         Vector2 clientPos;
         if ((audio.Comp.Flags & AudioFlags.GridAudio) != 0x0)
         {
-
             audioPos = xForm.LocalPosition;
             clientPos = _mapSystem.GetGridPosition(_clientEnt);
         }
@@ -221,10 +219,7 @@ public sealed class AcousticDataSystem : EntitySystem
         // check distance!
         var delta = audioPos - clientPos;
         var distance = delta.Length();
-        if (_audioSystem.GetAudioDistance(distance) > audio.Comp.MaxDistance)
-            return false;
-
-        return true;
+        return _audioSystem.GetAudioDistance(distance) <= audio.Comp.MaxDistance;
     }
 
     /// <summary>
@@ -300,12 +295,16 @@ public sealed class AcousticDataSystem : EntitySystem
 
         if (!originEnt.IsValid()
             || !_transformQuery.HasComponent(originEnt))
+        {
             return false;
+        }
 
         // in space nobody can hear your awesome freaking acoustics
         if (!_turfSystem.TryGetTileRef(originEnt.ToCoordinates(), out var tileRef)
             || _turfSystem.IsSpace(tileRef.Value))
+        {
             return false;
+        }
 
         var clientTransform = Transform(originEnt);
         var clientMapId = clientTransform.MapID;
@@ -324,7 +323,7 @@ public sealed class AcousticDataSystem : EntitySystem
         {
             MaskBits = (int)CollisionGroup.AllMask,
             LayerBits = (int)CollisionGroup.None,
-            IsIgnored = ent => _acousticQuery.TryGetComponent(ent, out var comp) && comp.ReflectRay == false,
+            IsIgnored = ent => _acousticQuery.TryGetComponent(ent, out var comp) && !comp.ReflectRay,
             Flags = QueryFlags.Static | QueryFlags.Dynamic
         };
 
@@ -343,32 +342,25 @@ public sealed class AcousticDataSystem : EntitySystem
         // cast our rays and get our results
         acousticResults = CastManyReflectiveAcousticRays(
             in originEnt,
-            in clientCoords,
+            clientCoords,
             in maxBounces,
             in castDirections,
             ref state);
 
-        if (acousticResults.Count == 0)
-            return false;
-
-        return true;
+        return acousticResults.Count != 0;
     }
 
     /// <summary>
-    ///
+    /// Casts many bouncing rays.
+    /// <seealso cref="ReflectiveRaycastSystem"/>
+    /// <seealso cref="CastReflectiveAcousticRay(in EntityUid, in int, ref ReflectiveRayState)"/>
     /// </summary>
-    /// <param name="originEnt"></param>
-    /// <param name="originCoords"></param>
-    /// <param name="maxBounces"></param>
-    /// <param name="castDirections"></param>
-    /// <param name="state"></param>
-    /// <returns></returns>
     public List<AcousticRayResults> CastManyReflectiveAcousticRays(
-            in EntityUid originEnt,
-            in Vector2 originCoords,
-            in int maxBounces,
-            in Angle[] castDirections,
-            ref ReflectiveRayState state)
+        in EntityUid originEnt,
+        Vector2 originCoords,
+        in int maxBounces,
+        in Angle[] castDirections,
+        ref ReflectiveRayState state)
     {
         var acousticResults = new List<AcousticRayResults>();
 
@@ -399,7 +391,7 @@ public sealed class AcousticDataSystem : EntitySystem
     /// Casts a bouncing ray.
     /// <seealso cref="ReflectiveRaycastSystem"/>
     /// </summary>
-    /// <param name="originEnt">The entity to compare absorption falloff to. <see cref="GetAcousticAbsorption(in RayHit,
+    /// <param name="originEnt">The entity to compare absorption falloff to. <see cref="GetAcousticAbsorption(RayHit,
     /// in EntityUid, in float, in AcousticDataComponent)/></param>
     /// <param name="state"><see cref="ReflectiveRayState"/></param>
     /// <returns><see cref="AcousticRayResults"/>, in order hit, including whatever the ray bounced off.</returns>
@@ -461,9 +453,9 @@ public sealed class AcousticDataSystem : EntitySystem
     /// Gets an absorption percentage using inverse square falloff.
     /// </summary>
     private float GetAcousticAbsorption(
-            RayHit result,
-            in EntityUid originEnt,
-            in AcousticDataComponent comp)
+        RayHit result,
+        in EntityUid originEnt,
+        in AcousticDataComponent comp)
     {
         result.Entity.ToCoordinates().TryDistance(
             EntityManager,
@@ -485,7 +477,7 @@ public sealed class AcousticDataSystem : EntitySystem
     /// <param name="originEnt">Where the rays originally came from, for roof detecting purposes.</param>
     /// <returns>Our ray's amplitude</returns>
     private float CalculateAmplitude(
-        in Entity<TransformComponent> originEnt,
+        Entity<TransformComponent> originEnt,
         in List<AcousticRayResults> acousticResults)
     {
         var totalRays = acousticResults.Count;
@@ -532,7 +524,11 @@ public sealed class AcousticDataSystem : EntitySystem
     /// <summary>
     /// Returns a 0f..1f percent, where the closer to 0f the value is, the closer to 100% (1.0f) it is.
     /// </summary>
-    public static float NormalizeToPercentage(float value, float minValue = 0f, float maxValue = 100f, float maxClamp = 1f)
+    public static float NormalizeToPercentage(
+        float value,
+        float minValue = 0f,
+        float maxValue = 100f,
+        float maxClamp = 1f)
     {
         var percentage = (value - minValue) / (maxValue - minValue);
         return Math.Clamp(percentage, 0f, maxClamp);
@@ -541,10 +537,13 @@ public sealed class AcousticDataSystem : EntitySystem
     /// <summary>
     /// Returns a 0f..1f percent, where the closer to 1.0f the value is, the closer to 0% (0f) it is.
     /// </summary>
-    public static float InverseNormalizeToPercentage(float value, float minValue = 0f, float maxValue = 100f, float maxClamp = 1f)
+    public static float InverseNormalizeToPercentage(
+        float value,
+        float minValue = 0f,
+        float maxValue = 100f,
+        float maxClamp = 1f)
     {
-        var percentage = NormalizeToPercentage(maxValue - value, minValue, maxValue, maxClamp);
-        return percentage;
+        return NormalizeToPercentage(maxValue - value, minValue, maxValue, maxClamp);
     }
 
     /// <summary>
