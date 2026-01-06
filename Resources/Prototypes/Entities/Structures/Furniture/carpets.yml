@@ -18,7 +18,8 @@
     - Carpet
     - ForceFixRotations
   - type: Physics
-    canCollide: false
+    bodyType: static # VDS
+    canCollide: true # VDS - from false, so carpets collide with acoustic rays.
   - type: Fixtures
     fixtures:
       fix1:
@@ -26,6 +27,7 @@
           !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.45"
         density: 5
+        hard: false # VDS
         layer:
         - DoorPassable
   - type: Damageable
