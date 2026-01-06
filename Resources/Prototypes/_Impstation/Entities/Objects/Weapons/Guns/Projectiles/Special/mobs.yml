@@ -145,3 +145,25 @@
     damage:
       types:
         Piercing: 10
+
+- type: entity
+  id: DogRay
+  name: bark
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/bark.rsi
+    layers:
+      - state: bark
+  - type: Projectile
+    soundHit: null
+    impactEffect: null
+    deleteOnCollide: true
+    damage:
+      types:
+        Piercing: 0
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Ammo
+    muzzleFlash: null
