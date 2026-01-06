@@ -183,3 +183,29 @@
     guides:
     - Botanical
     - Chemicals
+
+- type: entity
+  name: box of food coloring bottles
+  parent: BoxCardboard
+  id: BoxFoodColoring
+  description: A little container for food coloring bottles.
+  components:
+  - type: StorageFill
+    contents:
+    - id: DrinkRedFoodColoringBottleFull
+    - id: DrinkOrangeFoodColoringBottleFull
+    - id: DrinkYellowFoodColoringBottleFull
+    - id: DrinkGreenFoodColoringBottleFull
+    - id: DrinkCyanFoodColoringBottleFull
+    - id: DrinkBlueFoodColoringBottleFull
+    - id: DrinkPinkFoodColoringBottleFull
+    - id: DrinkPurpleFoodColoringBottleFull
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    maxItemSize: Tiny
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/foodcoloringbox.rsi
+    state: foodcoloringbox

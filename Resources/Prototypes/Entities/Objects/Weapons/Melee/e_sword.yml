@@ -217,7 +217,7 @@
     - type: Contraband
       severity: Syndicate
   - type: Sprite
-    sprite: Objects/Weapons/Melee/e_dagger.rsi
+    sprite: _Impstation/Objects/Weapons/Melee/e_dagger.rsi # imp edit
     layers:
       - state: e_sword
       - state: e_sword_blade
@@ -227,7 +227,7 @@
         map: [ "blade" ]
   - type: Item
     size: Tiny
-    sprite: Objects/Weapons/Melee/e_dagger.rsi
+    sprite: _Impstation/Objects/Weapons/Melee/e_dagger.rsi # imp edit
   - type: PointLight
     enabled: false
     radius: 1.5
