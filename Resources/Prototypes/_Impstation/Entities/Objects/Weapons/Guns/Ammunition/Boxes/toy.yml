@@ -38,6 +38,11 @@
   description: A box made for 20 pew pew shots.
   components:
   - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeMagnum
+        - CartridgeCap
     proto: CartridgeCap
     capacity: 20
   - type: Sprite

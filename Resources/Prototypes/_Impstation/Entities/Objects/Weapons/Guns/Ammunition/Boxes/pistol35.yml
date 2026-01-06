@@ -96,6 +96,11 @@
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolStun
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistol
+        - CartridgePistolStun
   - type: Sprite
     layers:
     - state: base
