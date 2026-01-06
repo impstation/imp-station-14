@@ -14,12 +14,12 @@
         range: 1, 2
     - id: CameraBug
     - id: ChameleonProjector
-    - id: CigPackSyndicate
-      amount: !type:RangeNumberSelector
-        range: 1, 3
     - id: CigPackMixedRejects
       amount: !type:RangeNumberSelector
         range: 1, 2
+    - id: CigPackSyndicate
+      amount: !type:RangeNumberSelector
+        range: 1, 3
     - id: ClothingBackpackChameleonFill
     - id: ClothingBackpackDuffelSyndicateDecoyKitFilled
       weight: 0.75
