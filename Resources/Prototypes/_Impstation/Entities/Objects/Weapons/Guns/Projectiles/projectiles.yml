@@ -309,3 +309,25 @@
       sprite: _Impstation/Objects/Weapons/Guns/Launchers/grappling_gun_improvised.rsi
       layers:
         - state: hook
+
+- type: entity
+  id: DogRay
+  name: bark
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/bark.rsi
+    layers:
+      - state: bark
+  - type: Projectile
+    soundHit: null
+    impactEffect: null
+    deleteOnCollide: true
+    damage:
+      types:
+        Piercing: 0
+  - type: TimedDespawn
+    lifetime: 15
+  - type: Ammo
+    muzzleFlash: null
