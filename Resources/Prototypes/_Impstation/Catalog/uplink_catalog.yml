@@ -533,6 +533,45 @@
     - Chaplain
 
 - type: listing
+  id: UplinkFreeTreatChunk
+  name: uplink-treatchunk-free-name
+  description: uplink-treatchunk-free-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi, state: treatchunk-wrapped }
+  productEntity: FoodTreatChunk
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkTreatChunkBag
+  name: uplink-treatchunk-bag-name
+  description: uplink-treatchunk-bag-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi, state: treatchunk-bag }
+  productEntity: TreatChunkBag
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
+
+- type: listing
+  id: UplinkTreatChunkBig
+  name: uplink-treatchunk-big-name
+  description: uplink-treatchunk-big-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Consumable/Food/Candy/large_treatchunk_bag.rsi, state: large-treatchunk-bag }
+  productEntity: LargeTreatChunkBag
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkPointless
+  conditions: # surplus exclusive. same amount of hyperzine as an injector but in an infinitely shittier form. hehehehe
+  - !type:BuyerWhitelistCondition
+    whitelist:
+      components:
+      - SurplusBundle
+      
+- type: listing    
   id: uplinkHotsauces
   name: uplink-hotsauces-name
   description: uplink-hotsauces-desc
