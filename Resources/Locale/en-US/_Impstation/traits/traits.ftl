@@ -121,3 +121,6 @@ trait-slight-desc = You're lighter than average.
 
 trait-soft-hands-name = Soft hands
 trait-soft-hands-desc = You're too weak to wield anything.
+
+trait-hated-by-dogs-name = Hated by dogs
+trait-hated-by-dogs-desc = Dogs will bark at you when you come near.
