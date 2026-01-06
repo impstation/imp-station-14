@@ -89,3 +89,6 @@
   - type: GhostTakeoverAvailable
   - type: NPCRetaliation
     attackMemoryLength: 10
+  - type: Spider
+    webPrototype: SpiderWebWeak
+    spawnOneWeb: true
