@@ -46,7 +46,7 @@
   name: Type-25 energy magnum
   parent: [BaseBlasterPistol, BaseGrandTheftContraband]
   id: WeaponEnergyMagnum
-  description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for either high damage, window piercing, or non-lethal disabling.
+  description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for lethal, stun, or illuminating flare shots.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Blasters/energy_magnum.rsi
