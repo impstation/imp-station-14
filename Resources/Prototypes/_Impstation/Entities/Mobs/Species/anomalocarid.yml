@@ -77,6 +77,7 @@
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.RArmExtension" ]
       - map: [ "mask" ]
       - map: [ "head" ]
       - map: [ "pocket1" ]
@@ -177,6 +178,11 @@
     action: ActionAnomalocaridSpit
     gunProto: AnomalocaridSpitGun
   - type: HeatVent
+    tooHotPopups:
+    - anomalocarid-vent-toohot1
+    - anomalocarid-vent-toohot2
+    - anomalocarid-vent-toohot3
+  - type: AnomalocaridAccent
   - type: ZombieAccentOverride
     accent: zombieAnomalocarid
   - type: Inventory
@@ -265,6 +271,7 @@
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+      - map: [ "enum.HumanoidVisualLayers.RArmExtension" ]
       - map: [ "mask" ]
       - map: [ "head" ]
       - map: [ "pocket1" ]
