@@ -1,4 +1,12 @@
 - type: entity
+  id: MiniMechaInstructions
+  parent: Paper
+  components:
+  - type: Paper
+  - type: RandomPaperContent
+    dataset: MiniMechaInstructions
+
+- type: entity
   parent: PresentRandom
   id: MysteryMechBox
   name: Mini-Mecha mystery figurine kit
