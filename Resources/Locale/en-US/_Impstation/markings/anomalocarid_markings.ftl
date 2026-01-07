@@ -160,6 +160,7 @@ marking-AnomalocaridEyeOpabinia-opabinia_secondary = Shine
 marking-AnomalocaridEyeLashes = Eyelashes
 marking-AnomalocaridEyeLashes-eyelashes = Eyelashes
 marking-AnomalocaridEyeAngryBrows = Bushy Brows
+marking-AnomalocaridEyeAngryBrows-angryeyebrows = Brows
 marking-AnomalocaridEyeRoboLeft = Robo Eye (Left)
 marking-AnomalocaridEyeRoboLeft-roboeye_l_primary = Eye Primary
 marking-AnomalocaridEyeRoboLeft-roboeye_l_secondary = Eye Secondary

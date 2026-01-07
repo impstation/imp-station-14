@@ -966,7 +966,7 @@
 - type: marking
   id: AnomalocaridAntennae16Arc
   bodyPart: HeadTop
-  markingCategory: HeadTop
+  markingCategory: Overlay
   speciesRestriction: [ Anomalocarid ]
   randomWeight: 0
   followSkinColor: false
@@ -1225,6 +1225,7 @@
   bodyPart: LFoot
   markingCategory: Overlay
   speciesRestriction: [ Anomalocarid ]
+  randomWeight: 0.3
   forcedColoring: false
   coloring:
     default:
@@ -1242,6 +1243,7 @@
   bodyPart: LFoot
   markingCategory: Overlay
   speciesRestriction: [ Anomalocarid ]
+  randomWeight: 0
   forcedColoring: false
   coloring:
     default:
@@ -1252,13 +1254,13 @@
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: roboeye_l_unshaded
   shader: unshaded
-  randomWeight: 0
 
 - type: marking
   id: AnomalocaridEyeRoboRight
   bodyPart: LFoot
   markingCategory: Overlay
   speciesRestriction: [ Anomalocarid ]
+  randomWeight: 0.3
   forcedColoring: false
   coloring:
     default:
@@ -1276,6 +1278,7 @@
   bodyPart: LFoot
   markingCategory: Overlay
   speciesRestriction: [ Anomalocarid ]
+  randomWeight: 0
   forcedColoring: false
   coloring:
     default:
@@ -1286,4 +1289,3 @@
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: roboeye_r_unshaded
   shader: unshaded
-  randomWeight: 0
