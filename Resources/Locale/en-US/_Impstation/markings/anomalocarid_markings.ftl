@@ -16,6 +16,9 @@ marking-AnomalocaridGrabbersTiny-grabbers7 = Grabbers
 
 marking-AnomalocaridHeadSeaweed = Seawig
 marking-AnomalocaridHeadSeaweed-seaweedhair = Seaweed
+marking-AnomalocaridHeadCollars = Spiked Collars
+marking-AnomalocaridHeadCollars-spikedcollars_primary = Collars Primary
+marking-AnomalocaridHeadCollars-spikedcollars_secondary = Collars Secondary
 
 marking-AnomalocaridAntennae1 = Fan Antennae
 marking-AnomalocaridAntennae1-antennae1 = Antennae

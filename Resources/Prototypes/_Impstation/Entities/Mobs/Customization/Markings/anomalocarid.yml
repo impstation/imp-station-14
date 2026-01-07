@@ -146,6 +146,23 @@
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: eyelashes
 
+- type: marking
+  id: AnomalocaridHeadCollars
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: spikedcollars_primary
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: spikedcollars_secondary
+
 # Snout
 
 # Eyes
@@ -867,21 +884,6 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: angryeyebrows
-
-- type: marking
-  id: AnomalocaridAntennae12
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
-  forcedColoring: false
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Anomalocarid/headtop.rsi
-    state: antennae12
 
 - type: marking
   id: AnomalocaridAntennae12
