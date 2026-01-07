@@ -1142,6 +1142,7 @@
     state: tentacles_tertiary_behind
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/tail.rsi
     state: tentacles_tertiary_front
+  randomWeight: 0.3
 
 #- type: marking
 #  id: AnomalocaridTailDefault
@@ -1249,6 +1250,7 @@
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: roboeye_l_unshaded
   shader: unshaded
+  randomWeight: 0
 
 - type: marking
   id: AnomalocaridEyeRoboRight
@@ -1282,3 +1284,4 @@
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: roboeye_r_unshaded
   shader: unshaded
+  randomWeight: 0
