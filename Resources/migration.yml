@@ -640,8 +640,8 @@ SuitStorageBasic: SuitStorageEVA
 ClothingNeckCloakMiner: null
 
 # 2025-05-22
-MatterBinStockPart: MicroManipulatorStockPart
-CapacitorStockPart: MicroManipulatorStockPart
+# MatterBinStockPart: MicroManipulatorStockPart # imp - return capacitors and matter bins
+# CapacitorStockPart: MicroManipulatorStockPart
 
 # 2025-05-26 Turrets
 WeaponEnergyTurretStation: WeaponEnergyTurretSecurity
@@ -736,3 +736,6 @@ WarpPointBombing: null
 ToyGriffin: ToyFigurineGriffin
 ToyOwlman: ToyFigurineOwlman
 ToySkeleton: ToyFigurineSkeleton
+
+# 2025-10-28
+DrinkKiraSpecial: DrinkOrangeLimeSodaGlass

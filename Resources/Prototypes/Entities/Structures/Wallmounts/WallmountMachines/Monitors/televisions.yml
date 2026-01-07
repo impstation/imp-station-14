@@ -41,15 +41,17 @@
         enum.SurveillanceCameraMonitorUiKey.Key:
           type: SurveillanceCameraMonitorBoundUserInterface
   - type: PointLight
-    radius: 6 #imp
-    energy: 1.6
-    color: "#809fff" #imp
-    castShadows: true #imp
-    enabled: false #imp
-    mask: /Textures/Effects/LightMasks/cone.png #imp
-    autoRot: true #imp
-  - type: LitOnPowered #imp
-  - type: PowerSwitch #imp
+    radius: 6 # imp, was 1.5
+    energy: 1.6 # imp, was 3.0
+    color: "#809fff" #imp, was #b89f25
+    # imp adds start
+    castShadows: true
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+  - type: LitOnPowered
+  - type: PowerSwitch
+  # imp adds end
   - type: Destructible
     thresholds:
       - trigger:

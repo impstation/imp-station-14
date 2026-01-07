@@ -17,6 +17,7 @@
     - Heretic
     - Replicator
     - Dog
+    - DuctSpider
 
 - type: npcFaction
   id: Penguin
@@ -50,11 +51,22 @@
   - Penguin
   - AllHostile
   - Dog
+  - DuctSpider
 
 - type: npcFaction
   id: Dog
   hostile:
   - Courier
+  - DogHated #i know these seems redundant but there's a bug with faction clothing
 
 - type: npcFaction
   id: Courier
+
+# it's meal to them
+- type: npcFaction
+  id: DuctSpider
+  hostile:
+  - Mouse
+
+- type: npcFaction
+  id: DogHated

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created from an amalgamate of the Syndicate-Nukeops armor found across a vast swathe of spritesheets and versions of the game. Original helmet icon base by an unknown artist; please contact us if you know the correct accredation for it. Dog states modified from base states by Sparlight (GitHub).",
+    "copyright": "Created from an amalgamate of the Syndicate-Nukeops armor found across a vast swathe of spritesheets and versions of the game. Original helmet icon base by an unknown artist; please contact us if you know the correct accredation for it. Dog states modified from base states by Sparlight (GitHub). anomalocarid sprite edits by doop",
     "size": {
         "x": 32,
         "y": 32
@@ -58,6 +58,14 @@
         },
         {
             "name": "on-equipped-HELMET-vox",
+            "directions": 4
+        },
+        {
+            "name": "off-equipped-HELMET-anomalocarid",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET-anomalocarid",
             "directions": 4
         }
     ]

@@ -140,3 +140,12 @@
       emergencyLightColor: PaleVioletRed
       forceEnableEmergencyLights: true
       shuttleTime: 600
+    ice:
+      announcement: alert-level-ice-announcement
+      selectable: false
+      sound: /Audio/Misc/redalert.ogg
+      disableSelection: true
+      color: LightBlue
+      emergencyLightColor: LightBlue
+      forceEnableEmergencyLights: true
+      shuttleTime: 600

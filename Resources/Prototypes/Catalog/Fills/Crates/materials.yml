@@ -182,10 +182,14 @@
     - id: MaterialSiloMachineCircuitboard
     - id: SheetSteel1
       amount: 5
-    - id: MicroManipulatorStockPart
-      amount: 4
+    #- id: MicroManipulatorStockPart # imp - return capacitors and matter bins
+    #  amount: 4
     - id: CableApcStack1
       amount: 2
+    # imp edit start
+    - id: MatterBinStockPart
+      amount: 4
+    # imp edit end
 
 - type: entity
   id: CrateMaterialBasicResource

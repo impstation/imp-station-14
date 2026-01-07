@@ -39,3 +39,6 @@ seeds-butterorchid-display-name = butter orchids
 
 seeds-floatingflora-name = floating flora
 seeds-floatingflora-display-name = floating flora
+
+seeds-pompombush-name = pompom bush
+seeds-pompombush-display-name = pompom bush

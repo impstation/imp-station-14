@@ -67,10 +67,10 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:
-  - type: Sprite
+  - type: Sprite # imp
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: buckshot-flare #imp
+    - state: buckshot-flare
   - type: Projectile
     damage:
       types:
@@ -123,7 +123,8 @@
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
     layers:
-    - state: shard #imp
+    - state: shard
+      # shader: unshaded # imp
   - type: Projectile
     damage:
       types:
@@ -146,10 +147,10 @@
   categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
   components:
-  - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
+  - type: Sprite # imp
+    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
     layers:
-    - state: hypo #imp
+    - state: hypo
   - type: Projectile
     damage:
       types:
@@ -214,12 +215,12 @@
   id: PelletShotgunUranium
   name: pellet (.50 uranium)
   categories: [ HideSpawnMenu ]
-  parent: BaseBullet
+  parent: BaseBulletUranium
   components:
-  - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
+  - type: Sprite # imp
+    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
     layers:
-    - state: uranium #imp
+    - state: uranium
   - type: Projectile
     damage:
       types:
@@ -275,7 +276,6 @@
     sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
     layers:
     - state: shard
-      shader: unshaded
   #- type: EmbeddableProjectile #imp edit - this was causing test failures via PelletGlassSpread below - when that spawned it had a chance to embed into something
   #  deleteOnRemove: true #imp note - also looking at other uses of this component, EmbeddableProjectile is only used for things that embed when you throw them & not actual projectiles
   - type: Projectile

@@ -12,7 +12,7 @@
       Steel: 5
       Glass: 2
       Cable: 4
-      Manipulator: 3 # imp
+      Capacitor: 3 # imp
 
 - type: entity
   id: SyndicateElectricRangeMachineCircuitboard
@@ -28,7 +28,7 @@
       Steel: 5
       Glass: 2
       Cable: 4
-      Manipulator: 3 # imp
+      Capacitor: 3 # imp
 
 - type: entity
   id: KitchenAssemblerMachineCircuitboard
@@ -43,7 +43,7 @@
     stackRequirements:
       Glass: 2
       Cable: 2
-      Manipulator: 1 # imp
+      Capacitor: 1 # imp
 
 - type: entity
   id: MedicalAssemblerMachineCircuitboard
@@ -59,7 +59,7 @@
       Steel: 5
       Glass: 2
       Cable: 4
-      Manipulator: 3 # imp
+      Capacitor: 3 # imp
 
 - type: entity
   id: CondimentDispenserCircuitboard
@@ -73,7 +73,7 @@
     prototype: CondimentDispenserEmpty
     stackRequirements:
       Steel: 5
-      Manipulator: 1 # imp
+      MatterBin: 1 # imp
     tagRequirements:
       GlassBeaker:
         amount: 1

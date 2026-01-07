@@ -10,6 +10,8 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
+using Content.Shared._EE.Throwing; // EE THROWING
+using Content.Shared.Damage.Components; // EE THROWING
 
 namespace Content.Shared.Throwing
 {
@@ -136,7 +138,10 @@ namespace Content.Shared.Throwing
         /// </summary>
         public void ThrowCollideInteraction(ThrownItemComponent component, EntityUid thrown, EntityUid target)
         {
-            if (HasComp<ThrownItemImmuneComponent>(target)) // imp add
+            if (HasComp<ThrownItemImmuneComponent>(target)) // EE add
+                return;
+
+            if (TryComp<DamageOtherOnHitComponent>(thrown, out var dmg) && component.HitQuantity >= dmg.MaxHitQuantity) // imp add
                 return;
 
             if (component.Thrower is not null)

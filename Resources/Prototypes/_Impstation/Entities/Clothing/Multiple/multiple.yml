@@ -45,3 +45,20 @@
     - NECK
   - type: StealTarget
     stealGroup: HeadCloak
+    
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakPompomcloak
+  name: pompom cloak
+  description: "A soft, warm cloak made with questionable material. But at least it looks cute!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Multiple/pompomcloak.rsi
+  - type: Construction
+    graph: PompomCloak
+    node: cloak
+  - type: Clothing
+    sprite: _Impstation/Clothing/Multiple/pompomcloak.rsi
+    slots:
+    - OUTERCLOTHING
+    - NECK

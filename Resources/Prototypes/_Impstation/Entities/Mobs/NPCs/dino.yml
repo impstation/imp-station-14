@@ -59,7 +59,7 @@
     - Alive
     - Dead
   - type: Body
-    prototype: Animal
+    prototype: Dinosaur
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Dinosaur
@@ -137,6 +137,60 @@
   - type: Vocal
     sounds:
       Unsexed: DinoEmotes
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: TwoStageTrigger #this is not fantastic I will be honest. but we need SOME way to automatically remove corpses
+    triggerDelay: 10.45
+    components:
+      - type: SpawnOnTrigger
+        proto: DinoLootSpawner
+        keysIn:
+        - stageTwo
+      - type: Explosive
+        explosionType: Default
+        maxIntensity: 0.01
+        intensitySlope: 1
+        totalIntensity: 0.01
+      - type: ExplodeOnTrigger #this is just as a joke honestly
+        keysIn:
+        - stageTwo
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleBloodDinosaur
+  suffix: Dino blood (50u)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: DinoBlood
+          Quantity: 50
+
+- type: entity
+  name: Dino Loot Spawner
+  id: DinoLootSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: blue
+    - type: GroupSpawner
+      spawns:
+      - id: MaterialBones1
+        amount: 4
+        maxAmount: 4
+      - id: FoodMeat
+        amount: 2
+        maxAmount: 2
+      - id: PuddleBloodDinosaur
+        amount: 1
+        maxAmount: 1
+    - type: TriggerOnSpawn
+    - type: DeleteOnTrigger
+
 
 - type: entity
   parent: BaseMobDinosaur

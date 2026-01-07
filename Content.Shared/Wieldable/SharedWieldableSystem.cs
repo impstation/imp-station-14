@@ -24,6 +24,7 @@ using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Timing;
+using Content.Shared._Impstation.Decapoids; // imp
 
 namespace Content.Shared.Wieldable;
 
@@ -259,7 +260,8 @@ public abstract class SharedWieldableSystem : EntitySystem
             return false;
         }
 
-        if (_hands.CountFreeableHands((user, hands), except: uid) < component.FreeHandsRequired)
+        if (_hands.CountFreeableHands((user, hands), except: uid) < component.FreeHandsRequired
+            && !HasComp<CanWieldOneHandedComponent>(user)) // IMP ADD
         {
             if (!quiet)
             {

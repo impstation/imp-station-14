@@ -189,3 +189,67 @@
     damage:
       types:
         Blunt: 0
+
+- type: entity
+  name: Starflare EPDW-6
+  parent: [ BaseWeaponPowerCell, BaseSecurityContraband ]
+  id: WeaponStarflareSMG
+  description: A patented cell-loaded fusion SMG. A slogan printed on the side reads "Spray and make 'em pray!"
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/starflare.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: base-unshaded
+        map: ["enum.GunVisualLayers.BaseUnshaded"]
+        shader: unshaded
+      - state: mag-5
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: mag-unshaded-5
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/starflare.rsi
+    quickEquip: false
+    slots:
+      - Back
+      - suitStorage
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -14
+    maxAngle: -16
+  - type: Gun
+    minAngle: 16
+    maxAngle: 36
+    angleIncrease: 2
+    angleDecay: 20
+    fireRate: 6.5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/rapidblaster.ogg
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: PowerCellStarflare
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - StarflareCell
+  - type: MeleeWeapon
+    wideAnimationRotation: -80

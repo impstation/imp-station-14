@@ -68,3 +68,12 @@
   category: cargoproduct-category-name-fun
   group: market
 
+- type: cargoProduct
+  id: FunPrincessSet
+  icon:
+    sprite: Structures/Storage/Crates/piratechest.rsi
+    state: crate_icon
+  product: CrateFunPrincessSet
+  cost: 4000
+  category: cargoproduct-category-name-fun
+  group: market

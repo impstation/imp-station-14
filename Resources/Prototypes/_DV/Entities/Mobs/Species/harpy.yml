@@ -7,7 +7,7 @@
   - type: Action
     checkCanInteract: false
     icon:
-      sprite: _Impstation/Actions/Kodepiia.rsi
+      sprite: _Impstation/Interface/Actions/kodepiia.rsi
       state: kodepiia_sing
   - type: InstantAction
     event: !type:OpenUiActionEvent

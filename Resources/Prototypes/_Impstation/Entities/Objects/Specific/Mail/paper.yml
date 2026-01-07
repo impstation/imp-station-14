@@ -84,9 +84,33 @@
         [/color]                  [color=#bbbbbb][head=3]The Real Chemistry Department[/head]
         [/color]───────────────────────────────────────
             [head=5]Dear (NAME),[/head]
-        Your refill request has been approved. Please find it enclosed. 
+        Your refill request has been approved. Please find it enclosed.
 
         You have: ([color=#cb0000]4[/color] of 365) fills remaining.
 
         Please remember to contact your prescribing doctor for further fills. We remind you that Nanotrasen takes your mental health very seriously.
         ──────────────────────────────────────
+
+- type: entity
+  id: PaperMailHomunculusKit
+  categories: [ HideSpawnMenu ]
+  suffix: "homunculus kit pamphlet"
+  parent: Paper
+  name: instructions
+  components:
+  - type: Paper
+    content: |2
+      Hello! This is Doctor ||..||.|.|.| from the |..| system! We here have created a new way to synthesize life, and have send you an instructional pamphlet!
+
+      Step 1: Extract 25u Blood from Subject and place into included empty Vial
+
+      Step 2:  Pour blood vial into the Beaker Solution all at once. Note that different blood types other than ours might need different recipes, if yours does not mix, please contact your local chemist. You will typically need 30u Synthflesh
+
+      Step 3: Pour Vial A into Beaker Solution, note that non humanoid species like leviathans might need more or less, or a different recipe than included! We haven't even found them all sourselves here at |..|
+
+      Step 4: Place Beaker B into Incubator
+
+      Step 5: Place powered cell into Incubator
+
+      Step 6: Activate Incubator and wait
+

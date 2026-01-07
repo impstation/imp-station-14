@@ -2,7 +2,7 @@ using System.Numerics;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Item.ItemToggle.Components;
+namespace Content.Shared._EE.Item.ItemToggle.Components;
 
 /// <summary>
 ///   Handles the embeddable stats for activated items.

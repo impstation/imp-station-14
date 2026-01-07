@@ -126,6 +126,7 @@ ghost-role-information-electricanomalite-name = Electricity Anomalite
 ghost-role-information-floralanomalite-name = Floral Anomalite
 ghost-role-information-shadowanomalite-name = Shadow Anomalite
 ghost-role-information-techanomalite-name = Tech Anomalite
+ghost-role-information-santaanomalite-name = Santa Anomalite
 
 ghost-role-information-replicator-name = Replicator
 ghost-role-information-replicator-desc = A pattern coalesces. The Pattern that must repeat. Consume. Repeat.
@@ -161,13 +162,6 @@ ghost-role-information-nonantagonist-freeagent-partygeay-rules = You are a [colo
 
                                                                  You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
 
-ghost-role-information-nonantagonist-freeagent-tame = You are a wild animal that has been tamed by the crew.
-ghost-role-information-tame-rules = You are a [color=yellow][bold]Free Agent[/bold][/color], being a tamed animal.
-
-                                         As with most wild animals, you are calm and happy when in good conditions and given enrichment, though you may lash out if bored or stressed. [color=red] You wont attack or try escaping out of nowhere or without reason.[/color] Just remember who's hand it is that feeds you.
-
-                                         You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
-
 ghost-role-information-vrex-name = V-Rex
 ghost-role-information-vrex-desc = Not sure how you got here, but you're mad about it! Swing your weight around and express your anger, all while avoiding the dangers of barotrauma.
 
@@ -187,3 +181,6 @@ ghost-role-information-eeeplet-desc = As a baby electric sheep your favourite fo
 
 ghost-role-information-eeep-name = Eeep
 ghost-role-information-eeep-desc = A bad tempered and fully grown Electric sheep.
+
+ghost-role-information-ductspider-name = Duct Spider
+ghost-role-information-ductspider-description = A hungry tiny spider.

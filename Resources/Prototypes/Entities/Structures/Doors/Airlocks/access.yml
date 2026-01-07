@@ -36,7 +36,7 @@
       board: [ DoorElectronicsServiceTheatre ]
 
 - type: entity
-  parent: AirlockChapel #imp editeLocked
+  parent: AirlockChapel #imp edit
   id: AirlockChapelLocked
   suffix: Chapel, Locked
   components:
@@ -442,6 +442,7 @@
   parent: AirlockCommand
   id: AirlockEVALocked
   suffix: EVA, Locked
+  categories: [ HideSpawnMenu ] #imp edit, deprecated in favor of Command airlocks with imp map forking
   components:
   - type: ContainerFill
     containers:
@@ -843,6 +844,7 @@
   parent: AirlockCommandGlassLocked
   id: AirlockEVAGlassLocked
   suffix: EVA, Locked
+  categories: [ HideSpawnMenu ] #imp edit, deprecated in favor of Command airlocks with imp map forking
   components:
   - type: ContainerFill
     containers:

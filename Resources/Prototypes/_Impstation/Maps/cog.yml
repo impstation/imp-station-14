@@ -2,7 +2,8 @@
   id: CogImp
   mapName: 'Cog'
   mapPath: /Maps/_Impstation/cog.yml
-  minPlayers: 70
+  minPlayers: 45
+  maxPlayers: 75
   stations:
     Cog:
       stationProto: StandardNanotrasenStation

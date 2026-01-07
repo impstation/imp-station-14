@@ -321,11 +321,6 @@
   - type: Storage
     grid:
     - 0,0,5,3
-    whitelist: # Redundant
-      tags:
-      - Document
-      - Write #imp
-      - RubberStamp #imp
   - type: ItemMapper
     mapLayers:
       clipboard_paper:

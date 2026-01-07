@@ -1,10 +1,8 @@
-using Content.Shared.Damage.Systems;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Item.ItemToggle.Components;
+namespace Content.Shared._EE.Item.ItemToggle.Components;
 
 /// <summary>
 ///   Handles changes to DamageOtherOnHitComponent when the item is toggled.

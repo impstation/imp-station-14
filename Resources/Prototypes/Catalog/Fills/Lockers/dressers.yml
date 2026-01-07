@@ -149,7 +149,9 @@
       - id: ClothingHeadHatBeretHoS
         orGroup: HoSHat
       - id: ClothingHeadHatHoshat
+      - id: ClothingMaskNeckGaiter
         orGroup: HoSHat
+      # imp start
       - id: ClothingHeadHatHoshatDV
         orGroup: HoSHat
       - id: ClothingHeadHatHOSsoft
@@ -172,6 +174,7 @@
         orGroup: HoSJumpsuit
       - id: ClothingUniformJumpskirtHoS
         orGroup: HoSJumpskirt
+      # imp end
       - id: ClothingUniformJumpskirtHoSAlt
         orGroup: HoSJumpskirt
       - id: ClothingUniformJumpskirtHoSGrey

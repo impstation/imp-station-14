@@ -38,3 +38,25 @@
   - type: StorageFill
     contents:
       - id: MobBananaDeer
+      
+- type: entity
+  id: CrateNPCPompom
+  parent: CrateLivestock
+  name: crate of pom poms
+  description: A crate containing three Pom Poms, tiny creatures from Planet Teo said to only appear during a new moon.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobPompom
+        amount: 3
+
+- type: entity
+  id: CrateNPCDuctSpider
+  parent: CrateLivestock
+  name: duct spider crate
+  description: Awww! Straight from the Australicus sector to your station's ventilation system!
+  components:
+  - type: StorageFill
+    contents:
+    - id: MobDuctSpider
+      amount: 4

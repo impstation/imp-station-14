@@ -56,6 +56,15 @@
   flavor: spicy
   color: red
   recognizable: true
+  # imp changes start
+  metabolisms:
+    Food:
+      effects:
+      - !type:PopupMessage
+          type: Local
+          messages: [ "capsaicin-effect-light-burn" ]
+          probability: 0.2
+  # imp changes end
 
 - type: reagent
   id: Ketchup

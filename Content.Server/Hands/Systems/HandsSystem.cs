@@ -190,14 +190,6 @@ namespace Content.Server.Hands.Systems
 
             var throwSpeed = hands.BaseThrowspeed;
 
-            // imp edit, throwing changes
-            var itemEv = new BeforeGettingThrownEvent((EntityUid)throwEnt, direction, throwSpeed, player);
-            RaiseLocalEvent((EntityUid)throwEnt, ref itemEv);
-
-            if (itemEv.Cancelled)
-                return true;
-            // imp edit end
-
             // Let other systems change the thrown entity (useful for virtual items)
             // or the throw strength.
             var ev = new BeforeThrowEvent(throwEnt.Value, direction, throwSpeed, player);

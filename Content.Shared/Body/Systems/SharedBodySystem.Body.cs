@@ -14,7 +14,6 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Utility;
-using Content.Shared.Projectiles; // imp throwing
 
 namespace Content.Shared.Body.Systems;
 
@@ -30,7 +29,6 @@ public partial class SharedBodySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] private readonly SharedProjectileSystem _projectileSystem = default!; // imp edit
 
     private const float GibletLaunchImpulse = 8;
     private const float GibletLaunchImpulseVariance = 3;
@@ -335,7 +333,6 @@ public partial class SharedBodySystem
             }
         }
         _audioSystem.PlayPredicted(gibSoundOverride, bodyTransform.Coordinates, null);
-        _projectileSystem.RemoveEmbeddedChildren(bodyId); // imp edit
         return gibs;
     }
 }

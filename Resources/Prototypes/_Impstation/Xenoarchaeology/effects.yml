@@ -47,8 +47,6 @@
     entries:
     - chemical: Cryptobiolin
       amount: 15
-    - chemical: Ethylredoxrazine
-      amount: 45
 
 - type: entity
   id: XenoArtifactInjectDrunkHigh
@@ -66,8 +64,6 @@
     - chemical: Cryptobiolin
       amount: 10
     - chemical: SpaceDrugs
-      amount: 30
-    - chemical: Ethylredoxrazine
       amount: 30
 
 - type: entity
@@ -130,7 +126,7 @@
   suffix: "Very local knockdown"
   parent: AdminInstantEffectBase
   components:
-  - type: StunOnTrigger
+  - type: StunAreaOnTrigger
     range: 4
     entireGrid: false
     knockdownTime: 1.5
@@ -163,7 +159,7 @@
   suffix: "Local knockdown"
   parent: AdminInstantEffectBase
   components:
-  - type: StunOnTrigger
+  - type: StunAreaOnTrigger
     range: 8
     entireGrid: false
     knockdownTime: 4
@@ -404,7 +400,7 @@
   suffix: "Gridwide knockdown"
   parent: AdminInstantEffectBase
   components:
-  - type: StunOnTrigger
+  - type: StunAreaOnTrigger
     range: 15
     entireGrid: true
     knockdownTime: 3
@@ -482,3 +478,29 @@
           Bloodloss: -0.3
           Poison: -0.3
           Radiation: -0.2
+
+- type: entity
+  id: XenoArtifactMindlessClone
+  parent: BaseXenoArtifactEffect
+  description: Matter creation
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 6
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 3
+    maxNodeUnlocks: 0
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: MobMindlessClone # ~2 in 3, passive
+          prob: 0.61
+        - id: MobMindlessCloneHostile # ~1 in 3, hostile
+          prob: 0.30
+        - id: MobMindlessCloneMindswapHostile # ~1 in 20, mindswap + hostile
+          prob: 0.05

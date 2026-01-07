@@ -1,14 +1,7 @@
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Item.ItemToggle.Components;
+using Content.Shared._EE.Item.ItemToggle.Components;
 
-namespace Content.Shared.Damage.Events;
-
-/// <summary>
-///   Raised on a throwing weapon to calculate potential damage bonuses or decreases.
-/// </summary>
-[ByRefEvent]
-public record struct GetThrowingDamageEvent(EntityUid Weapon, DamageSpecifier Damage, List<DamageModifierSet> Modifiers, EntityUid? User);
+namespace Content.Shared._EE.Damage.Events;
 
 /// <summary>
 ///   Raised on a throwing weapon when DamageOtherOnHit has been successfully initialized.

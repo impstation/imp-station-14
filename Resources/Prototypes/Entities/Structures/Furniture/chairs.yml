@@ -158,7 +158,7 @@
   parent: OfficeChairBase
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Furniture/chairs.rsi # imp
+    sprite: _Impstation/Structures/Furniture/Chairs/chair_office.rsi # imp
     state: office-white
   - type: Construction
     graph: Seat
@@ -170,7 +170,7 @@
   parent: ChairOfficeLight
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Furniture/chairs.rsi # imp
+    sprite: _Impstation/Structures/Furniture/Chairs/chair_office.rsi # imp
     state: office-dark
   - type: Construction
     graph: Seat
@@ -183,7 +183,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Furniture/chairs.rsi # imp
+    sprite: _Impstation/Structures/Furniture/Chairs/chair_comfy.rsi # imp
     state: comfy
   - type: Construction
     graph: Seat
@@ -207,7 +207,8 @@
   parent: UnanchoredChairBase
   components:
   - type: Sprite
-    state: wooden
+    sprite: _Impstation/Structures/Furniture/Chairs/chair_wooden.rsi # imp
+    state: icon # imp
   - type: Construction
     graph: Seat
     node: chairWood
@@ -251,6 +252,7 @@
   description: Looks uncomfortable.
   components:
   - type: Sprite
+    sprite: Structures/Furniture/chairs.rsi # imp
     state: ritual
   - type: Construction
     graph: RitualSeat
@@ -275,6 +277,7 @@
   description: It's staring back.
   components:
   - type: Sprite
+    sprite: Structures/Furniture/chairs.rsi # imp
     state: cursed
   - type: Strap
     buckleSound:
@@ -371,7 +374,7 @@
   - type: Item
     size: Huge
     shape: #imp
-    - 0,0,3,0 
+    - 0,0,3,0
     storedSprite: #imp
       sprite: Structures/Furniture/folding_chair.rsi
       state: storage
@@ -450,7 +453,8 @@
   description: Did you get a splinter? Well, at least it’s eco friendly.
   components:
   - type: Sprite
-    state: wooden-bench
+    sprite: _Impstation/Structures/Furniture/Chairs/bench_wooden.rsi # imp
+    state: icon # imp
   - type: Construction
     graph: Seat
     node: chairWoodBench

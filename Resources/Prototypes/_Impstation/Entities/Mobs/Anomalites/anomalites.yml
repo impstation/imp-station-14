@@ -696,3 +696,48 @@
   - type: InnerBodyAnomaly
     injectionProto: AnomalyInjectionTech
     skipStun: true
+
+# Santa (kill him after christmas)
+- type: entity
+  parent: [ BaseAnomalite ]
+  id: MobAnomaliteSanta
+  suffix: Santa
+  description: A jolly little sprite, born from the leftover energies of an anomaly core.
+  components:
+  - type: Icon
+    sprite: _Impstation/Mobs/Anomalites/santa.rsi
+    state: anom
+  - type: Sprite
+    sprite: _Impstation/Mobs/Anomalites/santa.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: anom
+    noRot: true
+    drawdepth: Mobs
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: anom
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Cold: 1
+        Blunt: 4
+    angle: 0
+    animation: WeaponArcBite
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: AnomaliteSanta
+  - type: PointLight
+    radius: 8.0
+    energy: 8.5
+    softness: 10
+    color: "#db8127"
+  - type: NameIdentifier
+    group: AnomaliteSanta
+  # Anomaly functionality
+  - type: InnerBodyAnomaly
+    injectionProto: AnomalyInjectionSanta
+    skipStun: true

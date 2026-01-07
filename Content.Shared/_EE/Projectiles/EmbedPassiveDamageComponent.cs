@@ -1,11 +1,10 @@
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Projectiles;
+namespace Content.Shared._EE.Projectiles;
 
 /// <summary>
 ///   Passively damages the mob this embeddable is attached to.
@@ -35,16 +34,16 @@ public sealed partial class EmbedPassiveDamageComponent : Component
     ///   Damage per interval dealt to the entity every interval.
     ///   If this is set manually, DamageMultiplier will be ignored.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public DamageSpecifier Damage = new();
 
     /// <summary>
     ///   Multiplier to be applied to the damage of DamageOtherOnHit to
     ///   calculate the damage per second.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float ThrowingDamageMultiplier = 0.05f;
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     public TimeSpan NextDamage = TimeSpan.Zero;
 }

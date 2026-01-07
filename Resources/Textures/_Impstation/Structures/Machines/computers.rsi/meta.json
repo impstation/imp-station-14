@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Computer base, keyboard, wirepanel, and supermatter sprites made by AftrLife (github) for Impstation 14. Bounty and request sprites by argentsunshine (github), departmental versions by DinnerCalzone (github) for Impstation 14, based on sprites taken from tgstation at commit https://github.com/tgstation/tgstation/commit/bd6873fd4dd6a61d7e46f1d75cd4d90f64c40894 . Shipyard by DinnerCalzone (github) for Impstation 14 based on sprited made by Potato1234_x (github) for Frontier Station 14 at https://github.com/new-frontiers-14/frontier-station-14/commit/ce75bb41d278df2d2c046a26f104c885787d311e",
+  "copyright": "Computer base, keyboard, wirepanel, and supermatter sprites made by AftrLife (github) for Impstation 14. Bounty and request sprites by argentsunshine (github), departmental versions by DinnerCalzone (github) for Impstation 14, based on sprites taken from tgstation at commit https://github.com/tgstation/tgstation/commit/bd6873fd4dd6a61d7e46f1d75cd4d90f64c40894 . Shipyard by DinnerCalzone (github) for Impstation 14 based on sprited made by Potato1234_x (github) for Frontier Station 14 at https://github.com/new-frontiers-14/frontier-station-14/commit/ce75bb41d278df2d2c046a26f104c885787d311e . servicejob by mqole for impstation.",
   "size": {
     "x": 32,
     "y": 32
@@ -288,6 +288,32 @@
                     0.3,
                     0.3,
                     0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+        {
+        "name": "servicejob",
+            "directions": 4,
+            "delays": [
+                [
+                    1.2,
+                    0.3,
+                    0.3
+                ],
+                [
+                    1.2,
+                    0.3,
+                    0.3
+                ],
+                [
+                    1.2,
+                    0.3,
+                    0.3
+                ],
+                [
+                    1.2,
                     0.3,
                     0.3
                 ]

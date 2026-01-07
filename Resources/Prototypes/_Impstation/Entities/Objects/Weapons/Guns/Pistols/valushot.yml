@@ -1,6 +1,6 @@
 - type: entity
   name: Dan's ValuShot 9000
-  parent: [BaseWeaponShotgun, BaseMajorContraband]
+  parent: [BaseWeaponInternalPistol, BaseMajorContraband]
   id: WeaponPistolValu
   description: You can tell by the loose jingle of bullets inside the frame that you're really getting your money's worth.
   components:
@@ -10,15 +10,6 @@
       - state: base
         map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/valu.rsi
-    slots:
-    - suitStorage
-    - Belt
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
     sprite: _Impstation/Objects/Weapons/Guns/Pistols/valu.rsi
   - type: Gun
     selectedMode: FullAuto
@@ -34,7 +25,7 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-      - CartridgeHeavyRifle
+      - CartridgeMinigun
     capacity: 30
     proto: CartridgeMinigun
     cycleable: false
@@ -43,13 +34,6 @@
       path: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
     soundRack:
       path: /Audio/Weapons/Guns/Cock/hpistol_cock.ogg
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-        ents: []
-  - type: Tag
-    tags:
-    - Sidearm
   - type: Damageable
     damageContainer: Inorganic
   - type: DamageOnLand

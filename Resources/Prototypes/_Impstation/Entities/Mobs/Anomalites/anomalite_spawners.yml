@@ -272,3 +272,27 @@
       - state: green
       - sprite: _Impstation/Mobs/Anomalites/anomalite.rsi
         state: anomalytech
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnPointGhostAnomaliteSanta
+  name: anomalite spawn point
+  suffix: Santa
+  categories: [ DoNotMap ]
+  components:
+  - type: GhostRole
+    name: ghost-role-information-santaanomalite-name
+    description: ghost-role-information-anomalite-description
+    rules: ghost-role-information-familiar-anomalite-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+    raffle:
+      settings: short
+  - type: GhostRoleMobSpawner
+    prototype: MobAnomaliteSanta
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: _Impstation/Mobs/Anomalites/anomalite.rsi
+        state: anomalysanta

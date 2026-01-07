@@ -1,0 +1,71 @@
+- type: reaction
+  id: HotterSauce
+  reactants:
+    Hotsauce:
+      amount: 2
+    Blackpepper:
+      amount: 1
+    CapsaicinOil:
+      amount: 2
+  products:
+    HotterSauce: 5
+
+- type: reaction
+  id: InfernoSauce
+  reactants:
+    HotterSauce:
+      amount: 2
+    Plasma:
+      amount: 1
+    Thermite:
+      amount: 1
+  products:
+    InfernoSauce: 3
+
+- type: reaction
+  id: HottestSauce
+  minTemp: 370
+  reactants:
+    InfernoSauce:
+      amount: 2
+    Napalm:
+      amount: 1
+    ChlorineTrifluoride:
+      amount: 1
+  effects:
+    - !type:Explosion
+      explosionType: Default # 15 damage per intensity.
+      maxIntensity: 2
+      intensityPerUnit: 2
+      intensitySlope: 2
+      maxTotalIntensity: 2
+    - !type:PopupMessage
+      messages: [ "clf3-explosion" ]
+      type: Pvs
+      visualType: LargeCaution
+  products:
+    HottestSauce: 2
+
+- type: reaction
+  id: DanPersonalHotsauce
+  minTemp: 400
+  reactants:
+    HottestSauce:
+      amount: 3
+    Phlogiston:
+      amount: 2
+    Vestine:
+      amount: 2
+  effects:
+    - !type:Explosion
+      explosionType: Default # 15 damage per intensity.
+      maxIntensity: 200
+      intensityPerUnit: 5
+      intensitySlope: 5
+      maxTotalIntensity: 200
+    - !type:PopupMessage
+      messages: [ "clf3-explosion" ]
+      type: Pvs
+      visualType: LargeCaution
+  products:
+    DanPersonalHotsauce: 5

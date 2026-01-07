@@ -397,15 +397,20 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
     - id: XenoArtifactInjectCryptobiolin
-      weight: 10.0 # imp edit
+      weight: 4.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 0, 1, 2 ]
+        depths: [ 2, 3]
     - id: XenoArtifactInjectDrunkHigh
-      weight: 10.0 # imp edit
+      weight: 3.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 0, 1, 2 ]
+        depths: [ 3, 4 ]
+    - id: XenoArtifactMindlessClone
+      weight: 6.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 3, 4, 5 ]
     # imp edit end
 
 - type: entityTable
@@ -523,6 +528,13 @@
   parent: BaseOneTimeXenoArtifactEffect
   description: Starts to move sporadically
   components:
+  - type: XenoArtifactNode #IMP
+    maxDurability: 1
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 0
+    maxNodeUnlocks: 0 #IMP
+    effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     components:
     - type: RandomWalk
@@ -968,7 +980,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 0
-    maxNodeUnlocks: 1 #IMP
+    maxNodeUnlocks: 0 #IMP
     effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1006,7 +1018,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 0
-    maxNodeUnlocks: 1 #IMP
+    maxNodeUnlocks: 0 #IMP
     effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1027,7 +1039,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 0
-    maxNodeUnlocks: 1 #IMP
+    maxNodeUnlocks: 0 #IMP
     effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1048,7 +1060,7 @@
     maxDurabilityCanDecreaseBy:
       min: 0
       max: 0
-    maxNodeUnlocks: 1 #IMP
+    maxNodeUnlocks: 0 #IMP
     effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     components:
@@ -1478,6 +1490,13 @@
   parent: BaseOneTimeXenoArtifactEffect
   description: Energy release #IMP desc changed
   components:
+  - type: XenoArtifactNode #IMP
+    maxDurability: 1
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 0
+    maxNodeUnlocks: 0 #IMP
+    effectActiveOnlyWhileNodeIsCurrent: true #IMP natural artifact only
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
     refreshOnReactivate: true
@@ -1572,7 +1591,7 @@
   components:
   - type: XAEShuffle
   - type: XAETelepathic
-    range: 7.5
+    range: 14 #IMP 7.5 -> 14, actually make this DO something...
     messages:
     - shuffle-artifact-popup
 

@@ -42,3 +42,6 @@ reagent-desc-trash = A slurry of discarded food, drink and packaging.
 
 reagent-name-something = something
 reagent-desc-something = It's something.
+
+reagent-name-ants = ants
+reagent-desc-ants = Literally just ants.

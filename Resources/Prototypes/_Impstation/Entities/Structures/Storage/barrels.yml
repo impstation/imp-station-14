@@ -86,6 +86,7 @@
     # Toxins
     - id: BarrelChemFilledHonk
     - id: BarrelChemFilledVentCrud
+    - id: BarrelChemFilledAnts
 
 - type: entity
   parent: BaseBarrelChem
@@ -931,4 +932,17 @@
         maxVol: 500
         reagents:
         - ReagentId: VentCrud
+          Quantity: 500
+
+- type: entity
+  parent: BarrelChemBlackEmpty
+  id: BarrelChemFilledAnts
+  suffix: Ants
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: Ants
           Quantity: 500

@@ -74,3 +74,14 @@
   coefficients:
     Radiation: 0.5
     Shock: 0.5
+
+# Santa
+- type: damageModifierSet
+  id: AnomaliteSanta
+  coefficients:
+    Cold: 0.0 # hardened against the snow
+    Blunt: 1.5 # although he is but a man
+    Piercing: 1.5
+    Slash: 1.5
+  flatReductions:
+    Cold: 100

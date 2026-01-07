@@ -1,6 +1,7 @@
+# .45 Magnum deals 35 pierce per shot (CartridgeMagnum)
 - type: entity
   name: Sturm-96
-  parent: [BaseWeaponShotgun, BaseSecurityContraband]
+  parent: [BaseWeaponInternalPistol, BaseSecurityContraband]
   id: WeaponPistolSturm
   description: An expertly crafted magnum awarded to prestigious officers. Uses .45 Magnum.
   components:
@@ -11,36 +12,10 @@
         map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Pistols/sturm.rsi
-    slots:
-    - suitStorage
-    - Belt
-  - type: Item
-    size: Small
-    shape:
-    - 0,0,1,0
-    - 0,1,0,1
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/sturm.rsi
   - type: Gun
     fireRate: 1.3
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/pistolsturm.ogg
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - CartridgeMagnum
-    capacity: 8
-    proto: CartridgeMagnum
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg
-    soundRack:
-      path: /Audio/Weapons/Guns/Cock/hpistol_cock.ogg
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-        ents: []
-  - type: Tag
-    tags:
-    - Sidearm
   - type: MeleeWeapon
     range: 0.8
     attackRate: 0.5
@@ -60,3 +35,48 @@
     damage:
       types:
         Blunt: 8
+
+- type: entity
+  name: N1984
+  parent: [BaseWeaponPistol, BaseSecurityContraband]
+  id: WeaponPistolN1984
+  description: The sidearm of any self-respecting officer, often favored by ERT security forces. Uses .45 magnum ammo.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/N1984.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
+  - type: Gun
+    minAngle: 1
+    maxAngle: 20
+    angleIncrease: 8
+    angleDecay: 9
+    fireRate: 4
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/hpistol.ogg #it's a damn .45 you GOTTA make it sound heavier
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnum
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineMagnum
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeMagnum
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeMagnum

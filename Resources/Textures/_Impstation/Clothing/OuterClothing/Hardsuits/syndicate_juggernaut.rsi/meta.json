@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created from an amalgamate of the Syndicate-Nukeops armor found across a vast swathe of spritesheets and versions of the game, gray helmet by Sha-Seng (github) for Impstation. Kodepiia variants by crocodilecarousel (github). Dog states modified from base states by Sparlight (GitHub).",
+    "copyright": "Created from an amalgamate of the Syndicate-Nukeops armor found across a vast swathe of spritesheets and versions of the game. gray helmet by Sha-Seng (github) for Impstation. Kodepiia variants by crocodilecarousel (github). Dog states modified from base states by Sparlight (GitHub). anomalocarid sprite edits by atdoop (github) for impstation",
     "size": {
         "x": 32,
         "y": 32
@@ -32,6 +32,10 @@
             "directions": 4
         },
         {
+          "name": "equipped-HELMET-anomalocarid",
+          "directions": 4
+      },
+      {
             "name": "equipped-OUTERCLOTHING",
             "directions": 4
         },
@@ -58,6 +62,10 @@
             "name": "icon-helmet"
         },
         {
+          "name": "equipped-OUTERCLOTHING-anomalocarid",
+          "directions": 4
+      },
+      {
             "name": "inhand-left",
             "directions": 4
         },

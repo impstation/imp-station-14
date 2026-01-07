@@ -360,3 +360,21 @@
 #      Min: 1
 #      Max: 10
 #      PotencyDivisor: 25
+- type: seed
+  id: pompombush
+  name: seeds-pompombush-name
+  noun: seeds-noun-seeds
+  displayName: seeds-pompombush-display-name
+  plantRsi: _Impstation/Objects/Specific/Hydroponics/pompombush.rsi
+  packetPrototype: PompomBushSeeds
+  productPrototypes:
+    - MaterialPom1
+  lifespan: 25
+  maturation: 8
+  production: 3
+  yield: 3
+  potency: 5
+  idealLight: 8
+  growthStages: 3
+  waterConsumption: 0.60
+      

@@ -262,8 +262,6 @@
   components:
   - type: Physics
     bodyType: Static
-  - type: Visibility
-    layer: 69 #sigh
   - type: Fixtures
     fixtures:
       fix1:
@@ -317,6 +315,7 @@
     layers:
     - state: icon
   - type: Item
+    size: Normal
   - type: Clothing
     slots:
       - NECK
@@ -329,6 +328,7 @@
   - type: ToggleClothing
     action: ActionToggleSkaptodonCloak
     disableOnUnequip: true
+    mustEquip: true
   - type: ComponentToggler
     parent: true
     components:

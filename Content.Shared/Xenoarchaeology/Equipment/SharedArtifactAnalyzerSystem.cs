@@ -95,6 +95,13 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 
         ent.Comp.Console = args.Source;
         Dirty(ent);
+
+        //#IMP add/refresh bias comp for artifact
+        if (ent.Comp.CurrentArtifact is {} artifact)
+        {
+            var bias = EnsureComp<XenoArtifactBiasedComponent>(artifact);
+            bias.Provider = args.Source;
+        }
     }
 
     private void OnLinkAttemptConsole(Entity<AnalysisConsoleComponent> ent, ref LinkAttemptEvent args)

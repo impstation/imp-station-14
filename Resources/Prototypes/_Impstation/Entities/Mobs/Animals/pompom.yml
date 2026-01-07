@@ -1,0 +1,82 @@
+- type: entity
+  name: pom pom
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  id: MobPompom
+  description: A small, dainty creature with many legs. It hovers through the air like a squid.
+  components:
+  - type: PointLight
+    color: White
+    radius: 1.1
+    energy: 6
+    netsync: false
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 4
+  - type: MovementIgnoreGravity # nyoom
+    weightless: true
+  - type: FloatingVisuals
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pompom
+      sprite: _Impstation/Mobs/Animals/pompom.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 7.5
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      10: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pompom
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
+  - type: Butcherable
+    spawned:
+    - id: MaterialPom1
+      amount: 3
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Trash
+    - MultitoolDefibrillatorTarget 
+  - type: Bloodstream
+    bloodReagent: InsectBlood
+    bloodMaxVolume: 0.1
+  - type: MobPrice
+    price: 50
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 20
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
+  - type: ZombieImmune
+  - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
