@@ -208,21 +208,6 @@
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: eyelashes
 
-- type: marking
-  id: AnomalocaridHeadHorseshoe
-  bodyPart: LFoot
-  markingCategory: Head
-  speciesRestriction: [ Anomalocarid ]
-  forcedColoring: false
-  coloring:
-    default:
-      type:
-        !type:SkinColoring
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
-    state: horseshoecrab
-
 # Snout
 
 # Eyes
