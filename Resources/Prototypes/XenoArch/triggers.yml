@@ -267,6 +267,9 @@
     requiredTool: Screwing
   - type: XATExaminableText
     examineText: xenoarch-trigger-examine-screwing
+  - type: XATReactive # IMP i'm funny
+    reagents:
+    - ScrewdriverCocktail
   targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger
