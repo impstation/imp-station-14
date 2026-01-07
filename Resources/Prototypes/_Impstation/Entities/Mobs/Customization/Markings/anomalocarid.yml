@@ -1216,3 +1216,69 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: mantis
+
+- type: marking
+  id: AnomalocaridEyeRoboLeft
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: roboeye_l_primary
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: roboeye_r_secondary
+
+- type: marking
+  id: AnomalocaridEyeRoboLeftUnshaded
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: roboeye_l_unshaded
+  shader: unshaded
+
+- type: marking
+  id: AnomalocaridEyeRoboRight
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: roboeye_r_primary
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: roboeye_r_secondary
+
+- type: marking
+  id: AnomalocaridEyeRoboRightUnshaded
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: roboeye_r_unshaded
+  shader: unshaded
