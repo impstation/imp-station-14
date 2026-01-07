@@ -1,27 +1,4 @@
 ﻿Entries:
-- author: ultramario1998
-  changes:
-  - message: 10 new bounties have been added to enrich Cargo's lives.
-    type: Add
-  id: 2034
-  time: '2025-07-25T11:28:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3029
-- author: meridiadottxt
-  changes:
-  - message: ported Barge from Delta V, look for it in your shipyard console!
-    type: Add
-  - message: also ported unlocked booze-o-mats
-    type: Add
-  id: 2035
-  time: '2025-07-25T11:28:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2651
-- author: hivehum
-  changes:
-  - message: Gastropoid eyes layer under glasses where appropriate.
-    type: Fix
-  id: 2036
-  time: '2025-07-25T11:28:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3082
 - author: DVDPlayerOfDiscordFame
   changes:
   - message: Incendiary magazines have their own special colour now!
@@ -4174,3 +4151,28 @@
   id: 2533
   time: '2026-01-06T11:08:14.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3939
+- author: honeyed-lemons
+  changes:
+  - message: 'Tables and counters have been retabled and chairs and dancing : ) sprite'
+    type: Tweak
+  id: 2534
+  time: '2026-01-07T12:32:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3791
+- author: kipdotnet
+  changes:
+  - message: Dinosaurs no longer consume oxygen when breathing. Don't ask me how this
+      works.
+    type: Tweak
+  - message: Dinosaurs now automatically gib into horrible piles of viscera after
+      theyve been dead for a bit..
+    type: Tweak
+  id: 2535
+  time: '2026-01-07T12:46:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3856
+- author: Ecramox
+  changes:
+  - message: New Bail Cards, coming to mysterious closets in dark alleys near you!
+    type: Add
+  id: 2536
+  time: '2026-01-07T13:22:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3943
