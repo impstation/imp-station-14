@@ -4,6 +4,7 @@
   id: BaseButlerObjective
   components:
   - type: Objective
+    difficulty: 1.5
     issuer: objective-issuer-thief
   - type: RoleRequirement
     roles:
@@ -17,6 +18,7 @@
   - type: PickRandomPerson
   - type: TargetObjective
     title: objective-condition-butler-serve
+  - type: KeepAliveCondition
 
 - type: entity
   parent: BaseButlerObjective

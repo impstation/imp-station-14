@@ -1,4 +1,3 @@
-using Content.Server.StationEvents.Events;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules.Components;
