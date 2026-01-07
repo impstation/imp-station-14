@@ -2,7 +2,7 @@
   id: mech_kit_ripley #this intentionally doesn't show up in the construction menu
   start: start
   graph:
-  - node: start #this is just to make the next instruction appear on the item, this step should never actually come up in practice
+  - node: start #this is just to let you use a tool on the item, this step should never actually come up in practice
     edges:
     - to: sprues
       steps:
@@ -27,7 +27,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToyRipley
@@ -62,7 +64,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToyFireRipley
@@ -96,7 +100,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToyDeathRipley
@@ -131,7 +137,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToyGygax
@@ -166,7 +174,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToyDurand
@@ -201,7 +211,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToyHonk
@@ -236,7 +248,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToyMarauder
@@ -271,7 +285,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToySeraph
@@ -306,7 +322,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToyMauler
@@ -341,7 +359,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToyOdysseus
@@ -376,7 +396,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToyPhazon
@@ -411,7 +433,9 @@
     - to: mech
       steps:
       - tool: Slicing
-        doAfter: 6
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
 
   - node: mech
     entity: ToyReticence
