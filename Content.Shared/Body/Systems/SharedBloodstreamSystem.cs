@@ -217,8 +217,8 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
         // TODO: Replace with RandomPredicted once the engine PR is merged
         // Use both the receiver and the damage causing entity for the seed so that we have different results for multiple attacks in the same tick
-        var originId = args.Origin != null && Exists(args.Origin.Value) ? GetNetEntity(args.Origin.Value).Id : 0;
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id, originId);
+        var originId = args.Origin != null && Exists(args.Origin.Value) ? GetNetEntity(args.Origin.Value).Id : 0; // IMP - Heisentest fix
+        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id, originId); // IMP - Heisentest fix
         var rand = new System.Random(seed);
         var prob = Math.Clamp(totalFloat / 25, 0, 1);
         if (totalFloat > 0 && rand.Prob(prob))
