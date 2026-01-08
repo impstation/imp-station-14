@@ -11,7 +11,6 @@ namespace Content.Server._Impstation.StrangeMoods.Eui;
 
 public sealed class SharedMoodsEui(
     StrangeMoodsSystem strangeMoods,
-    IPrototypeManager prototype,
     IAdminManager admin,
     EuiManager eui,
     ICommonSession user) : BaseEui
@@ -19,15 +18,19 @@ public sealed class SharedMoodsEui(
     private readonly ISawmill _sawmill = Logger.GetSawmill("strange-moods-eui");
 
     private SharedMoodsInitEui? _sharedUi;
+    private string? _targetMood;
 
     public override EuiStateBase GetNewState()
     {
         var sharedMoods = strangeMoods.GetSharedMoods();
-        return new SharedMoodsEuiState(sharedMoods);
+        var mood = _targetMood;
+        _targetMood = null;
+        return new SharedMoodsEuiState(sharedMoods, mood);
     }
 
-    public void Init()
+    public void SetMood(string? mood)
     {
+        _targetMood = mood;
         StateDirty();
     }
 

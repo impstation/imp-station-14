@@ -5,9 +5,10 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Impstation.StrangeMoods.Eui;
 
 [Serializable, NetSerializable]
-public sealed class SharedMoodsEuiState(HashSet<SharedMood> allSharedMoods) : EuiStateBase
+public sealed class SharedMoodsEuiState(HashSet<SharedMood> allSharedMoods, string? moodId) : EuiStateBase
 {
     public HashSet<SharedMood> AllSharedMoods { get; } = allSharedMoods;
+    public string? MoodId { get; } = moodId;
 }
 
 [Serializable, NetSerializable]

@@ -44,25 +44,34 @@ public sealed partial class SharedMoodsUi : FancyWindow
         OnSharedSelected?.Invoke(_sharedMoods[id]);
     }
 
-    public void PopulateDropDown(HashSet<SharedMood> sharedMoods, SharedMood? selectMood = null)
+    public void PopulateDropDown(HashSet<SharedMood> sharedMoods, string? selectMoodId = null)
     {
         SharedMoodDropDown.Clear();
         _sharedMoods.Clear();
 
         var i = 0;
+        var moodFound = false;
         foreach (var mood in sharedMoods)
         {
             SharedMoodDropDown.AddItem(mood.UniqueId ?? Loc.GetString("strange-moods-admin-ui-unknown"), i);
             _sharedMoods.Insert(i, mood);
 
-            if (selectMood != null && selectMood.UniqueId == mood.UniqueId)
+            if (selectMoodId != null && selectMoodId == mood.UniqueId)
+            {
                 SelectItem(i);
+                moodFound = true;
+            }
 
             i++;
         }
 
-        if (selectMood == null && _sharedMoods.Count > 0)
+        if (!moodFound)
             SelectItem(0); // auto-load a shared mood instead of opening a blank ui
+    }
+
+    public void PopulateDropDown(HashSet<SharedMood> sharedMoods, SharedMood? selectMood = null)
+    {
+        PopulateDropDown(sharedMoods, selectMood?.UniqueId);
     }
 
     public List<StrangeMood> GetMoods(bool skipEmptyCheck = false)

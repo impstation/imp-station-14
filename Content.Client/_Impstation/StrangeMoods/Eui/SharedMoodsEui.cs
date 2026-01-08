@@ -74,6 +74,6 @@ public sealed class SharedMoodsEui : BaseEui
         if (state is not SharedMoodsEuiState s)
             return;
 
-        _sharedMoodsUi.PopulateDropDown(s.AllSharedMoods);
+        _sharedMoodsUi.PopulateDropDown(s.AllSharedMoods, s.MoodId);
     }
 }
