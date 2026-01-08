@@ -6,7 +6,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Impstation.StrangeMoods.Eui;
+namespace Content.Client._Impstation.StrangeMoods;
 
 [GenerateTypedNameReferences]
 public sealed partial class MoodContainer : BoxContainer

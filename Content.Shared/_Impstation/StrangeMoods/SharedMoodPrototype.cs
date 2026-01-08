@@ -9,10 +9,11 @@ namespace Content.Shared._Impstation.StrangeMoods;
 public partial class SharedMood
 {
     /// <summary>
-    /// The prototype this mood was created from.
+    /// The unique ID of the shared mood. This should NOT be assigned manually through YAML.
+    /// Inherits from the ID of the <see cref="SharedMoodPrototype" />.
     /// </summary>
     [DataField]
-    public ProtoId<SharedMoodPrototype>? ProtoId;
+    public string? UniqueId;
 
     /// <summary>
     /// The list of strange moods attached to the shared mood.
@@ -23,8 +24,8 @@ public partial class SharedMood
     /// <summary>
     /// The dataset that the shared moods will pull from.
     /// </summary>
-    [DataField(required: true)]
-    public ProtoId<DatasetPrototype> Dataset;
+    [DataField]
+    public ProtoId<DatasetPrototype>? Dataset;
 
     /// <summary>
     /// The amount of shared moods to be given.
@@ -40,7 +41,7 @@ public sealed partial class SharedMoodPrototype : SharedMood, IPrototype
     [IdDataField]
     public string ID
     {
-        get => ProtoId ?? "";
-        set => ProtoId = value;
+        get => UniqueId ?? "";
+        set => UniqueId = value;
     }
 }

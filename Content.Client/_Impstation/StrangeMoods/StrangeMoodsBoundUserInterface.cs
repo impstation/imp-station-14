@@ -7,8 +7,6 @@ namespace Content.Client._Impstation.StrangeMoods;
 [UsedImplicitly]
 public sealed class StrangeMoodsBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
-    [Dependency] private readonly IEntityManager _entMan = default!;
-
     [ViewVariables]
     private StrangeMoodsMenu? _menu;
 
@@ -26,9 +24,6 @@ public sealed class StrangeMoodsBoundUserInterface(EntityUid owner, Enum uiKey) 
         if (state is not StrangeMoodsBuiState msg)
             return;
 
-        if (!_entMan.TryGetComponent<StrangeMoodsComponent>(Owner, out var comp))
-            return;
-
-        _menu?.Update(comp, msg);
+        _menu?.Update(msg);
     }
 }

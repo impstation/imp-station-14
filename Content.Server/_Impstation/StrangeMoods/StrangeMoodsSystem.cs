@@ -211,9 +211,15 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     /// <summary>
     /// Attempts to pick a new mood from the given dataset.
     /// </summary>
-    public bool TryPick(ProtoId<DatasetPrototype> dataset, [NotNullWhen(true)] out StrangeMoodPrototype? proto, IEnumerable<StrangeMood>? currentMoods = null, HashSet<ProtoId<StrangeMoodPrototype>>? conflicts = null)
+    public bool TryPick(ProtoId<DatasetPrototype>? dataset, [NotNullWhen(true)] out StrangeMoodPrototype? proto, IEnumerable<StrangeMood>? currentMoods = null, HashSet<ProtoId<StrangeMoodPrototype>>? conflicts = null)
     {
-        var choices = _proto.Index(dataset).Values.ToList();
+        if (!_proto.TryIndex(dataset, out var datasetProto))
+        {
+            proto = null;
+            return false;
+        }
+
+        var choices = datasetProto.Values.ToList();
 
         currentMoods ??= _emptyMoods;
         conflicts ??= GetConflicts(currentMoods);
@@ -241,11 +247,11 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     }
 
     /// <summary>
-    /// Attempts to get a <see cref="SharedMoodPrototype" />'s relevant shared mood from <see cref="_sharedMoods" />.
+    /// Attempts to get the relevant shared mood from <see cref="_sharedMoods" />.
     /// </summary>
-    public bool TryGetSharedMood(SharedMoodPrototype proto, out SharedMood? sharedMood)
+    public bool TryGetSharedMood(string id, out SharedMood? sharedMood)
     {
-        foreach (var mood in _sharedMoods.Where(mood => proto.ProtoId == mood.ProtoId))
+        foreach (var mood in _sharedMoods.Where(mood => id == mood.UniqueId))
         {
             sharedMood = mood;
             return true;
@@ -256,15 +262,30 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     }
 
     /// <summary>
+    /// Attempts to get a <see cref="SharedMoodPrototype" />'s relevant shared mood from <see cref="_sharedMoods" />.
+    /// </summary>
+    public bool TryGetSharedMood(SharedMoodPrototype proto, out SharedMood? sharedMood)
+    {
+        if (proto.UniqueId != null)
+            return TryGetSharedMood(proto.UniqueId, out sharedMood);
+
+        sharedMood = null;
+        return false;
+
+    }
+
+    /// <summary>
     /// Updates the mood UI.
     /// </summary>
     private void UpdateBuiState(Entity<StrangeMoodsComponent> ent)
     {
-        var moods = ent.Comp.SharedMood is { } sharedMood
+        var sharedMoods = ent.Comp.SharedMood is { } sharedMood
             ? sharedMood.Moods
             : [];
 
-        var state = new StrangeMoodsBuiState(moods);
+        var moods = ent.Comp.StrangeMood.Moods;
+
+        var state = new StrangeMoodsBuiState(sharedMoods, moods);
         _bui.SetUiState(ent.Owner, StrangeMoodsUiKey.Key, state);
     }
 
@@ -404,68 +425,72 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
 
         foreach (var mood in sharedMoods)
         {
-            for (var i = 0; i < mood.Count; i++)
-            {
-                TryAddSharedMood(mood, notify: false);
-            }
-
-            NotifySharedMoodChange(mood);
+            TryAddSharedMood(mood);
         }
     }
 
     /// <summary>
     /// Generates new moods for the given shared mood.
+    /// Sets moods from a preset list if given a <paramref name="moodList" />.
     /// </summary>
-    public void NewSharedMoods(SharedMood sharedMood)
+    public void NewSharedMoods(SharedMood sharedMood, List<StrangeMood>? moodList = null, bool clearOldMoods = false)
     {
         _sharedMoods.Remove(sharedMood);
 
-        for (var i = 0; i < sharedMood.Count; i++)
-        {
-            TryAddSharedMood(sharedMood, notify: false);
-        }
+        if (clearOldMoods)
+            sharedMood.Moods.Clear();
 
-        NotifySharedMoodChange(sharedMood);
+        if (moodList != null)
+            TryAddSharedMood(sharedMood, moodList);
+        else
+            TryAddSharedMood(sharedMood);
     }
 
     /// <summary>
     /// Generates new moods for the given shared mood.
+    /// Sets moods from a preset list if given a <paramref name="moodList" />.
     /// </summary>
-    public void NewSharedMoods(ProtoId<SharedMoodPrototype> sharedMood)
+    public void NewSharedMoods(string sharedMood, List<StrangeMood>? moodList = null, bool clearOldMoods = false)
     {
-        if (!TryGetSharedMood(_proto.Index(sharedMood), out var mood) || mood == null)
+        if (!TryGetSharedMood(sharedMood, out var mood) || mood == null)
             return;
 
-        NewSharedMoods(mood);
+        NewSharedMoods(mood, moodList, clearOldMoods);
     }
 
     /// <summary>
-    /// Attempts to add a mood to the given shared mood.
-    /// If no mood is specified, a random mood is added.
+    /// Attempts to add moods to the given shared mood.
+    /// If no moods are specified, a random mood is added.
     /// </summary>
-    private bool TryAddSharedMood(SharedMood sharedMood, StrangeMood? newMood = null, bool checkConflicts = true, bool notify = true)
+    private bool TryAddSharedMood(SharedMood sharedMood, List<StrangeMood>? newMoods = null, bool checkConflicts = true, bool notify = true)
     {
         var mood = new SharedMood();
         _serialization.CopyTo(sharedMood, ref mood, notNullableOverride: true);
 
-        if (newMood == null)
+        if (newMoods == null)
         {
-            if (!TryPick(mood.Dataset, out var moodProto, mood.Moods))
-                return false;
+            newMoods = [];
 
-            newMood = RollMood(moodProto);
-            checkConflicts = false; // TryPick has cleared this mood already
+            for (var i = 0; i < mood.Count; i++)
+            {
+                if (!TryPick(mood.Dataset, out var moodProto, mood.Moods))
+                    return false;
+
+                newMoods.Add(RollMood(moodProto));
+                checkConflicts = false; // TryPick has cleared this mood already
+            }
         }
 
-        if (checkConflicts && SharedMoodConflicts(mood, newMood))
-            return false;
+        foreach (var newMood in newMoods)
+        {
+            if (checkConflicts && SharedMoodConflicts(mood, newMood))
+                return false;
 
-        mood.Moods.Add(newMood);
-
-        if (notify)
-            NotifySharedMoodChange(mood);
+            mood.Moods.Add(newMood);
+        }
 
         _sharedMoods.Add(mood);
+        SyncSharedMoodChange(mood, notify);
         return true;
     }
 
@@ -473,18 +498,16 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     /// Sets which shared moods an entity should follow.
     /// If null, the entity will not follow any shared moods.
     /// </summary>
-    public void SetSharedMood(Entity<StrangeMoodsComponent> ent, ProtoId<SharedMoodPrototype>? newMood)
+    public void SetSharedMood(Entity<StrangeMoodsComponent> ent, string? newMood)
     {
         if (newMood == null ||
-            !TryGetSharedMood(_proto.Index(newMood), out var sharedMood))
+            !TryGetSharedMood(newMood, out var sharedMood))
         {
             ent.Comp.SharedMood = null;
             return;
         }
 
-        var mood = new SharedMood();
-        _serialization.CopyTo(sharedMood, ref mood);
-        ent.Comp.SharedMood = mood;
+        ent.Comp.SharedMood = sharedMood;
     }
 
     /// <summary>
@@ -498,20 +521,29 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     }
 
     /// <summary>
-    /// Sends a "moods changed" alert to all entities with the same shared mood.
+    /// Syncs a "moods changed" alert to all entities with the same shared mood.
+    /// By default, also sends a "moods changed" alert to those entities.
     /// </summary>
-    private void NotifySharedMoodChange(SharedMood sharedMood)
+    private void SyncSharedMoodChange(SharedMood sharedMood, bool notify = true)
     {
         var query = EntityQueryEnumerator<StrangeMoodsComponent>();
 
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.SharedMood == null ||
-                comp.SharedMood.ProtoId != sharedMood.ProtoId)
+                comp.SharedMood.UniqueId != sharedMood.UniqueId)
                 continue;
 
-            NotifyMoodChange((uid, comp));
+            comp.SharedMood = sharedMood;
+
+            if (notify)
+                NotifyMoodChange((uid, comp));
         }
+    }
+
+    public bool SharedMoodIdExists(string id)
+    {
+        return _sharedMoods.Any(mood => mood.UniqueId == id);
     }
 
     #endregion

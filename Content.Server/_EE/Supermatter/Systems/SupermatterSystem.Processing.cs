@@ -714,8 +714,8 @@ public sealed partial class SupermatterSystem
         {
             // Scramble moods that follow the given shared moods
             if (TryComp<StrangeMoodsComponent>(mob, out var moods) &&
-                moods.SharedMood is { ProtoId: not null } sharedMood &&
-                sm.SharedMoodScrambleTargets.Contains(sharedMood.ProtoId.Value))
+                moods.SharedMood is { UniqueId: not null } sharedMood &&
+                sm.SharedMoodScrambleTargets.Contains(sharedMood.UniqueId))
             {
                 _moods.RefreshMoods((mob, moods));
             }

@@ -5,7 +5,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 
-namespace Content.Client._Impstation.StrangeMoods.Eui;
+namespace Content.Client._Impstation.StrangeMoods;
 
 [GenerateTypedNameReferences]
 public sealed partial class StrangeMoodInitUi : FancyWindow

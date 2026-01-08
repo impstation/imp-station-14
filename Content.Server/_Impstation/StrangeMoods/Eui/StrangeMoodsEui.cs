@@ -2,12 +2,13 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration.Managers;
 using Content.Server.EUI;
 using Content.Shared._Impstation.StrangeMoods;
+using Content.Shared._Impstation.StrangeMoods.Eui;
 using Content.Shared.Administration;
 using Content.Shared.Eui;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server._Impstation.StrangeMoods;
+namespace Content.Server._Impstation.StrangeMoods.Eui;
 
 public sealed class StrangeMoodsEui(
     StrangeMoodsSystem strangeMoods,
@@ -59,7 +60,7 @@ public sealed class StrangeMoodsEui(
                 if (!HasStrangeMoods(saveData.Target, out var uid, out var comp))
                     return;
 
-                strangeMoods.SetSharedMood((uid, comp), saveData.SharedMood);
+                strangeMoods.SetSharedMood((uid, comp), saveData.SharedMoodId);
                 strangeMoods.SetMoods((uid, comp), saveData.Moods);
                 break;
             }
@@ -69,7 +70,9 @@ public sealed class StrangeMoodsEui(
                     return;
 
                 var activeMoods = strangeMoods.GetActiveMoods((uid, comp));
-                if (!strangeMoods.TryPick(random.Pick(comp.StrangeMood.Datasets).Key, out var moodProto, activeMoods))
+
+                if (comp.StrangeMood.Datasets.Count <= 0 ||
+                    !strangeMoods.TryPick(random.Pick(comp.StrangeMood.Datasets).Key, out var moodProto, activeMoods))
                     return;
 
                 var newMood = strangeMoods.RollMood(moodProto);
@@ -78,10 +81,8 @@ public sealed class StrangeMoodsEui(
             }
             case StrangeMoodsSharedRequestMessage requestSharedData:
             {
-                if (!prototype.Resolve(requestSharedData.Mood, out var proto))
-                    return;
-
-                if (!strangeMoods.TryGetSharedMood(proto, out var mood))
+                if (requestSharedData.MoodId is not { } id ||
+                    !strangeMoods.TryGetSharedMood(id, out var mood))
                     return;
 
                 SendMessage(new StrangeMoodsSharedSendMessage(mood));

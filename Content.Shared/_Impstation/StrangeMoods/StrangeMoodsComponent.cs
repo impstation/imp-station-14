@@ -37,7 +37,8 @@ public enum StrangeMoodsUiKey : byte
 /// BUI state to tell the client what the shared moods are.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class StrangeMoodsBuiState(List<StrangeMood> sharedMoods) : BoundUserInterfaceState
+public sealed class StrangeMoodsBuiState(List<StrangeMood> sharedMoods, List<StrangeMood> moods) : BoundUserInterfaceState
 {
     public readonly List<StrangeMood> SharedMoods = sharedMoods;
+    public readonly List<StrangeMood> Moods = moods;
 }

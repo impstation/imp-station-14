@@ -1,5 +1,6 @@
 using Content.Client.Eui;
 using Content.Shared._Impstation.StrangeMoods;
+using Content.Shared._Impstation.StrangeMoods.Eui;
 using Content.Shared.Eui;
 
 namespace Content.Client._Impstation.StrangeMoods.Eui;
@@ -26,13 +27,14 @@ public sealed class StrangeMoodsEui : BaseEui
     {
         var newMoods = _strangeMoodUi.GetMoods();
         var sharedMood = _strangeMoodUi.GetSharedMood();
-        SendMessage(new StrangeMoodsSaveMessage(newMoods, sharedMood?.ProtoId, _target));
+
+        SendMessage(new StrangeMoodsSaveMessage(newMoods, sharedMood?.UniqueId, _target));
         _strangeMoodUi.SetAllMoods(newMoods, sharedMood);
     }
 
     private void GetSharedMood(SharedMood mood)
     {
-        SendMessage(new StrangeMoodsSharedRequestMessage(mood.ProtoId));
+        SendMessage(new StrangeMoodsSharedRequestMessage(mood.UniqueId));
     }
 
     public override void Opened()

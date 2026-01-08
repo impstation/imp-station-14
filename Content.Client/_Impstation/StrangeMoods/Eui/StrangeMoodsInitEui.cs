@@ -1,5 +1,6 @@
 using Content.Client.Eui;
 using Content.Shared._Impstation.StrangeMoods;
+using Content.Shared._Impstation.StrangeMoods.Eui;
 using Content.Shared.Eui;
 
 namespace Content.Client._Impstation.StrangeMoods.Eui;

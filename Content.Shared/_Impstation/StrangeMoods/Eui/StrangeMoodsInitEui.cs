@@ -1,7 +1,7 @@
 using Content.Shared.Eui;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._Impstation.StrangeMoods;
+namespace Content.Shared._Impstation.StrangeMoods.Eui;
 
 [Serializable, NetSerializable]
 public sealed class StrangeMoodsInitEuiState(NetEntity target) : EuiStateBase

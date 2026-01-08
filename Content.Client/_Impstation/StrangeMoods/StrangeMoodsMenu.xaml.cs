@@ -11,17 +11,20 @@ public sealed partial class StrangeMoodsMenu : FancyWindow
     public StrangeMoodsMenu()
     {
         RobustXamlLoader.Load(this);
-        IoCManager.InjectDependencies(this);
     }
 
-    public void Update(StrangeMoodsComponent comp, StrangeMoodsBuiState state)
+    public void Update(StrangeMoodsBuiState msg)
     {
         MoodDisplayContainer.Children.Clear();
 
-        foreach (var mood in state.SharedMoods)
+        foreach (var mood in msg.SharedMoods)
+        {
             MoodDisplayContainer.AddChild(new MoodDisplay(mood, true));
+        }
 
-        foreach (var mood in comp.StrangeMood.Moods)
+        foreach (var mood in msg.Moods)
+        {
             MoodDisplayContainer.AddChild(new MoodDisplay(mood, false));
+        }
     }
 }

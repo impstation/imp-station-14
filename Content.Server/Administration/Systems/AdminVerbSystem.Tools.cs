@@ -1,7 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Server._Impstation.StrangeMoods; // imp
+using Content.Server._Impstation.StrangeMoods;
+using Content.Server._Impstation.StrangeMoods.Eui; // imp
 using Content.Server.Administration.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;
@@ -778,6 +779,9 @@ public sealed partial class AdminVerbSystem
 
         if (TryComp<StrangeMoodsComponent>(args.Target, out var moods))
         {
+            if (moods.StrangeMood.Datasets.Count <= 0)
+                return;
+
             Verb addRandomMood = new()
             {
                 Text = "Add Random Mood",
