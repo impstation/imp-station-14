@@ -1,5 +1,6 @@
 job-name-warden = Warden
-job-name-security = Security Officer
+# imp edit: changed Security Officer to Security Guard
+job-name-security = Security Guard
 job-name-cadet = Security Cadet
 job-name-hos = Head of Security
 job-name-detective = Detective
