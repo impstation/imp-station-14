@@ -10,8 +10,6 @@
     - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
       state: idle
       sprite: _Impstation/Mobs/Animals/ductspider.rsi
-    - map: [ "head" ]
-      offset: 0, -0.21875
   - type: SpriteMovement
     movementLayers:
       movement:
