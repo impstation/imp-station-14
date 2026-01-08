@@ -9,7 +9,6 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Tools.Components;
 using Content.Shared.Whitelist;
-using System.Diagnostics.CodeAnalysis;
 namespace Content.Shared.Tools.Systems;
 
 public abstract partial class SharedToolSystem

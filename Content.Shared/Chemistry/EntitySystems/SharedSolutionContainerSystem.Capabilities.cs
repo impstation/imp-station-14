@@ -44,6 +44,7 @@ public abstract partial class SharedSolutionContainerSystem
 
         return TryGetSolution((entity.Owner, entity.Comp2), entity.Comp1.Solution, out soln, out solution);
     }
+
     public Solution FuelDrain(Entity<SolutionFuelDrainComponent?> entity, Entity<SolutionComponent> soln, FixedPoint2 quantity)
     {
         if (!Resolve(entity, ref entity.Comp, logMissing: false))
@@ -52,6 +53,7 @@ public abstract partial class SharedSolutionContainerSystem
         return SplitSolution(soln, quantity);
     }
     //Imp edit end
+
     public bool TryGetExtractableSolution(Entity<ExtractableComponent?, SolutionContainerManagerComponent?> entity, [NotNullWhen(true)] out Entity<SolutionComponent>? soln, [NotNullWhen(true)] out Solution? solution)
     {
         if (!Resolve(entity, ref entity.Comp1, logMissing: false))

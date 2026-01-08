@@ -12,6 +12,6 @@ public sealed partial class SolutionFuelDrainComponent : Component
     /// <summary>
     /// Solution name that can be drained.
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public string Solution = "default";
+    [DataField(required: true)]
+    public string Solution = default!;
 }
