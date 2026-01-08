@@ -29,7 +29,7 @@ public readonly record struct EmbeddedEvent(EntityUid? Shooter, EntityUid Embedd
 }
 
 /// <summary>
-///     Imp edit, Raised on an entity when it stops embedding in another entity.
+///     EE edit, Raised on an entity when it stops embedding in another entity.
 /// </summary>
 [ByRefEvent]
 public readonly record struct RemoveEmbedEvent(EntityUid? Remover)
