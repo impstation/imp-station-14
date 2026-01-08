@@ -12,7 +12,7 @@ namespace Content.Shared.Nutrition.Components;
 /// This is used on an entity with a solution container to flag a specific solution as being able to have its
 /// reagents consumed directly.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(IngestionSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(IngestionSystem)), AutoGenerateComponentState(true)] //#IMP Add  Autogeneratecomponentstate
 public sealed partial class EdibleComponent : Component
 {
     /// <summary>
@@ -89,6 +89,6 @@ public sealed partial class EdibleComponent : Component
     /// <summary>
     /// Verb, icon, and sound data for our edible.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField] //#IMP Added autonetworkedfield to fix clientside 'food' verb
     public ProtoId<EdiblePrototype> Edible = IngestionSystem.Food;
 }
