@@ -511,7 +511,7 @@ public sealed class StrangeMoodsSystem : SharedStrangeMoodsSystem
     }
 
     /// <summary>
-    ///
+    /// Determines whether a mood conflicts with the current moods in a <see cref="SharedMood" />.
     /// </summary>
     private bool SharedMoodConflicts(SharedMood sharedMood, StrangeMood mood)
     {

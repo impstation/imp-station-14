@@ -1,5 +1,4 @@
 using Content.Shared.Eui;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.StrangeMoods.Eui;

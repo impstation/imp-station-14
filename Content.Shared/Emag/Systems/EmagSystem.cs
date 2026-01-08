@@ -1,4 +1,3 @@
-using Content.Shared._Impstation.Thaven; // imp
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -10,6 +9,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
+using Content.Shared._Impstation.Thaven; // imp
 using Content.Shared.Bed.Sleep; // imp
 using Content.Shared.Mobs.Systems; // imp
 using Content.Shared.Whitelist; // imp

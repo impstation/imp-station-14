@@ -5,7 +5,6 @@ using Content.Shared._Impstation.StrangeMoods;
 using Content.Shared._Impstation.StrangeMoods.Eui;
 using Content.Shared.Administration;
 using Content.Shared.Eui;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.StrangeMoods.Eui;
@@ -13,7 +12,6 @@ namespace Content.Server._Impstation.StrangeMoods.Eui;
 public sealed class StrangeMoodsEui(
     StrangeMoodsSystem strangeMoods,
     EntityManager entity,
-    IPrototypeManager prototype,
     IRobustRandom random,
     IAdminManager admin) : BaseEui
 {

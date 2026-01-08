@@ -3,9 +3,7 @@ using Content.Server.EUI;
 using Content.Shared._Impstation.StrangeMoods.Eui;
 using Content.Shared.Administration;
 using Content.Shared.Eui;
-using Robust.Server.Player;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.StrangeMoods.Eui;
 

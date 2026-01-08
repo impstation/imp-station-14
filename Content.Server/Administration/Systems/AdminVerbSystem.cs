@@ -35,7 +35,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
-using Content.Server._Impstation.StrangeMoods;
+using Content.Server._Impstation.StrangeMoods; // imp
 using Content.Server._Impstation.StrangeMoods.Eui; // imp
 using Content.Shared._Impstation.StrangeMoods; // imp
 using static Content.Shared.Configurable.ConfigurationComponent;
@@ -419,7 +419,7 @@ namespace Content.Server.Administration.Systems
                         Category = VerbCategory.Admin,
                         Act = () =>
                         {
-                            var ui = new StrangeMoodsEui(_moods, EntityManager, _prototypeManager, _random, _adminManager);
+                            var ui = new StrangeMoodsEui(_moods, EntityManager, _random, _adminManager);
                             if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
                                 return;
 

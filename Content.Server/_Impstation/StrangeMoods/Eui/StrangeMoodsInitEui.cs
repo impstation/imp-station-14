@@ -51,7 +51,7 @@ public sealed class StrangeMoodsInitEui(
 
         var target = entity.GetEntity(message.Target);
         var comp = StrangeMoodsSystem.CreateComponent(message.Definition);
-        var ui = new StrangeMoodsEui(strangeMoods, entity, prototype, random, admin);
+        var ui = new StrangeMoodsEui(strangeMoods, entity, random, admin);
         SharedMood? sharedMood = null;
 
         entity.AddComponent(target, comp);
