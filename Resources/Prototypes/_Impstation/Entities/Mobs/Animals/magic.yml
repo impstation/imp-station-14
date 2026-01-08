@@ -114,9 +114,9 @@
   components:
   - type: GhostTakeoverAvailable
   - type: GhostRole
-    allowMovement: true
-    allowSpeech: true
-    makeSentient: true
+#    allowMovement: true
+#    allowSpeech: true
+#    makeSentient: true
     name: ghost-role-information-rock-name
     description: ghost-role-information-rock-desc
     raffle:
@@ -160,7 +160,6 @@
             max: 5
   - type: MeleeWeapon
     attackRate: 1
-    hidden: true
     soundHit:
       collection: Punch
     damage:
@@ -182,11 +181,10 @@
   - type: BodyEmotes
     soundsId: GeneralBodyEmotes
   - type: MeleeThrowOnHit
-    unanchorOnHit: true
+#    unanchorOnHit: true
     speed: 15
     distance: 4
     stunTime: 10
-    activateOnThrown: true
   - type: StatusEffects
     allowed:
     - SlowedDown
