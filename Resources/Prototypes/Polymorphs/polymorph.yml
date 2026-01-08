@@ -207,7 +207,7 @@
 - type: polymorph
   id: WizardSpider
   configuration:
-    entity: MobGiantSpiderWizard #Not angry so ghosts can't just take over the wizard
+    entity: MobTinySpiderWizard # imp edit
     transferName: false # imp edit
     inventory: None
     revertOnDeath: true

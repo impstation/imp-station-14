@@ -102,7 +102,10 @@
     sound:
       path: /Audio/Ambience/ambicave.ogg
   - type: NoSlip
-  - type: CanMoveInAir
+  - type: MovementSpeedModifier
+    weightlessFriction: 5
+    weightlessFrictionNoInput: 4
+    weightlessAcceleration: 1
   - type: MovementIgnoreGravity
     weightless: true
   - type: EntitySpawnAnomaly

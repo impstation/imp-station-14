@@ -6,13 +6,13 @@
   - type: Action
     raiseOnUser: true
     icon:
-      sprite: Mobs/Aliens/Asteroid/goliath.rsi
-      state: goliath_tentacle_spawn
+      sprite: _Impstation/Magic/curse.rsi
+      state: curse_tentacle_spawn
     iconOn:
-      sprite: Mobs/Aliens/Asteroid/goliath.rsi
-      state: goliath_tentacle_wiggle
+      sprite: _Impstation/Magic/curse.rsi
+      state: curse_tentacle_wiggle
     sound:
-      path: "/Audio/Weapons/slash.ogg"
+      path: "/Audio/_Impstation/Magic/cursespawn.ogg"
     useDelay: 8
   - type: TargetAction
     range: 10

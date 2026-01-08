@@ -112,6 +112,9 @@
   name: spellbook-polymorph-spider-name
   description: spellbook-polymorph-spider-desc
   productAction: ActionPolymorphWizardSpider
+  icon: #imp add
+    sprite: _Impstation/Mobs/Animals/ductspider.rsi
+    state: idle
   cost:
     WizCoin: 4 # imp edit
   categories:

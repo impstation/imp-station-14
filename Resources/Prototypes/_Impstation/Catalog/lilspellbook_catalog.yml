@@ -51,19 +51,6 @@
     stock: 5
 
 - type: listing
-  id: SpellbookPolymorphTinySpider
-  name: spellbook-polymorph-spider-name
-  description: spellbook-polymorph-spider-desc
-  productAction: ActionPolymorphWizardTinySpider
-  cost:
-    WizCoin: 2
-  categories:
-  - LilSpells
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
   id: SpellbookBookBlink
   name: spellbook-blink-name
   description: spellbook-blink-description

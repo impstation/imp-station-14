@@ -40,6 +40,9 @@ spellbook-snow-name = Cone of Cold
 spellbook-snow-desc = Summon a cone of ice in front of you.
 
 # Equipment
+spellbook-wand-heal-name = Wand of Healing
+spellbook-wand-heal-description = Who needs med!
+
 spellbook-wand-polymorph-cluwne-name = Wand of Cluwning
 spellbook-wand-polymorph-cluwne-description = For when you really hate someone and Smite isn't enough.
 
@@ -65,7 +68,7 @@ spellbook-wand-fire-name = Wand of Fire
 spellbook-wand-fire-desc = A more powerfull explosion but with limited uses.
 
 spellbook-wand-break-name = Obliterate
-spellbook-wand-break-desc = For removing anoying walls, or doors, or furniture or-
+spellbook-wand-break-description = For removing anoying walls, or doors, or furniture or-
 
 spellbook-carp-spawn-name = MagiCarp Spawn
 spellbook-carp-spawn-desc = Summons a wizard friendly school of space carp.
@@ -75,6 +78,21 @@ spellbook-suit-desc = Fireball related explosion resistant!
 
 spellbook-ring-name = Sleight of Hand Ring
 spellbook-ring-desc = A pickpockets trinket.
+
+spellbook-name-stamp = Wizard stamp
+spellbook-stamp-desc = For magical paperwork.
+
+spellbook-glasses-name = Magic Glasses
+spellbook-glasses-desc = Protects you from bright lights.
+
+spellbook-boots-name = Magic boots
+spellbook-boots-desc = Ups your DEX.
+
+spellbook-gloves-name = Magic gloves
+spellbook-gloves-desc = Protects you from lightning and knocks away enemies!
+
+spellbook-bag-name = Bag of Holding
+spellbook-bag-desc = Don't mind the teeth.
 
 # Event
 

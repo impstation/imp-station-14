@@ -198,11 +198,11 @@
       path: /Audio/Effects/break_stone.ogg
 
 - type: entity
-  name: spider
-  parent: MobGiantSpiderWizard
+  name: duct spider
+  parent: MobDuctSpider
   id: MobTinySpiderWizard
-  description: This spider looks little.
-  suffix: Wizard, Tiny
+  description: Nanotrasen's imported solution to mice, comes with its own problems.
+  suffix: Wizard
   components:
   - type: Accentless
     removes:
@@ -211,22 +211,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      50: Critical
-      100: Dead
-  - type: Sprite
-    sprite: _Impstation/Magic/spider.rsi
-    layers:
-      - map: [ "enum.DamageStateVisualLayers.Base" ]
-        state: spider
-  - type: StepTrigger
-    requiredTriggeredSpeed: 1
-  - type: TriggerOnStepTrigger
-  - type: RandomChanceTriggerCondition
-    successChance: 1
-  - type: DamageOnTrigger
-    damage:
-      types:
-        Piercing: 50
+      100: Critical
+      150: Dead
   - type: Fixtures
     fixtures:
       fix1:
@@ -241,6 +227,7 @@
   - type: NpcFactionMember
     factions:
       - Wizard
+      - DuctSpider
 
 - type: entity
   parent: [ SimpleSpaceMobBase, FlyingMobBase ]
@@ -320,6 +307,7 @@
   parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
   id: MobBadOmen
   name: bad omen
+  description: There's still time.
   components:
   - type: MovementSpeedModifier
     weightlessFriction: 1
@@ -395,12 +383,12 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      300: Dead
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 300
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

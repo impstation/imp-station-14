@@ -42,8 +42,8 @@
   - type: Action
     useDelay: 30
     icon:
-      sprite: _Impstation/Magic/spider.rsi
-      state: spider
+      sprite: _Impstation/Mobs/Animals/ductspider.rsi
+      state: idle
   - type: InstantAction
     event: !type:PolymorphActionEvent
       protoId: WizardTinySpider
