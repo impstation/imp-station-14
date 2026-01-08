@@ -25,6 +25,7 @@
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
+  hideOnLocked: true # imp addition
 
 - type: startingGear
   id: SecurityCadetGear

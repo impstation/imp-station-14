@@ -997,6 +997,12 @@ namespace Content.Client.Lobby.UI
 
                 foreach (var job in jobs)
                 {
+                    // imp edit start
+                    if (!_requirements.IsAllowed(job, (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter, out _))
+                        if (job.HideOnLocked)
+                            continue;
+                    // imp edit end
+
                     var jobContainer = new BoxContainer()
                     {
                         Orientation = LayoutOrientation.Horizontal,

@@ -153,6 +153,12 @@ namespace Content.Shared.Roles
         /// </summary>
         [DataField]
         public List<ProtoId<GuideEntryPrototype>>? Guides;
+
+        /// <summary>
+        /// Imp addition, if true the job does not appear on the job selector when locked.
+        /// </summary>
+        [DataField]
+        public bool HideOnLocked = false;
     }
 
     /// <summary>
