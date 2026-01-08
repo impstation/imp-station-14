@@ -1,135 +1,4 @@
 ﻿Entries:
-- author: Stonylogray
-  changes:
-  - message: Free agent ghost role text edited for clarification.
-    type: Tweak
-  id: 2021
-  time: '2025-07-23T10:29:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3148
-- author: astral_amy
-  changes:
-  - message: A third round of Whisper changes - details in PR.
-    type: Tweak
-  id: 2022
-  time: '2025-07-23T10:29:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3146
-- author: HAPPYNEWYEAR1999
-  changes:
-  - message: Pathway Station is ready after a lengthy training montage.
-    type: Add
-  id: 2023
-  time: '2025-07-25T08:50:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3141
-- author: youtubevideo3
-  changes:
-  - message: Species-specific equipment sprites for Decapoids, Gastropoids, Thaven
-      and Grays should now show up on the loadout screen.
-    type: Fix
-  id: 2024
-  time: '2025-07-25T09:57:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3161
-- author: yesteryuri
-  changes:
-  - message: Vox members of command wear their command masks to work
-    type: Tweak
-  - message: Vox once again have tank harnesses in their bags when needed
-    type: Fix
-  id: 2025
-  time: '2025-07-25T10:02:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3159
-- author: wendyribstonpippin
-  changes:
-  - message: You can now speak like you really wish you were in the death squads.
-    type: Add
-  id: 2026
-  time: '2025-07-25T10:52:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3114
-- author: heirdragonair, kipdotnet
-  changes:
-  - message: Added a new tabletop intercom!
-    type: Add
-  - message: Slightly resprited intercoms.
-    type: Tweak
-  id: 2027
-  time: '2025-07-25T11:10:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3122
-- author: DinnerCalzone
-  changes:
-  - message: Omega station has been derotated.
-    type: Remove
-  id: 2028
-  time: '2025-07-25T11:13:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3156
-- author: Stonylogray
-  changes:
-  - message: The invader clause of Space law has been rewritten.
-    type: Tweak
-  id: 2029
-  time: '2025-07-25T11:19:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3149
-- author: msTheowo
-  changes:
-  - message: Strong lenses will now spawn on your face if you have nothing there or
-      in your glasses' lens slot if they have one!
-    type: Tweak
-  id: 2030
-  time: '2025-07-25T11:28:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3104
-- author: hivehum
-  changes:
-  - message: ERP is banned.
-    type: Remove
-  id: 2031
-  time: '2025-07-25T11:28:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3078
-- author: CrystalClover
-  changes:
-  - message: Space France forgot to pay licensing fees so their escaped baguettes
-      now play different music.
-    type: Tweak
-  id: 2032
-  time: '2025-07-25T11:28:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3049
-- author: yesteryuri
-  changes:
-  - message: All trinkets, HOS Jumpsuits, medical glasses, and instruments in the
-      loadout menu are now sorted into collapsible categories
-    type: Tweak
-  id: 2033
-  time: '2025-07-25T11:28:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3019
-- author: ultramario1998
-  changes:
-  - message: 10 new bounties have been added to enrich Cargo's lives.
-    type: Add
-  id: 2034
-  time: '2025-07-25T11:28:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3029
-- author: meridiadottxt
-  changes:
-  - message: ported Barge from Delta V, look for it in your shipyard console!
-    type: Add
-  - message: also ported unlocked booze-o-mats
-    type: Add
-  id: 2035
-  time: '2025-07-25T11:28:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2651
-- author: hivehum
-  changes:
-  - message: Gastropoid eyes layer under glasses where appropriate.
-    type: Fix
-  id: 2036
-  time: '2025-07-25T11:28:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3082
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Incendiary magazines have their own special colour now!
-    type: Add
-  - message: Colours have been updated and changed on ammo types for some consistency
-    type: Tweak
-  id: 2037
-  time: '2025-07-25T11:28:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3084
 - author: DinnerCalzone
   changes:
   - message: Chapel tiles can now be crafted from the cutter machine! Expect these
@@ -4168,3 +4037,143 @@
   id: 2520
   time: '2026-01-02T07:10:46.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3912
+- author: honeyed-lemons
+  changes:
+  - message: Shrimp spit louder.
+    type: Fix
+  - message: Shrimp say some words kinda funny.
+    type: Add
+  - message: Shrimp shake and think things when they get too hot.
+    type: Tweak
+  id: 2521
+  time: '2026-01-02T21:22:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3823
+- author: honeyed-lemons
+  changes:
+  - message: "Adds emojis to Nanochat! \U0001F604"
+    type: Add
+  id: 2522
+  time: '2026-01-03T06:00:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3665
+- author: yesteryuri
+  changes:
+  - message: Added food coloring to the Booze-o-Mat. Use it for colored crystals and
+      Asterade!
+    type: Add
+  id: 2523
+  time: '2026-01-03T19:01:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3843
+- author: Doop, mqole, honeyed-lemons, Skeepo
+  changes:
+  - message: "Anomalocarids have been authorized to work aboard Nanotrasen stations!\
+      \ Don't be shellfish, give them a hand and welcome them aboard!! \U0001F990\U0001F990\
+      \U0001F990\U0001F364"
+    type: Add
+  id: 2524
+  time: '2026-01-04T01:26:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3914
+- author: Yesteryuri, Mqole
+  changes:
+  - message: 'New trait: Hated by dogs'
+    type: Add
+  - message: Dogs just bark at those they hate and do not stun them anymore.
+    type: Tweak
+  id: 2525
+  time: '2026-01-04T07:15:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3807
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The SGD Vocalizer can now be work in either the mask slot or the neck
+      slot!
+    type: Tweak
+  id: 2526
+  time: '2026-01-04T07:16:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3827
+- author: coyragon96
+  changes:
+  - message: Irwizine doesn't make animals sentient anymore.
+    type: Tweak
+  id: 2527
+  time: '2026-01-04T07:29:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3911
+- author: TheGrimbeeper
+  changes:
+  - message: List of Wizden's patreons has been removed.
+    type: Remove
+  id: 2528
+  time: '2026-01-04T08:40:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3922
+- author: msTheowo
+  changes:
+  - message: Duct spiders have been imported as a natural pest prevention method.
+    type: Add
+  id: 2529
+  time: '2026-01-04T11:44:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3789
+- author: Toasterblast
+  changes:
+  - message: Donk Co. has begun manufacturing candy.
+    type: Add
+  id: 2530
+  time: '2026-01-05T04:09:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3870
+- author: TheGrimbeeper
+  changes:
+  - message: Xenoarchaeology guidebook is now up-to-date for Natural and Reticulated
+      artifacts.
+    type: Tweak
+  id: 2531
+  time: '2026-01-05T13:20:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3917
+- author: ATDoop
+  changes:
+  - message: Anomalocarids have a survival box now!
+    type: Fix
+  - message: Anomalocarid overlay eye markings should layer correctly now!
+    type: Fix
+  id: 2532
+  time: '2026-01-06T08:01:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3921
+- author: TheGrimbeeper
+  changes:
+  - message: removed the upstream patreon name highlights for real this time. (defeated
+      the big grape)
+    type: Fix
+  id: 2533
+  time: '2026-01-06T11:08:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3939
+- author: honeyed-lemons
+  changes:
+  - message: 'Tables and counters have been retabled and chairs and dancing : ) sprite'
+    type: Tweak
+  id: 2534
+  time: '2026-01-07T12:32:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3791
+- author: kipdotnet
+  changes:
+  - message: Dinosaurs no longer consume oxygen when breathing. Don't ask me how this
+      works.
+    type: Tweak
+  - message: Dinosaurs now automatically gib into horrible piles of viscera after
+      theyve been dead for a bit..
+    type: Tweak
+  id: 2535
+  time: '2026-01-07T12:46:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3856
+- author: Ecramox
+  changes:
+  - message: New Bail Cards, coming to mysterious closets in dark alleys near you!
+    type: Add
+  id: 2536
+  time: '2026-01-07T13:22:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3943
+- author: Spung22
+  changes:
+  - message: The sample tubes findable by salvage are now even slightly useful and
+      contain random chems, careful they're quite fragile!
+    type: Tweak
+  - message: Sample tubes are now craftable at the medlathe.
+    type: Add
+  id: 2537
+  time: '2026-01-07T23:36:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3753

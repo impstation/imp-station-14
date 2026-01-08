@@ -617,7 +617,7 @@
     color: "#b53ca1"
   - type: GuideHelp
     guides:
-    - AnalysisConsole
+    - AnalysisConsoleImp #IMP pointed to our version of the guidebook
 
 - type: entity
   parent: [ BaseComputerAiAccess, BaseGrandTheftContraband ]
