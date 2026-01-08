@@ -17,6 +17,7 @@
     - Heretic
     - Replicator
     - Dog
+    - DuctSpider
 
 - type: npcFaction
   id: Penguin
@@ -50,6 +51,7 @@
   - Penguin
   - AllHostile
   - Dog
+  - DuctSpider
 
 - type: npcFaction
   id: Dog
@@ -59,6 +61,12 @@
 
 - type: npcFaction
   id: Courier
+
+# it's meal to them
+- type: npcFaction
+  id: DuctSpider
+  hostile:
+  - Mouse
 
 - type: npcFaction
   id: DogHated
