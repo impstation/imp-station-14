@@ -232,6 +232,12 @@ namespace Content.Client.LateJoin
 
                     foreach (var prototype in jobsAvailable)
                     {
+                        // imp edit start
+                        if (!_jobRequirements.IsAllowed(prototype, (HumanoidCharacterProfile?)_preferencesManager.Preferences?.SelectedCharacter, out _))
+                            if (prototype.HideOnLocked)
+                                continue;
+                        // imp edit end
+
                         var value = stationAvailable[prototype.ID];
 
                         var jobLabel = new Label
