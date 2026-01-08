@@ -197,7 +197,6 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:MakeTame
       - !type:FactionChange
         faction: Passive
         conditions:
