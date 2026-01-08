@@ -115,53 +115,6 @@
 #    state: seaweedhair
 
 - type: marking
-  id: AnomalocaridGlassEyeLeft
-  bodyPart: Head
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#a2ffbf"
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
-    state: glasseye_l
-
-- type: marking
-  id: AnomalocaridGlassEyeRight
-  bodyPart: Head
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#a2ffbf"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
-    state: glasseye_r
-
-- type: marking
-  id: AnomalocaridEyeThird
-  bodyPart: Head
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
-  forcedColoring: false
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
-    state: thirdeye_primary
-  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
-    state: thirdeye_secondary
-
-- type: marking
   id: AnomalocaridEyeOpabinia
   bodyPart: Head
   markingCategory: Overlay
@@ -177,21 +130,6 @@
     state: opabinia_primary
   - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
     state: opabinia_secondary
-
-- type: marking
-  id: AnomalocaridEyeMantis
-  bodyPart: Head
-  markingCategory: Overlay
-  speciesRestriction: [ Anomalocarid ]
-  forcedColoring: false
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
-    state: mantis
 
 - type: marking
   id: AnomalocaridEyeLashes
@@ -1022,3 +960,65 @@
 #    state: tail1
 
 # RArmExtension
+
+- type: marking
+  id: AnomalocaridGlassEyeLeft
+  bodyPart: LFoot #dont change this!!! it's there so it layers over the eyes properly!
+  markingCategory: Overlay
+  speciesRestriction: [ Anomalocarid ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#a2ffbf"
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: glasseye_l
+
+- type: marking
+  id: AnomalocaridGlassEyeRight
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [ Anomalocarid ]
+  followSkinColor: false
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#a2ffbf"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: glasseye_r
+
+- type: marking
+  id: AnomalocaridEyeThird
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: thirdeye_primary
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: thirdeye_secondary
+
+- type: marking
+  id: AnomalocaridEyeMantis
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [ Anomalocarid ]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+  followSkinColor: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Anomalocarid/head.rsi
+    state: mantis

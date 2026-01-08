@@ -49,3 +49,14 @@
     contents:
       - id: MobPompom
         amount: 3
+
+- type: entity
+  id: CrateNPCDuctSpider
+  parent: CrateLivestock
+  name: duct spider crate
+  description: Awww! Straight from the Australicus sector to your station's ventilation system!
+  components:
+  - type: StorageFill
+    contents:
+    - id: MobDuctSpider
+      amount: 4
