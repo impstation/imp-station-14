@@ -349,17 +349,16 @@ public sealed partial class SupermatterSystem
             return;
         }
 
-        // Absorbed gas from surrounding area
+        // Evaluated gas from surrounding area
         var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(EECCVars.SupermatterGasEfficiencyGraceModifier));
-        var absorbedGas = mix.Remove(gasEfficiency * mix.TotalMoles);
-        var moles = absorbedGas.TotalMoles;
+        var moles = mix.TotalMoles * gasEfficiency;
 
         var totalDamage = 0f;
 
         var tempThreshold = Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold);
 
         // Temperature start to have a positive effect on damage after 350
-        var tempDamage = Math.Max(Math.Clamp(moles / 200f, .5f, 1f) * absorbedGas.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
+        var tempDamage = Math.Max(Math.Clamp(moles / 200f, .5f, 1f) * mix.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
             sm.MoleHeatPenaltyThreshold / 150f * sm.DamageIncreaseMultiplier;
         totalDamage += tempDamage;
 
@@ -375,14 +374,11 @@ public sealed partial class SupermatterSystem
         if (moles < _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold))
         {
             // Only has a net positive effect when the temp is below 313.15, heals up to 2 damage. Psychologists increase this temp min by up to 45
-            sm.HeatHealing = Math.Min(absorbedGas.Temperature - (tempThreshold + 45f * sm.PsyCoefficient), 0f) / 150f;
+            sm.HeatHealing = Math.Min(mix.Temperature - (tempThreshold + 45f * sm.PsyCoefficient), 0f) / 150f;
             totalDamage += sm.HeatHealing;
         }
         else
             sm.HeatHealing = 0f;
-
-        // Funky Fix: Returns gas
-        _atmosphere.Merge(mix, absorbedGas);
 
         // Check for space tiles next to SM
         if (TryComp<MapGridComponent>(gridId, out var grid))
