@@ -610,8 +610,9 @@
 - type: weightedRandom
   id: StationAiSpawnLawsets
   weights:
-    Crewsimov: 49.9
+    Crewsimov: 30
     Corporate: 10
-    NTDefault: 30
+    NTDefault: 49
     EfficiencyLawset: 10
-    AntimovLawset: 0.1
+    SyndicateStatic: 1
+
