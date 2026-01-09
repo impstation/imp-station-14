@@ -605,3 +605,13 @@
     AntimovLawset: 0.25
     NutimovLawset: 0.5
     Ninja: 0.25
+
+# random ai spawn lawsets
+- type: weightedRandom
+  id: StationAiSpawnLawsets
+  weights:
+    Crewsimov: 49.9
+    Corporate: 10
+    NTDefault: 30
+    EfficiencyLawset: 10
+    AntimovLawset: 0.1
