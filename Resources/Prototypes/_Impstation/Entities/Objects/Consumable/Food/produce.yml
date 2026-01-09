@@ -401,16 +401,16 @@
         maxVol: 12
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2
+          Quantity: 3
         - ReagentId: LiftingConcentrate
-          Quantity: 5
+          Quantity: 3
   - type: Produce
     seedId: floatingflora
   - type: Extractable
     juiceSolution:
       reagents:
       - ReagentId: LiftingConcentrate
-        Quantity: 5
+        Quantity: 3
 #foldable
   - type: Transform
     noRot: true

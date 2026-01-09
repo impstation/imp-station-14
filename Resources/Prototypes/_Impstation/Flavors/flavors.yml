@@ -253,6 +253,11 @@
   flavorType: Complex
   description: flavor-complex-profane
 
+- type: flavor
+  id: funnyliftingdrink
+  flavorType: Complex
+  description: flavor-complex-funny-lifting-drink
+
 # ID Tart
 - type: flavor
   id: armory
@@ -520,6 +525,6 @@
   description: flavor-base-ants
 
 - type: flavor
-  id: liftingconcentrate
+  id: lightactually #the other light is "like a light gone out", which is insane to just call "light"
   flavorType: Base
-  description: flavor-base-lifting-concentrate
+  description: flavor-base-light

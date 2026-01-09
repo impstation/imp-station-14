@@ -407,7 +407,7 @@
   group: Narcotics
   desc: reagent-desc-lifting-concentrate
   physicalDesc: reagent-physical-desc-floral
-  flavor: liftingconcentrate
+  flavor: lightactually
   color: "#72e9d5"
   reactiveEffects:
     Acidic:
@@ -415,8 +415,8 @@
       effects:
       - !type:ModifyStatusEffect
         effectProto: StatusEffectFloating
-        type: Add
-        time: 2
+        type: Update
+        time: 3
   metabolisms:
     Narcotic:
       effects:
