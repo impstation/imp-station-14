@@ -5,7 +5,6 @@
   description: Nanotrasen's imported solution to mice, comes with its own problems.
   components:
   - type: Sprite
-    drawdepth: SmallMobs
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
       state: idle
@@ -31,12 +30,12 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.20
-        density: 150
+          radius: 0.25
+        density: 200
         mask:
-        - SmallMobMask
+        - MobMask
         layer:
-        - SmallMobLayer
+        - MobLayer
   - type: Butcherable
     spawned:
     - id: FoodMeatSpider
@@ -116,6 +115,7 @@
     - MultitoolDefibrillatorTarget
     - FootstepSound
     - SpiderCraft
+    - DoorBumpOpener
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
@@ -151,4 +151,25 @@
         slot: head
         entity: WaterDropletHat
   - type: Edible
+  - type: ConsumeAction
+    popupSelfStart: kodepiia-consume-start-self
+    popupSelfEnd: kodepiia-consume-end-self
+    popupOthersStart: kodepiia-consume-start-others
+    popupOthersEnd: kodepiia-consume-end-others
+    consumeActionId: ActionKodepiiaConsume
+    damage:
+      groups:
+        Genetic: 5
+      types:
+        Piercing: 5
+    whitelist:
+      components:
+      - Respirator
+      - Bloodstream
+    blacklist:
+      components:
+      - SiliconLawBound
+    canGib: false
+    meatMultiplier: 0.1
+    percentageConsumed: 0.1
   - type: Appearance
