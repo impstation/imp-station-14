@@ -17,3 +17,19 @@
             targetKey: TargetCoordinates
             pathfindKey: TargetPathfind
             rangeKey: MeleeRange
+    - tasks:
+        - !type:HTNCompoundTask
+          task: BeginBreed
+
+- type: htnCompound
+  id: BeginBreed
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:BreedReadyPrecondition
+              targetKey: Target
+              breedRange: MeleeRange
+          operator: !type:BreedOperator
+          targetKey: Target
+          idleTime: MaximumIdleTime      

@@ -62,6 +62,8 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
         if (target == null)
             return (false, null);
 
+        //reproComp.PartnerInMind = true;
+
         //we found a valid target, so return the plan
         return (true, new Dictionary<string, object>()
         {

@@ -13,15 +13,26 @@ namespace Content.Server._Impstation.NPC.HTN.PrimitiveTasks.Operators;
 public sealed partial class BreedOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly AnimalHusbandrySystemImp _breedSystem = default!;
+
+    private AnimalHusbandrySystemImp _breedSystem = default!;
 
     [DataField("targetKey")]
-    public string Key = "Target";
+    public string Target = "Target";
     [DataField("idleKey")]
     public string IdleKey = "IdleTime";
 
+    public override void Initialize(IEntitySystemManager sysManager)
+    {
+        base.Initialize(sysManager);
+        _breedSystem = sysManager.GetEntitySystem<AnimalHusbandrySystemImp>();
+    }
+
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard, CancellationToken cancelToken)
     {
+        var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
+        var target = blackboard.GetValue<EntityUid>(Target);
+        _breedSystem.TryBreedWithTarget(owner, target);
+
         return new(true, new Dictionary<string, object>()
         {
             { IdleKey, 1f }

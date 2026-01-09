@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Content.Server._Impstation.Nutrition.EntitySystems;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.Preconditions;
 using Content.Shared._Impstation.Nutrition.Components;
@@ -17,11 +18,19 @@ public sealed partial class BreedablePrecondition : HTNPrecondition
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
+    private AnimalHusbandrySystemImp _breedSystem = default!;
+
     [DataField("minHungerState", required: true)]
     public HungerThreshold MinHungerToBreed = HungerThreshold.Okay;
 
     [DataField("minThirstState", required: true)]
     public ThirstThreshold MinThirstToBreed = ThirstThreshold.Okay;
+
+    public override void Initialize(IEntitySystemManager sysManager)
+    {
+        base.Initialize(sysManager);
+        _breedSystem = sysManager.GetEntitySystem<AnimalHusbandrySystemImp>();
+    }
 
     public override bool IsMet(NPCBlackboard blackboard)
     {
@@ -34,7 +43,7 @@ public sealed partial class BreedablePrecondition : HTNPrecondition
 
         // Mobs should only search for a breedable mate if they are ready to breed
         // NextSearch exists so that mobs do not spam the server with searches and pathfinding to look for an eligible mate
-        if (reproComp.NextBreed > _time.CurTime || reproComp.NextSearch > _time.CurTime)
+        if (!_breedSystem.ReadyToBreed(reproComp))
             return false;
 
         reproComp.NextSearch = _time.CurTime + _random.Next(reproComp.MinSearchAttemptInterval, reproComp.MaxSearchAttemptInterval);

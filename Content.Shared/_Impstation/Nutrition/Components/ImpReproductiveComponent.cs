@@ -26,9 +26,18 @@ public sealed partial class ImpReproductiveComponent : Component
     public EntityWhitelist PartnerWhiteList = default!;
 
     // What species are we?
-    [DataField("ReproductiveGroup", required: true)]
+    [DataField("reproductiveGroup", required: true)]
     public string ReproductiveGroup = "MobNone";
 
-    public TimeSpan NextBreed = TimeSpan.Zero;
+    [DataField("hungerPerBirth", required: true)]
+    public int HungerPerBirth = 75;
+
+    [DataField("pregnancyLength", required: true)]
+    public TimeSpan PregnancyLength = TimeSpan.FromSeconds(60);
+
+    public bool Pregnant = false;
+    public bool PartnerInMind = false;
+
+    public TimeSpan EndPregnancy = TimeSpan.Zero;
     public TimeSpan NextSearch = TimeSpan.Zero;
 }

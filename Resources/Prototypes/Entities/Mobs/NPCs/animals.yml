@@ -980,10 +980,12 @@
     factions:
     - Passive
   - type: ImpReproductive
+    hungerPerBirth: 75
+    pregnancyLength: 10
     partnerWhiteList:
       tags:
       - Cow
-    ReproductiveGroup: MobCow
+    reproductiveGroup: MobCow
   #- type: Body
   #  prototype: AnimalRuminant
   - type: HTN
@@ -4053,10 +4055,12 @@
     factions:
     - Passive
   - type: ImpReproductive
+    hungerPerBirth: 75
+    pregnancyLength: 10
     partnerWhiteList:
       tags:
       - Pig
-    ReproductiveGroup: MobPig
+    reproductiveGroup: MobPig
   - type: HTN
     rootTask:
       task: RuminantCompound

@@ -247,9 +247,11 @@
     - !type:ComponentQuery
       components:
         - type: ImpReproductive
+          hungerPerBirth: 75
+          pregnancyLength: 10
           partnerWhiteList:
             tags:
-          ReproductiveGroup: ""
+          reproductiveGroup: ""
   considerations:
     - !type:TargetDistanceCon
       curve: !type:PresetCurve
