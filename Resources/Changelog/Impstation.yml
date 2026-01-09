@@ -1,51 +1,4 @@
 ﻿Entries:
-- author: ultramario1998
-  changes:
-  - message: 10 new bounties have been added to enrich Cargo's lives.
-    type: Add
-  id: 2034
-  time: '2025-07-25T11:28:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3029
-- author: meridiadottxt
-  changes:
-  - message: ported Barge from Delta V, look for it in your shipyard console!
-    type: Add
-  - message: also ported unlocked booze-o-mats
-    type: Add
-  id: 2035
-  time: '2025-07-25T11:28:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2651
-- author: hivehum
-  changes:
-  - message: Gastropoid eyes layer under glasses where appropriate.
-    type: Fix
-  id: 2036
-  time: '2025-07-25T11:28:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3082
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Incendiary magazines have their own special colour now!
-    type: Add
-  - message: Colours have been updated and changed on ammo types for some consistency
-    type: Tweak
-  id: 2037
-  time: '2025-07-25T11:28:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3084
-- author: DinnerCalzone
-  changes:
-  - message: Chapel tiles can now be crafted from the cutter machine! Expect these
-      to eventually replace chapel carpets in maps.
-    type: Add
-  id: 2038
-  time: '2025-07-25T11:28:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3033
-- author: salamanderskies
-  changes:
-  - message: Heavyweight drunks can get drunk slightly easier.
-    type: Tweak
-  id: 2039
-  time: '2025-07-25T11:28:29.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3081
 - author: DVDPlayerOfDiscordFame
   changes:
   - message: Traitors on a tight budget rejoice! You can now purchase Deadly Dan's
@@ -4174,3 +4127,52 @@
   id: 2533
   time: '2026-01-06T11:08:14.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3939
+- author: honeyed-lemons
+  changes:
+  - message: 'Tables and counters have been retabled and chairs and dancing : ) sprite'
+    type: Tweak
+  id: 2534
+  time: '2026-01-07T12:32:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3791
+- author: kipdotnet
+  changes:
+  - message: Dinosaurs no longer consume oxygen when breathing. Don't ask me how this
+      works.
+    type: Tweak
+  - message: Dinosaurs now automatically gib into horrible piles of viscera after
+      theyve been dead for a bit..
+    type: Tweak
+  id: 2535
+  time: '2026-01-07T12:46:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3856
+- author: Ecramox
+  changes:
+  - message: New Bail Cards, coming to mysterious closets in dark alleys near you!
+    type: Add
+  id: 2536
+  time: '2026-01-07T13:22:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3943
+- author: Spung22
+  changes:
+  - message: The sample tubes findable by salvage are now even slightly useful and
+      contain random chems, careful they're quite fragile!
+    type: Tweak
+  - message: Sample tubes are now craftable at the medlathe.
+    type: Add
+  id: 2537
+  time: '2026-01-07T23:36:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3753
+- author: mqole
+  changes:
+  - message: put art of guys on the lobby :)
+    type: Add
+  id: 2538
+  time: '2026-01-08T11:23:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3949
+- author: mqole
+  changes:
+  - message: Removed RevComms. Go get a handheld radio!
+    type: Remove
+  id: 2539
+  time: '2026-01-08T20:52:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3924
