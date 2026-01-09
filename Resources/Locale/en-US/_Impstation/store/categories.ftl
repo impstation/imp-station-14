@@ -7,4 +7,3 @@ store-category-secutility = Utility
 store-caregory-spellbook-wand = Limited use wands
 store-caregory-spellbook-book = Cooldown limited books
 store-caregory-spellbook-mats = Item spells
-store-category-lilspells = Apprentice spells

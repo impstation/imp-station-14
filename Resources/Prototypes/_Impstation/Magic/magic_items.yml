@@ -1,39 +1,23 @@
 - type: entity
   id: ApprenticeHat
-  parent: [ BaseItem, BaseMagicalContraband, ClothingHeadHatWizardBase, StorePresetLilSpellbook]
+  parent: [ BaseItem, BaseMagicalContraband, ClothingHeadHatWizardBase]
   name: apprentice hat
-  description: For an aspiring wizard, can be examined to learn spells!
+  description: For an aspiring wizard, give someone a tap with it to make wizard summons know they're a friend!
   components:
-  - type: LimitedCharges
-    maxCharges: 1
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Hats/apprentice_hat.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/apprentice_hat.rsi
   - type: ActionOnInteract
-    requiresCharge: true
     actions:
     - ActionNewWizard
-  - type: UserInterface
-    interfaces:
-      enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
-  - type: ActivatableUI
-    key: enum.StoreUiKey.Key
-  - type: Store
-    refundAllowed: false
-    ownerOnly: false
-    balance:
-      WizCoin: 10
 
 - type: entity
   id: ApprenticeRobes
   parent: [ BaseItem, BaseMagicalContraband, ClothingOuterWizardBase]
   name: apprentice robes
-  description: For an aspiring wizard.
+  description: For an aspiring wizard, matches the hat!
   components:
-  - type: LimitedCharges
-    maxCharges: 1
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Misc/apprentice_robes.rsi
   - type: Clothing

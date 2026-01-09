@@ -1,17 +1,16 @@
 - type: entity
-  name: Wizard's apprentice's apprentice
+  name: Wizard's apprentice
   parent: MobMonkey
   id: MobMonkeyMagic
   description: Filled with magical potential, probably.
   components:
-  - type: GhostRole
-    makeSentient: true
-    allowSpeech: true
-    allowMovement: true
-    name: ghost-role-information-monkey-name
-    description: ghost-role-information-monkey-description
-    rules: ghost-role-information-familiar-rules
   - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-mm-name
+    description: ghost-role-information-mm-desc
+    rules: ghost-role-information-familiar-rules
+    raffle:
+      settings: default
   - type: NPCImprintingOnSpawnBehaviour
     spawnFriendsSearchRadius: 2
     whitelist:
@@ -19,13 +18,12 @@
       - HumanoidAppearance
   - type: NPCRetaliation
     attackMemoryLength: 10
-  - type: FactionException
   - type: NpcFactionMember
     factions:
     - Wizard
   - type: HTN
     rootTask:
-      task: MagicMonkeyCompound # RAGE RAGE RAGE
+      task: KisserTomatoCompound
   - type: BallisticAmmoProvider
     proto: BulletLighterIncendiary
     capacity: 500
@@ -47,7 +45,6 @@
     - CannotSuicide
     - DoorBumpOpener
     - VimPilot
-    - AnomalyHost
   - type: Loadout
     prototypes: [ MobMagicMonkeyGear ]
 
@@ -82,7 +79,7 @@
   - type: CombatMode
   - type: HTN
     rootTask:
-      task: MagicMonkeyCompound
+      task: WizSporeCompound # KILL KILL KILL
   - type: Butcherable
     spawned:
     - id: FoodMeatSlime
@@ -114,9 +111,6 @@
   components:
   - type: GhostTakeoverAvailable
   - type: GhostRole
-#    allowMovement: true
-#    allowSpeech: true
-#    makeSentient: true
     name: ghost-role-information-rock-name
     description: ghost-role-information-rock-desc
     raffle:

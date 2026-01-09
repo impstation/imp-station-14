@@ -4,9 +4,6 @@ spellbook-frost-desc = Fire a deadly spear of ice. Requires a wizard hat and rob
 spellbook-wizspore-name = Wizspores
 spellbook-wizspore-desc = A resummonable group of magical minions! Requires a wizard hat and robe to cast.
 
-spellbook-bub-name = Bubble
-spellbook-bub-desc = You get one.
-
 spellbook-rock-name = Grotesque
 spellbook-rock-desc = Summons powerfull stone protector.
 
@@ -15,6 +12,9 @@ spellbook-wizonly-desc = Make any door wizards only.
 
 spellbook-runes-name = Rune scroll
 spellbook-runes-desc = Place runic circles.
+
+spellbook-pacify-name = pacify
+spellbook-pacify-desc = WARNING, permanent effect!
 
 spellbook-curse-name = Curse
 spellbook-curse-desc = Manifest a curse that latches onto the nearest humanoid. Requires a wizard hat and robe to cast.
@@ -32,7 +32,7 @@ spellbook-finfin-name = Summon Finfin
 spellbook-finfin-desc = Summon a best friend!
 
 spellbook-magic-monkey-name = Summon Magic Monkey
-spellbook-magic-monkey-desc = An apprentice's apprentice.
+spellbook-magic-monkey-desc = An apprentice.
 
 spellbook-snow-name = Cone of Cold
 spellbook-snow-desc = Summon a cone of ice in front of you.
@@ -43,8 +43,8 @@ spellbook-wand-heal-description = Who needs medbay!
 spellbook-wand-polymorph-cluwne-name = Wand of Cluwning
 spellbook-wand-polymorph-cluwne-description = For when you really hate someone and Smite isn't enough.
 
-spellbook-wand-polymorph-pig-name = Wand of Pig
-spellbook-wand-polymorph-pig-description = VILE N' SHITT'UN
+spellbook-pig-name = Wand of Pig
+spellbook-pig-desc = VILE N' SHITT'UN!
 
 spellbook-wizmov-name = Wizmov
 spellbook-wizmov-description = A 'magical' item for gaining the allegiance of an AI unit.

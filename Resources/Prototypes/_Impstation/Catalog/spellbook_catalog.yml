@@ -13,6 +13,19 @@
     stock: 1
 
 - type: listing
+  id: SpellbookPacify
+  name: spellbook-pacify-name
+  description: spellbook-pacify-desc
+  productAction: ActionPacify
+  cost:
+    WizCoin: 3
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: SpellbookWandBubbles
   name: spellbook-wand-bub-name
   description: spellbook-wand-bub-description
@@ -39,6 +52,19 @@
     stock: 1
 
 #Offensive
+- type: listing
+  id: SpellbookSpawnMagicMonkey
+  name: spellbook-magic-monkey-name
+  description: spellbook-magic-monkey-desc
+  productEntity: MobMonkeyMagic
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 - type: listing
   id: SpellbookGun
   name: spellbook-gun-name
@@ -108,6 +134,22 @@
     stock: 1
 
 # Utility
+- type: listing
+  id: SpellbookSnow
+  name: spellbook-snow-name
+  description: spellbook-snow-desc
+  productEntity: FoodFrozenSnowconeMagic
+  icon:
+    sprite: Structures/Specific/Anomalies/ice_anom.rsi
+    state: pulse
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 - type: listing
   id: SpellbookWizardOnly
   name: spellbook-wizonly-name
@@ -279,6 +321,19 @@
     stock: 1
 
 - type: listing
+  id: SpellbookPig
+  name: spellbook-pig-name
+  description: spellbook-pig-desc
+  productEntity: WeaponWandPig
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookWand
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: SpellbookWandHeal
   name: spellbook-wand-heal-name
   description: spellbook-wand-heal-description
@@ -309,19 +364,6 @@
   name: spellbook-wizmov-name
   description: spellbook-wizmov-description
   productEntity: WizmovCircuitBoard
-  cost:
-    WizCoin: 5
-  categories:
-  - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: SpellbookApprentice
-  name: spellbook-apprentice-name
-  description: spellbook-apprentice-description
-  productEntity: ApprenticeHat
   cost:
     WizCoin: 5
   categories:

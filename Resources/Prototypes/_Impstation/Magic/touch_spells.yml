@@ -16,20 +16,13 @@
     whitelist:
       components:
       - MobState
-    blacklist:
-      components:
-      - MindShield
     event: !type:ChangeComponentsSpellEvent
       toAdd:
       - type: NpcFactionMember
         factions:
         - Wizard
-  - type: SpeakOnAction
-    sentence: action-speech-spell-apprentice
   - type: Magic
     requiresClothes: false
-  - type: LimitedCharges
-    maxCharges: 1
 
 - type: entity
   parent: BaseActionPolymorph
@@ -68,6 +61,7 @@
   description: im so hungry i could eat a...
   components:
   - type: Action
+    useDelay: 60
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/desk_bell_ring.ogg
     icon:
@@ -76,7 +70,6 @@
   - type: SpeakOnAction
     sentence: action-speech-spell-food
   - type: Magic
-    requiresClothes: true
   - type: EntityTargetAction
     event: !type:ChangeComponentsSpellEvent
       toAdd:
@@ -108,3 +101,25 @@
         - UnguFood
         - FoodSnack
         - Meat
+
+- type: entity
+  parent: BaseSmiteAction
+  id: ActionPacify
+  name: Pacify
+  description: Someone needs a time out.
+  components:
+  - type: Magic
+  - type: Action
+    sound: !type:SoundPathSpecifier
+      path: Items/Toys/toysqueak1.ogg
+    icon:
+      sprite: Objects/Fun/Plushies/moth.rsi
+      state: icon
+  - type: SpeakOnAction
+    sentence: action-speech-spell-pacify
+  - type: EntityTargetAction
+    event: !type:ChangeComponentsSpellEvent
+      toAdd:
+      - type: NpcFactionMember
+        factions:
+        - Passive
