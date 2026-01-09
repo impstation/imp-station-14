@@ -15,17 +15,13 @@
     color: "#9E00FF"
     lightEnergy: 4
     lightRadius: 15
-  - type: AmbientSound
-    volume: -6
-    range: 5
-    sound:
-      path: /Audio/Ambience/ambicave.ogg
   - type: EntitySpawnAnomaly
     entries:
     - settings:
         spawnOnPulse: true
-        minAmount: 1
-        maxAmount: 4
+        spawnOnSuperCritical: true
+        minAmount: 2
+        maxAmount: 6
         minRange: 1.5
         maxRange: 2.5
       spawns:

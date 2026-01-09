@@ -119,4 +119,5 @@ flavor-complex-irwizine = like wrestling an alligator
 flavor-complex-rose = like a garden in the summer
 flavor-complex-allulalo = like hand sanitizer
 flavor-complex-pear = like pear
-flavor-complex-concerning = like your head is swirling and spinning
+flavor-complex-concerning = Concerning
+flavor-complex-magic = like your head is swirling and spinning

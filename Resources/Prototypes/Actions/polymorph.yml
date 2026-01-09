@@ -28,8 +28,8 @@
   components:
   - type: Action
     icon:
-      sprite: _Impstation/Magic/spider.rsi # imp edit
-      state: icon
+      sprite: _Impstation/Mobs/Animals/ductspider.rsi # imp edit
+      state: idle # imp edit
   - type: InstantAction
     event: !type:PolymorphActionEvent
       protoId: WizardSpider
@@ -76,7 +76,7 @@
   description: Melt into the Ethereal Plane for an even quicker getaway!
   components:
   - type: Action
-    useDelay: 25
+    useDelay: 20 # imp edit
 
 - type: entity
   parent: ActionPolymorphJaunt
@@ -85,4 +85,4 @@
   description: Are you even tangible anymore?
   components:
   - type: Action
-    useDelay: 20
+    useDelay: 10 # imp edit

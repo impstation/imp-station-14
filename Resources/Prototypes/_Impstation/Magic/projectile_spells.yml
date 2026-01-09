@@ -35,8 +35,8 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/fireball.ogg
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: fireball
+      sprite: Objects\Weapons\Guns\Ammunition\Casings\ammo_casing.rsi
+      state: base
   - type: TargetAction
     range: 60
     checkCanAccess: false
@@ -73,6 +73,8 @@
   name: Frost Bolt
   description:
   components:
+  - type: Magic
+    requiresClothes: true
   - type: Action
     useDelay: 15
     itemIconStyle: BigAction
@@ -97,6 +99,8 @@
   name: Wizard door
   description: Transform a door to keep others out.
   components:
+  - type: Magic
+    requiresClothes: true
   - type: Action
     useDelay: 30
     itemIconStyle: BigAction

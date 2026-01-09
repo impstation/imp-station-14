@@ -1,4 +1,3 @@
-# AI breaks when the parent container re-parents, so we don't need to use the more expensive InFactionContainerPrecondition
 - type: htnCompound
   id: TouchCompound
   branches:
@@ -7,55 +6,10 @@
           operator: !type:UtilityOperator
             proto: NearbyMeleeTargets
         - !type:HTNCompoundTask
-          task: BeforeTouchTargetCompound
+          task: TouchTargetCompound
 
 - type: htnCompound
-  id: BeforeTouchTargetCompound
-  branches:
-    - preconditions:
-        - !type:BuckledPrecondition
-          isBuckled: true
-      tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:UnbuckleOperator
-            shutdownState: TaskFinished
-
-    - preconditions:
-        - !type:PulledPrecondition
-          isPulled: true
-      tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:UnPullOperator
-            shutdownState: TaskFinished
-
-    - preconditions:
-        - !type:InContainerPrecondition
-          isInContainer: true
-      tasks:
-        - !type:HTNCompoundTask
-          task: EscapeCompound
-
-    # Pickup weapon if we don't have one.
-    - preconditions:
-        - !type:ActiveHandComponentPrecondition
-            components:
-              # Just serializer things
-              - type: MeleeWeapon
-                damage:
-                  types:
-                    Blunt: 0
-            invert: true
-      tasks:
-        - !type:HTNCompoundTask
-          task: PickupMeleeCompound
-
-    # Melee combat (unarmed or otherwise)
-    - tasks:
-        - !type:HTNCompoundTask
-          task: MeleeTouchTargetCompound
-
-- type: htnCompound
-  id: MeleeTouchTargetCompound
+  id: TouchTargetCompound
   branches:
     - preconditions:
       - !type:KeyExistsPrecondition

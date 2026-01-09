@@ -94,26 +94,15 @@
   components:
   - type: PointLight
     color: "#9E00FF"
-    lightEnergy: 4
+    lightEnergy: 8
     lightRadius: 15
-  - type: AmbientSound
-    volume: -6
-    range: 5
-    sound:
-      path: /Audio/Ambience/ambicave.ogg
-  - type: NoSlip
-  - type: MovementSpeedModifier
-    weightlessFriction: 5
-    weightlessFrictionNoInput: 4
-    weightlessAcceleration: 1
-  - type: MovementIgnoreGravity
-    weightless: true
   - type: EntitySpawnAnomaly
     entries:
     - settings:
         spawnOnPulse: true
-        minAmount: 1
-        maxAmount: 4
+        spawnOnSuperCritical: true
+        minAmount: 2
+        maxAmount: 6
         minRange: 1.5
         maxRange: 2.5
       spawns:

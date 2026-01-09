@@ -2984,9 +2984,6 @@
     removes:
     - type: ReplacementAccent
       accent: xeno  #let this wizard speak
-  - type: NpcFactionMember # imp add
-    factions:
-      - Wizard
 
 - type: entity
   name: possum

@@ -2,7 +2,7 @@
   id: ApprenticeHat
   parent: [ BaseItem, BaseMagicalContraband, ClothingHeadHatWizardBase, StorePresetLilSpellbook]
   name: apprentice hat
-  description: Gives an aspiring wizard magical powers when used on them, and can be examined to learn spells!
+  description: For an aspiring wizard, can be examined to learn spells!
   components:
   - type: LimitedCharges
     maxCharges: 1
@@ -25,6 +25,19 @@
     ownerOnly: false
     balance:
       WizCoin: 10
+
+- type: entity
+  id: ApprenticeRobes
+  parent: [ BaseItem, BaseMagicalContraband, ClothingOuterWizardBase]
+  name: apprentice robes
+  description: For an aspiring wizard.
+  components:
+  - type: LimitedCharges
+    maxCharges: 1
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/apprentice_robes.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Misc/apprentice_robes.rsi
 
 - type: entity
   id: MagicBubble
@@ -98,7 +111,7 @@
   - type: FlavorProfile
     flavors:
     - ice
-    - magic?
+    - magic
 
 - type: entity
   id: ProjectileIceMagic

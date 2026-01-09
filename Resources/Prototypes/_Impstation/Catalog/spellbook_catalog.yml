@@ -20,12 +20,38 @@
   cost:
     WizCoin: 4
   categories:
-  - SpellbookEquipment
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSpawnRock
+  name: spellbook-rock-name
+  description: spellbook-rock-desc
+  productEntity: MobRockMagic
+  cost:
+    WizCoin: 5
+  categories:
+  - SpellbookDefensive
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
 
 #Offensive
+- type: listing
+  id: SpellbookGun
+  name: spellbook-gun-name
+  description: spellbook-gun-description
+  productAction: ActionGun
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 - type: listing
   id: SpellbookFrost
   name: spellbook-frost-name
@@ -81,19 +107,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: SpellbookSpawnRock
-  name: spellbook-rock-name
-  description: spellbook-rock-desc
-  productEntity: MobRockMagic
-  cost:
-    WizCoin: 5
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
 # Utility
 - type: listing
   id: SpellbookWizardOnly
@@ -141,19 +154,6 @@
   productAction: ActionSpawnFinFinSpell
   cost:
     WizCoin: 1
-  categories:
-  - SpellbookUtility
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: SpellbookSpawnCurse
-  name: spellbook-curse-name
-  description: spellbook-curse-desc
-  productAction: ActionCurse
-  cost:
-    WizCoin: 5
   categories:
   - SpellbookUtility
   conditions:
@@ -268,7 +268,7 @@
 - type: listing
   id: SpellbookWizSuit
   name: spellbook-suit-name
-  description: spellbooksuit-desc
+  description: spellbook-suit-desc
   productEntity: ClothingOuterHardsuitWizard
   cost:
     WizCoin: 5
@@ -296,19 +296,6 @@
   name: spellbook-wand-break-name
   description: spellbook-wand-break-description
   productEntity: WeaponWandBreak
-  cost:
-    WizCoin: 5
-  categories:
-  - SpellbookWand
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: SpellbookWandFire
-  name: spellbook-wand-fire-name
-  description: spellbook-wand-fire-description
-  productEntity: WeaponWandFireball
   cost:
     WizCoin: 5
   categories:
@@ -529,15 +516,16 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+#Event
 - type: listing
-  id: SpellbookGun
-  name: spellbook-gun-name
-  description: spellbook-gun-description
-  productAction: ActionGun
+  id: SpellbookSpawnCurse
+  name: spellbook-curse-name
+  description: spellbook-curse-desc
+  productAction: ActionCurse
   cost:
-    WizCoin: 2
+    WizCoin: 5
   categories:
-  - SpellbookOffensive
+  - SpellbookEvents
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
