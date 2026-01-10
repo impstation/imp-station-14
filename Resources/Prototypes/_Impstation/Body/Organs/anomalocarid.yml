@@ -120,7 +120,7 @@
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
-    metabolizerTypes: [ Human ]
+    metabolizerTypes: [ Anomalocarid ]
     groups:
     - id: Gas
       rateModifier: 100.0
@@ -167,7 +167,7 @@
       - fizzy
   - type: Metabolizer
     maxReagents: 2
-    metabolizerTypes: [Human]
+    metabolizerTypes: [ Anomalocarid ]
     groups:
     - id: Medicine
     - id: Poison
@@ -191,7 +191,7 @@
     heldPrefix: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
     maxReagents: 1
-    metabolizerTypes: [Human]
+    metabolizerTypes: [ Anomalocarid ]
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
@@ -253,7 +253,7 @@
   - type: Metabolizer
     # mm yummy
     maxReagents: 3
-    metabolizerTypes: [Human]
+    metabolizerTypes: [ Anomalocarid ]
     groups:
     - id: Food
     - id: Drink
@@ -287,7 +287,7 @@
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Metabolizer
     maxReagents: 5
-    metabolizerTypes: [Human]
+    metabolizerTypes: [ Anomalocarid ]
     removeEmpty: true
   - type: FlavorProfile
     flavors:
@@ -329,3 +329,4 @@
       path: /Audio/Effects/Fluids/blood2.ogg
   - type: UseDelay
     delay: 2.0
+
