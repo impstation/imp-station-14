@@ -66,7 +66,7 @@
   physicalDesc: reagent-physical-desc-nondescript
   allowedDepartments:
   - Medical
-  allowedJobs:
+  allowedJobs: #imp edit, zookeeper removed upstream
   - Zookeeper
   metabolisms:
     Poison:
@@ -153,7 +153,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaling: true
         ignoreResistances: false
         damage:
           types:
@@ -192,7 +191,6 @@
       - !type:SatiateThirst
         factor: -1.5
       - !type:HealthChange
-        scaling: true
         ignoreResistances: true
         damage:
           types:
@@ -215,7 +213,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaling: true
         ignoreResistances: false
         damage:
           types:
@@ -265,7 +262,6 @@
       methods: [ Touch ]
       effects:
       - !type:HealthChange
-        scaling: true
         ignoreResistances: false
         damage:
           types:
@@ -522,7 +518,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Kodepiia ] #imp, added kode
+          type: [ Animal, Vox, Kodepiia, Anomalocarid ] #imp, added kode and anomalocarids
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -532,12 +528,12 @@
         probability: 0.1
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Kodepiia] #imp, added kode
+          type: [ Animal, Vox, Kodepiia, Anomalocarid ] #imp, added kode and anomalocarids
           inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Kodepiia] #imp, added kode
+          type: [ Animal, Vox, Kodepiia, Anomalocarid ] #imp, added kode and anomalocarids
           inverted: true
         damage:
           types:
@@ -632,7 +628,7 @@
   allowedDepartments:
   - Security
   - Medical
-  allowedJobs:
+  allowedJobs: #imp edit, zookeeper removed upstream
   - Zookeeper
   color: "#AAAAAA"
   metabolisms:

@@ -21,9 +21,6 @@ uplink-esword-desc = A very dangerous energy sword that can reflect shots. Can b
 uplink-esword-double-name = Double Bladed Energy Sword
 uplink-esword-double-desc = A much more expensive counter part to the normal energy sword: with a much higher reflection chance, larger attack angle, higher structural damage, and faster swing. Makes a lot of noise when used or turned on.
 
-uplink-hypereutactic-blade-name = Hypereutactic Blade
-uplink-hypereutactic-blade-desc = A gigantic energy sword with power that matches its looks. Requires two hands. Slow and unwieldy, yet pretty adept at reflecting. Previously made infamous by an operative wearing a joy mask. You wouldn't want to see this coming at you down the hall!
-
 uplink-edagger-name = Energy Dagger
 uplink-edagger-desc = A small energy blade conveniently disguised in the form of a pen.
 
@@ -512,3 +509,9 @@ uplink-smuggler-satchel-desc = A handy, suspicious looking satchel. Just flat en
 
 uplink-acolyte-armor-name = Acolyte Armor
 uplink-acolyte-armor-desc = The must have of any self respecting cult leader. An evil looking piece of armor, made of bones, and surprisingly resistant to damage.
+
+uplink-briefcase-gun-name = Briefcase Gun
+uplink-briefcase-gun-desc = An indistinct briefcase with a highly compact C-20K mounted inside it. Careful not the grip the handle too tight!
+
+uplink-energycrossbow-name = Mini Energy Crossbow
+uplink-energycrossbow-desc = The go-to sidearm of any operative who prefers their victims not to be moving. Fires regenerating toxic arrows that floors victims in an instant.

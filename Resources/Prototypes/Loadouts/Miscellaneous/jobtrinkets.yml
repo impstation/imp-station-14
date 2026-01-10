@@ -121,6 +121,15 @@
     - PlushieLizardJobJanitor
 
 - type: loadout
+  id: JanitorGoldenPlunger
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorJanitorial
+  storage:
+    back:
+    - GoldenPlunger
+
+- type: loadout
   id: LizardPlushieBotanist
   effects:
   - !type:JobRequirementLoadoutEffect
@@ -337,6 +346,18 @@
     - PlushieLizardJobSecurityofficer
 
 - type: loadout
+  id: SecStar
+  effects:
+    - !type:JobRequirementLoadoutEffect
+      requirement:
+        !type:DepartmentTimeRequirement
+        department: Security
+        time: 90h # imp, was 100h
+  storage:
+    back:
+    - Dinkystar
+
+- type: loadout
   id: LizardPlushieSecurityCadet
   effects:
   - !type:JobRequirementLoadoutEffect
@@ -431,27 +452,3 @@
   storage:
     back:
     - PlushieLizardJobPsychologist
-
-- type: loadout
-  id: LizardPlushieBoxer
-  effects:
-    - !type:JobRequirementLoadoutEffect
-      requirement:
-        !type:RoleTimeRequirement
-        role: JobBoxer
-        time: 72000 # 20hr
-  storage:
-    back:
-      - PlushieLizardJobBoxer
-
-- type: loadout
-  id: LizardPlushieZookeeper
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobZookeeper
-      time: 72000 # 20hr
-  storage:
-    back:
-    - PlushieLizardJobZookeeper
