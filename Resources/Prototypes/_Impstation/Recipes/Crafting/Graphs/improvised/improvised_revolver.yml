@@ -1,5 +1,5 @@
 - type: constructionGraph
-  id: ImprovisedRevolverGraph
+  id: ImprovisedRevolverGraph # THIS IS NOT DONE!!!!!!
   start: start
   graph:
   - node: start
@@ -16,4 +16,4 @@
         name: construction-graph-tag-pen
 
   - node: frame
-    entitiy:
+    entitiy: # WeaponRevolverImprovised
