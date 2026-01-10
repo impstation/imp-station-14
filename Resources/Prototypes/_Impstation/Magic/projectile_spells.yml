@@ -35,7 +35,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/fireball.ogg
     icon:
-      sprite: Objects\Weapons\Guns\Ammunition\Casings\ammo_casing.rsi
+      sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
       state: base
   - type: TargetAction
     range: 60

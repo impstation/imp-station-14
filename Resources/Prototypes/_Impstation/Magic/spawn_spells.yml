@@ -139,7 +139,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
-      sprite: Objects\Materials\Sheets\metal.rsi
+      sprite: Objects/Materials/Sheets/metal.rsi
       state: steel_3
   - type: TargetAction
     range: 4
@@ -164,7 +164,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
-      sprite: Objects\Materials\materials.rsi
+      sprite: Objects/Materials/materials.rsi
       state: wood_3
   - type: TargetAction
     range: 4
@@ -189,7 +189,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
-      sprite: Objects\Materials\Sheets\other.rsi
+      sprite: Objects/Materials/Sheets/other.rsi
       state: plastic_3
   - type: TargetAction
     range: 4
@@ -214,7 +214,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
-      sprite: Objects\Materials\Sheets\other.rsi
+      sprite: Objects/Materials/Sheets/other.rsi
       state: plasma_3
   - type: TargetAction
     range: 4
@@ -239,7 +239,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
-      sprite: Objects\Materials\ingots.rsi
+      sprite: Objects/Materials/ingots.rsi
       state: gold_3
   - type: TargetAction
     range: 4
@@ -264,7 +264,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
-      sprite: Objects\Materials\ingots.rsi
+      sprite: Objects/Materials/ingots.rsi
       state: silver_3
   - type: TargetAction
     range: 4
@@ -289,7 +289,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
-      sprite: Objects\Materials\Sheets\other.rsi
+      sprite: Objects/Materials/Sheets/other.rsi
       state: uranium_3
   - type: TargetAction
     range: 4
@@ -314,7 +314,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
-      sprite: Objects\Materials\Sheets\metal.rsi
+      sprite: Objects/Materials/Sheets/metal.rsi
       state: brass_3
   - type: TargetAction
     range: 4
@@ -339,7 +339,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
-      sprite: Objects\Materials\materials.rsi
+      sprite: Objects/Materials/materials.rsi
       state: cloth_3
   - type: TargetAction
     range: 4
@@ -364,7 +364,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/blink.ogg
     icon:
-      sprite: Objects\Materials\Sheets\glass.rsi
+      sprite: Objects/Materials/Sheets/glass.rsi
       state: glass_3
   - type: TargetAction
     range: 4
