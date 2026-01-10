@@ -72,6 +72,42 @@
   physicalDesc: reagent-physical-desc-fizzy
   flavor: shrimp
   color: "#e66986"
+  metabolisms:
+    Food:
+      effects:
+      - !type:HealthChange
+        probability: 0.5
+        damage:
+          groups:
+            Brute: -0.4
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Anomalocarid ]
+      - !type:PopupMessage
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Anomalocarid ]
+        type: Local
+        visualType: MediumCaution
+        messages: [ "shrimpsoda-anomalocarid-effect-best" ]
+        probability: 0.2
+      - !type:PopupMessage
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Anomalocarid ]
+        type: Local
+        visualType: MediumCaution
+        messages: [ "shrimpsoda-anomalocarid-effect-itspeople" ]
+        probability: 0.001 #some may realize
+      - !type:Emote
+        emote: Scream
+        showInChat: true
+        showInGuidebook: false
+        force: true
+        probability: 0.001
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Anomalocarid ]
 
 - type: reagent
   id: Supermixer

@@ -729,6 +729,14 @@
         damage:
           types:
             Poison: 4
+      - !type:PopupMessage
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Anomalocarid ]
+        type: Local
+        visualType: Medium
+        messages: [ "saline-anomalocarid-effect-home" ]
+        probability: 0.1
     # imp edit end
 
 - type: reagent
