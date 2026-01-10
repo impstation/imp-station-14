@@ -8,8 +8,8 @@
     useDelay: 10
     itemIconStyle: BigAction
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: spell_default
+      sprite: Mobs/Aliens/Carps/magic.rsi
+      state: icon
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
