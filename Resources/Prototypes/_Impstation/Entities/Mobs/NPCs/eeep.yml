@@ -4,6 +4,7 @@
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
+  - type: NoSlip
   - type: GhostTakeoverAvailable
   - type: Examiner
   - type: Speech
