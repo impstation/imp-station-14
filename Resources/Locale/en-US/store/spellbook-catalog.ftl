@@ -21,7 +21,7 @@ spellbook-smoke-name = Smoke
 spellbook-smoke-desc = Summons a cloud of smoke, it's pretty obvious.
 
 spellbook-polymorph-spider-name = Spider Polymorph
-spellbook-polymorph-spider-desc = Transforms you into a spider!
+spellbook-polymorph-spider-desc = Transforms you into a tiny spider!
 
 spellbook-polymorph-rod-name = Rod Polymorph
 spellbook-polymorph-rod-desc = Change into an Immovable Rod with limited movement.
@@ -76,10 +76,10 @@ spellbook-event-summon-ghosts-name = Summon Ghosts
 spellbook-event-summon-ghosts-description = Who ya gonna call?
 
 spellbook-event-summon-guns-name = Summon Guns
-spellbook-event-summon-guns-description = AK47s for everyone! Places a random gun in front of everybody. Disables refunds when bought!
+spellbook-event-summon-guns-description = AK47s for everyone! Places a random gun in front of everybody.
 
 spellbook-event-summon-magic-name = Summon Magic
-spellbook-event-summon-magic-description = Places a random magical item in front of everybody. Nothing could go wrong! Disables refunds when bought!
+spellbook-event-summon-magic-description = Places a random magical item in front of everybody. Nothing could go wrong!
 
 # Upgrades
 spellbook-upgrade-fireball-name = Upgrade Fireball

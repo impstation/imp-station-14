@@ -84,7 +84,7 @@
   description: spellbook-frost-desc
   productAction: ActionFrost
   cost:
-    WizCoin: 4
+    WizCoin: 3
   categories:
   - SpellbookOffensive
   conditions:
@@ -96,8 +96,6 @@
   name: spellbook-mm-name
   description: spellbook-mm-desc
   productAction: ActionMagicM
-  cost:
-    WizCoin: 0
   categories:
   - SpellbookOffensive
   conditions:
@@ -133,6 +131,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookSpawnCarp
+  name: spellbook-carp-spawn-name
+  description: spellbook-carp-spawn-desc
+  productAction: ActionSpawnMagicarpSpell
+  cost:
+    WizCoin: 4
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Utility
 - type: listing
   id: SpellbookSnow
@@ -142,8 +153,6 @@
   icon:
     sprite: Structures/Specific/Anomalies/ice_anom.rsi
     state: pulse
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookUtility
   conditions:
@@ -168,8 +177,6 @@
   name: spellbook-light-name
   description: spellbook-light-desc
   productAction: ActionSpawnLight
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookUtility
   conditions:
@@ -260,21 +267,6 @@
   name: spellbook-stamp-name
   description: spellbook-stamp-desc
   productEntity: RubberStampWizard
-  cost:
-    WizCoin: 0
-  categories:
-  - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: SpellbookSpawnCarp
-  name: spellbook-carp-spawn-name
-  description: spellbook-carp-spawn-desc
-  productEntity: SpawnSpellbook
-  cost:
-    WizCoin: 4
   categories:
   - SpellbookEquipment
   conditions:
@@ -299,8 +291,6 @@
   name: spellbook-pai-name
   description: spellbook-pai-desc
   productEntity: PersonalAIMagic
-  cost:
-    WizCoin: 0
   categories:
   - SpellbookEquipment
   conditions:
@@ -339,7 +329,7 @@
   description: spellbook-wand-heal-description
   productEntity: WeaponStaffHealing
   cost:
-    WizCoin: 5
+    WizCoin: 4
   categories:
   - SpellbookWand
   conditions:
@@ -352,7 +342,7 @@
   description: spellbook-wand-break-description
   productEntity: WeaponWandBreak
   cost:
-    WizCoin: 5
+    WizCoin: 4
   categories:
   - SpellbookWand
   conditions:
@@ -433,8 +423,6 @@
   name: spellbook-item-summonsteel-name
   description: spellbook-item-summonsteel-description
   productAction: ActionSpawnSteel
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookMats
   conditions:
@@ -446,8 +434,6 @@
   name: spellbook-item-summonwood-name
   description: spellbook-item-summonwood-description
   productAction: ActionSpawnWood
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookMats
   conditions:
@@ -459,8 +445,6 @@
   name: spellbook-item-summonplastic-name
   description: spellbook-item-summonplastic-description
   productAction: ActionSpawnPlastic
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookMats
   conditions:
@@ -472,8 +456,6 @@
   name: spellbook-item-summonplasma-name
   description: spellbook-item-summonplasma-description
   productAction: ActionSpawnPlasma
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookMats
   conditions:
@@ -485,8 +467,6 @@
   name: spellbook-item-summongold-name
   description: spellbook-item-summongold-description
   productAction: ActionSpawnGold
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookMats
   conditions:
@@ -498,8 +478,6 @@
   name: spellbook-item-summonsilver-name
   description: spellbook-item-summonsilver-description
   productAction: ActionSpawnSilver
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookMats
   conditions:
@@ -511,8 +489,6 @@
   name: spellbook-item-summonuranium-name
   description: spellbook-item-summonuranium-description
   productAction: ActionSpawnUranium
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookMats
   conditions:
@@ -524,8 +500,6 @@
   name: spellbook-item-summonbrass-name
   description: spellbook-item-summonbrass-description
   productAction: ActionSpawnBrass
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookMats
   conditions:
@@ -537,8 +511,6 @@
   name: spellbook-item-summoncloth-name
   description: spellbook-item-summoncloth-description
   productAction: ActionSpawnCloth
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookMats
   conditions:
@@ -550,8 +522,6 @@
   name: spellbook-item-summonglass-name
   description: spellbook-item-summonglass-description
   productAction: ActionSpawnGlass
-  cost:
-    WizCoin: 1
   categories:
   - SpellbookMats
   conditions:

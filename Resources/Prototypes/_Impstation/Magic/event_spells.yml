@@ -44,7 +44,7 @@
   - type: InstantAction
     event: !type:RandomGlobalSpawnSpellEvent
       makeSurvivorAntagonist: false
-      spawns:
+      spawns: # to do: add more
       - id: CrayonRainbowInfinite
         orGroup: Prize
       - id: PetRockCarrier
@@ -131,7 +131,7 @@
         prob: 0.001
         orGroup: Prize
       - id: AnomalyTrapSanta
-        prob: 0.005
+        prob: 0.01
         orGroup: Prize
   - type: SpeakOnAction
     sentence: action-speech-spell-summon-gifts

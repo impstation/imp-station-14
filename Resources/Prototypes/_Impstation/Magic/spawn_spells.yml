@@ -26,7 +26,7 @@
   parent: BaseAction
   id: ActionSpawnFinFinSpell
   name: Your Best Friend
-  description: This spell summons a FinFin centered on the clicked location.
+  description: This spell summons FinFin!
   components:
   - type: Action
     useDelay: 10
@@ -62,7 +62,7 @@
       sprite: _Impstation/Mobs/Animals/Magic/miniwiz.rsi
       state: miniwiz
   - type: TargetAction
-    range: 1
+    range: 5
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
@@ -140,14 +140,14 @@
       path: /Audio/Magic/blink.ogg
     icon:
       sprite: Objects\Materials\Sheets\metal.rsi
-      state: steel_2
+      state: steel_3
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
       - id: SheetSteel
-        amount: 15
+        amount: 1
   - type: SpeakOnAction
     sentence: action-speech-spell-steel
 
@@ -165,14 +165,14 @@
       path: /Audio/Magic/blink.ogg
     icon:
       sprite: Objects\Materials\materials.rsi
-      state: wood_2
+      state: wood_3
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
       - id: MaterialWoodPlank
-        amount: 15
+        amount: 1
   - type: SpeakOnAction
     sentence: action-speech-spell-wood
 
@@ -190,14 +190,14 @@
       path: /Audio/Magic/blink.ogg
     icon:
       sprite: Objects\Materials\Sheets\other.rsi
-      state: plastic_2
+      state: plastic_3
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
       - id: SheetPlastic
-        amount: 15
+        amount: 1
   - type: SpeakOnAction
     sentence: action-speech-spell-plastic
 
@@ -215,14 +215,14 @@
       path: /Audio/Magic/blink.ogg
     icon:
       sprite: Objects\Materials\Sheets\other.rsi
-      state: plasma_2
+      state: plasma_3
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
       - id: SheetPlasma
-        amount: 15
+        amount: 1
   - type: SpeakOnAction
     sentence: action-speech-spell-plasma
 
@@ -240,14 +240,14 @@
       path: /Audio/Magic/blink.ogg
     icon:
       sprite: Objects\Materials\ingots.rsi
-      state: gold_2
+      state: gold_3
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
       - id: IngotGold
-        amount: 15
+        amount: 1
   - type: SpeakOnAction
     sentence: action-speech-spell-gold
 
@@ -265,14 +265,14 @@
       path: /Audio/Magic/blink.ogg
     icon:
       sprite: Objects\Materials\ingots.rsi
-      state: silver_2
+      state: silver_3
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
       - id: IngotSilver
-        amount: 15
+        amount: 1
   - type: SpeakOnAction
     sentence: action-speech-spell-silver
 
@@ -290,14 +290,14 @@
       path: /Audio/Magic/blink.ogg
     icon:
       sprite: Objects\Materials\Sheets\other.rsi
-      state: uranium_2
+      state: uranium_3
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
       - id: SheetUranium
-        amount: 15
+        amount: 1
   - type: SpeakOnAction
     sentence: action-speech-spell-uranium
 
@@ -315,14 +315,14 @@
       path: /Audio/Magic/blink.ogg
     icon:
       sprite: Objects\Materials\Sheets\metal.rsi
-      state: brass_2
+      state: brass_3
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
       - id: SheetBrass
-        amount: 15
+        amount: 1
   - type: SpeakOnAction
     sentence: action-speech-spell-brass
 
@@ -340,14 +340,14 @@
       path: /Audio/Magic/blink.ogg
     icon:
       sprite: Objects\Materials\materials.rsi
-      state: cloth_2
+      state: cloth_3
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
       - id: MaterialCloth
-        amount: 15
+        amount: 1
   - type: SpeakOnAction
     sentence: action-speech-spell-cloth
 
@@ -365,13 +365,13 @@
       path: /Audio/Magic/blink.ogg
     icon:
       sprite: Objects\Materials\Sheets\glass.rsi
-      state: glass_2
+      state: glass_3
   - type: TargetAction
     range: 4
   - type: WorldTargetAction
     event: !type:WorldSpawnSpellEvent
       prototypes:
       - id: SheetGlass
-        amount: 15
+        amount: 1
   - type: SpeakOnAction
     sentence: action-speech-spell-glass

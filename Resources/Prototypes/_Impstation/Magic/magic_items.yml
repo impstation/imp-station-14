@@ -86,12 +86,12 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20
+        maxVol: 45
         reagents:
         - ReagentId: Ice
           Quantity: 10
         - ReagentId: DoctorsDelight
-          Quantity: 15
+          Quantity: 30
   - type: FlavorProfile
     flavors:
     - ice
@@ -144,8 +144,6 @@
       path: /Audio/_Impstation/Magic/magicdoorno.ogg
   - type: Airtight
     noAirWhenFullyAirBlocked: false
-  - type: RadiationBlocker
-    resistance: 3
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
@@ -298,7 +296,7 @@
   parent: [ RingBase, BaseMagicalContraband ]
   id: MagicRing
   name: ring of theft
-  description: Yeah, im dual classing mage rouge.
+  description: Yeah, im dual classing mage rogue.
   components:
   - type: Clothing
     slots: [ gloves ]
@@ -383,7 +381,7 @@
     deleteOnCollide: true
     damage:
       types:
-        Cellular: 20
+        Cellular: 10
 
 - type: entity
   name: Rock
@@ -446,8 +444,5 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Eyes/Glasses/magicglasses.rsi
   - type: FlashImmunity
-  - type: Tag
-    tags:
-    - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES

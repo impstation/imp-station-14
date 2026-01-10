@@ -48,27 +48,6 @@
 
 - type: entity
   parent: BaseAction
-  id: ActionBubble
-  name: Water Sphere
-  description: Its just a bubble...
-  components:
-  - type: Action
-    useDelay: 5
-    itemIconStyle: BigAction
-    raiseOnUser: true
-    sound: !type:SoundPathSpecifier
-      path: /Audio/Effects/Fluids/watersplash.ogg
-  - type: TargetAction
-    range: 60
-    checkCanAccess: false
-  - type: WorldTargetAction
-    event: !type:ProjectileSpellEvent
-      prototype: MagicBubble
-  - type: SpeakOnAction
-    sentence: action-speech-spell-bub
-
-- type: entity
-  parent: BaseAction
   id: ActionFrost
   name: Frost Bolt
   description:
@@ -130,8 +109,6 @@
     userWhitelist:
       components:
       - Airlock
-  - type: Magic
-    requiresClothes: true
 
 - type: entity
   id: ProjectilePolyboltPig

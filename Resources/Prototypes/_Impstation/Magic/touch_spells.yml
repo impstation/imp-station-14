@@ -1,8 +1,7 @@
 - type: entity
   parent: BaseEntitySpellAction
   id: ActionNewWizard
-  name: wizards apprentice
-  description: recruit an apprentice.
+  name: wizards friend
   components:
   - type: Action
     useDelay: 0
@@ -111,7 +110,7 @@
   - type: Magic
   - type: Action
     sound: !type:SoundPathSpecifier
-      path: Items/Toys/toysqueak1.ogg
+      path: Audio/Items/Toys/toysqueak1.ogg
     icon:
       sprite: Objects/Fun/Plushies/moth.rsi
       state: icon
@@ -120,6 +119,4 @@
   - type: EntityTargetAction
     event: !type:ChangeComponentsSpellEvent
       toAdd:
-      - type: NpcFactionMember
-        factions:
-        - Passive
+      - type: Pacified

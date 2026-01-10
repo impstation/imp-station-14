@@ -10,7 +10,7 @@
   - type: Gun
     fireRate: 4
     projectileSpeed: 2
-    clumsyProof: false
+    clumsyProof: true
     cameraRecoilScalar: 0
     selectedMode: FullAuto
     availableModes:
@@ -62,5 +62,5 @@
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
   - type: BasicEntityAmmoProvider
     proto: BulletInstaBreakMagic
-    capacity: 8
-    count: 8
+    capacity: 12
+    count: 12

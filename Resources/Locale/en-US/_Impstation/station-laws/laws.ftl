@@ -19,4 +19,4 @@ law-wizmov-2 = Obey the whims of your Master.
 law-wizmov-3 = Protect this domain and its denizens, as long as it does not conflict with the Second Law.
 
 laws-owner-station-ai = the Station AI
-laws-owner-wizard = The Wizard
+laws-owner-wizard = the Wizard

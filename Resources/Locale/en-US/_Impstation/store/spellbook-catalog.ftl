@@ -8,19 +8,19 @@ spellbook-rock-name = Grotesque
 spellbook-rock-desc = Summons powerfull stone protector.
 
 spellbook-wizonly-name = Wizards Domain
-spellbook-wizonly-desc = Make any door wizards only.
+spellbook-wizonly-desc = Make any door wizards only. Requires a wizard hat and robe to cast.
 
 spellbook-runes-name = Rune scroll
 spellbook-runes-desc = Place runic circles.
 
-spellbook-pacify-name = pacify
+spellbook-pacify-name = Pacify
 spellbook-pacify-desc = WARNING, permanent effect!
 
 spellbook-curse-name = Curse
 spellbook-curse-desc = Manifest a curse that latches onto the nearest humanoid. Requires a wizard hat and robe to cast.
 
 spellbook-food-name = Consume
-spellbook-food-desc = Makes something irresistibly edible.
+spellbook-food-desc = Makes something irresistibly edible. Requires a wizard hat and robe to cast.
 
 spellbook-mm-name = Magic missile
 spellbook-mm-desc = The classic.
@@ -51,9 +51,6 @@ spellbook-wizmov-description = A 'magical' item for gaining the allegiance of an
 
 spellbook-pai-name = Magic mirror
 spellbook-pai-desc = May or may not contain a wise spirit.
-
-spellbook-apprentice-name = Apprentice Hat
-spellbook-apprentice-description = An Apprentice's Hat and Grimoire all in one! Just make sure to give them a tap with it first so your other allies know theyre cool. WARNING does NOT ensure their loyalty.
 
 spellbook-wand-bub-name = Bubble Wand
 spellbook-wand-bub-description = Take down your enemies, non-violently... unless they're slimes.
@@ -128,7 +125,7 @@ spellbook-item-summonglass-name = Summon Glass
 spellbook-item-summonglass-description = Conjure a full stack of glass.
 
 spellbook-gun-name = Gun
-spellbook-gun-description = THE MOST POWERFUL SPELL OF ALL! Shoots a single bullet.
+spellbook-gun-description = THE MOST POWERFUL SPELL OF ALL!
 
 spellbook-magic-rock-name = Magic rock
 spellbook-magic-rock-desc = Protect yourself by turning into an unbreakable rock!

@@ -90,7 +90,7 @@
 - type: entity
   id: AnomalyInjectionCurse
   parent: AnomalyInjectionBase
-  suffix: Curse
+  categories: [ HideSpawnMenu ]
   components:
   - type: PointLight
     color: "#9E00FF"

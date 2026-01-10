@@ -26,5 +26,5 @@ pai-system-role-description-learner-command = Ask questions and learn your way a
 pai-system-role-name-learner-cargo = quartermaster's personal learner ai
 pai-system-role-description-learner-cargo = Ask questions and learn your way around the cargo department, all as a special electronic pal!
 
-pai-system-role-name-wizard = the wizards magic mirror
-pai-system-role-description-wizard = give sage and cryptic advice.
+pai-system-role-name-wizard = The wizards magic mirror
+pai-system-role-description-wizard = Give sage and cryptic advice.

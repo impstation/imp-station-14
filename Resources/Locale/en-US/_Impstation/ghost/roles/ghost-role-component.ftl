@@ -188,3 +188,5 @@ ghost-role-information-ductspider-description = A hungry tiny spider.
 ghost-role-information-rock-name = Grotesque
 ghost-role-information-rock-desc = A powerfull stone monster, you must protect your wizard!
 
+ghost-role-information-magic-monkey-name = Magic monkey
+ghost-role-information-magic-monkey-desc = A wizards Apprentice.
