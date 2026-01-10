@@ -19,3 +19,24 @@
     contents:
       - id: StackOfCigs
         amount: 1
+
+- type: entity
+  id: CrateFunPrincessSet
+  parent: CratePirate
+  name: Princess Set
+  description: All you need for a royal dress up adventure!
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformPinkPrincessDress
+      amount: 1
+    - id: ClothingUniformGreenPrincessDress
+      amount: 1
+    - id: ClothingHeadHatCuteTiara
+      amount: 2
+    - id: ClothingHeadHatSimpleTiara
+      amount: 2
+    - id: ClothingHeadHatPrincess
+      amount: 1
+    - id: ClothingHeadHatGreenEscoffion
+      amount: 1
