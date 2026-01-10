@@ -372,6 +372,7 @@
     entries:
       Burger: Banana
       Taco: Banana
+      Hotdog: Banana #imp
 
 - type: entity
   name: mimana
@@ -415,6 +416,7 @@
     entries:
       Burger: Mimana
       Taco: Mimana
+      Hotdog: Mimana #imp
 
 - type: entity
   name: banana peel
@@ -576,6 +578,7 @@
     entries:
       Burger: CarrotBurger
       Taco: Carrot
+      Hotdog: Carrot #imp
 
 - type: entity
   name: cabbage
@@ -608,6 +611,7 @@
     entries:
       Burger: CabbageBurger
       Taco: Cabbage
+      Hotdog: Cabbage #imp
 
 - type: entity
   name: garlic
@@ -640,6 +644,7 @@
     entries:
       Burger: GarlicBurger
       Taco: Garlic
+      Hotdog: Garlic #imp
 
 - type: entity
   name: lemon
@@ -678,6 +683,7 @@
     entries:
       Burger: Lemon
       Taco: Lemon
+      Hotdog: Lemon #imp
 
 - type: entity
   name: lemoon
@@ -715,6 +721,7 @@
     entries:
       Burger: Lemoon
       Taco: Lemoon
+      Hotdog: Lemoon #imp
 
 - type: entity
   name: lime
@@ -744,6 +751,7 @@
     entries:
       Burger: Lime
       Taco: Lime
+      Hotdog: Lime #imp
 
 - type: entity
   name: orange
@@ -772,6 +780,7 @@
     entries:
       Burger: Orange
       Taco: Orange
+      Hotdog: Orange #imp
 
 - type: entity
   name: extradimensional orange
@@ -815,6 +824,7 @@
     entries:
       Burger: ExtradimensionalOrangeBurger
       Taco: ExtradimensionalOrange
+      Hotdog: ExtradimensionalOrange #imp
 
 - type: entity
   name: pineapple
@@ -891,6 +901,7 @@
     entries:
       Burger: Potato
       Taco: Potato
+      Hotdog: Potato #imp
 
 
 - type: entity
@@ -954,6 +965,7 @@
       Skewer: TomatoSkewer
       Burger: Tomato
       Taco: Tomato
+      Hotdog: Tomato #imp
 
 - type: entity
   name: blue tomato
@@ -1005,6 +1017,7 @@
     entries:
       Burger: BlueTomato
       Taco: BlueTomato
+      Hotdog: BlueTomato #imp
 
 - type: entity
   name: blood tomato
@@ -1056,6 +1069,7 @@
       Skewer: TomatoSkewer
       Burger: BloodTomato
       Taco: BloodTomato
+      Hotdog: BloodTomato #imp
 
 - type: entity
   name: eggplant
@@ -1122,6 +1136,7 @@
     entries:
       Burger: Apple
       Taco: Apple
+      Hotdog: Apple #imp
 
 - type: entity
   name: golden apple
@@ -1164,6 +1179,7 @@
     entries:
       Burger: GoldenApple
       Taco: GoldenApple
+      Hotdog: GoldenApple #imp
 
 - type: entity
   name: cocoa pod
@@ -1240,6 +1256,7 @@
       Burger: Corn
       Taco: Corn
       Skewer: CornSkewer
+      Hotdog: Corn #imp
 
 - type: entity
   name: corn cob
@@ -1398,6 +1415,7 @@
     entries:
       Burger: PineappleSliceBurger
       Taco: PineappleSlice
+      Hotdog: Corn #imp
 
 - type: entity
   name: onion slice
@@ -1429,6 +1447,7 @@
     entries:
       Burger: OnionSliceBurger
       Taco: OnionSlice
+      Hotdog: OnionSlice #imp
 
 - type: entity
   name: red onion slice
@@ -1460,6 +1479,7 @@
     entries:
       Burger: OnionRedSliceBurger
       Taco: OnionRedSlice
+      Hotdog: OnionRedSlice #imp
 
 - type: entity
   name: chili pepper
@@ -1495,6 +1515,7 @@
       Taco: ChiliPepper
       Burger: ChiliPepper
       Skewer: ChiliPepperSkewer
+      Hotdog: ChiliPepper #imp
 
 - type: entity
   name: chilly pepper
@@ -1528,6 +1549,7 @@
       Taco: ChillyPepper
       Burger: ChillyPepper
       Skewer: ChillyPepperSkewer
+      Hotdog: ChillyPepper #imp
 
 - type: entity
   name: aloe
@@ -1562,6 +1584,7 @@
     entries:
       Taco: Aloe
       Burger: Aloe
+      Hotdog: Aloe #imp
 
 - type: entity
   name: poppy
@@ -1599,6 +1622,7 @@
     entries:
       Taco: Poppy
       Burger: Poppy
+      Hotdog: Poppy #imp
 
 - type: entity
   name: lily
@@ -1631,6 +1655,7 @@
     entries:
       Taco: Lily
       Burger: Lily
+      Hotdog: Lily #imp
 
 - type: entity
   name: lingzhi
@@ -1663,6 +1688,7 @@
     entries:
       Taco: Lingzhi
       Burger: Lingzhi
+      Hotdog: Lingzhi #imp
   - type: Tag
     tags:
     - Mushroom
@@ -1709,6 +1735,7 @@
     entries:
       Taco: AmbrosiaVulgaris
       Burger: AmbrosiaVulgarisBurger
+      Hotdog: AmbrosiaVulgaris #imp
 
 - type: entity
   name: ambrosia deus
@@ -1750,6 +1777,7 @@
     entries:
       Taco: AmbrosiaDeus
       Burger: AmbrosiaDeusBurger
+      Hotdog: AmbrosiaDeus #imp
 
 - type: entity
   name: galaxythistle
@@ -1783,6 +1811,7 @@
     entries:
       Taco: Galaxythistle
       Burger: GalaxythistleBurger
+      Hotdog: Galaxythistle #imp
 
 - type: entity
   name: glasstle
@@ -1853,6 +1882,7 @@
     entries:
       Taco: Glasstle
       Burger: GlasstleBurger
+      Hotdog: Glasstle #imp
 
 - type: entity
   name: fly amanita
@@ -1885,6 +1915,7 @@
     entries:
       Taco: FlyAmanita
       Burger: FlyAmanita
+      Hotdog: FlyAmanita #imp
   - type: Tag
     tags:
     - Mushroom
@@ -1921,6 +1952,7 @@
     entries:
       Taco: Gatfruit
       Burger: GatfruitBurger
+      Hotdog: Gatfruit #imp
 
 - type: entity
   name: capfruit
@@ -1956,6 +1988,7 @@
     entries:
       Taco: Capfruit
       Burger: CapfruitBurger
+      Hotdog: Capfruit #imp
 
 - type: entity
   name: capfruit
@@ -2017,6 +2050,7 @@
     entries:
       Taco: Soybeans
       Burger: SoybeansBurger
+      Hotdog: Soybeans #imp
   - type: PluralName # imp
     oneOf: plural-name-some
 
@@ -2053,6 +2087,7 @@
     entries:
       Taco: SpacemansTrumpet
       Burger: SpacemansTrumpetBurger
+      Hotdog: SpacemansTrumpet #imp
 
 - type: entity
   name: koibean
@@ -2085,6 +2120,7 @@
     entries:
       Taco: Koibean
       Burger: KoibeanBurger
+      Hotdog: Koibean #imp
   - type: FlavorProfile #imp
     flavors:
       - carpflesh
@@ -2190,6 +2226,7 @@
       Burger: WatermelonSliceBurger
       Taco: WatermelonSlice
       Skewer: WatermelonSliceSkewer
+      Hotdog: WatermelonSlice #imp
 
 - type: entity
   name: holymelon
@@ -2294,6 +2331,7 @@
       Burger: HolymelonSliceBurger
       Taco: HolymelonSlice
       Skewer: HolymelonSliceSkewer
+      Hotdog: HolymelonSlice #imp
 
 - type: entity
   name: grapes
@@ -2366,6 +2404,7 @@
     entries:
       Taco: Berries
       Burger: BerriesBurger
+      Hotdog: Berries #imp
   - type: PluralName # imp
     oneOf: plural-name-some
 
@@ -2406,6 +2445,7 @@
     entries:
       Taco: Bungo
       Burger: Bungo
+      Hotdog: Bungo #imp
 
 - type: entity
   name: bungo pit
@@ -2466,6 +2506,7 @@
     entries:
       Taco: Pea
       Burger: Pea
+      Hotdog: Pea #imp
 
 - type: entity
   parent: FoodProduceBase
@@ -2500,6 +2541,7 @@
     entries:
       Taco: WorldPea
       Burger: WorldPeaBurger
+      Hotdog: WorldPea #imp
 
 - type: entity
   name: pumpkin
@@ -2708,6 +2750,7 @@
     entries:
       Taco: Cherry
       Burger: Cherry
+      Hotdog: Cherry #imp
 
 - type: entity
   name: cherry pit
@@ -2776,6 +2819,7 @@
     entries:
       Taco: AnomalyBerry
       Burger: AnomalyBerryBurger
+      Hotdog: AnomalyBerry #imp
 
 - type: entity
   name: bloonion bulb
