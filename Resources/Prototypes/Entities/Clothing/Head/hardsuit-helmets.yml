@@ -844,6 +844,9 @@
       head-reptilian:
       - state: equipped-HELMET-light-reptilian
         shader: unshaded
+      head-anomalocarid:
+      - state: equipped-HELMET-light-anomalocarid
+        shader: unshaded
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/piratecaptainhelm.rsi
     clothingVisuals:
@@ -858,6 +861,10 @@
       head-reptilian:
       - state: equipped-HELMET-reptilian
       - state: equipped-HELMET-unshaded-reptilian
+        shader: unshaded
+      head-anomalocarid:
+      - state: equipped-HELMET-anomalocarid
+      - state: equipped-HELMET-unshaded-anomalocarid
         shader: unshaded
   - type: PointLight # Color matches visor colors, radius/energy same as mining hardsuit for the big captain.
     color: "#f3ea9c"
