@@ -608,6 +608,7 @@
 
 # random ai spawn lawsets (Impstation edition)
 - type: weightedRandom
+- type: siliconLawset
   id: StationAiSpawnLawsets
   weights:
     Crewsimov: 30
