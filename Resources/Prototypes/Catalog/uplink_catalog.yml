@@ -67,20 +67,6 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkHyperEutacticBlade
-  name: uplink-hypereutactic-blade-name
-  description: uplink-hypereutactic-blade-desc
-  icon: { sprite: /Textures/Objects/Weapons/Melee/hypereutactic_blade.rsi, state: icon }
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 10
-  productEntity: HyperEutacticBlade
-  cost:
-    Telecrystal: 16 # Original DSword Cost
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkEnergyDagger
   name: uplink-edagger-name
   description: uplink-edagger-desc
@@ -334,16 +320,6 @@
     - UplinkDisruption
 
 - type: listing
-  id: UplinkBeenade
-  name: uplink-beenade-name
-  description: uplink-beenade-desc
-  productEntity: BeeGrenade
-  cost:
-    Telecrystal: 6
-  categories:
-    - UplinkExplosives
-
-- type: listing
   id: UplinkWhiteholeGrenade
   name: uplink-whitehole-grenade-name
   description: uplink-whitehole-grenade-desc
@@ -527,21 +503,6 @@
     Telecrystal: 6
   categories:
     - UplinkExplosives
-
-- type: listing
-  id: UplinkBrosGrenade
-  name: uplink-bros-grenade-name
-  description: uplink-bros-grenade-desc
-  productEntity: BrosGrenade
-  cost:
-    Telecrystal: 14
-  categories:
-    - UplinkExplosives
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
 
 # Ammo
 
@@ -1287,17 +1248,6 @@
       - NukeOpsUplink
 
 - type: listing
-  id: UplinkAnimalFriendsKit
-  name: uplink-animal-friends-kit-name
-  description: uplink-animal-friends-kit-desc
-  icon: { sprite: /Textures/Mobs/Animals/mouse.rsi, state: icon-2 }
-  productEntity: AnimalFriendsKit
-  cost:
-    Telecrystal: 6
-  categories:
-  - UplinkAllies
-
-- type: listing
   id: UplinkReinforcementRadioSyndicate
   name: uplink-reinforcement-radio-name
   description: uplink-reinforcement-radio-traitor-desc
@@ -1850,78 +1800,6 @@
         tags:
           - NukeOpsUplink
 
-- type: listing # EE
-  id: UplinkNightGoggles
-  name: uplink-night-vision-name
-  description: uplink-night-vision-desc
-  productEntity: ClothingEyesNightVisionGogglesSyndie
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing # EE
-  id: UplinkNightGogglesNukie
-  name: uplink-night-vision-name
-  description: uplink-night-vision-desc
-  productEntity: ClothingEyesNightVisionGogglesNukie
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing # EE
-  id: UplinkThermalGoggles
-  name: uplink-thermal-vision-name
-  description: uplink-thermal-vision-desc
-  productEntity: ClothingEyesThermalVisionGogglesSyndie
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
-
-- type: listing # EE
-  id: UplinkThermalGogglesNukie
-  name: uplink-thermal-vision-name
-  description: uplink-thermal-vision-desc
-  productEntity: ClothingEyesThermalVisionGogglesNukie
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkWearables
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-
 - type: listing
   id: UplinkClothingConductingGloves
   name: uplink-clothing-conducting-gloves-name
@@ -2168,23 +2046,6 @@
         - Passenger
 
 - type: listing
-  id: uplinkRiggedBoxingGlovesBoxer
-  name: uplink-rigged-boxing-gloves-name
-  description: uplink-rigged-boxing-gloves-desc
-  productEntity: ClothingHandsGlovesBoxingRigged
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 2
-  cost:
-    Telecrystal: 4
-  categories:
-    - UplinkJob
-  conditions:
-    - !type:BuyerJobCondition
-      whitelist:
-        - Boxer
-
-- type: listing
   id: uplinkNecronomicon
   name: uplink-necronomicon-name
   description: uplink-necronomicon-desc
@@ -2365,12 +2226,12 @@
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Zookeeper and Chef can also get this
+  - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Chef can also get this
     whitelist:
-    - Zookeeper
     - Scientist
     - ResearchDirector
     - Chef
+    - Zookeeper # imp, zookeeper was removed upstream
 
 - type: listing
   id: UplinkCaneBlade
