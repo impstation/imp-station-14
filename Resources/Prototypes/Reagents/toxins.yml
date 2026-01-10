@@ -518,7 +518,7 @@
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Kodepiia ] #imp, added kode
+          type: [ Animal, Vox, Kodepiia, Anomalocarid ] #imp, added kode and anomalocarids
           inverted: true
         type: Local
         visualType: MediumCaution
@@ -528,12 +528,12 @@
         probability: 0.1
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Kodepiia] #imp, added kode
+          type: [ Animal, Vox, Kodepiia, Anomalocarid ] #imp, added kode and anomalocarids
           inverted: true
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Animal, Vox, Kodepiia] #imp, added kode
+          type: [ Animal, Vox, Kodepiia, Anomalocarid ] #imp, added kode and anomalocarids
           inverted: true
         damage:
           types:
