@@ -27,9 +27,9 @@
     - tasks:
         - !type:HTNPrimitiveTask
           preconditions:
-            - !type:BreedReadyPrecondition
+            - !type:TargetInRangePrecondition
               targetKey: Target
-              breedRange: MeleeRange
+              rangeKey: MeleeRange
           operator: !type:BreedOperator
           targetKey: Target
           idleTime: MaximumIdleTime      

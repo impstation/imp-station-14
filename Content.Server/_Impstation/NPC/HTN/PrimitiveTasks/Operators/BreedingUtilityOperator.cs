@@ -5,6 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server._Impstation.Nutrition.EntitySystems;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Queries;
@@ -16,9 +17,15 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server._Impstation.NPC.HTN.PrimitiveTasks.Operators;
+
+/// <summary>
+/// Operator for a mob to find an eligible breeding partner of the same breeding group.
+/// </summary>
 public sealed partial class BreedingUtilityOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
+
+    private AnimalHusbandrySystemImp _breedSystem = default!;
 
     [DataField("key")] public string Key = "Target";
 
@@ -26,6 +33,12 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
 
     [DataField("proto", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<UtilityQueryPrototype>))]
     public string Prototype = string.Empty;
+
+    public override void Initialize(IEntitySystemManager sysManager)
+    {
+        base.Initialize(sysManager);
+        _breedSystem = sysManager.GetEntitySystem<AnimalHusbandrySystemImp>();
+    }
 
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard, CancellationToken cancelToken)
     {
@@ -48,7 +61,11 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
                 comp.ReproductiveGroup != reproComp.ReproductiveGroup)
                 continue;
 
-            //else, if it's score is less than our current score, continue
+            // Don't try to impregnate that which is already pregnant
+            if (!_breedSystem.CanYouBreed((potentialTarget, comp)))
+                continue;
+
+            //if it's score is less than our current score, continue
             var targScore = result.Entities[potentialTarget];
             if (targScore < score)
                 continue;
@@ -61,8 +78,6 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
         //we didn't find a valid target, so don't plan anything
         if (target == null)
             return (false, null);
-
-        //reproComp.PartnerInMind = true;
 
         //we found a valid target, so return the plan
         return (true, new Dictionary<string, object>()

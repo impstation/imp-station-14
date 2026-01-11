@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using Content.Shared.Whitelist;
 
 namespace Content.Shared._Impstation.Nutrition.Components;
+/// <summary>
+/// Component that keeps track of all our variables for an animals reproductive abilities.
+/// </summary>
 [RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class ImpReproductiveComponent : Component
 {
@@ -36,7 +39,6 @@ public sealed partial class ImpReproductiveComponent : Component
     public TimeSpan PregnancyLength = TimeSpan.FromSeconds(60);
 
     public bool Pregnant = false;
-    public bool PartnerInMind = false;
 
     public TimeSpan EndPregnancy = TimeSpan.Zero;
     public TimeSpan NextSearch = TimeSpan.Zero;

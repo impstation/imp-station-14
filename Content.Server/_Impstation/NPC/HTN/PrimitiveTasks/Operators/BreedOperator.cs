@@ -10,6 +10,10 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 
 namespace Content.Server._Impstation.NPC.HTN.PrimitiveTasks.Operators;
+
+/// <summary>
+/// For checking if a mob is ready to begin breeding
+/// </summary>
 public sealed partial class BreedOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
@@ -27,6 +31,12 @@ public sealed partial class BreedOperator : HTNOperator
         _breedSystem = sysManager.GetEntitySystem<AnimalHusbandrySystemImp>();
     }
 
+    /// <summary>
+    /// Task for making a mob attempt to breed with the target
+    /// </summary>
+    /// <param name="blackboard"></param>
+    /// <param name="cancelToken"></param>
+    /// <returns></returns>
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard, CancellationToken cancelToken)
     {
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
@@ -39,6 +49,7 @@ public sealed partial class BreedOperator : HTNOperator
         });
     }
 
+    // I don't know why this is here yet and if i can't figure it out i'll be removingit
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
         var result = false;

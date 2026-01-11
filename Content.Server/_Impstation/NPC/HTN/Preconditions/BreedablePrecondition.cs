@@ -12,6 +12,11 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.NPC.HTN.Preconditions;
+
+/// <summary>
+/// Precondition for determining if the breeder is able to be bred
+/// Factors include: Hunger, Thirst and health.
+/// </summary>
 public sealed partial class BreedablePrecondition : HTNPrecondition
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
@@ -32,6 +37,11 @@ public sealed partial class BreedablePrecondition : HTNPrecondition
         _breedSystem = sysManager.GetEntitySystem<AnimalHusbandrySystemImp>();
     }
 
+    /// <summary>
+    /// The function for the HTN to check if a mob is ready to breed.
+    /// </summary>
+    /// <param name="blackboard"></param>
+    /// <returns></returns>
     public override bool IsMet(NPCBlackboard blackboard)
     {
         if (!blackboard.TryGetValue<EntityUid>(NPCBlackboard.Owner, out var owner, _entityManager))
@@ -43,13 +53,13 @@ public sealed partial class BreedablePrecondition : HTNPrecondition
 
         // Mobs should only search for a breedable mate if they are ready to breed
         // NextSearch exists so that mobs do not spam the server with searches and pathfinding to look for an eligible mate
-        if (!_breedSystem.ReadyToBreed(reproComp))
+        if (!_breedSystem.CanIBreed((owner, reproComp)))
             return false;
 
+        // Sets the amount of time until they try and find a new mate.
+        // It's partly so all mobs aren't just in sync, but also so the server isn't spamming searches.
         reproComp.NextSearch = _time.CurTime + _random.Next(reproComp.MinSearchAttemptInterval, reproComp.MaxSearchAttemptInterval);
 
         return true;
-        //    _entityManager.TryGetComponent<HungerComponent>(owner, out var hunger) ? hunger.CurrentThreshold >= MinHungerToBreed : false &&
-        //    _entityManager.TryGetComponent<ThirstComponent>(owner, out var thirst) ? thirst.CurrentThirstThreshold >= MinThirstToBreed : false;
     }
 }
