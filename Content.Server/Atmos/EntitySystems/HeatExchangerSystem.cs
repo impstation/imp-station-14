@@ -8,21 +8,23 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.NodeContainer;
 using Content.Shared.Atmos.Piping;
 using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components; //Imp - Reference to HeatExchangerVisuals
 using Content.Shared.CCVar;
 using Content.Shared.Interaction;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
-using Robust.Server.GameObjects; //Imp - for PointLightSystem for radiator glow
+using Robust.Server.GameObjects; //Imp - PointLightSystem for radiator glow
 
 namespace Content.Server.Atmos.EntitySystems;
 
-public sealed class HeatExchangerSystem : EntitySystem
+public sealed class HeatExchangerSystem : SharedHeatExchangerSystem //Imp - SharedSystem to connect with client
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PointLightSystem _pointLight = default!; //imp
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; //imp
 
     float tileLoss;
 
@@ -206,7 +208,6 @@ public sealed class HeatExchangerSystem : EntitySystem
         //Convert coordinates to RGB
         var luminance = 1f; //??? idk what this should be.
         var radiatorColor = new Color(luminance * x / y, luminance, luminance * (1 - x - y) / y);
-        _pointLight.SetColor(uid, radiatorColor, pointLight);
         Log.Debug($"rad color is {radiatorColor} for uid {uid}");
 
         /* OUTDATED PEAK WAVELENGTH APPROXIMATION IMPLEMENTATION
@@ -224,7 +225,7 @@ public sealed class HeatExchangerSystem : EntitySystem
 
         //Set the radiator's light intensity:
         //Per the Stefan–Boltzmann law, radiant exitance is proportional to the fourth power of the object's absolute temperature
-        float SBConstant = 0.0567f; //Scaled up x 1000000 to prevent floating point errors, adjusted in the line below
+        float SBConstant = 0.0567f; //Scaled up 1000000x to prevent floating point errors, adjusted in the line below
         float radiantExitance = SBConstant * (float)Math.Pow(radiatorTemperature, 4) / 1000000;
 
         //Assuming the radiator is 1m^2, the radiant exitance is the wattage of light produced.
@@ -233,69 +234,16 @@ public sealed class HeatExchangerSystem : EntitySystem
         Log.Debug($"rad radiant exitance is {radiantExitance} for uid {uid}");
         float energy = (20) / (1 + 100 * (float)Math.Pow(Math.E, -radiantExitance / 1000000));
         Log.Debug($"rad light energy is {energy} for uid {uid}");
+
+        // Write light data to pointLight
+        _pointLight.SetColor(uid, radiatorColor, pointLight);
         _pointLight.SetEnergy(uid, energy);
         _pointLight.SetRadius(uid, energy);
 
-        //Update the sprite color of the radiator based ont he temperature of the radiator
-    }
-
-    private Color WavelengthToColor(float wavelength)
-    {
-        //Visible spectrum is from 380 nm to 750 nm
-        float red = 0, green = 0, blue = 0;
-        if (wavelength < 440)
-        {
-            red = 0.0f;
-            green = 0.0f;
-            blue = 1.0f;
-        }
-        else if (wavelength >= 380 && wavelength < 440) 
-        {
-            red = -(wavelength - 440) / (440 - 380);
-            green = 0.0f;
-            blue = 1.0f;
-        }
-        else if (wavelength >= 440 && wavelength < 490)
-        {
-            red = 0.0f;
-            green = (wavelength - 440) / (490f - 440);
-            blue = 1.0f;
-        }
-        else if (wavelength >= 490 && wavelength < 510)
-        {
-            red = 0.0f;
-            green = 1.0f;
-            blue = -(wavelength - 510) / (510 - 490);
-        }
-        else if (wavelength >= 510 && wavelength < 580)
-        {
-            red = (wavelength - 510) / (580 - 510);
-            green = 1.0f;
-            blue = 0.0f;
-        }
-        else if (wavelength >= 580 && wavelength < 645)
-        {
-            red = 1.0f;
-            green = -(wavelength - 645) / (645 - 580);
-            blue = 0.0f;
-        }
-        // else if (wavelength >= 645 && wavelength < 781) //Correct version
-        else if (wavelength >= 645)
-        {
-            red = 1.0f;
-            green = 0.0f;
-            blue = 0.0f;
-        }
-        else
-        {
-            Log.Debug($"Color doesn't exist for {wavelength}");
-        }
-        // else
-        // {
-        //     red = 0.0f;
-        //     green = 0.0f;
-        //     blue = 0.0f;
-        // }
-        return new Color(red, green, blue);
+        // Write color to visulaizerSystem so client can update the unshaded sprite
+        //public void SetData(EntityUid uid, Enum key, object value, AppearanceComponent? component = null)
+        _appearance.SetData(uid, HeatExchangerVisuals.Color, radiatorColor);
+        _appearance.TryGetData(uid, HeatExchangerVisuals.Color, out var debug_color_get);
+        Log.Debug($"HEVisuals.Color: {debug_color_get}");
     }
 }
