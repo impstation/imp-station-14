@@ -1,10 +1,11 @@
 # Rockets
 
 - type: entity
-  id: CartridgeRocket
+  id: CartridgeRocketWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: PG-7VL grenade
   parent: [BaseItem, BaseMajorContraband]
-  description: An unguided, high-explosive, anti-tank, rocket-propelled grenade. How classy. #imp
+  description: A 1.5 warhead designed for the RPG-7 launcher. Has tubular shape.
   components:
   - type: Tag
     tags:
@@ -16,38 +17,35 @@
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    layers:
-    - state: rpg #imp
+    state: rpg
   - type: StaticPrice
     price: 20
-  - type: Engraveable # imp
 
 - type: entity
-  id: CartridgeRocketSlow
-  name: PG-7VLS grenade "Snail-Rocket" #imp
+  id: CartridgeRocketSlowWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: PG-7VL grenade "Snail-Rocket"
   parent: [BaseItem, BaseMajorContraband]
-  description: An RPG warhead that stranglely moves at a gastropoid's pace. #imp
+  description: A 1.5 warhead designed for the RPG-7 launcher. It's unusually slow.
   components:
-  - type: Tag
-    tags:
+    - type: Tag
+      tags:
         - CartridgeRocket
-  - type: Item
-    size: Small
-  - type: CartridgeAmmo
-    proto: BulletWeakRocket
-    deleteOnSpawn: true
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    layers:
-    - state: rpg #imp
-  - type: StaticPrice
-    price: 20
-  - type: Engraveable # imp
+    - type: Item
+      size: Small
+    - type: CartridgeAmmo
+      proto: BulletWeakRocket
+      deleteOnSpawn: true
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      state: frag
+    - type: StaticPrice
+      price: 20
 
 # Grenades
 
 - type: entity
-  id: BaseGrenade
+  id: BaseGrenadeWizden #imp - see the _Impstation directory for the version we use
   name: base grenade
   parent: [BaseItem, BaseMajorContraband]
   abstract: true
@@ -58,12 +56,11 @@
   - type: Item
     size: Small
   - type: Sprite
-  - type: Engraveable # imp
 
 - type: entity
-  id: GrenadeBaton
+  id: GrenadeBatonWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: baton grenade
-  description: A launcher-based blunt-impact stun grenade. #imp
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -79,9 +76,9 @@
     suffix: false
 
 - type: entity
-  id: GrenadeBlast
+  id: GrenadeBlastWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: blast grenade
-  description: A launcher-based high-explosive grenade. #imp
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -97,9 +94,9 @@
     suffix: false
 
 - type: entity
-  id: GrenadeFlash
+  id: GrenadeFlashWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: flash grenade
-  description: A launcher-based flashbang stun grenade. #imp
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -115,9 +112,9 @@
     suffix: false
 
 - type: entity
-  id: GrenadeFrag
+  id: GrenadeFragWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: frag grenade
-  description: A launcher-based fragmentation grenade. #imp
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -134,7 +131,8 @@
 
 - type: entity
   parent: BaseGrenade
-  id: GrenadeCleanade
+  id: GrenadeCleanadeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: cleanade grenade round
   components:
   - type: CartridgeAmmo
@@ -150,9 +148,9 @@
     suffix: false
 
 - type: entity
-  id: GrenadeEMP
+  id: GrenadeEMPWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: EMP grenade
-  description: A launcher-based EMP grenade. #imp
   parent: BaseGrenade
   components:
   - type: CartridgeAmmo
@@ -170,9 +168,8 @@
 # Cannon Balls
 
 - type: entity
-  id: BaseCannonBall
+  id: BaseCannonBallWizden #imp - see the _Impstation directory for the version we use
   name: base cannon ball
-  description: Yo-ho, motherfucker! #imp
   parent: [BaseItem, BaseMajorContraband]
   abstract: true
   components:
@@ -182,10 +179,10 @@
   - type: Item
     size: Small
   - type: Sprite
-  - type: Engraveable # imp
 
 - type: entity
-  id: CannonBall
+  id: CannonBallWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: cannonball
   suffix: Pirate
   parent: BaseCannonBall
@@ -195,11 +192,11 @@
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    layers:
-    - state: ball #imp
+    state: ball
 
 - type: entity
-  id: CannonBallGrapeshot
+  id: CannonBallGrapeshotWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: grapeshot
   suffix: Pirate
   parent: BaseCannonBall
@@ -209,11 +206,11 @@
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    layers:
-    - state: grapeshot #imp
+    state: grapeshot
 
 - type: entity
-  id: CannonBallGlassshot
+  id: CannonBallGlassshotWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: glassshot
   suffix: Pirate
   parent: BaseCannonBall
@@ -223,5 +220,4 @@
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
-    layers:
-    - state: glassshot #imp
+    state: glassshot
