@@ -45,8 +45,6 @@
     event: !type:RandomGlobalSpawnSpellEvent
       makeSurvivorAntagonist: false
       spawns: # to do: add more
-      - id: CrayonRainbowInfinite
-        orGroup: Prize
       - id: PetRockCarrier
         orGroup: Prize
       - id: PrizeTicket100
@@ -73,6 +71,7 @@
       - id: GlowstickRed
         orGroup: Prize
       - id: PlushieOdds
+        prob: 0.1
         orGroup: Prize
       - id: PlushieGnomeChild
         orGroup: Prize
