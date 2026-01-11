@@ -1,0 +1,107 @@
+# The Big Dogs of Security-- blasters used by the Warden or HoS.
+- type: entity
+  name: M-1 energy shotgun
+  parent: [BaseBlasterRifle, BaseSecurityContraband]
+  id: WeaponEnergyShotgun
+  description: A one-of-a-kind prototype energy weapon that uses various shotgun configurations. It offers the possibility of both lethal and non-lethal shots, making it a versatile weapon.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/energy_shotgun.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/energy_shotgun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/eshotgun.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserSpreadNarrow
+    fireCost: 72
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletLaserSpreadNarrow
+      fireCost: 72
+    - proto: BulletBlasterKinetic
+      fireCost: 42
+    - proto: BulletDisablerSmgSpread
+      fireCost: 42
+      pacifismAllowedMode: true
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,3,1
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/eshotgun_inhands_64x.rsi
+    heldPrefix: energy
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Battery
+    maxCharge: 504
+    startingCharge: 504
+
+- type: entity
+  name: Type-25 energy magnum
+  parent: [BaseBlasterPistol, BaseGrandTheftContraband]
+  id: WeaponEnergyMagnum
+  description: A high powered self-charging energy pistol designed for elite security personnel. It has has three firing modes allowing for lethal, stun, or illuminating flare shots.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/energy_magnum.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-unshaded-1
+      visible: false
+      map: [ "enum.GunVisualLayers.MagUnshaded" ]
+      shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/energy_magnum.rsi
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: StealTarget
+    stealGroup: WeaponEnergyMagnum
+  - type: Gun
+    fireRate: 1.5
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/blasterrevolver.ogg
+  - type: Battery
+    maxCharge: 1050
+    startingCharge: 1050
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserMagnum
+    fireCost: 175
+  - type: BatteryWeaponFireModes
+    fireModes:
+    - proto: BulletLaserMagnum
+      fireCost: 175
+    - proto: BulletBlasterFlare
+      fireCost: 116
+    - proto: BulletMagnumDisabler
+      fireCost: 175
+      pacifismAllowedMode: true
+  - type: BatterySelfRecharger
+    autoRechargeRate: 35
+    autoRechargePauseTime: 1
+  - type: MeleeWeapon
+    attackRate: 0.6
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
