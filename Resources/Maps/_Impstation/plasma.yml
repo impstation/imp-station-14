@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/11/2026 06:25:48
+  time: 01/11/2026 06:56:22
   entityCount: 26721
 maps:
 - 1
@@ -12623,11 +12623,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        8648:
-        - - DoorStatus
-          - DoorBolt
   - uid: 332
     components:
     - type: Transform
@@ -12636,11 +12631,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        8647:
-        - - DoorStatus
-          - DoorBolt
   - uid: 1771
     components:
     - type: Transform
@@ -12702,14 +12692,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        8653:
-        - - DoorStatus
-          - DoorBolt
-        8652:
-        - - DoorStatus
-          - DoorBolt
   - uid: 10081
     components:
     - type: Transform
@@ -12796,11 +12778,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        10563:
-        - - DoorStatus
-          - DoorBolt
   - uid: 10566
     components:
     - type: Transform
@@ -12809,11 +12786,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        10564:
-        - - DoorStatus
-          - DoorBolt
 - proto: AirlockExternalGlassCommandLocked
   entities:
   - uid: 1880
@@ -13089,11 +13061,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -39.5,12.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        332:
-        - - DoorStatus
-          - DoorBolt
     - type: DeviceLinkSink
       invokeCounter: 2
   - uid: 8648
@@ -13102,11 +13069,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -39.5,19.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        115:
-        - - DoorStatus
-          - DoorBolt
     - type: DeviceLinkSink
       invokeCounter: 2
 - proto: AirlockExternalGlassShuttleEmergencyLocked
@@ -13533,11 +13495,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -30.5,26.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        9280:
-        - - DoorStatus
-          - DoorBolt
     - type: DeviceLinkSink
       invokeCounter: 2
   - uid: 8653
@@ -13546,11 +13503,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -28.5,26.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        9280:
-        - - DoorStatus
-          - DoorBolt
     - type: DeviceLinkSink
       invokeCounter: 2
   - uid: 8741
@@ -13589,24 +13541,14 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -81.5,18.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        10565:
-        - - DoorStatus
-          - DoorBolt
     - type: DeviceLinkSink
-      invokeCounter: 2
+      invokeCounter: 1
   - uid: 10564
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -81.5,20.5
       parent: 2
-    - type: DeviceLinkSource
-      linkedPorts:
-        10566:
-        - - DoorStatus
-          - DoorBolt
     - type: DeviceLinkSink
       invokeCounter: 2
   - uid: 24212
@@ -172134,7 +172076,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -232603.9
+      secondsUntilStateChange: -232659.2
       state: Opening
     - type: Airlock
       autoClose: False
