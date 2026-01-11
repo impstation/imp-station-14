@@ -49,7 +49,8 @@ public sealed partial class BreedOperator : HTNOperator
         });
     }
 
-    // I don't know why this is here yet and if i can't figure it out i'll be removingit
+    // I don't know why this is here yet and if i can't figure it out i'll be removing it
+    // yes it's my code but i don't know which era of me wrote it
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
         var result = false;

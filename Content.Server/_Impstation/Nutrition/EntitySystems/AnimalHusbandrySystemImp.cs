@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Popups;
 using Content.Shared._Impstation.Nutrition.Components;
+using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
@@ -29,6 +31,9 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
     Dictionary<EntityUid, ImpReproductiveComponent> _mobsWaiting = new Dictionary<EntityUid, ImpReproductiveComponent>();
 
+    int _framesUntilNextBithCheck = 0;
+    int _birthCheckFrameDelay = 6;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -38,26 +43,46 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     {
         base.Update(frameTime);
 
-        // This is so the HTN system isn't in this weird state of trying to give birth as much as it can
-        // it allows to easily keep track of all the pregnant mobs at a given time and
-        // could potentially be used for the genetic trait system animals may have (similar to plants)
-        // Whether it stays or not depends on if it's better here or in an HTN. I would like it to be in an
-        // HTN, but also, HTN.
-        foreach (var reproComp in _mobsWaiting)
-        {
-            if(reproComp.Value == null || reproComp.Key == EntityUid.Invalid)
-            {
-                _mobsWaiting.Remove(reproComp.Key);
-                continue;
-            }
+        // This approach is one i'm still debating because there's pros and cons
+        // Pros are this effectively means rather than each mob checking if it is ready to give birth
+        // one single system KNOWS what mobs need to ask that
+        // Cons are seperation from the HTN (Part of this project was to make sure the HTN is actually USED LIKE IT'S MEANT TO BE)
 
-            if (_time.CurTime > reproComp.Value.EndPregnancy)
+        // The delay largely exists for performance reasons since realistically we do not need frame accurate
+        // mob births. They can afford to be a little late.
+        if (_framesUntilNextBithCheck <= 0)
+        {
+            _framesUntilNextBithCheck = _birthCheckFrameDelay;
+            foreach (var reproComp in _mobsWaiting)
             {
-                reproComp.Value.Pregnant = false;
-                Birth((reproComp.Key, reproComp.Value));
-                _mobsWaiting.Remove(reproComp.Key);
-                _adminLog.Add(LogType.Action, $"A mob has given birth!");
+                // In case the mob finds itself deleted or destroyed
+                if (_entManager.Deleted(reproComp.Key)
+                    || !_entManager.TryGetComponent<MobStateComponent>(reproComp.Key, out var state))
+                {
+                    _mobsWaiting.Remove(reproComp.Key);
+                    continue;
+                }
+
+                // If they die or become critical, the child is gone
+                if (state.CurrentState != Shared.Mobs.MobState.Alive)
+                {
+                    _mobsWaiting.Remove(reproComp.Key);
+                    reproComp.Value.Pregnant = false;
+                }
+
+                // Is it time to give birth?
+                if (_time.CurTime > reproComp.Value.EndPregnancy)
+                {
+                    reproComp.Value.Pregnant = false;
+                    Birth((reproComp.Key, reproComp.Value));
+                    _mobsWaiting.Remove(reproComp.Key);
+                    _adminLog.Add(LogType.Action, $"A mob has given birth!");
+                }
             }
+        }
+        else
+        {
+            _framesUntilNextBithCheck--;
         }
     }
 
@@ -83,6 +108,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
             return false;
 
         // one last check in case someone beat us to the cow or bred us on the way there
+        // It's dumb but unless I make the system assign pairings this is the best i can think of for the moment
         if (!CanYouBreed((approacher, component)) || !CanYouBreed((approached, partnerComp)))
             return false;
 
@@ -125,6 +151,12 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (_entManager.TryGetComponent<ThirstComponent>(entity, out var thirst) && thirst.CurrentThirstThreshold < ThirstThreshold.Okay)
             return false;
 
+        if (_entManager.TryGetComponent<MobStateComponent>(entity, out var state) && state.CurrentState != Shared.Mobs.MobState.Alive)
+            return false;
+
+        if (_entManager.TryGetComponent<DamageableComponent>(entity, out var damage) && damage.TotalDamage >= entity.Comp.MaxBreedDamage)
+            return false;
+
         return true;
     }
 
@@ -153,6 +185,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (TryComp<InteractionPopupComponent>(entity, out var interactionPopup))
             _audio.PlayPvs(interactionPopup.InteractSuccessSound, entity);
 
+        // This is also temporary
         _popup.PopupEntity("BIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTH", entity);
     }
 }

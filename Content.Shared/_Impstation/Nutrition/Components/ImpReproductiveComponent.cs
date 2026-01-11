@@ -38,6 +38,10 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField("pregnancyLength", required: true)]
     public TimeSpan PregnancyLength = TimeSpan.FromSeconds(60);
 
+    // Maximum amount of damage allowed before the mob gives up trying to breed
+    [DataField("maxBreedDamage")]
+    public int MaxBreedDamage = 50;
+
     public bool Pregnant = false;
 
     public TimeSpan EndPregnancy = TimeSpan.Zero;
