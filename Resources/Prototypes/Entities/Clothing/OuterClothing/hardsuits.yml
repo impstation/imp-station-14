@@ -888,11 +888,11 @@
   description: An ancient armored hardsuit, perfect for defending against space scurvy and toolbox-wielding scallywags.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/piratecaptain.rsi #imp edit
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/piratecaptain.rsi #imp edit
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
