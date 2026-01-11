@@ -15,7 +15,7 @@
         - !type:ModifyBloodLevel
           amount: 3
   metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/asterade.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Plastic/asterade.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 6
   metamorphicFillBaseName: fill-
@@ -67,19 +67,37 @@
   color: "#FFF7A3"
 
 - type: reagent
-  id: LemonAsterade
-  name: reagent-name-asterade-lemon
+  id: TealAsterade
+  name: reagent-name-asterade-teal
   parent: BaseAsterade
-  desc: reagent-desc-asterade-lemon
-  physicalDesc: reagent-physical-desc-citric
-  flavor: sour
-  color: "#FFF7A3"
+  desc: reagent-desc-asterade-teal
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: tangy
+  color: "#47f8ff"
 
 - type: reagent
-  id: BrownAsterade
-  name: reagent-name-asterade-brown
+  id: BlueAsterade
+  name: reagent-name-asterade-blue
   parent: BaseAsterade
-  desc: reagent-desc-asterade-brown
-  physicalDesc: reagent-physical-desc-starchy
-  flavor: potatoes
-  color: "#544934"
+  desc: reagent-desc-asterade-blue
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: berry
+  color: "#39a1ff"
+
+- type: reagent
+  id: PinkAsterade
+  name: reagent-name-asterade-pink
+  parent: BaseAsterade
+  desc: reagent-desc-asterade-pink
+  physicalDesc: reagent-physical-desc-sweet
+  flavor: fruity
+  color: "#ff66cc"
+
+- type: reagent
+  id: BlackAsterade
+  name: reagent-name-asterade-black
+  parent: BaseAsterade
+  desc: reagent-desc-asterade-black
+  physicalDesc: reagent-physical-desc-syrupy
+  flavor: crud
+  color: "#363636"

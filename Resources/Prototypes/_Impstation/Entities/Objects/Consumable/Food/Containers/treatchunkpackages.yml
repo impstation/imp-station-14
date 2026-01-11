@@ -1,0 +1,113 @@
+- type: entity
+  parent: [BaseItem, Tier1Contraband]
+  id: TreatChunkBag
+  name: TreatChunk bag (15ct)
+  description: A bag of individually wrapped cherry-flavored hard candies, for the traitor who needs a little treat.
+  components:
+  - type: Item
+    size: Normal
+    heldPrefix: TreatChunk bag
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi
+    inhandVisuals:
+        left:
+        - state: treatchunk-bag-inhand-left
+        right:
+        - state: treatchunk-bag-inhand-right    
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi
+    state: treatchunk-bag
+  - type: SpawnItemsOnUse
+    items:
+      - id: TreatChunkBagOpen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: [BaseStorageItem, Tier1Contraband]
+  id: TreatChunkBagOpen
+  name: TreatChunk bag (15ct)
+  description: A bag of individually wrapped cherry-flavored hard candies, for the traitor who needs a little treat.
+  components:
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi
+    size: Normal
+    heldPrefix: TreatChunk bag
+    inhandVisuals:
+        left:
+        - state: treatchunk-bag-inhand-left
+        right:
+        - state: treatchunk-bag-inhand-right    
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi
+    state: treatchunk-bag-open
+  - type: Storage
+    grid:
+    - 0,0,4,2
+    maxItemSize: Tiny
+    whitelist:
+      tags:
+      - TreatChunk
+  - type: StorageFill
+    contents:
+    - id: FoodTreatChunkRandom
+      amount: 15
+
+- type: entity
+  parent: [BaseItem, Tier1Contraband]
+  id: LargeTreatChunkBag
+  name: Party Sized TreatChunk bag (60ct)
+  description: An unreasonably large bag of individually wrapped cherry-flavored hard candies, for the traitor who needs a lot of little treats.
+  components:
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Food/Candy/large_treatchunk_bag.rsi
+    size: Large
+    heldPrefix: Party Sized TreatChunk bag
+    inhandVisuals:
+        left:
+        - state: treatchunk-large-bag-inhand-left
+        right:
+        - state: treatchunk-large-bag-inhand-right    
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Candy/large_treatchunk_bag.rsi
+    scale: 0.80, 0.80
+    state: large-treatchunk-bag
+  - type: SpawnItemsOnUse
+    items:
+      - id: LargeTreatChunkBagOpen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+  - type: MultiHandedItem
+
+- type: entity
+  parent: [BaseStorageItem, Tier1Contraband]
+  id: LargeTreatChunkBagOpen
+  name: Party Sized TreatChunk bag (60ct)
+  description: An unreasonably large bag of individually wrapped cherry-flavored hard candies, for the traitor who needs a lot of little treats.
+  components:
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Food/Candy/large_treatchunk_bag.rsi
+    inhandVisuals:
+        left:
+        - state: treatchunk-large-bag-inhand-left
+        right:
+        - state: treatchunk-large-bag-inhand-right
+    size: Large
+    shape: 
+    - 0,0,2,2
+    heldPrefix: Party Sized TreatChunk bag
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Candy/large_treatchunk_bag.rsi
+    scale: 0.80, 0.80
+    state: large-treatchunk-bag-open
+  - type: Storage
+    grid:
+    - 0,0,9,5
+    maxItemSize: Tiny
+    whitelist:
+      tags:
+      - TreatChunk
+  - type: StorageFill
+    contents:
+    - id: FoodTreatChunkRandom
+      amount: 60
+  - type: MultiHandedItem

@@ -3,7 +3,7 @@
   mapName: 'Hummingbird Station'
   mapPath: /Maps/_Impstation/hummingbird.yml
   minPlayers: 35
-  maxPlayers: 69
+  maxPlayers: 64
   stations:
     Hummingbird:
       stationProto: StandardNanotrasenStation
@@ -16,7 +16,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_Impstation/Shuttles/emergency_courser_hummingbird.yml
         - type: StationJobs
-          availableJobs: # Total of 66 nice jobs roundstart, max of 77 inc. latejoins and trainees.
+          availableJobs: # Total of 66 jobs roundstart, max of 77 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]

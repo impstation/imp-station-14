@@ -1,6 +1,7 @@
+# The infamous bee gun that loves to cause problems on the development end
 - type: entity
   name: Ouroboros
-  parent: [BaseItem, BaseGunWieldable, Tier3Contraband]
+  parent: [BaseWeaponMuncherGun, BaseGunWieldable, Tier3Contraband]
   id: WeaponSpecialOuroboros
   description: You can feel a murderous hunger buzzing from deep within the weapon's frame. Its contained creatures demands food for its services.
   components:
@@ -12,14 +13,6 @@
       - state: mag-unshaded-1
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
-  - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
-  - type: SolutionItemStatus
-    solution: chamber
   - type: Item
     sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ouroboros.rsi
     size: Huge
@@ -32,17 +25,6 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/beecannon2.ogg
-  - type: SolutionContainerManager
-    solutions:
-      chamber:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 32
-        maxVol: 24 #8 shots
-  - type: SolutionAmmoProvider
-    solutionId: chamber
-    proto: BulletOuroboros
-    fireCost: 3
   - type: FoodReagentExtractor
     solutionId: chamber
     extractionReagents:
@@ -57,35 +39,7 @@
         - Bucket
         - GlassBeaker
     extractSound: /Audio/_Impstation/Weapons/Guns/Cock/beecharge.ogg
-  - type: MagazineVisuals
-    magState: mag
-    steps: 7
-    zeroVisible: true
   - type: Appearance
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.5
-    damage:
-      types:
-        Blunt: 9
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 15 #heavy
-    damage:
-      types:
-        Blunt: 12
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
 
 - type: entity
   name: OuroBROS

@@ -1,22 +1,17 @@
 - type: entity
-  id: MuzzleFlashEffect
+  id: MuzzleFlashEffectWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 0.2 #imp
+    lifetime: 0.4
   - type: Sprite
     drawdepth: BelowMobs
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi #imp
-      state: kinetic #imp
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+      state: muzzle_bullet
   - type: EffectVisuals
-  - type: PointLight
-    enabled: true
-    color: "#ffa223" #imp
-    radius: 1.4 #imp
-    energy: 5.0 #imp
   - type: Tag
     tags:
       - HideContextMenu
@@ -24,45 +19,35 @@
 
 - type: entity
   parent: MuzzleFlashEffect
-  id: MuzzleFlashEffectOmnilaser
+  id: MuzzleFlashEffectOmnilaserWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
-  - type: PointLight
-    enabled: true
-    color: "#0ab8c4" #imp
-    radius: 1.4 #imp
-    energy: 5.0 #imp
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi #imp
-      state: energystun #imp
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+      state: omnilaser_flash
 
 - type: entity
   parent: MuzzleFlashEffect
-  id: MuzzleFlashEffectHeavyLaser
+  id: MuzzleFlashEffectHeavyLaserWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
-  - type: PointLight
-    enabled: true
-    color: "#d63b28" #imp
-    radius: 1.4 #imp
-    energy: 5.0 #imp
   - type: Sprite
     drawdepth: BelowMobs
     offset: 0.15, 0
     layers:
     - shader: unshaded
       map: ["enum.EffectLayers.Unshaded"]
-      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/muzzleflashes.rsi #imp
-      state: energy #imp
+      sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+      state: heavylaser_flash
 
 # One bullet to bring them all into the darkness and bind them
 - type: entity
-  id: BaseBullet
+  id: BaseBulletWizden #imp - see the _Impstation directory for the version we use
   name: BaseBullet
   description: If you can see this you're probably dead!
   abstract: true
@@ -108,10 +93,9 @@
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
   - type: TimedDespawn
     lifetime: 10
-  - type: Engraveable # imp
 
 - type: entity
-  id: BaseBulletTrigger # Trigger-on-collide bullets
+  id: BaseBulletTriggerWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -135,7 +119,7 @@
       fly-by: *flybyfixture
 
 - type: entity
-  id: BaseBulletPractice
+  id: BaseBulletPracticeWizden #imp - see the _Impstation directory for the version we use
   name: base bullet practice
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -150,7 +134,7 @@
         Blunt: 1
 
 - type: entity
-  id: BaseBulletIncendiary
+  id: BaseBulletIncendiaryWizden #imp - see the _Impstation directory for the version we use
   name: base bullet incendiary
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -163,13 +147,13 @@
   - type: PointLight
     enabled: true
     color: "#ff4300"
-    radius: 1.4 #imp
+    radius: 2.0
     energy: 7.0
   - type: IgniteOnCollide
     fireStacks: 0.25
 
 - type: entity
-  id: BaseBulletAP
+  id: BaseBulletAPWizden #imp - see the _Impstation directory for the version we use
   name: base bullet armor-piercing
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -185,7 +169,7 @@
     ignoreResistances: true
 
 - type: entity
-  id: BaseBulletUranium
+  id: BaseBulletUraniumWizden #imp - see the _Impstation directory for the version we use
   name: base bullet uranium
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -194,11 +178,6 @@
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: uranium
-      shader: unshaded
- # - type: PointLight // Too resource intensive for what little effect it has, one day...
- #   enabled: true
- #   color: "#059919"
- #   radius: 2.0
   - type: Projectile
     damage:
       types:
@@ -207,7 +186,7 @@
 # Energy projectiles
 - type: entity
   name: taser bolt
-  id: BulletTaser
+  id: BulletTaserWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -217,9 +196,11 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    noRot: true
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    color: "#ffff33"
     layers:
-    - state: lightgold #imp
+    - state: spark
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -254,7 +235,7 @@
 
 - type: entity
   parent: BulletTaser
-  id: BulletTaserSuper
+  id: BulletTaserSuperWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   name: taser bolt
   description: If you can see this, you've probably been stun-meta'd
@@ -283,7 +264,7 @@
 
 - type: entity
   name : disabler bolt
-  id: BulletDisabler
+  id: BulletDisablerWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -296,9 +277,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: mediumstun #imp
+    - state: omnilaser
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -314,9 +295,8 @@
         - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectOmnilaser #imp
   - type: StaminaDamageOnCollide
-    damage: 30
+    damage: 33
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
@@ -328,7 +308,7 @@
 
 - type: entity
   name : disabler bolt practice
-  id: BulletDisablerPractice
+  id: BulletDisablerPracticeWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -338,9 +318,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: mediumstun #imp
+    - state: omnilaser
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -356,7 +336,6 @@
         - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectOmnilaser #imp
   - type: StaminaDamageOnCollide
     damage: 1
   - type: Projectile
@@ -407,7 +386,7 @@
 
 - type: entity
   name: watcher bolt
-  id: WatcherBolt
+  id: WatcherBoltWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -417,9 +396,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: mediumtemp2
+    - state: omnilaser
       shader: unshaded
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser
@@ -449,18 +428,16 @@
 
 - type: entity
   name: freezing bolt
-  id: BoltTempgunCold
+  id: BoltTempgunColdWizden #imp - see the _Impstation directory for the version we use
   parent: WatcherBolt
   categories: [ HideSpawnMenu ]
   components:
   - type: Reflective
     reflective:
     - Energy
-  - type: Ammo #imp
-    muzzleFlash: MuzzleFlashEffectTempCold
   - type: Projectile
     #   soundHit:  Waiting on serv3
-    impactEffect: BulletImpactEffectCold #imp
+    impactEffect: BulletImpactEffectDisabler
     damage:
       types:
         Cold: 10
@@ -471,21 +448,21 @@
 
 - type: entity
   name: magmawing watcher bolt
-  id: WatcherBoltMagmawing
+  id: WatcherBoltMagmawingWizden #imp - see the _Impstation directory for the version we use
   parent: WatcherBolt
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: mediumtemp #imp
+    - state: omnilaser_greyscale
       shader: unshaded
       color: orangered
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectHeavyLaser
   - type: Projectile
     #   soundHit:  Waiting on serv3
-    impactEffect: BulletImpactEffectHot #imp
+    impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
         Heat: 0
@@ -494,7 +471,7 @@
 
 - type: entity
   name: scorching bolt
-  id: BoltTempgunHot
+  id: BoltTempgunHotWizden #imp - see the _Impstation directory for the version we use
   parent: WatcherBoltMagmawing
   categories: [ HideSpawnMenu ]
   components:
@@ -512,7 +489,7 @@
 
 - type: entity
   parent: BaseBullet
-  id: BasiliskRay
+  id: BasiliskRayWizden #imp - see the _Impstation directory for the version we use
   name: basilisk ray
   categories: [ HideSpawnMenu ]
   components:
@@ -550,7 +527,7 @@
     heat: -50000
 
 - type: entity
-  id: BulletKinetic
+  id: BulletKineticWizden #imp - see the _Impstation directory for the version we use
   name: kinetic bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -577,7 +554,7 @@
   - type: GatheringProjectile
 
 - type: entity
-  id: BulletKineticShuttle
+  id: BulletKineticShuttleWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -604,7 +581,7 @@
   - type: GatheringProjectile
 
 - type: entity
-  id: BulletCharge
+  id: BulletChargeWizden #imp - see the _Impstation directory for the version we use
   name: charge bolt
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -639,7 +616,7 @@
 
   # Deals less damage, glaive has better HP recovery
 - type: entity
-  id: BulletChargeGlaive
+  id: BulletChargeGlaiveWizden #imp - see the _Impstation directory for the version we use
   name: leech bolt
   parent: BulletCharge
   components:
@@ -824,7 +801,7 @@
 
 # Launcher projectiles (grenade / rocket)
 - type: entity
-  id: BulletRocket
+  id: BulletRocketWizden #imp - see the _Impstation directory for the version we use
   name: rocket
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
@@ -846,7 +823,7 @@
     energy: 0.5
 
 - type: entity
-  id: BulletWeakRocket
+  id: BulletWeakRocketWizden #imp - see the _Impstation directory for the version we use
   name: weak rocket
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
@@ -868,7 +845,7 @@
     energy: 0.5
 
 - type: entity
-  id: BulletGrenadeBaton
+  id: BulletGrenadeBatonWizden #imp - see the _Impstation directory for the version we use
   name: baton grenade
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -881,14 +858,14 @@
     deleteOnCollide: false
     damage:
       types:
-        Blunt: 15 #imp
+        Blunt: 1
     soundHit:
       path: /Audio/Effects/gen_hit.ogg
   - type: StaminaDamageOnCollide
     damage: 80
 
 - type: entity
-  id: BulletGrenadeBlast
+  id: BulletGrenadeBlastWizden #imp - see the _Impstation directory for the version we use
   name: blast grenade
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
@@ -906,7 +883,7 @@
     canCreateVacuum: false
 
 - type: entity
-  id: BulletGrenadeFlash
+  id: BulletGrenadeFlashWizden #imp - see the _Impstation directory for the version we use
   name: flash grenade
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
@@ -922,7 +899,7 @@
   - type: DeleteOnTrigger
 
 - type: entity
-  id: BulletGrenadeFrag
+  id: BulletGrenadeFragWizden #imp - see the _Impstation directory for the version we use
   name: frag grenade
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
@@ -948,7 +925,7 @@
 
 - type: entity
   parent: BaseBulletTrigger
-  id: BulletGrenadeCleanade
+  id: BulletGrenadeCleanadeWizden #imp - see the _Impstation directory for the version we use
   name: cleanade grenade round
   categories: [ HideSpawnMenu ]
   components:
@@ -976,7 +953,7 @@
     tileBreakScale: 0.01
 
 - type: entity
-  id: BulletGrenadeEMP
+  id: BulletGrenadeEMPWizden #imp - see the _Impstation directory for the version we use
   name: EMP rocket
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
@@ -1013,7 +990,7 @@
         Piercing: 0
 
 - type: entity
-  id: BulletAcid
+  id: BulletAcidWizden #imp - see the _Impstation directory for the version we use
   name: acid spit
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -1073,7 +1050,7 @@
   - type: VaporVisuals
 
 - type: entity
-  id: BulletHivebot
+  id: BulletHivebotWizden #imp - see the _Impstation directory for the version we use
   name: hivebot bullet
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -1084,7 +1061,7 @@
         Piercing: 10
 
 - type: entity
-  id: BulletCannonBall
+  id: BulletCannonBallWizden #imp - see the _Impstation directory for the version we use
   name: cannonball
   parent: BaseBulletTrigger
   categories: [ HideSpawnMenu ]
@@ -1106,15 +1083,12 @@
     energy: 0.5
 
 - type: entity
-  id: GrapplingHook
+  id: GrapplingHookWizden #imp - see the _Impstation directory for the version we use
   name: grappling hook
   categories: [ HideSpawnMenu ]
   components:
     - type: EmbeddableProjectile
       deleteOnRemove: true
-      sound:
-        path: /Audio/_Impstation/Effects/grapple_impact.ogg
-      autoRemoveDuration: 0 # IMP
     - type: Clickable
     - type: InteractionOutline
     - type: Sprite
@@ -1145,7 +1119,7 @@
 
 - type: entity
   name : disabler bolt smg
-  id: BulletDisablerSmg
+  id: BulletDisablerSmgWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -1158,9 +1132,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: lightstun #imp
+    - state: omnilaser
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -1176,7 +1150,6 @@
         - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectOmnilaser #imp
   - type: StaminaDamageOnCollide
     damage: 15
   - type: Projectile
@@ -1190,7 +1163,7 @@
 
 - type: entity
   name : energy bolt
-  id: BulletEnergyTurretBase
+  id: BulletEnergyTurretBaseWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -1203,9 +1176,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: medium #imp
+    - state: heavylaser
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -1222,16 +1195,16 @@
 
 - type: entity
   name : laser bolt
-  id: BulletEnergyTurretLaser
+  id: BulletEnergyTurretLaserWizden #imp - see the _Impstation directory for the version we use
   parent: BulletEnergyTurretBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectHeavyLaser
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: medium #imp
+    - state: heavylaser
       shader: unshaded
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
@@ -1241,16 +1214,16 @@
 
 - type: entity
   name : disabler bolt
-  id: BulletEnergyTurretDisabler
+  id: BulletEnergyTurretDisablerWizden #imp - see the _Impstation directory for the version we use
   parent: BulletEnergyTurretBase
   categories: [ HideSpawnMenu ]
   components:
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectOmnilaser
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: mediumstun #imp
+    - state: omnilaser
       shader: unshaded
   - type: StaminaDamageOnCollide
     damage: 30
@@ -1265,12 +1238,10 @@
 
 - type: entity
   name: tesla gun lightning
-  id: TeslaGunBullet
+  id: TeslaGunBulletWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
-  - type: Ammo #imp
-    muzzleFlash: null
   - type: TimedDespawn
     lifetime: 5
   - type: Sprite
@@ -1300,7 +1271,7 @@
 
 - type: entity
   name: laser bolt
-  id: BulletLaser
+  id: BulletLaserWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -1313,9 +1284,9 @@
       params:
         volume: 5
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: light #imp
+    - state: heavylaser
       shader: unshaded
   - type: Physics
   - type: Fixtures
@@ -1331,7 +1302,6 @@
         - BulletImpassable
       fly-by: *flybyfixture
   - type: Ammo
-    muzzleFlash: MuzzleFlashEffectHeavyLaser #imp
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
@@ -1340,7 +1310,7 @@
 
 - type: entity
   name: wide laser barrage
-  id: BulletLaserSpread
+  id: BulletLaserSpreadWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
   components:
@@ -1351,18 +1321,18 @@
 
 - type: entity
   name: lethal laser barrage
-  id: BulletLaserSpreadNarrow
+  id: BulletLaserSpreadNarrowWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
   components:
   - type: ProjectileSpread
-    proto: BulletLaserHeavy #imp
-    count: 4 #60 heat damage if you hit all your shots, but narrower spread
+    proto: BulletLaser
+    count: 4 #52 heat damage if you hit all your shots, but narrower spread
     spread: 10
 
 - type: entity
   name: disabling laser barrage
-  id: BulletDisablerSmgSpread
+  id: BulletDisablerSmgSpreadWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   parent: BulletDisablerSmg
   components:
@@ -1372,15 +1342,15 @@
     spread: 9
 
 - type: entity
-  name: magnum blaster bolt #imp
-  id: BulletLaserMagnum
+  name: magnum laser bolt
+  id: BulletLaserMagnumWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   parent: BulletLaser
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_magnum.rsi
     layers:
-    - state: heavy #imp
+    - state: magnum
       shader: unshaded
   - type: PointLight
     enabled: true
@@ -1389,7 +1359,7 @@
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
       types:
-        Heat: 35 #imp
+        Heat: 30
 
 - type: entity
   name: magnum window-piercing bolt
@@ -1398,9 +1368,9 @@
   parent: BulletLaser
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_magnum.rsi
     layers:
-    - state: medium #imp
+    - state: magnum_piercing
       shader: unshaded
   - type: PointLight
     enabled: true

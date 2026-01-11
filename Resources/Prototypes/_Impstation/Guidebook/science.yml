@@ -1,0 +1,23 @@
+- type: guideEntry
+  id: Xenoarchaeology
+  name: guide-entry-xenoarchaeology
+  text: "/ServerInfo/_Impstation/Guidebook/Science/Xenoarchaeology.xml"
+  children:
+    - AnalysisConsoleImp
+    - XenoarchaeologyReticulated
+    - XenoarchaeologyNatural
+
+- type: guideEntry
+  id: XenoarchaeologyReticulated
+  name: guide-entry-xenoarchaeologyreticulated
+  text: "/ServerInfo/_Impstation/Guidebook/Science/XenoarchaeologyReticulated.xml"
+
+- type: guideEntry
+  id: XenoarchaeologyNatural
+  name: guide-entry-xenoarchaeologynatural
+  text: "/ServerInfo/_Impstation/Guidebook/Science/XenoarchaeologyNatural.xml"
+
+- type: guideEntry
+  id: AnalysisConsoleImp
+  name: guide-entry-analysisconsole
+  text: "/ServerInfo/_Impstation/Guidebook/Science/AnalysisConsole.xml"
