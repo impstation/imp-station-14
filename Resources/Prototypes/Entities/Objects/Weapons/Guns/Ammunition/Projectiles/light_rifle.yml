@@ -1,5 +1,5 @@
 - type: entity
-  id: BulletLightRifle
+  id: BulletLightRifleWizden #imp - see the _Impstation directory for the version we use
   name: bullet (.30 rifle)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -7,10 +7,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 25 #imp
+        Piercing: 19
 
 - type: entity
-  id: BulletLightRiflePractice
+  id: BulletLightRiflePracticeWizden #imp - see the _Impstation directory for the version we use
   name: bullet (.30 rifle practice)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
@@ -21,7 +21,7 @@
         Blunt: 2
 
 - type: entity
-  id: BulletLightRifleIncendiary
+  id: BulletLightRifleIncendiaryWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBulletIncendiary
   name: bullet (.30 rifle incendiary)
   categories: [ HideSpawnMenu ]
@@ -29,11 +29,11 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 6 #imp, was 14
-        Heat: 19 #imp, was 5
+        Piercing: 14
+        Heat: 5
 
 - type: entity
-  id: BulletLightRifleUranium
+  id: BulletLightRifleUraniumWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBulletUranium
   name: bullet (.30 rifle uranium)
   categories: [ HideSpawnMenu ]
@@ -41,5 +41,5 @@
   - type: Projectile
     damage:
       types:
-        Radiation: 12 #imp
-        Piercing: 13 #imp
+        Radiation: 9
+        Piercing: 10

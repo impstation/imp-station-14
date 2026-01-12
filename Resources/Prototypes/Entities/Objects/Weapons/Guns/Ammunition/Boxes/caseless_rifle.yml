@@ -1,9 +1,8 @@
 - type: entity
-  abstract: true
   parent: BaseItem
-  id: BaseMagazineBoxCaselessRifle
+  id: BaseMagazineBoxCaselessRifleWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: ammunition box (.25 caseless)
-  description: A box made for 50 rounds of .25 caseless ammunition. #imp
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -11,14 +10,14 @@
       tags:
         - CartridgeCaselessRifle
     proto: CartridgeCaselessRifle
-    capacity: 50 #imp
+    capacity: 60
   - type: Item
     size: Small
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/caseless_rifle.rsi # imp
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/caseless_rifle.rsi
   - type: MagazineVisuals
     magState: mag
     steps: 4
@@ -28,51 +27,10 @@
 # Boxes
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
-  id: MagazineBoxCaselessRifle10x24
+  id: MagazineBoxCaselessRifleWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: ammunition box (.25 caseless)
-  description: A large box made for 200 rounds of .25 caseless ammunition, labeled as live-fire bullets. #imp
-  components:
-  - type: BallisticAmmoProvider
-    capacity: 200
-    proto: CartridgeCaselessRifle
-  - type: Sprite
-    layers:
-    - state: base-10x24
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag10-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: mag10
-    steps: 4
-    zeroVisible: false
-  - type: Appearance
-
-- type: entity
-  parent: BaseMagazineBoxCaselessRifle
-  id: MagazineBoxCaselessRifleBig
-  name: ammunition box (.25 caseless)
-  description: A large box made for 200 rounds of .25 caseless ammunition, labeled as live-fire bullets. #imp
-  components:
-  - type: BallisticAmmoProvider
-    capacity: 200
-    proto: CartridgeCaselessRifle
-  - type: Sprite
-    layers:
-    - state: base-b
-      map: ["enum.GunVisualLayers.Base"]
-    - state: magb-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: MagazineVisuals
-    magState: magb
-    steps: 4
-    zeroVisible: false
-  - type: Appearance
-
-- type: entity
-  parent: BaseMagazineBoxCaselessRifle
-  id: MagazineBoxCaselessRifle
-  name: ammunition box (.25 caseless)
-  description: A box made for 50 rounds of .25 caseless ammunition, labeled as live-fire bullets. #imp
+  description: A cardboard box of .25 caseless rounds. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRifle
@@ -85,9 +43,10 @@
 
 - type: entity
   parent: BaseMagazineBoxCaselessRifle
-  id: MagazineBoxCaselessRiflePractice
+  id: MagazineBoxCaselessRiflePracticeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: ammunition box (.25 caseless practice)
-  description: A box made for 50 rounds of .25 caseless ammunition, labeled as practice bullets. #imp
+  description: A cardboard box of .25 caseless rounds. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCaselessRiflePractice

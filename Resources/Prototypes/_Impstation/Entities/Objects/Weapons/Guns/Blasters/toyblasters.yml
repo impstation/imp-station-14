@@ -1,0 +1,45 @@
+- type: entity
+  name: Ceremonial Gray blaster
+  parent: BaseBlasterPistol
+  id: WeaponBlasterToy
+  description: A harmless* gun used by Grays for ceremonial purposes.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/grayceremonial.rsi
+    layers:
+      - state: icon
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/grayceremonial.rsi
+  - type: Appearance
+  - type: Gun
+    projectileSpeed: 10
+    cameraRecoilScalar: 0.1
+    minAngle: 90
+    maxAngle: 90
+    fireRate: 6
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/toyblaster.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletBlasterToy
+    fireCost: 10
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 200
+  - type: MeleeWeapon
+    wideAnimationRotation: -80
+    damage:
+      types:
+        Blunt: 0
+  - type: DamageOtherOnHit
+    staminaCost: 15
+    damage:
+      types:
+        Blunt: 0
+  - type: PacifismAllowedGun
+  - type: Tag
+    tags:
+    - Taser
+    - Sidearm
