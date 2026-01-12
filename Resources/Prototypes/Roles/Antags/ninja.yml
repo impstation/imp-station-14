@@ -29,9 +29,10 @@
     belt: EnergyKatanaStun # imp
   inhand:
     - JetpackBlackFilled
+  # begin imp edit, replaced toolset with omnitool and added smoke grenades
   storage:
     back: # belt holds katana so satchel has the tools for sabotaging things
-    #- Crowbar #imp, replaced toolset minus welder with omnitool
+    #- Crowbar 
     #- Wrench
     #- Screwdriver
     #- Wirecutter
@@ -42,6 +43,7 @@
     - SmokeGrenade
     - SmokeGrenade
     - SmokeGrenade
+  # end imp edit
 
 - type: chameleonOutfit
   id: NinjaChameleonOutfit
