@@ -701,7 +701,7 @@
     - state: heStraight
       map: [ "enum.SubfloorLayers.FirstLayer" ]
     - state: heStraightGlow
-      map: [ "enum.HeatExchangerVisualLayers.Glow" ]
+      map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ]
       color: "#ff00ea"
       shader: "unshaded"
       visible: false
@@ -771,7 +771,7 @@
       - state: heBend
         map: [ "enum.SubfloorLayers.FirstLayer" ]
       - state: heBendGlow
-        map: [ "enum.HeatExchangerVisualLayers.Glow" ]
+        map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ]
         color: "#ff00ea"
         shader: "unshaded"
         visible: false

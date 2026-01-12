@@ -415,7 +415,7 @@
     - state: heStraight
       map: [ "enum.SubfloorLayers.FirstLayer" ]
     - state: heStraightGlow
-      map: [ "enum.HeatExchangerVisualLayers.Glow" ]
+      map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ]
       
   - type: Construction
     node: radiatorAlt1
@@ -434,7 +434,7 @@
     - state: heStraight
       map: [ "enum.SubfloorLayers.FirstLayer" ]
     - state: heStraightGlow
-      map: [ "enum.HeatExchangerVisualLayers.Glow" ]
+      map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ]
   - type: Construction
     node: radiatorAlt2
 
@@ -454,7 +454,7 @@
     - state: heBend
       map: [ "enum.SubfloorLayers.FirstLayer" ]
     - state: heBendGlow
-      map: [ "enum.HeatExchangerVisualLayers.Glow" ]
+      map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ]
   - type: Construction
     node: bendradiatorAlt1
 
@@ -472,7 +472,7 @@
     - state: heBend
       map: [ "enum.SubfloorLayers.FirstLayer" ]
     - state: heBendGlow
-      map: [ "enum.HeatExchangerVisualLayers.Glow" ]
+      map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ]
   - type: Construction
     node: bendradiatorAlt2
 

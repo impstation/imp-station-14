@@ -17,7 +17,7 @@ using Robust.Server.GameObjects; //Imp - PointLightSystem for radiator glow
 
 namespace Content.Server.Atmos.EntitySystems;
 
-public sealed class HeatExchangerSystem : SharedHeatExchangerSystem //Imp - SharedSystem to connect with client
+public sealed class HeatExchangerSystem : EntitySystem
 {
     [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
@@ -145,9 +145,6 @@ public sealed class HeatExchangerSystem : SharedHeatExchangerSystem //Imp - Shar
     //Imp edits below. Radiator glow.
     private void UpdateRadiatorAppearance(EntityUid uid, float radiatorEmittedEnergy)
     {
-
-        // Log.Debug($"rad energy is {radiatorEmittedEnergy} for uid {uid}");
-
         //Return early if the pointlightcomponent doesn't exist (?)
         if (!_pointLight.TryGetLight(uid, out var pointLight))
             return;
@@ -163,18 +160,7 @@ public sealed class HeatExchangerSystem : SharedHeatExchangerSystem //Imp - Shar
         float radiatorTemperature = radiatorEmittedEnergy / radiatorSpecificHeat;
         // Log.Debug($"rad temp is {radiatorTemperature} for uid {uid}");
 
-        /* OUTDATED DRAPER POINT CUTOFF
-        //Find the color of the light based on the temperature of the radiator
-        //Glowing starts at 798K (Draper point)
-        //Disable the glow if the temperature is below this, and skip all future calculations
-        if (radiatorTemperature < 798)
-        {
-            _pointLight.SetEnabled(uid, false, pointLight);
-            return;
-        }
-        */
-
-        //Glowing starts at 1667K based on the Planckian locus approximation below.
+        //Glowing starts at 1667K based on the Planckian locus approximation (calculated below).
         //Disable the glow if the temperature is below that.
         if (radiatorTemperature < 1667)
         // if (radiatorTemperature < 798)
@@ -193,7 +179,7 @@ public sealed class HeatExchangerSystem : SharedHeatExchangerSystem //Imp - Shar
         //Clamp temperature to a max of 25000
         radiatorTemperature = radiatorTemperature > 25000 ? 25000 : radiatorTemperature;
 
-        //Code snippet provided by perryprog from Github, edited by combustibletoast.
+        //Code snippet (both switch blocks) provided by perryprog from Github, edited by combustibletoast.
         //Find the x and y coordinate of the color in CIE color space based on the radiator's temperature:
         var x = (float)(radiatorTemperature switch
         {
@@ -234,7 +220,6 @@ public sealed class HeatExchangerSystem : SharedHeatExchangerSystem //Imp - Shar
         _pointLight.SetRadius(uid, energy);
 
         // Write color to visulaizerSystem so client can update the unshaded sprite
-        //public void SetData(EntityUid uid, Enum key, object value, AppearanceComponent? component = null)
         _appearance.SetData(uid, HeatExchangerVisuals.Color, radiatorColor);
         _appearance.TryGetData(uid, HeatExchangerVisuals.Color, out var debug_color_get);
     }

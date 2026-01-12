@@ -18,8 +18,7 @@ public enum HeatExchangerVisuals
     Color
 }
 
-public enum HeatExchangerVisualLayers
+public enum HeatExchangerGlowVisualLayers
 {
-    Base,
-    Glow,
+    Glow
 }
