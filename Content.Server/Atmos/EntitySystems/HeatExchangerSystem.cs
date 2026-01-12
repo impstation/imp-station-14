@@ -8,11 +8,11 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.NodeContainer;
 using Content.Shared.Atmos.Piping;
 using Content.Shared.Atmos;
-using Content.Shared.Atmos.Components; //Imp - Reference to HeatExchangerVisuals
 using Content.Shared.CCVar;
 using Content.Shared.Interaction;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
+using Content.Shared.Atmos.Components; //Imp - Reference to HeatExchangerVisuals for radiator glow
 using Robust.Server.GameObjects; //Imp - PointLightSystem for radiator glow
 
 namespace Content.Server.Atmos.EntitySystems;
@@ -142,7 +142,7 @@ public sealed class HeatExchangerSystem : EntitySystem
         UpdateRadiatorAppearance(uid, dER); //imp
     }
 
-    //Imp edits below. Radiator glow.
+    //Imp addition below -- radiator glow.
     private void UpdateRadiatorAppearance(EntityUid uid, float radiatorEmittedEnergy)
     {
         //Return early if the pointlightcomponent doesn't exist (?)

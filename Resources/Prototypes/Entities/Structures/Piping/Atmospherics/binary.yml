@@ -701,10 +701,10 @@
     - state: heStraight
       map: [ "enum.SubfloorLayers.FirstLayer" ]
     - state: heStraightGlow
-      map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ]
-      color: "#ff00ea"
-      shader: "unshaded"
-      visible: false
+      map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ] #imp edit
+      color: "#ff00ea" #imp edit
+      shader: "unshaded" #imp edit
+      visible: false #imp edit
   - type: AtmosPipeLayers
     spriteRsiPaths:
       Primary: _Impstation/Structures/Piping/Atmospherics/heatexchanger.rsi #imp edit
@@ -771,10 +771,10 @@
       - state: heBend
         map: [ "enum.SubfloorLayers.FirstLayer" ]
       - state: heBendGlow
-        map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ]
-        color: "#ff00ea"
-        shader: "unshaded"
-        visible: false
+        map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ] #imp edit
+        color: "#ff00ea" #imp edit
+        shader: "unshaded" #imp edit
+        visible: false #imp edit
     - type: NodeContainer
       nodes:
         inlet:
