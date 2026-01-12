@@ -250,10 +250,10 @@ phrase-circle = circle
 phrase-square = square
 phrase-triangle = triangle
 
-#size
+# size
 phrase-big = big
 phrase-small = small
 
-#speed
+# speed
 phrase-slow = slow
 phrase-fast = fast
