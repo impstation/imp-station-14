@@ -47,7 +47,7 @@
   parent: HeatExchanger
   id: HeatExchangerRetro
   name: retro radiator
-  description: An older radiator model that's a bit more efficient, but a lot bulkier than the modern version.
+  description: An older, bulkier radiator model. It may or may not actually be more efficient than the modern model.
   placement:
     mode: SnapgridCenter
   components:
@@ -56,8 +56,8 @@
     #however no matter how much I test these datafields, none of them seem to have an actual effect on the environment
     #so I am leaving these in as at worst a placebo or at best something that may have an appreciable difference only in an actual round
     conductivity: 1.25
-    convectionCoefficient: 10000
-    radiationCoefficient: 175
+    #convectionCoefficient: 10000
+    #radiationCoefficient: 175
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
   - type: AtmosPipeLayers
@@ -70,6 +70,8 @@
   - type: Construction
     graph: GasBinary
     node: retroRadiator
+  - type: StaticPrice
+    price: 45
 
 - type: entity
   parent: HeatExchangerRetro
