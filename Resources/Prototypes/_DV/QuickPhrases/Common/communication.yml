@@ -1,0 +1,37 @@
+# all imp add
+- type: quickPhrase
+  id: BaseCommunicationPhrase
+  parent: BaseCommonPhrase
+  group: AAC
+  tab: AAC
+  abstract: true
+
+- type: quickPhrase
+  id: HowIPhrase
+  parent: BaseCommunicationPhrase
+  text: phrase-how-i
+
+- type: quickPhrase
+  id: WaitTypePhrase
+  parent: BaseCommunicationPhrase
+  text: phrase-wait-type
+
+- type: quickPhrase
+  id: UnablePhrase
+  parent: BaseCommunicationPhrase
+  text: phrase-unable
+
+- type: quickPhrase
+  id: OtherWayPhrase
+  parent: BaseCommunicationPhrase
+  text: phrase-other-way
+
+- type: quickPhrase
+  id: DontUnderstandPhrase
+  parent: BaseCommunicationPhrase
+  text: phrase-dont-understand
+
+- type: quickPhrase
+  id: SignPhrase
+  parent: BaseCommunicationPhrase
+  text: phrase-sign

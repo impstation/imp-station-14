@@ -22,6 +22,13 @@
     - MinutePhrase
     - SecondPhrase
     - DayPhrase
+    - NightPhrase
+    - BeforePhrase
+    - AfterPhrase
+    - NowPhrase
+    - LaterPhrase
+    - SoonPhrase
+    - NextPhrase
 # Jobs
     - PassengerPhrase
     - VisitorPhrase
@@ -66,9 +73,48 @@
     - PsychologistPhrase
     - ReporterPhrase
     - ZookeeperPhrase
+# General
+    - CommonAndPhrase
+    - CommonOrPhrase
+    - CommonSleepPhrase
+    - CommonAwakePhrase
+    - CommonSSDPhrase
+    - CommonForPhrase
+    - CommonIfPhrase
+    - CommonButPhrase
+    - CommonWePhrase
+    - CommonLearnPhrase
+    - CommonTeachPhrase
+    - CommonLuckPhrase
+    - CommonMistakePhrase
+    - CommonNewPhrase
+    - CommonMyPhrase
+    - CommonOursPhrase
+    - CommonHavePhrase
+    - CommonGiftPhrase
+    - CommonLoudPhrase
+    - CommonQuietPhrase
+    - CommonKindaPhrase
+    - CommonOldPhrase
+    - CommonYoungPhrase
+    - CommonBabyPhrase
+    - CommonAdultPhrase
+    - CommonManPhrase
+    - CommonWomanPhrase
+    - CommonChatPhrase
+    - CommonTiltPhrase
+# AAC
+    - HowIPhrase
+    - WaitTypePhrase
+    - UnablePhrase
+    - OtherWayPhrase
+    - DontUnderstandPhrase
+    - SignPhrase
 # Safety
     - SafetySafePhrase
     - SafetyInDangerPhrase
+    - SafetyCarefulPhrase
+    - SafetyHurtPhrase
     - SafetyInjuredPhrase
     - SafetyDyingPhrase
     - SafetyCriticalPhrase
@@ -111,6 +157,12 @@
     - TrashPhrase
 # Musician
     - StagePhrase
+    - CommonMusicPhrase
+    - CommonArtPhrase
+# Clown
+    - CommonHonkPhrase
+    - CommonFunPhrase
+    - CommonFunnyPhrase
 # Botany
     - SeedPhrase
     - PlantPhrase
@@ -147,6 +199,10 @@
     - SpeciesDecapoidPhrase
     - SpeciesApidPhrase
     - SpeciesGoblinPhrase
+    - SpeciesAllulaloPhrase
+    - SpeciesAnomalocaridPhrase
+    - SpeciesUnguPhrase
+    - SpeciesAntPhrase
 # Engineering
     - AMEPhrase
     - APCPhrase
@@ -175,6 +231,7 @@
     - EngiOnPhrase
     - EngiOffPhrase
     - GasAnalyzerPhrase
+    - SMPhrase
 # Species - Basic
     - SpeciesPersonPhrase
     - SpeciesAnimalPhrase
@@ -201,6 +258,10 @@
     - FixPhrase
     - SwitchPhrase
     - KnowPhrase
+    - TellMePhrase
+    - WalkPhrase
+    - TalkPhrase
+    - WritePhrase
 # Damage
     - DamageBrutePhrase
     - DamageBurnPhrase
@@ -330,6 +391,13 @@
     - LocationFarPhrase
     - LocationInsidePhrase
     - LocationOutsidePhrase
+    - LocationFromPhrase
+    - LocationGoingPhrase
+    - LocationComingPhrase
+    - LocationGonePhrase
+    - LocationHerePhrase
+    - LocationStationPhrase
+    - LocationFTLPhrase
 # Compass directions
     - LocationNorthPhrase
     - LocationEastPhrase
@@ -373,6 +441,11 @@
     - LocationMailPhrase
     - LocationATSPhrase
     - LocationShipyardPhrase
+    - LocationVgroidPhrase
+    - LocationPlanetPhrase
+    - LocationExpedPhrase
+    - LocationWreckPhrase
+    - LocationSalvPullPhrase
 # Medical
     - LocationMedicalPhrase
     - LocationMedbayPhrase
@@ -517,6 +590,7 @@
     - OnPhrase
     - OffPhrase
     - NotPhrase
+    - BothPhrase
 # Hostiles
     - HostileEnemyPhrase
     - HostilePhrase
@@ -577,10 +651,15 @@
     - SpeciesPenguinPhrase
     - SpeciesGoatPhrase
     - SpeciesChickenPhrase
+    - SpeciesFinfinPhrase
+    - SpeciesVrexPhrase
+    - SpeciesEeepPhrase
+    - SpeciesUnknownPhrase
 # Commands
     - GiveMePhrase
     - NeedPhrase
     - WantPhrase
+    - TakePhrase
     - CantPhrase
     - GoAwayPhrase
     - ComeHerePhrase
@@ -593,6 +672,9 @@
     - LeavePhrase
     - StayPhrase
     - StopPhrase
+    - WontPhrase
+    - FollowPhrase
+    - StartPhrase
 # Science
     - AnomalyPhrase
     - APEPhrase
@@ -620,3 +702,59 @@
     - CanIPhrase
     - ShouldIPhrase
     - WhichPhrase
+    - QuestionPhrase
+# Feel
+    - SeePhrase
+    - HearPhrase
+    - SmellPhrase
+    - TouchPhrase
+    - TastePhrase
+    - HappyPhrase
+    - SadPhrase
+    - AngryPhrase
+    - ScaredPhrase
+    - HatePhrase
+    - LovePhrase
+    - LikePhrase
+# Identity
+    - GayPhrase
+    - LesbianPhrase
+    - BiPhrase
+    - PanPhrase
+    - AcePhrase
+    - AroPhrase
+    - TransPhrase
+    - NBPhrase
+    - QueerPhrase
+# Relations
+    - FriendPhrase
+    - EnemyPhrase
+    - RivalPhrase
+    - FamilyPhrase
+    - ParentPhrase
+    - MotherPhrase
+    - FatherPhrase
+    - SonPhrase
+    - DaughterPhrase
+    - ChildPhrase
+    - PartnerPhrase
+    - SpousePhrase
+    - WifePhrase
+    - HusbandPhrase
+    - SiblingPhrase
+    - BroPhrase
+    - SisPhrase
+    - StrangerPhrase
+# Curses
+    - FuckPhrase
+    - FuckOffPhrase
+    - BitchPhrase
+    - DickPhrase
+    - PiskPhrase
+    - PiskunPhrase
+    - ShitPhrase
+    - BastardPhrase
+    - CuntPhrase
+    - DickAndBallsPhrase
+    - BjBPhrase
+    - PiskunBrosPhrase

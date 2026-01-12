@@ -1,0 +1,52 @@
+# all imp add
+- type: quickPhrase
+  id: BaseLGBTPhrase
+  parent: BaseCommonPhrase
+  group: Identity
+  tab: Identity
+  abstract: true
+
+- type: quickPhrase
+  id: GayPhrase
+  parent: BaseLGBTPhrase
+  text: phrase-gay
+
+- type: quickPhrase
+  id: LesbianPhrase
+  parent: BaseLGBTPhrase
+  text: phrase-lesbian
+
+- type: quickPhrase
+  id: BiPhrase
+  parent: BaseLGBTPhrase
+  text: phrase-bi
+
+- type: quickPhrase
+  id: PanPhrase
+  parent: BaseLGBTPhrase
+  text: phrase-pan
+
+- type: quickPhrase
+  id: AcePhrase
+  parent: BaseLGBTPhrase
+  text: phrase-ace
+
+- type: quickPhrase
+  id: AroPhrase
+  parent: BaseLGBTPhrase
+  text: phrase-aro
+
+- type: quickPhrase
+  id: TransPhrase
+  parent: BaseLGBTPhrase
+  text: phrase-trans
+
+- type: quickPhrase
+  id: NBPhrase
+  parent: BaseLGBTPhrase
+  text: phrase-nb
+
+- type: quickPhrase
+  id: QueerPhrase
+  parent: BaseLGBTPhrase
+  text: phrase-queer

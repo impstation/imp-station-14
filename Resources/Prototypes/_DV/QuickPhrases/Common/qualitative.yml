@@ -83,3 +83,8 @@
   id: NotPhrase
   parent: BaseQualitativePhrase
   text: phrase-not
+
+- type: quickPhrase # imp add
+  id: BothPhrase
+  parent: BaseQualitativePhrase
+  text: phrase-both

@@ -41,6 +41,43 @@
 
 # Relative (ungrouped, so it's at the top)
 
+# imp add start
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationStationPhrase
+  text: phrase-location-station
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationFromPhrase
+  text: phrase-location-from
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationGoingPhrase
+  text: phrase-location-going
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationComingPhrase
+  text: phrase-location-coming
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationGonePhrase
+  text: phrase-location-gone
+
+- type: quickPhrase
+  parent: BaseLocationPhrase
+  id: LocationHerePhrase
+  text: phrase-location-here
+- type: quickPhrase
+
+  parent: BaseLocationPhrase
+  id: LocationFTLPhrase
+  text: phrase-location-ftl
+  # im add end
+
 - type: quickPhrase
   parent: BaseLocationPhrase
   id: LocationNearPhrase
@@ -260,6 +297,33 @@
   parent: BaseCargoLocationPhrase
   id: LocationShipyardPhrase
   text: phrase-location-shipyard
+
+# imp add start
+- type: quickPhrase
+  parent: BaseCargoLocationPhrase
+  id: LocationVgroidPhrase
+  text: phrase-location-vgroid
+
+- type: quickPhrase
+  parent: BaseCargoLocationPhrase
+  id: LocationPlanetPhrase
+  text: phrase-location-planet
+
+- type: quickPhrase
+  parent: BaseCargoLocationPhrase
+  id: LocationExpedPhrase
+  text: phrase-location-exped
+
+- type: quickPhrase
+  parent: BaseCargoLocationPhrase
+  id: LocationWreckPhrase
+  text: phrase-location-wreck
+
+- type: quickPhrase
+  parent: BaseCargoLocationPhrase
+  id: LocationSalvPullPhrase
+  text: phrase-location-salv-pull
+# imp add end
 
 # Medical
 

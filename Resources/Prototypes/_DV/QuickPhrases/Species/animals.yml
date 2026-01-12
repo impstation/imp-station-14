@@ -158,3 +158,25 @@
   id: SpeciesChickenPhrase
   parent: BaseAnimalSpeciesPhrase
   text: phrase-species-chicken
+
+# imp add start
+- type: quickPhrase
+  id: SpeciesFinfinPhrase
+  parent: BaseAnimalSpeciesPhrase
+  text: phrase-species-finfin
+
+- type: quickPhrase
+  id: SpeciesVrexPhrase
+  parent: BaseAnimalSpeciesPhrase
+  text: phrase-species-vrex
+
+- type: quickPhrase
+  id: SpeciesEeepPhrase
+  parent: BaseAnimalSpeciesPhrase
+  text: phrase-species-eeep
+
+- type: quickPhrase
+  id: SpeciesUnknownPhrase
+  parent: BaseAnimalSpeciesPhrase
+  text: phrase-species-unknown
+# imp add end

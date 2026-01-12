@@ -3,6 +3,16 @@
   parent: BaseThreatPhrase
   abstract: true
 
+- type: quickPhrase # imp add
+  id: SafetyCarefulPhrase
+  parent: BaseSafetyStatusPhrase
+  text: phrase-careful
+
+- type: quickPhrase # imp add
+  id: SafetyHurtPhrase
+  parent: BaseSafetyStatusPhrase
+  text: phrase-safety-hurt
+
 - type: quickPhrase
   id: SafetySafePhrase
   parent: BaseSafetyStatusPhrase

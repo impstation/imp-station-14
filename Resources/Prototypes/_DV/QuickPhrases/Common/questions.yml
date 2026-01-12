@@ -4,6 +4,11 @@
   group: Question
   abstract: true
 
+- type: quickPhrase # imp add
+  id: QuestionPhrase
+  parent: BaseQuestionPhrase
+  text: phrase-question
+
 - type: quickPhrase
   id: WherePhrase
   parent: BaseQuestionPhrase

@@ -24,6 +24,11 @@
   parent: BaseImperativePhrase
   text: phrase-cant
 
+- type: quickPhrase # imp add
+  id: WontPhrase
+  parent: BaseImperativePhrase
+  text: phrase-wont
+
 - type: quickPhrase
   id: GoAwayPhrase
   parent: BaseImperativePhrase
@@ -33,6 +38,11 @@
   id: ComeHerePhrase
   parent: BaseImperativePhrase
   text: phrase-come-here
+
+- type: quickPhrase # imp add
+  id: FollowPhrase
+  parent: BaseImperativePhrase
+  text: phrase-follow
 
 - type: quickPhrase
   id: GoToPhrase
@@ -78,3 +88,8 @@
   id: StopPhrase
   parent: BaseImperativePhrase
   text: phrase-stop
+
+- type: quickPhrase # imp add
+  id: StartPhrase
+  parent: BaseImperativePhrase
+  text: phrase-start

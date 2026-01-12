@@ -40,3 +40,7 @@ phrase-species-insect = insect
 phrase-species-pet = pet
 phrase-species-chicken = chicken
 phrase-species-fish = fish
+phrase-species-finfin = finfin
+phrase-species-vrex = vrex
+phrase-species-eeep = eeep
+phrase-species-unknown = Unknown

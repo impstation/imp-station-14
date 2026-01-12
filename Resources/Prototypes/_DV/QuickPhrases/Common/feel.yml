@@ -1,0 +1,67 @@
+# all imp add
+- type: quickPhrase
+  id: BaseFeelPhrase
+  parent: BaseCommonPhrase
+  group: Feelings and Senses
+  tab: Feelings and Senses
+  abstract: true
+
+- type: quickPhrase
+  id: SeePhrase
+  parent: BaseFeelPhrase
+  text: phrase-see
+
+- type: quickPhrase
+  id: HearPhrase
+  parent: BaseFeelPhrase
+  text: phrase-hear
+
+- type: quickPhrase
+  id: SmellPhrase
+  parent: BaseFeelPhrase
+  text: phrase-smell
+
+- type: quickPhrase
+  id: TouchPhrase
+  parent: BaseFeelPhrase
+  text: phrase-touch
+
+- type: quickPhrase
+  id: TastePhrase
+  parent: BaseFeelPhrase
+  text: phrase-taste
+
+- type: quickPhrase
+  id: HappyPhrase
+  parent: BaseFeelPhrase
+  text: phrase-happy
+
+- type: quickPhrase
+  id: SadPhrase
+  parent: BaseFeelPhrase
+  text: phrase-sad
+
+- type: quickPhrase
+  id: AngryPhrase
+  parent: BaseFeelPhrase
+  text: phrase-angry
+
+- type: quickPhrase
+  id: ScaredPhrase
+  parent: BaseFeelPhrase
+  text: phrase-scared
+
+- type: quickPhrase
+  id: HatePhrase
+  parent: BaseFeelPhrase
+  text: phrase-hate
+
+- type: quickPhrase
+  id: LovePhrase
+  parent: BaseFeelPhrase
+  text: phrase-love
+
+- type: quickPhrase
+  id: LikePhrase
+  parent: BaseFeelPhrase
+  text: phrase-like

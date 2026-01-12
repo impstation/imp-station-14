@@ -137,3 +137,8 @@
   id: GasAnalyzerPhrase
   parent: BaseEngineeringSubjectPhrase
   text: phrase-gas-analyzer
+
+- type: quickPhrase # imp add
+  id: SMPhrase
+  parent: BaseEngineeringSubjectPhrase
+  text: phrase-SM

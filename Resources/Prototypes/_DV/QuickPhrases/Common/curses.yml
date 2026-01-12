@@ -1,0 +1,67 @@
+# all imp add
+- type: quickPhrase
+  id: BaseCursePhrase
+  parent: BaseCommonPhrase
+  group: Curses
+  tab: Curses
+  abstract: true
+
+- type: quickPhrase
+  id: FuckPhrase
+  parent: BaseCursePhrase
+  text: phrase-fuck
+
+- type: quickPhrase
+  id: FuckOffPhrase
+  parent: BaseCursePhrase
+  text: phrase-fuckoff
+
+- type: quickPhrase
+  id: BitchPhrase
+  parent: BaseCursePhrase
+  text: phrase-bitch
+
+- type: quickPhrase
+  id: DickPhrase
+  parent: BaseCursePhrase
+  text: phrase-dick
+
+- type: quickPhrase
+  id: PiskPhrase
+  parent: BaseCursePhrase
+  text: phrase-pisk
+
+- type: quickPhrase
+  id: PiskunPhrase
+  parent: BaseCursePhrase
+  text: phrase-piskun
+
+- type: quickPhrase
+  id: ShitPhrase
+  parent: BaseCursePhrase
+  text: phrase-shit
+
+- type: quickPhrase
+  id: BastardPhrase
+  parent: BaseCursePhrase
+  text: phrase-bastard
+
+- type: quickPhrase
+  id: CuntPhrase
+  parent: BaseCursePhrase
+  text: phrase-cunt
+
+- type: quickPhrase
+  id: DickAndBallsPhrase
+  parent: BaseCursePhrase
+  text: phrase-dick-and-balls
+
+- type: quickPhrase
+  id: BjBPhrase
+  parent: BaseCursePhrase
+  text: phrase-bjb
+
+- type: quickPhrase
+  id: PiskunBrosPhrase
+  parent: BaseCursePhrase
+  text: phrase-piskun-bros

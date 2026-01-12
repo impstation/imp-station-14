@@ -78,3 +78,23 @@
   id: SpeciesGoblinPhrase
   parent: BaseCrewSpeciesPhrase
   text: species-name-goblin
+
+- type: quickPhrase
+  id: SpeciesAllulaloPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-allulalo
+
+- type: quickPhrase
+  id: SpeciesAnomalocaridPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-anomalocarid
+
+- type: quickPhrase
+  id: SpeciesUnguPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-ungu
+
+- type: quickPhrase
+  id: SpeciesAntPhrase
+  parent: BaseCrewSpeciesPhrase
+  text: species-name-ant

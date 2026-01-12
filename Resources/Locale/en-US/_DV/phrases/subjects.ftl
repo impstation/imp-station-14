@@ -209,6 +209,8 @@ phrase-shoes = shoes
 phrase-limbs = limbs
 phrase-release = release
 phrase-parole = parole
+phrase-cigarette = cigarette
+phrase-SM = Supermatter
 
 # colors
 phrase-color-red = red
@@ -241,3 +243,17 @@ phrase-onion = onion
 phrase-aloe = aloe
 phrase-poppy = poppy
 phrase-galaxythistle = galaxythistle
+
+# shapes
+phrase-round = round
+phrase-circle = circle
+phrase-square = square
+phrase-triangle = triangle
+
+#size
+phrase-big = big
+phrase-small = small
+
+#speed
+phrase-slow = slow
+phrase-fast = fast

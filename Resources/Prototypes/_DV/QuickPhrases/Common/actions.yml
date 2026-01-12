@@ -19,6 +19,21 @@
   parent: BaseActionPhrase
   text: phrase-show
 
+- type: quickPhrase # imp add
+  id: TellMePhrase
+  parent: BaseActionPhrase
+  text: phrase-tell
+
+- type: quickPhrase # imp add
+  id: TalkPhrase
+  parent: BaseActionPhrase
+  text: phrase-talk
+
+- type: quickPhrase # imp add
+  id: WritePhrase
+  parent: BaseActionPhrase
+  text: phrase-write
+
 - type: quickPhrase
   id: HelpPhrase
   parent: BaseActionPhrase
@@ -48,6 +63,11 @@
   id: RunPhrase
   parent: BaseActionPhrase
   text: phrase-run
+
+- type: quickPhrase # imp add
+  id: WalkPhrase
+  parent: BaseActionPhrase
+  text: phrase-walk
 
 - type: quickPhrase
   id: GoPhrase

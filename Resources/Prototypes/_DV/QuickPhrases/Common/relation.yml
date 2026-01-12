@@ -1,0 +1,97 @@
+# all imp add
+- type: quickPhrase
+  id: BaseRelationsPhrase
+  parent: BaseCommonPhrase
+  group: Relations
+  tab: Relations
+  abstract: true
+
+- type: quickPhrase
+  id: FriendPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-friend
+
+- type: quickPhrase
+  id: EnemyPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-enemy
+
+- type: quickPhrase
+  id: RivalPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-rival
+
+- type: quickPhrase
+  id: FamilyPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-family
+
+- type: quickPhrase
+  id: ParentPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-parent
+
+- type: quickPhrase
+  id: MotherPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-mom
+
+- type: quickPhrase
+  id: FatherPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-dad
+
+- type: quickPhrase
+  id: SonPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-son
+
+- type: quickPhrase
+  id: DaughterPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-daughter
+
+- type: quickPhrase
+  id: ChildPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-child
+
+- type: quickPhrase
+  id: PartnerPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-partner
+
+- type: quickPhrase
+  id: SpousePhrase
+  parent: BaseRelationsPhrase
+  text: phrase-spouse
+
+- type: quickPhrase
+  id: WifePhrase
+  parent: BaseRelationsPhrase
+  text: phrase-wife
+
+- type: quickPhrase
+  id: HusbandPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-husband
+
+- type: quickPhrase
+  id: StrangerPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-stranger
+
+- type: quickPhrase
+  id: SiblingPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-sibling
+
+- type: quickPhrase
+  id: BroPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-bro
+
+- type: quickPhrase
+  id: SisPhrase
+  parent: BaseRelationsPhrase
+  text: phrase-sis

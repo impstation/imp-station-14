@@ -12,23 +12,28 @@ phrase-give-me = Give
 phrase-need = I need
 phrase-want = I want
 phrase-cant = I can't
+phrase-wont = I won't
 phrase-show = Show
+phrase-tell = Tell
 phrase-help = Help
 phrase-attack = Attack
 phrase-break = Break
 phrase-build = Build
 phrase-heal = Heal
 phrase-stop = Stop
+phrase-start = Start
 phrase-go-away = Go away
 phrase-leave = Leave
 phrase-stay = Stay
 phrase-come-here = Come here
+phrase-follow = Follow me
 phrase-take = Take
 phrase-go-to = Go to
 phrase-do-not = Do not
 phrase-wait = Wait
 phrase-go = Go
 phrase-run = Run
+phrase-walk = Walk
 phrase-fix = Fix
 phrase-switch = Switch
 phrase-will = Will
@@ -87,6 +92,12 @@ phrase-thousand = thousand
 phrase-million = million
 phrase-billion = billion
 phrase-stack = stack
+phrase-before = before
+phrase-after = after
+phrase-now = now
+phrase-later = later
+phrase-soon = soon
+phrase-next = next
 phrase-hour = hour
 phrase-minute = minute
 phrase-second = second
@@ -97,6 +108,7 @@ phrase-yours = Yours
 phrase-on = On
 phrase-off = Off
 phrase-day = day
+phrase-night = night
 phrase-which = Which
 phrase-not = Not
 phrase-call = Call
@@ -105,3 +117,114 @@ phrase-actiondrink = Drink
 phrase-know = Know
 phrase-think = Think
 phrase-eat = Eat
+phrase-question = question
+phrase-and = and
+phrase-or = or
+phrase-both = both
+phrase-sleep = sleep
+phrase-awake = awake
+phrase-for = for
+phrase-if = if
+phrase-but = but
+phrase-we = we
+phrase-learn = learn
+phrase-teach= teach
+phrase-careful= Careful
+phrase-luck = Good luck
+phrase-mistake = Mistake
+phrase-new = new
+phrase-my = my
+phrase-ours = ours
+phrase-ssd = SSD
+phrase-gay = gay
+phrase-lesbian = lesbian
+phrase-bi = bisexual
+phrase-ace = asexual
+phrase-aro = aromantic
+phrase-pan = pansexual
+phrase-trans = transgender
+phrase-nb = nonbinary
+phrase-queer = queer
+phrase-man = man
+phrase-woman = woman
+phrase-have = have
+phrase-gift = gift
+
+# senses
+phrase-see = see
+phrase-hear = hear
+phrase-smell = smell
+phrase-touch = touch
+phrase-taste = taste
+
+# relation
+phrase-friend = friend
+phrase-family = family
+phrase-enemy = enemy
+phrase-rival = rival
+phrase-parent = parent
+phrase-mom = mother
+phrase-dad = father
+phrase-son = son
+phrase-daughter = daughter
+phrase-child = child
+phrase-partner = partner
+phrase-spouse = spouse
+phrase-wife = wife
+phrase-husband = husband
+phrase-stranger = stranger
+phrase-sibling = sibling
+phrase-bro = brother
+phrase-sis = sister
+
+# feelings
+phrase-happy = happy
+phrase-sad = sad
+phrase-angry = angry
+phrase-scared = scared
+phrase-hate = hate
+phrase-love = love
+phrase-like = like
+
+# volume
+phrase-loud = loud
+phrase-quiet = quiet
+
+# communication
+phrase-talk = Talk
+phrase-write = Write
+phrase-chat = NanoChat
+phrase-how-i = This is how i communicate
+phrase-wait-type = Wait for me to type
+phrase-unable = I am unable to say what I want to
+phrase-other-way = I will find another way to communicate this to you
+phrase-dont-understand = I don't understand
+phrase-sign = Can you understand Sign language?
+
+# funny
+phrase-honk = honk
+phrase-funny = funny
+phrase-fun = fun
+phrase-tilt = I'm using tilt controls!
+phrase-art = art
+phrase-music = music
+
+# age
+phrase-old = old
+phrase-young = young
+phrase-baby = baby
+phrase-adult = adult
+
+# curse
+phrase-fuck = fuck
+phrase-fuckoff = fuck off
+phrase-bitch = bitch
+phrase-dick = dick
+phrase-pisk = pisk
+phrase-piskun = piskun
+phrase-shit = shit
+phrase-bastard = bastard
+phrase-cunt = cunt
+phrase-dick-and-balls = dick and balls
+phrase-bjb = blowjob brothers
+phrase-piskun-bros = piskun bros

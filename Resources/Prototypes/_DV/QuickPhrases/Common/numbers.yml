@@ -103,3 +103,40 @@
   id: DayPhrase
   parent: BaseNumberPhrase
   text: phrase-day
+
+# imp add start
+- type: quickPhrase
+  id: NightPhrase
+  parent: BaseNumberPhrase
+  text: phrase-night
+
+- type: quickPhrase
+  id: BeforePhrase
+  parent: BaseNumberPhrase
+  text: phrase-before
+
+- type: quickPhrase
+  id: AfterPhrase
+  parent: BaseNumberPhrase
+  text: phrase-after
+
+- type: quickPhrase
+  id: NowPhrase
+  parent: BaseNumberPhrase
+  text: phrase-now
+
+- type: quickPhrase
+  id: LaterPhrase
+  parent: BaseNumberPhrase
+  text: phrase-later
+
+- type: quickPhrase
+  id: SoonPhrase
+  parent: BaseNumberPhrase
+  text: phrase-soon
+
+- type: quickPhrase
+  id: NextPhrase
+  parent: BaseNumberPhrase
+  text: phrase-next
+# imp add end
