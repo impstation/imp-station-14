@@ -21,6 +21,5 @@ public enum HeatExchangerVisuals
 public enum HeatExchangerVisualLayers
 {
     Base,
-    Inert,
-    Glowing,
+    Glow,
 }

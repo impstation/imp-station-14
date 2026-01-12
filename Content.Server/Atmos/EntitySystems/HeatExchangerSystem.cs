@@ -155,7 +155,7 @@ public sealed class HeatExchangerSystem : SharedHeatExchangerSystem //Imp - Shar
         //Find the temperature of the radiator:
         //Assume that the radiator is made of stainless steel
         //Stainless steel has a heat capacity of about 502 J/(kg*K)
-        //Assume the radiator is about 10 kg?
+        //Assume the radiator is about 10 kg
         //The radiator has a specific heat of 5020 J/K
         const float radiatorSpecificHeat = 5020;
 
@@ -177,16 +177,22 @@ public sealed class HeatExchangerSystem : SharedHeatExchangerSystem //Imp - Shar
         //Glowing starts at 1667K based on the Planckian locus approximation below.
         //Disable the glow if the temperature is below that.
         if (radiatorTemperature < 1667)
+        // if (radiatorTemperature < 798)
         {
             _pointLight.SetEnabled(uid, false, pointLight);
+            _appearance.SetData(uid, HeatExchangerVisuals.On, false);
             return;
         }
 
         //Otherwise, start glowing
         _pointLight.SetEnabled(uid, true, pointLight);
+        _appearance.SetData(uid, HeatExchangerVisuals.On, true);
 
         //Calculate the color of the radiator via the Planckian locus
         //https://en.wikipedia.org/wiki/Planckian_locus#Approximation
+        //Clamp temperature to a max of 25000
+        radiatorTemperature = radiatorTemperature > 25000 ? 25000 : radiatorTemperature;
+
         //Code snippet provided by perryprog from Github, edited by combustibletoast.
         //Find the x and y coordinate of the color in CIE color space based on the radiator's temperature:
         var x = (float)(radiatorTemperature switch
@@ -210,32 +216,19 @@ public sealed class HeatExchangerSystem : SharedHeatExchangerSystem //Imp - Shar
         var radiatorColor = new Color(luminance * x / y, luminance, luminance * (1 - x - y) / y);
         Log.Debug($"rad color is {radiatorColor} for uid {uid}");
 
-        /* OUTDATED PEAK WAVELENGTH APPROXIMATION IMPLEMENTATION
-        //Calculate the color of the radiator via Wien's displacement law (taken from Wikipedia)
-        //For approximation, just get the peak wavelength emitted
-        const float displacementConstant = 0.002898f;
-        float peakWavelength = displacementConstant / radiatorTemperature;
-        peakWavelength *= 1000000000; //Scale from meters to nanometers
-        // Log.Debug($"rad wavelength is {peakWavelength}nm for uid {uid}");
-
-        //Convert the wavelength to a usable color
-        _pointLight.SetColor(uid, WavelengthToColor(peakWavelength), pointLight);
-        // Log.Debug($"rad color is {WavelengthToColor(peakWavelength)} for uid {uid}");
-        */
-
         //Set the radiator's light intensity:
         //Per the Stefan–Boltzmann law, radiant exitance is proportional to the fourth power of the object's absolute temperature
         float SBConstant = 0.0567f; //Scaled up 1000000x to prevent floating point errors, adjusted in the line below
         float radiantExitance = SBConstant * (float)Math.Pow(radiatorTemperature, 4) / 1000000;
 
-        //Assuming the radiator is 1m^2, the radiant exitance is the wattage of light produced.
-        //Now convert that to the energy and radius that robust toolbox wants
-        //There is no accurate conversion of lumens to RT brightness and radius, so this is just guesswork
+        //Assuming the radiator is 1m^2, the radiant exitance *is* the wattage of light produced, no extra calculation needed.
+        //Now convert that to the energy and radius that robust toolbox wants.
+        //There is no accurate conversion of lumens to RT brightness and radius, so this is just guesswork.
         Log.Debug($"rad radiant exitance is {radiantExitance} for uid {uid}");
-        float energy = (20) / (1 + 100 * (float)Math.Pow(Math.E, -radiantExitance / 1000000));
+        float energy = (4) / (1 + 100 * (float)Math.Pow(Math.E, -radiantExitance / 1000000));
         Log.Debug($"rad light energy is {energy} for uid {uid}");
 
-        // Write light data to pointLight
+        // Set pointlight data
         _pointLight.SetColor(uid, radiatorColor, pointLight);
         _pointLight.SetEnergy(uid, energy);
         _pointLight.SetRadius(uid, energy);
@@ -244,6 +237,5 @@ public sealed class HeatExchangerSystem : SharedHeatExchangerSystem //Imp - Shar
         //public void SetData(EntityUid uid, Enum key, object value, AppearanceComponent? component = null)
         _appearance.SetData(uid, HeatExchangerVisuals.Color, radiatorColor);
         _appearance.TryGetData(uid, HeatExchangerVisuals.Color, out var debug_color_get);
-        Log.Debug($"HEVisuals.Color: {debug_color_get}");
     }
 }
