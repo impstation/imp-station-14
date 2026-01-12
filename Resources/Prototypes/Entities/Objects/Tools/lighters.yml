@@ -357,6 +357,11 @@
   - type: UseDelay
   - type: IgnitionSource
     ignited: false
+  - type: MeleeWeapon #imp
+    wideAnimationRotation: 180
+    damage:
+      types:
+        Blunt: 2
 
 - type: entity
   parent: [BaseBrandedLighter, Tier2Contraband] #imp contraband, tier 2 because it's a gun
