@@ -63,3 +63,7 @@
   - type: TileEntityEffect
     effects:
     - !type:Extinguish
+  # imp edits below
+  - type: FishingPool
+    table: !type:NestedSelector
+      tableId: FishingWaterTable

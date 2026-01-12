@@ -1,0 +1,24 @@
+- type: entity
+  parent: BaseItem
+  id: BaseFish
+  name: fish
+  abstract: true
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: BaseFish
+  id: FishLingCod
+  name: ling cod
+  description: It'll never change.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fishing/Fish/lingcod.rsi
+    state: base
+  - type: Item
+    size: Large
+    inhandVisuals:
+      left:
+      - state: inhand
+      right:
+      - state: inhand
+  - type: MultiHandedItem

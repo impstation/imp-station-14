@@ -601,26 +601,6 @@
     chemicalCost: 0
     useInLesserForm: true
 
-    # imp edit ↓
-- type: entity
-  parent: BaseAction
-  id: ActionToggleTentacle
-  name: Toggle Tentacle
-  description: We shape one of our arms into a Tendon Fishing rod. We may retract our Rod in the same manner as we form it. Costs a small amount of chemicals.
-  components:
-  - type: Action
-    useDelay: 2
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: tentacle
-  - type: InstantAction
-    event: !type:ToggleTentacleEvent {}
-  - type: GoobChangelingAction
-    chemicalCost: 15
-    requireAbsorbed: 1
-#imp edit ^
-
 - type: entity
   parent: BaseAction
   id: ActionToggleSpacesuit
