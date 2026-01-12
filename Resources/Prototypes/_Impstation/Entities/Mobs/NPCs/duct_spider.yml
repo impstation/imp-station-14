@@ -113,7 +113,7 @@
     - VimPilot
     - MultitoolDefibrillatorTarget
     - FootstepSound
-    - SpiderCraft
+    - SpiderCraft # specifically for admemes. shouldn't be able to craft anything in normal gameplay
     - DoorBumpOpener
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -150,25 +150,5 @@
         slot: head
         entity: WaterDropletHat
   - type: Edible
-  - type: ConsumeAction
-    popupSelfStart: kodepiia-consume-start-self
-    popupSelfEnd: kodepiia-consume-end-self
-    popupOthersStart: kodepiia-consume-start-others
-    popupOthersEnd: kodepiia-consume-end-others
-    consumeActionId: ActionKodepiiaConsume
-    damage:
-      groups:
-        Genetic: 5
-      types:
-        Piercing: 5
-    whitelist:
-      components:
-      - Respirator
-      - Bloodstream
-    blacklist:
-      components:
-      - SiliconLawBound
-    canGib: false
-    meatMultiplier: 0.1
-    percentageConsumed: 0.1
   - type: Appearance
+  - type: IgnoreSpiderWeb
