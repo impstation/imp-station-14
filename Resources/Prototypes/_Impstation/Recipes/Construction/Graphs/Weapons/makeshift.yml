@@ -42,18 +42,20 @@
       edges:
         - to: incompleteSledge
           steps:
-            - material: MetalRod
-              amount: 8
-              doAfter: 10
-            - material: Cable
-              amount: 10
-              doAfter: 1
             - tag: Microwave
               name: construction-graph-tag-microwave
               icon:
                 sprite: Structures/Machines/microwave.rsi
                 state: mw
-              doAfter: 1
+              doAfter: 10
+            - material: Steel
+              amount: 10
+            - material: MetalRod
+              amount: 8
+              # doAfter: 10
+            - material: Cable
+              amount: 10
+              # doAfter: 1
           # - tool: Welding
           #   doAfter: 5
 
@@ -62,11 +64,13 @@
       edges:
         - to: sledgehammer
           steps:
+            - tool: Welding
+              doAfter: 4
             - material: Plasteel
-              amount: 10
+              amount: 15
               doAfter: 6
             - material: Steel
-              amount: 15
+              amount: 25
               doAfter: 4
             - tool: Welding
               doAfter: 8

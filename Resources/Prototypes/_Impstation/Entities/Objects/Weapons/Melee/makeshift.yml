@@ -32,6 +32,9 @@
   - type: Construction
     graph: ScrapSword
     node: sword
+  - type: Tool
+    qualities:
+    - Cutting
 
 - type: entity
   name: microwave sledgehammer
@@ -55,8 +58,8 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 10
-        Structural: 25
+        Blunt: 25
+        Structural: 20
   - type: Item
     size: Ginormous
   - type: Construction
@@ -117,6 +120,9 @@
     node: bigSword
   - type: DisarmMalus
     malus: 0.5
+  - type: Reflect
+    reflectProb: 0.333
+    spread: 120
 
 - type: entity
   name: huge sword-shaped scrap
