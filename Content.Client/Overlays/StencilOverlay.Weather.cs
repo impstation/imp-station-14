@@ -3,9 +3,9 @@ using Content.Shared._Impstation.CCVar; // imp
 using Content.Shared.Light.Components;
 using Content.Shared.Weather;
 using Robust.Client.Graphics;
+using Robust.Shared.Configuration; // imp
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Configuration;// imp
 
 namespace Content.Client.Overlays;
 
