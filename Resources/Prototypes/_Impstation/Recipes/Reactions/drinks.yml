@@ -675,3 +675,40 @@
       amount: 1
   products:
     RoseMilk: 3
+
+- type: reaction
+  id: Eunuch
+  requiredMixerCategories:
+  - Stir
+  minTemp: 500
+  reactants:
+    DontTell: #i want this thing to suck ass to make. you're going on a side quest for it. bitch
+      amount: 1
+    SpaceGlue:
+      amount: 1
+    DrGibb:
+      amount: 1
+    Razorium:
+      amount: 1
+      catalyst: true
+  products:
+    Eunuch: 2
+
+- type: reaction
+  id: SchemingEunuch
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Eunuch:
+      amount: 10
+    Toxin:
+      amount: 2
+  effects: #ominous cloud of green gas. will probably get scrubbed away almost instantly
+  - !type:CreateGas
+    gas: Tritium
+  - !type:PopupMessage
+    visualType: LargeCaution
+    messages: [ "eunuch-trit-created" ]
+    type: Pvs
+  products:
+    SchemingEunuch: 12
