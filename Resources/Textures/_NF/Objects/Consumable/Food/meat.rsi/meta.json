@@ -2,7 +2,7 @@
     "version": 1,
     "license": "CC-BY-NC-SA-3.0",
     "copyright": "honeyglazedham, honeyglazedhamslice, normalhamslice by gentlebutter",
-    "copyright": "cured-carp taken from tgstation at https://github.com/tgstation/tgstation/commit/40d75cc340c63582fb66ce15bf75a36115f6bdaa, modified by dustylens (Github)",
+    "copyright": "cured-carp taken from tgstation at https://github.com/tgstation/tgstation/commit/40d75cc340c63582fb66ce15bf75a36115f6bdaa, modified by dustylens (Github). cured carp inhands recolored from generic-pink-inhands in upstream meat.rsi",
     "size": {
         "x": 32,
         "y": 32
@@ -10,6 +10,14 @@
     "states": [
         {
             "name": "cured-carp"
+        },
+        {
+            "name": "cured-carp-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "cured-carp-inhand-right",
+            "directions": 4
         },
         {
             "name": "honeyglazedham"

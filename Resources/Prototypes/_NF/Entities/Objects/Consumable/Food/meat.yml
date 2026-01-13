@@ -36,6 +36,12 @@
           Quantity: 9
         - ReagentId: Fat
           Quantity: 9
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: cured-carp-inhand-left
+      right:
+      - state: cured-carp-inhand-right
 
 # Cooked
 
