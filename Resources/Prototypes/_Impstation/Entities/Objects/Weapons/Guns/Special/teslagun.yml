@@ -1,0 +1,28 @@
+- type: entity
+  name: tesla gun
+  parent: [BaseBlasterPistol, BaseMajorContraband]
+  id: WeaponTeslaGun
+  description: The power of the primordial element of lightning in your hands.
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,1
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Special/tesla_gun.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Gun
+    projectileSpeed: 10
+    soundGunshot:
+      path: /Audio/Effects/Lightning/lightningshock.ogg
+      params:
+        variation: 0.2
+  - type: ProjectileBatteryAmmoProvider
+    proto: TeslaGunBullet
+    fireCost: 300
+  - type: Appearance

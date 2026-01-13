@@ -1,4 +1,97 @@
 - type: entity
+  id: BaseCartridgeMagnum
+  name: cartridge (.45 magnum)
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - CartridgeMagnum
+      - Cartridge
+  - type: CartridgeAmmo
+    proto: BulletMagnum
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: CartridgeMagnum
+  name: cartridge (.45 magnum)
+  parent: BaseCartridgeMagnum
+  description: A powerful kinetic pistol cartridge with incredible stopping power. The best designs are timeless.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnum
+
+- type: entity
+  id: CartridgeMagnumPractice
+  name: cartridge (.45 magnum practice)
+  parent: BaseCartridgeMagnum
+  description: A powerful pistol cartridge with a wax projectile to simulate the real deal. Can be used for force-on-force training but still stings like a bitch. Eye protection required.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnumPractice
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#ffcb6f"
+
+- type: entity
+  id: CartridgeMagnumIncendiary
+  name: cartridge (.45 magnum incendiary)
+  parent: BaseCartridgeMagnum
+  description: A powerful pistol cartridge tipped with a softer projectile containing a pyrophoric compound, setting targets ablaze.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnumIncendiary
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#d46925"
+
+- type: entity
+  id: CartridgeMagnumAP
+  name: cartridge (.45 magnum armor-piercing)
+  parent: BaseCartridgeMagnum
+  description: A powerful pistol cartridge with a tungsten carbide penetrator core and a PTFE coating, defeating conventional armor.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnumAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#662598"
+
+- type: entity
+  id: CartridgeMagnumUranium
+  name: cartridge (.45 magnum uranium)
+  parent: BaseCartridgeMagnum
+  description: A powerful pistol cartridge with a heavier depleted uranium projectile, delivering radiation poisoning at the cost of worse penetration.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMagnumUranium
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#22b24d"
+
+- type: entity
   id: CartridgeMagnumStun
   name: cartridge (.45 magnum stun)
   description: A powerful pistol cartridge with stunning stopping power.

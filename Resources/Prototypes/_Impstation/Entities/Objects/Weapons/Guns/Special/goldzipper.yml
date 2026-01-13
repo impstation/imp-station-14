@@ -1,6 +1,6 @@
 - type: entity
   name: Golden Zipper
-  parent: WeaponDisablerPractice
+  parent: BaseBlasterPistol
   id: WeaponGoldZipper
   description: Legends tell of a gun that can kill anything with a single shot.
   components:
@@ -46,3 +46,4 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserFGold
     fireCost: 1
+  - type: PacifismAllowedGun

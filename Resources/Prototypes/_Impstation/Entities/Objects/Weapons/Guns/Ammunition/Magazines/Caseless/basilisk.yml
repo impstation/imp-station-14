@@ -1,0 +1,73 @@
+# Magazines compatible with the Basilisk-11.
+- type: entity
+  id: BaseMagazineCaselessRifle
+  name: "magazine (.25 caseless)"
+  description: A 24-round .25 caseless standard magazine.
+  parent: [ BaseItem, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineCaselessRifle
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeCaselessRifle
+    proto: CartridgeCaselessRifle
+    capacity: 24
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_rifle_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineBR
+  name: "magazine (.25 caseless)"
+  description: A 24-round .25 caseless battle rifle magazine, marked as live-fire ammo.
+  parent: BaseMagazineCaselessRifle
+  components:
+  - type: Tag
+    tags:
+      - MagazineBR
+  - type: BallisticAmmoProvider
+    proto: CartridgeCaselessRifle
+    capacity: 24
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/nemesismag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: false
+
+- type: entity
+  id: MagazineBREmpty
+  name: "magazine (.25 caseless any)"
+  description: A 24-round .25 caseless battle rifle magazine, with no apparent markings.
+  parent: MagazineBR
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+    capacity: 24
+  - type: MagazineVisuals
+    magState: mag
+    steps: 7
+    zeroVisible: false

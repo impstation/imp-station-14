@@ -1,3 +1,41 @@
+#TODO: this file needs like, any sort of organization
+
+- type: listing
+  id: UplinkAnimalFriendsKit
+  name: uplink-animal-friends-kit-name
+  description: uplink-animal-friends-kit-desc
+  icon: { sprite: /Textures/Mobs/Animals/mouse.rsi, state: icon-2 }
+  productEntity: AnimalFriendsKit
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkAllies
+
+- type: listing
+  id: UplinkBeenade
+  name: uplink-beenade-name
+  description: uplink-beenade-desc
+  productEntity: BeeGrenade
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkExplosives
+
+- type: listing
+  id: UplinkBrosGrenade
+  name: uplink-bros-grenade-name
+  description: uplink-bros-grenade-desc
+  productEntity: BrosGrenade
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
 - type: listing
   id: uplinkCleanerLakeUpgrade
   name: uplink-cleaner-lake-upgrade-name
