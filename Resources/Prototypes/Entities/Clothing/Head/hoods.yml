@@ -440,9 +440,9 @@
   name: mime coat hood
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hoods/Coat/hoodmime.rsi
+    sprite: _Impstation/Clothing/Head/Hoods/Coat/hoodmime.rsi #imp
   - type: Clothing
-    sprite: Clothing/Head/Hoods/Coat/hoodmime.rsi
+    sprite: _Impstation/Clothing/Head/Hoods/Coat/hoodmime.rsi #imp
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase

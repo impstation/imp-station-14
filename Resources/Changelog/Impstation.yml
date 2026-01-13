@@ -1,41 +1,6 @@
 ﻿Entries:
 - author: Pinkbat5
   changes:
-  - message: Experimental welding tools now weld slightly faster.
-    type: Tweak
-  id: 2045
-  time: '2025-07-25T11:28:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3098
-- author: DinnerCalzone
-  changes:
-  - message: Fixed command door remote not being able to interact with Hospitality
-      Director locked doors.
-    type: Fix
-  id: 2046
-  time: '2025-07-25T11:28:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3106
-- author: msTheowo
-  changes:
-  - message: Security is now allowed to start the shift without armor or a belt if
-      they would like
-    type: Tweak
-  id: 2047
-  time: '2025-07-25T11:28:37.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3103
-- author: DinnerCalzone
-  changes:
-  - message: Tabletop computer sprite snow match the style of standing computers.
-    type: Tweak
-  - message: Departmental request consoles have been resprited to match the cargo
-      request console.
-    type: Tweak
-  - message: The shipyard console has received a new sprite!
-    type: Add
-  id: 2048
-  time: '2025-07-25T11:28:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3102
-- author: Pinkbat5
-  changes:
   - message: The invisible thief crate is now actually fully invisible.
     type: Tweak
   id: 2049
@@ -4179,3 +4144,39 @@
   id: 2544
   time: '2026-01-10T23:40:12.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3961
+- author: Smugman
+  changes:
+  - message: Lighters can now be refueled again.
+    type: Fix
+  id: 2545
+  time: '2026-01-12T02:12:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3881
+- author: FlapWrap
+  changes:
+  - message: Mimes, you're blue now, that's my change.
+    type: Tweak
+  - message: Advances in metamorphic technology has allowed mime masks to better fit
+      more species.
+    type: Tweak
+  - message: Mimebot has a new coat of paint.
+    type: Add
+  id: 2546
+  time: '2026-01-12T02:34:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3920
+- author: ATDoop
+  changes:
+  - message: Anomalocarids can now get drunk and throw up just like anyone else.
+    type: Fix
+  id: 2547
+  time: '2026-01-12T23:52:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3982
+- author: mousesweater
+  changes:
+  - message: floating flora now only yield 2 flowers instead of 4 on harvest
+    type: Tweak
+  - message: we have developed the technology to juice floating flora. you can now
+      steal funny lifting drinks
+    type: Add
+  id: 2548
+  time: '2026-01-13T04:44:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3957
