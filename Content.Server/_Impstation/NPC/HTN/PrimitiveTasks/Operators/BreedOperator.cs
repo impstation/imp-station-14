@@ -67,15 +67,13 @@ public sealed partial class BreedOperator : HTNOperator
 
     public void Shutdown(NPCBlackboard blackboard)
     {
-        // BreedingUtilityOperator.cs Line 123
-        //blackboard.Remove<EntityUid>(Target);
-        //blackboard.Remove<TimeSpan>(IdleKey);
+        blackboard.Remove<EntityUid>(Target);
     }
 
     public override void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
     {
         base.TaskShutdown(blackboard, status);
-        Shutdown(blackboard);
+        //Shutdown(blackboard);
     }
 
     public override void PlanShutdown(NPCBlackboard blackboard)

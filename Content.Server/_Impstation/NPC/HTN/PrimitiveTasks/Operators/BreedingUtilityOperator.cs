@@ -100,15 +100,13 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
 
     public void Shutdown(NPCBlackboard blackboard)
     {
-        // Refer to the monkey as to why these are commented out
         //blackboard.Remove<EntityUid>(Key);
-        //blackboard.Remove<EntityCoordinates>(KeyCoordinates);
+        blackboard.Remove<EntityCoordinates>(KeyCoordinates);
     }
 
     public override void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
     {
         base.TaskShutdown(blackboard, status);
-        Shutdown(blackboard);
     }
 
     public override void PlanShutdown(NPCBlackboard blackboard)
