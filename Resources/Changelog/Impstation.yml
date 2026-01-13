@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: msTheowo
-  changes:
-  - message: Security is now allowed to start the shift without armor or a belt if
-      they would like
-    type: Tweak
-  id: 2047
-  time: '2025-07-25T11:28:37.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3103
 - author: DinnerCalzone
   changes:
   - message: Tabletop computer sprite snow match the style of standing computers.
@@ -4183,3 +4175,10 @@
   id: 2546
   time: '2026-01-12T02:34:26.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3920
+- author: ATDoop
+  changes:
+  - message: Anomalocarids can now get drunk and throw up just like anyone else.
+    type: Fix
+  id: 2547
+  time: '2026-01-12T23:52:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3982
