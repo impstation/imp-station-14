@@ -7,8 +7,8 @@ namespace Content.Server._Impstation.Ghost
 {
     public sealed class MediumSystem : EntitySystem
     {
-        [Dependency] private readonly SharedEyeSystem _eye = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
+        [Dependency] private readonly SharedEyeSystem _eye = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
 
 
@@ -16,40 +16,45 @@ namespace Content.Server._Impstation.Ghost
         {
             SubscribeLocalEvent<MediumComponent, ComponentStartup>(OnMediumStartup);
             SubscribeLocalEvent<MediumComponent, ComponentRemove>(OnMediumRemove);
-            SubscribeLocalEvent<MediumComponent, MapInitEvent>(OnMapInitMedium);
             SubscribeLocalEvent<MediumComponent, GetVisMaskEvent>(OnMediumVis);
 
             SubscribeLocalEvent<MediumStatusEffectComponent, StatusEffectAppliedEvent>(OnMediumStatusApplied);
             SubscribeLocalEvent<MediumStatusEffectComponent, StatusEffectRemovedEvent>(OnMediumStatusRemoved);
         }
 
-        // serverside methods for the 'medium' reagent effects. lets affected entities see ghosts.
+        /// <summary>
+        /// Updates VisMasks to let player see entities with Ghost VisibilityFlags when component is running on an ent.
+        /// </summary>
         private void OnMediumVis(Entity<MediumComponent> ent, ref GetVisMaskEvent args)
         {
-            // If component not deleting they can see ghosts.
             if (ent.Comp.LifeStage <= ComponentLifeStage.Running)
             {
                 args.VisibilityMask |= (int)VisibilityFlags.Ghost;
             }
         }
 
-        private void OnMediumStartup(EntityUid uid, MediumComponent component, ComponentStartup args)
+        /// <summary>
+        /// Refreshes VisMasks on component init and adds the ToggleGhosts action
+        /// </summary>
+        private void OnMediumStartup(Entity<MediumComponent> ent, ref ComponentStartup args)
         {
-            _eye.RefreshVisibilityMask(uid);
+            _eye.RefreshVisibilityMask(ent.Owner);
+            _actions.AddAction(ent, ref ent.Comp.ToggleGhostsMediumActionEntity, ent.Comp.ToggleGhostsMediumAction);
         }
 
-        private void OnMediumRemove(EntityUid uid, MediumComponent component, ComponentRemove args)
+        /// <summary>
+        /// Refreshes VisMasks on component remove and gets rid of the ToggleGhosts action
+        /// </summary>
+        private void OnMediumRemove(Entity<MediumComponent> ent, ref ComponentRemove args)
         {
-            _eye.RefreshVisibilityMask(uid);
-            _actions.RemoveAction(uid, component.ToggleGhostsMediumActionEntity);
+            _eye.RefreshVisibilityMask(ent.Owner);
+            _actions.RemoveAction(ent.Owner, ent.Comp.ToggleGhostsMediumActionEntity);
         }
 
-        private void OnMapInitMedium(EntityUid uid, MediumComponent component, MapInitEvent args)
-        {
-            _actions.AddAction(uid, ref component.ToggleGhostsMediumActionEntity, component.ToggleGhostsMediumAction);
-        }
-
-        private void OnMediumStatusApplied(EntityUid uid, MediumStatusEffectComponent component, StatusEffectAppliedEvent args)
+        /// <summary>
+        /// Adds MediumComp when the 'medium afflicted' status effect is applied to an ent.
+        /// </summary>
+        private void OnMediumStatusApplied(Entity<MediumStatusEffectComponent> ent, ref StatusEffectAppliedEvent args)
         {
             if (_gameTiming.ApplyingState)
                 return;
@@ -57,7 +62,11 @@ namespace Content.Server._Impstation.Ghost
             EnsureComp<MediumComponent>(args.Target);
         }
 
-        private void OnMediumStatusRemoved(EntityUid uid, MediumStatusEffectComponent component, StatusEffectRemovedEvent args)
+        /// <summary>
+        /// Removes MediumComp when the 'medium afflicted' status effect is taken away from an ent.
+        /// (usually by running out of time)
+        /// </summary>
+        private void OnMediumStatusRemoved(Entity<MediumStatusEffectComponent> ent, ref StatusEffectRemovedEvent args)
         {
             RemComp<MediumComponent>(args.Target);
         }

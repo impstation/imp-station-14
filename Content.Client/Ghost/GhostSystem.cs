@@ -67,7 +67,7 @@ namespace Content.Client.Ghost
 
             SubscribeLocalEvent<EyeComponent, ToggleLightingActionEvent>(OnToggleLighting);
             SubscribeLocalEvent<EyeComponent, ToggleFoVActionEvent>(OnToggleFoV);
-            SubscribeLocalEvent<EyeComponent, ToggleGhostsActionEvent>(OnToggleGhosts);
+            SubscribeLocalEvent<EyeComponent, ToggleGhostsActionEvent>(OnToggleGhosts); // imp edit, changed this to EyeComp for Medium reagent.
         }
 
         private void OnStartup(EntityUid uid, GhostComponent component, ComponentStartup args)
