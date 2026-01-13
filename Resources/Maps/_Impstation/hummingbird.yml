@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/11/2026 04:46:33
-  entityCount: 25396
+  time: 01/13/2026 00:15:34
+  entityCount: 25397
 maps:
 - 1
 grids:
@@ -18394,7 +18394,7 @@ entities:
   - uid: 24483
     components:
     - type: Transform
-      pos: 116.39575,23.087637
+      pos: 116.37877,22.65487
       parent: 2
 - proto: BoxFolderGrey
   entities:
@@ -18421,7 +18421,7 @@ entities:
   - uid: 24484
     components:
     - type: Transform
-      pos: 116.66138,22.978262
+      pos: 116.649605,22.77987
       parent: 2
 - proto: BoxFolderRed
   entities:
@@ -62386,6 +62386,14 @@ entities:
     - type: Transform
       pos: 90.5,-47.5
       parent: 2
+- proto: ComputerServiceJobBoard
+  entities:
+  - uid: 19413
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 116.5,23.5
+      parent: 2
 - proto: ComputerShipyard
   entities:
   - uid: 9621
@@ -70603,7 +70611,7 @@ entities:
   - uid: 8793
     components:
     - type: Transform
-      pos: 116.66138,23.431387
+      pos: 116.78502,22.550703
       parent: 2
   - uid: 10979
     components:
@@ -80190,7 +80198,7 @@ entities:
   - uid: 24482
     components:
     - type: Transform
-      pos: 116.41138,23.665762
+      pos: 115.243355,20.675703
       parent: 2
 - proto: FoodSnackSus
   entities:
@@ -119744,6 +119752,13 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+  - uid: 19412
+    components:
+    - type: Transform
+      pos: 116.5,25.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 24422
     components:
     - type: Transform
@@ -144860,11 +144875,6 @@ entities:
       parent: 2
 - proto: TableWoodReinforced
   entities:
-  - uid: 20052
-    components:
-    - type: Transform
-      pos: 116.5,23.5
-      parent: 2
   - uid: 24474
     components:
     - type: Transform
@@ -164095,7 +164105,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -221723.86
+      secondsUntilStateChange: -222912.31
       state: Opening
     - type: Airlock
       autoClose: False

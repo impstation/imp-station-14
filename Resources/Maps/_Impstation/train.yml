@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/11/2026 06:32:38
+  time: 01/13/2026 00:29:11
   entityCount: 20054
 maps:
 - 1
@@ -15089,7 +15089,7 @@ entities:
   - uid: 19091
     components:
     - type: Transform
-      pos: -8.251165,-95.46048
+      pos: -10.329151,-94.909836
       parent: 2
   - uid: 20030
     components:
@@ -15118,7 +15118,7 @@ entities:
   - uid: 19090
     components:
     - type: Transform
-      pos: -8.48554,-95.33548
+      pos: -10.579151,-95.05046
       parent: 2
   - uid: 20031
     components:
@@ -15130,7 +15130,7 @@ entities:
   - uid: 19092
     components:
     - type: Transform
-      pos: -8.251165,-95.257355
+      pos: -10.407276,-95.097336
       parent: 2
 - proto: BoxFolderRed
   entities:
@@ -42581,6 +42581,14 @@ entities:
     components:
     - type: Transform
       pos: -8.5,-272.5
+      parent: 2
+- proto: ComputerServiceJobBoard
+  entities:
+  - uid: 19073
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.5,-95.5
       parent: 2
 - proto: ComputerShipyard
   entities:
@@ -109762,11 +109770,6 @@ entities:
     components:
     - type: Transform
       pos: -7.5,-95.5
-      parent: 2
-  - uid: 19073
-    components:
-    - type: Transform
-      pos: -8.5,-95.5
       parent: 2
   - uid: 19077
     components:

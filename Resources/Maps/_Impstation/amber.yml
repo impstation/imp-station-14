@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/11/2026 05:07:37
-  entityCount: 25010
+  time: 01/12/2026 23:39:52
+  entityCount: 25011
 maps:
 - 1
 grids:
@@ -67278,6 +67278,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,-34.5
       parent: 2
+  - uid: 4763
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,-48.5
+      parent: 2
 - proto: ChairPilotSeat
   entities:
   - uid: 405
@@ -70179,6 +70185,13 @@ entities:
     components:
     - type: Transform
       pos: 15.5,25.5
+      parent: 2
+- proto: ComputerServiceJobBoard
+  entities:
+  - uid: 4794
+    components:
+    - type: Transform
+      pos: 13.5,-47.5
       parent: 2
 - proto: ComputerShipyard
   entities:
@@ -83400,7 +83413,7 @@ entities:
   - uid: 23666
     components:
     - type: Transform
-      pos: 13.144691,-47.388947
+      pos: 15.4941635,-47.127617
       parent: 2
 - proto: FoodTinBeansTrash
   entities:
@@ -121882,11 +121895,6 @@ entities:
     - type: Transform
       pos: 0.5,16.5
       parent: 2
-  - uid: 4763
-    components:
-    - type: Transform
-      pos: 13.5,-47.5
-      parent: 2
   - uid: 5995
     components:
     - type: Transform
@@ -121926,6 +121934,11 @@ entities:
     components:
     - type: Transform
       pos: 21.5,-27.5
+      parent: 2
+  - uid: 24938
+    components:
+    - type: Transform
+      pos: 12.5,-48.5
       parent: 2
 - proto: PaperCNCSheet
   entities:
@@ -144845,11 +144858,6 @@ entities:
       parent: 2
 - proto: TableWoodReinforced
   entities:
-  - uid: 4794
-    components:
-    - type: Transform
-      pos: 13.5,-47.5
-      parent: 2
   - uid: 6838
     components:
     - type: Transform

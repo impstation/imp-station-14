@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/11/2026 03:59:38
+  time: 01/12/2026 23:43:54
   entityCount: 25950
 maps:
 - 1
@@ -63069,6 +63069,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 42.5,0.5
       parent: 2
+- proto: ComputerServiceJobBoard
+  entities:
+  - uid: 6373
+    components:
+    - type: Transform
+      pos: -17.5,-26.5
+      parent: 2
 - proto: ComputerShuttleCargo
   entities:
   - uid: 9532
@@ -71445,11 +71452,6 @@ entities:
       parent: 2
 - proto: filingCabinetDrawerRandom
   entities:
-  - uid: 6373
-    components:
-    - type: Transform
-      pos: -17.5,-26.5
-      parent: 2
   - uid: 10377
     components:
     - type: Transform
@@ -133820,6 +133822,22 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+- proto: SignArrivals
+  entities:
+  - uid: 8893
+    components:
+    - type: Transform
+      pos: 2.5,-52.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 9215
+    components:
+    - type: Transform
+      pos: -1.5,-52.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: SignAtmos
   entities:
   - uid: 19656
@@ -134110,14 +134128,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-  - uid: 19690
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -1.5,-52.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 19691
     components:
     - type: Transform
@@ -134377,14 +134387,6 @@ entities:
     components:
     - type: Transform
       pos: 5.4949083,-21.724958
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 19734
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 2.5,-52.5
       parent: 2
     - type: Fixtures
       fixtures: {}

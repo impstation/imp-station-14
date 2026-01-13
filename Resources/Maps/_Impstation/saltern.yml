@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/11/2026 06:08:54
-  entityCount: 13086
+  time: 01/13/2026 00:27:22
+  entityCount: 13088
 maps:
 - 658
 grids:
@@ -3608,6 +3608,17 @@ entities:
     - type: Transform
       pos: -7.5,10.5
       parent: 31
+- proto: ActionToggleLight
+  entities:
+  - uid: 929
+    mapInit: true
+    paused: true
+    components:
+    - type: Transform
+      parent: 610
+    - type: Action
+      originalIconColor: '#FFFFFFFF'
+      container: 610
 - proto: AirAlarm
   entities:
   - uid: 2046
@@ -6250,7 +6261,7 @@ entities:
       pos: -29.5,-18.5
       parent: 31
     - type: Door
-      secondsUntilStateChange: -42663.02
+      secondsUntilStateChange: -42781.22
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -31890,6 +31901,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 28.5,19.5
       parent: 31
+- proto: ComputerServiceJobBoard
+  entities:
+  - uid: 9444
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,-9.5
+      parent: 31
 - proto: ComputerShipyard
   entities:
   - uid: 3602
@@ -35893,7 +35912,7 @@ entities:
   - uid: 5712
     components:
     - type: Transform
-      pos: -4.325062,-9.181793
+      pos: -7.3308725,-9.157466
       parent: 31
   - uid: 9626
     components:
@@ -35905,7 +35924,7 @@ entities:
   - uid: 1437
     components:
     - type: Transform
-      pos: -4.731312,-9.244293
+      pos: -7.6121225,-9.298091
       parent: 31
   - uid: 10625
     components:
@@ -39432,7 +39451,7 @@ entities:
       deviceLists:
       - 12756
     - type: Door
-      secondsUntilStateChange: -57363.52
+      secondsUntilStateChange: -57481.72
       state: Closing
   - uid: 8815
     components:
@@ -59662,8 +59681,24 @@ entities:
   - uid: 610
     components:
     - type: Transform
-      pos: -7.606312,-9.041168
+      pos: -6.9558725,-8.969966
       parent: 31
+    - type: HandheldLight
+      toggleActionEntity: 929
+    - type: ContainerContainer
+      containers:
+        cell_slot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
+        actions: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 929
+    - type: Physics
+      canCollide: True
+    - type: ActionsContainer
   - uid: 1422
     components:
     - type: Transform
@@ -68400,10 +68435,11 @@ entities:
       fixtures: {}
 - proto: SignArrivals
   entities:
-  - uid: 4888
+  - uid: 9712
     components:
     - type: Transform
-      pos: -33.5,2.5
+      rot: -1.5707963267948966 rad
+      pos: -38.5,-7.5
       parent: 31
     - type: Fixtures
       fixtures: {}
@@ -69183,6 +69219,14 @@ entities:
       fixtures: {}
 - proto: SignShipDock
   entities:
+  - uid: 4888
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -33.5,2.5
+      parent: 31
+    - type: Fixtures
+      fixtures: {}
   - uid: 9941
     components:
     - type: Transform
@@ -73186,11 +73230,6 @@ entities:
     - type: Transform
       pos: -30.5,-1.5
       parent: 31
-  - uid: 929
-    components:
-    - type: Transform
-      pos: -7.5,-9.5
-      parent: 31
   - uid: 936
     components:
     - type: Transform
@@ -73411,6 +73450,11 @@ entities:
     - type: Transform
       pos: -29.5,17.5
       parent: 31
+  - uid: 7819
+    components:
+    - type: Transform
+      pos: -7.5,-9.5
+      parent: 31
   - uid: 7849
     components:
     - type: Transform
@@ -73471,11 +73515,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 6.5,-3.5
-      parent: 31
-  - uid: 10042
-    components:
-    - type: Transform
-      pos: -4.5,-9.5
       parent: 31
   - uid: 10374
     components:
