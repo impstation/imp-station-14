@@ -7,14 +7,17 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server._Impstation.Nutrition.EntitySystems;
 using Content.Server.NPC;
+using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Queries;
 using Content.Server.NPC.Queries.Queries;
 using Content.Server.NPC.Systems;
 using Content.Shared._Impstation.Nutrition.Components;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.NPC.HTN.PrimitiveTasks.Operators;
 
@@ -24,6 +27,7 @@ namespace Content.Server._Impstation.NPC.HTN.PrimitiveTasks.Operators;
 public sealed partial class BreedingUtilityOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private readonly IGameTiming _time = default!;
 
     private AnimalHusbandrySystemImp _breedSystem = default!;
 
@@ -61,7 +65,7 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
                 comp.ReproductiveGroup != reproComp.ReproductiveGroup)
                 continue;
 
-            // Don't try to impregnate that which is already pregnant
+            // Checking if the other mob reaches breeding conditions
             if (!_breedSystem.CanYouBreed((potentialTarget, comp)))
                 continue;
 
@@ -86,4 +90,114 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
             {KeyCoordinates, new EntityCoordinates(target.Value!, Vector2.Zero)}
         });
     }
+
+    #region OVERRIDES
+    // These exist to make the blackboard happy. Do not think about them.
+    public override void Startup(NPCBlackboard blackboard)
+    {
+        base.Startup(blackboard);
+    }
+
+    public void Shutdown(NPCBlackboard blackboard)
+    {
+        // Refer to the monkey as to why these are commented out
+        //blackboard.Remove<EntityUid>(Key);
+        //blackboard.Remove<EntityCoordinates>(KeyCoordinates);
+    }
+
+    public override void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
+    {
+        base.TaskShutdown(blackboard, status);
+        Shutdown(blackboard);
+    }
+
+    public override void PlanShutdown(NPCBlackboard blackboard)
+    {
+        base.PlanShutdown(blackboard);
+        Shutdown(blackboard);
+    }
+
+    // Keep track of the beast we're breeding until one of us is pregnant or
+    // the elapsed time is up
+    /*
+     * %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%#%##I DON'T KNOOOOOOOOOOOOOOOOOOOOOOOOOW-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  ..................................................................................................
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                              .  ..  ..    ....=+++***=...                          
+                                           ...+..-.:..:::-*%%%%%%%######*=...                       
+                                      ...:--==##++*####%%##%%%%%%%%%%#######+:.                     
+                                    ..==+*####%%%%%%%%%%%%%%%%%%@%%%#####*#####.                    
+                                   .-+*#%%%%%@%%%%%%%%%@@@@@%@%%%%%********######-.                 
+                                 .=+*#%%%%%@@%%%%%%%%%@@@@@@@@%%%%%%#%##**##***####+.               
+                                .:=##%%%%%%%%%%%%%%%%%%%@@@@@@@@@@@@@%%#############*+.             
+                              ..=#***##***#@#%%%%%@%@%@@%@@@@@@@@@@@@%%%%####*********+:.           
+                           ..-********######%@@@@@@@%%%@@@@@@@@@@@@@@@@@@%######**#****+-.          
+                          .:##++++*#@@*###%@%@@@@@@@@@@@@%@%##%%%#%@@@@@@%%%##*****###**+=..        
+                         :*+++=++#@%+***#***%@@@@@@@@@@@@%#%@%%@@%#@@@@@%@%####************=.       
+                        :+*+=+++*#++*##%%@%%%@@@@@@@@@@@@##%@@%#%%#@@@@@@@%%%##*******++++++=-.     
+                       :+*++=++*++##@%+*##%%@@@@@@@@@@@@@%##%#%#%%#@@@@@%@@@%#####***++*++***+*:.   
+                      .+*+*+++++**#*+*##%%#%%@@%%%@@@@@@@@@##*###%%@@@@@@%%@@%#%##********+++****-. 
+                    .-+*******+****####@@@@@@@%%%%%@@@@@@@@%%*#%@@@@%@@%@@%%%@@####**********+***#*:
+                    -++****######*##@@@@@@@@%%@@@@@@@@@@@%%@@%%%%@@@@%%%%%%%%%@%%%###***********####
+                   .=++*****####%%%@@@@@@@@%%%%%@%@@%@@@@@@@@@@%%@@@@%%%%%%%##%%@@@###*******#**#%%%
+                  .=++****#####%%%@@@@@@@@@@%%##%%%%%@%@@@@@@@@@%@@@@@%@#%#%###%@@@%%####*##*#######
+                ..=******###%%##@@@%@@@@@%%%##****##%%%@@@@@@@@%%@@@%%@%%#######%@@@@%%%##**##%#%%%#
+ ................=+*##**####%##%%%%%@@@@%%####%%%##%%%%@@%%@@@%%@%%@%%%%%######%%%@@@@@%%###%@@%@@%%
+ ..................................=%%%%###%%@@@%@@@@@%%%##%@@@@@@@%@%%%%%######%%%%@@@@%%%@@@@@@@%%
+ ...................................+%%@@@@@%%%#########%%%%@@@@@@@@%@%%%%%%%%%%%###%%@@@@@@@@@%####
+  ...................................%@@@@@@@+*#*############%@@@@@@%@@%%%%%%%%%%%%%%%%%%@@@@@@@%@@%
+   ...................................@@@@@@@+*#@*#@##########@@@@%@@@@@%@%%#*###%%%#%%%#%@@@@%%@%%@
+   ...................................+%@@@@@@+##############%@@@@%@%%%###%%%@%####%%%%%#@@@@%%%%%%%
+    ...................................%@@@@@@%*#############@%@@@%@@%%###+*##%%%%%%%@@@@@%######%%%
+     ...................................@@@@@@@@**#####%#*####***%@%%%%%%#****#####%@@@###********##
+     ...................................*@@@@@@@%#+##**+############%#%%%%%#######%@@%%%%######%%%%%
+      ...................................%@@@@@@@%%##%%%%%##%#**#*##%%**#%%****#%@@@%%%%%####%%%%%##
+       ..................................:@@@@@@@@@@%%%%%#####**#####%%###%%%%%@@%%####%%%%######*+*
+       ...................................*%%%@@@@@@%%%%#######*#**###%%%%%%%%%%%%%%%%%######*#%####
+        ...................................%%%%@@@@@@@@%%%%%######***%%%%%###%#%%%%%%%%%%#%%%%%#%%%%
+         ..................................:%%%@@@@@@@@@@%%%%%%%%%%%%%########%%%%%%%%@%####%%%%%@@@
+          ..................................*%%%@@%%@@@@@@@@%%%%%%%####%%%%%%%%%%#*####%%%##%@@@@@@@
+          ...................................##@@@@%@@@@@@@@@%%@%%#%%%%%%#%#%@@@@@%###%@@@@@@@@@@@@@
+          ...................................-#%@@@@@%@@@@@@@@@#%##%%#%#%%@%%@@@@@@@@@@@@@@@@@@@@@@%
+           ...................................#%@@@@@%@@@@@@@@%%%%%%%#%#%#@@%@@@@@@%%%%%%%%@@@@@@@@%
+           .-..................................%%%@%%%%@@@@%%#%#%#%%##%##%%@@@%%#%#####%#%%%@@@@@@%#
+            .:.................................=%%@%%%@@%%%##%@@%%%#%%%##%%@%####%####%%%%%%@@@@@###
+.    . .    .-..................................+++****#*##%%@@@%%#%%###%%%@%#########%%%%%@@@@%%###
+     */
+    public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
+    {
+        base.Update(blackboard, frameTime);
+        var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
+
+        // If either of us have lost our breedability or just outright stopped existing
+        if (!_entManager.TryGetComponent<ImpReproductiveComponent>(owner, out var reproComp)
+            || !blackboard.TryGetValue<EntityUid>(Key, out var target, _entManager)
+            || !_entManager.TryGetComponent<ImpReproductiveComponent>(target, out var targetComp)
+            || target == EntityUid.Invalid)
+        {
+            return HTNOperatorStatus.Failed;
+        }
+
+        // Have we done our job? Or have we waited too long
+        if (targetComp.Pregnant
+            || reproComp.Pregnant)
+            //|| reproComp.NextSearch > _time.CurTime)
+        {
+            return HTNOperatorStatus.Continuing;
+        }
+
+        return HTNOperatorStatus.Finished;
+    }
+    #endregion
+
 }

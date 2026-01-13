@@ -35,13 +35,14 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField("hungerPerBirth", required: true)]
     public int HungerPerBirth = 75;
 
-    [DataField("pregnancyLength", required: true)]
+    [DataField("pregnancyLength", required: true), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan PregnancyLength = TimeSpan.FromSeconds(60);
 
     // Maximum amount of damage allowed before the mob gives up trying to breed
-    [DataField("maxBreedDamage")]
+    [DataField("maxBreedDamage"), ViewVariables(VVAccess.ReadOnly)]
     public int MaxBreedDamage = 50;
 
+    [ViewVariables(VVAccess.ReadOnly)]
     public bool Pregnant = false;
 
     public TimeSpan EndPregnancy = TimeSpan.Zero;

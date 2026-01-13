@@ -8,6 +8,7 @@ using Content.Server._Impstation.Nutrition.EntitySystems;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
+using Robust.Shared.Map;
 
 namespace Content.Server._Impstation.NPC.HTN.PrimitiveTasks.Operators;
 
@@ -54,9 +55,33 @@ public sealed partial class BreedOperator : HTNOperator
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
         var result = false;
-
-
-
         return result ? HTNOperatorStatus.Finished : HTNOperatorStatus.Failed;
     }
+
+    #region OVERRIDES
+    // These exist to make the blackboard happy. Do not think about them.
+    public override void Startup(NPCBlackboard blackboard)
+    {
+        base.Startup(blackboard);
+    }
+
+    public void Shutdown(NPCBlackboard blackboard)
+    {
+        // BreedingUtilityOperator.cs Line 123
+        //blackboard.Remove<EntityUid>(Target);
+        //blackboard.Remove<TimeSpan>(IdleKey);
+    }
+
+    public override void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
+    {
+        base.TaskShutdown(blackboard, status);
+        Shutdown(blackboard);
+    }
+
+    public override void PlanShutdown(NPCBlackboard blackboard)
+    {
+        base.PlanShutdown(blackboard);
+        Shutdown(blackboard);
+    }
+    #endregion
 }

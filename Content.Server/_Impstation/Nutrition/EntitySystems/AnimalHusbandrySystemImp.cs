@@ -145,6 +145,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (entity.Comp.Pregnant)
             return false;
 
+        /*
         if (_entManager.TryGetComponent<HungerComponent>(entity, out var hunger) && hunger.CurrentThreshold < HungerThreshold.Okay)
             return false;
 
@@ -156,7 +157,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
         if (_entManager.TryGetComponent<DamageableComponent>(entity, out var damage) && damage.TotalDamage >= entity.Comp.MaxBreedDamage)
             return false;
-
+        */
         return true;
     }
 
