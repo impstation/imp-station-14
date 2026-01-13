@@ -7,7 +7,7 @@ namespace Content.Shared._Impstation.StatusEffectsNew;
 /// <summary>
 ///     Makes the target float for a period of time
 /// </summary>
-/// 
+
 public sealed class FloatingSystem : EntitySystem
 {
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
