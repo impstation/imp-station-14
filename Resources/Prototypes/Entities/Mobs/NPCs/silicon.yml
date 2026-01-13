@@ -371,7 +371,7 @@
   description: Why not give the mimebot a friendly wave?
   components:
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/mimebot.rsi
+    sprite: _Impstation/Mobs/Silicon/Bots/mimebot.rsi #imp
     state: mimebot
   - type: MimePowers
   - type: Construction

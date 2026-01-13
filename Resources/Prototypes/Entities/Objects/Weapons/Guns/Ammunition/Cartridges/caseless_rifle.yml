@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseCartridgeCaselessRifle
+  id: BaseCartridgeCaselessRifleWizden #imp - see the _Impstation directory for the version we use
   name: cartridge (.25 caseless)
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
@@ -11,7 +11,7 @@
     deleteOnSpawn: true
   - type: Sprite
     noRot: false
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/caseless.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
@@ -19,26 +19,23 @@
   - type: SpentAmmoVisuals
   - type: StaticPrice
     price: 10
-  - type: EmitSoundOnLand #imp
-    sound:
-      collection: ShellEject
-      params:
-        volume: -4
 
 - type: entity
-  id: CartridgeCaselessRifle
+  id: CartridgeCaselessRifleWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: cartridge (.25 caseless)
   parent: BaseCartridgeCaselessRifle
-  description: A kinetic sub-caliber cartridge of odd design, but with effective application. .25 caseless ammo has propellant encasing the bullet, making the cartridge appear rectangular. #imp
+  description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRifle
 
 - type: entity
-  id: CartridgeCaselessRiflePractice
+  id: CartridgeCaselessRiflePracticeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: cartridge (.25 caseless practice)
   parent: BaseCartridgeCaselessRifle
-  description: An oddly-shaped cartridge with a wax projectile to simulate the real deal. Can be used for force-on-force training, but still stings like a bitch. Eye protection recommended. #imp
+  description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Chalk ammunition is generally non-harmful, used for practice.
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRiflePractice
@@ -48,4 +45,4 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#ffcb6f" #imp
+        color: "#dbdbdb"

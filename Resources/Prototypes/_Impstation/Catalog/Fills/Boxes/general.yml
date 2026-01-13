@@ -1,25 +1,4 @@
 - type: entity
-  name: cardboard box
-  parent: [BoxEncryptionKeyPassenger]
-  id: BoxEncryptionKeyRevolution
-  description: A cardboard box for storing things.
-  components:
-  - type: Item
-    size: Normal
-    shape:
-    - 0,0,0,1
-  - type: StorageFill
-    contents:
-      - id: EncryptionKeyRevolution
-        amount: 4
-  - type: Storage
-    grid:
-    - 0,0,3,1
-    whitelist:
-      tags:
-      - EncryptionKeyRevolution #no powergaming!!!!
-
-- type: entity
   parent: BoxCardboard
   id: BoxSyndicateFigurines
   name: Syndicate figurines box

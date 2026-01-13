@@ -791,7 +791,7 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Boxer
-  - type: PresetIdCard
+  - type: PresetIdCard #imp edit, boxer job was removed upstream
     job: Boxer
 
 - type: entity
@@ -809,7 +809,7 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Zookeeper
-  - type: PresetIdCard
+  - type: PresetIdCard #imp edit, zookeeper job was removed upstream
     job: Zookeeper
 
 #Supply
