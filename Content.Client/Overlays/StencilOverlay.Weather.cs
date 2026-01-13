@@ -27,7 +27,7 @@ public sealed partial class StencilOverlay
         var worldBounds = args.WorldBounds;
         var position = args.Viewport.Eye?.Position.Position ?? Vector2.Zero;
 
-        if (_configManager.GetCVar(ImpCCVars.DisableWeather))
+        if (_configManager.GetCVar(ImpCCVars.DisableWeather)) //imp
             return;
 
         // Cut out the irrelevant bits via stencil

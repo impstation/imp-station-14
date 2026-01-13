@@ -85,5 +85,4 @@ public sealed class ImpCCVars : CVars
     /// </summary>
     public static readonly CVarDef<bool> AntagPlaytimeBiasing =
         CVarDef.Create("antag.play_time_biasing", false, CVar.SERVERONLY);
-
 }
