@@ -151,6 +151,7 @@ namespace Content.IntegrationTests.Tests
             "SalternImp",
             "Submarine",
             "TrainImp",
+            "Union",
             "Xeno",
             "Pathway",
             "Whisper",
@@ -159,7 +160,6 @@ namespace Content.IntegrationTests.Tests
             "Eclipse",
             "Refsdal",
             "Skimmer",
-            "Union",
         };
 
         private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
