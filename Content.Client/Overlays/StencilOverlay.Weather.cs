@@ -1,15 +1,18 @@
 using System.Numerics;
+using Content.Shared._Impstation.CCVar; // imp
 using Content.Shared.Light.Components;
 using Content.Shared.Weather;
 using Robust.Client.Graphics;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Configuration;// imp
 
 namespace Content.Client.Overlays;
 
 public sealed partial class StencilOverlay
 {
     private List<Entity<MapGridComponent>> _grids = new();
+    [Dependency] private readonly IConfigurationManager _configManager = default!; // imp
 
     private void DrawWeather(
         in OverlayDrawArgs args,
@@ -23,6 +26,9 @@ public sealed partial class StencilOverlay
         var worldAABB = args.WorldAABB;
         var worldBounds = args.WorldBounds;
         var position = args.Viewport.Eye?.Position.Position ?? Vector2.Zero;
+
+        if (_configManager.GetCVar(ImpCCVars.DisableWeather))
+            return;
 
         // Cut out the irrelevant bits via stencil
         // This is why we don't just use parallax; we might want specific tiles to get drawn over
