@@ -1,0 +1,288 @@
+# These are lasers found in the armory, researched by science, or it's the Captain's laser
+- type: entity
+  name: TD-95 laser carbine
+  parent: [BaseLaserRifle, BaseSecurityContraband]
+  id: WeaponLaserCarbine
+  description: A laser-based energy carbine with familiar ergonomics and controls to its kinetic counterparts. Favored by Nanotrasen for security forces, as they are cheap and easy to use.
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_gun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_gun.rsi
+  - type: StaticPrice
+    price: 420
+
+- type: entity
+  name: TD-95C emergency laser carbine
+  parent: WeaponLaserCarbine
+  id: EmergencyWeaponLaserCarbine
+  description: An emergency laser carbine, for use when getting timely clearance isn't an option. Hand this in to security once the coast is clear.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/emergency_laser_gun_two.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/emergency_laser_gun_two.rsi
+  - type: Battery
+    maxCharge: 500
+    startingCharge: 500
+  - type: HitscanBatteryAmmoProvider
+    proto: EmergencyRedLaser
+    fireCost: 50
+  - type: Item
+    size: Ginormous
+  - type: PointLight
+    radius: 1.5
+    energy: 14
+    color: "#ff0043"
+    mask: /Textures/Effects/LightMasks/double_cone.png
+  - type: RotatingLight
+    speed: 180
+
+- type: entity
+  name: TD-95P practice laser carbine
+  parent: [BaseLaserRifle, BaseGunWieldable]
+  id: WeaponLaserCarbinePractice
+  description: This modified TD-95 laser carbine fires nearly harmless beams at 5-watts for target practice. Best to wear eye protection. #imp
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_practice.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_practice.rsi
+  - type: StaticPrice
+    price: 300
+  - type: HitscanBatteryAmmoProvider
+    proto: RedLaserPractice
+    fireCost: 10 
+  - type: PacifismAllowedGun
+  - type: Battery
+    maxCharge: 160
+    startingCharge: 160
+
+- type: entity
+  name: OL-71 laser rifle
+  parent: [BaseLaserRifle, BaseGunWieldable, BaseSecurityContraband]
+  id: WeaponLaserCannon
+  description: Modern laser technology purpose-built into a military platform—as deadly as it is precise.
+  components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_cannon.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Appearance
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_cannon.rsi
+  - type: Gun
+    burstFireRate: 9
+    shotsPerBurst: 3
+    burstCooldown: 0.70
+    fireRate: 4.5
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/lasermil.ogg
+    availableModes:
+    - Burst
+    - FullAuto
+    selectedMode: FullAuto
+  - type: HitscanBatteryAmmoProvider
+    proto: RedRifleLaser
+    fireCost: 40
+  - type: Battery
+    maxCharge: 1200
+    startingCharge: 1200
+  - type: Tag
+    tags:
+    - TurretCompatibleWeapon
+  - type: MeleeWeapon
+    attackRate: 0.4 #slower, but hits harder; bigger object to shove with
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 15 #slight stagger, but still like 7 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 15
+    damage:
+      types:
+        Blunt: 12
+
+- type: entity
+  name: EM-40 x-ray cannon
+  parent: [BaseLaserRifle, BaseSecurityContraband]
+  id: WeaponXrayCannon
+  description: An experimental weapon that uses concentrated x-ray energy against its target.
+  components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,1
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/xray.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-0
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/xray.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: XrayLaser
+    fireCost: 100
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Appearance
+  - type: MeleeWeapon
+    attackRate: 0.4 #slower, but hits harder; bigger object to shove with
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 15 #slight stagger, but still like 7 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 15
+    damage:
+      types:
+        Blunt: 12
+
+- type: entity
+  name: X-66 advanced laser pistol
+  parent: [BaseLaserPistol, BaseSecurityContraband]
+  id: WeaponAdvancedLaser
+  description: An experimental high-energy laser pistol with a self-charging nuclear battery.
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/advancedlasergun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/advancedlasergun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumLaser
+    fireCost: 100
+  - type: BatterySelfRecharger
+    autoRechargeRate: 30
+  - type: Appearance
+  - type: StaticPrice
+    price: 63
+
+- type: entity
+  name: antique laser pistol
+  parent: [BaseLaserPistol, BaseGrandTheftContraband]
+  id: WeaponAntiqueLaser
+  description: All craftsmanship is of the highest quality. It is decorated with carp leather and chrome. The object menaces with spikes of energy.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/antiquelasergun.rsi #imp
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/antiquelasergun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: RedMediumLaser
+    fireCost: 100
+  - type: BatterySelfRecharger
+    autoRechargeRate: 40
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+    - WeaponAntiqueLaser
+  - type: StaticPrice
+    price: 750
+  - type: StealTarget
+    stealGroup: WeaponAntiqueLaser
+  - type: SentienceTarget # I hope this is only the captain's gun
+    flavorKind: station-event-random-sentience-flavor-inanimate
+    weight: 0.0002 # 5,000 times less likely than 1 regular animal
+    # not putting a BlockMovement component here cause that's funny.
+
+- type: entity
+  name: Svalinn laser pistol
+  parent: [BaseWeaponPowerCellSmall, BaseSecurityContraband]
+  id: WeaponLaserSvalinn
+  description: A cheap and widely-used laser pistol with an interchangeable power cell.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Item
+    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi
+    storedOffset: 0,-7
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/svalinn.rsi

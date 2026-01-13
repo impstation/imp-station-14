@@ -181,3 +181,6 @@ ghost-role-information-eeeplet-desc = As a baby electric sheep your favourite fo
 
 ghost-role-information-eeep-name = Eeep
 ghost-role-information-eeep-desc = A bad tempered and fully grown Electric sheep.
+
+ghost-role-information-ductspider-name = Duct Spider
+ghost-role-information-ductspider-description = A hungry tiny spider.

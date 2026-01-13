@@ -1,5 +1,5 @@
 - type: entity
-  id: BulletPistol
+  id: BulletPistolWizden #imp - see the _Impstation directory for the version we use
   name: bullet (.35 auto)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -10,7 +10,7 @@
         Piercing: 16
 
 - type: entity
-  id: BulletPistolPractice
+  id: BulletPistolPracticeWizden #imp - see the _Impstation directory for the version we use
   name: bullet (.35 auto practice)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
@@ -21,7 +21,7 @@
         Blunt: 2
 
 - type: entity
-  id: BulletPistolIncendiary
+  id: BulletPistolIncendiaryWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBulletIncendiary
   name: bullet (.35 auto incendiary)
   categories: [ HideSpawnMenu ]
@@ -33,7 +33,7 @@
         Heat: 4
 
 - type: entity
-  id: BulletPistolUranium
+  id: BulletPistolUraniumWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBulletUranium
   name: bullet (.35 auto uranium)
   categories: [ HideSpawnMenu ]

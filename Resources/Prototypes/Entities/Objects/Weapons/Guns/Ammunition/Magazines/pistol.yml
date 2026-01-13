@@ -1,8 +1,7 @@
 - type: entity
-  id: BaseMagazinePistol
+  id: BaseMagazinePistolWizden #imp - see the _Impstation directory for the version we use
   name: pistol magazine (.35 auto)
   parent: [ BaseItem, BaseSecurityContraband ]
-  description: A 10-round .35 auto pistol magazine. #imp
   abstract: true
   components:
   - type: Tag
@@ -20,7 +19,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -33,28 +32,27 @@
   - type: Appearance
 
 - type: entity
-  id: BaseMagazinePistolHighCapacity
-  name: extended pistol magazine (.35 auto) #imp
-  description: A 20-round .35 auto extended pistol magazine. #imp
+  id: BaseMagazinePistolHighCapacityWizden #imp - see the _Impstation directory for the version we use
+  name: machine pistol magazine (.35 auto)
   parent: BaseItem
   abstract: true
   components:
   - type: Tag
     tags:
-      - MagazinePistol
+      - MagazinePistolHighCapacity
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
         - CartridgePistol
-    capacity: 20 #imp
+    capacity: 16
   - type: Item
     size: Small
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_ext.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -67,10 +65,8 @@
   - type: Appearance
 
 - type: entity
-  id: BaseMagazinePistolSubMachineGun # Yeah it's weird but it's pistol caliber
-  #Hi. AvianMaiden here. Avid gun enthusiast and queer American. It's a sub-caliber. SMGs use sub-caliber ammunition, also known as pistol ammo. If only that was in the name or something. If you read the first line of the Wikipedia page "Submachine gun", it tells you directly: "A submachine gun (SMG) is a magazine-fed automatic carbine designed to fire handgun cartridges." It's not fucking weird at all, it's by DESIGN to use a pistol caliber. Yes I'm responding to something made upstream and probably written years ago. Imp edit.
+  id: BaseMagazinePistolSubMachineGunWizden #imp - see the _Impstation directory for the version we use
   name: SMG magazine (.35 auto)
-  description: A 30-round .35 auto SMG magazine. #imp
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -89,7 +85,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -102,10 +98,11 @@
   - type: Appearance
 
 - type: entity
-  id: MagazinePistolSubMachineGunTopMounted
+  id: MagazinePistolSubMachineGunTopMountedWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: WT550 magazine (.35 auto top-mounted)
   parent: [ BaseItem, BaseSecurityContraband ]
-  description: A 30-round .35 auto top-mounted SMG magazine, marked as live-fire ammo. #imp
+  description: Unconventional 30-round top feeding magazine for the WT550 SMG. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: Item
     storedRotation: 90
@@ -119,7 +116,7 @@
       tags:
       - CartridgePistol
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -136,25 +133,27 @@
       ballistic-ammo: !type:Container
 
 - type: entity
-  id: MagazinePistolSubMachineGunTopMountedEmpty
+  id: MagazinePistolSubMachineGunTopMountedEmptyWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: WT550 magazine (.35 auto top-mounted any)
-  parent: MagazinePistolSubMachineGunTopMounted
-  description: A 35-round .35 auto top-mounted SMG magazine with no apparent markings. #imp
+  parent: MagazinePistolSubMachineGunTopMountedWizden #imp
+  description: Unconventional 30-round top feeding magazine for the WT550 SMG.
   components:
   - type: BallisticAmmoProvider
     proto: null
 
 - type: entity
-  id: MagazinePistol
+  id: MagazinePistolWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: pistol magazine (.35 auto)
-  parent: BaseMagazinePistol
-  description: A 10-round .35 auto pistol magazine, marked as live-fire ammo. #imp
+  parent: BaseMagazinePistolWizden #imp
+  description: 10-round single-stack magazine for pistols. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
   - type: Sprite
     layers:
-    - state: red # imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -162,19 +161,16 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#820a16" #imp
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#820a16" #imp
 
 - type: entity
-  id: MagazinePistolEmpty
+  id: MagazinePistolEmptyWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: pistol magazine (.35 auto any)
   suffix: empty
-  parent: MagazinePistol
-  description: A 10-round .35 auto pistol magazine with no apparent markings. #imp
+  parent: MagazinePistolWizden #imp
+  description: 10-round single-stack magazine for pistols.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -192,92 +188,95 @@
       - state: inhand-right-mag
 
 - type: entity
-  id: MagazinePistolIncendiary
+  id: MagazinePistolIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: pistol magazine (.35 auto incendiary)
-  parent: MagazinePistol
-  description: A 10-round .35 auto pistol magazine, marked as incendiary ammo. #imp
+  parent: MagazinePistolWizden #imp
+  description: 10-round single-stack magazine for pistols. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolIncendiary
   - type: Sprite
     layers:
-    - state: incendiary #imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    # - state: stripe #imp remove
-    #   color: "#ff6e52"
+    - state: stripe
+      color: "#ff6e52"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#d46925" #imp
+        color: "#ff6e52"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#d46925" #imp
+        color: "#ff6e52"
 
 - type: entity
-  id: MagazinePistolPractice
+  id: MagazinePistolPracticeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: pistol magazine (.35 auto practice)
-  parent: BaseMagazinePistol
-  description: A 10-round .35 auto pistol magazine, marked as practice ammo. #imp
+  parent: BaseMagazinePistolWizden #imp
+  description: 10-round single-stack magazine for pistols. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolPractice
   - type: Sprite
     layers:
-    - state: practice # imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    # - state: stripe # imp remove
-    #   color: "#dbdbdb"
+    - state: stripe
+      color: "#dbdbdb"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#ffcb6f" #imp
+        color: "#dbdbdb"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#ffcb6f" #imp
+        color: "#dbdbdb"
 
 - type: entity
-  id: MagazinePistolUranium
+  id: MagazinePistolUraniumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: pistol magazine (.35 auto uranium)
-  parent: BaseMagazinePistol
-  description: A 10-round .35 auto pistol magazine, marked as uranium ammo. #imp
+  parent: BaseMagazinePistolWizden #imp
+  description: 10-round single-stack magazine for pistols. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolUranium
   - type: Sprite
     layers:
-    - state: uranium # imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    # - state: stripe # imp remove
-    #   color: "#00cd42"
+    - state: stripe
+      color: "#00cd42"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#22b24d" #imp
+        color: "#00cd42"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#22b24d" #imp
+        color: "#00cd42"
 
 - type: entity
-  id: MagazinePistolHighCapacityEmpty
-  name: extended pistol magazine (.35 auto any) #imp
-  description: A 20-round .35 auto extended pistol magazine with no apparent markings. #imp
+  id: MagazinePistolHighCapacityEmptyWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: machine pistol magazine (.35 auto any)
   suffix: empty
-  parent: BaseMagazinePistolHighCapacity
+  parent: BaseMagazinePistolHighCapacityWizden #imp
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -295,16 +294,16 @@
       - state: inhand-right-mag
 
 - type: entity
-  id: MagazinePistolHighCapacity
-  name: extended pistol magazine (.35 auto) #imp
-  description: A 20-round .35 auto extended pistol magazine, marked as live-fire ammo. #imp
-  parent: BaseMagazinePistolHighCapacity
+  id: MagazinePistolHighCapacityWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: machine pistol magazine (.35 auto)
+  parent: BaseMagazinePistolHighCapacityWizden #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
   - type: Sprite
     layers:
-    - state: red
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -312,60 +311,42 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#820a16" #imp
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#820a16" #imp
 
 - type: entity
-  id: MagazinePistolHighCapacityPractice
-  name: extended pistol magazine (.35 auto practice) #imp
-  description: A 20-round .35 auto extended pistol magazine, marked as practice ammo. #imp
-  parent: BaseMagazinePistolHighCapacity
+  id: MagazinePistolHighCapacityPracticeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: machine pistol magazine (.35 auto practice)
+  parent: BaseMagazinePistolHighCapacityWizden #imp
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
   - type: Sprite
     layers:
-    - state: practice #imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-#   - state: stripe
-#      color: "#ffcb6f" #imp
+    - state: stripe
+      color: "#dbdbdb"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#ffcb6f" #imp
+        color: "#dbdbdb"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#ffcb6f" #imp
+        color: "#dbdbdb"
 
 - type: entity
-  id: MagazinePistolHighCapacityRubber
-  name: extended pistol magazine (.35 auto rubber) #imp
-  description: A 20-round .35 auto extended pistol magazine, marked as rubber ammo. #imp
-  parent: BaseMagazinePistolHighCapacity
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgePistol
-  - type: Sprite
-    layers:
-    - state: rubber
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-
-- type: entity
-  id: MagazinePistolSubMachineGun
+  id: MagazinePistolSubMachineGunWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: SMG magazine (.35 auto)
-  parent: BaseMagazinePistolSubMachineGun
-  description: A 30-round .35 auto SMG magazine, marked as live-fire ammo. #imp
+  parent: BaseMagazinePistolSubMachineGunWizden #imp
+  description: 30-round double-stack magazine for submachine guns. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
@@ -373,7 +354,7 @@
       path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
   - type: Sprite
     layers:
-    - state: red #imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -381,19 +362,16 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#820a16" #imp
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#820a16" #imp
 
 - type: entity
-  id: MagazinePistolSubMachineGunEmpty
+  id: MagazinePistolSubMachineGunEmptyWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: SMG magazine (.35 auto any)
   suffix: empty
-  parent: BaseMagazinePistolSubMachineGun
-  description: A 30-round .35 auto SMG magazine with no apparent markings. #imp
+  parent: BaseMagazinePistolSubMachineGunWizden #imp
+  description: 30-round double-stack magazine for submachine guns.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -411,62 +389,65 @@
       - state: inhand-right-mag
 
 - type: entity
-  id: MagazinePistolSubMachineGunPractice
+  id: MagazinePistolSubMachineGunPracticeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: SMG magazine (.35 auto practice)
-  parent: BaseMagazinePistolSubMachineGun
-  description: A 30-round .35 auto SMG magazine, marked as practice ammo. #imp
+  parent: BaseMagazinePistolSubMachineGunWizden #imp
+  description: 30-round double-stack magazine for submachine guns. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolPractice
   - type: Sprite
     layers:
-    - state: practice # imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    # - state: stripe # imp remove
-    #   color: "#dbdbdb"
+    - state: stripe
+      color: "#dbdbdb"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#ffcb6f" #imp
+        color: "#dbdbdb"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#ffcb6f" #imp
+        color: "#dbdbdb"
 
 - type: entity
-  id: MagazinePistolSubMachineGunUranium
+  id: MagazinePistolSubMachineGunUraniumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: SMG magazine (.35 auto uranium)
-  parent: BaseMagazinePistolSubMachineGun
-  description: A 30-round .35 auto SMG magazine, marked as uranium ammo. #imp
+  parent: BaseMagazinePistolSubMachineGunWizden #imp
+  description: 30-round double-stack magazine for submachine guns. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolUranium
   - type: Sprite
     layers:
-    - state: uranium # imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    # - state: stripe # imp remove
-    #   color: "#00cd42"
+    - state: stripe
+      color: "#00cd42"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#ffcb6f" #imp
+        color: "#00cd42"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#ffcb6f" #imp
+        color: "#00cd42"
 
 - type: entity
-  parent: BaseMagazinePistolSubMachineGun
-  id: MagazinePistolSubMachineGunIncendiary
+  parent: BaseMagazinePistolSubMachineGunWizden #imp
+  abstract: true
+  id: MagazinePistolSubMachineGunIncendiaryWizden #imp - see the _Impstation directory for the version we use
   name: SMG magazine (.35 auto incendiary)
   description: 30-round double-stack magazine for submachine guns. Intended to hold self-igniting incendiary ammunition.
   components:
@@ -474,19 +455,19 @@
     proto: CartridgePistolIncendiary
   - type: Sprite
     layers:
-    - state: incendiary #imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-  #   - state: stripe #imp remove
-  #     color: "#ff6e52"
+    - state: stripe
+      color: "#ff6e52"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#d46925" #imp
+        color: "#ff6e52"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#d46925" #imp
+        color: "#ff6e52"
