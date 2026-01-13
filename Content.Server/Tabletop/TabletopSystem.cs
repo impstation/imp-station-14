@@ -107,7 +107,7 @@ namespace Content.Server.Tabletop
                 return;
             }
 
-            if (_whitelist.IsBlacklistPass(component.Blacklist, handEnt.Value))
+            if (_whitelist.IsWhitelistPass(component.Blacklist, handEnt.Value))
             {
                 _popupSystem.PopupEntity(Loc.GetString("tabletop-error-blacklisted"), uid, args.User);
                 return;
