@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/13/2026 06:09:00
+  time: 01/13/2026 07:11:19
   entityCount: 21510
 maps:
 - 1
@@ -10305,7 +10305,7 @@ entities:
       pos: -36.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -129071.19
+      secondsUntilStateChange: -129132.17
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -10656,7 +10656,7 @@ entities:
       pos: 33.5,-43.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -257408.31
+      secondsUntilStateChange: -257469.3
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11367,7 +11367,7 @@ entities:
       pos: 37.5,-46.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -79743.72
+      secondsUntilStateChange: -79804.7
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11992,7 +11992,7 @@ entities:
       pos: -8.5,-0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -71867.34
+      secondsUntilStateChange: -71928.33
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -140804,12 +140804,20 @@ entities:
     - type: Transform
       pos: 25.5,28.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 12035
+      - 21499
   - uid: 15020
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 23.5,20.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 12035
+      - 21499
   - uid: 18547
     components:
     - type: Transform
@@ -140831,6 +140839,8 @@ entities:
     - type: DeviceList
       devices:
       - 18547
+      - 446
+      - 15020
   - uid: 21499
     components:
     - type: Transform
@@ -140839,6 +140849,8 @@ entities:
     - type: DeviceList
       devices:
       - 18547
+      - 446
+      - 15020
 - proto: WeaponLaserCarbinePractice
   entities:
   - uid: 3277
