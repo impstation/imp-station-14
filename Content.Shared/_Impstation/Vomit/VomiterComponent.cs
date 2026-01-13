@@ -4,6 +4,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.Vomit;
 
+/// <summary>
+/// This component is used to denote which entities are able to vomit, and any unique properties their vomit may have.
+/// </summary>
 [RegisterComponent]
 public sealed partial class VomiterComponent : Component
 {
