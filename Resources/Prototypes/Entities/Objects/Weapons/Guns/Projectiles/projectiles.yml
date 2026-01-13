@@ -552,7 +552,6 @@
   - type: TimedDespawn
     lifetime: 0.22 # roughly 5.5 tiles
   - type: GatheringProjectile
-  - type: PressureProjectile # DeltaV
 
 - type: entity
   id: BulletKineticShuttleWizden #imp - see the _Impstation directory for the version we use
