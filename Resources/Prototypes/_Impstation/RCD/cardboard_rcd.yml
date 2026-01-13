@@ -38,7 +38,7 @@
   fx: EffectRCDConstruct1
 
 - type: rcd
-  id: CardboardWall
+  id: Cardwall
   name: cardboard wall
   category: WallsAndFlooring
   sprite: /Textures/_Impstation/Structures/Cardboard/CardboardRCDIcons/wall.png
@@ -106,12 +106,12 @@
   fx: EffectRCDConstruct1
 
 - type: rcd
-  id: DoorCardboard
-  name: cardboard airlock
+  id: CardDoor
+  name: cardboard door
   category: Airlocks
   sprite: /Textures/_Impstation/Structures/Cardboard/CardboardRCDIcons/door.png
   mode: ConstructObject
-  prototype: DoorCardboard
+  prototype: CardDoor
   cost: 4
   delay: 4
   collisionMask: FullTileMask

@@ -140,6 +140,7 @@ CrayonRainbowInfinite: CrayonInfinite
 AirlockEVALocked: AirlockCommandLocked
 AirlockEVAGlassLocked: AirlockCommandGlassLocked
 
-# 2026-01-06
-# unify our cardboard walls with upstream
+# 2026-01-13
+# unify our cardboard entities with upstream's
 WallCardboard: Cardwall
+DoorCardboard: CardDoor

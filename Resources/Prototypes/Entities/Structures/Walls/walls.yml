@@ -1693,7 +1693,7 @@
     tags:
     - Wall
   - type: Sprite
-    #drawdepth: SmallObjects #so bullets pass 'through' # imp edit, make this more wall-like
+    #drawdepth: SmallObjects #so bullets pass 'through' # imp edit, make this more wall-like. ideally bullets would be able to both damage the wall and pass through them, but I don't think that's possible
     sprite: Structures/Walls/card.rsi
   - type: Icon
     sprite: Structures/Walls/card.rsi
@@ -1716,13 +1716,13 @@
         mask:
         - FullTileMask
         layer:
-        - WallLayer # imp edit, FlimsyLayer -> WallLayer,
-        density: 10 # imp edit, it's cardboard, a lot lighter than steel
+        - WallLayer #imp edit, FlimsyLayer -> WallLayer,
+        density: 100 #imp edit, it's cardboard, a lot lighter than steel
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 80 # excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 80 #excess damage (nuke?). avoid computational cost of spawning entities.
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -1748,7 +1748,7 @@
   - type: SunShadowCast
   # imp edit start
   - type: RadiationBlocker
-    resistance: .5 # down from 2 from BaseWall. not great, but better than nothing
+    resistance: .5 #down from 2 from BaseWall. not great, but better a lot better than you'd imagine
   - type: StaticPrice
     price: 7.5 # price of the sheets of cardboard required
   # imp edit end

@@ -371,7 +371,7 @@
   - type: Item
     size: Huge
     shape: #imp
-    - 0,0,3,0 
+    - 0,0,3,0
     storedSprite: #imp
       sprite: Structures/Furniture/folding_chair.rsi
       state: storage
@@ -442,6 +442,9 @@
             max: 2
       - !type:DoActsBehavior
         acts: ["Destruction"]
+      - !type:PlaySoundBehavior #imp edit
+        sound:
+          collection: WoodDestroy
 
 - type: entity
   name: wooden bench

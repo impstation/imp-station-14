@@ -28,8 +28,8 @@
   - type: Stack
     stackType: FloorTileCardboard
   - type: Construction
-    graph: CardboardStructures
-    node: tile
+    graph: TileCardboard
+    node: cardTile
 
 - type: entity
   parent: FloorTileItemBase

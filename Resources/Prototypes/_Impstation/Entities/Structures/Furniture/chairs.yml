@@ -6,45 +6,26 @@
   - type: Sprite
     sprite: _Impstation/Structures/Furniture/chairs.rsi
     state: apid
+  - type: Construction
+    graph: ImpSeat
+    node: chairapid
 
 - type: entity
   name: cardboard chair
   id: ChairCardboard
   parent: ChairBase
   description: You can try to sit on it. You're not sure it'll go well.
-  placement:
-    mode: PlaceFree
   components:
-  - type: Animateable
-  - type: Clickable
-  - type: InteractionOutline
-  - type: Physics
-    bodyType: Static
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.2
-        density: 100
-        mask:
-        - TableMask
   - type: Sprite
     sprite: _Impstation/Structures/Cardboard/cardboard_chair.rsi
     state: chair
-    noRot: true
-  - type: Strap
-    position: Stand
-    buckleOffset: "0,-0.05"
-  - type: Pullable
   - type: Damageable
-    damageContainer: Inorganic
     damageModifierSet: Card
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 40
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -52,11 +33,16 @@
         !type:DamageTrigger
         damage: 10
       behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCardboard:
+            min: 1
+            max: 2
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
         sound:
           collection: WoodDestroy
   - type: Construction
-    graph: CardboardStructures
-    node: chair
+    graph: ImpSeat
+    node: chairCardboard
