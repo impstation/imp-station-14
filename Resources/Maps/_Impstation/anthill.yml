@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/12/2026 06:53:14
-  entityCount: 16437
+  time: 01/13/2026 04:00:36
+  entityCount: 16446
 maps:
 - 1
 grids:
@@ -8135,21 +8135,8 @@ entities:
   - uid: 179
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: 61.5,6.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -22525.82
-      state: Opening
-    - type: DeviceLinkSink
-      invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        180:
-        - - DoorStatus
-          - DoorBolt
-      lastSignals:
-        DoorStatus: True
   - uid: 180
     components:
     - type: Transform
@@ -8158,11 +8145,6 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
-    - type: DeviceLinkSource
-      linkedPorts:
-        179:
-        - - DoorStatus
-          - DoorBolt
   - uid: 181
     components:
     - type: Transform
@@ -38100,6 +38082,13 @@ entities:
     - type: Transform
       pos: -34.5,60.5
       parent: 2
+- proto: ComputerServiceJobBoard
+  entities:
+  - uid: 10666
+    components:
+    - type: Transform
+      pos: 42.5,7.5
+      parent: 2
 - proto: ComputerShipyard
   entities:
   - uid: 5515
@@ -38973,7 +38962,7 @@ entities:
       pos: 27.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -194967.39
+      secondsUntilStateChange: -198156.58
       state: Closing
   - uid: 5639
     components:
@@ -39004,7 +38993,7 @@ entities:
       pos: 30.5,18.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -208512.7
+      secondsUntilStateChange: -211701.89
       state: Opening
 - proto: CurtainsCyanOpen
   entities:
@@ -48243,20 +48232,6 @@ entities:
       - 7353
     - type: Fixtures
       fixtures: {}
-  - uid: 7167
-    components:
-    - type: Transform
-      pos: -34.5,3.5
-      parent: 2
-    - type: DeviceList
-      devices:
-      - 7503
-      - 7501
-      - 7500
-      - 7266
-      - 7504
-    - type: Fixtures
-      fixtures: {}
   - uid: 7168
     components:
     - type: Transform
@@ -49455,6 +49430,21 @@ entities:
       - 4838
     - type: Fixtures
       fixtures: {}
+  - uid: 12090
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -40.5,2.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 7503
+      - 7501
+      - 7500
+      - 7266
+      - 7504
+    - type: Fixtures
+      fixtures: {}
   - uid: 12950
     components:
     - type: Transform
@@ -49717,8 +49707,8 @@ entities:
       deviceLists:
       - 15
       - 13
-      - 7167
       - 7170
+      - 12090
   - uid: 7267
     components:
     - type: Transform
@@ -52011,8 +52001,8 @@ entities:
       deviceLists:
       - 15
       - 13
-      - 7167
       - 7170
+      - 12090
   - uid: 7501
     components:
     - type: Transform
@@ -52021,7 +52011,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15
-      - 7167
+      - 12090
   - uid: 7502
     components:
     - type: Transform
@@ -52041,7 +52031,7 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 15
-      - 7167
+      - 12090
   - uid: 7504
     components:
     - type: Transform
@@ -52051,7 +52041,7 @@ entities:
       deviceLists:
       - 39
       - 7168
-      - 7167
+      - 12090
   - uid: 7505
     components:
     - type: Transform
@@ -74307,7 +74297,7 @@ entities:
       pos: -37.5,-2.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -152334.77
+      secondsUntilStateChange: -155523.95
       state: Closing
   - uid: 10365
     components:
@@ -75560,6 +75550,9 @@ entities:
     - type: Transform
       pos: -24.5,0.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Security
 - proto: LockerHeadOfPersonnelFilled
   entities:
   - uid: 10537
@@ -75807,16 +75800,13 @@ entities:
     - type: Transform
       pos: -7.5,60.5
       parent: 2
-- proto: LockerWardenFilled
+- proto: LockerWardenFilledHardsuitNoWeapon
   entities:
   - uid: 10514
     components:
     - type: Transform
       pos: -20.5,-0.5
       parent: 2
-    - type: AccessReader
-      accessListsOriginal:
-      - - Armory
 - proto: LockerWeldingSuppliesFilled
   entities:
   - uid: 8324
@@ -76642,7 +76632,7 @@ entities:
   - uid: 10682
     components:
     - type: Transform
-      pos: 42.644627,7.62296
+      pos: 44.607895,5.844206
       parent: 2
 - proto: MopItem
   entities:
@@ -76660,7 +76650,7 @@ entities:
   - uid: 10685
     components:
     - type: Transform
-      pos: 42.410583,7.68679
+      pos: 44.46702,6.141081
       parent: 2
 - proto: Morgue
   entities:
@@ -81040,6 +81030,11 @@ entities:
     - type: Transform
       pos: 54.5,17.5
       parent: 2
+  - uid: 10667
+    components:
+    - type: Transform
+      pos: -20.5,0.5
+      parent: 2
   - uid: 11392
     components:
     - type: Transform
@@ -81108,12 +81103,6 @@ entities:
     components:
     - type: Transform
       pos: 41.5,7.5
-      parent: 2
-  - uid: 11409
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 42.5,7.5
       parent: 2
   - uid: 11410
     components:
@@ -84783,6 +84772,13 @@ entities:
       parent: 2
 - proto: Screen
   entities:
+  - uid: 10669
+    components:
+    - type: Transform
+      pos: -23.5,13.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 11990
     components:
     - type: Transform
@@ -89309,6 +89305,13 @@ entities:
     - type: Transform
       pos: -37.5,7.5
       parent: 2
+- proto: SpawnPointWardenWeapon
+  entities:
+  - uid: 12011
+    components:
+    - type: Transform
+      pos: -20.5,0.5
+      parent: 2
 - proto: SpawnVendingMachineRestockFoodDrink
   entities:
   - uid: 12528
@@ -90311,13 +90314,6 @@ entities:
     components:
     - type: Transform
       pos: -45.5,12.5
-      parent: 2
-- proto: SuitStorageWarden
-  entities:
-  - uid: 12664
-    components:
-    - type: Transform
-      pos: -20.5,0.5
       parent: 2
 - proto: SupermatterComputerCircuitboard
   entities:
@@ -94968,6 +94964,38 @@ entities:
       parent: 2
 - proto: WallmountTelevision
   entities:
+  - uid: 7167
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -34.5,3.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 11409
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 43.5,20.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 11921
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -14.5,55.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 12003
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -39.5,39.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 13279
     components:
     - type: Transform
@@ -107568,6 +107596,12 @@ entities:
     - type: Transform
       pos: -44.5,14.5
       parent: 2
+  - uid: 12026
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -21.5,0.5
+      parent: 2
   - uid: 15540
     components:
     - type: Transform
@@ -108125,6 +108159,17 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -44.5,14.5
+      parent: 2
+  - uid: 12010
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.5,0.5
+      parent: 2
+  - uid: 12022
+    components:
+    - type: Transform
+      pos: -20.5,0.5
       parent: 2
   - uid: 14802
     components:
