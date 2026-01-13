@@ -15,9 +15,9 @@
           "/Audio/Weapons/pierce.ogg"
   - type: Sprite
     drawdepth: WallTops
-    sprite: _Impstation/Structures/Cardboard/cardboard_window.rsi
+    sprite: _Impstation/Structures/Windows/cardboard_window.rsi
   - type: Icon
-    sprite: _Impstation/Structures/Cardboard/cardboard_window.rsi
+    sprite: _Impstation/Structures/Windows/cardboard_window.rsi
     state: full
   - type: Physics
     bodyType: Static
@@ -92,10 +92,10 @@
           "/Audio/Weapons/pierce.ogg"
   - type: Sprite
     drawdepth: Mobs
-    sprite: _Impstation/Structures/Cardboard/cardboard_directional.rsi
+    sprite: _Impstation/Structures/Windows/cardboard_directional.rsi
     state: window
   - type: Icon
-    sprite: _Impstation/Structures/Cardboard/cardboard_directional.rsi
+    sprite: _Impstation/Structures/Windows/cardboard_directional.rsi
     state: window
   - type: Physics
   - type: Fixtures

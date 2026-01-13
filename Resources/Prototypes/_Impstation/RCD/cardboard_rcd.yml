@@ -41,7 +41,7 @@
   id: Cardwall
   name: cardboard wall
   category: WallsAndFlooring
-  sprite: /Textures/_Impstation/Structures/Cardboard/CardboardRCDIcons/wall.png
+  sprite: { sprite: Structures/Walls/card.rsi, state: full }
   mode: ConstructObject
   prototype: Cardwall
   cost: 4
@@ -54,7 +54,7 @@
   id: CardboardWindow
   name: cardboard window
   category: WindowsAndGrilles
-  sprite: /Textures/_Impstation/Structures/Cardboard/CardboardRCDIcons/window.png
+  sprite: { sprite: _Impstation/Structures/Windows/cardboard_window.rsi, state: full }
   mode: ConstructObject
   prototype: WindowCardboard
   cost: 2
@@ -67,7 +67,7 @@
   id: WindowCardboardDirectional
   name: cardboard directional window
   category: WindowsAndGrilles
-  sprite: /Textures/_Impstation/Structures/Cardboard/CardboardRCDIcons/windowdirectional.png
+  sprite: { sprite: _Impstation/Structures/Windows/cardboard_directional.rsi, state: window }
   mode: ConstructObject
   prototype: WindowCardboardDirectional
   cost: 1
@@ -83,7 +83,7 @@
   id: ChairCardboard
   category: WallsAndFlooring
   name: cardboard chair
-  sprite: /Textures/_Impstation/Structures/Cardboard/CardboardRCDIcons/chair.png
+  sprite: { sprite: _Impstation/Structures/Furniture/cardboard_chair.rsi, state: chair }
   mode: ConstructObjecT
   prototype: ChairCardboard
   cost: 1
@@ -95,7 +95,7 @@
   id: FloorCardboard
   name: cardboard floor tile
   category: WallsAndFlooring
-  sprite: /Textures/_Impstation/Structures/Cardboard/CardboardRCDIcons/tile.png
+  sprite: /Textures/_Impstation/Tiles/Cardboard/tile.png
   mode: ConstructTile
   prototype: FloorCardboard
   cost: 1
@@ -109,7 +109,7 @@
   id: CardDoor
   name: cardboard door
   category: Airlocks
-  sprite: /Textures/_Impstation/Structures/Cardboard/CardboardRCDIcons/door.png
+  sprite: { sprite: Structures/Doors/MineralDoors/card_door.rsi, state: closed }
   mode: ConstructObject
   prototype: CardDoor
   cost: 4
