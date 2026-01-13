@@ -963,7 +963,6 @@
   - type: CargoOrderConsole
     removeLimitAccess: [ "Quartermaster" ]
     acquisitionSlip: PaperAcquisitionSlipCargo # imp
-    showFundsTab: true # imp
   - type: ActiveRadio
     channels:
     - Supply

@@ -155,7 +155,7 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// Imp addition. Whether the funds tab should be visible.
     /// </summary>
     [DataField]
-    public bool ShowFundsTab = false;
+    public bool ShowFundsTab = true;
 }
 
 /// <summary>
