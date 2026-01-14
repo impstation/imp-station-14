@@ -252,6 +252,7 @@
           partnerWhiteList:
             tags:
           reproductiveGroup: ""
+          offspring: ""
   considerations:
     - !type:TargetDistanceCon
       curve: !type:PresetCurve

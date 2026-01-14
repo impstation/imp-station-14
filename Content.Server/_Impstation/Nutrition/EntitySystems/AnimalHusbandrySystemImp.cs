@@ -5,15 +5,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Popups;
+using Content.Shared._Impstation.AnimalHusbandry.Components;
 using Content.Shared._Impstation.Nutrition.Components;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using NetCord;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.GameObjects;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -24,14 +29,17 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _time = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly ThirstSystem _thirst = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
 
     Dictionary<EntityUid, ImpReproductiveComponent> _mobsWaiting = new Dictionary<EntityUid, ImpReproductiveComponent>();
+    Dictionary<EntityUid, ImpInfantComponent> _infants = new Dictionary<EntityUid, ImpInfantComponent>();
 
-    int _framesUntilNextBithCheck = 0;
+    int _framesUntilNextChecks = 0;
     int _birthCheckFrameDelay = 6;
 
     public override void Initialize()
@@ -43,16 +51,17 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     {
         base.Update(frameTime);
 
-        // This approach is one i'm still debating because there's pros and cons
-        // Pros are this effectively means rather than each mob checking if it is ready to give birth
-        // one single system KNOWS what mobs need to ask that
-        // Cons are seperation from the HTN (Part of this project was to make sure the HTN is actually USED LIKE IT'S MEANT TO BE)
-
-        // The delay largely exists for performance reasons since realistically we do not need frame accurate
-        // mob births. They can afford to be a little late.
-        if (_framesUntilNextBithCheck <= 0)
+        if (_framesUntilNextChecks <= 0)
         {
-            _framesUntilNextBithCheck = _birthCheckFrameDelay;
+            _framesUntilNextChecks = _birthCheckFrameDelay;
+
+            // This approach is one i'm still debating because there's pros and cons
+            // Pros are this effectively means rather than each mob checking if it is ready to give birth
+            // one single system KNOWS what mobs need to ask that
+            // Cons are seperation from the HTN (Part of this project was to make sure the HTN is actually USED LIKE IT'S MEANT TO BE)
+
+            // The delay largely exists for performance reasons since realistically we do not need frame accurate
+            // mob births. They can afford to be a little late.
             foreach (var reproComp in _mobsWaiting)
             {
                 // In case the mob finds itself deleted or destroyed
@@ -79,12 +88,39 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
                     _adminLog.Add(LogType.Action, $"A mob has given birth!");
                 }
             }
+
+            foreach(var infantComp in _infants)
+            {
+                if(_entManager.Deleted(infantComp.Key)
+                    || !_entManager.TryGetComponent<MobStateComponent>(infantComp.Key, out var state))
+                {
+                    _infants.Remove(infantComp.Key);
+                    continue;
+                }
+
+                // No growing up until you're alive buddy
+                // Also delays the animals growth so they don't wake up and immediately advance a stage if kept dead for a while.
+                // In other words, keep your animals healthy!
+                if(state.CurrentState != Shared.Mobs.MobState.Alive)
+                {
+                    infantComp.Value.TimeUntilNextStage = _time.CurTime + (infantComp.Value.GrowthTime / 2);
+                    continue;
+                }
+
+                if(_time.CurTime > infantComp.Value.TimeUntilNextStage)
+                {
+                    if (AdvanceStage((infantComp.Key, infantComp.Value)))
+                        _infants.Remove(infantComp.Key);
+                }
+            }
         }
         else
         {
-            _framesUntilNextBithCheck--;
+            _framesUntilNextChecks--;
         }
     }
+
+    #region BIRTHING
 
     /// <summary>
     /// Our function for handling the breeding action once all checks are finished and the
@@ -119,8 +155,8 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         // Add them to our list of pregnant NPCs to be tracked
         _mobsWaiting.Add(approached, partnerComp);
 
-        // This is temporary
-        _popup.PopupEntity("BREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBREDBRED", approached);
+        if (TryComp<InteractionPopupComponent>(approached, out var interactionPopup))
+            Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates(approached));
 
         // GET HUNGRY GET THIRSTY
         _hunger.ModifyHunger(approacher, -component.HungerPerBirth);
@@ -144,6 +180,13 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     {
         if (entity.Comp.Pregnant)
             return false;
+
+        // TODO
+        // REMEMBER TO FUCKING UNCOMMENT ALL OF THIS ONCE IT'S DONE
+        // REMEMBER
+        // REMEMBER
+        // REMEMBER
+        // I KNOW YOU'LL FORGET
 
         /*
         if (_entManager.TryGetComponent<HungerComponent>(entity, out var hunger) && hunger.CurrentThreshold < HungerThreshold.Okay)
@@ -188,5 +231,53 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
         // This is also temporary
         _popup.PopupEntity("BIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTH", entity);
+        var offspring = SpawnNewMob(entity, entity.Comp.Offspring);
+
+        if(_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
+        {
+            infantComp.TimeUntilNextStage = _time.CurTime + infantComp.GrowthTime;
+            infantComp.Parent = entity;
+            _infants.Add((EntityUid)offspring, infantComp);
+        }
+
+
     }
+
+    #endregion
+
+    #region INFANTS
+
+    public bool AdvanceStage(Entity<ImpInfantComponent> _infant)
+    {
+        bool isAdult = false;
+
+        var newStage = SpawnNewMob(_infant, _infant.Comp.NextStage);
+
+        // If someone is in this thing, move them over as well
+        if (_mind.TryGetMind(_infant, out var mind, out var mindComp))
+        {
+            _mind.TransferTo(mind, newStage);
+        }
+
+        isAdult = !_entManager.TryGetComponent<InfantComponent>(newStage, out var comp);
+
+        QueueDel(_infant);
+
+        return isAdult;
+    }
+
+    #endregion
+
+    #region UNIVERSAL
+
+    public EntityUid? SpawnNewMob(EntityUid entity, EntProtoId toSpawn)
+    {
+        var xform = Transform(entity);
+
+        var newMob = Spawn(toSpawn, xform.Coordinates);
+
+        return newMob;
+    }
+
+    #endregion
 }

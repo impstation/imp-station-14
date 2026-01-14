@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Content.Shared.Whitelist;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.Nutrition.Components;
 /// <summary>
@@ -41,6 +42,10 @@ public sealed partial class ImpReproductiveComponent : Component
     // Maximum amount of damage allowed before the mob gives up trying to breed
     [DataField("maxBreedDamage"), ViewVariables(VVAccess.ReadOnly)]
     public int MaxBreedDamage = 50;
+
+    // What will we give birth to?
+    [DataField("offspring", required: true), ViewVariables(VVAccess.ReadWrite)]
+    public EntProtoId Offspring;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool Pregnant = false;
