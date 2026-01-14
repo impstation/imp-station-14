@@ -5,12 +5,12 @@ using Content.Shared.Rotation; //starlight
 using Content.Shared.Stunnable;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
+using Robust.Shared.Animations;
 using Robust.Client.Graphics; //starlight
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Random;
 using Robust.Shared.Timing; //starlight
-using Robust.Shared.Animations; //starlight
 
 
 namespace Content.Client.Stunnable;
