@@ -675,3 +675,17 @@
       amount: 1
   products:
     RoseMilk: 3
+
+- type: reaction
+  id: FunnyLiftingDrink
+  requiredMixerCategories:
+    - Shake
+  reactants:
+    LiftingConcentrate:
+      amount: 1
+    CyanFoodColoring:
+      amount: 2
+    SodaWater:
+      amount: 3
+  products:
+    FunnyLiftingDrink: 6

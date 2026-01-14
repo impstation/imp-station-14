@@ -155,3 +155,32 @@
   - type: FlavorProfile
     flavors:
     - secticket
+
+- type: entity
+  parent: BaseItem
+  name: bail card
+  id: JailCard
+  description: 'Get out of jail free! This card may be kept until needed or sold.'
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: jail_card
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/pop.ogg
+    embedOnThrow: True
+  - type: ThrowingAngle
+    angle: 0
+  - type: LandAtCursor
+
+- type: entity
+  parent: [JailCard, BaseCentcommContraband]
+  name: CC bail card
+  id: CentCommJailCard
+  description: 'Get out of jail free! This card may be kept until needed or sold. Not complying with this card is punishable by death.'
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: centcomm_jail_card

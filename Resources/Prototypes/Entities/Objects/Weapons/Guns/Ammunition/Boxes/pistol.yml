@@ -1,9 +1,8 @@
 - type: entity
-  abstract: true
   parent: BaseItem
-  id: BaseMagazineBoxPistol
+  id: BaseMagazineBoxPistolWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: ammunition box (.35 auto)
-  description: A box made for 60 rounds of .35 auto subcaliber ammunition. #imp
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -18,7 +17,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi # imp
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
   - type: MagazineVisuals
     magState: mag
     steps: 3
@@ -28,9 +27,10 @@
 # Boxes
 - type: entity
   parent: BaseMagazineBoxPistol
-  id: MagazineBoxPistol
+  id: MagazineBoxPistolWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: ammunition box (.35 auto)
-  description: A box made for 60 rounds of .35 auto subcaliber ammunition, labeled as live-fire bullets. #imp
+  description: A cardboard box of .35 auto rounds. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
@@ -43,9 +43,10 @@
 
 - type: entity
   parent: BaseMagazineBoxPistol
-  id: MagazineBoxPistolPractice
+  id: MagazineBoxPistolPracticeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: ammunition box (.35 auto practice)
-  description: A box made for 60 rounds of .35 auto ammunition, labeled as practice bullets. #imp
+  description: A cardboard box of .35 auto rounds. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolPractice
@@ -58,10 +59,11 @@
     - state: practice
 
 - type: entity
-  id: MagazineBoxPistolIncendiary
+  id: MagazineBoxPistolIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   parent: BaseMagazineBoxPistol
   name: ammunition box (.35 auto incendiary)
-  description: A box made for 60 rounds of .35 auto ammunition, labeled as incendiary bullets. #imp
+  description: A cardboard box of .35 auto rounds. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolIncendiary
@@ -74,10 +76,11 @@
     - state: incendiary
 
 - type: entity
-  id: MagazineBoxPistolUranium
+  id: MagazineBoxPistolUraniumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   parent: BaseMagazineBoxPistol
   name: ammunition box (.35 auto uranium)
-  description: A box made for 60 rounds of .35 auto ammunition, labeled as uranium bullets. #imp
+  description: A cardboard box of .35 auto rounds. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolUranium
