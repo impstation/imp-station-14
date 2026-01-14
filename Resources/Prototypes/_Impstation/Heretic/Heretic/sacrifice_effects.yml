@@ -3,3 +3,45 @@
   components:
   - type: BlackAndWhiteOverlay
   message: heretic-sac-effect-lantern
+
+- type: hereticSacrificeEffect
+  id: SacEffectMoth
+  components:
+  - type: Paracusia
+  message: heretic-sac-effect-moth
+
+- type: hereticSacrificeEffect
+  id: SacEffectGrail
+  components:
+  - type: Hemophilia
+  message: heretic-sac-effect-grail
+
+- type: hereticSacrificeEffect
+  id: SacEffectHeart
+  components:
+  - type: PainNumbness
+  message: heretic-sac-effect-heart
+
+- type: hereticSacrificeEffect
+  id: SacEffectWinter
+  components:
+  - type: Muted
+  message: heretic-sac-effect-winter
+
+- type: hereticSacrificeEffect
+  id: SacEffectEdge
+  components:
+  - type: Pacified
+  message: heretic-sac-effect-edge
+
+- type: hereticSacrificeEffect
+  id: SacEffectForge
+  components:
+  - type: ImpairedMobility
+  message: heretic-sac-effect-forge
+
+- type: hereticSacrificeEffect
+  id: SacEffectKnock
+  components:
+  - type: Narcolepsy
+  message: heretic-sac-effect-knock
