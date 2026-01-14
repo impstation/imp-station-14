@@ -8,6 +8,11 @@
   id: SacEffectMoth
   components:
   - type: Paracusia
+    minTimeBetweenIncidents: 0.1
+    maxTimeBetweenIncidents: 300
+    maxSoundDistance: 7
+    sounds:
+      collection: Paracusia
   message: heretic-sac-effect-moth
 
 - type: hereticSacrificeEffect
@@ -44,4 +49,8 @@
   id: SacEffectKnock
   components:
   - type: Narcolepsy
+    maxTimeBetweenIncidents: 600
+    minTimeBetweenIncidents: 300
+    maxDurationOfIncident: 30
+    minDurationOfIncident: 10
   message: heretic-sac-effect-knock
