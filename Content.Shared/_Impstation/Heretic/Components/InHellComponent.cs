@@ -28,7 +28,7 @@ public sealed partial class InHellComponent : Component
     /// <summary>
     /// how long are they there?
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan HellDuration = TimeSpan.FromSeconds(15);
 
     [DataField]
@@ -38,5 +38,5 @@ public sealed partial class InHellComponent : Component
     /// contains the sacrifice debuff and related message
     /// </summary>
     [DataField]
-    public HereticSacrificeEffectPrototype Effect = null;
+    public HereticSacrificeEffectPrototype? Effect = null;
 }

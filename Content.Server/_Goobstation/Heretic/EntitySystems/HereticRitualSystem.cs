@@ -1,21 +1,21 @@
+using Content.Server._Goobstation.Heretic.Components;
+using Content.Server.Administration.Logs;
 using Content.Server.Heretic.Components;
-using Content.Shared.Heretic.Prototypes;
+using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared.Database;
+using Content.Shared.Examine;
 using Content.Shared.Heretic;
+using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
-using System.Text;
-using System.Linq;
-using Content.Server._Goobstation.Heretic.Components;
-using Robust.Shared.Serialization.Manager;
-using Content.Shared.Examine;
-using Content.Shared._Goobstation.Heretic.Components;
 using Robust.Shared.Containers;
-using Content.Server.Administration.Logs;
-using Content.Shared.Database;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
+using System.Linq;
+using System.Text;
 
 namespace Content.Server.Heretic.EntitySystems;
 

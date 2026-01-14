@@ -16,6 +16,7 @@ namespace Content.Server.Heretic.Ritual;
 ///     gibs it and gives the heretic knowledge points.
 /// </summary>
 // these classes should be lead out and shot
+
 [Virtual]
 public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {
