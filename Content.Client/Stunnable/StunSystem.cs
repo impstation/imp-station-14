@@ -12,7 +12,6 @@ using Robust.Shared.Input.Binding;
 using Robust.Shared.Random;
 using Robust.Shared.Timing; //starlight
 
-
 namespace Content.Client.Stunnable;
 
 public sealed class StunSystem : SharedStunSystem
