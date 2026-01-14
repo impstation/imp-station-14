@@ -158,7 +158,7 @@
   parent: OfficeChairBase
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Furniture/chairs.rsi # imp
+    sprite: _Impstation/Structures/Furniture/Chairs/chair_office.rsi # imp
     state: office-white
   - type: Construction
     graph: Seat
@@ -170,7 +170,7 @@
   parent: ChairOfficeLight
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Furniture/chairs.rsi # imp
+    sprite: _Impstation/Structures/Furniture/Chairs/chair_office.rsi # imp
     state: office-dark
   - type: Construction
     graph: Seat
@@ -183,7 +183,7 @@
   description: It looks comfy.
   components:
   - type: Sprite
-    sprite: _Impstation/Structures/Furniture/chairs.rsi # imp
+    sprite: _Impstation/Structures/Furniture/Chairs/chair_comfy.rsi # imp
     state: comfy
   - type: Construction
     graph: Seat
@@ -207,7 +207,8 @@
   parent: UnanchoredChairBase
   components:
   - type: Sprite
-    state: wooden
+    sprite: _Impstation/Structures/Furniture/Chairs/chair_wooden.rsi # imp
+    state: icon # imp
   - type: Construction
     graph: Seat
     node: chairWood
@@ -215,6 +216,15 @@
     damageModifierSet: Wood
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 25
@@ -242,6 +252,7 @@
   description: Looks uncomfortable.
   components:
   - type: Sprite
+    sprite: Structures/Furniture/chairs.rsi # imp
     state: ritual
   - type: Construction
     graph: RitualSeat
@@ -266,12 +277,22 @@
   description: It's staring back.
   components:
   - type: Sprite
+    sprite: Structures/Furniture/chairs.rsi # imp
     state: cursed
   - type: Strap
     buckleSound:
       collection: MaleScreams
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Voice/Human/womanlaugh.ogg
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -308,6 +329,15 @@
     damageModifierSet: Web
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -343,6 +373,11 @@
       visible: false
   - type: Item
     size: Huge
+    shape: #imp
+    - 0,0,3,0
+    storedSprite: #imp
+      sprite: Structures/Furniture/folding_chair.rsi
+      state: storage
   - type: Appearance
   - type: MeleeWeapon
     damage:
@@ -378,18 +413,62 @@
     node: chairSteelBench
 
 - type: entity
+  name: cardboard stool
+  id: CardStool
+  parent: UnanchoredChairBase
+  description: Make sure you sit *really* gently.
+  components:
+  - type: Sprite
+    state: card-stool
+  - type: Construction
+    graph: Seat
+    node: stoolCard
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Card
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 40
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCardboard:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
   name: wooden bench
   id: WoodenBench
   parent: ChairBase
   description: Did you get a splinter? Well, at least it’s eco friendly.
   components:
   - type: Sprite
-    state: wooden-bench
+    sprite: _Impstation/Structures/Furniture/Chairs/bench_wooden.rsi # imp
+    state: icon # imp
   - type: Construction
     graph: Seat
     node: chairWoodBench
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -406,3 +485,11 @@
             max: 4
   - type: StaticPrice
     price: 50
+
+- type: entity
+  parent: StoolBase
+  id: ChairXeno
+  name: xeno chair
+  components:
+  - type: Sprite
+    state: xeno-chair

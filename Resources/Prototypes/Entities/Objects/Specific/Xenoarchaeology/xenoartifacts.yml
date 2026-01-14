@@ -49,15 +49,28 @@
       Flammable: [Touch]
       Extinguish: [Touch]
       Acidic: [Touch]
+  # imp edit start
+  - type: WarpPoint
+    blacklist:
+      tags:
+      - GhostOnlyWarp
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+  - type: NameIdentifier
+    group: Artifact
+  # imp edit end
 
 - type: entity
+  parent: BaseAction
   id: ActionArtifactActivate
   name: Activate Artifact
   description: Activate yourself, causing chaos to those near you.
   components:
-  - type: InstantAction
+  - type: Action
     icon:
       sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
       state: ano29
     useDelay: 300
+  - type: InstantAction
     event: !type:ArtifactSelfActivateEvent

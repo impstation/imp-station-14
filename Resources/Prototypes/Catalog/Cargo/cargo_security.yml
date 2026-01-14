@@ -21,7 +21,7 @@
 - type: cargoProduct
   id: SecurityNonLethal
   icon:
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler.rsi
     state: base
   product: CrateSecurityNonlethal
   cost: 4000
@@ -54,7 +54,7 @@
     sprite: Clothing/Head/Hoods/Bio/security.rsi
     state: icon
   product: CrateSecurityBiosuit
-  cost: 800
+  cost: 1600
   category: cargoproduct-category-name-security
   group: market
 

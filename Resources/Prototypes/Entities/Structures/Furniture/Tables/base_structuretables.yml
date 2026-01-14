@@ -26,7 +26,7 @@
   - type: Icon
     state: full
   - type: IconSmooth
-    key: state
+    key: table # imp, from state
     base: state_
   - type: Climbable
   - type: Bonkable
@@ -40,7 +40,6 @@
   - type: Tag
     tags:
     - ForceFixRotations
-  - type: RequireProjectileTarget # Goobstation - Crawling
   - type: ThrownItemImmune # imp
 
 - type: entity

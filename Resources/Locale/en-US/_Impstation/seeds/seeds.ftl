@@ -1,6 +1,12 @@
 seeds-lemo-name = lemo fruit
 seeds-lemo-display-name = lemo tree
 
+seeds-green-marijuana-name = green marijuana
+seeds-green-marijuana-display-name = green marijuana
+
+seeds-kissertomato-name = kisser tomato
+seeds-kissertomato-display-name = kisser tomato vine
+
 seeds-rose-name = rose
 seeds-rose-display-name = rose bush
 
@@ -30,3 +36,9 @@ seeds-biggerflyorchid-display-name = biggerfly orchids
 
 seeds-butterorchid-name = butter orchid
 seeds-butterorchid-display-name = butter orchids
+
+seeds-floatingflora-name = floating flora
+seeds-floatingflora-display-name = floating flora
+
+seeds-pompombush-name = pompom bush
+seeds-pompombush-display-name = pompom bush

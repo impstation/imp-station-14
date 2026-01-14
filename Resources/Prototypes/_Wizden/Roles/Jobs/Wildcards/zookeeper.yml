@@ -1,0 +1,47 @@
+- type: job
+  id: Zookeeper
+  name: job-name-zookeeper
+  description: job-description-zookeeper
+  playTimeTracker: JobZookeeper
+  startingGear: ZookeeperGear
+  icon: "JobIconZookeeper"
+  supervisors: job-supervisors-hop
+  access:
+  - Service
+  - Maintenance
+  special:
+  - !type:GiveItemOnHolidaySpecial
+    holiday: MonkeyDay
+    prototype: MonkeyCubeBox
+
+- type: startingGear #imp
+  id: ZookeeperGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSafari
+    head: ClothingHeadSafari
+    shoes: ClothingShoesColorWhite
+    id: ZookeeperPDA
+    belt: ClothingBeltUtility #imp
+    ears: ClothingHeadsetService
+  inhand: #imp
+    - WeaponRifleTranq
+  storage:
+    belt: #imp
+    - TranqDart
+    - TranqDart
+    - TranqDart
+    - IrwizineDart
+    - IrwizineDart
+    - IrwizineDart
+
+- type: chameleonOutfit
+  id: ZookeeperChameleonOutfit
+  job: Zookeeper
+  equipment:
+    eyes: ClothingEyesGlassesCheapSunglasses
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterWinterColorLightBrown
+    neck: ClothingNeckScarfStripedBrown
+    belt: ClothingBeltUtility #imp
+    gloves: ClothingHandsGlovesColorBrown
+

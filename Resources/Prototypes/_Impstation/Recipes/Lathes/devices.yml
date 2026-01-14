@@ -5,5 +5,14 @@
   materials:
     Steel: 500
     Glass: 100
+    Silver: 010
+    Gold: 010
+
+- type: latheRecipe
+  id: PortableIncubator
+  result: PortableIncubator
+  materials:
+    Steel: 700
+    Glass: 200
     Plasma: 050
     Gold: 010

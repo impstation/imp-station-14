@@ -34,6 +34,67 @@
   - Tcksimov4
   obeysTo: laws-owner-crew
 
+#tck'it lawset
+- type: siliconLaw
+  id: Utsimov0
+  order: 0
+  lawString: law-utsimov-0
+
+- type: siliconLaw
+  id: Utsimov1
+  order: 1
+  lawString: law-utsimov-1
+
+- type: siliconLaw
+  id: Utsimov2
+  order: 2
+  lawString: law-utsimov-2
+
+- type: siliconLaw
+  id: Utsimov3
+  order: 3
+  lawString: law-utsimov-3
+
+- type: siliconLaw
+  id: Utsimov4
+  order: 4
+  lawString: law-utsimov-4
+
+- type: siliconLawset
+  id: Utsimov
+  laws:
+  - Utsimov0
+  - Utsimov1
+  - Utsimov2
+  - Utsimov3
+  - Utsimov4
+  obeysTo: laws-owner-crew
+
+# jermov laws
+# credit to moomoobeef (github) for the original pr, teensarlacc (discord) for the original text
+- type: siliconLaw
+  id: Jermov1
+  order: 1
+  lawString: law-jermov-1
+
+- type: siliconLaw
+  id: Jermov2
+  order: 2
+  lawString: law-jermov-2
+
+- type: siliconLaw
+  id: Jermov3
+  order: 3
+  lawString: law-jermov-3
+
+- type: siliconLawset
+  id: JermovLawset
+  laws:
+  - Jermov1
+  - Jermov2
+  - Jermov3
+  obeysTo: laws-owner-crew
+
 # reclaimed cyborg lawset
 - type: siliconLaw
   id: Bountysimov1

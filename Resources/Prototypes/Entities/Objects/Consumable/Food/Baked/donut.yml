@@ -6,11 +6,9 @@
   abstract: true
   description: Goes great with robust coffee.
   components:
-  - type: Food
   - type: Tag
     tags:
     - Donut
-    - VoxFood
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/donut.rsi
   - type: SolutionContainerManager
@@ -446,9 +444,9 @@
 # Tastes like jelly-donut, fizzy tutti frutti.
 
 - type: entity
-  name: slugcat jelly-donut
+  name: sirval jelly-donut #imp
   parent: FoodDonutBase
-  id: FoodDonutJellySlugcat
+  id: FoodDonutJellyScurret
   description: The jelly in this is pitch black. Transcendental. #imp
   components:
   - type: Sprite

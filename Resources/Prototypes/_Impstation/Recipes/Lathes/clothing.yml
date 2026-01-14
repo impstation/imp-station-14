@@ -8,6 +8,11 @@
   id: ClothingUniformJumpskirtSalvageSpecialist
   result: ClothingUniformJumpskirtSalvageSpecialist
 
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckCloakAroace
+  result: ClothingNeckCloakAroace
+
 # Courier
 - type: latheRecipe
   parent: BaseHatRecipe
@@ -28,6 +33,32 @@
   parent: BaseCoatRecipe
   id: ClothingOuterWinterCourier
   result: ClothingOuterWinterCourier
+
+# CMO
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitCMOCasual
+  result: ClothingUniformJumpsuitCMOCasual
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtCMOCasual
+  result: ClothingUniformJumpskirtCMOCasual
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitCMOFormal
+  result: ClothingUniformJumpsuitCMOFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtCMOFormal
+  result: ClothingUniformJumpskirtCMOFormal
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitCMOScrubs
+  result: ClothingUniformJumpsuitCMOScrubs
 
 # Hospitality Director
 
@@ -90,3 +121,14 @@
   parent: BaseCommandHatRecipe
   id: ClothingHeadHatBeretHD
   result: ClothingHeadHatBeretHD
+
+# Musician
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatMusicianShako
+  result: ClothingHeadHatMusicianShako
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitMusicianMarchingBand
+  result: ClothingUniformJumpsuitMusicianMarchingBand

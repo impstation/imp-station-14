@@ -70,8 +70,10 @@
     - Estradiol
     - Genderfluid
     - JuiceThatMakesYouUngh
-  - type: Drink
+  - type: Edible
+    edible: Drink
     solution: anomaly
+    destroyOnEmpty: false
   - type: DrainableSolution
     solution: anomaly
   - type: DrawableSolution

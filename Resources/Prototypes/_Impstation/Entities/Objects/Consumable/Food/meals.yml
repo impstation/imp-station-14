@@ -1,183 +1,3 @@
-#Candy!!!!
-
-- type: entity
-  name: giant lollipop
-  parent: FoodMealBase
-  id: FoodMealBigLollipop
-  description: Wow!!! It's as big as your head!!!
-  components:
-  - type: Tag
-    tags:
-    - FoodSnack
-  - type: Food
-    trash:
-    - FoodKebabSkewer
-  - type: FlavorProfile
-    flavors:
-      - whimsy
-      - sugar
-  - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/meals.rsi
-    state: big-lollipop
-  - type: Item
-    heldPrefix: big-lollipop
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 15
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1 # sugar needs nutriment to be able to satiate hunger so im nerfing this but keeping it
-        - ReagentId: Sugar
-          Quantity: 10
-  - type: Clothing # DeltaV lollipop wearing sprite stuff
-    sprite: _DV/Objects/Consumable/Food/candy.rsi
-    slots: [ mask ]
-    equippedPrefix: lollipop
-    quickEquip: false # would block eating otherwise
-
-- type: entity
-  name: cloth lollipop
-  parent: FoodMealBigLollipop
-  id: FoodMealClothLollipop
-  description: Woven with love.
-  components:
-  - type: Tag
-    tags:
-    - FoodSnack
-    - ClothMade
-  - type: Food
-    requiresSpecialDigestion: true
-    trash:
-    - FoodKebabSkewer
-  - type: FlavorProfile
-    flavors:
-      - whimsy
-      - sugar
-      - cotton
-  - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/meals.rsi
-    state: cloth-lollipop
-  - type: Item
-    heldPrefix: cloth-lollipop
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Sugar
-          Quantity: 10
-        - ReagentId: Fiber
-          Quantity: 10
-
-- type: entity
-  name: fruit lollipop
-  parent: FoodMealBigLollipop
-  id: FoodMealFruitLollipop
-  description: Didn't this come out of a microwave? How did the chef even do this?
-  components:
-  - type: Tag
-    tags:
-    - FoodSnack
-    - Fruit
-  - type: Food
-    trash:
-    - FoodKebabSkewer
-  - type: FlavorProfile
-    flavors:
-      - whimsy
-      - fruity
-      - apple
-      - orange
-      - watermelon
-  - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/meals.rsi
-    state: fruit-lollipop
-  - type: Item
-    heldPrefix: fruit-lollipop
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 40
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 5.25
-        - ReagentId: Sugar
-          Quantity: 10
-        - ReagentId: Water
-          Quantity: 7.5
-
-- type: entity
-  name: meat lollipop
-  parent: FoodMealBigLollipop
-  id: FoodMealMeatLollipop
-  description: It's still dripping...
-  components:
-  - type: Tag
-    tags:
-    - Meat
-    - FoodSnack
-  - type: Food
-    trash:
-    - FoodKebabSkewer
-  - type: FlavorProfile
-    flavors:
-      - whimsy
-      - meaty
-  - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/meals.rsi
-    state: meat-lollipop
-  - type: Item
-    heldPrefix: meat-lollipop
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 35
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 9
-        - ReagentId: Sugar
-          Quantity: 10
-        - ReagentId: Protein
-          Quantity: 9
-
-- type: entity
-  name: entro-pop
-  parent: FoodMealBigLollipop
-  id: FoodMealCultLollipop
-  description: It seems to flicker in and out of view, your eyes never truly focusing on it. It's cosmically delicious!
-  components:
-  - type: Tag
-    tags:
-    - FoodSnack
-  - type: Food
-    trash:
-    - FoodKebabSkewer
-  - type: FlavorProfile
-    flavors:
-      - whimsy
-      - strange
-  - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/meals.rsi
-    state: entro-lollipop
-  - type: Item
-    heldPrefix: entro-lollipop
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 25
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 1
-        - ReagentId: Sugar
-          Quantity: 10
-        - ReagentId: Fresium
-          Quantity: 10
-
 # Mên-mên...
 
 - type: entity
@@ -209,3 +29,236 @@
   - type: FoodSequenceElement
     entries:
       Burger: FinfinSashimiBurger
+      Hotdog: FinfinSashimiBurger
+
+- type: entity
+  parent: FoodMealBase
+  id: FabricScrapSalad
+  name: fabric scrap salad
+  description: Whose clothes are these?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: fabric-scrap-salad
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - FoodBowlBig
+  - type: FlavorProfile
+    flavors:
+    - leafy
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Construction
+    graph: FabricScrapSalad
+    node: salad
+  - type: Tag
+    tags:
+    - ClothMade
+    - ClothFood
+
+- type: entity
+  parent: FoodMealBase
+  id: YarnNoodles
+  name: yarn noodles
+  description: Looks like someone's failed knitting project.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: yarn-noodles
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - ChopSticks
+  - type: FlavorProfile
+    flavors:
+    - pasta
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
+  - type: Construction
+    graph: YarnNoodles
+    node: noodles
+  - type: Tag
+    tags:
+    - ClothMade
+    - ClothFood
+    
+
+# pompom foods
+
+- type: entity
+  name: cheese squeaks
+  parent: FoodMealBase
+  id: FoodMealCheeseSqueaks
+  description: Fried fabric treats, filled with string cheese and served with sauce.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - cheesy
+    ignoreReagents:
+      - CottonBool
+      - Nutriment
+  - type: Sprite
+    state: cheesesqueaks
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/cheesesqueaks.rsi
+  - type: Item
+    heldPrefix: cheese squeaks
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - FoodPacketFoodBoatTrash
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 45
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: TableSalt
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: CottonBool
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+    
+- type: entity
+  name: puff-puff
+  parent: FoodMealBase
+  id: FoodMealPuffPuff
+  description: A popular street food for moths, known by many names across the galaxy. 
+  components:
+  - type: FlavorProfile
+    flavors:
+      - street-food
+    ignoreReagents:
+      - Nutriment
+  - type: Sprite
+    state: puffpuff
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/puffpuff.rsi
+  - type: Item
+    heldPrefix: puff-puffs
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - FoodPacketFoodBoatTrash
+  - type: SolutionContainerManager 
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: TableSalt
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+    
+- type: entity
+  name: pomgo
+  parent: FoodMealBase
+  id: FoodMealPomgo
+  description: Although a simple recipe, this classic treat of fluffy pom poms glazed in soy sauce remains popular to this day.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - street-food
+      - sweet
+      - savory
+      - Nutriment
+  - type: Sprite
+    state: pomgo
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/pomgo.rsi
+  - type: Item
+    heldPrefix: pomgo
+  - type: Edible
+    requiresSpecialDigestion: true
+    trash:
+    - FoodKebabSkewer
+  - type: SolutionContainerManager 
+    solutions:
+      food:
+        maxVol: 35
+        reagents:
+        - ReagentId: Soysauce
+          Quantity: 10
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Sugar
+          Quantity: 5
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+    
+- type: entity
+  name: pompette
+  parent: FoodMealBase
+  id: FoodMealPompette
+  description: A rich, savory take on traditional moth cuisine.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - piquant
+      - savory
+    ignoreReagents:
+      - Fiber
+      - Nutriment
+      - Vitamin
+  - type: Sprite
+    state: pompette
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/pompette.rsi
+  - type: Item
+    heldPrefix: pompette
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: SolutionContainerManager 
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Fiber
+          Quantity: 10
+        - ReagentId: Wine
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 10
+  - type: Tag
+    tags:
+    - ClothFood
+    - ClothMade
+    
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodPacketFoodBoatTrash
+  name: paper food boat
+  description: Holds food. Shaped like a boat.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Cloth/cheesesqueaks.rsi
+    state: food-boat
+  - type: Tag
+    tags:
+    - Trash

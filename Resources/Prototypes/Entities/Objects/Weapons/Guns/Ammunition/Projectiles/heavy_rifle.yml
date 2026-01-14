@@ -1,16 +1,16 @@
 - type: entity
-  id: BulletHeavyRifle
-  name: bullet (.20 rifle) #imp
+  id: BulletHeavyRifleWizden #imp - see the _Impstation directory for the version we use
+  name: bullet (.10 rifle)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
-        Piercing: 19 #imp
+        Piercing: 19
 
 - type: entity
-  id: BulletMinigun
+  id: BulletMinigunWizden #imp - see the _Impstation directory for the version we use
   name: minigun bullet (.10 rifle)
   parent: BulletHeavyRifle
   categories: [ HideSpawnMenu ]

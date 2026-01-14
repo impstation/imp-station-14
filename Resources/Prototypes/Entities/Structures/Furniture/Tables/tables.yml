@@ -6,9 +6,9 @@
   description: Pieces of metal that make the frame of a table.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/frame.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/frame.rsi # Imp
     state: full
   - type: Fixtures
     fixtures:
@@ -25,7 +25,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: IconSmooth
-    key: state
+    key: tableframe # imp, from state
     base: state_
   - type: Destructible
     thresholds:
@@ -64,9 +64,9 @@
   components:
   - type: SpriteFade
   - type: Sprite
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite:  _Impstation/Structures/Furniture/Tables/frame_counter.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/frame_counter.rsi # Imp
     state: full
   - type: Fixtures
     fixtures:
@@ -83,7 +83,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Wood
   - type: IconSmooth
-    key: state
+    key: counterframe # imp, from state
     base: state_
   - type: Destructible
     thresholds:
@@ -110,7 +110,6 @@
   - type: Construction
     graph: Table
     node: CounterWoodFrame
-  - type: RequireProjectileTarget # Goobstation - Crawling
 
 - type: entity
   id: CounterMetalFrame
@@ -119,15 +118,15 @@
   description: Pieces of metal that make the frame of a table.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/frame_counter.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/frame.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/frame_counter.rsi # Imp
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: IconSmooth
-    key: state
+    key: counterframe # imp, from state
     base: state_
   - type: Destructible
     thresholds:
@@ -160,13 +159,13 @@
 - type: entity
   id: Table
   parent: TableBase
-  name: table
+  name: steel table # imp, from table
   description: A square piece of metal standing on four metal legs.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/generic.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/generic.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table.rsi # imp
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
@@ -211,9 +210,9 @@
   description: A square piece of metal standing on four metal legs. Extra robust.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/reinforced.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_reinforced.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/reinforced.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_reinforced.rsi # imp
   - type: Destructible
     thresholds:
     - trigger:
@@ -261,9 +260,9 @@
   description: A square piece of glass, standing on four metal legs.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/glass.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/glass.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass.rsi # imp
   - type: GlassTable
     climberDamage:
       types:
@@ -312,15 +311,70 @@
     - Table
 
 - type: entity
+  id: TableCard
+  parent: TableBase
+  name: cardboard table
+  description: Cardboard sheets wrapped around a metal table frame.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/card.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/card.rsi
+  - type: GlassTable #they named it that cause 'it would never be used elsewhere' or something, smh
+    climberDamage:
+      types:
+        Blunt: 6
+    tableDamage:
+      types:
+        Blunt: 15
+    tableMassLimit: 40
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Card
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 45 #excess damage (nuke?). avoid computational cost of spawning entities.
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound: /Audio//Weapons/pierce.ogg
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound: /Audio//Weapons/pierce.ogg
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCardboard:
+            min: 1
+            max: 2
+      - !type:ChangeConstructionNodeBehavior
+        node: TableFrame
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: cardtable
+  - type: Construction
+    graph: Table
+    node: TableCard
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepTile
+
+- type: entity
   id: TableReinforcedGlass
   parent: TableBase
   name: reinforced glass table
   description: A square piece of glass, standing on four metal legs. Extra robust.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/r_glass.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass_reinforced.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/r_glass.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass_reinforced.rsi # imp
   - type: GlassTable
     climberDamage:
       types:
@@ -378,9 +432,9 @@
   description: A square piece of plasma glass, standing on four metal legs. Pretty!
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/plasma.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass_plasma.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/plasma.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/glass_plasma.rsi # Imp
   - type: GlassTable
     climberDamage:
       types:
@@ -484,9 +538,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/wood.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_wood.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/wood.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_wood.rsi # Imp
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
@@ -534,13 +588,22 @@
   description: Play em' cowboy.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/carpet.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_wood_poker.rsi # Imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/carpet.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_wood_poker.rsi # Imp
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -638,6 +701,34 @@
     tags:
     - Table
 
+- type: entity
+  parent: TableBase
+  id: TableXeno
+  name: xeno table
+  description: I wouldn't put the silverware on it.
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/xeno.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/xeno.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: gib
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepFloor
+  - type: Construction
+    graph: Table
+    node: TableXeno
+
 # Fancy tables
 
 - type: entity
@@ -695,6 +786,21 @@
   - type: Tag # imp edit
     tags:
     - Table
+
+- type: entity
+  id: TableFancySkyBlue
+  parent: TableFancyBase
+  suffix: SkyBlue
+  components:
+  - type: Sprite
+    sprite: Structures/Furniture/Tables/Fancy/skyblue.rsi
+  - type: Icon
+    sprite: Structures/Furniture/Tables/Fancy/skyblue.rsi
+  - type: Construction
+    graph: Table
+    node: TableFancySkyBlue
+  - type: IconSmooth
+    key: fancytableskyblue
 
 - type: entity
   id: TableFancyCyan
@@ -849,10 +955,6 @@
   description: PUT ON THEM CODERSOCKS!!
   suffix: DEBUG
   components:
-  - type: Tag
-    tags:
-      - Table # imp edit
-      - Debug
   - type: Sprite
     sprite: Structures/Furniture/Tables/debug.rsi
   - type: Icon
@@ -875,9 +977,9 @@
   description: Do not apply fire to this. Rumour says it burns easily.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/counterwood.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/counter_wood.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/counterwood.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/counter_wood.rsi # imp
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -917,13 +1019,13 @@
 - type: entity
   id: TableCounterMetal
   parent: CounterBase
-  name: metal counter
+  name: steel counter # imp, from metal counter
   description: Looks like a good place to put a drink down.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/Tables/countermetal.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/counter.rsi # imp
   - type: Icon
-    sprite: Structures/Furniture/Tables/countermetal.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/counter.rsi # imp
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic

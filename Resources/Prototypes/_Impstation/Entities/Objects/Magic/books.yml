@@ -1,0 +1,204 @@
+- type: entity
+  id: SpawnSpaceGreaseSpellbook
+  name: space grease spellbook
+  parent: BaseSpellbook
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+      - state: paper
+      - state: cover_old
+        color: "#ba5a14"
+      - state: decor_wingette_circle
+        color: gold
+      - state: detail_rivets
+        color: gold
+      - state: detail_bookmark
+        color: "#e89b3c"
+      - state: overlay_dirt
+      - state: icon_magic_grease
+        shader: unshaded
+    - type: Spellbook
+      spellActions:
+        ActionSpawnSpaceGreaseSpell: null
+    
+- type: entity
+  id: BaseSpellbookSafeLibrarian
+  name: spellbook
+  parent: [ BaseItem, BaseMagicalContraband ]
+  description: A publically available magic tome, published by the Space Wizards Federation.
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/books.rsi
+      layers:
+      - state: paper_blood
+      - state: cover_strong
+        color: "#645a5a"
+      - state: decor_wingette_flat
+        color: "#4d0303"
+      - state: icon_pentagramm
+        color: "#f7e19f"
+
+- type: entity
+  id: SpellbookSafeLibrarianPrying
+  name: 'basic sorcery for hobbies and homes: prying'
+  description: Originally published in 30xx, this well worn manual was made to help encourage adolescent wizards into less destructive hobbies.
+  parent: BaseSpellbookSafeLibrarian
+  components:
+  - type: Tag
+    tags:
+    - Crowbar
+    - Spellbook
+  - type: Prying
+    speedModifier: 1.2
+    useSound: /Audio/_Impstation/Effects/Magic/magic-mallet.ogg
+  - type: Tool
+    qualities:
+    - Prying
+    useSound:
+      path: /Audio/_Impstation/Effects/Magic/magic-mallet.ogg
+  - type: ToolTileCompatible
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: prying
+    - state: prying-unshaded
+      shader: unshaded
+
+- type: entity
+  id: SpellbookSafeLibrarianAnchoring
+  name: 'basic sorcery for hobbies and homes: anchoring'
+  description: Originally published in 30xx, this well worn manual was made to help encourage adolescent wizards into less destructive hobbies.
+  parent: BaseSpellbookSafeLibrarian
+  components:
+  - type: Tag
+    tags:
+    - Wrench
+    - Spellbook
+  - type: Tool
+    qualities:
+    - Anchoring
+    useSound:
+      path: /Audio/_Impstation/Effects/Magic/magic-enchantment.ogg
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: anchoring
+    - state: anchoring-unshaded
+      shader: unshaded
+
+- type: entity
+  id: SpellbookSafeLibrarianCutting
+  name: 'basic sorcery for hobbies and homes: cutting'
+  description: Originally published in 30xx, this well worn manual was made to help encourage adolescent wizards into less destructive hobbies.
+  parent: BaseSpellbookSafeLibrarian
+  components:
+  - type: Tag
+    tags:
+    - PlantSampleTaker
+    - Wirecutter
+    - Spellbook
+  - type: Tool
+    qualities:
+    - Cutting
+    useSound:
+      path: /Audio/_Impstation/Effects/Magic/fire-magic.ogg
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: cutting
+    - state: cutting-unshaded
+      shader: unshaded
+
+- type: entity
+  id: SpellbookSafeLibrarianScrewing
+  name: 'basic sorcery for hobbies and homes: screwing'
+  description: Originally published in 30xx, this well worn manual was made to help encourage adolescent wizards into less destructive hobbies.
+  parent: BaseSpellbookSafeLibrarian
+  components:
+  - type: Tag
+    tags:
+    - Screwdriver
+    - Spellbook
+  - type: Tool
+    qualities:
+    - Screwing
+    useSound:
+      path: /Audio/_Impstation/Effects/Magic/magic-stars-retro-sparkle.ogg
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: screwing
+    - state: screwing-unshaded
+      shader: unshaded
+
+- type: entity
+  id: SpellbookSafeLibrarianFireball
+  name: 'my first fireball'
+  description: A helpful picture book on pyromancy, intended for wizards aged 3 and under.
+  parent: BaseSpellbookSafeLibrarian
+  components:
+  - type: Tag
+    tags:
+    - Spellbook
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: my-first-fireball
+    - state: my-first-fireball-unshaded
+      shader: unshaded
+  - type: Spellbook
+    spellActions:
+      ActionBabyFireball: null
+
+- type: entity
+  id: SpellbookSafeLibrarianScissors
+  name: 'handsome haircuts for hiding under hats: june 30xx'
+  description: A magic tome cataloguing a wide variety of stylish haircuts, and incantations to instantly apply them to anyone youd like.
+  parent: BaseSpellbookSafeLibrarian
+  components:
+  - type: Tag
+    tags:
+    - Spellbook
+  - type: MagicMirror
+  - type: ActivatableUI
+    key: enum.MagicMirrorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: true
+  - type: UserInterface
+    interfaces:
+      enum.MagicMirrorUiKey.Key:
+        type: MagicMirrorBoundUserInterface
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: haircuts
+    - state: haircuts-unshaded
+      shader: unshaded
+
+- type: entity
+  id: SpellbookSafeLibrarianFlashlight
+  name: 'lighting the way: finding truth in shadows'
+  description: A magic tome containing runes on light projection. not very useful for curses, but helps with finding your way around in the dark.
+  parent: BaseSpellbookSafeLibrarian
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: flashlight
+    - state: flashlight-unshaded
+      shader: unshaded
+  - type: ItemTogglePointLight
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 6
+    netsync: false
+    color: "#ff00f2"
+  - type: UnpoweredFlashlight
+  - type: Tag
+    tags:
+    - Flashlight
+    - Spellbook

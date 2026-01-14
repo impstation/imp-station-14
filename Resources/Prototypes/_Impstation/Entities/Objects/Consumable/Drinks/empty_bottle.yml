@@ -1,5 +1,5 @@
 - type: entity
-  parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
   id: DrinkWaterBottleEmpty
   name: water bottle
   suffix: Empty
@@ -11,7 +11,6 @@
     solutions:
       drink:
         maxVol: 30
-  - type: Drink
   - type: Sprite
     sprite: Objects/Consumable/Drinks/waterbottle.rsi
   - type: Appearance

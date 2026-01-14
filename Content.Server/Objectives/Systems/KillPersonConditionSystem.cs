@@ -1,11 +1,8 @@
 using Content.Server.Objectives.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.GameTicking.Rules;
-using Content.Server.Preferences.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
 
 namespace Content.Server.Objectives.Systems;
@@ -48,6 +45,27 @@ public sealed class KillPersonConditionSystem : EntitySystem
             requireDead = true;
             requireMaroon = false;
         }
+
+        //#IMP KILL OR MAROON
+        if (!requireDead && !requireMaroon)
+        {
+            if (targetDead)
+                return 1f;
+            if (_config.GetCVar(CCVars.EmergencyShuttleEnabled))
+            {
+                // Always failed if the target needs to be marooned and the shuttle hasn't even arrived yet
+                if (!_emergencyShuttle.EmergencyShuttleArrived)
+                    return 0f;
+
+                // If the shuttle hasn't left, give 50% progress if the target isn't on the shuttle as a "almost there!"
+                if (!_emergencyShuttle.ShuttlesLeft)
+                    return targetMarooned ? 0.5f : 0f;
+
+                // If the shuttle has already left, and the target isn't on it, 100%
+                if (_emergencyShuttle.ShuttlesLeft)
+                    return targetMarooned ? 1f : 0f;
+            }
+        }//#IMP END IMP SECTION FOR KILL OR MAROON
 
         if (requireDead && !targetDead)
             return 0f;

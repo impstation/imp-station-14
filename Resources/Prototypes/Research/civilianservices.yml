@@ -58,7 +58,7 @@
   id: AdvancedEntertainment
   name: research-technology-advanced-entertainment
   icon:
-    sprite: _Impstation/Structures/Machines/computers.rsi # imp
+    sprite: Structures/Machines/computers.rsi
     state: television
   discipline: CivilianServices
   tier: 1
@@ -84,6 +84,7 @@
   - FatExtractorMachineCircuitboard
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
+  - PortableIncubator # Imp
 
 # Tier 2
 
@@ -100,9 +101,12 @@
   - FauxTileAstroGrass
   - FauxTileMowedAstroGrass
   - FauxTileJungleAstroGrass
+  - FauxTileDarkAstroGrass
+  - FauxTileLightAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+  - FauxTileDesertAstroSand
   - FauxTileShoveledAstroSnow # imp
   - FauxTileAstroCave # imp
 
@@ -184,7 +188,7 @@
   id: BluespaceCargoTransport
   name: research-technology-bluespace-cargo-transport
   icon:
-    sprite: _Impstation/Structures/cargo_telepad.rsi
+    sprite: _Impstation/Structures/cargo_telepad.rsi #imp
     state: display
   discipline: CivilianServices
   tier: 2
@@ -203,6 +207,7 @@
   cost: 4000
   recipeUnlocks:
   - PushHorn
+  - BorgModuleAdvancedClowning
 
 # Tier 3
 
@@ -230,3 +235,16 @@
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
+
+- type: technology
+  id: LauncherSyringe
+  name: research-technology-launcher-syringe
+  icon:
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: syringe_gun
+  discipline: CivilianServices
+  tier: 3
+  cost: 15000
+  recipeUnlocks:
+  - LauncherSyringe
+  - MiniSyringe

@@ -10,6 +10,7 @@ using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
 using PryUnpoweredComponent = Content.Shared.Prying.Components.PryUnpoweredComponent;
+using Content.Shared._Impstation.Tools.Components; // imp
 
 namespace Content.Shared.Prying.Systems;
 
@@ -80,7 +81,16 @@ public sealed class PryingSystem : EntitySystem
             return true;
         }
 
-        StartPry(target, user, tool, comp.SpeedModifier, out id);
+        // imp edit start, if a prying tool has CowTool and the user has CowToolProficiency, use speed modifier from CowToolComponent
+        // else, use speed modifier from PryingComponent, as normal
+        float speedModifier; //toolModifier parameter moved to its own variable from StartPry call below to allow it to be set to different durations
+        if (TryComp<CowToolComponent>(tool, out var cowToolComponent) &&
+            TryComp<CowToolProficiencyComponent>(user, out _))
+            speedModifier = cowToolComponent.ProficiencySpeedModifier;
+        else
+            speedModifier = comp.SpeedModifier;
+        // imp edit end
+        StartPry(target, user, tool, speedModifier, out id); // imp edit, speedModifier was previously comp.SpeedModifier
 
         return true;
     }
@@ -134,7 +144,7 @@ public sealed class PryingSystem : EntitySystem
         var modEv = new GetPryTimeModifierEvent(user);
 
         RaiseLocalEvent(target, ref modEv);
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(modEv.BaseTime * modEv.PryTimeModifier / toolModifier), new DoorPryDoAfterEvent(), target, target, tool)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, modEv.BaseTime * modEv.PryTimeModifier / toolModifier, new DoorPryDoAfterEvent(), target, target, tool)
         {
             BreakOnDamage = true,
             BreakOnMove = true,

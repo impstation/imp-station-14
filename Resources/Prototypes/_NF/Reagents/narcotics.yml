@@ -1,0 +1,97 @@
+- type: reagent
+  id: ShroomMix
+  name: reagent-name-shroom-mix
+  group: Narcotics
+  desc: reagent-desc-shroom-mix
+  physicalDesc: reagent-physical-desc-murky
+  flavor: bitter
+  color: "#383351"
+  plantMetabolism:
+  - !type:PlantAdjustNutrition
+    amount: -5
+  - !type:PlantAdjustHealth
+    amount: -1
+  metabolisms:
+    Narcotic:
+      effects:
+      # Effects for goblins
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
+        type: Add
+        time: 15
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+      - !type:Emote
+        emote: Laugh
+        showInChat: true
+        probability: 0.08
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+      - !type:Emote
+        emote: GoblinMutter
+        showInChat: true
+        probability: 0.05
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+      - !type:Emote
+        emote: Hiss
+        showInChat: true
+        probability: 0.025
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "shroom-mix-effect-nf-procrastination-visions-01"
+        - "shroom-mix-effect-nf-procrastination-visions-02"
+        - "shroom-mix-effect-nf-procrastination-visions-03"
+        - "shroom-mix-effect-nf-procrastination-visions-04"
+        - "shroom-mix-effect-nf-procrastination-visions-05"
+        - "shroom-mix-effect-nf-procrastination-visions-06"
+        - "shroom-mix-effect-nf-procrastination-visions-07"
+        - "shroom-mix-effect-nf-procrastination-visions-08"
+        probability: 0.05
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+      # Effects for everyone
+      - !type:Emote
+        emote: Scream
+        showInChat: true
+        probability: 0.01
+      - !type:Emote
+        emote: Gasp
+        showInChat: true
+        probability: 0.03
+      # Effects for non-goblins
+      - !type:Jitter
+        conditions:
+        - !type:ReagentCondition
+          reagent: ShroomMix
+          min: 1
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+          inverted: true
+      - !type:Vomit
+        probability: 0.025
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+          inverted: true
+      - !type:SatiateThirst
+        factor: -1 # Makes non goblins thirsty, scales with reagent quantity (I think)
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+          inverted: true
+      - !type:SatiateHunger
+        factor: -1 # Makes non goblins hungry, scales with reagent quantity (I think)
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Goblin ]
+          inverted: true

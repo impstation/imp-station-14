@@ -14,9 +14,10 @@ public sealed partial class XenoArtifactSystem
     private void GenerateArtifactStructure(Entity<XenoArtifactComponent> ent)
     {
         var nodeCount = ent.Comp.NodeCount.Next(RobustRandom);
-        var triggerPool = CreateTriggerPool(ent, nodeCount);
+        // var triggerPool = CreateTriggerPool(ent, nodeCount); imp edit
+        var triggerPool = new Dictionary<string, float>(PrototypeManager.Index(ent.Comp.TriggerWeights).Weights); // imp edit
         // trigger pool could be smaller, then requested node count
-        nodeCount = triggerPool.Count;
+        // nodeCount = triggerPool.Count; imp edit, nuh uh
         ResizeNodeGraph(ent, nodeCount);
         while (nodeCount > 0)
         {
@@ -68,7 +69,7 @@ public sealed partial class XenoArtifactSystem
     /// </summary>
     private void GenerateArtifactSegment(
         Entity<XenoArtifactComponent> ent,
-        List<XenoArchTriggerPrototype> triggerPool,
+        Dictionary<string, float> triggerPool, // imp edit, changed from List<XenoArchTriggerPrototype>
         ref int nodeCount
     )
     {
@@ -139,9 +140,10 @@ public sealed partial class XenoArtifactSystem
     /// </summary>
     private List<Entity<XenoArtifactNodeComponent>> PopulateArtifactSegmentRecursive(
         Entity<XenoArtifactComponent> ent,
-        List<XenoArchTriggerPrototype> triggerPool,
+        Dictionary<string, float> triggerPool, // imp edit, changed from List<XenoArchTriggerPrototype>
         ref int segmentSize,
-        int iteration = 0
+        int iteration = 0,
+        int prevNodeCount = 0 // imp edit
     )
     {
         if (segmentSize == 0)
@@ -158,19 +160,70 @@ public sealed partial class XenoArtifactSystem
         if (layerMax >= layerMin)
             nodeCount = RobustRandom.Next(layerMin, layerMax + 1); // account for non-inclusive max
 
+        // imp edit start
+        if (ent.Comp.Natural && nodeCount > prevNodeCount * 2)
+            nodeCount = prevNodeCount * 2;
+
+        // make it have one node in the first layer
+        if (ent.Comp.OneStartNode && iteration == 0)
+            nodeCount = 1;
+
+        var depth = iteration;
+
+        if (depth > 5)
+            depth = 5;
+
+        // Okay so basically we're finding each trigger with a valid depth for the iteration and that doesn't fail the whitelist,
+        // passing each valid one into a new dictionary so it preserves the weighting
+        var depthTriggers = new Dictionary<string, float>(triggerPool.Where(x =>
+                PrototypeManager.Index<XenoArchTriggerPrototype>(x.Key).TargetDepths.Any(y => y == depth) &&
+                !_entityWhitelist.IsWhitelistFail(PrototypeManager.Index<XenoArchTriggerPrototype>(x.Key).Whitelist,
+                    ent))
+            .ToList());
+        // imp edit end
+
         segmentSize -= nodeCount;
         var nodes = new List<Entity<XenoArtifactNodeComponent>>();
         for (var i = 0; i < nodeCount; i++)
         {
-            var trigger = RobustRandom.PickAndTake(triggerPool);
-            nodes.Add(CreateNode(ent, trigger, iteration));
+            // var trigger = RobustRandom.PickAndTake(triggerPool); imp edit
+            // nodes.Add(CreateNode(ent, trigger, iteration)); imp edit
+
+            // imp edit start
+            Log.Debug($"Valid triggers for depth {depth}: {depthTriggers.Count}");
+
+            if (depthTriggers.Count == 0)
+            {
+                Log.Error($"No more valid triggers for depth {depth}");
+                return new();
+            }
+
+            var triggerId = RobustRandom.Pick(depthTriggers);
+            var trigger = PrototypeManager.Index<XenoArchTriggerPrototype>(triggerId);
+
+            Log.Debug($"Trigger {triggerId} chosen for depth {depth}");
+
+            if (ent.Comp.RequirePredecessorTriggers)
+            {
+                depthTriggers.Remove(triggerId);
+                triggerPool.Remove(triggerId);
+            }
+
+            var node = CreateNode(ent, trigger, iteration);
+            // make the first node the current node if the artifact's natural
+            if (ent.Comp.Natural && iteration == 0 && i == 0)
+                SetCurrentNode(ent, node);
+
+            nodes.Add(node);
+            // imp edit end
         }
 
         var successors = PopulateArtifactSegmentRecursive(
             ent,
             triggerPool,
             ref segmentSize,
-            iteration: iteration + 1
+            iteration: iteration + 1,
+            prevNodeCount: nodeCount // imp edit
         );
 
         if (successors.Count == 0)
@@ -203,6 +256,11 @@ public sealed partial class XenoArtifactSystem
         // We always want to have at least 2 segments. For variety.
         var segmentMin = ent.Comp.SegmentSize.Min;
         var segmentMax = Math.Min(ent.Comp.SegmentSize.Max, Math.Max(nodeCount / 2, segmentMin));
+
+        // imp edit start, let them have just one segment, if they want
+        if (!ent.Comp.EnforceMultipleSegments)
+            segmentMax = ent.Comp.SegmentSize.Max;
+        // imp edit end
 
         var segmentSize = RobustRandom.Next(segmentMin, segmentMax + 1); // account for non-inclusive max
         var remainder = nodeCount - segmentSize;

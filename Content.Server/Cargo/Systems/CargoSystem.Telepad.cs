@@ -3,11 +3,11 @@ using System.Linq;
 using Content.Server.Cargo.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Station.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Power;
+using Content.Shared.Station.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -83,7 +83,7 @@ public sealed partial class CargoSystem
             if (comp.CurrentState == CargoTelepadState.Unpowered)
             {
                 comp.CurrentState = CargoTelepadState.Idle;
-                // _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Idle, appearance); #imp edit to remove default visuals
+                _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Idle, appearance);
                 comp.Accumulator = comp.Delay;
                 continue;
             }
@@ -94,7 +94,7 @@ public sealed partial class CargoSystem
             if (comp.Accumulator > 0f)
             {
                 comp.CurrentState = CargoTelepadState.Idle;
-                // _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Idle, appearance); #imp edit to remove default visuals
+                _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Idle, appearance);
                 continue;
             }
 
@@ -105,7 +105,7 @@ public sealed partial class CargoSystem
             }
 
             var currentOrder = comp.CurrentOrders.First();
-            if (FulfillOrder(currentOrder, console.Value.Comp.Account, xform.Coordinates, comp.PrinterOutput))
+            if (FulfillOrder(currentOrder, currentOrder.Account, xform.Coordinates, comp.PrinterOutput))
             {
                 _audio.PlayPvs(_audio.ResolveSound(comp.TeleportSound), uid, AudioParams.Default.WithVolume(-8f));
 
@@ -114,8 +114,8 @@ public sealed partial class CargoSystem
 
                 comp.CurrentOrders.Remove(currentOrder);
                 comp.CurrentState = CargoTelepadState.Teleporting;
-                Spawn(comp.BeamInFx, Transform(uid).Coordinates);
-                // _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Teleporting, appearance); #imp edit to remove default visuals
+                Spawn(comp.BeamInFx, Transform(uid).Coordinates); // imp vfx
+                _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Teleporting, appearance);
             }
 
             comp.Accumulator += comp.Delay;
@@ -166,9 +166,9 @@ public sealed partial class CargoSystem
         if (disabled)
             return;
 
-        // TryComp<AppearanceComponent>(uid, out var appearance);
+        TryComp<AppearanceComponent>(uid, out var appearance);
         component.CurrentState = CargoTelepadState.Unpowered;
-        // _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Unpowered, appearance); #imp edit to remove default visuals
+        _appearance.SetData(uid, CargoTelepadVisuals.State, CargoTelepadState.Unpowered, appearance);
     }
 
     private void OnTelepadPowerChange(EntityUid uid, CargoTelepadComponent component, ref PowerChangedEvent args)

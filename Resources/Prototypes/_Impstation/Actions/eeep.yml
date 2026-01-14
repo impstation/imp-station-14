@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseImplantAction
+  id: ActionEeepEmp
+  name: Eeep EMP
+  description: Cause an EMP, but be careful- this will drain your own power too!
+  components:
+  - type: Action
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: _Impstation/Objects/Weapons/Grenades/empgrenade.rsi
+      state: icon

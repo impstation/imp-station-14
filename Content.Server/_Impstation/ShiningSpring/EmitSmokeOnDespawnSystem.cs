@@ -1,4 +1,3 @@
-using Content.Server._Impstation.ShiningSpring;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Spreader;
 using Content.Shared.Chemistry.Components;
@@ -22,6 +21,7 @@ public sealed class EmitSmokeOnDespawnSystem : EntitySystem
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SpreaderSystem _spreader = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Initialize()
     {
@@ -43,7 +43,7 @@ public sealed class EmitSmokeOnDespawnSystem : EntitySystem
             return;
         }
 
-        if (_spreader.RequiresFloorToSpread(comp.SmokePrototype.ToString()) && tileRef.Tile.IsSpace())
+        if (_spreader.RequiresFloorToSpread(comp.SmokePrototype.ToString()) && _turf.IsSpace(tileRef))
             return;
 
         var coords = _mapSystem.MapToGrid(gridUid, mapCoords);

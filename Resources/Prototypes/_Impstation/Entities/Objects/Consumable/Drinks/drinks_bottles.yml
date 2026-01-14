@@ -1,5 +1,5 @@
 - type: entity
-  parent: [DrinkBottleVisualsOpenable, DrinkBottlePlasticBaseFull, BaseCommandContraband]
+  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull, BaseCommandContraband]
   id: DrinkCommandFlaskFull
   name: command flask
   description: A brass flask with a white leather wrap, because you get paid enough to deserve it.
@@ -13,9 +13,8 @@
         reagents:
         - ReagentId: Water
           Quantity: 30
-  - type: Drink
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Drinks/commandflask.rsi
+    sprite: _Impstation/Objects/Consumable/Drinks/Flask/commandflask.rsi
     layers:
       - state: icon
         map: ["enum.OpenableVisuals.Layer"]
@@ -23,3 +22,306 @@
   - type: Sealable
   - type: FitsInDispenser
     solution: drink
+
+- type: entity
+  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
+  id: DrinkAsteradeBottleFull
+  abstract: true
+  description: It's got what Salvage Specialists crave!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Drinks/Plastic/asterade.rsi
+  - type: Item
+    size: Small
+  - type: Sealable
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: fill-
+    inHandsMaxFillLevels: 0
+    inHandsFillBaseName: null
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 30
+
+- type: entity
+  parent: DrinkAsteradeBottleFull
+  id: DrinkOrangeAsteradeBottleFull
+  name: orange Asterade™ bottle
+  description: Ostensibly healthy for you. The label says "Outrageous Orange"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: OrangeAsterade
+          Quantity: 30
+
+- type: entity
+  parent: DrinkAsteradeBottleFull
+  id: DrinkPurpleAsteradeBottleFull
+  name: purple Asterade™ bottle
+  description: Ostensibly healthy for you. The label says "Groovy Grape"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: PurpleAsterade
+          Quantity: 30
+
+- type: entity
+  parent: DrinkAsteradeBottleFull
+  id: DrinkRedAsteradeBottleFull
+  name: red Asterade™ bottle
+  description: Ostensibly healthy for you. The label says "Wild Watermelon"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: RedAsterade
+          Quantity: 30
+
+- type: entity
+  parent: DrinkAsteradeBottleFull
+  id: DrinkGreenAsteradeBottleFull
+  name: green Asterade™ bottle
+  description: Ostensibly healthy for you. The label says "Lightning Lime"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: GreenAsterade
+          Quantity: 30
+
+- type: entity
+  parent: DrinkAsteradeBottleFull
+  id: DrinkYellowAsteradeBottleFull
+  name: yellow Asterade™ bottle
+  description: Ostensibly healthy for you. The label says "Preposterous Pineapple"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: YellowAsterade
+          Quantity: 30
+
+- type: entity
+  parent: DrinkAsteradeBottleFull
+  id: DrinkTealAsteradeBottleFull
+  name: teal Asterade™ bottle
+  description: Ostensibly healthy for you. The label says "Tesloose Twist"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: TealAsterade
+          Quantity: 30
+
+- type: entity
+  parent: DrinkAsteradeBottleFull
+  id: DrinkBlueAsteradeBottleFull
+  name: blue Asterade™ bottle
+  description: Ostensibly healthy for you. The label says "Boisterous Berry"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: BlueAsterade
+          Quantity: 30
+
+- type: entity
+  parent: DrinkAsteradeBottleFull
+  id: DrinkPinkAsteradeBottleFull
+  name: pink Asterade™ bottle
+  description: Ostensibly healthy for you. The label says "Super Strawberry"
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: PinkAsterade
+          Quantity: 30
+
+- type: entity
+  parent: DrinkAsteradeBottleFull
+  id: DrinkBlackAsteradeBottleFull
+  name: black Asterade™ bottle
+  description: Ostensibly healthy for you. The label has been scratched off and "OOPS" has been written with a marker in its place.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: BlackAsterade
+          Quantity: 30
+
+- type: entity
+  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
+  id: DrinkAppleMartiniCrystalLiteBottleFull
+  name: apple martini Crystal Lite™ bottle
+  description: A bottle of apple martini flavored Crystal Lite™. Their mocktails line was discontinued in 2015, and it was sold as a powder, so this is very strange.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: AppleMartiniCrystalLite
+          Quantity: 100
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: fill-
+    inHandsMaxFillLevels: 0
+    inHandsFillBaseName: null
+  - type: Label
+    currentLabel: reagent-name-apple-martini-crystal-lite
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Drinks/Plastic/applemartinicrystallitebottle.rsi
+  - type: Sealable
+
+- type: entity
+  parent: [DrinkVisualsAllFilled, DrinkBottlePlasticSmallBaseFull]
+  id: DrinkFoodColoringBottleFull
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Drinks/Plastic/foodcoloringbottle.rsi
+    layers:
+    - state: icon_empty
+      map: ["enum.OpenableVisuals.Layer"]
+    - state: fill-3
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: fill-
+    inHandsMaxFillLevels: 0
+    inHandsFillBaseName: null
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 15
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 15
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: DrinkFoodColoringBottleFull
+  id: DrinkRedFoodColoringBottleFull
+  name: red food coloring bottle
+  components:
+  - type: Sprite
+    color: "#720000"
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: RedFoodColoring
+          Quantity: 15
+
+- type: entity
+  parent: DrinkFoodColoringBottleFull
+  id: DrinkOrangeFoodColoringBottleFull
+  name: orange food coloring bottle
+  components:
+  - type: Sprite
+    color: "#b15f02"
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: OrangeFoodColoring
+          Quantity: 15
+
+- type: entity
+  parent: DrinkFoodColoringBottleFull
+  id: DrinkYellowFoodColoringBottleFull
+  name: yellow food coloring bottle
+  components:
+  - type: Sprite
+    color: "#bdad1e"
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: YellowFoodColoring
+          Quantity: 15
+
+- type: entity
+  parent: DrinkFoodColoringBottleFull
+  id: DrinkGreenFoodColoringBottleFull
+  name: green food coloring bottle
+  components:
+  - type: Sprite
+    color: "#00970d"
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: GreenFoodColoring
+          Quantity: 15
+
+- type: entity
+  parent: DrinkFoodColoringBottleFull
+  id: DrinkCyanFoodColoringBottleFull
+  name: cyan food coloring bottle
+  components:
+  - type: Sprite
+    color: "#4fb182"
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: CyanFoodColoring
+          Quantity: 15
+
+- type: entity
+  parent: DrinkFoodColoringBottleFull
+  id: DrinkBlueFoodColoringBottleFull
+  name: blue food coloring bottle
+  components:
+  - type: Sprite
+    color: "#1f3b8a"
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: BlueFoodColoring
+          Quantity: 15
+
+- type: entity
+  parent: DrinkFoodColoringBottleFull
+  id: DrinkPinkFoodColoringBottleFull
+  name: pink food coloring bottle
+  components:
+  - type: Sprite
+    color: "#913469"
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: PinkFoodColoring
+          Quantity: 15
+
+- type: entity
+  parent: DrinkFoodColoringBottleFull
+  id: DrinkPurpleFoodColoringBottleFull
+  name: purple food coloring bottle
+  components:
+  - type: Sprite
+    color: "#832bb6"
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: PurpleFoodColoring
+          Quantity: 15

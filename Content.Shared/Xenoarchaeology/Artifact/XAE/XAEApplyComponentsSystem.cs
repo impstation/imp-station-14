@@ -21,18 +21,26 @@ public sealed class XAEApplyComponentsSystem : BaseXAESystem<XAEApplyComponentsC
         foreach (var registry in ent.Comp.Components)
         {
             var componentType = registry.Value.Component.GetType();
-            if (!ent.Comp.ApplyIfAlreadyHave && EntityManager.HasComponent(artifact, componentType))
+
+            //#IMP remove component when a natural artifact node is no longer current and EffectActiveOnlyWhileNodeIsCurrent = true on nodecomp
+            if (args.Deactivate && HasComp(artifact, componentType))
+            {
+                RemComp(artifact, componentType);
+                continue;
+            }
+
+            if (!ent.Comp.ApplyIfAlreadyHave && HasComp(artifact, componentType))
             {
                 continue;
             }
 
             if (ent.Comp.RefreshOnReactivate)
             {
-                EntityManager.RemoveComponent(artifact, componentType);
+                RemComp(artifact, componentType);
             }
 
             var clone = EntityManager.ComponentFactory.GetComponent(registry.Value);
-            EntityManager.AddComponent(artifact, clone);
+            AddComp(artifact, clone);
         }
     }
 }

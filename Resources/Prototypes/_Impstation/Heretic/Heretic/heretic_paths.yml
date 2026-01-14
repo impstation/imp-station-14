@@ -1,0 +1,74 @@
+- type: hereticPath
+  id: Ash
+  knowledge:
+  - NightwatcherSecret
+  - GraspOfAsh
+  - BlazingDash
+  - AshenShift
+  - MarkOfAsh
+  - VolcanicBlast
+  - MaskOfMadness
+  - FieryBlade
+  - NightwatcherRebirth
+  - AscensionAsh
+  - AshlordRite
+  ascensionSound: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_ash.ogg
+  announcement: heretic-ascension-ash
+
+- type: hereticPath
+  id: Flesh
+  knowledge:
+  - PrincipleOfHunger
+  - GraspOfFlesh
+  - ImperfectRitual
+  - MarkOfFlesh
+  - KnittingOfFlesh
+  - RawRitual
+  - BleedingSteel
+  - LonelyRitual
+  - AscensionFlesh
+  - PriestFinalHymn
+  ascensionSound: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_flesh.ogg
+  announcement: heretic-ascension-flesh
+
+- type: hereticPath
+  id: Void
+  knowledge:
+  - GlimmerOfWinter
+  - GraspOfVoid
+  - AristocratWay
+  - MarkOfVoid
+  - VoidBlast
+  - VoidPhase
+  - SeekingBlade
+  - VoidPull
+  - AscensionVoid
+  - WaltzAtTheEndOfTime
+  ascensionSound: /Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_void.ogg
+  announcement: heretic-ascension-void
+
+- type: hereticPath
+  id: Hunt
+  knowledge:
+  - PrincipleOfStrife
+  - GraspOfStrife
+  - WatchtowerStriving
+  - MarkOfHunt
+  - MeteoricPouch
+  - SerpentFocus
+  - LionsBane
+  - SkaptodonCloak
+  - AscensionHunt
+  - ManhuntsReversal ##just uses the base ascension sound since i never made one
+  announcement: heretic-ascension-hunt
+
+# dummy paths
+
+- type: hereticPath
+  id: Blade
+
+- type: hereticPath
+  id: Rust
+
+- type: hereticPath
+  id: Lock

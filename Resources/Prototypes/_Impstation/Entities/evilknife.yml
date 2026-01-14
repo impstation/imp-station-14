@@ -32,7 +32,7 @@
       maxChaseRadius: 5
       changeVectorMaxInterval: 5
     - type: MovementIgnoreGravity
-      gravityState: true
+      weightless: true
     - type: Tag
       tags:
       - Knife

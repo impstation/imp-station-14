@@ -1,10 +1,12 @@
 - type: latheRecipe
+  parent: BaseLightRecipe
   id: UvLightTube
   result: UvLightTube
-  completetime: 2
-  materials:
-    Steel: 50
-    Glass: 50
+
+- type: latheRecipe
+  parent: BaseLightRecipe
+  id: ColdLightBulb
+  result: ColdLightBulb
 
 - type: latheRecipe
   id: DeskBell
@@ -21,3 +23,10 @@
     Steel: 500
     Glass: 500
     Plastic: 500
+
+- type: latheRecipe
+  id: Gasket
+  result: GasketPart
+  completetime: 1
+  materials:
+    Plastic: 50

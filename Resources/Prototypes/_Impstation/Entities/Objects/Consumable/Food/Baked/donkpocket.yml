@@ -24,7 +24,7 @@
   id: FoodDonkpocketCloth
   description: Imitation donk-pockets woven from cheap cloth.
   components:
-  - type: Food
+  - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -43,6 +43,7 @@
     tags:
     - DonkPocket
     - ClothMade
+    - ClothFood
 
 - type: entity
   name: warm cloth-pocket

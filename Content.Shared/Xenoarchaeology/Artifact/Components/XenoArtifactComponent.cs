@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Xenoarchaeology.Artifact.Prototypes;
@@ -63,13 +64,13 @@ public sealed partial class XenoArtifactComponent : Component
     /// How long does the unlocking state last by default.
     /// </summary>
     [DataField]
-    public TimeSpan UnlockStateDuration = TimeSpan.FromSeconds(6);
+    public TimeSpan UnlockStateDuration = TimeSpan.FromSeconds(8);//#IMP increased to 8 from 6
 
     /// <summary>
     /// By how much unlocking state should be prolonged for each node that was unlocked.
     /// </summary>
     [DataField]
-    public TimeSpan UnlockStateIncrementPerNode = TimeSpan.FromSeconds(10);
+    public TimeSpan UnlockStateIncrementPerNode = TimeSpan.FromSeconds(12);//#IMP increased to 12 from 10
 
     /// <summary>
     /// Minimum waiting time between unlock states.
@@ -165,6 +166,70 @@ public sealed partial class XenoArtifactComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId<InstantActionComponent> SelfActivateAction = "ActionArtifactActivate";
+
+    /// <summary>
+    ///     Imp edit. The sound that plays when an artifact finishes unlocking successfully (with node unlocked).
+    /// </summary>
+    [DataField]
+    public SoundSpecifier UnlockActivationSuccessfulSound = new SoundCollectionSpecifier("ArtifactUnlockingActivationSuccess")
+    {
+        Params = new()
+        {
+            Variation = 0.1f,
+            Volume = 3f
+        }
+    };
+
+    /// <summary>
+    ///     Imp edit. The sound that plays when artifact finishes unlocking non-successfully.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? UnlockActivationFailedSound = new SoundCollectionSpecifier("ArtifactUnlockActivationFailure")
+    {
+        Params = new()
+        {
+            Variation = 0.1f
+        }
+    };
+
+    /// <summary>
+    ///     Imp edit. Whether nodes require their predecessors' triggers.
+    /// </summary>
+    [DataField, ViewVariables]
+    public bool RequirePredecessorTriggers = true;
+
+    /// <summary>
+    ///     Imp edit. Whether procgen forces there to be at least two segments.
+    /// </summary>
+    [DataField, ViewVariables]
+    public bool EnforceMultipleSegments = true;
+
+    /// <summary>
+    ///     Imp edit. Whether interacting with an artifact will activate its effect.
+    /// </summary>
+    [DataField, ViewVariables]
+    public bool ActivateOnInteraction = true;
+
+    /// <summary>
+    ///     Imp edit. Makes sure the first layer will only have one node.
+    /// </summary>
+    [DataField, ViewVariables]
+    public bool OneStartNode;
+
+    /// <summary>
+    ///     Imp edit. The current node the artifact is on, used with natural artifacts.
+    ///     The first node generated is automatically made the current node.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? CurrentNode { get; set; }
+
+    /// <summary>
+    ///     Imp edit. Only the current node is considered for triggers. In this case, the current node does its effect and
+    ///     a random directly connected node is made the current node, affected by bias. The first generated node is made
+    ///     the first current node, and the current node is the only active node.
+    /// </summary>
+    [DataField, ViewVariables]
+    public bool Natural;
 }
 
 /// <summary>

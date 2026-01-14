@@ -1,8 +1,8 @@
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._DV.CCVars;
+using Content.Shared.Station.Components;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
@@ -71,7 +71,7 @@ public sealed class ShipyardSystem : EntitySystem
         if (!Resolve(station, ref station.Comp))
             return null;
 
-        if (_station.GetLargestGrid(station.Comp) is not { } grid)
+        if (_station.GetLargestGrid(station) is not { } grid)
         {
             Log.Error($"Station {ToPrettyString(station):station} had no largest grid to FTL to");
             return null;

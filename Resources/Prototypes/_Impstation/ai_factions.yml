@@ -15,12 +15,58 @@
     - Revolutionary
     - Changeling
     - Heretic
+    - Replicator
+    - Dog
+    - DuctSpider
 
 - type: npcFaction
   id: Penguin
   hostile:
   - Dragon
+  - Replicator
 
 # Initial infected should be ignored by zombies
 - type: npcFaction
   id: InitialInfectedIgnore
+
+- type: npcFaction
+  id: Replicator
+  hostile:
+  - NanoTrasen
+  - Dragon
+  - Mouse
+  - Passive
+  - PetsNT
+  - SimpleHostile
+  - SimpleNeutral
+  - Syndicate
+  - Xeno
+  - Zombie
+  - Revolutionary
+  - Wizard
+  - Xenoborg
+  - Changeling
+  - Heretic
+  - Dino
+  - Penguin
+  - AllHostile
+  - Dog
+  - DuctSpider
+
+- type: npcFaction
+  id: Dog
+  hostile:
+  - Courier
+  - DogHated #i know these seems redundant but there's a bug with faction clothing
+
+- type: npcFaction
+  id: Courier
+
+# it's meal to them
+- type: npcFaction
+  id: DuctSpider
+  hostile:
+  - Mouse
+
+- type: npcFaction
+  id: DogHated

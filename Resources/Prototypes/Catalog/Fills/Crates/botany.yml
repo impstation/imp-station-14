@@ -20,16 +20,23 @@
         amount: 2
       - id: BungoSeeds
         amount: 2
-      - id: LemoSeeds #imp
+      - id: BeeSeeds # Frontier
         amount: 2
-      - id: CoconutSeeds #imp
+      # imp below
+      - id: ButterflyOrchidSeeds
         amount: 2
-      - id: HopsSeeds #imp
+      - id: CoconutSeeds
         amount: 2
-      - id: RoseSeeds #imp
-        amount: 2 #imp
-      - id: ButterflyOrchidSeeds #imp
-        amount: 2 #imp
+      - id: FloatingFloraSeeds # consider making a teo seed crate if too many teo seeds are added here
+        amount: 2
+      - id: HopsSeeds
+        amount: 2
+      - id: LemoSeeds
+        amount: 2
+      - id: RoseSeeds
+        amount: 2
+      - id: PompomBushSeeds
+        amount: 2
 
 - type: entity
   id: CrateHydroponicsSeedsMedicinal
@@ -75,7 +82,7 @@
   id: CrateHydroponicsSeeds
   parent: CrateHydroponics
   name: seeds crate
-  description: Big things have small beginnings. Contains twelve different seeds.
+  description: Big things have small beginnings. Contains twenty-four different seeds.
   components:
   - type: StorageFill
     contents:
@@ -102,6 +109,7 @@
       - id: WatermelonSeeds
       - id: PeaSeeds
       - id: CherrySeeds
+      - id: CottonSeeds
 
 - type: entity
   id: CrateHydroponicsTray

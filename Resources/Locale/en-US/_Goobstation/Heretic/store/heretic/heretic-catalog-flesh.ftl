@@ -1,7 +1,7 @@
 knowledge-path-flesh-s1-name = Principle of Hunger
 knowledge-path-flesh-s1-desc =
     Hundreds of us starved, but not me... I found strength in my greed.
-    
+
     Opens up the Path of Flesh to you.
     Allows you to transmute a knife and a pool of blood into a Bloody Blade.
 
@@ -32,9 +32,9 @@ knowledge-path-flesh-s5-desc =
     But they were not out of my reach for long. With every step, the screams grew, until at last
     I learned that they could be silenced.
 
-    Grants you the spell Knit Flesh. This spell allows you to remove organs from victims
-    without requiring a lengthy surgery. This process is much longer if the target is not dead.
-    This spell also allows you to heal your minions and summons, or restore failing organs to acceptable status.
+    Grants you the spell Knit Flesh. This spell will either temporarily blind a target, temporarily mute them, or
+    eject all the contents of their stomach.
+    If used on a minion or summon, it will heal them instead.
 
 knowledge-path-flesh-s6-name = Raw Ritual
 knowledge-path-flesh-s6-desc =
@@ -42,7 +42,7 @@ knowledge-path-flesh-s6-desc =
     The screams... once constant, now silenced by their wretched appearance. Nothing was out of reach.
 
     Allows you to transmute a pair of eyes, a stomach, and a pool of blood to create a Raw Prophet.
-    Raw Prophets have a long range jaunt and the ability to link minds to communicate with ease, but are very fragile and weak in combat.
+    Raw Prophets can jaunt, have the ability to link minds to communicate with ease, and have a powerful laser eye, which can burn your opponents.
 
 knowledge-path-flesh-s7-name = Bleeding Steel
 knowledge-path-flesh-s7-desc =

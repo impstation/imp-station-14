@@ -6,47 +6,77 @@
     - type: Sprite
       layers:
         - state: red
-        - sprite: Objects/Fun/toys.rsi
-          state: plushie_h
+        - sprite: Objects/Fun/Plushies/bee.rsi
+          state: icon
     - type: RandomSpawner
       rarePrototypes:
         - FoamBlade
         - PlushieGhost
-        #imp edits
-        - PlushieImp
+        # imp edits
         - PlushieApid
+        - PlushieBros
+        - PlushieEeepy
+        - PlushieGiantBear
         - PlushieGoblin
-        #imp edits end
+        - PlushieGollylad
+        - PlushieImp
+        - PlushieJumboGray
+        - PlushieLizardInversed
+        - PlushieLizardMirrored
+        - PlushieSorb
+        - PlushieThavenWeird
+        - PlushieUnguTiny
+        # imp edits end
       rareChance: 0.03
       prototypes:
-        - PlushieBee
+      # imp reorder
+        - PlushieArachind
         - PlushieAtmosian
-        - PlushieNuke
+        - PlushieBee
+        - PlushieCarp
+        - PlushieDiona
+        - PlushieLamp
         - PlushieLizard
         - PlushieNar
-        - PlushieCarp
+        - PlushieNuke
+        - PlushieSharkBlue
+        - PlushieSharkGrey
+        - PlushieSharkPink
         - PlushieSlime
         - PlushieSnake
-        - PlushieVox
-        - PlushieRatvar
         - PlushieSpaceLizard
+        - PlushieRatvar
         - PlushieRouny
-        - PlushieLamp
-        - PlushieSharkBlue
-        - PlushieSharkPink
-        - PlushieSharkGrey
-        #imp edits
-        - PlushieSnail
-        - PlushieDecapoid
-        - PlushieThaven
-        - PlushieKodepiia
-        - PlushieGray
-        #imp edits end
+        - PlushieVox
         - ToyAmongPequeno
         - ToyMouse
-        - PlushieDiona
-        - PlushieArachind
-      chance: 0.5
+        # DEN begin
+        - PlushieAlienGerm
+        - PlushieAlienGermMini
+        - PlushieTeddyBear
+        - PlushieTeddyBearRecolorableRandom
+        - SqueakySmileyBall
+        - SqueakySmileyGuy
+        - SqueakySmileyGuyRandom
+        # DEN end
+        # imp edits
+        - PlushieAnomalocarid
+        - PlushieDecapoid
+        - PlushieDwarf
+        - PlushieExperiment
+        - PlushieGray
+        - PlushieGriffy
+        - PlushieHuman
+        - PlushieKodepiia
+        - PlushieMoth
+        - PlushieRaptor
+        - PlushieSnail
+        - PlushieThaven
+        - PlushieUngu
+        - PlushieUrsaMinor
+        - PlushieVulp
+        # imp edits end
+      # chance: 0.5 # imp removal, it's good when the spawner spawns things
       offset: 0.2
 
 - type: entity
@@ -64,14 +94,14 @@
         - ToyAi
         - ToyNuke
         - ToyFigurinePassenger
-        - ToyGriffin
+        - ToyFigurineGriffin
         - ToyHonk
         - ToyIan
         - ToyMarauder
         - ToyMauler
         - ToyGygax
         - ToyOdysseus
-        - ToyOwlman
+        - ToyFigurineOwlman
         - ToyDeathRipley
         - ToyPhazon
         - ToyFireRipley
@@ -79,7 +109,7 @@
         - ToyRipley
         - ToySeraph
         - ToyDurand
-        - ToySkeleton
+        - ToyFigurineSkeleton
         - MysteryFigureBox
       chance: 0.5
       offset: 0.2
@@ -153,9 +183,9 @@
       - ToyFigurineSlime
       - ToyFigurineGreytider
       - ToyFigurineWizard
-      - ToyGriffin
-      - ToyOwlman
-      - ToySkeleton
+      - ToyFigurineGriffin
+      - ToyFigurineOwlman
+      - ToyFigurineSkeleton
       - ToyFigurineQueen
       - ToyFigurineSpaceDragon
       - ToyFigurineRatKing

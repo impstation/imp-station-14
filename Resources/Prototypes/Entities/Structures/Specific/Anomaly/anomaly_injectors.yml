@@ -47,6 +47,8 @@
         maxPointsPerSecond: 100
         corePrototype: AnomalyCorePyroclastic
         coreInertPrototype: AnomalyCorePyroclasticInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyPyroSupercritical
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionPyroclastic
         startMessage: inner-anomaly-start-message-pyro
@@ -57,6 +59,15 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: fire_VOX
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: fire_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: fire_MOTH
+          Anomalocarid: #imp edit
+            sprite: _Impstation/Structures/Specific/Anomalies/anomalocarid_inner_anom_layer.rsi
+            state: fire_ANOMALOCARID
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -77,6 +88,8 @@
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreElectricity
         coreInertPrototype: AnomalyCoreElectricityInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyElectricitySupercritical
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionElectric
         startMessage: inner-anomaly-start-message-shock
@@ -87,6 +100,15 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shock_VOX
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: shock_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: shock_MOTH
+          Anomalocarid: #imp edit
+            sprite: _Impstation/Structures/Specific/Anomalies/anomalocarid_inner_anom_layer.rsi
+            state: shock_ANOMALOCARID
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -107,6 +129,8 @@
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreShadow
         coreInertPrototype: AnomalyCoreShadowInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyShadowSupercritical
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionShadow
         startMessage: inner-anomaly-start-message-shadow
@@ -117,6 +141,15 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: shadow_VOX
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: shadow_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: shadow_MOTH
+          Anomalocarid: #imp edit
+            sprite: _Impstation/Structures/Specific/Anomalies/anomalocarid_inner_anom_layer.rsi
+            state: shadow_ANOMALOCARID
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -137,6 +170,8 @@
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreIce
         coreInertPrototype: AnomalyCoreIceInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyIceSupercritical
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionIce
         startMessage: inner-anomaly-start-message-frost
@@ -147,6 +182,15 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: frost_VOX
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: frost_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: frost_MOTH
+          Anomalocarid: #imp edit
+            sprite: _Impstation/Structures/Specific/Anomalies/anomalocarid_inner_anom_layer.rsi
+            state: frost_ANOMALOCARID
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -167,6 +211,8 @@
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreFlora
         coreInertPrototype: AnomalyCoreFloraInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyFloraSupercritical
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionFlora
         startMessage: inner-anomaly-start-message-flora
@@ -177,6 +223,15 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flora_VOX
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: flora_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: flora_MOTH
+          Anomalocarid: #imp edit
+            sprite: _Impstation/Structures/Specific/Anomalies/anomalocarid_inner_anom_layer.rsi
+            state: flora_ANOMALOCARID
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -197,6 +252,8 @@
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreBluespace
         coreInertPrototype: AnomalyCoreBluespaceInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyBluespaceSupercritical
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionBluespace
         startMessage: inner-anomaly-start-message-bluespace
@@ -207,6 +264,15 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: bluespace_VOX
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: bluespace_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: bluespace_MOTH
+          Anomalocarid: #imp edit
+            sprite: _Impstation/Structures/Specific/Anomalies/anomalocarid_inner_anom_layer.rsi
+            state: bluespace_ANOMALOCARID
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -227,6 +293,8 @@
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreFlesh
         coreInertPrototype: AnomalyCoreFleshInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyFleshSupercritical
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionFlesh
         startMessage: inner-anomaly-start-message-flesh
@@ -237,6 +305,15 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: flesh_VOX
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: flesh_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: flesh_MOTH
+          Anomalocarid: #imp edit
+            sprite: _Impstation/Structures/Specific/Anomalies/anomalocarid_inner_anom_layer.rsi
+            state: flesh_ANOMALOCARID
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -257,6 +334,9 @@
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreGravity
         coreInertPrototype: AnomalyCoreGravityInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyGravitySupercritical
+        supercriticalDuration: 15
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionGravity
         startMessage: inner-anomaly-start-message-grav
@@ -267,6 +347,15 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: grav_VOX
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: grav_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: grav_MOTH
+          Anomalocarid: #imp edit
+            sprite: _Impstation/Structures/Specific/Anomalies/anomalocarid_inner_anom_layer.rsi
+            state: grav_ANOMALOCARID
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -287,6 +376,8 @@
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreTech
         coreInertPrototype: AnomalyCoreTechInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyTechSupercritical
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionTech
         startMessage: inner-anomaly-start-message-tech
@@ -297,6 +388,15 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: tech_VOX
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: tech_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: tech_MOTH
+          Anomalocarid: #imp edit
+            sprite: _Impstation/Structures/Specific/Anomalies/anomalocarid_inner_anom_layer.rsi
+            state: tech_ANOMALOCARID
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -318,6 +418,8 @@
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreRock
         coreInertPrototype: AnomalyCoreRockInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyRockSupercritical
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionRock
         startMessage: inner-anomaly-start-message-rock
@@ -328,6 +430,15 @@
           Vox:
             sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
             state: rock_VOX
+          Arachnid:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: rock_ARACHNID
+          Moth:
+            sprite: Structures/Specific/Anomalies/inner_anom_layer.rsi
+            state: rock_MOTH
+          Anomalocarid: #imp edit
+            sprite: _Impstation/Structures/Specific/Anomalies/anomalocarid_inner_anom_layer.rsi
+            state: rock_ANOMALOCARID
 
 - type: entity
   parent: BaseAnomalyInjector
@@ -348,6 +459,8 @@
         maxPointsPerSecond: 100
         corePrototype: AnomalyCoreSanta
         coreInertPrototype: AnomalyCoreSantaInert
+        supercriticalSoundAtAnimationStart:
+          collection: AnomalyPresentSupercritical
       - type: InnerBodyAnomaly
         injectionProto: AnomalyInjectionSanta
         startMessage: inner-anomaly-start-message-santa

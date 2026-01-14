@@ -1,0 +1,138 @@
+- type: entity
+  name: banana deer
+  parent: [ SimpleMobBase, MobCombat ]
+  id: MobBananaDeer
+  description: It has a flexible body, like a composition out of a snake and a doe. It wanders elegant around the Lemo Valley. #please let me keep it #i love the finfin site descriptions too much
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: banana_deer
+      sprite: _Impstation/Mobs/Animals/banana_deer.rsi
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      slips:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        hard: false
+        layer:
+          - SlipLayer
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.48
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: banana_deer
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5 #these things are vicious when aggro, they dont need that much damage
+    animation: WeaponArcFist
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: RuminantHostileCompound
+  - type: Puller
+    needsHands: false
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - CannotSuicide
+  - type: InteractionPopup
+    successChance: 0.6
+    interactDelay: 2 # Avoids overlapping SFX due to spam - these SFX are a little longer than the typical 1 second.
+    interactSuccessString: petting-success-generic
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/_Impstation/Animals/bananadeer_eee.ogg
+    interactFailureSound:
+      path: /Audio/_Impstation/Animals/bananadeer_euh.ogg
+  - type: Speech
+    speechSounds: BananaDeer
+    speechVerb: Goat
+    allowedEmotes: ['Honk']
+  - type: Vocal
+    sounds:
+      Female: BananaDeer
+      Male: BananaDeer
+      Unsexed: BananaDeer
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: GhostRole
+    prob: 0.25
+    makeSentient: true
+    name: ghost-role-information-bananadeer-name
+    description: ghost-role-information-bananadeer-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 4.5
+  - type: Body
+    prototype: AnimalRuminant
+  - type: GoobAbsorbable 
+    biomassRestored: 0.7 #cow amount. yummy animal lots of banana on it.
+  #part where it gets silly
+  - type: SpamEmitSound
+    minInterval: 200
+    maxInterval: 500
+    sound:
+      collection: BikeHorn
+      params:
+        variation: 0.0625 #making a note so this is in the commit if we want to change this later - ruddygreat
+  - type: Butcherable
+    spawned:
+    - id: FoodBanana
+      amount: 5
+    - id: MaterialBananium
+      amount: 1
+  - type: Bloodstream
+    bloodMaxVolume: 300
+    bloodReagent: Bananadine
+  - type: SolutionContainerManager
+    solutions:
+      udder:
+        maxVol: 250
+        reagents:
+        - ReagentId: JuiceBanana
+          Quantity: 50
+  - type: Udder
+    reagentId: JuiceBanana
+    quantityPerUpdate: 25
+    growthDelay: 25
+  - type: Grammar
+    attributes:
+      gender: male # Here because of UdderComponent # Because of Woke
+  - type: ExaminableHunger
+  - type: NoSlip
+#slippers torment
+  - type: Slippery
+    slipData:
+      launchForwardsMultiplier: 4
+  - type: StepTrigger
+    intersectRatio: 0.2

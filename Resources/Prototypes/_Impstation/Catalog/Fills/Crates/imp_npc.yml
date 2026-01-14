@@ -28,3 +28,35 @@
     contents:
       - id: MobFinfin
         amount: 1
+
+- type: entity
+  id: CrateNPCBananaDeer
+  parent: CrateLivestock
+  name: banana deer crate
+  description: A crate containing a slippery beast, imported straight from Teo. Please try not to provoke it..
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobBananaDeer
+      
+- type: entity
+  id: CrateNPCPompom
+  parent: CrateLivestock
+  name: crate of pom poms
+  description: A crate containing three Pom Poms, tiny creatures from Planet Teo said to only appear during a new moon.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobPompom
+        amount: 3
+
+- type: entity
+  id: CrateNPCDuctSpider
+  parent: CrateLivestock
+  name: duct spider crate
+  description: Awww! Straight from the Australicus sector to your station's ventilation system!
+  components:
+  - type: StorageFill
+    contents:
+    - id: MobDuctSpider
+      amount: 4

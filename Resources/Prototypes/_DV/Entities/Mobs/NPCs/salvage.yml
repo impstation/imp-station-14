@@ -4,6 +4,8 @@
   id: MobRadioGuard
   description: "Product of Cybersun Cloning technology, this Syndicate puppet-guard is tasked with protecting the outpost. They will throw their life away to defend their objective."
   components:
+    - type: SSDIndicator #IMP do not sleep on the job, guard
+      doNotSleep: true
     - type: NpcFactionMember
       factions:
         - Syndicate

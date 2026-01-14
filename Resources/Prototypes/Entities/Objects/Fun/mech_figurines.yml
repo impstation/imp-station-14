@@ -17,7 +17,7 @@
   - type: Tag
     tags:
     - Figurine
-    
+
 #Ripley APLU
 - type: entity
   parent: BaseFigurineMech
@@ -27,6 +27,27 @@
   components:
   - type: Sprite
     state: ripley
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#d5c644"
+      - state: inhand-left-trim
+        color: "#524c14"
+      - state: inhand-left-visor
+        color: "#7aef83"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#d5c644"
+      - state: inhand-right-trim
+        color: "#524c14"
+      - state: inhand-right-visor
+        color: "#7aef83"
+  - type: Construction
+    graph: mech_kit_ripley
+    node: mech
 
 #Fire Ripley
 - type: entity
@@ -37,6 +58,27 @@
   components:
   - type: Sprite
     state: fireripley
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#819a73"
+      - state: inhand-left-trim
+        color: "#486b2f"
+      - state: inhand-left-visor
+        color: "#5a150e"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#819a73"
+      - state: inhand-right-trim
+        color: "#486b2f"
+      - state: inhand-right-visor
+        color: "#5a150e"
+  - type: Construction
+    graph: mech_kit_fireripley
+    node: mech
 
 #Death Ripley
 - type: entity
@@ -47,6 +89,27 @@
   components:
   - type: Sprite
     state: deathripley
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#575757"
+      - state: inhand-left-trim
+        color: "#b3001b"
+      - state: inhand-left-visor
+        color: "#e1131e"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#575757"
+      - state: inhand-right-trim
+        color: "#b3001b"
+      - state: inhand-right-visor
+        color: "#e1131e"
+  - type: Construction
+    graph: mech_kit_deathripley
+    node: mech
 
 #Ggygax
 - type: entity
@@ -57,6 +120,27 @@
   components:
   - type: Sprite
     state: gygax
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#e76241"
+      - state: inhand-left-trim
+        color: "#4f5359"
+      - state: inhand-left-visor
+        color: "#00ff33"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#e76241"
+      - state: inhand-right-trim
+        color: "#4f5359"
+      - state: inhand-right-visor
+        color: "#00ff33"
+  - type: Construction
+    graph: mech_kit_gygax
+    node: mech
 
 #Durand
 - type: entity
@@ -67,6 +151,27 @@
   components:
   - type: Sprite
     state: durand
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#a8abb3"
+      - state: inhand-left-trim
+        color: "#686d78"
+      - state: inhand-left-visor
+        color: "#8cc865"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#a8abb3"
+      - state: inhand-right-trim
+        color: "#686d78"
+      - state: inhand-right-visor
+        color: "#8cc865"
+  - type: Construction
+    graph: mech_kit_durand
+    node: mech
 
 #H.O.N.K
 - type: entity
@@ -77,6 +182,27 @@
   components:
   - type: Sprite
     state: honk
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#ed1c24"
+      - state: inhand-left-trim
+        color: "#ffffff"
+      - state: inhand-left-visor
+        color: "#ff040b"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#ed1c24"
+      - state: inhand-right-trim
+        color: "#ffffff"
+      - state: inhand-right-visor
+        color: "#ff040b"
+  - type: Construction
+    graph: mech_kit_honk
+    node: mech
 
 #Marauder
 - type: entity
@@ -87,6 +213,27 @@
   components:
   - type: Sprite
     state: marauder
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#9da6be"
+      - state: inhand-left-trim
+        color: "#557a48"
+      - state: inhand-left-visor
+        color: "#00ff33"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#9da6be"
+      - state: inhand-right-trim
+        color: "#557a48"
+      - state: inhand-right-visor
+        color: "#00ff33"
+  - type: Construction
+    graph: mech_kit_marauder
+    node: mech
 
 #Seraph
 - type: entity
@@ -97,6 +244,27 @@
   components:
   - type: Sprite
     state: seraph
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#878c97"
+      - state: inhand-left-trim
+        color: "#943226"
+      - state: inhand-left-visor
+        color: "#f31a33"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#878c97"
+      - state: inhand-right-trim
+        color: "#943226"
+      - state: inhand-right-visor
+        color: "#f31a33"
+  - type: Construction
+    graph: mech_kit_seraph
+    node: mech
 
 #Mauler
 - type: entity
@@ -107,6 +275,27 @@
   components:
   - type: Sprite
     state: mauler
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#2b2b2b"
+      - state: inhand-left-trim
+        color: "#660000"
+      - state: inhand-left-visor
+        color: "#ff0000"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#2b2b2b"
+      - state: inhand-right-trim
+        color: "#660000"
+      - state: inhand-right-visor
+        color: "#ff0000"
+  - type: Construction
+    graph: mech_kit_mauler
+    node: mech
 
 #Odysseus
 - type: entity
@@ -117,6 +306,27 @@
   components:
   - type: Sprite
     state: odysseus
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#ffffff"
+      - state: inhand-left-trim
+        color: "#7d7f97"
+      - state: inhand-left-visor
+        color: "#857149"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#ffffff"
+      - state: inhand-right-trim
+        color: "#7d7f97"
+      - state: inhand-right-visor
+        color: "#857149"
+  - type: Construction
+    graph: mech_kit_odysseus
+    node: mech
 
 #Phazon
 - type: entity
@@ -127,6 +337,27 @@
   components:
   - type: Sprite
     state: phazon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#4d79a0"
+      - state: inhand-left-trim
+        color: "#f38233"
+      - state: inhand-left-visor
+        color: "#f38233"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#4d79a0"
+      - state: inhand-right-trim
+        color: "#f38233"
+      - state: inhand-right-visor
+        color: "#f38233"
+  - type: Construction
+    graph: mech_kit_phazon
+    node: mech
 
 #Reticence
 - type: entity
@@ -137,3 +368,24 @@
   components:
   - type: Sprite
     state: reticence
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base
+      - state: inhand-left-body
+        color: "#d9d9d9"
+      - state: inhand-left-trim
+        color: "#8b8b8b"
+      - state: inhand-left-visor
+        color: "#1f1f1f"
+      right:
+      - state: inhand-right-base
+      - state: inhand-right-body
+        color: "#d9d9d9"
+      - state: inhand-right-trim
+        color: "#8b8b8b"
+      - state: inhand-right-visor
+        color: "#1f1f1f"
+  - type: Construction
+    graph: mech_kit_reticence
+    node: mech

@@ -92,6 +92,13 @@
     Plastic: 50
 
 - type: latheRecipe
+  id: KnifePlastic
+  result: KnifePlastic
+  completetime: .4
+  materials:
+    Plastic: 50
+
+- type: latheRecipe
   id: PairedChopsticks
   result: PairedChopsticks
   completetime: .4
@@ -110,6 +117,14 @@
   parent: BaseToolRecipe
   id: DrinkDisposableCup
   result: DrinkDisposableCup
+  materials:
+    Cardboard: 25
+  applyMaterialDiscount: false
+
+- type: latheRecipe
+  parent: BaseToolRecipe
+  id: DrinkColoCup
+  result: DrinkColoCup
   materials:
     Cardboard: 25
   applyMaterialDiscount: false

@@ -13,6 +13,19 @@ public sealed partial class MarkingPoints
     [DataField(required: true)]
     public bool Required;
 
+    // imp add
+    /// <summary>
+    /// Chance for a randomly generated entity to spawn with a marking in this category.
+    /// </summary>
+    /// <remarks>
+    /// Does one roll for each point- eg. at 2 points with a .6 weight,
+    /// you have a 16% chance of no marking, a 48% chance of one marking and a 36% chance of two markings.
+    /// </remarks>
+    /// ^ above numbers are for .6 weight, testing .2 weight but idk how to do the math for that.
+    /// intent is to make the chance of having No marking greater or equal to the chance of having a marking.
+    [DataField]
+    public float Weight = 0.2f;
+
     /// <summary>
     ///     If the user of this marking point set is only allowed to
     ///     use whitelisted markings, and not globally usable markings.
@@ -36,7 +49,8 @@ public sealed partial class MarkingPoints
                 Points = points.Points,
                 Required = points.Required,
                 OnlyWhitelisted = points.OnlyWhitelisted,
-                DefaultMarkings = points.DefaultMarkings
+                DefaultMarkings = points.DefaultMarkings,
+                Weight = points.Weight // imp
             };
         }
 

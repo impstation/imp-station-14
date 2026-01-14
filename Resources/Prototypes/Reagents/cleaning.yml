@@ -3,6 +3,9 @@
   name: reagent-name-bleach
   desc: reagent-desc-bleach
   physicalDesc: reagent-physical-desc-strong-smelling
+  allowedJobs:
+  - Janitor
+  - Chemist
   flavor: bitter
   color: "#a1000b"
   boilingPoint: 111.0
@@ -23,33 +26,32 @@
       - !type:Emote
         emote: Scream
         probability: 0.15
-  #imp edit start
-  # TODO uncomment once pepper cough changes are merged from upstream
-  #reactiveEffects:
-  #  Acidic:
-  #    methods: [ Touch ]
-  #    effects:
-  #    - !type:HealthChange
-  #      damage:
-  #        types: #want to make this a nuisance but not nearly as harmful as ingesting
-  #          Poison: .2
-  #          Caustic: .2
-  #      conditions:
-  #      - !type:Breathing
-  #      - !type:Internals
-  #        usingInternals: false
-  #    - !type:Emote
-  #      emote: Cough
-  #      showInGuidebook: true
-  #      conditions:
-  #      - !type:Breathing
-  #      - !type:Internals
-  #        usingInternals: false
   tileReactions:
   - !type:CleanTileReaction
-    cleanCost: .125 #cleans reagents in puddles at a 1:8 ratio, twice as efficient as space cleaner
+    cleanCost: 0.13
   - !type:CleanDecalsReaction
-    cleanCost: .125 #default amount is already very efficient, but I want bleach to be the super cleaner
+    cleanCost: 0.13
+  #imp edit start
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        damage:
+          types: #want to make this a nuisance but not nearly as harmful as ingesting
+            Poison: .2
+            Caustic: .2
+        conditions:
+        - !type:BreathingCondition
+        - !type:InternalsCondition
+          inverted: true
+      - !type:Emote
+        emote: Cough
+        showInGuidebook: true
+        conditions:
+        - !type:BreathingCondition
+        - !type:InternalsCondition
+          inverted: true
   # imp edit end
 
 - type: reagent
@@ -76,26 +78,35 @@
   recognizable: true
   boilingPoint: 100.0
   meltingPoint: 60.0
+  slipData:
+    requiredSlipSpeed: 3.5
+  friction: 0.3 # Slightly less friction than water, but not as bad as space lube
   metabolisms:
     Food:
       metabolismRate: 0.4 # imp - accent lasts for like 15 seconds otherwise
       effects:
-      #- !type:ChemVomit # imp - sorry i thought of something funnier
+      #- !type:Vomit #imp, replaced with accent status effect
       #  conditions:
-      #  - !type:ReagentThreshold
+      #  - !type:ReagentCondition
+      #    reagent: SoapReagent
+      #    min: 6
+      #  probability: 0.20
+      - !type:GenericStatusEffect # imp TODO:update with status effect refactor
+        key: PGAccent
+        component: PGAccent
+    Drink:
+      metabolismRate: 0.4 # imp - accent lasts for like 15 seconds otherwise
+      effects:
+      #- !type:Vomit #imp, replaced with accent status effect
+      #  conditions:
+      #  - !type:ReagentCondition
+      #    reagent: SoapReagent
       #    min: 6
       #  probability: 0.20
       - !type:GenericStatusEffect # imp
-        key: RelentlessPositivity
-        component: RelentlessPositivity
-    #Drink: # imp
-    #  effects:
-      #- !type:ChemVomit
-      #  conditions:
-      #  - !type:ReagentThreshold
-      #    min: 6
-      #  probability: 0.20
-  #imp edit start
+        key: PGAccent
+        component: PGAccent
+      #imp edit start TODO: add a soapy water reagent that has this effect and remove this from soap
   tileReactions:
   - !type:CleanTileReaction
     cleanCost: .5 #cleans reagents in puddles at a 1:2 ratio, 1/2 as efficient as space cleaner
@@ -107,6 +118,7 @@
   id: SpaceLube
   name: reagent-name-space-lube
   desc: reagent-desc-space-lube
+  evaporationSpeed: 0.1
   slipData:
     requiredSlipSpeed: 1
     superSlippery: true
@@ -118,7 +130,7 @@
   meltingPoint: 18.2
   tileReactions:
   - !type:SpillTileReaction
-  friction: 0.0
+  friction: 0.05
 
 - type: reagent
   id: SpaceGlue
@@ -136,27 +148,21 @@
     Acidic:
       methods: [ Touch ]
       effects:
-      # pva glue? no, antibiotic glue for sealing wounds
-      - !type:ModifyBleedAmount
+      # pva glue? no, atileRentibiotic glue for sealing wounds
+      - !type:ModifyBleed
         amount: -1.5
   metabolisms:
     Narcotic:
       effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        type: Add
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         time: 5
-        refresh: false
+        type: Add
     Drink:
       effects:
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
-        type: Add
         time: 5
-        refresh: false
   footstepSound:
-    collection: FootstepSticky
-    params:
-      volume: 6
+    collection: FootstepSlime

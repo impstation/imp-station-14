@@ -2,6 +2,15 @@ flavor-base-kingsoda = like you're a champion
 flavor-base-drinkdrink = like dogshit
 flavor-base-unholy = unholy
 flavor-base-evil = evil
+flavor-base-artificial = artificial
+flavor-base-shrimp = shrimpy
+flavor-base-something = like something
+flavor-base-weird = weird
+flavor-base-ectoplasm = ghastly
+flavor-base-fatty = fatty
+flavor-base-gooey = gooey
+flavor-base-ants = like ants
+flavor-base-light = light
 
 flavor-complex-raktaccino = fantastically bitter
 flavor-complex-moscowmule = like a kick in the teeth
@@ -25,10 +34,16 @@ flavor-complex-snotty = like snot
 flavor-complex-speed = like speed
 flavor-base-whimsy = whimsical
 flavor-complex-secticket = like rotten eggs
+flavor-complex-outofthisworld = out of this world
+flavor-complex-imp = like green marijuana
+flavor-complex-treatchunk = like treason and cherry
 
 flavor-complex-medium = like your vision expanded
 
 flavor-complex-rodent = like rodents
+
+flavor-complex-goblin = like minging prog
+flavor-complex-gollylad = chivalrous
 
 flavor-complex-orangecoffee = excitingly acidic
 
@@ -51,10 +66,14 @@ flavor-complex-supermixer = boringly sweet
 flavor-complex-supermixerpsych = like a psychiatric appointment
 
 flavor-complex-moonrise = like sweet nostalgia
+flavor-complex-funny-lifting-drink = like you've drank nothing
 
 flavor-complex-poormansfrezon = like a good time
 flavor-complex-doublegreen = bitter and nauseating
 flavor-complex-liquidlunch = like a pureed rat
+
+flavor-complex-safe = safe
+flavor-complex-profane = profane
 
 flavor-complex-armory = like armory access
 flavor-complex-atmospherics = like atmospherics access
@@ -99,3 +118,6 @@ flavor-complex-syndicateagent = like syndicate agent access
 flavor-complex-theatre = like theatre access
 flavor-complex-wizard = like wizard access
 flavor-complex-irwizine = like wrestling an alligator
+flavor-complex-rose = like a garden in the summer
+flavor-complex-allulalo = like hand sanitizer
+flavor-complex-pear = like pear

@@ -31,6 +31,8 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Chat;
+
 // yes, all of these are really necessary. Christ almighty.
 
 namespace Content.Server._Impstation.MindlessClone;
@@ -209,7 +211,7 @@ public sealed class MindlessCloneSystem : EntitySystem
             // make sure that the spawned clone isn't always facing north. they face the person they're a clone of, instead
             _rotateToFaceSystem.TryFaceCoordinates(ent, _transformSystem.ToMapCoordinates(Transform(ent.Comp.IsCloneOf).Coordinates).Position);
 
-            _stun.TryParalyze(ent, stunTime, true);
+            _stun.TryUpdateParalyzeDuration(ent, stunTime);
 
             stunTime += TimeSpan.FromSeconds(0.5); // to make the delay end *after* the stun is up. otherwise the mobstate check fails
         }

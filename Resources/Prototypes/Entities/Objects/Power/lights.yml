@@ -113,6 +113,7 @@
         acts: [ "Destruction" ]
   - type: Tag # imp
     tags:
+    - Trash
     - LightTube
 
 # Lighting color values gathered from
@@ -259,6 +260,7 @@
   - type: Tag #imp
     tags:
       - LightNormal
+      - Trash
       - LightTube
 
 - type: entity
@@ -276,6 +278,7 @@
   - type: Tag #imp
     tags:
       - LightOld
+      - Trash
       - LightTube
 
 - type: entity
@@ -309,6 +312,7 @@
   - type: Tag #imp
     tags:
       - LightLed
+      - Trash
       - LightTube
 
 - type: entity
@@ -327,6 +331,7 @@
   - type: Tag #imp
     tags:
       - LightExterior
+      - Trash
       - LightTube
 
 - type: entity
@@ -345,6 +350,7 @@
   - type: Tag #imp
     tags:
       - LightSodium
+      - Trash
       - LightTube
 
 - type: entity
@@ -378,6 +384,7 @@
   - type: Tag #imp
     tags:
       - LightCyan
+      - Trash
       - LightTube
 
 - type: entity
@@ -397,6 +404,7 @@
   - type: Tag #imp
     tags:
       - LightBlue
+      - Trash
       - LightTube
 
 - type: entity
@@ -416,6 +424,7 @@
   - type: Tag #imp
     tags:
       - LightYellow
+      - Trash
       - LightTube
 
 - type: entity
@@ -435,6 +444,7 @@
   - type: Tag #imp
     tags:
       - LightPink
+      - Trash
       - LightTube
 
 - type: entity
@@ -454,6 +464,7 @@
   - type: Tag #imp
     tags:
       - LightOrange
+      - Trash
       - LightTube
 
 - type: entity
@@ -476,6 +487,7 @@
   - type: Tag #imp
     tags:
       - LightBlack
+      - Trash
       - LightTube
 
 - type: entity
@@ -495,6 +507,7 @@
   - type: Tag #imp
     tags:
       - LightRed
+      - Trash
       - LightTube
 
 - type: entity
@@ -514,6 +527,7 @@
   - type: Tag #imp
     tags:
       - LightGreen
+      - Trash
       - LightTube
 
 

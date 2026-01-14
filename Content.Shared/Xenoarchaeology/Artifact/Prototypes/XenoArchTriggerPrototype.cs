@@ -11,7 +11,7 @@ public sealed partial class XenoArchTriggerPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// <summary>
     /// Tip for user on how to activate this trigger.
@@ -30,6 +30,12 @@ public sealed partial class XenoArchTriggerPrototype : IPrototype
     /// </summary>
     [DataField]
     public ComponentRegistry Components = new();
+
+    /// <summary>
+    ///     Imp edit. The depths at which a trigger can be selected.
+    /// </summary>
+    [DataField]
+    public List<int> TargetDepths = [];
 }
 
 /// <summary>

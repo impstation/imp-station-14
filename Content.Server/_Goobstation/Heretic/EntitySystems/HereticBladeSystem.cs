@@ -25,6 +25,8 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -42,6 +44,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly TemperatureSystem _temp = default!;
+    [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private HashSet<Entity<MapGridComponent>> _targetGrids = [];
@@ -51,7 +54,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return;
 
-        switch (hereticComp.CurrentPath)
+        switch (hereticComp.MainPath)
         {
             case "Ash":
                 _flammable.AdjustFireStacks(target, 2.5f, ignite: true);
@@ -109,7 +112,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         var queuedel = true;
 
         // void path exxclusive
-        if (heretic.CurrentPath == "Void" && heretic.PathStage >= 7)
+        if (_knowledge.HasKnowledge(heretic,"SeekingBlade"))
         {
             var look = _lookupSystem.GetEntitiesInRange<HereticCombatMarkComponent>(Transform(ent).Coordinates, 20f);
             if (look.Count > 0)
@@ -137,11 +140,11 @@ public sealed partial class HereticBladeSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.Examiner, out var heretic))
             return;
 
-        var isUpgradedVoid = heretic.CurrentPath == "Void" && heretic.PathStage >= 7;
-
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString("heretic-blade-examine"));
-        if (isUpgradedVoid) sb.AppendLine(Loc.GetString("heretic-blade-void-examine"));
+
+        if (_knowledge.HasKnowledge(heretic,"SeekingBlade"))
+            sb.AppendLine(Loc.GetString("heretic-blade-void-examine"));
 
         args.PushMarkup(sb.ToString());
     }
@@ -166,7 +169,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
                 RemComp(hit, mark);
             }
 
-            if (hereticComp.PathStage >= 7)
+            if (hereticComp.Power >= 7)
                 ApplySpecialEffect(args.User, hit);
         }
     }

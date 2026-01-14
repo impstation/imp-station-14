@@ -49,7 +49,7 @@ public sealed partial class DepartmentPrototype : IPrototype
     public bool EditorHidden;
 
     /// <summary>
-    /// Toggles the display of the department in the in-round crew manifest. Imp addition.
+    ///     Toggles the display of the department in the in-round crew manifest. Imp addition.
     /// </summary>
     [DataField]
     public bool ManifestHidden = false;

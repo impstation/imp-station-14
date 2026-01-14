@@ -9,7 +9,6 @@ using Content.Server.GameTicking;
 using Content.Server.Screens.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
@@ -20,8 +19,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.Station.Components;
 using Timer = Robust.Shared.Timing.Timer;
-using Content.Server.Announcements.Systems;
+using Content.Server.Announcements.Systems; // ee announce
 
 namespace Content.Server.RoundEnd
 {
@@ -42,7 +42,7 @@ namespace Content.Server.RoundEnd
         [Dependency] private readonly EmergencyShuttleSystem _shuttle = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
-        [Dependency] private readonly AnnouncerSystem _announcer = default!;
+        [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
         public TimeSpan DefaultCooldownDuration { get; set; } = TimeSpan.FromSeconds(30);
 
@@ -99,10 +99,10 @@ namespace Content.Server.RoundEnd
         /// </summary>
         public EntityUid? GetStation()
         {
-            AllEntityQuery<StationEmergencyShuttleComponent, StationDataComponent>().MoveNext(out _, out _, out var data);
+            AllEntityQuery<StationEmergencyShuttleComponent, StationDataComponent>().MoveNext(out var uid, out _, out var data);
             if (data == null)
                 return null;
-            var targetGrid = _stationSystem.GetLargestGrid(data);
+            var targetGrid = _stationSystem.GetLargestGrid((uid, data));
             return targetGrid == null ? null : Transform(targetGrid.Value).MapUid;
         }
 
@@ -181,15 +181,15 @@ namespace Content.Server.RoundEnd
                 units = "eta-units-minutes";
             }
 
-            _announcer.SendAnnouncement(_announcer.GetAnnouncementId("ShuttleCalled"),
+            _announcer.SendAnnouncement( // ee announce
+                _announcer.GetAnnouncementId("ShuttleCalled"),
                 Filter.Broadcast(),
                 text,
                 name,
                 Color.Gold,
-                null,
-                null,
-                ("time", time),
-                    ("units", Loc.GetString(units))
+                localeArgs: [
+                    ("time", time),
+                    ("units", Loc.GetString(units))]
             );
 
             LastCountdownStart = _gameTiming.CurTime;
@@ -235,11 +235,11 @@ namespace Content.Server.RoundEnd
                 _adminLogger.Add(LogType.ShuttleRecalled, LogImpact.High, $"Shuttle recalled");
             }
 
-            _announcer.SendAnnouncement(
+            _announcer.SendAnnouncement( // ee announce
                 _announcer.GetAnnouncementId("ShuttleRecalled"),
                 Filter.Broadcast(),
                 "round-end-system-shuttle-recalled-announcement",
-                Loc.GetString("Station"),
+                Loc.GetString("round-end-system-shuttle-sender-announcement"),
                 Color.Gold
             );
 
@@ -320,7 +320,7 @@ namespace Content.Server.RoundEnd
                     // Check is shuttle called or not. We should only dispatch announcement if it's already called
                     if (IsRoundEndRequested())
                     {
-                        _announcer.SendAnnouncement(
+                        _announcer.SendAnnouncement( // ee announce
                             _announcer.GetAnnouncementId("ShuttleCalled"),
                             Filter.Broadcast(),
                             textAnnounce,

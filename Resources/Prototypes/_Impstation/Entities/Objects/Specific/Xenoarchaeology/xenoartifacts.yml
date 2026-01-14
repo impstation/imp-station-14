@@ -1,0 +1,37 @@
+﻿- type: entity
+  parent: BaseXenoArtifact
+  id: BaseNaturalXenoArtifact
+  name: natural artifact
+  abstract: true
+  noSpawn: true
+  components:
+  - type: XenoArtifact
+    triggerWeights: "NaturalTriggers"
+    nodeCount:
+      min: 4
+      max: 15
+    requirePredecessorTriggers: false
+    scatterPerLayer:
+      min: 0
+      max: 0
+    enforceMultipleSegments: false
+    segmentSize: # my trick
+      min: 99
+      max: 99
+    activateOnInteraction: false
+    oneStartNode: true
+    natural: true
+    unlockStateDuration: 1
+    unlockStateIncrementPerNode: 0
+
+- type: entity
+  parent: BaseXenoArtifact
+  id: BaseReticulatedXenoArtifact
+  name: reticulated artifact
+  abstract: true
+  noSpawn: true
+  components:
+    - type: XenoArtifact
+      nodeCount:
+        min: 9
+        max: 13

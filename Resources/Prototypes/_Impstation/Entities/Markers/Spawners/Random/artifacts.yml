@@ -1,0 +1,50 @@
+﻿- type: entity
+  id: RandomReticulatedArtifactSpawner
+  name: random reticulated artifact spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
+      state: ano01
+  - type: RandomSpawner
+    prototypes:
+    - ReticulatedXenoArtifactStructure
+    - ReticulatedXenoArtifactStructure
+    - ReticulatedXenoArtifactItem
+    chance: 1
+
+- type: entity
+  id: RandomReticulatedArtifactSpawner20
+  name: random reticulated artifact spawner [20]
+  parent: RandomReticulatedArtifactSpawner
+  components:
+  - type: RandomSpawner
+    chance: 0.2
+
+
+- type: entity
+  id: RandomNaturalArtifactSpawner
+  name: random natural artifact spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Specific/Xenoarchaeology/xeno_artifacts.rsi
+      state: ano01
+  - type: RandomSpawner
+    prototypes:
+    - NaturalXenoArtifactStructure
+    - NaturalXenoArtifactStructure
+    - NaturalXenoArtifactItem
+    chance: 1
+
+- type: entity
+  id: RandomNaturalArtifactSpawner20
+  name: random natural artifact spawner [20]
+  parent: RandomNaturalArtifactSpawner
+  components:
+  - type: RandomSpawner
+    chance: 0.2

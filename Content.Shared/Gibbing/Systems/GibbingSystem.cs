@@ -2,7 +2,6 @@
 using System.Numerics;
 using Content.Shared.Gibbing.Components;
 using Content.Shared.Gibbing.Events;
-using Content.Shared.Projectiles;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -18,7 +17,6 @@ public sealed class GibbingSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
-    [Dependency] private readonly SharedProjectileSystem _projectileSystem = default!; // imp
     [Dependency] private readonly IRobustRandom _random = default!;
 
     //TODO: (future optimization) implement a system that "caps" giblet entities by deleting the oldest ones once we reach a certain limit, customizable via CVAR
@@ -189,10 +187,7 @@ public sealed class GibbingSystem : EntitySystem
         }
 
         if (gibType == GibType.Gib)
-        {
-            _projectileSystem.RemoveEmbeddedChildren(gibbable); // imp edit
-            QueueDel(gibbable);
-        }
+            PredictedQueueDel(gibbable.Owner);
         return true;
     }
 
@@ -297,10 +292,7 @@ public sealed class GibbingSystem : EntitySystem
         var gibbedEvent = new EntityGibbedEvent(gibbable, localGibs);
         RaiseLocalEvent(gibbable, ref gibbedEvent);
         if (deleteTarget)
-        {
-            _projectileSystem.RemoveEmbeddedChildren(gibbable); // imp edit
-            QueueDel(gibbable);
-        }
+            PredictedQueueDel(gibbable.Owner);
         return localGibs;
     }
 

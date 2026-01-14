@@ -6,7 +6,7 @@
   physicalDesc: reagent-physical-desc-really-cruddy
   flavor: crud
   color: "#47181A"
-  contraband: Minor
+  contrabandSeverity: Minor
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: BrosSorbSpawner
@@ -31,8 +31,8 @@
             Poison: 2
             Blunt: 1
         conditions:
-        - !type:HasTag
-          invert: true
+        - !type:TagCondition
+          inverted: true
           tag: BROS
 
 - type: reagent
@@ -70,13 +70,15 @@
       - !type:Polymorph
         prototype: PolymorphBros
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouUngh
           min: 50
       - !type:AdjustReagent
         reagent: JuiceThatMakesYouUngh
         amount: -20
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: JuiceThatMakesYouUngh
           min: 50
 
 - type: reagent
@@ -119,7 +121,6 @@
         component: Feminized
         type: Add
         time: 2
-        refresh: false
 
 - type: reagent
   id: Testosterone
@@ -140,7 +141,6 @@
         component: Masculinized
         type: Add
         time: 2
-        refresh: false
 
 - type: reagent
   id: Holium
@@ -150,7 +150,7 @@
   physicalDesc: reagent-physical-desc-threat
   flavor: singulo
   color: "#000000"
-  contraband: Major
+  contrabandSeverity: Major
   tileReactions:
   - !type:CreateEntityTileReaction
     entity: FloorChasmEntity
@@ -169,7 +169,8 @@
       effects:
       - !type:Medium
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Medium
           min: 20
 
 - type: reagent
@@ -183,7 +184,7 @@
     Medicine:
       effects:
       # its just a weaker tranex with no od
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -0.5
 
 - type: reagent
@@ -193,15 +194,15 @@
   physicalDesc: reagent-physical-desc-irwizine
   flavor: irwizine
   color: "#fff174"
-  recognizable: true
   metabolisms:
     Medicine:
       effects:
       - !type:FactionChange
         faction: Passive
         conditions:
-        - !type:ReagentThreshold
-          min: 15
+        - !type:ReagentCondition
+          reagent: Irwizine
+          min: 10
 
 - type: reagent
   id: Sadness
@@ -287,3 +288,138 @@
           - "butterflies-effect-chaos-two"
           - "butterflies-effect-chaos-three"
         probability: 0.4
+
+- type: reagent
+  id: Paprika
+  name: reagent-name-paprika
+  group: Foods
+  desc: reagent-desc-paprika
+  physicalDesc: reagent-physical-desc-powdery
+  flavor: spicy
+  color: "#a52a2a"
+  recognizable: true
+  metabolisms:
+    Food:
+      effects:
+      - !type:Emote
+        emote: Cough
+        showInChat: false
+        showInGuidebook: true
+        probability: 0.65
+      - !type:PopupMessage
+        type: Local
+        messages:
+          - "paprika-effect-throat"
+          - "paprika-effect-chills"
+          - "paprika-effect-eyes"
+        probability: 0.05
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:Emote
+        emote: Cough
+        showInGuidebook: true
+        conditions:
+        - !type:BreathingCondition
+        - !type:InternalsCondition
+          inverted: true
+
+- type: reagent
+  id: Pulp
+  name: reagent-name-pulp
+  desc: reagent-desc-pulp
+  physicalDesc: reagent-physical-desc-pulpy
+  flavor: paper
+  color: "#806a44"
+  metabolisms:
+    Food:
+      effects:
+      - !type:AdjustReagent #imp
+        reagent: Cellulose
+        amount: 0.5
+
+- type: reagent
+  id: Something
+  name: reagent-name-something
+  desc: reagent-desc-something
+  physicalDesc: reagent-physical-desc-something
+  flavor: something
+  color: "#467557"
+  metabolisms: # imp
+    Food:
+      effects:
+      - !type:PopupMessage
+        type: Local
+        visualType: Medium
+        messages:
+        - "something-effect-feelsomething"
+        - "something-effect-justhappened"
+        - "something-effect-kindofway"
+        - "something-effect-somthing"
+        - "something-effect-process"
+        - "something-effect-change"
+        - "something-effect-feeling"
+        probability: 0.2
+
+- type: reagent
+  id: Ants
+  name: reagent-name-ants
+  group: Toxins
+  slipData:
+    requiredSlipSpeed: 3.5
+  desc: reagent-desc-ants
+  physicalDesc: reagent-physical-desc-ants
+  flavor: ants
+  color: "#2d231f"
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        ignoreResistances: false
+        damage:
+          types:
+            Piercing: 0.05
+      - !type:Emote
+        emote: Scream
+        probability: 0.7
+  metabolisms:
+    Poison:
+      metabolismRate : 3.00
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+             Piercing : 1
+      - !type:PopupMessage
+        type: Local
+        visualType: LargeCaution
+        messages: [ "ant-effect-biting-insides"]
+        probability: 0.33
+      - !type:Emote
+        emote: Scream
+        probability: 0.3
+
+- type: reagent
+  id: LiftingConcentrate
+  name: reagent-name-lifting-concentrate
+  group: Narcotics
+  desc: reagent-desc-lifting-concentrate
+  physicalDesc: reagent-physical-desc-floral
+  flavor: lightactually
+  color: "#72e9d5"
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectFloating
+        type: Update
+        time: 3
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectFloating
+        type: Update

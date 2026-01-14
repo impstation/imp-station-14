@@ -1,7 +1,7 @@
 - type: entity
   name: BaseWeaponLauncher
   parent: BaseItem
-  id: BaseWeaponLauncher
+  id: BaseWeaponLauncherWizden #imp - see the _Impstation directory for the version we use
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -12,7 +12,7 @@
     slots:
     - Back
   - type: Item
-    size: Huge
+    size: Ginormous
   - type: StaticPrice
     price: 500
   - type: ContainerContainer
@@ -21,21 +21,26 @@
         ents: []
 
 - type: entity
-  name: China Lake #imp, capitalized proper noun
-  parent: [BaseWeaponLauncher, BaseGunWieldable, Tier3Contraband]
-  id: WeaponLauncherChinaLake
-  description: THOOMP. #imp
+  name: china lake
+  parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband]
+  id: WeaponLauncherChinaLakeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  description: PLOOP.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Launchers/china_lake.rsi #imp
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
     layers:
       - state: icon
         map: ["enum.GunVisualLayers.Base"]
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Launchers/china_lake.rsi #imp
+    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
     slots:
     - Back
     - suitStorage
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,2
   - type: AmmoCounter
   - type: Gun
     fireRate: 1
@@ -52,38 +57,15 @@
     proto: GrenadeFrag
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.6
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-#imp edit end
+  - type: GunRequiresWield
+  - type: StaticPrice
+    price: 10000
 
 - type: entity
   parent: [ BaseWeaponLauncher, BaseGunWieldable, BaseMajorContraband ]
   id: WeaponLauncherHydra
   name: hydra
-  description: PLOOP... FSSSSSS
+  description: PLOOP... FSSSSSS...
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/hydra_launcher.rsi
@@ -95,6 +77,8 @@
     slots:
     - Back
     - suitStorage
+  - type: Item
+    size: Huge
   - type: AmmoCounter
   - type: Gun
     fireRate: 1
@@ -103,6 +87,7 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: GunRequiresWield
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
@@ -120,10 +105,11 @@
       path: /Audio/Weapons/Guns/MagIn/sfrifle_magin.ogg
 
 - type: entity
-  name: RPG-7V9
+  name: RPG-7
   parent: [ BaseWeaponLauncher, BaseMajorContraband ]
-  id: WeaponLauncherRocket
-  description: An old anti-tank rocket-propelled grenade launcher, remade for the modern age. #imp
+  id: WeaponLauncherRocketWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  description: A modified ancient rocket-propelled grenade launcher.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
@@ -151,38 +137,13 @@
     steps: 2
     zeroVisible: false
   - type: Appearance
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.4 #slower, but hits harder; bigger object to shove with
-    damage:
-      types:
-        Blunt: 8
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 15
-    damage:
-      types:
-        Blunt: 12
-  - type: StaminaDamageOnHit
-    damage: 15 #slight stagger, but still like 7 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-#imp edit end
 
 - type: entity
   name: multiple rocket launcher
   parent: BaseWeaponLauncher
-  id: WeaponLauncherMultipleRocket
-  description: A handheld MRL. With great power comes great fun! #imp
+  id: WeaponLauncherMultipleRocketWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  description: A modified ancient rocket-propelled grenade launcher.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Launchers/rocket.rsi
@@ -212,37 +173,12 @@
     steps: 2
     zeroVisible: true
   - type: Appearance
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.4 #slower, but hits harder; bigger object to shove with
-    damage:
-      types:
-        Blunt: 8
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 15
-    damage:
-      types:
-        Blunt: 12
-  - type: StaminaDamageOnHit
-    damage: 15 #slight stagger, but still like 7 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-#imp edit end
 
 - type: entity
   name: pirate cannon
   parent: BaseWeaponLauncher
-  id: WeaponLauncherPirateCannon
+  id: WeaponLauncherPirateCannonWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   description: Kaboom!
   components:
     - type: Sprite
@@ -270,43 +206,18 @@
       proto: CannonBall
       soundInsert:
         path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
-#imp edit begin; weapon melee
-    - type: MeleeWeapon
-      range: 0.8
-      attackRate: 0.4 #slower, but hits harder; bigger object to shove with
-      damage:
-        types:
-          Blunt: 8
-      soundHit:
-        path: /Audio/Effects/hit_kick.ogg
-      soundSwing:
-        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-      resetOnHandSelected: false
-    - type: AltFireMelee
-      attackType: Heavy
-    - type: DamageOtherOnHit #for throwing
-      staminaCost: 15
-      damage:
-        types:
-          Blunt: 12
-    - type: StaminaDamageOnHit
-      damage: 15 #slight stagger, but still like 7 hits to stun completely
-    - type: MeleeRequiresWield
-    - type: MeleeThrowOnHit
-      distance: 0.8
-      speed: 5
-#imp edit end
 
 - type: entity
   name: tether gun
   parent:
   - BaseItem
   - PowerCellSlotMediumItem
-  id: WeaponTetherGun
+  id: WeaponTetherGunWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   description: Manipulates gravity around objects to fling them at high velocities.
   components:
     - type: Item
-      storedRotation: -90
+      size: Normal
     - type: TetherGun
       frequency: 5
       dampingRatio: 4
@@ -322,7 +233,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:
@@ -338,37 +249,18 @@
           unshaded:
             True: { visible: true }
             False: { visible: false }
-#imp edit begin; weapon melee
-    - type: MeleeWeapon
-      range: 0.8
-      attackRate: 0.8
-      damage:
-        types:
-          Blunt: 5
-      soundHit:
-        path: /Audio/Effects/hit_kick.ogg
-      soundSwing:
-        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-      resetOnHandSelected: false
-    - type: AltFireMelee
-      attackType: Heavy
-    - type: DamageOtherOnHit #for throwing
-      staminaCost: 6
-      damage:
-        types:
-          Blunt: 5
-#imp edit end
 
 - type: entity
   name: force gun
   parent:
     - BaseItem
     - PowerCellSlotMediumItem
-  id: WeaponForceGun
+  id: WeaponForceGunWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   description: Manipulates gravity around objects to fling them at high velocities.
   components:
     - type: Item
-      storedRotation: -90
+      size: Normal
     - type: ForceGun
       frequency: 15
       dampingRatio: 4
@@ -390,7 +282,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-        - type: ToggleableLightVisuals
+        - type: ToggleableVisuals
           spriteLayer: unshaded
           inhandVisuals:
             left:
@@ -406,32 +298,19 @@
               unshaded:
                 True: { visible: true }
                 False: { visible: false }
-#imp edit begin; weapon melee
-    - type: MeleeWeapon
-      range: 0.8
-      attackRate: 0.8
-      damage:
-        types:
-          Blunt: 5
-      soundHit:
-        path: /Audio/Effects/hit_kick.ogg
-      soundSwing:
-        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-      resetOnHandSelected: false
-    - type: AltFireMelee
-      attackType: Heavy
-    - type: DamageOtherOnHit #for throwing
-      staminaCost: 6
-      damage:
-        types:
-          Blunt: 5
-#imp edit end
 
 - type: entity
   name: grappling gun
   parent: BaseItem
   id: WeaponGrapplingGun
+  description: A gun that pulls its user towards its target. Useful for getting around while off-grid, or doing some anime shit. # imp; it seriously didn't have a description before
   components:
+    - type: Item
+      size: Small
+      shape:
+      - 0,0,1,0
+      - 0,1,0,1
+      storedOffset: 0,-6
     - type: AmmoCounter
     - type: GrapplingGun
     - type: Gun
@@ -463,10 +342,13 @@
 - type: entity
   name: tether gun
   parent: BaseItem
-  id: WeaponTetherGunAdmin
+  id: WeaponTetherGunAdminWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   suffix: Admeme
   description: Manipulates gravity around objects to fling them at high velocities.
   components:
+    - type: Item
+      size: Normal
     - type: TetherGun
       canTetherAlive: true
       canUnanchor: true
@@ -482,7 +364,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:
@@ -498,37 +380,17 @@
           unshaded:
             True: { visible: true }
             False: { visible: false }
-#imp edit begin; weapon melee
-    - type: MeleeWeapon
-      range: 0.8
-      attackRate: 0.8
-      damage:
-        types:
-          Blunt: 5
-      soundHit:
-        path: /Audio/Effects/hit_kick.ogg
-      soundSwing:
-        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-      resetOnHandSelected: false
-    - type: AltFireMelee
-      attackType: Heavy
-    - type: DamageOtherOnHit #for throwing
-      staminaCost: 6
-      damage:
-        types:
-          Blunt: 5
-    - type: MeleeThrowOnHit
-      distance: 6
-      speed: 6
-#imp edit end
 
 - type: entity
   name: force gun
   parent: BaseItem
-  id: WeaponForceGunAdmin
+  id: WeaponForceGunAdminWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   suffix: Admeme
   description: Manipulates gravity around objects to fling them at high velocities.
   components:
+    - type: Item
+      size: Normal
     - type: ForceGun
       canTetherAlive: true
       canUnanchor: true
@@ -547,7 +409,7 @@
           map: [ "unshaded" ]
           shader: unshaded
           visible: false
-    - type: ToggleableLightVisuals
+    - type: ToggleableVisuals
       spriteLayer: unshaded
       inhandVisuals:
         left:
@@ -563,29 +425,6 @@
           unshaded:
             True: { visible: true }
             False: { visible: false }
-#imp edit begin; weapon melee
-    - type: MeleeWeapon
-      range: 0.8
-      attackRate: 0.8
-      damage:
-        types:
-          Blunt: 5
-      soundHit:
-        path: /Audio/Effects/hit_kick.ogg
-      soundSwing:
-        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-      resetOnHandSelected: false
-    - type: AltFireMelee
-      attackType: Heavy
-    - type: DamageOtherOnHit #for throwing
-      staminaCost: 6
-      damage:
-        types:
-          Blunt: 5
-    - type: MeleeThrowOnHit
-      distance: 6
-      speed: 6
-#imp edit end
 
 - type: entity
   name: meteor launcher
@@ -595,9 +434,6 @@
   description: It fires large meteors.
   components:
   - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeRocket
     proto: MeteorMedium
 
 - type: entity
@@ -608,7 +444,4 @@
   description: It fires slow immovable rods.
   components:
   - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-        - CartridgeRocket
     proto: ImmovableRodSlow

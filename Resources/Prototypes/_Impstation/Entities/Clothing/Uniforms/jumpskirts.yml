@@ -219,3 +219,93 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtHopPowerSuit
+  name: head of personnel's power suit
+  description: Rather bold and imposing. Perfect for establishing authority in the workplace.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/hop_powersuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/hop_powersuit.rsi
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtCMOCasual
+  name: chief medical officer's casual skirt
+  description: A comfy casual outfit for the CMO.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/cmo_casual.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/cmo_casual.rsi
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtCMOFormal
+  name: chief medical officer's formal dress
+  description: The CMO's formal attire, perfect for meetings and hands-off work.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/cmo_formal.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/cmo_formal.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtSpaceDress
+  name: librarian's space dress
+  description: The perfect dress for a normal spacetrip.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/spacedress.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/spacedress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformMusicianSingerDress
+  name: lounge singer's dress
+  description: A form-fitting silk dress, perfect for preforming at fancy nightclubs. Or at dive bars on backwater space stations.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mus_singerdress.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mus_singerdress.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtNurse
+  name: nurse uniform
+  description: An old nursing uniform. It's probably been through the wash thousands of times, yet you can still faintly make out stains from nightmarish shifts of yore.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/nurse.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/nurse.rsi
+
+- type: entity
+  name: Pink Princess Dress
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformPinkPrincessDress
+  description: A sweet and fluffy dress fit for royalty though... it is a little itchy
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/pinkprincessdress.rsi
+  - type: Item
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/pinkprincessdress.rsi
+
+- type: entity
+  name: Green Princess Dress
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformGreenPrincessDress
+  description: A smooth and elegant dress fit for royalty. It's totally just a costume though.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/greenprincessdress.rsi
+  - type: Item
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/greenprincessdress.rsi

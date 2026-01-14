@@ -1,0 +1,104 @@
+- type: job
+  id: PersonalAILearnerScience
+  name: pai-system-role-name-learner-science
+  description: pai-system-role-description-learner-science
+  playTimeTracker: JobPersonalAILearnerScience
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 15h
+      inverted: true
+  setPreference: false
+  canBeAntag: false
+  supervisors: job-supervisors-rd
+  applyTraits: false
+
+- type: job
+  id: PersonalAILearnerEngineering
+  name: pai-system-role-name-learner-engineering
+  description: pai-system-role-description-learner-engineering
+  playTimeTracker: JobPersonalAILearnerEngineering
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 15h
+      inverted: true
+  setPreference: false
+  canBeAntag: false
+  supervisors: job-supervisors-ce
+  applyTraits: false
+
+- type: job
+  id: PersonalAILearnerSecurity
+  name: pai-system-role-name-learner-security
+  description: pai-system-role-description-learner-security
+  playTimeTracker: JobPersonalAILearnerSecurity
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 15h
+      inverted: true
+  setPreference: false
+  canBeAntag: false
+  supervisors: job-supervisors-hos
+  applyTraits: false
+
+- type: job
+  id: PersonalAILearnerMedical
+  name: pai-system-role-name-learner-medical
+  description: pai-system-role-description-learner-medical
+  playTimeTracker: JobPersonalAILearnerMedical
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 15h
+      inverted: true
+  setPreference: false
+  canBeAntag: false
+  supervisors: job-supervisors-cmo
+  applyTraits: false
+
+- type: job
+  id: PersonalAILearnerCargo
+  name: pai-system-role-name-learner-cargo
+  description: pai-system-role-description-learner-cargo
+  playTimeTracker: JobPersonalAILearnerCargo
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 15h
+      inverted: true
+  setPreference: false
+  canBeAntag: false
+  supervisors: job-supervisors-qm
+  applyTraits: false
+
+- type: job
+  id: PersonalAILearnerService
+  name: pai-system-role-name-learner-service
+  description: pai-system-role-description-learner-service
+  playTimeTracker: JobPersonalAILearnerService
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Service
+      time: 15h
+      inverted: true
+  setPreference: false
+  canBeAntag: false
+  supervisors: job-supervisors-hd
+  applyTraits: false
+
+- type: job
+  id: PersonalAILearnerCommand
+  name: pai-system-role-name-learner-command
+  description: pai-system-role-description-learner-command
+  playTimeTracker: JobPersonalAILearnerCommand
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Command
+      time: 15h
+      inverted: true
+  setPreference: false
+  canBeAntag: false
+  supervisors: job-supervisors-captain
+  applyTraits: false

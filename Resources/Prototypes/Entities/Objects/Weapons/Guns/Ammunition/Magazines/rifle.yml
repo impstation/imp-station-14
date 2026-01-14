@@ -1,9 +1,7 @@
-# Empty mags
 - type: entity
-  id: BaseMagazineRifle
+  id: BaseMagazineRifleWizden #imp - see the _Impstation directory for the version we use
   name: "magazine (.20 rifle)"
   parent: [ BaseItem, BaseSecurityContraband ]
-  description: A 25-round .20 rifle magazine. #imp
   abstract: true
   components:
   - type: Tag
@@ -21,7 +19,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -33,18 +31,18 @@
     zeroVisible: false
   - type: Appearance
 
-# Magazines
 - type: entity
-  id: MagazineRifle
+  id: MagazineRifleWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: "magazine (.20 rifle)"
-  description: A 25-round .20 rifle magazine, marked as live-fire ammo. #imp
-  parent: BaseMagazineRifle
+  parent: BaseMagazineRifleWizden #imp
+  description: 25-round double stack magazine for combat rifles. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifle
   - type: Sprite
     layers:
-    - state: red
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -52,19 +50,16 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe
-        color: "#9b0000"
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe
-        color: "#9b0000"
 
 - type: entity
-  id: MagazineRifleEmpty
+  id: MagazineRifleEmptyWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: "magazine (.20 rifle any)"
-  description: A 25-round .20 rifle magazine with no apparent markings. #imp
   suffix: empty
-  parent: MagazineRifle
+  parent: MagazineRifleWizden #imp
+  description: 25-round double stack magazine for combat rifles.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -82,53 +77,78 @@
       - state: inhand-right-mag
 
 - type: entity
-  id: MagazineRifleIncendiary
+  id: MagazineRifleIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: "magazine (.20 rifle incendiary)"
-  description: A 25-round .20 rifle magazine, marked as incendiary ammo. #imp
-  parent: MagazineRifle
+  parent: MagazineRifleWizden #imp
+  description: 25-round double stack magazine for combat rifles. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleIncendiary
-
-- type: entity
-  id: MagazineRiflePractice
-  name: "magazine (.20 rifle practice)"
-  description: A 25-round .20 rifle magazine, marked as practice ammo. #imp
-  parent: BaseMagazineRifle
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeRiflePractice
   - type: Sprite
     layers:
-    - state: practice
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#ff6e52"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#ea5800"
+        color: "#ff6e52"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#ea5800"
+        color: "#ff6e52"
 
 - type: entity
-  id: MagazineRifleUranium
+  id: MagazineRiflePracticeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: "magazine (.20 rifle practice)"
+  parent: BaseMagazineRifleWizden #imp
+  description: 25-round double stack magazine for combat rifles. Intended to hold non-harmful chalk ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRiflePractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#dbdbdb"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#dbdbdb"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#dbdbdb"
+
+- type: entity
+  id: MagazineRifleUraniumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: "magazine (.20 rifle uranium)"
-  description: A 25-round .20 rifle magazine, marked as uranium ammo. #imp
-  parent: BaseMagazineRifle
+  parent: BaseMagazineRifleWizden #imp
+  description: 25-round double stack magazine for combat rifles. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleUranium
   - type: Sprite
     layers:
-    - state: uranium
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
+    - state: stripe
+      color: "#00cd42"
   - type: Item
     inhandVisuals:
       left:

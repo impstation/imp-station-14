@@ -330,3 +330,46 @@
           - ReagentId: Phosphorus
             Quantity: 5
         canReact: false
+
+- type: entity
+  id: CigaretteShrimp
+  parent: BaseCigar
+  name: shrimparette
+  description: Are you sure about this?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/shrimparettes.rsi
+    state: unlit-icon
+  - type: Tag
+    tags:
+      - Cigarette
+      - Trash
+      - PetWearable # imp
+      - KodeEdible # imp
+  - type: StaticPrice
+    price: 1
+  - type: SpaceGarbage
+  - type: Clothing
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/shrimparettes.rsi
+    slots: [ mask ]
+    equippedPrefix: unlit
+  - type: Item
+    size: Tiny
+    sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/shrimparettes.rsi
+    heldPrefix: unlit
+  - type: SolutionContainerManager
+    solutions:
+      smokable:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 5
+          - ReagentId: Sadness
+            Quantity: 5
+      food:
+        maxVol: 20
+        reagents:
+          - ReagentId: Nicotine
+            Quantity: 5
+          - ReagentId: Sadness
+            Quantity: 5

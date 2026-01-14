@@ -1,3 +1,4 @@
+##side/misc
 - type: entity
   parent: BaseItem
   id: EldritchTome
@@ -67,3 +68,289 @@
   - type: HereticKnowledgeItem
     pointGain: 999
     useTimeSeconds: 1
+
+- type: entity 
+  parent: [ BaseItem, TierXContraband ]
+  id: HereticBookSensor
+  name: seeker's heart
+  description: A macabre contraption that beats faster in the presence of forbidden knowledge. Use it in your hand to toggle it on or off.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/items.rsi
+    state: living_heart
+  - type: ItemToggle
+  - type: ProximityBeeper
+  - type: ProximityDetector
+    range: 20
+    components:
+    - type: HereticKnowledgeItem
+  - type: Beeper
+    isMuted: false
+    minBeepInterval: 0.50
+    maxBeepInterval: 2.00
+    beepSound:
+      path: "/Audio/_Goobstation/Heretic/heartbeat.ogg"
+      params:
+        maxDistance: 1
+        volume: -2
+
+- type: entity 
+  id: AlwaysPoweredHellLight
+  parent: MarkerBase
+  name: hellworldlight
+  description: "An always powered light."
+  suffix: Always powered
+  components:
+  - type: PointLight
+    color: "#FF7777" # 5000K color temp
+    energy: 0.8
+    radius: 10
+    softness: 1
+    offset: "0, -0.5"
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Structures/Wallmounts/Lighting/light_tube.rsi
+        state: base
+
+- type: entity 
+  id: HellSpawnPointMarker
+  parent: MarkerBase
+  name: hellworldtarget
+  description: "You go here if you do drugs."
+  components:
+  - type: HellSpawnPoint
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: Mobs/Species/Human/parts.rsi
+        state: full
+
+- type: entity
+  name: wildering mirror
+  parent: [BaseItem, TierXContraband]
+  id: HereticMirror
+  description: "A multiplicity of vistas! A bewilderment of views! Gaze upon me, and rejoice in the dissolution of your senses!"
+  components:
+    - type: Sprite
+      sprite: _Impstation/Heretic/wildering_mirror.rsi
+      state: heretic-mirror-icon
+    - type: Item
+      size: Normal
+      sprite: _Impstation/Heretic/wildering_mirror.rsi
+      heldPrefix: heretic-mirror
+    - type: Appearance
+    - type: PointLight
+      enabled: true
+      color: "#F8FF9A"
+      radius: 3.5
+      softness: 1
+      autoRot: true
+    - type: Reflect
+      reflectProb: 0.6
+      reflects:
+        - Energy
+      spread: 330
+
+- type: entity
+  name: frangiclave
+  parent: [BaseItem, TierXContraband]
+  id: HereticKeyThrowing
+  description: "There are keys that open doors; then there are keys that destroy them."
+  components:
+    - type: Sprite
+      sprite: _Impstation/Heretic/frangiclave.rsi
+      state: frangiclave
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PolygonShape
+            vertices:
+              - -0.05,-0.15
+              - -0.05,0.25
+              - 0.05,-0.15
+              - 0.05,0.25
+          density: 20
+          mask:
+          - ItemMask
+          restitution: 0.3
+          friction: 0.2
+    - type: DamageOtherOnHit
+      damage:
+        types:
+          Structural: 9999
+    - type: ThrowingAngle
+      angle: 225
+    - type: LandAtCursor
+    - type: DamageOnHighSpeedImpact
+      minimumSpeed: 2
+      damage:
+        types:
+          Blunt: 10000
+    - type: DamageOnLand
+      damage:
+        types:
+          Blunt: 10000
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Glass
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 5000
+        behaviors:
+        - !type:PlaySoundBehavior
+          sound:
+            path: /Audio/_Goobstation/Heretic/castsummon.ogg
+            params:
+              volume: -4
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:ExplodeBehavior
+    - type: Explosive
+      explosionType: Cryo
+      # Cosmetic explosion
+      maxIntensity: 0.01
+      intensitySlope: 1
+      totalIntensity: 0.01
+
+##hunt path
+
+- type: entity
+  id: HereticAmmoPouch
+  name: meteoric pouch
+  parent: [BaseItem, TierXContraband]
+  description: A lion-leather pouch, humming with rage.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/meteoric_pouch.rsi
+    layers:
+    - state: base
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: Lathe
+    idleState: base
+    runningState: base
+    unlitIdleState: base
+    unlitRunningState: base
+    staticPacks:
+    - SecurityAmmoStatic
+    - SyndicateAmmoStatic
+    - HereticHuntAmmoStatic
+  - type: ActivatableUI
+    key: enum.LatheUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.LatheUiKey.Key:
+        type: LatheBoundUserInterface
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+
+- type: entity
+  id: HereticWatchtower
+  parent: BaseStructure
+  name: eldritch tower
+  description: A small, ghostly tower, leaking some kind of sickly liquid.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.35,0.25,0.35"
+        density: 190
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/watchtower.rsi
+    layers:
+    - state: base
+    - state: flow
+  - type: Clickable
+  - type: ProjectileRedirector
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Electronic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 30
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: monitorBroken
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: TimedDespawn
+    lifetime: 25
+  - type: PointLight
+    radius: 3
+    energy: 2.5
+    color: "#6e7500"
+
+- type: entity
+  parent: [ ClothingNeckBase, TierXContraband ]
+  id: HereticSkaptodonCloak
+  name: skaptodon cloak
+  description: A large leather half-cloak, adorned with impossibly large teeth. Grants invisibility, but needs to recharge over time.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/Hunt/skaptodon.rsi
+    layers:
+    - state: icon
+  - type: Item
+    size: Normal
+  - type: Clothing
+    slots:
+      - NECK
+    sprite: _Impstation/Heretic/Hunt/skaptodon.rsi
+    clothingVisuals:
+      neck:
+      - state: equipped-NECK
+  - type: ItemToggle
+    onUse: false
+  - type: ToggleClothing
+    action: ActionToggleSkaptodonCloak
+    disableOnUnequip: true
+    mustEquip: true
+  - type: ComponentToggler
+    parent: true
+    components:
+    - type: Stealth
+      minVisibility: 0.1
+      lastVisibility: 1.0
+      useAltShader: true
+    - type: StealthOnMove
+      movementVisibilityRate: 1.0
+  - type: PowerCellDraw
+    drawRate: 3.0 # 2 minutes
+  - type: ToggleCellDraw
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmallNuclear ##listen, it was this or it was program like 5 new components
+        disableEject: true
+        swap: false

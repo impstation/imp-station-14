@@ -85,12 +85,13 @@
     size: Tiny
   - type: StaticPrice
     price: 750
-    #imp edit - restore physical composition
+    #imp edit - restore physical composition & add salvohud status icons
   - type: PhysicalComposition
     materialComposition: # big mats if you don't sell it
       Steel: 500
       Glass: 1000
       Silver: 300
+  - type: NonMobStatusIcon
 
 - type: entity
   parent: BaseItem
@@ -152,8 +153,12 @@
   description: A flat bit of metal. If it was still in circulation, inflation would've made it worthless. Since it isn't, it's worth enough to keep in a book.
   components:
   - type: Sprite
-    sprite: Objects/Misc/coins.rsi
-    state: coin_iron
+    sprite: _Impstation/Objects/Misc/coins.rsi #imp
+    layers: #imp - for every coin so they can have a nice shiny sparkly effect so you don't miss the smaller sprites so easily.
+    - state: coin_iron
+    - state: sparkle-1
+    - state: sparkle-1
+      shader: unshaded
   - type: Item
     size: Tiny
   - type: StaticPrice
@@ -162,13 +167,18 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 300
+  - type: NonMobStatusIcon #imp edit. for the salvohud
 
 - type: entity
   parent: TreasureCoinIron
   id: TreasureCoinSilver
   components:
   - type: Sprite
-    state: coin_silver
+    layers: #imp
+    - state: coin_silver
+    - state: sparkle-1
+    - state: sparkle-1
+      shader: unshaded
   - type: StaticPrice
     price: 150 #imp edit - increase price to 150 to give some extra incentive to maybe sell them
   #imp edit - restore physical composition
@@ -182,7 +192,11 @@
   id: TreasureCoinGold
   components:
   - type: Sprite
-    state: coin_gold
+    layers: #imp
+    - state: coin_gold
+    - state: sparkle-1
+    - state: sparkle-1
+      shader: unshaded
   - type: StaticPrice
     price: 175
   #imp edit - restore physical composition
@@ -197,7 +211,11 @@
   id: TreasureCoinAdamantine
   components:
   - type: Sprite
-    state: coin_adamantine
+    layers: #imp
+    - state: coin_adamantine
+    - state: sparkle-2
+    - state: sparkle-2
+      shader: unshaded
   - type: StaticPrice
     price: 250
   #imp edit - restore physcial composition
@@ -211,7 +229,11 @@
   id: TreasureCoinDiamond
   components:
   - type: Sprite
-    state: coin_diamond
+    layers: #imp
+    - state: coin_diamond
+    - state: sparkle-2
+    - state: sparkle-2
+      shader: unshaded
   - type: StaticPrice
     price: 500
   #imp edit - restore physcial composition

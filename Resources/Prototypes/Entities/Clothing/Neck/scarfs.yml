@@ -127,6 +127,8 @@
       sprite: Clothing/Neck/Scarfs/syndiegreen.rsi
     - type: Clothing
       sprite: Clothing/Neck/Scarfs/syndiegreen.rsi
+    - type: StaticPrice
+      price: 500
 
 - type: entity
   parent: [ ClothingScarfBase, Tier1Contraband ]
@@ -138,6 +140,8 @@
       sprite: Clothing/Neck/Scarfs/syndiered.rsi
     - type: Clothing
       sprite: Clothing/Neck/Scarfs/syndiered.rsi
+    - type: StaticPrice
+      price: 500
 
 - type: entity
   parent: [ ClothingScarfBase, BaseCentcommContraband ]
@@ -157,9 +161,9 @@
   description: A striped scarf, a mandatory accessory for artists.
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Scarfs/zebra.rsi
+    sprite: _Impstation/Clothing/Neck/Scarfs/zebra.rsi #imp
   - type: Clothing
-    sprite: Clothing/Neck/Scarfs/zebra.rsi
+    sprite: _Impstation/Clothing/Neck/Scarfs/zebra.rsi #imp
 
 # Pride Scarves
 - type: entity

@@ -3,7 +3,7 @@ using Content.Client.GameTicking.Managers;
 using Content.Client.LateJoin;
 using Content.Client.Lobby.UI;
 using Content.Client.Message;
-using Content.Client._Impstation.ReadyManifest;
+using Content.Client.Playtime;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Client.Voting;
 using Content.Shared.CCVar;
@@ -14,6 +14,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
+using Content.Client._Impstation.ReadyManifest; // imp
 
 namespace Content.Client.Lobby
 {
@@ -27,10 +28,11 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
+        [Dependency] private readonly ClientsidePlaytimeTrackingManager _playtimeTracking = default!;
 
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
-        private ReadyManifestSystem _readyManifest = default!;
+        private ReadyManifestSystem _readyManifest = default!; //imp
 
         protected override Type? LinkedScreenType { get; } = typeof(LobbyGui);
         public LobbyGui? Lobby;
@@ -48,7 +50,7 @@ namespace Content.Client.Lobby
             _gameTicker = _entityManager.System<ClientGameTicker>();
             _contentAudioSystem = _entityManager.System<ContentAudioSystem>();
             _contentAudioSystem.LobbySoundtrackChanged += UpdateLobbySoundtrackInfo;
-            _readyManifest = _entityManager.EntitySysManager.GetEntitySystem<ReadyManifestSystem>();
+            _readyManifest = _entityManager.EntitySysManager.GetEntitySystem<ReadyManifestSystem>(); //imp
 
             chatController.SetMainChat(true);
 
@@ -68,9 +70,9 @@ namespace Content.Client.Lobby
             UpdateLobbyUi();
 
             Lobby.CharacterPreview.CharacterSetupButton.OnPressed += OnSetupPressed;
-            Lobby.ManifestButton.OnPressed += OnManifestPressed;
             Lobby.ReadyButton.OnPressed += OnReadyPressed;
             Lobby.ReadyButton.OnToggled += OnReadyToggled;
+            Lobby.ManifestButton.OnPressed += OnManifestPressed; // imp
 
             _gameTicker.InfoBlobUpdated += UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
@@ -89,9 +91,9 @@ namespace Content.Client.Lobby
             _voteManager.ClearPopupContainer();
 
             Lobby!.CharacterPreview.CharacterSetupButton.OnPressed -= OnSetupPressed;
-            Lobby!.ManifestButton.OnPressed -= OnManifestPressed;
             Lobby!.ReadyButton.OnPressed -= OnReadyPressed;
             Lobby!.ReadyButton.OnToggled -= OnReadyToggled;
+            Lobby!.ManifestButton.OnPressed -= OnManifestPressed; // imp
 
             Lobby = null;
         }
@@ -123,6 +125,7 @@ namespace Content.Client.Lobby
             SetReady(args.Pressed);
         }
 
+        //imp addition
         private void OnManifestPressed(BaseButton.ButtonEventArgs args)
         {
             _readyManifest.RequestReadyManifest();
@@ -190,23 +193,52 @@ namespace Content.Client.Lobby
                 Lobby!.ReadyButton.ToggleMode = false;
                 Lobby!.ReadyButton.Pressed = false;
                 Lobby!.ObserveButton.Disabled = false;
-                Lobby!.ManifestButton.Disabled = true;
+                Lobby!.ManifestButton.Disabled = true; //imp
             }
             else
             {
                 Lobby!.StartTime.Text = string.Empty;
-                Lobby!.ReadyButton.Text = Loc.GetString(Lobby!.ReadyButton.Pressed ? "lobby-state-player-status-ready" : "lobby-state-player-status-not-ready");
+                Lobby!.ReadyButton.Pressed = _gameTicker.AreWeReady;
+                Lobby!.ReadyButton.Text = Loc.GetString(Lobby!.ReadyButton.Pressed ? "lobby-state-player-status-ready": "lobby-state-player-status-not-ready");
                 Lobby!.ReadyButton.ToggleMode = true;
                 Lobby!.ReadyButton.Disabled = false;
-                Lobby!.ReadyButton.Pressed = _gameTicker.AreWeReady;
-                Lobby!.ManifestButton.Disabled = false;
                 Lobby!.ObserveButton.Disabled = true;
+                Lobby!.ManifestButton.Disabled = false; // imp
             }
 
             if (_gameTicker.ServerInfoBlob != null)
             {
                 Lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
             }
+
+            var minutesToday = _playtimeTracking.PlaytimeMinutesToday;
+            if (minutesToday > 60)
+            {
+                Lobby!.PlaytimeComment.Visible = true;
+
+                var hoursToday = Math.Round(minutesToday / 60f, 1);
+
+                // Imp edit begin
+                var firstDigit = int.Parse(minutesToday.ToString()[0].ToString());
+                string chosenString = firstDigit switch
+                {
+                    0 => "lobby-state-playtime-comment-normal",
+                    1 => "lobby-state-playtime-comment-aa",
+                    2 => "lobby-state-playtime-comment-lifespan",
+                    3 => "lobby-state-playtime-comment-itsfine",
+                    4 => "lobby-state-playtime-comment-entireday",
+                    5 => "lobby-state-playtime-comment-bros",
+                    6 => "lobby-state-playtime-comment-morallyneutral",
+                    7 => "lobby-state-playtime-comment-nottellingu",
+                    8 => "lobby-state-playtime-comment-nuke",
+                    _ => "lobby-state-playtime-comment-feettall"
+                };
+                // Imp edit end
+
+                Lobby.PlaytimeComment.SetMarkup(Loc.GetString(chosenString, ("hours", hoursToday)));
+            }
+            else
+                Lobby!.PlaytimeComment.Visible = false;
         }
 
         private void UpdateLobbySoundtrackInfo(LobbySoundtrackChangedEvent ev)
@@ -240,9 +272,9 @@ namespace Content.Client.Lobby
 
         private void UpdateLobbyBackground()
         {
+            // imp edit begin
             if (_gameTicker.LobbyBackgroundImage is { } image)
             {
-                // imp edit
                 Lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(image);
 
                 var name = string.IsNullOrEmpty(_gameTicker.LobbyBackgroundName)
@@ -260,8 +292,9 @@ namespace Content.Client.Lobby
             else
             {
                 Lobby!.Background.Texture = null;
-                Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text")); // imp edit
+                Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text"));
             }
+            // imp edit end
 
         }
 

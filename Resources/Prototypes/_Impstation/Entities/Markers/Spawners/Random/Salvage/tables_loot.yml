@@ -1,0 +1,56 @@
+    #imp edit begin
+- type: entityTable
+  id: MegaRareDungTable
+  table: !type:GroupSelector
+    children:
+    - id: CloningPodMachineCircuitboard
+      weight: 0.5
+    - id: CloningConsoleComputerCircuitboard
+      weight: 0.5
+    - id: MedicalScannerMachineCircuitboard
+      weight: 0.5
+    - id: WhoopieCushion
+      weight: 0.8
+      
+- type: entityTable
+  id: OreCommonDungTable
+  table: !type:GroupSelector
+    children:
+    - id: SteelOre
+      amount: !type:RangeNumberSelector
+        range: 1, 8
+    - id: Coal
+      amount: !type:RangeNumberSelector
+        range: 2, 8
+    - id: SpaceQuartz
+      amount: !type:RangeNumberSelector
+        range: 1, 8
+
+- type: entityTable
+  id: OreUncommonDungTable
+  table: !type:GroupSelector
+    children:
+    - id: PlasmaOre
+      amount: !type:RangeNumberSelector
+        range: 1, 6
+    - id: GoldOre
+      amount: !type:RangeNumberSelector
+        range: 1, 6
+    - id: SilverOre
+      amount: !type:RangeNumberSelector
+        range: 1, 6
+    - id: UraniumOre
+      amount: !type:RangeNumberSelector
+        range: 1, 6
+
+- type: entityTable
+  id: OreRareDungTable
+  table: !type:GroupSelector
+    children:
+    - id: DiamondOre
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: BananiumOre
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    #imp edit end

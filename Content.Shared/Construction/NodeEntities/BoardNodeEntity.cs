@@ -1,6 +1,7 @@
 using Content.Shared.Construction.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
+using Content.Shared._NF.Construction.Components; // Frontier
 
 namespace Content.Shared.Construction.NodeEntities;
 
@@ -12,7 +13,11 @@ namespace Content.Shared.Construction.NodeEntities;
 [DataDefinition]
 public sealed partial class BoardNodeEntity : IGraphNodeEntity
 {
-    [DataField("container")] public string Container { get; private set; } = string.Empty;
+    [DataField]
+    public string Container { get; private set; } = string.Empty;
+
+    [DataField]
+    public ComputerType Computer { get; private set; } = ComputerType.Default; // Frontier
 
     public string? GetId(EntityUid? uid, EntityUid? userUid, GraphNodeEntityArgs args)
     {
@@ -27,13 +32,37 @@ public sealed partial class BoardNodeEntity : IGraphNodeEntity
 
         var board = container.ContainedEntities[0];
 
-        // There should not be a case where both of these components exist on the same entity...
+        // Frontier - alternative computer variants
+        switch (Computer)
+        {
+            case ComputerType.Tabletop:
+                if (args.EntityManager.TryGetComponent(board, out ComputerTabletopBoardComponent? tabletopComputer))
+                    return tabletopComputer.Prototype;
+                break;
+            case ComputerType.Default:
+            default:
+                break;
+        }
+        // End Frontier
+
+        // There should not be a case where more than one of these components exist on the same entity
         if (args.EntityManager.TryGetComponent(board, out MachineBoardComponent? machine))
             return machine.Prototype;
 
         if (args.EntityManager.TryGetComponent(board, out ComputerBoardComponent? computer))
             return computer.Prototype;
 
+        if (args.EntityManager.TryGetComponent(board, out ElectronicsBoardComponent? electronics))
+            return electronics.Prototype;
+
         return null;
     }
+
+    // Frontier: support for multiple computer types
+    public enum ComputerType : byte
+    {
+        Default, // Default machines
+        Tabletop,
+    }
+    // End Frontier
 }

@@ -120,7 +120,7 @@ reagent-desc-bruizine = Originally developed as a cough medicine, it turns out t
 
 reagent-name-holywater = holy water
 # imp edit
-reagent-desc-holywater = The cleanest and purest of waters. Known to magically heal wounds and, in larger quantities, purge the imbiber of occult influence.
+reagent-desc-holywater = The cleanest and purest of waters. Known to magically heal wounds and harm spiteful ghosts.
 
 reagent-name-pyrazine = pyrazine
 reagent-desc-pyrazine = Efficiently heals burns from the hottest of fires. Causes massive internal bleeding when overdosed.
@@ -135,7 +135,7 @@ reagent-name-necrosol = necrosol
 reagent-desc-necrosol = A necrotic substance that seems to be able to heal frozen corpses. It can treat and rejuvenate plants when applied in small doses.
 
 reagent-name-aloxadone = aloxadone
-reagent-desc-aloxadone = A cryogenics chemical. Used to treat severe third degree burns via regeneration of the burnt tissue. Works regardless of the patient being alive or dead.
+reagent-desc-aloxadone = A cryogenics chemical. Used to treat severe burns and frostbite via regeneration of the affected tissue. Works regardless of the patient being alive or dead.
 
 reagent-name-mannitol = mannitol
 reagent-desc-mannitol = Efficiently restores brain damage.

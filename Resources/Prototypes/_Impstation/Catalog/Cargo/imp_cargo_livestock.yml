@@ -17,3 +17,33 @@
   cost: 1000000
   category: cargoproduct-category-name-livestock
   group: market
+
+- type: cargoProduct
+  id: LivestockBananaDeer
+  icon:
+    sprite: _Impstation/Mobs/Animals/banana_deer.rsi
+    state: banana_deer
+  product: CrateNPCBananaDeer
+  cost: 10000
+  category: cargoproduct-category-name-livestock
+  group: market
+  
+- type: cargoProduct
+  id: LivestockPompom
+  icon:
+    sprite: _Impstation/Mobs/Animals/pompom.rsi
+    state: pompom
+  product: CrateNPCPompom
+  cost: 4400
+  category: cargoproduct-category-name-livestock
+  group: market
+ 
+- type: cargoProduct
+  id: LivestockDuctSpider
+  icon:
+    sprite: _Impstation/Mobs/Animals/ductspider.rsi
+    state: idle
+  product: CrateNPCDuctSpider
+  cost: 5000
+  category: cargoproduct-category-name-livestock
+  group: market
