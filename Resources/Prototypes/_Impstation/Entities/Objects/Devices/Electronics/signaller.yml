@@ -6,13 +6,14 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Devices/butlersignaller.rsi
+    state: icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
   - type: AutoLinkTransmitter
     channel: Butler
   - type: WirelessNetworkConnection
     range: 100
-  - type: GibOnTrigger
-    targetUser: false
-    deleteItems: false
-  - type: SpawnOnTrigger
-    proto: Acidifier
-    predicted: true

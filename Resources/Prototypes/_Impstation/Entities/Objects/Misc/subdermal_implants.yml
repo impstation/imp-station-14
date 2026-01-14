@@ -41,19 +41,26 @@
   components:
   - type: SubdermalImplant
     permanent: true
-  - type: TriggerOnSignal
+    implantComponents: #they need to be implanted when you spawn the remote for it to function correctly
+    - type: TriggerOnSignal
+    - type: DeviceLinkSink
+      ports:
+      - Trigger
+    - type: AutoLinkReceiver
+      channel: Butler
+    - type: GibOnTrigger
+      targetUser: false
+      deleteItems: false
   - type: DeviceLinkSink
     ports:
     - Trigger
   - type: AutoLinkReceiver
     channel: Butler
+  - type: TriggerOnSignal
   - type: ExplodeOnTrigger
-  - type: GibOnTrigger
-    targetUser: true
-    deleteItems: false
   - type: Explosive
-    explosionType: MicroBomb
-    totalIntensity: 30
-    intensitySlope: 8
-    maxIntensity: 200
+    explosionType: Default
+    maxIntensity: 30
+    intensitySlope: 5
+    totalIntensity: 20
     canCreateVacuum: false

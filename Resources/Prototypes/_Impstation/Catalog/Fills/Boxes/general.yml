@@ -108,3 +108,27 @@
     contents:
       - id: ColdLightBulb
         amount: 12
+
+- type: entity
+  name: butler care package
+  parent: BoxCardboard
+  id: BoxButler
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/boxes.rsi
+    layers:
+    - state: box_butler
+    - state: goldentoiletsir
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,1,1
+  - type: StorageFill
+    contents:
+    - id: RemoteSignallerButler
+    - id: PaperMailButlerExplanation
+    - id: FoodMacaronBerry

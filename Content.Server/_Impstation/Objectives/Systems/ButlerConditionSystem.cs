@@ -5,7 +5,6 @@ using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Popups;
 using Content.Shared.Storage.EntitySystems;
-using Robust.Shared.Toolshed.Commands.Values;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -35,12 +34,13 @@ public sealed class ButlerConditionSystem : EntitySystem
         var coords = _transform.GetMapCoordinates(mindBody);
         _popup.PopupEntity(Loc.GetString("butler-spawn"), mindBody, mindBody);
         // give the target the remote
-        var remote = Spawn(comp.Signaller, coords);
+        var remote = Spawn(comp.Package, coords);
 
         // try to insert it into their bag (thank you fugitive system)
         if (_inventory.TryGetSlotEntity(mindBody, "back", out var backpack))
         {
-            _storage.Insert(backpack.Value, remote, out _);
+            if (!_storage.Insert(backpack.Value, remote, out _)) //bag is full, put in hand
+                _hands.TryPickup(mindBody, remote);
         }
         else
         {

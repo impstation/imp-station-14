@@ -9,8 +9,9 @@
 - type: entity
   id: ButlerImplanter
   name: butler implanter
+  description: An implanter containing a butler bomb implant.
   parent: BaseImplantOnlyImplanterSyndi
-  suffix: Admeme # it autolinks so only spawn one. spawn the implant BEFORE the remote.
+  suffix: Admeme, implant before remote spawn
   components:
   - type: Implanter
     implant: ButlerBombImplant

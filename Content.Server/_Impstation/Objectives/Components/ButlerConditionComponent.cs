@@ -10,8 +10,8 @@ namespace Content.Server.Objectives.Components;
 public sealed partial class ButlerConditionComponent : Component
 {
     /// <summary>
-    /// Autolinked butler remote signaller to spawn.
+    /// Box with autolinked butler remote signaller to spawn.
     /// </summary>
     [DataField]
-    public EntProtoId Signaller = "RemoteSignallerButler";
+    public EntProtoId Package = "BoxButler";
 }
