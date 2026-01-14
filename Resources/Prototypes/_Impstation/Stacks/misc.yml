@@ -4,3 +4,10 @@
   icon: { sprite: /Textures/_Impstation/Objects/Decapoid/tckabeacon.rsi, state: icon1 }
   spawn: TckABeacon
   maxCount: 4
+
+- type: stack
+  id: Gasket
+  name: stack-gasket
+  icon: { sprite: /Textures/_Impstation/Objects/Misc/manifold_gasket.rsi, state: manifold_gasket }
+  spawn: GasketPart
+  maxCount: 10

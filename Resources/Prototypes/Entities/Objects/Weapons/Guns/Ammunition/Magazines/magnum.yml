@@ -1,8 +1,7 @@
 - type: entity
-  id: BaseMagazineMagnum
+  id: BaseMagazineMagnumWizden #imp - see the _Impstation directory for the version we use
   name: pistol magazine (.45 magnum)
-  description: A 7-round .45 magnum pistol magazine. #imp
-  parent: [ BaseMagazinePistol, BaseSecurityContraband ]
+  parent: [ BaseMagazinePistolWizden, BaseSecurityContraband ] #imp
   abstract: true
   components:
   - type: Tag
@@ -16,11 +15,12 @@
     capacity: 7
 
 - type: entity
-  id: MagazineMagnumEmpty
+  id: MagazineMagnumEmptyWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: pistol magazine (.45 magnum any)
   suffix: empty
-  parent: BaseMagazineMagnum
-  description: A 7-round .45 magnum pistol magazine with no apparent markings. #imp
+  parent: BaseMagazineMagnumWizden #imp
+  description: 7-round single stack pistol magazine.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -38,16 +38,17 @@
       - state: inhand-right-mag
 
 - type: entity
-  id: MagazineMagnum
+  id: MagazineMagnumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: pistol magazine (.45 magnum)
-  parent: BaseMagazineMagnum
-  description: A 7-round .45 magnum pistol magazine, marked as live-fire ammo. #imp
+  parent: BaseMagazineMagnumWizden #imp
+  description: 7-round single stack pistol magazine. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum
   - type: Sprite
     layers:
-    - state: red # imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -55,90 +56,89 @@
     inhandVisuals:
       left:
       - state: inhand-left-mag
-      - state: inhand-left-stripe #imp
-        color: "#820a16" #imp
       right:
       - state: inhand-right-mag
-      - state: inhand-right-stripe #imp
-        color: "#820a16" #imp
 
 - type: entity
-  id: MagazineMagnumPractice
+  id: MagazineMagnumPracticeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: pistol magazine (.45 magnum practice)
-  parent: BaseMagazineMagnum
-  description: A 7-round .45 magnum pistol magazine, marked as practice ammo. #imp
+  parent: BaseMagazineMagnumWizden #imp
+  description: 7-round single stack pistol magazine. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
   - type: Sprite
     layers:
-    - state: practice # imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    # - state: stripe # imp remove
-    #   color: "#dbdbdb"
+    - state: stripe
+      color: "#dbdbdb"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#ffcb6f" #imp
+        color: "#dbdbdb"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#ffcb6f" #imp
+        color: "#dbdbdb"
 
 - type: entity
-  id: MagazineMagnumUranium
+  id: MagazineMagnumUraniumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: pistol magazine (.45 magnum uranium)
-  parent: BaseMagazineMagnum
-  description: A 7-round .45 magnum pistol magazine, marked as uranium ammo. #imp
+  parent: BaseMagazineMagnumWizden #imp
+  description: 7-round single stack pistol magazine. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium
   - type: Sprite
     layers:
-    - state: uranium # imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    # - state: stripe # imp remove
-    #   color: "#00cd42"
+    - state: stripe
+      color: "#00cd42"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#22b24d" #imp
+        color: "#00cd42"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#22b24d" #imp
+        color: "#00cd42"
 
 - type: entity
-  id: MagazineMagnumAP
+  id: MagazineMagnumAPWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: pistol magazine (.45 magnum armor-piercing)
-  parent: BaseMagazineMagnum
-  description: A 7-round .45 magnum pistol magazine, marked as armor-piercing ammo. #imp
+  parent: BaseMagazineMagnumWizden #imp
+  description: 7-round single stack pistol magazine. Intended to hold rare armor-piercing ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP
   - type: Sprite
     layers:
-    - state: piercing # imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
-    # - state: stripe # imp remove
-    #   color: "#540000"
+    - state: stripe
+      color: "#540000"
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#662598" #imp
+        color: "#540000"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#662598" #imp
+        color: "#540000"

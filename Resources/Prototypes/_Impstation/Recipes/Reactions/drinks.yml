@@ -70,7 +70,7 @@
   requiredMixerCategories:
     - Stir
   reactants:
-    LemonAsterade:
+    YellowAsterade:
       amount: 1
     Wine:
       amount: 1
@@ -492,7 +492,7 @@
       amount: 1
     Vodka:
       amount: 2
-    LemonAsterade:
+    TealAsterade:
       amount: 3
   products:
     WeldingCoils: 6
@@ -675,3 +675,17 @@
       amount: 1
   products:
     RoseMilk: 3
+
+- type: reaction
+  id: FunnyLiftingDrink
+  requiredMixerCategories:
+    - Shake
+  reactants:
+    LiftingConcentrate:
+      amount: 1
+    CyanFoodColoring:
+      amount: 2
+    SodaWater:
+      amount: 3
+  products:
+    FunnyLiftingDrink: 6
