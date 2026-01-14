@@ -1,11 +1,8 @@
-using Content.Server.Hands.Systems;
 using Content.Shared._Impstation.Fishing.Components;
 using Content.Shared._Impstation.Fishing.Systems;
 using Content.Shared.EntityTable;
-using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Physics;
-using Robust.Shared.Containers;
 using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.Fishing;
@@ -13,7 +10,6 @@ namespace Content.Server._Impstation.Fishing;
 public sealed class FishingRodSystem : SharedFishingRodSystem
 {
     [Dependency] private readonly EntityTableSystem _entityTable = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
@@ -21,7 +17,6 @@ public sealed class FishingRodSystem : SharedFishingRodSystem
         base.Initialize();
 
         SubscribeLocalEvent<FishingRodComponent, UseInHandEvent>(OnRodUse);
-        SubscribeLocalEvent<FishingRodComponent, ContainerGettingRemovedAttemptEvent>(OnRodRemove);
     }
 
     public override void Update(float frameTime)
@@ -88,30 +83,5 @@ public sealed class FishingRodSystem : SharedFishingRodSystem
 
         if (ent.Comp.Bobber is { } bobber)
             ItemSlots.TryInsert(ent.Owner, ent.Comp.BobberSlotId, bobber, ent.Comp.Holder);
-    }
-
-    private void OnRodRemove(Entity<FishingRodComponent> ent, ref ContainerGettingRemovedAttemptEvent args)
-    {
-        if (args.Cancelled || ent.Comp.Holder is not { } holder || !IsBeingHeld(ent, holder))
-            return;
-
-        // TODO: SOMETHING IS FUCKED UP ABOVE. SWAPPING HANDS WITH THE ROD BREAKS IT. FUCK!!!
-
-        ent.Comp.Holder = null;
-
-        if (ent.Comp.TargetPool == null)
-            return;
-
-        Popup.PopupEntity(Loc.GetString("fishing-rod-reset"), ent);
-        RemCompDeferred<JointVisualsComponent>(ent);
-        ent.Comp.TargetPool = null;
-
-        if (ent.Comp.Bobber is { } bobber && ItemSlots.GetItemOrNull(ent, ent.Comp.BobberSlotId) == null)
-            ItemSlots.TryInsert(ent.Owner, ent.Comp.BobberSlotId, bobber, ent.Comp.Holder);
-    }
-
-    private bool IsBeingHeld(EntityUid rod, EntityUid holder)
-    {
-        return TryComp<HandsComponent>(holder, out var hands) && _hands.IsHolding((holder, hands), rod);
     }
 }

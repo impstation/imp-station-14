@@ -1,11 +1,15 @@
 using Content.Shared._Impstation.Fishing.Components;
 using Content.Shared._Impstation.Fishing.Events;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -18,23 +22,57 @@ public abstract class SharedFishingRodSystem : EntitySystem
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] protected readonly ThrowingSystem Throwing = default!;
     [Dependency] protected readonly ItemSlotsSystem ItemSlots = default!;
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<FishingRodComponent, GettingPickedUpAttemptEvent>(OnPickupAttempt);
+        SubscribeLocalEvent<FishingRodComponent, EntGotInsertedIntoContainerMessage>(OnRodInserted);
+        SubscribeLocalEvent<FishingRodComponent, DroppedEvent>(OnDropped);
         SubscribeLocalEvent<FishingRodComponent, EntInsertedIntoContainerMessage>(OnBobberInserted);
         SubscribeLocalEvent<FishingRodComponent, EntRemovedFromContainerMessage>(OnBobberRemoved);
         SubscribeLocalEvent<FishingRodComponent, FishingAttemptEvent>(OnFishingAttempt);
     }
 
-    private static void OnPickupAttempt(Entity<FishingRodComponent> ent, ref GettingPickedUpAttemptEvent args)
+    private void OnPickupAttempt(Entity<FishingRodComponent> ent, ref GettingPickedUpAttemptEvent args)
     {
         if (args.Cancelled)
             return;
 
         ent.Comp.Holder = args.User;
+        Dirty(ent);
+    }
+
+    private void OnRodInserted(Entity<FishingRodComponent> ent, ref EntGotInsertedIntoContainerMessage args)
+    {
+        if (ent.Comp.Holder is not { } holder)
+            return;
+
+        if (IsBeingHeld(ent, holder))
+            return;
+
+        RemCompDeferred<JointVisualsComponent>(ent);
+        ent.Comp.TargetPool = null;
+
+        if (ent.Comp.Bobber is { } bobber && ItemSlots.GetItemOrNull(ent, ent.Comp.BobberSlotId) == null)
+            ItemSlots.TryInsert(ent.Owner, ent.Comp.BobberSlotId, bobber, ent.Comp.Holder);
+
+        if (_net.IsClient)
+            return;
+
+        ent.Comp.Holder = null;
+        Dirty(ent);
+    }
+
+    private static void OnDropped(Entity<FishingRodComponent> ent, ref DroppedEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        ent.Comp.Holder = null;
     }
 
     private void OnBobberInserted(Entity<FishingRodComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -79,6 +117,9 @@ public abstract class SharedFishingRodSystem : EntitySystem
             return;
         }
 
+        if (_net.IsClient)
+            return;
+
         ent.Comp.TargetPool = args.FishingPool;
         ent.Comp.NextPullTime = Timing.CurTime + Random.Next(ent.Comp.MinPullTime, ent.Comp.MaxPullTime);
 
@@ -86,7 +127,6 @@ public abstract class SharedFishingRodSystem : EntitySystem
         lineVisual.Sprite = ent.Comp.LineSprite;
         lineVisual.Target = bobber;
         lineVisual.OffsetB = bobberComp.Offset;
-        Dirty(ent, lineVisual);
 
         if (!ItemSlots.TryEject(ent.Owner, ent.Comp.BobberSlotId, ent.Comp.Holder, out _))
             return;
@@ -94,8 +134,14 @@ public abstract class SharedFishingRodSystem : EntitySystem
         // TODO: i should not have to reset all these fields because of the eject. this is silly. you are silly
         Throwing.TryThrow(bobber, Transform(args.FishingPool).Coordinates, compensateFriction: true, doSpin: false);
         ent.Comp.Bobber = bobber;
+        Dirty(ent);
         bobberComp.Parent = ent;
         bobberComp.Reeled = false;
         Dirty(bobber, bobberComp);
+    }
+
+    private bool IsBeingHeld(EntityUid rod, EntityUid holder)
+    {
+        return TryComp<HandsComponent>(holder, out var hands) && _hands.IsHolding((holder, hands), rod);
     }
 }
