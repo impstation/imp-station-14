@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseCartridgeMagnum
+  id: BaseCartridgeMagnumWizden #imp - see the _Impstation directory for the version we use
   name: cartridge (.45 magnum)
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
@@ -7,11 +7,10 @@
   - type: Tag
     tags:
       - CartridgeMagnum
-      - Cartridge # imp
   - type: CartridgeAmmo
     proto: BulletMagnum
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
@@ -19,19 +18,21 @@
   - type: SpentAmmoVisuals
 
 - type: entity
-  id: CartridgeMagnum
+  id: CartridgeMagnumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: cartridge (.45 magnum)
   parent: BaseCartridgeMagnum
-  description: A powerful kinetic pistol cartridge with incredible stopping power. The best designs are timeless. #imp
+  description: Heavy magnum cartridge mostly used by revolvers. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
     proto: BulletMagnum
 
 - type: entity
-  id: CartridgeMagnumPractice
+  id: CartridgeMagnumPracticeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: cartridge (.45 magnum practice)
   parent: BaseCartridgeMagnum
-  description: A powerful pistol cartridge with a wax projectile to simulate the real deal. Can be used for force-on-force training but still stings like a bitch. Eye protection required. #imp
+  description: Heavy magnum cartridge mostly used by revolvers. Chalk ammunition is generally non-harmful, used for practice.
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumPractice
@@ -41,13 +42,14 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#ffcb6f" #imp
+        color: "#dbdbdb"
 
 - type: entity
-  id: CartridgeMagnumIncendiary
+  id: CartridgeMagnumIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: cartridge (.45 magnum incendiary)
   parent: BaseCartridgeMagnum
-  description: A powerful pistol cartridge tipped with a softer projectile containing a pyrophoric compound, setting targets ablaze. #imp
+  description: Heavy magnum cartridge mostly used by revolvers. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumIncendiary
@@ -57,13 +59,14 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#d46925" #imp
+        color: "#ff6e52"
 
 - type: entity
-  id: CartridgeMagnumAP
+  id: CartridgeMagnumAPWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: cartridge (.45 magnum armor-piercing)
   parent: BaseCartridgeMagnum
-  description: A powerful pistol cartridge with a tungsten carbide penetrator core and a PTFE coating, defeating conventional armor. #imp
+  description: Heavy magnum cartridge mostly used by revolvers. Armor piercing ammunition is renowned for its ability to cut straight through body armor.
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumAP
@@ -73,13 +76,14 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#662598" #imp
+        color: "#0a0a0a"
 
 - type: entity
-  id: CartridgeMagnumUranium
+  id: CartridgeMagnumUraniumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: cartridge (.45 magnum uranium)
   parent: BaseCartridgeMagnum
-  description: A powerful pistol cartridge with a heavier depleted uranium projectile, delivering radiation poisoning at the cost of worse penetration. #imp
+  description: Heavy magnum cartridge mostly used by revolvers. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating the target from the inside.
   components:
   - type: CartridgeAmmo
     proto: BulletMagnumUranium
@@ -89,4 +93,4 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#22b24d" #imp
+        color: "#65fe08"
