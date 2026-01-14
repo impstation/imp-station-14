@@ -1,7 +1,6 @@
 using Content.Shared.Cloning;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Shared.GameStates;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.Heretic.Components;

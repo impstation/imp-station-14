@@ -5,6 +5,7 @@ using Content.Server.Heretic.Components;
 using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Systems;
+using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -14,7 +15,6 @@ using Content.Shared.Doors.Systems;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
-using Content.Shared.Heretic.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
@@ -33,7 +33,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using StatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
-using Content.Shared._Impstation.Heretic.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
