@@ -1,6 +1,4 @@
 using Content.Client.Eui;
-using Content.Shared._Goobstation.Heretic.UI;
-using Content.Shared.Eui;
 using JetBrains.Annotations;
 
 namespace Content.Client._Goobstation.Heretic.UI;
@@ -13,14 +11,6 @@ public sealed class HellMemoryEui : BaseEui
     public HellMemoryEui()
     {
         Menu = new HellMemoryMenu();
-    }
-
-    public override void HandleState(EuiStateBase state)
-    {
-        if (state is not HellMemoryEuiState s)
-            return;
-
-        Menu.SetMessage(s.Message);
     }
 
     public override void Opened()

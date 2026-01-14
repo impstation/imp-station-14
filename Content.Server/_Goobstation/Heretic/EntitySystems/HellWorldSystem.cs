@@ -33,6 +33,9 @@ using Content.Shared.Tag;
 using Content.Shared.Traits;
 using System.Linq;
 using Content.Shared.Flash.Components;
+using Content.Server.Antag;
+using JetBrains.FormatRipper.Elf;
+using Robust.Shared.Audio;
 
 //this is kind of badly named since we're doing infinite archives stuff now but i dont feel like changing it :)
 
@@ -47,7 +50,6 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
-        [Dependency] private readonly IEntityManager _entManager = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
         [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
@@ -56,8 +58,8 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         [Dependency] private readonly SharedTransformSystem _xform = default!;
         [Dependency] private readonly CloningSystem _cloning = default!;
         [Dependency] private readonly SharedBodySystem _body = default!;
-        [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
+        [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
         private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml");
         private readonly ProtoId<CloningSettingsPrototype> _cloneSettings = "HellClone";
@@ -185,15 +187,18 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             //feel the effects (separate from generateTrait so the popup can occur only on return)
             AddHellTrait(uid, hellVictim);
 
-            //tell them about the metashield
+            //tell them about the metashield & the trait that got added
             if (_playerManager.TryGetSessionById(mindComp.UserId, out var session))
-                _euiMan.OpenEui(new HellMemoryEui(Loc.GetString(hellVictim.Effect.Message)), session);
-
+            {
+                _euiMan.OpenEui(new HellMemoryEui(), session);
+                var brief = Loc.GetString(hellVictim.Effect.Message);
+                _antag.SendBriefing(session, brief, Color.MediumPurple, new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg"));
+            }
         }
 
         private void AddHellTrait(EntityUid uid, HellVictimComponent hellVictim)
         {
-            //store 
+            //store the effect for later
             var effect = hellVictim.Effect;
 
             if (effect == null)
