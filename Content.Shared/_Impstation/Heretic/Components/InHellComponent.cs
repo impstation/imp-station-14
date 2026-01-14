@@ -10,7 +10,7 @@ namespace Content.Shared._Impstation.Heretic.Components;
 public sealed partial class InHellComponent : Component
 {
     /// <summary>
-    /// when will they leave?
+    /// when will they leave hell?
     /// </summary>
     [ViewVariables]
     [AutoPausedField]
