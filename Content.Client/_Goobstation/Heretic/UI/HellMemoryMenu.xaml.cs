@@ -17,4 +17,9 @@ public sealed partial class HellMemoryMenu : FancyWindow
 
         ConfirmButton.OnPressed += _ => Close();
     }
+
+    public void SetMessage(string message)
+    {
+        MemoryNotif.SetMarkup(message + "\n" + Loc.GetString("hell-memory-text"));
+    }
 }

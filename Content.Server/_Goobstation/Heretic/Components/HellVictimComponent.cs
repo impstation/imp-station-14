@@ -1,5 +1,4 @@
-using Content.Shared.Traits;
-using Robust.Shared.Prototypes;
+using Content.Shared.Heretic.Prototypes;
 
 namespace Content.Server.Heretic.Components;
 
@@ -7,6 +6,8 @@ namespace Content.Server.Heretic.Components;
 [RegisterComponent]
 public sealed partial class HellVictimComponent : Component
 {
-    //list of possible traits to add
-    public List<ProtoId<TraitPrototype>> Traits = ["Blindness", "Scrambled", "Hemophilia", "Muted", "PainNumbness", "Pacifist", "ImpairedMobility", "Narcolepsy"];
+    //components to add & message to send upon exit
+    [ViewVariables]
+    [DataField]
+    public HereticSacrificeEffectPrototype Effect;
 }

@@ -30,6 +30,9 @@ using Content.Shared.Heretic;
 using Content.Shared.Body.Systems;
 using Robust.Server.GameObjects;
 using Content.Shared.Tag;
+using Content.Shared.Traits;
+using System.Linq;
+using Content.Shared.Flash.Components;
 
 //this is kind of badly named since we're doing infinite archives stuff now but i dont feel like changing it :)
 
@@ -63,6 +66,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
         {
             base.Initialize();
 
+            SubscribeLocalEvent<HellVictimComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<HellVictimComponent, ExaminedEvent>(OnExamine);
             SubscribeLocalEvent<InHellComponent, HereticBeforeHellEvent>(BeforeSend);
             SubscribeLocalEvent<InHellComponent, HereticSendToHellEvent>(OnSend);
@@ -169,22 +173,51 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             var mindComp = Comp<MindComponent>(inHell.Mind.Value);
             mindComp.PreventGhosting = false;
 
-            //tell them about the metashield
-            if (_playerManager.TryGetSessionById(mindComp.UserId, out var session))
-                _euiMan.OpenEui(new HellMemoryEui(), session);
 
             //cleanup so they don't get in here again
             RemComp<InHellComponent>(uid);
+
+            if (!TryComp<HellVictimComponent>(uid, out var hellVictim))
+            {
+                return;
+            }
+
+            //feel the effects (separate from generateTrait so the popup can occur only on return)
+            AddHellTrait(uid, hellVictim);
+
+            //tell them about the metashield
+            if (_playerManager.TryGetSessionById(mindComp.UserId, out var session))
+                _euiMan.OpenEui(new HellMemoryEui(Loc.GetString(hellVictim.Effect.Message)), session);
+
         }
 
-        //add NoSacrificeComp so they can't be sac'd again
-        private void SacrificeCleanup(EntityUid uid)
+        private void AddHellTrait(EntityUid uid, HellVictimComponent hellVictim)
+        {
+            //store 
+            var effect = hellVictim.Effect;
+
+            if (effect == null)
+                return;
+
+            EntityManager.AddComponents(uid, effect.Components, true);
+
+        }
+
+        //add NoSacrificeComp so they can)'t be sac'd again
+        //this happens BEFORE OnReturn, so the effects are generated here
+        private void SacrificeCleanup(EntityUid uid, HereticSacrificeEffectPrototype? effect = null)
         {
             EnsureComp<NoSacrificeComponent>(uid);
             EnsureComp<HellVictimComponent>(uid, out var victim);
-            TransformVictim(uid);
+            victim.Effect = GenerateHellTrait();
             _rejuvenate.PerformRejuvenate(uid);
-            AddHellTrait(uid, victim);
+        }
+
+        private HereticSacrificeEffectPrototype GenerateHellTrait()
+        {
+            //get a random effect from the list
+            var allEffects = _prototypeManager.EnumeratePrototypes<HereticSacrificeEffectPrototype>().ToList();
+            return _random.Pick(allEffects);
         }
 
         public void TeleportToHereticSpawnPoint(EntityUid uid)
@@ -202,30 +235,7 @@ namespace Content.Server._Goobstation.Heretic.EntitySystems
             _xform.SetCoordinates(uid, spawnTgt);
         }
 
-        private void AddHellTrait(EntityUid uid, HellVictimComponent victim)
-        {
-            //get a random trait from the list
-            var traitId = _prototypeManager.Index(victim.Traits[_random.Next(victim.Traits.Count)]);
-
-            //add it
-            // Add all components required by the prototype to the body or specified organ
-            if (traitId.Organ != null)
-            {
-                foreach (var organ in _body.GetBodyOrgans(uid))
-                {
-                    if (traitId.Organ is { } organTag && _tag.HasTag(organ.Id, organTag))
-                    {
-                        EntityManager.AddComponents(organ.Id, traitId.Components);
-                    }
-                }
-            }
-            else
-            {
-                EntityManager.AddComponents(uid, traitId.Components, false);
-            }
-        }
-
-        private void TransformVictim(EntityUid ent)
+        private void OnInit(EntityUid ent, HellVictimComponent component, ComponentInit args)
         {
             if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
             {
