@@ -1,7 +1,7 @@
 using Content.Client.Eui;
 using JetBrains.Annotations;
 
-namespace Content.Client._Goobstation.Heretic.UI;
+namespace Content.Client._Impstation.Heretic.UI;
 
 [UsedImplicitly]
 public sealed class HellMemoryEui : BaseEui

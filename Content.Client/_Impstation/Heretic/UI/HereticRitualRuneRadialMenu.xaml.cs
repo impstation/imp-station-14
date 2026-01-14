@@ -8,7 +8,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 
-namespace Content.Client._Goobstation.Heretic.UI;
+namespace Content.Client._Impstation.Heretic.UI;
 
 public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
 {
@@ -87,7 +87,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         if (mainControl == null)
             return;
 
-        foreach(var child in mainControl.Children)
+        foreach (var child in mainControl.Children)
         {
             var castChild = child as HereticRitualMenuButton;
 

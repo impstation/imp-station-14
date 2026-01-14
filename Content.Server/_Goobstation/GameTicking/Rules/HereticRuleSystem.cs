@@ -16,8 +16,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using System.Text;
-using Content.Server._Goobstation.Heretic.EntitySystems;
 using Content.Shared.Roles.Components;
+using Content.Server._Impstation.Heretic.EntitySystems;
 
 namespace Content.Server.GameTicking.Rules;
 

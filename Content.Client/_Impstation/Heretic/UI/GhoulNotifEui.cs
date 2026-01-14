@@ -1,6 +1,6 @@
 using Content.Client.Eui;
 
-namespace Content.Client._Goobstation.Heretic.UI;
+namespace Content.Client._Impstation.Heretic.UI;
 
 public sealed class GhoulNotifEui : BaseEui
 {

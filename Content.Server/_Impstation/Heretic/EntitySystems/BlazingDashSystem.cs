@@ -7,7 +7,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Heretic.Components;
 
-namespace Content.Server.Heretic.Abilities;
+namespace Content.Server._Impstation.Heretic.EntitySystems;
 public sealed partial class BlazingDashSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
