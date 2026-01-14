@@ -4,7 +4,7 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/11/2026 12:42:46
+  time: 01/14/2026 09:14:59
   entityCount: 8930
 maps:
 - 1
@@ -3619,6 +3619,8 @@ entities:
     - type: Transform
       pos: 29.5,17.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
 - proto: AirlockBarLocked
   entities:
   - uid: 3995
@@ -21710,6 +21712,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: 24.5,36.5
       parent: 2
+  - uid: 6923
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,18.5
+      parent: 2
 - proto: ComputerShipyard
   entities:
   - uid: 3209
@@ -25329,11 +25337,6 @@ entities:
     components:
     - type: Transform
       pos: 27.5,13.5
-      parent: 2
-  - uid: 8817
-    components:
-    - type: Transform
-      pos: 12.5,18.5
       parent: 2
 - proto: filingCabinetTallRandom
   entities:
@@ -41762,6 +41765,9 @@ entities:
     - type: Transform
       pos: 27.5,18.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Armory
 - proto: LockerWeldingSuppliesFilled
   entities:
   - uid: 1812

@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/11/2026 13:00:22
-  entityCount: 25393
+  time: 01/14/2026 09:20:13
+  entityCount: 25394
 maps:
 - 1
 grids:
@@ -10359,7 +10359,7 @@ entities:
       pos: 10.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34307.242
+      secondsUntilStateChange: -34694.13
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10597,7 +10597,7 @@ entities:
       pos: 30.5,-49.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -40612.54
+      secondsUntilStateChange: -40999.426
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10738,7 +10738,7 @@ entities:
       pos: 10.5,88.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -187805.38
+      secondsUntilStateChange: -188192.27
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10749,7 +10749,7 @@ entities:
       pos: 10.5,87.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -187807.25
+      secondsUntilStateChange: -188194.14
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11506,7 +11506,7 @@ entities:
       pos: 38.5,-21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -383376.38
+      secondsUntilStateChange: -383763.25
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11996,7 +11996,7 @@ entities:
       access:
       - - Maintenance
     - type: Door
-      secondsUntilStateChange: -7104.8623
+      secondsUntilStateChange: -7491.75
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12062,7 +12062,7 @@ entities:
       pos: 45.5,12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -7463.162
+      secondsUntilStateChange: -7850.05
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12100,7 +12100,7 @@ entities:
       pos: 44.5,15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -58572.953
+      secondsUntilStateChange: -58959.84
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -64292,6 +64292,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: 19.5,-57.5
       parent: 2
+- proto: ComputerServiceJobBoard
+  entities:
+  - uid: 12110
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 45.5,51.5
+      parent: 2
 - proto: ComputerShipyard
   entities:
   - uid: 10245
@@ -65493,6 +65501,9 @@ entities:
     - type: Transform
       pos: 70.5,87.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Armory
 - proto: CrateTrashCartFilled
   entities:
   - uid: 10442
@@ -75645,11 +75656,6 @@ entities:
       parent: 2
 - proto: filingCabinetRandom
   entities:
-  - uid: 12110
-    components:
-    - type: Transform
-      pos: 45.5,51.5
-      parent: 2
   - uid: 12111
     components:
     - type: Transform
@@ -77581,7 +77587,7 @@ entities:
       pos: 34.5,-25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -414714.66
+      secondsUntilStateChange: -415101.53
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -114348,7 +114354,7 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: LockerWardenFilledHardsuit
+- proto: LockerWardenFilledNoWeapon
   entities:
   - uid: 17049
     components:
@@ -136935,6 +136941,13 @@ entities:
     - type: Transform
       pos: 71.5,90.5
       parent: 2
+- proto: SpawnPointWardenWeapon
+  entities:
+  - uid: 25394
+    components:
+    - type: Transform
+      pos: 72.5,90.5
+      parent: 2
 - proto: SpawnPointZookeeper
   entities:
   - uid: 20594
@@ -139321,6 +139334,9 @@ entities:
     - type: Transform
       pos: 73.5,88.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Armory
 - proto: SurveillanceCameraAssembly
   entities:
   - uid: 25386
