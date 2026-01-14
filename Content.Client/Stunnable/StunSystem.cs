@@ -1,16 +1,16 @@
 using System.Numerics;
 using Content.Shared.CombatMode;
 using Content.Shared.Interaction;
-using Content.Shared.Rotation;
+using Content.Shared.Rotation; //starlight
 using Content.Shared.Stunnable;
 using Robust.Client.Animations;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
+using Robust.Client.Graphics; //starlight
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
-using Robust.Shared.Animations;
+using Robust.Shared.Timing; //starlight
+using Robust.Shared.Animations; //starlight
 
 
 namespace Content.Client.Stunnable;
@@ -38,8 +38,6 @@ public sealed class StunSystem : SharedStunSystem
         SubscribeLocalEvent<StunVisualsComponent, AppearanceChangeEvent>(OnAppearanceChanged);
         SubscribeLocalEvent<KnockedDownComponent, MoveEvent>(OnMovementInput);//Starlight
 
-        SubscribeLocalEvent<KnockedDownComponent, MoveEvent>(OnMovementInput);
-
         CommandBinds.Builder
             .BindAfter(EngineKeyFunctions.UseSecondary, new PointerInputCmdHandler(OnUseSecondary, true, true), typeof(SharedInteractionSystem))
             .Register<StunSystem>();
@@ -47,7 +45,7 @@ public sealed class StunSystem : SharedStunSystem
 
     private bool OnUseSecondary(in PointerInputCmdHandler.PointerInputCmdArgs args)
     {
-        if (args.Session?.AttachedEntity is not { Valid: true } uid)
+        if (args.Session?.AttachedEntity is not {Valid: true} uid)
             return false;
 
         if (args.EntityUid != uid || !HasComp<KnockedDownComponent>(uid) || !_combat.IsInCombatMode(uid))
