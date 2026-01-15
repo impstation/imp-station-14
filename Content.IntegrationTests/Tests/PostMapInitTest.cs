@@ -160,7 +160,6 @@ namespace Content.IntegrationTests.Tests
             //"reHash",
             //"RelicImp",
             //"Skimmer",
-            "Union",
         };
 
         private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
