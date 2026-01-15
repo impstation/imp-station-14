@@ -644,3 +644,17 @@
     whitelist:
       components:
       - SurplusBundle
+
+# Records Computer
+
+- type: listing
+  id: UplinkRecordsBoard
+  name: uplink-records-board-name
+  description: uplink-records-board-desc
+  icon: {sprite: _Impstation/Objects/Misc/syndicate_circuit.rsi, state: cpu_syndie}
+  productEntity: SyndicateRecordsComputerCircuitBoard
+  categories:
+  - UplinkDeception
+  conditions: #only one per agent
+  - !type:ListingLimitedStockCondition
+    stock: 1

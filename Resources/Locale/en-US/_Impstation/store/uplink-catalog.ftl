@@ -100,6 +100,9 @@ uplink-nullrod-upgrade-desc = A vile incense burner used to transform nullrod it
 uplink-gay-implanter-name = Gay implanter
 uplink-gay-implanter-desc = Huh??? Why is this in here??? Is my uplink hacked??
 
+uplink-records-board-name = Syndicate Records Terminal Board
+uplink-records-board-desc = A board for a syndicate records terminal, providing access to whatever intel we've managed to dig up on your coworkers. Free, but limited to one. Some assembly required.
+
 uplink-valushot-name = Deadly Dan's ValuShot 9000
 uplink-valushot-desc = Lethal weaponry at a discount price!
 

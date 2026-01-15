@@ -1,4 +1,56 @@
 - type: entity
+  parent: [ BaseComputerCircuitboard, BaseSyndicateContraband ]
+  id: SyndicateRecordsComputerCircuitBoard
+  name: syndicate records circuit board
+  description: A syndicate brand circuit board. Dissimilar from NT boards in any way. This one is for a syndicate records terminal.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/syndicate_circuit.rsi
+    state: cpu_syndie
+  - type: ComputerBoard
+    prototype: ComputerSyndicateRecords
+
+- type: entity
+  parent: [ BaseComputerAiAccess, BaseSyndicateContraband ]
+  id: ComputerSyndicateRecords
+  name: syndicate records terminal
+  description: This can be used to blackmail your coworkers.
+  components:
+  - type: GeneralStationRecordConsole
+  - type: UserInterface
+    interfaces:
+        enum.CharacterRecordConsoleKey.Key:
+          type: CharacterRecordConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+  - type: CharacterRecordConsole
+    consoleType: Syndicate
+  - type: ActivatableUI
+    key: enum.CharacterRecordConsoleKey.Key
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/syndicate_computer.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer_syndicate
+    - map: ["computerLayerKeyboard"]
+      state: syndie_key_off
+    - map: ["computerLayerScreen"]
+      state: generic_syndicate
+    - map: ["computerLayerKeys"]
+      state: syndie_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: PointLight
+    radius: 2.4
+    energy: 1.6
+    color: "#c90000"
+  - type: Computer
+    board: SyndicateRecordsComputerCircuitBoard
+  - type: GuideHelp
+    guides:
+    - Traitors
+
+- type: entity
   parent: BaseComputer
   id: ComputerReaperTeleporter
   name: teleportation console
@@ -57,7 +109,7 @@
         node: monitorBroken
       - !type:DoActsBehavior
         acts: ["Destruction"]
-
+        
 # kill this for personal economy okay?
 - type: entity
   parent: ComputerBroken
