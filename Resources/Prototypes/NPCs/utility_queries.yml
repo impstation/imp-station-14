@@ -252,7 +252,11 @@
           partnerWhiteList:
             tags:
           reproductiveGroup: ""
-          offspring: ""
+          gender: Female
+          possibleInfants: !type:GroupSelector
+            children:
+            - id: MobCowBaby
+              weight: 8
   considerations:
     - !type:TargetDistanceCon
       curve: !type:PresetCurve

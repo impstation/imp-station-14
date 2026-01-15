@@ -979,18 +979,11 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: ImpReproductive
-    hungerPerBirth: 75
-    pregnancyLength: 10
-    partnerWhiteList:
-      tags:
-      - Cow
-    reproductiveGroup: MobCow
   #- type: Body
   #  prototype: AnimalRuminant
   - type: HTN
     rootTask:
-      task: LivestockCompound
+      task: PassiveLivestockCompound
       #task: RuminantCompound
   - type: GuideHelp
     guides:
@@ -4054,13 +4047,6 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: ImpReproductive
-    hungerPerBirth: 75
-    pregnancyLength: 10
-    partnerWhiteList:
-      tags:
-      - Pig
-    reproductiveGroup: MobPig
   - type: HTN
     rootTask:
       task: RuminantCompound

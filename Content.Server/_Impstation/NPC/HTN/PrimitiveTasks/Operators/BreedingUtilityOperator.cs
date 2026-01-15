@@ -69,6 +69,10 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
             if (!_breedSystem.CanYouBreed((potentialTarget, comp)))
                 continue;
 
+            // Making sure two of the same gender aren't trying to breed
+            if (reproComp.Gender == comp.Gender)
+                continue;
+
             //if it's score is less than our current score, continue
             var targScore = result.Entities[potentialTarget];
             if (targScore < score)

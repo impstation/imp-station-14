@@ -10,3 +10,13 @@
   - tasks:
     - !type:HTNCompoundTask
       task: IdleCompound
+
+- type: htnCompound
+  id: PassiveLivestockCompound
+  branches:
+  - tasks:
+    - !type:HTNCompoundTask
+      task: FoodCompound
+  - tasks:
+    - !type:HTNCompoundTask
+      task: IdleCompound

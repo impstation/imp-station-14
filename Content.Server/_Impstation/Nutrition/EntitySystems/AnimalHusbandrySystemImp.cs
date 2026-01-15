@@ -9,6 +9,7 @@ using Content.Shared._Impstation.AnimalHusbandry.Components;
 using Content.Shared._Impstation.Nutrition.Components;
 using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.EntityTable;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
@@ -27,6 +28,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -35,6 +37,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly ThirstSystem _thirst = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly EntityTableSystem _entTable = default!;
 
     Dictionary<EntityUid, ImpReproductiveComponent> _mobsWaiting = new Dictionary<EntityUid, ImpReproductiveComponent>();
     Dictionary<EntityUid, ImpInfantComponent> _infants = new Dictionary<EntityUid, ImpInfantComponent>();
@@ -229,9 +232,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (TryComp<InteractionPopupComponent>(entity, out var interactionPopup))
             _audio.PlayPvs(interactionPopup.InteractSuccessSound, entity);
 
-        // This is also temporary
-        _popup.PopupEntity("BIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTHBIRTH", entity);
-        var offspring = SpawnNewMob(entity, entity.Comp.Offspring);
+        var offspring = SpawnNewMob(entity, _entTable.GetSpawns(entity.Comp.PossibleInfants).ElementAt(0));
 
         if(_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
         {

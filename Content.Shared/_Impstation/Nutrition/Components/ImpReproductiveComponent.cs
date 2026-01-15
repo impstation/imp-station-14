@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Content.Shared.EntityTable;
+using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 
@@ -13,17 +15,10 @@ namespace Content.Shared._Impstation.Nutrition.Components;
 [RegisterComponent, AutoGenerateComponentPause]
 public sealed partial class ImpReproductiveComponent : Component
 {
-
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan MinBreedAttemptInterval = TimeSpan.FromSeconds(45);
-
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan MaxBreedAttemptInterval = TimeSpan.FromSeconds(60);
-
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("minSearchAttemptInterval"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan MinSearchAttemptInterval = TimeSpan.FromSeconds(10);
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField("maxSearchAttemptInterval"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan MaxSearchAttemptInterval = TimeSpan.FromSeconds(30);
 
     [DataField("partnerWhiteList", required: true)]
@@ -43,13 +38,21 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField("maxBreedDamage"), ViewVariables(VVAccess.ReadOnly)]
     public int MaxBreedDamage = 50;
 
-    // What will we give birth to?
-    [DataField("offspring", required: true), ViewVariables(VVAccess.ReadWrite)]
-    public EntProtoId Offspring;
+    [DataField("gender", required: true)]
+    public AnimalGender Gender = AnimalGender.Male;
+
+    [DataField("possibleInfants", required: true), ViewVariables(VVAccess.ReadWrite)]
+    public EntityTableSelector PossibleInfants = default!;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool Pregnant = false;
 
     public TimeSpan EndPregnancy = TimeSpan.Zero;
     public TimeSpan NextSearch = TimeSpan.Zero;
+}
+
+public enum AnimalGender
+{
+    Male,
+    Female
 }
