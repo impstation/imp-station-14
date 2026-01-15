@@ -348,7 +348,7 @@
   maturation: 6
   production: 6
   growthStages: 3
-  yield: 4
+  yield: 2 #changed from 4 with the addition of lifting concentrate
   potency: 20
   nutrientConsumption: 0.40
   chemicals:
@@ -356,10 +356,11 @@
       Min: 1
       Max: 10
       PotencyDivisor: 25
-#    Uppisium:  (Will be added at a later date, post apparent status effects change)
-#      Min: 1
-#      Max: 10
-#      PotencyDivisor: 25
+    LiftingConcentrate: 
+      Min: 1
+      Max: 5
+      PotencyDivisor: 25
+
 - type: seed
   id: pompombush
   name: seeds-pompombush-name
