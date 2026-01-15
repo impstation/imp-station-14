@@ -1,7 +1,7 @@
 using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server._Harmony.GameTicking.Rules.Components; //imp/harmony? not really sure which this should be
+using Content.Server._Harmony.GameTicking.Rules.Components; //harmony
 using Content.Server.Zombies;
 using Content.Shared.Administration;
 using Content.Server.Clothing.Systems;

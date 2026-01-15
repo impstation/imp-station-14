@@ -9,7 +9,7 @@
   - type: RoleRequirement
     roles:
     - ConspiratorRole
-  - type: NoCompletionObjective
+  - type: AutoCompleteCondition
 
 - type: entity
   parent: BaseConspiratorObjective
