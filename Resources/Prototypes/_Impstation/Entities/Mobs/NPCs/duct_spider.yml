@@ -5,7 +5,6 @@
   description: Nanotrasen's imported solution to mice, comes with its own problems.
   components:
   - type: Sprite
-    drawdepth: Mobs
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
       state: idle
@@ -31,8 +30,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.20
-        density: 100
+          radius: 0.25
+        density: 200
         mask:
         - MobMask
         layer:
@@ -41,13 +40,11 @@
     spawned:
     - id: FoodMeatSpider
       amount: 1
-    - id: FoodMeatSpiderLeg
-      amount: 2
   - type: MobThresholds
     thresholds:
       0: Alive
-      15: Critical
-      30: Dead
+      40: Critical
+      60: Dead
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: Item
@@ -55,6 +52,7 @@
     shape:
     - 0,0,1,0
   - type: Clothing
+    quickEquip: false
     sprite: _Impstation/Mobs/Animals/ductspider.rsi
     slots:
     - HEAD
@@ -89,3 +87,68 @@
   - type: GhostTakeoverAvailable
   - type: NPCRetaliation
     attackMemoryLength: 10
+  - type: Spider
+    spawnOneWeb: true
+  - type: Prying
+    pryPowered: false
+    force: false
+    speedModifier: 0.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
+  - type: Speech
+    audioParams:
+      pitch: 2
+  - type: Vocal
+    sounds:
+      Male: ArachnidSmall
+      Female: ArachnidSmall
+      Unsexed: ArachnidSmall
+  - type: Tag
+    tags:
+    - Trash
+    - CannotSuicide
+    - VimPilot
+    - MultitoolDefibrillatorTarget
+    - FootstepSound
+    - SpiderCraft # specifically for admemes. shouldn't be able to craft anything in normal gameplay
+    - DoorBumpOpener
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Mouse_burning
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 5
+        - ReagentId: Mechanotoxin
+          Quantity: 5
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: InventorySlots
+  - type: Inventory
+    speciesId: ductSpider
+    templateId: ductSpider
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:SpawnEntityInInventory
+        slot: head
+        entity: WaterDropletHat
+  - type: Edible
+  - type: Appearance
+  - type: IgnoreSpiderWeb
