@@ -238,3 +238,118 @@
         weight: 1
 
 #========================================================================
+
+- type: entity
+  name: chickenBase
+  parent: SimpleMobBase
+  id: MobChickenBase
+  description: Holding it won't make you glide.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: hen
+      sprite: _Impstation/Mobs/Animals/Livestock/hen.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: hen
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Chicken
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 8
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatChicken
+      amount: 1
+  - type: InteractionPopup
+    successChance: 0.8
+    interactSuccessString: petting-success-bird
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/chicken_cluck_happy.ogg
+  - type: Bloodstream
+    bloodMaxVolume: 100
+  - type: ExaminableHunger
+  - type: ReplacementAccent
+    accent: chicken
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: PassiveLivestockCompound
+  - type: GoobAbsorbable
+    biomassRestored: 0.2
+  - type: Carriable #DeltaV
+    freeHandsRequired: 1
+  - type: AlwaysRevolutionaryConvertible
+
+- type: entity
+  name: Hen
+  parent: MobChickenBase
+  id: MobHemAdult
+  description: Holding it won't make you glide.
+  components:
+  - type: ImpReproductive
+    hungerPerBirth: 40
+    pregnancyLength: 10
+    partnerWhiteList:
+      tags:
+      - Chicken
+    reproductiveGroup: MobChicken
+    gender: Female
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: HenEgg
+        weight: 10
+      - id: RoosterEgg
+        weight: 1
+
+- type: entity
+  name: Rooster
+  parent: MobChickenBase
+  id: MobRoosterAdult
+  description: There is no gene to shut him up.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: rooster
+      sprite: _Impstation/Mobs/Animals/Livestock/rooster.rsi
+  - type: ImpReproductive
+    hungerPerBirth: 40
+    pregnancyLength: 10
+    partnerWhiteList:
+      tags:
+      - Chicken
+    reproductiveGroup: MobChicken
+    gender: Male
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: HenEgg
+        weight: 10
+  - type: HTN
+    rootTask:
+      task: PassiveLivestockCompound

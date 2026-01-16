@@ -1,0 +1,33 @@
+- type: entity
+  parent: FoodEggBase
+  id: HenEgg
+  description: An egg!
+  components:
+  - type: Sprite
+    state: henEgg
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/eggs.rsi
+  - type: Tag
+    tags:
+    - Egg
+    - Meat
+    - Incubated
+  - type: Incubation
+    incubationTime: 10
+    incubatedResult: HenAdult  
+
+- type: entity
+  parent: FoodEggBase
+  id: RoosterEgg
+  description: An egg!
+  components:
+  - type: Sprite
+    state: roosterEgg
+    sprite: _Impstation/Objects/Consumable/Food/Ingredients/eggs.rsi
+  - type: Tag
+    tags:
+    - Egg
+    - Meat
+    - Incubated
+  - type: Incubation
+    incubationTime: 10
+    incubatedResult: RoosterAdult  
