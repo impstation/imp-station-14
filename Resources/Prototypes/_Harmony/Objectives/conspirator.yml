@@ -52,7 +52,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
+      sprite: _Impstation/Objects/Weapons/Guns/Pistols/mk58.rsi # imp edit
       state: icon
 
 - type: entity
@@ -85,7 +85,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Objects/Weapons/Melee/stunbaton.rsi
+      sprite: _Impstation/Objects/Weapons/Melee/stunbaton.rsi # imp edit
       state: stunbaton_off
 
 - type: entity
@@ -98,3 +98,72 @@
     icon:
       sprite: Mobs/Silicon/station_ai.rsi
       state: ai_camera
+
+# imp start
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorDismantleObjective
+  name: Dismantle all barriers
+  description: No barriers shall stand in your way.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Walls/solid.rsi
+      state: rgeneric
+
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorInfightingObjective
+  name: Turn Command against each other
+  description: Distrupt the command of the station by creating in-fighting, use the chaos to your advantage.
+  components:
+  - type: Objective
+    icon:
+      sprite: Clothing/Head/Hats/capcap.rsi
+      state: icon
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorRemoveObjective
+  name: Remove a department
+  description: This station has too many departments. Lower that number by any means necessary.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Shuttles/thruster.rsi
+      state: base
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorHostageObjective
+  name: Hold Command Hostage
+  description: Take Command hostage and ransom them off for an exorbitant sum.
+  components:
+  - type: Objective
+    icon:
+      ssprite: Objects/Misc/handcuffs.rsi
+    state: handcuff
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorSwapObjective
+  name: Swap two departments
+  description: Completely swap the locations of two departments, including staff and equipment.
+  components:
+  - type: Objective
+    icon:
+      ssprite: Objects/Tools/wrench.rsi
+    state: icon
+
+- type: entity
+  parent: BaseConspiratorObjective
+  id: ConspiratorProductivityObjective
+  name: Sabotage productivity
+  description: The money must not flow. The crew must not work. You must stop them.
+  components:
+  - type: Objective
+    icon:
+      ssprite: Objects/Consumable/Food/snacks.rsi
+    state: chips-trash
+# imp end
