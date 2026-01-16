@@ -524,7 +524,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         // imp start
         var prereqEv = new AntagPrereqSetupEvent(session, ent, def);
         RaiseLocalEvent(ent, ref prereqEv, true);
-        EnsureComp<Shared._Impstation.Notifier.NotifierExamineComponent>(player);
+        EnsureComp<Shared._Impstation.Notifier.NotifierComponent>(player);
         // imp end
 
         // The following is where we apply components, equipment, and other changes to our antagonist entity.

@@ -147,7 +147,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             }
         }
 
-        EnsureComp<Shared._Impstation.Notifier.NotifierExamineComponent>(entity.Value); // Imp add
+        EnsureComp<Shared._Impstation.Notifier.NotifierComponent>(entity.Value); // Imp add
         if (loadout != null)
         {
             EquipRoleLoadout(entity.Value, loadout, roleProto!);

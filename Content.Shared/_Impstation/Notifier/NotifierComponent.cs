@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Impstation.Notifier;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class NotifierExamineComponent : Component
+public sealed partial class NotifierComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField(required: true), AutoNetworkedField]
