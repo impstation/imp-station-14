@@ -21,6 +21,7 @@ public sealed class NotifierExamineSystem : EntitySystem
 
         SubscribeLocalEvent<NotifierExamineComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<NotifierExamineComponent, PlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<NotifierExamineComponent, PlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<NotifierExamineComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
     }
 
@@ -31,6 +32,13 @@ public sealed class NotifierExamineSystem : EntitySystem
 
         ent.Comp.Active = true;
         ent.Comp.Content = _netCfg.GetClientCVar(args.Player.Channel, ImpCCVars.NotifierExamine);
+        Dirty(ent.Owner, ent.Comp);
+    }
+
+    private void OnPlayerDetached(Entity<NotifierExamineComponent> ent, ref PlayerDetachedEvent args)
+    {
+        ent.Comp.Active = false;
+        ent.Comp.Content = "";
         Dirty(ent.Owner, ent.Comp);
     }
     private void OnGetExamineVerbs(Entity<NotifierExamineComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
