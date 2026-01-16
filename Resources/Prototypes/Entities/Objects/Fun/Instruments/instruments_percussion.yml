@@ -64,6 +64,13 @@
   - type: Item
     size: Small
     storedRotation: -45
+  - type: Tag #imp
+    tags:
+    - BorgNeck
+  - type: Clothing #imp
+    quickEquip: false
+    slots:
+    - neck
 
 - type: entity
   parent: BasePercussionInstrument
