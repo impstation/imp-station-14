@@ -7,7 +7,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._Impstation.NotifierExamine;
+namespace Content.Shared._Impstation.Notifier;
 
 public sealed class NotifierExamineSystem : EntitySystem
 {

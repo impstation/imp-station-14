@@ -23,7 +23,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.GameObjects.Components.Localization; //imp
-using Content.Shared._Impstation.NotifierExamine;//imp
+using Content.Shared._Impstation.Notifier;//imp
 
 namespace Content.Server.Station.Systems;
 
@@ -147,7 +147,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             }
         }
 
-        EnsureComp<NotifierExamineComponent>(entity.Value); // Imp add
+        EnsureComp<Shared._Impstation.Notifier.NotifierExamineComponent>(entity.Value); // Imp add
         if (loadout != null)
         {
             EquipRoleLoadout(entity.Value, loadout, roleProto!);

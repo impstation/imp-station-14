@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Impstation.NotifierExamine;
+namespace Content.Shared._Impstation.Notifier;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class NotifierExamineComponent : Component

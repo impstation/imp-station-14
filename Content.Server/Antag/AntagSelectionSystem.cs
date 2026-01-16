@@ -36,7 +36,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Shared._Impstation.CCVar; // imp
-using Content.Shared._Impstation.NotifierExamine; // imp
+using Content.Shared._Impstation.Notifier; // imp
 using Content.Shared.NPC.Systems; // imp
 using Robust.Shared.Configuration; //imp
 using Robust.Shared.Network; // imp
@@ -524,7 +524,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         // imp start
         var prereqEv = new AntagPrereqSetupEvent(session, ent, def);
         RaiseLocalEvent(ent, ref prereqEv, true);
-        EnsureComp<NotifierExamineComponent>(player);
+        EnsureComp<Shared._Impstation.Notifier.NotifierExamineComponent>(player);
         // imp end
 
         // The following is where we apply components, equipment, and other changes to our antagonist entity.
