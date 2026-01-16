@@ -156,9 +156,11 @@
   description: Hide your face, the world will never find you.
   components:
     - type: Sprite
-      sprite: _Impstation\Clothing\Eyes\Glasses\whitehalfmask.rsi
+      sprite: _Impstation/Clothing/Eyes/Glasses/whitehalfmask.rsi
     - type: Clothing
-      sprite: _Impstation\Clothing\Eyes\Glasses\whitehalfmask.rsi
+      sprite: _Impstation/Clothing/Eyes/Glasses/whitehalfmask.rsi
       slots:
-      - EYES
       - MASK
+      - EYES
+
+      
