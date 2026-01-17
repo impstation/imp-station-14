@@ -139,11 +139,11 @@ public sealed class HeatExchangerSystem : EntitySystem
         else
             _atmosphereSystem.Merge(inlet.Air, xfer);
 
-        UpdateRadiatorAppearance(uid, dER); //imp
+        UpdateRadiatorAppearance(uid, dER, MathF.Max(inlet.Air.Temperature, outlet.Air.Temperature)); //imp
     }
 
     //Imp addition below -- radiator glow.
-    private void UpdateRadiatorAppearance(EntityUid uid, float radiatorEmittedEnergy)
+    private void UpdateRadiatorAppearance(EntityUid uid, float radiatorEmittedEnergy, float gasTemperature)
     {
         //Return early if the pointlightcomponent doesn't exist (?)
         if (!_pointLight.TryGetLight(uid, out var pointLight))
@@ -156,14 +156,19 @@ public sealed class HeatExchangerSystem : EntitySystem
         //The radiator has a specific heat of 5020 J/K
         const float radiatorSpecificHeat = 5020;
 
+        //Radiator temp approximation
+        float radiatorTemperature = gasTemperature;
+
         //Divide the energy emitted this atmos tick by the radiator's specific heat to get the radiator's temperature
-        float radiatorTemperature = radiatorEmittedEnergy / radiatorSpecificHeat;
-        // Log.Debug($"rad temp is {radiatorTemperature} for uid {uid}");
+        radiatorTemperature += MathF.Abs(radiatorEmittedEnergy) / radiatorSpecificHeat;
+        Log.Debug($"rad temp is {radiatorTemperature} for uid {uid}");
+
+        //Unrealistically boost the temperature for gameplay purposes. Normal setups are too cold for any glow.
+        // radiatorTemperature *= 2500; //* MathF.Log10(MathF.Pow(x, 3)); //2000logx^3 is pretty close
 
         //Glowing starts at 1667K based on the Planckian locus approximation (calculated below).
         //Disable the glow if the temperature is below that.
         if (radiatorTemperature < 1667)
-        // if (radiatorTemperature < 798)
         {
             _pointLight.SetEnabled(uid, false, pointLight);
             _appearance.SetData(uid, HeatExchangerVisuals.On, false);
