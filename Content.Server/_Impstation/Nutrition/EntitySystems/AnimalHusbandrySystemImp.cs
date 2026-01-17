@@ -197,13 +197,13 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
         if (_entManager.TryGetComponent<ThirstComponent>(entity, out var thirst) && thirst.CurrentThirstThreshold < ThirstThreshold.Okay)
             return false;
+        */
 
         if (_entManager.TryGetComponent<MobStateComponent>(entity, out var state) && state.CurrentState != Shared.Mobs.MobState.Alive)
             return false;
 
         if (_entManager.TryGetComponent<DamageableComponent>(entity, out var damage) && damage.TotalDamage >= entity.Comp.MaxBreedDamage)
             return false;
-        */
         return true;
     }
 

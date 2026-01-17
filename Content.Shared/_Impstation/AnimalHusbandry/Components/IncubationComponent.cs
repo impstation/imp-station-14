@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Content.Shared.DoAfter;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.AnimalHusbandry.Components;
@@ -19,4 +20,23 @@ public sealed partial class IncubationComponent : Component
     // What comes out when the incubation is done?
     [DataField("incubatedResult", required: true), ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId IncubatedResult;
+
 }
+
+[Serializable]
+public enum IncubatorVisualizerLayers : byte
+{
+    Status
+}
+
+[Serializable]
+public enum IncubatorStatus : byte
+{
+    Active,
+    Inactive
+}
+
+[ByRefEvent]
+public record struct IncubatingAttemptEvent(EntityUid incubated, bool cancelled = false);
+public readonly record struct AfterIncubationEvent();
+public sealed partial class IncubationDoAfterEvent : SimpleDoAfterEvent { }

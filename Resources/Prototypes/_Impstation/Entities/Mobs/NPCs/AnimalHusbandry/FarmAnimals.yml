@@ -3,6 +3,7 @@
 - type: entity
   name: cowBase
   parent: SimpleMobBase
+  abstract: true
   id: MobCowBase
   description: Moo.
   components:
@@ -242,6 +243,7 @@
 - type: entity
   name: chickenBase
   parent: SimpleMobBase
+  abstract: true
   id: MobChickenBase
   description: Holding it won't make you glide.
   components:
@@ -352,4 +354,4 @@
         weight: 10
   - type: HTN
     rootTask:
-      task: PassiveLivestockCompound
+      task: LivestockCompound

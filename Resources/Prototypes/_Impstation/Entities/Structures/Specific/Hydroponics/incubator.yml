@@ -1,0 +1,43 @@
+- type: entity
+  id: MachineIncubator
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  name: Incubator
+  description: Clearly the egg came first.
+  components:
+  - type: ItemSlots
+    slots:
+      whitelist:
+        tags:
+          - Incubated
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/incubator.rsi
+    layers:
+    - state: inactive
+      map: ["enum.IncubatorStatus.Inactive"]
+    - state: active
+      map: ["enum.IncubatorStatus.Active"]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.IncubatorVisualizerLayers.Status:
+        enum.IncubatorVisualizerLayers.Status:
+          Active: { visible: true, state: "active" }
+          Inactive: { visible: true, state: "inactive" }
+  - type: Anchorable
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 2
+  - type: Rotatable
+  - type: Transform
+    noRot: false
+  - type: LitOnPowered
+  - type: ApcPowerReceiver
+    powerLoad: 50
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
+    weight: 0.2
+  - type: StaticPrice
+    price: 50
