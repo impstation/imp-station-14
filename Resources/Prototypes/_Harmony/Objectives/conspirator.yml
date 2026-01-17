@@ -142,8 +142,8 @@
   components:
   - type: Objective
     icon:
-      ssprite: Objects/Misc/handcuffs.rsi
-    state: handcuff
+      sprite: Objects/Misc/handcuffs.rsi
+      state: handcuff
 
 - type: entity
   parent: BaseConspiratorObjective
@@ -153,8 +153,8 @@
   components:
   - type: Objective
     icon:
-      ssprite: Objects/Tools/wrench.rsi
-    state: icon
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
 
 - type: entity
   parent: BaseConspiratorObjective
@@ -164,6 +164,6 @@
   components:
   - type: Objective
     icon:
-      ssprite: Objects/Consumable/Food/snacks.rsi
-    state: chips-trash
+      sprite: Objects/Consumable/Food/snacks.rsi
+      state: chips-trash
 # imp end
