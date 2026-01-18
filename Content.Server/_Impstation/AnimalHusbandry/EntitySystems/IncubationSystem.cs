@@ -3,9 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Content.Server.Administration.Logs;
+using Content.Server.Popups;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared.EntityTable;
 using Content.Shared.Interaction;
+using Content.Shared.Mind;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Power;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 public sealed class IncubationSystem : EntitySystem
