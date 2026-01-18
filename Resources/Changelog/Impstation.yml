@@ -1,83 +1,6 @@
 ﻿Entries:
 - author: astral_amy
   changes:
-  - message: A number of tweaks and additions to Whisper. Check PR for details.
-    type: Tweak
-  id: 2056
-  time: '2025-07-25T11:28:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3116
-- author: SixValentine
-  changes:
-  - message: Fires are buffed on Luna!
-    type: Remove
-  id: 2057
-  time: '2025-07-25T11:28:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3125
-- author: happy99, mousesweater, Squamatic
-  changes:
-  - message: Adds Pathway, a station that has recently recovered from a supermatter
-      delamination.
-    type: Add
-  id: 2058
-  time: '2025-07-25T11:28:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3124
-- author: Kandiyaki
-  changes:
-  - message: Bread and Water soup. It's a proper meal.
-    type: Add
-  id: 2059
-  time: '2025-07-25T11:28:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3118
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: New coin sprites!
-    type: Tweak
-  id: 2060
-  time: '2025-07-25T11:28:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3121
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: the Xiuhcoatl, Adder, and Akurra have melee attacks now
-    type: Fix
-  - message: The Xiuhcoatl's projectiles are stronger and move faster now
-    type: Tweak
-  - message: The Ouroboros bees are a bit more dangerous, and the gun is a lot less
-      picky on what it wants to eat.
-    type: Tweak
-  id: 2061
-  time: '2025-07-25T11:28:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3120
-- author: msTheowo
-  changes:
-  - message: Security hud glasses to SecTech. Watch out, they don't have any flash
-      protection!
-    type: Add
-  id: 2062
-  time: '2025-07-25T11:28:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3127
-- author: TheGrimbeeper
-  changes:
-  - message: Old Xenoarcheology is BACK!! (New-Xeno NOT removed, they are coexisting
-      peacefully!)
-    type: Add
-  - message: can now craft alien artifacts (old-xeno) in addition to artifacts (new
-      xeno)
-    type: Tweak
-  - message: Can now buy natural (old-xeno), reticulated (new-xeno) or random (cheaper!!)
-      artifacts from cargo
-    type: Tweak
-  id: 2063
-  time: '2025-07-25T11:28:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2894
-- author: HAPPYNEWYEAR1999
-  changes:
-  - message: Pathway Station changes based on feedback, read PR for details
-    type: Tweak
-  id: 2064
-  time: '2025-07-25T11:28:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3132
-- author: astral_amy
-  changes:
   - message: Whisper and Bedlam tweaks and additions. See PR for details.
     type: Tweak
   id: 2065
@@ -4166,3 +4089,68 @@
   id: 2555
   time: '2026-01-14T01:05:06.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3989
+- author: youtubevideo3
+  changes:
+  - message: Musicians are now legally allowed to wear marching band uniforms.
+    type: Fix
+  id: 2556
+  time: '2026-01-15T02:37:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3998
+- author: msTheowo
+  changes:
+  - message: Duct spiders spawn only one web tile, instead of five.
+    type: Tweak
+  - message: Duct spiders can wear hats now!
+    type: Tweak
+  - message: Duct spiders now go under airlocks and tables.
+    type: Tweak
+  - message: You can grind duct spiders alive. If you want.
+    type: Tweak
+  id: 2557
+  time: '2026-01-15T05:40:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3940
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Basilisk-11 now uses the correct in-hands sprite for wielding with
+      either dominant hand.
+    type: Fix
+  id: 2558
+  time: '2026-01-15T07:04:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3997
+- author: soup4food
+  changes:
+  - message: Halved the range of the material silo.
+    type: Tweak
+  time: '2026-01-15T07:08:00.0000000+00:00'
+  id: 2559
+  url: https://github.com/impstation/imp-station-14/pull/3999
+- author: Entings
+  changes:
+  - message: The nuclear authentication disk now has pride of place in its own lockbox on the bridge.
+    type: Add
+  time: '2026-01-15T07:08:01.0000000+00:00'
+  id: 2560
+  url: https://github.com/impstation/imp-station-14/pull/3999
+- author: Ecramox
+  changes:
+  - message: NT's interior decorators have seen it fit to remodel several types of floors!
+    type: Tweak
+  - message: New green steel tiles are now real!
+    type: Add
+  time: '2026-01-15T07:08:02.0000000+00:00'
+  id: 2561
+  url: https://github.com/impstation/imp-station-14/pull/3999
+- author: the Impstation Station Architect team
+  changes:
+  - message: All maps have been updated for some new features and maybe some new secrets.
+    type: Tweak
+  time: '2026-01-15T07:08:03.0000000+00:00'
+  id: 2562
+  url: https://github.com/impstation/imp-station-14/pull/3999
+- author: Squamatic
+  changes:
+  - message: Welcome back NT-Union.
+    type: Add
+  time: '2026-01-15T07:08:04.0000000+00:00'
+  id: 2563
+  url: https://github.com/impstation/imp-station-14/pull/3999
