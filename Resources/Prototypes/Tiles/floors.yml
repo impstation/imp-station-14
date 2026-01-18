@@ -13,6 +13,34 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
+  heatCapacity: 10000
+  baseWhitelist:
+  - PlatingBrass
+  - FloorAsteroidIronsand
+  - FloorAsteroidSand
+  - FloorAsteroidSandBorderless
+  - FloorAsteroidIronsandBorderless
+  - FloorAsteroidSandRedBorderless
+  - PlatingAsteroid
+  - PlatingSnow
+  - FloorPlanetDirt
+  - FloorDesert
+  - FloorLowDesert
+  - FloorPlanetGrass
+  - FloorSnow
+  - FloorDirt
+
+- type: tile
+  id: FloorSteel
+  parent: BaseStationTile
+  name: tiles-steel-floor
+  sprite: /Textures/Tiles/steel.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
   itemDrop: FloorTileItemSteel
   heatCapacity: 10000
 
@@ -1942,6 +1970,17 @@
   sprite: /Textures/Tiles/hull_reinforced.png
   baseTurf: Plating
   isSubfloor: false
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 100000 #/tg/ has this set as "INFINITY." I don't know if that exists here so I've just added an extra 0
+  indestructible: true
+
+- type: tile
+  id: FloorHullReinforced
+  parent: BaseStationTile
+  name: tiles-hull-reinforced
+  sprite: /Textures/Tiles/hull_reinforced.png
   footstepSounds:
     collection: FootstepHull
   itemDrop: FloorTileItemSteel

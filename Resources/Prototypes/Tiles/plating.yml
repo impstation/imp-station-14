@@ -6,8 +6,14 @@
   isSubfloor: true
   footstepSounds:
     collection: FootstepPlating
-  friction: 1.5
-  heatCapacity: 10000
+  baseWhitelist:
+    - TrainLattice
+
+- type: tile
+  id: Plating
+  parent: BasePlating
+  name: tiles-plating
+  sprite: /Textures/Tiles/plating.png
 
 - type: tile
   id: PlatingDamaged
