@@ -61,6 +61,9 @@
   id: CartridgeLPistol
 
 - type: Tag
+  id: CartridgeMinigun
+
+- type: Tag
   id: CartridgePistolStun
 
 - type: Tag
@@ -118,7 +121,7 @@
   id: Crusher
 
 - type: Tag
-  id: Crystal
+  id: Crystal # BountyCrystal
 
 - type: Tag
   id: Dart
@@ -145,10 +148,10 @@
   id: Electropack
 
 - type: Tag
-  id: EncryptionKeyRevolution
+  id: EvidenceMarker
 
 - type: Tag
-  id: EvidenceMarker
+  id: ExternalAirlock
 
 - type: Tag
   id: Eyepatch
@@ -185,6 +188,9 @@
 
 - type: Tag
   id: HolyArrowEvil
+
+- type: Tag
+  id: Hotdog # Food sequence key
 
 - type: Tag
   id: HudAdmin
@@ -403,6 +409,9 @@
   id: TranquilizerDart
 
 - type: Tag
+  id: TreatChunk
+
+- type: Tag
   id: UnguFood
 
 - type: Tag
@@ -425,3 +434,4 @@
 
 - type: Tag
   id: WeldingTool
+

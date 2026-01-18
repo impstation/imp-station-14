@@ -1,3 +1,4 @@
+# A storage container capable of holding any bullet but only bullets, similar to a cigarette pack.
 - type: entity
   id: AmmoPouchBase
   parent: [ BaseStorageItem, BaseBagOpenClose, BaseSecurityContraband ]
@@ -35,6 +36,8 @@
       map: ["cart-6"]
       sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/ammo_pouch.rsi
       visible: false
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/ammo_pouch.rsi
     size: Tiny
     shape: # Yes, this is cursed, but it breaks otherwise, dont question it.
     - 0,0,0,1

@@ -1,0 +1,110 @@
+- type: entity
+  id: BaseCartridgeLPistol
+  name: cartridge (.22 auto)
+  description: A pistol cartridge that is smaller than most. Incredibly cheap and somewhat underpowered.
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CartridgeLPistol
+  - type: CartridgeAmmo
+    proto: BulletLPistol
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  id: CartridgeLPistol
+  name: cartridge (.22 auto)
+  description: A kinetic pistol cartridge that is smaller than most. Incredibly cheap and somewhat underpowered, but it'll do.
+  parent: BaseCartridgeLPistol
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLPistol
+
+- type: entity
+  id: CartridgeLPistolPractice
+  name: cartridge (.22 auto practice)
+  description: A smaller pistol cartridge with a wax projectile to simulate the real deal. Can be used for force-on-force training but still stings like a bitch. Eye protection recommended.
+  parent: BaseCartridgeLPistol
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLPistolPractice
+  -  type: Sprite
+     layers:
+       - state: base
+         map: [ "enum.AmmoVisualLayers.Base" ]
+       - state: tip
+         map: [ "enum.AmmoVisualLayers.Tip" ]
+         color: "#ffcb6f"
+
+- type: entity
+  id: CartridgeLPistolIncendiary
+  name: cartridge (.22 auto incendiary)
+  description: A smaller pistol cartridge tipped with a softer projectile containing a pyrophoric compound, setting targets ablaze.
+  parent: BaseCartridgeLPistol
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLPistolIncendiary
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#d46925"
+
+- type: entity
+  id: CartridgeLPistolAP
+  name: cartridge (.22 auto APDSFS)
+  description: Gunner, sabot, infantry!
+  parent: BaseCartridgeLPistol
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLPistolAP
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#662598"
+
+- type: entity
+  id: CartridgeLPistolUranium
+  name: cartridge (.22 auto uranium)
+  description: A smaller pistol cartridge with a heavier depleted uranium projectile, delivering radiation poisoning at the cost of worse penetration.
+  parent: BaseCartridgeLPistol
+  components:
+  - type: CartridgeAmmo
+    proto: BulletLPistolUranium
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#22b24d"
+
+- type: entity
+  id: CartridgeLPistolSpent
+  name: cartridge (.22 auto)
+  description: A pistol cartridge that is smaller than most. Incredibly cheap and somewhat underpowered, but it'll do. Well, this one did.
+  suffix: spent
+  parent: BaseCartridgeLPistol
+  components:
+  - type: SpentAmmoVisuals
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+      - state: base-spent
+        map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: BulletLPistol
+    spent: true
