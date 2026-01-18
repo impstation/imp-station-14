@@ -22,21 +22,3 @@ public sealed partial class IncubationComponent : Component
     public EntProtoId IncubatedResult;
 
 }
-
-[Serializable]
-public enum IncubatorVisualizerLayers : byte
-{
-    Status
-}
-
-[Serializable]
-public enum IncubatorStatus : byte
-{
-    Active,
-    Inactive
-}
-
-[ByRefEvent]
-public record struct IncubatingAttemptEvent(EntityUid incubated, bool cancelled = false);
-public readonly record struct AfterIncubationEvent();
-public sealed partial class IncubationDoAfterEvent : SimpleDoAfterEvent { }

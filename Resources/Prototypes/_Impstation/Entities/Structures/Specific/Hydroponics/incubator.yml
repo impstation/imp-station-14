@@ -4,6 +4,7 @@
   name: Incubator
   description: Clearly the egg came first.
   components:
+  - type: Incubator
   - type: ItemSlots
     slots:
       whitelist:
@@ -13,16 +14,18 @@
     sprite: _Impstation/Structures/Machines/incubator.rsi
     layers:
     - state: inactive
-      map: ["enum.IncubatorStatus.Inactive"]
-    - state: active
-      map: ["enum.IncubatorStatus.Active"]
+#      map: ["enum.IncubatorStatus.Inactive"]
+    #- state: active
+    - map: ["enum.IncubatorVisualizerLayers.Status"]
+      shader: unshaded
       visible: false
+  - type: Appearance
   - type: GenericVisualizer
     visuals:
       enum.IncubatorVisualizerLayers.Status:
         enum.IncubatorVisualizerLayers.Status:
+          Inactive: { visible: false, state: "inactive" }
           Active: { visible: true, state: "active" }
-          Inactive: { visible: true, state: "inactive" }
   - type: Anchorable
   - type: PointLight
     enabled: false

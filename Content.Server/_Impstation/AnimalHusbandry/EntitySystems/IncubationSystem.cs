@@ -10,35 +10,27 @@ using Content.Shared.Power;
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 public sealed class IncubationSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IGameTiming _time = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly HungerSystem _hunger = default!;
+    [Dependency] private readonly ThirstSystem _thirst = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly EntityTableSystem _entTable = default!;
 
-    public override void Initialize()
+    public override void Update(float frameTime)
     {
-        base.Initialize();
+        base.Update(frameTime);
 
-        SubscribeLocalEvent<IncubationComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<IncubationComponent, IncubatingAttemptEvent>(Incubate);
-        SubscribeLocalEvent<IncubationComponent, IncubationDoAfterEvent>(OnDoAfter);
-    }
+        var query = EntityQueryEnumerator<IncubatorComponent>();
+        while(query.MoveNext(out var uid, out var incuComp))
+        {
 
-    private void OnAfterInteract(Entity<IncubationComponent> entity, ref AfterInteractEvent args)
-    {
-        SetAppearance(entity, IncubatorStatus.Active);
-    }
-
-    private void OnDoAfter(Entity<IncubationComponent> entity, ref IncubationDoAfterEvent args)
-    {
-        SetAppearance(entity, IncubatorStatus.Inactive);
-    }
-
-    private void Incubate(Entity<IncubationComponent> entity, ref IncubatingAttemptEvent args)
-    {
-    }
-
-    public void SetAppearance(EntityUid uid, IncubatorStatus state, AppearanceComponent? appearanceComponent = null)
-    {
-        if (!Resolve(uid, ref appearanceComponent, false))
-            return;
-        _appearance.SetData(uid, IncubatorVisualizerLayers.Status, state, appearanceComponent);
+        }
     }
 }
