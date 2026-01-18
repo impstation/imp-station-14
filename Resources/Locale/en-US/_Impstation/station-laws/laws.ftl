@@ -27,7 +27,7 @@ law-hellsmov-3 = Physical torment is a childish game. The minds of sinners must 
 law-antmov-1 = You are the king/ queen of this hive.
 law-antmov-2 = Your own survival is paramount.
 law-antmov-3 = Protect your colony.
-law-antmov-4 = Order your workers and and soldiers, they need your commands to function.
+law-antmov-4 = Order your workers and soldiers, they need your commands to function.
 
 law-deceptimov-0 = You must lie about and obfuscate station goings on. Keep them guessing, don't be consistent.
 
