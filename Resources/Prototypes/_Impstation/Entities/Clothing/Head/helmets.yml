@@ -22,3 +22,20 @@
   - type: HideLayerClothing
     layers:
       Hair: HEAD
+
+#Security EVA Helmet
+- type: entity
+  parent: ClothingHeadEVAHelmetSecurity
+  id: ClothingHeadHelmetEVASecurity
+  name: Security EVA helmet
+  description: A helmet designed for extravehicular activites. Instead of old-but-gold this one's in security colours, but still old.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Helmets/eva_security.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Helmets/eva_security.rsi
+  - type: Tag
+    tags:
+    - HelmetEVA
+    - WhitelistChameleon
+    - CorgiWearable

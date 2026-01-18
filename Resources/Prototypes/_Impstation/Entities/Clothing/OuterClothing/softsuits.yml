@@ -22,3 +22,21 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+
+#Security EVA
+- type: entity
+  parent: ClothingOuterEVASuitSecurity
+  id: ClothingOuterHardsuitEVASecurity
+  name: security EVA suit
+  description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space. This one's in security colours, just without any security armouring.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_security.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_security.rsi
+  - type: Tag
+    tags:
+    - SuitEVA
+    # - MonkeyWearable # imp
+    - CorgiWearable
+    - WhitelistChameleon
