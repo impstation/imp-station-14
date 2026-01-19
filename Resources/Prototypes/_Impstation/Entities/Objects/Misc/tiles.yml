@@ -95,46 +95,6 @@
   - type: Stack
     stackType: FloorTileChapelSW
 
-# brass tiles but theyre normal
-
-- type: entity
-  name: filled brass plate
-  parent: FloorTileItemBase
-  id: FloorTileItemBrassFilledImp
-  components:
-  - type: Sprite
-    state: brass-filled
-  - type: Item
-    heldPrefix: brass
-  - type: FloorTile
-    outputs:
-      - Plating #changed from PlatingBrass
-      - FloorBrassFilledImp
-  - type: Stack
-    stackType: FloorTileBrassFilled
-  - type: Construction
-    graph: TilesBrass
-    node: filledPlate
-
-- type: entity
-  name: smooth brass plate
-  parent: FloorTileItemBase
-  id: FloorTileItemBrassReebeImp
-  components:
-  - type: Sprite
-    state: reebe
-  - type: Item
-    heldPrefix: brass
-  - type: FloorTile
-    outputs:
-      - Plating #changed from PlatingBrass
-      - FloorBrassReebeImp
-  - type: Stack
-    stackType: FloorTileBrassReebe
-  - type: Construction
-    graph: TilesBrass
-    node: reebe
-
 # Faux sci tiles
 - type: entity
   id: FloorTileItemShoveledAstroSnow
