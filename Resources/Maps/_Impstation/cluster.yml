@@ -4,8 +4,8 @@ meta:
   engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 01/13/2026 00:01:24
-  entityCount: 13657
+  time: 01/18/2026 00:34:59
+  entityCount: 13654
 maps:
 - 1
 grids:
@@ -820,7 +820,6 @@ entities:
             744: -21,-3
             804: -15,-18
             1215: -15,-15
-            1216: -15,-14
             1217: -15,-13
             1218: -15,-11
             1219: -15,-10
@@ -1996,6 +1995,8 @@ entities:
             id: DirtHeavyMonotile
           decals:
             1708: 35,-12
+            2622: -16,-10
+            2623: -15,-14
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -2081,7 +2082,6 @@ entities:
             1444: -28,-7
             1445: -26,-7
             1446: -22,-7
-            1447: -16,-10
             1451: -13,-14
             1452: -12,-16
             1453: -6,-15
@@ -2219,7 +2219,6 @@ entities:
             1424: -22,5
             1425: -17,16
             1426: -12,11
-            1448: -15,-14
             1449: -17,-19
             1450: -21,-18
             1458: 0,-9
@@ -6377,6 +6376,9 @@ entities:
     - type: Transform
       pos: -1.5,22.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Atmospherics
     - type: DeviceList
       devices:
       - 4048
@@ -9188,6 +9190,9 @@ entities:
     - type: Transform
       pos: 0.5,22.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Engineering
     - type: Fixtures
       fixtures: {}
   - uid: 12833
@@ -44897,17 +44902,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 6018
-    components:
-    - type: Transform
-      anchored: False
-      pos: -14.5,-45.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#990000FF'
-    - type: Physics
-      canCollide: True
-      bodyType: Dynamic
   - uid: 6022
     components:
     - type: Transform
@@ -62313,6 +62307,9 @@ entities:
     - type: Transform
       pos: -0.5,20.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Command
 - proto: HolopadCommandHos
   entities:
   - uid: 8378
@@ -63805,6 +63802,9 @@ entities:
     - type: Transform
       pos: 19.5,-23.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Salvage
   - uid: 8552
     components:
     - type: Transform
@@ -63910,6 +63910,9 @@ entities:
     - type: Transform
       pos: -26.5,-2.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Research
 - proto: MachineAnomalyVessel
   entities:
   - uid: 8568
@@ -76883,6 +76886,9 @@ entities:
     - type: Transform
       pos: 29.5,12.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - HeadOfSecurity
 - proto: SuitStorageRD
   entities:
   - uid: 10510
@@ -76944,12 +76950,16 @@ entities:
     - type: Transform
       pos: 12.5,17.5
       parent: 2
+    - type: SurveillanceCamera
+      id: Vault
   - uid: 6203
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -0.5,21.5
       parent: 2
+    - type: SurveillanceCamera
+      id: HoP Office
   - uid: 10516
     components:
     - type: Transform
@@ -77003,14 +77013,32 @@ entities:
       parent: 2
     - type: SurveillanceCamera
       id: Bridge
+  - uid: 10538
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,31.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Captain's Office
   - uid: 11793
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 2.5,19.5
       parent: 2
+    - type: SurveillanceCamera
+      id: Bridge Entrance
 - proto: SurveillanceCameraEngineering
   entities:
+  - uid: 6018
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,-6.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Supermatter Airlock
   - uid: 9798
     components:
     - type: Transform
@@ -77021,27 +77049,6 @@ entities:
       - SurveillanceCameraEngineering
       nameSet: True
       id: Front Desk
-  - uid: 10106
-    components:
-    - type: Transform
-      pos: 18.5,-15.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraEngineering
-      nameSet: True
-      id: Supermatter South
-  - uid: 10107
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 21.5,-6.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraEngineering
-      nameSet: True
-      id: Supermatter
   - uid: 10154
     components:
     - type: Transform
@@ -77052,7 +77059,7 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraEngineering
       nameSet: True
-      id: Lockers
+      id: Locker Room
   - uid: 10355
     components:
     - type: Transform
@@ -77075,17 +77082,6 @@ entities:
       - SurveillanceCameraEngineering
       nameSet: True
       id: Atmos North
-  - uid: 10374
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 27.5,-13.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraEngineering
-      nameSet: True
-      id: CE Office
   - uid: 10532
     components:
     - type: Transform
@@ -77155,6 +77151,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 43.5,32.5
       parent: 2
+  - uid: 10106
+    components:
+    - type: Transform
+      pos: 45.5,1.5
+      parent: 2
   - uid: 10536
     components:
     - type: Transform
@@ -77166,11 +77167,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 0.5,-30.5
-      parent: 2
-  - uid: 10538
-    components:
-    - type: Transform
-      pos: -16.5,-25.5
       parent: 2
   - uid: 10539
     components:
@@ -77201,32 +77197,20 @@ entities:
   - uid: 10544
     components:
     - type: Transform
-      pos: 39.5,1.5
+      rot: 1.5707963267948966 rad
+      pos: 8.5,17.5
       parent: 2
-  - uid: 10545
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 25.5,3.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraGeneral
   - uid: 10549
     components:
     - type: Transform
       pos: -4.5,-26.5
       parent: 2
-    - type: SurveillanceCamera
-      id: Dorms
   - uid: 10551
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -39.5,8.5
       parent: 2
-    - type: SurveillanceCamera
-      id: Evac
   - uid: 10555
     components:
     - type: Transform
@@ -77255,15 +77239,20 @@ entities:
     - type: Transform
       pos: -11.5,-31.5
       parent: 2
-- proto: SurveillanceCameraMedical
-  entities:
   - uid: 10560
     components:
     - type: Transform
-      pos: -25.5,5.5
+      rot: -1.5707963267948966 rad
+      pos: -34.5,24.5
       parent: 2
-    - type: SurveillanceCamera
-      id: Cloning
+  - uid: 10577
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,3.5
+      parent: 2
+- proto: SurveillanceCameraMedical
+  entities:
   - uid: 10561
     components:
     - type: Transform
@@ -77375,6 +77364,22 @@ entities:
       parent: 2
 - proto: SurveillanceCameraScience
   entities:
+  - uid: 10107
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -20.5,-17.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Artifact Lab
+  - uid: 10374
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -15.5,-0.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Locker Room
   - uid: 10575
     components:
     - type: Transform
@@ -77391,14 +77396,6 @@ entities:
       setupAvailableNetworks:
       - SurveillanceCameraScience
       id: Entrance
-  - uid: 10577
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -18.5,-3.5
-      parent: 2
-    - type: SurveillanceCamera
-      id: Equipment Room
   - uid: 10578
     components:
     - type: Transform
@@ -77417,20 +77414,7 @@ entities:
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraScience
-  - uid: 10580
-    components:
-    - type: Transform
-      pos: -18.5,-18.5
-      parent: 2
-  - uid: 10581
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -14.5,-13.5
-      parent: 2
-    - type: SurveillanceCamera
-      setupAvailableNetworks:
-      - SurveillanceCameraScience
+      id: Anomaly Generator
 - proto: SurveillanceCameraSecurity
   entities:
   - uid: 97
@@ -77443,6 +77427,14 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Brig
+  - uid: 10545
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,15.5
+      parent: 2
+    - type: SurveillanceCamera
+      id: Locker Room
   - uid: 10583
     components:
     - type: Transform
@@ -77462,6 +77454,7 @@ entities:
     - type: SurveillanceCamera
       setupAvailableNetworks:
       - SurveillanceCameraSecurity
+      id: East Hall
 - proto: SurveillanceCameraService
   entities:
   - uid: 10590
@@ -77493,12 +77486,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -37.5,8.5
       parent: 2
+    - type: SurveillanceCamera
+      id: Chapel
   - uid: 12639
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -36.5,-4.5
       parent: 2
+    - type: SurveillanceCamera
+      id: Library
 - proto: SurveillanceCameraSupply
   entities:
   - uid: 10593
@@ -77507,18 +77504,16 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 22.5,-20.5
       parent: 2
-  - uid: 10594
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 24.5,-24.5
-      parent: 2
+    - type: SurveillanceCamera
+      id: Salvage
   - uid: 10595
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 24.5,-26.5
       parent: 2
+    - type: SurveillanceCamera
+      id: Salvage Airlock
   - uid: 10596
     components:
     - type: Transform
