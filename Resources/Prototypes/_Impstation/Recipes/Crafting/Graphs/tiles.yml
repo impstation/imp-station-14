@@ -1,0 +1,28 @@
+# brass tiles but theyre normal
+
+- type: constructionGraph
+  id: TilesBrass
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: filledPlate
+          completed:
+            - !type:SetStackCount
+              amount: 4
+          steps:
+            - material: Brass
+              amount: 1
+        - to: reebe
+          completed:
+            - !type:SetStackCount
+              amount: 4
+          steps:
+            - material: Brass
+              amount: 1
+    
+    - node: filledPlate
+      entity: FloorTileItemBrassFilledImp
+      
+    - node: reebe
+      entity: FloorTileItemBrassReebeImp

@@ -31,32 +31,32 @@
     - node: woodtile
       entity: FloorTileItemWood
 
-- type: constructionGraph
-  id: TilesBrass
-  start: start
-  graph:
-    - node: start
-      edges:
-        - to: filledPlate
-          completed:
-            - !type:SetStackCount
-              amount: 4
-          steps:
-            - material: Brass
-              amount: 1
-        - to: reebe
-          completed:
-            - !type:SetStackCount
-              amount: 4
-          steps:
-            - material: Brass
-              amount: 1
-    
-    - node: filledPlate
-      entity: FloorTileItemBrassFilled
-      
-    - node: reebe
-      entity: FloorTileItemBrassReebe
+#- type: constructionGraph
+#  id: TilesBrass
+#  start: start
+#  graph:
+#    - node: start
+#      edges:
+#        - to: filledPlate
+#          completed:
+#            - !type:SetStackCount
+#              amount: 4
+#          steps:
+#            - material: Brass
+#              amount: 1
+#        - to: reebe
+#          completed:
+#            - !type:SetStackCount
+#              amount: 4
+#          steps:
+#            - material: Brass
+#              amount: 1
+#    
+#    - node: filledPlate
+#      entity: FloorTileItemBrassFilled
+#      
+#    - node: reebe
+#      entity: FloorTileItemBrassReebe # Imp, commentted out and replaced with the recipies for BrassFilledImp and BrassReebeImp
 
 - type: constructionGraph
   id: TileWhite

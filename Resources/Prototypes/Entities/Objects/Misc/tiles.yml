@@ -582,6 +582,7 @@
   name: filled brass plate
   parent: FloorTileItemBase
   id: FloorTileItemBrassFilled
+  categories: HideSpawnMenu  # imp, replaced with FloorTileItemBrassFilledImp
   components:
   - type: Sprite
     state: brass-filled
@@ -589,7 +590,7 @@
     heldPrefix: brass
   - type: FloorTile
     outputs:
-      - Plating #imp, changed from PlatingBrass
+      - PlatingBrass
       - FloorBrassFilled
   - type: Stack
     stackType: FloorTileBrassFilled
@@ -601,6 +602,7 @@
   name: smooth brass plate
   parent: FloorTileItemBase
   id: FloorTileItemBrassReebe
+  categories: HideSpawnMenu # imp, replaced with FloorTileItemBrassReebeImp
   components:
   - type: Sprite
     state: reebe
@@ -608,7 +610,7 @@
     heldPrefix: brass
   - type: FloorTile
     outputs:
-      - Plating #imp, changed from PlatingBrass
+      - PlatingBrass
       - FloorBrassReebe
   - type: Stack
     stackType: FloorTileBrassReebe

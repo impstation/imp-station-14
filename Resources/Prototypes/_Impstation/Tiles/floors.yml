@@ -71,6 +71,32 @@
   deconstructTools: [ Prying ]
   itemDrop: FloorTileItemCraftedAsphalt
 
+# brass tiles but theyre normal
+
+- type: tile
+  id: FloorBrassFilledImp
+  name: tiles-brass-floor-filled
+  sprite: /Textures/Tiles/Misc/clockwork/clockwork_floor_filled.png
+  baseTurf: Plating #changed from PlatingBrass
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemBrassFilledImp
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorBrassReebeImp
+  name: tiles-brass-floor-reebe
+  sprite: /Textures/Tiles/Misc/clockwork/reebe.png
+  baseTurf: Plating #changed from PlatingBrass
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: FloorTileItemBrassReebeImp
+  heatCapacity: 10000
+
 # Faux sci tiles
 - type: tile
   id: FloorShoveledAstroSnow
