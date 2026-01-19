@@ -1,7 +1,7 @@
 - type: tile
   id: FloorSteel
   name: tiles-steel-floor
-  sprite: /Textures/Tiles/steel.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -19,7 +19,7 @@
 - type: tile
   id: FloorSteelCheckerLight
   name: tiles-steel-floor-checker-light
-  sprite: /Textures/Tiles/cafeteria.png
+  sprite: /Textures/_Impstation/Tiles/Misc/cafeteria.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -37,7 +37,7 @@
 - type: tile
   id: FloorSteelCheckerDark
   name: tiles-steel-floor-checker-dark
-  sprite: /Textures/Tiles/checker_dark.png
+  sprite: /Textures/_Impstation/Tiles/Misc/checker_dark.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -55,7 +55,7 @@
 - type: tile
   id: FloorSteelMini
   name: tiles-steel-floor-mini
-  sprite: /Textures/Tiles/steel_mini.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_mini.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -73,7 +73,7 @@
 - type: tile
   id: FloorSteelPavement
   name: tiles-steel-floor-pavement
-  sprite: /Textures/Tiles/steel_pavement.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_pavement.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -91,7 +91,7 @@
 - type: tile
   id: FloorSteelDiagonal
   name: tiles-steel-floor-diagonal
-  sprite: /Textures/Tiles/steel_diagonal.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_diagonal.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -109,7 +109,7 @@
 - type: tile
   id: FloorSteelOffset
   name: tiles-steel-floor-offset
-  sprite: /Textures/Tiles/steel_offset.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_offset.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -121,7 +121,7 @@
 - type: tile
   id: FloorSteelMono
   name: tiles-steel-floor-mono
-  sprite: /Textures/Tiles/steel_mono.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_mono.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -139,7 +139,7 @@
 - type: tile
   id: FloorSteelPavementVertical
   name: tiles-steel-floor-pavement-vertical
-  sprite: /Textures/Tiles/steel_pavement_vertical.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_pavement_vertical.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -157,7 +157,7 @@
 - type: tile
   id: FloorSteelHerringbone
   name: tiles-steel-floor-herringbone
-  sprite: /Textures/Tiles/steel_herringbone.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_herringbone.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -175,7 +175,7 @@
 - type: tile
   id: FloorSteelDiagonalMini
   name: tiles-steel-floor-diagonal-mini
-  sprite: /Textures/Tiles/steel_diagonal_mini.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_diagonal_mini.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -217,7 +217,7 @@
 - type: tile
   id: FloorPlastic
   name: tiles-plastic-floor
-  sprite: /Textures/Tiles/plastic.png
+  sprite: /Textures/_Impstation/Tiles/Steel/plastic.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -229,7 +229,7 @@
   deconstructTools: [ Prying ]
   footstepSounds:
     collection: FootstepFloor
-  itemDrop: FloorTileItemSteel
+  itemDrop: FloorTileItemPlastic # Imp Edit, no plastic floor item upstream
   heatCapacity: 10000
 
 - type: tile
@@ -255,7 +255,7 @@
 - type: tile
   id: FloorWhite
   name: tiles-white-floor
-  sprite: /Textures/Tiles/white.png
+  sprite: /Textures/_Impstation/Tiles/White/white.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -273,7 +273,7 @@
 - type: tile
   id: FloorWhiteMini
   name: tiles-white-floor-mini
-  sprite: /Textures/Tiles/white_mini.png
+  sprite: /Textures/_Impstation/Tiles/White/white_mini.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -291,7 +291,7 @@
 - type: tile
   id: FloorWhitePavement
   name: tiles-white-floor-pavement
-  sprite: /Textures/Tiles/white_pavement.png
+  sprite: /Textures/_Impstation/Tiles/White/white_pavement.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -309,7 +309,7 @@
 - type: tile
   id: FloorWhiteDiagonal
   name: tiles-white-floor-diagonal
-  sprite: /Textures/Tiles/white_diagonal.png
+  sprite: /Textures/_Impstation/Tiles/White/white_diagonal.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -327,7 +327,7 @@
 - type: tile
   id: FloorWhiteOffset
   name: tiles-white-floor-offset
-  sprite: /Textures/Tiles/white_offset.png
+  sprite: /Textures/_Impstation/Tiles/White/white_offset.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -339,7 +339,7 @@
 - type: tile
   id: FloorWhiteMono
   name: tiles-white-floor-mono
-  sprite: /Textures/Tiles/white_mono.png
+  sprite: /Textures/_Impstation/Tiles/White/white_mono.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -357,7 +357,7 @@
 - type: tile
   id: FloorWhitePavementVertical
   name: tiles-white-floor-pavement-vertical
-  sprite: /Textures/Tiles/white_pavement_vertical.png
+  sprite: /Textures/_Impstation/Tiles/White/white_pavement_vertical.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -375,7 +375,7 @@
 - type: tile
   id: FloorWhiteHerringbone
   name: tiles-white-floor-herringbone
-  sprite: /Textures/Tiles/white_herringbone.png
+  sprite: /Textures/_Impstation/Tiles/White/white_herringbone.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -393,7 +393,7 @@
 - type: tile
   id: FloorWhiteDiagonalMini
   name: tiles-white-floor-diagonal-mini
-  sprite: /Textures/Tiles/white_diagonal_mini.png
+  sprite: /Textures/_Impstation/Tiles/White/white_diagonal_mini.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -411,7 +411,7 @@
 - type: tile
   id: FloorWhitePlastic
   name: tiles-plastic-white-floor
-  sprite: /Textures/Tiles/white_plastic.png
+  sprite: /Textures/_Impstation/Tiles/White/white_plastic.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -429,7 +429,7 @@
 - type: tile
   id: FloorDark
   name: tiles-dark-floor
-  sprite: /Textures/Tiles/dark.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -447,7 +447,7 @@
 - type: tile
   id: FloorDarkMini
   name: tiles-dark-floor-mini
-  sprite: /Textures/Tiles/dark_mini.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_mini.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -465,7 +465,7 @@
 - type: tile
   id: FloorDarkPavement
   name: tiles-dark-floor-pavement
-  sprite: /Textures/Tiles/dark_pavement.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_pavement.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -483,7 +483,7 @@
 - type: tile
   id: FloorDarkDiagonal
   name: tiles-dark-floor-diagonal
-  sprite: /Textures/Tiles/dark_diagonal.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_diagonal.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -501,7 +501,7 @@
 - type: tile
   id: FloorDarkOffset
   name: tiles-dark-floor-offset
-  sprite: /Textures/Tiles/dark_offset.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_offset.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -513,7 +513,7 @@
 - type: tile
   id: FloorDarkMono
   name: tiles-dark-floor-mono
-  sprite: /Textures/Tiles/dark_mono.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_mono.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -531,7 +531,7 @@
 - type: tile
   id: FloorDarkPavementVertical
   name: tiles-dark-floor-pavement-vertical
-  sprite: /Textures/Tiles/dark_pavement_vertical.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_pavement_vertical.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -549,7 +549,7 @@
 - type: tile
   id: FloorDarkHerringbone
   name: tiles-dark-floor-herringbone
-  sprite: /Textures/Tiles/dark_herringbone.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_herringbone.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -567,7 +567,7 @@
 - type: tile
   id: FloorDarkDiagonalMini
   name: tiles-dark-floor-diagonal-mini
-  sprite: /Textures/Tiles/dark_diagonal_mini.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_diagonal_mini.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -585,7 +585,7 @@
 - type: tile
   id: FloorDarkPlastic
   name: tiles-plastic-dark-floor
-  sprite: /Textures/Tiles/dark_plastic.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_plastic.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -603,7 +603,7 @@
 - type: tile
   id: FloorTechMaint
   name: tiles-techmaint-floor
-  sprite: /Textures/Tiles/tech_maint.png
+  sprite: /Textures/_Impstation/Tiles/Maint/tech_maint.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -615,7 +615,7 @@
 - type: tile
   id: FloorTechMaintDark
   name: tiles-techmaint-floor-dark
-  sprite: /Textures/Tiles/tech_maint_dark.png
+  sprite: /Textures/_Impstation/Tiles/Maint/tech_maint_dark.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -639,7 +639,8 @@
 - type: tile
   id: FloorMono
   name: tiles-mono-floor
-  sprite: /Textures/Tiles/mono.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_mono.png # Imp Edit
+  variants: 4
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -663,7 +664,7 @@
 - type: tile
   id: FloorSteelDirty
   name: tiles-dirty-steel-floor
-  sprite: /Textures/Tiles/steel_dirty.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_dirty.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -681,7 +682,7 @@
 - type: tile
   id: FloorElevatorShaft
   name: tiles-elevator-shaft
-  sprite: /Textures/Tiles/elevator_shaft.png
+  sprite: /Textures/_Impstation/Tiles/Misc/elevator_shaft.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -717,7 +718,7 @@
 - type: tile
   id: FloorBlue
   name: tiles-blue-tile
-  sprite: /Textures/Tiles/blue.png
+  sprite: /Textures/_Impstation/Tiles/Misc/blue.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -729,7 +730,7 @@
 - type: tile
   id: FloorSteelLime
   name: tiles-lime-floor
-  sprite: /Textures/Tiles/lime.png
+  sprite: /Textures/_Impstation/Tiles/Misc/lime.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -747,7 +748,7 @@
 - type: tile
   id: FloorMining
   name: tiles-mining-tile
-  sprite: /Textures/Tiles/mining_floor.png
+  sprite: /Textures/_Impstation/Tiles/Mining/mining_floor.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -759,7 +760,7 @@
 - type: tile
   id: FloorMiningDark
   name: tiles-mining-dark-tile
-  sprite: /Textures/Tiles/mining_floor_dark.png
+  sprite: /Textures/_Impstation/Tiles/Mining/mining_floor_dark.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -771,7 +772,7 @@
 - type: tile
   id: FloorMiningLight
   name: tiles-mining-light-tile
-  sprite: /Textures/Tiles/mining_floor_light.png
+  sprite: /Textures/_Impstation/Tiles/Mining/mining_floor_light.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -784,7 +785,7 @@
 - type: tile
   id: FloorFreezer
   name: tiles-freezer
-  sprite: /Textures/Tiles/freezer.png
+  sprite: /Textures/_Impstation/Tiles/Misc/freezer.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -796,7 +797,7 @@
 - type: tile
   id: FloorShowroom
   name: tiles-showroom-floor
-  sprite: /Textures/Tiles/showroom.png
+  sprite: /Textures/_Impstation/Tiles/Misc/showroom.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -808,7 +809,7 @@
 - type: tile
   id: FloorHydro
   name: tiles-hydro-floor
-  sprite: /Textures/Tiles/hydro.png
+  sprite: /Textures/_Impstation/Tiles/Misc/hydro.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -820,7 +821,7 @@
 - type: tile
   id: FloorBar
   name: tiles-bar-floor
-  sprite: /Textures/Tiles/bar.png
+  sprite: /Textures/_Impstation/Tiles/Misc/bar.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -838,7 +839,7 @@
 - type: tile
   id: FloorClown
   name: tiles-clown-floor
-  sprite: /Textures/Tiles/clown.png
+  sprite: /Textures/_Impstation/Tiles/Misc/clown.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -850,7 +851,7 @@
 - type: tile
   id: FloorMime
   name: tiles-mime-floor
-  sprite: /Textures/Tiles/mime.png
+  sprite: /Textures/_Impstation/Tiles/Misc/mime.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -862,7 +863,7 @@
 - type: tile
   id: FloorKitchen
   name: tiles-kitchen-floor
-  sprite: /Textures/Tiles/kitchen.png
+  sprite: /Textures/_Impstation/Tiles/Misc/kitchen.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -874,7 +875,7 @@
 - type: tile
   id: FloorLaundry
   name: tiles-laundry-floor
-  sprite: /Textures/Tiles/laundry.png
+  sprite: /Textures/_Impstation/Tiles/Misc/laundry.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -886,7 +887,7 @@
 - type: tile
   id: FloorSteelDamaged
   name: tiles-steel-floor
-  sprite: /Textures/Tiles/steel_damaged.png
+  sprite: /Textures/_Impstation/Tiles/Steel/steel_damaged.png # Imp Edit
   variants: 5
   placementVariants:
   - 1.0
@@ -906,7 +907,7 @@
 - type: tile
   id: FloorConcrete
   name: tiles-concrete-tile
-  sprite: /Textures/Tiles/Planet/Concrete/concrete.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/concrete.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -924,7 +925,7 @@
 - type: tile
   id: FloorConcreteMono
   name: tiles-concrete-slab
-  sprite: /Textures/Tiles/Planet/Concrete/concrete_mono.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/concrete_mono.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -942,7 +943,7 @@
 - type: tile
   id: FloorConcreteSmooth
   name: tiles-concrete-smooth
-  sprite: /Textures/Tiles/Planet/Concrete/concrete_smooth.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/concrete_smooth.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -960,7 +961,7 @@
 - type: tile
   id: FloorGrayConcrete
   name: tiles-gray-concrete-tile
-  sprite: /Textures/Tiles/Planet/Concrete/grayconcrete.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/grayconcrete.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -978,7 +979,7 @@
 - type: tile
   id: FloorGrayConcreteMono
   name: tiles-gray-concrete-slab
-  sprite: /Textures/Tiles/Planet/Concrete/grayconcrete_mono.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/grayconcrete_mono.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -996,7 +997,7 @@
 - type: tile
   id: FloorGrayConcreteSmooth
   name: tiles-gray-concrete-smooth
-  sprite: /Textures/Tiles/Planet/Concrete/grayconcrete_smooth.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/grayconcrete_smooth.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1014,7 +1015,7 @@
 - type: tile
   id: FloorOldConcrete
   name: tiles-old-concrete-tile
-  sprite: /Textures/Tiles/Planet/Concrete/oldconcrete.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/oldconcrete.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1032,7 +1033,7 @@
 - type: tile
   id: FloorOldConcreteMono
   name: tiles-old-concrete-slab
-  sprite: /Textures/Tiles/Planet/Concrete/oldconcrete_mono.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/oldconcrete_mono.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1050,7 +1051,7 @@
 - type: tile
   id: FloorOldConcreteSmooth
   name: tiles-old-concrete-smooth
-  sprite: /Textures/Tiles/Planet/Concrete/oldconcrete_smooth.png
+  sprite: /Textures/_Impstation/Tiles/Concrete/oldconcrete_smooth.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1069,7 +1070,7 @@
 - type: tile
   id: FloorArcadeBlue
   name: tiles-blue-arcade-floor
-  sprite: /Textures/Tiles/arcadeblue.png
+  sprite: /Textures/_Impstation/Tiles/Carpet/arcadeblue.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1084,7 +1085,7 @@
 - type: tile
   id: FloorArcadeBlue2
   name: tiles-blue-arcade-floor
-  sprite: /Textures/Tiles/arcadeblue2.png
+  sprite: /Textures/_Impstation/Tiles/Carpet/arcadeblue2.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1099,7 +1100,7 @@
 - type: tile
   id: FloorArcadeRed
   name: tiles-red-arcade-floor
-  sprite: /Textures/Tiles/arcadered.png
+  sprite: /Textures/_Impstation/Tiles/Carpet/arcadered.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1144,7 +1145,7 @@
 - type: tile
   id: FloorCarpetOffice
   name: tiles-office-carpet-floor
-  sprite: /Textures/Tiles/carpetoffice.png
+  sprite: /Textures/_Impstation/Tiles/Carpet/carpetoffice.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1198,7 +1199,7 @@
 - type: tile
   id: FloorShuttleWhite
   name: tiles-white-shuttle-floor
-  sprite: /Textures/Tiles/shuttlewhite.png
+  sprite: /Textures/_Impstation/Tiles/Shuttle/shuttle_white.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1216,7 +1217,7 @@
 - type: tile
   id: FloorShuttleGrey
   name: tiles-grey-shuttle-floor
-  sprite: /Textures/Tiles/shuttlegrey.png
+  sprite: /Textures/_Impstation/Tiles/Shuttle/shuttle_grey.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1234,7 +1235,7 @@
 - type: tile
   id: FloorShuttleBlack
   name: tiles-black-shuttle-floor
-  sprite: /Textures/Tiles/shuttleblack.png
+  sprite: /Textures/_Impstation/Tiles/Shuttle/shuttle_black.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1252,7 +1253,7 @@
 - type: tile
   id: FloorShuttleBlue
   name: tiles-blue-shuttle-floor
-  sprite: /Textures/Tiles/shuttleblue.png
+  sprite: /Textures/_Impstation/Tiles/Shuttle/shuttle_blue.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1270,7 +1271,7 @@
 - type: tile
   id: FloorShuttleOrange
   name: tiles-orange-shuttle-floor
-  sprite: /Textures/Tiles/shuttleorange.png
+  sprite: /Textures/_Impstation/Tiles/Shuttle/shuttle_orange.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1288,7 +1289,7 @@
 - type: tile
   id: FloorShuttlePurple
   name: tiles-purple-shuttle-floor
-  sprite: /Textures/Tiles/shuttlepurple.png
+  sprite: /Textures/_Impstation/Tiles/Shuttle/shuttle_purple.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1306,7 +1307,7 @@
 - type: tile
   id: FloorShuttleRed
   name: tiles-red-shuttle-floor
-  sprite: /Textures/Tiles/shuttlered.png
+  sprite: /Textures/_Impstation/Tiles/Shuttle/shuttle_red.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1326,7 +1327,7 @@
 - type: tile
   id: FloorGold
   name: tiles-gold-tile
-  sprite: /Textures/Tiles/gold.png
+  sprite: /Textures/_Impstation/Tiles/Misc/gold.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1350,7 +1351,7 @@
 - type: tile
   id: FloorGlass
   name: tiles-glass-floor
-  sprite: /Textures/Tiles/glass.png
+  sprite: /Textures/_Impstation/Tiles/Glass/glass.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1368,7 +1369,7 @@
 - type: tile
   id: FloorRGlass
   name: tiles-reinforced-glass-floor
-  sprite: /Textures/Tiles/rglass.png
+  sprite: /Textures/_Impstation/Tiles/Glass/rglass.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1386,7 +1387,7 @@
 - type: tile
   id: FloorMetalFoam
   name: tiles-metal-foam
-  sprite: /Textures/Tiles/foammetal.png
+  sprite: /Textures/_Impstation/Tiles/Plating/foam_metal.png # Imp Edit
   variants: 1
   placementVariants:
   - 1.0
@@ -1402,7 +1403,7 @@
 - type: tile
   id: FloorGreenCircuit
   name: tiles-green-circuit-floor
-  sprite: /Textures/Tiles/green_circuit.png
+  sprite: /Textures/_Impstation/Tiles/Circuit/green_circuit.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1414,7 +1415,7 @@
 - type: tile
   id: FloorBlueCircuit
   name: tiles-blue-circuit-floor
-  sprite: /Textures/Tiles/blue_circuit.png
+  sprite: /Textures/_Impstation/Tiles/Circuit/blue_circuit.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1426,7 +1427,7 @@
 - type: tile
   id: FloorRedCircuit
   name: tiles-red-circuit-floor
-  sprite: /Textures/Tiles/red_circuit.png
+  sprite: /Textures/_Impstation/Tiles/Circuit/red_circuit.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1813,7 +1814,7 @@
 - type: tile
   id: FloorTechMaint2
   name: tiles-techmaint2-floor
-  sprite: /Textures/Tiles/steel_maint.png
+  sprite: /Textures/_Impstation/Tiles/Maint/steel_maint.png # Imp Edit
   baseTurf: Plating
   isSubfloor: false
   deconstructTools: [ Prying ]
@@ -1825,7 +1826,7 @@
 - type: tile
   id: FloorTechMaint3
   name: tiles-techmaint3-floor
-  sprite: /Textures/Tiles/grating_maint.png
+  sprite: /Textures/_Impstation/Tiles/Maint/grating_maint.png # Imp Edit
   variants: 4
   placementVariants:
   - 1.0
@@ -1920,7 +1921,7 @@
 - type: tile
   id: FloorHull
   name: tiles-hull
-  sprite: /Textures/Tiles/hull.png
+  sprite: /Textures/_Impstation/Tiles/Misc/hull.png # Imp
   baseTurf: Plating
   isSubfloor: false
   footstepSounds:
@@ -1931,7 +1932,7 @@
 - type: tile
   id: FloorHullReinforced
   name: tiles-hull-reinforced
-  sprite: /Textures/Tiles/hull_reinforced.png
+  sprite: /Textures/_Impstation/Tiles/Misc/hull_reinforced.png # Imp
   baseTurf: Plating
   isSubfloor: false
   footstepSounds:
@@ -2144,7 +2145,7 @@
 - type: tile
   id: FloorDarkSquiggly
   name: tiles-dark-squiggly
-  sprite: /Textures/Tiles/dark_squiggly.png
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_squiggly.png
   variants: 4
   placementVariants:
   - 1.0

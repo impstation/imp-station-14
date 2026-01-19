@@ -798,6 +798,7 @@
     entries:
       Taco: CheeseTaco
       Burger: CheeseBurger
+      Hotdog: CheeseBurger #imp
   - type: Item
     size: Tiny
     storedOffset: 0,-3
@@ -869,6 +870,7 @@
   - type: FoodSequenceElement
     entries:
       Burger: ChevreBurger
+      Hotdog: ChevreBurger #imp
 
 - type: entity
   parent: FoodBakingBase

@@ -1,6 +1,6 @@
 # Used to animate the hitscan effects because effectsystem doesn't support it
 - type: entity
-  id: HitscanEffect
+  id: HitscanEffectWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
@@ -17,7 +17,7 @@
   - type: AnimationPlayer
 
 - type: entity
-  id: BasicHitscan
+  id: BasicHitscanWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanAmmo
@@ -37,7 +37,7 @@
 
 - type: entity
   parent: BasicHitscan
-  id: RedLightLaser
+  id: RedLightLaserWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -47,7 +47,7 @@
 
 - type: entity
   parent: BasicHitscan
-  id: RedLaser
+  id: RedLaserWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -57,7 +57,7 @@
 
 - type: entity
   parent: BasicHitscan
-  id: RedMediumLaser
+  id: RedMediumLaserWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -67,7 +67,7 @@
 
 - type: entity
   parent: BasicHitscan
-  id: RedHeavyLaser
+  id: RedHeavyLaserWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -87,7 +87,7 @@
 
 - type: entity
   parent: BasicHitscan
-  id: RedLaserPractice
+  id: RedLaserPracticeWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -97,7 +97,7 @@
 
 - type: entity
   parent: BasicHitscan
-  id: XrayLaser
+  id: XrayLaserWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -118,7 +118,7 @@
 
 - type: entity
   parent: BasicHitscan
-  id: Pulse
+  id: PulseWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicDamage
@@ -138,7 +138,7 @@
 
 - type: entity
   parent: BasicHitscan
-  id: RedShuttleLaser
+  id: RedShuttleLaserWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: HitscanBasicRaycast

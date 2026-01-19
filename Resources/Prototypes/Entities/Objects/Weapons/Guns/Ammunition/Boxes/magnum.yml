@@ -1,9 +1,7 @@
 - type: entity
-  abstract: true
   parent: BaseItem
-  id: BaseMagazineBoxMagnum
-  name: ammunition box (.45 magnum) #imp
-  description: A box made for 12 rounds of .45 magnum ammunition. #imp
+  id: BaseMagazineBoxMagnumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -18,7 +16,7 @@
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi # imp
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
   - type: MagazineVisuals
     magState: mag
     steps: 4
@@ -28,9 +26,10 @@
 # Boxes
 - type: entity
   parent: BaseMagazineBoxMagnum
-  id: MagazineBoxMagnum
+  id: MagazineBoxMagnumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: ammunition box (.45 magnum)
-  description: A box made for 12 rounds of .45 magnum ammunition, labeled as live-fire bullets. #imp
+  description: A cardboard box of .45 magnum rounds. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum
@@ -43,9 +42,10 @@
 
 - type: entity
   parent: BaseMagazineBoxMagnum
-  id: MagazineBoxMagnumPractice
+  id: MagazineBoxMagnumPracticeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: ammunition box (.45 magnum practice)
-  description: A box made for 12 rounds of .45 magnum ammunition, labeled as practice bullets. #imp
+  description: A cardboard box of .45 magnum rounds. Intended to hold non-harmful chalk ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
@@ -58,10 +58,11 @@
     - state: practice
 
 - type: entity
-  id: MagazineBoxMagnumIncendiary
+  id: MagazineBoxMagnumIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   parent: BaseMagazineBoxMagnum
   name: ammunition box (.45 magnum incendiary)
-  description: A box made for 12 rounds of .45 magnum ammunition, labeled as incendiary bullets. #imp
+  description: A cardboard box of .45 magnum rounds. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumIncendiary
@@ -74,10 +75,11 @@
     - state: incendiary
 
 - type: entity
-  id: MagazineBoxMagnumUranium
+  id: MagazineBoxMagnumUraniumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   parent: BaseMagazineBoxMagnum
   name: ammunition box (.45 magnum uranium)
-  description: A box made for 12 rounds of .45 magnum ammunition, labeled as uranium bullets. #imp
+  description: A cardboard box of .45 magnum rounds. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium
@@ -90,10 +92,11 @@
     - state: uranium
 
 - type: entity
-  id: MagazineBoxMagnumAP
+  id: MagazineBoxMagnumAPWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   parent: BaseMagazineBoxMagnum
   name: ammunition box (.45 magnum armor-piercing)
-  description: A box made for 12 rounds of .45 magnum ammunition, labeled as armor-piercing bullets. #imp
+  description: A cardboard box of .45 magnum rounds. Intended to hold rare armor-piercing ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP

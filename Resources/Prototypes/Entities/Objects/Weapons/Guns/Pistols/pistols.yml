@@ -1,7 +1,7 @@
 - type: entity
   name: BasePistol
   parent: BaseItem
-  id: BaseWeaponPistol
+  id: BaseWeaponPistolWizden #imp - see the _Impstation directory for the version we use
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -21,7 +21,7 @@
     tags:
     - Sidearm
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/viper.rsi #imp
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
     quickEquip: false
     slots:
     - suitStorage
@@ -68,36 +68,16 @@
   - type: Appearance
   - type: StaticPrice
     price: 500
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.8
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-    wideAnimationRotation: -80
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 6
-    damage:
-      types:
-        Blunt: 5
-#imp edit end
 
 - type: entity
-  name: Viper
-  parent: [BaseWeaponPistol, Tier3Contraband]
-  id: WeaponPistolViper
-  description: A small, easily-concealable but somewhat underpowered handgun. Retrofitted with a fully automatic receiver. Uses .35 auto ammo.
+  name: viper
+  parent: [BaseWeaponPistol, BaseSyndicateContraband]
+  id: WeaponPistolViperWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A common handgun illegally modified by the Syndicate. The Viper sports a selector switch between semi-auto and ‘rock and roll’. The standard sidearm for any soldier who fights under the three serpents. Feeds from .35 pistol magazines.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/viper.rsi #imp
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -126,10 +106,11 @@
     price: 1000
 
 - type: entity
-  name: Echis
-  parent: [ BaseItem, Tier3Contraband ]
-  id: WeaponPistolEchis
-  description: A Viper pistol for use by cyborgs. Creates .35 ammo on the fly from an internal ammo fabricator, which slowly self-charges.
+  name: echis
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: WeaponPistolEchisWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A cyborg-mounted weapon system based on the Viper pistol. Creates ammunition on the fly from an internal fabricator, which slowly self-charges.
   components:
   - type: Gun
     fireRate: 5
@@ -140,7 +121,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/viper.rsi #imp
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -160,24 +141,25 @@
   - type: AmmoCounter
 
 - type: entity
-  name: Cobra
-  parent: [ BaseWeaponPistol, Tier3Contraband ]
-  id: WeaponPistolCobra
-  description: A rugged, integrally-suppressed handgun. Perfect for the robust operator who wants to leave no trace. Uses .25 caseless ammo. #imp
+  name: cobra
+  parent: [ BaseWeaponPistol, BaseSyndicateContraband ]
+  id: WeaponPistolCobraWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: Integrally suppressed semi-automatic pistol used by the Syndicate, firing caseless subsonic rounds. Favored by any agent who likes to keep things quiet and leave no evidence behind. Feeds from .25 pistol magazines.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/cobra.rsi #imp
+    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
     layers:
-      - state: base
-        map: ["enum.GunVisualLayers.Base"]
-      - state: mag-0
-        map: ["enum.GunVisualLayers.Mag"]
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/cobra.rsi #imp
+    sprite: Objects/Weapons/Guns/Pistols/cobra.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
-    fireRate: 3.4 #imp
+    fireRate: 4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/silenced.ogg
       params:
@@ -211,20 +193,21 @@
     price: 1500
 
 - type: entity
-  name: Mk 58
+  name: mk 58
   parent: [BaseWeaponPistol, BaseSecurityContraband]
-  id: WeaponPistolMk58
-  description: A cheap, ubiquitous sidearm produced by a Nanotrasen subsidiary. It does its job without any hassle. Uses .35 auto ammo. #imp
+  id: WeaponPistolMk58Wizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: Designed by Nanotrasen’s Small Arms Division, the Mk58 is a conventional semi-automatic pistol with a simple recoil-operated action and excellent reliability. The standard sidearm of Nanotrasen’s station security and emergency response teams. Feeds from .35 pistol magazines.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/mk58.rsi #imp
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/mk58.rsi #imp
+    sprite: Objects/Weapons/Guns/Pistols/mk58.rsi
   - type: Item
     storedOffset: 0,-2
   - type: Gun
@@ -235,50 +218,16 @@
       path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
   - type: StealTarget
     stealGroup: OfficerHandgun
-  - type: Construction #imp
-    graph: UpgradeWeaponPistolConversion
-    node: start
-  - type: ContainerContainer #imp
-    containers:
-      gun_magazine: !type:ContainerSlot
-      gun_chamber: !type:ContainerSlot
-      conversion_kit: !type:ContainerSlot
-  - type: ItemSlots # imp. my sick ass hack
-    slots:
-      gun_magazine:
-        name: Magazine
-        startingItem: MagazinePistol
-        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
-        priority: 2
-        whitelist:
-          tags:
-            - MagazinePistol
-        whitelistFailPopup: gun-magazine-whitelist-fail
-      gun_chamber:
-        name: Chamber
-        startingItem: CartridgePistol
-        priority: 1
-        whitelist:
-          tags:
-            - CartridgePistol
-      conversion_kit:
-        priority: 3
-        locked: true
-        lockedFailPopup: gun-conversion-kit-upgrade
-        whitelist:
-          tags:
-            - ConversionKitFA
-            - ConversionKitHB
 
 - type: entity
   name: N1984
   parent: [BaseWeaponPistol, BaseSecurityContraband]
-  id: WeaponPistolN1984
-  description: The sidearm of any self-respecting officer, often favored by ERT security forces. Uses .45 magnum ammo. #imp
+  id: WeaponPistolN1984Wizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: An exceptionally powerful ‘hand cannon’ designed as part of Nanotrasen's BFG initiative. Chambered in .45, the lord’s caliber, it is generally considered too unwieldy for standard use but has become something of a status symbol among Nanotrasen officials. Feeds from .45 pistol magazines.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Pistols/N1984.rsi #imp
+    sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -295,7 +244,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/hpistol.ogg #imp; it's a damn .45 you GOTTA make it sound heavier
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
   - type: ItemSlots
     slots:
       gun_magazine:

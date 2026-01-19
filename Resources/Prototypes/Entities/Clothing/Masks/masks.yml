@@ -316,9 +316,9 @@
   description: The traditional mime's mask. It has an eerie facial posture.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/mime.rsi
+    sprite: _Impstation/Clothing/Mask/mime.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/mime.rsi
+    sprite: _Impstation/Clothing/Mask/mime.rsi #imp
   - type: BreathMask
   - type: IdentityBlocker
   - type: Tag
@@ -685,9 +685,9 @@
   description: Those ruddy cheeks just want to be rubbed.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/blushingmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_blushing.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/blushingmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_blushing.rsi #imp
 
 - type: entity
   parent: ClothingMaskMime
@@ -696,9 +696,9 @@
   description: Many people think this is what a real mime mask looks like.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/sadmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_sad.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/sadmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_sad.rsi #imp
 
 - type: entity
   parent: ClothingMaskMime
@@ -707,9 +707,9 @@
   description: Looks like it would scream if it wasn't a mask.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/scaredmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_scared.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/scaredmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_scared.rsi #imp
 
 - type: entity
   parent: [ClothingMaskMime, BaseSecurityContraband]
@@ -718,9 +718,9 @@
   description: You have the right to remain silent.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/mime_security.rsi
+    sprite: _Impstation/Clothing/Mask/mime_security.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/mime_security.rsi
+    sprite: _Impstation/Clothing/Mask/mime_security.rsi #imp
   - type: Armor
     modifiers:
       coefficients:

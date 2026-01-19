@@ -1,5 +1,5 @@
 - type: entity
-  id: BulletHeavyRifle
+  id: BulletHeavyRifleWizden #imp - see the _Impstation directory for the version we use
   name: bullet (.10 rifle)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -10,8 +10,8 @@
         Piercing: 19
 
 - type: entity
-  id: BulletMinigun
-  name: bullet (.10 mini) #imp
+  id: BulletMinigunWizden #imp - see the _Impstation directory for the version we use
+  name: minigun bullet (.10 rifle)
   parent: BulletHeavyRifle
   categories: [ HideSpawnMenu ]
   components:
