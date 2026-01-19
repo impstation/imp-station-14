@@ -14,19 +14,6 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkRevolverPython
-  name: uplink-revolver-python-name
-  description: uplink-revolver-python-desc
-  productEntity: WeaponRevolverPythonAP
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 2
-  cost:
-    Telecrystal: 4 # Originally was 13 and then 8 TC but was not used due to high cost
-  categories:
-  - UplinkWeaponry
-
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
   id: UplinkPistolCobra
@@ -131,9 +118,9 @@
   productEntity: ClothingHandsKnuckleDustersSyndicate
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4
   categories:
   - UplinkWeaponry
 
@@ -186,7 +173,7 @@
   discountDownTo:
     Telecrystal: 6
   cost:
-    Telecrystal: 12
+    Telecrystal: 10
   categories:
   - UplinkWeaponry
 
@@ -195,7 +182,7 @@
   name: uplink-hushpup-name
   description: uplink-hushpup-desc
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Shotguns/hypnalis.rsi, state: icon } #Imp
-  productEntity: ClothingBackpackDuffelSyndicateFilledHushpup
+  productEntity: BriefcaseWeaponHushpupFilled
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 8
@@ -203,6 +190,25 @@
     Telecrystal: 10
   categories:
   - UplinkWeaponry
+
+- type: listing
+  id: UplinkC20R
+  name: uplink-c20r-name
+  description: uplink-c20r-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+  productEntity: BriefcaseWeaponC20Filled
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkC20RBundle
@@ -217,20 +223,87 @@
     Telecrystal: 17
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
-# - type: listing #imp #remove; Basilisk-11 at home
-#   id: UplinkEstocBundle
-#   name: uplink-estoc-bundle-name
-#   description: uplink-estoc-bundle-desc
-#   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
-#   productEntity: ClothingBackpackDuffelSyndicateFilledRifle
-#   discountCategory: veryRareDiscounts
-#   discountDownTo:
-#     Telecrystal: 11
-#   cost:
-#     Telecrystal: 18
-#   categories:
-#   - UplinkWeaponry
+- type: listing
+  id: UplinkBulldog
+  name: uplink-bulldog-name
+  description: uplink-bulldog-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  productEntity: BriefcaseWeaponBulldogFilled
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkBulldogBundle
+  name: uplink-bulldog-bundle-name
+  description: uplink-bulldog-bundle-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 12
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkEstoc
+  name: uplink-estoc-name
+  description: uplink-estoc-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+  productEntity: BriefcaseWeaponDMRFilled
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+#- type: listing #imp comment out, basalisk at home
+#  id: UplinkEstocBundle
+#  name: uplink-estoc-bundle-name
+#  description: uplink-estoc-bundle-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/estoc.rsi, state: icon }
+#  productEntity: ClothingBackpackDuffelSyndicateFilledRifle
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 11
+#  cost:
+#    Telecrystal: 18
+#  categories:
+#  - UplinkWeaponry
+#  conditions:
+#  - !type:StoreWhitelistCondition
+#3    whitelist:
+#      tags:
+#      - NukeOpsUplink
 
 - type: listing
   id: UplinkBulldogBundle
@@ -245,6 +318,11 @@
     Telecrystal: 20
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkGrenadeLauncherBundle
@@ -259,6 +337,11 @@
     Telecrystal: 25
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkL6SawBundle
@@ -536,7 +619,7 @@
   icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: slug } # imp
   productEntity: MagazineShotgunSlug
   cost:
-    Telecrystal: 3
+    Telecrystal: 2
   categories:
   - UplinkAmmo
 
@@ -549,18 +632,6 @@
   productEntity: MagazinePistolCaselessRifle
   cost:
     Telecrystal: 1
-  categories:
-  - UplinkAmmo
-
-# For the Python
-- type: listing
-  id: UplinkSpeedLoaderMagnumAP
-  name: uplink-speedloader-magnum-name
-  description: uplink-speedloader-magnu-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon } #imp
-  productEntity: SpeedLoaderMagnumAP
-  cost:
-    Telecrystal: 3
   categories:
   - UplinkAmmo
 
@@ -1224,7 +1295,6 @@
       blacklist:
         components:
         - SurplusBundle
-
 
 - type: listing
   id: UplinkSingarityBeacon
