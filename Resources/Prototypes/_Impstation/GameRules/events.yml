@@ -290,6 +290,12 @@
       - type: AutoImplant
         implants:
         - ButlerBombImplant
+      - type: TriggerOnMobstateChange
+        mobState:
+        - Dead
+      - type: GibOnTrigger
+        targetUser: true
+        deleteItems: false
       - type: UnableToWield
       - type: NpcFactionMember
         factions:
