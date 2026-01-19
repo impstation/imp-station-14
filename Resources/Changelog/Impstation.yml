@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: astral_amy
-  changes:
-  - message: Whisper and Bedlam tweaks and additions. See PR for details.
-    type: Tweak
-  id: 2065
-  time: '2025-07-25T11:28:55.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3131
 - author: TuttlePants
   changes:
   - message: Scallywag, a new pirate-themed bounty hunter kit
@@ -4121,36 +4114,66 @@
   changes:
   - message: Halved the range of the material silo.
     type: Tweak
-  time: '2026-01-15T07:08:00.0000000+00:00'
   id: 2559
+  time: '2026-01-15T07:08:00.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3999
 - author: Entings
   changes:
-  - message: The nuclear authentication disk now has pride of place in its own lockbox on the bridge.
+  - message: The nuclear authentication disk now has pride of place in its own lockbox
+      on the bridge.
     type: Add
-  time: '2026-01-15T07:08:01.0000000+00:00'
   id: 2560
+  time: '2026-01-15T07:08:01.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3999
 - author: Ecramox
   changes:
-  - message: NT's interior decorators have seen it fit to remodel several types of floors!
+  - message: NT's interior decorators have seen it fit to remodel several types of
+      floors!
     type: Tweak
   - message: New green steel tiles are now real!
     type: Add
-  time: '2026-01-15T07:08:02.0000000+00:00'
   id: 2561
+  time: '2026-01-15T07:08:02.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3999
 - author: the Impstation Station Architect team
   changes:
   - message: All maps have been updated for some new features and maybe some new secrets.
     type: Tweak
-  time: '2026-01-15T07:08:03.0000000+00:00'
   id: 2562
+  time: '2026-01-15T07:08:03.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3999
 - author: Squamatic
   changes:
   - message: Welcome back NT-Union.
     type: Add
-  time: '2026-01-15T07:08:04.0000000+00:00'
   id: 2563
+  time: '2026-01-15T07:08:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3999
+- author: mqole
+  changes:
+  - message: A toggle in the Accessibility menu will now allow you to turn off the
+      static in the AI camera overlay.
+    type: Add
+  id: 2564
+  time: '2026-01-19T20:28:15.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4011
+- author: soup4food, Entings, Squamatic, Ecramox, and the Impstation Station Architect
+    team
+  changes:
+  - message: Halved the range of the material silo.
+    type: Tweak
+  - message: The nuclear authentication disk now has pride of place in its own lockbox
+      on the bridge.
+    type: Add
+  - message: NT's interior decorators have seen it fit to remodel several types of
+      floors!
+    type: Tweak
+  - message: New green steel tiles are now real!
+    type: Add
+  - message: All maps have been updated for some new features and maybe some new secrets.
+    type: Tweak
+  - message: Welcome back NT-Union.
+    type: Add
+  id: 2565
+  time: '2026-01-15T08:03:26.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3999
