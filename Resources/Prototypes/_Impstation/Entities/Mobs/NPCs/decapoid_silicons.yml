@@ -527,6 +527,8 @@
         layer:
         - SmallMobLayer
   - type: MovementSpeedModifier #default mob speed
+    baseSprintSpeed: 4.5
+    baseWalkSpeed: 2.5
   - type: MovementAlwaysTouching
   - type: NameIdentifier
     group: GenericNumber

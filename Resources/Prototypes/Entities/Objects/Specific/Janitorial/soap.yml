@@ -63,13 +63,15 @@
   - type: FlavorProfile
     flavors:
       - clean
-  - type: Food
+  - type: Edible
     solution: soap
   - type: BadFood
   - type: CleansForensics
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-green
+  - type: CleansDecals # imp
+    solution: soap
 
 - type: entity
   name: soap

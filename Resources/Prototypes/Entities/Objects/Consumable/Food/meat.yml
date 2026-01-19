@@ -187,6 +187,7 @@
   - type: FoodSequenceElement #imp
     entries:
       Burger: RawCarpFilletBurger
+      Hotdog: RawCarpFilletBurger
 
 - type: entity
   # bacon is cured so not raw = cant rot
@@ -596,6 +597,7 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: RottenMeatBurger
+      Hotdog: RottenMeatBurger
 
 - type: entity
   parent: FoodMeatRawBase
@@ -727,6 +729,7 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: RawSnakeMeatBurger
+      Hotdog: RawSnakeMeatBurger
 
 - type: entity
   # not raw since acid kills bacteria or something, same as xeno
@@ -991,6 +994,7 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: SlimeballBurger
+      Hotdog: SlimeballBurger
 
 - type: entity
   parent: FoodMeatRawBase
@@ -1131,6 +1135,7 @@
     entries:
       Burger: MeatSteak
       Taco: MeatSteak
+      Hotdog: MeatSteak #imp
   - type: Item
     storedOffset: -2,1
     inhandVisuals:
@@ -1174,6 +1179,7 @@
     entries:
       Burger: MeatBacon
       Taco: MeatBacon
+      Hotdog: MeatBacon #imp
   - type: Item
     storedOffset: -1,0
     inhandVisuals:
@@ -1217,6 +1223,7 @@
     entries:
       Burger: MeatBearBurger
       Taco: MeatBear
+      Hotdog: MeatBear #imp
   - type: Item
     storedOffset: -1,1
     heldPrefix: meatball
@@ -1253,6 +1260,7 @@
     entries:
       Burger: MeatPenguinBurger
       Taco: MeatPenguin
+      Hotdog: MeatPenguin #imp
   - type: Item
     storedOffset: -1,1
     inhandVisuals:
@@ -1295,6 +1303,7 @@
     entries:
       Burger: MeatChicken
       Taco: MeatChicken
+      Hotdog: MeatChicken #imp
   - type: Item
     storedOffset: -1,1
     inhandVisuals:
@@ -1395,6 +1404,7 @@
     entries:
       Burger: MeatDuck
       Taco: MeatDuck
+      Hotdog: MeatDuck #imp
   - type: Item
     storedOffset: -1,1
     inhandVisuals:
@@ -1437,6 +1447,7 @@
     entries:
       Burger: MeatCrabBurger
       Taco: MeatCrab
+      Hotdog: MeatCrab #imp
   - type: Item
     storedOffset: -1,2
     inhandVisuals:
@@ -1475,6 +1486,7 @@
     entries:
       Burger: MeatGoliathBurger
       Taco: MeatGoliath
+      Hotdog: MeatGoliath #imp
   - type: Item
     storedOffset: -1,0
     inhandVisuals:
@@ -1517,6 +1529,7 @@
     entries:
       Burger: MeatXeno
       Taco: MeatXeno
+      Hotdog: MeatXeno #imp
   - type: Item
     inhandVisuals:
       left:
@@ -1557,6 +1570,7 @@
     entries:
       Burger: MeatLizardBurger
       Taco: MeatLizard
+      Hotdog: MeatLizard #imp
   - type: Item
     storedOffset: -1,1
     inhandVisuals:
@@ -1591,6 +1605,7 @@
     entries:
       Burger: MeatSpiderBurger
       Taco: MeatSpider
+      Hotdog: MeatSpider #imp
   - type: Item
     storedOffset: -1,-1
     inhandVisuals:
@@ -1626,6 +1641,7 @@
     entries:
       Burger: MeatBall
       Taco: MeatBall
+      Hotdog: MeatBall #imp
   - type: Construction
     graph: MeatMeatballCooked
     node: meatball cooked
@@ -1664,6 +1680,7 @@
     entries:
       Burger: MeatPatty
       Taco: MeatPatty
+      Hotdog: MeatPatty #imp
   - type: Item
     size: Tiny
     shape:
@@ -1698,6 +1715,7 @@
     entries:
       Burger: MeatSnail
       Taco: MeatSnail
+      Hotdog: MeatSnail #imp
   - type: Item
     storedOffset: -1,-3
     inhandVisuals:
@@ -1781,6 +1799,7 @@
     entries:
       Burger: DragonSteak
       Taco: DragonSteak
+      Hotdog: DragonSteak #imp
   - type: Item
     storedOffset: 0,-1
     inhandVisuals:
@@ -2126,6 +2145,7 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: MeatTomatoCutletBurger
+      Hotdog: MeatTomatoCutletBurger
   - type: SolutionContainerManager # imp
     solutions:
       food:
@@ -2168,6 +2188,7 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: SalamiBurger
+      Hotdog: SalamiBurger
 
 - type: entity
   parent: FoodMeatBase
@@ -2238,6 +2259,7 @@
     entries:
       Burger: MeatCutlet
       Taco: MeatCutlet
+      Hotdog: MeatCutlet #imp
   - type: Item
     size: Tiny
     shape:
@@ -2283,6 +2305,7 @@
     entries:
       Burger: BearCutletBurger
       Taco: BearCutlet
+      Hotdog: BearCutlet #imp
   - type: Item
     size: Tiny
     shape:
@@ -2326,6 +2349,7 @@
     entries:
       Burger: PenguinCutletBurger
       Taco: PenguinCutlet
+      Hotdog: PenguinCutlet #imp
   - type: Item
     size: Tiny
     shape:
@@ -2369,6 +2393,7 @@
     entries:
       Burger: ChickenCutlet
       Taco: ChickenCutlet
+      Hotdog: ChickenCutlet #imp
   - type: Item
     size: Tiny
     shape:
@@ -2412,6 +2437,7 @@
     entries:
       Burger: DuckCutlet
       Taco: DuckCutlet
+      Hotdog: DuckCutlet #imp
   - type: Item
     size: Tiny
     shape:
@@ -2456,6 +2482,7 @@
     entries:
       Burger: LizardCutletBurger
       Taco: LizardCutlet
+      Hotdog: LizardCutlet #imp
   - type: Item
     size: Tiny
     shape:
@@ -2498,6 +2525,7 @@
     entries:
       Burger: SpiderCutletBurger
       Taco: SpiderCutlet
+      Hotdog: SpiderCutlet #imp
   - type: Item
     size: Tiny
     shape:
@@ -2540,6 +2568,7 @@
     entries:
       Burger: XenoCutlet
       Taco: XenoCutlet
+      Hotdog: XenoCutlet #imp
   - type: Item
     size: Tiny
     shape:
@@ -2583,6 +2612,7 @@
     entries:
       Burger: DragonCutlet
       Taco: DragonCutlet
+      Hotdog: DragonCutlet #imp
   - type: Item
     size: Tiny
     shape:

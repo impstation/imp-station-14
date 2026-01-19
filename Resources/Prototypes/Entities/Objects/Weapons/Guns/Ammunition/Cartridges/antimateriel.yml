@@ -1,8 +1,8 @@
 - type: entity
   parent: [ BaseCartridge, BaseMajorContraband ]
-  id: CartridgeAntiMateriel
+  id: CartridgeAntiMaterielWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
   name: cartridge (.60 anti-materiel)
-  description: A round of impressive power with a dense kinetic penetrator. As the dust settles, all that will remain is the echo. #imp
   components:
   - type: Tag
     tags:
@@ -10,7 +10,7 @@
   - type: CartridgeAmmo
     proto: BulletAntiMateriel
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]

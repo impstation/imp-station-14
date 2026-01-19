@@ -1,3 +1,5 @@
+# When adding new plushies, also add them to id: AllPlushiesTable
+
 ## Plushies
 
 # imp comment: The difference between a "squeaky toy" and a "plushie" is that plushies have stashes and are made of cloth (edible by moths).
@@ -604,7 +606,8 @@
     - reagents: [ Water ]
       methods: [ Touch ]
       effects:
-      - !type:AddToSolutionReaction
+      - !type:AddReagentToSolution
+        reagent: Water
         solution: plushie
   - type: Fixtures
     fixtures:
@@ -1198,7 +1201,7 @@
   - type: Edible
     requiresSpecialDigestion: true
     useSound:
-      path: /Audio/Voice/Vulpkanin/vulp_scream4.ogg
+      path: /Audio/_Impstation/Voice/Vulpkanin/waewoo.ogg # imp
       params:
         volume: -5
   - type: MeleeWeapon

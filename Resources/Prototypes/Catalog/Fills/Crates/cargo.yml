@@ -342,6 +342,9 @@
     - id: PlushieArachind
       prob: 0.01
       orGroup: Plushies
+    - id: PlushieLizardJobMultiweh # the exceedingly rare multiweh!
+      prob: 0.01
+      orGroup: Plushies
     - id: PlushieThrongler #hehe
       prob: 0.0005
       orGroup: Plushies
@@ -450,3 +453,5 @@
       prob: 0.001
     - id: TippyTrumpMysteryPack
       prob: 0.05
+    - id: JailCard
+      prob: 0.01

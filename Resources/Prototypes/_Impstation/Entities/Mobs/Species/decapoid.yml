@@ -10,14 +10,12 @@
     damage:
       types:
         blunt: 0 # immune to space
-  - type: GoobAbsorbable
   - type: Hunger # removed thirst
   - type: Icon
     sprite: _Impstation/Mobs/Species/Decapoid/parts.rsi
     state: full
   - type: SpeechRequiresEquipment
-    equipment:
-      mask:
+    whitelist:
         tags:
           - Vaporizer
           - SGD
@@ -189,6 +187,7 @@
     - Snout
     - HeadSide
   - type: CarrierOneHand
+  - type: CanWieldOneHanded
 
 - type: entity
   parent: BaseSpeciesDummy
