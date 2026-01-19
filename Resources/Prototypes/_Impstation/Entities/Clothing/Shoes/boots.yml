@@ -387,3 +387,17 @@
       collection: FootstepHighheels
       params:
         variation: 0.09
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesMimeBoots
+  name: mime boots
+  description: Bottes en cuir ciré. Pour l'artiste qui travaille dur.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Boots/mimeboots.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Boots/mimeboots.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBoots
