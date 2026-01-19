@@ -1,0 +1,101 @@
+## Role Loadouts
+
+- type: roleLoadout
+  id: JobChiefMedicalOfficer
+  groups:
+  #- GroupTankHarness #imp
+  - ChiefMedicalOfficerHead
+  - ChiefMedicalOfficerNeck # imp reorder
+  - MedicalMask
+  - ChiefMedicalOfficerJumpsuit
+  - ChiefMedicalOfficerOuterClothing # imp reorder
+  - MedicalGloves #imp
+  - ChiefMedicalOfficerBelt #imp
+  - ChiefMedicalOfficerBackpack #imp MedicalBackpack > ChiefMedicalOfficerBackpack
+  - ChiefMedicalOfficerShoes
+  - ChiefMedicalOfficerHeadset #imp
+  - Glasses
+  - SurvivalCommand # imp SurvivalMedical > SurvivalCommand
+  - Trinkets
+  - ChiefMedicalOfficerJobTrinkets
+  - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathToolMedical > GroupSpeciesBreathToolCommand
+  - GroupBreathToolDecapoid # imp special
+  - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+
+- type: roleLoadout
+  id: JobMedicalDoctor
+  groups:
+  #- GroupTankHarness #imp
+  - MedicalDoctorHead
+  - MedicalMask
+  - MedicalDoctorNeck # imp
+  - MedicalDoctorJumpsuit
+  - MedicalDoctorOuterClothing # imp reorder
+  - MedicalGloves #imp
+  - MedicalShoes #imp reorder
+  - MedicalEyewear #imp
+  - MedicalBackpack
+  - MedicalDoctorPDA
+  - SurvivalMedical
+  - Trinkets
+  - MedicalDoctorJobTrinkets
+  - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # imp special
+  - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+
+- type: roleLoadout
+  id: JobMedicalIntern
+  groups:
+  - MedicalInternJumpsuit
+  - MedicalEyewear #imp
+  - MedicalBackpack
+  #- Glasses #imp
+  - SurvivalMedical
+  - Trinkets
+  - MedicalInternJobTrinkets
+  - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # imp special
+  - GroupTankHarness # imp reorder
+
+- type: roleLoadout
+  id: JobChemist
+  groups:
+  #- GroupTankHarness #imp
+  - ChemistHead # imp
+  - MedicalMask
+  - ChemistNeck # imp
+  - ChemistJumpsuit
+  - ChemistOuterClothing # imp reorder
+  - ChemistGloves # imp MedicalGloves > ChemistGloves
+  - ChemistShoes # imp MedicalShoes > ChemistShoes
+  - ChemistBackpack # imp reorder
+  - ChemistPDA # imp
+  - Glasses
+  - SurvivalMedical
+  - Trinkets
+  - ChemistJobTrinkets
+  - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # imp special
+  - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
+
+- type: roleLoadout
+  id: JobParamedic
+  groups:
+  #- GroupTankHarness #imp
+  - ParamedicHead
+  - MedicalMask
+  - ParamedicNeck # imp
+  - ParamedicJumpsuit
+  - ParamedicOuterClothing # imp reorder
+  - MedicalGloves #imp
+  - ParamedicShoes
+  - MedicalEyewear #imp
+  - MedicalBackpack #imp reorder
+  - ParamedicPDA # imp
+  #- Glasses #imp
+  - SurvivalMedical
+  - Trinkets
+  - ParamedicJobTrinkets
+  - GroupSpeciesBreathToolMedical
+  - GroupBreathToolDecapoid # imp special
+  - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
