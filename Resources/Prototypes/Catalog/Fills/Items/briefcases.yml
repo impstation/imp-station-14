@@ -40,6 +40,8 @@
     containers:
       storagebase: !type:AllSelector
         children:
+        - id: ClothingOuterCoatJensenSyndie
+        - id: ClothingUniformJumpsuitTacticool
         - id: ClothingEyesGlassesSunglasses
         - id: SpaceCash30000
         - id: EncryptionKeySyndie
@@ -53,7 +55,6 @@
         # end DeltaV
         - id: ClothingHandsGlovesCombat
         - id: ClothingMaskNeckGaiter
-        - id: SyndieHandyFlag
 
 - type: entity
   id: BriefcaseThiefBribingBundleFilled
@@ -64,7 +65,7 @@
     containers:
       storagebase: !type:AllSelector
         children:
+        - id: ClothingOuterCoatJensen
         - id: ClothingEyesGlassesSunglasses
         - id: SpaceCash20000
-        - id: ClothingOuterCoatJensen
         - id: ClothingHandsGlovesColorBlack
