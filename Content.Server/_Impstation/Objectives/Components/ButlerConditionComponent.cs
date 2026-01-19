@@ -1,12 +1,12 @@
 using Content.Server.Objectives.Systems;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Objectives.Components;
+namespace Content.Server._Impstation.Objectives.Components;
 
 /// <summary>
 /// For spawning a remote signaller on the TargetObjectiveSystem selected target
 /// </summary>
-[RegisterComponent, Access(typeof(ButlerConditionSystem))]
+[RegisterComponent]
 public sealed partial class ButlerConditionComponent : Component
 {
     /// <summary>
@@ -14,4 +14,6 @@ public sealed partial class ButlerConditionComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId Package = "BoxButler";
+    [DataField]
+    public LocId ButlerSpawn = "butler-spawn";
 }

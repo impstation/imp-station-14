@@ -127,8 +127,14 @@
     maxItemSize: Small
     grid:
     - 0,0,1,1
-  - type: StorageFill
-    contents:
-    - id: RemoteSignallerButler
-    - id: PaperMailButlerExplanation
-    - id: FoodMacaronBerry
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: RemoteSignallerButler
+        - id: PaperMailButlerExplanation
+        - !type:GroupSelector
+          children:
+          - id: FoodMacaronBerry
+          - id: FoodMacaronCherry
+          - id: FoodMacaronLemon
