@@ -1,5 +1,5 @@
 - type: entity
-  id: BulletMagnum
+  id: BulletMagnumWizden #imp - see the _Impstation directory for the version we use
   name: bullet (.45 magnum)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -10,7 +10,7 @@
         Piercing: 35
 
 - type: entity
-  id: BulletMagnumPractice
+  id: BulletMagnumPracticeWizden #imp - see the _Impstation directory for the version we use
   name: bullet (.45 magnum practice)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]
@@ -21,7 +21,7 @@
         Blunt: 1
 
 - type: entity
-  id: BulletMagnumIncendiary
+  id: BulletMagnumIncendiaryWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBulletIncendiary
   name: bullet (.45 magnum incendiary)
   categories: [ HideSpawnMenu ]
@@ -33,7 +33,7 @@
         Heat: 9
 
 - type: entity
-  id: BulletMagnumAP
+  id: BulletMagnumAPWizden #imp - see the _Impstation directory for the version we use
   name: bullet (.45 magnum armor-piercing)
   parent: BaseBulletAP
   categories: [ HideSpawnMenu ]
@@ -45,7 +45,7 @@
     ignoreResistances: true
 
 - type: entity
-  id: BulletMagnumUranium
+  id: BulletMagnumUraniumWizden #imp - see the _Impstation directory for the version we use
   name: bullet (.45 magnum uranium)
   parent: BaseBulletUranium
   categories: [ HideSpawnMenu ]

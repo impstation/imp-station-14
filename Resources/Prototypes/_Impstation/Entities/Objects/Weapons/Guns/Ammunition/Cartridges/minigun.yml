@@ -1,0 +1,30 @@
+- type: entity
+  id: BaseCartridgeHeavyRifle
+  name: cartridge (heavy rifle)
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - CartridgeHeavyRifle
+  - type: CartridgeAmmo
+    proto:    BulletHeavyRifle
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 10
+
+- type: entity
+  id: CartridgeMinigun
+  name: cartridge (.10 mini)
+  description: A kinetic micro cartridge designed to make the dreams of an individual-portable minigun a reality.
+  parent: BaseCartridgeHeavyRifle
+  components:
+  - type: CartridgeAmmo
+    proto: BulletMinigun
+    deleteOnSpawn: true
