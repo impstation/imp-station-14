@@ -26,24 +26,14 @@
   - type: Blocking
     passiveBlockModifier:
       coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 2
+        Blunt: 1 #these numbers don't matter since the shield isn't destructable, but the default values in the component are set up wrong so Some Number is required here
     activeBlockModifier:
       coefficients:
-        Blunt: 0.85
-        Slash: 0.85
-        Piercing: 0.85
-        Heat: 2
-      flatReductions:
-        Blunt: 1
-        Slash: 1
-        Piercing: 1
-    passiveBlockFraction: 0.0
-    activeBlockFraction: 0.4
+        Blunt: 1 #see above
+    passiveBlockFraction: 0.0 #does not give damage reduction passively
+    activeBlockFraction: 0.5 #gives 50% damage reduction against brute damage to the decapoid while the claw is raised
   - type: Damageable
-    damageContainer: Shield
+    damageContainer: DecapoidShield #determines what types of damage are reduced by the Blocking component, DecapoidShield damage container is brute damage only
   - type: ToolTileCompatible
     delay: 0.5
   - type: Tool
