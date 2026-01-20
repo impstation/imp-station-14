@@ -85,11 +85,9 @@ namespace Content.Server.Database
                 .Property(log => log.Markings)
                 .HasConversion(jsonByteArrayConverter);
 
-            // Begin CD - Character Records
-            modelBuilder.Entity<CDModel.CDProfile>()
-                .Property(log => log.CharacterRecords)
+            modelBuilder.Entity<Profile>()
+                .Property(log => log.OrganMarkings)
                 .HasConversion(jsonByteArrayConverter);
-            // End CD - Character Records
 
             // EF core can make this automatically unique on sqlite but not psql.
             modelBuilder.Entity<IPIntelCache>()

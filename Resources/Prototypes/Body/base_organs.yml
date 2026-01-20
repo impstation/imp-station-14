@@ -1,3 +1,19 @@
+- type: markingsGroup
+  id: None
+  onlyGroupWhitelisted: true
+
+- type: markingsGroup
+  id: Undergarments
+  limits:
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+      nudityDefault: [ UndergarmentTopTanktop ]
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+      nudityDefault: [ UndergarmentBottomBoxers ]
+
 - type: entity
   id: OrganBase
   name: organ
@@ -42,22 +58,19 @@
   - type: Organ
     category: Torso
   - type: Sprite
-    state: torso
+    state: torso_m
   - type: VisualOrgan
     layer: enum.HumanoidVisualLayers.Chest
     data:
-      state: torso
+      state: torso_m
   - type: VisualOrganMarkings
     markingData:
       layers:
       - Chest
       - Tail
       - Overlay
-      - TailOverlay
       - UndergarmentTop
       - UndergarmentBottom
-      - Special
-      - Tenta # MACRO ADD // Kode arms
 
 - type: entity
   parent: OrganBase
@@ -68,14 +81,21 @@
   - type: Organ
     category: Head
   - type: Sprite
-    state: head #imp edit, removed '_m" sprite as part of upstream fix for sexed organs
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 5
-    staminaCost: 5
-    soundHit:
-      collection: GenericHit
+    state: head_m
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Head
+    data:
+      state: head_m
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - Head
+      - Hair
+      - FacialHair
+      - Snout
+      - SnoutCover
+      - HeadSide
+      - HeadTop
 
 - type: entity
   parent: OrganBase
@@ -87,13 +107,14 @@
     category: ArmLeft
   - type: Sprite
     state: l_arm
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 7
-    staminaCost: 7
-    soundHit:
-      collection: GenericHit
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LArm
+    data:
+      state: l_arm
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - LArm
 
 - type: entity
   parent: OrganBase
@@ -105,13 +126,14 @@
     category: ArmRight
   - type: Sprite
     state: r_arm
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 7
-    staminaCost: 7
-    soundHit:
-      collection: GenericHit
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RArm
+    data:
+      state: r_arm
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - RArm
 
 - type: entity
   parent: OrganBase
@@ -127,12 +149,14 @@
       location: Left
   - type: Sprite
     state: l_hand
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 3
-    soundHit:
-      collection: Punch
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LHand
+    data:
+      state: l_hand
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - LHand
 
 - type: entity
   parent: OrganBase
@@ -148,12 +172,14 @@
       location: Right
   - type: Sprite
     state: r_hand
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 3
-    soundHit:
-      collection: Punch
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RHand
+    data:
+      state: r_hand
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - RHand
 
 - type: entity
   parent: OrganBase
@@ -165,13 +191,14 @@
     category: LegLeft
   - type: Sprite
     state: l_leg
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 8
-    staminaCost: 9
-    soundHit:
-      collection: GenericHit
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LLeg
+    data:
+      state: l_leg
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - LLeg
 
 - type: entity
   parent: OrganBase
@@ -183,13 +210,14 @@
     category: LegRight
   - type: Sprite
     state: r_leg
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 8
-    staminaCost: 9
-    soundHit:
-      collection: GenericHit
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RLeg
+    data:
+      state: r_leg
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - RLeg
 
 - type: entity
   parent: OrganBase
@@ -201,12 +229,14 @@
     category: FootLeft
   - type: Sprite
     state: l_foot
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 4
-    soundHit:
-      collection: GenericHit
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LFoot
+    data:
+      state: l_foot
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - LFoot
 
 - type: entity
   parent: OrganBase
@@ -218,12 +248,14 @@
     category: FootRight
   - type: Sprite
     state: r_foot
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 4
-    soundHit:
-      collection: GenericHit
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.RFoot
+    data:
+      state: r_foot
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - RFoot
 
 - type: entity
   parent: OrganBase
@@ -280,12 +312,15 @@
     layers:
     - state: eyeball-l
     - state: eyeball-r
-  - type: Tag # goob edit
-    tags:
-    - Raw
-    - Meat
-    - Organ
-    - Eyes
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.Eyes
+    data:
+      sprite: Mobs/Customization/eyes.rsi
+      state: eyes
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - Eyes
 
 - type: entity
   parent: OrganBase

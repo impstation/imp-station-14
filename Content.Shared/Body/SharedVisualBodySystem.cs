@@ -7,13 +7,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Body;
 
-/// <summary>
-/// Class responsible for managing the appearance of an entity with <see cref="VisualBodyComponent" /> via its organs with <see cref="VisualOrganComponent" />
-/// </summary>
 public abstract partial class SharedVisualBodySystem : EntitySystem
 {
-    [Dependency] private MarkingManager _marking = default!;
-    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly MarkingManager _marking = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -26,7 +24,6 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
 
         InitializeModifiers();
         InitializeInitial();
-        InitializeMacrocosm(); // MACROCOSM add
     }
 
     private List<Marking> ResolveMarkings(List<Marking> markings, Color? skinColor, Color? eyeColor, Dictionary<Enum, MarkingsAppearance> appearances)
@@ -61,7 +58,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
             };
             if (appearances.GetValueOrDefault(prototype.BodyPart) is { MatchSkin: true } appearance && skinColor is { } color)
             {
-                markingWithColor = markingWithColor.WithColor(color.WithAlpha(appearance.LayerAlpha));
+                markingWithColor.SetColor(color.WithAlpha(appearance.LayerAlpha));
             }
             ret.Add(markingWithColor);
         }
@@ -85,6 +82,20 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
     {
         ent.Comp.Markings = markings;
         Dirty(ent);
+    }
+
+    public void CopyAppearanceFrom(Entity<BodyComponent?> source, Entity<BodyComponent?> target)
+    {
+        if (!Resolve(source, ref source.Comp) || !Resolve(target, ref target.Comp))
+            return;
+
+        var sourceOrgans = _container.EnsureContainer<Container>(source, BodyComponent.ContainerID);
+
+        foreach (var sourceOrgan in sourceOrgans.ContainedEntities)
+        {
+            var evt = new OrganCopyAppearanceEvent(sourceOrgan);
+            RaiseLocalEvent(target, ref evt);
+        }
     }
 
     private void OnVisualOrganCopyAppearance(Entity<VisualOrganComponent> ent, ref BodyRelayedEvent<OrganCopyAppearanceEvent> args)
@@ -127,15 +138,8 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
             SetOrganColor(ent, ent.Comp.Profile.EyeColor);
         else
             SetOrganColor(ent, ent.Comp.Profile.SkinColor);
-
-        if (ent.Comp.SexStateOverrides is { } overrides && overrides.TryGetValue(data.Sex, out var state))
-        {
-            ent.Comp.Data.State = state;
-            SetOrganAppearance(ent, ent.Comp.Data);
-        }
     }
 
-    // Begin MACROCOSM - move this function out of the callback so it can be called elsewhere
     private void OnMarkingsOrganApplyMarkings(Entity<VisualOrganMarkingsComponent> ent, ref BodyRelayedEvent<ApplyOrganMarkingsEvent> args)
     {
         if (Comp<OrganComponent>(ent).Category is not { } category)
@@ -144,14 +148,7 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
         if (!args.Args.Markings.TryGetValue(category, out var markingSet))
             return;
 
-        ApplyVisualOrganMarkings(ent, markingSet);
-    }
-
-    private void ApplyVisualOrganMarkings(Entity<VisualOrganMarkingsComponent> ent,
-        Dictionary<HumanoidVisualLayers, List<Marking>> markingSet)
-    {
-        var groupProto = ProtoMan.Index(ent.Comp.MarkingData.Group);
-        
+        var groupProto = _prototype.Index(ent.Comp.MarkingData.Group);
         var organMarkings = ent.Comp.Markings.ShallowClone();
 
         foreach (var layer in ent.Comp.MarkingData.Layers)
@@ -179,7 +176,6 @@ public abstract partial class SharedVisualBodySystem : EntitySystem
 
         SetOrganMarkings(ent, resolved);
     }
-    // End MACROCOSM
 }
 
 /// <summary>

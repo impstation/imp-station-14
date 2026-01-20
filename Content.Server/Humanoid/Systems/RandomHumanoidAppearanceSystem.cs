@@ -1,4 +1,5 @@
-using Content.Server.CharacterAppearance.Components;
+using Content.Server.Humanoid.Components;
+using Content.Shared.Body;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
 using Content.Shared.Humanoid.Markings; // imp
@@ -8,9 +9,9 @@ namespace Content.Server.Humanoid.Systems;
 
 public sealed class RandomHumanoidAppearanceSystem : EntitySystem
 {
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly IRobustRandom _random = default!; // imp
+    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
 
     public override void Initialize()
     {
@@ -22,45 +23,13 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
     private void OnMapInit(EntityUid uid, RandomHumanoidAppearanceComponent component, MapInitEvent args)
     {
         // If we have an initial profile/base layer set, do not randomize this humanoid.
-        if (!TryComp(uid, out HumanoidAppearanceComponent? humanoid) || !string.IsNullOrEmpty(humanoid.Initial))
-        {
+        if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
             return;
-        }
 
         var profile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
-        var appearance = profile.Appearance; // imp
 
-        // imp edits start
-        List<Marking> markings;
-        if (component.Markings != null)
-            markings = MarkingsToAdd(component.Markings);
-        else
-            markings = appearance.Markings;
-
-
-        var finalAppearance = new HumanoidCharacterAppearance(
-            component.Hair ?? appearance.HairStyleId,
-            component.HairColor ?? appearance.HairColor,
-            component.FacialHair ?? appearance.FacialHairStyleId,
-            component.HairColor ?? appearance.HairColor,
-            component.EyeColor ?? appearance.EyeColor,
-            component.SkinColor ?? appearance.SkinColor,
-            markings
-        );
-
-        var finalProfile = new HumanoidCharacterProfile()
-        {
-            Name = profile.Name,
-            Age = component.Age ?? profile.Age,
-            Species = humanoid.Species,
-            Appearance = finalAppearance
-        }
-        .WithSex(component.Sex ?? profile.Sex)
-        .WithGender(component.Gender ?? profile.Gender);
-
-        _humanoid.LoadProfile(uid, finalProfile, humanoid);
-        // imp edits end
-
+        _visualBody.ApplyProfileTo(uid, profile);
+        _humanoidProfile.ApplyProfileTo(uid, profile);
 
         if (component.RandomizeName)
             _metaData.SetEntityName(uid, profile.Name);
