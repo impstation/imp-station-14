@@ -309,3 +309,14 @@
   - type: Item
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/greenprincessdress.rsi
+
+- type: entity
+  parent: [ClothingUniformSkirtBase, BaseCommandContraband]
+  id: ClothingUniformJumpskirtHoSColonel
+  name: head of security's colonel jumpskirt
+  description: Colonel jumpsuit description
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/hos_colonelsuitskirt.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/hos_colonelsuitskirt.rsi

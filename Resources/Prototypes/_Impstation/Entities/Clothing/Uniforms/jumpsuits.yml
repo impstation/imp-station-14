@@ -570,3 +570,14 @@
   - type: Construction
     graph: WebObjects
     node: loungewear
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoSColonel
+  name: head of security's colonel jumpsuit
+  description: Colonel jumpsuit description
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
