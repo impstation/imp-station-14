@@ -95,6 +95,7 @@
     paiSlot:
       locked: true
   - type: Ringer
+  - type: LawSynced
   # imp edit end
 
 - type: entity
@@ -120,6 +121,7 @@
   - type: ShowJobIcons
   - type: StealTarget #imp
     stealGroup: AICore
+  - type: LawSynced # imp
 
 # Ai
 - type: entity
