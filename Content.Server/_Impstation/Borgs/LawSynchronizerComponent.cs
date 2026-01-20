@@ -9,5 +9,5 @@ public sealed partial class LawSynchronizerComponent : Component
     [DataField]
     public LocId SyncFailedWirePanelPopup = "lawsync-synchronize-failed-panel-not-open";
     [DataField]
-    public LocId SyncSuccessfulPopup = "lawsync-synchronize-success"
+    public LocId SyncSuccessfulPopup = "lawsync-synchronize-success";
 }
