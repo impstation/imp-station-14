@@ -1,9 +1,10 @@
 - type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  parent: [ SimpleSpaceMobBase]
   id: MobEeepBase
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
+  - type: NoSlip
   - type: GhostTakeoverAvailable
   - type: Examiner
   - type: Speech
@@ -16,7 +17,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 5
-    baseWeightlessModifier: 1.5
   - type: Fixtures
     fixtures:
       fix1:

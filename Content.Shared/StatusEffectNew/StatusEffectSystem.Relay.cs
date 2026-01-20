@@ -7,6 +7,7 @@ using Content.Shared.Stunnable;
 using Robust.Shared.Player;
 using Content.Shared.Damage.Systems; // imp
 using Content.Shared.Interaction.Events; // imp
+using Content.Shared.Gravity; //imp
 
 namespace Content.Shared.StatusEffectNew;
 
@@ -31,6 +32,8 @@ public sealed partial class StatusEffectsSystem
 
         SubscribeLocalEvent<StatusEffectContainerComponent, DamageModifyEvent>(RelayStatusEffectEvent); // imp
         SubscribeLocalEvent<StatusEffectContainerComponent, InteractionSuccessEvent>(RefRelayStatusEffectEvent); // imp
+
+        SubscribeLocalEvent<StatusEffectContainerComponent, IsWeightlessEvent>(RefRelayStatusEffectEvent); // imp
     }
 
     private void RefRelayStatusEffectEvent<T>(EntityUid uid, StatusEffectContainerComponent component, ref T args) where T : struct

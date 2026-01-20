@@ -1,12 +1,12 @@
 - type: entity
-  id: PelletClusterRubber
+  id: PelletClusterRubberWizden #imp - see the _Impstation directory for the version we use
   name: pellet (ball, rubber)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
-  - type: Sprite # imp
-    layers:
-    - state: rubber
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -18,15 +18,14 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterLethal
+  id: PelletClusterLethalWizden #imp - see the _Impstation directory for the version we use
   name: pellet (ball, lethal)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
-  - type: Sprite # imp
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
-    layers:
-    - state: shard
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -36,14 +35,14 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterIncendiary
+  id: PelletClusterIncendiaryWizden #imp - see the _Impstation directory for the version we use
   name: pellet (ball, incendiary)
   categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
   components:
-  - type: Sprite # imp
-    layers:
-    - state: buckshot-flare
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot-flare
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -57,15 +56,14 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterLessLethal
+  id: PelletClusterLessLethalWizden #imp - see the _Impstation directory for the version we use
   name: pellet (ball, less lethal)
   categories: [ HideSpawnMenu ]
   parent: BaseBullet
   components:
-  - type: Sprite # imp
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
-    layers:
-    - state: shard
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
   - type: Projectile
     deleteOnCollide: false
     damage:

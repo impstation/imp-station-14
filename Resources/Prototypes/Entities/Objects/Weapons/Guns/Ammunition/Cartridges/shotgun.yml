@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseShellShotgun
+  id: BaseShellShotgunWizden #imp - see the _Impstation directory for the version we use
   name: shell (.50)
   parent: BaseCartridge
   abstract: true
@@ -11,29 +11,23 @@
     soundEject:
       collection: ShellEject
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/shotgun_shell.rsi
     layers:
       - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: Appearance
   - type: SpentAmmoVisuals
-  - type: EmitSoundOnLand #imp
-    sound:
-      collection: ShellEject
-      params:
-        volume: -1
 
 - type: entity
-  id: ShellShotgunBeanbag
-  name: shell (.50 stun slug) #imp
-  description: A shotgun shell with a kinetic slug designed to subdue targets, knocking the wind out of them and delivering a nasty shock. #imp
+  id: ShellShotgunBeanbagWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: shell (.50 beanbag)
   parent: [ BaseShellShotgun, BaseSecurityBartenderContraband ]
   components:
   - type: Tag
     tags:
     - ShellShotgun
     - ShellShotgunLight
-    - ShellShotgunBeanbag
   - type: Sprite
     layers:
       - state: beanbag
@@ -44,30 +38,25 @@
     state: "beanbag"
 
 - type: entity
-  id: ShellShotgunSlug
-  name: shell (.50 slug) #imp
+  id: ShellShotgunSlugWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: shell (.50 slug)
   parent: [ BaseShellShotgun, BaseSecurityContraband]
-  description: A shotgun shell loaded with a single large kinetic projectile. Acts like a really big bullet. #imp
   components:
   - type: Sprite
     layers:
       - state: slug
         map: [ "enum.AmmoVisualLayers.Base" ]
-  - type: Tag #imp
-    tags:
-    - Cartridge
-    - ShellShotgun
-    - ShellSlug #imp
   - type: CartridgeAmmo
     proto: PelletShotgunSlug
   - type: SpentAmmoVisuals
     state: "slug"
 
 - type: entity
-  id: ShellShotgunFlare
-  name: shell (.50 flare) #imp
-  description: A shotgun shell loaded with an illumination flare, primarily used in flare guns. #imp
-  parent: [ BaseShellShotgun, BaseSecurityBartenderContraband ]
+  id: ShellShotgunFlareWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: shell (.50 flare)
+  parent: BaseShellShotgun
   components:
   - type: Tag
     tags:
@@ -83,10 +72,10 @@
     state: "flare"
 
 - type: entity
-  id: ShellShotgun
-  name: shell (.50 buckshot) #imp
+  id: ShellShotgunWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: shell (.50 pellet)
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
-  description: Double-ought buckshot, the default of shotgun shells. Delivers a spread of lethal kinetic pellets. #imp
   components:
   - type: Sprite
     layers:
@@ -96,10 +85,10 @@
     proto: PelletShotgunSpread
 
 - type: entity
-  id: ShellShotgunIncendiary
-  name: shell (.50 incendiary) #imp
+  id: ShellShotgunIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: shell (.50 incendiary)
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
-  description: A shotgun shell loaded with soft pellets containing a pyrophoric compound, setting targets ablaze. #imp
   components:
   - type: Sprite
     layers:
@@ -111,10 +100,10 @@
     state: "incendiary"
 
 - type: entity
-  id: ShellShotgunPractice
-  name: shell (.50 practice) #imp
+  id: ShellShotgunPracticeWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: shell (.50 practice)
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
-  description: A shotgun shell loaded with wax pellets to simulate the real deal. Can be used for force-on-force training, but still stings like a bitch. Eye protection recommended. #imp
   components:
   - type: Sprite
     layers:
@@ -126,10 +115,10 @@
     state: "practice"
 
 - type: entity
-  id: ShellTranquilizer
-  name: shell (.50 tranquilizer) #imp
+  id: ShellTranquilizerWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: shell (.50 tranquilizer)
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
-  description: A shotgun shell loaded with a single hypodermic needle, designed to deliver a reagent to its target. #imp
   components:
   - type: Tag
     tags:
@@ -154,9 +143,10 @@
     state: "tranquilizer"
 
 - type: entity
-  id: ShellShotgunImprovised
-  name: shell (.50 improvised) #imp
-  description: A homemade shotgun shell that shoots painful glass shrapnel. The spread is so wide that it couldn't hit the broad side of a barn. #imp
+  id: ShellShotgunImprovisedWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: improvised shotgun shell
+  description: A homemade shotgun shell that shoots painful glass shrapnel. The spread is so wide that it couldn't hit the broad side of a barn.
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
   components:
   - type: Tag
@@ -176,10 +166,10 @@
     state: "improvised"
 
 - type: entity
-  id: ShellShotgunUranium
+  id: ShellShotgunUraniumWizden #imp - see the _Impstation directory for the version we use
+  abstract: true
+  name: uranium shotgun shell
   parent: [ BaseShellShotgun, BaseSecurityContraband ]
-  name: shell (.50 uranium) #imp
-  description: A shotgun shell loaded with dense depleted uranium pellets. The heavier pellets tighten the spread of the shot and deliver radiation poisoning, at the cost of worse penetration. #imp
   components:
     - type: Sprite
       layers:
