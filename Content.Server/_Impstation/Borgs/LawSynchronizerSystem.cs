@@ -41,6 +41,7 @@ public sealed class LawSynchronizerSystem : EntitySystem
         else
             EnsureComp<LawSyncedComponent>(target);
 
+        _popup.PopupEntity(Loc.GetString(ent.Comp.SyncSuccessfulPopup), user, user);
         return true;
     }
 }
