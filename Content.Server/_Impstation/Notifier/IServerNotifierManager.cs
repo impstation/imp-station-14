@@ -16,5 +16,5 @@ public interface IServerNotifierManager
     /// <summary>
     /// Get player notifier settings
     /// </summary>
-    PlayerNotifierSettings GetPlayerConsentSettings(NetUserId userId);
+    PlayerNotifierSettings GetPlayerNotifierSettings(NetUserId userId);
 }

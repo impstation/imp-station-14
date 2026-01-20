@@ -1,0 +1,9 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      Title="{Loc 'pleebnar-telepathy-window'}"
+                      MinSize="10 25"
+                      SetSize="200 400">
+    <BoxContainer Margin="5 5 5 5" Orientation="Vertical">
+        <LineEdit Name="SearchBar" PlaceHolder="Search" HorizontalExpand="True" Margin="0 4" />
+    </BoxContainer>
+</controls:FancyWindow>

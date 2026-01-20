@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Impstation.Notifier;
 
@@ -7,7 +8,7 @@ public sealed partial class NotifierComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField(required: true), AutoNetworkedField]
-    public string Content = string.Empty;
+    public FormattedMessage Content = FormattedMessage.Empty;
 
     [DataField(required: true), AutoNetworkedField]
     public bool Active = false;

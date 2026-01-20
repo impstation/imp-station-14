@@ -50,19 +50,33 @@ public sealed class ServerNotifierManager : IServerNotifierManager
         _netManager.ServerSendMessage(message, message.MsgChannel);
     }
 
-    public Task LoadData(ICommonSession session, CancellationToken cancel)
+    public async Task LoadData(ICommonSession session, CancellationToken cancel)
     {
-        throw new NotImplementedException();
+        var notifier = new PlayerNotifierSettings();
+        var notifierSystem = _entityManager.System<NotifierSystem>();
+
+
+        if (ShouldStoreInDb(session.AuthType))
+            notifier = await _db.GetPlayerNotifierSettingsAsync(session.UserId);
+
+        notifierSystem.SetNotifier(session.UserId, notifier);
+
+        var message = new MsgUpdateNotifier() { Notifier= notifier };
+        _netManager.ServerSendMessage(message, session.Channel);
     }
 
     public void OnClientDisconnected(ICommonSession session)
     {
-        throw new NotImplementedException();
+        var notifierSystem = _entityManager.System<NotifierSystem>();
+        notifierSystem.SetNotifier(session.UserId, null);
     }
 
-    public PlayerNotifierSettings GetPlayerConsentSettings(NetUserId userId)
+    public PlayerNotifierSettings GetPlayerNotifierSettings(NetUserId userId)
     {
-        throw new NotImplementedException();
+        var notifierSystem = _entityManager.System<NotifierSystem>();
+        if(notifierSystem.TryGetNotifier(userId, out var notifier))
+            return notifier;
+        return new();
     }
 
     private static bool ShouldStoreInDb(LoginType loginType)
