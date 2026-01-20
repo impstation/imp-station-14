@@ -16,9 +16,9 @@
   description: An artist's favorite headwear.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret.rsi
+    sprite: _Impstation/Clothing/Head/Hats/beret.rsi #imp
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret.rsi
+    sprite: _Impstation/Clothing/Head/Hats/beret.rsi #imp
   - type: Tag
     tags:
     - PetWearable
@@ -35,9 +35,9 @@
   description: A French beret. "Vive la France!"
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/beret_french.rsi
+    sprite: _Impstation/Clothing/Head/Hats/beret_french.rsi #imp
   - type: Clothing
-    sprite: Clothing/Head/Hats/beret_french.rsi
+    sprite: _Impstation/Clothing/Head/Hats/beret_french.rsi #imp
 #  - type: AddAccentClothing # Imp
 #    accent: FrenchAccent
   - type: Tag

@@ -16,6 +16,11 @@ public sealed class ImpCCVars : CVars
         CVarDef.Create("accessibility.disable_singulo_warping", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Replaces the AI static camera effect with a plain black gradient.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableAiStatic =
+        CVarDef.Create("accessibility.disable_ai_static", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /// If the player has the accessibility notifier turned on
     /// </summary>
     public static readonly CVarDef<bool> NotifierOn =
