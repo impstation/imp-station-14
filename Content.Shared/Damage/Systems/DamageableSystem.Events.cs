@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.Damage.Components; //imp edit
 using Content.Shared.CCVar;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
@@ -160,6 +161,11 @@ public sealed partial class DamageableSystem
 
     private void OnIrradiated(Entity<DamageableComponent> ent, ref OnIrradiatedEvent args)
     {
+        // Imp edit, ignore this method if the entity has an IrradiatedDamage component and use its method instead
+        // if there is a more elegant way to do this without changing DamageableComponent, please yell at me on github
+        if (HasComp<IrradiatedDamageComponent>(ent))
+            return;
+
         var damageValue = FixedPoint2.New(args.TotalRads);
 
         // Radiation should really just be a damage group instead of a list of types.
