@@ -115,6 +115,11 @@
     recipe:
       SynthFlesh: 20
       Saline: 20
+  - type: IrradiatedDamage
+    radiationDamageCoefficients:
+      Blunt: -1.0
+      Slash: -1.0
+      Piercing: -1.0
 
 - type: entity
   parent: BaseSpeciesDummy
