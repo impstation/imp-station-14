@@ -6,6 +6,9 @@ namespace Content.Client._Impstation.Notifier;
 public sealed class ClientNotifierManager : IClientNotifierManager
 {
     [Dependency] private readonly IClientNetManager _netManager = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
+
+    private ISawmill? _sawmill = null;
 
     private PlayerNotifierSettings? _notifier;
 
@@ -15,15 +18,18 @@ public sealed class ClientNotifierManager : IClientNotifierManager
 
     public void Initialize()
     {
+        _sawmill = _logManager.GetSawmill("clientnotifier");
         _netManager.RegisterNetMessage<MsgUpdateNotifier>(HandleUpdateNotifier);
+
     }
 
     public void UpdateNotifier(PlayerNotifierSettings notifierSettings)
     {
         var msg = new MsgUpdateNotifier
         {
-            Notifier = notifierSettings
+            Notifier = notifierSettings,
         };
+        _sawmill?.Debug($"keb toy:'{msg.Notifier.Freetext}' pib '{msg.Notifier.Enabled}'");
         _netManager.ClientSendMessage(msg);
     }
 

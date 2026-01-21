@@ -54,9 +54,9 @@ public sealed partial class NotifierWindow : FancyWindow
     private PlayerNotifierSettings GetSettings()
     {
         var text = Rope.Collapse(NotifierFreetext.TextRope);
-        var toggles = EnableNotifierCheckBox.Pressed;
+        var toggled = EnableNotifierCheckBox.Pressed;
 
-        return new(text, toggles);
+        return new(text, toggled);
     }
 
     private void UnsavedChanges()
@@ -93,6 +93,7 @@ public sealed partial class NotifierWindow : FancyWindow
         }
 
         NotifierFreetext.TextRope = new Rope.Leaf(notifier.Freetext);
+        EnableNotifierCheckBox.Pressed = notifier.Enabled;
 
 
         //CharacterLimit.FontColorOverride = null;

@@ -16,8 +16,8 @@ public sealed class PlayerNotifierSettings
 
     public PlayerNotifierSettings(string freetext, bool enabled)
     {
-        Freetext = string.Empty;
-        Enabled = false;
+        Freetext = freetext;
+        Enabled = enabled;
     }
 
 }
