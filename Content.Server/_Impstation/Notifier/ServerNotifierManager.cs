@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.Notifier;
 
-public sealed class ServerNotifierManager : IServerNotifierManager
+public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectInit
 {
     [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -22,6 +22,7 @@ public sealed class ServerNotifierManager : IServerNotifierManager
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
+    [Dependency] private readonly UserDbDataManager _userDb = default!;
 
     private ISawmill? _sawmill = null;
 
@@ -35,7 +36,6 @@ public sealed class ServerNotifierManager : IServerNotifierManager
     {
         var userId = message.MsgChannel.UserId;
         var notifierSystem = _entityManager.System<NotifierSystem>();
-
         if (!notifierSystem.TryGetNotifier(userId, out _))
             return;
 
@@ -43,6 +43,8 @@ public sealed class ServerNotifierManager : IServerNotifierManager
 
         if (ShouldStoreInDb(message.MsgChannel.AuthType))
             await _db.SavePlayerNotifierSettingsAsync(userId, message.Notifier);
+
+
 
         // send it back to confirm to client that consent was updated
         _netManager.ServerSendMessage(message, message.MsgChannel);
@@ -80,5 +82,10 @@ public sealed class ServerNotifierManager : IServerNotifierManager
     private static bool ShouldStoreInDb(LoginType loginType)
     {
         return loginType.HasStaticUserId();
+    }
+
+    public void PostInject()
+    {
+        _userDb.AddOnLoadPlayer(LoadData);
     }
 }

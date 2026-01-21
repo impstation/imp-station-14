@@ -21,6 +21,8 @@ public sealed class NotifierSystem : SharedNotifierSystem
     }
     public override void SetNotifier(NetUserId userId, PlayerNotifierSettings? notifierSettings)
     {
+        base.SetNotifier(userId, notifierSettings);
+
         if (notifierSettings == null)
         {
             UserNotifiers.Remove(userId);
