@@ -20,13 +20,13 @@ public sealed class SiliconLawEui : BaseEui
     private ISawmill _sawmill = default!;
     private EntityUid _target;
 
-    public SiliconLawEui(SiliconLawSystem siliconLawSystem, EntityManager entityManager, IAdminManager manager, EntityUid? target = null)
+    public SiliconLawEui(SiliconLawSystem siliconLawSystem, EntityManager entityManager, IAdminManager manager, EntityUid? target = null) // imp - added target param
     {
         _siliconLawSystem = siliconLawSystem;
         _adminManager = manager;
         _entityManager = entityManager;
         _sawmill = Logger.GetSawmill("silicon-law-eui");
-        if (target != null)
+        if (target != null) // imp - added test for target, so that the eui can be fed a specific target
             _target = target.Value;
     }
 
