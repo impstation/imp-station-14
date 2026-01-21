@@ -79,6 +79,7 @@
   - type: RuleGrids
   - type: GameRule
     minPlayers: 40
+    cancelPresetOnTooFewPlayers: false # imp
   - type: LoadMapRule
     gridPath: /Maps/Shuttles/mothership.yml
   - type: AntagMultipleRoleSpawner
