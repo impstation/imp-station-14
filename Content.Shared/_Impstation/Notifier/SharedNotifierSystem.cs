@@ -8,9 +8,11 @@ using Content.Shared.Verbs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Impstation.Notifier;
+
 
 public abstract partial class SharedNotifierSystem : EntitySystem
 {
@@ -23,12 +25,15 @@ public abstract partial class SharedNotifierSystem : EntitySystem
 
     protected readonly Dictionary<NetUserId, PlayerNotifierSettings> UserNotifiers = new();
     private readonly ResPath _accessibilityIcon = new("/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png");
+
+
     public override void Initialize()
     {
         //_sawmill = _log.GetSawmill("consent");
         SubscribeLocalEvent<NotifierComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<NotifierComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<NotifierComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
+
     }
 
     public bool TryGetNotifier(NetUserId userId, [NotNullWhen(true)] out PlayerNotifierSettings? notifierSettings)
@@ -51,14 +56,12 @@ public abstract partial class SharedNotifierSystem : EntitySystem
     private void OnPlayerAttached(Entity<NotifierComponent> ent, ref PlayerAttachedEvent args)
     {
 
-        var userId = args.Player.UserId;
-        ent.Comp.Active = GetNotifierEnabled(userId);
-        ent.Comp.Content = GetNotifierText(userId);
+        ent.Comp.AttachedUserId = args.Player.UserId;
 
     }
     private void OnGetExamineVerbs(Entity<NotifierComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
-        if (!ent.Comp.Active || Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
+        if (!GetNotifierEnabled(ent.Comp.AttachedUserId) || Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
             return;
 
         var user = args.User;
@@ -66,7 +69,8 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         {
             Act = () =>
             {
-                _examine.SendExamineTooltip(user, ent, ent.Comp.Content, false, false);
+                var message= GetNotifierText(ent.Comp.AttachedUserId);
+                _examine.SendExamineTooltip(user, ent, message, false, false);
             },
             Text = Loc.GetString("notifier-verb-text"),
             Category = VerbCategory.Examine,
@@ -78,7 +82,7 @@ public abstract partial class SharedNotifierSystem : EntitySystem
 
     private void OnExamined(Entity<NotifierComponent> ent, ref ExaminedEvent args)
     {
-        if (!ent.Comp.Active || !args.IsInDetailsRange || _mobState.IsDead(ent.Owner)) return;
+        if (!GetNotifierEnabled(ent.Comp.AttachedUserId) || !args.IsInDetailsRange || _mobState.IsDead(ent.Owner)) return;
         args.PushMarkup($"[color=lightblue]{Loc.GetString("notifier-info", ("ent", ent.Owner))}[/color]");
     }
 
@@ -91,4 +95,5 @@ public abstract partial class SharedNotifierSystem : EntitySystem
     {
         return false;
     }
+
 }

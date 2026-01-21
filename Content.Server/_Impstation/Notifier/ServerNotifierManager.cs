@@ -45,7 +45,6 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
             await _db.SavePlayerNotifierSettingsAsync(userId, message.Notifier);
 
 
-        _sawmill?.Debug($"keb toy:'{message.Notifier.Freetext}' pib '{message.Notifier.Enabled}'");
         // send it back to confirm to client that consent was updated
         _netManager.ServerSendMessage(message, message.MsgChannel);
     }
