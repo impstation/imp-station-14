@@ -120,7 +120,7 @@
     - SemiAuto
 
 - type: entity
-  parent: WeaponRifleLecter
+  parent: WeaponRifleM90GrenadeLauncher
   id: WeaponRifleLecterXL8
   name: XL8
   description: A common service weapon for NTDF troopers clearing hostile fauna on resource-rich planets, the XL8 is an unreasonably expensive rifle with an integrated optic. Uses .20 rifle ammo.
@@ -129,16 +129,3 @@
     sprite: _Impstation/Objects/Weapons/Guns/Rifles/xl8.rsi
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Rifles/xl8.rsi
-  - type: CursorOffsetRequiresWield
-  - type: EyeCursorOffset
-    maxOffset: 2
-    pvsIncrease: 0.2
-  - type: StaticPrice
-    price: 1500 #3x lecter
-  - type: Gun
-    shotsPerBurst: 3
-    selectedMode: Burst
-    availableModes:
-    - Burst
-    - SemiAuto
-    - FullAuto
