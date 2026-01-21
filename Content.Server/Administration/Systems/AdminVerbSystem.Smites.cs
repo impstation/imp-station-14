@@ -1,5 +1,5 @@
 using Content.Server.Administration.Components;
-using Content.Shared._Impstation.Administration.Components; // imp
+using Content.Shared._Impstation.Administration.Systems; // imp
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Electrocution;
@@ -190,7 +190,9 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Misc/killsign.rsi"), "icon"), //change this sprite later
             Act = () =>
             {
-                EnsureComp<SwordDamoclesComponent>(args.Target); // change this to an event, add component via system
+                // EnsureComp<SwordDamoclesComponent>(args.Target); // change this to an event, add component via system
+                var ev = new SwordDamoclesEvent(args.Target);
+                RaiseLocalEvent(ref ev);
             },
             Impact = LogImpact.Extreme,
             Message = string.Join(": ", swordDamoclesName, Loc.GetString("admin-smite-sword-of-damocles-description"))
