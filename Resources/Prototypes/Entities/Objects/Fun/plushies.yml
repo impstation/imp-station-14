@@ -311,6 +311,7 @@
     sprite: Objects/Fun/Plushies/arachnid.rsi
     slots:
     - HEAD
+    insecure: false # imp
   - type: FoodSequenceElement
     entries:
       CottonBurger: ArachnidPlushie

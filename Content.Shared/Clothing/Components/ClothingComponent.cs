@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DoAfter;
@@ -97,9 +96,33 @@ public sealed partial class ClothingComponent : Component
     /// <summary>
     ///     A scale applied to all layers.
     /// </summary>
-    /// 
+    ///
     [DataField]
     public Vector2 Scale = Vector2.One;
+
+    // Imp Securely attached start
+
+    /// <summary>
+    ///     Whether or not this clothing item is considered insecure by default
+    /// </summary>
+    [DataField] public bool Insecure;
+
+    /// <summary>
+    ///     Default drop chance when the item is dropped
+    /// </summary>
+    [DataField] public float InsecureDropChance = 0.3f;
+
+    /// <summary>
+    /// Direction is multiplied by this amount
+    /// </summary>
+    [DataField]  public float DirectionMultiplier = 2f;
+
+    /// <summary>
+    /// Drop chance is increased by linear velocity divided by this number.
+    /// </summary>
+    [DataField]  public float FallSpeedModifier = 15f;
+
+    // Imp Securely attached end
 }
 
 public enum ClothingMask : byte
