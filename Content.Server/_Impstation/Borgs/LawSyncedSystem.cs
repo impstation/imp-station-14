@@ -32,6 +32,10 @@ public sealed class LawSyncSystem : EntitySystem
 
     public void SyncLaws(Entity<LawSyncedComponent> ent)
     {
+        // build and test....
+        if (!HasComp<SiliconLawProviderComponent>(ent))
+            return;
+
         var curLawset = _siliconLaws.GetLaws(ent);
         // NOTE: This only really works if there's only one upload console with a lawboard in it at a time.
         // I can't think of a situation where there'd be more than one, but it's worth taking into account.
