@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Administration.Components;
+using Content.Client._Impstation.Administration.Components;
 using Content.Shared._Impstation.Administration.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
@@ -12,16 +13,17 @@ public sealed class SwordDamoclesSystem : EntitySystem
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
-    // [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<SwordDamoclesComponent, ComponentStartup>(SwordDamoclesAdded);
-        SubscribeLocalEvent<SwordDamoclesComponent, ComponentShutdown>(SwordDamoclesRemoved);
-        // SubscribeLocalEvent<SwordDamoclesComponent, ComponentStartup>(TimesApplied);
+        base.Initialize();
+
+        SubscribeLocalEvent<SwordDamoclesComponent, ComponentStartup>(OnAdded);
+        SubscribeLocalEvent<SwordDamoclesComponent, ComponentShutdown>(OnRemoved);
     }
 
-    private void SwordDamoclesRemoved(Entity<SwordDamoclesComponent> ent, ref ComponentShutdown args)
+    private void OnRemoved(Entity<SwordDamoclesComponent> ent, ref ComponentShutdown args)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
@@ -32,7 +34,7 @@ public sealed class SwordDamoclesSystem : EntitySystem
         _sprite.RemoveLayer((ent, sprite), layer);
     }
 
-    private void SwordDamoclesAdded(Entity<SwordDamoclesComponent> ent, ref ComponentStartup args) //, Entity<SwordDamoclesComponent> ent
+    private void OnAdded(Entity<SwordDamoclesComponent> ent, ref ComponentStartup args)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;

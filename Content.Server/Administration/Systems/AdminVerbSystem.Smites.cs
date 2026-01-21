@@ -190,7 +190,7 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Misc/killsign.rsi"), "icon"), //change this sprite later
             Act = () =>
             {
-                EnsureComp<SwordDamoclesComponent>(args.Target);
+                EnsureComp<SwordDamoclesComponent>(args.Target); // change this to an event, add component via system
             },
             Impact = LogImpact.Extreme,
             Message = string.Join(": ", swordDamoclesName, Loc.GetString("admin-smite-sword-of-damocles-description"))
