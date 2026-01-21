@@ -27,21 +27,19 @@ public sealed class ServerNotifierManager : IServerNotifierManager
 
     public void Initialize()
     {
-        _sawmill = _logManager.GetSawmill("serverconsent");
+        _sawmill = _logManager.GetSawmill("servernotifier");
         _netManager.RegisterNetMessage<MsgUpdateNotifier>(HandleUpdateNotifierMessage);
 
     }
     private async void HandleUpdateNotifierMessage(MsgUpdateNotifier message)
     {
         var userId = message.MsgChannel.UserId;
-        var notifierSystem = _entityManager.System<SharedNotifierSystem>();
+        var notifierSystem = _entityManager.System<NotifierSystem>();
 
         if (!notifierSystem.TryGetNotifier(userId, out _))
             return;
 
         notifierSystem.SetNotifier(userId, message.Notifier);
-
-        var session = _playerManager.GetSessionByChannel(message.MsgChannel);
 
         if (ShouldStoreInDb(message.MsgChannel.AuthType))
             await _db.SavePlayerNotifierSettingsAsync(userId, message.Notifier);

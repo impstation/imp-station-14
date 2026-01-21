@@ -1,3 +1,4 @@
+using Content.Client._Impstation.Notifier;
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -76,6 +77,7 @@ namespace Content.Client.Entry
         [Dependency] private readonly TitleWindowManager _titleWindowManager = default!;
         [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
         [Dependency] private readonly ClientsidePlaytimeTrackingManager _clientsidePlaytimeManager = default!;
+        [Dependency] private readonly IClientNotifierManager _clientNotifierManager = default!; //imp add
 
         public override void PreInit()
         {
@@ -172,6 +174,7 @@ namespace Content.Client.Entry
             _userInterfaceManager.SetActiveTheme(_configManager.GetCVar(CVars.InterfaceTheme));
             _documentParsingManager.Initialize();
             _titleWindowManager.Initialize();
+            _clientNotifierManager.Initialize();//imp
 
             _baseClient.RunLevelChanged += (_, args) =>
             {

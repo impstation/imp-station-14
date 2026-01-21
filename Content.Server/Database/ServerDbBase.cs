@@ -1862,18 +1862,18 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
             db.NotifierData.Remove(notifierData);
         }
-        public async Task SavePlayerNotifierSettingsAsync(NetUserId userId, PlayerNotifierSettings? NotifierSettings)
+        public async Task SavePlayerNotifierSettingsAsync(NetUserId userId, PlayerNotifierSettings? notifierSettings)
         {
             await using var db = await GetDb();
 
-            if (NotifierSettings is null)
+            if (notifierSettings is null)
             {
                 await DeletePlayerNotifierSettings(db.DbContext, userId);
                 await db.DbContext.SaveChangesAsync();
                 return;
             }
 
-            var currentNotifierData = await db.DbContext.NotifierData.SingleOrDefaultAsync(p => p.UserId == userId.UserId);
+            var currentNotifierData = await db.DbContext.NotifierData.AsSplitQuery().SingleOrDefaultAsync(p => p.UserId == userId.UserId);
 
             if (currentNotifierData is null)
             {
@@ -1882,8 +1882,8 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 db.DbContext.NotifierData.Add(currentNotifierData);
             }
 
-            currentNotifierData.NotifierFreetext = NotifierSettings.Freetext;
-            currentNotifierData.Enabled = NotifierSettings.Enabled;
+            currentNotifierData.NotifierFreetext = notifierSettings.Freetext;
+            currentNotifierData.Enabled = notifierSettings.Enabled;
 
             await db.DbContext.SaveChangesAsync();
         }

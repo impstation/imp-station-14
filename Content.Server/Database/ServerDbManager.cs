@@ -367,7 +367,7 @@ namespace Content.Server.Database
 
         #region Notifier Settings
 
-        Task SavePlayerNotifierSettingsAsync(NetUserId userId, PlayerNotifierSettings consentSettings);
+        Task SavePlayerNotifierSettingsAsync(NetUserId userId, PlayerNotifierSettings notifierSettings);
         Task<PlayerNotifierSettings> GetPlayerNotifierSettingsAsync(NetUserId userId);
 
         #endregion
