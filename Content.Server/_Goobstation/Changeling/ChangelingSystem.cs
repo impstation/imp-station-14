@@ -112,7 +112,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     public EntProtoId ShieldPrototype = "ChangelingShield";
     public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
     public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
-    public EntProtoId TentaclePrototype = "FishingRodLing"; // imp
 
     public override void Initialize()
     {

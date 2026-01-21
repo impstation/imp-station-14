@@ -49,6 +49,17 @@
           - ItemMask
         density: 1000
         hard: false
+      # imp edit: fishing fixture
+      fishing:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        hard: false
+      # end imp edit
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWater
@@ -63,3 +74,7 @@
   - type: TileEntityEffect
     effects:
     - !type:Extinguish
+  # imp edits below
+  - type: FishingPool
+    table: !type:NestedSelector
+      tableId: FishingWaterTable

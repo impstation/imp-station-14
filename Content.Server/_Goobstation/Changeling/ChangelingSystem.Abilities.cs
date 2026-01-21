@@ -73,7 +73,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         SubscribeLocalEvent<GoobChangelingComponent, ActionLastResortEvent>(OnLastResort);
         SubscribeLocalEvent<GoobChangelingComponent, ActionLesserFormEvent>(OnLesserForm);
         SubscribeLocalEvent<GoobChangelingComponent, ActionMindshieldFakeEvent>(OnMindshieldFake);
-        SubscribeLocalEvent<GoobChangelingComponent, ToggleTentacleEvent>(OnToggleTentacle); // imp edit
         SubscribeLocalEvent<GoobChangelingComponent, ActionSpacesuitEvent>(OnSpacesuit);
         SubscribeLocalEvent<GoobChangelingComponent, ActionHivemindAccessEvent>(OnHivemindAccess);
     }
@@ -761,16 +760,6 @@ public sealed partial class GoobChangelingSystem : EntitySystem
         comp.IsEnabled = true;
 
         _popup.PopupEntity(Loc.GetString("changeling-mindshield-start"), ent, ent);
-    }
-    private void OnToggleTentacle(EntityUid uid, GoobChangelingComponent comp, ref ToggleTentacleEvent args) //imp edit
-    {
-        if (!TryUseAbility(uid, comp, args))
-            return;
-
-        if (!TryToggleItem(uid, TentaclePrototype, comp))
-            return;
-
-        PlayMeatySound(uid, comp);
     }
     public void OnSpacesuit(EntityUid uid, GoobChangelingComponent comp, ref ActionSpacesuitEvent args)
     {

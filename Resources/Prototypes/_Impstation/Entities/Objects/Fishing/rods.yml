@@ -1,0 +1,34 @@
+- type: entity
+  parent: BaseItem
+  id: FishingRodBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fishing/Rods/fishingrod.rsi
+    state: base
+  - type: Item
+    size: Large
+    storedRotation: -90
+  - type: ItemSlots
+    slots:
+      bobber_slot:
+        name: fishing-bobber-slot-name-default
+        whitelist:
+          components:
+          - FishingBobber
+  - type: FishingRod
+
+- type: entity
+  parent: FishingRodBase
+  id: FishingRod
+  name: fishing rod
+
+- type: entity
+  parent: FishingRod
+  id: FishingRodBobber
+  suffix: Bobber
+  components:
+  - type: ItemSlots
+    slots:
+      bobber_slot:
+        startingItem: FishingBobber

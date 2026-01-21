@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseItem
+  id: FishingBobberBase
+  name: fishing bobber
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: _Impstation/Objects/Fishing/Bobbers/basic.rsi
+    state: basic
+    noRot: true
+  - type: FishingBobber
+
+- type: entity
+  parent: FishingBobberBase
+  id: FishingBobber
+  components:
+  - type: FishingBobber
+    offset: "0.016, 0.08"

@@ -1,0 +1,6 @@
+- type: entityTable
+  id: FishingWaterTable
+  table: !type:GroupSelector
+    children:
+    - id: DehydratedSpaceCarp
+    - id: FishLingCod

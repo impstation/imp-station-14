@@ -62,6 +62,18 @@
         - MachineMask
         layer:
         - None
+      # imp edit: fishing fixture
+      fishing:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.15
+          position: 0, -0.07
+        layer:
+        - SlipLayer
+        mask:
+        - ItemMask
+        hard: false
+      # end imp edit
   - type: PlungerUse
   - type: Appearance
   - type: SecretStash

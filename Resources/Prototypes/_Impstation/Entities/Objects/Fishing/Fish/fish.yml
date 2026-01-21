@@ -1,0 +1,55 @@
+- type: entity
+  parent: BaseItem
+  id: BaseFish
+  name: fish
+  description: It felt better down where it was wetter.
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Item
+    size: Medium
+    inhandVisuals:
+      left:
+      - state: inhand
+      right:
+      - state: inhand
+
+- type: entity
+  parent: BaseFish
+  id: BaseFishButcherable
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodCuredCarp
+      amount: 1
+
+- type: entity
+  parent: BaseFish
+  id: BaseFishEdible
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Edible
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 6
+        - ReagentId: Fat
+          Quantity: 6
+
+- type: entity
+  parent: BaseFishButcherable
+  id: FishLingCod
+  name: ling cod
+  description: It'll never change.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fishing/Fish/lingcod.rsi
+    state: base
+  - type: Item
+    size: Large
+  - type: MultiHandedItem
