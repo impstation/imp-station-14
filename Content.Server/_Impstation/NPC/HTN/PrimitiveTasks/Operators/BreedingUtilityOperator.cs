@@ -70,7 +70,8 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
                 continue;
 
             // Making sure two of the same gender aren't trying to breed
-            if (reproComp.Gender == comp.Gender)
+            // If an animal is Agender then this doesn't matter
+            if (reproComp.Gender != AnimalGender.Agender && reproComp.Gender == comp.Gender)
                 continue;
 
             //if it's score is less than our current score, continue

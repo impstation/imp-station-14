@@ -17,7 +17,6 @@ public abstract partial class SharedIncubationSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<IncubatorComponent, InteractUsingEvent>(OnAfterInteract);
-        SubscribeLocalEvent<IncubatorComponent, IncubatingAttemptEvent>(Incubate);
         SubscribeLocalEvent<IncubatorComponent, IncubationDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<IncubatorComponent, EntRemovedFromContainerMessage>(IncubatorEmpty);
     }
@@ -35,11 +34,6 @@ public abstract partial class SharedIncubationSystem : EntitySystem
     private void IncubatorEmpty(Entity<IncubatorComponent> entity, ref EntRemovedFromContainerMessage args)
     {
         SetAppearance(entity, IncubatorStatus.Inactive);
-    }
-
-    private void Incubate(Entity<IncubatorComponent> entity, ref IncubatingAttemptEvent args)
-    {
-
     }
 
     public void SetAppearance(EntityUid uid, IncubatorStatus state, AppearanceComponent? appearanceComponent = null)

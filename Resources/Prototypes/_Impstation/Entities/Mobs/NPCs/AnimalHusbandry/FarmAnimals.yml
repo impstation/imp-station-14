@@ -308,9 +308,50 @@
   - type: AlwaysRevolutionaryConvertible
 
 - type: entity
+  name: BaseChick
+  parent: MobChickenBase
+  id: MobChickBase
+  abstract: true
+  description: Watch where you walk!
+  components:
+  - type: ImpInfant
+    growthTime: 10
+    nextStage: MobHenAdult
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: chick
+      sprite: _Impstation/Mobs/Animals/Livestock/chicken_infant.rsi
+
+- type: entity
+  name: Chick
+  parent: MobChickBase
+  id: MobHenChick
+  description: Watch where you walk!
+  components:
+  - type: ImpInfant
+    growthTime: 10
+    nextStage: MobHenAdult
+
+- type: entity
+  name: Chick
+  parent: MobChickBase
+  id: MobRoosterChick
+  description: Watch where you walk!
+  components:
+  - type: ImpInfant
+    growthTime: 10
+    nextStage: MobRoosterAdult
+
+- type: entity
   name: Hen
   parent: MobChickenBase
-  id: MobHemAdult
+  id: MobHenAdult
   description: Holding it won't make you glide.
   components:
   - type: ImpReproductive

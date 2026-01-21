@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
+using Content.Server.Cloning;
 using Content.Server.Popups;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
 using Content.Shared._Impstation.Nutrition.Components;
+using Content.Shared.Cloning;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.EntityTable;
@@ -29,18 +31,22 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly ThirstSystem _thirst = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityTableSystem _entTable = default!;
 
+    // This is hard coded for the moment as there's no need I can see yet for this being changeable
+    public ProtoId<CloningSettingsPrototype> _offspringSettings = "BaseOffspringClone";
+
     Dictionary<EntityUid, ImpReproductiveComponent> _mobsWaiting = new Dictionary<EntityUid, ImpReproductiveComponent>();
-    Dictionary<EntityUid, ImpInfantComponent> _infants = new Dictionary<EntityUid, ImpInfantComponent>();
 
     int _framesUntilNextChecks = 0;
     int _birthCheckFrameDelay = 6;
@@ -92,29 +98,24 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
                 }
             }
 
-            foreach(var infantComp in _infants)
+            var query = EntityQueryEnumerator<ImpInfantComponent>();
+            while (query.MoveNext(out var uid, out var infantComp))
             {
-                if(_entManager.Deleted(infantComp.Key)
-                    || !_entManager.TryGetComponent<MobStateComponent>(infantComp.Key, out var state))
-                {
-                    _infants.Remove(infantComp.Key);
+                if (_entManager.Deleted(uid)
+                    || !_entManager.TryGetComponent<MobStateComponent>(uid, out var state))
                     continue;
-                }
 
                 // No growing up until you're alive buddy
                 // Also delays the animals growth so they don't wake up and immediately advance a stage if kept dead for a while.
                 // In other words, keep your animals healthy!
                 if(state.CurrentState != Shared.Mobs.MobState.Alive)
                 {
-                    infantComp.Value.TimeUntilNextStage = _time.CurTime + (infantComp.Value.GrowthTime / 2);
+                    infantComp.TimeUntilNextStage = _time.CurTime + (infantComp.GrowthTime / 2);
                     continue;
                 }
 
-                if(_time.CurTime > infantComp.Value.TimeUntilNextStage)
-                {
-                    if (AdvanceStage((infantComp.Key, infantComp.Value)))
-                        _infants.Remove(infantComp.Key);
-                }
+                if(_time.CurTime > infantComp.TimeUntilNextStage)
+                    AdvanceStage((uid, infantComp));
             }
         }
         else
@@ -238,7 +239,6 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         {
             infantComp.TimeUntilNextStage = _time.CurTime + infantComp.GrowthTime;
             infantComp.Parent = entity;
-            _infants.Add((EntityUid)offspring, infantComp);
         }
 
 
@@ -248,21 +248,35 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
     #region INFANTS
 
-    public bool AdvanceStage(Entity<ImpInfantComponent> _infant)
+    /// <summary>
+    /// Handles growing an infant by deleting the current mob and making a new one
+    /// This also transfers the previous components to the new mob
+    /// </summary>
+    /// <param name="_infant"></param>
+    /// <returns></returns>
+    public bool AdvanceStage(Entity<ImpInfantComponent> infant)
     {
         bool isAdult = false;
 
-        var newStage = SpawnNewMob(_infant, _infant.Comp.NextStage);
+        var newStage = SpawnNewMob(infant, infant.Comp.NextStage);
+
+        if (newStage == null)
+            return false;
+
+        if (!_prototype.Resolve(_offspringSettings, out var settings))
+            return false;
 
         // If someone is in this thing, move them over as well
-        if (_mind.TryGetMind(_infant, out var mind, out var mindComp))
+        if (_mind.TryGetMind(infant, out var mind, out var mindComp))
         {
             _mind.TransferTo(mind, newStage);
         }
 
         isAdult = !_entManager.TryGetComponent<InfantComponent>(newStage, out var comp);
 
-        QueueDel(_infant);
+        _cloning.CloneComponents(infant, (EntityUid)newStage, settings);
+
+        QueueDel(infant);
 
         return isAdult;
     }

@@ -24,7 +24,6 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField("partnerWhiteList", required: true)]
     public EntityWhitelist PartnerWhiteList = default!;
 
-    // What species are we?
     [DataField("reproductiveGroup", required: true)]
     public string ReproductiveGroup = "MobNone";
 
@@ -38,8 +37,8 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField("maxBreedDamage"), ViewVariables(VVAccess.ReadOnly)]
     public int MaxBreedDamage = 50;
 
-    [DataField("gender", required: true)]
-    public AnimalGender Gender = AnimalGender.Male;
+    [DataField("gender", required: true), ViewVariables(VVAccess.ReadWrite)]
+    public AnimalGender Gender = AnimalGender.Agender;
 
     [DataField("possibleInfants", required: true), ViewVariables(VVAccess.ReadWrite)]
     public EntityTableSelector PossibleInfants = default!;
@@ -54,5 +53,6 @@ public sealed partial class ImpReproductiveComponent : Component
 public enum AnimalGender
 {
     Male,
-    Female
+    Female,
+    Agender
 }

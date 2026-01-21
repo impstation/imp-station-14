@@ -14,7 +14,7 @@ public sealed partial class IncubatorComponent : Component
     public TimeSpan FinishIncubation = TimeSpan.Zero;
 
     // Egg we are currently incubating
-    public IncubationComponent currentlyIncubated;
+    public IncubationComponent CurrentlyIncubated;
 }
 
 [Serializable]
