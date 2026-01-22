@@ -126,6 +126,9 @@ public sealed partial class StoreMenu : DefaultWindow
         if (!listing.Categories.Contains(CurrentCategory))
             return;
 
+        if (!listing.Buyable) // imp addition, hide unbuyable listings
+            return;
+
         var hasBalance = listing.CanBuyWith(Balance);
 
         var spriteSys = _entityManager.EntitySysManager.GetEntitySystem<SpriteSystem>();
@@ -262,6 +265,9 @@ public sealed partial class StoreMenu : DefaultWindow
         var allCategories = new List<StoreCategoryPrototype>();
         foreach (var listing in listings)
         {
+            if (!listing.Buyable) // imp addition, hide categories with no buyable listings
+                continue;
+
             foreach (var cat in listing.Categories)
             {
                 var proto = _prototypeManager.Index(cat);
