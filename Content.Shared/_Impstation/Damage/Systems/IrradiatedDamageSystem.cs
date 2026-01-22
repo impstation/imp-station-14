@@ -2,6 +2,7 @@ using Content.Shared._Impstation.Damage.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Radiation.Events;
 
 namespace Content.Shared._Impstation.Damage.Systems;
@@ -20,29 +21,44 @@ public sealed partial class RadiationDamageModifierSystem : EntitySystem
     /// </summary>
     private void OnIrradiated(Entity<IrradiatedDamageComponent> ent, ref OnIrradiatedEvent args)
     {
+        var hasMobState = TryComp<MobStateComponent>(ent, out var mobState);
         var damageValue = FixedPoint2.New(args.TotalRads);
+        //TODO: Adjust damageValue by RadiationPPE component
 
         DamageSpecifier damage = new();
-        foreach (var typeId in ent.Comp.RadiationDamageCoefficients)
+        foreach (var typeId in ent.Comp.DamageCoefficients)
         {
+            //Logic to be done if entity has a MobState
+            if (hasMobState && mobState != null)
+            {
+                var allowedStatesDict = ent.Comp.AllowedStates;
+                //If a list of allowed states isn't set, apply no health change for this damage type and continue the for loop
+                if (!allowedStatesDict.TryGetValue(typeId.Key, out var allowedStates))
+                    continue;
+
+                //If the current mob state does not match an allowed state, apply no health change for this damage type and continue the for loop
+                if (!allowedStates.Contains(mobState.CurrentState))
+                    continue;
+            }
+
             var adjustedDamage = damageValue * typeId.Value; // a negative value here will result in healing
 
             // Checks if clamps are setup and how to act on them
-            var clampsDict = ent.Comp.RadiationDamageClamps;
-            if (clampsDict != null && clampsDict.TryGetValue(typeId.Key, out var clamp))
+            var limitsDict = ent.Comp.DamageLimits;
+            if (limitsDict.TryGetValue(typeId.Key, out var limit))
             {
                 // If the damage is greater than the clamp, we use the clamp instead
-                if (adjustedDamage > 0 && adjustedDamage > clamp)
-                    adjustedDamage = clamp;
+                if (adjustedDamage > 0 && adjustedDamage > limit)
+                    adjustedDamage = limit;
 
                 // If the healing is "greater" than the clamp, we use the clamp instead
-                if (adjustedDamage < 0 && adjustedDamage < clamp)
-                    adjustedDamage = clamp;
+                if (adjustedDamage < 0 && adjustedDamage < limit)
+                    adjustedDamage = limit;
             }
 
             damage.DamageDict.Add(typeId.Key, adjustedDamage);
         }
 
-        _damageable.ChangeDamage(ent.Owner, damage, interruptsDoAfters: false, origin: args.Origin);
+        _damageable.ChangeDamage(ent.Owner, damage, true, false, args.Origin);
     }
 }
