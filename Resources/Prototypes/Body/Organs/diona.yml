@@ -33,11 +33,12 @@
   id: OrganDionaBrain
   parent: BaseDionaOrgan #imp edit
   name: brain
-  description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
+  description: "The central hub of a diona's pseudo-neurological activity. Its root-like tendrils search for its former body." #imp edit
   components:
   - type: Item
     size: Small
     heldPrefix: brain
+  - type: Brain #imp edit
   - type: Sprite
     state: brain
   - type: SolutionContainerManager
