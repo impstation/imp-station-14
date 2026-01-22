@@ -8,6 +8,11 @@ using Content.Shared.Interaction;
 using Robust.Shared.Containers;
 
 namespace Content.Shared._Impstation.AnimalHusbandry.Systems;
+/// <summary>
+/// "Why does this exist rather than just putting this stuff into the IncubationSystem.cs server file like the Microwave does?"
+/// Phenomenal question. It breaks when I do that.
+/// This class purely exists to update the visuals.
+/// </summary>
 public abstract partial class SharedIncubationSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;

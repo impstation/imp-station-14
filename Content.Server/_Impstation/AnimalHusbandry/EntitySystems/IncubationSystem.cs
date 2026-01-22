@@ -51,6 +51,7 @@ public sealed class IncubationSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        // Just run through and check on all the incubators
         var query = EntityQueryEnumerator<IncubatorComponent>();
         while(query.MoveNext(out var uid, out var incuComp))
         {
@@ -76,6 +77,10 @@ public sealed class IncubationSystem : EntitySystem
         entity.Comp.FinishIncubation = _time.CurTime + incuComp.IncubationTime;
     }
 
+    /// <summary>
+    /// Handles hatching our egg once the time has passed and creating the new mob.
+    /// </summary>
+    /// <param name="entity"></param>
     public void FinishIncubation(Entity<IncubatorComponent> entity)
     {
         // This should never be false unless an admin decides it should be

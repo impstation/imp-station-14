@@ -37,9 +37,18 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField("maxBreedDamage"), ViewVariables(VVAccess.ReadOnly)]
     public int MaxBreedDamage = 50;
 
+    // Animals of the same Gender won't breed EXCEPT for if they are Agender, which can breed with any
     [DataField("gender", required: true), ViewVariables(VVAccess.ReadWrite)]
     public AnimalGender Gender = AnimalGender.Agender;
 
+    /// <summary>
+    /// Format the chosen animals like this within your YAML.
+    /// This variable allows animals to have multiple offspring
+    ///     possibleInfants: !type:GroupSelector
+    ///children:
+    ///  - id: Example
+    ///    weight: 10
+    /// </summary>
     [DataField("possibleInfants", required: true), ViewVariables(VVAccess.ReadWrite)]
     public EntityTableSelector PossibleInfants = default!;
 

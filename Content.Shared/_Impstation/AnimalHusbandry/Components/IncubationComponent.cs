@@ -14,6 +14,7 @@ namespace Content.Shared._Impstation.AnimalHusbandry.Components;
 [RegisterComponent]
 public sealed partial class IncubationComponent : Component
 {
+    // How long this egg incubates for
     [DataField("incubationTime")]
     public TimeSpan IncubationTime = TimeSpan.FromSeconds(10);
 

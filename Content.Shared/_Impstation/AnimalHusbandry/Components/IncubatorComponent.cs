@@ -7,6 +7,9 @@ using Content.Shared.DoAfter;
 
 namespace Content.Shared._Impstation.AnimalHusbandry.Components;
 
+/// <summary>
+/// Exists purely for the ability for Incubators to keep track of what they're doing
+/// </summary>
 [RegisterComponent]
 public sealed partial class IncubatorComponent : Component
 {

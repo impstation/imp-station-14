@@ -26,11 +26,14 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Nutrition.EntitySystems;
+/// <summary>
+/// System that handles mob breeding, birthing and growing
+/// This system works alongside HTN
+/// </summary>
 public sealed class AnimalHusbandrySystemImp : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _time = default!;
@@ -98,6 +101,10 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
                 }
             }
 
+            // Grabs every single entity with this component and runs through them all
+            // to see who should grow up.
+            // Realistically there should never be THAT many infants, so this approach should be
+            // fine for performance.
             var query = EntityQueryEnumerator<ImpInfantComponent>();
             while (query.MoveNext(out var uid, out var infantComp))
             {
