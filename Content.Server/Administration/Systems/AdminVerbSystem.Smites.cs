@@ -1,5 +1,5 @@
 using Content.Server.Administration.Components;
-using Content.Shared._Impstation.Administration.Systems; // imp
+using Content.Shared._Impstation.Administration.Components; // imp
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Electrocution;
@@ -59,7 +59,9 @@ using System.Numerics;
 using System.Threading;
 using Content.Shared.Damage.Components;
 using Timer = Robust.Shared.Timing.Timer;
-using Content.Server.Resist; //imp
+using Content.Server.Resist;
+using Content.Shared.Damage; //imp
+using Content.Shared.Damage.Prototypes; //imp
 
 
 namespace Content.Server.Administration.Systems;
@@ -96,9 +98,12 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SuperBonkSystem _superBonkSystem = default!;
     [Dependency] private readonly SlipperySystem _slipperySystem = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    // [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private readonly EntProtoId _actionViewLawsProtoId = "ActionViewLaws";
     private readonly ProtoId<SiliconLawsetPrototype> _crewsimovLawset = "Crewsimov";
+    private static readonly ProtoId<DamageTypePrototype> DamageType = "Piercing"; //imp
 
     private readonly EntProtoId _siliconMindRole = "MindRoleSiliconBrain";
     private const string SiliconLawBoundUserInterface = "SiliconLawBoundUserInterface";
@@ -190,9 +195,24 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Misc/killsign.rsi"), "icon"), //change this sprite later
             Act = () =>
             {
-                // EnsureComp<SwordDamoclesComponent>(args.Target); // change this to an event, add component via system
-                var ev = new SwordDamoclesEvent(args.Target);
-                RaiseLocalEvent(ref ev);
+                // DamageSpecifier swordDamage = new()
+                // {
+                //     DamageDict = new Dictionary<string, FixedPoint2>
+                //     {
+                //         {"Pierce", 30},
+                //     },
+                // };
+                // DamageTypePrototype piercingDamageType = "Piercing";
+                // var swordDamage = new DamageSpecifier(piercingDamageType, 100);
+                if (TryComp<SwordDamoclesComponent>(args.Target, out var swordComp)) // if it has the component already
+                {
+                    _damage.TryChangeDamage(args.Target, new DamageSpecifier(_prototypeManager.Index(DamageType), 500), ignoreResistances: true, interruptsDoAfters: true); // do damage defined by the component
+                    RemComp<SwordDamoclesComponent>(args.Target); // and remove the component
+                }
+                else // if it doesn't
+                {
+                    EnsureComp<SwordDamoclesComponent>(args.Target); // give it the component
+                }
             },
             Impact = LogImpact.Extreme,
             Message = string.Join(": ", swordDamoclesName, Loc.GetString("admin-smite-sword-of-damocles-description"))

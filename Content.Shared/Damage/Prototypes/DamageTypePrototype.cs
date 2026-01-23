@@ -28,5 +28,10 @@ namespace Content.Shared.Damage.Prototypes
         /// </summary>
         [DataField("armorFlatPrice")]
         public double ArmorPriceFlat { get; set; }
+
+        public static implicit operator DamageTypePrototype(string v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
