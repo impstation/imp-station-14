@@ -10,6 +10,7 @@ flavor-base-ectoplasm = ghastly
 flavor-base-fatty = fatty
 flavor-base-gooey = gooey
 flavor-base-ants = like ants
+flavor-base-light = light
 
 flavor-complex-raktaccino = fantastically bitter
 flavor-complex-moscowmule = like a kick in the teeth
@@ -65,6 +66,7 @@ flavor-complex-supermixer = boringly sweet
 flavor-complex-supermixerpsych = like a psychiatric appointment
 
 flavor-complex-moonrise = like sweet nostalgia
+flavor-complex-funny-lifting-drink = like you've drank nothing
 
 flavor-complex-poormansfrezon = like a good time
 flavor-complex-doublegreen = bitter and nauseating
