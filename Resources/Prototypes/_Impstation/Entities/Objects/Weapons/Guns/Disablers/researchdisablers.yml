@@ -32,7 +32,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: HitscanDisabler
     fireCost: 100
   - type: Battery
@@ -72,7 +72,7 @@
       - state: mag-unshaded-0
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisablerSmg
     fireCost: 33
   - type: Gun
