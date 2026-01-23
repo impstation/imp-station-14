@@ -49,7 +49,6 @@ public sealed partial class RevenantStasisSystem : EntitySystem
         SubscribeLocalEvent<RevenantStasisComponent, ChangeDirectionAttemptEvent>(OnAttemptDirection);
         SubscribeLocalEvent<RevenantStasisComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<RevenantStasisComponent, ConstructionConsumedObjectEvent>(OnCrafted);
-        SubscribeLocalEvent<RevenantStasisComponent, GrindAttemptEvent>(OnGrindAttempt);
         SubscribeLocalEvent<RevenantStasisComponent, TransformSpeakerNameEvent>(OnTransformName);
 
         SubscribeLocalEvent<RevenantStasisComponent, AfterInteractUsingEvent>(OnBibleInteract, before: [typeof(BibleSystem)]);
@@ -120,29 +119,6 @@ public sealed partial class RevenantStasisSystem : EntitySystem
 
         if (_mind.TryGetMind(uid, out var mindId, out var _))
             _mind.TransferTo(mindId, args.New);
-    }
-
-    private void OnGrindAttempt(EntityUid uid, RevenantStasisComponent comp, GrindAttemptEvent args)
-    {
-        if (!comp.Revenant.Comp.GrindingRequiresSalt)
-            return;
-
-        foreach (var reagent in args.Reagents)
-        {
-            if (_tags.HasAnyTag(reagent, "Salt", "Holy"))
-                return;
-        }
-
-        // Ripped off the changeling blood explosion variables
-        _explosion.QueueExplosion(
-            args.Grinder.Owner,
-            "Default",
-            7.5f, // totalIntensity
-            4f, // slope
-            2f // maxTileIntensity
-        );
-
-        args.Cancel();
     }
 
     private void OnAttemptDirection(EntityUid uid, RevenantStasisComponent comp, ChangeDirectionAttemptEvent args)

@@ -96,9 +96,7 @@ namespace Content.Server.GameTicking
             _playerGameStatuses.TryGetValue(session.UserId, out var status);
             return new TickerLobbyStatusEvent(
                 RunLevel != GameRunLevel.PreRoundLobby,
-                LobbyBackgroundImage, // imp edit
-                LobbyBackgroundName, // imp edit
-                LobbyBackgroundArtist, // imp edit
+                LobbyBackground,
                 status == PlayerGameStatus.ReadyToPlay,
                 _roundStartTime,
                 RoundPreloadTime,

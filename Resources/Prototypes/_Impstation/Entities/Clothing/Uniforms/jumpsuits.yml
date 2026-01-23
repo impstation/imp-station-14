@@ -487,7 +487,7 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/cmo_scrubs.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMusicianMarchingBand
   name: musician's marching uniform
   description: For when you need to join the parade.

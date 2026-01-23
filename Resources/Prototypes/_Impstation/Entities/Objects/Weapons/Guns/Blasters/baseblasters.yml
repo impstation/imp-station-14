@@ -27,7 +27,7 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterMagnum
     fireCost: 150
   - type: StaticPrice
@@ -54,7 +54,7 @@
     steps: 5
     zeroVisible: false
   - type: Appearance
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterMagnum
     fireCost: 150
   - type: StaticPrice
