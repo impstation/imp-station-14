@@ -30,20 +30,22 @@
   name: Princess Set
   description: All you need for a royal dress up adventure!
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingUniformPinkPrincessDress
-      amount: 1
-    - id: ClothingUniformGreenPrincessDress
-      amount: 1
-    - id: ClothingHeadHatCuteTiara
-      amount: 2
-    - id: ClothingHeadHatSimpleTiara
-      amount: 2
-    - id: ClothingHeadHatPrincess
-      amount: 1
-    - id: ClothingHeadHatGreenEscoffion
-      amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingUniformPinkPrincessDress
+          amount: 1
+        - id: ClothingUniformGreenPrincessDress
+          amount: 1
+        - id: ClothingHeadHatCuteTiara
+          amount: 2
+        - id: ClothingHeadHatSimpleTiara
+          amount: 2
+        - id: ClothingHeadHatPrincess
+          amount: 1
+        - id: ClothingHeadHatGreenEscoffion
+          amount: 1
     
 - type: entity
   id: CrateFunMagicianSet
@@ -51,14 +53,17 @@
   name: magician's crate
   description: A chest containing a set of magician's clothing. Put on a dazzling show!
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingUniformJumpsuitTailcoatSuit
-      amount: 1
-    - id: ClothingEyesGlassesWhiteHalfMask
-      amount: 1
-    - id: ClothingHeadHatMagician
-      amount: 1
-    - id: ClothingShoesKneeHighBoots
-      amount: 1
-    - id: ClothingNeckCloakMagicianCape
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !typeAllSelector
+       children:
+       - id: ClothingUniformJumpsuitTailcoatSuit
+         amount: 1
+       - id: ClothingEyesGlassesWhiteHalfMask
+         amount: 1
+       - id: ClothingHeadHatMagician
+         amount: 1
+       - id: ClothingShoesKneeHighBoots
+         amount: 1
+       - id: ClothingNeckCloakMagicianCape
+         amount: 1
