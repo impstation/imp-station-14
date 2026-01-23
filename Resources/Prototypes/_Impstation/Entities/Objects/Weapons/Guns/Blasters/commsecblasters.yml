@@ -19,7 +19,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/eshotgun.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletLaserSpreadNarrow
     fireCost: 72
   - type: BatteryWeaponFireModes
@@ -77,7 +77,7 @@
   - type: Battery
     maxCharge: 1050
     startingCharge: 1050
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletLaserMagnum
     fireCost: 175
   - type: BatteryWeaponFireModes

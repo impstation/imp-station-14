@@ -3,36 +3,42 @@
   parent: BriefcaseBlack
   suffix: Filled, Paper
   components:
-  - type: StorageFill
-    contents:
-      - id: Paper
-        amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Paper
+          amount: 3
 
 - type: entity
   parent: CybersunBriefcase
   id: BriefcaseRecruiterLawyerkit
   suffix: Cybersun, Lawyer
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingEyesGlassesCheapSunglasses
-    - id: LuxuryPen
-    - id: ClothingOuterCybersunOvercoat
-    - id: ClothingUniformCybersunAttorney
-    - id: ClothingMaskNeckGaiter
-    - id: SyndieHandyFlag
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingEyesGlassesCheapSunglasses
+        - id: LuxuryPen
+        - id: ClothingOuterCybersunOvercoat
+        - id: ClothingUniformCybersunAttorney
+        - id: ClothingMaskNeckGaiter
+        - id: SyndieHandyFlag
 
 - type: entity
   parent: CybersunBriefcase
   id: BriefcaseRecruiterSurgeonKit
   suffix: Cybersun, Surgeon
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingHeadHatSurgcapCybersun
-    - id: UniformScrubsColorCybersun
-    - id: ClothingOuterCoatCybersunWindbreaker
-    - id: ClothingMaskNeckGaiter
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatSurgcapCybersun
+        - id: UniformScrubsColorCybersun
+        - id: ClothingOuterCoatCybersunWindbreaker
+        - id: ClothingMaskNeckGaiter
 
 - type: entity
   id: BriefcaseSyndieAnacondaBundleFilled
@@ -45,12 +51,14 @@
     maxItemSize: Huge
     grid:
     - 0,0,6,3
-  - type: StorageFill
-    contents:
-      - id: WeaponAnaconda
-      - id: SpeedLoaderAnaconda
-        amount: 2
-      - id: ClothingHeadHatCowboyRed
-      - id: ClothingShoesBootsCowboyBlack
-      - id: ClothingOuterBlackPoncho
-      - id: ClothingUniformJumpsuitFlannel
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponAnaconda
+        - id: SpeedLoaderAnaconda
+          amount: 2
+        - id: ClothingHeadHatCowboyRed
+        - id: ClothingShoesBootsCowboyBlack
+        - id: ClothingOuterBlackPoncho
+        - id: ClothingUniformJumpsuitFlannel
