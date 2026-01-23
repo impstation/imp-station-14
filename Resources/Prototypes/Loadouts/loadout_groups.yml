@@ -749,6 +749,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieClown
+  - FlowerWaterClown
 
 - type: loadoutGroup
   id: MimeHead
@@ -1917,6 +1918,16 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSyndicate # imp
   - EmergencyWheatSyndicate # imp
+  - LoadoutSpeciesAquaticFullTank # Imp
+
+- type: loadoutGroup
+  id: SurvivalMilitaryDouble
+  name: loadout-group-survival-military
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenMilitaryDouble
+  - EmergencyOxygenMilitaryDouble
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup

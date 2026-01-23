@@ -13,10 +13,11 @@
         enum.SolutionContainerLayers.Overlay:
           True: { visible: true }
           False: { visible: false }
-      enum.PowerCellSlotVisuals.Enabled:
-        enum.PowerDeviceVisualLayers.Powered:
-          True: { visible: true }
-          False: { visible: false }
+      enum.BatteryVisuals.State:
+        enum.PowerCellVisualLayers.Base:
+          Full: {visible: true}
+          Neither: {visible: true}
+          Empty: {visible: false}
   - type: SolutionContainerVisuals
     maxFillLevels: 2
     fillBaseName: fill
