@@ -46,7 +46,7 @@
     messages: WindowMessages
   - type: Repairable
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 4
     fx: EffectRCDDeconstruct4
   - type: Destructible
@@ -176,7 +176,7 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: RCDDeconstructable
-    cost: 4
+    cost: 40 # Funkystation
     delay: 2
     fx: EffectRCDDeconstruct2
   - type: Destructible

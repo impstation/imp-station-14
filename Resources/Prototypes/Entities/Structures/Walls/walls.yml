@@ -106,7 +106,7 @@
   - type: Icon
     sprite: Structures/Walls/brick.rsi
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -168,7 +168,7 @@
     graph: Girder
     node: bananiumWall
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -299,7 +299,7 @@
   - type: Icon
     sprite: Structures/Walls/diamond.rsi
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -332,7 +332,7 @@
     graph: Girder
     node: goldWall
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -411,7 +411,7 @@
     graph: Girder
     node: plasmaWall
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -455,7 +455,7 @@
     graph: Girder
     node: plasticWall
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -774,7 +774,7 @@
   - type: Icon
     sprite: Structures/Walls/sandstone.rsi
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -807,7 +807,7 @@
     graph: Girder
     node: silverWall
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -989,7 +989,7 @@
   - type: Icon
     sprite: Structures/Walls/solid.rsi
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible
@@ -1133,7 +1133,7 @@
     graph: Girder
     node: wallChitin
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
 
@@ -1578,7 +1578,7 @@
   - type: Icon
     sprite: Structures/Walls/cobblebrick.rsi
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible

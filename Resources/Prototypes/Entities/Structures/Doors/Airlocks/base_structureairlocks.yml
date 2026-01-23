@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: Airlock
   parent: BaseStructure
   name: airlock
@@ -144,7 +144,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: StrongMetallic
   - type: RCDDeconstructable
-    cost: 6
+    cost: 60 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible

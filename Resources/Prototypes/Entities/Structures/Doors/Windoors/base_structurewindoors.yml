@@ -88,7 +88,7 @@
   - type: ExaminableDamage
     messages: WindowMessages
   - type: RCDDeconstructable
-    cost: 8
+    cost: 80 # Funkystation
     delay: 8
     fx: EffectRCDDeconstruct8
   - type: Destructible

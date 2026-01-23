@@ -367,7 +367,7 @@
     - CableTerminal
     - Deconstruct
   - type: LimitedCharges
-    maxCharges: 30
+    maxCharges: 300
   - type: Sprite
     sprite: _Impstation/Objects/Tools/rcd.rsi # imp
     state: icon
@@ -411,7 +411,7 @@
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
-    maxCharges: 20
+    maxCharges: 200
   - type: AutoRecharge
     rechargeDuration: 10
 

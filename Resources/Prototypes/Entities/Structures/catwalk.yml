@@ -57,6 +57,6 @@
         acts: [ "Destruction" ]
   - type: TrayScanReveal
   - type: RCDDeconstructable
-    cost: 2
+    cost: 20 # Funkystation
     delay: 2
     fx: EffectRCDDeconstruct2
