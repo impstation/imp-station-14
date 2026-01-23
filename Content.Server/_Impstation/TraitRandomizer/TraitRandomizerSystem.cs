@@ -78,7 +78,7 @@ public sealed partial class TraitRandomizerSystem : EntitySystem
         foreach (var traitId in finalTraits)
         {
             if (_whitelistSystem.IsWhitelistFail(traitId.Whitelist, ent) ||
-                _whitelistSystem.IsBlacklistPass(traitId.Blacklist, ent))
+                _whitelistSystem.IsWhitelistPass(traitId.Blacklist, ent))
                 continue;
 
             // Add all components required by the prototype to the body or specified organ

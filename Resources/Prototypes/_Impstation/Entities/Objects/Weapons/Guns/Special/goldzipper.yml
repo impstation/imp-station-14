@@ -27,7 +27,7 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/goldlaser.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletLaserGold
     fireCost: 1
   - type: PointLight
@@ -35,7 +35,7 @@
     energy: 1.34
     castShadows: false
     color: "#9b68ff"
-    
+
 - type: entity
   name: golden zipper
   parent: WeaponGoldZipper
@@ -43,7 +43,7 @@
   suffix: Fake
   description: Legends tell of a gun that can kill anything with a single shot. This one, however, seems to be made of cheap plastic.
   components:
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletLaserFGold
     fireCost: 1
   - type: PacifismAllowedGun
