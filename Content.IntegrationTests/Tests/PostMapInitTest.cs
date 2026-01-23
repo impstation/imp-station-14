@@ -153,6 +153,7 @@ namespace Content.IntegrationTests.Tests
             "Xeno",
             "Pathway",
             "Whisper",
+            "monarch",
 
             // DEROTATED:
             //"Eclipse",
