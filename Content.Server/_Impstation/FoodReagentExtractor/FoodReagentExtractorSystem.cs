@@ -28,7 +28,7 @@ public sealed class FoodReagentExtractorSystem : EntitySystem
 
     private void OnInteractUsing(Entity<FoodReagentExtractorComponent> ent, ref AfterInteractUsingEvent args)
     {
-        if (args.Handled || _whitelist.IsBlacklistPass(ent.Comp.EdibleBlacklist, args.Used))
+        if (args.Handled || _whitelist.IsWhitelistPass(ent.Comp.EdibleBlacklist, args.Used))
             return;
 
         args.Handled = true;

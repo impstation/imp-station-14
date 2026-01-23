@@ -186,3 +186,37 @@
         - !type:AdjustTemperature
           amount: -200 # thermal energy, not temp
   fizziness: 0.3
+
+- type: reagent
+  id: FunnyLiftingDrink
+  name: reagent-name-funny-lifting-drink
+  parent: BaseSoda
+  desc: reagent-desc-funny-lifting-drink
+  physicalDesc: reagent-physical-desc-funny
+  flavor: funnyliftingdrink
+  color: "#41eeee"
+  metamorphicSprite:
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/funnyliftingdrinks.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: true
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+      - !type:Emote
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Slime ]
+        emote: Pop
+        showInChat: true
+        force: true
+        probability: 0.005 #its not the point of the drink, but it's funny once in a blue moon.
+    Narcotic:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectFloating
+        type: Update
+  fizziness: 0.99 #What the actual hell is fizziness. #Well I guess the lifting drinks GOTTA be fizzy

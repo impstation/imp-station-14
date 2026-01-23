@@ -442,6 +442,23 @@
     accentHColor: "#333333"
   - type: Icon
     state: pda-mime
+  - type: Sprite
+    state: "mime-pda"
+    sprite: _Impstation/Objects/Devices/mime_pda.rsi #imp
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ] #imp for the whole layers section here
+      sprite: _Impstation/Objects/Devices/mime_pda.rsi  
+      state: pda-mime
+    - sprite: Objects/Devices/pda.rsi 
+      state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - sprite: Objects/Devices/pda.rsi
+      state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
   - type: Muted # for random sentience event
 
 - type: entity
