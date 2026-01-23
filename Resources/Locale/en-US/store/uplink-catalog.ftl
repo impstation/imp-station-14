@@ -255,7 +255,7 @@ uplink-meds-bundle-desc = An assortment of autoinjectors and premium medical equ
 
 #imp name tweaks
 uplink-ammo-bundle-name = Ammo Bundle
-uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20R Gorgon, 4 drums for the Hydra, 3 magazines for the Estoc DMR, and 2 ammo boxes for the L6 Nidhogg SAW.
+uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20R Gorgon, 5 drums for the Hydra, 3 magazines for the Basilisk-11, and 2 ammo boxes for the L6 Nidhogg SAW.
 
 #imp name tweaks
 uplink-sniper-bundle-name = Sniper Bundle
