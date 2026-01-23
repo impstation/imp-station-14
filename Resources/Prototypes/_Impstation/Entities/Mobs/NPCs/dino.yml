@@ -42,8 +42,10 @@
   - type: ReplacementAccent
     accent: dino
   - type: Bloodstream
-    bloodReagent: DinoBlood
-    bloodMaxVolume: 400 #poor janitors...
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: DinoBlood
+        Quantity: 400 #poor janitors...
     bloodlossDamage:
       types:
         Bloodloss:
@@ -104,17 +106,18 @@
       types:
         Blunt: 0.1
         Heat: 0.02
-  - type: Temperature # temperature values taken from reptilian species
+  - type: TemperatureDamage # temperature values taken from reptilian species
     heatDamageThreshold: 400
     coldDamageThreshold: 285
-    currentTemperature: 310.15
-    specificHeat: 42
     coldDamage:
       types:
         Cold : 0.1 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
+  - type: Temperature # temperature values taken from reptilian species
+    currentTemperature: 310.15
+    specificHeat: 42
   - type: TemperatureSpeed
     thresholds:
       285: 0.8
@@ -209,8 +212,10 @@
         layer:
           - MobLayer
   - type: Bloodstream
-    bloodReagent: DinoBlood
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: DinoBlood
+        Quantity: 100
     bloodlossDamage:
       types:
         Bloodloss:
@@ -916,7 +921,7 @@
       tags:
       - Wall
   - type: Stamina
-    critThreshold: 200
+    baseCritThreshold: 200
     stunTime: 3
   - type: FlashImmunity
   - type: GhostRole

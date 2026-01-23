@@ -8,13 +8,15 @@
     layers:
       - state: box_of_doom
       - state: syringe
-  - type: StorageFill
-    contents:
-      - id: MouseCube
-        amount: 2
-      - id: Syringe
-      - id: SubjuzineChemistryVial
-      - id: PaperWrittenAnimalFriendsKit
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MouseCube
+          amount: 2
+        - id: Syringe
+        - id: SubjuzineChemistryVial
+        - id: PaperWrittenAnimalFriendsKit
 
 - type: entity
   parent: [BoxCardboard, Tier3Contraband]
@@ -25,10 +27,12 @@
   - type: Storage
     grid:
     - 0,0,3,1
-  - type: StorageFill
-    contents:
-      - id: RoseSyndicate
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: RoseSyndicate
+          amount: 4
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
@@ -43,10 +47,12 @@
   - type: Storage
     grid:
     - 0,0,3,1
-  - type: StorageFill
-    contents:
-      - id: CartridgeBazookaExp
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CartridgeBazookaExp
+          amount: 4
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
@@ -58,10 +64,12 @@
   name: Leviathan rocket box (incendiary)
   description: 4 rockets filled with highly flammable fuel stored in a concerningly fragile container.
   components:
-  - type: StorageFill
-    contents:
-      - id: CartridgeBazookaInc
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CartridgeBazookaInc
+          amount: 4
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
@@ -73,10 +81,12 @@
   name: Leviathan rocket box (concussive)
   description: 4 tungsten projectiles stored in a flimsy container. It feels as if they'll tear out through the bottom.
   components:
-  - type: StorageFill
-    contents:
-      - id: CartridgeBazookaCon
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CartridgeBazookaCon
+          amount: 4
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
@@ -91,11 +101,13 @@
   - type: Storage
     grid:
     - 0,0,3,1
-  - type: StorageFill
-    contents:
-      - id: WeaponPlasmaAdder
-      - id: EchionCanister
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPlasmaAdder
+        - id: EchionCanister
+          amount: 2
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
@@ -114,10 +126,12 @@
   - type: Storage
     grid:
     - 0,0,4,1
-  - type: StorageFill
-    contents:
-      - id: WeaponPistolValu
-        amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPistolValu
+          amount: 3
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
@@ -129,10 +143,12 @@
   id: BoxCleanerGrenadesBleach
   description: A box full of heavy-duty cleanades.
   components:
-  - type: StorageFill
-    contents:
-      - id: CleanerGrenadeBleach
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CleanerGrenadeBleach
+          amount: 4
   - type: Sprite
     layers:
       - state: box
@@ -147,10 +163,12 @@
   - type: Storage
     grid:
     - 0,0,3,1
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolHighCapacity
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MagazinePistolHighCapacity
+          amount: 4
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
@@ -165,10 +183,12 @@
   - type: Storage
     grid:
     - 0,0,3,1
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolCaselessRifleExtended
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MagazinePistolCaselessRifleExtended
+          amount: 4
   - type: Sprite
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
