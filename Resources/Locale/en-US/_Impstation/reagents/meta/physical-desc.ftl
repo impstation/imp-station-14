@@ -19,7 +19,6 @@ reagent-physical-desc-nervous = nervous
 reagent-physical-desc-reallynervous = really nervous
 reagent-physical-desc-space-grease = dangerously shiny
 reagent-physical-desc-floral = floral
-reagent-physical-desc-thin = thin
 reagent-physical-desc-ghostly = ghostly
 reagent-physical-desc-something = kind of
 reagent-physical-desc-ants = anty

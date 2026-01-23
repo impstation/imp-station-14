@@ -1,49 +1,4 @@
 ﻿Entries:
-- author: TuttlePants
-  changes:
-  - message: Scallywag, a new pirate-themed bounty hunter kit
-    type: Add
-  - message: Various balance changes and new toys for some of the bh kits
-    type: Tweak
-  - message: Bounty hunters no longer target head revolutionaries
-    type: Tweak
-  - message: Bounty hunters can once again target other bounty hunters
-    type: Tweak
-  - message: Bounty hunters now show up in the postround screen
-    type: Tweak
-  - message: Bounty hunters will prioritize targeting fugitives
-    type: Tweak
-  id: 2066
-  time: '2025-07-25T11:28:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2974
-- author: Kandiyaki
-  changes:
-  - message: the ash ascension ritual is now functional again.
-    type: Fix
-  id: 2067
-  time: '2025-07-25T11:28:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3070
-- author: widgetbeck
-  changes:
-  - message: Added several grids from the salvage magnet pool to the roundstart wrecks
-      pool to increase variety.
-    type: Add
-  - message: Added a "rare ruins" pool, which will spawn one grid from its pool in
-      50% of rounds. The (previously removed) flagship is one of these.
-    type: Add
-  - message: Upped the amounts of both static and randomly-generated roundstart wrecks,
-      and increased the radius they can spawn within.
-    type: Tweak
-  id: 2068
-  time: '2025-07-25T11:28:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3101
-- author: msTheowo
-  changes:
-  - message: Strange pills have random sprites
-    type: Tweak
-  id: 2069
-  time: '2025-07-25T11:28:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3077
 - author: jtfg-dev
   changes:
   - message: Basically every sign has a new description.
@@ -4177,3 +4132,33 @@
   id: 2565
   time: '2026-01-15T08:03:26.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3999
+- author: hivehum
+  changes:
+  - message: Xenoborgs no longer cause a round to fail to start.
+    type: Fix
+  id: 2566
+  time: '2026-01-21T02:59:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4025
+- author: yesteryuri
+  changes:
+  - message: The zombie infection deals cellular damage again
+    type: Fix
+  id: 2567
+  time: '2026-01-23T02:00:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4024
+- author: mqole
+  changes:
+  - message: Its an Upmerge again! Check the upstream changelog for all details.
+    type: Add
+  - message: Several recipes that use blood have been modified to require stirring.
+    type: Tweak
+  id: 2568
+  time: '2026-01-23T01:33:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3971
+- author: Ecramox
+  changes:
+  - message: Shuttle and Steel Maint tiles are now officially good
+    type: Tweak
+  id: 2569
+  time: '2026-01-23T02:01:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4016
