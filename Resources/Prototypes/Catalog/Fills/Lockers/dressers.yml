@@ -3,275 +3,256 @@
   parent: Dresser
   suffix: Filled, Captain
   components:
-  - type: StorageFill
-    contents: # imp edit - diversifying dressers
-      - id: ClothingHeadHatCaptain
-        orGroup: CapHat
-      - id: ClothingHeadHatCapcap
-        orGroup: CapHat
-      - id: ClothingHeadHatBeretCaptain
-        orGroup: CapHat
-      - id: ClothingHeadHatCaptaincrushercap
-        orGroup: CapHat
-      - id: ClothingNeckCloakCap
-        orGroup: CapNeck
-      - id: ClothingNeckCloakCapFormal
-        orGroup: CapNeck
-      - id: ClothingNeckMantleCap
-        orGroup: CapNeck
-      - id: ClothingNeckCloakCaptaingreatcoat
-        orGroup: CapNeck
-      - id: ClothingUniformJumpsuitCaptain
-        orGroup: CapJumpsuit
-      - id: ClothingUniformJumpsuitCapFormal
-        orGroup: CapJumpsuit
-      - id: ClothingUniformJumpsuitCaptaineveningattire
-        orGroup: CapJumpsuit
-      - id: ClothingUniformJumpskirtCaptain
-        orGroup: CapJumpskirt
-      - id: ClothingUniformJumpskirtCapFormalDress
-        orGroup: CapJumpskirt
-      - id: ClothingOuterWinterCap
-      - id: ClothingHandsGlovesCaptain
-        orGroup: CapGloves
-      - id: ClothingHandsGlovesCaptainflightgloves
-        orGroup: CapGloves
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children: # imp edit - diversifying dressers
+        - !type:GroupSelector
+          children:
+          - id: ClothingHeadHatCaptain
+          - id: ClothingHeadHatCapcap
+          - id: ClothingHeadHatBeretCaptain
+          - id: ClothingHeadHatCaptaincrushercap
+        - !type:GroupSelector
+          children:
+          - id: ClothingNeckCloakCap
+          - id: ClothingNeckCloakCapFormal
+          - id: ClothingNeckMantleCap
+          - id: ClothingNeckCloakCaptaingreatcoat
+        - !type:GroupSelector
+          children:
+          - id: ClothingUniformJumpsuitCaptain
+          - id: ClothingUniformJumpsuitCapFormal
+          - id: ClothingUniformJumpsuitCaptaineveningattire
+        - !type:GroupSelector
+          children:
+          - id: ClothingUniformJumpskirtCaptain
+          - id: ClothingUniformJumpskirtCapFormalDress
+        - id: ClothingOuterWinterCap
+        - !type:GroupSelector
+          children:
+          - id: ClothingHandsGlovesCaptain
+          - id: ClothingHandsGlovesCaptainflightgloves
 
 - type: entity
   id: DresserChiefEngineerFilled
   parent: Dresser
   suffix: Filled, Chief Engineer
   components:
-  - type: StorageFill
-    contents: # imp edit - diversifying dressers
-      - id: ClothingHeadHatBeretEngineering
-        orGroup: CEHat
-      - id: ClothingHeadHatHardhatWhite
-        orGroup: CEHat
-      - id: ClothingNeckCloakCe
-        orGroup: CENeck
-      - id: ClothingNeckMantleCE
-        orGroup: CENeck
-      - id: ClothingUniformJumpsuitChiefEngineer
-        orGroup: CEJumpsuit
-      - id: ClothingUniformJumpsuitChiefEngineerTurtle
-        orGroup: CEJumpsuit
-      - id: ClothingUniformJumpskirtChiefEngineer
-        orGroup: CEJumpskirt
-      - id: ClothingUniformJumpskirtChiefEngineerTurtle
-        orGroup: CEJumpskirt
-      - id: ClothingOuterWinterCE
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children: # imp edit - diversifying dressers
+        - !type:GroupSelector
+            children:
+            - id: ClothingHeadHatBeretEngineering
+            - id: ClothingHeadHatHardhatWhite
+        - !type:GroupSelector
+            children:
+            - id: ClothingNeckCloakCe
+            - id: ClothingNeckMantleCE
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpsuitChiefEngineer
+            - id: ClothingUniformJumpsuitChiefEngineerTurtle
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpskirtChiefEngineer
+            - id: ClothingUniformJumpskirtChiefEngineerTurtle
+        - id: ClothingOuterWinterCE
 
 - type: entity
   id: DresserChiefMedicalOfficerFilled
   parent: Dresser
   suffix: Filled, Chief Medical Officer
   components:
-  - type: StorageFill
-    contents: # imp edit - diversifying dressers
-      - id: ClothingHeadHatBeretCmo
-        orGroup: CMOHat
-      - id: ClothingHeadMirror
-        orGroup: CMOHat
-      - id: ClothingHeadHatCMOClip
-        orGroup: CMOHat
-      - id: ClothingCloakCmo
-        orGroup: CMONeck
-      - id: ClothingNeckMantleCMO
-        orGroup: CMONeck
-      - id: ClothingNeckCloakCmosGreatcloak
-        orGroup: CMONeck
-      - id: ClothingUniformJumpsuitCMOTurtle
-        orGroup: CMOJumpsuit
-      - id: ClothingUniformJumpsuitCMO
-        orGroup: CMOJumpsuit
-      - id: ClothingUniformJumpsuitCMOFormal
-        orGroup: CMOJumpsuit
-      - id: ClothingUniformJumpsuitCMOCasual
-        orGroup: CMOJumpsuit
-      - id: ClothingUniformJumpsuitCMOScrubs
-        orGroup: CMOJumpsuit
-      - id: ClothingUniformJumpskirtCMOTurtle
-        orGroup: CMOJumpskirt
-      - id: ClothingUniformJumpskirtCMO
-        orGroup: CMOJumpskirt
-      - id: ClothingUniformJumpskirtCMOFormal
-        orGroup: CMOJumpskirt
-      - id: ClothingUniformJumpskirtCMOCasual
-        orGroup: CMOJumpskirt
-      - id: ClothingOuterCoatLabCmo
-        orGroup: CMOOuter
-      - id: ClothingOuterWinterCMO
-        orGroup: CMOOuter
-      - id: ClothingOuterCoatCMO
-        orGroup: CMOOuter
-      - id: ClothingOuterApronCMO
-        orGroup: CMOOuter
-      - id: ClothingEyesGlasses
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children: # imp edit - diversifying dressers
+        - !type:GroupSelector
+            children:
+            - id: ClothingHeadHatBeretCmo
+            - id: ClothingHeadMirror
+            - id: ClothingHeadHatCMOClip
+        - !type:GroupSelector
+            children:
+            - id: ClothingCloakCmo
+            - id: ClothingNeckMantleCMO
+            - id: ClothingNeckCloakCmosGreatcloak
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpsuitCMOTurtle
+            - id: ClothingUniformJumpsuitCMO
+            - id: ClothingUniformJumpsuitCMOFormal
+            - id: ClothingUniformJumpsuitCMOCasual
+            - id: ClothingUniformJumpsuitCMOScrubs
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpskirtCMOTurtle
+            - id: ClothingUniformJumpskirtCMO
+            - id: ClothingUniformJumpskirtCMOFormal
+            - id: ClothingUniformJumpskirtCMOCasual
+        - !type:GroupSelector
+            children:
+            - id: ClothingOuterCoatLabCmo
+            - id: ClothingOuterWinterCMO
+            - id: ClothingOuterCoatCMO
+            - id: ClothingOuterApronCMO
+        - id: ClothingEyesGlasses
 
 - type: entity
   id: DresserHeadOfPersonnelFilled
   parent: Dresser
   suffix: Filled, Head Of Personnel
   components:
-  - type: StorageFill
-    contents: # imp edit - diversifying dressers. also hop didnt have jumpsuits in here for some reason
-      - id: ClothingHeadHatHopcap
-      - id: ClothingNeckCloakHop
-        orGroup: HoPNeck
-      - id: ClothingNeckMantleHOP
-        orGroup: HoPNeck
-      - id: ClothingUniformJumpsuitHoP
-        orGroup: HoPJumpsuit
-      - id: ClothingUniformJumpsuitBoatswain
-        orGroup: HoPJumpsuit
-      - id: ClothingUniformJumpsuitHoPMess
-        orGroup: HoPJumpsuit
-      - id: ClothingUniformJumpskirtHoP
-        orGroup: HoPJumpskirt
-      - id: ClothingUniformJumpskirtHoPMess
-        orGroup: HoPJumpskirt
-      - id: ClothingUniformJumpskirtHopPowerSuit
-        orGroup: HoPJumpskirt
-      - id: ClothingOuterWinterHoP
-        orGroup: HoPOuterClothing
-      - id: ClothingOuterCoatHoPFormal
-        orGroup: HoPOuterClothing
-      - id: ClothingEyesGlasses
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children: # imp edit - diversifying dressers. also hop didnt have jumpsuits in here for some reason
+        - id: ClothingHeadHatHopcap
+        - !type:GroupSelector
+            children:
+            - id: ClothingNeckCloakHop
+            - id: ClothingNeckMantleHOP
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpsuitHoP
+            - id: ClothingUniformJumpsuitBoatswain
+            - id: ClothingUniformJumpsuitHoPMess
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpskirtHoP
+            - id: ClothingUniformJumpskirtHoPMess
+            - id: ClothingUniformJumpskirtHopPowerSuit
+        - !type:GroupSelector
+            children:
+            - id: ClothingOuterWinterHoP
+            - id: ClothingOuterCoatHoPFormal
+        - id: ClothingEyesGlasses
 
 - type: entity
   id: DresserHeadOfSecurityFilled
   parent: Dresser
   suffix: Filled, Head Of Security
   components:
-  - type: StorageFill
-    contents: # imp edit - diversifying dressers
-      - id: ClothingHeadHatBeretHoS
-        orGroup: HoSHat
-      - id: ClothingHeadHatHoshat
-      - id: ClothingMaskNeckGaiter
-        orGroup: HoSHat
-      # imp start
-      - id: ClothingHeadHatHoshatDV
-        orGroup: HoSHat
-      - id: ClothingHeadHatHOSsoft
-        orGroup: HoSHat
-      - id: ClothingNeckCloakHos
-        orGroup: HoSCloak
-      - id: ClothingNeckMantleHOS
-        orGroup: HoSCloak
-      - id: ClothingNeckCloakHosgreatcoat
-        orGroup: HoSCloak
-      - id: ClothingUniformJumpsuitHoS
-        orGroup: HoSJumpsuit
-      - id: ClothingUniformJumpsuitHoSAlt
-        orGroup: HoSJumpsuit
-      - id: ClothingUniformJumpsuitHoSGrey
-        orGroup: HoSJumpsuit
-      - id: ClothingUniformJumpsuitHosFormal
-        orGroup: HoSJumpsuit
-      - id: ClothingUniformJumpsuitHoSPro
-        orGroup: HoSJumpsuit
-      - id: ClothingUniformJumpskirtHoS
-        orGroup: HoSJumpskirt
-      # imp end
-      - id: ClothingUniformJumpskirtHoSAlt
-        orGroup: HoSJumpskirt
-      - id: ClothingUniformJumpskirtHoSGrey
-        orGroup: HoSJumpskirt
-      - id: ClothingUniformJumpskirtHosFormal
-        orGroup: HoSJumpskirt
-      - id: ClothingUniformJumpskirtHoSPro
-        orGroup: HosJumpskirt
-      - id: ClothingOuterWinterHoS
-      - id: ClothingOuterCoatHosBomber
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children: # imp edit - diversifying dressers
+        - !type:GroupSelector
+            children:
+            - id: ClothingHeadHatBeretHoS
+            - id: ClothingHeadHatHoshat
+            - id: ClothingMaskNeckGaiter
+            - id: ClothingHeadHatHoshatDV
+            - id: ClothingHeadHatHOSsoft
+        - !type:GroupSelector
+            children:
+            - id: ClothingNeckCloakHos
+            - id: ClothingNeckMantleHOS
+            - id: ClothingNeckCloakHosgreatcoat
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpsuitHoS
+            - id: ClothingUniformJumpsuitHoSAlt
+            - id: ClothingUniformJumpsuitHoSGrey
+            - id: ClothingUniformJumpsuitHosFormal
+            - id: ClothingUniformJumpsuitHoSPro
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpskirtHoS
+            - id: ClothingUniformJumpskirtHoSAlt
+            - id: ClothingUniformJumpskirtHoSGrey
+            - id: ClothingUniformJumpskirtHosFormal
+            - id: ClothingUniformJumpskirtHoSPro
+        - id: ClothingOuterWinterHoS
+        - id: ClothingOuterCoatHosBomber
 
 - type: entity
   id: DresserQuarterMasterFilled
   parent: Dresser
   suffix: Filled, Quarter Master
   components:
-  - type: StorageFill
-    contents: # imp edit - diversifying dressers
-      - id: ClothingHeadHatBeretQM
-        orGroup: QMHat
-      - id: ClothingHeadHatQMsoft
-        orGroup: QMHat
-      - id: ClothingNeckCloakQm
-        orGroup: QMNeck
-      - id: ClothingNeckMantleQM
-        orGroup: QMNeck
-      - id: ClothingNeckCloakQmgreatcoat
-        orGroup: QMNeck
-      - id: ClothingUniformJumpsuitQM
-        orGroup: QMJumpsuit
-      - id: ClothingUniformJumpsuitQMFormal
-        orGroup: QMJumpsuit
-      - id: ClothingUniformJumpsuitQMTurtleneck
-        orGroup: QMJumpsuit
-      - id: ClothingUniformJumpskirtQM
-        orGroup: QMJumpskirt
-      - id: ClothingUniformJumpskirtQMTurtleneck
-        orGroup: QMJumpskirt
-      - id: ClothingOuterWinterQM
-        orGroup: QMOuter
-      - id: ClothingOuterCoatQmHuge
-        orGroup: QMOuter
-      - id: ClothingHandsGlovesColorBrown # idk why this is in here since it isnt part of the qm loadouts but whatever
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children: # imp edit - diversifying dressers
+        - !type:GroupSelector
+            children:
+            - id: ClothingHeadHatBeretQM
+            - id: ClothingHeadHatQMsoft
+        - !type:GroupSelector
+            children:
+            - id: ClothingNeckCloakQm
+            - id: ClothingNeckMantleQM
+            - id: ClothingNeckCloakQmgreatcoat
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpsuitQM
+            - id: ClothingUniformJumpsuitQMFormal
+            - id: ClothingUniformJumpsuitQMTurtleneck
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpskirtQM
+            - id: ClothingUniformJumpskirtQMTurtleneck
+        - !type:GroupSelector
+            children:
+            - id: ClothingOuterWinterQM
+            - id: ClothingOuterCoatQmHuge
+        - id: ClothingHandsGlovesColorBrown # idk why this is in here since it isnt part of the qm loadouts but whatever
 
 - type: entity
   id: DresserResearchDirectorFilled
   parent: Dresser
   suffix: Filled, Research Director
   components:
-  - type: StorageFill
-    contents: # imp edit - diversifying dressers. RD didnt have jumpsuits either for some reason
-      - id: ClothingHeadHatBeretRND
-        orGroup: RDHat
-      - id: ClothingHeadHoodMysta
-        orGroup: RDHat
-      - id: ClothingNeckCloakRd
-        orGroup: RDNeck
-      - id: ClothingNeckCloakMystagogue
-        orGroup: RDNeck
-      - id: ClothingNeckMantleRD
-        orGroup: RDNeck
-      - id: ClothingUniformJumpsuitResearchDirector
-      - id: ClothingUniformJumpskirtResearchDirector
-      - id: ClothingOuterWinterRD
-        orGroup: RDOuter
-      - id: ClothingOuterCoatRD
-        orGroup: RDOuter
-      - id: ClothingOuterCoatRndMysta
-        orGroup: RDOuter
-      - id: ClothingHandsGlovesColorPurple # not part of the rd loadout but okay
-      - id: ClothingEyesGlasses
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children: # imp edit - diversifying dressers. RD didnt have jumpsuits either for some reason
+        - !type:GroupSelector
+            children:
+            - id: ClothingHeadHatBeretRND
+            - id: ClothingHeadHoodMysta
+        - !type:GroupSelector
+            children:
+            - id: ClothingNeckCloakRd
+            - id: ClothingNeckCloakMystagogue
+            - id: ClothingNeckMantleRD
+        - id: ClothingUniformJumpsuitResearchDirector
+        - id: ClothingUniformJumpskirtResearchDirector
+        - !type:GroupSelector
+            children:
+            - id: ClothingOuterWinterRD
+            - id: ClothingOuterCoatRD
+            - id: ClothingOuterCoatRndMysta
+        - id: ClothingHandsGlovesColorPurple # not part of the rd loadout but okay
+        - id: ClothingEyesGlasses
 
 - type: entity
   id: DresserWardenFilled
   parent: Dresser
   suffix: Filled, Warden
   components:
-  - type: StorageFill
-    contents: # imp edit - diversifying dressers
-      - id: ClothingHeadHatWarden
-        orGroup: WardenHead
-      - id: ClothingHeadHatBeretWarden
-        orGroup: WardenHead
-      - id: ClothingUniformJumpsuitWarden
-        orGroup: WardenJumpsuit
-      - id: ClothingUniformJumpsuitWardenTurtle
-        orGroup: WardenJumpsuit
-      - id: ClothingUniformJumpsuitSecBlue
-        orGroup: WardenJumpsuit
-      - id: ClothingUniformJumpsuitChiefJusticeFormal
-        orGroup: WardenJumpsuit
-      - id: ClothingUniformJumpsuitChiefJusticeWhite
-        orGroup: WardenJumpsuit
-      - id: ClothingUniformJumpskirtWarden
-        orGroup: WardenJumpskirt
-      - id: ClothingUniformJumpskirtWardenTurtle
-        orGroup: WardenJumpskirt
-      - id: ClothingUniformJumpskirtCJFormal
-        orGroup: WardenJumpskirt
-      - id: ClothingOuterWinterWardenUnarmored
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children: # imp edit - diversifying dressers
+        - !type:GroupSelector
+            children:
+            - id: ClothingHeadHatWarden
+            - id: ClothingHeadHatBeretWarden
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpsuitWarden
+            - id: ClothingUniformJumpsuitWardenTurtle
+            - id: ClothingUniformJumpsuitSecBlue
+            - id: ClothingUniformJumpsuitChiefJusticeFormal
+            - id: ClothingUniformJumpsuitChiefJusticeWhite
+        - !type:GroupSelector
+            children:
+            - id: ClothingUniformJumpskirtWarden
+            - id: ClothingUniformJumpskirtWardenTurtle
+            - id: ClothingUniformJumpskirtCJFormal
+        - id: ClothingOuterWinterWardenUnarmored
