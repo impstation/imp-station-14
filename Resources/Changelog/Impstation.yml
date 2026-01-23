@@ -1,21 +1,4 @@
 ﻿Entries:
-- author: TuttlePants
-  changes:
-  - message: Scallywag, a new pirate-themed bounty hunter kit
-    type: Add
-  - message: Various balance changes and new toys for some of the bh kits
-    type: Tweak
-  - message: Bounty hunters no longer target head revolutionaries
-    type: Tweak
-  - message: Bounty hunters can once again target other bounty hunters
-    type: Tweak
-  - message: Bounty hunters now show up in the postround screen
-    type: Tweak
-  - message: Bounty hunters will prioritize targeting fugitives
-    type: Tweak
-  id: 2066
-  time: '2025-07-25T11:28:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2974
 - author: Kandiyaki
   changes:
   - message: the ash ascension ritual is now functional again.
@@ -4177,3 +4160,10 @@
   id: 2565
   time: '2026-01-15T08:03:26.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3999
+- author: hivehum
+  changes:
+  - message: Xenoborgs no longer cause a round to fail to start.
+    type: Fix
+  id: 2566
+  time: '2026-01-21T02:59:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4025
