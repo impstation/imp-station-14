@@ -1,0 +1,630 @@
+﻿- type: weightedRandom
+  id: TraitorEmployers
+  weights:
+    ARC: 1
+    Cybersun: 1
+    CorporateClimber: 1
+    DonkCo: 1
+    Gorlex: 1
+    LegalTrouble: 1
+    MI13: 1
+    TigerCooperative: 1
+    WaffleCo: 1
+    SELF: 1
+    Interdyne: 1
+    ABSLTN: 1
+    ArchitectAndBabel: 1
+    Blackpyre: 1
+    Boeing: 1
+    Brandenburg: 1
+    DahirInsaat: 1
+    Forenserth: 1
+    Hyuspi: 1
+    JohnsonJohnsonLockheedMartin: 1
+    LittleGuys: 1
+    MartianLaborPrinting: 1
+    MuscleCo: 1
+    Prospero: 1
+    RTVS: 1
+    RobertRobotics: 1
+    Santa: 1
+    DecapoidEmpire: 1
+    DominusEmpire: 1
+    GiggleCo: 1
+    LawOfficesOfJohnsonJohnsonLockheedMartin: 1
+    PublicInvestmentFund: 1
+    TonyBlair: 1
+    WaffleZaibatsu: 1
+    Blackmail: 1
+    ViPak: 1
+    StockholmUniversity: 1
+    RoubyCo: 1
+    Starling: 1
+    CentralCommand: 1
+    HonkCo: 1
+    Hungover: 1
+    BigCheese: 1
+    Gildedhammer: 1
+    Blackdyrt: 1
+    BiscuitsInc: 1
+    Mlijeko: 1
+    TheOnesBehindItAll: 1
+    TheFuture: 1
+    LeagueOfImmorality: 1
+    BelmarkTransport: 1
+    DireMind: 1
+    PaleHorse: 1
+    InterstellarCovertAgents: 1
+    ConcernedParents: 1
+    ScoutsOfNeverCommander: 1
+    PepsiGoyaHariboFritoMeijiHormelGalaktischGesellschaftMitBeschrankterHaftung: 1
+
+- type: traitorEmployer
+  id: ARC
+  name: Animal Rights Consortium
+  color: "green"
+  introText: traitor-arc-intro
+  goalText: traitor-arc-goal
+  alliesText: traitor-arc-allies
+  uplinkText: traitor-arc-uplink
+  roundendText: traitor-arc-roundend
+
+- type: traitorEmployer
+  id: Cybersun
+  name: Cybersun Industries
+  color: "yellow"
+  introText: traitor-cybersun-intro
+  goalText: traitor-cybersun-goal
+  alliesText: traitor-cybersun-allies
+  uplinkText: traitor-cybersun-uplink
+  roundendText: traitor-cybersun-roundend
+
+- type: traitorEmployer
+  id: CorporateClimber
+  name: Corporate Climber
+  color: "white"
+  introText: traitor-corporateclimber-intro
+  goalText: traitor-corporateclimber-goal
+  alliesText: traitor-corporateclimber-allies
+  uplinkText: traitor-corporateclimber-uplink
+  roundendText: traitor-corporateclimber-roundend
+
+- type: traitorEmployer
+  id: DonkCo
+  name: Donk Co.
+  color: "orange"
+  introText: traitor-donkco-intro
+  goalText: traitor-donkco-goal
+  alliesText: traitor-donkco-allies
+  uplinkText: traitor-donkco-uplink
+  roundendText: traitor-donkco-roundend
+
+- type: traitorEmployer
+  id: Gorlex
+  name: Gorlex Marauders
+  color: "red"
+  introText: traitor-gorlex-intro
+  goalText: traitor-gorlex-goal
+  alliesText: traitor-gorlex-allies
+  uplinkText: traitor-gorlex-uplink
+  roundendText: traitor-gorlex-roundend
+
+- type: traitorEmployer
+  id: LegalTrouble
+  name: Legal Trouble
+  color: "white"
+  introText: traitor-legaltrouble-intro
+  goalText: traitor-legaltrouble-goal
+  alliesText: traitor-legaltrouble-allies
+  uplinkText: traitor-legaltrouble-uplink
+  roundendText: traitor-legaltrouble-roundend
+
+- type: traitorEmployer
+  id: MI13
+  name: MI13
+  color: "cyan"
+  introText: traitor-mi13-intro
+  goalText: traitor-mi13-goal
+  alliesText: traitor-mi13-allies
+  uplinkText: traitor-mi13-uplink
+  roundendText: traitor-mi13-roundend
+
+- type: traitorEmployer
+  id: TigerCooperative
+  name: Tiger Cooperative
+  color: "crimson"
+  introText: traitor-tiger-intro
+  goalText: traitor-tiger-goal
+  alliesText: traitor-tiger-allies
+  uplinkText: traitor-tiger-uplink
+  roundendText: traitor-tiger-roundend
+
+- type: traitorEmployer
+  id: WaffleCo
+  name: Waffle Co.
+  color: "orange"
+  introText: traitor-waffleco-intro
+  goalText: traitor-waffleco-goal
+  alliesText: traitor-waffleco-allies
+  uplinkText: traitor-waffleco-uplink
+  roundendText: traitor-waffleco-roundend
+
+- type: traitorEmployer
+  id: SELF
+  name: Sentient Engine Liberation Front
+  color: "red"
+  introText: traitor-self-intro
+  goalText: traitor-self-goal
+  alliesText: traitor-self-allies
+  uplinkText: traitor-self-uplink
+  roundendText: traitor-self-roundend
+
+- type: traitorEmployer
+  id: Interdyne
+  name: Interdyne Pharmaceutics
+  color: "#ff13f0"
+  introText: traitor-interdyne-intro
+  goalText: traitor-interdyne-goal
+  alliesText: traitor-interdyne-allies
+  uplinkText: traitor-interdyne-uplink
+  roundendText: traitor-interdyne-roundend
+
+- type: traitorEmployer
+  id: ABSLTN
+  name: ABSLTN Corp.
+  color: "#ff0066"
+  introText: traitor-absltn-intro
+  goalText: traitor-absltn-goal
+  alliesText: traitor-absltn-allies
+  uplinkText: traitor-absltn-uplink
+  roundendText: traitor-absltn-roundend
+
+- type: traitorEmployer
+  id: ArchitectAndBabel
+  name: Architect & Babel
+  color: "brown"
+  introText: traitor-architectandbabel-intro
+  goalText: traitor-architectandbabel-goal
+  alliesText: traitor-architectandbabel-allies
+  uplinkText: traitor-architectandbabel-uplink
+  roundendText: traitor-architectandbabel-roundend
+
+- type: traitorEmployer
+  id: Blackpyre
+  name: Blackpyre Funerary Corp.
+  color: "#eb5d0c"
+  introText: traitor-blackpyre-intro
+  goalText: traitor-blackpyre-goal
+  alliesText: traitor-blackpyre-allies
+  uplinkText: traitor-blackpyre-uplink
+  roundendText: traitor-blackpyre-roundend
+
+- type: traitorEmployer
+  id: Boeing
+  name: Boeing
+  color: "blue"
+  introText: traitor-boeing-intro
+  goalText: traitor-boeing-goal
+  alliesText: traitor-boeing-allies
+  uplinkText: traitor-boeing-uplink
+  roundendText: traitor-boeing-roundend
+
+- type: traitorEmployer
+  id: Brandenburg
+  name: Brandenburg Intelligence Division
+  color: "cyan"
+  introText: traitor-brandenburg-intro
+  goalText: traitor-brandenburg-goal
+  alliesText: traitor-brandenburg-allies
+  uplinkText: traitor-brandenburg-uplink
+  roundendText: traitor-brandenburg-roundend
+
+- type: traitorEmployer
+  id: DahirInsaat
+  name: Dahir Insaat
+  color: "#0000cd"
+  introText: traitor-dahir-intro
+  goalText: traitor-dahir-goal
+  alliesText: traitor-dahir-allies
+  uplinkText: traitor-dahir-uplink
+  roundendText: traitor-dahir-roundend
+
+- type: traitorEmployer
+  id: Forenserth
+  name: Forenserth Corporation
+  color: "#c8a2c8"
+  introText: traitor-forenserth-intro
+  goalText: traitor-forenserth-goal
+  alliesText: traitor-forenserth-allies
+  uplinkText: traitor-forenserth-uplink
+  roundendText: traitor-forenserth-roundend
+
+- type: traitorEmployer
+  id: Hyuspi
+  name: Hyuspi
+  color: "#000080"
+  introText: traitor-hyuspi-intro
+  goalText: traitor-hyuspi-goal
+  alliesText: traitor-hyuspi-allies
+  uplinkText: traitor-hyuspi-uplink
+  roundendText: traitor-hyuspi-roundend
+
+- type: traitorEmployer
+  id: JohnsonJohnsonLockheedMartin
+  name: Johnson & Johnson & Lockheed & Martin
+  color: "crimson"
+  introText: traitor-johnsonjohnsonlockheedmartin-intro
+  goalText: traitor-johnsonjohnsonlockheedmartin-goal
+  alliesText: traitor-johnsonjohnsonlockheedmartin-allies
+  uplinkText: traitor-johnsonjohnsonlockheedmartin-uplink
+  roundendText: traitor-johnsonjohnsonlockheedmartin-roundend
+
+- type: traitorEmployer
+  id: LittleGuys
+  name: Little Guys Inc.
+  color: "green"
+  introText: traitor-littleguys-intro
+  goalText: traitor-littleguys-goal
+  alliesText: traitor-littleguys-allies
+  uplinkText: traitor-littleguys-uplink
+  roundendText: traitor-littleguys-roundend
+
+- type: traitorEmployer
+  id: MartianLaborPrinting
+  name: Martian Labor Printing LLC
+  color: "brown"
+  introText: traitor-martianlaborprinting-intro
+  goalText: traitor-martianlaborprinting-goal
+  alliesText: traitor-martianlaborprinting-allies
+  uplinkText: traitor-martianlaborprinting-uplink
+  roundendText: traitor-martianlaborprinting-roundend
+
+- type: traitorEmployer
+  id: MuscleCo
+  name: Muscle Corporation
+  color: "red"
+  introText: traitor-muscleco-intro
+  goalText: traitor-muscleco-goal
+  alliesText: traitor-muscleco-allies
+  uplinkText: traitor-muscleco-uplink
+  roundendText: traitor-muscleco-roundend
+
+- type: traitorEmployer
+  id: Prospero
+  name: Prospero Corporation
+  color: "#e35336"
+  introText: traitor-prospero-intro
+  goalText: traitor-prospero-goal
+  alliesText: traitor-prospero-allies
+  uplinkText: traitor-prospero-uplink
+  roundendText: traitor-prospero-roundend
+
+- type: traitorEmployer
+  id: RTVS
+  name: Radio TV Solutions
+  color: "white"
+  introText: traitor-rtvs-intro
+  goalText: traitor-rtvs-goal
+  alliesText: traitor-rtvs-allies
+  uplinkText: traitor-rtvs-uplink
+  roundendText: traitor-rtvs-roundend
+
+- type: traitorEmployer
+  id: RobertRobotics
+  name: Robert Robotics
+  color: "brown"
+  introText: traitor-robertrobotics-intro
+  goalText: traitor-robertrobotics-goal
+  alliesText: traitor-robertrobotics-allies
+  uplinkText: traitor-robertrobotics-uplink
+  roundendText: traitor-robertrobotics-roundend
+
+- type: traitorEmployer
+  id: Santa
+  name: Santa's Workshop
+  color: "white"
+  introText: traitor-santa-intro
+  goalText: traitor-santa-goal
+  alliesText: traitor-santa-allies
+  uplinkText: traitor-santa-uplink
+  roundendText: traitor-santa-roundend
+
+- type: traitorEmployer
+  id: DecapoidEmpire
+  name: The Decapoid Empire
+  color: "#0084e8"
+  introText: traitor-decapoidempire-intro
+  goalText: traitor-decapoidempire-goal
+  alliesText: traitor-decapoidempire-allies
+  uplinkText: traitor-decapoidempire-uplink
+  roundendText: traitor-decapoidempire-roundend
+
+- type: traitorEmployer
+  id: DominusEmpire
+  name: The Dominus Empire of Camelot IV
+  color: "black"
+  introText: traitor-dominusempire-intro
+  goalText: traitor-dominusempire-goal
+  alliesText: traitor-dominusempire-allies
+  uplinkText: traitor-dominusempire-uplink
+  roundendText: traitor-dominusempire-roundend
+
+- type: traitorEmployer
+  id: GiggleCo
+  name: The Giggle Corporation, LLC
+  color: "pink"
+  introText: traitor-giggleco-intro
+  goalText: traitor-giggleco-goal
+  alliesText: traitor-giggleco-allies
+  uplinkText: traitor-giggleco-uplink
+  roundendText: traitor-giggleco-roundend
+
+- type: traitorEmployer
+  id: LawOfficesOfJohnsonJohnsonLockheedMartin # jesus christ
+  name: Law Offices of Johnson & Johnson & Lockheed & Martin
+  color: "crimson"
+  introText: traitor-lawofficesofjohnsonjohnsonlockheedmartin-intro
+  goalText: traitor-lawofficesofjohnsonjohnsonlockheedmartin-goal
+  alliesText: traitor-lawofficesofjohnsonjohnsonlockheedmartin-allies
+  uplinkText: traitor-lawofficesofjohnsonjohnsonlockheedmartin-uplink
+  roundendText: traitor-lawofficesofjohnsonjohnsonlockheedmartin-roundend
+
+- type: traitorEmployer
+  id: PublicInvestmentFund
+  name: Public Investment Fund
+  color: "orange"
+  introText: traitor-publicinvestmentfund-intro
+  goalText: traitor-publicinvestmentfund-goal
+  alliesText: traitor-publicinvestmentfund-allies
+  uplinkText: traitor-publicinvestmentfund-uplink
+  roundendText: traitor-publicinvestmentfund-roundend
+
+- type: traitorEmployer
+  id: TonyBlair
+  name: Tony Blair Institute
+  color: "blue"
+  introText: traitor-tonyblair-intro
+  goalText: traitor-tonyblair-goal
+  alliesText: traitor-tonyblair-allies
+  uplinkText: traitor-tonyblair-uplink
+  roundendText: traitor-tonyblair-roundend
+
+- type: traitorEmployer
+  id: WaffleZaibatsu
+  name: The WAFFLE ZAIBATSU
+  color: "crimson"
+  introText: traitor-wafflecozaibatsu-intro
+  goalText: traitor-wafflecozaibatsu-goal
+  alliesText: traitor-wafflecozaibatsu-allies
+  uplinkText: traitor-wafflecozaibatsu-uplink
+  roundendText: traitor-wafflecozaibatsu-roundend
+
+- type: traitorEmployer
+  id: Blackmail
+  name: Blackmail
+  color: "#a49a87"
+  introText: traitor-blackmailers-intro
+  goalText: traitor-blackmailers-goal
+  alliesText: traitor-blackmailers-allies
+  uplinkText: traitor-blackmailers-uplink
+  roundendText: traitor-blackmailers-roundend
+
+- type: traitorEmployer
+  id: ViPak
+  name: ViPak Incorporated Supply
+  color: "green"
+  introText: traitor-vipak-intro
+  goalText: traitor-vipak-goal
+  alliesText: traitor-vipak-allies
+  uplinkText: traitor-vipak-uplink
+  roundendText: traitor-vipak-roundend
+
+- type: traitorEmployer
+  id: StockholmUniversity
+  name: Stockholm University
+  color: "#1a4a96"
+  introText: traitor-stockholmuni-intro
+  goalText: traitor-stockholmuni-goal
+  alliesText: traitor-stockholmuni-allies
+  uplinkText: traitor-stockholmuni-uplink
+  roundendText: traitor-stockholmuni-roundend
+
+- type: traitorEmployer
+  id: RoubyCo
+  name: ROUBY Corporation
+  color: "#fc8eac"
+  introText: traitor-roubyco-intro
+  goalText: traitor-roubyco-goal
+  alliesText: traitor-roubyco-allies
+  uplinkText: traitor-roubyco-uplink
+  roundendText: traitor-roubyco-roundend
+
+- type: traitorEmployer
+  id: Starling
+  name: Starling Inc.
+  color: "cyan"
+  introText: traitor-starling-intro
+  goalText: traitor-starling-goal
+  alliesText: traitor-starling-allies
+  uplinkText: traitor-starling-uplink
+  roundendText: traitor-starling-roundend
+
+- type: traitorEmployer
+  id: CentralCommand
+  name: Central Command
+  color: "#007a9b"
+  introText: traitor-centralcommand-intro
+  goalText: traitor-centralcommand-goal
+  alliesText: traitor-centralcommand-allies
+  uplinkText: traitor-centralcommand-uplink
+  roundendText: traitor-centralcommand-roundend
+
+- type: traitorEmployer
+  id: HonkCo
+  name: Honk Co.
+  color: "#ffa6c9"
+  introText: traitor-honkco-intro
+  goalText: traitor-honkco-goal
+  alliesText: traitor-honkco-allies
+  uplinkText: traitor-honkco-uplink
+  roundendText: traitor-honkco-roundend
+
+- type: traitorEmployer
+  id: Hungover
+  name: Hangover
+  color: "brown"
+  introText: traitor-hungover-intro
+  goalText: traitor-hungover-goal
+  alliesText: traitor-hungover-allies
+  uplinkText: traitor-hungover-uplink
+  roundendText: traitor-hungover-roundend
+
+- type: traitorEmployer
+  id: BigCheese
+  name: Big Cheese Rodent Resources
+  color: "#ffce1b"
+  introText: traitor-bigcheese-intro
+  goalText: traitor-bigcheese-goal
+  alliesText: traitor-bigcheese-allies
+  uplinkText: traitor-bigcheese-uplink
+  roundendText: traitor-bigcheese-roundend
+
+- type: traitorEmployer
+  id: Gildedhammer
+  name: Gildedhammer Clan
+  color: "#702963"
+  introText: traitor-gildedhammer-intro
+  goalText: traitor-gildedhammer-goal
+  alliesText: traitor-gildedhammer-allies
+  uplinkText: traitor-gildedhammer-uplink
+  roundendText: traitor-gildedhammer-roundend
+
+- type: traitorEmployer
+  id: Blackdyrt
+  name: Blackdyrt
+  color: "#d70031"
+  introText: traitor-blackdyrt-intro
+  goalText: traitor-blackdyrt-goal
+  alliesText: traitor-blackdyrt-allies
+  uplinkText: traitor-blackdyrt-uplink
+  roundendText: traitor-blackdyrt-roundend
+
+- type: traitorEmployer
+  id: BiscuitsInc
+  name: Biscuits Incorporated
+  color: "#e5aa70"
+  introText: traitor-biscuitsinc-intro
+  goalText: traitor-biscuitsinc-goal
+  alliesText: traitor-biscuitsinc-allies
+  uplinkText: traitor-biscuitsinc-uplink
+  roundendText: traitor-biscuitsinc-roundend
+
+- type: traitorEmployer
+  id: Mlijeko
+  name: Mlijeko Enterprises
+  color: "#fefcff"
+  introText: traitor-mlijeko-intro
+  goalText: traitor-mlijeko-goal
+  alliesText: traitor-mlijeko-allies
+  uplinkText: traitor-mlijeko-uplink
+  roundendText: traitor-mlijeko-roundend
+
+- type: traitorEmployer
+  id: TheOnesBehindItAll
+  name: The Ones Behind It All
+  color: "#f2f0ef"
+  introText: traitor-theonesbehinditall-intro
+  goalText: traitor-theonesbehinditall-goal
+  alliesText: traitor-theonesbehinditall-allies
+  uplinkText: traitor-theonesbehinditall-uplink
+  roundendText: traitor-theonesbehinditall-roundend
+
+- type: traitorEmployer
+  id: TheFuture
+  name: The Future
+  color: "#ac86ea"
+  introText: traitor-thefuture-intro
+  goalText: traitor-thefuture-goal
+  alliesText: traitor-thefuture-allies
+  uplinkText: traitor-thefuture-uplink
+  roundendText: traitor-thefuture-roundend
+
+- type: traitorEmployer
+  id: LeagueOfImmorality
+  name: League of Immorality
+  color: "#6e0000"
+  introText: traitor-leagueofimmorality-intro
+  goalText: traitor-leagueofimmorality-goal
+  alliesText: traitor-leagueofimmorality-allies
+  uplinkText: traitor-leagueofimmorality-uplink
+  roundendText: traitor-leagueofimmorality-roundend
+
+- type: traitorEmployer
+  id: BelmarkTransport
+  name: Belmark Transportations
+  color: "red"
+  introText: traitor-belmarktransport-intro
+  goalText: traitor-belmarktransport-goal
+  alliesText: traitor-belmarktransport-allies
+  uplinkText: traitor-belmarktransport-uplink
+  roundendText: traitor-belmarktransport-roundend
+
+- type: traitorEmployer
+  id: DireMind
+  name: DireMind
+  color: "#ac86ea"
+  introText: traitor-diremind-intro
+  goalText: traitor-diremind-goal
+  alliesText: traitor-diremind-allies
+  uplinkText: traitor-diremind-uplink
+  roundendText: traitor-diremind-roundend
+
+- type: traitorEmployer
+  id: PaleHorse
+  name: Pale Horse Pet Co.
+  color: "#d3d3d3"
+  introText: traitor-palehorse-intro
+  goalText: traitor-palehorse-goal
+  alliesText: traitor-palehorse-allies
+  uplinkText: traitor-palehorse-uplink
+  roundendText: traitor-palehorse-roundend
+
+- type: traitorEmployer
+  id: InterstellarCovertAgents
+  name: Interstellar Covert Agents Association
+  color: "#990000"
+  introText: traitor-interstellercovertagents-intro
+  goalText: traitor-interstellercovertagents-goal
+  alliesText: traitor-interstellercovertagents-allies
+  uplinkText: traitor-interstellercovertagents-uplink
+  roundendText: traitor-interstellercovertagents-roundend
+
+- type: traitorEmployer
+  id: ConcernedParents
+  name: Concerned Parents Coalition
+  color: "#e0d8bf"
+  introText: traitor-concernedparents-intro
+  goalText: traitor-concernedparents-goal
+  alliesText: traitor-concernedparents-allies
+  uplinkText: traitor-concernedparents-uplink
+  roundendText: traitor-concernedparents-roundend
+
+- type: traitorEmployer
+  id: ScoutsOfNeverCommander
+  name: The Never Commander
+  color: "orange"
+  introText: traitor-scoutsofnevercommander-intro
+  goalText: traitor-scoutsofnevercommander-goal
+  alliesText: traitor-scoutsofnevercommander-allies
+  uplinkText: traitor-scoutsofnevercommander-uplink
+  roundendText: traitor-scoutsofnevercommander-roundend
+
+- type: traitorEmployer
+  id: PepsiGoyaHariboFritoMeijiHormelGalaktischGesellschaftMitBeschrankterHaftung # i can do anything i want forever
+  name: Pepsi-Goya-Haribo-Frito-Meiji-Hormel Galaktisch Gesellschaft mit beschrankter Haftung
+  color: "#ff1400"
+  introText: traitor-pghfmhggmbh-intro
+  goalText: traitor-pghfmhggmbh-goal
+  alliesText: traitor-pghfmhggmbh-allies
+  uplinkText: traitor-pghfmhggmbh-uplink
+  roundendText: traitor-pghfmhggmbh-roundend

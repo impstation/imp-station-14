@@ -3,6 +3,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Content.Shared._Impstation.TraitorFlavor; // imp edit
 
 namespace Content.Shared.Mind;
 
@@ -127,10 +128,4 @@ public sealed partial class MindComponent : Component
     /// </summary>
     [DataField]
     public LocId? Subtype;
-
-    /// <summary>
-    ///     Imp Edit: Hold issuer to display on round end for traitors.
-    /// </summary>
-    [DataField]
-    public LocId? ObjectiveIssuer;
 }

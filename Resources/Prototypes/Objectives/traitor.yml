@@ -304,7 +304,10 @@
     limit: 3 # ian only has 2 slices, 3 obj for drama
   - type: StealCondition
     stealGroup: FoodMeatCorgi
-    owner: objective-condition-steal-Ian
+    owner: objective-condition-steal-
+  - type: EmployerRequirement # imp addition
+    blacklist:
+    - ARC
 
 ## cap
 
