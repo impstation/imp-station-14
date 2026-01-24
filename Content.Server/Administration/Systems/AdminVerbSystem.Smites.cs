@@ -192,18 +192,9 @@ public sealed partial class AdminVerbSystem
         {
             Text = swordDamoclesName,
             Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Misc/killsign.rsi"), "icon"), //change this sprite later
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/Misc/sword_of_damocles.rsi"), "sword"),
             Act = () =>
             {
-                // DamageSpecifier swordDamage = new()
-                // {
-                //     DamageDict = new Dictionary<string, FixedPoint2>
-                //     {
-                //         {"Pierce", 30},
-                //     },
-                // };
-                // DamageTypePrototype piercingDamageType = "Piercing";
-                // var swordDamage = new DamageSpecifier(piercingDamageType, 100);
                 if (TryComp<SwordDamoclesComponent>(args.Target, out var swordComp)) // if it has the component already
                 {
                     _damage.TryChangeDamage(args.Target, new DamageSpecifier(_prototypeManager.Index(DamageType), 500), ignoreResistances: true, interruptsDoAfters: true); // do damage defined by the component
