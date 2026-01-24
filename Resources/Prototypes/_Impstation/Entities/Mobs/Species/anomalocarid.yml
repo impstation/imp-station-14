@@ -20,17 +20,18 @@
     damage:
       types:
         Heat: 1.3 #takes just a little bit more to light them on fire
-  - type: Temperature # anomalocarids are benthic hydrothermal vent dwellers, they love high pressure and high heat
+  - type: TemperatureDamage # anomalocarids are benthic hydrothermal vent dwellers, they love high pressure and high heat
     heatDamageThreshold: 4000
     coldDamageThreshold: 260
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold : 1 #per second, scales with temperature & other constants
-    specificHeat: 42
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
   - type: TemperatureSpeed
     thresholds:
       293: 0.8
@@ -96,7 +97,10 @@
     damageContainer: Biological
     damageModifierSet: Anomalocarid
   - type: Bloodstream
-    bloodReagent: AnomalocaridCopperBlood #similar to CopperBlood, just a different color.
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: AnomalocaridCopperBlood #similar to CopperBlood, just a different color.
+        Quantity: 300
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
