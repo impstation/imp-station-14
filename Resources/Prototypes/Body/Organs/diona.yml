@@ -215,7 +215,7 @@
   description: Contains the brain of a formerly fully-formed Diona. Killing this would kill the Diona forever. You monster.
   components:
   - type: IsDeadIC
-  - type: Brain
+  - type: Brain #imp edit
   - type: Body
     prototype: AnimalNymphBrain
 
