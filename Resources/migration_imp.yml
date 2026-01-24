@@ -139,3 +139,7 @@ CrayonRainbowInfinite: CrayonInfinite
 # standardize EVA rooms to command access, we should have done this a year ago when we initially hard forked maps but c'est la vie
 AirlockEVALocked: AirlockCommandLocked
 AirlockEVAGlassLocked: AirlockCommandGlassLocked
+
+# 2026-01-17
+# rename Time Patrol to match upstream conventions
+RandomHumanoidSpawnerERTLeaderEVALecterTime : RandomHumanoidSpawnerERTLeaderArmedTime

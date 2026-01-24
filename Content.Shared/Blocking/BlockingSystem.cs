@@ -190,6 +190,7 @@ public sealed partial class BlockingSystem : EntitySystem
         var msgUser = Loc.GetString("action-popup-blocking-disabling-user", ("shield", shieldName));
         var msgOther = Loc.GetString("action-popup-blocking-disabling-other", ("blockerName", blockerName), ("shield", shieldName));
 
+        // IMP: TOTAL BLOCKING REWORK
         if (TryComp<BlockingUserComponent>(user, out _))
         {
             _actionsSystem.SetToggled(ent.Comp.BlockingToggleActionEntity, false);
@@ -207,9 +208,29 @@ public sealed partial class BlockingSystem : EntitySystem
         _movementSpeed.RefreshMovementSpeedModifiers(user);
 
         return;
+
+        /* //If the component blocking toggle isn't null, grab the users SharedBlockingUserComponent and PhysicsComponent
+        //then toggle the action to false, unanchor the user, remove the hard fixture
+        //and set the users bodytype back to their original type
+        if (TryComp<BlockingUserComponent>(user, out var blockingUserComponent) && TryComp<PhysicsComponent>(user, out var physicsComponent))
+        {
+            if (xform.Anchored)
+                _transformSystem.Unanchor(user, xform, false);
+
+            _actionsSystem.SetToggled(component.BlockingToggleActionEntity, false);
+            _fixtureSystem.DestroyFixture(user, BlockingComponent.BlockFixtureID, body: physicsComponent);
+            _physics.SetBodyType(user, blockingUserComponent.OriginalBodyType, body: physicsComponent);
+            _popupSystem.PopupPredicted(msgUser, msgOther, user, user);
+        }
+
+        component.IsBlocking = false;
+        Dirty(item, component);
+
+        return true; */
+        // END IMP
     }
 
-    // imp - necessary for movement speed modifier
+    // imp add - necessary for movement speed modifier
     private void OnRefreshMovespeed(Entity<BlockingUserComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (!TryComp<BlockingComponent>(ent.Comp.BlockingItem, out var blockingComp))
