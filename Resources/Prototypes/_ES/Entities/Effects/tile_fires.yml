@@ -54,15 +54,21 @@
   - type: Reactive
     groups:
       Extinguish: [ Touch ]
-  # TODO ES probably use a better sound collection for this.
-  # and scale sound with stages
   - type: AmbientSound
     range: 3
     sound:
-      path: /Audio/Ambience/Objects/fireplace.ogg
+      path: /Audio/_ES/Ambience/Objects/fire1.ogg
+    netsync: false
   - type: Appearance
   - type: TileEmission
     color: "#fc9003"
+  - type: ESGenericAmbienceVisualizer
+    sounds:
+      enum.FireVisuals.FireStacks:
+        0: { sound: /Audio/_ES/Ambience/Objects/fire1.ogg }
+        1: { sound: /Audio/_ES/Ambience/Objects/fire2.ogg }
+        2: { sound: /Audio/_ES/Ambience/Objects/fire3.ogg }
+        3: { sound: /Audio/_ES/Ambience/Objects/fire4.ogg }
   - type: GenericVisualizer
     visuals:
       enum.FireVisuals.FireStacks:
