@@ -5,13 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Cloning;
+using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared._Impstation.EntityTable.Conditions;
 using Content.Shared._Impstation.Nutrition.Components;
 using Content.Shared.Cloning;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.EntityTable;
+using Content.Shared.EntityTable.Conditions;
+using Content.Shared.Ghost.Roles;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
@@ -43,11 +47,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly ThirstSystem _thirst = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityTableSystem _entTable = default!;
-
-    // This is hard coded for the moment as there's no need I can see yet for this being changeable
-    public ProtoId<CloningSettingsPrototype> _offspringSettings = "BaseOffspringClone";
 
     Dictionary<EntityUid, ImpReproductiveComponent> _mobsWaiting = new Dictionary<EntityUid, ImpReproductiveComponent>();
 
@@ -154,6 +154,10 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (approacher == approached)
             return false;
 
+        // The one giving birth needs to have options
+        if (partnerComp.PossibleInfants == null)
+            return false;
+
         // one last check in case someone beat us to the cow or bred us on the way there
         // It's dumb but unless I make the system assign pairings this is the best i can think of for the moment
         if (!CanYouBreed((approacher, component)) || !CanYouBreed((approached, partnerComp)))
@@ -165,6 +169,12 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
         // Add them to our list of pregnant NPCs to be tracked
         _mobsWaiting.Add(approached, partnerComp);
+
+        var ctx = new EntityTableContext(new Dictionary<string, object>
+        {
+            { ValidPartnerCondition.PartnerContextKey, component.MobType },
+        });
+        partnerComp.MobToBirth = _entTable.GetSpawns(partnerComp.PossibleInfants, ctx: ctx).ElementAt(0);
 
         if (TryComp<InteractionPopupComponent>(approached, out var interactionPopup))
             Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates(approached));
@@ -240,15 +250,13 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (TryComp<InteractionPopupComponent>(entity, out var interactionPopup))
             _audio.PlayPvs(interactionPopup.InteractSuccessSound, entity);
 
-        var offspring = SpawnNewMob(entity, _entTable.GetSpawns(entity.Comp.PossibleInfants).ElementAt(0));
+        var offspring = SpawnNewMob(entity, entity.Comp.MobToBirth);
 
         if(_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
         {
             infantComp.TimeUntilNextStage = _time.CurTime + infantComp.GrowthTime;
             infantComp.Parent = entity;
         }
-
-
     }
 
     #endregion
@@ -270,20 +278,30 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (newStage == null)
             return false;
 
-        if (!_prototype.Resolve(_offspringSettings, out var settings))
+        if (!_prototype.Resolve(infant.Comp.OffspringSettings, out var settings))
             return false;
 
         // If someone is in this thing, move them over as well
         if (_mind.TryGetMind(infant, out var mind, out var mindComp))
-        {
             _mind.TransferTo(mind, newStage);
-        }
 
         isAdult = !_entManager.TryGetComponent<InfantComponent>(newStage, out var comp);
 
+        // Make sure the relevant Data like damage carries over
         _cloning.CloneComponents(infant, (EntityUid)newStage, settings);
 
+        // If there is a ghost role attached to this mob, keep it
+        if (_entManager.TryGetComponent<GhostRoleComponent>(infant, out var ghostComp))
+        {
+            AddComp<GhostRoleComponent>((EntityUid)newStage);
+            CopyComp(infant, (EntityUid)newStage, ghostComp);
+        }
+
         QueueDel(infant);
+
+        // So they don't immediately try to breed the second they grow up
+        if(isAdult && _entManager.TryGetComponent<ImpReproductiveComponent>(newStage, out var reproComp))
+            reproComp.NextSearch = _time.CurTime + _random.Next(reproComp.MinSearchAttemptInterval, reproComp.MaxSearchAttemptInterval);
 
         return isAdult;
     }

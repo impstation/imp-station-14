@@ -61,8 +61,11 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
         {
             //if it doesn't exist, doesn't have a repro comp or isn't in our repro group, continue
             if (potentialTarget == EntityUid.Invalid ||
-                !_entManager.TryGetComponent<ImpReproductiveComponent>(potentialTarget, out var comp) ||
-                comp.ReproductiveGroup != reproComp.ReproductiveGroup)
+                !_entManager.TryGetComponent<ImpReproductiveComponent>(potentialTarget, out var comp))
+                continue;
+
+            // Checks if we are in the list of valid mob partners
+            if (!IsValidPartner(comp, reproComp.MobType))
                 continue;
 
             // Checking if the other mob reaches breeding conditions
@@ -94,6 +97,19 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
             {Key, target.Value!},
             {KeyCoordinates, new EntityCoordinates(target.Value!, Vector2.Zero)}
         });
+    }
+
+    public bool IsValidPartner(ImpReproductiveComponent comp, string self)
+    {
+        if(comp.ValidPartners.Count == 0 || self == "")
+            return true;
+
+        foreach(var partner in comp.ValidPartners)
+        {
+            if (partner == self) return true;
+        }
+
+        return false;
     }
 
     #region OVERRIDES

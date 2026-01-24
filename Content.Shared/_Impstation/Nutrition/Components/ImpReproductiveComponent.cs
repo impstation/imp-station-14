@@ -12,7 +12,7 @@ namespace Content.Shared._Impstation.Nutrition.Components;
 /// <summary>
 /// Component that keeps track of all our variables for an animals reproductive abilities.
 /// </summary>
-[RegisterComponent, AutoGenerateComponentPause]
+[RegisterComponent]
 public sealed partial class ImpReproductiveComponent : Component
 {
     [DataField("minSearchAttemptInterval"), ViewVariables(VVAccess.ReadWrite)]
@@ -21,16 +21,21 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField("maxSearchAttemptInterval"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan MaxSearchAttemptInterval = TimeSpan.FromSeconds(30);
 
-    [DataField("partnerWhiteList", required: true)]
-    public EntityWhitelist PartnerWhiteList = default!;
-
-    [DataField("reproductiveGroup", required: true)]
+    [DataField("reproductiveGroup")]
     public string ReproductiveGroup = "MobNone";
 
-    [DataField("hungerPerBirth", required: true)]
+    // What type of mob is this
+    [DataField("mobType")]
+    public string MobType = "";
+
+    // List of Partners this mob can breed with
+    [DataField("validPartners")]
+    public List<string> ValidPartners = new List<string>();
+
+    [DataField("hungerPerBirth")]
     public int HungerPerBirth = 75;
 
-    [DataField("pregnancyLength", required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("pregnancyLength"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan PregnancyLength = TimeSpan.FromSeconds(60);
 
     // Maximum amount of damage allowed before the mob gives up trying to breed
@@ -38,7 +43,7 @@ public sealed partial class ImpReproductiveComponent : Component
     public int MaxBreedDamage = 50;
 
     // Animals of the same Gender won't breed EXCEPT for if they are Agender, which can breed with any
-    [DataField("gender", required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("gender"), ViewVariables(VVAccess.ReadWrite)]
     public AnimalGender Gender = AnimalGender.Agender;
 
     /// <summary>
@@ -49,14 +54,16 @@ public sealed partial class ImpReproductiveComponent : Component
     ///  - id: Example
     ///    weight: 10
     /// </summary>
-    [DataField("possibleInfants", required: true), ViewVariables(VVAccess.ReadWrite)]
-    public EntityTableSelector PossibleInfants = default!;
+    [DataField("possibleInfants"), ViewVariables(VVAccess.ReadWrite)]
+    public EntityTableSelector? PossibleInfants = default!;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool Pregnant = false;
 
     public TimeSpan EndPregnancy = TimeSpan.Zero;
     public TimeSpan NextSearch = TimeSpan.Zero;
+
+    public EntProtoId MobToBirth;
 }
 
 public enum AnimalGender

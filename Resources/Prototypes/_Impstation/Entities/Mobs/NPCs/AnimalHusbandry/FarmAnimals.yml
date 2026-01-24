@@ -78,7 +78,7 @@
   description: Moo. But smaller.
   components:
   - type: ImpInfant
-    growthTime: 10
+    growthTime: 30
     nextStage: MobCowAdult
   - type: Butcherable
     spawned:
@@ -100,9 +100,6 @@
   - type: ImpReproductive
     hungerPerBirth: 75
     pregnancyLength: 10
-    partnerWhiteList:
-      tags:
-      - Cow
     reproductiveGroup: MobCow
     gender: Female
     possibleInfants: !type:GroupSelector
@@ -110,7 +107,7 @@
       - id: MobCowBaby
         weight: 10
       - id: MobBullBaby
-        weight: 1
+        weight: 3
   - type: SolutionContainerManager
     solutions:
       udder:
@@ -212,8 +209,8 @@
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: cow
-      sprite: _Impstation/Mobs/Animals/Livestock/cow_infant.rsi
+      state: bull
+      sprite: _Impstation/Mobs/Animals/Livestock/bull_infant.rsi
 
 - type: entity
   name: bullAdult
@@ -226,9 +223,6 @@
     pregnancyLength: 10
     minSearchAttemptInterval: 1
     maxSearchAttemptInterval: 2
-    partnerWhiteList:
-      tags:
-      - Cow
     reproductiveGroup: MobCow
     gender: Male
     possibleInfants: !type:GroupSelector
@@ -357,9 +351,6 @@
   - type: ImpReproductive
     hungerPerBirth: 40
     pregnancyLength: 10
-    partnerWhiteList:
-      tags:
-      - Chicken
     reproductiveGroup: MobChicken
     gender: Female
     possibleInfants: !type:GroupSelector
@@ -384,9 +375,6 @@
   - type: ImpReproductive
     hungerPerBirth: 40
     pregnancyLength: 10
-    partnerWhiteList:
-      tags:
-      - Chicken
     reproductiveGroup: MobChicken
     gender: Male
     possibleInfants: !type:GroupSelector
@@ -396,3 +384,190 @@
   - type: HTN
     rootTask:
       task: LivestockCompound
+
+#========================================================================
+
+- type: entity
+  name: pig
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: MobPigBase
+  description: Oink.
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pig
+      sprite: _Impstation/Mobs/Animals/Livestock/pig.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    speciesId: pig
+    templateId: pet
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Pig
+    - VimPilot
+  - type: ReproductivePartner
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pig
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBacon
+      amount: 7
+  - type: Grammar
+    attributes:
+      gender: female
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-pig
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/pig_oink.ogg
+  - type: ReplacementAccent
+    accent: pig
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: PassiveLivestockCompound
+  # imp edit start
+  - type: GoobAbsorbable
+    biomassRestored: 0.7
+  - type: Carriable #DeltaV
+  - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
+  # imp edit end
+
+- type: entity
+  name: pig
+  parent: MobPigBase
+  id: MobPigInfantBase
+  description: Oink.
+  abstract: true
+  components:
+  - type: ImpInfant
+    growthTime: 10
+    nextStage: MobPigAdult
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBacon
+      amount: 3
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pig
+      sprite: _Impstation/Mobs/Animals/Livestock/pig_infant.rsi
+
+- type: entity
+  name: pig
+  parent: MobPigBase
+  id: MobPigAdult
+  description: Oink.
+  components:
+  - type: ImpReproductive
+    hungerPerBirth: 40
+    pregnancyLength: 10
+    mobType: Pig
+    validPartners:
+      - Boar
+      - WildBoar   
+    gender: Female
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: MobBoar
+        weight: 30
+        conditions:
+        - !type:ValidPartnerCondition
+          validPartners:
+          - WildBoar
+      - id: MobPigInfant
+        weight: 10
+      - id: MobBoarInfant
+        weight: 3
+
+- type: entity
+  name: baby pig
+  parent: MobPigInfantBase
+  id: MobPigInfant
+  description: Oink, but smaller!.
+  components:
+  - type: ImpInfant
+    growthTime: 10
+    nextStage: MobPigAdult
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+
+- type: entity
+  name: boar
+  parent: MobPigBase
+  id: MobBoarAdult
+  description: Oink.
+  components:
+  - type: ImpReproductive
+    hungerPerBirth: 40
+    gender: Male
+    mobType: Boar
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: MobBoar
+        weight: 30
+  - type: HTN
+    rootTask:
+      task: LivestockCompound
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: boar
+      sprite: _Impstation/Mobs/Animals/Livestock/boar.rsi
+
+- type: entity
+  name: baby boar
+  parent: MobPigInfantBase
+  id: MobBoarInfant
+  description: Oink, but smaller!.
+  components:
+  - type: ImpInfant
+    growthTime: 10
+    nextStage: MobBoarAdult
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: boar
+      sprite: _Impstation/Mobs/Animals/Livestock/boar_infant.rsi
+
+#========================================================================
+
+
+
+#========================================================================

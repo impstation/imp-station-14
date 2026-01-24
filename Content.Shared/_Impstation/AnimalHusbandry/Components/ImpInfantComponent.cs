@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Content.Shared.Cloning;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.AnimalHusbandry.Components;
@@ -12,6 +13,10 @@ namespace Content.Shared._Impstation.AnimalHusbandry.Components;
 [RegisterComponent]
 public sealed partial class ImpInfantComponent : Component
 {
+    // The information that carries over between growth stages
+    [DataField("offspringSettings")]
+    public ProtoId<CloningSettingsPrototype> OffspringSettings = "BaseOffspringClone";
+
     // Is this animal immediately born an NPC or do they start needing incubation
     [DataField("infantType"), ViewVariables(VVAccess.ReadWrite)]
     public InfantType InfantType = InfantType.Immediate;
