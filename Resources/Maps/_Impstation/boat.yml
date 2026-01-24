@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 268.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/14/2026 09:20:13
-  entityCount: 25394
+  time: 01/21/2026 00:04:50
+  entityCount: 25421
 maps:
 - 1
 grids:
@@ -7490,6 +7490,7 @@ entities:
       id: Boat
     - type: NavMap
     - type: ImplicitRoof
+    - type: ExplosionAirtightGrid
 - proto: AccordionInstrument
   entities:
   - uid: 4
@@ -10359,7 +10360,7 @@ entities:
       pos: 10.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -34694.13
+      secondsUntilStateChange: -35205.188
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10597,7 +10598,7 @@ entities:
       pos: 30.5,-49.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -40999.426
+      secondsUntilStateChange: -41510.484
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10738,7 +10739,7 @@ entities:
       pos: 10.5,88.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -188192.27
+      secondsUntilStateChange: -188703.33
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10749,7 +10750,7 @@ entities:
       pos: 10.5,87.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -188194.14
+      secondsUntilStateChange: -188705.2
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11506,7 +11507,7 @@ entities:
       pos: 38.5,-21.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -383763.25
+      secondsUntilStateChange: -384274.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11996,7 +11997,7 @@ entities:
       access:
       - - Maintenance
     - type: Door
-      secondsUntilStateChange: -7491.75
+      secondsUntilStateChange: -8002.8057
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12062,7 +12063,7 @@ entities:
       pos: 45.5,12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -7850.05
+      secondsUntilStateChange: -8361.105
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12100,7 +12101,7 @@ entities:
       pos: 44.5,15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -58959.84
+      secondsUntilStateChange: -59470.9
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -13448,6 +13449,30 @@ entities:
     - type: Transform
       pos: 14.5,-13.5
       parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 25411
+    components:
+    - type: MetaData
+      name: Thrusters West APC
+    - type: Transform
+      pos: 25.5,104.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: APCHyperCapacity
+  entities:
+  - uid: 25409
+    components:
+    - type: MetaData
+      name: Thrusters East APC
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 47.5,104.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Engineering
     - type: Fixtures
       fixtures: {}
 - proto: APECircuitboard
@@ -27932,7 +27957,7 @@ entities:
   - uid: 3412
     components:
     - type: Transform
-      pos: 45.5,103.5
+      pos: 46.5,104.5
       parent: 2
   - uid: 3413
     components:
@@ -28752,7 +28777,7 @@ entities:
   - uid: 3576
     components:
     - type: Transform
-      pos: 46.5,104.5
+      pos: 45.5,102.5
       parent: 2
   - uid: 3577
     components:
@@ -28892,7 +28917,7 @@ entities:
   - uid: 3604
     components:
     - type: Transform
-      pos: 46.5,103.5
+      pos: 47.5,104.5
       parent: 2
   - uid: 3605
     components:
@@ -28903,11 +28928,6 @@ entities:
     components:
     - type: Transform
       pos: 34.5,98.5
-      parent: 2
-  - uid: 3607
-    components:
-    - type: Transform
-      pos: 41.5,99.5
       parent: 2
   - uid: 3608
     components:
@@ -28928,11 +28948,6 @@ entities:
     components:
     - type: Transform
       pos: 39.5,99.5
-      parent: 2
-  - uid: 3612
-    components:
-    - type: Transform
-      pos: 40.5,99.5
       parent: 2
   - uid: 3613
     components:
@@ -31112,7 +31127,7 @@ entities:
   - uid: 4048
     components:
     - type: Transform
-      pos: 31.5,98.5
+      pos: 26.5,106.5
       parent: 2
   - uid: 4049
     components:
@@ -31157,7 +31172,7 @@ entities:
   - uid: 4057
     components:
     - type: Transform
-      pos: 31.5,99.5
+      pos: 25.5,104.5
       parent: 2
   - uid: 4058
     components:
@@ -32197,7 +32212,7 @@ entities:
   - uid: 4265
     components:
     - type: Transform
-      pos: 32.5,93.5
+      pos: 26.5,104.5
       parent: 2
   - uid: 4266
     components:
@@ -32212,12 +32227,12 @@ entities:
   - uid: 4268
     components:
     - type: Transform
-      pos: 31.5,96.5
+      pos: 26.5,109.5
       parent: 2
   - uid: 4269
     components:
     - type: Transform
-      pos: 31.5,97.5
+      pos: 26.5,108.5
       parent: 2
   - uid: 4270
     components:
@@ -32232,12 +32247,7 @@ entities:
   - uid: 4272
     components:
     - type: Transform
-      pos: 30.5,102.5
-      parent: 2
-  - uid: 4273
-    components:
-    - type: Transform
-      pos: 30.5,103.5
+      pos: 26.5,111.5
       parent: 2
   - uid: 4274
     components:
@@ -32282,7 +32292,7 @@ entities:
   - uid: 4282
     components:
     - type: Transform
-      pos: 26.5,104.5
+      pos: 26.5,105.5
       parent: 2
   - uid: 4283
     components:
@@ -35572,7 +35582,7 @@ entities:
   - uid: 4940
     components:
     - type: Transform
-      pos: 37.5,114.5
+      pos: 26.5,107.5
       parent: 2
   - uid: 4941
     components:
@@ -36248,6 +36258,16 @@ entities:
     components:
     - type: Transform
       pos: 28.5,19.5
+      parent: 2
+  - uid: 7004
+    components:
+    - type: Transform
+      pos: 26.5,110.5
+      parent: 2
+  - uid: 25410
+    components:
+    - type: Transform
+      pos: 48.5,98.5
       parent: 2
 - proto: CableApcStack1
   entities:
@@ -41529,6 +41549,21 @@ entities:
       parent: 2
 - proto: CableMV
   entities:
+  - uid: 3607
+    components:
+    - type: Transform
+      pos: 50.5,98.5
+      parent: 2
+  - uid: 3612
+    components:
+    - type: Transform
+      pos: 49.5,98.5
+      parent: 2
+  - uid: 4273
+    components:
+    - type: Transform
+      pos: 30.5,103.5
+      parent: 2
   - uid: 6130
     components:
     - type: Transform
@@ -45899,11 +45934,6 @@ entities:
     - type: Transform
       pos: 31.5,94.5
       parent: 2
-  - uid: 7004
-    components:
-    - type: Transform
-      pos: 30.5,103.5
-      parent: 2
   - uid: 7005
     components:
     - type: Transform
@@ -46698,6 +46728,126 @@ entities:
     components:
     - type: Transform
       pos: 57.5,-34.5
+      parent: 2
+  - uid: 25395
+    components:
+    - type: Transform
+      pos: 48.5,98.5
+      parent: 2
+  - uid: 25396
+    components:
+    - type: Transform
+      pos: 46.5,98.5
+      parent: 2
+  - uid: 25397
+    components:
+    - type: Transform
+      pos: 45.5,98.5
+      parent: 2
+  - uid: 25398
+    components:
+    - type: Transform
+      pos: 47.5,98.5
+      parent: 2
+  - uid: 25399
+    components:
+    - type: Transform
+      pos: 44.5,98.5
+      parent: 2
+  - uid: 25400
+    components:
+    - type: Transform
+      pos: 44.5,99.5
+      parent: 2
+  - uid: 25401
+    components:
+    - type: Transform
+      pos: 44.5,100.5
+      parent: 2
+  - uid: 25402
+    components:
+    - type: Transform
+      pos: 44.5,101.5
+      parent: 2
+  - uid: 25403
+    components:
+    - type: Transform
+      pos: 44.5,102.5
+      parent: 2
+  - uid: 25404
+    components:
+    - type: Transform
+      pos: 44.5,103.5
+      parent: 2
+  - uid: 25405
+    components:
+    - type: Transform
+      pos: 44.5,104.5
+      parent: 2
+  - uid: 25406
+    components:
+    - type: Transform
+      pos: 45.5,104.5
+      parent: 2
+  - uid: 25407
+    components:
+    - type: Transform
+      pos: 47.5,104.5
+      parent: 2
+  - uid: 25408
+    components:
+    - type: Transform
+      pos: 46.5,104.5
+      parent: 2
+  - uid: 25412
+    components:
+    - type: Transform
+      pos: 25.5,104.5
+      parent: 2
+  - uid: 25413
+    components:
+    - type: Transform
+      pos: 26.5,104.5
+      parent: 2
+  - uid: 25414
+    components:
+    - type: Transform
+      pos: 26.5,103.5
+      parent: 2
+  - uid: 25415
+    components:
+    - type: Transform
+      pos: 26.5,102.5
+      parent: 2
+  - uid: 25416
+    components:
+    - type: Transform
+      pos: 26.5,101.5
+      parent: 2
+  - uid: 25417
+    components:
+    - type: Transform
+      pos: 26.5,100.5
+      parent: 2
+  - uid: 25418
+    components:
+    - type: Transform
+      pos: 26.5,99.5
+      parent: 2
+  - uid: 25419
+    components:
+    - type: Transform
+      pos: 27.5,99.5
+      parent: 2
+  - uid: 25420
+    components:
+    - type: Transform
+      pos: 28.5,99.5
+      parent: 2
+  - uid: 25421
+    components:
+    - type: Transform
+      pos: 29.5,99.5
       parent: 2
 - proto: CableTerminal
   entities:
@@ -77587,7 +77737,7 @@ entities:
       pos: 34.5,-25.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -415101.53
+      secondsUntilStateChange: -415612.56
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -136059,7 +136209,7 @@ entities:
     - type: Transform
       pos: -0.5,69.5
       parent: 2
-- proto: SpacemenFigureSpawner
+- proto: SpacemenFigurineSpawner90
   entities:
   - uid: 20452
     components:
@@ -144398,6 +144548,8 @@ entities:
     - type: Emoting
     - type: Examiner
     - type: ScrambledAccent
+    - type: Physics
+      bodyType: KinematicController
 - proto: Thruster
   entities:
   - uid: 21725
@@ -163647,8 +163799,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
   - uid: 25000
@@ -163678,8 +163830,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
   - uid: 25001
@@ -163709,8 +163861,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
   - uid: 25002

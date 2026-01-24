@@ -43,7 +43,7 @@
     program: 5
   - type: Loadout # imp special. this replaces the InnateTool component.
     prototypes:
-      - StartingGearDroneTools
+    - StartingGearDroneTools
   - type: NameIdentifier
     group: Drone
   - type: Inventory
@@ -86,8 +86,8 @@
     weightlessModifier: 1
   - type: MobState
     allowedStates:
-      - Alive
-      - Dead
+    - Alive
+    - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -100,13 +100,14 @@
     speedModifierThresholds:
       30: 0.7
       50: 0.5
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 5000
-    currentTemperature: 310.15
-    specificHeat: 42
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
   - type: Sprite
     drawdepth: SmallMobs
     layers:
@@ -157,10 +158,10 @@
     maxZoom: 1.2, 1.2
   - type: Tag
     tags:
-      - CannotSuicide
-      - EmagImmune
-      - CanPilot
-      - VimPilot
+    - CannotSuicide
+    - EmagImmune
+    - CanPilot
+    - VimPilot
   - type: Access
     tags:
     - Engineering

@@ -10,45 +10,24 @@
   - type: Item
     sprite: _NF/Objects/Storage/Happyhonk/rock_carrier.rsi
     heldPrefix: box
-  - type: StorageFill
-    contents:
-    - id: PetRock
-      prob: 0.5
-      orGroup: Rock
-    # imp edit below
-    - id: PetRockBosco
-      prob: 0.1
-      orGroup: Rock
-    - id: PetRockConstance
-      prob: 0.1
-      orGroup: Rock
-    - id: PetRockGayRock
-      prob: 0.1
-      orGroup: Rock
-    - id: PetRockGoogler
-      prob: 0.1
-      orGroup: Rock
-    - id: PetRockMisha
-      prob: 0.1
-      orGroup: Rock
-    - id: PetRockPainty
-      prob: 0.1
-      orGroup: Rock
-    - id: PetRockPepper
-      prob: 0.1
-      orGroup: Rock
-    - id: PetRockSexyRock
-      prob: 0.1
-      orGroup: Rock
-    - id: PetRockShoosh
-      prob: 0.1
-      orGroup: Rock
-    - id: PetRockSkipper
-      prob: 0.1
-      orGroup: Rock
-    - id: PetRockTony
-      prob: 0.1
-      orGroup: Rock
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:GroupSelector
+        children:
+        - id: PetRock
+          weight: 5
+        # imp edit below
+        - id: PetRockBosco
+        - id: PetRockConstance
+        - id: PetRockGayRock
+        - id: PetRockGoogler
+        - id: PetRockMisha
+        - id: PetRockPainty
+        - id: PetRockPepper
+        - id: PetRockSexyRock
+        - id: PetRockShoosh
+        - id: PetRockSkipper
+        - id: PetRockTony
   - type: Storage # imp
     maxItemSize: Normal
     grid:
