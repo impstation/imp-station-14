@@ -186,7 +186,47 @@
   itemDrop: FloorTileItemWhite
   heatCapacity: 10000
 
-# Dark green tiles, another variant of standard steel tiles
+# Damaged variants of other tile colors, since it's only steel upstream
+
+- type: tile
+  id: FloorDarkDamaged
+  name: tiles-damaged-dark-floor
+  sprite: /Textures/_Impstation/Tiles/Dark/dark_damaged.png
+  variants: 5
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemDark #This should probably be made null when it becomes possible to make it such, in SS13 prying destroyed tiles wouldn't give you anything.
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorWhiteDamaged
+  name: tiles-damaged-white-floor
+  sprite: /Textures/_Impstation/Tiles/White/white_damaged.png
+  variants: 5
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemWhite #This should probably be made null when it becomes possible to make it such, in SS13 prying destroyed tiles wouldn't give you anything.
+  heatCapacity: 10000
+
+# Green tiles, another variant of standard steel tiles
 
 - type: tile
   id: FloorGreen
@@ -397,6 +437,25 @@
   footstepSounds:
     collection: FootstepPlating
   itemDrop: FloorTileItemGreen
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorGreenDamaged
+  name: tiles-damaged-green-floor
+  sprite: /Textures/_Impstation/Tiles/Green/green_damaged.png
+  variants: 5
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemGreen #This should probably be made null when it becomes possible to make it such, in SS13 prying destroyed tiles wouldn't give you anything.
   heatCapacity: 10000
 
   # Sideways Hull Tile
