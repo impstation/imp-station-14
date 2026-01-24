@@ -247,14 +247,6 @@
     - !type:ComponentQuery
       components:
         - type: ImpReproductive
-          hungerPerBirth: 75
-          pregnancyLength: 10
-          reproductiveGroup: ""
-          gender: Female
-          possibleInfants: !type:GroupSelector
-            children:
-            - id: MobCowBaby
-              weight: 8
   considerations:
     - !type:TargetDistanceCon
       curve: !type:PresetCurve

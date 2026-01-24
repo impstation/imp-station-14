@@ -38,3 +38,66 @@
   - type: StorageFill
     contents:
       - id: MobBananaDeer
+
+- type: entity
+  id: CrateNPCBull
+  parent: CrateLivestock
+  name: bull crate
+  description: A crate containing a single bull.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobBullAdult 
+
+- type: entity
+  id: CrateNPCBovine
+  parent: CrateLivestock
+  name: bovine crate
+  description: A crate containing a single bull and a single cow.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobBullAdult 
+      - id: MobCowAdult
+
+- type: entity
+  id: CrateNPCRooster
+  parent: CrateLivestock
+  name: rooster crate
+  description: A crate containing a single rooster.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobRoosterAdult
+
+- type: entity
+  id: CrateNPCChickenPair
+  parent: CrateLivestock
+  name: chicken crate
+  description: A crate containing a single rooster and chicken.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobRoosterAdult
+      - id: MobHenAdult
+
+- type: entity
+  id: CrateNPCDomesticBoar
+  parent: CrateLivestock
+  name: domesticated boar crate
+  description: A crate containing a single domesticated boar.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobBoarAdult
+
+- type: entity
+  id: CrateNPCSwine
+  parent: CrateLivestock
+  name: swine crate
+  description: A crate containing a single domesticated boar and pig.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobBoarAdult
+      - id: MobPigAdult

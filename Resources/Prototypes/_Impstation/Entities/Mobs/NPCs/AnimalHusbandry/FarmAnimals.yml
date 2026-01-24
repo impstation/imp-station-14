@@ -100,7 +100,9 @@
   - type: ImpReproductive
     hungerPerBirth: 75
     pregnancyLength: 10
-    reproductiveGroup: MobCow
+    mobType: Cow
+    validPartners:
+      - Bull
     gender: Female
     possibleInfants: !type:GroupSelector
       children:
@@ -220,17 +222,8 @@
   components:
   - type: ImpReproductive
     hungerPerBirth: 75
-    pregnancyLength: 10
-    minSearchAttemptInterval: 1
-    maxSearchAttemptInterval: 2
-    reproductiveGroup: MobCow
+    mobType: Bull
     gender: Male
-    possibleInfants: !type:GroupSelector
-      children:
-      - id: MobCowBaby
-        weight: 20
-      - id: MobBullBaby
-        weight: 1
 
 #========================================================================
 
@@ -351,7 +344,9 @@
   - type: ImpReproductive
     hungerPerBirth: 40
     pregnancyLength: 10
-    reproductiveGroup: MobChicken
+    mobType: Chicken
+    validPartners:
+      - Rooster
     gender: Female
     possibleInfants: !type:GroupSelector
       children:
@@ -374,13 +369,8 @@
       sprite: _Impstation/Mobs/Animals/Livestock/rooster.rsi
   - type: ImpReproductive
     hungerPerBirth: 40
-    pregnancyLength: 10
-    reproductiveGroup: MobChicken
+    mobType: Rooster
     gender: Male
-    possibleInfants: !type:GroupSelector
-      children:
-      - id: HenEgg
-        weight: 10
   - type: HTN
     rootTask:
       task: LivestockCompound
@@ -532,10 +522,6 @@
     hungerPerBirth: 40
     gender: Male
     mobType: Boar
-    possibleInfants: !type:GroupSelector
-      children:
-      - id: MobBoar
-        weight: 30
   - type: HTN
     rootTask:
       task: LivestockCompound

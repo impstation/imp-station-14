@@ -85,7 +85,9 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
                 }
 
                 // If they die or become critical, the child is gone
-                if (state.CurrentState != Shared.Mobs.MobState.Alive)
+                // Same for if the animal becomes player controlled
+                if (state.CurrentState != Shared.Mobs.MobState.Alive ||
+                    _mind.TryGetMind(reproComp.Key, out var mind, out var mindComp))
                 {
                     _mobsWaiting.Remove(reproComp.Key);
                     reproComp.Value.Pregnant = false;
@@ -111,6 +113,14 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
                 if (_entManager.Deleted(uid)
                     || !_entManager.TryGetComponent<MobStateComponent>(uid, out var state))
                     continue;
+
+                // Exists mainly for infants that are spawned in
+                if(infantComp.TimeUntilNextStage == TimeSpan.Zero)
+                {
+                    infantComp.TimeUntilNextStage = _time.CurTime + infantComp.GrowthTime;
+                    continue;
+                }
+
 
                 // No growing up until you're alive buddy
                 // Also delays the animals growth so they don't wake up and immediately advance a stage if kept dead for a while.
@@ -216,6 +226,10 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (_entManager.TryGetComponent<ThirstComponent>(entity, out var thirst) && thirst.CurrentThirstThreshold < ThirstThreshold.Okay)
             return false;
         */
+
+        // Player inhabited mobs cannot breed
+        if (_mind.TryGetMind(entity, out var mind, out var mindComp))
+            return false;
 
         if (_entManager.TryGetComponent<MobStateComponent>(entity, out var state) && state.CurrentState != Shared.Mobs.MobState.Alive)
             return false;

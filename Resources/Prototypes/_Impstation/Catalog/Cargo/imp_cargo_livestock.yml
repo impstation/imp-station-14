@@ -27,3 +27,63 @@
   cost: 10000
   category: cargoproduct-category-name-livestock
   group: market
+
+- type: cargoProduct
+  id: LivestockBull
+  icon:
+    sprite: _Impstation/Mobs/Animals/Livestock/bull.rsi
+    state: bull
+  product: CrateNPCBull
+  cost: 3200
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: LivestockBovine
+  icon:
+    sprite: _Impstation/Mobs/Animals/Livestock/bull.rsi
+    state: bull
+  product: CrateNPCBovine
+  cost: 6000
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: LivestockRooster
+  icon:
+    sprite: _Impstation/Mobs/Animals/Livestock/rooster.rsi
+    state: rooster
+  product: CrateNPCRooster
+  cost: 1000
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: LivestockChickenPair
+  icon:
+    sprite: _Impstation/Mobs/Animals/Livestock/rooster.rsi
+    state: rooster
+  product: CrateNPCChickenPair
+  cost: 1800
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: LivestockDomesticBoar
+  icon:
+    sprite: _Impstation/Mobs/Animals/Livestock/boar.rsi
+    state: boar
+  product: CrateNPCDomesticBoar
+  cost: 1100
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: LivestockSwine
+  icon:
+    sprite: _Impstation/Mobs/Animals/Livestock/boar.rsi
+    state: boar
+  product: CrateNPCSwine
+  cost: 2000
+  category: cargoproduct-category-name-livestock
+  group: market

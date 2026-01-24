@@ -50,12 +50,12 @@
 - type: entity
   id: CrateNPCChicken
   parent: CrateLivestock
-  name: chicken crate
-  description: A crate containing four fully grown chickens.
+  name: hen crate # Imp
+  description: A crate containing four fully grown hens. # Imp
   components:
   - type: StorageFill
     contents:
-      - id: MobChicken
+      - id: MobHenAdult # Imp
         amount: 4
 
 - type: entity
@@ -117,7 +117,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: MobCow
+      - id: MobCowAdult # Imp
 
 - type: entity
   id: CrateNPCGoat
@@ -211,7 +211,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: MobPig
+      - id: MobPigAdult # Imp
 
 - type: entity
   id: CrateNPCSnake

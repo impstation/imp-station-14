@@ -114,7 +114,8 @@
       sprite: Mobs/Animals/cow.rsi
   - type: ConditionalSpawner
     prototypes:
-    - MobCow
+    - MobCowAdult # Imp
+    - MobBullAdult # Imp
 
 - type: entity
   parent: MarkerBase
