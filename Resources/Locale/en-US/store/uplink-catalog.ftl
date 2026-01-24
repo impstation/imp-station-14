@@ -33,7 +33,8 @@ uplink-gloves-north-star-desc = A pair of gloves that reduce your punching coold
 uplink-gloves-knuckleduster-name = Syndicate Knuckle Dusters
 uplink-gloves-knuckleduster-desc = A pair of plastitanium knuckle dusters that let you punch hard enough to break the captains jaw into pieces.
 
-uplink-hushpup-name = Hushpup
+# Imp edit rename
+uplink-hushpup-name = Hypnalis
 uplink-hushpup-desc = A powerful silenced shotgun with a low magazine capacity. Comes with a spare box of buckshot. Uses .50 shotgun ammo.
 
 # Explosives
