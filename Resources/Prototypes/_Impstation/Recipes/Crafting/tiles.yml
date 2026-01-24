@@ -1,4 +1,12 @@
 - type: construction
+  id: TileGreen
+  graph: TileGreen
+  startNode: start
+  targetNode: greentile
+  category: construction-category-tiles
+  objectType: Item
+
+- type: construction
   id: TileCardboard
   graph: TileCardboard
   startNode: start

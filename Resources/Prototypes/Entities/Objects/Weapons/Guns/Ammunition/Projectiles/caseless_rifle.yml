@@ -1,5 +1,5 @@
 - type: entity
-  id: BulletCaselessRifle
+  id: BulletCaselessRifleWizden #imp - see the _Impstation directory for the version we use
   name: bullet (.25 caseless)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
@@ -7,10 +7,10 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 21 #imp
+        Piercing: 19
 
 - type: entity
-  id: BulletCaselessRiflePractice
+  id: BulletCaselessRiflePracticeWizden #imp - see the _Impstation directory for the version we use
   name: bullet (.25 caseless practice)
   parent: BaseBulletPractice
   categories: [ HideSpawnMenu ]

@@ -1,0 +1,154 @@
+- type: entity
+  name: laser bolt
+  id: BulletLaser
+  parent: BaseBulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 13
+
+- type: entity
+  name : starflare bolt
+  id: BulletBlasterStarflare
+  parent: BaseBulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 13
+
+- type: entity
+  name : heavy laser bolt
+  id: BulletLaserHeavy
+  parent: BaseBulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: medium
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+
+- type: entity
+  name: lethal laser barrage
+  id: BulletLaserSpreadNarrow
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletLaser
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaserHeavy
+    count: 4 #60 heat damage if you hit all your shots, but narrower spread
+    spread: 10
+
+- type: entity
+  name: wide laser barrage
+  id: BulletLaserSpread
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletLaser
+  components:
+  - type: ProjectileSpread
+    proto: BulletLaser
+    count: 5 #65 heat damage if you hit all your shots, but wide spread
+    spread: 30
+
+- type: entity
+  name : blaster pistol bolt
+  id: BulletBlasterPistol
+  parent: BaseBulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+
+- type: entity
+  name : military blaster pistol bolt
+  id: BulletBlasterPistolMilitary
+  parent: BulletBlasterMagnum
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 20
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name : heavy blaster bolt
+  id: BulletBlasterMagnum
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: medium
+      shader: unshaded
+  - type: Ammo
+  - type: Projectile
+    damage:
+      types:
+        Heat: 28
+
+- type: entity
+  name: magnum blaster bolt
+  id: BulletLaserMagnum
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletLaser
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavy
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    color: "#ff4300"
+  - type: Projectile
+    impactEffect: BulletImpactEffectOrangeDisabler
+    damage:
+      types:
+        Heat: 35
+
+- type: entity
+  name : blaster cannon bolt
+  id: BulletBlasterCannon
+  parent: BaseBulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavy
+      shader: unshaded
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 1.5
+    intensitySlope: 3
+    totalIntensity: 12
+    canCreateVacuum: false
+  - type: Ammo
+  - type: Projectile
+    damage:
+      types:
+        Heat: 13
