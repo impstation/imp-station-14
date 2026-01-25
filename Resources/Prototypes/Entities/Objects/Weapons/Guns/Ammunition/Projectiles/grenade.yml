@@ -1,13 +1,12 @@
 - type: entity
-  id: PelletClusterRubber
-  name: pellet (ball, rubber)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterRubberWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, rubber)
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: rubber #imp
+    state: buckshot
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -19,15 +18,14 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterLethal
-  name: pellet (ball, lethal)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterLethalWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, lethal)
   components:
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
-    layers:
-    - state: shard #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -37,15 +35,14 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterIncendiary
-  name: pellet (ball, incendiary)
-  categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
+  id: PelletClusterIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, incendiary)
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: buckshot-flare #imp
+    state: buckshot-flare
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -59,15 +56,14 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterLessLethal
-  name: pellet (ball, less lethal)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterLessLethalWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, less lethal)
   components:
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
-    layers:
-    - state: shard #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
   - type: Projectile
     deleteOnCollide: false
     damage:

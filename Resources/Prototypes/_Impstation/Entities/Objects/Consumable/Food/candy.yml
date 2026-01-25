@@ -436,3 +436,412 @@
           Quantity: 10
         - ReagentId: Fresium
           Quantity: 10
+
+- type: entity
+  parent: [BaseItem, Tier1Contraband]
+  id: FoodTreatChunk
+  name: TreatChunk
+  description: A delicately wrapped cherry-flavored hard candy, for the traitor who needs a little treat. 
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    state: treatchunk-wrapped
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    size: Tiny
+    heldPrefix: TreatChunk
+    inhandVisuals:
+        left:
+        - state: treatchunk-inhand-left
+        right:
+        - state: treatchunk-inhand-right
+  - type: Tag
+    tags:
+      - FoodSnack
+      - TreatChunk
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodTreatChunkTrash
+      - id: FoodTreatChunkOpen
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodTreatChunk
+  id: FoodTreatChunkRandom
+  name: TreatChunk
+  suffix: random #unwraps into a random treatchunk
+  components:
+  - type: SpawnItemsOnUse
+    items: 
+      - id: FoodTreatChunkTrash
+      - id: FoodTreatChunkOpen
+        orGroup: random
+        prob: 1
+      - id: FoodTreatChunkLead
+        orGroup: random
+        prob: 0.08
+      - id: FoodTreatChunkZap
+        orGroup: random
+        prob: 0.08
+      - id: FoodTreatChunkBungo
+        orGroup: random
+        prob: 0.08
+      - id: FoodTreatChunkVestine
+        orGroup: random
+        prob: 0.08
+      - id: FoodTreatChunkChoke
+        orGroup: random
+        prob: 0.08
+      - id: FoodTreatChunkPax
+        orGroup: random
+        prob: 0.08
+      - id: FoodTreatChunkOmni
+        orGroup: random
+        prob: 0.05
+      - id: FoodTreatChunkDex
+        orGroup: random
+        prob: 0.05
+      - id: FoodTreatChunkHyperzine
+        orGroup: random
+        prob: 0.05
+      - id: FoodTreatChunkUltravasc
+        orGroup: random
+        prob: 0.05
+
+- type: entity
+  parent: [FoodSnackBase, Tier1Contraband]
+  id: FoodTreatChunkOpen
+  name: TreatChunk
+  description: A tasty little cherry-flavored hard candy, for the traitor who needs a little treat. 
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    state: treatchunk
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+    ignoreReagents: 
+      - Stimulants
+      - Nutriment
+      - Sugar
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    size: Tiny
+    heldPrefix: TreatChunk
+    inhandVisuals:
+        left:
+        - state: treatchunk-open-inhand-left
+        right:
+        - state: treatchunk-open-inhand-right
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ReptilianFood
+    - UnguFood
+    - TreatChunk
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants #droplet of hyperzine. you basically just get a little lurch forward cuz the speed effect is cut so short lol
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 3.5
+
+ # factory rejects! mostly evil and nasty but some are nice :)
+ # nasty ones
+
+- type: entity
+  parent: FoodTreatChunkOpen
+  id: FoodTreatChunkLead
+  suffix: lead
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: Lead # yum yum. 10 poison damage lmao
+          Quantity: 0.5 
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants 
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 3.0
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+    ignoreReagents: 
+      - Stimulants
+      - Lead
+      - Nutriment
+      - Sugar
+
+- type: entity
+  parent: FoodTreatChunkOpen
+  id: FoodTreatChunkZap
+  suffix: tazinide
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: Tazinide # bzzzap
+          Quantity: 0.5 
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants 
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 3.0
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+    ignoreReagents: 
+      - Stimulants
+      - Tazinide
+      - Nutriment
+      - Sugar
+
+- type: entity
+  parent: FoodTreatChunkOpen
+  id: FoodTreatChunkBungo
+  suffix: bungotoxin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: Bungotoxin # less poison than the lead one
+          Quantity: 0.5 
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants 
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 3.0
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+    ignoreReagents: 
+      - Stimulants
+      - Bungotoxin
+      - Nutriment
+      - Sugar
+
+- type: entity
+  parent: FoodTreatChunkOpen
+  id: FoodTreatChunkVestine
+  suffix: vestine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: Vestine # ungrindable, so this isn't accessible. just slows you and asphyixates you :)
+          Quantity: 1
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants 
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 2.5
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+    ignoreReagents: 
+      - Stimulants
+      - Vestine
+      - Nutriment
+      - Sugar
+
+- type: entity
+  parent: FoodTreatChunkOpen
+  id: FoodTreatChunkChoke
+  suffix: heartbreaker
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: HeartbreakerToxin # swallowed it too fast and choked on it. nice going IDIOT. 
+          Quantity: 0.5 
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants 
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 3.0
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+    ignoreReagents: 
+      - Stimulants
+      - HeartbreakerToxin
+      - Nutriment
+      - Sugar
+
+- type: entity
+  parent: FoodTreatChunkOpen
+  id: FoodTreatChunkPax
+  suffix: pax
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: Pax # the concept of someone trying to gamer with the droplet of hyperzine and popping a bunch before getting into a fight only to roll a pax one is very funny to me
+          Quantity: 0.5 
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants 
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 3.0
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+    ignoreReagents: 
+      - Stimulants
+      - Pax
+      - Nutriment
+      - Sugar
+
+#nice ones!! 
+
+- type: entity
+  parent: FoodTreatChunkOpen
+  id: FoodTreatChunkOmni
+  suffix: omnizine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: Omnizine # teeny tiny little heal
+          Quantity: 1
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants 
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 2.5
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+    ignoreReagents: 
+      - Stimulants
+      - Omnizine         
+      - Nutriment
+      - Sugar
+
+- type: entity
+  parent: FoodTreatChunkOpen
+  id: FoodTreatChunkDex
+  suffix: dexalin plus
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: DexalinPlus # they wanted to adress the choking problem. this didn't work and got canceled. equipment's still contaminated with it enough to make this happen, though.
+          Quantity: 0.5 
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants 
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 3.0
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+    ignoreReagents: 
+      - Stimulants
+      - DexalinPlus
+      - Nutriment
+      - Sugar
+
+- type: entity
+  parent: FoodTreatChunkOpen
+  id: FoodTreatChunkHyperzine
+  suffix: hyperzine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants # they messed up and put too much hyperzine in. yay!
+          Quantity: 2
+        - ReagentId: Sugar
+          Quantity: 2
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+    ignoreReagents: 
+      - Stimulants
+      - Nutriment
+      - Sugar
+
+- type: entity
+  parent: FoodTreatChunkOpen
+  id: FoodTreatChunkUltravasc
+  suffix: ultravasculine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents: 
+        - ReagentId: Ultravasculine # gamble to fix your lead poisoning a little
+          Quantity: 0.5 
+        - ReagentId: Nutriment
+          Quantity: 1
+        - ReagentId: Stimulants 
+          Quantity: 0.5
+        - ReagentId: Sugar
+          Quantity: 3.0
+  - type: FlavorProfile
+    flavors:
+      - treatchunk
+    ignoreReagents: 
+      - Stimulants
+      - Ultravasculine
+      - Nutriment
+      - Sugar
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: FoodPacketTrash
+  id: FoodTreatChunkTrash
+  name: TreatChunk wrapper
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
+    state: treatchunk-trash
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: trash-inhand-left
+        color: "#B22C20"
+      right:
+      - state: trash-inhand-right
+        color: "#B22C20"
+  - type: Tag
+    tags:
+    - TreatChunk
+    - Trash 

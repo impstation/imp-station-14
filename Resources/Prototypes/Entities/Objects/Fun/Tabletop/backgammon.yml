@@ -13,6 +13,10 @@
     setup:
       !type:TabletopBackgammonSetup
       boardPrototype: BackgammonBoardTabletop
+    blacklist: #imp.
+      components:
+      - HTN # NO COCKROACH GAMBIT
+    entMax: 40 # imp. standard setup (30) + 10
 
 - type: entity
   id: BackgammonBoardTabletop

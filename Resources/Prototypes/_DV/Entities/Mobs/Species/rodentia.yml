@@ -75,11 +75,6 @@
         sprite: "_DV/Effects/creampie.rsi"
         state: "creampie_rodentia"
         visible: false
-      - map: [ "culthalo" ] # funky cult
-        sprite: "_Funkystation/BloodCult/Effects/halo.rsi"
-        state: "halo"
-        shader: unshaded
-        visible: false
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/pierce.ogg
@@ -96,7 +91,7 @@
     - id: FoodMeatRat
       amount: 5
   - type: TypingIndicator
-    proto: rodentia
+    proto: default
   - type: Vocal
     sounds:
       Male: MaleRodentia
