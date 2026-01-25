@@ -161,7 +161,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [2, 3, 4]
     - id: XenoArtifactCashSpawn
-      weight: 10.0 # imp edit
+      weight: 7.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [2, 3, 4]
@@ -366,6 +366,11 @@
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 1, 2, 3 ]
+    - id: XenoArtifactPresentLesser
+      weight: 7.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 1, 2, 3 ]
     - id: XenoArtifactPresent
       weight: 10.0 # imp edit
       conditions:
@@ -380,7 +385,7 @@
       weight: 3.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 2, 3, 4 ]
+        depths: [ 3, 4, 5 ]
     - id: XenoArtifactGridKnockdown
       weight: 5.0 # imp edit
       conditions:
@@ -415,12 +420,17 @@
       weight: 7.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [2, 3, 4, 5 ]
+        depths: [ 2, 3, 4, 5 ]
     - id: XenoArtifactAnimateTriple
       weight: 6.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [4, 5 ]
+        depths: [ 4, 5 ]
+    - id: XenoArtifactCashSpawnMajor
+      weight: 3.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 3, 4, 5]
     # imp edit end
 
 - type: entityTable
@@ -787,7 +797,7 @@
 - type: entity
   id: XenoArtifactEffectJunkSpawn
   parent: BaseXenoArtifactEffect
-  description: Create recyclable junk
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -844,7 +854,7 @@
 - type: entity
   id: XenoArtifactFloraSpawn
   parent: BaseXenoArtifactEffect
-  description: Produces flora
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -938,7 +948,7 @@
 - type: entity
   id: XenoArtifactRandomInstrumentSpawn
   parent: BaseXenoArtifactEffect
-  description: Creates musical instrument
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 2
@@ -959,7 +969,7 @@
 - type: entity
   id: XenoArtifactMonkeySpawn
   parent: BaseXenoArtifactEffect
-  description: Creates primate
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 3
@@ -1083,7 +1093,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawn
   parent: BaseXenoArtifactEffect # todo: splice into different well-named effects, amounts should reflect how rare material is
-  description: Create rare materials
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1113,7 +1123,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnSilver
   parent: BaseXenoArtifactEffect
-  description: Create rare materials
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -1137,7 +1147,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnPlasma
   parent: BaseXenoArtifactEffect
-  description: Create plasma
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -1161,7 +1171,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnGold
   parent: BaseXenoArtifactEffect
-  description: Create gold
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 3
@@ -1185,7 +1195,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnUranium
   parent: BaseXenoArtifactEffect
-  description: Create uranium
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -1209,7 +1219,7 @@
 - type: entity
   id: XenoArtifactAngryCarpSpawn
   parent: BaseXenoArtifactEffect
-  description: Create hostile fish
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 3
@@ -1233,7 +1243,7 @@
 - type: entity
   id: XenoArtifactFaunaSpawn
   parent: BaseXenoArtifactEffect
-  description: Create friendly fauna
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -1281,7 +1291,7 @@
 - type: entity
   id: XenoArtifactHostileFaunaSpawn
   parent: BaseXenoArtifactEffect
-  description: Create hostile fauna
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -1308,7 +1318,7 @@
 - type: entity
   id: XenoArtifactCashSpawn
   parent: BaseXenoArtifactEffect
-  description: Create money
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 2
@@ -1518,7 +1528,7 @@
 - type: entity
   id: XenoArtifactMaterialSpawnGlass
   parent: BaseXenoArtifactEffect
-  description: Create glass
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode #IMP
     maxNodeUnlocks: 5 #IMP
@@ -1535,7 +1545,7 @@
 - type: entity
   id: XenoArtifactMaterialSpawnSteel
   parent: BaseXenoArtifactEffect
-  description: Create steel
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode #IMP
     maxNodeUnlocks: 5 #IMP
@@ -1552,7 +1562,7 @@
 - type: entity
   id: XenoArtifactMaterialSpawnPlastic
   parent: BaseXenoArtifactEffect
-  description: Create plastic
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode #IMP
     maxNodeUnlocks: 5 #IMP
@@ -1576,7 +1586,7 @@
 - type: entity
   id: XenoArtifactArtifactSpawn
   parent: BaseXenoArtifactEffect
-  description: Create artifact
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 2
