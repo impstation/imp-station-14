@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
+using Content.Server.StationEvents;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared._Impstation.AnimalHusbandry.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.EntityTable;
@@ -32,6 +34,8 @@ public sealed class IncubationSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _time = default!;
+    //[Dependency] private readonly SharedIncubationSystem _incubationSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -47,6 +51,11 @@ public sealed class IncubationSystem : EntitySystem
         SubscribeLocalEvent<IncubatorComponent, InteractUsingEvent>(OnAfterInteract);
     }
 
+    public override void Shutdown()
+    {
+        base.Shutdown();
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -58,6 +67,8 @@ public sealed class IncubationSystem : EntitySystem
             // Making sure we're incubating something
             if (incuComp.CurrentlyIncubated == null || _entManager.Deleted(incuComp.CurrentlyIncubated.Owner))
                 continue;
+
+            CheckPowerchanged((uid, incuComp));
 
             // Wait
             if (incuComp.FinishIncubation > _time.CurTime)
@@ -73,6 +84,8 @@ public sealed class IncubationSystem : EntitySystem
         if (!_entManager.TryGetComponent<IncubationComponent>(args.Used, out var incuComp))
             return;
 
+        _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Active);
+        entity.Comp.Status = IncubatorStatus.Active;
         entity.Comp.CurrentlyIncubated = incuComp;
         entity.Comp.FinishIncubation = _time.CurTime + incuComp.IncubationTime;
     }
@@ -101,7 +114,8 @@ public sealed class IncubationSystem : EntitySystem
         var newMob = SpawnNewMob(entity, entity.Comp.CurrentlyIncubated.IncubatedResult);
         var incubated = entity.Comp.CurrentlyIncubated.Owner;
 
-        
+        _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Inactive);
+        entity.Comp.Status = IncubatorStatus.Inactive;
 
         if (TryComp<InteractionPopupComponent>(newMob, out var interactionPopup))
             Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates((EntityUid)newMob));
@@ -117,5 +131,22 @@ public sealed class IncubationSystem : EntitySystem
         var newMob = Spawn(toSpawn, xform.Coordinates);
 
         return newMob;
+    }
+
+    public void CheckPowerchanged(Entity<IncubatorComponent> entity)
+    {
+        if (!_entManager.TryGetComponent<ApcPowerReceiverComponent>(entity, out var powerComp))
+            return;
+
+        if(powerComp.Powered && entity.Comp.Status == IncubatorStatus.Inactive)
+        {
+            _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Active);
+            entity.Comp.Status = IncubatorStatus.Active;
+        }
+        else if (!powerComp.Powered && entity.Comp.Status == IncubatorStatus.Active)
+        {
+            _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Inactive);
+            entity.Comp.Status = IncubatorStatus.Inactive;
+        }
     }
 }

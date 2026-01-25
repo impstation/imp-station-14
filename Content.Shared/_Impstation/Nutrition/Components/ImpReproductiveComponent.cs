@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Whitelist;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Impstation.Nutrition.Components;
 /// <summary>
 /// Component that keeps track of all our variables for an animals reproductive abilities.
 /// </summary>
 [RegisterComponent]
+[NetworkedComponent]
+[AutoGenerateComponentPause]
 public sealed partial class ImpReproductiveComponent : Component
 {
     [DataField("minSearchAttemptInterval"), ViewVariables(VVAccess.ReadWrite)]
@@ -60,7 +64,12 @@ public sealed partial class ImpReproductiveComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public bool Pregnant = false;
 
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField]
     public TimeSpan EndPregnancy = TimeSpan.Zero;
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
+    [AutoPausedField]
     public TimeSpan NextSearch = TimeSpan.Zero;
 
     public EntProtoId MobToBirth;

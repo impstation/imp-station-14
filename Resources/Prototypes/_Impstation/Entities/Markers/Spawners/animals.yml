@@ -1,0 +1,69 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobBull
+  name: Bull Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: bull
+      sprite: _Impstation/Mobs/Animals/Livestock/bull.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobBullAdult 
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobHen
+  name: Hen Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: hen
+      sprite: _Impstation/Mobs/Animals/Livestock/hen.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobHenAdult
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobRooster
+  name: Rooster Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: rooster
+      sprite: _Impstation/Mobs/Animals/Livestock/rooster.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobRoosterAdult
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobPig
+  name: Pig Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: pig
+      sprite: _Impstation/Mobs/Animals/Livestock/pig.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobPigAdult
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobDomesticBoar
+  name: Domestic Boar Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: boar
+      sprite: _Impstation/Mobs/Animals/Livestock/boar.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobBoarAdult
