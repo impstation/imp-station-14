@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: astral_amy
-  changes:
-  - message: A third round of Whisper changes - details in PR.
-    type: Tweak
-  id: 2075
-  time: '2025-07-25T11:29:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3146
 - author: sgp10, formlessnameless, dayn-e, mqole
   changes:
   - message: changelog fixed finally. Some things might be in a weird order, but it
@@ -4163,3 +4156,12 @@
   id: 2574
   time: '2026-01-25T18:19:55.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4010
+- author: VeeNomine
+  changes:
+  - message: Added petting interactions to Decapoid Silicons
+    type: Add
+  - message: Fixed not being able to pet derelict cyborgs. Now you can!
+    type: Fix
+  id: 2575
+  time: '2026-01-25T20:51:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3988
