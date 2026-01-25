@@ -1,0 +1,277 @@
+# Magazines compatible with the Viper and the Mk 58.
+- type: entity
+  id: BaseMagazinePistol
+  name: pistol magazine (.35 auto)
+  parent: [ BaseItem, BaseSecurityContraband ]
+  description: A 10-round .35 auto pistol magazine.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazinePistol
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistol
+    capacity: 10
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: BaseMagazinePistolHighCapacity
+  name: extended pistol magazine (.35 auto)
+  description: A 20-round .35 auto extended pistol magazine.
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazinePistol
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistol
+    capacity: 20
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag_ext.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazinePistol
+  name: pistol magazine (.35 auto)
+  parent: BaseMagazinePistol
+  description: A 10-round .35 auto pistol magazine, marked as live-fire ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistol
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#820a16"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#820a16"
+
+- type: entity
+  id: MagazinePistolEmpty
+  name: pistol magazine (.35 auto any)
+  suffix: empty
+  parent: MagazinePistol
+  description: A 10-round .35 auto pistol magazine with no apparent markings
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  id: MagazinePistolIncendiary
+  name: pistol magazine (.35 auto incendiary)
+  parent: MagazinePistol
+  description: A 10-round .35 auto pistol magazine, marked as incendiary ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolIncendiary
+  - type: Sprite
+    layers:
+    - state: incendiary
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#d46925"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#d46925"
+
+- type: entity
+  id: MagazinePistolPractice
+  name: pistol magazine (.35 auto practice)
+  parent: BaseMagazinePistol
+  description: A 10-round .35 auto pistol magazine, marked as practice ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolPractice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ffcb6f"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ffcb6f"
+
+- type: entity
+  id: MagazinePistolUranium
+  name: pistol magazine (.35 auto uranium)
+  parent: BaseMagazinePistol
+  description: A 10-round .35 auto pistol magazine, marked as uranium ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolUranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#22b24d"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#22b24d"
+
+- type: entity
+  id: MagazinePistolHighCapacityEmpty
+  name: extended pistol magazine (.35 auto any)
+  description: A 20-round .35 auto extended pistol magazine with no apparent markings.
+  suffix: empty
+  parent: BaseMagazinePistolHighCapacity
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  id: MagazinePistolHighCapacity
+  name: extended pistol magazine (.35 auto)
+  description: A 20-round .35 auto extended pistol magazine, marked as live-fire ammo.
+  parent: BaseMagazinePistolHighCapacity
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistol
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#820a16"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#820a16"
+
+- type: entity
+  id: MagazinePistolHighCapacityPractice
+  name: extended pistol magazine (.35 auto practice)
+  description: A 20-round .35 auto extended pistol magazine, marked as practice ammo.
+  parent: BaseMagazinePistolHighCapacity
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistol
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ffcb6f"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ffcb6f"
+
+- type: entity
+  id: MagazinePistolHighCapacityRubber
+  name: extended pistol magazine (.35 auto rubber)
+  description: A 20-round .35 auto extended pistol magazine, marked as rubber ammo.
+  parent: BaseMagazinePistolHighCapacity
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistol
+  - type: Sprite
+    layers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

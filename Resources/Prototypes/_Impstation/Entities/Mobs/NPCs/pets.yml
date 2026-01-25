@@ -157,7 +157,7 @@
         0: Alive
         180: Dead
     - type: Stamina
-      critThreshold: 150
+      baseCritThreshold: 150
     - type: Butcherable
       spawned:
         - id: FoodMeatFish
@@ -171,7 +171,7 @@
 - type: entity
   name: Major
   id: MobBearSpaceMajor
-  parent: MobSpaceNice
+  parent: MobBearSpace
   description: Nanotrasen's majority shareholder.
   components:
   - type: Sprite
@@ -192,25 +192,12 @@
         Base: major_dead
       Dead:
         Base: major_dead
-  - type: Butcherable
-    spawned:
-    - id: FoodMeatBear
-      amount: 3
-    - id: MaterialHideBear
-      amount: 1
-    - id: ClothingHeadHatCentcom
-      amount: 1
-  - type: ReplacementAccent
-    accent: genericAggressive
-  - type: Vocal
-    sounds:
-      Unsexed: Bear
-  - type: InteractionPopup
-    successChance: 0.25
-    interactSuccessString: petting-success-bear
-    interactFailureString: petting-failure-bear
-    interactSuccessSound:
-      path: /Audio/Animals/sloth_squeak.ogg
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+      - Passive
+  - type: NPCRetaliation
+    attackMemoryLength: 20
 
 - type: entity
   name: Dolby

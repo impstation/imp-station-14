@@ -20,6 +20,9 @@ trait-unborgable-desc = Your brain is unable to fit into a Man-Machine Interface
 trait-archaic-name = Archaic speech
 trait-archaic-desc = Thy language is quite outdated, and thou still hold thyself to some manner of chivalry
 
+trait-basic-archaic-name = Archaic speech (Basic)
+trait-basic-archaic-desc = Thou art up with the times, but thou can't seem to shake some anachronisms.
+
 trait-accentimmune-name = No accent
 trait-accentimmune-desc = You have no accent whatsoever, somehow. Where are you from?
 
@@ -118,3 +121,6 @@ trait-slight-desc = You're lighter than average.
 
 trait-soft-hands-name = Soft hands
 trait-soft-hands-desc = You're too weak to wield anything.
+
+trait-hated-by-dogs-name = Hated by dogs
+trait-hated-by-dogs-desc = Dogs will bark at you when you come near.
