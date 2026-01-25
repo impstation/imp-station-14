@@ -1582,7 +1582,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 13.5,13.5
       parent: 2
-- proto: AirlockExternalGlassShuttleMining
+- proto: AirlockExternalGlassShuttleLocked
   entities:
   - uid: 45
     components:
@@ -7778,7 +7778,7 @@ entities:
     - type: Transform
       pos: 2.5,13.5
       parent: 2
-- proto: ComputerShuttleMining
+- proto: ComputerShuttleCargo
   entities:
   - uid: 1053
     components:

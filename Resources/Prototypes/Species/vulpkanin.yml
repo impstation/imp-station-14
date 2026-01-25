@@ -1,7 +1,7 @@
 - type: species
   id: Vulpkanin
   name: species-name-vulpkanin
-  roundStart: false #imp, longstanding stance to not have these roundstart
+  roundStart: true #imp, longstanding stance to not have these roundstart
   randomViable: true #imp, we'll let them be ghost roles though
   randomChance: 0.5 #imp, AT A COST
   prototype: MobVulpkanin
