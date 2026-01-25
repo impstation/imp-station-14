@@ -1,19 +1,4 @@
 ﻿Entries:
-- author: astral_amy
-  changes:
-  - message: A third round of Whisper changes - details in PR.
-    type: Tweak
-  id: 2075
-  time: '2025-07-25T11:29:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3146
-- author: sgp10, formlessnameless, dayn-e, mqole
-  changes:
-  - message: changelog fixed finally. Some things might be in a weird order, but it
-      should all be there now!
-    type: Fix
-  id: 2076
-  time: '2025-07-25T13:34:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3162
 - author: youtubevideo3
   changes:
   - message: More new clothes for musician. You can look even better while standing
@@ -4163,3 +4148,19 @@
   id: 2574
   time: '2026-01-25T18:19:55.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4010
+- author: VeeNomine
+  changes:
+  - message: Added petting interactions to Decapoid Silicons
+    type: Add
+  - message: Fixed not being able to pet derelict cyborgs. Now you can!
+    type: Fix
+  id: 2575
+  time: '2026-01-25T20:51:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3988
+- author: VeeNomine
+  changes:
+  - message: the compact defibrillator can now be purchased at a high price from cargo.
+    type: Add
+  id: 2576
+  time: '2026-01-25T20:56:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3631
