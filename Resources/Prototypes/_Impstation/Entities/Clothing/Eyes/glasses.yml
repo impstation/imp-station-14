@@ -148,3 +148,14 @@
     tags:
     - WhitelistChameleon
     - GlassesSecurity
+
+- type: entity
+  parent: [ ClothingEyesBase, BaseLensSlot ]
+  id: ClothingEyesGlassesWhiteHalfMask
+  name: white half mask
+  description: Hide your face, the world will never find you.
+  components:
+    - type: Sprite
+      sprite: _Impstation/Clothing/Eyes/Glasses/whitehalfmask.rsi
+    - type: Clothing
+      sprite: _Impstation/Clothing/Eyes/Glasses/whitehalfmask.rsi

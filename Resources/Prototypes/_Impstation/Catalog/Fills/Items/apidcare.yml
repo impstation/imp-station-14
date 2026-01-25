@@ -4,10 +4,12 @@
   parent: ApidCareCase
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-    - id: SteelLunchboxApidFilled
-    - id: Multitool
-    - id: Napkin
-    - id: ApidSeatFlatpack
-    - id: FloorTileItemAstroGrassStackFour
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SteelLunchboxApidFilled
+        - id: Multitool
+        - id: Napkin
+        - id: ApidSeatFlatpack
+        - id: FloorTileItemAstroGrassStackFour

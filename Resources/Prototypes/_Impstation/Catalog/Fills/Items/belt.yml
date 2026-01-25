@@ -36,28 +36,32 @@
   parent: ClothingBeltUtilityBlack
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: Crowbar
-      - id: Wrench
-      - id: Screwdriver
-      - id: Wirecutter
-      - id: Welder
-      - id: NetworkConfigurator
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Crowbar
+        - id: Wrench
+        - id: Screwdriver
+        - id: Wirecutter
+        - id: Welder
+        - id: NetworkConfigurator
 
 - type: entity
   id: ClothingBeltUtilityBlackEngineering
   parent: ClothingBeltUtilityBlack
   suffix: Engineering
   components:
-  - type: StorageFill
-    contents:
-      - id: CrowbarYellow
-      - id: Wrench
-      - id: Screwdriver
-      - id: Wirecutter
-      - id: Welder
-      - id: Multitool
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CrowbarYellow
+        - id: Wrench
+        - id: Screwdriver
+        - id: Wirecutter
+        - id: Welder
+        - id: Multitool
 
 - type: entity
   parent: ClothingBeltStorageBase
@@ -69,72 +73,72 @@
     sprite: Clothing/Belt/emt.rsi
   - type: Clothing
     sprite: Clothing/Belt/emt.rsi
-  - type: StorageFill
-    contents:
-      - id: JawsOfLife
-      - id: DefibrillatorCompact
-      - id: MedicatedSuture
-      - id: RegenerativeMesh
-      - id: SyringeSaline
-      - id: BruteAutoInjector
-      - id: BurnAutoInjector
-      - id: EmergencyMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: JawsOfLife
+        - id: DefibrillatorCompact
+        - id: MedicatedSuture
+        - id: RegenerativeMesh
+        - id: SyringeSaline
+        - id: BruteAutoInjector
+        - id: BurnAutoInjector
+        - id: EmergencyMedipen
 
 - type: entity
   id: ClothingBeltSalvageWebbingApid
   parent: ClothingBeltSalvageWebbing
   suffix: Apid, Filled
   components:
-  - type: StorageFill #this may seem excessive. I invite you to try and play a salvage bee without it
-    contents:
-      - id: Wrench
-      - id: WeaponProtoKineticAcceleratorApid
-      - id: EmergencyMedipen
-      - id: SyringeSaline
-      - id: FireExtinguisherMini
-      - id: WeaponGrapplingGun
+  - type: EntityTableContainerFill #this may seem excessive. I invite you to try and play a salvage bee without it
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Wrench
+        - id: WeaponProtoKineticAcceleratorApid
+        - id: EmergencyMedipen
+        - id: SyringeSaline
+        - id: FireExtinguisherMini
+        - id: WeaponGrapplingGun
 
 - type: entity
   id: ClothingBeltQuiverNullrodFilled
   parent: ClothingBeltQuiverNullrod
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: HolyArrow
-      - id: HolyArrow
-      - id: HolyArrow
-      - id: HolyArrow
-      - id: HolyArrow
-      - id: HolyArrow
-      - id: HolyArrow
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HolyArrow
+          amount: 7
 
 - type: entity
   id: ClothingBeltQuiverNullrodEvilFilled
   parent: ClothingBeltQuiverNullrodEvil
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-      - id: HolyArrowEvil
-      - id: HolyArrowEvil
-      - id: HolyArrowEvil
-      - id: HolyArrowEvil
-      - id: HolyArrowEvil
-      - id: HolyArrowEvil
-      - id: HolyArrowEvil
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HolyArrowEvil
+          amount: 7
 
 - type: entity
   id: ClothingBeltUtilityCowFilled
   parent: ClothingBeltUtility
   suffix: Filled, Cow Tools
   components:
-  - type: StorageFill
-    contents:
-    - id: Haycutters
-    - id: Moodriver
-    - id: Wronch
-    - id: Cowbar
-    - id: Mooltitool
-    - id: Cowelder
-    - id: Milkalyzer
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Haycutters
+        - id: Moodriver
+        - id: Wronch
+        - id: Cowbar
+        - id: Mooltitool
+        - id: Cowelder
+        - id: Milkalyzer
