@@ -15,14 +15,13 @@
     fireRate: 15
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/minigun.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: CartridgeMinigun #imp
     fireCost: 100
   - type: Battery
     maxCharge: 10000
     startingCharge: 10000
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 50
   - type: Appearance
   - type: ContainerContainer
@@ -65,14 +64,13 @@
       - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: CartridgeRocketSlow #imp
     fireCost: 1000
   - type: Battery
     maxCharge: 10000
     startingCharge: 10000
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 500
   - type: MagazineVisuals
     magState: mag
@@ -89,7 +87,6 @@
   components:
   - type: Unremoveable
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 25
 
 # StartingGear

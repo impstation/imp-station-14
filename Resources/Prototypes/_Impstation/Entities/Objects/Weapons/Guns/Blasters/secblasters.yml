@@ -27,7 +27,7 @@
     fireRate: 0.5
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/blastercannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterCannon
     fireCost: 200
   - type: MeleeWeapon
@@ -68,11 +68,10 @@
     fireRate: 1.75
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/blasterpist.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterMagnum
     fireCost: 150
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 20
   - type: MeleeWeapon
     wideAnimationRotation: -80
@@ -102,7 +101,7 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BoltTempgunCold
     fireCost: 100
   - type: BatteryWeaponFireModes
