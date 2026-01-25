@@ -33,6 +33,14 @@
   equipment:
     head: ClothingHeadHatHOSsoft
 
+- type: loadout
+  id: HeadofSecurityColonelCap
+  equipment:
+    head: ClothingHeadHatHOSColonelCap
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranHOS
+
 # Outer clothing
 - type: loadout
   id: HeadofSecurityGreatcoat
@@ -81,6 +89,24 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSPro
   groupBy: "jumpskirt"
+
+- type: loadout
+  id: HeadofSecurityColonelJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSColonel
+  groupBy: "jumpsuit"
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranHOS
+
+- type: loadout
+  id: HeadofSecurityColonelJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtHoSColonel
+  groupBy: "jumpskirt"
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: VeteranHOS
 
 # Belt
 - type: loadout
