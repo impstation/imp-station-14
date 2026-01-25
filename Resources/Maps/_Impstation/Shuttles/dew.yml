@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
-  engineVersion: 268.0.0
+  category: Grid
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/23/2026 16:29:20
-  entityCount: 151
-maps:
-- 9
+  time: 01/25/2026 13:14:37
+  entityCount: 155
+maps: []
 grids:
 - 1
-orphans: []
+orphans:
+- 1
 nullspace: []
 tilemap:
   4: Space
@@ -31,7 +31,7 @@ entities:
       name: grid
     - type: Transform
       pos: -2.1878223,-0.6834589
-      parent: 9
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -65,22 +65,48 @@ entities:
     - type: GridAtmosphere
       version: 2
       data:
+        tiles:
+          0,0:
+            0: 65262
+          0,1:
+            0: 61167
+          0,-1:
+            0: 60416
+            1: 288
+          1,0:
+            0: 30579
+            1: 8
+          1,1:
+            0: 13175
+            1: 2048
+          1,-1:
+            0: 12544
+            1: 1056
+          1,2:
+            1: 4
+        uniqueMixes:
+        - volume: 2500
+          temperature: 293.15
+          moles:
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
+        - volume: 2500
+          immutable: True
+          moles: {}
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: CargoShuttle
     - type: StationCargoShuttle
       path: /Maps/Shuttles/cargo.yml
-  - uid: 9
+    - type: ExplosionAirtightGrid
+- proto: AirCanister
+  entities:
+  - uid: 116
     components:
-    - type: MetaData
-      name: Map Entity
     - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
+      pos: 5.5,7.5
+      parent: 1
 - proto: AirlockGlassShuttle
   entities:
   - uid: 2
@@ -230,6 +256,16 @@ entities:
     components:
     - type: Transform
       pos: 1.5,3.5
+      parent: 1
+  - uid: 132
+    components:
+    - type: Transform
+      pos: 3.5,-0.5
+      parent: 1
+  - uid: 136
+    components:
+    - type: Transform
+      pos: 2.5,-0.5
       parent: 1
 - proto: CableHV
   entities:
@@ -420,20 +456,6 @@ entities:
     - type: Transform
       pos: 3.5,-0.5
       parent: 1
-- proto: ClosetEmergencyFilledRandom
-  entities:
-  - uid: 126
-    components:
-    - type: Transform
-      pos: 5.5,7.5
-      parent: 1
-- proto: ClosetEmergencyN2FilledRandom
-  entities:
-  - uid: 129
-    components:
-    - type: Transform
-      pos: 5.5,6.5
-      parent: 1
 - proto: ComputerShuttleCargo
   entities:
   - uid: 79
@@ -466,13 +488,13 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 1.5,7.5
+      pos: 0.5,6.5
       parent: 1
   - uid: 43
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 0.5,6.5
+      pos: 1.5,7.5
       parent: 1
   - uid: 44
     components:
@@ -525,12 +547,43 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 1.5,2.5
       parent: 1
+- proto: GasPassiveGate
+  entities:
+  - uid: 126
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 4.5,7.5
+      parent: 1
+- proto: GasPassiveVent
+  entities:
+  - uid: 129
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,7.5
+      parent: 1
+- proto: GasPort
+  entities:
+  - uid: 120
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,7.5
+      parent: 1
 - proto: GeneratorBasic15kW
   entities:
   - uid: 83
     components:
     - type: Transform
       pos: 2.5,-1.5
+      parent: 1
+- proto: GravityGeneratorMini
+  entities:
+  - uid: 9
+    components:
+    - type: Transform
+      pos: 5.5,6.5
       parent: 1
 - proto: Grille
   entities:
@@ -675,6 +728,11 @@ entities:
       fixtures: {}
 - proto: PlasticFlapsAirtightClear
   entities:
+  - uid: 88
+    components:
+    - type: Transform
+      pos: 0.5,7.5
+      parent: 1
   - uid: 122
     components:
     - type: Transform
@@ -686,11 +744,6 @@ entities:
       pos: 0.5,0.5
       parent: 1
   - uid: 124
-    components:
-    - type: Transform
-      pos: 0.5,7.5
-      parent: 1
-  - uid: 125
     components:
     - type: Transform
       pos: 0.5,6.5
@@ -905,11 +958,71 @@ entities:
     - type: Transform
       pos: 1.5,2.5
       parent: 1
-  - uid: 88
+    - type: DeviceLinkSource
+      linkedPorts:
+        39:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        40:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        45:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        46:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+  - uid: 125
     components:
     - type: Transform
       pos: 1.5,5.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        41:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        42:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        43:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        44:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
 - proto: WallShuttle
   entities:
   - uid: 6
