@@ -1,0 +1,152 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
+- type: entity
+  id: PartDokanin
+  parent: [BaseItem, BasePart]
+  name: "dokanin body part"
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: TorsoDokanin
+  name: "dokanin torso"
+  parent: [PartDokanin, BaseTorso]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "torso_m"
+
+- type: entity
+  id: HeadDokanin
+  name: "dokanin head"
+  parent: [PartDokanin, BaseHead]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: LeftArmDokanin
+  name: "left dokanin arm"
+  parent: [PartDokanin, BaseLeftArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmDokanin
+  name: "right dokanin arm"
+  parent: [PartDokanin, BaseRightArm]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandDokanin
+  name: "left dokanin hand"
+  parent: [PartDokanin, BaseLeftHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandDokanin
+  name: "right dokanin hand"
+  parent: [PartDokanin, BaseRightHand]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegDokanin
+  name: "left dokanin leg"
+  parent: [PartDokanin, BaseLeftLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegDokanin
+  name: "right dokanin leg"
+  parent: [PartDokanin, BaseRightLeg]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootDokanin
+  name: "left dokanin foot"
+  parent: [PartDokanin, BaseLeftFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootDokanin
+  name: "right dokanin foot"
+  parent: [PartDokanin, BaseRightFoot]
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: "r_foot"

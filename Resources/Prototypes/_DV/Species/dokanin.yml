@@ -1,0 +1,148 @@
+- type: species
+  id: Dokanin
+  name: species-name-dokanin
+  roundStart: true
+  prototype: MobDokanin
+  sprites: MobDokaninSprites
+  defaultSkinTone: "#985629"
+  markingLimits: MobDokaninMarkingLimits
+  dollPrototype: MobDokaninDummy
+  skinColoration: Hues
+
+- type: speciesBaseSprites
+  id: MobDokaninSprites
+  sprites:
+    Head: MobDokaninHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobDokaninTorso
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Eyes: MobHumanoidEyes
+    LArm: MobDokaninLArm
+    RArm: MobDokaninRArm
+    LHand: MobDokaninLHand
+    RHand: MobDokaninRHand
+    LLeg: MobDokaninLLeg
+    RLeg: MobDokaninRLeg
+    LFoot: MobDokaninLFoot
+    RFoot: MobDokaninRFoot
+
+- type: markingPoints
+  id: MobDokaninMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ DoTail ]
+    Head:
+      points: 1
+      required: false
+    Legs:
+      points: 1
+      required: false
+    Arms:
+      points: 1
+      required: false
+    Snout:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ DoEar ]
+    Overlay:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobDokaninHead
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobDokaninHeadMale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobDokaninHeadFemale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobDokaninTorso
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobDokaninTorsoMale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobDokaninTorsoFemale
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobDokaninLLeg
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobDokaninLHand
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobDokaninLArm
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobDokaninLFoot
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobDokaninRLeg
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobDokaninRHand
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobDokaninRArm
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobDokaninRFoot
+  baseSprite:
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
+    state: r_foot

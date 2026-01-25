@@ -1,39 +1,29 @@
 - type: entity
   save: false
-  name: Urist McRat
+  name: Urist McDog
   parent: BaseMobSpeciesOrganic
-  id: BaseMobRodentia
+  id: BaseMobDokanin
   abstract: true
   components:
   - type: HumanoidAppearance
-    species: Rodentia
+    species: Dokanin
   - type: Hunger
-    baseDecayRate: 0.0467 # 33% faster than usual
-  - type: Inventory
-    speciesId: rodentia
+  - type: Inventory # Allows vulps to wear properly shaped helmets
+    speciesId: dokanin
+  - type: Thirst
   - type: Icon
-    sprite: _DV/Mobs/Species/Rodentia/parts.rsi
+    sprite: _DV/Mobs/Species/Dokanin/parts.rsi
     state: full
   - type: Body
-    prototype: Rodentia
+    prototype: Dokanin
+    requiredLegs: 2
   - type: Speech
-    speechVerb: Rodentia
-    speechSounds: Squeak
-    allowedEmotes: ['Squeak']
-  - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.28
-        density: 140
-        restitution: 0.0
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
+    speechSounds: Dokanin
+    speechVerb: Dokanin
   - type: Sprite
-    #scale: 0.8, 0.8 - Funkystation hehehell naw
+    netsync: false
+    noRot: true
+    drawdepth: Mobs
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -43,11 +33,21 @@
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
       - map: [ "enum.HumanoidVisualLayers.RLeg" ]
       - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LFoot" ] # reordered
-      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      - shader: StencilClear
+        sprite: Mobs/Species/Human/parts.rsi #PJB on stencil clear being on the left leg: "...this is 'fine'" -https://github.com/space-wizards/space-station-14/pull/12217#issuecomment-1291677115
+        # its fine, but its still very stupid that it has to be done like this instead of allowing sprites to just directly insert a stencil clear.
+        # sprite refactor when
+        state: l_leg
+      - shader: StencilMask
+        map: [ "enum.HumanoidVisualLayers.StencilMask" ]
+        sprite: _DV/Mobs/Customization/Dokanin/masking_helpers.rsi
+        state: female_full
+        visible: false
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
+      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
+      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
@@ -73,9 +73,10 @@
       - map: [ "pocket2" ]
       - map: [ "clownedon" ] # Dynamically generated
         sprite: "_DV/Effects/creampie.rsi"
-        state: "creampie_rodentia"
+        state: "creampie_vulpkanin"
         visible: false
   - type: MeleeWeapon
+    hidden: true
     soundHit:
       path: /Audio/Weapons/pierce.ogg
     angle: 30
@@ -84,29 +85,33 @@
       types:
         Blunt: 2
         Slash: 3
+  - type: Perishable
   - type: Damageable
-    damageModifierSet: Rodentia
-  - type: Butcherable
-    spawned:
-    - id: FoodMeatRat
-      amount: 5
-  - type: TypingIndicator
-    proto: default
+    damageModifierSet: Dokanin
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
   - type: Vocal
     sounds:
-      Male: MaleRodentia
-      Female: FemaleRodentia
-      Unsexed: MaleRodentia
+      Male: MobDokanin
+      Female: MobDokanin
+      Unsexed: MobDokanin
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - DoEmotes
+  - type: Wagging
+    action: ActionToggleWagging
 
 - type: entity
   save: false
-  name: Rodentia Dummy
+  name: Dokanin Dummy
   parent: MobHumanDummy
-  id: MobRodentiaDummy
+  id: MobDokaninDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy rodentia meant to be used in character setup.
+  description: A dummy dokanin meant to be used in character setup.
   components:
   - type: HumanoidAppearance
-    species: Rodentia
-  - type: Inventory
-    speciesId: rodentia
+    species: Dokanin

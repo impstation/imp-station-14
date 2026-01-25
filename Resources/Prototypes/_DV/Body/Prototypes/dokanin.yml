@@ -1,0 +1,49 @@
+﻿- type: body
+  name: "dokanin"
+  id: Dokanin
+  root: torso
+  slots:
+    head:
+      part: HeadDokanin
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+        eyes: OrganHumanEyes
+    torso:
+      part: TorsoDokanin
+      connections: # Goobstation - fix some species having their hands the wrong way around
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganHumanLungs
+        stomach: OrganDokaninStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganHumanKidneys
+    right arm:
+      part: RightArmDokanin
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmDokanin
+      connections:
+      - left hand
+    right hand:
+      part: RightHandDokanin
+    left hand:
+      part: LeftHandDokanin
+    right leg:
+      part: RightLegDokanin
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegDokanin
+      connections:
+      - left foot
+    right foot:
+      part: RightFootDokanin
+    left foot:
+      part: LeftFootDokanin

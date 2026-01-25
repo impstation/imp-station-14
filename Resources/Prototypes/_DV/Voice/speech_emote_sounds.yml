@@ -57,15 +57,15 @@
     Chirp:
       collection: HarpyChirps
     Snarl:
-      collection: VulpkaninSnarls
+      collection: DokaninSnarls
     Bark:
-      collection: VulpkaninBarks
+      collection: DokaninBarks
     Whine:
-      collection: VulpkaninWhines
+      collection: DokaninWhines
     Howl:
-      collection: VulpkaninHowls
+      collection: DokaninHowls
     Awoo:
-      collection: VulpkaninHowls
+      collection: DokaninHowls
     Weh:
       collection: Weh
     Hew:
@@ -78,22 +78,22 @@
       collection: HarpySquishes # Frontier
 
 - type: emoteSounds
-  id: MobDog
+  id: MobDokanin
   params:
     variation: 0.125
   sounds:
     Growl:
-      collection: VulpkaninGrowls
+      collection: DokaninGrowls
     Snarl:
-      collection: VulpkaninSnarls
+      collection: DokaninSnarls
     Bark:
-      collection: VulpkaninBarks
+      collection: DokaninBarks
     Whine:
-      collection: VulpkaninWhines
+      collection: DokaninWhines
     Howl:
-      collection: VulpkaninHowls
+      collection: DokaninHowls
     Awoo:
-      collection: VulpkaninHowls
+      collection: DokaninHowls
 
 - type: emoteSounds
   id: MaleRodentia

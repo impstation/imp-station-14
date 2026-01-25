@@ -1,0 +1,871 @@
+# All the Dokanin customization
+
+# Ears Markings
+- type: marking
+  id: DoEar
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: vulp
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: vulp-inner
+
+- type: marking
+  id: DoEarFade
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: vulp
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: vulp-fade
+
+- type: marking
+  id: DoEarSharp
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: vulp
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: vulp-sharp
+
+- type: marking
+  id: DoEarJackal
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: jackal
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: jackal-inner
+
+- type: marking
+  id: DoEarTerrier
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: terrier
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: terrier-inner
+
+- type: marking
+  id: DoEarWolf
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: wolf
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: wolf-inner
+
+- type: marking
+  id: DoEarFennec
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: fennec
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: fennec-inner
+
+- type: marking
+  id: DoEarFox
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: fox
+
+- type: marking
+  id: DoEarOtie
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: otie
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: otie-inner
+
+- type: marking
+  id: DoEarTajaran
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: msai
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: msai-inner
+
+- type: marking
+  id: DoEarShock
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: shock
+
+- type: marking
+  id: DoEarCoyote
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: coyote
+
+- type: marking
+  id: DoEarDalmatian
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/ear_markings.rsi
+      state: dalmatian
+
+# Head Markings (Snout)
+- type: marking
+  id: DoSnoutAlt
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: muzzle_alt
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: DoSnout
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: muzzle
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: DoSnoutSharp
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: muzzle_sharp
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: DoSnoutFade
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: muzzle_fade
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: DoSnoutNose
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: DoSnoutMask
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: mask
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: nose
+
+- type: marking
+  id: DoSnoutDoine
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: vulpine
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: vulpine-lines
+
+- type: marking
+  id: DoSnoutSwift
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: vulpine-lines
+
+- type: marking
+  id: DoSnoutBlaze
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: blaze
+
+- type: marking
+  id: DoSnoutPatch
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: patch
+
+# Head Markings (Head)
+- type: marking
+  id: DoHeadTiger
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: tiger_head
+
+- type: marking
+  id: DoHeadTigerFace
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: tiger_face
+
+- type: marking
+  id: DoHeadSlash
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/head_markings.rsi
+      state: slash
+
+# Tail Markings
+- type: marking
+  id: DoTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp-fade
+
+- type: marking
+  id: DoTailTip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp-tip
+
+- type: marking
+  id: DoTailAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp_alt
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp_alt-fade
+
+- type: marking
+  id: DoTailAltTip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp_alt
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp_alt-tip
+
+- type: marking
+  id: DoTailLong
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: long
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: long-tip
+
+- type: marking
+  id: DoTailFox
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fox
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fox-fade
+
+- type: marking
+  id: DoTailFoxTip
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fox
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fox-tip
+
+- type: marking
+  id: DoTailBushy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: bushfluff
+
+- type: marking
+  id: DoTailCoyote
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: coyote
+
+- type: marking
+  id: DoTailHusky
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: husky-inner
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: husky-outer
+
+- type: marking
+  id: DoTailHuskyAlt
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: husky
+
+- type: marking
+  id: DoTailFox2
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fox2
+
+- type: marking
+  id: DoTailFox3
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fox3
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fox3-tip
+
+- type: marking
+  id: DoTailFennec
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fennec
+
+- type: marking
+  id: DoTailOtie
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: otie
+
+- type: marking
+  id: DoTailFluffy
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fluffy
+
+# Tail Markings (wagging variants)
+
+- type: marking
+  id: DoTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp_wag
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp_wag-tip #fade
+
+- type: marking
+  id: DoTailTipAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp_wag
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: vulp_wag-tip
+
+- type: marking
+  id: DoTailFoxAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fox_wag
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fox_wag-fade
+
+- type: marking
+  id: DoTailFoxTipAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fox_wag
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: fox_wag-tip
+
+- type: marking
+  id: DoTailBushyAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: bushfluff_wag
+
+- type: marking
+  id: DoTailCoyoteAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: coyote_wag
+
+- type: marking
+  id: DoTailCorgiAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: corgi_wag
+
+- type: marking
+  id: DoTailDalmatianAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/tail_markings.rsi
+      state: dalmatian_wag
+
+# Body Markings (Chest)
+- type: marking
+  id: DoBellyCrest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+      state: belly_crest
+
+- type: marking
+  id: DoBellyFull
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+      state: belly_full
+
+- type: marking
+  id: DoBellyFox
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+      state: belly_fox
+
+# # Body Markings (Overlay)
+# Eventually layering will allow to have markings on the body not layering above jumpsuits
+# - type: marking
+#   id: DoBodyPointsCrest
+#   markingCategory: Overlay
+#   bodyPart: RFoot
+#   speciesRestriction: [Dokanin]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+#       state: points_crest
+#
+# - type: marking
+#   id: DoBodyPointsFade
+#   markingCategory: Overlay
+#   bodyPart: RFoot
+#   speciesRestriction: [Dokanin]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+#       state: points_fade
+#
+# - type: marking
+#   id: DoBodyPointsSharp
+#   markingCategory: Overlay
+#   bodyPart: RFoot
+#   speciesRestriction: [Dokanin]
+#   sprites:
+#     - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+#       state: points_sharp
+
+# Leg Markings
+- type: marking
+  id: DoPointsFeet
+  markingCategory: Overlay
+  bodyPart: RFoot
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+      state: points_feet
+
+- type: marking
+  id: DoPointsCrestLegs
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+      state: points_crest-legs
+
+- type: marking
+  id: DoPointsFadeLegs
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+      state: points_fade-legs
+
+- type: marking
+  id: DoPointsSharpLegs
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+      state: points_sharp-legs
+
+# Arm Markings
+- type: marking
+  id: DoPointsHands
+  markingCategory: Overlay
+  bodyPart: RHand
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+      state: points_hands
+
+- type: marking
+  id: DoPointsCrestArms
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+      state: points_crest-arms
+
+- type: marking
+  id: DoPointsFadeArms
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+      state: points_fade-arms
+
+- type: marking
+  id: DoPointsSharpArms
+  markingCategory: Arms
+  bodyPart: LArm
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/body_markings.rsi
+      state: points_sharp-arms
+
+# Hairs
+- type: marking
+  id: DoHairAdhara
+  bodyPart: Hair
+  speciesRestriction: [Dokanin]
+  markingCategory: Hair
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: adhara
+
+- type: marking
+  id: DoHairAnita
+  bodyPart: Hair
+  speciesRestriction: [Dokanin]
+  markingCategory: Hair
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: anita
+
+- type: marking
+  id: DoHairApollo
+  bodyPart: Hair
+  speciesRestriction: [Dokanin]
+  markingCategory: Hair
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: apollo
+
+- type: marking
+  id: DoHairBelle
+  bodyPart: Hair
+  speciesRestriction: [Dokanin]
+  markingCategory: Hair
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: belle
+
+- type: marking
+  id: DoHairBraided
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: braided
+
+- type: marking
+  id: DoHairBun
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: bun
+
+- type: marking
+  id: DoHairCleanCut
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: clean_cut
+
+- type: marking
+  id: DoHairCurl
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: curl
+
+- type: marking
+  id: DoHairHawk
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: hawk
+
+- type: marking
+  id: DoHairJagged
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: jagged
+
+- type: marking
+  id: DoHairJeremy
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: jeremy
+
+- type: marking
+  id: DoHairKajam
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: kajam
+
+- type: marking
+  id: DoHairKeid
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: keid
+
+- type: marking
+  id: DoHairKleeia
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: kleeia
+
+- type: marking
+  id: DoHairMizar
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: mizar
+
+- type: marking
+  id: DoHairPunkBraided
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: punkbraided
+
+- type: marking
+  id: DoHairRaine
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: raine
+
+- type: marking
+  id: DoHairRough
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: rough
+
+- type: marking
+  id: DoHairShort
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: short
+
+- type: marking
+  id: DoHairShort2
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: short2
+
+- type: marking
+  id: DoHairSpike
+  bodyPart: Hair
+  markingCategory: Hair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/hair.rsi
+      state: spike
+
+# Facial Hairs
+- type: marking
+  id: DoFacialHairRuff
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/facial_hair.rsi
+      state: ruff
+
+- type: marking
+  id: DoFacialHairElder
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/facial_hair.rsi
+      state: elder
+
+- type: marking
+  id: DoFacialHairElderChin
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/facial_hair.rsi
+      state: elder_chin
+
+- type: marking
+  id: DoFacialHairKita
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Dokanin]
+  sprites:
+    - sprite: _DV/Mobs/Customization/Dokanin/facial_hair.rsi
+      state: kita
