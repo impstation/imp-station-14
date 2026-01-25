@@ -27,7 +27,7 @@
     startingCharge: 100
   - type: StaticPrice
     price: 100
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisablerPractice
     fireCost: 10
 
@@ -51,7 +51,6 @@
     maxCharge: 900
     startingCharge: 900
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 30
     autoRechargePauseTime: 5
   - type: Appearance
@@ -62,7 +61,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/antiquedisabler.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 150
   - type: StealTarget
