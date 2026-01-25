@@ -84,6 +84,7 @@
   - FatExtractorMachineCircuitboard
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
+  - PortableIncubator # Imp
 
 # Tier 2
 
@@ -135,6 +136,7 @@
   cost: 5000
   recipeUnlocks:
   - BorgModuleAdvancedChemical
+  - AdvancedJetInjector
 
 - type: technology
   id: AdvancedCleaning

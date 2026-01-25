@@ -67,16 +67,12 @@
     tags:
     - Folder
     - SecTicket
-  - type: StorageFill
-    contents:
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FineTicket
+          amount: 8
 
 - type: entity
   id: BoxFolderBlackLoadout
@@ -93,11 +89,13 @@
     sprite: _Impstation/Objects/Misc/bureaucracy.rsi
     size: Small
     shape: null
-  - type: StorageFill
-    contents:
-    - id: Paper
-    - id: Paper
-    - id: PaperOffice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Paper
+          amount: 2
+        - id: PaperOffice
 
 - type: entity
   id: BoxFolderHamster
@@ -155,3 +153,32 @@
   - type: FlavorProfile
     flavors:
     - secticket
+
+- type: entity
+  parent: BaseItem
+  name: bail card
+  id: JailCard
+  description: 'Get out of jail free! This card may be kept until needed or sold.'
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: jail_card
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/pop.ogg
+    embedOnThrow: True
+  - type: ThrowingAngle
+    angle: 0
+  - type: LandAtCursor
+
+- type: entity
+  parent: [JailCard, BaseCentcommContraband]
+  name: CC bail card
+  id: CentCommJailCard
+  description: 'Get out of jail free! This card may be kept until needed or sold. Not complying with this card is punishable by death.'
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: centcomm_jail_card

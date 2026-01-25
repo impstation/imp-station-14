@@ -120,6 +120,15 @@
   - type: PGAccent
 
 - type: trait
+  id: BasicArchaic
+  name: trait-basic-archaic-name
+  description: trait-basic-archaic-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: BasicArchaicAccent
+
+- type: trait
   id: VowelRotation
   name: trait-vowelrotation-name
   description: trait-vowelrotation-desc
