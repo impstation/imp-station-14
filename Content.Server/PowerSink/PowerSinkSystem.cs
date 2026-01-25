@@ -1,4 +1,4 @@
-﻿using Content.Server.Chat.Systems;
+using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
@@ -68,9 +68,9 @@ namespace Content.Server.PowerSink
                 if (!transform.Anchored)
                     continue;
 
-                _battery.SetCharge(entity, battery.CurrentCharge + networkLoad.NetworkLoad.ReceivingPower / 1000, battery);
+                _battery.ChangeCharge((entity, battery), networkLoad.NetworkLoad.ReceivingPower * frameTime);
 
-                var currentBatteryThreshold = battery.CurrentCharge / battery.MaxCharge;
+                var currentBatteryThreshold = _battery.GetChargeLevel((entity, battery));
 
                 // Check for warning message threshold
                 if (!component.SentImminentExplosionWarningMessage &&
@@ -92,7 +92,7 @@ namespace Content.Server.PowerSink
                 }
 
                 // Check for explosion
-                if (battery.CurrentCharge < battery.MaxCharge)
+                if (!_battery.IsFull((entity, battery)))
                     continue;
 
                 if (component.ExplosionTime == null)
