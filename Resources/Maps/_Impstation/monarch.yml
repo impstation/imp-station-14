@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/26/2026 11:50:54
-  entityCount: 13100
+  time: 01/26/2026 13:10:00
+  entityCount: 13097
 maps:
 - 1
 grids:
@@ -4361,7 +4361,7 @@ entities:
       pos: 12.5,-0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -259758.05
+      secondsUntilStateChange: -260247.75
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -4979,7 +4979,7 @@ entities:
       pos: -9.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -251190.12
+      secondsUntilStateChange: -251679.83
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -6130,7 +6130,7 @@ entities:
   - uid: 3696
     components:
     - type: Transform
-      pos: -21.578808,46.172955
+      pos: -21.38177,46.016045
       parent: 2
   - uid: 4343
     components:
@@ -28445,6 +28445,11 @@ entities:
       parent: 2
 - proto: ChemMaster
   entities:
+  - uid: 1580
+    components:
+    - type: Transform
+      pos: -18.5,47.5
+      parent: 2
   - uid: 7663
     components:
     - type: Transform
@@ -28454,13 +28459,6 @@ entities:
     components:
     - type: Transform
       pos: -15.5,84.5
-      parent: 2
-- proto: ChemMasterFlatpack
-  entities:
-  - uid: 7688
-    components:
-    - type: Transform
-      pos: -11.218522,38.822437
       parent: 2
 - proto: ChurchBell
   entities:
@@ -59835,6 +59833,8 @@ entities:
   entities:
   - uid: 5049
     components:
+    - type: MetaData
+      name: BROS
     - type: Transform
       pos: -16.297684,26.945555
       parent: 2
@@ -60530,20 +60530,38 @@ entities:
   entities:
   - uid: 2326
     components:
+    - type: MetaData
+      name: Big Mouth Carp
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 23.5,5.5
+      pos: -21.5,46.5
       parent: 2
     - type: Fixtures
       fixtures: {}
-  - uid: 3702
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -19.5,48.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
+    - type: GhostRole
+      mindRoles:
+      - MindRoleGhostRoleNeutral
+      rules: >-
+        All normal rules apply unless an administrator tells you otherwise.
+
+
+        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+      description: A stuffed carp containing a transmitter that picks up distant space radio shows.
+      name: Big Mouth Carp
+    - type: GhostTakeoverAvailable
+    - type: MindContainer
+    - type: InputMover
+    - type: MobMover
+    - type: MovementSpeedModifier
+    - type: Speech
+      suffixSpeechVerbs:
+        chat-speech-verb-suffix-exclamation-strong: DefaultExclamationStrong
+        chat-speech-verb-suffix-exclamation: DefaultExclamation
+        chat-speech-verb-suffix-question: DefaultQuestion
+        chat-speech-verb-suffix-stutter: DefaultStutter
+        chat-speech-verb-suffix-mumble: DefaultMumble
+      allowedEmotes: []
+    - type: Emoting
+    - type: Examiner
 - proto: PosterLegitCleanliness
   entities:
   - uid: 3401
@@ -61158,11 +61176,6 @@ entities:
     components:
     - type: Transform
       pos: 5.5,6.5
-      parent: 2
-  - uid: 1580
-    components:
-    - type: Transform
-      pos: -21.5,46.5
       parent: 2
   - uid: 2028
     components:
@@ -62064,7 +62077,7 @@ entities:
     - type: Transform
       pos: -43.5,16.5
       parent: 2
-  - uid: 3686
+  - uid: 3656
     components:
     - type: Transform
       pos: -21.5,46.5
@@ -68178,7 +68191,7 @@ entities:
       fixtures: {}
 - proto: SignVox
   entities:
-  - uid: 3707
+  - uid: 3686
     components:
     - type: Transform
       pos: -21.5,47.5
@@ -72319,12 +72332,6 @@ entities:
     components:
     - type: Transform
       pos: -19.5,44.5
-      parent: 2
-  - uid: 3656
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -18.5,47.5
       parent: 2
   - uid: 3699
     components:
