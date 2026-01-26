@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Content.Server._Impstation.Nutrition.EntitySystems;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.Preconditions;
-using Content.Shared._Impstation.Nutrition.Components;
+using Content.Server._Impstation.AnimalHusbandry.Components;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;

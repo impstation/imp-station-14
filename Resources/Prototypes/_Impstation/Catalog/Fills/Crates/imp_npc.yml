@@ -101,3 +101,24 @@
     contents:
       - id: MobBoarAdult
       - id: MobPigAdult
+
+- type: entity
+  id: CrateNPCBuck
+  parent: CrateLivestock
+  name: buck crate
+  description: A crate containing a single buck.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobBuckAdult
+
+- type: entity
+  id: CrateNPCGoats
+  parent: CrateLivestock
+  name: goat family crate
+  description: A crate containing a single buck and a single goat.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobGoatAdult
+      - id: MobBuckAdult

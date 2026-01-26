@@ -5,6 +5,20 @@
   description: Clearly the egg came first.
   components:
   - type: Incubator
+  - type: Construction
+    graph: incubatorGraph
+    node: IncubatorNode  
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.20,-0.25,0.20,0.20"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer  
   - type: ItemSlots
     slots:
       whitelist:
@@ -14,8 +28,6 @@
     sprite: _Impstation/Structures/Machines/incubator.rsi
     layers:
     - state: inactive
-#      map: ["enum.IncubatorStatus.Inactive"]
-    #- state: active
     - map: ["enum.IncubatorVisualizerLayers.Status"]
       shader: unshaded
       visible: false
@@ -44,3 +56,55 @@
     weight: 0.2
   - type: StaticPrice
     price: 50
+
+- type: entity
+  id: MachineIncubatorFrame
+  name: incubator frame
+  description: Wood in the shape of an incubator
+  suffix: Unfinished
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.20,-0.25,0.20,0.20"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Construction
+    graph: incubatorGraph
+    node: FrameNode
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: Pullable
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/incubator_construct.rsi
+    state: frame_1
+
+- type: entity
+  id: MachineIncubatorFilled
+  parent: MachineIncubatorFrame
+  name: filled incubator frame
+  description: Wood in the shape of an incubator, with some hay in it!
+  suffix: Unfinished
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Construction
+    graph: incubatorGraph
+    node: FrameFilledNode
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/incubator_construct.rsi
+    state: frame_2
+

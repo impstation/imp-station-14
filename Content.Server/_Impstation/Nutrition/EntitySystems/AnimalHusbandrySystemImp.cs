@@ -8,8 +8,9 @@ using Content.Server.Cloning;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Server._Impstation.AnimalHusbandry.BreedEffects;
 using Content.Shared._Impstation.EntityTable.Conditions;
-using Content.Shared._Impstation.Nutrition.Components;
+using Content.Server._Impstation.AnimalHusbandry.Components;
 using Content.Shared.Cloning;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -58,14 +59,6 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
-        var query = EntityQueryEnumerator<ImpReproductiveComponent>();
-        while (query.MoveNext(out var uid, out var reproComp))
-        {
-            foreach (var effect in reproComp.BreedEffects)
-                effect.InitializeBreedEffects(_entSysManager);
-
-        }
     }
 
     public override void Update(float frameTime)
@@ -75,11 +68,6 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (_framesUntilNextChecks <= 0)
         {
             _framesUntilNextChecks = _birthCheckFrameDelay;
-
-            // This approach is one i'm still debating because there's pros and cons
-            // Pros are this effectively means rather than each mob checking if it is ready to give birth
-            // one single system KNOWS what mobs need to ask that
-            // Cons are seperation from the HTN (Part of this project was to make sure the HTN is actually USED LIKE IT'S MEANT TO BE)
 
             // The delay largely exists for performance reasons since realistically we do not need frame accurate
             // mob births. They can afford to be a little late.
@@ -204,6 +192,8 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
                 effect.BreedEffect(approached, approacher);
         }
 
+        partnerComp.PreviousPartner = approacher;
+
         // GET HUNGRY GET THIRSTY
         _hunger.ModifyHunger(approacher, -component.HungerPerBirth);
         _hunger.ModifyHunger(approached, -partnerComp.HungerPerBirth);
@@ -226,22 +216,13 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     {
         if (entity.Comp.Pregnant)
             return false;
-
-        // TODO
-        // REMEMBER TO FUCKING UNCOMMENT ALL OF THIS ONCE IT'S DONE
-        // REMEMBER
-        // REMEMBER
-        // REMEMBER
-        // I KNOW YOU'LL FORGET
-
-        /*
+        
         if (_entManager.TryGetComponent<HungerComponent>(entity, out var hunger) && hunger.CurrentThreshold < HungerThreshold.Okay)
             return false;
 
         if (_entManager.TryGetComponent<ThirstComponent>(entity, out var thirst) && thirst.CurrentThirstThreshold < ThirstThreshold.Okay)
             return false;
-        */
-
+        
         // Player inhabited mobs cannot breed
         if (_mind.TryGetMind(entity, out var mind, out var mindComp))
             return false;

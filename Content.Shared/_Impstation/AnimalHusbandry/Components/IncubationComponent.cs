@@ -16,10 +16,10 @@ public sealed partial class IncubationComponent : Component
 {
     // How long this egg incubates for
     [DataField("incubationTime")]
-    public TimeSpan IncubationTime = TimeSpan.FromSeconds(10);
+    public TimeSpan IncubationTime = TimeSpan.FromSeconds(120);
 
     // What comes out when the incubation is done?
-    [DataField("incubatedResult", required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("incubatedResult"), ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId IncubatedResult;
 
 }

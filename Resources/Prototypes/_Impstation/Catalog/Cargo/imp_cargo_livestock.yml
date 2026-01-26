@@ -87,3 +87,23 @@
   cost: 2000
   category: cargoproduct-category-name-livestock
   group: market
+
+- type: cargoProduct
+  id: LivestockBuck
+  icon:
+    sprite: _Impstation/Mobs/Animals/Livestock/buck.rsi # Imp
+    state: buck
+  product: CrateNPCBuck
+  cost: 1200
+  category: cargoproduct-category-name-livestock
+  group: market
+
+- type: cargoProduct
+  id: LivestockGoats
+  icon:
+    sprite: _Impstation/Mobs/Animals/Livestock/buck.rsi # Imp
+    state: buck
+  product: CrateNPCGoats
+  cost: 2200
+  category: cargoproduct-category-name-livestock
+  group: market

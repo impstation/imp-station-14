@@ -78,7 +78,6 @@
   description: Moo. But smaller.
   components:
   - type: ImpInfant
-    growthTime: 30
     nextStage: MobCowAdult
   - type: Butcherable
     spawned:
@@ -98,8 +97,7 @@
   description: Moo.
   components:
   - type: ImpReproductive
-    hungerPerBirth: 75
-    pregnancyLength: 10
+    hungerPerBirth: 50
     mobType: Cow
     validPartners:
       - Bull
@@ -200,8 +198,10 @@
   id: MobBullBaby
   description: Mooscle. But smaller.
   components:
+  - type: Grammar
+    attributes:
+      gender: male
   - type: ImpInfant
-    growthTime: 10
     nextStage: MobBullAdult
   - type: Butcherable
     spawned:
@@ -220,8 +220,11 @@
   id: MobBullAdult
   description: Moo.
   components:
+  - type: Grammar
+    attributes:
+      gender: male
   - type: ImpReproductive
-    hungerPerBirth: 75
+    hungerPerBirth: 50
     mobType: Bull
     gender: Male
 
@@ -302,7 +305,7 @@
   description: Watch where you walk!
   components:
   - type: ImpInfant
-    growthTime: 10
+    growthTime: 240
     nextStage: MobHenAdult
   - type: Butcherable
     spawned:
@@ -322,7 +325,7 @@
   description: Watch where you walk!
   components:
   - type: ImpInfant
-    growthTime: 10
+    growthTime: 240
     nextStage: MobHenAdult
 
 - type: entity
@@ -331,8 +334,11 @@
   id: MobRoosterChick
   description: Watch where you walk!
   components:
+  - type: Grammar
+    attributes:
+      gender: male
   - type: ImpInfant
-    growthTime: 10
+    growthTime: 240
     nextStage: MobRoosterAdult
 
 - type: entity
@@ -342,8 +348,8 @@
   description: Holding it won't make you glide.
   components:
   - type: ImpReproductive
-    hungerPerBirth: 40
-    pregnancyLength: 10
+    hungerPerBirth: 25
+    pregnancyLength: 180
     mobType: Chicken
     validPartners:
       - Rooster
@@ -361,6 +367,9 @@
   id: MobRoosterAdult
   description: There is no gene to shut him up.
   components:
+  - type: Grammar
+    attributes:
+      gender: male
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -368,7 +377,7 @@
       state: rooster
       sprite: _Impstation/Mobs/Animals/Livestock/rooster.rsi
   - type: ImpReproductive
-    hungerPerBirth: 40
+    hungerPerBirth: 25
     mobType: Rooster
     gender: Male
   - type: HTN
@@ -458,7 +467,6 @@
   abstract: true
   components:
   - type: ImpInfant
-    growthTime: 10
     nextStage: MobPigAdult
   - type: Butcherable
     spawned:
@@ -478,8 +486,8 @@
   description: Oink.
   components:
   - type: ImpReproductive
-    hungerPerBirth: 40
-    pregnancyLength: 10
+    hungerPerBirth: 50
+    pregnancyLength: 200
     mobType: Pig
     validPartners:
       - Boar
@@ -497,9 +505,6 @@
         weight: 10
       - id: MobBoarInfant
         weight: 3
-    breedEffects:
-    - !type:GenerateExplosionEffect
-      activeOnBirth: true
 
 - type: entity
   name: baby pig
@@ -508,12 +513,7 @@
   description: Oink, but smaller!.
   components:
   - type: ImpInfant
-    growthTime: 10
     nextStage: MobPigAdult
-  - type: Butcherable
-    spawned:
-    - id: FoodMeat
-      amount: 3
 
 - type: entity
   name: boar
@@ -521,8 +521,11 @@
   id: MobBoarAdult
   description: Oink.
   components:
+  - type: Grammar
+    attributes:
+      gender: male
   - type: ImpReproductive
-    hungerPerBirth: 40
+    hungerPerBirth: 50
     gender: Male
     mobType: Boar
   - type: HTN
@@ -541,13 +544,11 @@
   id: MobBoarInfant
   description: Oink, but smaller!.
   components:
+  - type: Grammar
+    attributes:
+      gender: male
   - type: ImpInfant
-    growthTime: 10
     nextStage: MobBoarAdult
-  - type: Butcherable
-    spawned:
-    - id: FoodMeat
-      amount: 3
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -557,6 +558,196 @@
 
 #========================================================================
 
+- type: entity
+  name: goatBase
+  parent: SimpleMobBase
+  abstract: true
+  id: MobGoatBase
+  description: Baa.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: goat
+      sprite: _Impstation/Mobs/Animals/Livestock/goat.rsi
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - ClothMade
+    - Goat
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 400
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: goat
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: ExaminableHunger
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 4
+  - type: Grammar
+    attributes:
+      gender: female
+  - type: Speech
+    speechSounds: Goat
+    speechVerb: Goat
+  - type: Vocal
+    sounds:
+      Female: Goat
+      Male: Goat
+      Unsexed: Goat
+  - type: BleatingAccent
+  - type: InteractionPopup
+    successChance: 0.2
+    interactSuccessString: petting-success-goat
+    interactFailureString: petting-failure-goat
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/goat_bah.ogg
+  - type: Perishable
+    molsPerSecondPerUnitMass: 0.0015
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: PassiveLivestockCompound
+  - type: GuideHelp
+    guides:
+    - Chef
+    - FoodRecipes
+  # imp edit start
+  - type: GoobAbsorbable
+    biomassRestored: 0.7
+  - type: AlwaysRevolutionaryConvertible
+  - type: SolutionContainerManager
+    solutions:
+      udder:
+        maxVol: 250
+        reagents:
+        - ReagentId: MilkGoat
+          Quantity: 30
+      wool:
+        maxVol: 250
+  - type: Udder
+    reagentId: MilkGoat
+    quantityPerUpdate: 25
+    growthDelay: 20
+  - type: Wooly
+  - type: Edible
+    destroyOnEmpty: false
+    solution: wool
+    requiresSpecialDigestion: true
+    requireDead: false
+  - type: FlavorProfile
+    flavors:
+    - fiber
 
+- type: entity
+  name: infantGoatBase
+  parent: MobGoatBase
+  abstract: true
+  id: MobGoatInfantBase
+  description: Baa.
+  components:
+  - type: ImpInfant
+    growthTime: 10
+    nextStage: MobGoatAdult
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: goat
+      sprite: _Impstation/Mobs/Animals/Livestock/goat_infant.rsi
+
+- type: entity
+  name: goat
+  parent: MobGoatBase
+  id: MobGoatAdult
+  description: Her spine consists of long sharp segments, no wonder she is so grumpy.
+  components:
+  - type: ImpReproductive
+    hungerPerBirth: 30
+    pregnancyLength: 240
+    mobType: Goat
+    validPartners:
+      - Buck  
+    gender: Female
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: MobGoatInfant
+        weight: 10
+      - id: MobBuckInfant
+        weight: 3
+
+- type: entity
+  name: baby pig
+  parent: MobGoatInfantBase
+  id: MobGoatInfant
+  description: Those horns are small, but still pointy!.
+  components:
+  - type: ImpInfant
+    nextStage: MobGoatAdult
+
+- type: entity
+  name: buck
+  parent: MobGoatBase
+  id: MobBuckAdult
+  description: I wouldn't stand in front of him. Or beside him. Or near him.
+  components:
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: ImpReproductive
+    hungerPerBirth: 30
+    mobType: Buck
+    gender: Male
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: buck
+      sprite: _Impstation/Mobs/Animals/Livestock/buck.rsi
+  - type: HTN
+    rootTask:
+      task: LivestockCompound
+
+- type: entity
+  name: baby buck
+  parent: MobGoatInfantBase
+  id: MobBuckInfant
+  description: Those horns are small, but still pointy!.
+  components:
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: ImpInfant
+    nextStage: MobBuckAdult
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: buck
+      sprite: _Impstation/Mobs/Animals/Livestock/buck_infant.rsi
 
 #========================================================================

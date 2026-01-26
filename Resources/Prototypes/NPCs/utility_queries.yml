@@ -241,6 +241,7 @@
 #    - !type:TargetAccessibleCon
 #      curve: !type:BoolCurve
 
+# Imp edit Start
 - type: utilityQuery
   id: NearbyBreedables
   query:
@@ -253,7 +254,7 @@
         preset: TargetDistance
     - !type:TargetAccessibleCon
       curve: !type:BoolCurve
-
+# Imp edit End
 # Presets
 - type: utilityCurvePreset
   id: TargetDistance

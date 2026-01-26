@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Content.Shared._Impstation.AnimalHusbandry.BreedEffects;
+using Content.Server._Impstation.AnimalHusbandry.BreedEffects;
 using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Whitelist;
@@ -11,12 +11,11 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared._Impstation.Nutrition.Components;
+namespace Content.Server._Impstation.AnimalHusbandry.Components;
 /// <summary>
 /// Component that keeps track of all our variables for an animals reproductive abilities.
 /// </summary>
 [RegisterComponent]
-[NetworkedComponent]
 [AutoGenerateComponentPause]
 public sealed partial class ImpReproductiveComponent : Component
 {
@@ -75,6 +74,8 @@ public sealed partial class ImpReproductiveComponent : Component
 
     [DataField("breedEffects")]
     public List<BaseBreedEffect> BreedEffects = new List<BaseBreedEffect>();
+
+    public EntityUid PreviousPartner;
 
     public EntProtoId MobToBirth;
 }

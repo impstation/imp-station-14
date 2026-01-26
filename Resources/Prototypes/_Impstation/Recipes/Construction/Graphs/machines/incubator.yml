@@ -1,0 +1,80 @@
+- type: constructionGraph
+  id: incubatorGraph
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:SpawnPrototype
+          prototype: MaterialWoodPlank
+          amount: 5
+        - !type:DeleteEntity
+      edges:
+        - to: FrameNode
+          steps:
+            - material: WoodPlank
+              amount: 10
+              doAfter: 3.0
+            - material: Cable
+              amount: 2
+              doAfter: 1.0
+
+    - node: FrameNode
+      entity: MachineIncubatorFrame
+      edges:
+        - to: FrameFilledNode
+          conditions:
+            - !type:EntityAnchored
+          steps:
+            - tag: Wheat
+              name: construction-graph-tag-wheat-bushel
+              icon:
+                sprite: Objects/Specific/Hydroponics/wheat.rsi
+                state: produce
+              amount: 1
+              doAfter: 1
+        - to: start
+          completed:
+            - !type:SpawnPrototype
+              prototype: MaterialWoodPlank
+              amount: 10
+            - !type:SpawnPrototype
+              prototype: CableApcStack1
+              amount: 2
+            - !type:DeleteEntity
+          steps:
+            - tool: Screwing
+              doAfter: 2
+
+    - node: FrameFilledNode
+      entity: MachineIncubatorFilled
+      edges:
+        - to: IncubatorNode
+          conditions:
+            - !type:EntityAnchored
+          steps:
+            - tag: LightNormal
+              name: Fluorescent Light Tube
+              icon:
+                sprite: Objects/Power/light_tube.rsi
+                state: normal
+              doAfter: 2
+        - to: FrameNode
+          completed:
+            - !type:SpawnPrototype
+              prototype: WheatBushel
+              amount: 1  
+          steps:
+            - tool: Prying
+              doAfter: 2
+
+    - node: IncubatorNode
+      entity: MachineIncubator
+      edges:
+        - to: FrameFilledNode
+          completed:
+            - !type:SpawnPrototype
+              prototype: LightTube
+              amount: 1
+          steps:
+            - tool: Prying
+              doAfter: 2

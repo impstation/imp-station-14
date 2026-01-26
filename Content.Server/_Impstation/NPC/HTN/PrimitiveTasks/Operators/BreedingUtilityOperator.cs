@@ -12,7 +12,7 @@ using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Queries;
 using Content.Server.NPC.Queries.Queries;
 using Content.Server.NPC.Systems;
-using Content.Shared._Impstation.Nutrition.Components;
+using Content.Server._Impstation.AnimalHusbandry.Components;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;

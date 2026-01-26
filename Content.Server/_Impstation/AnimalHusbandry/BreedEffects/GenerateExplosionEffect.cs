@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 using Content.Shared.Explosion.EntitySystems;
 using Robust.Shared.Map.Components;
 
-namespace Content.Shared._Impstation.AnimalHusbandry.BreedEffects;
+namespace Content.Server._Impstation.AnimalHusbandry.BreedEffects;
+
+/// <summary>
+/// Generates an explosion whenever a mob breeds or gives birth depending on which one is set
+/// </summary>
 public sealed partial class GenerateExplosionEffect : BaseBreedEffect
 {
     private static SharedExplosionSystem? _explosionSystem;
-
-    public override void InitializeBreedEffects(IEntitySystemManager sysManager)
-    {
-        base.InitializeBreedEffects(sysManager);
-
-        //_explosionSystem = sysManager.GetEntitySystem<SharedExplosionSystem>();
-    }
 
     public override void BreedEffect(EntityUid self, EntityUid partner)
     {

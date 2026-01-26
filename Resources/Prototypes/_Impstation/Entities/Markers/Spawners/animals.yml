@@ -67,3 +67,31 @@
   - type: ConditionalSpawner
     prototypes:
     - MobBoarAdult
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobGoat
+  name: Goat Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: goat
+      sprite: _Impstation/Mobs/Animals/Livestock/goat.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobGoatAdult 
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobBuck
+  name: Buck Spawner
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: buck
+      sprite: _Impstation/Mobs/Animals/Livestock/buck.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobBuckAdult
