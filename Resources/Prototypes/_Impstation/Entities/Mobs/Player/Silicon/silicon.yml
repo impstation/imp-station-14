@@ -169,14 +169,14 @@
   - type: DroneVision
   - type: ZombieImmune
 
-# jermov board, renamed chatimov on the player facing side
+# jermov board
 # credit to moomoobeef (github) for the original pr, teensarlacc (discord) for the original text
 - type: entity
   id: JermovCircuitBoard
   parent: BaseSiliconLawboard
-  name: law board (Chatimov)
+  name: law board (Jermov)
   suffix: DO NOT MAP
-  description: An electronics board containing the Chatimov lawset. Everyone and everything exists for the sake of Chat.
+  description: An electronics board containing the Jermov lawset. Everyone and everything exists for the sake of Chat.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
