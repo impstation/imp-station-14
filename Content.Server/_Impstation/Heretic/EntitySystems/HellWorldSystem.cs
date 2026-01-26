@@ -22,6 +22,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -52,6 +53,7 @@ public sealed class HellWorldSystem : EntitySystem
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly SharedJointSystem _jointSystem = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
     private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml");
@@ -220,6 +222,9 @@ public sealed class HellWorldSystem : EntitySystem
 
     public void TeleportToHereticSpawnPoint(EntityUid uid)
     {
+        //clear physics joints so the heretic isn't teleported with the victim
+        _jointSystem.ClearJoints(uid);
+
         //get all possible spawn points, choose one, then get the place
         var spawnPoints = EntityManager.GetAllComponents(typeof(MidRoundAntagSpawnLocationComponent)).ToImmutableList();
         if (spawnPoints.Count == 0)

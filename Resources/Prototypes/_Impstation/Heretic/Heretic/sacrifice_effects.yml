@@ -7,12 +7,7 @@
 - type: hereticSacrificeEffect
   id: SacEffectMoth
   components:
-  - type: Paracusia
-    minTimeBetweenIncidents: 0.1
-    maxTimeBetweenIncidents: 300
-    maxSoundDistance: 7
-    sounds:
-      collection: Paracusia
+  - type: ScrambledAccent
   message: heretic-sac-effect-moth
 
 - type: hereticSacrificeEffect
