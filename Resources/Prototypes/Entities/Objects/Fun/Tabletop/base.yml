@@ -10,6 +10,9 @@
       setup:
         !type:TabletopEmptySetup
         boardPrototype: Crowbar
+      blacklist: #imp.
+        components:
+        - HTN # NO COCKROACH GAMBIT
     - type: Tag
       tags:
         - TabletopBoard
@@ -23,9 +26,6 @@
   - type: Sprite
     noRot: true
   - type: Appearance
-  - type: Tag
-    tags:
-      - TabletopPiece
 
 - type: entity
   id: BaseBoardTabletop

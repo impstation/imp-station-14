@@ -1,7 +1,7 @@
 - type: entity
   name: BaseSMG
   parent: BaseItem
-  id: BaseWeaponSubMachineGun
+  id: BaseWeaponSubMachineGunWizden #imp - see the _Impstation directory for the version we use
   description: A rooty tooty point and shooty.
   abstract: true
   components:
@@ -11,7 +11,7 @@
     shape:
     - 0,0,2,1
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/atreides.rsi #imp
+    sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
     quickEquip: false
     slots:
     - Back
@@ -33,7 +33,7 @@
     defaultDirection: 1, 0
   - type: ChamberMagazineAmmoProvider
     soundRack:
-      path: /Audio/_Impstation/Weapons/Guns/Cock/basic_cock.ogg #imp
+      path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -48,7 +48,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgePistol
         priority: 1
         whitelist:
           tags:
@@ -59,35 +58,16 @@
       gun_chamber: !type:ContainerSlot
   - type: StaticPrice
     price: 500
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.8
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 6
-    damage:
-      types:
-        Blunt: 5
-#imp edit end
 
 - type: entity
   name: Atreides
   parent: [BaseWeaponSubMachineGun, BaseMajorContraband]
-  id: WeaponSubMachineGunAtreides
+  id: WeaponSubMachineGunAtreidesWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   description: A rare machine pistol hailing from the Corporate Wars. Its extremely high fire rate and compact profile make it useful in close quarters combat. Despite its age, it is in remarkably good condition. Feeds from .35 SMG magazines.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/atreides.rsi #imp
+    sprite: Objects/Weapons/Guns/SMGs/atreides.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -104,20 +84,21 @@
   - type: Appearance
 
 - type: entity
-  name: C-20R Gorgon #imp
-  parent: [BaseWeaponSubMachineGun, Tier3Contraband]
-  id: WeaponSubMachineGunC20r
-  description: An SMG often used by the infamous Nuclear Operatives... allegedly. Automatically ejects empty magazines. Uses .35 auto ammo. #imp
+  name: C-20r submachine gun
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
+  id: WeaponSubMachineGunC20rWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A classic and widespread submachine gun, infamous for its use by the Gorlex Marauders. One of the first homegrown Waffle Corp. designs, it remains in service today. Feeds from .35 SMG magazines.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/c20r.rsi #imp
+    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/c20r.rsi #imp
+    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
   - type: Wieldable
     unwieldOnUse: false
   - type: GunWieldBonus
@@ -126,9 +107,7 @@
   - type: Gun
     minAngle: 21
     maxAngle: 32
-    shotsPerBurst: 2 #imp
-    burstCooldown: 0.15 #imp
-    burstFireRate: 20 #imp
+    shotsPerBurst: 5
     availableModes:
     - Burst
     - FullAuto
@@ -137,36 +116,18 @@
       path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
   - type: ChamberMagazineAmmoProvider
     autoEject: true
-    soundAutoEject:
-      path: /Audio/Weapons/Guns/EmptyAlarm/lmg_empty_alarm.ogg #imp
-      params:
-        volume: 2
   - type: MagazineVisuals
     magState: mag
     steps: 6
     zeroVisible: true
   - type: Appearance
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    attackRate: 0.6
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-#imp edit end
   - type: StaticPrice
     price: 5000
 
 - type: entity
   name: C-20r ROW #I think ROW stands for Recharging Onboard Weapon so i'm following the L6C's example
-  id: WeaponSubMachineGunC20rROW
+  id: WeaponSubMachineGunC20rROWWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   parent: BaseItem
   description: A burst-fire C-20r submachine gun for use by cyborgs. Creates .35 caliber ammo on the fly from an internal ammo fabricator, which slowly self-charges.
   components:
@@ -183,7 +144,7 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/c20r.rsi #imp
+    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -194,32 +155,34 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
-  - type: ProjectileBatteryAmmoProvider
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgePistol
+    capacity: 30
     proto: CartridgePistol
-    fireCost: 100
-  - type: Battery
-    maxCharge: 3000
-    startingCharge: 3000
-  - type: BatterySelfRecharger
-    autoRecharge: true
-    autoRechargeRate: 25
+    cycleable: false # No synthesizing ammo for your syndicate masters.
+  - type: BallisticAmmoSelfRefiller
+    autoRefillRate: 4s
+    affectedByEmp: true
   - type: AmmoCounter
 
 - type: entity
   name: Drozd
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
-  id: WeaponSubMachineGunDrozd
-  description: A standard burst-fire two-handed submachine gun. Boasts an impressive fire rate at the cost of accuracy. Uses .35 auto ammo. #imp
+  id: WeaponSubMachineGunDrozdWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A modern SMG manufactured by Nanotrasen’s Small Arms Division. It features an exceptional rate of fire in burst mode, useful for holding defensive angles or engaging hostiles at longer ranges. Feeds from .35 SMG magazines.
   components:
     - type: Sprite
-      sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/drozd.rsi #imp
+      sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
       layers:
         - state: base
           map: ["enum.GunVisualLayers.Base"]
         - state: mag-0
           map: ["enum.GunVisualLayers.Mag"]
     - type: Clothing
-      sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/drozd.rsi #imp
+      sprite: Objects/Weapons/Guns/SMGs/drozd.rsi
     - type: Wieldable
       unwieldOnUse: false
     - type: GunWieldBonus
@@ -229,16 +192,16 @@
       minAngle: 21
       maxAngle: 32
       fireRate: 6
-      burstFireRate: 12
+      burstFireRate: 18
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+      selectedMode: Burst
       availableModes:
       - Burst
       - FullAuto
       - SemiAuto
       shotsPerBurst: 3
-      burstCooldown: 0.25
-      selectedMode: Burst #imp
+      burstCooldown: 0.375
     - type: ItemSlots
       slots:
         gun_magazine:
@@ -253,40 +216,25 @@
           whitelistFailPopup: gun-magazine-whitelist-fail
         gun_chamber:
           name: Chamber
-          startingItem: CartridgePistol
           priority: 1
           whitelist:
             tags:
               - CartridgePistol
     - type: MagazineVisuals
       magState: mag
-      steps: 1 #imp edit
+      steps: 5
       zeroVisible: true
     - type: Appearance
-#imp edit begin; weapon melee
-    - type: MeleeWeapon
-      attackRate: 0.6
-    - type: StaminaDamageOnHit
-      damage: 10 #slight stagger, but still like 10 hits to stun completely
-    - type: MeleeRequiresWield
-    - type: MeleeThrowOnHit
-      distance: 0.8
-      speed: 5
-    - type: DamageOtherOnHit #for throwing
-      staminaCost: 10
-      damage:
-        types:
-          Blunt: 8
-#imp edit end
 
 - type: entity
   name: WT550
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
-  id: WeaponSubMachineGunWt550
-  description: An excellent top-loaded, compact Personal Defense Weapon, produced by Nanotrasen's Small Arms Division. Uses .35 auto ammo. #imp
+  id: WeaponSubMachineGunWt550Wizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  description: A truly unique firearm, the WT550 was designed by Nanotrasen's Small Arms Division as a compact submachine gun fully controllable with one hand. It contains an exotic internal recoil buffer and feeds from special top-mounted .35 magazines.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/wt550.rsi #imp
+    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -299,7 +247,7 @@
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/wt550.rsi #imp
+    sprite: Objects/Weapons/Guns/SMGs/wt550.rsi
   - type: ChamberMagazineAmmoProvider
     boltClosed: null
   - type: Gun
@@ -309,9 +257,9 @@
     angleIncrease: 1.5
     angleDecay: 6
     selectedMode: FullAuto
-    shotsPerBurst: 3 #imp
-    burstCooldown: 0.5 #imp
-    burstFireRate: 12 #imp
+    shotsPerBurst: 5
+    burstCooldown: 0.2
+    burstFireRate: 7
     availableModes:
     - Burst
     - FullAuto
@@ -330,7 +278,6 @@
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgePistol
         priority: 1
         whitelist:
           tags:

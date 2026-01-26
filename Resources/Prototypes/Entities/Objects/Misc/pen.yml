@@ -5,11 +5,11 @@
   description: A dark ink pen.
   components:
   - type: Sprite
-    sprite: Objects/Misc/pens.rsi
-    state: pen
+    sprite: _Impstation/Objects/Misc/Pens/black.rsi # imp edit
+    state: icon # imp edit, pen -> icon
   - type: Item
-    sprite: Objects/Misc/pens.rsi
-    heldPrefix: pen
+    sprite: _Impstation/Objects/Misc/Pens/black.rsi # imp edit
+    #heldPrefix: pen # imp edit
     size: Tiny
   - type: Tag
     tags:
@@ -67,9 +67,11 @@
   description: A fancy and expensive pen that you only deserve to own if you're qualified to handle vast amounts of paperwork.
   components:
   - type: Sprite
-    state: luxury_pen
+    sprite: _Impstation/Objects/Misc/Pens/luxury.rsi # imp addition
+    state: icon # imp edit, luxury_pen -> icon
   - type: Item
-    heldPrefix: luxury_pen
+    sprite: _Impstation/Objects/Misc/Pens/luxury.rsi # imp addition
+    #heldPrefix: luxury_pen # imp edit
   # imp edit start
   - type: SignatureWriter
     colorList:
@@ -109,9 +111,11 @@
   description: A high-tech pen straight from Cybersun's legal department, capable of refracting hard-light at impossible angles through its diamond tip in order to write. So powerful, it's even able to rewrite officially-stamped documents, should the need arise. # imp edit
   components:
   - type: Sprite
-    state: overpriced_pen
+    sprite: _Impstation/Objects/Misc/Pens/cybersun.rsi # imp addition
+    state: icon # imp edit, overpriced_pen -> icon
   - type: Item
-    heldPrefix: overpriced_pen
+    sprite: _Impstation/Objects/Misc/Pens/cybersun.rsi # imp addition
+    #heldPrefix: overpriced_pen # imp edit
   - type: StaticPrice
     price: 500
   # imp edit start
@@ -144,9 +148,11 @@
   description: A high-tech pen utilizing refracted hard-light precision to write. In an attempt to keep up with the "power" of the Cybersun bureaucracy, NT made a replica of the infamous Cybersun pen, in their own corporate style. # imp edit
   components:
   - type: Sprite
-    state: pen_centcom
+    sprite: _Impstation/Objects/Misc/Pens/centcomm.rsi # imp addition
+    state: icon # imp edit, pen_centcom -> icon
   - type: Item
-    heldPrefix: pen_centcom
+    sprite: _Impstation/Objects/Misc/Pens/centcomm.rsi # imp addition
+    #heldPrefix: pen_centcom # imp edit
   # imp edits #
   - type: SignatureWriter
     color: "#009100"
@@ -159,8 +165,11 @@
   description: A luxurious fountain pen for the captain of the station. Perfect for signing death warrants. # imp edit
   components:
   - type: Sprite
-    state: pen_cap
+    sprite: _Impstation/Objects/Misc/Pens/captain.rsi # imp addition
+    #state: pen_cap # imp edit
   # imp edits #
+  - type: Item
+    sprite: _Impstation/Objects/Misc/Pens/captain.rsi
   - type: SignatureWriter
     color: "#1b67a5"
   # end imp edits #
@@ -172,8 +181,11 @@
   description: A luxurious fountain pen for the head of personnel of the station. Perfect for signing all those employee safety waivers. # imp edit
   components:
   - type: Sprite
-    state: pen_hop
+    sprite: _Impstation/Objects/Misc/Pens/hop.rsi # imp addition
+    state: icon # imp edit, pen_hop -> icon
   # imp edits #
+  - type: Item
+    sprite: _Impstation/Objects/Misc/Pens/hop.rsi
   - type: SignatureWriter
     color: "#1b67a5"
   # end imp edits #
@@ -185,13 +197,16 @@
   description: A luxurious fountain pen. Seems to have a magical crystal eraser.
   components:
   - type: Sprite
-    state: pen_wizard
+    sprite: _Impstation/Objects/Misc/Pens/wizard.rsi # imp addition
+    state: icon # imp edit, pen_wizard -> icon
   - type: Tag
     tags:
     - WriteIgnoreStamps
     - Write
     - Pen
   # imp edits #
+  - type: Item
+    sprite: _Impstation/Objects/Misc/Pens/wizard.rsi
   - type: SignatureWriter
     color: "#1b67a5"
   # end imp edits #

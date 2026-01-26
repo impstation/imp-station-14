@@ -380,7 +380,7 @@ public sealed class MindlessCloneSystem : EntitySystem
                 }
 
                 if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, clone) ||
-                    _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, clone))
+                    _whitelistSystem.IsWhitelistPass(traitPrototype.Blacklist, clone))
                     continue;
 
                 // Add all components required by the prototype to the body or specified organ
