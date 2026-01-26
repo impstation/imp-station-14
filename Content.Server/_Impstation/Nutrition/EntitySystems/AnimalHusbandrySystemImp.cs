@@ -38,6 +38,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private readonly IEntitySystemManager _entSysManager = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _time = default!;
@@ -57,6 +58,14 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        var query = EntityQueryEnumerator<ImpReproductiveComponent>();
+        while (query.MoveNext(out var uid, out var reproComp))
+        {
+            foreach (var effect in reproComp.BreedEffects)
+                effect.InitializeBreedEffects(_entSysManager);
+
+        }
     }
 
     public override void Update(float frameTime)
@@ -192,7 +201,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         foreach(var effect in partnerComp.BreedEffects)
         {
             if (effect.ApplyOnBreed)
-                effect.BreedEffect(approached, approacher, _entManager);
+                effect.BreedEffect(approached, approacher);
         }
 
         // GET HUNGRY GET THIRSTY
@@ -272,7 +281,16 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
         var offspring = SpawnNewMob(entity, entity.Comp.MobToBirth);
 
-        if(_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
+        if (offspring == null)
+            return;
+
+        foreach (var effect in entity.Comp.BreedEffects)
+        {
+            if (effect.ApplyOnBirth)
+                effect.BirthEffect(entity, (EntityUid)offspring);
+        }
+
+        if (_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
         {
             infantComp.TimeUntilNextStage = _time.CurTime + infantComp.GrowthTime;
             infantComp.Parent = entity;

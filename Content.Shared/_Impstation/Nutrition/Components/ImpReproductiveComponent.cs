@@ -74,7 +74,7 @@ public sealed partial class ImpReproductiveComponent : Component
     public TimeSpan NextSearch = TimeSpan.Zero;
 
     [DataField("breedEffects")]
-    public List<BaseBreedEffect> BreedEffects;
+    public List<BaseBreedEffect> BreedEffects = new List<BaseBreedEffect>();
 
     public EntProtoId MobToBirth;
 }
