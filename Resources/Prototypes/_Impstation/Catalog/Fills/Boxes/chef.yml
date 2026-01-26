@@ -14,13 +14,15 @@
   suffix: american
   description: A box containing supplementary ingredients for the aspiring chef. The box's theme is 'american'.
   components:
-  - type: StorageFill
-    contents:
-    - id: FoodPotato
-    - id: FoodTomato
-    - id: FoodCorn
-    - id: FoodMeatMeatball
-    - id: FoodMeatMeatball
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FoodPotato
+        - id: FoodTomato
+        - id: FoodCorn
+        - id: FoodMeatMeatball
+        - id: FoodMeatMeatball
   - type: Sprite
     layers:
     - state: box_chef
@@ -32,12 +34,14 @@
   suffix: carnivore
   description: A box containing supplementary ingredients for the aspiring chef. The box's theme is 'carnivore'.
   components:
-  - type: StorageFill
-    contents:
-    - id: FoodMeat
-    - id: FoodMeatChicken
-    - id: FoodMeatBear
-    - id: FoodMeatFish
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FoodMeat
+        - id: FoodMeatChicken
+        - id: FoodMeatBear
+        - id: FoodMeatFish
   - type: Sprite
     layers:
     - state: box_chef
@@ -49,12 +53,14 @@
   suffix: fiesta
   description: A box containing supplementary ingredients for the aspiring chef. The box's theme is 'fiesta'.
   components:
-  - type: StorageFill
-    contents:
-    - id: RiceBushel
-    - id: FoodCorn
-    - id: FoodSoybeans
-    - id: FoodChiliPepper
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: RiceBushel
+        - id: FoodCorn
+        - id: FoodSoybeans
+        - id: FoodChiliPepper
   - type: Sprite
     layers:
     - state: box_chef
@@ -66,12 +72,14 @@
   suffix: fruity
   description: A box containing supplementary ingredients for the aspiring chef. The box's theme is 'fruity'.
   components:
-  - type: StorageFill
-    contents:
-    - id: FoodOrange
-    - id: FoodLemon
-    - id: FoodLime
-    - id: FoodWatermelon
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FoodOrange
+        - id: FoodLemon
+        - id: FoodLime
+        - id: FoodWatermelon
   - type: Sprite
     layers:
     - state: box_chef
@@ -83,12 +91,14 @@
   suffix: grains
   description: A box containing supplementary ingredients for the aspiring chef. The box's theme is 'grains'.
   components:
-  - type: StorageFill
-    contents:
-    - id: OatBushel
-    - id: WheatBushel
-    - id: FoodCocoaPod
-    - id: FoodPoppy
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: OatBushel
+        - id: WheatBushel
+        - id: FoodCocoaPod
+        - id: FoodPoppy
   - type: Sprite
     layers:
     - state: box_chef
@@ -100,13 +110,15 @@
   suffix: italian
   description: A box containing supplementary ingredients for the aspiring chef. The box's theme is 'italian'.
   components:
-  - type: StorageFill
-    contents:
-    - id: FoodTomato
-    - id: FoodTomato
-    - id: DrinkWineCan
-    - id: FoodMeatMeatball
-    - id: FoodMeatMeatball
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FoodTomato
+        - id: FoodTomato
+        - id: DrinkWineCan
+        - id: FoodMeatMeatball
+        - id: FoodMeatMeatball
   - type: Sprite
     layers:
     - state: box_chef
@@ -118,12 +130,14 @@
   suffix: sweets
   description: A box containing supplementary ingredients for the aspiring chef. The box's theme is 'sweets'.
   components:
-  - type: StorageFill
-    contents:
-    - id: FoodCherry
-    - id: FoodBanana
-    - id: FoodCocoaPod
-    - id: FoodApple
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FoodCherry
+        - id: FoodBanana
+        - id: FoodCocoaPod
+        - id: FoodApple
   - type: Sprite
     layers:
     - state: box_chef
@@ -135,12 +149,14 @@
   suffix: vegetarian
   description: A box containing supplementary ingredients for the aspiring chef. The box's theme is 'vegetarian'.
   components:
-  - type: StorageFill
-    contents:
-    - id: FoodCarrot
-    - id: FoodEggplant
-    - id: FoodPotato
-    - id: FoodTomato
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FoodCarrot
+        - id: FoodEggplant
+        - id: FoodPotato
+        - id: FoodTomato
   - type: Sprite
     layers:
     - state: box_chef
