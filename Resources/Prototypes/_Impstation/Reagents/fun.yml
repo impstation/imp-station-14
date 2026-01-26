@@ -400,3 +400,26 @@
       - !type:Emote
         emote: Scream
         probability: 0.3
+
+- type: reagent
+  id: LiftingConcentrate
+  name: reagent-name-lifting-concentrate
+  group: Narcotics
+  desc: reagent-desc-lifting-concentrate
+  physicalDesc: reagent-physical-desc-floral
+  flavor: lightactually
+  color: "#72e9d5"
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectFloating
+        type: Update
+        time: 3
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectFloating
+        type: Update
