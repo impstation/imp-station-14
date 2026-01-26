@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Content.Shared._Impstation.AnimalHusbandry.BreedEffects;
 using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.EntitySelectors;
 using Content.Shared.Whitelist;
@@ -71,6 +72,9 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan NextSearch = TimeSpan.Zero;
+
+    [DataField("breedEffects")]
+    public List<BaseBreedEffect> BreedEffects;
 
     public EntProtoId MobToBirth;
 }

@@ -497,6 +497,9 @@
         weight: 10
       - id: MobBoarInfant
         weight: 3
+    breedEffects:
+    - type: GenerateExplosionEffect
+      applyOnBreed: true
 
 - type: entity
   name: baby pig

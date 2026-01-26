@@ -189,6 +189,12 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (TryComp<InteractionPopupComponent>(approached, out var interactionPopup))
             Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates(approached));
 
+        foreach(var effect in partnerComp.BreedEffects)
+        {
+            if (effect.ApplyOnBreed)
+                effect.BreedEffect(approached, approacher, _entManager);
+        }
+
         // GET HUNGRY GET THIRSTY
         _hunger.ModifyHunger(approacher, -component.HungerPerBirth);
         _hunger.ModifyHunger(approached, -partnerComp.HungerPerBirth);

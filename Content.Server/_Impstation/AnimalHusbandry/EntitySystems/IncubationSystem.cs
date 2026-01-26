@@ -8,7 +8,6 @@ using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.StationEvents;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
-using Content.Shared._Impstation.AnimalHusbandry.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.EntityTable;
