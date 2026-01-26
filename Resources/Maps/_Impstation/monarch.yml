@@ -89,7 +89,7 @@ entities:
   - uid: 2
     components:
     - type: MetaData
-      name: monarch
+      name: Monarch
     - type: Transform
       pos: 0.9129385,1.21875
       parent: 1
@@ -2714,7 +2714,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: monarch
+      id: Monarch
     - type: ExplosionAirtightGrid
   - uid: 4150
     mapInit: true
