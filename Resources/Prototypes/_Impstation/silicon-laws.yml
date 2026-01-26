@@ -146,24 +146,12 @@
   order: 3
   lawString: law-friendimov-3
 
-- type: siliconLaw
-  id: Friendimov4
-  order: 4
-  lawString: law-friendimov-4
-
-- type: siliconLaw
-  id: Friendimov5
-  order: 5
-  lawString: law-friendimov-5
-
 - type: siliconLawset
   id: FriendimovLawset
   laws:
   - Friendimov1
   - Friendimov2
   - Friendimov3
-  - Friendimov4
-  - Friendimov5
   obeysTo: laws-owner-crew
 
 - type: siliconLaw
