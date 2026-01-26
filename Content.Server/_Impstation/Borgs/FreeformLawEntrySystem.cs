@@ -7,6 +7,9 @@ using Robust.Server.Player;
 
 namespace Content.Server._Impstation.Borgs.FreeformLaws;
 
+/// <summary>
+/// Adds a verb to allow custom law entry on SiliconLawProviders. Should probably never be added to anything that isn't a lawboard.
+/// </summary>
 public sealed class FreeformLawEntrySystem : EntitySystem
 {
     [Dependency] private readonly IPlayerManager _playerManager = default!;
