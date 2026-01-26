@@ -404,3 +404,18 @@
       - FloorGreenPlastic
   - type: Stack
     stackType: FloorTileGreenPlastic
+
+- type: entity
+  name: imperial tile
+  parent: FloorTileItemBase
+  id: FloorTileItemDecapoid
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tiles/apid.rsi
+    state: apid
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorDecapoid
+  - type: Stack
+    stackType: FloorTileApid
