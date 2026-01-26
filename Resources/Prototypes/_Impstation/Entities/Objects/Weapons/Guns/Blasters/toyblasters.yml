@@ -22,11 +22,10 @@
       - FullAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/toyblaster.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterToy
     fireCost: 10
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 200
   - type: MeleeWeapon
     wideAnimationRotation: -80
