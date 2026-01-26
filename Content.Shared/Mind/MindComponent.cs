@@ -3,7 +3,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Content.Shared._Impstation.TraitorFlavor; // imp edit
 
 namespace Content.Shared.Mind;
 
