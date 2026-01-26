@@ -71,10 +71,6 @@
     quickEquip: false
     slots:
     - neck
-    storedSprite:
-      state: storage
-      sprite: Objects/Fun/Instruments/microphone.rsi
-
 
 - type: entity
   parent: BasePercussionInstrument
