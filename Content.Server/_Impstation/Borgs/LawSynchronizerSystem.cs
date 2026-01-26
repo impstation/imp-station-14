@@ -36,7 +36,7 @@ public sealed class LawSynchronizerSystem : EntitySystem
 
         // target must not be on the blacklist *or* must be on the whitelist.
         var passesLists = false;
-        if (ent.Comp.Blacklist != null && _whitelist.IsBlacklistFail(ent.Comp.Blacklist, target) ||
+        if (ent.Comp.Blacklist != null && _whitelist.IsWhitelistFail(ent.Comp.Blacklist, target) ||
             ent.Comp.Whitelist != null && _whitelist.IsWhitelistPass(ent.Comp.Whitelist, target))
             passesLists = true;
         if (!passesLists)
