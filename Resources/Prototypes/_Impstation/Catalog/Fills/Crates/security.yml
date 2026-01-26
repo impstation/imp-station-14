@@ -10,3 +10,16 @@
         amount: 2
       - id: BoxBeanbag
         amount: 3
+
+- type: entity
+  id: CrateEvaSecurityKit
+  parent: CrateSecgear
+  name: security EVA kit
+  description: A set consisting of two rugged EVA suits and helmets in security colors.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHelmetEVASecurity
+        amount: 2
+      - id: ClothingOuterHardsuitEVASecurity
+        amount: 2

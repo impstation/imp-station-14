@@ -1,0 +1,76 @@
+#SOFTSUITS
+#Security EVA
+- type: entity
+  id: SuitStorageSecEVA
+  parent: SuitStorageBase
+  suffix: Security EVA
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillSuitStorageSecurityEVA
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entityTable
+  id: FillSuitStorageSecurityEVA
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitEVASecurity #imp
+    - id: ClothingHeadHelmetEVASecurity #imp
+    - id: ClothingMaskGasSecurity #imp
+    - id: JetpackSecurityFilled #imp
+
+#Salvage EVA
+- type: entity
+  id: SuitStorageSalvEVA
+  parent: SuitStorageBase
+  suffix: Salvage EVA
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillSuitStorageSalvageEVA
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: entityTable
+  id: FillSuitStorageSalvageEVA
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitEVASalvage #imp
+    - id: ClothingHeadHelmetEVASalvage #imp
+    - id: ClothingShoesBootsMag
+    - id: JetpackSalvageFilled
+    - id: ClothingMaskGasExplorer
+
+    #Engineering EVA
+- type: entity
+  id: SuitStorageEngiEVA
+  parent: SuitStorageBase
+  suffix: Engineering EVA
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillSuitStorageEngineeringEVA
+  - type: AccessReader
+    access: [["Engineering"]]
+
+- type: entityTable
+  id: FillSuitStorageEngineeringEVA
+  table: !type:AllSelector
+    children:
+    - id: OxygenTankFilled
+    - id: ClothingOuterHardsuitEVAEngineering #imp
+    - id: ClothingHeadHelmetEVAEngineering #imp
+    - id: ClothingShoesBootsMag
+    - id: ClothingMaskBreath
+    - id: RCDAmmo
+    - id: ClothingMaskGas
+    - id: ClothingHandsGlovesColorYellow
+    - id: MetalFoamGrenade
+    - id: RCD
+    - id: trayScanner

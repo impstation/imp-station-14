@@ -25,15 +25,51 @@
 
 #Security EVA
 - type: entity
-  parent: ClothingOuterEVASuitSecurity
+  parent: ClothingOuterEVASuitBase
   id: ClothingOuterHardsuitEVASecurity
   name: security EVA suit
-  description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space. This one's in security colours, just without any security armouring.
+  description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space. This one's in security colors, just without any security armouring.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Suits/eva_security.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Suits/eva_security.rsi
+  - type: Tag
+    tags:
+    - SuitEVA
+    # - MonkeyWearable # imp
+    - CorgiWearable
+    - WhitelistChameleon
+
+#Salvage EVA
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterHardsuitEVASalvage
+  name: salvage EVA suit
+  description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space. The tubes sometimes hiss, it's probably fine.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_salvage.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_salvage.rsi
+  - type: Tag
+    tags:
+    - SuitEVA
+    # - MonkeyWearable # imp
+    - CorgiWearable
+    - WhitelistChameleon
+
+#Engineering EVA
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterHardsuitEVAEngineering
+  name: engineering EVA suit
+  description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space. The reflective straps have a tendency to shine light in your eyes.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_engineering.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_engineering.rsi
   - type: Tag
     tags:
     - SuitEVA

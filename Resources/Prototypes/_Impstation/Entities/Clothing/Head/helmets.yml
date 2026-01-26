@@ -25,15 +25,49 @@
 
 #Security EVA Helmet
 - type: entity
-  parent: ClothingHeadEVAHelmetSecurity
+  parent: ClothingHeadEVAHelmetBase
   id: ClothingHeadHelmetEVASecurity
-  name: Security EVA helmet
+  name: security EVA helmet
   description: A helmet designed for extravehicular activites. Instead of old-but-gold this one's in security colours, but still old.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Helmets/eva_security.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Helmets/eva_security.rsi
+  - type: Tag
+    tags:
+    - HelmetEVA
+    - WhitelistChameleon
+    - CorgiWearable
+
+    #Salvage EVA Helmet
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ClothingHeadHelmetEVASalvage
+  name: salvage EVA helmet
+  description: A helmet designed for extravehicular activites. This one isn't old-but-gold, it's just old. And heavy.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Helmets/eva_salvage.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Helmets/eva_salvage.rsi
+  - type: Tag
+    tags:
+    - HelmetEVA
+    - WhitelistChameleon
+    - CorgiWearable
+   
+#Engineering EVA Helmet
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ClothingHeadHelmetEVAEngineering
+  name: engineering EVA helmet
+  description: A helmet designed for extravehicular activites. The advanced filters help protect you from aspacetos.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Helmets/eva_engineering.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Helmets/eva_engineering.rsi
   - type: Tag
     tags:
     - HelmetEVA
