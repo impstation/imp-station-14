@@ -9,12 +9,15 @@ using Content.Shared.Silicons.Laws.Components;
 
 namespace Content.Server._Impstation.Borgs.LawSync;
 
+/// <summary>
+/// Handles synchronizing (and desynchronizing) silicon lawsets from the AI upload console.
+/// </summary>
 public sealed class LawSyncSystem : EntitySystem
 {
     [Dependency] private readonly ItemSlotsSystem _itemSlot = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly SiliconLawSystem _siliconLaws = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
 
     public override void Initialize()
     {
