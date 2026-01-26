@@ -16,10 +16,28 @@ public sealed class ImpCCVars : CVars
         CVarDef.Create("accessibility.disable_singulo_warping", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Replaces the AI static camera effect with a plain black gradient.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableAiStatic =
+        CVarDef.Create("accessibility.disable_ai_static", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// <summary>
     /// The number of shared moods to give thaven by default.
     /// </summary>
     public static readonly CVarDef<uint> ThavenSharedMoodCount =
         CVarDef.Create<uint>("thaven.shared_mood_count", 1, CVar.SERVERONLY);
+
+    /// <summary>
+    /// If the player has the accessibility notifier turned on
+    /// </summary>
+    public static readonly CVarDef<bool> NotifierOn =
+        CVarDef.Create("accessibility.notifier_on", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "if the notifier system is active");
+
+    /// <summary>
+    /// the contents of a players accessibility notifier
+    /// </summary>
+    public static readonly CVarDef<string> NotifierExamine =
+        CVarDef.Create("accessibility.notifier_examine", "", CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "content of accessibility issue notifier.");
 
     /// <summary>
     /// URL of the Discord webhook which will relay last messages before death.
@@ -59,4 +77,10 @@ public sealed class ImpCCVars : CVars
     /// </summary>
     public static readonly CVarDef<int> DiscordLastMessageSystemMaxMessageBatchOverflowDelay =
         CVarDef.Create("discord.last_message_system_max_message_batch_overflow_delay", 60000, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     If true, antag selection will prioritize players with less antag time.
+    /// </summary>
+    public static readonly CVarDef<bool> AntagPlaytimeBiasing =
+        CVarDef.Create("antag.play_time_biasing", false, CVar.SERVERONLY);
 }

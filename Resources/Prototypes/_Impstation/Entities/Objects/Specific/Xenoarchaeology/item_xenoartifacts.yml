@@ -52,6 +52,8 @@
     radius: 1.3
   - type: StealTarget
     stealGroup: EvilSkullArtifactItem
+  - type: Physics
+    bodyType: KinematicController
 
 - type: entity
   parent: [BaseReticulatedXenoArtifact, BaseXenoArtifactItem]

@@ -31,6 +31,8 @@ using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared.Chat;
+
 // yes, all of these are really necessary. Christ almighty.
 
 namespace Content.Server._Impstation.MindlessClone;
@@ -378,7 +380,7 @@ public sealed class MindlessCloneSystem : EntitySystem
                 }
 
                 if (_whitelistSystem.IsWhitelistFail(traitPrototype.Whitelist, clone) ||
-                    _whitelistSystem.IsBlacklistPass(traitPrototype.Blacklist, clone))
+                    _whitelistSystem.IsWhitelistPass(traitPrototype.Blacklist, clone))
                     continue;
 
                 // Add all components required by the prototype to the body or specified organ

@@ -1,13 +1,12 @@
 - type: entity
-  id: PelletShotgunSlug
-  name: pellet (.50 slug)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletShotgunSlugWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (.50 slug)
   components:
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
-    layers:
-    - state: slug #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: slug
   - type: Projectile
     damage:
       types:
@@ -16,45 +15,41 @@
 
 
 - type: entity
-  id: PelletShotgunBeanbag
-  name: pellet (.50 stun slug) #imp
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletShotgunBeanbagWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: beanbag (.50)
   components:
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: stunslug #imp
-      shader: unshaded #imp
+    - state: bullet #just reapplying to here so it can be shaded
   - type: Projectile
-    impactEffect: BulletImpactEffectKineticStun #imp
     damage:
       types:
-        Shock: 7.5 #imp
+        Blunt: 10
   - type: StaminaDamageOnCollide
     damage: 40 # 3 hits to stun
 
 - type: entity
-  id: PelletShotgun
-  name: pellet (.50 buckshot) #imp
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletShotgunWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (.50)
   components:
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
-    layers:
-    - state: pellet #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
   - type: Projectile
     damage:
       types:
         Piercing: 10
         Structural: 15
 
-
 - type: entity
-  id: PelletShotgunSpread
-  categories: [ HideSpawnMenu ]
   parent: PelletShotgun
+  id: PelletShotgunSpreadWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
   components:
   - type: ProjectileSpread
     proto: PelletShotgun
@@ -62,15 +57,14 @@
     spread: 15
 
 - type: entity
-  id: PelletShotgunIncendiary
-  name: pellet (.50 incendiary)
-  categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
+  id: PelletShotgunIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (.50 incendiary)
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: buckshot-flare #imp
+    state: buckshot-flare
   - type: Projectile
     damage:
       types:
@@ -80,9 +74,9 @@
     ignited: true
 
 - type: entity
-  id: PelletShotgunIncendiarySpread
-  categories: [ HideSpawnMenu ]
   parent: PelletShotgunIncendiary
+  id: PelletShotgunIncendiarySpreadWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
   components:
   - type: ProjectileSpread
     proto: PelletShotgunIncendiary
@@ -90,24 +84,23 @@
     spread: 15
 
 - type: entity
-  id: PelletShotgunPractice
-  name: pellet (.50 practice)
-  categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
+  id: PelletShotgunPracticeWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (.50 practice)
   components:
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
-    layers:
-    - state: practice #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
   - type: Projectile
     damage:
       types:
         Blunt: 1
 
 - type: entity
-  id: PelletShotgunPracticeSpread
-  categories: [ HideSpawnMenu ]
   parent: PelletShotgunPractice
+  id: PelletShotgunPracticeSpreadWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
   components:
   - type: ProjectileSpread
     proto: PelletShotgunPractice
@@ -115,15 +108,14 @@
     spread: 15
 
 - type: entity
-  id: PelletShotgunImprovised
-  name: shrapnel pellet #imp
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletShotgunImprovisedWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: improvised pellet
   components:
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
-    layers:
-    - state: shard #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: shard
   - type: Projectile
     damage:
       types:
@@ -131,9 +123,9 @@
         Slash: 3
 
 - type: entity
-  id: PelletShotgunImprovisedSpread
-  categories: [ HideSpawnMenu ]
   parent: PelletShotgunImprovised
+  id: PelletShotgunImprovisedSpreadWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
   components:
   - type: ProjectileSpread
     proto: PelletShotgunImprovised
@@ -141,15 +133,14 @@
     spread: 45
 
 - type: entity
-  id: PelletShotgunTranquilizer
-  name: pellet (.50 tranquilizer)
-  categories: [ HideSpawnMenu ]
   parent: BaseBulletPractice
+  id: PelletShotgunTranquilizerWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (.50 tranquilizer)
   components:
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
-    layers:
-    - state: hypo #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
   - type: Projectile
     damage:
       types:
@@ -158,20 +149,14 @@
     solutions:
       ammo:
         maxVol: 15
-  - type: RefillableSolution
-    solution: ammo
-  - type: DrainableSolution
-    solution: ammo
   - type: SolutionInjectOnProjectileHit
     transferAmount: 15
     solution: ammo
-  - type: InjectableSolution
-    solution: ammo
 
 - type: entity
-  id: PelletShotgunFlare
-  name: pellet (.50 flare)
+  id: PelletShotgunFlareWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
+  name: pellet (.50 flare)
   components:
   - type: Physics
     bodyType: Dynamic
@@ -188,8 +173,7 @@
           - BulletImpassable
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    layers:
-    - state: buckshot-flare #imp
+    state: buckshot-flare
   - type: IgnitionSource
     ignited: true
     temperature: 1000
@@ -217,15 +201,16 @@
         Heat: 5
 
 - type: entity
-  id: PelletShotgunUranium
-  name: pellet (.50 uranium)
+  parent: BaseBulletUranium
+  id: PelletShotgunUraniumWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
-  parent: BaseBullet
+  name: pellet (.50 uranium)
   components:
   - type: Sprite
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
-    - state: uranium #imp
+    - state: uranium
+      shader: unshaded
   - type: Projectile
     damage:
       types:
@@ -233,9 +218,9 @@
         Piercing: 5
 
 - type: entity
-  id: PelletShotgunUraniumSpread
-  categories: [ HideSpawnMenu ]
   parent: PelletShotgunUranium
+  id: PelletShotgunUraniumSpreadWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
   components:
   - type: ProjectileSpread
     proto: PelletShotgunUranium
@@ -243,10 +228,10 @@
     spread: 6
 
 - type: entity
-  id: PelletGrapeshot #tally fucking ho
-  name: grapeshot pellet
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletGrapeshotWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: grapeshot pellet
   components:
   - type: Sprite
     noRot: false
@@ -261,9 +246,9 @@
         Structural: 5
 
 - type: entity
-  id: PelletGrapeshotSpread
-  categories: [ HideSpawnMenu ]
   parent: PelletGrapeshot
+  id: PelletGrapeshotSpreadWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
   components:
   - type: ProjectileSpread
     proto: PelletGrapeshot
@@ -271,19 +256,19 @@
     spread: 40
 
 - type: entity
-  id: PelletGlass
-  name: glass shard
   parent: BaseBullet
+  id: PelletGlassWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
+  name: glass shard
   components:
   - type: Sprite
     noRot: false
-    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi #imp
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
     - state: shard
       shader: unshaded
-  #- type: EmbeddableProjectile #imp edit - this was causing test failures via PelletGlassSpread below - when that spawned it had a chance to embed into something
-  #  deleteOnRemove: true #imp note - also looking at other uses of this component, EmbeddableProjectile is only used for things that embed when you throw them & not actual projectiles
+  - type: EmbeddableProjectile
+    deleteOnRemove: true
   - type: Projectile
     deleteOnCollide: false
     damage:
@@ -291,8 +276,8 @@
         Slash: 25
 
 - type: entity
-  id: PelletGlassSpread
   parent: PelletGlass
+  id: PelletGlassSpreadWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: ProjectileSpread

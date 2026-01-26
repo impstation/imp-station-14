@@ -91,7 +91,7 @@
 - type: cargoProduct
   id: LivestockBuck
   icon:
-    sprite: _Impstation/Mobs/Animals/Livestock/buck.rsi # Imp
+    sprite: _Impstation/Mobs/Animals/Livestock/buck.rsi
     state: buck
   product: CrateNPCBuck
   cost: 1200
@@ -101,9 +101,29 @@
 - type: cargoProduct
   id: LivestockGoats
   icon:
-    sprite: _Impstation/Mobs/Animals/Livestock/buck.rsi # Imp
+    sprite: _Impstation/Mobs/Animals/Livestock/buck.rsi
     state: buck
   product: CrateNPCGoats
   cost: 2200
+  category: cargoproduct-category-name-livestock
+  group: market
+  
+- type: cargoProduct
+  id: LivestockPompom
+  icon:
+    sprite: _Impstation/Mobs/Animals/pompom.rsi
+    state: pompom
+  product: CrateNPCPompom
+  cost: 4400
+  category: cargoproduct-category-name-livestock
+  group: market
+ 
+- type: cargoProduct
+  id: LivestockDuctSpider
+  icon:
+    sprite: _Impstation/Mobs/Animals/ductspider.rsi
+    state: idle
+  product: CrateNPCDuctSpider
+  cost: 5000
   category: cargoproduct-category-name-livestock
   group: market

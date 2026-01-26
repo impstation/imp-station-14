@@ -150,6 +150,8 @@
   - type: Tag
     tags:
       - FoodSnack
+      - ReptilianFood # imp
+      - UnguFood # imp
   - type: SpawnItemsOnUse
     items:
       - id: FoodPacketChocolateTrash
@@ -188,6 +190,7 @@
     tags:
       - FoodSnack
       - ReptilianFood
+      - UnguFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -298,6 +301,9 @@
           Quantity: 3 # weird compromise because this is... like a recipe... but nobody ever makes it...
         - ReagentId: TableSalt
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: 4no raisins
@@ -345,6 +351,10 @@
           Quantity: 1
         - ReagentId: TableSalt
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - ReptilianFood
 
 - type: entity
   name: sus jerky
@@ -398,6 +408,10 @@
         reagents:
         - ReagentId: Nutriment # higher bc not in vending machines
           Quantity: 10
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Fruit # flavor profile says it tastes like fruit cake
 
 - type: entity
   parent: FoodSnackBase
@@ -426,6 +440,9 @@
   - type: Item
     heldPrefix: ramen
     storedOffset: 0,-1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: DrinkRamen
@@ -473,6 +490,9 @@
   - type: Edible
     trash:
     - FoodPacketChowMeinTrash
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: FoodSnackBase
@@ -504,6 +524,9 @@
   - type: Edible
     trash:
     - FoodPacketDanDanTrash
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: FoodSnackBase
@@ -531,6 +554,9 @@
   - type: Edible
     trash:
     - FoodCookieFortune
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: BaseItem
@@ -650,6 +676,7 @@
     tags:
     - FoodSnack
     - ReptilianFood
+    - UnguFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
