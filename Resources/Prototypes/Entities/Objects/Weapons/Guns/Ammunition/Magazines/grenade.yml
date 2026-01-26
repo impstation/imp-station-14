@@ -1,8 +1,8 @@
 - type: entity
+  abstract: true
+  parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineGrenade
   name: grenade cartridge
-  parent: [ BaseItem, BaseSecurityContraband ]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -40,54 +40,48 @@
   - type: Appearance
 
 - type: entity
+  parent: BaseMagazineGrenade
   id: MagazineGrenadeEmpty
   name: grenade cartridge
-  description: A box designed to hold 5 launcher-based grenades. #imp
-  parent: BaseMagazineGrenade
   components:
   - type: BallisticAmmoProvider
 
 - type: entity
-  id: MagazineGrenadeFrag
-  name: grenade cartridge (frag) #imp
-  description: A box designed to hold 5 launcher-based grenades. This box is labeled for fragmentation grenades. #imp
   parent: BaseMagazineGrenade
+  id: MagazineGrenadeFrag
+  name: frag grenade cartridge
   components:
   - type: BallisticAmmoProvider
     proto: GrenadeFrag
 
 - type: entity
-  id: MagazineGrenadeEMP
-  name: grenade cartridge (EMP) #imp
-  description: A box designed to hold 5 launcher-based grenades. This box is labeled for EMP grenades. #imp
   parent: BaseMagazineGrenade
+  id: MagazineGrenadeEMP
+  name: EMP grenade cartridge
   components:
   - type: BallisticAmmoProvider
     proto: GrenadeEMP
 
 - type: entity
-  id: MagazineGrenadeFlash
-  name: grenade cartridge (flash) #imp
-  description: A box designed to hold 5 launcher-based grenades. This box is labeled for flashbang stun grenades. #imp
   parent: BaseMagazineGrenade
+  id: MagazineGrenadeFlash
+  name: flash grenade cartridge
   components:
   - type: BallisticAmmoProvider
     proto: GrenadeFlash
 
 - type: entity
-  id: MagazineGrenadeBlast
-  name: grenade cartridge (blast) #imp
-  description: A box designed to hold 5 launcher-based grenades. This box is labeled for high-explosive blast grenades. #imp
   parent: BaseMagazineGrenade
+  id: MagazineGrenadeBlast
+  name: blast grenade cartridge
   components:
   - type: BallisticAmmoProvider
     proto: GrenadeBlast
 
 - type: entity
-  id: MagazineGrenadeBaton
-  name: grenade cartridge (baton) #imp
-  description: A box designed to hold 5 launcher-based grenades. This box is labeled for baton stun grenades. #imp
   parent: BaseMagazineGrenade
+  id: MagazineGrenadeBaton
+  name: baton grenade cartridge
   components:
   - type: BallisticAmmoProvider
     proto: GrenadeBaton
