@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "By Gotimanga for SS14, grayscale layering by IProduceWidgets (Github)",
+    "copyright": "By Gotimanga for SS14, grayscale layering by IProduceWidgets (Github). anom state by atdoop (github) for impstation",
     "size": {
         "x": 32,
         "y": 32
@@ -23,6 +23,10 @@
             "name": "equipped-HELMET",
             "directions": 4
         },
+        {
+            "name": "equipped-HELMET-anomalocarid",
+            "directions": 4
+        },
 		{
             "name": "coatybits-equipped-HELMET",
             "directions": 4
@@ -33,6 +37,18 @@
         },
 		{
             "name": "winterbits-tan-equipped-HELMET",
+            "directions": 4
+        },
+		{
+            "name": "coatybits-equipped-HELMET-anomalocarid",
+            "directions": 4
+        },
+		{
+            "name": "winterbits-equipped-HELMET-anomalocarid",
+            "directions": 4
+        },
+		{
+            "name": "winterbits-tan-equipped-HELMET-anomalocarid",
             "directions": 4
         }
     ]

@@ -46,7 +46,10 @@
       40: Critical
       60: Dead
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 50
   - type: Item
     size: Small
     shape:

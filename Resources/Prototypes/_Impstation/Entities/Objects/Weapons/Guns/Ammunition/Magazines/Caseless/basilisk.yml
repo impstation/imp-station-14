@@ -6,9 +6,6 @@
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
-  - type: Tag
-    tags:
-      - MagazineCaselessRifle
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
