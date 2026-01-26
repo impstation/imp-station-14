@@ -10,7 +10,7 @@
     offset: 0.015625, -0.09375
     blacklist: #imp
       tags:
-        - WeldingMask
+      - WeldingMask
   # 🌟Starlight🌟 start
   - name: neck
     slotTexture: neck
@@ -19,10 +19,8 @@
     strippingWindowPos: 0,1
     displayName: neck
     offset: 0.05, -0.22
-  - whitelist:
+    whitelist:
       tags:
-      - Medal
-      - TeddyRibbon #imp
       - BorgNeck #imp
   # 🌟Starlight🌟 end
 
