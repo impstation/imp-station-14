@@ -1,0 +1,11 @@
+- type: quickPhrase
+  id: BaseNounsImp
+  tab: Nouns
+  abstract: true
+
+  # basic
+
+- type: quickPhrase
+  id: Phrase
+  parent: BaseNounsImp
+  text: imp-phrase-

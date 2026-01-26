@@ -1,0 +1,335 @@
+- type: quickPhrase
+  id: BaseAdjectivesImp
+  tab: Adjectives
+  abstract: true
+
+- type: quickPhrase
+  id: BaseAdjectivesImpStatus
+  parent: BaseAdjectivesImp
+  group: Health status
+  abstract: true
+
+- type: quickPhrase
+  id: BaseAdjectivesImpColours
+  parent: BaseAdjectivesImp
+  group: Colours
+  abstract: true
+
+- type: quickPhrase
+  id: BaseAdjectivesImpFeelings
+  parent: BaseAdjectivesImp
+  group: Feelings
+  abstract: true
+
+  # basic
+
+- type: quickPhrase
+  id: SlowPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-slow
+
+- type: quickPhrase
+  id: FastPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-fast
+
+- type: quickPhrase
+  id: StrongPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-strong
+
+- type: quickPhrase
+  id: LoudPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-loud
+
+- type: quickPhrase
+  id: QuietPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-quiet
+
+- type: quickPhrase
+  id: RoundPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-round
+
+- type: quickPhrase
+  id: SquarePhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-square
+
+- type: quickPhrase
+  id: TrianglePhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-triangle
+
+- type: quickPhrase
+  id: OldPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-old
+
+- type: quickPhrase
+  id: NewPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-new
+
+- type: quickPhrase
+  id: WeirdPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-weird
+
+- type: quickPhrase
+  id: NormalPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-normal
+
+- type: quickPhrase
+  id: BrightPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-bright
+
+- type: quickPhrase
+  id: DarkPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-dark
+
+- type: quickPhrase
+  id: OkPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-ok
+
+- type: quickPhrase
+  id: GoodPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-good
+
+- type: quickPhrase
+  id: BadPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-bad
+
+- type: quickPhrase
+  id: LostPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-lost
+
+- type: quickPhrase
+  id: FoundPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-found
+
+- type: quickPhrase
+  id: DangerousPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-dangerous
+
+- type: quickPhrase
+  id: SafePhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-safe
+
+- type: quickPhrase
+  id: OnPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-on
+
+- type: quickPhrase
+  id: OffPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-off
+
+- type: quickPhrase
+  id: FreePhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-free
+
+- type: quickPhrase
+  id: TrappedPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-trapped
+
+- type: quickPhrase
+  id: BigPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-big
+
+- type: quickPhrase
+  id: SmallPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-small
+
+- type: quickPhrase
+  id: BrokenPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-broken
+
+- type: quickPhrase
+  id: InnocentPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-innocent
+
+- type: quickPhrase
+  id: GuiltyPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-guilty
+
+- type: quickPhrase
+  id: LethalPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-lethal
+
+- type: quickPhrase
+  id: NonLethalPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-nonlethal
+
+- type: quickPhrase
+  id: SpacedPhrase
+  parent: BaseAdjectivesImp
+  text: imp-phrase-ad-spaced
+
+  # health status
+
+- type: quickPhrase
+  id: InjuredPhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-injured
+
+- type: quickPhrase
+  id: BleedingPhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-bleeding
+
+- type: quickPhrase
+  id: MutePhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-mute
+
+- type: quickPhrase
+  id: BlindPhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-blind
+
+- type: quickPhrase
+  id: DeafPhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-deaf
+
+- type: quickPhrase
+  id: AlivePhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-alive
+
+- type: quickPhrase
+  id: DeadPhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-dead
+
+- type: quickPhrase
+  id: RottenPhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-rotten
+
+- type: quickPhrase
+  id: FullHPPhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-fullhp
+
+- type: quickPhrase
+  id: CritPhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-crit
+
+- type: quickPhrase
+  id: SSDPhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-ssd
+
+- type: quickPhrase
+  id: DNRPhrase
+  parent: BaseAdjectivesImpStatus
+  text: imp-phrase-ad-dnr
+
+  # colours
+
+- type: quickPhrase
+  id: RedPhrase
+  parent: BaseAdjectivesImpColours
+  text: imp-phrase-ad-red
+
+- type: quickPhrase
+  id: OrangePhrase
+  parent: BaseAdjectivesImpColours
+  text: imp-phrase-ad-orange
+
+- type: quickPhrase
+  id: YellowPhrase
+  parent: BaseAdjectivesImpColours
+  text: imp-phrase-ad-yellow
+
+- type: quickPhrase
+  id: GreenPhrase
+  parent: BaseAdjectivesImpColours
+  text: imp-phrase-ad-green
+
+- type: quickPhrase
+  id: BluePhrase
+  parent: BaseAdjectivesImpColours
+  text: imp-phrase-ad-blue
+
+- type: quickPhrase
+  id: IndigoPhrase
+  parent: BaseAdjectivesImpColours
+  text: imp-phrase-ad-indigo
+
+- type: quickPhrase
+  id: VioletPhrase
+  parent: BaseAdjectivesImpColours
+  text: imp-phrase-ad-violet
+
+- type: quickPhrase
+  id: RainbowPhrase
+  parent: BaseAdjectivesImpColours
+  text: imp-phrase-ad-rainbow
+
+- type: quickPhrase
+  id: BlackPhrase
+  parent: BaseAdjectivesImpColours
+  text: imp-phrase-ad-black
+
+- type: quickPhrase
+  id: WhitePhrase
+  parent: BaseAdjectivesImpColours
+  text: imp-phrase-ad-white
+
+  # feelings
+
+- type: quickPhrase
+  id: LikePhrase
+  parent: BaseAdjectivesImpFeelings
+  text: imp-phrase-ad-like
+
+- type: quickPhrase
+  id: HatePhrase
+  parent: BaseAdjectivesImpFeelings
+  text: imp-phrase-ad-hate
+
+- type: quickPhrase
+  id: HappyPhrase
+  parent: BaseAdjectivesImpFeelings
+  text: imp-phrase-ad-happy
+
+- type: quickPhrase
+  id: SadPhrase
+  parent: BaseAdjectivesImpFeelings
+  text: imp-phrase-ad-sad
+
+- type: quickPhrase
+  id: AngryPhrase
+  parent: BaseAdjectivesImpFeelings
+  text: imp-phrase-ad-angry
+
+- type: quickPhrase
+  id: ScaredPhrase
+  parent: BaseAdjectivesImpFeelings
+  text: imp-phrase-ad-scared

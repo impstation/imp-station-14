@@ -1,0 +1,135 @@
+- type: quickPhrase
+  id: BaseDeterminersImp
+  tab: Determiners
+  abstract: true
+
+- type: quickPhrase
+  id: BaseDeterminersImpAmount
+  parent: BaseDeterminersImp
+  group: Amounts
+  abstract: true
+
+- type: quickPhrase
+  id: BaseDeterminersImpNumbers
+  parent: BaseDeterminersImp
+  group: Numbers
+  abstract: true
+
+  # basic
+
+- type: quickPhrase
+  id: MyPhrase
+  parent: BaseDeterminersImp
+  text: imp-phrase-my
+
+- type: quickPhrase
+  id: MinePhrase
+  parent: BaseDeterminersImp
+  text: imp-phrase-mine
+
+- type: quickPhrase
+  id: OursPhrase
+  parent: BaseDeterminersImp
+  text: imp-phrase-ours
+
+- type: quickPhrase
+  id: YoursPhrase
+  parent: BaseDeterminersImp
+  text: imp-phrase-yours
+
+  # amounts
+
+- type: quickPhrase
+  id: AllPhrase
+  parent: BaseDeterminersImpAmounts
+  text: imp-phrase-all
+
+- type: quickPhrase
+  id: NothingPhrase
+  parent: BaseDeterminersImpAmounts
+  text: imp-phrase-nothing
+
+- type: quickPhrase
+  id: MorePhrase
+  parent: BaseDeterminersImpAmounts
+  text: imp-phrase-more
+
+- type: quickPhrase
+  id: LessPhrase
+  parent: BaseDeterminersImpAmounts
+  text: imp-phrase-less
+
+- type: quickPhrase
+  id: Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-
+
+- type: quickPhrase
+  id: 1Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-1
+
+- type: quickPhrase
+  id: 2Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-2
+
+- type: quickPhrase
+  id: 3Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-3
+
+- type: quickPhrase
+  id: 4Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-4
+
+- type: quickPhrase
+  id: 5Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-5
+
+- type: quickPhrase
+  id: 6Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-6
+
+- type: quickPhrase
+  id: 7Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-7
+
+- type: quickPhrase
+  id: 8Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-8
+
+- type: quickPhrase
+  id: 9Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-9
+
+- type: quickPhrase
+  id: 10Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-10
+
+- type: quickPhrase
+  id: 100Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-100
+
+- type: quickPhrase
+  id: 1000Phrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-1000
+
+- type: quickPhrase
+  id: MilPhrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-mil
+
+- type: quickPhrase
+  id: BilPhrase
+  parent: BaseDeterminersImpNumbers
+  text: imp-phrase-bil

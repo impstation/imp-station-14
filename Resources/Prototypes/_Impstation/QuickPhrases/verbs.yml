@@ -1,0 +1,231 @@
+- type: quickPhrase
+  id: BaseVerbsImp
+  tab: Verbs
+  abstract: true
+
+  # verbs
+
+- type: quickPhrase
+  id: HavePhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-have
+
+- type: quickPhrase
+  id: GivePhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-give
+
+- type: quickPhrase
+  id: TakePhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-take
+
+- type: quickPhrase
+  id: LovePhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-love
+
+- type: quickPhrase
+  id: HatePhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-hate
+
+- type: quickPhrase
+  id: AttackPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-attack
+
+- type: quickPhrase
+  id: ShootPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-shoot
+
+- type: quickPhrase
+  id: ShowPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-show
+
+- type: quickPhrase
+  id: WaitPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-wait
+
+- type: quickPhrase
+  id: KnowPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-know
+
+- type: quickPhrase
+  id: ThinkPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-think
+
+- type: quickPhrase
+  id: GoPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-go
+
+- type: quickPhrase
+  id: StayPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-stay
+
+- type: quickPhrase
+  id: FindPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-find
+
+- type: quickPhrase
+  id: OpenPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-open
+
+- type: quickPhrase
+  id: ClosePhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-close
+
+- type: quickPhrase
+  id: EatPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-eat
+
+- type: quickPhrase
+  id: DrinkPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-drink
+
+- type: quickPhrase
+  id: GivePhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-give
+
+- type: quickPhrase
+  id: WantPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-want
+
+- type: quickPhrase
+  id: TalkPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-talk
+
+- type: quickPhrase
+  id: WritePhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-write
+
+- type: quickPhrase
+  id: BreakPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-break
+
+- type: quickPhrase
+  id: BuildPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-build
+
+- type: quickPhrase
+  id: MakePhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-make
+
+- type: quickPhrase
+  id: FixPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-fix
+
+- type: quickPhrase
+  id: HealPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-heal
+
+- type: quickPhrase
+  id: TeachPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-teach
+
+- type: quickPhrase
+  id: LearnPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-learn
+
+- type: quickPhrase
+  id: RunPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-run
+
+- type: quickPhrase
+  id: WeldPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-weld
+
+- type: quickPhrase
+  id: BoltPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-bolt
+
+- type: quickPhrase
+  id: OrderPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-order
+
+- type: quickPhrase
+  id: PullPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-pull
+
+- type: quickPhrase
+  id: PushPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-push
+
+- type: quickPhrase
+  id: SearchPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-search
+
+- type: quickPhrase
+  id: CleanPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-clean
+
+- type: quickPhrase
+  id: HonkPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-honk
+
+- type: quickPhrase
+  id: GrowPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-grow
+
+- type: quickPhrase
+  id: CookPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-cook
+
+- type: quickPhrase
+  id: MixPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-mix
+
+- type: quickPhrase
+  id: ClearPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-clear
+
+- type: quickPhrase
+  id: InjectPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-inject
+
+- type: quickPhrase
+  id: MiningPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-mining
+
+- type: quickPhrase
+  id: ArrestPhrase
+  parent: BaseVerbsImp
+  text: imp-phrase-verb-arrest
