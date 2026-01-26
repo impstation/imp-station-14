@@ -65,7 +65,7 @@ public sealed class StationPowerTests
         "Xeno",
         "Pathway",
         "Whisper",
-        "monarch",
+        "Monarch",
 
         // DEROTATED:
         //"Eclipse",

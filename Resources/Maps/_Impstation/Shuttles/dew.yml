@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/25/2026 13:14:37
+  time: 01/26/2026 03:05:11
   entityCount: 155
 maps: []
 grids:
@@ -100,6 +100,18 @@ entities:
     - type: StationCargoShuttle
       path: /Maps/Shuttles/cargo.yml
     - type: ExplosionAirtightGrid
+- proto: AirAlarm
+  entities:
+  - uid: 130
+    components:
+    - type: Transform
+      pos: 1.5,8.5
+      parent: 1
+    - type: DeviceList
+      devices:
+      - 129
+    - type: Fixtures
+      fixtures: {}
 - proto: AirCanister
   entities:
   - uid: 116
@@ -555,14 +567,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 4.5,7.5
       parent: 1
-- proto: GasPassiveVent
-  entities:
-  - uid: 129
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 3.5,7.5
-      parent: 1
 - proto: GasPort
   entities:
   - uid: 120
@@ -571,6 +575,17 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 5.5,7.5
       parent: 1
+- proto: GasVentPump
+  entities:
+  - uid: 129
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 3.5,7.5
+      parent: 1
+    - type: DeviceNetwork
+      deviceLists:
+      - 130
 - proto: GeneratorBasic15kW
   entities:
   - uid: 83
@@ -713,16 +728,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 0.5,2.5
-      parent: 1
-    - type: Fixtures
-      fixtures: {}
-- proto: LockerWallEvacRepairFilled
-  entities:
-  - uid: 130
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 0.5,5.5
       parent: 1
     - type: Fixtures
       fixtures: {}

@@ -1,11 +1,11 @@
 - type: gameMap
-  id: monarch
+  id: Monarch
   mapName: 'Monarch'
   mapPath: /Maps/_Impstation/monarch.yml
   minPlayers: 25
   maxPlayers: 50
   stations:
-    monarch:
+    Monarch:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
