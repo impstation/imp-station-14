@@ -654,9 +654,9 @@
   description: A stylish black tophat.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/tophat.rsi
+    sprite: _Impstation/Clothing/Head/Hats/tophat.rsi #imp edit
   - type: Clothing
-    sprite: Clothing/Head/Hats/tophat.rsi
+    sprite: _Impstation/Clothing/Head/Hats/tophat.rsi #imp edit
   - type: Tag
     tags:
     - PetWearable
@@ -1145,20 +1145,31 @@
   description: A magician's top hat.
   components:
   - type: Icon
-    sprite: Clothing/Head/Hats/magician.rsi
+    sprite: _Impstation/Clothing/Head/Hats/magician.rsi #imp edit
     state: "icon"
   - type: Sprite
     state: "icon"
-    sprite: Clothing/Head/Hats/magician.rsi
+    sprite: _Impstation/Clothing/Head/Hats/magician.rsi #imp edit
   - type: Clothing
     clothingVisuals:
       head:
       - state: equipped-HELMET
         offset: "0, 0.12"
-    sprite: Clothing/Head/Hats/magician.rsi
+      # imp edit start
+      head-gray:
+      - state: equipped-HELMET-gray
+        offset: "0, 0.1875"
+      head-reptilian:
+      - state: equipped-HELMET-reptilian
+        offset: "0, 0.12"
+      head-ungu:
+      - state: equipped-HELMET-ungu
+        offset: "0, 0.1875"
+      # imp edit end
+    sprite: _Impstation/Clothing/Head/Hats/magician.rsi #imp edit
   - type: Item
     size: Small
-    sprite: Clothing/Head/Hats/magician.rsi
+    sprite: _Impstation/Clothing/Head/Hats/magician.rsi #imp edit
     storedRotation: 0
   - type: Storage
     grid:
