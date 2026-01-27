@@ -13,13 +13,13 @@
 - type: hereticSacrificeEffect
   id: SacEffectGrail
   components:
-  - type: Hemophilia
+  - type: HemophiliaStatusEffect
   message: heretic-sac-effect-grail
 
 - type: hereticSacrificeEffect
   id: SacEffectHeart
   components:
-  - type: PainNumbness
+  - type: PainNumbnessStatusEffect
   message: heretic-sac-effect-heart
 
 - type: hereticSacrificeEffect
