@@ -613,6 +613,11 @@ public readonly record struct UtilityResult(Dictionary<EntityUid, float> Entitie
         return Entities.MaxBy(x => x.Value).Key;
     }
 
+    /// <summary>
+    /// IMP EDIT START
+    /// Returns the entity with the highest score and then removes it from the list
+    /// Mostly for if you have a need to go through the scoring mobs
+    /// </summary>
     public EntityUid GetNextHighest()
     {
         if (Entities.Count == 0)
@@ -623,6 +628,7 @@ public readonly record struct UtilityResult(Dictionary<EntityUid, float> Entitie
 
         return result;
     }
+    // Imp edit end
 
     /// <summary>
     /// Returns the entity with the lowest score. This does not consider entities with a 0 (invalid) score.
