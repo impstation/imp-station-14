@@ -18,10 +18,13 @@
         mask:
         - MachineMask
         layer:
-        - MachineLayer  
+        - MachineLayer
+  - type: ContainerContainer
+    containers:
+     egg: !type:ContainerSlot
   - type: ItemSlots
     slots:
-      item:
+      egg:
         whitelist:
           tags:
             - Incubated
