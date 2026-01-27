@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/26/2026 02:58:04
-  entityCount: 418
+  time: 01/27/2026 10:38:34
+  entityCount: 426
 maps: []
 grids:
 - 1
@@ -1811,6 +1811,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 10.5,18.5
       parent: 1
+- proto: Holopad
+  entities:
+  - uid: 426
+    components:
+    - type: Transform
+      pos: 6.5,6.5
+      parent: 1
 - proto: LockerEvidence
   entities:
   - uid: 147
@@ -2242,6 +2249,49 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 4.5,2.5
+      parent: 1
+- proto: SurveillanceCameraGeneral
+  entities:
+  - uid: 419
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,5.5
+      parent: 1
+  - uid: 420
+    components:
+    - type: Transform
+      pos: 8.5,8.5
+      parent: 1
+  - uid: 421
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 9.5,3.5
+      parent: 1
+  - uid: 422
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 1.5,1.5
+      parent: 1
+  - uid: 423
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,2.5
+      parent: 1
+  - uid: 424
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 4.5,13.5
+      parent: 1
+  - uid: 425
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,13.5
       parent: 1
 - proto: Table
   entities:
