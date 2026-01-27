@@ -16,7 +16,7 @@ public sealed partial class AutoTraitorComponent : Component
     public EntProtoId Profile = "Traitor";
 
     /// <summary>
-    /// #IMP Maximum number of times this can activate.
+    /// #IMP Maximum number of times this can activate. Zero or less makes this infinite.
     /// This should usually be one, otherwise mindswap & polymorph causes objective issues (& other issues with things added on becoming antag)
     /// </summary>
     [DataField]
