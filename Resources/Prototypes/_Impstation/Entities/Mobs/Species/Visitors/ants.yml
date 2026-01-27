@@ -18,7 +18,7 @@
     butcheringType: Spike
     spawned:
     - id: FoodMeatMeatball #meatball until someone makes ant meat
-      amount: 1 
+      amount: 1
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -28,7 +28,7 @@
         # they r smaller #they r smaller (2) #they r smaller (3)
         density: 10
         restitution: 0.0
-        mask: 
+        mask:
         - SmallMobMask
         layer: #they can go under doors, in exchange for this they die in a single hit
         - SmallMobLayer
@@ -68,8 +68,10 @@
         sprite: _Impstation/Mobs/Effects/apid_brute_damage.rsi
         color: "#808A51"
   - type: Bloodstream
-    bloodMaxVolume: 30
-    bloodReagent: InsectBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 30
   - type: Speech
     speechBubbleOffset: -0.35
     speechVerb: Arachnid
