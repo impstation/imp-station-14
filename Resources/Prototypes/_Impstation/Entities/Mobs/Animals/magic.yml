@@ -233,7 +233,10 @@
       state: light
       shader: unshaded
   - type: Bloodstream
-    bloodMaxVolume: 10
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 10
     bloodReagent: WeldingCoils
   - type: Appearance
   - type: Fixtures
