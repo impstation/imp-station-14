@@ -4,14 +4,16 @@
   name: surgical duffel bag
   description: "A large duffel bag for holding extra medical supplies - this one seems to be designed for holding surgical tools."
   components:
-  - type: StorageFill
-    contents:
-      - id: Hemostat
-      - id: Saw
-      - id: Drill
-      - id: Cautery
-      - id: Retractor
-      - id: Scalpel
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Hemostat
+        - id: Saw
+        - id: Drill
+        - id: Cautery
+        - id: Retractor
+        - id: Scalpel
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -19,16 +21,18 @@
   name: syndicate surgical duffel bag
   description: A large duffel bag containing a full suite of surgical tools.
   components:
-  - type: StorageFill
-    contents:
-      - id: Hemostat
-      - id: SawAdvanced
-      - id: Drill
-      - id: Cautery
-      - id: Retractor
-      - id: ScalpelAdvanced
-      - id: ClothingHandsGlovesNitrile
-      - id: EmergencyRollerBedSpawnFolded
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Hemostat
+        - id: SawAdvanced
+        - id: Drill
+        - id: Cautery
+        - id: Retractor
+        - id: ScalpelAdvanced
+        - id: ClothingHandsGlovesNitrile
+        - id: EmergencyRollerBedSpawnFolded
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -37,13 +41,15 @@
   description: "Lean and mean: Contains the popular Hydra shotgun and 4 .50 buckshot drums." #, and a pair of Thermal Imaging Goggles. #imp edit
   suffix: Hydra bundle #imp edit
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponShotgunBulldog
-      - id: MagazineShotgun
-        amount: 3
-      - id: MagazineShotgunSlug
-#     - id: ThermalImagingGoggles
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunBulldog
+        - id: MagazineShotgun
+          amount: 3
+        - id: MagazineShotgunSlug
+#       - id: ThermalImagingGoggles
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -52,25 +58,14 @@
   description: "Old faithful: The classic C-20R Gorgon submachine gun, bundled with 3 magazines." #, and a Suppressor. #imp
   suffix: Gorgon bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponSubMachineGunC20r
-      - id: MagazinePistolSubMachineGun
-        amount: 2
-#     - id: SMGSuppressor
-
-- type: entity #imp gun yayaya!!!
-  parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateFilledBR
-  name: Basilisk-11 bundle
-  description: "Precise and deadly, just as a professional should be. Bundled with 3 magazines."
-  suffix: Basilisk-11 bundle # imp edit, clarity after rename, spawn menu
-  components:
-  - type: StorageFill
-    contents:
-      - id: WeaponRifleNemesis
-      - id: MagazineBR
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunC20r
+        - id: MagazinePistolSubMachineGun
+          amount: 2
+#       - id: SMGSuppressor
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -79,11 +74,13 @@
   description: "For medium-range sharpshooting, the Estoc DMR. Bundled with three magazines."
   suffix: Estoc DMR bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRifleEstoc
-    - id: MagazineRifle
-      amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleEstoc
+        - id: MagazineRifle
+          amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -92,11 +89,13 @@
   description: "Go loud and proud with a fully loaded Python revolver, bundled with 2 speed loaders." #imp, number format
   suffix: Python bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponRevolverPythonAP
-      - id: SpeedLoaderMagnumAP
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRevolverPythonAP
+        - id: SpeedLoaderMagnumAP
+          amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -105,10 +104,12 @@
   description: "More dakka: The iconic L6 Nidhogg light machine gun, bundled with 2 box magazines." #imp
   suffix: L6 Nidhogg SAW bundle #imp edit
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponLightMachineGunL6
-      - id: MagazineLightRifleBox
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponLightMachineGunL6
+        - id: MagazineLightRifleBox
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -117,13 +118,15 @@
   description: "An old China Lake grenade launcher bundled with 11 grenades of various destructive capability." #imp, grammar
   suffix: China Lake bundle #imp edit
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponLauncherChinaLake
-      - id: GrenadeBlast
-        amount: 4
-      - id: GrenadeFrag
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponLauncherChinaLake
+        - id: GrenadeBlast
+          amount: 4
+        - id: GrenadeFrag
+          amount: 4
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -132,17 +135,19 @@
   description: "A versatile battle rifle with an attached grenade launcher, bundled with 3 magazines and 6 grenades of various capabilities."
   suffix: M-90gl bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponRifleM90GrenadeLauncher
-      - id: MagazineRifle
-        amount: 2
-      - id: GrenadeBlast
-        amount: 2
-      - id: GrenadeFlash
-        amount: 2
-      - id: GrenadeFrag
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleM90GrenadeLauncher
+        - id: MagazineRifle
+          amount: 2
+        - id: GrenadeBlast
+          amount: 2
+        - id: GrenadeFlash
+          amount: 2
+        - id: GrenadeFrag
+          amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmo
@@ -151,20 +156,21 @@
   description: "Reloading! Contains 4 magazines for the C-20R Gorgon, 4 drums for the Hydra, 3 magazines for the Estoc DMR and 2 ammo boxes for the L6 Nidhogg SAW." #imp
   suffix: ammo bundle #imp edit
   components:
-  - type: StorageFill
-    contents:
-      - id: MagazinePistolSubMachineGun
-        amount: 4
-      - id: MagazineShotgun
-        amount: 4
-      - id: MagazineRifle
-        amount: 3
-      - id: MagazineShotgunSlug
-        amount: 1
-      - id: MagazineLightRifleBox
-        amount: 2
-      - id: MagazineBR #imp edit
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MagazinePistolSubMachineGun
+          amount: 4
+        - id: MagazineShotgun
+          amount: 4
+        - id: MagazineRifle
+          amount: 3
+        - id: MagazineShotgunSlug
+        - id: MagazineLightRifleBox
+          amount: 2
+        - id: MagazineBR #imp edit
+          amount: 2
 
 - type: entity
   parent: ClothingBackpackDuffelClown
@@ -173,14 +179,16 @@
   components:
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
-  - type: StorageFill
-    contents:
-      - id: ClothingUniformJumpsuitClown
-      - id: ClothingShoesClown
-      - id: ClothingMaskClown
-      - id: BikeHorn
-      #- id: ClownPDA # imp edit- 2 tc to get maints access and greencomms is causing people to buy this for the wrong reason
-      #- id: ClothingHeadsetService
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitClown
+        - id: ClothingShoesClown
+        - id: ClothingMaskClown
+        - id: BikeHorn
+        #- id: ClownPDA # imp edit- 2 tc to get maints access and greencomms is causing people to buy this for the wrong reason
+        #- id: ClothingHeadsetService
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -189,11 +197,13 @@
   description: Contains a carp suit and some friends to play with.
   suffix: carp suit duffel bag # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingOuterSuitCarp
-    - id: PlushieCarp
-      amount: 6
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterSuitCarp
+        - id: PlushieCarp
+          amount: 6
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -206,22 +216,24 @@
   - type: Storage
     grid:
     - 0,0,8,4
-  - type: StorageFill
-    contents:
-      - id: ClothingUniformJumpsuitPyjamaSyndicateRed
-      - id: ClothingUniformJumpsuitPyjamaSyndicateBlack
-      - id: ClothingUniformJumpsuitPyjamaSyndicatePink
-      - id: ClothingHeadPyjamaSyndicateRed
-      - id: ClothingHeadPyjamaSyndicateBlack
-      - id: ClothingHeadPyjamaSyndicatePink
-      - id: ClothingShoesSlippers
-        amount: 3
-      - id: BedsheetSyndie
-        amount: 3
-      - id: PlushieCarp
-      - id: PlushieNuke
-      - id: PlushieLizard
-      - id: PlushieSharkBlue
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitPyjamaSyndicateRed
+        - id: ClothingUniformJumpsuitPyjamaSyndicateBlack
+        - id: ClothingUniformJumpsuitPyjamaSyndicatePink
+        - id: ClothingHeadPyjamaSyndicateRed
+        - id: ClothingHeadPyjamaSyndicateBlack
+        - id: ClothingHeadPyjamaSyndicatePink
+        - id: ClothingShoesSlippers
+          amount: 3
+        - id: BedsheetSyndie
+          amount: 3
+        - id: PlushieCarp
+        - id: PlushieNuke
+        - id: PlushieLizard
+        - id: PlushieSharkBlue
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -230,9 +242,10 @@
   description: "Contains a lot of C-4 charges."
   suffix: syndicate C-4 bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill # imp indent fix
-    contents:
-      - id: C4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: C4
         amount: 8
 
 - type: entity
@@ -240,8 +253,10 @@
   id: ClothingBackpackChameleonFill
   suffix: Fill, Chameleon
   components:
-    - type: StorageFill
-      contents:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
         - id: ChameleonPDA
         - id: ClothingUniformJumpsuitChameleon
         - id: ClothingOuterChameleon
@@ -261,14 +276,16 @@
   description: "Contains the Syndicate approved EVA suit."
   suffix: syndicate EVA bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingHeadHelmetSyndicate
-      - id: ClothingOuterEVASuitSyndicate
-      - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesColorYellowBudget
-      - id: DoubleEmergencyOxygenTankFilled
-      - id: DoubleEmergencyNitrogenTankFilled
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHelmetSyndicate
+        - id: ClothingOuterEVASuitSyndicate
+        - id: ClothingMaskGasSyndicate
+        - id: ClothingHandsGlovesColorYellowBudget
+        - id: DoubleEmergencyOxygenTankFilled
+        - id: DoubleEmergencyNitrogenTankFilled
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -277,13 +294,13 @@
   description: "Contains the Syndicate's signature blood-red hardsuit." # imp hyphen consistency
   suffix: syndicate hardsuit bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterHardsuitSyndie
-      - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
-      - id: DoubleEmergencyOxygenTankFilled
-      - id: DoubleEmergencyNitrogenTankFilled
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitSyndie
+        - !type:NestedSelector
+          tableId: SyndicateHardsuitExtrasEntityTable
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -292,13 +309,13 @@
   description: "Contains the Syndicate's elite hardsuit, which comes with some more stuff in it."
   suffix: syndicate elite hardsuit bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterHardsuitSyndieElite
-      - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
-      - id: DoubleEmergencyOxygenTankFilled
-      - id: DoubleEmergencyNitrogenTankFilled
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitSyndieElite
+        - !type:NestedSelector
+          tableId: SyndicateHardsuitExtrasEntityTable
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -307,12 +324,19 @@
   description: "Contains stuff that you will absolutely want to have when purchasing a hardsuit."
   suffix: syndicate hardsuit extras bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingMaskGasSyndicate
-      - id: ClothingHandsGlovesCombat
-      - id: DoubleEmergencyOxygenTankFilled
-      - id: DoubleEmergencyNitrogenTankFilled
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        tableId: SyndicateHardsuitExtrasEntityTable
+
+- type: entityTable
+  id: SyndicateHardsuitExtrasEntityTable
+  table: !type:AllSelector
+    children:
+    - id: ClothingMaskGasSyndicate
+    - id: ClothingHandsGlovesCombat
+    - id: DoubleEmergencyOxygenTankFilled
+    - id: DoubleEmergencyNitrogenTankFilled
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -321,14 +345,16 @@
   description: "An all-in-one kit for unleashing the undead upon a station."
   suffix: syndicate zombie bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-      - id: SyringeRomerol
-      - id: WeaponRevolverPython
-      - id: MagazineBoxMagnumIncendiary
-      - id: PillAmbuzolPlus
-      - id: PillAmbuzol
-        amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SyringeRomerol
+        - id: WeaponRevolverPython
+        - id: MagazineBoxMagnumIncendiary
+        - id: PillAmbuzolPlus
+        - id: PillAmbuzol
+          amount: 3
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -337,21 +363,23 @@
   description: "All you need to get your comrades back in the fight."
   suffix: medical bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-      - id: DefibrillatorSyndicate
-      - id: MedkitCombatFilled
-        amount: 4
-      - id: Tourniquet
-        amount: 4
-      - id: CombatMedipen
-        amount: 4
-      - id: PunctAutoInjector
-        amount: 4
-      - id: PyraAutoInjector
-        amount: 4
-      - id: AirlossAutoInjector
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DefibrillatorSyndicate
+        - id: MedkitCombatFilled
+          amount: 4
+        - id: Tourniquet
+          amount: 4
+        - id: CombatMedipen
+          amount: 4
+        - id: PunctAutoInjector
+          amount: 4
+        - id: PyraAutoInjector
+          amount: 4
+        - id: AirlossAutoInjector
+          amount: 4
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -360,18 +388,20 @@
   description: "Contains distractions, both auditory and visual. Smell coming soon."
   suffix: decoy bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-      - id: BalloonOperative
-      - id: BalloonAgent
-      - id: BalloonElite
-      - id: BalloonJuggernaut
-      - id: BalloonCommander
-      - id: SnapPopBox
-      - id: GrenadeDummy
-        amount: 2
-      - id: SyndieTrickyBomb
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BalloonOperative
+        - id: BalloonAgent
+        - id: BalloonElite
+        - id: BalloonJuggernaut
+        - id: BalloonCommander
+        - id: SnapPopBox
+        - id: GrenadeDummy
+          amount: 2
+        - id: SyndieTrickyBomb
+          amount: 2
 
 - type: entity
   parent: [ ClothingBackpackDuffelBundle, BaseMajorContraband ]
@@ -379,12 +409,14 @@
   name: acolyte armor bundle
   description: "Contains the Acolyte Armor, the must have of any cult leader."
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingOuterArmorCult
-    - id: ClothingHeadHelmetCult
-    - id: ClothingShoesCult
-    - id: BedsheetCult
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterArmorCult
+        - id: ClothingHeadHelmetCult
+        - id: ClothingShoesCult
+        - id: BedsheetCult
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -393,16 +425,32 @@
   description: "Contains a weapon, medical supplies, breaching tools, spare ammo, and some simple utilities."
   suffix: basic operative bundle # imp edit, clarity after rename, spawn menu
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponSubMachineGunC20r
-      - id: MagazinePistolSubMachineGun
-        amount: 3
-      - id: MagazinePistol
-      - id: SyndicateJawsOfLife
-      - id: C4
-        amount: 2
-      - id: MedkitCombatFilled
-      - id: EmpImplanter
-      - id: ClothingShoesBootsMagSyndie
-      - id: AgentIDCard
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunC20r
+        - id: MagazinePistolSubMachineGun
+          amount: 3
+        - id: MagazinePistol
+        - id: SyndicateJawsOfLife
+        - id: C4
+          amount: 2
+        - id: MedkitCombatFilled
+        - id: EmpImplanter
+        - id: ClothingShoesBootsMagSyndie
+        - id: AgentIDCard
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledHushpup
+  name: Hushpup bundle
+  description: Contains the Hushpup, bundled with a box of buckshot. Quarter included.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponShotgunHushpup
+        - id: BoxLethalshot
+        - id: TreasureCoinIron

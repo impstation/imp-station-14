@@ -23,7 +23,7 @@ Your radio allows you to communicate to your specific [color=#a4885c]department[
   <GuideEntityEmbed Entity="ClothingHeadsetGrey"/>
 </Box>
 
-## Intercoms and Station-Wide Announcements
+## Intercoms and Station-Wide Announcements <!-- imp edit start: remove greencomms -->
 
 To send a [color=#a4885c]station-wide[/color] message over the radio, you'll need to find an [color=#32cd32]intercom[/color].
 
@@ -33,7 +33,7 @@ To send a [color=#a4885c]station-wide[/color] message over the radio, you'll nee
 
 Make sure the channel is set to [color=#32cd32]Common[/color], and turn on the microphone. Anything that anyone says near the intercom while the microphone is on will be broadcast to the entire station.
 
-If you find an intercom in front of a department, there's a good chance that intercom can access that department's radio as well. This is a very useful tool to contact specific other departments. Make sure to turn on the Speaker setting so you can hear what they say back!
+If you find an intercom in front of a department, there's a good chance that intercom can access that department's radio as well. This is a very useful tool to contact specific other departments. Make sure to turn on the Speaker setting so you can hear what they say back! <!-- imp edit end -->
 
 ## Departmental Radio
 
@@ -52,14 +52,14 @@ For example, if you're a Station Engineer then [color=#a4885c]:h[/color] will de
 
 ## Encryption Keys
 [color=#a4885c]Encryption keys[/color] give you access to their respective channel.
-  
+
 Examining our engineering headset from earlier shows us [color=#32cd32]Common[/color] and [color=#f37746]Engineering[/color] because an engineer's headset starts with those [color=#a4885c]encryption keys[/color].
-  
+
 <Box>
   <GuideEntityEmbed Entity="EncryptionKeyCommon"/>
   <GuideEntityEmbed Entity="EncryptionKeyEngineering"/>
 </Box>
-  
+
 You can take out encryption keys by using a [color=#a4885c]screwdriver[/color] on a headset. New encryption keys are put into headsets by clicking on one with an encryption key in your hand.
 
 All command members have extras of their relevant encryption key, but you can also request one at the HoP's office when you're getting your job changed.

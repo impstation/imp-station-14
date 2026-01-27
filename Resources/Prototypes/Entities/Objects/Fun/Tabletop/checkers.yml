@@ -18,6 +18,10 @@
       prototypeCrownWhite: &crownWhite CheckerCrownWhite
       prototypePieceBlack: &pieceBlack CheckerPieceBlack
       prototypeCrownBlack: &crownBlack CheckerCrownBlack
+    blacklist: #imp.
+      components:
+      - HTN # NO COCKROACH GAMBIT
+    entMax: 52 # imp. standard setup (24) + bonus pieces (18) + 10
 
 # Checkerboard tabletop item (item only visible in tabletop game)
 - type: entity
