@@ -7,6 +7,10 @@
   id: MobCowBase
   description: Moo.
   components:
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -77,6 +81,10 @@
   id: MobCowBaby
   description: Moo. But smaller.
   components:
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: ImpInfant
     nextStage: MobCowAdult
   - type: Butcherable
@@ -128,6 +136,10 @@
   id: MobBullBase
   description: Mooscle.
   components:
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -198,6 +210,10 @@
   id: MobBullBaby
   description: Mooscle. But smaller.
   components:
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: Grammar
     attributes:
       gender: male
@@ -279,7 +295,10 @@
     interactSuccessSound:
       path: /Audio/Animals/chicken_cluck_happy.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
@@ -304,6 +323,10 @@
   abstract: true
   description: Watch where you walk!
   components:
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 25
   - type: ImpInfant
     growthTime: 240
     nextStage: MobHenAdult
@@ -393,6 +416,10 @@
   description: Oink.
   abstract: true
   components:
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -466,6 +493,10 @@
   description: Oink.
   abstract: true
   components:
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: ImpInfant
     nextStage: MobPigAdult
   - type: Butcherable
@@ -565,6 +596,10 @@
   id: MobGoatBase
   description: Baa.
   components:
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -666,6 +701,10 @@
   id: MobGoatInfantBase
   description: Baa.
   components:
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: ImpInfant
     growthTime: 10
     nextStage: MobGoatAdult

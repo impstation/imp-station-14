@@ -21,9 +21,10 @@
         - MachineLayer  
   - type: ItemSlots
     slots:
-      whitelist:
-        tags:
-          - Incubated
+      item:
+        whitelist:
+          tags:
+            - Incubated
   - type: Sprite
     sprite: _Impstation/Structures/Machines/incubator.rsi
     layers:

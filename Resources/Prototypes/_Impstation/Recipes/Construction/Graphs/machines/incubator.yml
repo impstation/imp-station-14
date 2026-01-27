@@ -30,7 +30,6 @@
               icon:
                 sprite: Objects/Specific/Hydroponics/wheat.rsi
                 state: produce
-              amount: 1
               doAfter: 1
         - to: start
           completed:
@@ -53,7 +52,7 @@
             - !type:EntityAnchored
           steps:
             - tag: LightNormal
-              name: Fluorescent Light Tube
+              name: construction-graph-tag-fluorescent-light-tube
               icon:
                 sprite: Objects/Power/light_tube.rsi
                 state: normal
