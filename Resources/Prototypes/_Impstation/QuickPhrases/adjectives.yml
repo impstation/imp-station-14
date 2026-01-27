@@ -21,7 +21,7 @@
   group: Feelings
   abstract: true
 
-  # basic
+# basic
 
 - type: quickPhrase
   id: SlowPhrase
@@ -188,7 +188,7 @@
   parent: BaseAdjectivesImp
   text: imp-phrase-ad-spaced
 
-  # health status
+# health status
 
 - type: quickPhrase
   id: InjuredPhrase
@@ -250,7 +250,7 @@
   parent: BaseAdjectivesImpStatus
   text: imp-phrase-ad-dnr
 
-  # colours
+# colours
 
 - type: quickPhrase
   id: RedPhrase
@@ -302,7 +302,7 @@
   parent: BaseAdjectivesImpColours
   text: imp-phrase-ad-white
 
-  # feelings
+# feelings
 
 - type: quickPhrase
   id: LikePhrase

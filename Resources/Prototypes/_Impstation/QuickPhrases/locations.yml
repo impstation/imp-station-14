@@ -15,7 +15,7 @@
   group: Specific locations
   abstract: true
 
-  # locations from something
+# locations from something
 
 - type: quickPhrase
   id: UpPhrase
@@ -47,7 +47,7 @@
   parent: BaseLocationsImp
   text: imp-phrase-locations-outside
 
-  # cardinal
+# cardinal
 
 - type: quickPhrase
   id: NorthPhrase
@@ -89,7 +89,7 @@
   parent: BaseLocationsImpCardinal
   text: imp-phrase-locations-nw
 
-  # station
+# station
 
 - type: quickPhrase
   id: ArrivalsPhrase
