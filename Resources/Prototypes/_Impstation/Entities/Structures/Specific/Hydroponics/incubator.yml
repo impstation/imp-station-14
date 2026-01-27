@@ -22,6 +22,8 @@
   - type: ContainerContainer
     containers:
      egg: !type:ContainerSlot
+     machine_board: !type:Container
+     machine_parts: !type:Container
   - type: ItemSlots
     slots:
       egg:
