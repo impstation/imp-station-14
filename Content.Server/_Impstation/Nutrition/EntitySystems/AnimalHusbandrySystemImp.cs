@@ -54,9 +54,6 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
     Dictionary<EntityUid, ImpReproductiveComponent> _mobsWaiting = new Dictionary<EntityUid, ImpReproductiveComponent>();
 
-    int _framesUntilNextChecks = 0;
-    int _birthCheckFrameDelay = 6;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -66,76 +63,65 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     {
         base.Update(frameTime);
 
-        if (_framesUntilNextChecks <= 0)
+        foreach (var reproComp in _mobsWaiting)
         {
-            _framesUntilNextChecks = _birthCheckFrameDelay;
-
-            // The delay largely exists for performance reasons since realistically we do not need frame accurate
-            // mob births. They can afford to be a little late.
-            foreach (var reproComp in _mobsWaiting)
+            // In case the mob finds itself deleted or destroyed
+            if (_entManager.Deleted(reproComp.Key)
+                || !_entManager.TryGetComponent<MobStateComponent>(reproComp.Key, out var state))
             {
-                // In case the mob finds itself deleted or destroyed
-                if (_entManager.Deleted(reproComp.Key)
-                    || !_entManager.TryGetComponent<MobStateComponent>(reproComp.Key, out var state))
-                {
-                    _mobsWaiting.Remove(reproComp.Key);
-                    continue;
-                }
-
-                // If they die or become critical, the child is gone
-                // Same for if the animal becomes player controlled
-                if (state.CurrentState != Shared.Mobs.MobState.Alive ||
-                    _mind.TryGetMind(reproComp.Key, out var mind, out var mindComp))
-                {
-                    _mobsWaiting.Remove(reproComp.Key);
-                    reproComp.Value.Pregnant = false;
-                }
-
-                // Is it time to give birth?
-                if (_time.CurTime > reproComp.Value.EndPregnancy)
-                {
-                    reproComp.Value.Pregnant = false;
-                    Birth((reproComp.Key, reproComp.Value));
-                    _mobsWaiting.Remove(reproComp.Key);
-                    _adminLog.Add(LogType.Action, $"A mob has given birth!");
-                }
+                _mobsWaiting.Remove(reproComp.Key);
+                continue;
             }
 
-            // Grabs every single entity with this component and runs through them all
-            // to see who should grow up.
-            // Realistically there should never be THAT many infants, so this approach should be
-            // fine for performance.
-            var query = EntityQueryEnumerator<ImpInfantComponent>();
-            while (query.MoveNext(out var uid, out var infantComp))
+            // If they die or become critical, the child is gone
+            // Same for if the animal becomes player controlled
+            if (state.CurrentState != Shared.Mobs.MobState.Alive ||
+                _mind.TryGetMind(reproComp.Key, out var mind, out var mindComp))
             {
-                if (_entManager.Deleted(uid)
-                    || !_entManager.TryGetComponent<MobStateComponent>(uid, out var state))
-                    continue;
+                _mobsWaiting.Remove(reproComp.Key);
+                reproComp.Value.Pregnant = false;
+            }
 
-                // Exists mainly for infants that are spawned in
-                if(infantComp.TimeUntilNextStage == TimeSpan.Zero)
-                {
-                    infantComp.TimeUntilNextStage = _time.CurTime + infantComp.GrowthTime;
-                    continue;
-                }
-
-
-                // No growing up until you're alive buddy
-                // Also delays the animals growth so they don't wake up and immediately advance a stage if kept dead for a while.
-                // In other words, keep your animals healthy!
-                if(state.CurrentState != Shared.Mobs.MobState.Alive)
-                {
-                    infantComp.TimeUntilNextStage = _time.CurTime + (infantComp.GrowthTime / 2);
-                    continue;
-                }
-
-                if(_time.CurTime > infantComp.TimeUntilNextStage)
-                    AdvanceStage((uid, infantComp));
+            // Is it time to give birth?
+            if (_time.CurTime > reproComp.Value.EndPregnancy)
+            {
+                reproComp.Value.Pregnant = false;
+                Birth((reproComp.Key, reproComp.Value));
+                _mobsWaiting.Remove(reproComp.Key);
+                _adminLog.Add(LogType.Action, $"A mob has given birth!");
             }
         }
-        else
+
+        // Grabs every single entity with this component and runs through them all
+        // to see who should grow up.
+        // Realistically there should never be THAT many infants, so this approach should be
+        // fine for performance.
+        var query = EntityQueryEnumerator<ImpInfantComponent>();
+        while (query.MoveNext(out var uid, out var infantComp))
         {
-            _framesUntilNextChecks--;
+            if (_entManager.Deleted(uid)
+                || !_entManager.TryGetComponent<MobStateComponent>(uid, out var state))
+                continue;
+
+            // Exists mainly for infants that are spawned in
+            if (infantComp.TimeUntilNextStage == TimeSpan.Zero)
+            {
+                infantComp.TimeUntilNextStage = _time.CurTime + infantComp.GrowthTime;
+                continue;
+            }
+
+
+            // No growing up until you're alive buddy
+            // Also delays the animals growth so they don't wake up and immediately advance a stage if kept dead for a while.
+            // In other words, keep your animals healthy!
+            if (state.CurrentState != Shared.Mobs.MobState.Alive)
+            {
+                infantComp.TimeUntilNextStage = _time.CurTime + (infantComp.GrowthTime / 2);
+                continue;
+            }
+
+            if (_time.CurTime > infantComp.TimeUntilNextStage)
+                AdvanceStage((uid, infantComp));
         }
     }
 
