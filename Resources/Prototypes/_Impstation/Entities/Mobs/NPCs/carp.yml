@@ -87,4 +87,7 @@
   - type: Body
     prototype: AnimalCarp
   - type: Bloodstream
-    bloodReagent: ShimmeringBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ShimmeringBlood
+        Quantity: 150
