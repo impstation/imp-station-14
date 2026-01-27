@@ -17,7 +17,7 @@ namespace Content.Shared._Impstation.AnimalHusbandry.Components;
 [RegisterComponent]
 [NetworkedComponent]
 [AutoGenerateComponentPause]
-public sealed partial class IncubatorComponent : Component
+public sealed partial class EggIncubatorComponent : Component
 {
     // When do we finish incubation?
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]

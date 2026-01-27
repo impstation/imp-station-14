@@ -33,7 +33,6 @@ public sealed class IncubationSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _time = default!;
-    //[Dependency] private readonly SharedIncubationSystem _incubationSystem = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -47,7 +46,7 @@ public sealed class IncubationSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<IncubatorComponent, InteractUsingEvent>(OnAfterInteract);
+        SubscribeLocalEvent<EggIncubatorComponent, InteractUsingEvent>(OnAfterInteract);
     }
 
     public override void Shutdown()
@@ -60,7 +59,7 @@ public sealed class IncubationSystem : EntitySystem
         base.Update(frameTime);
 
         // Just run through and check on all the incubators
-        var query = EntityQueryEnumerator<IncubatorComponent>();
+        var query = EntityQueryEnumerator<EggIncubatorComponent>();
         while(query.MoveNext(out var uid, out var incuComp))
         {
             // Making sure we're incubating something
@@ -77,7 +76,7 @@ public sealed class IncubationSystem : EntitySystem
         }
     }
 
-    private void OnAfterInteract(Entity<IncubatorComponent> entity, ref InteractUsingEvent args)
+    private void OnAfterInteract(Entity<EggIncubatorComponent> entity, ref InteractUsingEvent args)
     {
         // If it can't be incubated, cancel
         if (!_entManager.TryGetComponent<IncubationComponent>(args.Used, out var incuComp))
@@ -93,14 +92,14 @@ public sealed class IncubationSystem : EntitySystem
     /// Handles hatching our egg once the time has passed and creating the new mob.
     /// </summary>
     /// <param name="entity"></param>
-    public void FinishIncubation(Entity<IncubatorComponent> entity)
+    public void FinishIncubation(Entity<EggIncubatorComponent> entity)
     {
         // This should never be false unless an admin decides it should be
         if (!_entManager.TryGetComponent<ApcPowerReceiverComponent>(entity, out var powerComp))
             return;
 
         // Making sure we have a container. Should also never be false without admin shenanigans.
-        if (TryComp<ItemSlotsComponent>(entity, out var container))
+        if (!TryComp<ItemSlotsComponent>(entity, out var container))
             return;
 
         // If the incubator is not powered
@@ -132,7 +131,7 @@ public sealed class IncubationSystem : EntitySystem
         return newMob;
     }
 
-    public void CheckPowerchanged(Entity<IncubatorComponent> entity)
+    public void CheckPowerchanged(Entity<EggIncubatorComponent> entity)
     {
         if (!_entManager.TryGetComponent<ApcPowerReceiverComponent>(entity, out var powerComp))
             return;

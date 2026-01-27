@@ -22,7 +22,7 @@ public sealed partial class ImpInfantComponent : Component
     public InfantType InfantType = InfantType.Immediate;
 
     // How long until the next growth stage
-    [DataField("growthTime", required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("growthTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan GrowthTime = TimeSpan.FromSeconds(180);
 
     // Next Growth stage of the animal

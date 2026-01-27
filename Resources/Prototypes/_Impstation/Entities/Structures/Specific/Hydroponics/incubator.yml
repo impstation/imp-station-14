@@ -4,7 +4,7 @@
   name: Incubator
   description: Clearly the egg came first.
   components:
-  - type: Incubator
+  - type: EggIncubator
   - type: Construction
     graph: incubatorGraph
     node: IncubatorNode  

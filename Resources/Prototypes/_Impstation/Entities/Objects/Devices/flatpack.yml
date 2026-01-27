@@ -83,16 +83,18 @@
 
 - type: entity
   parent: BaseFlatpack
-  id: IncubatorFlatpack
-  name: incubator flatpack
-  description: A flatpack used for constructing an Incubator.
+  id: EggIncubatorFlatpack
+  name: egg incubator flatpack
+  description: A flatpack used for constructing an Egg Incubator.
   components:
   - type: Flatpack
     entity: MachineIncubator
-    id: TckutFlatpack
-    name: tck'ut flatpack
-    description: A flatpack used for constructing a Tck'ut.
-    components:
+
+- type: entity
+  id: TckutFlatpack
+  name: tck'ut flatpack
+  description: A flatpack used for constructing a Tck'ut.
+  components:
   - type: Flatpack
     entity: MobTckut
 

@@ -29,6 +29,7 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Damage.Components;
 
 namespace Content.Server._Impstation.Nutrition.EntitySystems;
 /// <summary>

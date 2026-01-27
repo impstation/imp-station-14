@@ -72,7 +72,7 @@
   - type: AlwaysRevolutionaryConvertible
 
 - type: entity
-  name: cowBaby
+  name: baby cow
   parent: MobCowBase
   id: MobCowBaby
   description: Moo. But smaller.
@@ -91,7 +91,7 @@
       sprite: _Impstation/Mobs/Animals/Livestock/cow_infant.rsi
 
 - type: entity
-  name: cowAdult
+  name: cow
   parent: MobCowBase
   id: MobCowAdult
   description: Moo.
@@ -193,7 +193,7 @@
   - type: AlwaysRevolutionaryConvertible
 
 - type: entity
-  name: bullBaby
+  name: baby bull
   parent: MobBullBase
   id: MobBullBaby
   description: Mooscle. But smaller.
@@ -215,7 +215,7 @@
       sprite: _Impstation/Mobs/Animals/Livestock/bull_infant.rsi
 
 - type: entity
-  name: bullAdult
+  name: bull
   parent: MobBullBase
   id: MobBullAdult
   description: Moo.
@@ -319,7 +319,7 @@
       sprite: _Impstation/Mobs/Animals/Livestock/chicken_infant.rsi
 
 - type: entity
-  name: Chick
+  name: chick
   parent: MobChickBase
   id: MobHenChick
   description: Watch where you walk!
@@ -329,7 +329,7 @@
     nextStage: MobHenAdult
 
 - type: entity
-  name: Chick
+  name: chick
   parent: MobChickBase
   id: MobRoosterChick
   description: Watch where you walk!
@@ -342,14 +342,14 @@
     nextStage: MobRoosterAdult
 
 - type: entity
-  name: Hen
+  name: hen
   parent: MobChickenBase
   id: MobHenAdult
   description: Holding it won't make you glide.
   components:
   - type: ImpReproductive
     hungerPerBirth: 25
-    pregnancyLength: 180
+    pregnancyLength: 150
     mobType: Chicken
     validPartners:
       - Rooster
@@ -362,7 +362,7 @@
         weight: 1
 
 - type: entity
-  name: Rooster
+  name: rooster
   parent: MobChickenBase
   id: MobRoosterAdult
   description: There is no gene to shut him up.
@@ -701,7 +701,7 @@
         weight: 3
 
 - type: entity
-  name: baby pig
+  name: baby goat
   parent: MobGoatInfantBase
   id: MobGoatInfant
   description: Those horns are small, but still pointy!.

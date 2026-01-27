@@ -127,11 +127,6 @@
     contents:
       - id: MobGoatAdult
       - id: MobBuckAdult
-  - type: EntityTableContainerFill
-    containers:
-      entity_storage: !type:AllSelector
-        children:
-        - id: MobBananaDeer
 
 - type: entity
   id: CrateNPCPompom
