@@ -46,3 +46,24 @@
           amount: 1
         - id: ClothingHeadHatGreenEscoffion
           amount: 1
+    
+- type: entity
+  id: CrateFunMagicianSet
+  parent: CratePirate
+  name: magician's crate
+  description: A chest containing a set of magician's clothing. Put on a dazzling show!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+       children:
+       - id: ClothingUniformJumpsuitTailcoatSuit
+         amount: 1
+       - id: ClothingEyesGlassesWhiteHalfMask
+         amount: 1
+       - id: ClothingHeadHatMagician
+         amount: 1
+       - id: ClothingShoesKneeHighBoots
+         amount: 1
+       - id: ClothingNeckCloakMagicianCape
+         amount: 1
