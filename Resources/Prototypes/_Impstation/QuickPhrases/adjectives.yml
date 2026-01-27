@@ -1,335 +1,365 @@
 - type: quickPhrase
-  id: BaseAdjectivesImp
+  id: BaseAdjectives
   tab: Adjectives
   abstract: true
 
 - type: quickPhrase
-  id: BaseAdjectivesImpStatus
-  parent: BaseAdjectivesImp
+  id: BaseAdjectivesStatus
+  parent: BaseAdjectives
   group: Health status
   abstract: true
 
 - type: quickPhrase
-  id: BaseAdjectivesImpColours
-  parent: BaseAdjectivesImp
+  id: BaseAdjectivesColours
+  parent: BaseAdjectives
   group: Colours
   abstract: true
 
 - type: quickPhrase
-  id: BaseAdjectivesImpFeelings
-  parent: BaseAdjectivesImp
+  id: BaseAdjectivesFeelings
+  parent: BaseAdjectives
   group: Feelings
   abstract: true
 
 # basic
 
 - type: quickPhrase
-  id: SlowPhrase
-  parent: BaseAdjectivesImp
+  id: SlowPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-slow
 
 - type: quickPhrase
-  id: FastPhrase
-  parent: BaseAdjectivesImp
+  id: FastPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-fast
 
 - type: quickPhrase
-  id: StrongPhrase
-  parent: BaseAdjectivesImp
+  id: StrongPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-strong
 
 - type: quickPhrase
-  id: LoudPhrase
-  parent: BaseAdjectivesImp
+  id: LoudPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-loud
 
 - type: quickPhrase
-  id: QuietPhrase
-  parent: BaseAdjectivesImp
+  id: QuietPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-quiet
 
 - type: quickPhrase
-  id: RoundPhrase
-  parent: BaseAdjectivesImp
+  id: RoundPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-round
 
 - type: quickPhrase
-  id: SquarePhrase
-  parent: BaseAdjectivesImp
+  id: SquarePhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-square
 
 - type: quickPhrase
-  id: TrianglePhrase
-  parent: BaseAdjectivesImp
+  id: TrianglePhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-triangle
 
 - type: quickPhrase
-  id: OldPhrase
-  parent: BaseAdjectivesImp
+  id: OldPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-old
 
 - type: quickPhrase
-  id: NewPhrase
-  parent: BaseAdjectivesImp
+  id: NewPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-new
 
 - type: quickPhrase
-  id: WeirdPhrase
-  parent: BaseAdjectivesImp
+  id: WeirdPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-weird
 
 - type: quickPhrase
-  id: NormalPhrase
-  parent: BaseAdjectivesImp
+  id: NormalPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-normal
 
 - type: quickPhrase
-  id: BrightPhrase
-  parent: BaseAdjectivesImp
+  id: BrightPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-bright
 
 - type: quickPhrase
-  id: DarkPhrase
-  parent: BaseAdjectivesImp
+  id: DarkPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-dark
 
 - type: quickPhrase
-  id: OkPhrase
-  parent: BaseAdjectivesImp
+  id: OkPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-ok
 
 - type: quickPhrase
-  id: GoodPhrase
-  parent: BaseAdjectivesImp
+  id: GoodPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-good
 
 - type: quickPhrase
-  id: BadPhrase
-  parent: BaseAdjectivesImp
+  id: BadPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-bad
 
 - type: quickPhrase
-  id: LostPhrase
-  parent: BaseAdjectivesImp
+  id: LostPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-lost
 
 - type: quickPhrase
-  id: FoundPhrase
-  parent: BaseAdjectivesImp
+  id: FoundPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-found
 
 - type: quickPhrase
-  id: DangerousPhrase
-  parent: BaseAdjectivesImp
+  id: DangerousPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-dangerous
 
 - type: quickPhrase
-  id: SafePhrase
-  parent: BaseAdjectivesImp
+  id: SafePhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-safe
 
 - type: quickPhrase
-  id: OnPhrase
-  parent: BaseAdjectivesImp
+  id: OnPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-on
 
 - type: quickPhrase
-  id: OffPhrase
-  parent: BaseAdjectivesImp
+  id: OffPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-off
 
 - type: quickPhrase
-  id: FreePhrase
-  parent: BaseAdjectivesImp
+  id: FreePhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-free
 
 - type: quickPhrase
-  id: TrappedPhrase
-  parent: BaseAdjectivesImp
+  id: TrappedPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-trapped
 
 - type: quickPhrase
-  id: BigPhrase
-  parent: BaseAdjectivesImp
+  id: BigPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-big
 
 - type: quickPhrase
-  id: SmallPhrase
-  parent: BaseAdjectivesImp
+  id: SmallPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-small
 
 - type: quickPhrase
-  id: BrokenPhrase
-  parent: BaseAdjectivesImp
+  id: BrokenPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-broken
 
 - type: quickPhrase
-  id: InnocentPhrase
-  parent: BaseAdjectivesImp
+  id: InnocentPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-innocent
 
 - type: quickPhrase
-  id: GuiltyPhrase
-  parent: BaseAdjectivesImp
+  id: GuiltyPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-guilty
 
 - type: quickPhrase
-  id: LethalPhrase
-  parent: BaseAdjectivesImp
+  id: LethalPhraseImp
+  parent: BaseAdjectives
   text: imp-phrase-ad-lethal
 
 - type: quickPhrase
-  id: NonLethalPhrase
-  parent: BaseAdjectivesImp
-  text: imp-phrase-ad-nonlethal
+  id: SpacedPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-ad-spaced
 
 - type: quickPhrase
-  id: SpacedPhrase
-  parent: BaseAdjectivesImp
-  text: imp-phrase-ad-spaced
+  id: SoftPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-ad-soft
+
+- type: quickPhrase
+  id: SharpPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-ad-sharp
+
+- type: quickPhrase
+  id: HardPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-ad-hard
+
+- type: quickPhrase
+  id: ScaryPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-ad-scary
+
+- type: quickPhrase
+  id: ComfortingPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-ad-comforting
+
+- type: quickPhrase
+  id: PainfulPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-ad-painful
+
+- type: quickPhrase
+  id: BeautifulPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-ad-beautiful
+
+- type: quickPhrase
+  id: HandsomePhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-ad-handsome
+
+- type: quickPhrase
+  id: KindPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-ad-kind
+
+- type: quickPhrase
+  id: CruelPhraseImp
+  parent: BaseAdjectives
+  text: imp-phrase-ad-cruel
 
 # health status
 
 - type: quickPhrase
-  id: InjuredPhrase
-  parent: BaseAdjectivesImpStatus
+  id: InjuredPhraseImp
+  parent: BaseAdjectivesStatus
   text: imp-phrase-ad-injured
 
 - type: quickPhrase
-  id: BleedingPhrase
-  parent: BaseAdjectivesImpStatus
+  id: BleedingPhraseImp
+  parent: BaseAdjectivesStatus
   text: imp-phrase-ad-bleeding
 
 - type: quickPhrase
-  id: MutePhrase
-  parent: BaseAdjectivesImpStatus
-  text: imp-phrase-ad-mute
-
-- type: quickPhrase
-  id: BlindPhrase
-  parent: BaseAdjectivesImpStatus
-  text: imp-phrase-ad-blind
-
-- type: quickPhrase
-  id: DeafPhrase
-  parent: BaseAdjectivesImpStatus
-  text: imp-phrase-ad-deaf
-
-- type: quickPhrase
-  id: AlivePhrase
-  parent: BaseAdjectivesImpStatus
+  id: AlivePhraseImp
+  parent: BaseAdjectivesStatus
   text: imp-phrase-ad-alive
 
 - type: quickPhrase
-  id: DeadPhrase
-  parent: BaseAdjectivesImpStatus
+  id: DeadPhraseImp
+  parent: BaseAdjectivesStatus
   text: imp-phrase-ad-dead
 
 - type: quickPhrase
-  id: RottenPhrase
-  parent: BaseAdjectivesImpStatus
+  id: RottenPhraseImp
+  parent: BaseAdjectivesStatus
   text: imp-phrase-ad-rotten
 
 - type: quickPhrase
-  id: FullHPPhrase
-  parent: BaseAdjectivesImpStatus
+  id: FullHPPhraseImp
+  parent: BaseAdjectivesStatus
   text: imp-phrase-ad-fullhp
 
 - type: quickPhrase
-  id: CritPhrase
-  parent: BaseAdjectivesImpStatus
+  id: CritPhraseImp
+  parent: BaseAdjectivesStatus
   text: imp-phrase-ad-crit
 
 - type: quickPhrase
-  id: SSDPhrase
-  parent: BaseAdjectivesImpStatus
+  id: SSDPhraseImp
+  parent: BaseAdjectivesStatus
   text: imp-phrase-ad-ssd
-
-- type: quickPhrase
-  id: DNRPhrase
-  parent: BaseAdjectivesImpStatus
-  text: imp-phrase-ad-dnr
 
 # colours
 
 - type: quickPhrase
-  id: RedPhrase
-  parent: BaseAdjectivesImpColours
+  id: RedPhraseImp
+  parent: BaseAdjectivesColours
   text: imp-phrase-ad-red
 
 - type: quickPhrase
-  id: OrangePhrase
-  parent: BaseAdjectivesImpColours
+  id: OrangePhraseImp
+  parent: BaseAdjectivesColours
   text: imp-phrase-ad-orange
 
 - type: quickPhrase
-  id: YellowPhrase
-  parent: BaseAdjectivesImpColours
+  id: YellowPhraseImp
+  parent: BaseAdjectivesColours
   text: imp-phrase-ad-yellow
 
 - type: quickPhrase
-  id: GreenPhrase
-  parent: BaseAdjectivesImpColours
+  id: GreenPhraseImp
+  parent: BaseAdjectivesColours
   text: imp-phrase-ad-green
 
 - type: quickPhrase
-  id: BluePhrase
-  parent: BaseAdjectivesImpColours
+  id: BluePhraseImp
+  parent: BaseAdjectivesColours
   text: imp-phrase-ad-blue
 
 - type: quickPhrase
-  id: IndigoPhrase
-  parent: BaseAdjectivesImpColours
+  id: IndigoPhraseImp
+  parent: BaseAdjectivesColours
   text: imp-phrase-ad-indigo
 
 - type: quickPhrase
-  id: VioletPhrase
-  parent: BaseAdjectivesImpColours
+  id: VioletPhraseImp
+  parent: BaseAdjectivesColours
   text: imp-phrase-ad-violet
 
 - type: quickPhrase
-  id: RainbowPhrase
-  parent: BaseAdjectivesImpColours
+  id: RainbowPhraseImp
+  parent: BaseAdjectivesColours
   text: imp-phrase-ad-rainbow
 
 - type: quickPhrase
-  id: BlackPhrase
-  parent: BaseAdjectivesImpColours
+  id: BlackPhraseImp
+  parent: BaseAdjectivesColours
   text: imp-phrase-ad-black
 
 - type: quickPhrase
-  id: WhitePhrase
-  parent: BaseAdjectivesImpColours
+  id: WhitePhraseImp
+  parent: BaseAdjectivesColours
   text: imp-phrase-ad-white
 
 # feelings
 
 - type: quickPhrase
-  id: LikePhrase
-  parent: BaseAdjectivesImpFeelings
+  id: LikePhraseImp
+  parent: BaseAdjectivesFeelings
   text: imp-phrase-ad-like
 
 - type: quickPhrase
-  id: HatePhrase
-  parent: BaseAdjectivesImpFeelings
+  id: HatePhraseImp
+  parent: BaseAdjectivesFeelings
   text: imp-phrase-ad-hate
 
 - type: quickPhrase
-  id: HappyPhrase
-  parent: BaseAdjectivesImpFeelings
+  id: LovePhraseImp
+  parent: BaseAdjectivesFeelings
+  text: imp-phrase-ad-love
+
+- type: quickPhrase
+  id: HappyPhraseImp
+  parent: BaseAdjectivesFeelings
   text: imp-phrase-ad-happy
 
 - type: quickPhrase
-  id: SadPhrase
-  parent: BaseAdjectivesImpFeelings
+  id: SadPhraseImp
+  parent: BaseAdjectivesFeelings
   text: imp-phrase-ad-sad
 
 - type: quickPhrase
-  id: AngryPhrase
-  parent: BaseAdjectivesImpFeelings
+  id: AngryPhraseImp
+  parent: BaseAdjectivesFeelings
   text: imp-phrase-ad-angry
 
 - type: quickPhrase
-  id: ScaredPhrase
-  parent: BaseAdjectivesImpFeelings
+  id: ScaredPhraseImp
+  parent: BaseAdjectivesFeelings
   text: imp-phrase-ad-scared
