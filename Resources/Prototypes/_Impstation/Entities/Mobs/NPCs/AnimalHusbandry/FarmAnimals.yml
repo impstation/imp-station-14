@@ -7,6 +7,7 @@
   id: MobCowBase
   description: Moo.
   components:
+  - type: Bloodstream
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
@@ -81,6 +82,7 @@
   id: MobCowBaby
   description: Moo. But smaller.
   components:
+  - type: Bloodstream
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
@@ -136,6 +138,7 @@
   id: MobBullBase
   description: Mooscle.
   components:
+  - type: Bloodstream
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
@@ -210,6 +213,7 @@
   id: MobBullBaby
   description: Mooscle. But smaller.
   components:
+  - type: Bloodstream
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
@@ -323,6 +327,7 @@
   abstract: true
   description: Watch where you walk!
   components:
+  - type: Bloodstream
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
@@ -416,6 +421,7 @@
   description: Oink.
   abstract: true
   components:
+  - type: Bloodstream
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
@@ -493,6 +499,7 @@
   description: Oink.
   abstract: true
   components:
+  - type: Bloodstream
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
@@ -596,6 +603,7 @@
   id: MobGoatBase
   description: Baa.
   components:
+  - type: Bloodstream
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
@@ -701,6 +709,7 @@
   id: MobGoatInfantBase
   description: Baa.
   components:
+  - type: Bloodstream
     bloodReferenceSolution:
       reagents:
       - ReagentId: Blood
