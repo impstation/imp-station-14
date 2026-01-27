@@ -30,6 +30,4 @@
             - !type:TargetInRangePrecondition
               targetKey: Target
               rangeKey: MeleeRange
-          operator: !type:BreedOperator
-          targetKey: Target
-          idleKey: MaximumIdleTime      
+          operator: !type:BreedOperator  
