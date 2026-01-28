@@ -87,6 +87,4 @@ public sealed partial class PleebnarTelepathyWindow : FancyWindow
         // Reset scroll bar so they can see the relevant results.
         VisionScrollbar.SetScrollValue(Vector2.Zero);
     }
-
-
 }
