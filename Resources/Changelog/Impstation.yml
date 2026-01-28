@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: wendyribstonpippin
-  changes:
-  - message: Military Jargon speakers will keep getting worse until morale improves
-    type: Tweak
-  id: 2082
-  time: '2025-07-26T10:23:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3165
-- author: HatBun, TheLuggage05
-  changes:
-  - message: Added tarot cards. Find them in your trinkets, the PietyVend, or a hacked
-      Good Clean Fun!
-    type: Add
-  id: 2083
-  time: '2025-07-26T22:50:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3150
-- author: widgetbeck
-  changes:
-  - message: Removed a rare salvage ruins spawn.
-    type: Remove
-  id: 2084
-  time: '2025-07-26T22:50:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3174
 - author: formlessnameless
   changes:
   - message: Empty eyes lists should no longer stop rounds from firing.
@@ -4131,7 +4109,8 @@
   url: https://github.com/impstation/imp-station-14/pull/3942
 - author: sev7ves
   changes:
-  - message: The time between rounds has been reduced to 12:30 minutes. Round end time halved to 2:30 minutes.
+  - message: The time between rounds has been reduced to 12:30 minutes. Round end
+      time halved to 2:30 minutes.
     type: Tweak
   id: 2578
   time: '2026-01-27T23:15:20.0000000+00:00'
@@ -4157,3 +4136,25 @@
   id: 2581
   time: '2026-01-28T19:59:21.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3973
+- author: FlippenPage
+  changes:
+  - message: medium now actually works as advertised.
+    type: Fix
+  id: 2582
+  time: '2026-01-28T22:05:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3746
+- author: ComedyIdiot
+  changes:
+  - message: weh.wmv found dead in the streets.
+    type: Remove
+  id: 2583
+  time: '2026-01-28T22:08:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4044
+- author: mousesweater
+  changes:
+  - message: lobby arts have been pruned to fit current design principles. you served
+      well o7
+    type: Remove
+  id: 2584
+  time: '2026-01-28T22:08:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4009
