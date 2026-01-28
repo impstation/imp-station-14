@@ -54,8 +54,10 @@
         layer:
         - MobLayer
   - type: Bloodstream
-    bloodMaxVolume: 75
-    bloodReagent: Anomalium
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Anomalium
+        Quantity: 75
   - type: InteractionPopup
     successChance: 0.1
     interactSuccessString: petting-success-anomalite
@@ -199,17 +201,18 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: AnomalitePyroclastic
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 0
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold: 0.1
-    specificHeat: 42
     heatDamage:
       types:
         Heat: 0.0
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
   - type: PointLight
     radius: 2
     energy: 1
@@ -298,17 +301,18 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: AnomaliteIce
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 0
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold: 0.0
-    specificHeat: 42
     heatDamage:
       types:
         Heat: 1.5
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
   - type: PointLight
     radius: 2
     energy: 1

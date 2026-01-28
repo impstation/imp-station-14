@@ -31,12 +31,16 @@
     tags:
       - DroneUsable
       - PowerCell
-  - type: Appearance
-  - type: PowerCellVisuals
   - type: Riggable
-  - type: HitscanBatteryAmmoProvider #imp
-    proto: RedLightLaser #imp
-    fireCost: 50 #imp
+  - type: Appearance
+  - type: BatteryVisuals
+  - type: GenericVisualizer
+    visuals:
+      enum.BatteryVisuals.State:
+        enum.PowerCellVisualLayers.Unshaded:
+          Full: {visible: true, state: o2}
+          Neither: {visible: true, state: o1}
+          Empty: {visible: false}
 
 - type: entity
   name: potato battery
@@ -288,7 +292,7 @@
   - type: Tag
     tags:
       - PowerCage
-  - type: HitscanBatteryAmmoProvider #imp
+  - type: BatteryAmmoProvider #imp
     proto: RedShuttleLaser #imp
     fireCost: 150 #imp
   - type: ClothingSpeedModifier
