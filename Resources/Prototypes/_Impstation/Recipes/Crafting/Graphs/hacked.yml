@@ -1,17 +1,27 @@
-
 - type: constructionGraph
-  id: AACTabletHacked
+  id: AACHack
   start: start
   graph:
-    - node: start
-      edges:
-        - to: aac_tablet
-          steps:
-            - material: AACTablet
-              amount: 1
-              doAfter: 5
-            - material: Wirecutter
-              amount: 1
-              doAfter: 8
-    - node: aac_tablet
-      entity: AACTabletHacked
+  - node: start
+    entity: AACTablet
+    edges:
+    - to: hacked
+      steps:
+      - tool: Cutting
+        doAfter: 5
+  - node: hacked
+    entity: AACTabletHacked
+
+- type: constructionGraph
+  id: AACUnHack
+  start: start
+  graph:
+  - node: start
+    entity: AACTabletHacked
+    edges:
+    - to: hacked
+      steps:
+      - tool: Cutting
+        doAfter: 5
+  - node: hacked
+    entity: AACTablet
