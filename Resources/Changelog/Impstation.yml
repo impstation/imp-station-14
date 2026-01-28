@@ -1,126 +1,4 @@
 ﻿Entries:
-- author: Kandiyaki
-  changes:
-  - message: the ash ascension ritual is now functional again.
-    type: Fix
-  id: 2067
-  time: '2025-07-25T11:28:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3070
-- author: widgetbeck
-  changes:
-  - message: Added several grids from the salvage magnet pool to the roundstart wrecks
-      pool to increase variety.
-    type: Add
-  - message: Added a "rare ruins" pool, which will spawn one grid from its pool in
-      50% of rounds. The (previously removed) flagship is one of these.
-    type: Add
-  - message: Upped the amounts of both static and randomly-generated roundstart wrecks,
-      and increased the radius they can spawn within.
-    type: Tweak
-  id: 2068
-  time: '2025-07-25T11:28:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3101
-- author: msTheowo
-  changes:
-  - message: Strange pills have random sprites
-    type: Tweak
-  id: 2069
-  time: '2025-07-25T11:28:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3077
-- author: jtfg-dev
-  changes:
-  - message: Basically every sign has a new description.
-    type: Tweak
-  id: 2070
-  time: '2025-07-25T11:29:00.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2952
-- author: DinnerCalzone
-  changes:
-  - message: Laughter AKA clown spider blood can now appear in roundstart puddles
-      and is a little slipperier.
-    type: Add
-  id: 2071
-  time: '2025-07-25T11:29:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2983
-- author: Oberonics
-  changes:
-  - message: Mute people can now express their fear.
-    type: Tweak
-  id: 2072
-  time: '2025-07-25T11:29:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3038
-- author: lichpassing
-  changes:
-  - message: New lobby art featuring the consequence of science's actions (to everyone
-      but science)
-    type: Add
-  id: 2073
-  time: '2025-07-25T11:29:03.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3139
-- author: Stonylogray
-  changes:
-  - message: Free agent ghost role text edited for clarification.
-    type: Tweak
-  id: 2074
-  time: '2025-07-25T11:29:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3148
-- author: astral_amy
-  changes:
-  - message: A third round of Whisper changes - details in PR.
-    type: Tweak
-  id: 2075
-  time: '2025-07-25T11:29:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3146
-- author: sgp10, formlessnameless, dayn-e, mqole
-  changes:
-  - message: changelog fixed finally. Some things might be in a weird order, but it
-      should all be there now!
-    type: Fix
-  id: 2076
-  time: '2025-07-25T13:34:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3162
-- author: youtubevideo3
-  changes:
-  - message: More new clothes for musician. You can look even better while standing
-      around and playing MIDI.
-    type: Add
-  id: 2077
-  time: '2025-07-26T09:30:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3160
-- author: hivehum
-  changes:
-  - message: Kodepiia are hungrier.
-    type: Tweak
-  id: 2078
-  time: '2025-07-26T09:34:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3164
-- author: astral_amy
-  changes:
-  - message: Whisper station is now in rotation.
-    type: Add
-  - message: A few final Whisper tweaks, listed in the PR.
-    type: Tweak
-  id: 2079
-  time: '2025-07-26T09:52:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3167
-- author: Jellvisk
-  changes:
-  - message: Added the Steel Wood Wall and reinforced variant. Shove some wood in
-      your steel girders today!
-    type: Add
-  - message: Wood Wall has been re-sprited.
-    type: Tweak
-  id: 2080
-  time: '2025-07-26T10:08:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3168
-- author: hivehum, FoxxoTrystan, portfiend
-  changes:
-  - message: Prize tickets now have a use! Redeem them for toys from the brand new
-      prize counter!
-    type: Add
-  id: 2081
-  time: '2025-07-26T10:21:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3138
 - author: wendyribstonpippin
   changes:
   - message: Military Jargon speakers will keep getting worse until morale improves
@@ -4167,3 +4045,115 @@
   id: 2566
   time: '2026-01-21T02:59:37.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4025
+- author: yesteryuri
+  changes:
+  - message: The zombie infection deals cellular damage again
+    type: Fix
+  id: 2567
+  time: '2026-01-23T02:00:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4024
+- author: mqole
+  changes:
+  - message: Its an Upmerge again! Check the upstream changelog for all details.
+    type: Add
+  - message: Several recipes that use blood have been modified to require stirring.
+    type: Tweak
+  id: 2568
+  time: '2026-01-23T01:33:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3971
+- author: Ecramox
+  changes:
+  - message: Shuttle and Steel Maint tiles are now officially good
+    type: Tweak
+  id: 2569
+  time: '2026-01-23T02:01:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4016
+- author: msTheowo
+  changes:
+  - message: You can get guns in the mail now.
+    type: Add
+  id: 2570
+  time: '2026-01-24T16:31:32.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4036
+- author: youtubevideo3
+  changes:
+  - message: Ungu have a few more unique clothing sprites! Please for the love of
+      god help me
+    type: Tweak
+  id: 2571
+  time: '2026-01-25T01:40:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4031
+- author: youtubevideo3
+  changes:
+  - message: The invisible bells attached to the jokester shoes have been removed.
+    type: Tweak
+  id: 2572
+  time: '2026-01-25T01:44:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4021
+- author: msTheowo
+  changes:
+  - message: Expert mimes can now start with silent chaplain clothing.
+    type: Add
+  id: 2573
+  time: '2026-01-25T02:11:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4017
+- author: mhachimagus
+  changes:
+  - message: Cargo can now order a magician's crate for a dashing new outfit.
+    type: Add
+  - message: Top hats are just a little bit fancier.
+    type: Tweak
+  id: 2574
+  time: '2026-01-25T18:19:55.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4010
+- author: VeeNomine
+  changes:
+  - message: Added petting interactions to Decapoid Silicons
+    type: Add
+  - message: Fixed not being able to pet derelict cyborgs. Now you can!
+    type: Fix
+  id: 2575
+  time: '2026-01-25T20:51:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3988
+- author: VeeNomine
+  changes:
+  - message: the compact defibrillator can now be purchased at a high price from cargo.
+    type: Add
+  id: 2576
+  time: '2026-01-25T20:56:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3631
+- author: ATDoop
+  changes:
+  - message: Anomalocarids now have sprites for every winter coat hood!
+    type: Add
+  id: 2577
+  time: '2026-01-26T05:28:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3942
+- author: sev7ves
+  changes:
+  - message: The time between rounds has been reduced to 12:30 minutes. Round end time halved to 2:30 minutes.
+    type: Tweak
+  id: 2578
+  time: '2026-01-27T23:15:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4045
+- author: ATDoop
+  changes:
+  - message: Anomalocarids have 12 more markings! (mostly antennae)
+    type: Add
+  id: 2579
+  time: '2026-01-28T19:23:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3945
+- author: Simul-ad-Astra
+  changes:
+  - message: Crew have been reporting passengers adopting a new station pet
+    type: Add
+  id: 2580
+  time: '2026-01-28T19:35:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4047
+- author: ATDoop
+  changes:
+  - message: The pirate captain's hardsuit has been resprited!
+    type: Tweak
+  id: 2581
+  time: '2026-01-28T19:59:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3973

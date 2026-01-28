@@ -403,6 +403,13 @@
   - type: IonStormTarget
     chance: 1
   - type: ShowJobIcons
+  # imp edit start
+  - type: InteractionPopup
+    interactSuccessString: petting-success-derelict-cyborg
+    interactFailureString: petting-failure-derelict-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  # imp edit end
 
 - type: entity
   id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
@@ -444,6 +451,11 @@
   # imp edit start
   - type: TypingIndicator
     proto: syndibot
+  - type: InteractionPopup
+    interactSuccessString: petting-success-syndicate-cyborg
+    interactFailureString: petting-failure-syndicate-cyborg
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
   # imp edit end
 
 - type: entity
