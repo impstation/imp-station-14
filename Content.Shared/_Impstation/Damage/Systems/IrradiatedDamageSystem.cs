@@ -31,13 +31,13 @@ public sealed partial class RadiationDamageModifierSystem : EntitySystem
             //Logic to be done if entity has a MobState
             if (hasMobState && mobState != null)
             {
-                var allowedStatesDict = ent.Comp.AllowedStates;
-                //If a list of allowed states isn't set, apply no health change for this damage type and continue the for loop
-                if (!allowedStatesDict.TryGetValue(typeId.Key, out var allowedStates))
+                var allowedStatesDict = ent.Comp.AllowedTypesByState;
+                //If a list of allowed types isn't set for the entity's current state, apply no health change for this damage type and continue the for loop
+                if (!allowedStatesDict.TryGetValue(mobState.CurrentState, out var allowedTypes))
                     continue;
 
-                //If the current mob state does not match an allowed state, apply no health change for this damage type and continue the for loop
-                if (!allowedStates.Contains(mobState.CurrentState))
+                //If the current mob state does not allow for the specified type, apply no health change for this damage type and continue the for loop
+                if (!allowedTypes.Contains(typeId.Key))
                     continue;
             }
 

@@ -116,10 +116,27 @@
       SynthFlesh: 20
       Saline: 20
   - type: IrradiatedDamage
-    radiationDamageCoefficients:
-      Blunt: -1.0
-      Slash: -1.0
-      Piercing: -1.0
+    #8% of rads is converted to healing per type
+    #1 full stack of uranium sheets in your inventory is just under .3 rads, resulting in 1.44 healing per type per minute, .04 more healing than from PassiveDamage component
+    damageCoefficients:
+      Blunt: -0.08
+      Slash: -0.08
+      Piercing: -0.08
+    #capped at 10.2 healing per minute per type, which is reached at 2 rads per second
+    #essentially a full duffel bag of uranium sheets, being near a couple uranium crabs, or being near the supermatter without protection
+    damageLimits:
+      Blunt: -0.17
+      Slash: -0.17
+      Piercing: -0.17
+    allowedTypesByState: #does not allow for healing when dead. a little messy looking, but allows for the most flexibility
+      Alive:
+      - Blunt
+      - Slash
+      - Piercing
+      Critical:
+      - Blunt
+      - Slash
+      - Piercing
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -37,21 +37,23 @@ public sealed partial class IrradiatedDamageComponent : Component
     };
 
     /// <summary>
-    /// The valid mob states for damage to be applied to an entity per damage type.
-    /// For example, this could let an entity heal brute damage only when alive while still causing radiation damage when dead.
-    /// If an entity does not have a <see cref="MobState"/>, the contents of this dictionary are ignored.
-    /// </summary>
-    [DataField]
-    public Dictionary<ProtoId<DamageTypePrototype>, List<MobState>> AllowedStates = new()
-    {
-        { "Radiation", new List<MobState> {MobState.Alive, MobState.Critical, MobState.Dead} }
-    };
-
-    /// <summary>
     /// The maximum damage change per <see cref="OnIrradiatedEvent"/> for the specified damage types.
     /// A negative value here will limit healing.
     /// If a type is missing or is set to 0, damage per <see cref="OnIrradiatedEvent"/> will not have an upper limit
     /// </summary>
     [DataField]
     public Dictionary<ProtoId<DamageTypePrototype>, FixedPoint2> DamageLimits = new();
+
+    /// <summary>
+    /// The valid damage types to be applied per MobState.
+    /// For example, this could let an entity heal brute damage only when alive while still causing radiation damage when dead.
+    /// If an entity does not have a <see cref="MobState"/>, the contents of this dictionary are ignored.
+    /// </summary>
+    [DataField]
+    public Dictionary<MobState, List<ProtoId<DamageTypePrototype>>> AllowedTypesByState = new()
+    {
+        {MobState.Alive, new List<ProtoId<DamageTypePrototype>> {"Radiation"}},
+        {MobState.Critical, new List<ProtoId<DamageTypePrototype>> {"Radiation"}},
+        {MobState.Dead, new List<ProtoId<DamageTypePrototype>> {"Radiation"}}
+    };
 }
