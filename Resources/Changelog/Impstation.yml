@@ -1,19 +1,4 @@
 ﻿Entries:
-- author: formlessnameless
-  changes:
-  - message: Empty eyes lists should no longer stop rounds from firing.
-    type: Fix
-  id: 2085
-  time: '2025-07-27T02:06:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3176
-- author: EpicToast
-  changes:
-  - message: Box Station's orbit around EXO-3416 has begun decaying, further shifts
-      will not be issued until orbit has been recovered.
-    type: Remove
-  id: 2086
-  time: '2025-07-27T21:13:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3180
 - author: youtubevideo3
   changes:
   - message: You will no longer wear fancy gloves on your head.
@@ -4158,3 +4143,31 @@
   id: 2584
   time: '2026-01-28T22:08:28.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4009
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Removed all evidence of the Estoc being a thing in the TC Shop.
+    type: Remove
+  - message: The Ammo Bundle's contents have been adjusted and its description reflects
+      this.
+    type: Tweak
+  - message: The Echion Synthesizer's price has been adjusted.
+    type: Tweak
+  id: 2585
+  time: '2026-01-28T22:36:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4034
+- author: TheGrimbeeper
+  changes:
+  - message: Natural artifacts are now top-down on the analysis console graph, so
+      'down to deeper nodes' makes sense once more.
+    type: Tweak
+  - message: Artifacts couldn't animate things... now they can once more. Watch out
+      for the junk on the ground scientists!
+    type: Fix
+  - message: Some drink trigger hints or requirements have been tweaked slightly to
+      be easier.
+    type: Tweak
+  - message: Other miscellaneous artifact effect tweaks. see PR for more info.
+    type: Tweak
+  id: 2586
+  time: '2026-01-28T22:36:57.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3934
