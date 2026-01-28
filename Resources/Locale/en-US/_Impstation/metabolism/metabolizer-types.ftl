@@ -8,8 +8,6 @@ metabolizer-type-thaven = Thaven
 
 metabolizer-type-kodepiia = Kodepiia
 
-metabolizer-type-pleebnar = Pleebnar
-
 metabolizer-type-allulalo = Allulalo
 
 metabolizer-type-anomalocarid = Anomalocarid
