@@ -1113,6 +1113,83 @@
       amount: 1
 
 - type: entity
+  parent: TippyTrumpMysteryPack
+  id: TippyTrumpMysteryPackSyndicate
+  suffix: Syndicate
+  name: TippyTrump mystery pack
+  description: Contains five random cards.
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: OpenTippyTrumpPackSyndicate
+
+- type: entity
+  id: OpenTippyTrumpPackSyndicate
+  suffix: syndicate
+  categories: [ HideSpawnMenu ]
+  parent: OpenTippyTrumpPack
+  name: TippyTrump mystery pack
+  description: Contains five random cards.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:GroupSelector
+        rolls: 5
+        children:
+        - id: TarantulaTippyTrumpcardSyndicate
+          weight: 0.82
+        - id: SpaceTickTippyTrumpcardSyndicate
+          weight: 0.82
+        - id: KillerTippyTrumpcardSyndicate
+          weight: 0.82
+        - id: HonkBotTippyTrumpcardSyndicate
+          weight: 0.15
+        - id: CarpTippyTrumpcardSyndicate
+          weight: 0.82
+        - id: SnakeTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: ClownSpiderTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: SEOFTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: FOESTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: SORBTippyTrumpcardSyndicate
+          weight: 0.82
+        - id: BROSTippyTrumpcardSyndicate
+          weight: 0.82
+        - id: BombadilidiidaeTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: SpaceKangarooTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: WatcherTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: SpaceBearTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: SpaceSnakeTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: LaserlessRaptorTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: LaserRaptorTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: RounyTippyTrumpcardSyndicate
+          weight: 0.15
+        - id: GrenadePenguinTippyTrumpcardSyndicate
+          weight: 0.15
+        - id: BasiliskTippyTrumpcardSyndicate
+          weight: 0.15
+        - id: GolaithTippyTrumpcardSyndicate
+          weight: 0.15
+        - id: HivelordTippyTrumpcardSyndicate
+          weight: 0.15
+        - id: BehonkerTippyTrumpcardSyndicate
+          weight: 0.03
+        - id: OrbBeeTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: DragonTippyTrumpcardSyndicate
+          weight: 0.03
+
+- type: entity
   parent: BaseItem
   id: TippyTrumpMysteryPack
   name: TippyTrump mystery pack
@@ -1333,6 +1410,28 @@
     - sprite: _EstacaoPirata/Objects/Misc/cards.rsi
       state: tt_back
     flipped: true
+  - type: Edible
+    delay: 7
+    forceFeedDelay: 7
+  - type: FlavorProfile
+    flavors:
+    - paper
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 1
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 1
+
+- type: entity
+  parent: CardBaseTippyTrump
+  id: CardBaseTippyTrumpSyndicate
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnLand
+  - type: DeleteOnTrigger
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1357,6 +1456,19 @@
     state: tt_gondal
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: GondalTippyTrumpcardSyndicate
+  suffix: Gondal, Syndicate, Admeme
+  components:
+  - type: Card
+    name: Gondal card. Robustness - 8, Validity - 1, Whimsy 9
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_gondal
+  - type: SpawnOnTrigger
+    proto: ImmovableRodGondal
+
+- type: entity
   parent: CardBaseTippyTrump
   id: VrexTippyTrumpcard
   suffix: V-Rex
@@ -1377,6 +1489,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_dragon
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: DragonTippyTrumpcardSyndicate
+  suffix: Dragon, Syndicate
+  components:
+  - type: Card
+    name: Dragon card. Robustness - 8, Validity - 9, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_dragon
+  - type: SpawnOnTrigger
+    proto: MobDragonDungeon
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1412,6 +1537,19 @@
     state: tt_orbbees
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: OrbBeeTippyTrumpcardSyndicate
+  suffix: Beeroboros, Syndicate
+  components:
+  - type: Card
+    name: Beeroboros card. Robustness - 1, Validity - 3, Whimsy 1
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_orbbees
+  - type: SpawnOnTrigger
+    proto: MobBeeroboros
+
+- type: entity
   parent: CardBaseTippyTrump
   id: BehonkerTippyTrumpcard
   suffix: Behonker
@@ -1421,6 +1559,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_behonker
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: BehonkerTippyTrumpcardSyndicate
+  suffix: Behonker, Syndicate
+  components:
+  - type: Card
+    name: Behonker card. Robustness - 7, Validity - 8, Whimsy 8
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_behonker
+  - type: SpawnOnTrigger
+    proto: SpawnMobBehonker
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1489,6 +1640,19 @@
     state: tt_hivelord
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: HivelordTippyTrumpcardSyndicate
+  suffix: Hivelord, Syndicate
+  components:
+  - type: Card
+    name: Hivelord card. Robustness - 5, Validity - 6, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_hivelord
+  - type: SpawnOnTrigger
+    proto: MobHivelord
+
+- type: entity
   parent: CardBaseTippyTrump
   id: GolaithTippyTrumpcard
   suffix: Golaith
@@ -1500,6 +1664,19 @@
     state: tt_golaith
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: GolaithTippyTrumpcardSyndicate
+  suffix: Golaith, Syndicate
+  components:
+  - type: Card
+    name: Golaith card. Robustness - 8, Validity - 6, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_golaith
+  - type: SpawnOnTrigger
+    proto: MobGoliath
+
+- type: entity
   parent: CardBaseTippyTrump
   id: BasiliskTippyTrumpcard
   suffix: Basilisk
@@ -1509,6 +1686,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_basilisk
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: BasiliskTippyTrumpcardSyndicate
+  suffix: Basilisk, Syndicate
+  components:
+  - type: Card
+    name: Basilisk card. Robustness - 6, Validity - 5, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_basilisk
+  - type: SpawnOnTrigger
+    proto: MobBasilisk
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1533,6 +1723,19 @@
     state: tt_penguin
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: GrenadePenguinTippyTrumpcardSyndicate
+  suffix: Grenade Penguin, Syndicate
+  components:
+  - type: Card
+    name: Grenade Penguin card. Robustness - 5, Validity - 5, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_penguin
+  - type: SpawnOnTrigger
+    proto: MobGrenadePenguin
+
+- type: entity
   parent: CardBaseTippyTrump
   id: RounyTippyTrumpcard
   suffix: Rouny
@@ -1542,6 +1745,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rouny
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: RounyTippyTrumpcardSyndicate
+  suffix: Rouny, Syndicate
+  components:
+  - type: Card
+    name: Rouny card. Robustness - 7, Validity - 7, Whimsy 7
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_rouny
+  - type: SpawnOnTrigger
+    proto: MobXenoRouny
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1577,6 +1793,19 @@
     state: tt_lr
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: LaserRaptorTippyTrumpcardSyndicate
+  suffix: Laser Raptor, Syndicate
+  components:
+  - type: Card
+    name: Laser Raptor. Robustness - 6, Validity - 5, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_lr
+  - type: SpawnOnTrigger
+    proto: MobLaserRaptor
+
+- type: entity
   parent: CardBaseTippyTrump
   id: LaserlessRaptorTippyTrumpcard
   suffix: Laser-less laser Raptor
@@ -1586,6 +1815,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_llr
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: LaserlessRaptorTippyTrumpcardSyndicate
+  suffix: Laser-less laser Raptor, Syndicate
+  components:
+  - type: Card
+    name: Laser-less laser Raptor card. Robustness - 1, Validity - 5, Whimsy 7
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_llr
+  - type: SpawnOnTrigger
+    proto: MobRaptor
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1599,6 +1841,19 @@
     state: tt_ssnake
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: SpaceSnakeTippyTrumpcardSyndicate
+  suffix: Space Snake, Syndicate
+  components:
+  - type: Card
+    name: Space Snake card. Robustness - 6, Validity - 8, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_ssnake
+  - type: SpawnOnTrigger
+    proto: MobCobraSpace
+
+- type: entity
   parent: CardBaseTippyTrump
   id: SpaceBearTippyTrumpcard
   suffix: Space Bear
@@ -1608,6 +1863,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_sbear
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: SpaceBearTippyTrumpcardSyndicate
+  suffix: Space Bear, Syndicate
+  components:
+  - type: Card
+    name: Space Bear card. Robustness - 6, Validity - 6, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_sbear
+  - type: SpawnOnTrigger
+    proto: MobBearSpace
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1621,6 +1889,19 @@
     state: tt_watcher
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: WatcherTippyTrumpcardSyndicate
+  suffix: Watcher, Syndicate
+  components:
+  - type: Card
+    name: Watcher card. Robustness - 4, Validity - 5, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_watcher
+  - type: SpawnOnTrigger
+    proto: MobWatcherMagmawing
+
+- type: entity
   parent: CardBaseTippyTrump
   id: SpaceKangarooTippyTrumpcard
   suffix: Space Kangaroo
@@ -1632,6 +1913,19 @@
     state: tt_sroo
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: SpaceKangarooTrumpcardSyndicate
+  suffix: Space Kangaroo, Syndicate
+  components:
+  - type: Card
+    name: Kangaroo card. Robustness - 6, Validity - 6, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_sroo
+  - type: SpawnOnTrigger
+    proto: MobKangarooSpace
+
+- type: entity
   parent: CardBaseTippyTrump
   id: BombadilidiidaeTippyTrumpcard
   suffix: Bombadilidiidae
@@ -1641,6 +1935,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_bomb
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: BombadilidiidaeTrumpcardSyndicate
+  suffix: Bombadilidiidae, Syndicate
+  components:
+  - type: Card
+    name: Bombadilidiidae card. Robustness - 5, Validity - 5, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_bomb
+  - type: SpawnOnTrigger
+    proto: MobBombadillo
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1665,6 +1972,19 @@
     state: tt_bros
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: BROSTrumpcardSyndicate
+  suffix: BROS, Syndicate
+  components:
+  - type: Card
+    name: BROS card. Robustness - 1, Validity - 3, Whimsy 5
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_bros
+  - type: SpawnOnTrigger
+    proto: MobBros
+
+- type: entity
   parent: CardBaseTippyTrump
   id: SORBTippyTrumpcard
   suffix: SORB
@@ -1674,6 +1994,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_sorb
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: SORBTrumpcardSyndicate
+  suffix: SORB, Syndicate
+  components:
+  - type: Card
+    name: SORB card. Robustness - 5, Validity - 3, Whimsy 1
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_sorb
+  - type: SpawnOnTrigger
+    proto: MobSorb
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1687,6 +2020,19 @@
     state: tt_foes
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: FOESTrumpcardSyndicate
+  suffix: FOES, Syndicate
+  components:
+  - type: Card
+    name: FOES card. Robustness - 2, Validity - 4, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_foes
+  - type: SpawnOnTrigger
+    proto: MobFoes
+
+- type: entity
   parent: CardBaseTippyTrump
   id: SEOFTippyTrumpcard
   suffix: SEOF
@@ -1696,6 +2042,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_seof
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: SEOFTrumpcardSyndicate
+  suffix: SEOF, Syndicate
+  components:
+  - type: Card
+    name: SEOF card. Robustness - 6, Validity - 4, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_seof
+  - type: SpawnOnTrigger
+    proto: Mobseof
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1709,6 +2068,19 @@
     state: tt_cspider
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: ClownSpiderTrumpcardSyndicate
+  suffix: Clown Spider, Syndicate
+  components:
+  - type: Card
+    name: Clown Spider card. Robustness - 7, Validity - 6, Whimsy 6
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_cspider
+  - type: SpawnOnTrigger
+    proto: MobClownSpider
+
+- type: entity
   parent: CardBaseTippyTrump
   id: SnakeTippyTrumpcard
   suffix: Snake
@@ -1720,6 +2092,19 @@
     state: tt_snake
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: SnakeTippyTrumpcardSyndicate
+  suffix: Snake, Syndicate
+  components:
+  - type: Card
+    name: Snake card. Robustness - 7, Validity - 7, Whimsy 1
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_snake
+  - type: SpawnOnTrigger
+    proto: MobPurpleSnake
+
+- type: entity
   parent: CardBaseTippyTrump
   id: CarpTippyTrumpcard
   suffix: Carp
@@ -1729,6 +2114,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_carp
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: CarpTippyTrumpcardSyndicate
+  suffix: Carp, Syndicate
+  components:
+  - type: Card
+    name: Space Carp card. Robustness - 4, Validity - 5, Whimsy 1
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_carp
+  - type: SpawnOnTrigger
+    proto: MobCarp
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1751,6 +2149,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_honkbot
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: HonkBotTippyTrumpcardSyndicate
+  suffix: HonkBot, Syndicate
+  components:
+  - type: Card
+    name: HonkBot card. Robustness - 2, Validity - 7, Whimsy 8
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_honkbot
+  - type: SpawnOnTrigger
+    proto: MobHonkBot
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -1786,6 +2197,19 @@
     state: tt_killer
 
 - type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: KillerTippyTrumpcardSyndicate
+  suffix: Killer, Syndicate
+  components:
+  - type: Card
+    name: Tomato Killer card. Robustness - 4, Validity - 4, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_killer
+  - type: SpawnOnTrigger
+    proto: MobTomatoKiller
+
+- type: entity
   parent: CardBaseTippyTrump
   id: CrabTippyTrumpcard
   suffix: Ore Crab
@@ -1817,6 +2241,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_tick
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: SpaceTickTippyTrumpcardSyndicate
+  suffix: Tick, Syndicate
+  components:
+  - type: Card
+    name: Space Tick card. Robustness - 4, Validity - 6, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_tick
+  - type: SpawnOnTrigger
+    proto: MobTickSalvage
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -2177,6 +2614,19 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rancho
+
+- type: entity
+  parent: CardBaseTippyTrumpSyndicate
+  id: TarantulaTippyTrumpcardSyndicate
+  suffix: Spider, Syndicate
+  components:
+  - type: Card
+    name: Tarantula card. Robustness - 5, Validity - 6, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_rancho
+  - type: SpawnOnTrigger
+    proto: MobGiantSpider
 
 - type: entity
   parent: CardBaseTippyTrump

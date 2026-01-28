@@ -520,6 +520,17 @@
 # ALLIES
 
 - type: listing
+  id: UplinkSyndieTrumps
+  name: uplink-syndietrumps-name
+  description: uplink-syndietrumps-desc
+  icon: { sprite: _EstacaoPirata/Objects/Misc/cards.rsi, state: pack }
+  productEntity: TippyTrumpMysteryPackSyndicate
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAllies
+
+- type: listing
   id: UplinkAnimalFriendsKit
   name: uplink-animal-friends-kit-name
   description: uplink-animal-friends-kit-desc
@@ -538,7 +549,7 @@
 
 # JOB
 
-- type: listing    
+- type: listing
   id: uplinkHotsauces
   name: uplink-hotsauces-name
   description: uplink-hotsauces-desc
