@@ -1,36 +1,4 @@
 ﻿Entries:
-- author: youtubevideo3
-  changes:
-  - message: You will no longer wear fancy gloves on your head.
-    type: Fix
-  id: 2087
-  time: '2025-07-27T21:12:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3179
-- author: wendyribstonpippin
-  changes:
-  - message: You can now talk like a knight. or a medieval peasant. archaic speech
-      is in!
-    type: Add
-  - message: the serf that had snuck into the military camp has been dealt with
-    type: Fix
-  id: 2088
-  time: '2025-07-27T23:45:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3171
-- author: Mousetrinity
-  changes:
-  - message: Pathway Station didn't pass inspection, so we had to send in our best
-      team to fix it up! See PR for details
-    type: Tweak
-  id: 2089
-  time: '2025-07-27T23:58:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3175
-- author: DinnerCalzone
-  changes:
-  - message: Plasma has been updated to feature genpop and a new TEG setup.
-    type: Add
-  id: 2090
-  time: '2025-07-29T08:51:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3188
 - author: Impstation, bear777, DOSRG, mqole
   changes:
   - message: 'Modifications to various server rules! Please read them joyfully. Specific
@@ -4171,3 +4139,34 @@
   id: 2586
   time: '2026-01-28T22:36:57.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3934
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Gun projectile speeds have been standardized!
+    type: Tweak
+  - message: All four projectiles in the M-1's lethal spread are now the same.
+    type: Fix
+  id: 2587
+  time: '2026-01-29T01:00:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4033
+- author: msTheowo
+  changes:
+  - message: Non-cargo crew cannot embezzle cargo's funds anymore.
+    type: Fix
+  id: 2588
+  time: '2026-01-29T01:05:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3767
+- author: TheGrimbeeper
+  changes:
+  - message: Fixed infinite TC & traitor objectives bug when mindswapping into a Traitor
+      Reinforcement or Syndicate Infiltraitor (or if they were polymorphed)
+    type: Fix
+  id: 2589
+  time: '2026-01-29T01:10:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4046
+- author: TheGrimbeeper
+  changes:
+  - message: Cockroaches may once again be targeted by sentience events.
+    type: Tweak
+  id: 2590
+  time: '2026-01-29T06:40:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4055
