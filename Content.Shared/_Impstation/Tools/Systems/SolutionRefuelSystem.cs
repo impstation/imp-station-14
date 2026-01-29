@@ -1,5 +1,6 @@
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -43,7 +44,6 @@ public abstract partial class SharedToolSystem
         capacity = fuelSolution.MaxVolume;
         return true;
     }
-
     private void SolutionRefuelExamine(Entity<SolutionRefuelComponent> entity, ref ExaminedEvent args)
     {
         using (args.PushGroup(nameof(SolutionRefuelComponent)))
@@ -70,7 +70,7 @@ public abstract partial class SharedToolSystem
 
         if (TryComp(target, out ReagentTankComponent? tank)
             && tank.TankType == ReagentTankType.Fuel
-            && SolutionContainerSystem.TryGetDrainableSolution(target, out var targetSoln, out var targetSolution)
+            && SolutionContainerSystem.TryGetFuelDrainSolution(target, out var targetSoln, out var targetSolution)
             && _whitelist.CheckBoth(entity, tank.FuelBlacklist, tank.FuelWhitelist)
             && SolutionContainerSystem.TryGetSolution(entity.Owner, entity.Comp.FuelSolutionName, out var solutionComp, out var welderSolution))
         {
@@ -78,7 +78,7 @@ public abstract partial class SharedToolSystem
             var trans = FixedPoint2.Min(welderSolution.AvailableVolume, targetSolution.Volume);
             if (trans > 0)
             {
-                var drained = SolutionContainerSystem.Drain(target, targetSoln.Value, trans);
+                var drained = SolutionContainerSystem.FuelDrain(target, targetSoln.Value, trans);
                 SolutionContainerSystem.TryAddSolution(solutionComp.Value, drained);
                 _audioSystem.PlayPredicted(entity.Comp.WelderRefill, entity, user: args.User);
                 _popup.PopupClient(Loc.GetString("welder-component-after-interact-refueled-message"), entity, args.User);
