@@ -214,8 +214,9 @@
   components:
   - type: Sprite
     state: sheetmime
+    sprite: _Impstation/Objects/Misc/bedsheet_mime.rsi #imp
   - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/mime.rsi
+    sprite: _Impstation/Clothing/Neck/Bedsheets/mime.rsi #imp
 
 - type: entity
   id: BedsheetNT
