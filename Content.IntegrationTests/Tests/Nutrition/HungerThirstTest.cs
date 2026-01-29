@@ -58,6 +58,18 @@ public sealed class HungerThirstTest : InteractionTest
         // We eat the food in hand
         await UseInHand();
 
+        // IMP START: we removed eating doafter auto-looping so you have to eat it more to actually delete it. sorry
+        var fullyEaten = false;
+        while (fullyEaten == false)
+        {
+            await AwaitDoAfters();
+            await UseInHand();
+
+            if (HandSys.GetActiveItem((SPlayer, Hands)) != null)
+                fullyEaten = true;
+        }
+        // IMP END
+
         // To see a change in hunger, we need to wait at least 30 seconds
         await RunSeconds(30);
 
