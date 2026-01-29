@@ -1,0 +1,11 @@
+﻿<BoxContainer
+    xmlns="https://spacestation14.io"
+    Orientation="Vertical"
+    VerticalExpand="true">
+    <RichTextLabel Name="InvalidAccNumberBox"
+                   Text="{Loc atm-invalid-account-number}"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   HorizontalExpand="True"
+                   VerticalExpand="True"/>
+</BoxContainer>

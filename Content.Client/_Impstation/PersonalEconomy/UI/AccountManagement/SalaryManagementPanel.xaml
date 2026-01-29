@@ -1,0 +1,20 @@
+﻿<BoxContainer
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.AccountManagement"
+    Orientation="Vertical">
+    <Label Name="TotalAllocationLabel" Text="Station Salary Allocation: "/>
+    <Label Name="CurrentSalaryLabel" Text="Current Salary Total: "/>
+    <Label Name="WageSlushFundAmountLabel" Text="Bonus Wage Amount: "/>
+    <Label Name="WageCutFromCargoAmountLabel" Text="Wage Cut From Cargo: "/>
+    <Label Name="TimeUntilNextPaymentLabel" Text="Time Until Next Payment: "/>
+    <BoxContainer VerticalExpand="True" HorizontalExpand="True" Orientation="Horizontal">
+        <ScrollContainer VerticalExpand="True" VScrollEnabled="True" HorizontalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="AccountInfoSelectorContainer">
+                <!-- filled out in-code -->
+            </BoxContainer>
+        </ScrollContainer>
+        <BoxContainer Name="AccountInfoDisplayContainer" VerticalExpand="True" HorizontalExpand="True">
+            <!-- filled out in-code after something from the scroller is selected-->
+        </BoxContainer>
+    </BoxContainer>
+</BoxContainer>
