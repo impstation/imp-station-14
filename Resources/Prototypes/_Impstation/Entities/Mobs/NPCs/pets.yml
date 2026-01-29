@@ -330,3 +330,148 @@
         Base: mascotgriffy
   - type: StealTarget
     stealGroup: AnimalMcGriff
+
+# JONNY TIME!!!!!!!
+- type: entity
+  name: Jonny Cockroach
+  id: MobCockroachJonnyBase
+  parent: MobCockroach
+  description: A friend to all those wearing gray.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Pets/jonny.rsi
+    state: cockroach
+  - type: RandomInsulation
+    list: # copied from ClothingHandsGlovesColorYellowBudget, doubled numbers are to make them more likely to roll
+      - 0
+      - 0
+      - 0.5
+      - 0.5
+      - 0.5
+      - 1.5
+      - 1.5
+      - 2
+      - 2.5
+      - 2.5
+      - 3
+      - 3.5
+      - 4
+
+- type: entity
+  name: Jonny Cockroach
+  id: MobCockroachJonnyCutter
+  parent: MobCockroachJonnyBase
+  description: A friend to all those wearing gray. He's proficient at wires.
+  components:
+  - type: Tool
+    qualities:
+      - Cutting
+    useSound:
+      path: /Audio/Items/wirecutter.ogg
+
+- type: entity
+  name: Jonny Cockroach
+  id: MobCockroachJonnyDriver
+  parent: MobCockroachJonnyBase
+  description: A friend to all those wearing gray. He's proficient at screws.
+  components:
+  - type: Tool
+    qualities:
+      - Screwing
+    useSound:
+      collection: Screwdriver
+
+- type: entity
+  name: Jonny Cockroach
+  id: MobCockroachJonnyCrowbar
+  parent: MobCockroachJonnyBase
+  description: A friend to all those wearing gray. He's proficient at prying.
+  components:
+  - type: Prying
+  - type: ToolTileCompatible
+  - type: Tool
+    qualities:
+      - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+
+- type: entity
+  name: Jonny Cockroach
+  id: MobCockroachJonnyWrench
+  parent: MobCockroachJonnyBase
+  description: A friend to all those wearing gray. He's proficient at wrenching.
+  components:
+  - type: Tool
+    qualities:
+      - Anchoring
+    useSound:
+      path: /Audio/Items/ratchet.ogg
+
+- type: entity
+  name: Jonny Cockroach
+  id: MobCockroachJonnyNetworkConfig
+  parent: MobCockroachJonnyBase
+  description: A friend to all those wearing gray. He's proficient at networking.
+  components:
+  - type: NetworkConfigurator
+  - type: ActivatableUI
+    key: enum.NetworkConfiguratorUiKey.List
+    inHandsOnly: true
+  - type: Tag
+    tags:
+      - DoorElectronicsConfigurator
+  - type: UserInterface
+    interfaces:
+      enum.NetworkConfiguratorUiKey.List:
+        type: NetworkConfiguratorBoundUserInterface
+      enum.NetworkConfiguratorUiKey.Configure:
+        type: NetworkConfiguratorBoundUserInterface
+      enum.NetworkConfiguratorUiKey.Link:
+        type: NetworkConfiguratorBoundUserInterface
+  - type: GuideHelp
+    guides:
+    - Networking
+
+
+- type: entity
+  name: Jonny Cockroach
+  id: MobCockroachJonnyPulser
+  parent: MobCockroachJonnyBase
+  description: A friend to all those wearing gray. He's proficient at pulsing.
+  components:
+  - type: Tool
+    qualities:
+      - Pulsing
+
+- type: entity
+  name: Jonny Cockroach
+  id: MobCockroachJonnyWelder
+  parent: MobCockroachJonnyBase
+  description: A friend to all those wearing gray. He's proficient at welding. You should probably still wear eye protection.
+  components:
+  - type: RefillableSolution
+    solution: Welder
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 75
+        maxVol: 75
+  - type: Tool
+    useSound:
+      collection: Welder
+    qualities: [ Welding, Derusting ] #imp edit
+  - type: Welder
+  - type: PointLight
+    enabled: false
+    radius: 1.25
+    color: orange
+    netsync: false
+  - type: ItemTogglePointLight
+  - type: Appearance
+  - type: RequiresEyeProtection
+  - type: ItemToggleHot
+  - type: IgnitionSource
+    temperature: 400
+# Jonny time is over.
