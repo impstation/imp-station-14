@@ -17,8 +17,7 @@
   category: Traits
   components:
     - type: SpeechRequiresEquipment
-      equipment:
-        neck:
+      whitelist:
           tags:
             - SGD
       failMessage: sgdrequired-cant-speak
@@ -155,4 +154,13 @@
     - Kodepiia
   components:
   - type: HungryTrait
+  cost: -1
+
+- type: trait
+  id: HatedByDogs
+  name: trait-hated-by-dogs-name
+  description: trait-hated-by-dogs-desc
+  category: Traits
+  components:
+  - type: HatedByDogs
   cost: -1

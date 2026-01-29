@@ -1,0 +1,70 @@
+# When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_single.yml
+
+- type: entity
+  parent: FoodMealBase
+  id: FoodHotdogBun
+  name: hotdog bun
+  description: Holds dogs in place.
+  components:
+  - type: Item
+    storedOffset: 0,-3
+  - type: Edible
+    transferAmount: 3 # 3 cartoon bites
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/hotdog_sequence.rsi
+    layers:
+    - state: bun_bottom
+    - map: ["foodSequenceLayers"]
+    - state: bun_top
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        canReact: true
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 6.66
+  - type: FoodSequenceStartPoint
+    key: Hotdog
+    maxLayers: 30
+    startPosition: 0, 0
+    offset: 0, 0.15
+    minLayerOffset: -0.02, 0
+    maxLayerOffset: 0.00, 0
+    nameGeneration: food-sequence-hotdog-gen
+  - type: Appearance
+  - type: FoodMetamorphableByAdding
+
+# non-modular dogs. you'll make more non-modular dogs right
+
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodHotdogPlain
+  name: plain hotdog
+  description: A singular, plain dog. Not even some ketchup?
+  components:
+  - type: FlavorProfile
+    flavors:
+      - meaty
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/hotdog.rsi
+    state: hotdog_plain
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Protein
+          Quantity: 5
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Food/hotdog.rsi
+    shape:
+    - 0,0,1,0
+    storedOffset: 0,1
+  - type: Tag
+    tags:
+      - Meat
+  - type: FoodSequenceElement
+    entries:
+      Hotdog: Hotdogdog
