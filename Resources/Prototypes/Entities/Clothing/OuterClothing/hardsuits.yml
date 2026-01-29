@@ -606,7 +606,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
-    damageCoefficient: 0.75
+    damageCoefficient: 0.5 # imp, 0.75 upstream
   - type: Armor
     modifiers:
       coefficients:
@@ -672,7 +672,7 @@
   - type: FireProtection
     reduction: 0.8
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
-    damageCoefficient: 0.6
+    damageCoefficient: 0.4 # imp, 0.6 upstream
   - type: Armor
     modifiers:
       coefficients:
@@ -713,7 +713,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: StaminaResistance # do not add these to other equipment or mobs, we don't want to microbalance these everywhere
-    damageCoefficient: 0.6
+    damageCoefficient: 0.3 # imp, 0.6 upstream
   - type: Armor
     modifiers:
       coefficients:
@@ -756,7 +756,8 @@
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
     damageCoefficient: 0.3
-  # - type: StaminaResistance # Should not have stamina resistance, this is purely so people know it was not forgotten.
+  - type: StaminaResistance # Should not have stamina resistance, this is purely so people know it was not forgotten.
+    damageCoefficient: 0.3 # imp, upstream doesn't want stamina resist on jugg, this suit is already a slow as hell tank suit. Fill this person with bullets.
   - type: Armor
     modifiers:
       coefficients:
