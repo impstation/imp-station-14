@@ -223,6 +223,9 @@
           32:
             sprite: _Impstation/Mobs/Species/Anomalocarid/displacement.rsi
             state: back
+  - type: LightningTarget # lightning is more likely to strike the tallest thing in a location. so.
+    priority: 4
+    lightningExplode: false
   #- type: CosmicStarMarkOffset
   #  offset: 0, 0.375
 
