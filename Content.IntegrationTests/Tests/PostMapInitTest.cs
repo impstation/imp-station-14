@@ -131,6 +131,7 @@ namespace Content.IntegrationTests.Tests
             "Bedlam",
             "Boat",
             "BoxImp",
+            "Castle",
             "CentCommImp",
             "Cluster",
             "CogImp",
