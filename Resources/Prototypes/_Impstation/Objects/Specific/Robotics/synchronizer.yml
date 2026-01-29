@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseItem
+  id: SiliconSynchronizer
+  name: silicon synchronizer
+  description: A handheld device capable of re-synchronizing (or de-synchronizing) a cyborg's laws to the Station's AI Upload Console.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Robotics/synchronizer.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Objects/Specific/Robotics/synchronizer.rsi
+  - type: LawSynchronizer
+    blacklist:
+      components:
+      - Replicator
+      - Drone
+  - type: StealTarget
+    stealGroup: SiliconSynchronizerRd
