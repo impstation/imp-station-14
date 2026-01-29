@@ -13,3 +13,5 @@ metabolizer-type-allulalo = Allulalo
 metabolizer-type-anomalocarid = Anomalocarid
 
 metabolizer-type-dinosaur = Dinosaur
+
+metabolizer-type-pleebnar = Pleebnar
