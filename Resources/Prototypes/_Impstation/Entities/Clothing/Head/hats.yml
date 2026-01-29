@@ -506,3 +506,18 @@
     sprite: _Impstation/Clothing/Head/Hats/greenescoffion.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/greenescoffion.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatMimeBowler
+  name: mime bowler
+  description: Un chapeau melon élégant.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/mimebowler.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/mimebowler.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon

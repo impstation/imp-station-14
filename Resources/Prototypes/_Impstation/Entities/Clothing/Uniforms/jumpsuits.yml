@@ -298,6 +298,17 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/mimecropped.rsi
 
 - type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMimeNouveau
+  name: nouveau mime suit
+  description: ...!?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/mimenouveau.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/mimenouveau.rsi
+
+- type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitCargoLong
   name: cargo tech jumpsuit (pants)
