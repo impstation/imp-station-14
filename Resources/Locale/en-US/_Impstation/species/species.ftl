@@ -5,5 +5,7 @@ species-name-decapoid = Decapoid
 species-name-gray = Gray
 species-name-gastropoid = Gastropoid
 species-name-colonid = Colonid
+species-name-anomalocarid = Anomalocarid
 species-name-kodepiia = Kodepiia
 species-name-ungu = Ungu
+species-name-ant = Ant

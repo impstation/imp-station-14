@@ -791,7 +791,7 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Boxer
-  - type: PresetIdCard
+  - type: PresetIdCard #imp edit, boxer job was removed upstream
     job: Boxer
 
 - type: entity
@@ -809,7 +809,7 @@
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Zookeeper
-  - type: PresetIdCard
+  - type: PresetIdCard #imp edit, zookeeper job was removed upstream
     job: Zookeeper
 
 #Supply
@@ -932,23 +932,14 @@
 #Antags
 
 - type: entity
-  name: passenger ID card
-  parent: [IDCardStandard, BaseChameleon]
+  parent: [PassengerIDCard, BaseChameleon]
   id: AgentIDCard
   suffix: Agent
   components:
-  - type: PresetIdCard
-    job: Passenger
   - type: Access
     tags:
     - Maintenance
     - SyndicateAgent
-  - type: Sprite
-    layers:
-    - state: default
-    - sprite: *icon-rsi
-      offset: *icon-offset
-      state: Passenger
   - type: AgentIDCard
   - type: UIRequiresLock
   - type: ActivatableUI
@@ -971,7 +962,6 @@
     listNumber: false
 
 - type: entity
-  name: passenger ID card
   parent: AgentIDCard
   id: NukieAgentIDCard
   suffix: Nukie
@@ -1071,6 +1061,18 @@
     - SyndicateAgent
   - type: NanoChatCard # DeltaV
     listNumber: false
+
+- type: entity
+  parent: IDCardStandard
+  id: XenoborgIDCard
+  name: xenoborg ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+  - type: Access
+    tags:
+    - Xenoborg
 
 - type: entity
   parent: IDCardStandard

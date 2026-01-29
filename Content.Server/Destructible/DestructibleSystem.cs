@@ -23,7 +23,6 @@ using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Shared.Projectiles; // imp
 
 namespace Content.Server.Destructible
 {
@@ -45,7 +44,6 @@ namespace Content.Server.Destructible
         [Dependency] public readonly SharedContainerSystem ContainerSystem = default!;
         [Dependency] public readonly IPrototypeManager PrototypeManager = default!;
         [Dependency] public readonly IAdminLogManager AdminLogger = default!;
-        [Dependency] public readonly SharedProjectileSystem ProjectileSystem = default!; // imp
 
         public override void Initialize()
         {
@@ -94,16 +92,6 @@ namespace Content.Server.Destructible
                         AdminLogger.Add(LogType.Damaged,
                             logImpact,
                             $"Unknown damage source caused {ToPrettyString(uid):subject} to trigger [{triggeredBehaviors}]");
-                    }
-
-                    // imp edit, unembed any embedded projectiles if the entity is about to be destroyed
-                    foreach (var behavior in threshold.Behaviors)
-                    {
-                        if (behavior is DoActsBehavior actBehavior && actBehavior.HasAct(ThresholdActs.Destruction))
-                        {
-                            ProjectileSystem.RemoveEmbeddedChildren(uid);
-                            break;
-                        }
                     }
 
                     Execute(threshold, uid, args.Origin);

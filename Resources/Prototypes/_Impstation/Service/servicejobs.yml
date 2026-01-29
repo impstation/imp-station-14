@@ -1,0 +1,188 @@
+- type: serviceJob
+  id: ServiceJobBallroomDance
+  name: service-job-ballroom-dance-name
+  description: service-job-ballroom-dance-description
+  startAnnounce: service-job-ballroom-dance-start
+  sprite:
+    sprite: _Impstation/Clothing/Shoes/Heels/heelsred.rsi
+    state: icon
+
+- type: serviceJob
+  id: ServiceJobTrainingWorkshop
+  name: service-job-training-workshop-name
+  description: service-job-training-workshop-description
+  startAnnounce: service-job-training-workshop-start
+  sprite:
+    sprite: _Impstation/Objects/Tools/greatwrench.rsi
+    state: icon
+
+- type: serviceJob
+  id: ServiceJobGameShow
+  name: service-job-game-show-name
+  description: service-job-game-show-description
+  startAnnounce: service-job-game-show-start
+  sprite:
+    sprite: Structures/Wallmounts/signs.rsi
+    state: arcade
+
+- type: serviceJob
+  id: ServiceJobRenaissanceFair
+  name: service-job-renaissance-fair-name
+  description: service-job-renaissance-fair-description
+  startAnnounce: service-job-renaissance-fair-start
+  sprite:
+    sprite: _Impstation/Clothing/Head/Helmets/goblinknighthelm.rsi
+    state: icon
+
+- type: serviceJob
+  id: ServiceJobFeast
+  name: service-job-feast-name
+  description: service-job-feast-description
+  startAnnounce: service-job-feast-start
+  sprite:
+    sprite: _Impstation/Objects/Consumable/Food/bowl.rsi
+    state: toddlerringstew
+
+- type: serviceJob
+  id: ServiceJobBirthdayParty
+  name: service-job-birthday-party-name
+  description: service-job-birthday-party-description
+  startAnnounce: service-job-birthday-party-start
+  sprite:
+    sprite: Objects/Consumable/Food/Baked/cake.rsi
+    state: birthday
+
+- type: serviceJob
+  id: ServiceJobBarFight
+  name: service-job-bar-fight-name
+  description: service-job-bar-fight-description
+  startAnnounce: service-job-bar-fight-start
+  sprite:
+    sprite: Objects/Consumable/Drinks/beerglass.rsi
+    state: icon
+
+- type: serviceJob
+  id: ServiceJobConcert
+  name: service-job-concert-name
+  description: service-job-concert-description
+  startAnnounce: service-job-concert-start
+  sprite:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: tuba
+
+- type: serviceJob
+  id: ServiceJobTalentShow
+  name: service-job-talent-show-name
+  description: service-job-talent-show-description
+  startAnnounce: service-job-talent-show-start
+  sprite:
+    sprite: Clothing/Head/Hats/tophat.rsi
+    state: icon
+
+- type: serviceJob
+  id: ServiceJobMomentOfSilence
+  name: service-job-moment-of-silence-name
+  description: service-job-moment-of-silence-description
+  startAnnounce: service-job-moment-of-silence-start
+  sprite:
+    sprite: Clothing/Mask/mime.rsi
+    state: icon
+
+- type: serviceJob
+  id: ServiceJobEatingContest
+  name: service-job-eating-contest-name
+  description: service-job-eating-contest-description
+  startAnnounce: service-job-eating-contest-start
+  sprite:
+    sprite: _Impstation/Objects/Misc/eatsign.rsi
+    state: sign
+
+- type: serviceJob
+  id: ServiceJobComedyNight
+  name: service-job-comedy-night-name
+  description: service-job-comedy-night-description
+  startAnnounce: service-job-comedy-night-start
+  sprite:
+    sprite: Objects/Fun/clownrecorder.rsi
+    state: icon
+
+- type: serviceJob
+  id: ServiceJobRace
+  name: service-job-race-name
+  description: service-job-race-description
+  startAnnounce: service-job-race-start
+  sprite:
+    sprite: _Impstation/Objects/Storage/littlecar.rsi
+    state: littletykescar
+
+- type: serviceJob
+  id: ServiceJobFireDrill
+  name: service-job-fire-drill-name
+  description: service-job-fire-drill-description
+  startAnnounce: service-job-fire-drill-start
+  sprite:
+    sprite: Structures/Doors/Airlocks/Standard/firelock.rsi
+    state: closed
+
+- type: serviceJob
+  id: ServiceJobScavengerHunt
+  name: service-job-scavenger-hunt-name
+  description: service-job-scavenger-hunt-description
+  startAnnounce: service-job-scavenger-hunt-start
+  sprite:
+    sprite: Objects/Devices/forensic_scanner.rsi
+    state: icon
+
+- type: serviceJob
+  id: ServiceJobDARE
+  name: service-job-dare-name
+  description: service-job-dare-description
+  startAnnounce: service-job-dare-start
+  sprite:
+    sprite: Objects/Specific/Hydroponics/cannabis.rsi
+    state: produce
+
+- type: serviceJob
+  id: ServiceJobLottery
+  name: service-job-lottery-name
+  description: service-job-lottery-description
+  startAnnounce: service-job-lottery-start
+  sprite:
+    sprite: Objects/Decoration/present.rsi
+    state: present
+
+- type: serviceJob
+  id: ServiceJobYogaClass
+  name: service-job-yoga-class-name
+  description: service-job-yoga-class-description
+  startAnnounce: service-job-yoga-class-start
+  sprite:
+    sprite: Structures/Furniture/Carpets/blue_carpet.rsi
+    state: full_blue
+
+- type: serviceJob
+  id: ServiceJobTournament
+  name: service-job-tournament-name
+  description: service-job-tournament-description
+  startAnnounce: service-job-tournament-start
+  sprite:
+    sprite: Objects/Consumable/Drinks/golden_cup.rsi
+    state: icon
+
+- type: serviceJob
+  id: ServiceJobPoolParty
+  name: service-job-pool-party-name
+  description: service-job-pool-party-description
+  startAnnounce: service-job-pool-party-start
+  sprite:
+    sprite: Objects/Fun/Balls/beach_ball.rsi
+    state: icon
+
+- type: serviceJob
+  id: ServiceJobUnforgettableLuncheon
+  name: service-job-unforgettable-luncheon-name
+  description: service-job-unforgettable-luncheon-description
+  startAnnounce: service-job-unforgettable-luncheon-start
+  sprite:
+    sprite: _Impstation/Objects/Storage/Lunchboxes/lunchboxblue.rsi
+    state: icon

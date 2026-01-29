@@ -76,7 +76,10 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReagent: Slime # TODO Color slime blood based on their slime color or smth
+    bloodReferenceSolution: # TODO Color slime blood based on their slime color or smth
+      reagents:
+      - ReagentId: Slime
+        Quantity: 300
   - type: Barotrauma
     damage:
       types:
@@ -95,7 +98,6 @@
       methods: [ Touch, Injection ] #imp, injection
       effects:
       - !type:HealthChange
-        scaling: true
         damage:
           types:
             Caustic: 0.2 #imp, YEEEEOWCH! (.05 heat upstream)

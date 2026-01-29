@@ -1,0 +1,222 @@
+# SPDX-FileCopyrightText: 2025 Evaisa <evagiacosa1@gmail.com>
+# SPDX-FileCopyrightText: 2025 EvaisaDev <mail@evaisa.dev>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+# Godo emotes
+- type: nanoChatEmoji
+  id: godo
+  category: Godo
+  sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/godo.png
+
+- type: nanoChatEmoji
+  id: do
+  category: Godo
+  sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/do.png
+
+- type: nanoChatEmoji
+  id: donow
+  category: Godo
+  sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/donow.png
+
+- type: nanoChatEmoji
+  id: gocrazy
+  category: Godo
+  sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/donot.png
+
+- type: nanoChatEmoji
+  id: gosad
+  category: Godo
+  sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/dontdo.png
+
+- type: nanoChatEmoji
+  id: godover
+  category: Godo
+  sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/godover.png
+
+- type: nanoChatEmoji
+  id: golove
+  category: Godo
+  sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/golove.png
+
+# Character emotes
+- type: nanoChatEmoji
+  id: bubble
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/bubble.png # imp
+
+- type: nanoChatEmoji
+  id: buzz
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/buzztwo.png # imp
+
+- type: nanoChatEmoji
+  id: chime
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/chime.png # imp
+
+- type: nanoChatEmoji
+  id: chirp
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/chirp.png # imp
+
+- type: nanoChatEmoji
+  id: clap
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/clap.png # imp
+
+- type: nanoChatEmoji
+  id: click
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/click.png # imp
+
+- type: nanoChatEmoji
+  id: cough
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/cough.png # imp
+
+- type: nanoChatEmoji
+  id: cry
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/cry.png # imp
+
+- type: nanoChatEmoji
+  id: dead # imp name change fuck you
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/deathgasp.png # imp
+
+- type: nanoChatEmoji
+  id: honk
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/honk.png # imp
+
+- type: nanoChatEmoji
+  id: laugh
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/laugh.png # imp
+
+- type: nanoChatEmoji
+  id: salute
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/salute.png # imp
+
+- type: nanoChatEmoji
+  id: scream
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/scream.png # imp
+
+- type: nanoChatEmoji
+  id: sigh
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/sigh.png # imp
+
+- type: nanoChatEmoji
+  id: snap
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/snap.png # imp
+
+- type: nanoChatEmoji
+  id: squeak
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/squeak.png # imp
+
+- type: nanoChatEmoji
+  id: tailslap
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/tailslap.png # imp
+
+- type: nanoChatEmoji
+  id: vocal
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/vocal.png # imp
+
+- type: nanoChatEmoji
+  id: whistle
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/whistle.png # imp
+
+- type: nanoChatEmoji
+  id: yawn
+  category: Character
+  sprite: /Textures/_Impstation/Interface/Emotes/yawn.png # imp
+
+# Plushie emotes
+- type: nanoChatEmoji
+  id: moth
+  category: Plushies
+  sprite: # Imp
+    sprite: Objects/Fun/Plushies/moth.rsi
+    state: icon
+
+- type: nanoChatEmoji
+  id: lizard
+  category: Plushies
+  sprite: # imp
+    sprite: Objects/Fun/Plushies/lizard.rsi
+    state: icon
+
+- type: nanoChatEmoji
+  id: spacelizard
+  category: Plushies
+  sprite: # Imp
+    sprite: Objects/Fun/Plushies/lizard.rsi
+    state: plushie_spacelizard
+
+- type: nanoChatEmoji
+  id: hampter
+  category: Plushies
+  sprite: # Imp
+    sprite: Objects/Fun/Plushies/hampter.rsi
+    state: icon
+
+- type: nanoChatEmoji
+  id: arachnid
+  category: Plushies
+  sprite: # Imp
+    sprite: Objects/Fun/Plushies/arachnid.rsi
+    state: icon
+
+- type: nanoChatEmoji
+  id: slime
+  category: Plushies
+  sprite: # Imp
+    sprite: Objects/Fun/Plushies/slime.rsi
+    state: icon
+
+- type: nanoChatEmoji
+  id: vox
+  category: Plushies
+  sprite: # Imp
+    sprite: Objects/Fun/Plushies/vox.rsi
+    state: icon
+
+- type: nanoChatEmoji
+  id: diona
+  category: Plushies
+  sprite: # Imp
+    sprite: Objects/Fun/Plushies/diona.rsi
+    state: plushie_diona
+
+- type: nanoChatEmoji
+  id: human
+  category: Plushies
+  sprite: # Imp
+    sprite: Objects/Fun/Plushies/human.rsi
+    state: icon
+
+- type: nanoChatEmoji
+  id: rainbowcarp
+  category: Plushies
+  sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/rainbowcarp.png
+
+- type: nanoChatEmoji
+  id: rainbowlizard
+  category: Plushies
+  sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/rainbowlizardplush.png
+
+- type: nanoChatEmoji
+  id: rouny
+  category: Plushies
+  sprite: /Textures/_Funkystation/Interface/NanoChat/Emotes/rouny.png
+
+# Other
