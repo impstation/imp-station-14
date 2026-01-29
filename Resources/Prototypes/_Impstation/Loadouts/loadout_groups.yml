@@ -32,12 +32,19 @@
   loadouts:
   - LoadoutSpeciesAquaticFullTank
 
-# the full internals setup for decapoids as StartingGear
+# the full internals setups for StartingGear
 - type: startingGear
   id: StartingGearDecapoidVaporizer
   equipment:
     mask: DecapoidBreathingApparatus
     suitstorage: DecapoidVaporTankFilled
+
+- type: startingGear
+  id: StartingGearNitrogenInternals
+  equipment:
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterVestTank
+    suitstorage: NitrogenTankFilled
 
 # The usual loadouts of the decapoid harness that spawn in your chest slot for jobs that don't have outerwear in their loadout
 - type: loadoutGroup
