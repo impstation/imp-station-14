@@ -50,6 +50,9 @@
     - neck
   - type: ActivatableUI
     inHandsOnly: false
+  - type: Tag # imp
+    tags:
+    - BorgNeck
 
 - type: entity
   parent: BaseWoodwindInstrument
@@ -103,6 +106,9 @@
   - type: Item #imp
     size: Small
     storedRotation: -90
+  - type: Tag # imp
+    tags:
+    - BorgNeck
 
 #if you change this to some cringe-ass zelda reference so help me god i will shoot you dead.
 - type: entity
