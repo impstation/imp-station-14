@@ -54,6 +54,9 @@
   - type: OreSiloClient
   - type: LatheAnnouncing
     channels: [ Service ]
+  - type: Wires
+    boardName: wires-board-name-service-techfab
+    layoutId: AIGeneric 
 
 - type: entity
   id: PortableCutterMachine

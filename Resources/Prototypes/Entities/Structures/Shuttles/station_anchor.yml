@@ -109,6 +109,13 @@
       interfaces:
         enum.PowerChargeUiKey.Key:
           type: PowerChargeBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+    - type: WiresVisuals #imp edit start
+    - type: WiresPanel
+    - type: Wires 
+      boardName: wires-board-name-station-anchor
+      layoutId: StationAnchor  #imp edit end
 
 - type: entity
   parent: StationAnchor

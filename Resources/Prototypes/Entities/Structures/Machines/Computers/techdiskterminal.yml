@@ -23,6 +23,8 @@
         type: DiskConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface # imp edit end
   - type: ExtensionCableReceiver
   - type: Computer
     board: TechDiskComputerCircuitboard
@@ -30,6 +32,12 @@
     radius: 0.8
     energy: 0.5
     color: "#b53ca1"
+  - type: StationAiWhitelist #Imp edit start
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    boardName: wires-board-name-tech-disk-terminal
+    layoutId: AIGeneric  
 
 - type: weightedRandom
   id: TechDiskTierWeights

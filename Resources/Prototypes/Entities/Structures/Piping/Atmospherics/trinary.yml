@@ -82,6 +82,7 @@
     - type: VentCrawTube
       containerId: VentCrawTube
     - type: VentCrawJunction
+    - type: StationAiWhitelist #Imp edit
 
 - type: entity
   parent: GasFilter
@@ -188,6 +189,7 @@
     - type: VentCrawTube
       containerId: VentCrawTube
     - type: VentCrawJunction
+    - type: StationAiWhitelist #Imp edit
 
 - type: entity
   parent: GasMixer

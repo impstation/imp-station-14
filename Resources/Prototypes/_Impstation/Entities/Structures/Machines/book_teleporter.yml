@@ -51,3 +51,13 @@
     table: !type:NestedSelector
       tableId: LetterImpBookReturn
     maxContainedDeliveryAmount: 5
+  - type: StationAiWhitelist #Imp edit start
+  - type: WiresPanel
+  - type: WiresVisuals
+  - type: Wires
+    boardName: wires-board-name-book-teleporter
+    layoutId: AIGeneric  
+  - type: UserInterface
+    interfaces: 
+        enum.WiresUiKey.Key:
+         type: WiresBoundUserInterface # imp edit end

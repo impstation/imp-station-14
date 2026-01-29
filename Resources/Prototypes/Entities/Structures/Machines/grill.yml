@@ -38,3 +38,13 @@
           Low: { visible: true, state: low }
           Medium: { visible: true, state: medium }
           High: { visible: true, state: high }
+  - type: UserInterface #imp edit start
+    interfaces: 
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: StationAiWhitelist
+  - type: Wires
+    boardName: wires-board-name-grill
+    layoutId: AIGeneric
+  - type: WiresVisuals
+  - type: WiresPanel # imp edit end

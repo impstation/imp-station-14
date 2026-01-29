@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseComputer, BaseCargoContraband ]
+  parent: [ BaseComputerAiAccess, BaseCargoContraband ] #imp edit, made ai accessable
   id: ComputerShipyard
   name: shipyard console
   description: Used to purchase and sell shuttles

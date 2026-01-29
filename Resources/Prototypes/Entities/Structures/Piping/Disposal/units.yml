@@ -78,6 +78,9 @@
     price: 70
   - type: PowerSwitch
   - type: DamageOtherOnHitImmune # imp
+  - type: StationAiWhitelist #Imp edit start
+  - type: WiresVisuals
+  - type: WiresPanel
 
 - type: entity
   id: DisposalUnit
@@ -98,6 +101,8 @@
     interfaces:
       enum.DisposalUnitUiKey.Key:
         type: DisposalUnitBoundUserInterface
+      enum.WiresUiKey.Key: # imp edit start
+        type: WiresBoundUserInterface # imp edit end
   - type: Rummageable
     table: !type:NestedSelector
       tableId: RatKingLoot
@@ -116,6 +121,10 @@
       - DisposalEject
       sources:
       - DisposalReady
+  - type: Wires # imp edit start
+    boardName: wires-board-name-disposal
+    layoutId: AIGeneric  # imp edit end 
+
 
 - type: entity
   id: MailingUnit
@@ -170,3 +179,8 @@
         type: MailingUnitBoundUserInterface
       enum.ConfigurationUiKey.Key:
         type: ConfigurationBoundUserInterface
+      enum.WiresUiKey.Key: #imp edit start
+        type: WiresBoundUserInterface # imp edit end
+  - type: Wires # imp edit start
+    boardName: wires-board-name-mailchute
+    layoutId: AIGeneric  #imp edit start

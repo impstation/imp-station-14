@@ -217,6 +217,15 @@
       - SetParticleEpsilon
       - SetParticleZeta
       - SetParticleSigma
+  - type: UserInterface #imp edit start
+    interfaces: 
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: StationAiWhitelist
+  - type: Wires
+    boardName: wires-board-name-ape
+    layoutId: AIGenericAccess  #imp edit end
+
 
 - type: entity
   id: MachineAnomalyGenerator

@@ -92,6 +92,7 @@
   - type: GuideHelp
     guides:
     - Pumps
+  - type: StationAiWhitelist #Imp edit
 
 - type: entity
   parent: GasBinaryBase
@@ -171,6 +172,7 @@
       containerId: VentCrawTube
     - type: VentCrawTransit
     # imp edit end
+    - type: StationAiWhitelist #Imp edit
 # TODO: Uncomment once pressure regulators are merged
 #- type: entity
 #  parent: GasBinaryBase
@@ -293,6 +295,7 @@
   - type: GuideHelp
     guides:
     - PressureRegulator
+  - type: StationAiWhitelist #Imp edit
 
 - type: entity
   parent: GasBinaryBase

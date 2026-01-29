@@ -73,6 +73,16 @@
   - type: AntiRottingContainer
   - type: StaticPrice
     price: 200
+  - type: StationAiWhitelist #Imp edit start
+  - type: WiresVisuals
+  - type: WiresPanel
+  - type: Wires
+    boardName: wires-board-name-morgue
+    layoutId: AIGeneric  
+  - type: UserInterface
+    interfaces: 
+        enum.WiresUiKey.Key:
+         type: WiresBoundUserInterface # imp edit end
 
 - type: entity
   id: Crematorium
@@ -148,3 +158,13 @@
   - type: ExtensionCableReceiver # imp
   - type: LightningTarget # imp
     priority: 1
+  - type: StationAiWhitelist #Imp edit start
+  - type: WiresVisuals
+  - type: WiresPanel
+  - type: Wires
+    boardName: wires-board-name-crematorium
+    layoutId: AIGeneric  
+  - type: UserInterface
+    interfaces: 
+        enum.WiresUiKey.Key:
+         type: WiresBoundUserInterface # imp edit end

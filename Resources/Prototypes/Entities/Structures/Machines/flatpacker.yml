@@ -61,6 +61,8 @@
     interfaces:
       enum.FlatpackCreatorUIKey.Key:
         type: FlatpackCreatorBoundUserInterface
+      enum.WiresUiKey.Key: #imp edit start
+        type: WiresBoundUserInterface #imp edit end
   - type: ItemSlots
     slots:
       board_slot:
@@ -93,6 +95,10 @@
     - board_slot
   - type: StaticPrice
     price: 2000
+  - type: StationAiWhitelist #Imp edit start
+  - type: Wires
+    boardName: wires-board-name-flatpacker
+    layoutId: AIGeneric  #imp edit end
 
 - type: entity
   id: FlatpackerNoBoardEffect
