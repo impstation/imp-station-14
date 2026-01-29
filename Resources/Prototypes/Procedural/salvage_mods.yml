@@ -138,7 +138,7 @@
   desc: salvage-air-mod-breathable-atmosphere
   gases:
     - 21.824779 # oxygen
-    - 82.10312 # nitrogen
+    - 21.824779 # nitrogen - imp pka support: 82.10312 -> 21.824779
 
 - type: salvageAirMod
   id: Sleepy
@@ -146,7 +146,7 @@
   desc: salvage-air-mod-dangerous-atmosphere
   gases:
     - 21.824779 # oxygen
-    - 72.10312 # nitrogen
+    - 11.824779 # nitrogen - imp pka support: 72.10312 -> 11.824779
     - 0
     - 0
     - 0
@@ -166,7 +166,7 @@
   desc: salvage-air-mod-dangerous-atmosphere
   gases:
     - 21.824779 # oxygen
-    - 77.10312 # nitrogen
+    - 17.10312 # nitrogen - imp pka support: 77.10312 -> 17.10312
     - 10 # carbon dioxide
   biomes:
     - Caves
@@ -182,7 +182,7 @@
   gases:
     - 21.824779 # oxygen
     - 0
-    - 82.10312 # carbon dioxide
+    - 21.824779 # carbon dioxide - imp pka support: 82.10312 -> 21.824779
   biomes:
     - Caves
     - Snow
@@ -196,7 +196,7 @@
     - 0
     - 0
     - 0
-    - 103.927899 # plasma
+    - 43.649558 # plasma - imp pka support: 103.927899 -> 43.649558
   biomes:
     - Caves
     - Lava
@@ -209,7 +209,7 @@
     - 21.824779 # oxygen
     - 0
     - 0
-    - 82.10312 # plasma
+    - 21.824779 # plasma - imp pka support: 82.10312 -> 21.824779
   biomes:
     - Caves
     - Lava
