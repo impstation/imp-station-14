@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 268.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/13/2026 00:03:32
-  entityCount: 19968
+  time: 01/27/2026 22:26:29
+  entityCount: 19998
 maps:
 - 1
 grids:
@@ -6699,6 +6699,7 @@ entities:
     - type: BecomesStation
       id: Xeno
     - type: ImplicitRoof
+    - type: ExplosionAirtightGrid
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 1616
@@ -10339,7 +10340,7 @@ entities:
       pos: 11.5,-30.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -152860.16
+      secondsUntilStateChange: -152907.78
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -10950,7 +10951,7 @@ entities:
       pos: -34.5,-17.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -22146.477
+      secondsUntilStateChange: -22194.096
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -27654,6 +27655,21 @@ entities:
     - type: Transform
       pos: 49.5,-83.5
       parent: 2
+  - uid: 19996
+    components:
+    - type: Transform
+      pos: -37.5,-53.5
+      parent: 2
+  - uid: 19997
+    components:
+    - type: Transform
+      pos: -37.5,-54.5
+      parent: 2
+  - uid: 19998
+    components:
+    - type: Transform
+      pos: -37.5,-55.5
+      parent: 2
 - proto: CableApcStack
   entities:
   - uid: 9765
@@ -42084,8 +42100,14 @@ entities:
   - uid: 10302
     components:
     - type: Transform
-      pos: 49.5,-20.5
+      rot: 0.11860860139131546 rad
+      pos: 49.14985,-20.545006
       parent: 2
+    - type: Physics
+      angularDamping: 8
+      linearDamping: 8
+    - type: Pullable
+      prevFixedRotation: True
   - uid: 11756
     components:
     - type: Transform
@@ -54490,13 +54512,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 13.5,-21.5
-      parent: 2
-- proto: FigureSpawner
-  entities:
-  - uid: 8609
-    components:
-    - type: Transform
-      pos: 36.5,-33.5
       parent: 2
 - proto: filingCabinetDrawerRandom
   entities:
@@ -79651,7 +79666,7 @@ entities:
     - type: Transform
       pos: -47.5,-45.5
       parent: 2
-- proto: GlowstickBase
+- proto: GlowstickGreen
   entities:
   - uid: 9321
     components:
@@ -87609,6 +87624,13 @@ entities:
     - type: Transform
       pos: 6.5,-76.5
       parent: 2
+- proto: MechFigurineSpawner50
+  entities:
+  - uid: 8609
+    components:
+    - type: Transform
+      pos: 36.5,-33.5
+      parent: 2
 - proto: MedicalAssembler
   entities:
   - uid: 4871
@@ -95053,6 +95075,153 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -46.5,-14.5
+      parent: 2
+  - uid: 19816
+    components:
+    - type: Transform
+      pos: 42.5,-20.5
+      parent: 2
+  - uid: 19958
+    components:
+    - type: Transform
+      pos: 43.5,-20.5
+      parent: 2
+  - uid: 19971
+    components:
+    - type: Transform
+      pos: 44.5,-20.5
+      parent: 2
+  - uid: 19972
+    components:
+    - type: Transform
+      pos: 45.5,-20.5
+      parent: 2
+  - uid: 19973
+    components:
+    - type: Transform
+      pos: 46.5,-20.5
+      parent: 2
+  - uid: 19974
+    components:
+    - type: Transform
+      pos: 47.5,-20.5
+      parent: 2
+  - uid: 19975
+    components:
+    - type: Transform
+      pos: 48.5,-20.5
+      parent: 2
+  - uid: 19976
+    components:
+    - type: Transform
+      pos: 49.5,-20.5
+      parent: 2
+  - uid: 19977
+    components:
+    - type: Transform
+      pos: 50.5,-20.5
+      parent: 2
+  - uid: 19978
+    components:
+    - type: Transform
+      pos: 51.5,-20.5
+      parent: 2
+  - uid: 19979
+    components:
+    - type: Transform
+      pos: 52.5,-20.5
+      parent: 2
+  - uid: 19980
+    components:
+    - type: Transform
+      pos: 53.5,-20.5
+      parent: 2
+  - uid: 19981
+    components:
+    - type: Transform
+      pos: 54.5,-20.5
+      parent: 2
+  - uid: 19982
+    components:
+    - type: Transform
+      pos: 55.5,-20.5
+      parent: 2
+  - uid: 19983
+    components:
+    - type: Transform
+      pos: 56.5,-20.5
+      parent: 2
+  - uid: 19984
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 42.5,-22.5
+      parent: 2
+  - uid: 19985
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 43.5,-22.5
+      parent: 2
+  - uid: 19986
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 44.5,-22.5
+      parent: 2
+  - uid: 19987
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 45.5,-22.5
+      parent: 2
+  - uid: 19988
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 46.5,-22.5
+      parent: 2
+  - uid: 19989
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 47.5,-22.5
+      parent: 2
+  - uid: 19990
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 48.5,-22.5
+      parent: 2
+  - uid: 19991
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 49.5,-22.5
+      parent: 2
+  - uid: 19992
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 53.5,-22.5
+      parent: 2
+  - uid: 19993
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 54.5,-22.5
+      parent: 2
+  - uid: 19994
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 55.5,-22.5
+      parent: 2
+  - uid: 19995
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 56.5,-22.5
       parent: 2
 - proto: RailingCorner
   entities:
