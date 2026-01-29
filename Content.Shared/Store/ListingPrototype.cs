@@ -156,6 +156,12 @@ public partial class ListingData : IEquatable<ListingData>
     public bool Buyable = true;
 
     /// <summary>
+    /// Imp addition, if this listing should be hidden from the store when it's unbuyable.
+    /// </summary>
+    [DataField]
+    public bool HiddenWhenUnbuyable;
+
+    /// <summary>
     /// The priority for what order the listings will show up in on the menu.
     /// </summary>
     [DataField]
