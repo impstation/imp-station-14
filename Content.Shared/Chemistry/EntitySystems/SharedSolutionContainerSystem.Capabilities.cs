@@ -4,6 +4,7 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.FixedPoint;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using Content.Shared._Impstation.Chemistry.Components; // imp
 
 namespace Content.Shared.Chemistry.EntitySystems;
 
