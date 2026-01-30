@@ -85,8 +85,8 @@
     itemIconStyle: BigAction
     raiseOnUser: true
     icon:
-      sprite: Structures/Wallmount/signs.rsi
-      state: medium_secure_red
+      sprite: _Impstation/Magic/door.rsi
+      state: closed
   - type: TargetAction
     range: 60
     checkCanAccess: false
