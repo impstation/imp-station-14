@@ -1023,6 +1023,7 @@
       - nothing
   - type: Sprite
     state: mime
+    sprite: _Impstation/Objects/Consumable/Food/mimeburger.rsi #imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1040,8 +1041,10 @@
     inhandVisuals:
       left:
       - state: mime-inhand-left
+        sprite: _Impstation/Objects/Consumable/Food/mimeburger.rsi #imp
       right:
       - state: mime-inhand-right
+        sprite: _Impstation/Objects/Consumable/Food/mimeburger.rsi #imp
 # Tastes like  .
 
 - type: entity

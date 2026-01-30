@@ -1,0 +1,36 @@
+- type: entity
+  name: adder plasma bolt
+  id: BulletPlasmaAdder
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: mediumsynd
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectSyndLaser
+  - type: Projectile
+    impactEffect: BulletImpactEffectSyndicate
+    damage:
+      types:
+        Heat: 9.5
+        Piercing: 9.5
+
+- type: entity
+  name: akurra plasma bolt
+  id: BulletPlasmaAkurra
+  parent: BulletPlasmaAdder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: lightsynd
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 8.5
+        Piercing: 8.5

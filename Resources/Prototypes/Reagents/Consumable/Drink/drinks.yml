@@ -450,6 +450,16 @@
       effects:
       - !type:SatiateThirst
         factor: 4
+      #imp edit start
+      - !type:PopupMessage
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Anomalocarid ]
+        type: Local
+        visualType: Medium
+        messages: [ "water-anomalocarid-effect-home" ]
+        probability: 0.005 #you drink water often enough that this probably shouldnt be ppopping up all the time
+      #imp edit end
     Gas:
       effects:
       - !type:HealthChange
@@ -465,7 +475,7 @@
         scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Decapoid, Thaven ] # thaven can breathe all gases safely
+          type: [ Decapoid, Thaven, Anomalocarid ] # thaven can breathe all gases safely
       - !type:ModifyLungGas
         conditions:
         - !type:MetabolizerTypeCondition

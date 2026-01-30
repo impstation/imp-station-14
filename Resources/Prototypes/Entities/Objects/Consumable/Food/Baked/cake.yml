@@ -1452,6 +1452,8 @@
     damage:
       groups:
         Brute: 1
+  - type: Physics # imp fix
+    bodyType: KinematicController
 
 # Suppermatter
 # I can't figure out where to put this. It kind of acts like a cake I guess?

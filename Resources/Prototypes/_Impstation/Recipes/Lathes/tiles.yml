@@ -43,3 +43,56 @@
   parent: BaseFauxTileRecipe
   id: FauxTileAstroCave
   result: FloorTileItemAstroCave
+
+# Green tiles
+- type: latheRecipe
+  parent: BaseTileRecipe
+  id: FloorTileItemGreen
+  result: FloorTileItemGreen
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenPavement
+  result: FloorTileItemGreenPavement
+
+- type: latheRecipe
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenDiagonal
+  result: FloorTileItemGreenDiagonal
+
+- type: latheRecipe
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenOffset
+  result: FloorTileItemGreenOffset
+
+- type: latheRecipe
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenMono
+  result: FloorTileItemGreenMono
+
+- type: latheRecipe
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenPavementVertical
+  result: FloorTileItemGreenPavementVertical
+
+- type: latheRecipe
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenHerringbone
+  result: FloorTileItemGreenHerringbone
+
+- type: latheRecipe
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenDiagonalMini
+  result: FloorTileItemGreenDiagonalMini
+
+- type: latheRecipe
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenSquiggly
+  result: FloorTileItemGreenSquiggly
+
+- type: latheRecipe
+  parent: FloorTileItemGreen
+  id: FloorTileItemGreenPlastic
+  result: FloorTileItemGreenPlastic

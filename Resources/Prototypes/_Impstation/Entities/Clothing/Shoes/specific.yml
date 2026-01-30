@@ -41,16 +41,13 @@
       sprite: _Impstation/Clothing/Shoes/Specific/clown_jokestershoes.rsi
     - type: Clothing
       sprite: _Impstation/Clothing/Shoes/Specific/clown_jokestershoes.rsi
-    - type: FootstepModifier
-      footstepSoundCollection:
-        collection: FootstepJester
-        params:
-          variation: 0.07 #copied from the existing jester shoes
     - type: ItemToggle
       soundActivate:
-        path: /Audio/_Impstation/Effects/Footsteps/jesterstep_on.ogg
+        collection: BikeHorn
       soundDeactivate:
-        path: /Audio/_Impstation/Effects/Footsteps/jesterstep_off.ogg
+        collection: BikeHorn
+        params:
+          pitch: .8
 
 - type: entity
   parent: ClothingShoesBaseButcherable

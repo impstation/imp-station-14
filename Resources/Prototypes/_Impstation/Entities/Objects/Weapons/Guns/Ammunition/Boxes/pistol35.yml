@@ -1,0 +1,110 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BaseMagazineBoxPistol
+  name: ammunition box (.35 auto)
+  description: A box made for 60 rounds of .35 auto subcaliber ammunition.
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistol
+    proto: CartridgePistol
+    capacity: 60
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 3
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxPistol
+  id: MagazineBoxPistol
+  name: ammunition box (.35 auto)
+  description: A box made for 60 rounds of .35 auto subcaliber ammunition, labeled as live-fire bullets.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistol
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  parent: BaseMagazineBoxPistol
+  id: MagazineBoxPistolPractice
+  name: ammunition box (.35 auto practice)
+  description: A box made for 60 rounds of .35 auto ammunition, labeled as practice bullets.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolPractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice
+
+- type: entity
+  id: MagazineBoxPistolIncendiary
+  parent: BaseMagazineBoxPistol
+  name: ammunition box (.35 auto incendiary)
+  description: A box made for 60 rounds of .35 auto ammunition, labeled as incendiary bullets.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+
+- type: entity
+  id: MagazineBoxPistolUranium
+  parent: BaseMagazineBoxPistol
+  name: ammunition box (.35 auto uranium)
+  description: A box made for 60 rounds of .35 auto ammunition, labeled as uranium bullets.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolUranium
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium
+
+- type: entity
+  id: MagazineBoxPistolStun
+  parent: BaseMagazineBoxPistol
+  name: ammunition box (Freelancer .35 auto stun)
+  description: A box made for 60 rounds of .35 auto ammunition, labeled as stun bullets specially tooled for antiquated weapons.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgePistolStun
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgePistol
+        - CartridgePistolStun
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: rubber

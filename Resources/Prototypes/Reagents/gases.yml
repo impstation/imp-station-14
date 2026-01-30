@@ -16,7 +16,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Apid, Thaven ] #imp, added apid, thaven TODO: thaven should have their own waste reaction for all gases
+          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Anomalocarid ] #imp, added apid, thaven, anomalocarid TODO: thaven should have their own waste reaction for all gases
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -47,7 +47,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Dinosaur ] #imp, added apid, dinosaur, thaven TODO: thaven should have their own waste reaction for all gases
+          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Dinosaur, Anomalocarid ] #imp, added apid, dinosaur, thaven TODO: thaven should have their own waste reaction for all gases
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:

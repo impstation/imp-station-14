@@ -8,12 +8,15 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Configuration; // imp
+using Content.Shared._Impstation.CCVar; // imp
 
 namespace Content.Client.Silicons.StationAi;
 
 public sealed class StationAiOverlay : Overlay
 {
     private static readonly ProtoId<ShaderPrototype> CameraStaticShader = "CameraStatic";
+    private static readonly ProtoId<ShaderPrototype> CameraStaticAccessibleShader = "CameraStaticAccessible"; // imp
     private static readonly ProtoId<ShaderPrototype> StencilMaskShader = "StencilMask";
     private static readonly ProtoId<ShaderPrototype> StencilDrawShader = "StencilDraw";
 
@@ -22,6 +25,7 @@ public sealed class StationAiOverlay : Overlay
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!; // imp
 
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -97,7 +101,11 @@ public sealed class StationAiOverlay : Overlay
             () =>
             {
                 worldHandle.SetTransform(invMatrix);
-                var shader = _proto.Index(CameraStaticShader).Instance();
+
+                // IMP EDIT- static toggle
+                var shader = _cfg.GetCVar(ImpCCVars.DisableAiStatic) ?
+                    _proto.Index(CameraStaticAccessibleShader).Instance() : // IMP END
+                    _proto.Index(CameraStaticShader).Instance();
                 worldHandle.UseShader(shader);
                 worldHandle.DrawRect(worldBounds, Color.White);
             },

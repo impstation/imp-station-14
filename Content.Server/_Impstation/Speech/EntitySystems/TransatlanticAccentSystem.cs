@@ -14,7 +14,7 @@ public sealed class TransatlanticAccentSystem : EntitySystem
         SubscribeLocalEvent<TransatlanticAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, TransatlanticAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<TransatlanticAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

@@ -101,7 +101,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             }
 
             // delete entities that have anything on the blacklist, OR don't have anything on the whitelist AND don't have a mind.
-            if (_whitelist.IsBlacklistPass(nestComp.PreservationBlacklist, uid) || !_whitelist.IsWhitelistPass(nestComp.PreservationWhitelist, uid)
+            if (_whitelist.IsWhitelistPass(nestComp.PreservationBlacklist, uid) || !_whitelist.IsWhitelistPass(nestComp.PreservationWhitelist, uid)
                 && !TryComp<MindContainerComponent>(uid, out var mind) | (mind != null && !mind!.HasMind))
                 toDel.Add(uid);
 
@@ -150,7 +150,7 @@ public sealed class ReplicatorNestSystem : SharedReplicatorNestSystem
             return;
 
         // *reject* if blacklisted
-        if (_whitelist.IsBlacklistPass(ent.Comp.Blacklist, args.Tripper))
+        if (_whitelist.IsWhitelistPass(ent.Comp.Blacklist, args.Tripper))
         {
             if (TryComp<PullableComponent>(args.Tripper, out var pullable) && pullable.BeingPulled)
                 _pulling.TryStopPull(args.Tripper, pullable);

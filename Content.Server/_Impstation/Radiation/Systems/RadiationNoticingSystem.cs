@@ -4,11 +4,12 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.Traits.Assorted;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
+using Content.Shared.StatusEffectNew;
+using Content.Shared.Traits.Assorted;
 
 namespace Content.Server.Radiation.Systems;
 
@@ -16,6 +17,7 @@ public sealed class RadiationNoticingSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly StatusEffectsSystem _status = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
@@ -68,7 +70,8 @@ public sealed class RadiationNoticingSystem : EntitySystem
         //TODO: Expand system with other effects: visual spots, vomiting blood?, blurry vision?
     }
 
-    private void SendRadiationPopup(EntityUid uid){
+    private void SendRadiationPopup(EntityUid uid)
+    {
         List<string> msgArr = [
                 "radiation-noticing-message-0",
                 "radiation-noticing-message-1",
@@ -86,7 +89,7 @@ public sealed class RadiationNoticingSystem : EntitySystem
         var msgId = _random.Pick(msgArr);
         var msg = Loc.GetString(msgId);
 
-        if (HasComp<PainNumbnessComponent>(uid) && msgId.Contains("-pain-"))
+        if (_status.HasEffectComp<PainNumbnessStatusEffectComponent>(uid) && msgId.Contains("-pain-"))
             return; // Do not show pain messages if the person has pain numbness
 
         // show it as a popup

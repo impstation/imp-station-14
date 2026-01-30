@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseStructureDynamic
+  parent: [ BaseStructureDynamic, BasePaperLabelableVisualized ]
   id: CrateGeneric
   categories: [ HideSpawnMenu ]
   name: crate
@@ -61,11 +61,10 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-  - type: Appearance
   - type: EntityStorageVisuals
     #stateDoorOpen: open #imp edit, GenericVisualizer used for this instead to allow layer offsets
     stateDoorClosed: closed
-  - type: GenericVisualizer
+  - type: GenericVisualizer # imp add, we need to modify this for our pretty crates
     visuals:
       enum.PaperLabelVisuals.HasLabel:
         enum.PaperLabelVisuals.Layer:
@@ -83,21 +82,10 @@
           True: { visible: true }
           False: { visible: false }
       # imp edit end
-  - type: PaperLabel
-    labelSlot:
-      insertVerbText: comp-paper-label-insert
-      ejectVerbText: comp-paper-label-eject
-      whitelist:
-        components:
-        - Paper
-      blacklist:
-        tags:
-        - Book
   - type: ContainerContainer
     containers:
       entity_storage: !type:Container
       paper_label: !type:ContainerSlot
-  - type: ItemSlots
   - type: StaticPrice
     price: 75
   - type: Construction

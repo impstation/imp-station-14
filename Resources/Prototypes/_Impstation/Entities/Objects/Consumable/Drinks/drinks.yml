@@ -687,3 +687,19 @@
   - type: Icon
     sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/angelskiss.rsi
     state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkFunnyLiftingDrinkGlass
+  suffix: funny lifting drink
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: FunnyLiftingDrink
+          Quantity: 30
+  - type: Icon
+    sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/funnyliftingdrinks.rsi
+    state: icon

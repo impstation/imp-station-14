@@ -204,6 +204,7 @@
   components:
   - type: Sprite
     state: mime
+    sprite: _Impstation/Objects/Fun/plushielizard_jobs.rsi #imp
   - type: EmitSoundOnUse
     sound: null # mime is silent...
   - type: EmitSoundOnLand

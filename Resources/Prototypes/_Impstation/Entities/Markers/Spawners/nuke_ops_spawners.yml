@@ -1,0 +1,59 @@
+# imp-specific uplink loot table used by upstream's nuke ops loot spawner
+# if any of the other loot tables used by the spawner get significant changes then the tables should be moved here
+# also the loot is alphabetized now
+
+- type: entityTable
+  id: NukeOpsUplinkLootTableImp
+  table: !type:GroupSelector
+    children:
+    - id: BorgModuleMartyr
+    - id: BoxDeathRattleImplants
+      weight: 0.75
+    - id: BriefcaseSyndieLobbyingBundleFilled
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: CameraBug
+    - id: ChameleonProjector
+    - id: CigPackMixedRejects
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: CigPackSyndicate
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: ClothingBackpackChameleonFill
+    - id: ClothingBackpackDuffelSyndicateDecoyKitFilled
+      weight: 0.75
+    - id: ClothingBackpackDuffelSyndicateFilledMascotCindy #very low weight because of the high tc value, worth it for the bit imo
+      weight: 0.1
+    - id: ClothingEyesNightVisionGogglesNukie
+    - id: ClothingMaskGasVoiceChameleon
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: ClothingNeckCloakFugitiveCloak
+      weight: 0.25
+    - id: ClothingNeckCloakKaijuCloak
+      weight: 0.25
+    - id: DnaScramblerImplanter
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+      weight: 0.75
+    - id: EmpImplanter
+    - id: FakeMindShieldImplanter
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+    - id: MysterySpaceBladeBoxSyndicate
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: NukeDiskFake
+      weight: 0.5
+    - id: PenExplodingBox
+    - id: RadioJammer
+    - id: RoseSyndicate #the full blood-red rose kit is a lot of tc, call this a free sample
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: ScramImplanter
+    - id: SlipocalypseClusterSoap
+      amount: !type:RangeNumberSelector
+        range: 1, 2
+    - id: SyndicateJawsOfLife
+    - id: TreatChunkBag

@@ -1,0 +1,157 @@
+# Magazines compatible with the AKMS.
+- type: entity
+  id: BaseMagazineLightRifle
+  name: "magazine (.30 rifle)"
+  description: A 23-round .30 rifle magazine.
+  parent: [ BaseItem, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineLightRifle
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLightRifle
+    proto: CartridgeLightRifle
+    capacity: 23
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineLightRifle
+  name: "magazine (.30 rifle)"
+  parent: BaseMagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as live-fire ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifle
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#820a16"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#820a16"
+
+- type: entity
+  id: MagazineLightRifleEmpty
+  name: "magazine (.30 rifle any)"
+  suffix: empty
+  parent: MagazineLightRifle
+  description: A 23-round .30 rifle magazine with no apparent markings.
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  id: MagazineLightRiflePractice
+  name: "magazine (.30 rifle practice)"
+  parent: BaseMagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as practice ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRiflePractice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ffcb6f"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ffcb6f"
+
+- type: entity
+  id: MagazineLightRifleUranium
+  name: "magazine (.30 rifle uranium)"
+  parent: BaseMagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as uranium ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleUranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#22b24d"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#22b24d"
+
+- type: entity
+  id: MagazineLightRifleIncendiary
+  name: "magazine (.30 rifle incendiary)"
+  parent: MagazineLightRifle
+  description: A 23-round .30 rifle magazine, marked as incendiary ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleIncendiary
+  - type: Sprite
+    layers:
+    - state: incendiary
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#d46925"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#d46925"

@@ -68,7 +68,7 @@ public sealed class EmagSystem : EntitySystem
 
         // DeltaV - Add a whitelist / blacklist to the Emag
         if (_whitelist.IsWhitelistFail(ent.Comp.Whitelist, target)
-            || _whitelist.IsBlacklistPass(ent.Comp.Blacklist, target))
+            || _whitelist.IsWhitelistPass(ent.Comp.Blacklist, target))
         {
             _popup.PopupClient(Loc.GetString("emag-invalid-target", ("emag", ent), ("target", target)), user, user);
             return false;

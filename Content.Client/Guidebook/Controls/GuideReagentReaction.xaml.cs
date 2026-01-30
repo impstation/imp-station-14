@@ -35,14 +35,14 @@ public sealed partial class GuideReagentReaction : BoxContainer, ISearchableCont
     {
         Container container = ReactantsContainer;
         SetReagents(prototype.Reactants, ref container, protoMan);
-        var productContainer = ProductsContainer; // imp var. we have to make this a label to avoid test fails from too many ui updates in a single frame. im keeping the name to avoid merge conflicts. sorry.
+        Container productContainer = ProductsContainer;
         var products = new Dictionary<string, FixedPoint2>(prototype.Products);
         foreach (var (reagent, reactantProto) in prototype.Reactants)
         {
             if (reactantProto.Catalyst)
                 products.Add(reagent, reactantProto.Amount);
         }
-        SetReagentsImp(products, ref productContainer, protoMan); // imp, making our own method for this to preserve my sanity
+        SetReagents(products, ref productContainer, protoMan, false);
 
         var mixingCategories = new List<MixingCategoryPrototype>();
         if (prototype.MixingCategories != null)
@@ -84,8 +84,8 @@ public sealed partial class GuideReagentReaction : BoxContainer, ISearchableCont
         entContainer.AddChild(nameLabel);
         ReactantsContainer.AddChild(entContainer);
 
-        var productContainer = ProductsContainer; // imp var.
-        SetReagentsImp(solution.Contents, ref productContainer, protoMan); // imp
+        Container productContainer = ProductsContainer;
+        SetReagents(solution.Contents, ref productContainer, protoMan, false);
         SetMixingCategory(categories, null, sysMan);
     }
 
@@ -107,8 +107,8 @@ public sealed partial class GuideReagentReaction : BoxContainer, ISearchableCont
             {
                 { prototype.Reagent, FixedPoint2.New(0.21f) }
             };
-            var productContainer = ProductsContainer; // imp var.
-            SetReagentsImp(quantity, ref productContainer, protoMan); // imp
+            Container productContainer = ProductsContainer;
+            SetReagents(quantity, ref productContainer, protoMan, false);
         }
         SetMixingCategory(categories, null, sysMan);
     }
@@ -136,19 +136,6 @@ public sealed partial class GuideReagentReaction : BoxContainer, ISearchableCont
         }
         SetReagents(amounts, ref container, protoMan, addLinks);
     }
-
-    // imp add start
-    private void SetReagentsImp(
-        List<ReagentQuantity> reagents,
-        ref RichTextLabel label,
-        IPrototypeManager protoMan)
-    {
-        var amounts = new Dictionary<string, FixedPoint2>();
-        foreach (var (reagent, quantity) in reagents)
-            amounts.Add(reagent.Prototype, quantity);
-        SetReagentsImp(amounts, ref label, protoMan);
-    }
-    // imp add end
 
     [PublicAPI]
     private void SetReagents(
@@ -182,31 +169,6 @@ public sealed partial class GuideReagentReaction : BoxContainer, ISearchableCont
         }
         container.Visible = true;
     }
-
-    // imp add start
-    private void SetReagentsImp(
-        Dictionary<string, FixedPoint2> reagents,
-        ref RichTextLabel label,
-        IPrototypeManager protoMan)
-    {
-        var msg = new FormattedMessage();
-        var reagentCount = reagents.Count;
-        var i = 0;
-        foreach (var (product, amount) in reagents.OrderByDescending(p => p.Value))
-        {
-            msg.AddMarkupOrThrow(Loc.GetString("guidebook-reagent-recipes-reagent-display",
-            ("reagent",
-            protoMan.Index<ReagentPrototype>(product).LocalizedName),
-            ("ratio", amount)));
-            i++;
-            if (i < reagentCount)
-                msg.PushNewline();
-        }
-        msg.Pop();
-        label.SetMessage(msg);
-        label.Visible = true;
-    }
-    // imp add end
 
     private void SetMixingCategory(IReadOnlyList<ProtoId<MixingCategoryPrototype>> mixingCategories, ReactionPrototype? prototype, IEntitySystemManager sysMan)
     {

@@ -888,11 +888,11 @@
   description: An ancient armored hardsuit, perfect for defending against space scurvy and toolbox-wielding scallywags.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/piratecaptain.rsi #imp edit
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/piratecaptain.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/piratecaptain.rsi #imp edit
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -932,7 +932,7 @@
 
 #ERT Chaplain Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingOuterHardsuitJuggernaut ]
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndie ]
   id: ClothingOuterHardsuitERTChaplain
   name: ERT chaplain's hardsuit
   description: A protective hardsuit worn by the chaplains of an Emergency Response Team.
@@ -946,7 +946,7 @@
 
 #ERT Engineer Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitCBURN
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieElite ]
   id: ClothingOuterHardsuitERTEngineer
   name: ERT engineer's hardsuit
   description: A protective hardsuit worn by the engineers of an emergency response team.
@@ -994,7 +994,7 @@
 
 #ERT Janitor Hardsuit
 - type: entity
-  parent: ClothingOuterHardsuitCBURN
+  parent: [ BaseCentcommContraband, ClothingOuterHardsuitSyndieElite ]
   id: ClothingOuterHardsuitERTJanitor
   name: ERT janitor's hardsuit
   description: A protective hardsuit worn by the janitors of an emergency response team.
@@ -1134,9 +1134,9 @@
     tags:
       - MimeHardsuit
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/mimered.rsi #imp
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/mime.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/mimered.rsi #imp
   - type: Construction
     graph: MimeHardsuit
     node: mimeHardsuit

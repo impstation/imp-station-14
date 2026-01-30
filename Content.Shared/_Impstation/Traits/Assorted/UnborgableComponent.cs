@@ -1,10 +1,23 @@
+using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
+
 namespace Content.Shared.Traits.Assorted;
 
 /// <summary>
 /// Used for the Unborgable trait. Prevents the entity's brain from being inserted into an MMI.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class UnborgableComponent : Component
 {
+    /// <summary>
+    ///     Popup to display when the brain is deleted.
+    /// </summary>
+    [DataField]
+    public LocId FailPopup = "borg-mmi-fail-popup";
 
+    /// <summary>
+    ///     Sound that plays when the brain is deleted.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier FailSound = new SoundPathSpecifier("/Audio/Effects/Fluids/splat.ogg");
 }

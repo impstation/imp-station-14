@@ -7,8 +7,10 @@
   abstract: true
   components:
   - type: Bloodstream
-    bloodMaxVolume: 650
-    bloodReagent: ShimmeringBlood #imp
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ShimmeringBlood #imp
+        Quantity: 650
   - type: GhostRole
     allowMovement: true
     allowSpeech: true
@@ -107,6 +109,7 @@
     - RadiationProtection
     - Adrenaline
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 2400
   - type: Metabolizer
     solutionOnBody: false

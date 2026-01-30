@@ -141,7 +141,7 @@
           Base: spaceboar_dead
         Dead:
           Base: spaceboar_dead
-    - type: Temperature
+    - type: TemperatureDamage
       heatDamageThreshold: 423
       coldDamageThreshold: 0
     - type: MovementAlwaysTouching
@@ -229,8 +229,10 @@
         params:
           variation: 0.125
     - type: Bloodstream
-      bloodMaxVolume: 15
-      bloodReagent: VentCrud
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: VentCrud
+          Quantity: 15
     - type: NoSlip
     - type: ZombieImmune
     - type: Edible
@@ -396,7 +398,10 @@
     footstepSoundCollection:
       collection: KodepiiaStep
   - type: Bloodstream
-    bloodReagent: BloodKodepiia
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BloodKodepiia
+        Quantity: 50
   - type: Butcherable
     spawned:
       - id: FoodMeatKodepiia
@@ -657,8 +662,10 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
-    bloodMaxVolume: 50
-    bloodReagent: AnomalocaridCopperBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: AnomalocaridCopperBlood
+        Quantity: 50
   - type: ReplacementAccent
     accent: babyanom
   - type: MeleeWeapon
@@ -688,7 +695,7 @@
     selectedMode: SemiAuto
     showExamineText: false
     availableModes: [ SemiAuto ]
-    soundGunshot: 
+    soundGunshot:
       path: /Audio/Animals/dog_bark1.ogg
       params:
         variation: .25

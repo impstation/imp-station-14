@@ -39,7 +39,6 @@ public sealed class ThrowingSystem : EntitySystem
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly AnchorableSystem _anchorable = default!;
     [Dependency] private readonly SharedStaminaSystem _stamina = default!; // EE THROWING
 
     private EntityQuery<AnchorableComponent> _anchorableQuery;

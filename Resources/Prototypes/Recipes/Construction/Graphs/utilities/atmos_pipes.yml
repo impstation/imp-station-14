@@ -99,6 +99,11 @@
       - material: Steel
         amount: 2
         doAfter: 1
+      # imp edit start
+      - material: Gasket
+        amount: 1
+        doAfter: 1
+      # imp edit end
 
   - node: half
     entity: GasPipeHalf
@@ -367,6 +372,11 @@
       - !type:SpawnPrototype
         prototype: SheetSteel1
         amount: 2
+      # imp edit start
+      - !type:SpawnPrototype
+        prototype: GasketPart
+        amount: 1
+      # imp edit end
       - !type:DeleteEntity
       steps:
       - tool: Welding

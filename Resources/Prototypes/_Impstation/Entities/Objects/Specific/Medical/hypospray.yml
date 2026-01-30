@@ -1,6 +1,6 @@
 - type: entity
   name: lethal poison auto-injector
-  parent: [BaseItem, Tier3Contraband]
+  parent: [ChemicalMedipen, Tier3Contraband]
   description: A single dose of a lethal toxin mix, induces gradual organ failure and esophagus inflammation which eliminates a subject within one to two minutes of injection. Small print on it says "Non-Recyclable. Please return to Gorlex Customer Satisfaction for reuse and rebate."
   id: PoisonAutoInjector
   components:
@@ -40,17 +40,7 @@
           Quantity: 2
         - ReagentId: Impedrezene
           Quantity: 1
-  - type: ExaminableSolution
-    solution: pen
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 30
-    onlyAffectsMobs: false
-    injectOnly: true
-  - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: poisonpen_empty
-  - type: Tag
-    tags: []

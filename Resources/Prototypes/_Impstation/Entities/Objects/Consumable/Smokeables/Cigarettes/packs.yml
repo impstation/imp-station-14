@@ -30,10 +30,12 @@
     sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/voidlabel.rsi
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/voidlabel.rsi
-  - type: StorageFill
-    contents:
-    - id: CigaretteVoid
-      amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigaretteVoid
+          amount: 10
 
 - type: entity
   id: CigPackShrimp
@@ -45,10 +47,12 @@
     sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/shrimparettes.rsi
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/shrimparettes.rsi
-  - type: StorageFill
-    contents:
-    - id: CigaretteShrimp
-      amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigaretteShrimp
+          amount: 10
 
 - type: entity
   id: CigPackMixedRejects
@@ -63,29 +67,31 @@
   - type: Storage
     grid:
     - 0,0,5,1
-  - type: StorageFill
-    contents:
-    - id: CigaretteFresiumChloral
-      prob: 0.75
-    - id: CigaretteHonkRazorium
-      prob: 0.75
-    - id: CigarettePhlogCLF3
-      prob: 0.75
-    - id: CigaretteMute
-      prob: 0.75
-    - id: CigaretteFresiumStimulant
-      prob: 0.75
-    - id: CigarettePotassiumWater
-      prob: 0.75
-    - id: CigaretteLead
-      prob: 0.75
-    - id: CigaretteFlash
-      prob: 0.75
-    - id: CigaretteWehHew
-      prob: 0.75
-    - id: CigaretteEMP
-      prob: 0.75
-    - id: CigarettePlasmaGas
-      prob: 0.75
-    - id: CigaretteTazinide
-      prob: 0.75
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigaretteFresiumChloral
+          prob: 0.75
+        - id: CigaretteHonkRazorium
+          prob: 0.75
+        - id: CigarettePhlogCLF3
+          prob: 0.75
+        - id: CigaretteMute
+          prob: 0.75
+        - id: CigaretteFresiumStimulant
+          prob: 0.75
+        - id: CigarettePotassiumWater
+          prob: 0.75
+        - id: CigaretteLead
+          prob: 0.75
+        - id: CigaretteFlash
+          prob: 0.75
+        - id: CigaretteWehHew
+          prob: 0.75
+        - id: CigaretteEMP
+          prob: 0.75
+        - id: CigarettePlasmaGas
+          prob: 0.75
+        - id: CigaretteTazinide
+          prob: 0.75

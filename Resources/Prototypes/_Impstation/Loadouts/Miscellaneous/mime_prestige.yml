@@ -1,0 +1,24 @@
+﻿- type: loadoutEffectGroup
+  id: MimeExpertTimer
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobMime
+      time: 30h
+
+- type: loadout
+  id: ChaplainSilentMask
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MimeExpertTimer
+  equipment:
+    mask: ClothingMaskSilent
+
+- type: loadout
+  id: ChaplainSilentRobes
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MimeExpertTimer
+  equipment:
+    outerClothing: ClothingOuterSilent

@@ -45,3 +45,6 @@ reagent-desc-something = It's something.
 
 reagent-name-ants = ants
 reagent-desc-ants = Literally just ants.
+
+reagent-name-lifting-concentrate = lifting concentrate
+reagent-desc-lifting-concentrate = A pure concentrate extracted from the native flora of Teo. Contact with the substance can result in the laws of gravity being defied.

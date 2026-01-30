@@ -90,8 +90,8 @@ public sealed class GreytideVirusRule : StationEventSystem<GreytideVirusRuleComp
             if (!_access.AreAccessTagsAllowed(accessIds, accessComp) || _access.AreAccessTagsAllowed(virusComp.Blacklist, accessComp))
                 continue;
 
-            // imp. do an extra check for any banned ents that shouldn't be unlocked 
-            if (_whitelist.IsBlacklistPass(virusComp.BannedExtras, lockUid))
+            // imp. do an extra check for any banned ents that shouldn't be unlocked
+            if (_whitelist.IsWhitelistPass(virusComp.BannedExtras, lockUid))
                 continue;
 
             // open lockers

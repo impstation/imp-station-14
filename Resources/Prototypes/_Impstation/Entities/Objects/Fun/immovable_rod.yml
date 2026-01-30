@@ -25,6 +25,8 @@
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: NoSlip
+  - type: Physics
+    bodyType: KinematicController
 
 - type: entity
   parent: ImmovableRodKeepTilesStill
