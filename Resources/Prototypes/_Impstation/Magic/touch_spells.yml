@@ -1,29 +1,4 @@
 - type: entity
-  parent: BaseEntitySpellAction
-  id: ActionNewWizard
-  name: wizards friend
-  components:
-  - type: Action
-    useDelay: 0
-    sound: !type:SoundPathSpecifier
-      path: /Audio/_Impstation/Magic/magicpowers.ogg
-    icon:
-      sprite: _Impstation/Clothing/Head/Hats/apprentice_hat.rsi
-      state: icon
-  - type: TargetAction
-  - type: EntityTargetAction
-    whitelist:
-      components:
-      - MobState
-    event: !type:ChangeComponentsSpellEvent
-      toAdd:
-      - type: NpcFactionMember
-        factions:
-        - Wizard
-  - type: Magic
-    requiresClothes: false
-
-- type: entity
   parent: BaseActionPolymorph
   id: ActionPolymorphWizardTinySpider
   name: Spider Polymorph

@@ -137,16 +137,6 @@
         - !type:HTNCompoundTask
           task: IdleCompound
 
-- type: htnCompound # imp add
-  id: MagicMissileCompound
-  branches:
-    - tasks:
-        - !type:HTNCompoundTask
-          task: TouchCompound
-    - tasks:
-        - !type:HTNCompoundTask
-          task: IdleCompound
-
 - type: htnCompound
   id: RaptorCompound
   branches:

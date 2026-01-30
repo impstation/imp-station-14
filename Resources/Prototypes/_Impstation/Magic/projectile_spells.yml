@@ -84,6 +84,9 @@
     useDelay: 30
     itemIconStyle: BigAction
     raiseOnUser: true
+    icon:
+      sprite: Structures/Wallmount/signs.rsi
+      state: medium_secure_red
   - type: TargetAction
     range: 60
     checkCanAccess: false

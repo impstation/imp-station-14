@@ -2,15 +2,12 @@
   id: ApprenticeHat
   parent: [ BaseItem, BaseMagicalContraband, ClothingHeadHatWizardBase]
   name: apprentice hat
-  description: For an aspiring wizard, give someone a tap with it to make wizard summons know they're a friend!
+  description: For an aspiring wizard!
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Hats/apprentice_hat.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/apprentice_hat.rsi
-  - type: ActionOnInteract
-    actions:
-    - ActionNewWizard
 
 - type: entity
   id: ApprenticeRobes
@@ -120,7 +117,7 @@
     proto: IceCrust
 
 - type: entity
-  parent: WoodDoor
+  parent: BaseMaterialDoorNavMap
   id: WizardDoor
   name: wizard door
   description: W1Z4rD5 0N1Y!!!!!
@@ -352,7 +349,7 @@
       - Wizard
   - type: HTN
     rootTask:
-      task: MagicMissileCompound
+      task: GrenadePenguinCompound
   - type: TimedDespawn
     lifetime: 8
   - type: Sprite
