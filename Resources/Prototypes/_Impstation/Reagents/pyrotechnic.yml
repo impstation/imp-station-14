@@ -24,6 +24,18 @@
             Poison: 1
             Heat: 1
             Radiation: 3
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity
+          inverted: true
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+            Heat: 1
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ]
       - !type:Flammable
         multiplier: 0.3
 
