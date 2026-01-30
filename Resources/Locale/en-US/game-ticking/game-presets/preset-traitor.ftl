@@ -56,9 +56,8 @@ traitor-role-uplink-implant =
     The uplink is secure unless someone removes it from your body.
 
 # don't need all the flavour text for character menu
-# imp edit: added lightgray color for consistency
 traitor-role-codewords-short =
-    The codewords are: [color = lightgray]
-    {$codewords}.[/color]
-traitor-role-uplink-code-short = Your uplink code is [color = lightgray]{$code}[/color]. Set it as your PDA ringtone to access your uplink.
+    The codewords are:
+    {$codewords}.
+traitor-role-uplink-code-short = Your uplink code is {$code}. Set it as your PDA ringtone to access your uplink.
 traitor-role-uplink-implant-short = Your uplink was implanted. Access it from the action menu.
