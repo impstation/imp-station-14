@@ -4,10 +4,12 @@
   name: space cleaner refill crate
   description: Contains 6 jugs of space cleaner. Careful not to spill!
   components:
-  - type: StorageFill
-    contents:
-      - id: JugSpaceCleaner
-        amount: 6 #1200u total, ~half the amount
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: JugSpaceCleaner
+          amount: 6 #1200u total, ~half the amount
 
 - type: entity
   id: CrateServiceJanitorialHardsuit
@@ -15,10 +17,12 @@
   name: janitorial hardsuit crate
   description: A necessity for any janitor trying to keep the outside of the station as spotless as the inside.
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterHardsuitJanitor
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitJanitor
+          amount: 1
 
 - type: entity
   id: CrateServiceMaintBarKit
@@ -26,8 +30,10 @@
   name: maintenance bar kit
   description: A crate to carry on the tradition of bar engineering. Drinks not included.
   components:
-    - type: StorageFill
-      contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: BoozeDispenserMachineCircuitboard
         - id: SodaDispenserMachineCircuitboard
         - id: MaterialWoodPlank

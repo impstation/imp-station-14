@@ -46,7 +46,10 @@
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#00ff04"
   - type: Bloodstream
-    bloodReagent: GrayBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GrayBlood
+        Quantity: 300
   - type: Inventory
     speciesId: gray
     templateId: gray
