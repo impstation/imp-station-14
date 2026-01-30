@@ -107,7 +107,6 @@ trait-category-randomizers = Randomizers
 
 trait-unadapted-to-space-name = Unadapted to space
 trait-unadapted-to-space-desc = Your body hasn't adapted to space, making you take more damage from exposure to it.
-                       Incompatible with Decapoid.
 
 trait-vowelrotation-name = Vowel rotation
 trait-vowelrotation-desc = Yua'ri frum en udd curnir uf speci whiri iviry vuwil os shoftid uvir by uni. AEIOU -> EIOUA
@@ -128,5 +127,5 @@ trait-hated-by-dogs-name = Hated by dogs
 trait-hated-by-dogs-desc = Dogs will bark at you when you come near.
 
 trait-hungry-name = Hungry
-trait-hungry-desc = You skipped breakfast, and you'll get hungry 5x faster than the average humanoid.
+trait-hungry-desc = You skipped breakfast and will get hungry 5x faster than the average humanoid.
                        Incompatible with Kodepiia.
