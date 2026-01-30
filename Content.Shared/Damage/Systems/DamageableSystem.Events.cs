@@ -162,7 +162,6 @@ public sealed partial class DamageableSystem
     private void OnIrradiated(Entity<DamageableComponent> ent, ref OnIrradiatedEvent args)
     {
         // Imp edit, ignore this method if the entity has an IrradiatedDamage component and use its method instead
-        // if there is a more elegant way to do this without changing DamageableComponent, please yell at me on github
         if (HasComp<IrradiatedDamageComponent>(ent))
             return;
 

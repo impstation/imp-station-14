@@ -1,4 +1,3 @@
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Prototypes;
@@ -56,4 +55,15 @@ public sealed partial class IrradiatedDamageComponent : Component
         {MobState.Critical, new List<ProtoId<DamageTypePrototype>> {"Radiation"}},
         {MobState.Dead, new List<ProtoId<DamageTypePrototype>> {"Radiation"}}
     };
+
+    /// <summary>
+    /// The type of damage modifier from armor that will modify the effective rads in calculating health change.
+    /// For example, having this set to Radiation will translate the 99% radiation damage reduction
+    /// from a worn radiation suit into 99% reduced health change from this system.
+    /// </summary>
+    /// <remarks>
+    /// There isn't much of a reason to change this, but hard-coding it looked bad.
+    /// </remarks>
+    [DataField]
+    public ProtoId<DamageTypePrototype> ArmorProtectionType = "Radiation";
 }
