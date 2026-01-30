@@ -146,6 +146,15 @@
   cost: -3
 
 - type: trait
+  id: HatedByDogs
+  name: trait-hated-by-dogs-name
+  description: trait-hated-by-dogs-desc
+  category: Traits
+  components:
+  - type: HatedByDogs
+  cost: -1
+
+- type: trait
   id: Hungry
   name: trait-hungry-name
   description: trait-hungry-desc
@@ -154,13 +163,4 @@
     - Kodepiia
   components:
   - type: HungryTrait
-  cost: -1
-
-- type: trait
-  id: HatedByDogs
-  name: trait-hated-by-dogs-name
-  description: trait-hated-by-dogs-desc
-  category: Traits
-  components:
-  - type: HatedByDogs
   cost: -1
