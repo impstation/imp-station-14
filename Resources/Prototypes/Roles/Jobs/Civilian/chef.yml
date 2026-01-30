@@ -20,8 +20,8 @@
 - type: startingGear
   id: ChefGear
   equipment:
-  #  shoes: ClothingShoesChef # imp, loadout choice
-  #  id: ChefPDA # imp, loadout choice
+    shoes: ClothingShoesChef
+    id: ChefPDA
     ears: ClothingHeadsetService
     belt: ClothingBeltChefFilled
   #storage:
