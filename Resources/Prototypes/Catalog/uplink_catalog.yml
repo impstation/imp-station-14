@@ -601,16 +601,16 @@
   categories:
   - UplinkAmmo
 
-# For the Estoc
-- type: listing
-  id: UplinkEstocAmmo
-  name: uplink-estoc-ammo-name
-  description: uplink-estoc-ammo-desc
-  productEntity: MagazineRifle
-  cost:
-    Telecrystal: 2
-  categories:
-  - UplinkAmmo
+# For the Estoc #imp; Remove, because the Estoc isn't in the shop either.
+# - type: listing
+#   id: UplinkEstocAmmo
+#   name: uplink-estoc-ammo-name
+#   description: uplink-estoc-ammo-desc
+#   productEntity: MagazineRifle
+#   cost:
+#     Telecrystal: 2
+#   categories:
+#   - UplinkAmmo
 
 # for the hristov
 - type: listing

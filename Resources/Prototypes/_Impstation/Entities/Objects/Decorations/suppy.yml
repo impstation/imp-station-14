@@ -39,7 +39,6 @@
     - Maintenance
     - Engineering
   - type: Appearance
-  - type: Body # for letting someone use the pet carrier on it
   - type: Buckle
   - type: Climbing
   - type: Pullable
@@ -47,7 +46,7 @@
   - type: PointLight
     color: "#FFFF00"
     radius: 2
-    energy: 1.4
+    energy: 2.5
   - type: Grammar
     attributes:
       proper: true
@@ -65,6 +64,8 @@
   - type: Alerts
   - type: AnimatedEmotes
   - type: MobState #for deathgasp
+  - type: Physics
+    bodyType: KinematicController
   - type: InputMover
   - type: Input
     context: "human"
