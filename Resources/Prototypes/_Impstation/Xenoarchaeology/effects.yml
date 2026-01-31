@@ -486,7 +486,7 @@
 - type: entity
   id: XenoArtifactSupermatter
   parent: BaseOneTimeXenoArtifactEffect
-  description: Station-wide destruction
+  description: Stationwide destruction
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
