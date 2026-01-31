@@ -33,12 +33,14 @@
       - id: FoodMeatBacon
         amount: 4
     - type: MeleeThrowOnHit
+      unanchorOnHit: Unanchorable
       distance: 2
       speed: 10
     - type: Tag
       tags:
         - DoorBumpOpener
         - FootstepSound
+        - BoarFriend
     - type: Fixtures
       fixtures:
         fix1:
@@ -65,6 +67,10 @@
         NavSmash: !type:Bool
           true
     - type: NPCImprintingOnSpawnBehaviour
+      spawnFriendsSearchRadius: 3
+      whitelist:
+        tags:
+        - BoarFriend
     - type: Hunger
       baseDecayRate: 0.3
     - type: Thirst
@@ -135,7 +141,7 @@
           Base: spaceboar_dead
         Dead:
           Base: spaceboar_dead
-    - type: Temperature
+    - type: TemperatureDamage
       heatDamageThreshold: 423
       coldDamageThreshold: 0
     - type: MovementAlwaysTouching
@@ -223,8 +229,10 @@
         params:
           variation: 0.125
     - type: Bloodstream
-      bloodMaxVolume: 15
-      bloodReagent: VentCrud
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: VentCrud
+          Quantity: 15
     - type: NoSlip
     - type: ZombieImmune
     - type: Edible
@@ -250,6 +258,7 @@
     - type: FoodSequenceElement
       entries:
         Burger: BrosBurger
+        Hotdog: BrosBurger
     - type: CanEscapeInventory
       baseResistTime: 2
     - type: AlwaysRevolutionaryConvertible #imp
@@ -389,7 +398,10 @@
     footstepSoundCollection:
       collection: KodepiiaStep
   - type: Bloodstream
-    bloodReagent: BloodKodepiia
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BloodKodepiia
+        Quantity: 50
   - type: Butcherable
     spawned:
       - id: FoodMeatKodepiia
@@ -650,8 +662,10 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
-    bloodMaxVolume: 50
-    bloodReagent: AnomalocaridCopperBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: AnomalocaridCopperBlood
+        Quantity: 50
   - type: ReplacementAccent
     accent: babyanom
   - type: MeleeWeapon
@@ -670,3 +684,85 @@
     rules: ghost-role-information-familiar-weirdshrimp-rules
     raffle:
       settings: short
+
+- type: entity
+  id: DogBarkBase
+  abstract: true
+  components:
+  - type: Gun
+    fireRate: 1
+    projectileSpeed: 10.0
+    selectedMode: SemiAuto
+    showExamineText: false
+    availableModes: [ SemiAuto ]
+    soundGunshot:
+      path: /Audio/Animals/dog_bark1.ogg
+      params:
+        variation: .25
+  - type: RechargeBasicEntityAmmo
+    showExamineText: false
+    rechargeCooldown: 0
+    rechargeSound: null
+  - type: BasicEntityAmmoProvider
+    proto: DogRay
+    capacity: 2
+    count: 2
+  - type: HTN
+    rootTask:
+      task: DogCompound
+
+- type: entity
+  name: Ian
+  parent: MobCorgiBase
+  categories: [ HideSpawnMenu ]
+  id: MobCorgiIanNoGun
+  description: Favorite pet corgi.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Pets/corgi.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: ian
+  - type: Inventory
+    speciesId: dog
+    templateId: petAdvanced
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_head_displacement
+      eyes:
+        sizeMaps:
+          32:
+            sprite: Mobs/Pets/displacements.rsi
+            state: corgi_eyes_displacement
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: ian
+      Critical:
+        Base: ian_dead
+      Dead:
+        Base: ian_dead
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatCorgi
+      amount: 2
+    - id: MaterialHideCorgi
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - VimPilot
+  - type: StealTarget
+    stealGroup: AnimalIan
+  - type: ReplacementAccent
+    accent: dog
+  - type: NpcFactionMember
+    factions:
+      - Dog
