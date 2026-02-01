@@ -61,6 +61,9 @@
     sprite: Objects/Fun/Instruments/microphone.rsi
   - type: ActivatableUI
     inHandsOnly: false
+  - type: Item
+    size: Small
+    storedRotation: -90
   - type: Tag # imp
     tags:
     - BorgNeck
