@@ -9,7 +9,7 @@
 # Table: null
 
 # 2024-09-09
-#BorgModuleService: BorgModuleBartender
+BorgModuleService: null
 
 # 2024-11-25
 #impstation change
@@ -139,3 +139,7 @@ CrayonRainbowInfinite: CrayonInfinite
 # standardize EVA rooms to command access, we should have done this a year ago when we initially hard forked maps but c'est la vie
 AirlockEVALocked: AirlockCommandLocked
 AirlockEVAGlassLocked: AirlockCommandGlassLocked
+
+# 2026-2-1
+# Upstream has added a new "BorgModuleService". The "BorgModuleBartender" is now depreciated.
+BorgModuleBartender: null
