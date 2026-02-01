@@ -76,11 +76,11 @@
     speechSounds: Finfin
     speechVerb: Finfin
     suffixSpeechVerbs:
-      chat-speech-verb-suffix-exclamation-strong: FinfinExclamationStrong
-      chat-speech-verb-suffix-exclamation: FinfinExclamation
-      chat-speech-verb-suffix-question: DefaultQuestion
-      chat-speech-verb-suffix-stutter: FinfinStutter
-      chat-speech-verb-suffix-mumble: FinfinMumble
+      chat-speech-verb-suffix: AI, -exclamation-strong: FinfinExclamationStrong
+      chat-speech-verb-suffix: AI, -exclamation: FinfinExclamation
+      chat-speech-verb-suffix: AI, -question: DefaultQuestion
+      chat-speech-verb-suffix: AI, -stutter: FinfinStutter
+      chat-speech-verb-suffix: AI, -mumble: FinfinMumble
   - type: Inventory
     speciesId: finfin
     templateId: pet
@@ -335,7 +335,9 @@
 - type: entity
   name: Jonny Cockroach
   id: MobCockroachJonnyBase
+  suffix: AI,
   parent: MobCockroach
+  suffix: AI, : AI, No Tools
   description: A friend to all those wearing gray.
   components:
   - type: Sprite
@@ -361,6 +363,7 @@
   name: Jonny Cockroach
   id: MobCockroachJonnyCutter
   parent: MobCockroachJonnyBase
+  suffix: AI, Wirecutting
   description: A friend to all those wearing gray. He's proficient at wires.
   components:
   - type: Tool
@@ -373,6 +376,7 @@
   name: Jonny Cockroach
   id: MobCockroachJonnyDriver
   parent: MobCockroachJonnyBase
+  suffix: AI, Screwing
   description: A friend to all those wearing gray. He's proficient at screws.
   components:
   - type: Tool
@@ -385,6 +389,7 @@
   name: Jonny Cockroach
   id: MobCockroachJonnyCrowbar
   parent: MobCockroachJonnyBase
+  suffix: AI, Prying
   description: A friend to all those wearing gray. He's proficient at prying.
   components:
   - type: Prying
@@ -399,6 +404,7 @@
   name: Jonny Cockroach
   id: MobCockroachJonnyWrench
   parent: MobCockroachJonnyBase
+  suffix: AI, Ancoring
   description: A friend to all those wearing gray. He's proficient at wrenching.
   components:
   - type: Tool
@@ -411,6 +417,7 @@
   name: Jonny Cockroach
   id: MobCockroachJonnyNetworkConfig
   parent: MobCockroachJonnyBase
+  suffix: AI, Network Config
   description: A friend to all those wearing gray. He's proficient at networking.
   components:
   - type: NetworkConfigurator
@@ -437,6 +444,7 @@
   name: Jonny Cockroach
   id: MobCockroachJonnyPulser
   parent: MobCockroachJonnyBase
+  suffix: AI, Pulsing
   description: A friend to all those wearing gray. He's proficient at pulsing.
   components:
   - type: Tool
@@ -447,6 +455,7 @@
   name: Jonny Cockroach
   id: MobCockroachJonnyWelder
   parent: MobCockroachJonnyBase
+  suffix: AI, Welding
   description: A friend to all those wearing gray. He's proficient at welding. You should probably still wear eye protection.
   components:
   - type: RefillableSolution
