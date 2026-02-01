@@ -76,11 +76,11 @@
     speechSounds: Finfin
     speechVerb: Finfin
     suffixSpeechVerbs:
-      chat-speech-verb-suffix: AI, -exclamation-strong: FinfinExclamationStrong
-      chat-speech-verb-suffix: AI, -exclamation: FinfinExclamation
-      chat-speech-verb-suffix: AI, -question: DefaultQuestion
-      chat-speech-verb-suffix: AI, -stutter: FinfinStutter
-      chat-speech-verb-suffix: AI, -mumble: FinfinMumble
+      chat-speech-verb-suffix-exclamation-strong: FinfinExclamationStrong
+      chat-speech-verb-suffix-exclamation: FinfinExclamation
+      chat-speech-verb-suffix-question: DefaultQuestion
+      chat-speech-verb-suffix-stutter: FinfinStutter
+      chat-speech-verb-suffix-mumble: FinfinMumble
   - type: Inventory
     speciesId: finfin
     templateId: pet
