@@ -142,16 +142,16 @@
     damageContainer: Biological
     damageModifierSet: Ungu
   - type: TemperatureDamage
-    heatDamageThreshold: 340
+    heatDamageThreshold: 320
     coldDamageThreshold: 200
     coldDamage:
       types:
-        Cold: 0.2 #per second, scales with temperature & other constants
+        Cold: 0.1 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat: 1.5 #per second, scales with temperature & other constants
+        Heat: 2.0 #per second, scales with temperature & other constants
   - type: Temperature
-    currentTemperature: 310
+    currentTemperature: 310.15
     specificHeat: 42
   - type: Bloodstream
     bloodReferenceSolution:
