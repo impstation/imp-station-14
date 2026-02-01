@@ -570,3 +570,14 @@
   - type: Construction
     graph: WebObjects
     node: loungewear
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTailcoatSuit
+  name: tailcoat suit
+  description: A rather fetching outfit with long tails, fit for any gentleperson looking to stand out.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tailcoatsuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tailcoatsuit.rsi

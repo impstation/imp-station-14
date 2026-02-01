@@ -20,10 +20,11 @@
     slots:
     - Belt
   - type: Gun
+    projectileSpeed: 25
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletTaser
     fireCost: 200
   - type: MagazineVisuals
@@ -40,11 +41,12 @@
   description: A low-capacity, energy-based stun gun used by elite security teams to disable even the toughest of targets.
   components:
   - type: Gun
+    projectileSpeed: 25
     fireRate: 0.5
     soundGunshot:
       path: /Audio/Effects/tesla_collapse.ogg # The wrath of god...
       params:
         volume: -6
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletTaserSuper
     fireCost: 200

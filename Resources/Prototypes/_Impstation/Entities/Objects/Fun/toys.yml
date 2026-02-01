@@ -533,6 +533,8 @@
   - type: FoodSequenceElement
     entries:
       CottonBurger: WeirdThavenPlushie
+  - type: Physics
+    bodyType: KinematicController
 
 - type: entity
   parent: BasePlushie
