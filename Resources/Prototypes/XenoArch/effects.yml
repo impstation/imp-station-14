@@ -1636,7 +1636,7 @@
 - type: entity
   id: XenoArtifactSingularity #IMP swapped the id of this and the tesla because they were incorrect??
   parent: BaseOneTimeXenoArtifactEffect
-  description: Imminent doom #IMP desc changed
+  description: Stationwide destruction #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1651,7 +1651,7 @@
 - type: entity
   id: XenoArtifactTesla #IMP swapped the id of this and the singulo because they were incorrect??
   parent: BaseOneTimeXenoArtifactEffect
-  description: Imminent doom #IMP desc changed
+  description: Stationwide destruction #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
