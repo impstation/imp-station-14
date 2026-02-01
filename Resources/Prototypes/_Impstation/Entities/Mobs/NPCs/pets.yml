@@ -335,9 +335,8 @@
 - type: entity
   name: Jonny Cockroach
   id: MobCockroachJonnyBase
-  suffix: AI,
   parent: MobCockroach
-  suffix: AI, : AI, No Tools
+  suffix: AI, No Tools
   description: A friend to all those wearing gray.
   components:
   - type: Sprite
