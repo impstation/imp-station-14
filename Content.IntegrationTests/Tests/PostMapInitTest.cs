@@ -613,8 +613,9 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitPost(() =>
             {
-                Assert.Multiple(() =>
-                {
+                // imp disable assert to fix test running out of memory
+                // Assert.Multiple(() =>
+                // {
                     // This bunch of files contains a random mixture of both map and grid files.
                     // TODO MAPPING organize files
                     var opts = MapLoadOptions.Default with
@@ -650,7 +651,7 @@ namespace Content.IntegrationTests.Tests
                             throw new Exception($"Failed to delete map {path}", ex);
                         }
                     }
-                });
+                // }); // imp
             });
 
             await server.WaitRunTicks(1);
