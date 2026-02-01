@@ -15,14 +15,16 @@
     whitelist:
       tags:
       - Figurine #no powergaming!!!!
-  - type: StorageFill
-    contents:
-    - id: ToyFigurineNukie
-    - id: ToyFigurineNukieElite
-    - id: ToyFigurineNukieCommander
-    - id: ToyFigurineFootsoldier
-    - id: ToyFigurineNukieJuggernaut
-    - id: ToyFigurineNukieAgent
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ToyFigurineNukie
+        - id: ToyFigurineNukieElite
+        - id: ToyFigurineNukieCommander
+        - id: ToyFigurineFootsoldier
+        - id: ToyFigurineNukieJuggernaut
+        - id: ToyFigurineNukieAgent
 
 - type: entity
   parent: BoxCardboard
@@ -38,12 +40,14 @@
     maxItemSize: Normal
     grid:
     - 0,0,3,1
-  - type: StorageFill
-    contents:
-    - id: ToyFigurineCyborgAssault
-    - id: ToyFigurineCyborgCorpsman
-    - id: ToyFigurineCyborgSaboteur
-    - id: ToyFigurineHoloClown
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ToyFigurineCyborgAssault
+        - id: ToyFigurineCyborgCorpsman
+        - id: ToyFigurineCyborgSaboteur
+        - id: ToyFigurineHoloClown
 
 - type: entity
   parent: BoxCardboard
@@ -55,30 +59,21 @@
     - state: writing_of_doom
   - type: Storage
     maxItemSize: Normal
-  - type: StorageFill
-    contents:
-    - id: FoodBoxDonkpocketHonk
-      orGroup: RandomDonk
-    - id: FoodBoxDonkpocketBerry
-      orGroup: RandomDonk
-    - id: FoodBoxDonkpocketCarp
-      orGroup: RandomDonk
-    - id: FoodBoxDonkpocketDink
-      orGroup: RandomDonk
-    - id: FoodBoxDonkpocket
-      orGroup: RandomDonk
-    - id: FoodBoxDonkpocketStonk
-      orGroup: RandomDonk
-    - id: FoodBoxDonkpocketPizza
-      orGroup: RandomDonk
-    - id: FoodBoxDonkpocketSpicy
-      orGroup: RandomDonk
-    - id: FoodBoxDonkpocketTeriyaki
-      orGroup: RandomDonk
-    - id: FoodBoxDonkpocketCloth
-      orGroup: RandomDonk
-    - id: FoodBoxDonkpocketMoth
-      orGroup: RandomDonk
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:GroupSelector
+        children:
+        - id: FoodBoxDonkpocketHonk
+        - id: FoodBoxDonkpocketBerry
+        - id: FoodBoxDonkpocketCarp
+        - id: FoodBoxDonkpocketDink
+        - id: FoodBoxDonkpocket
+        - id: FoodBoxDonkpocketStonk
+        - id: FoodBoxDonkpocketPizza
+        - id: FoodBoxDonkpocketSpicy
+        - id: FoodBoxDonkpocketTeriyaki
+        - id: FoodBoxDonkpocketCloth
+        - id: FoodBoxDonkpocketMoth
 
 - type: entity
   parent: BoxCardboard
@@ -94,17 +89,21 @@
     maxItemSize: Normal
     grid:
     - 0,0,3,1
-  - type: StorageFill
-    contents:
-    - id: SyndicateMicrowaveFlatpack
-    - id: SyndicateElectricRangeFlatpack
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SyndicateMicrowaveFlatpack
+        - id: SyndicateElectricRangeFlatpack
 
 - type: entity
   name: lightbulb box cold
   parent: BoxLightbulb
   id: BoxColdLightbulb
   components:
-  - type: StorageFill
-    contents:
-      - id: ColdLightBulb
-        amount: 12
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ColdLightBulb
+          amount: 12
