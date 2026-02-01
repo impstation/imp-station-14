@@ -1,23 +1,20 @@
 - type: entity
-  id: SpeedLoaderLightRifle
-  name: "stripper clip (.30 rifle)" #imp
-  description: A 5-round .30 rifle stripper clip. #imp
+  abstract: true # imp
   parent: [ BaseItem, BaseSecurityContraband ]
+  id: SpeedLoaderLightRifleWizden #imp - see the _Impstation directory for the version we use
+  name: "speed loader (.30 rifle)"
+  description: 5-round 'stripper clip' for quickly reloading the Kardashev-Mosin. Intended to hold general-purpose kinetic ammunition.
   components:
-  - type: Tag
-    tags:
-      - SpeedLoaderRifle
   - type: SpeedLoader
   - type: BallisticAmmoProvider
     mayTransfer: true
-    fillDelay: 0.25 #imp
     whitelist:
       tags:
-        - CartridgeLightRifle
-    capacity: 5 #imp
+      - CartridgeLightRifle
+    capacity: 5
     proto: CartridgeLightRifle
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/SpeedLoaders/LightRifle/light_rifle_speed_loader.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/SpeedLoaders/LightRifle/light_rifle_speed_loader.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]

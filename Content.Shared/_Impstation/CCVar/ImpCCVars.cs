@@ -23,6 +23,12 @@ public sealed class ImpCCVars : CVars
     public static readonly CVarDef<bool> DisableWeather =
         CVarDef.Create("accessibility.disable_weather", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// </summary>
+    /// Replaces the AI static camera effect with a plain black gradient.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableAiStatic =
+        CVarDef.Create("accessibility.disable_ai_static", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /// <summary>
     /// The number of shared moods to give thaven by default.
     /// </summary>
