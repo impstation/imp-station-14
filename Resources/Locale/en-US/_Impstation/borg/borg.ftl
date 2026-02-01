@@ -11,3 +11,5 @@ toggle-borg-pda = View PDA
 borg-type-entertainment-name = Entertainment
 borg-type-entertainment-desc = Entertain and socialize with the crew, whether through playing music or launching pies at their face.
 borg-type-entertainment-transponder = entertainment cyborg
+
+borg-mmi-fail-popup = The brain suddenly dissolves on contact with the interface!

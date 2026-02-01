@@ -134,7 +134,6 @@
     - BorgModuleJanitor
 
   defaultModules:
-  - BorgModuleTool
   - BorgModuleCleaning
   - BorgModuleCustodial
 
@@ -176,7 +175,6 @@
     - BorgModuleMedical
 
   defaultModules:
-  - BorgModuleTool
   - BorgModuleChemical
   - BorgModuleTopicals
   - BorgModuleRescue
@@ -223,37 +221,36 @@
 #  id: service
 
   # Description
-#  dummyPrototype: BorgChassisService
+  # dummyPrototype: BorgChassisService
 
-#  # Functional
-#  extraModuleCount: 4
-#  moduleWhitelist:
-#    tags:
-#    - BorgModuleGeneric
-#    - BorgModuleService
+  # Functional
+  # extraModuleCount: 4
+  # moduleWhitelist:
+    # tags:
+    # - BorgModuleGeneric
+    # - BorgModuleService
 
-#  defaultModules:
-#  - BorgModuleTool
-#  - BorgModuleMusique
-#  - BorgModuleBartender # imp
-#  - BorgModuleService
-#  - BorgModuleClowning
-#  - BorgModuleGardening
-#  - BorgModuleHarvesting
-#  radioChannels:
-#  - Science
-#  - Service
+  # defaultModules:
+  # - BorgModuleMusique
+  # - BorgModuleBartender # imp
+  # - BorgModuleService
+  # - BorgModuleClowning
+  # - BorgModuleGardening
+  # - BorgModuleHarvesting
+  # radioChannels:
+  # - Science
+  # - Service
 
-#  # Visual
-#  inventoryTemplateId: borgHumanoid # imp
-#  spriteBodyState: service
-#  spriteHasMindState: service_e
-#  spriteNoMindState: service_e_r
-#  spriteToggleLightState: service_l
+  # Visual
+  # inventoryTemplateId: borgHumanoid # imp
+  # spriteBodyState: service
+  # spriteHasMindState: service_e
+  # spriteNoMindState: service_e_r
+  # spriteToggleLightState: service_l
 
- # Pet
-#  petSuccessString: petting-success-service-cyborg
-#  petFailureString: petting-failure-service-cyborg
+  # Pet
+  # petSuccessString: petting-success-service-cyborg
+  # petFailureString: petting-failure-service-cyborg
 
   # Impstation - Borg PDAs
 #  pdaBorderColor: "#717059"
