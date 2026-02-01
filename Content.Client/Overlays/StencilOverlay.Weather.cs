@@ -1,18 +1,19 @@
 using System.Numerics;
-using Content.Shared._Impstation.CCVar; // imp
 using Content.Shared.Light.Components;
 using Content.Shared.Weather;
 using Robust.Client.Graphics;
-using Robust.Shared.Configuration; // imp
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Configuration; // imp
+using Content.Shared._Impstation.CCVar; // imp
 
 namespace Content.Client.Overlays;
 
 public sealed partial class StencilOverlay
 {
-    private List<Entity<MapGridComponent>> _grids = new();
     [Dependency] private readonly IConfigurationManager _configManager = default!; // imp
+
+    private List<Entity<MapGridComponent>> _grids = new();
 
     private void DrawWeather(
         in OverlayDrawArgs args,
