@@ -59,7 +59,7 @@
       "Wah": {6: 100} # Defined in space-station-14.sf2
   - type: Sprite
     sprite: Objects/Fun/Instruments/microphone.rsi
-  - type: ActivatableUI
+  - type: ActivatableUI # imp
     inHandsOnly: false
   - type: Item
     size: Small
