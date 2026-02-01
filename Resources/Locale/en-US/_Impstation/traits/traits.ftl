@@ -126,4 +126,4 @@ trait-hated-by-dogs-name = Hated by dogs
 trait-hated-by-dogs-desc = Dogs will bark at you when you come near.
 
 trait-hemorrhage-name = Hemorrhaging
-trait-hemorrhage-desc = You lose blood quicker while bleeding.
+trait-hemorrhage-desc = You lose more blood while bleeding.

@@ -22,7 +22,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared._Impstation.Hemorrhage; //imp edit
 
 namespace Content.Shared.Body.Systems;
 
@@ -373,11 +372,6 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         if (amount >= 0)
             return SolutionContainer.TryAddReagent(ent.Comp.BloodSolution.Value, ent.Comp.BloodReagent, amount, null, GetEntityBloodData(ent));
 
-        // imp Multiplies the blood lost per stack by the value set
-        amount =
-            TryComp<HemorrhageComponent>(ent, out var trait)
-            ? amount * trait.BleedIncreaseMultiplier
-            : amount;
         // Removal is more involved,
         // since we also wanna handle moving it to the temporary solution
         // and then spilling it if necessary.
