@@ -34,6 +34,9 @@ public sealed partial class RadiationDamageModifierSystem : EntitySystem
     /// </summary>
     private void OnIrradiated(Entity<IrradiatedDamageComponent> ent, ref OnIrradiatedEvent args)
     {
+        // If this were a more comprehensive rework for how taking damage from radiation works, getting resistance to radiation
+        // would probably be better as its own component similar to ArmorComponent or ZombificationResistanceComponent
+        // Instead, we're piggybacking off of the existing radiation damage resistances from clothing to avoid a bunch of yaml changes
         // We raise a query event to check the entity's damage modifiers from armor
         var armorQuery = new CoefficientQueryEvent(ProtectiveSlots);
         RaiseLocalEvent(ent, armorQuery);
@@ -42,11 +45,10 @@ public sealed partial class RadiationDamageModifierSystem : EntitySystem
         if (armorQuery.DamageModifiers.Coefficients.TryGetValue(ent.Comp.ArmorProtectionType, out var armorCoefficient))
             radCoefficient = armorCoefficient;
         var effectiveRads = FixedPoint2.New(args.TotalRads) * radCoefficient;
-        // If this were a more comprehensive rework for how taking damage from radiation works, the above code would probably be better as its own component like ZombificationResistanceComponent
-        // Instead, we're piggybacking off of the existing radiation damage resistances from clothing to avoid a whole bunch of yaml changes
 
         var hasMobState = TryComp<MobStateComponent>(ent, out var mobState);
         DamageSpecifier damage = new();
+        // Loop for damage logic
         foreach (var typeId in ent.Comp.DamageCoefficients)
         {
             // Logic to be done if entity has a MobState
@@ -72,7 +74,7 @@ public sealed partial class RadiationDamageModifierSystem : EntitySystem
                 if (adjustedDamage > 0 && adjustedDamage > limit)
                     adjustedDamage = limit;
 
-                // If the healing is "greater" than the clamp, we use the clamp instead
+                // If the healing is "greater"(less) than the clamp, we use the clamp instead
                 if (adjustedDamage < 0 && adjustedDamage < limit)
                     adjustedDamage = limit;
             }
