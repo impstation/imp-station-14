@@ -59,9 +59,9 @@
       "Wah": {6: 100} # Defined in space-station-14.sf2
   - type: Sprite
     sprite: Objects/Fun/Instruments/microphone.rsi
-  - type: ActivatableUI #imp
+  - type: ActivatableUI
     inHandsOnly: false
-  - type: Tag #imp
+  - type: Tag # imp
     tags:
     - BorgNeck
   - type: Clothing #imp
