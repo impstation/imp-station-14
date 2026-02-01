@@ -258,17 +258,6 @@
   - UplinkAmmo
 
 - type: listing
-  id: UplinkEchionSynth
-  name: uplink-echion-synth-name
-  description: uplink-echion-synth-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Specific/Syndicate/echionsynth.rsi, state: icon }
-  productEntity: EchionSynth
-  cost:
-    Telecrystal: 5
-  categories:
-  - UplinkAmmo
-
-- type: listing
   id: UplinkRocketConcussiveBundle
   name: uplink-rocketcon-name
   description: uplink-rocketcon-desc
@@ -300,6 +289,20 @@
     Telecrystal: 5
   categories:
     - UplinkAmmo
+
+- type: listing
+  id: UplinkEchionSynth
+  name: uplink-echion-synth-name
+  description: uplink-echion-synth-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Specific/Syndicate/echionsynth.rsi, state: icon }
+  productEntity: EchionSynth
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkAmmo
 
 - type: listing
   id: UplinkExtendedMagazinePistol

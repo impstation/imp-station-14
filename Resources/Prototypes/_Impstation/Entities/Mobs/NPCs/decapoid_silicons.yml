@@ -198,6 +198,11 @@
     - SimpleNeutral
   - type: Carriable
   - type: CanEscapeInventory #for carrying
+  - type: InteractionPopup
+    interactSuccessString: petting-success-decapoid-silicon
+    interactFailureString: petting-failure-decapoid-silicon
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
 
 - type: entity #behold my abombination, mortal
   parent: BaseMobDecapoidSilicon
