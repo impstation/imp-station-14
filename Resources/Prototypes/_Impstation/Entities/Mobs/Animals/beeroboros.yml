@@ -20,7 +20,7 @@
       0: Alive
       5: Dead
   - type: Stamina
-    critThreshold: 5
+    baseCritThreshold: 5
   - type: PointLight
     radius: 1.5
     color: "#d63b28"
@@ -42,7 +42,10 @@
     factions:
     - Syndicate
   - type: Bloodstream
-    bloodMaxVolume: 0.1
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 1
   - type: ZombieImmune
 
 - type: entity
@@ -77,7 +80,7 @@
       0: Alive
       5: Dead
   - type: Stamina
-    critThreshold: 5
+    baseCritThreshold: 5
     animationThreshold: 1
   - type: PointLight
     radius: 1.5

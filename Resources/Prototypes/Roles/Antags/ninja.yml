@@ -15,7 +15,7 @@
   id: SpaceNinjaGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitNinja
-    back: ClothingBackpackSatchel
+    back: ClothingBackpackSatchelNinja
     mask: ClothingMaskNinja
     head: ClothingHeadHelmetSpaceNinja
     eyes: ClothingEyesVisorNinja
@@ -32,7 +32,7 @@
   # begin imp edit, replaced toolset with omnitool and added smoke grenades
   storage:
     back: # belt holds katana so satchel has the tools for sabotaging things
-    #- Crowbar 
+    #- Crowbar
     #- Wrench
     #- Screwdriver
     #- Wirecutter
@@ -44,6 +44,10 @@
     - SmokeGrenade
     - SmokeGrenade
   # end imp edit
+    - EmergencyMedipen
+    - Flare
+    - FoodSnackNutribrick
+    - DrinkWaterBottleFull
 
 - type: chameleonOutfit
   id: NinjaChameleonOutfit

@@ -803,6 +803,12 @@
   - GroupTankHarnessAquatic #imp special
 
 - type: roleLoadout
+  id: RoleSurvivalMilitaryDouble
+  groups:
+  - SurvivalMilitaryDouble
+  - GroupBreathToolDecapoid # imp special
+
+- type: roleLoadout
   id: RoleSurvivalNukie
   groups:
   - SurvivalSyndicate
@@ -816,5 +822,12 @@
   groups:
   - GroupEVATank
   - SurvivalExtended
+  - GroupBreathToolDecapoid # imp special
+  - GroupTankHarnessAquatic #imp special
+
+- type: roleLoadout
+  id: RoleSurvivalSpaceNinja
+  groups:
+  - GroupEVATank
   - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessAquatic #imp special

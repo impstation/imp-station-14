@@ -60,6 +60,9 @@ namespace Content.Client.Cargo.UI
             SearchBar.OnTextChanged += OnSearchBarTextChanged;
             Categories.OnItemSelected += OnCategoryItemSelected;
 
+            TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders")); // imp edit, move these up
+            TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds")); // imp edit, move these up
+
             if (entMan.TryGetComponent<CargoOrderConsoleComponent>(owner, out var orderConsole))
             {
                 var accountProto = _protoManager.Index(orderConsole.Account);
@@ -67,10 +70,18 @@ namespace Content.Client.Cargo.UI
                     ("color", accountProto.Color),
                     ("name", Loc.GetString(accountProto.Name)),
                     ("code", Loc.GetString(accountProto.Code)));
+
+                // imp edit start
+                if (!orderConsole.ShowFundsTab)
+                {
+                    FundsTab.RemoveAllChildren();
+                    TabContainer.RemoveChild(1);
+                }
+                // imp edit end
             }
 
-            TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders"));
-            TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds"));
+            // TabContainer.SetTabTitle(0, Loc.GetString("cargo-console-menu-tab-title-orders")); // imp edit, move these up
+            // TabContainer.SetTabTitle(1, Loc.GetString("cargo-console-menu-tab-title-funds")); // imp edit, move these up
 
             ActionOptions.OnItemSelected += idx =>
             {

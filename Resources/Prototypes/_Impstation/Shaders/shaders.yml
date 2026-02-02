@@ -23,3 +23,8 @@
   id: SalvoScan
   kind: source
   path: "/Textures/_Impstation/Shaders/salvo_scan.swsl"
+
+- type: shader
+  id: CameraStaticAccessible
+  kind: source
+  path: "/Textures/_Impstation/Shaders/camera_static_accessible.swsl"
