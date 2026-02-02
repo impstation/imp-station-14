@@ -13358,8 +13358,6 @@ entities:
       parent: 8364
   - uid: 3949
     components:
-    - type: MetaData
-      name: Ghetto Kitchen
     - type: Transform
       pos: -34.5,-45.5
       parent: 8364
@@ -72349,11 +72347,6 @@ entities:
     components:
     - type: Transform
       pos: 37.5,-6.5
-      parent: 8364
-  - uid: 27930
-    components:
-    - type: Transform
-      pos: 37.5,-7.5
       parent: 8364
 - proto: DefaultStationBeaconMailroomCourier
   entities:
