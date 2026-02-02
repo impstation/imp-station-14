@@ -309,3 +309,14 @@
   - type: Item
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/greenprincessdress.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase]
+  id: ClothingUniformAtmosFlightSkirt
+  name: atmos flightskirt
+  description: A harnessed, secure flightsuit for all the flying atmos techs do.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/atmos_flightskirt.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/atmos_flightskirt.rsi
