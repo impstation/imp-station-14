@@ -422,3 +422,15 @@
     collection: FootstepTile
   itemDrop: FloorTileItemDecapoid
   heatCapacity: 10000
+
+- type: tile
+  id: FloorDecapoidFancy
+  name: tiles-apid-floor
+  sprite: /Textures/_Impstation/Tiles/Misc/decapoid_fancy.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDecapoidFancy
+  heatCapacity: 10000
