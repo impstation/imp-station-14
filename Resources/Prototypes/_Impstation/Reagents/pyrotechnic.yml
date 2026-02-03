@@ -21,23 +21,24 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
-            Heat: 1
-            Radiation: 3
+            Poison: 0.7
+            Radiation: 0.5
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Gray ] # gray radiation immunity
+          type: [ Gray ]
           inverted: true
       - !type:HealthChange
         damage:
           types:
-            Poison: 1
-            Heat: 1
+            Poison: 0.7
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Gray ]
+          type: [ Gray ] # gray radiation immunity
+      - !type:MovementSpeedModifier
+        walkSpeedModifier: 0.7
+        sprintSpeedModifier: 0.7
       - !type:Flammable
-        multiplier: 0.3
+        multiplier: 0.17
 
 - type: reagent
   id: HotterSauce
