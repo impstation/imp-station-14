@@ -344,6 +344,7 @@
   - type: InteractionPopup
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: LawSynced # imp
 
 - type: entity
   id: BaseBorgChassisSyndicate

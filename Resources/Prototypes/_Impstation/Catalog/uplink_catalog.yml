@@ -28,6 +28,20 @@
     - UplinkWeaponry
 
 - type: listing
+  id: UplinkTaipanBundle
+  name: uplink-taipan-name
+  description: uplink-taipan-desc
+  icon: { sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi, state: icon }
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  productEntity: TaipanBox
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkValuShotFamily
   name: uplink-valushotfamily-name
   description: uplink-valushotfamily-desc

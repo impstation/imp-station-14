@@ -86,6 +86,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Impstation/reach.yml", // Contains handheld crew monitor
             "/Maps/_Impstation/xeno.yml", // Contains PTK-800 "Matter Dematerializer"
             "/Maps/_Impstation/eclipse.yml", // Contains PTK-800 "Matter Dematerializer", LSE-400c "Svalinn machine gun"
+            "/Maps/_Impstation/monarch.yml", // Contains ship cannons
 
             // Shuttles
             "/Maps/_DV/Shuttles/listening_post.yml", // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
@@ -152,6 +153,7 @@ namespace Content.IntegrationTests.Tests
             "Xeno",
             "Pathway",
             "Whisper",
+            "Monarch",
 
             // DEROTATED:
             //"Eclipse",
@@ -558,7 +560,7 @@ namespace Content.IntegrationTests.Tests
             return resultCount;
         }
 
-        [Test]
+        [Test, NonParallelizable] // imp nonparallelize for OOM
         public async Task AllMapsTested()
         {
             await using var pair = await PoolManager.GetServerClient();
@@ -577,7 +579,7 @@ namespace Content.IntegrationTests.Tests
             await pair.CleanReturnAsync();
         }
 
-        [Test]
+        [Test, NonParallelizable] // imp nonparallelize for OOM
         public async Task NonGameMapsLoadableTest()
         {
             await using var pair = await PoolManager.GetServerClient();
