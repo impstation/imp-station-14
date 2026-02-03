@@ -16,7 +16,7 @@ public sealed class StiltedSpeechSystem : EntitySystem
         SubscribeLocalEvent<StiltedSpeechComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, StiltedSpeechComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<StiltedSpeechComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 
