@@ -1,99 +1,4 @@
 ﻿Entries:
-- author: wendyribstonpippin
-  changes:
-  - message: forsooth! this archaic accent needed more!
-    type: Tweak
-  id: 2092
-  time: '2025-07-29T10:03:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3183
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Mk 93 + 92HB sprites get a couple little updates
-    type: Tweak
-  id: 2093
-  time: '2025-07-29T20:52:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3191
-- author: Jellvisk
-  changes:
-  - message: steel wood walls resprited
-    type: Tweak
-  id: 2094
-  time: '2025-07-29T21:19:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3190
-- author: yesteryuri
-  changes:
-  - message: Doctors won't be pressured to wear clown shoes by default, and other
-      similar cases.
-    type: Fix
-  id: 2095
-  time: '2025-07-30T08:34:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3196
-- author: yesteryuri
-  changes:
-  - message: Bottle boxes have three more bottles
-    type: Tweak
-  id: 2096
-  time: '2025-07-30T08:35:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3197
-- author: honeyed-lemons
-  changes:
-  - message: adds cream cheese, a cream cheese bagel,  and chocolate chips.
-    type: Add
-  - message: Altered various recipes that insinuated the use of chocolate chips and
-      cream cheese
-    type: Tweak
-  - message: Butter and Butter slice have been resprited
-    type: Tweak
-  - message: Chocolate bars now require being heated to be made
-    type: Tweak
-  id: 2097
-  time: '2025-07-31T15:06:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3113
-- author: hivehum
-  changes:
-  - message: Snails can now be obliterated by pleebnars.
-    type: Tweak
-  id: 2098
-  time: '2025-08-01T03:01:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3080
-- author: sev7ves
-  changes:
-  - message: The spider clan has seen a sharp decrease in recruits.
-    type: Tweak
-  id: 2099
-  time: '2025-08-01T03:04:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3185
-- author: Kandiyaki
-  changes:
-  - message: the heretic's void blast can once again be aimed at non-visible targets.
-    type: Fix
-  - message: the heretic's void teleport can go through lattices again.
-    type: Fix
-  - message: heretic blades can now be used as cutting tools, and are able to do executions.
-    type: Fix
-  - message: changed up the ghoul and sacrifice notification screens for clarity.
-    type: Tweak
-  id: 2100
-  time: '2025-08-01T03:13:45.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3163
-- author: Mousetrinity
-  changes:
-  - message: monkey's delight is now able to be made with sanitized monkey cubes
-    type: Tweak
-  id: 2101
-  time: '2025-08-02T08:43:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3209
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Syndicate Raid Suit will now protect you from being knocked over
-      by the Leviathan firing.
-    type: Tweak
-  - message: The Mk 93 + 92HB both will now default to their respective signature
-      firing modes.
-    type: Tweak
-  id: 2102
-  time: '2025-08-02T08:44:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3212
 - author: DinnerCalzone
   changes:
   - message: Carpets can now be cut off the floor by using a wirecutter on them.
@@ -4160,3 +4065,97 @@
   id: 2591
   time: '2026-01-29T08:54:20.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4000
+- author: TheGrimbeeper
+  changes:
+  - message: Stationwide destruction artifact effects are once again called "Stationwide
+      destruction", instead of "imminent doom".
+    type: Tweak
+  id: 2592
+  time: '2026-02-01T01:57:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4067
+- author: widgetbeck
+  changes:
+  - message: NT lawbound silicons now have their laws synchronized with the station
+      AI.
+    type: Add
+  - message: The Research Director now has a tool that allows them to re-synchronize
+      any errant silicons.
+    type: Add
+  id: 2593
+  time: '2026-02-01T22:06:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4019
+- author: starlighthowls
+  changes:
+  - message: The frigate class ship Monarch has been moved into IMP sector space.
+    type: Add
+  id: 2594
+  time: '2026-02-01T22:10:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4032
+- author: widgetbeck
+  changes:
+  - message: Added customizable lawboards, so antags can write their own laws to upload
+      into the AI. (currently unobtainable)
+    type: Add
+  id: 2595
+  time: '2026-02-01T22:09:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4028
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Svalinn will shoots its dinky red lasers once more
+    type: Fix
+  id: 2596
+  time: '2026-02-01T22:25:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4058
+- author: honeyed-lemons
+  changes:
+  - message: Mr. Chang has slightly more edible looking noodles!
+    type: Tweak
+  id: 2597
+  time: '2026-02-01T22:28:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4064
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: Blaster and Starflare Cells fit in security belts now
+    type: Fix
+  id: 2598
+  time: '2026-02-01T22:30:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4069
+- author: DinnerCalzone
+  changes:
+  - message: '"Retro" radiators can now be crafted through the construction menu.
+      An old, chunky friend has returned.'
+    type: Add
+  id: 2599
+  time: '2026-02-02T18:49:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3975
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Energy Crossbow is now the Taipan, where now the "E" stands for "Echion",
+      with new behavior!
+    type: Tweak
+  id: 2600
+  time: '2026-02-02T20:19:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4061
+- author: FlapWrap
+  changes:
+  - message: Mimes, you're still Blue, but of a much darker variety...
+    type: Tweak
+  - message: Extra TLC and tweaks to Mime clothing
+    type: Tweak
+  - message: Blushing Mime/Clown mask moved from the E-Mag inventory to Contraband
+      inventory for TheaterVend
+    type: Tweak
+  - message: The Security Mime mask has been added to the Security loadout
+    type: Add
+  - message: A new set of clothing for mimes!
+    type: Add
+  id: 2601
+  time: '2026-02-02T20:20:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4039
+- author: mqole
+  changes:
+  - message: Pointing while holding a gun is now more threatening.
+    type: Add
+  id: 2602
+  time: '2026-02-02T20:24:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3337
