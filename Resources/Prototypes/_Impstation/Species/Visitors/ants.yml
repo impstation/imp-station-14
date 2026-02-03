@@ -1,0 +1,166 @@
+- type: species
+  id: Ant
+  name: species-name-ant
+  roundStart: false
+  randomViable: true # imp
+  randomChance: 0.1 # very rare
+  prototype: MobAnt
+  sprites: MobAntSprites
+  defaultSkinTone: "#FFFFFF"
+  markingLimits: MobAntMarkingLimits
+  dollPrototype: MobAntDummy
+  skinColoration: Hues
+  maleFirstNames: NamesAntFirst
+  femaleFirstNames: NamesAntFirst
+  lastNames: NamesAntLast
+  sexes:
+  - Unsexed
+
+- type: speciesBaseSprites
+  id: MobAntSprites
+  sprites:
+    Eyes: MobAntEyes
+    Head: MobAntHead
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    Chest: MobAntTorso
+    LArm: MobAntLArm
+    RArm: MobAntRArm
+    LHand: MobAntLHand
+    RHand: MobAntRHand
+    LLeg: MobAntLLeg
+    RLeg: MobAntRLeg
+    LFoot: MobAntLFoot
+    RFoot: MobAntRFoot
+
+- type: markingPoints
+  id: MobAntMarkingLimits
+  onlyWhitelisted: true
+  points:
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ AntAntennae1 ]
+    HeadSide:
+      points: 1
+      required: false
+    Eyes:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
+    Arms:
+      points: 4
+      required: false
+    Overlay:
+      points: 3
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobAntEyes
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobAntHead
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobAntHeadMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobAntHeadFemale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobAntTorso
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobAntTorsoMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobAntTorsoFemale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobAntLLeg
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobAntLHand
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobAntLArm
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobAntLFoot
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobAntRLeg
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobAntRHand
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobAntRArm
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobAntRFoot
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi
+    state: r_foot
