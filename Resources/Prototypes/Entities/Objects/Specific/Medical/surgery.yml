@@ -64,9 +64,6 @@
     price: 40
   # imp edits #
   - type: DamageOtherOnHit
-    damage:
-      types:
-        Piercing: 11
     staminaCost: 8
   - type: EmbeddableProjectile
   - type: EmbedPassiveDamage
@@ -125,6 +122,17 @@
     state: shiv
   - type: Item
     heldPrefix: shiv
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.375,-0.15,0.35,0.12"
+        density: 20 # derived from base_item
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+
 
 - type: entity
   name: advanced scalpel
@@ -303,9 +311,6 @@
     speedModifier: 1.5
   # imp edits #
   - type: DamageOtherOnHit
-    damage:
-      groups:
-        Brute: 10
     staminaCost: 14
   - type: ThrowingAngle
     angle: 90

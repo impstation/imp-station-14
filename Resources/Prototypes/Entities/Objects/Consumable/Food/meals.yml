@@ -50,7 +50,7 @@
           Quantity: 4
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable
 # Tastes like potato.
 
 - type: entity
@@ -81,9 +81,10 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: SpaceFriesBurger
+      Hotdog: SpaceFriesBurger
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable
 # Tastes like fries, salt.
 
 - type: entity
@@ -115,9 +116,10 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: CheesyFriesBurger
+      Hotdog: CheesyFriesBurger
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable
 # Tastes like fries, cheese.
 
 - type: entity
@@ -150,6 +152,7 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: CarrotFriesBurger
+      Hotdog: CarrotFriesBurger 
 # Tastes like carrots, salt.
 
 - type: entity
@@ -320,7 +323,7 @@
     state: yakiimo
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable
 # Tastes like sweet potato.
 
 - type: entity
@@ -568,6 +571,7 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: FriedEggBurger
+      Hotdog: FriedEggBurger
 # Tastes like egg, salt, pepper.
 
 - type: entity
@@ -611,6 +615,9 @@
           Quantity: 10
         - ReagentId: Allicin
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Vegetable
 # Tastes like pain.
 
 - type: entity
@@ -643,6 +650,9 @@
           Quantity: 3
         - ReagentId: TableSalt # imp
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - Vegetable
 # Tastes awesome.
 
 - type: entity
@@ -661,6 +671,7 @@
     - type: FoodSequenceElement # imp
       entries:
         Burger: QuesoBurger
+        Hotdog: QuesoBurger
     - type: SolutionContainerManager # imp
       solutions:
         food:
@@ -808,4 +819,4 @@
         #  Quantity: 4
   - type: Tag # imp
     tags:
-    - UnguFood
+    - Vegetable

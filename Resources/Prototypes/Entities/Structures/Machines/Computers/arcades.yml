@@ -10,11 +10,11 @@
   - type: ExtensionCableReceiver
   - type: PointLight
     radius: 1.8
-    energy: 1.6
+    energy: 3.0
     color: "#3db83b"
   - type: LitOnPowered
   - type: Sprite
-    sprite: Structures/Machines/arcade.rsi
+    sprite: _Impstation/Structures/Machines/arcade.rsi # imp edit
     layers:
     - map: ["computerLayerBody"]
       state: arcade
@@ -24,7 +24,7 @@
       state: panel
       visible: false
   - type: Icon
-    sprite: Structures/Machines/arcade.rsi
+    sprite: _Impstation/Structures/Machines/arcade.rsi # imp edit
     state: arcade
   - type: WiresPanel
   - type: Wires
@@ -60,7 +60,7 @@
   parent: ArcadeBase
   components:
   - type: Sprite
-    sprite: Structures/Machines/arcade.rsi
+    sprite: _Impstation/Structures/Machines/arcade.rsi # imp edit
     layers:
     - map: ["computerLayerBody"]
       state: arcade
@@ -88,7 +88,7 @@
     #- FoamBlade
     #- FoamCutlass
     #- Football
-    #- GlowstickBase #green
+    #- GlowstickGreen
     #- GlowstickBlue
     #- GlowstickYellow
     #- GlowstickPurple
@@ -133,14 +133,14 @@
     #- ToyMouse
     #- ToyAi
     #- ToyNuke
-    #- ToyGriffin
+    #- ToyFigurineGriffin
     #- ToyHonk
     #- ToyIan
     #- ToyMarauder
     #- ToyMauler
     #- ToyGygax
     #- ToyOdysseus
-    #- ToyOwlman
+    #- ToyFigurineOwlman
     #- ToyDeathRipley
     #- ToyPhazon
     #- ToyFireRipley
@@ -148,7 +148,7 @@
     #- ToyRipley
     #- ToySeraph
     #- ToyDurand
-    #- ToySkeleton
+    #- ToyFigurineSkeleton
     #- ToySword
     #- ToyAmongPequeno
     #- ToyRubberDuck
@@ -200,7 +200,7 @@
   parent: ArcadeBase
   components:
   - type: Sprite
-    sprite: Structures/Machines/arcade.rsi
+    sprite: _Impstation/Structures/Machines/arcade.rsi # imp edit
     layers:
     - map: ["computerLayerBody"]
       state: arcade

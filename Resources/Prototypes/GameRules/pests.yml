@@ -10,6 +10,7 @@
     - id: LuggageMigration # imp special
     - id: SingleCritter # imp special
     - id: CorpseEjectedFromVents # imp
+    - id: DuctSpiderMigration # imp
     - id: PleebnarMigration #imp
 
 - type: entityTable
@@ -17,6 +18,7 @@
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
     - id: BoarSpawn #imp
+    - id: BombadilloSpawn #imp
     - id: BrosSpawn #imp
     - id: SnailMigration
     - id: SnakeSpawn #imp

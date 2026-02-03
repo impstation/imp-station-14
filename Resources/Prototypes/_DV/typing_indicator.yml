@@ -4,3 +4,10 @@
   typingState: thaven0
   idleState: thaven0 # TODO: new idle state (port?)
   offset: -0.2, 0.1 # 0625
+
+- type: typingIndicator
+  id: aac
+  spritePath: /Textures/_DV/Effects/speech.rsi
+  typingState: aac0
+  idleState: aac0 # TODO new
+  offset: -0.05, 0.1

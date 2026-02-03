@@ -28,6 +28,10 @@
     - FlashlightLantern
     - MicroManipulatorStockPart
     - Beaker
+    # imp edit start
+    - MatterBinStockPart
+    - CapacitorStockPart
+    # imp edit end
     chance: 0.8
     offset: 0.2
 
@@ -62,6 +66,10 @@
       - id: ToolboxElectricalFilled
       - id: ToolboxMechanicalFilled
       - id: MicroManipulatorStockPart
+      # imp edit start
+      - id: MatterBinStockPart
+      - id: CapacitorStockPart
+      # imp edit end
     # Rare Group
     - !type:GroupSelector
       weight: 10

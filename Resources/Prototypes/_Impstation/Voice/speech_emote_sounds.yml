@@ -169,6 +169,8 @@
       collection: VoxChitter
       params:
         volume: -5
+    Click:
+      path: /Audio/Voice/Vox/vox_click.ogg
     Coo:
       collection: VoxCoo
       params:
@@ -219,6 +221,8 @@
       collection: VoxChitter
       params:
         volume: -5
+    Click:
+      path: /Audio/Voice/Vox/vox_click.ogg
     Coo:
       collection: VoxCoo
       params:
@@ -955,6 +959,56 @@
     DefaultDeathgasp:
       /Audio/_Impstation/Allulalo/allulalo_deathgasp.ogg
 
+
+- type: emoteSounds
+  id: UnisexAnt
+  sounds:
+    Scream:
+      collection: MaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Sigh:
+      collection: MaleSigh
+    Honk:
+      collection: BikeHorn
+    Crying:
+      collection: MaleCry
+    Chitter:
+      collection: KodepiiaChitter
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Wuhey:
+      collection: Wuhey
+    Ungh:
+      collection: Ungh
+    GoblinThroatSinging:
+      collection: GoblinThroatSingingCollection
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+  params:
+    variation: 0.125
+    pitch: 3
+
 #body emotes
 - type: emoteSounds
   id: SlimeBodyEmotes
@@ -1015,6 +1069,20 @@
       collection: Cracks
     Blink:
       collection: WetBlinks
+      params:
+        volume: -3
+
+        variation: 0.1
+
+- type: emoteSounds
+  parent: UnisexArachnid
+  id: ArachnidSmall
+  params:
+    pitch: 1.5
+    variation: 0.125
+  sounds:
+    Blink:
+      collection: SpiderBlinks
       params:
         volume: -3
         variation: 0.1

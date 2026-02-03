@@ -13,23 +13,21 @@
   - Dna
   - Fingerprint
   - NpcFactionMember
+  - NotifierExamine # imp change
   # traits
   - BlackAndWhiteOverlay
   - Clumsy
-  - Hemophilia
   - ImpairedMobility
   # - LegsParalyzed (you get healed)
   - LightweightDrunk
   - Muted
   - Narcolepsy
   - Pacified
-  - PainNumbness
   - Paracusia
   - PermanentBlindness
   - Snoring
   - Unrevivable
   # imp disabilities begin
-  - Hemophilia
   - RandomUnrevivable
   - Illiterate
   - UnadaptedToSpace
@@ -107,6 +105,7 @@
   - Revolutionary
   - NukeOperative
   - Heretic # Imp
+  - Store # Imp. I don't know why heretic is like this. kill me. kill me. KILL ME.
   - GoobChangeling # Imp
 
 # a full clone with all traits and items, but no antag roles
@@ -133,6 +132,8 @@
 - type: cloningSettings
   id: ParadoxCloningSettings
   parent: [BaseClone, Antag]
+  components:
+  - Forensics # This is so hugging data is copied to the clone, so you can't hug metagame them
 
 # changeling identity copying
 - type: cloningSettings

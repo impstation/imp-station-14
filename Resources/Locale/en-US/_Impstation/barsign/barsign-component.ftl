@@ -90,3 +90,7 @@ barsign-prototype-description-moths = LIVE MOTHS!
 
 barsign-prototype-name-rouny = Thee Invasive Rouny Inn
 barsign-prototype-description-rouny = Rouny.
+
+## loose
+barsign-prototype-name-loose = The Loose
+barsign-prototype-description-loose = Looking at this sign gives you the peculiar feeling of being an ant in a bug farm.

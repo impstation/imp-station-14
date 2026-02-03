@@ -150,6 +150,8 @@
   - type: Tag
     tags:
       - FoodSnack
+      - ReptilianFood # imp
+      - UnguFood # imp
   - type: SpawnItemsOnUse
     items:
       - id: FoodPacketChocolateTrash
@@ -188,6 +190,7 @@
     tags:
       - FoodSnack
       - ReptilianFood
+      - UnguFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -298,6 +301,9 @@
           Quantity: 3 # weird compromise because this is... like a recipe... but nobody ever makes it...
         - ReagentId: TableSalt
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   name: 4no raisins
@@ -345,6 +351,10 @@
           Quantity: 1
         - ReagentId: TableSalt
           Quantity: 5
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - ReptilianFood
 
 - type: entity
   name: sus jerky
@@ -398,6 +408,10 @@
         reagents:
         - ReagentId: Nutriment # higher bc not in vending machines
           Quantity: 10
+  - type: Tag # imp
+    tags:
+    - UnguFood
+    - Fruit # flavor profile says it tastes like fruit cake
 
 - type: entity
   parent: FoodSnackBase
@@ -426,6 +440,9 @@
   - type: Item
     heldPrefix: ramen
     storedOffset: 0,-1
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: DrinkRamen
@@ -455,10 +472,19 @@
       - salty
       - oily
   - type: Sprite
-    state: chinese1
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    layers:
+    - state: takeout-empty
+    - state: chow-mein
   - type: Item
-    heldPrefix: chinese1
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    # heldPrefix: chinese1 #imp
     storedOffset: 1,-2
+    inhandVisuals: # imp
+      left:
+      - state: takeout-inhand-left
+      right:
+      - state: takeout-inhand-right
   - type: SolutionContainerManager
     solutions:
       food:
@@ -473,6 +499,9 @@
   - type: Edible
     trash:
     - FoodPacketChowMeinTrash
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: FoodSnackBase
@@ -486,10 +515,19 @@
       - oily
       - spicy
   - type: Sprite
-    state: chinese2
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    layers:
+        - state: takeout-empty
+        - state: dan-dan-noodles
   - type: Item
-    heldPrefix: chinese2
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    # heldPrefix: chinese2 #imp
     storedOffset: 0,-2
+    inhandVisuals: # imp
+      left:
+      - state: takeout-inhand-left
+      right:
+      - state: takeout-inhand-right
   - type: SolutionContainerManager
     solutions:
       food:
@@ -504,6 +542,9 @@
   - type: Edible
     trash:
     - FoodPacketDanDanTrash
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: FoodSnackBase
@@ -531,6 +572,9 @@
   - type: Edible
     trash:
     - FoodCookieFortune
+  - type: Tag # imp
+    tags:
+    - UnguFood
 
 - type: entity
   parent: BaseItem
@@ -650,6 +694,7 @@
     tags:
     - FoodSnack
     - ReptilianFood
+    - UnguFood # imp
   - type: SolutionContainerManager
     solutions:
       food:
@@ -927,9 +972,16 @@
   name: empty chow mein box
   components:
   - type: Sprite
-    state: chinese1
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    state: takeout-empty # imp
   - type: Item
-    heldPrefix: chinese1
+    #heldPrefix: chinese1 #imp
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    inhandVisuals: # imp
+      left:
+      - state: takeout-inhand-left
+      right:
+      - state: takeout-inhand-right
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -938,9 +990,16 @@
   name: empty dan dan box
   components:
   - type: Sprite
-    state: chinese2
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    state: takeout-empty # imp
   - type: Item
-    heldPrefix: chinese2
+    #heldPrefix: chinese2 #imp
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    inhandVisuals: # imp
+      left:
+      - state: takeout-inhand-left
+      right:
+      - state: takeout-inhand-right
 
 - type: entity
   categories: [ HideSpawnMenu ]

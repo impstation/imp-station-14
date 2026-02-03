@@ -43,7 +43,7 @@
   id: WeaponizedLaserManipulation
   name: research-technology-weaponized-laser-manipulation
   icon:
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_gun.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_gun.rsi #imp
     state: icon
   discipline: Arsenal
   tier: 1
@@ -149,7 +149,7 @@
   id: ConcentratedLaserWeaponry
   name: research-technology-concentrated-laser-weaponry
   icon:
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/laser_cannon.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_cannon.rsi #imp
     state: icon
   discipline: Arsenal
   tier: 2
@@ -163,7 +163,7 @@
   id: WaveParticleHarnessing
   name: research-technology-wave-particle-harnessing
   icon:
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/xray.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/xray.rsi #imp
     state: icon
   discipline: Arsenal
   tier: 2
@@ -226,7 +226,7 @@
   id: PortableMicrofusionWeaponry
   name: research-technology-portable-microfusion-weaponry
   icon:
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/advancedlasergun.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/advancedlasergun.rsi #imp
     state: icon
   discipline: Arsenal
   tier: 3
@@ -240,7 +240,7 @@
   id: ThermalWeaponry
   name: research-technology-thermal-weaponry
   icon:
-    sprite: Objects/Weapons/Guns/Battery/temp_gun.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Blasters/temp_gun.rsi
     state: icon
   discipline: Arsenal
   tier: 3
