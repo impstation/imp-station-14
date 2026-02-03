@@ -45,7 +45,7 @@
       baseWalkSpeed: 2.5
       baseSprintSpeed: 3.5
     - type: Stamina
-      critThreshold: 100
+      baseCritThreshold: 100
     - type: DamageStateVisuals
       states:
         Alive:
@@ -98,7 +98,10 @@
     - type: Body #imp
       prototype: AnimalCarp
     - type: Bloodstream #imp
-      bloodReagent: ShimmeringBlood
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: ShimmeringBlood
+          Quantity: 150
 
 - type: entity
   parent: BaseMobCarp
@@ -160,7 +163,7 @@
   components:
   - type: PointLight
     radius: 1.5
-    energy: 0.5
+    energy: 2
   - type: RgbLightController
     layers: [ 0 ]
 
@@ -194,7 +197,12 @@
     - type: HTN
       rootTask:
         task: DragonCarpCompound
-
+    - type: Flammable
+      damage:
+       types: {}
+    - type: Temperature
+    - type: TemperatureDamage
+      heatDamageThreshold: 1200
 - type: entity
   id: MobCarpDungeon
   parent: MobCarp
@@ -242,7 +250,7 @@
         0: Alive
         82: Dead # Might seem random, but this brings up the hits to kill with a crusher mark to 3
     - type: Stamina
-      critThreshold: 150
+      baseCritThreshold: 150
     - type: DamageStateVisuals
       states:
         Alive:

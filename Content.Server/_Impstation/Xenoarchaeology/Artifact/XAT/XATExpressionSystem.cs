@@ -1,5 +1,5 @@
-using Content.Server.Chat.Systems;
 using Content.Server.Xenoarchaeology.Artifact.XAT.Components;
+using Content.Shared.Chat;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.XAT;
 

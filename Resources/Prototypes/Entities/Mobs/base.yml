@@ -38,10 +38,8 @@
   - type: MindContainer
   - type: RequireProjectileTarget
     active: False
-  # imp edit start
-  - type: AnimatedEmotes
-  - type: CollectiveMind
-  # imp edit end
+  - type: CollectiveMind # Startlight - Collective Minds - Give everyone general access to collective mind channels for Dragons/Carp/Critters/Zombies
+  - type: AnimatedEmotes # imp
 
 # The progenitor. This should only container the most basic components possible.
 # Only put things on here if every mob *must* have it. This includes ghosts.
@@ -173,13 +171,14 @@
   components:
   - type: AtmosExposed
   - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 0
-    currentTemperature: 310.15
     coldDamage: #per second, scales with temperature & other constants
       types:
         Cold : 0.1
-    specificHeat: 42
     heatDamage: #per second, scales with temperature & other constants
       types:
         Heat : 1.5
@@ -208,10 +207,11 @@
     normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 2
   - type: Temperature
-    heatDamageThreshold: 325
-    coldDamageThreshold: 260
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 325
+    coldDamageThreshold: 260
     coldDamage:
       types:
         Cold: 1 #per second, scales with temperature & other constants
@@ -262,7 +262,7 @@
   components:
   - type: SolutionContainerManager
   - type: InjectableSolution
-    solution: chemicals
+    solution: bloodstream
   - type: Bloodstream
     bloodlossDamage:
       types:

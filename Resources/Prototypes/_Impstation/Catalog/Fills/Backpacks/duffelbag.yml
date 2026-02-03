@@ -3,12 +3,15 @@
   id: ClothingBackpackDuffelSyndicateFilledAkurra
   name: Akurra bundle
   description: "A fearsome liquid-ammo plasma rifle, bundled with 4 canisters of its proprietary fuel."
+  suffix: Akurra bundle
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponPlasmaAkurra
-      - id: EchionCanister
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPlasmaAkurra
+        - id: EchionCanister
+          amount: 4
 
 - type: entity
   parent: ClothingBackpackDuffelDeadlyBundle
@@ -36,9 +39,29 @@
   id: ClothingBackpackDuffelSyndicateFilledSuperMosin
   name: K2903 Star Rifle bundle
   description: "An old bolt-action rifle with large magazine! Comes with a few stripper clips to make it a little easier reloading."
+  suffix: K2903 Star Rifle bundle
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponSniperStarService
-    - id: SpeedLoaderLightRifle
-      amount: 3
+  - type: Label
+    currentLabel: "K2903 Star Rifle bundle"
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSniperStarService
+        - id: SpeedLoaderLightRifle
+          amount: 3
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledBR
+  name: Basilisk-11 bundle
+  description: "Precise and deadly, just as a professional should be. Bundled with 3 magazines."
+  suffix: Basilisk-11 bundle
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleNemesis
+        - id: MagazineBR
+          amount: 2

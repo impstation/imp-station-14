@@ -1,0 +1,48 @@
+- type: entity
+  id: MiniMechaInstructions
+  parent: Paper
+  components:
+  - type: Paper
+  - type: RandomPaperContent
+    dataset: MiniMechaInstructions
+
+- type: entity
+  parent: PresentRandom
+  id: MysteryMechBox
+  name: Mini-Mecha mystery figurine kit
+  description: A box containing a set of mystery mech sprues! Collect and build them all! You've never heard of half of these mechs in your life.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/mechkit.rsi
+    layers:
+      - state: box
+  - type: Item
+    sprite: _Impstation/Objects/Fun/mechkit.rsi
+  - type: SpawnItemsOnUse
+    items:
+      - id: MysteryFigureBoxTrash
+      - id: MiniMechaInstructions
+      - id: ToyRipleySprue
+        orGroup: MechSprues
+      - id: ToyFireRipleySprue
+        orGroup: MechSprues
+      - id: ToyDeathRipleySprue
+        orGroup: MechSprues
+      - id: ToyGygaxSprue
+        orGroup: MechSprues
+      - id: ToyDurandSprue
+        orGroup: MechSprues
+      - id: ToyHonkSprue
+        orGroup: MechSprues
+      - id: ToyMarauderSprue
+        orGroup: MechSprues
+      - id: ToySeraphSprue
+        orGroup: MechSprues
+      - id: ToyMaulerSprue
+        orGroup: MechSprues
+      - id: ToyOdysseusSprue
+        orGroup: MechSprues
+      - id: ToyPhazonSprue
+        orGroup: MechSprues
+      - id: ToyReticenceSprue
+        orGroup: MechSprues
