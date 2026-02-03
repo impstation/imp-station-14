@@ -60,7 +60,7 @@ public sealed class GastropoidAccentSystem : EntitySystem
         SubscribeLocalEvent<GastropoidAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, GastropoidAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<GastropoidAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 
