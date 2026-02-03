@@ -5,11 +5,10 @@
   description: A tasteful and elegant pen in Nanotrasen colors. The most expensive writing implement you can legally own aboard this station.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Misc/pens.rsi
-    state: designer_pen
+    sprite: _Impstation/Objects/Misc/Pens/designer.rsi
+    state: icon
   - type: Item
-    sprite: _Impstation/Objects/Misc/pens.rsi
-    heldPrefix: designer_pen
+    sprite: _Impstation/Objects/Misc/Pens/designer.rsi
   - type: SignatureWriter
     colorList:
       black: "#2f4f4f"
@@ -20,7 +19,7 @@
 - type: entity
   id: GriffyPen
   parent: BaseItem
-  name: griffy's pen 
+  name: griffy's pen
   description: The ICONIC pen for Griffy, The Sec Safety Dog! Though simply an oversized pen in function, the legacy this pen carries could change the universe...
   components: # can't inherit from the base pen because I need to remove embeddable
   - type: Sprite

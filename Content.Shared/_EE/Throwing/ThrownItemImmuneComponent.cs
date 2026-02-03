@@ -1,4 +1,4 @@
-namespace Content.Shared.Throwing
+namespace Content.Shared._EE.Throwing
 {
     /// <summary>
     /// This is used for entities that are immune to getting hit by thrown items.

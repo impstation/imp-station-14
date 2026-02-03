@@ -32,9 +32,14 @@
   components:
   - type: FlavorProfile
     flavors:
-      - food
+      - bacon # imp
+      - egg # imp
+      - potatoes # imp
   - type: Sprite
     state: fullamerican
+  - type: Tag # imp
+    tags:
+    - Meat
 
 - type: entity
   parent: FoodBreakfastBase
@@ -44,6 +49,11 @@
   components:
   - type: FlavorProfile
     flavors:
-      - food
+      - bacon # imp
+      - egg # imp
+      - tomato # imp
   - type: Sprite
     state: fullenglish
+  - type: Tag # imp
+    tags:
+    - Meat

@@ -96,9 +96,7 @@ namespace Content.Server.GameTicking
             _playerGameStatuses.TryGetValue(session.UserId, out var status);
             return new TickerLobbyStatusEvent(
                 RunLevel != GameRunLevel.PreRoundLobby,
-                LobbyBackgroundImage, // imp edit
-                LobbyBackgroundName, // imp edit
-                LobbyBackgroundArtist, // imp edit
+                LobbyBackground,
                 status == PlayerGameStatus.ReadyToPlay,
                 _roundStartTime,
                 RoundPreloadTime,
@@ -183,6 +181,13 @@ namespace Content.Server.GameTicking
                 return;
             }
 
+            // imp edit start, no need to update if the player is already (un)readied
+            var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
+            if (_playerGameStatuses[player.UserId] == status)
+            {
+                return;
+            }
+            // imp edit end
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
             RaiseLocalEvent(new PlayerToggleReadyEvent(player)); //imp edit, for preround ready manifest

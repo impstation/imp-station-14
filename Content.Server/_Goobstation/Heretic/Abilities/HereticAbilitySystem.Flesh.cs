@@ -2,7 +2,7 @@ using Content.Server._Goobstation.Heretic.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry.Reagent; // imp
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components; // imp
 using Content.Shared.DoAfter;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Heretic;
@@ -91,7 +91,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         // heal teammates, mostly ghouls
-        _dmg.SetAllDamage((EntityUid)args.Target, dmg, 0);
+        _dmg.SetAllDamage(((EntityUid)args.Target, dmg), 0);
         args.Handled = true;
     }
     private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref EventHereticFleshAscend args)
@@ -142,11 +142,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         Color eyeColor;
         Color bloodColor;
         if (TryComp<HumanoidAppearanceComponent>(entity, out var humanoid) && TryComp<BloodstreamComponent>(entity, out var bloodstream) // get the humanoidappearance and bloodstream
-        && _prot.TryIndex(bloodstream.BloodReagent, out ReagentPrototype? reagentProto) && reagentProto != null) // get the blood reagent
+        && bloodstream.BloodReferenceSolution.Contents[1].Reagent.Prototype is { } reagentProto // TODO: FIX THIS
+        && _prot.TryIndex(reagentProto, out ReagentPrototype? blood) && blood != null) // get the blood reagent
         {
             skinColor = humanoid.SkinColor;
             eyeColor = humanoid.EyeColor;
-            bloodColor = reagentProto.SubstanceColor;
+            bloodColor = blood.SubstanceColor;
 
             return (skinColor, eyeColor, bloodColor);
         }

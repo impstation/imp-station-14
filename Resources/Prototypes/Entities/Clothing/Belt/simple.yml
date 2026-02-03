@@ -23,10 +23,10 @@
   description: For holding your pants up.
   components:
   - type: Sprite
-    sprite: Clothing/Belt/suspenders_red.rsi
+    sprite: _Impstation/Clothing/Belt/suspenders_red.rsi #imp
     state: icon
   - type: Clothing
-    sprite: Clothing/Belt/suspenders_red.rsi
+    sprite: _Impstation/Clothing/Belt/suspenders_red.rsi #imp
     quickEquip: true
   - type: Tag
     tags:
@@ -41,10 +41,10 @@
   description: For holding your pants up. # Imp edit
   components:
   - type: Sprite
-    sprite: Clothing/Belt/suspenders_black.rsi
+    sprite: _Impstation/Clothing/Belt/suspenders_black.rsi #imp
     state: icon #imp add
   - type: Clothing
-    sprite: Clothing/Belt/suspenders_black.rsi
+    sprite: _Impstation/Clothing/Belt/suspenders_black.rsi #imp
     quickEquip: true # Imp add
   - type: Tag # imp add
     tags:

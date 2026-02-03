@@ -15,7 +15,7 @@ namespace Content.Shared.StatusEffect
         ///     A list of status effect IDs to be allowed
         /// </summary>
         [DataField("allowed", required: true), Access(typeof(StatusEffectsSystem), Other = AccessPermissions.ReadExecute)]
-        public List<string> AllowedEffects = default!;
+        public List<string> AllowedEffects = new(); //IMP stop ensurecomp from angering PVS with null collection
     }
 
     [RegisterComponent]

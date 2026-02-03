@@ -30,20 +30,19 @@ public sealed partial class ChangelogTab : Control
 
     public void PopulateChangelog(ChangelogManager.Changelog changelog)
     {
-        var name = changelog.Name; // imp
-
         var byDay = changelog.Entries
             .GroupBy(e => e.Time.ToLocalTime().Date)
             .OrderByDescending(c => c.Key);
 
-        var hasRead = _changelog.MaxId[name] <= _changelog.LastReadId[name]; // imp dict [name]
+        var hasRead = changelog.Name != MainChangelogName ||
+                      _changelog.MaxId <= _changelog.LastReadId;
 
         foreach (var dayEntries in byDay)
         {
             var day = dayEntries.Key;
 
             var groupedEntries = dayEntries
-                .GroupBy(c => (c.Author, Read: c.Id <= _changelog.LastReadId[name])) // imp [name]
+                .GroupBy(c => (c.Author, Read: c.Id <= _changelog.LastReadId))
                 .OrderBy(c => c.Key.Read)
                 .ThenBy(c => c.Key.Author);
 
@@ -59,7 +58,7 @@ public sealed partial class ChangelogTab : Control
             ChangelogBody.AddChild(new Label
             {
                 Text = dayNice,
-                StyleClasses = { StyleBase.StyleClassLabelHeading },
+                StyleClasses = { StyleClass.LabelHeading },
                 Margin = new Thickness(4, 6, 0, 0)
             });
 
@@ -118,7 +117,7 @@ public sealed partial class ChangelogTab : Control
                     };
 
                     readDivider.AddChild(hBox);
-                    readDivider.AddChild(new PanelContainer { StyleClasses = { StyleBase.ClassLowDivider } });
+                    readDivider.AddChild(new PanelContainer { StyleClasses = { StyleClass.LowDivider } });
                     ChangelogBody.AddChild(readDivider);
 
                     if (first)

@@ -32,8 +32,15 @@
     drawdepth: SmallMobs
     sprite: _DV/Mobs/Animals/nukiemouse.rsi
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: mouse
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: mouse-moving
+    noMovementLayers:
+      movement:
+        state: mouse
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -74,7 +81,7 @@
         Base: dead
       Dead:
         Base: splat
-  - type: Food
+  - type: Edible
   - type: GoobAbsorbable # imp edit - mouse bite sized
     biomassRestored: 0.1
   - type: Hunger
@@ -111,7 +118,7 @@
   - type: NoSlip
   - type: Respirator #It just works?
     minSaturation: 5.0
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 423
     coldDamageThreshold: 0
   - type: PressureImmunity
@@ -139,8 +146,6 @@
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
-  - type: Bloodstream
-    bloodMaxVolume: 60
   - type: CanEscapeInventory
     baseResistTime: 3
   - type: MobPrice

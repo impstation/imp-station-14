@@ -80,7 +80,13 @@ public abstract partial class SharedXenoArtifactSystem
         if (TryGetNodeFromUnlockState(ent, out var node))
         {
             SetNodeUnlocked((ent, artifactComponent), node.Value);
-            ActivateNode((ent, ent), (node.Value, node.Value), null, null, Transform(ent).Coordinates, false);
+            //#IMP (edit start) don't activate if its natural and has reached max number of activations
+            var maxNodeUnlocks = node.Value.Comp.MaxNodeUnlocks;
+            if (!artifactComponent.Natural || maxNodeUnlocks == 0 || maxNodeUnlocks > node.Value.Comp.NumNodeUnlocks)
+            {
+                ActivateNode((ent, ent), (node.Value, node.Value), null, null, Transform(ent).Coordinates, false); //# THIS LINE ISN'T IMP
+                node.Value.Comp.NumNodeUnlocks++;
+            } //#IMP (edit end)
             unlockAttemptResultMsg = "artifact-unlock-state-end-success";
 
             // as an experiment - unlocking node doesn't activate it, activation is left for player to decide.

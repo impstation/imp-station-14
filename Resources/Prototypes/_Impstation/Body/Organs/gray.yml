@@ -6,7 +6,7 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Gray/organs.rsi
   - type: Organ
-  - type: Food
+  - type: Edible
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -74,6 +74,7 @@
     entries:
       Burger: Brain
       Taco: Brain
+      Hotdog: Brain
 
 - type: entity
   id: OrganGrayEyes

@@ -50,14 +50,13 @@
     fireRate: 0.3
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: HitscanReplicator
     fireCost: 150
   - type: Battery
     maxCharge: 150
     startingCharge: 150
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 1000
   - type: MeleeWeapon
     wideAnimationRotation: -80
@@ -86,7 +85,7 @@
   - type: Icon
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     state: t2altweapon
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: HitscanReplicator2
     fireCost: 150
 
@@ -194,28 +193,38 @@
   - type: Item
   - type: Unremoveable
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: HitscanReplicator
-  staminaDamage: 18
-  muzzleFlash:
-    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
-    state: muzzle_repli
-  travelFlash:
-    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
-    state: beam_repli
-  impactFlash:
-    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
-    state: impact_repli
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanStaminaDamage
+    staminaDamage: 18
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+      state: muzzle_repli
+    travelFlash:
+      sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+      state: beam_repli
+    impactFlash:
+      sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+      state: impact_repli
 
-- type: hitscan
+- type: entity
+  parent: BasicHitscan
   id: HitscanReplicator2
-  staminaDamage: 32
-  muzzleFlash:
-    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
-    state: muzzle_repli2
-  travelFlash:
-    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
-    state: beam_repli2
-  impactFlash:
-    sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
-    state: impact_repli2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanStaminaDamage
+    staminaDamage: 32
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+      state: muzzle_repli2
+    travelFlash:
+      sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+      state: beam_repli2
+    impactFlash:
+      sprite: _Impstation/Mobs/Replicator/replicator_gun.rsi
+      state: impact_repli2

@@ -21,7 +21,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction FocusOOC = "FocusOOCWindow";
         public static readonly BoundKeyFunction FocusAdminChat = "FocusAdminChatWindow";
         public static readonly BoundKeyFunction FocusDeadChat = "FocusDeadChatWindow";
-        public static readonly BoundKeyFunction FocusCollectiveMindChat = "FocusCollectiveMindChatWindow"; // imp collective mind
+        public static readonly BoundKeyFunction FocusCollectiveMindChat = "FocusCollectiveMindChatWindow"; // Starlight - Collective Minds
         public static readonly BoundKeyFunction FocusConsoleChat = "FocusConsoleChatWindow";
         public static readonly BoundKeyFunction CycleChatChannelForward = "CycleChatChannelForward";
         public static readonly BoundKeyFunction CycleChatChannelBackward = "CycleChatChannelBackward";
@@ -128,7 +128,8 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction EditorCopyObject = "EditorCopyObject";
         public static readonly BoundKeyFunction EditorFlipObject = "EditorFlipObject";
         public static readonly BoundKeyFunction InspectEntity = "InspectEntity";
-
+        public static readonly BoundKeyFunction InspectServerComponent = "InspectServerComponent";
+        public static readonly BoundKeyFunction InspectClientComponent = "InspectClientComponent";
         public static readonly BoundKeyFunction MappingUnselect = "MappingUnselect";
         public static readonly BoundKeyFunction SaveMap = "SaveMap";
         public static readonly BoundKeyFunction MappingEnablePick = "MappingEnablePick";

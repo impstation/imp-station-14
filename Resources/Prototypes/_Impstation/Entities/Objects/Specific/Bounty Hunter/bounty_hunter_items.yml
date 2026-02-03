@@ -67,18 +67,17 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/disabler.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-unshaded-0
         map: ["enum.GunVisualLayers.MagUnshaded"]
         shader: unshaded
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 10
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 5
 
 - type: entity
@@ -147,7 +146,6 @@
   - type: ItemToggleDamageOtherOnHit
   - type: DamageOtherOnHit
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 0.5
 
 
@@ -273,7 +271,7 @@
   description: A worn-down laser pistol that's clearly seen a lot of use. The battery has been damaged.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/bountyhunterantiquelaser.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/bountyhunterantiquelaser.rsi #imp
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -281,11 +279,11 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    sprite: _Impstation/Objects/Weapons/Guns/Battery/bountyhunterantiquelaser.rsi #imp
+    sprite: _Impstation/Objects/Weapons/Guns/Lasers/bountyhunterantiquelaser.rsi #imp
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: MagazineVisuals
@@ -321,21 +319,23 @@
   parent: CratePirate
   suffix: Filled, Bounty Hunter
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingUniformJumpsuitPirate
-        amount: 2
-      - id: ClothingHeadHatPirate
-        amount: 2
-      - id: ClothingOuterCoatPirate
-      - id: ClothingShoesBootsLaceup
-        amount: 2
-      - id: IngotGold
-      - id: Cutlass
-        amount: 2
-      - id: ClothingNeckCloakPirateCap
-      - id: WeaponPistolFlintlock
-      - id: PirateHandyFlag
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingUniformJumpsuitPirate
+          amount: 2
+        - id: ClothingHeadHatPirate
+          amount: 2
+        - id: ClothingOuterCoatPirate
+        - id: ClothingShoesBootsLaceup
+          amount: 2
+        - id: IngotGold
+        - id: Cutlass
+          amount: 2
+        - id: ClothingNeckCloakPirateCap
+        - id: WeaponPistolFlintlock
+        - id: PirateHandyFlag
 
 # Weapon recall implant
 - type: entity
@@ -385,11 +385,11 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: medipen_empty
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 15
-    onlyAffectsMobs: false
-    injectOnly: true
+  - type: Injector
+    currentTransferAmount: null
+    activeModeProtoId: HyposprayInjectMode
+    allowedModes:
+    - HyposprayInjectMode
   - type: SolutionContainerManager
     solutions:
       pen:
@@ -426,11 +426,11 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: medipen_empty
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 15
-    onlyAffectsMobs: false
-    injectOnly: true
+  - type: Injector
+    currentTransferAmount: null
+    activeModeProtoId: HyposprayInjectMode
+    allowedModes:
+    - HyposprayInjectMode
   - type: SolutionContainerManager
     solutions:
       pen:

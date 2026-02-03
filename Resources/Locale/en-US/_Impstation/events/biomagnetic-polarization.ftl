@@ -1,0 +1,1 @@
+station-event-biomagnetic-polarization-announcement = A strong bio-magnetic polarization event has been detected in the vicinity of the station. Personnel are advised to avoid individuals with the opposite magnetic charge, and to avoid sources of static electricity. These fields should dissipate naturally within a few minutes.

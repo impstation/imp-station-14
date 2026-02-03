@@ -20,14 +20,10 @@ public sealed class XAEPortalSystem : BaseXAESystem<XAEPortalComponent>
     [Dependency] private readonly LinkedEntitySystem _link = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <inheritdoc />
     protected override void OnActivated(Entity<XAEPortalComponent> ent, ref XenoArtifactNodeActivatedEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         var map = Transform(ent).MapID;
         var validMinds = new ValueList<EntityUid>();
         var mindQuery = EntityQueryEnumerator<MindContainerComponent, MobStateComponent, TransformComponent, MetaDataComponent>();
@@ -50,8 +46,8 @@ public sealed class XAEPortalSystem : BaseXAESystem<XAEPortalComponent>
         if(!TrySpawnNextTo(ent.Comp.PortalProto, target, out var secondPortal))
             return;
 
-        //#IMP NO LONGER NEEDED(but i'm leaving it in commented in case how portals work changes and we need it again)  // Manual position swapping, because the portal that opens doesn't trigger a collision, and doesn't teleport targets the first time.
-        //#IMP NO LONGER NEEDED  _transform.SwapPositions(target, args.Artifact.Owner);
+        // Manual position swapping, because the portal that opens doesn't trigger a collision, and doesn't teleport targets the first time.
+        _transform.SwapPositions(target, args.Artifact.Owner);
 
         _link.TryLink(firstPortal.Value, secondPortal.Value, true);
     }
