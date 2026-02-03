@@ -47,10 +47,7 @@ public sealed partial class SupermatterSystem
         if (mix is not { })
             return;
 
-        // Divide the gas efficiency by the grace modifier if the supermatter is unpowered
-        var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(EECCVars.SupermatterGasEfficiencyGraceModifier));
-
-        sm.GasStorage = mix.Remove(gasEfficiency * mix.TotalMoles);
+        sm.GasStorage = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
         var moles = sm.GasStorage.TotalMoles;
 
         if (!(moles > 0f))
@@ -109,7 +106,7 @@ public sealed partial class SupermatterSystem
         // Ramps up or down in increments of 0.02 up to the proportion of CO2
         // Given infinite time, powerloss_dynamic_scaling = co2comp
         // Some value from 0-1
-        if (moles > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleThreshold) && // if there are more than 6 mols,
+        if (moles > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleThreshold) && // if there are more than 20 mols,
             gasComposition.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionGasThreshold)) // and more than 20% co2
         {
             var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
@@ -118,7 +115,7 @@ public sealed partial class SupermatterSystem
         else
             sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling - 0.05f, 0f, 1f);
 
-        // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 150))))
+        // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 500))))
         // We take the mol count, and scale it to be our inhibitor
         sm.PowerlossInhibitor = Math.Clamp(
             1 - sm.PowerlossDynamicScaling * Math.Clamp(moles / _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleBoostThreshold), 1f, 1.5f),
@@ -350,8 +347,7 @@ public sealed partial class SupermatterSystem
         }
 
         // Evaluated gas from surrounding area
-        var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(EECCVars.SupermatterGasEfficiencyGraceModifier));
-        var moles = mix.TotalMoles * gasEfficiency;
+        var moles = mix.TotalMoles * sm.GasEfficiency;
 
         var totalDamage = 0f;
 
