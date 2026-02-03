@@ -12,7 +12,7 @@ public sealed class ProperPunctuationSystem : EntitySystem
         SubscribeLocalEvent<ProperPunctuationComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, ProperPunctuationComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<ProperPunctuationComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 
