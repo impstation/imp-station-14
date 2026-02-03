@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprited by honeyed-lemons (github) for Impstation.",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+        {
+            "name": "takeout-closed"
+        },
+        {
+            "name": "takeout-empty"
+        },
+        {
+            "name": "dan-dan-noodles"
+        },
+        {
+            "name": "chow-mein"
+        },
+        {
+            "name": "takeout-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "takeout-inhand-left",
+            "directions": 4
+        }
+    ]
+  }

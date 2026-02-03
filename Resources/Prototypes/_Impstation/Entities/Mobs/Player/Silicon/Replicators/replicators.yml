@@ -130,7 +130,7 @@
     baseWalkSpeed: 2 # same as slime
     baseSprintSpeed: 4
   - type: Stamina
-    critThreshold: 120
+    baseCritThreshold: 120
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Replicator1
