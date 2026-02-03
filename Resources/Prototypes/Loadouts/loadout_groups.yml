@@ -526,6 +526,7 @@
   - ChaplainMaskClayshaper # imp
   - ChaplainMaskFire # imp
   - ChaplainClown # imp
+  - ChaplainSilentMask # imp
 
 - type: loadoutGroup
   id: ChaplainJumpsuit
@@ -555,6 +556,7 @@
   - ChaplainHoodie
   - ChaplainOuterMoon # imp
   - ChaplainHonkrobes # imp
+  - ChaplainSilentRobes # imp
 
 - type: loadoutGroup
   id: ChaplainNeck
@@ -752,6 +754,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieClown
+  - FlowerWaterClown
 
 - type: loadoutGroup
   id: MimeHead
@@ -761,6 +764,7 @@
   - MimeHead
   - MimeFrenchBeret
   - MimeCap
+  - MimeBowler #imp
 
 - type: loadoutGroup
   id: MimeMask
@@ -778,6 +782,8 @@
   - MimeJumpskirt
   - MimeJumpsuitCropped #imp
   - MimeJumpskirtCropped #imp
+  - MimeJumpsuitNouveau #imp
+  - MimeJumpskirtNouveau #imp
 
 - type: loadoutGroup
   id: MimeBackpack
@@ -1905,36 +1911,6 @@
   loadouts:
   - LizardPlushiePsychologist
 
-- type: loadoutGroup
-  id: BoxerJumpsuit
-  name: loadout-group-boxer-jumpsuit
-  loadouts:
-  - BoxerShorts
-  - BoxerShortsWithTop
-
-- type: loadoutGroup
-  id: BoxerGloves
-  name: loadout-group-boxer-gloves
-  loadouts:
-  - RedBoxingGloves
-  - BlueBoxingGloves
-  - GreenBoxingGloves
-  - YellowBoxingGloves
-
-- type: loadoutGroup
-  id: BoxerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieBoxer
-
-- type: loadoutGroup
-  id: ZookeeperJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieZookeeper
-
 # Other
 - type: loadoutGroup
   id: SurvivalSyndicate
@@ -1947,6 +1923,16 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSyndicate # imp
   - EmergencyWheatSyndicate # imp
+  - LoadoutSpeciesAquaticFullTank # Imp
+
+- type: loadoutGroup
+  id: SurvivalMilitaryDouble
+  name: loadout-group-survival-military
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenMilitaryDouble
+  - EmergencyOxygenMilitaryDouble
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup

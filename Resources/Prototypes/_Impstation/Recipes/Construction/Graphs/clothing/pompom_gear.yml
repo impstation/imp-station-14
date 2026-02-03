@@ -1,0 +1,67 @@
+﻿- type: constructionGraph
+  id: PompomBow
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: bow
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 3
+            - material: Pompoms
+              amount: 1
+              doAfter: 3
+    - node: bow
+      entity: ClothingHeadHatPompombow
+
+- type: constructionGraph
+  id: PompomEarmuffs
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: muffs
+          steps:
+            - material: Cloth
+              amount: 1
+              doAfter: 3
+            - material: Pompoms
+              amount: 1
+              doAfter: 3
+    - node: muffs
+      entity: ClothingHeadHatPompomear
+
+- type: constructionGraph
+  id: PompomBoots
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: boots
+          steps:
+            - material: Cloth
+              amount: 2
+              doAfter: 3
+            - material: Pompoms
+              amount: 2
+              doAfter: 3
+    - node: boots
+      entity: ClothingShoesBootsPompomboots
+
+- type: constructionGraph
+  id: PompomCloak
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: cloak
+          steps:
+            - material: Cloth
+              amount: 4
+              doAfter: 3
+            - material: Pompoms
+              amount: 4
+              doAfter: 3
+    - node: cloak
+      entity: ClothingNeckCloakPompomcloak
