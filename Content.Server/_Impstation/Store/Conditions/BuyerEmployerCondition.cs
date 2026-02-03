@@ -34,6 +34,7 @@ public sealed partial class BuyerEmployerCondition : ListingCondition
 
         roleSystem.MindHasRole<TraitorRoleComponent>(args.Buyer, out var traitorRole);
 
+        /*
         if (traitorRole?.Comp2.Employer == null)
             return true;
 
@@ -52,6 +53,7 @@ public sealed partial class BuyerEmployerCondition : ListingCondition
                 return false;
             }
         }
+        */
 
         return true;
     }

@@ -255,11 +255,6 @@ public sealed class StoreDiscountSystem : EntitySystem
                 continue;
             }
 
-            // imp edit start, unbuyable listings can't be discounted
-            if (!listing.Buyable)
-                continue;
-            // imp edit end
-
             if (!listingsByDiscountCategory.TryGetValue(category.Value, out var list))
             {
                 list = new List<ListingDataWithCostModifiers>();

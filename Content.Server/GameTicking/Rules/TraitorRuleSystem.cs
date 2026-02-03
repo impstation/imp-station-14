@@ -18,7 +18,6 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Codewords;
-using Content.Shared._Impstation.TraitorFlavor; // imp
 using Content.Shared.GameTicking; // imp
 using Robust.Server.Player; // imp
 
@@ -96,8 +95,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
             briefing = Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", factionCodewords)));
         }
 
-        // var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers)); // imp comment out for traitor employers
-        var issuer = _prototypeManager.Index<TraitorEmployerPrototype>(_prototypeManager.Index(component.Employers).Pick()); // imp traitor flavor
+        var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers));
 
         // Uplink code will go here if applicable, but we still need the variable if there aren't any
         Note[]? code = null;
@@ -117,7 +115,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
             // Choose and generate an Uplink, and return the uplink code if applicable
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink request start");
-            var uplinkParams = RequestUplink(traitor, startingBalance, briefing, issuer); // Imp Edit: Traitor Flavor
+            var uplinkParams = RequestUplink(traitor, startingBalance, briefing);
             code = uplinkParams.Item1;
             briefing = uplinkParams.Item2;
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink request completed");
@@ -146,7 +144,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         _roleSystem.MindHasRole<TraitorRoleComponent>(mindId, out var traitorRole);
         if (traitorRole is not null)
         {
-            traitorRole.Value.Comp2.Employer = issuer; // imp add
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Add traitor briefing components");
             EnsureComp<RoleBriefingComponent>(traitorRole.Value.Owner, out var briefingComp);
             briefingComp.Briefing = briefing;
@@ -171,7 +168,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         return true;
     }
 
-    private (Note[]?, string) RequestUplink(EntityUid traitor, FixedPoint2 startingBalance, string briefing, TraitorEmployerPrototype objectiveIssuer) // Imp Edit: Traitor Flavor
+    private (Note[]?, string) RequestUplink(EntityUid traitor, FixedPoint2 startingBalance, string briefing)
     {
         var pda = _uplink.FindUplinkTarget(traitor);
         Note[]? code = null;
@@ -191,20 +188,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
                 code = generatedCode;
 
                 // If giveUplink is false the uplink code part is omitted
-                //briefing = string.Format("{0}\n{1}", // imp comment out
-                briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n[color=lightgray]{5}[/color]\n\n{6}\n[color=lightgray]{7}[/color]\n\n[color=crimson]{8}[/color]", // imp add
+                briefing = string.Format("{0}\n{1}",
                     briefing,
-                    //Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#")))); // imp comment out
-                    // imp edit start
-                    Loc.GetString(objectiveIssuer.UplinkText),
-                    Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))),
-                    Loc.GetString(objectiveIssuer.IntroText, ("color", objectiveIssuer.Color)),
-                    Loc.GetString($"traitor-role-allegiances"),
-                    Loc.GetString(objectiveIssuer.AlliesText),
-                    Loc.GetString($"traitor-role-notes"),
-                    Loc.GetString(objectiveIssuer.GoalText),
-                    Loc.GetString($"traitor-role-clarity"));
-                    // imp edit end
+                    Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
                 return (code, briefing);
             }
 
@@ -213,19 +199,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         else if (pda is null && uplinked)
         {
             Log.Debug($"MakeTraitor {ToPrettyString(traitor)} - Uplink is implant");
-            //briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short"); // imp comment out
-            // imp edit start
-            briefing = string.Format("{0}\n{1}\n{2}\n\n{3}\n\n{4}\n[color=lightgray]{5}[/color]\n\n{6}\n[color=lightgray]{7}[/color]\n\n[color=crimson]{8}[/color]", // imp add
-                briefing,
-                Loc.GetString(objectiveIssuer.UplinkText),
-                Loc.GetString("traitor-role-uplink-implant-short"),
-                Loc.GetString(objectiveIssuer.IntroText, ("color", objectiveIssuer.Color)),
-                Loc.GetString($"traitor-role-allegiances"),
-                Loc.GetString(objectiveIssuer.AlliesText),
-                Loc.GetString($"traitor-role-notes"),
-                Loc.GetString(objectiveIssuer.GoalText),
-                Loc.GetString($"traitor-role-clarity"));
-            // imp edit end
+            briefing += "\n" + Loc.GetString("traitor-role-uplink-implant-short");
         }
         else
         {
@@ -243,29 +217,17 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     }
 
     // TODO: figure out how to handle this? add priority to briefing event?
-    private string GenerateBriefing(string[]? codewords, Note[]? uplinkCode, TraitorEmployerPrototype objectiveIssuer) // imp edit, change objectiveIssuer from a string to a TraitorEmployerPrototype, no longer null nor optional
+    private string GenerateBriefing(string[]? codewords, Note[]? uplinkCode, string? objectiveIssuer = null)
     {
         var sb = new StringBuilder();
-
-        //sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown")))); // imp edit out
-
-        sb.AppendLine("\n" + Loc.GetString(objectiveIssuer.IntroText, ("color", objectiveIssuer.Color))); // imp edit
-
+        sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
         if (codewords != null)
-            sb.AppendLine("\n" + Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords)))); // imp add newline
-        sb.AppendLine("\n" + Loc.GetString(objectiveIssuer.UplinkText)); // imp edit
+            sb.AppendLine(Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
         if (uplinkCode != null)
             sb.AppendLine(Loc.GetString("traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
         else
             sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
 
-        // imp edit start
-        sb.AppendLine("\n" + Loc.GetString($"traitor-role-allegiances"));
-        sb.AppendLine("[color=lightgray]" + Loc.GetString(objectiveIssuer.AlliesText) + "[/color]");
-        sb.AppendLine("\n" + Loc.GetString($"traitor-role-notes"));
-        sb.AppendLine("[color=lightgray]" + Loc.GetString(objectiveIssuer.GoalText) + "[/color]");
-        sb.AppendLine("\n" + "[color=crimson]" + Loc.GetString($"traitor-role-clarity") + "[/color]");
-        // imp edit end
 
         return sb.ToString();
     }

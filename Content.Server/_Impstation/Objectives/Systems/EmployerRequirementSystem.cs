@@ -19,6 +19,7 @@ public sealed class EmployerRequirementSystem : EntitySystem
 
     private void OnCheck(Entity<EmployerRequirementComponent> requirement, ref RequirementCheckEvent args)
     {
+        /*
         if (args.Cancelled)
             return;
 
@@ -44,5 +45,6 @@ public sealed class EmployerRequirementSystem : EntitySystem
                 return;
             }
         }
+        */
     }
 }

@@ -26,7 +26,6 @@
   - UplinkImplants
   conditions:
   - !type:BuyerSpeciesCondition
-    makeHidden: true # imp add
     whitelist:
     - Kodepiia
   - !type:BuyerWhitelistCondition
@@ -49,7 +48,6 @@
   - UplinkDeception
   conditions: # imp - this is expensive for a traitor but cheap for nukies and arguably too strong
   - !type:StoreWhitelistCondition
-    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -111,7 +109,6 @@
   - UplinkJob
   conditions:
   - !type:BuyerDepartmentCondition
-    makeHidden: true # imp add
     whitelist:
     - Cargo # imp - not Logistics lmao
 

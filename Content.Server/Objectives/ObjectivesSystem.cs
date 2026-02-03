@@ -18,8 +18,7 @@ using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
-using Content.Shared.Humanoid; // imp
-using Content.Shared.Roles; //imp addition
+using Content.Shared.Humanoid; //imp addition
 using Content.Shared.Roles.Components; //imp addition
 
 namespace Content.Server.Objectives;
@@ -33,7 +32,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly SharedRoleSystem _roleSystem = default!; // imp
 
     private IEnumerable<string>? _objectives;
 
@@ -139,15 +137,6 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         {
             if (!TryComp<MindComponent>(mindId, out var mind))
                 continue;
-
-            // imp edit start, traitor flavor
-            _roleSystem.MindHasRole<TraitorRoleComponent>(mindId, out var traitorRole);
-            if (traitorRole is not null)
-            {
-                if (traitorRole.Value.Comp2.Employer != null)
-                    agent = Loc.GetString(traitorRole.Value.Comp2.Employer.RoundendText, ("color", traitorRole.Value.Comp2.Employer.Color));
-            }
-            // imp edit end
 
             var title = GetTitle((mindId, mind), name);
             var custody = IsInCustody(mindId, mind) ? Loc.GetString("objectives-in-custody") : string.Empty;
@@ -340,7 +329,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             }
             //imp edit end
 
-            var successRate = totalObjectives > 0 ? (float)completedObjectives / totalObjectives : 0f;
+            var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
             agentSummaries.Add((agentSummary.ToString(), successRate, completedObjectives));
         }
 

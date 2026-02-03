@@ -11,12 +11,6 @@ namespace Content.Shared.Store;
 public abstract partial class ListingCondition
 {
     /// <summary>
-    /// Imp addition, whether the listing should be made hidden if this condition fails.
-    /// </summary>
-    [DataField]
-    public bool MakeHidden;
-
-    /// <summary>
     /// Determines whether or not a certain entity can purchase a listing.
     /// </summary>
     /// <returns>Whether or not the listing can be purchased</returns>

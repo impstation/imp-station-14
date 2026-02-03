@@ -27,13 +27,8 @@ public sealed partial class TraitorRuleComponent : Component
     [DataField]
     public ProtoId<NpcFactionPrototype> SyndicateFaction = "Syndicate";
 
-    /* imp comment this out for traitor employers
     [DataField]
     public ProtoId<LocalizedDatasetPrototype> ObjectiveIssuers = "TraitorCorporations";
-    */
-
-    [DataField]
-    public ProtoId<WeightedRandomPrototype> Employers = "TraitorEmployers"; // imp addition
 
     /// <summary>
     /// Give this traitor an Uplink on spawn.
