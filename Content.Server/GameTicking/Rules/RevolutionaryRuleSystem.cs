@@ -30,6 +30,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
 using Robust.Shared.Player;
+using Content.Server.AlertLevel; // imp edit
+using Content.Server.Announcements.Systems; // imp edit
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -52,6 +54,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!; // imp edit
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // imp edit
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -177,6 +181,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         if (mind is { UserId: not null } && _player.TryGetSessionById(mind.UserId, out var session))
             _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+        // imp start
+        // help me how do i get the rule component in here
+        if (!ruleComp.AnnouncementDone)
+            AnnounceConverts(ruleComp);
+        // imp end
     }
 
     //TODO: Enemies of the revolution
@@ -317,4 +326,43 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         // revs lost and heads died
         "rev-stalemate"
     };
+    //imp start
+    /// <summary>
+    /// 
+    /// </summary>
+    private void AnnounceConverts(RevolutionaryRuleComponent component)
+    {
+        if (CheckCrewConversion() >= component.BlueThreshold)
+        {
+            _announcer.SendAnnouncement(
+            _announcer.GetAnnouncementId(component.RuleId),
+            Filter.Broadcast(),
+            _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(component.RuleId)),
+            colorOverride: Color.Gold
+            );
+            if (!TryGetRandomStation(out var chosenStation))
+                return;
+            if (_alertLevelSystem.GetLevel(chosenStation.Value) != "green")
+                return;
+            _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, true, true, true);
+            component.AnnouncementDone = true;
+        }
+    }
+    /// <summary>
+    /// Checks what fraction of players are converted to revolutionaries.
+    /// </summary>
+    private float CheckCrewConversion()
+    {
+        float converted = 0;
+        float crew = 0;
+        var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent>();
+        var revs = GetEntityQuery<RevolutionaryComponent>();
+        while (players.MoveNext(out var uid, out _, out _))
+        {
+            if (revs.HasComponent(uid))
+                converted++;
+            crew++;
+        }
+        return converted / crew;
+    }
 }
