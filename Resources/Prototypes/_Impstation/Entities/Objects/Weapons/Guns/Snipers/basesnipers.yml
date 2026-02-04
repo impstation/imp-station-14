@@ -38,6 +38,10 @@
         ents: []
   - type: StaticPrice
     price: 500
+  - type: PointingModifier
+    textSelf: pointing-system-verb-take-aim-self
+    textOther: pointing-system-verb-take-aim-other
+    pointingArrow: PointingCrosshair
 
 # For snipers that reload using a magazine.
 - type: entity
