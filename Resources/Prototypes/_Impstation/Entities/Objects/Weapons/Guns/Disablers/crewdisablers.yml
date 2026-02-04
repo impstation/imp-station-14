@@ -59,6 +59,7 @@
     steps: 4
     zeroVisible: true
   - type: Gun
+    projectileSpeed: 25
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/antiquedisabler.ogg
   - type: BatteryAmmoProvider
