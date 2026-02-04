@@ -22,7 +22,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared._Impstation.Hemorrhage; //imp edit
 
 namespace Content.Shared.Body.Systems;
 
@@ -458,11 +457,6 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         {
             return false;
         }
-
-        // imp Multiplies the blood lost per stack by the value set
-        amount = TryComp<HemorrhageComponent>(ent, out var trait) ?
-            amount * trait.BleedIncreaseMultiplier :
-            amount;
 
         var leakedBlood = SolutionContainer.SplitSolution(ent.Comp.BloodSolution.Value, amount);
 

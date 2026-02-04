@@ -124,3 +124,6 @@ trait-soft-hands-desc = You're too weak to wield anything.
 
 trait-hated-by-dogs-name = Hated by dogs
 trait-hated-by-dogs-desc = Dogs will bark at you when you come near.
+
+trait-hemorrhage-name = Hemorrhaging
+trait-hemorrhage-desc = You lose more blood while bleeding.
