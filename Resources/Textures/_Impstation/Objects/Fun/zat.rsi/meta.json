@@ -1,0 +1,362 @@
+{
+  "version": 1,
+  "copyright": "Cards, Decks and Hands Sprites were originally from Paradise Station (https://github.com/ParadiseSS13/Paradise) and modified by VictorJob. All Zat modifications and art by Nugget (aka Space_Nugget)",
+  "license": "CC-BY-SA-3.0",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "zat_hand1"
+    },
+    {
+      "name": "zat_hand2"
+    },
+    {
+      "name": "zat_hand3"
+    },
+    {
+      "name": "zat_hand4"
+    },
+    {
+      "name": "zat_hand5"
+    },
+    {
+      "name": "deck_zat_empty"
+    },
+    {
+      "name": "deck_zat_full"
+    },
+    {
+      "name": "deck_zat_half"
+    },
+    {
+      "name": "deck_zat_low"
+    },
+    {
+      "name": "card_0_red"
+    },
+    {
+      "name": "card_1_1_red"
+    },
+    {
+      "name": "card_1_2_red"
+    },
+    {
+      "name": "card_2_1_red"
+    },
+    {
+      "name": "card_2_2_red"
+    },
+    {
+      "name": "card_3_1_red"
+    },
+    {
+      "name": "card_3_2_red"
+    },
+    {
+      "name": "card_4_1_red"
+    },
+    {
+      "name": "card_4_2_red"
+    },
+    {
+      "name": "card_5_1_red"
+    },
+    {
+      "name": "card_5_2_red"
+    },
+    {
+      "name": "card_6_1_red"
+    },
+    {
+      "name": "card_6_2_red"
+    },
+    {
+      "name": "card_7_1_red"
+    },
+    {
+      "name": "card_7_2_red"
+    },
+    {
+      "name": "card_8_1_red"
+    },
+    {
+      "name": "card_8_2_red"
+    },
+    {
+      "name": "card_9_1_red"
+    },
+    {
+      "name": "card_9_2_red"
+    },
+    {
+      "name": "card_1_1_blue"
+    },
+    {
+      "name": "card_1_2_blue"
+    },
+    {
+      "name": "card_2_1_blue"
+    },
+    {
+      "name": "card_2_2_blue"
+    },
+    {
+      "name": "card_3_1_blue"
+    },
+    {
+      "name": "card_3_2_blue"
+    },
+    {
+      "name": "card_4_1_blue"
+    },
+    {
+      "name": "card_4_2_blue"
+    },
+    {
+      "name": "card_5_1_blue"
+    },
+    {
+      "name": "card_5_2_blue"
+    },
+    {
+      "name": "card_6_1_blue"
+    },
+    {
+      "name": "card_6_2_blue"
+    },
+    {
+      "name": "card_7_1_blue"
+    },
+    {
+      "name": "card_7_2_blue"
+    },
+    {
+      "name": "card_8_1_blue"
+    },
+    {
+      "name": "card_8_2_blue"
+    },
+    {
+      "name": "card_9_1_blue"
+    },
+    {
+      "name": "card_9_2_blue"
+    },
+    {
+      "name": "card_1_1_green"
+    },
+    {
+      "name": "card_1_2_green"
+    },
+    {
+      "name": "card_2_1_green"
+    },
+    {
+      "name": "card_2_2_green"
+    },
+    {
+      "name": "card_3_1_green"
+    },
+    {
+      "name": "card_3_2_green"
+    },
+    {
+      "name": "card_4_1_green"
+    },
+    {
+      "name": "card_4_2_green"
+    },
+    {
+      "name": "card_5_1_green"
+    },
+    {
+      "name": "card_5_2_green"
+    },
+    {
+      "name": "card_6_1_green"
+    },
+    {
+      "name": "card_6_2_green"
+    },
+    {
+      "name": "card_7_1_green"
+    },
+    {
+      "name": "card_7_2_green"
+    },
+    {
+      "name": "card_8_1_green"
+    },
+    {
+      "name": "card_8_2_green"
+    },
+    {
+      "name": "card_9_1_green"
+    },
+    {
+      "name": "card_9_2_green"
+    },
+    {
+      "name": "card_1_1_yellow"
+    },
+    {
+      "name": "card_1_2_yellow"
+    },
+    {
+      "name": "card_2_1_yellow"
+    },
+    {
+      "name": "card_2_2_yellow"
+    },
+    {
+      "name": "card_3_1_yellow"
+    },
+    {
+      "name": "card_3_2_yellow"
+    },
+    {
+      "name": "card_4_1_yellow"
+    },
+    {
+      "name": "card_4_2_yellow"
+    },
+    {
+      "name": "card_5_1_yellow"
+    },
+    {
+      "name": "card_5_2_yellow"
+    },
+    {
+      "name": "card_6_1_yellow"
+    },
+    {
+      "name": "card_6_2_yellow"
+    },
+    {
+      "name": "card_7_1_yellow"
+    },
+    {
+      "name": "card_7_2_yellow"
+    },
+    {
+      "name": "card_8_1_yellow"
+    },
+    {
+      "name": "card_8_2_yellow"
+    },
+    {
+      "name": "card_9_1_yellow"
+    },
+    {
+      "name": "card_9_2_yellow"
+    },
+    {
+      "name": "card_1_red_skip"
+    },
+    {
+      "name": "card_2_red_skip"
+    },
+    {
+      "name": "card-1-red-reverse"
+    },
+    {
+      "name": "card-2-red-reverse"
+    },
+    {
+      "name": "card-1-red-draw"
+    },
+    {
+      "name": "card-2-red-draw"
+    },
+    {
+      "name": "card_1_blue_skip"
+    },
+    {
+      "name": "card_2_blue_skip"
+    },
+    {
+      "name": "card_1_blue_reverse"
+    },
+    {
+      "name": "card_2_blue_reverse"
+    },
+    {
+      "name": "card_1_blue_draw"
+    },
+    {
+      "name": "card_2_blue_draw"
+    },
+    {
+      "name": "card_1_green_skip"
+    },
+    {
+      "name": "card_2_green_skip"
+    },
+    {
+      "name": "card_1_green_reverse"
+    },
+    {
+      "name": "card_2_green_reverse"
+    },
+    {
+      "name": "card_1_green_draw"
+    },
+    {
+      "name": "card_2_green_draw"
+    },
+    {
+      "name": "card_1_yellow_skip"
+    },
+    {
+      "name": "card_2_yellow_skip"
+    },
+    {
+      "name": "card_1_yellow_reverse"
+    },
+    {
+      "name": "card_2_yellow_reverse"
+    },
+    {
+      "name": "card_1_yellow_draw"
+    },
+    {
+      "name": "card_2_yellow_draw"
+    },
+    {
+      "name": "card_1_wild"
+    },
+    {
+      "name": "card_2_wild"
+    },
+    {
+      "name": "card_3_wild"
+    },
+    {
+      "name": "card_4_wild"
+    },
+    {
+      "name": "card_1_wild_draw"
+    },
+    {
+      "name": "card_2_wild_draw"
+    },
+    {
+      "name": "card_3_wild_draw"
+    },
+    {
+      "name": "card_4_wild_draw"
+    },
+    {
+      "name": "singlecard_down_zat"
+    },
+    {
+      "name": "zat_box"
+    },
+    {
+      "name": "zat_box_open"
+    }
+  ]
+}
