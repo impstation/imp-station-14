@@ -1,0 +1,48 @@
+#IMP REORDERING CONVENTION: DO IT IN THIS ORDER
+# Head
+# Mask
+# Neck
+# Jumpsuit
+# OuterClothing
+# Gloves
+# Belt
+# Shoes
+# Headset
+# Glasses
+# Backpack
+# PDA
+# Survival
+# Trinkets
+# Special
+# GroupSpeciesBreathTool
+# GroupTankHarness
+# Weapon
+# Ammo
+
+- type: roleLoadout
+  id: JobZookeeper
+  groups:
+  - Glasses
+  - CommonBackpack # imp reorder
+  - Survival
+  - Trinkets
+  - ZookeeperJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # imp special
+  - GroupTankHarness # imp reorder
+  - GroupTankHarnessAquatic #imp special
+
+- type: roleLoadout
+  id: JobBoxer
+  groups:
+  - BoxerJumpsuit
+  - BoxerGloves
+  - Glasses
+  - CommonBackpack # imp reorder
+  - Survival
+  - Trinkets
+  - BoxerJobTrinkets
+  - GroupSpeciesBreathTool
+  - GroupBreathToolDecapoid # imp special
+  - GroupTankHarness # imp reorder
+  - GroupTankHarnessAquatic #imp special
