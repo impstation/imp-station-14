@@ -46,6 +46,7 @@ public sealed partial class GeneSystem : SharedGeneSystem
         base.Initialize();
         LoadGeneRegistry();
 
+        // TODO: MENTIONED BELOW
         var systems = _entityManager.EntitySysManager.GetEntitySystemTypes().GetEnumerator();
         while(systems.MoveNext())
         {
@@ -80,6 +81,9 @@ public sealed partial class GeneSystem : SharedGeneSystem
         foreach (var proto in protos) {
 
             _registeredGenes.Add(proto.Key, proto.Value._geneComponent);
+
+            // This isn't necessary i just haven't pressed backspace yet out of fear
+            // of what may happen. It shouldn't break. It won't break. But, what if?
             foreach(var (entryName, entry) in proto.Value._geneComponent)
             {
                 var newGene = _componentFactory.GetRegistration(entryName);
@@ -110,6 +114,9 @@ public sealed partial class GeneSystem : SharedGeneSystem
 
         geneComp._geneScaleValue += baseGene._geneStabilityValue;
 
+        // TODO:
+        // Move away from Genes storing their respective EntitySystem and instead just throw an event
+        // for when a Gene is added. Far less of a pain in the ass and not really performance impacting
         if(baseGene._linkedSystem != null)
             _geneSystems[baseGene._linkedSystem].OnGeneAdded((entity, baseGene));
     }
