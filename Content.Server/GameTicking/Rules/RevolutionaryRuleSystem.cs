@@ -187,7 +187,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             if (TryComp<RevolutionaryRuleComponent>(rule, out var ruleComp))
             {
                 if (!ruleComp.AnnouncementDone)
-                    AnnounceConverts(ruleComp);
+                    AnnounceConverts(ruleComp); //check if we've met the threshold for blue alert announcement & do it
                 return;
             }
         }
@@ -334,24 +334,24 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     };
     //imp start
     /// <summary>
-    /// 
+    /// If crew conversion falls at or above the threshold, sends an announcement and changes the alert level, nonrepeatable.
     /// </summary>
     private void AnnounceConverts(RevolutionaryRuleComponent component)
     {
         if (CheckCrewConversion() >= component.BlueThreshold)
         {
             _announcer.SendAnnouncement(
-            _announcer.GetAnnouncementId(component.RuleId),
+            _announcer.GetAnnouncementId(component.RuleId), // announce parameters identical to sleepers for obfuscation
             Filter.Broadcast(),
             _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(component.RuleId)),
             colorOverride: Color.Gold
             );
+            component.AnnouncementDone = true; // gamerule remembers that the announcement already happened this round
             if (!TryGetRandomStation(out var chosenStation))
                 return;
-            if (_alertLevelSystem.GetLevel(chosenStation.Value) != "green")
+            if (_alertLevelSystem.GetLevel(chosenStation.Value) != "green") // no blue alert if already pink or red
                 return;
             _alertLevelSystem.SetLevel(chosenStation.Value, component.AlertLevel, true, true, true);
-            component.AnnouncementDone = true;
         }
     }
     /// <summary>
@@ -361,14 +361,15 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     {
         float converted = 0;
         float crew = 0;
-        var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent>();
+        var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent>(); //determining players roughly how zombies does, humanoids with a player controlling them
         var revs = GetEntityQuery<RevolutionaryComponent>();
         while (players.MoveNext(out var uid, out _, out _))
         {
             if (revs.HasComponent(uid))
-                converted++;
+                converted++; //if they have revcomp, count them as converted. should count head revs
             crew++;
         }
         return converted / crew;
     }
+    //imp end
 }
