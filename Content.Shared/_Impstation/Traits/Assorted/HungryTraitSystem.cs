@@ -27,12 +27,13 @@ public sealed class HungryTraitSystem : EntitySystem
         hungerComp.BaseDecayRate = comp.HungryRate;
         _hunger.SetHunger(ent.Owner, comp.HungerLevel); //sets hunger & will run calculations and do hunger effects
         Dirty(ent);
+        DirtyField(ent, hungerComp, nameof(HungerComponent.BaseDecayRate));
     }
 
     private void OnComponentShutdown(Entity<HungryTraitComponent> ent, ref ComponentShutdown args)
     {
         if (!TryComp<HungerComponent>(ent.Owner, out var hungerComp))
             return;
-        hungerComp.BaseDecayRate = ent.Comp.StoredHunger;
+        hungerComp.BaseDecayRate = ent.Comp.StoredHunger; // returns hunger decay to stored amount or default
     }
 }
