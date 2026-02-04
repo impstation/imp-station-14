@@ -19,11 +19,11 @@ namespace Content.IntegrationTests.Tests;
 [TestFixture]
 public sealed class CargoTest
 {
-    private static readonly HashSet<ProtoId<CargoProductPrototype>> Ignored = new() // imp edit, revert after february...?
-    {
-        "FunCrateGambling", // This is ignored because it is explicitly intended to be able to sell for more than it costs.
-        "CrateValentines" // This is ignored because it is available as part of a limited time event.
-    };
+    private static readonly HashSet<ProtoId<CargoProductPrototype>> Ignored =
+    [
+        new("FunCrateGambling"), // This is ignored because it is explicitly intended to be able to sell for more than it costs.
+        new("CrateValentines") // This is ignored because it is available as part of a limited time event.
+    ];
 
     [Test]
     public async Task NoCargoOrderArbitrage()
