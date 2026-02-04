@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Treatchunk itself copied from telecrystal (https://github.com/tgstation/tgstation/commit/f8f4aeda930fcd0805ca4cc76d9bc9412a5b3428), all other sprites by toasterblast for Impstation",
+    "size": {
+      "x": 32,
+      "y": 32
+    },
+    "states": [
+        {
+            "name": "treatchunk"
+        },
+        {
+            "name": "treatchunk-wrapped"
+        },
+        {
+            "name": "treatchunk-trash"
+        },
+        {
+            "name": "treatchunk-open-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "treatchunk-open-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "treatchunk-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "treatchunk-inhand-right",
+            "directions": 4
+        }
+    ]
+  }

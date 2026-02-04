@@ -92,38 +92,15 @@
     - state: label
       map: ["closeLayer"]
       visible: false
-  - type: StorageFill
-    contents:
-    # Slice1
-    - id: FoodMealGasSafeSushiSlice
-      orGroup: Slice1
-    - id: FoodMealGasBadSushiSlice
-      orGroup: Slice1
-    # Slice2
-    - id: FoodMealGasSafeSushiSlice
-      orGroup: Slice2
-    - id: FoodMealGasBadSushiSlice
-      orGroup: Slice2
-    # Slice3
-    - id: FoodMealGasSafeSushiSlice
-      orGroup: Slice3
-    - id: FoodMealGasBadSushiSlice
-      orGroup: Slice3
-    # Slice4
-    - id: FoodMealGasSafeSushiSlice
-      orGroup: Slice4
-    - id: FoodMealGasBadSushiSlice
-      orGroup: Slice4
-    # Slice5
-    - id: FoodMealGasSafeSushiSlice
-      orGroup: Slice5
-    - id: FoodMealGasBadSushiSlice
-      orGroup: Slice5
-    # Slice6
-    - id: FoodMealGasSafeSushiSlice
-      orGroup: Slice6
-    - id: FoodMealGasBadSushiSlice
-      orGroup: Slice6
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - !type:GroupSelector
+          rolls: 6
+          children:
+          - id: FoodMealGasSafeSushiSlice
+          - id: FoodMealGasBadSushiSlice
 
 - type: entity
   parent: BoxCardboard
@@ -140,10 +117,12 @@
     maxItemSize: Normal
   - type: Item
     size: Normal
-  - type: StorageFill
-    contents:
-    - id: FoodBakedWaffleCone
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FoodBakedWaffleCone
+          amount: 5
 
 # region Empty
 - type: entity
@@ -151,60 +130,67 @@
   parent: BoxMRE
   categories: [ HideSpawnMenu ]
   components:
-  - type: StorageFill
-    contents: []
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NoneSelector
 
 - type: entity
   id: HappyHonkEmpty
   parent: HappyHonk
   categories: [ HideSpawnMenu ]
   components:
-  - type: StorageFill
-    contents: []
-
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NoneSelector
 - type: entity
   id: HappyHonkMimeEmpty
   parent: HappyHonkMime
   categories: [ HideSpawnMenu ]
   components:
-  - type: StorageFill
-    contents: []
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NoneSelector
 
 - type: entity
   id: HappyHonkNukieEmpty
   parent: HappyHonkNukie
   categories: [ HideSpawnMenu ]
   components:
-  - type: StorageFill
-    contents: []
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NoneSelector
 
 - type: entity
   id: HappyHonkCluwneEmpty
   parent: HappyHonkCluwne
   categories: [ HideSpawnMenu ]
   components:
-  - type: StorageFill
-    contents: []
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NoneSelector
 
 - type: entity
   id: FoodBoxNuggetEmpty
   parent: FoodBoxNugget
   categories: [ HideSpawnMenu ]
   components:
-  - type: StorageFill
-    contents: []
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NoneSelector
 
 - type: entity
   id: FoodContainerEggEmpty
   parent: FoodContainerEgg
   categories: [ HideSpawnMenu ]
   components:
-  - type: StorageFill
-    contents: []
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NoneSelector
 
 - type: entity
   id: FoodBoxDonutEmpty
   parent: FoodBoxDonut
   components:
-  - type: StorageFill
-    contents: []
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NoneSelector
