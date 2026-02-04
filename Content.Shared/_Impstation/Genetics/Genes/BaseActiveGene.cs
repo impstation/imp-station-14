@@ -10,11 +10,12 @@ namespace Content.Shared._Impstation.Genetics.Genes;
 /// Active Genes are ones that use Actions to activate
 /// Think things like fireball
 /// </summary>
-[ImplicitDataDefinitionForInheritors, Prototype, Virtual]
-public partial class BaseActiveGenePrototype : BaseGenePrototype
+[ImplicitDataDefinitionForInheritors, RegisterComponent]
+[Virtual]
+public partial class BaseActiveGeneComponent : BaseGeneComponent
 {
 
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    //[Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
     /// <summary>
     /// The action this Gene will add & remove from the mob it is applied to
@@ -22,18 +23,18 @@ public partial class BaseActiveGenePrototype : BaseGenePrototype
     [DataField("geneAction"), ViewVariables(VVAccess.ReadOnly)]
     public EntProtoId _action;
 
-    public override void OnGeneAdded(EntityUid host)
-    {
-        base.OnGeneAdded(host);
+    //public override void OnGeneAdded(EntityUid host)
+    //{
+    //    base.OnGeneAdded(host);
 
-        EntityUid? actionId = null;
-        _actionsSystem.AddAction(_host, ref actionId, _action);
-    }
+    //    EntityUid? actionId = null;
+    //    _actionsSystem.AddAction(_host, ref actionId, _action);
+    //}
 
-    public override void OnGeneRemoved()
-    {
-        base.OnGeneRemoved();
+    //public override void OnGeneRemoved()
+    //{
+    //    base.OnGeneRemoved();
 
-        //_actionsSystem.RemoveAction(_host, _action)
-    }
+    //    //_actionsSystem.RemoveAction(_host, _action)
+    //}
 }

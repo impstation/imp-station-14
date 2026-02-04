@@ -1,8 +1,12 @@
-- type: baseActiveGene
+- type: gene
   id: FireballGene
-  group: None
-  stability: 75
-  complexity: 5, 9
-  tier: 6
-  geneAction: ActionFireballIII
+  components:
+    - type: FireballGene
+      compName: BaseActiveGene
+      system: FireballGeneSystem
+      group: None
+      stability: 75
+      complexity: 5, 9
+      tier: 6
+      geneAction: ActionFireballIII
 

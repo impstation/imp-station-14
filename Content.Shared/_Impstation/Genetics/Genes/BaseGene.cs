@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.Genetics.Systems;
 using Robust.Shared.Prototypes;
 using System;
 using System.Collections.Generic;
@@ -8,9 +9,14 @@ namespace Content.Shared._Impstation.Genetics.Genes;
 /// <summary>
 /// The Base of all Genes for the Genetics system
 /// </summary>
-[ImplicitDataDefinitionForInheritors, Prototype, Virtual]
-public partial class BaseGenePrototype : EntitySystem, IPrototype
+[ImplicitDataDefinitionForInheritors, RegisterComponent, Access(typeof(SharedGeneSystem))]
+[Virtual]
+public partial class BaseGeneComponent : Component
 {
+
+    [DataField("compName")]
+    public string _compName;
+
     /// <summary>
     /// The value added to a Mobs Gene Stability
     /// </summary>
@@ -56,6 +62,29 @@ public partial class BaseGenePrototype : EntitySystem, IPrototype
     public List<GeneData> _geneStrainScrambled = new List<GeneData>();
 
     /// <summary>
+    /// The Entity System associated with this Gene
+    /// If one is set then it will be used to handle the functions that happen when
+    /// a gene is applied and removed
+    /// </summary>
+    [DataField("system"), ViewVariables(VVAccess.ReadOnly)]
+    public string _linkedSystem;
+
+    /// <summary>
+    /// Our active Chromosomes
+    /// These don't really need to be more advanced than this. It's up to the Genetek console to
+    /// toggle them on and off
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Dictionary<Chromosome, bool> _activeChromosomes = new Dictionary<Chromosome, bool>
+    {
+        { Chromosome.Camouflager, false },
+        { Chromosome.Reinforcer, false },
+        { Chromosome.Synchronizer, false },
+        { Chromosome.EnergyBooster, false },
+        { Chromosome.PowerBooster, false }
+    };
+
+    /// <summary>
     /// How common the Gene is in its respective Tier
     /// </summary>
     [DataField("weight")]
@@ -66,12 +95,6 @@ public partial class BaseGenePrototype : EntitySystem, IPrototype
     /// Mostly used by Genes that use events or need to constantly access their master
     /// </summary>
     protected EntityUid _host;
-
-    /// <summary>
-    /// ID of our Prototype
-    /// </summary>
-    [IdDataField]
-    public string ID { get; private set; } = default!;
 
     /// <summary>
     /// Called when the Gene System initialises
@@ -160,4 +183,13 @@ public partial class BaseGenePrototype : EntitySystem, IPrototype
         Language,
         Thermal
     }
+}
+
+public enum Chromosome
+{
+    Synchronizer,
+    Reinforcer,
+    PowerBooster,
+    EnergyBooster,
+    Camouflager
 }

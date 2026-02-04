@@ -11,7 +11,7 @@ namespace Content.Shared._Impstation.Genetics.Components;
 public abstract partial class SharedGeneHostComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly)]
-    public Dictionary<string, BaseGenePrototype> _genes = new Dictionary<string, BaseGenePrototype>();
+    public Dictionary<string, IComponent> _genes = new();
 
     /// <summary>
     /// Where the entity currently is on the gene scale

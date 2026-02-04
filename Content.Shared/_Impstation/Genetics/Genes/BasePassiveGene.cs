@@ -10,8 +10,9 @@ namespace Content.Shared._Impstation.Genetics.Genes;
 ///
 /// Examples include Fire vulnerability
 /// </summary>
-[ImplicitDataDefinitionForInheritors]
-public abstract partial class BasePassiveGene : BaseGenePrototype
+[ImplicitDataDefinitionForInheritors, RegisterComponent]
+[Virtual]
+public partial class BasePassiveGeneComponent : BaseGeneComponent
 {
 
 }
