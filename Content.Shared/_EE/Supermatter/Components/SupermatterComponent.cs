@@ -22,6 +22,12 @@ public sealed partial class SupermatterComponent : Component
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
 
     /// <summary>
+    /// The supermatter's external gas mixture on the tile
+    /// </summary>
+    [DataField]
+    public GasMixture? GasMixture;
+
+    /// <summary>
     /// The supermatter's internal gas storage
     /// </summary>
     [DataField]
