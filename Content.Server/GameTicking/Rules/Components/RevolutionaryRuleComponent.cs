@@ -43,7 +43,8 @@ public sealed partial class RevolutionaryRuleComponent : Component
     public string AlertLevel = "blue";
 
     /// <summary>
-    /// The alert level triggered by a threshold of players being converted.
+    /// The announcement id triggered by a threshold of players being converted.
+    /// This is not the string itself, but the ID, e.g. it will search for station-event-sleeper-agents
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string RuleId = "sleeper-agents";

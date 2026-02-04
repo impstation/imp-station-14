@@ -182,9 +182,15 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (mind is { UserId: not null } && _player.TryGetSessionById(mind.UserId, out var session))
             _antag.SendBriefing(session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
         // imp start
-        // help me how do i get the rule component in here
-        if (!ruleComp.AnnouncementDone)
-            AnnounceConverts(ruleComp);
+        foreach (var rule in GameTicker.GetActiveGameRules())
+        {
+            if (TryComp<RevolutionaryRuleComponent>(rule, out var ruleComp))
+            {
+                if (!ruleComp.AnnouncementDone)
+                    AnnounceConverts(ruleComp);
+                return;
+            }
+        }
         // imp end
     }
 
