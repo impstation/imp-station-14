@@ -50,34 +50,36 @@ public sealed partial class SupermatterSystem
         // Variable mix was copied as to not interfere with other calculations when gasReleased is merged
         sm.GasMixture = mix.Clone();
 
-        sm.GasStorage = sm.GasMixture.Remove(sm.GasEfficiency * sm.GasMixture.TotalMoles);
+        sm.GasStorage = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
 
         if (!(sm.GasStorage.TotalMoles > 0f))
             return;
+
+        var gasComposition = sm.GasStorage.Clone();
 
         // Let's get the proportions of the gases in the mix for scaling stuff later
         // They range between 0 and 1
         foreach (var gasId in Enum.GetValues<Gas>())
         {
             var proportion = sm.GasStorage.GetMoles(gasId) / sm.GasStorage.TotalMoles;
-            sm.GasStorage.SetMoles(gasId, Math.Clamp(proportion, 0, 1));
+            gasComposition.SetMoles(gasId, Math.Clamp(proportion, 0, 1));
         }
 
         // No less then zero, and no greater then one, we use this to do explosions and heat to power transfer.
-        var powerRatio = SupermatterGasData.GetPowerMixRatios(sm.GasStorage);
+        var powerRatio = SupermatterGasData.GetPowerMixRatios(gasComposition);
 
         // Affects plasma, o2 and heat output.
-        sm.GasHeatModifier = SupermatterGasData.GetHeatPenalties(sm.GasStorage);
-        var transmissionBonus = SupermatterGasData.GetTransmitModifiers(sm.GasStorage);
+        sm.GasHeatModifier = SupermatterGasData.GetHeatPenalties(gasComposition);
+        var transmissionBonus = SupermatterGasData.GetTransmitModifiers(gasComposition);
 
-        var h2OBonus = 1 - sm.GasStorage.GetMoles(Gas.WaterVapor) * 0.25f;
+        var h2OBonus = 1 - gasComposition.GetMoles(Gas.WaterVapor) * 0.25f;
 
         powerRatio = Math.Clamp(powerRatio, 0, 1);
         sm.HeatModifier = Math.Max(sm.GasHeatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
 
         // Miasma is really just microscopic particulate. It gets consumed like anything else that touches the crystal.
-        var ammoniaProportion = sm.GasStorage.GetMoles(Gas.Ammonia);
+        var ammoniaProportion = gasComposition.GetMoles(Gas.Ammonia);
 
         if (ammoniaProportion > 0)
         {
@@ -97,7 +99,7 @@ public sealed partial class SupermatterSystem
         }
 
         // Affects the damage heat does to the crystal
-        var heatResistance = SupermatterGasData.GetHeatResistances(sm.GasStorage);
+        var heatResistance = SupermatterGasData.GetHeatResistances(gasComposition);
         sm.DynamicHeatResistance = Math.Max(heatResistance, 1);
 
         // More moles of gases are harder to heat than fewer, so let's scale heat damage around them
@@ -107,9 +109,9 @@ public sealed partial class SupermatterSystem
         // Given infinite time, powerloss_dynamic_scaling = co2comp
         // Some value from 0-1
         if (sm.GasStorage.TotalMoles > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleThreshold) && // if there are more than 20 mols,
-            sm.GasStorage.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionGasThreshold)) // and more than 20% co2
+            gasComposition.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionGasThreshold)) // and more than 20% co2
         {
-            var co2powerloss = Math.Clamp(sm.GasStorage.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
+            var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
             sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
         }
         else
@@ -354,7 +356,6 @@ public sealed partial class SupermatterSystem
             var tempDamage = Math.Max(Math.Clamp(sm.GasStorage.TotalMoles / 200f, .5f, 1f) * sm.GasMixture.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
             sm.MoleHeatPenaltyThreshold / 150f * sm.DamageIncreaseMultiplier;
             totalDamage += tempDamage;
-            return;
         }
         // Power only starts affecting damage when it is above 5000
         var powerDamage = Math.Max(sm.Power - _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold), 0f) / 500f * sm.DamageIncreaseMultiplier;
