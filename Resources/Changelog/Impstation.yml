@@ -4128,9 +4128,10 @@
   - message: Ungu are a bit more susceptible to high body temperatures, as their guidebook
       entry suggested.
     type: Tweak
-  - message: Ungu's weakness to Heat damage from weapons has been reduced from 50%
-      to 30%
+  - message: Ungu's death threshold has been lowered to 200 damage from 250. Their crit threshold is unchanged.
     type: Tweak
+  - message: Ungu no longer take three times the suffocation damage as other species.
+    type: Fix
   id: 2604
   time: '2026-02-04T22:43:03.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4076
