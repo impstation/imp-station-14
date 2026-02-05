@@ -62,14 +62,6 @@ public partial class BaseGeneComponent : Component
     public List<GeneData> _geneStrainScrambled = new List<GeneData>();
 
     /// <summary>
-    /// The Entity System associated with this Gene
-    /// If one is set then it will be used to handle the functions that happen when
-    /// a gene is applied and removed
-    /// </summary>
-    [DataField("system"), ViewVariables(VVAccess.ReadOnly)]
-    public string _linkedSystem;
-
-    /// <summary>
     /// Our active Chromosomes
     /// These don't really need to be more advanced than this. It's up to the Genetek console to
     /// toggle them on and off

@@ -1,4 +1,5 @@
 using Content.Server.Atmos.EntitySystems;
+using Content.Shared._Impstation.Genetics.Events;
 using Content.Shared._Impstation.Genetics.Genes;
 using Content.Shared._Impstation.Genetics.Genes.Components;
 using Content.Shared.Actions;
@@ -21,12 +22,11 @@ public sealed partial class FireballGeneSystem : BaseGeneEntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<FireballGeneComponent, ActionPerformedEvent>(OnDoAction);
+        SubscribeLocalEvent<FireballGeneComponent, GeneAddedEvent>(OnGeneAdded);
     }
 
-    public override void OnGeneAdded(Entity<BaseGeneComponent> entity)
+    public void OnGeneAdded(Entity<FireballGeneComponent> entity, ref GeneAddedEvent args)
     {
-        base.OnGeneAdded(entity);
-
         if (!_entityManager.TryGetComponent<FireballGeneComponent>(entity, out var component))
             return;
 
@@ -36,6 +36,9 @@ public sealed partial class FireballGeneSystem : BaseGeneEntitySystem
 
     public void OnDoAction(Entity<FireballGeneComponent> entity, ref ActionPerformedEvent args)
     {
+        //if (args.Performer.Id == entity.Comp._action.)
+        //    return;
+
         if (!entity.Comp._activeChromosomes[Chromosome.Synchronizer])
         {
             _flammableSystem.AdjustFireStacks(entity, 100, null, true);

@@ -1,6 +1,7 @@
 using Content.Server._Impstation.Genetics.Components;
 using Content.Server.Database.Migrations.Postgres;
 using Content.Shared._Impstation.Genetics.Components;
+using Content.Shared._Impstation.Genetics.Events;
 using Content.Shared._Impstation.Genetics.Genes;
 using Content.Shared._Impstation.Genetics.Prototypes;
 using Content.Shared._Impstation.Genetics.Systems;
@@ -39,23 +40,10 @@ public sealed partial class GeneSystem : SharedGeneSystem
 
     private Dictionary<string, ComponentRegistry> _registeredGenes = new();
 
-    private Dictionary<string, BaseGeneEntitySystem> _geneSystems = new();
-
     public override void Initialize()
     {
         base.Initialize();
         LoadGeneRegistry();
-
-        // TODO: MENTIONED BELOW
-        var systems = _entityManager.EntitySysManager.GetEntitySystemTypes().GetEnumerator();
-        while(systems.MoveNext())
-        {
-            if(systems.Current.BaseType == typeof(BaseGeneEntitySystem))
-            {
-                var system = (BaseGeneEntitySystem)_entityManager.EntitySysManager.GetEntitySystem(systems.Current);
-                _geneSystems.Add(system.GetType().Name, system);
-            }
-        }
     }
 
     /// <summary>
@@ -81,16 +69,6 @@ public sealed partial class GeneSystem : SharedGeneSystem
         foreach (var proto in protos) {
 
             _registeredGenes.Add(proto.Key, proto.Value._geneComponent);
-
-            // This isn't necessary i just haven't pressed backspace yet out of fear
-            // of what may happen. It shouldn't break. It won't break. But, what if?
-            foreach(var (entryName, entry) in proto.Value._geneComponent)
-            {
-                var newGene = _componentFactory.GetRegistration(entryName);
-
-                var comp = _componentFactory.GetComponent(newGene);
-                _serializationManager.CopyTo(entry.Component, ref comp, notNullableOverride: true);
-            }
         }
     }
 
@@ -114,11 +92,8 @@ public sealed partial class GeneSystem : SharedGeneSystem
 
         geneComp._geneScaleValue += baseGene._geneStabilityValue;
 
-        // TODO:
-        // Move away from Genes storing their respective EntitySystem and instead just throw an event
-        // for when a Gene is added. Far less of a pain in the ass and not really performance impacting
-        if(baseGene._linkedSystem != null)
-            _geneSystems[baseGene._linkedSystem].OnGeneAdded((entity, baseGene));
+        var performed = new GeneAddedEvent(entity);
+        RaiseLocalEvent(entity, ref performed);
     }
 
     public void AddGeneRandom(EntityUid entity)
