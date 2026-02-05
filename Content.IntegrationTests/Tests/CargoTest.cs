@@ -21,8 +21,8 @@ public sealed class CargoTest
 {
     private static readonly HashSet<ProtoId<CargoProductPrototype>> Ignored =
     [
-        new("FunCrateGambling"), // This is ignored because it is explicitly intended to be able to sell for more than it costs.
-        new("CrateValentines") // This is ignored because it is available as part of a limited time event.
+        // This is ignored because it is explicitly intended to be able to sell for more than it costs.
+        new("FunCrateGambling", "CrateValentines"), // imp edit - CrateValentines is ignored because it is available as a limited time event
     ];
 
     [Test]
