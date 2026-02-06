@@ -276,6 +276,11 @@
     sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
   - type: Clothing
     sprite: Clothing/Head/Hoods/Coat/hooddefault.rsi
+    clothingVisuals: # imp
+      head:
+      - state: equipped-OUTERCLOTHING
+      head-anomalocarid: 
+      - state: equipped-OUTERCLOTHING-anomalocarid
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -573,6 +578,10 @@
       - state: coatybits-equipped-HELMET
         color: "#3f3f3f"
       - state: winterbits-equipped-HELMET
+      head-anomalocarid: #imp
+      - state: coatybits-equipped-HELMET-anomalocarid
+        color: "#3f3f3f"
+      - state: winterbits-equipped-HELMET-anomalocarid
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -593,6 +602,10 @@
       - state: coatybits-equipped-HELMET
         color: "#9C0DE1"
       - state: winterbits-equipped-HELMET
+      head-anomalocarid: #imp
+      - state: coatybits-equipped-HELMET-anomalocarid
+        color: "#9C0DE1"
+      - state: winterbits-equipped-HELMET-anomalocarid
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -613,6 +626,10 @@
       - state: coatybits-equipped-HELMET
         color: "#940000"
       - state: winterbits-equipped-HELMET
+      head-anomalocarid: #imp
+      - state: coatybits-equipped-HELMET-anomalocarid
+        color: "#940000"
+      - state: winterbits-equipped-HELMET-anomalocarid
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -633,6 +650,10 @@
       - state: coatybits-equipped-HELMET
         color: "#0089EF"
       - state: winterbits-equipped-HELMET
+      head-anomalocarid: #imp
+      - state: coatybits-equipped-HELMET-anomalocarid
+        color: "#0089EF"
+      - state: winterbits-equipped-HELMET-anomalocarid
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -653,6 +674,10 @@
       - state: coatybits-equipped-HELMET
         color: "#723A02"
       - state: winterbits-equipped-HELMET
+      head-anomalocarid: #imp
+      - state: coatybits-equipped-HELMET-anomalocarid
+        color: "#723A02"
+      - state: winterbits-equipped-HELMET-anomalocarid
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -673,6 +698,10 @@
       - state: coatybits-equipped-HELMET
         color: "#999999"
       - state: winterbits-equipped-HELMET
+      head-anomalocarid: #imp
+      - state: coatybits-equipped-HELMET-anomalocarid
+        color: "#999999"
+      - state: winterbits-equipped-HELMET-anomalocarid
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -693,6 +722,10 @@
       - state: coatybits-equipped-HELMET
         color: "#5ABF2F"
       - state: winterbits-equipped-HELMET
+      head-anomalocarid: #imp
+      - state: coatybits-equipped-HELMET-anomalocarid
+        color: "#5ABF2F"
+      - state: winterbits-equipped-HELMET-anomalocarid
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -713,6 +746,10 @@
       - state: coatybits-equipped-HELMET
         color: "#C09F72"
       - state: winterbits-equipped-HELMET
+      head-anomalocarid: #imp
+      - state: coatybits-equipped-HELMET-anomalocarid
+        color: "#C09F72"
+      - state: winterbits-equipped-HELMET-anomalocarid
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -733,6 +770,10 @@
       - state: coatybits-equipped-HELMET
         color: "#EF8100"
       - state: winterbits-equipped-HELMET
+      head-anomalocarid: #imp
+      - state: coatybits-equipped-HELMET-anomalocarid
+        color: "#EF8100"
+      - state: winterbits-equipped-HELMET-anomalocarid
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -753,6 +794,10 @@
       - state: coatybits-equipped-HELMET
         color: "#EAE8E8"
       - state: winterbits-equipped-HELMET
+      head-anomalocarid: #imp
+      - state: coatybits-equipped-HELMET-anomalocarid
+        color: "#EAE8E8"
+      - state: winterbits-equipped-HELMET-anomalocarid
 
 - type: entity
   parent: ClothingHeadHatHoodWinterBase
@@ -773,6 +818,10 @@
       - state: coatybits-equipped-HELMET
         color: "#EBE216"
       - state: winterbits-equipped-HELMET
+      head-anomalocarid: #imp
+      - state: coatybits-equipped-HELMET-anomalocarid
+        color: "#EBE216"
+      - state: winterbits-equipped-HELMET-anomalocarid
 
 - type: entity
   parent: ClothingHeadBase

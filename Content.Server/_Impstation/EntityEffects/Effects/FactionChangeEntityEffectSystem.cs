@@ -1,6 +1,5 @@
 using Content.Shared.EntityEffects;
 using Content.Shared._Impstation.EntityEffects.Effects;
-using Content.Shared._Impstation.Ghost;
 using Content.Shared.Mind.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
