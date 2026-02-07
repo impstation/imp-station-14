@@ -395,6 +395,7 @@
     tags:
     - DroneUsable
 
+# Funky RPD Start
 - type: entity
   id: RPD
   parent: RCD
@@ -434,6 +435,7 @@
     maxCharges: 450
   - type: Sprite
     sprite: _FunkyStation/Objects/Tools/rpd.rsi
+# Funky RPD End
 
 - type: entity
   id: RCDEmpty
@@ -451,7 +453,7 @@
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
-    maxCharges: 200
+    maxCharges: 200 # Funky
   - type: AutoRecharge
     rechargeDuration: 10
 

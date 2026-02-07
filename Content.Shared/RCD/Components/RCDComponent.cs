@@ -3,7 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
+using Robust.Shared.Serialization; // Funky RPD
 
 namespace Content.Shared.RCD.Components;
 
@@ -34,6 +34,8 @@ public sealed partial class RCDComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
 
+    // Funky RPD Start
+
     /// <summary>
     /// A cached copy of currently selected RCD prototype
     /// </summary>
@@ -54,6 +56,7 @@ public sealed partial class RCDComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IsRpd { get; set; } = false;
+    // Funky RPD End
 
     /// <summary>
     /// The direction constructed entities will face upon spawning
@@ -79,6 +82,8 @@ public sealed partial class RCDComponent : Component
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Transform ConstructionTransform { get; private set; }
+
+    // Funky RPD Start
 
     /// <summary>
     /// Stores player rotation
@@ -106,3 +111,4 @@ public enum RpdMode : byte
     Tertiary = 2,
     Free = 3,
 }
+// Funky RPD End

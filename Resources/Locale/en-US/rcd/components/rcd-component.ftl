@@ -11,7 +11,7 @@ rcd-component-examine-build-details = It's currently set to build {MAKEPLURAL($n
 rcd-component-change-mode = The RCD is now set to '{$mode}' mode.
 rcd-component-change-build-mode = The RCD is now set to build {MAKEPLURAL($name)}.
 
-# RPD mode change
+# Funky RPD, mode change
 rcd-rpd-mode-primary = Primary
 rcd-rpd-mode-secondary = Secondary
 rcd-rpd-mode-tertiary = Tertiary
@@ -48,6 +48,7 @@ rcd-component-airlocks = Airlocks
 rcd-component-electrical = Electrical
 rcd-component-lighting = Lighting
 
+# Funky RPD
 rcd-component-piping = Piping
 rcd-component-pumps-valves = Pumps & Valves
 rcd-component-vents = Vents

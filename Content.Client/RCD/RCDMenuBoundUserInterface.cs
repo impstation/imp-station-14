@@ -24,14 +24,16 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
             ["Airlocks"] = ("rcd-component-airlocks", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/airlocks.png"))),
             ["Electrical"] = ("rcd-component-electrical", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/multicoil.png"))),
             ["Lighting"] = ("rcd-component-lighting", new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Radial/RCD/lighting.png"))),
+            // Funky RPD Start
             ["Piping"] = ("rcd-component-piping", new SpriteSpecifier.Texture(new ResPath("/Textures/_Funkystation/Interface/Radial/RPD/fourway.png"))),
             ["AtmosphericUtility"] = ("rcd-component-atmospheric-utility", new SpriteSpecifier.Texture(new ResPath("/Textures/_Funkystation/Interface/Radial/RPD/port.png"))),
             ["PumpsValves"] = ("rcd-component-pumps-valves", new SpriteSpecifier.Texture(new ResPath("/Textures/_Funkystation/Interface/Radial/RPD/pump_volume.png"))),
             ["Vents"] = ("rcd-component-vents", new SpriteSpecifier.Texture(new ResPath("/Textures/_Funkystation/Interface/Radial/RPD/vent_passive.png"))),
             ["SensorsMonitors"] = ("rcd-component-sensors-monitors", new SpriteSpecifier.Texture(new ResPath("/Textures/_Funkystation/Interface/Radial/RPD/alarm.png"))),
+            // Funky RPD End
         };
 
-    private bool IsRpd => EntMan.TryGetComponent<RCDComponent>(Owner, out var rcd) && rcd.IsRpd;
+    private bool IsRpd => EntMan.TryGetComponent<RCDComponent>(Owner, out var rcd) && rcd.IsRpd; // Funky RPD
 
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;

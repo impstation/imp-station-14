@@ -16,6 +16,7 @@ public sealed class RCDConstructionGhostRotationEvent(NetEntity netEntity, Direc
     public readonly Direction Direction = direction;
 }
 
+// Funky RPD Start
 [Serializable, NetSerializable]
 public sealed class RCDConstructionGhostFlipEvent : EntityEventArgs
 {
@@ -40,6 +41,7 @@ public sealed class RPDEyeRotationEvent : EntityEventArgs
         EyeRotation = eyeRotation;
     }
 }
+// Funky RPD End
 
 [Serializable, NetSerializable]
 public enum RcdUiKey : byte

@@ -1,12 +1,12 @@
 using Content.Client.Hands.Systems;
-using Content.Shared.Input;
+using Content.Shared.Input; // Funky RPD
 using Content.Shared.Interaction;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
 using Robust.Client.Placement;
 using Robust.Client.Player;
-using Robust.Shared.Enums;
-using Robust.Shared.Input;
+using Robust.Shared.Enums; // Funky RPD
+using Robust.Shared.Input; // Funky RPD
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
 
@@ -18,7 +18,7 @@ namespace Content.Client.RCD;
 public sealed class RCDConstructionGhostSystem : EntitySystem
 {
     private const string PlacementMode = nameof(AlignRCDConstruction);
-    private const string RpdPlacementMode = nameof(AlignRPDAtmosPipeLayers);
+    private const string RpdPlacementMode = nameof(AlignRPDAtmosPipeLayers); // Funky RPD
 
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPlacementManager _placementManager = default!;
@@ -26,6 +26,8 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
     [Dependency] private readonly HandsSystem _hands = default!;
 
     private Direction _placementDirection = default;
+
+    // Funky RPD Start
     private bool _useMirrorPrototype = false;
     public event EventHandler? FlipConstructionPrototype;
 
@@ -68,7 +70,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
 
         return true;
     }
-
+    // Funky RPD End
 
     public override void Update(float frameTime)
     {
@@ -103,16 +105,18 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
             return;
         }
 
+        // Funky RPD Start
         // Determine if mirrored
         var cachedProto = rcd.CachedPrototype;
         var wantMirror = _useMirrorPrototype && !string.IsNullOrEmpty(cachedProto.MirrorPrototype);
-        var prototype = wantMirror ? cachedProto.MirrorPrototype : cachedProto.Prototype;
+        var prototype = wantMirror ? cachedProto.MirrorPrototype : cachedProto.Prototype; // Original prototype variable changed to include if mirrored
 
         bool isLayered = rcd.IsRpd
             && _protoManager.TryIndex<RCDPrototype>(cachedProto.ID, out var rcdProto)
             && rcdProto.HasLayers;
 
         var desiredMode = isLayered ? RpdPlacementMode : PlacementMode;
+        //Funky RPD End
 
         // Update the direction the RCD prototype based on the placer direction
         if (_placementDirection != _placementManager.Direction)
@@ -122,19 +126,17 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         }
 
         // If the placer has not changed, exit
-        if (heldEntity == placerEntity &&
-            prototype == placerProto &&
-            _placementManager.CurrentPermission?.PlacementOption == desiredMode)
+        if (heldEntity == placerEntity && prototype == placerProto && _placementManager.CurrentPermission?.PlacementOption == desiredMode) // Funky RPD, added check for if the current pipe layer is the desired one
             return;
 
         // Create a new placer
         var newObjInfo = new PlacementInformation
         {
             MobUid = heldEntity.Value,
-            PlacementOption = desiredMode,
-            EntityType = prototype,
+            PlacementOption = desiredMode, // Funky RPD, changes to new created variable
+            EntityType = prototype, // Funky RPD, changes to new created variable
             Range = (int)Math.Ceiling(SharedInteractionSystem.InteractionRange),
-            IsTile = (cachedProto.Mode == RcdMode.ConstructTile),
+            IsTile = (cachedProto.Mode == RcdMode.ConstructTile), // Funky RPD, changes to new created variable
             UseEditorContext = false,
         };
 
