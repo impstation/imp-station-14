@@ -1,4 +1,3 @@
-using Content.Shared.FixedPoint;
 using Content.Shared.RCD.Systems;
 using Robust.Shared.GameStates;
 

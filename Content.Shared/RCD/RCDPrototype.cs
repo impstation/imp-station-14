@@ -1,4 +1,3 @@
-using Content.Shared.FixedPoint;
 using Content.Shared.Physics;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Prototypes;

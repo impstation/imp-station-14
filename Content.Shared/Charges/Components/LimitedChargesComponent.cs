@@ -1,5 +1,4 @@
 using Content.Shared.Charges.Systems;
-using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
