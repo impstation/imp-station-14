@@ -15,7 +15,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
   - type: RCDDeconstructable
-    cost: 60 # Funkystation
+    cost: 60 # Funky RPD
     delay: 6
     fx: EffectRCDDeconstruct6
   - type: Destructible
@@ -85,7 +85,7 @@
   - type: Damageable
     damageModifierSet: RGlass
   - type: RCDDeconstructable
-    cost: 40 # Funkystation
+    cost: 40 # Funky RPD
     delay: 4
     fx: EffectRCDDeconstruct4
   - type: Destructible
