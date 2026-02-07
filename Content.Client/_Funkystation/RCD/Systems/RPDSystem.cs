@@ -6,7 +6,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 
-namespace Content.Client.RCD.Systems;
+namespace Content.Client._Funkystation.RCD.Systems; // Imp, moved to _Funkystation
 
 public sealed class RPDSystem : EntitySystem
 {

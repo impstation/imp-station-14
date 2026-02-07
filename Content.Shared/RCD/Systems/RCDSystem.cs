@@ -1,3 +1,4 @@
+using Content.Shared._Funkystation.Atmos; // Imp
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Construction;
@@ -29,7 +30,6 @@ using System.Numerics;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using Content.Shared.NodeContainer;
-using Content.Shared.Atmos;
 // Funky RPD End
 
 namespace Content.Shared.RCD.Systems;

@@ -1,28 +1,33 @@
 using System.Linq;
+using Content.Shared._Funkystation.Atmos; // Imp
+using Content.Shared._Funkystation.Atmos.Components; // Imp
 using Content.Shared.Atmos.Components;
 using Content.Shared.NodeContainer;
-using Content.Shared.Popups;
-using Content.Shared.Construction.Components;
+using Content.Shared.Popups; // Funky RPD
+using Content.Shared.Construction.Components; // Funky RPD
 using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
+// Funky RPD, removed Content.Server.Atmos.Components, Content.Server.NodeContainer, Content.Server.NodeContainer.Nodes, Content.Server.Popups, Content.Shared.Atmos, Content.Shared.Construction.Components, & Robust.Server.GameObjects
 
-namespace Content.Shared.Atmos.EntitySystems;
+namespace Content.Shared.Atmos.EntitySystems; // Funky RPD, moved file to shared
 
 /// <summary>
 /// This handles restricting pipe-based entities from overlapping outlets/inlets with other entities.
 /// </summary>
 public sealed class PipeRestrictOverlapSystem : EntitySystem
 {
+    // Funky RPD, moved to Shared
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
 
     private readonly List<EntityUid> _anchoredEntities = new();
     private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
-    private EntityQuery<DeviceRestrictOverlapComponent> _deviceRestrictOverlapQuery; // Funky
+    private EntityQuery<DeviceRestrictOverlapComponent> _deviceRestrictOverlapQuery; // Funky RPD
 
-    public bool StrictDeviceStacking = true; // Funky
+    public bool StrictDeviceStacking = true; // Funky RPD
 
+    // Funky RPD Start
     public readonly record struct ProposedPipe(
 
         PipeDirection Direction,
@@ -30,6 +35,7 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         AtmosPipeLayer Layer,
 
         Angle Rotation = default);
+    // Funky RPD End
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -189,10 +195,12 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
             foreach (var node in pipe.Comp1.Nodes.Values)
             {
                 if (node is IPipeNode pipeNode)
-                    yield return (pipeNode.Direction.RotatePipeDirection(pipe.Comp2.LocalRotation), pipeNode.Layer);
+                    yield return (pipeNode.Direction.RotatePipeDirection(pipe.Comp2.LocalRotation), pipeNode.Layer); // Funky RPD, changed from pipeNode.OriginalPipeDirection.RotatePipeDirection(pipe.Comp2.LocalRotation), pipeNode.CurrentPipeLayer
             }
         }
     }
+
+    // Funky RPD Start
 
     /// <summary>
     /// Checks if placing a new pipe with the given direction and layer on the specified tile would conflict
@@ -246,4 +254,5 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
                 yield return (pipeNode.Direction.RotatePipeDirection(rotation), pipeNode.Layer);
         }
     }
+    // Funky RPD End
 }

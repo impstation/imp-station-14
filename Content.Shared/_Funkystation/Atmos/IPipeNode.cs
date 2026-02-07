@@ -1,6 +1,7 @@
 using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos; // Imp
 
-namespace Content.Shared.Atmos;
+namespace Content.Shared._Funkystation.Atmos; // Imp, moved to _Funkystation
 
 public interface IPipeNode
 {

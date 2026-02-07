@@ -18,7 +18,7 @@ using Robust.Shared.Utility;
 using System.Numerics;
 using static Robust.Client.Placement.PlacementManager;
 
-namespace Content.Client.RCD;
+namespace Content.Client._Funkystation.RCD; // Imp, moved to _Funkystation
 
 /// <summary>
 /// Funkystation
