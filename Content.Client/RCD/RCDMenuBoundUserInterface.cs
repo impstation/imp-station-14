@@ -127,7 +127,7 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
         if (_playerManager.LocalSession?.AttachedEntity == null)
             return;
 
-        var msg = Loc.GetString("rcd-component-change-mode", ("mode", Loc.GetString(proto.SetName)));
+        var msg = Loc.GetString("rcd-component-change-mode", ("tool", Owner), ("mode", Loc.GetString(proto.SetName))); // Den RPD Naming, added ("tool", Owner)
 
         if (proto.Mode is RcdMode.ConstructTile or RcdMode.ConstructObject)
         {
@@ -139,7 +139,7 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
                 name = entProto.Name;
             }
 
-            msg = Loc.GetString("rcd-component-change-build-mode", ("name", name));
+            msg = Loc.GetString("rcd-component-change-build-mode", ("tool", Owner), ("name", name)); // Den RPD Naming, added ("tool", Owner)
         }
 
         // Popup message
