@@ -1,4 +1,3 @@
-using Content.Client.Atmos;
 using Content.Client.Hands.Systems;
 using Content.Shared.Input;
 using Content.Shared.Interaction;

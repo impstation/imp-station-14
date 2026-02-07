@@ -24,7 +24,6 @@ using Robust.Shared.Serialization;
 using System.Linq;
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Hands.Components;
 using System.Numerics;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
