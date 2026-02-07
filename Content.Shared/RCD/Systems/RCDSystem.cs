@@ -160,7 +160,7 @@ public sealed class RCDSystem : EntitySystem
 
         args.PushMarkup(msg);
 
-        // Funky RPD start
+    // Funky RPD Start
         if (component.IsRpd)
         {
             var modeLoc = $"rcd-rpd-mode-{component.CurrentMode.ToString().ToLowerInvariant()}";

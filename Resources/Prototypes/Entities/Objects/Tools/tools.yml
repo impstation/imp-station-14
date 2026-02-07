@@ -319,7 +319,7 @@
           path: /Audio/Items/change_drill.ogg
   - type: PhysicalComposition
     materialComposition:
-      Steel: 300
+      Steel: 300 # Funky RPD
       Plastic: 100
   - type: StaticPrice
     price: 100
@@ -453,7 +453,7 @@
   suffix: AutoRecharge
   components:
   - type: LimitedCharges
-    maxCharges: 200 # Funky
+    maxCharges: 200 # Funky RPD
   - type: AutoRecharge
     rechargeDuration: 10
 
