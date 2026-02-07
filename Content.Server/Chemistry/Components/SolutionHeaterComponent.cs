@@ -8,4 +8,10 @@ public sealed partial class SolutionHeaterComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public float HeatPerSecond;
+
+    /// <summary>
+    /// Imp - The maximum temperature the heater will heat solutions to. Defaults to null.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float? MaxTemperature;
 }
