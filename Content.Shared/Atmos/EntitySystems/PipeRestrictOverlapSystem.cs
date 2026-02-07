@@ -16,10 +16,11 @@ namespace Content.Shared.Atmos.EntitySystems; // Funky RPD, moved file to shared
 /// </summary>
 public sealed class PipeRestrictOverlapSystem : EntitySystem
 {
-    // Funky RPD, moved to Shared
+    // Funky RPD Start, moved to Shared
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    // Funky RPD End
 
     private readonly List<EntityUid> _anchoredEntities = new();
     private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
@@ -42,12 +43,13 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
     {
         SubscribeLocalEvent<PipeRestrictOverlapComponent, AnchorStateChangedEvent>(OnAnchorStateChanged);
         SubscribeLocalEvent<PipeRestrictOverlapComponent, AnchorAttemptEvent>(OnAnchorAttempt);
-        // Funky - Added to handle device overlap
+        // Funky RPD Start, added to handle device overlap
         SubscribeLocalEvent<DeviceRestrictOverlapComponent, AnchorStateChangedEvent>(OnDeviceAnchorStateChanged);
         SubscribeLocalEvent<DeviceRestrictOverlapComponent, AnchorAttemptEvent>(OnDeviceAnchorAttempt);
+        // Funky RPD End
 
         _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
-        _deviceRestrictOverlapQuery = GetEntityQuery<DeviceRestrictOverlapComponent>();
+        _deviceRestrictOverlapQuery = GetEntityQuery<DeviceRestrictOverlapComponent>(); // Funky RPD
     }
 
     private void OnAnchorStateChanged(Entity<PipeRestrictOverlapComponent> ent, ref AnchorStateChangedEvent args)
@@ -78,6 +80,8 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         }
     }
 
+    // Funky RPD Start
+
     /// <summary>
     /// Funky
     /// Checks if the device overlaps with any other devices.
@@ -105,6 +109,7 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
             args.Cancel();
         }
     }
+    // Funky RPD End
 
     [PublicAPI]
     public bool CheckOverlap(EntityUid uid)
@@ -140,6 +145,8 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         return false;
     }
 
+    // Funky RPD Start
+
     /// <summary>
     /// Funky
     /// Checks if the device overlaps with any other devices.
@@ -173,6 +180,7 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
 
         return false;
     }
+    // Funky RPD End
 
     public bool PipeNodesOverlap(Entity<NodeContainerComponent, TransformComponent> ent, Entity<NodeContainerComponent, TransformComponent> other)
     {
