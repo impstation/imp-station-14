@@ -26,6 +26,7 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: South
+  - type: DeviceRestrictOverlap # Funky
 
 - type: entity
   parent: GasTrinaryBase
@@ -301,6 +302,7 @@
       - PneumaticValve
       - Pumps
       - Valves
+    - type: DeviceRestrictOverlap # Funky
     - type: VentCrawTube
       containerId: VentCrawTube
     - type: VentCrawJunction
