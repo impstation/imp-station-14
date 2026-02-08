@@ -2,6 +2,7 @@ using Content.Shared._ES.Sparks.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Projectiles;
+using Content.Shared.Trigger;
 using Robust.Shared.Spawners;
 
 namespace Content.Shared._ES.Sparks;
@@ -16,6 +17,7 @@ public sealed partial class ESSparksSystem
         SubscribeLocalEvent<ESSparkOnItemToggleComponent, ItemToggledEvent>(OnItemToggled);
         SubscribeLocalEvent<ESSparkOnProjectileHitComponent, ProjectileHitEvent>(OnProjectileHit);
         SubscribeLocalEvent<ESSparkOnDespawnComponent, TimedDespawnEvent>(OnDespawn);
+        SubscribeLocalEvent<ESSparkOnTriggerComponent, TriggerEvent>(OnTrigger);
     }
 
     private void OnDamaged(Entity<ESSparkOnHitComponent> ent, ref DamageChangedEvent args)
@@ -42,6 +44,11 @@ public sealed partial class ESSparksSystem
     }
 
     private void OnDespawn(Entity<ESSparkOnDespawnComponent> ent, ref TimedDespawnEvent args)
+    {
+        DoSparks(ent);
+    }
+
+    private void OnTrigger(Entity<ESSparkOnTriggerComponent> ent, ref TriggerEvent args)
     {
         DoSparks(ent);
     }
