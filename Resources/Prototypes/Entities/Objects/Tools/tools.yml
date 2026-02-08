@@ -367,7 +367,7 @@
     - CableTerminal
     - Deconstruct
   - type: LimitedCharges
-    maxCharges: 300
+    maxCharges: 300 # Funky RPD
   - type: Sprite
     sprite: _Impstation/Objects/Tools/rcd.rsi # imp
     state: icon
