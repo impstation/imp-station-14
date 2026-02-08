@@ -298,6 +298,17 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/mimecropped.rsi
 
 - type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMimeNouveau
+  name: nouveau mime suit
+  description: ...!?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/mimenouveau.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/mimenouveau.rsi
+
+- type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitCargoLong
   name: cargo tech jumpsuit (pants)
@@ -581,3 +592,13 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
+
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTailcoatSuit
+  name: tailcoat suit
+  description: A rather fetching outfit with long tails, fit for any gentleperson looking to stand out.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tailcoatsuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tailcoatsuit.rsi

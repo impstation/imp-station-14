@@ -28,6 +28,20 @@
     - UplinkWeaponry
 
 - type: listing
+  id: UplinkTaipanBundle
+  name: uplink-taipan-name
+  description: uplink-taipan-desc
+  icon: { sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi, state: icon }
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  productEntity: TaipanBox
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkValuShotFamily
   name: uplink-valushotfamily-name
   description: uplink-valushotfamily-desc
@@ -258,17 +272,6 @@
   - UplinkAmmo
 
 - type: listing
-  id: UplinkEchionSynth
-  name: uplink-echion-synth-name
-  description: uplink-echion-synth-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Specific/Syndicate/echionsynth.rsi, state: icon }
-  productEntity: EchionSynth
-  cost:
-    Telecrystal: 5
-  categories:
-  - UplinkAmmo
-
-- type: listing
   id: UplinkRocketConcussiveBundle
   name: uplink-rocketcon-name
   description: uplink-rocketcon-desc
@@ -300,6 +303,20 @@
     Telecrystal: 5
   categories:
     - UplinkAmmo
+
+- type: listing
+  id: UplinkEchionSynth
+  name: uplink-echion-synth-name
+  description: uplink-echion-synth-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Specific/Syndicate/echionsynth.rsi, state: icon }
+  productEntity: EchionSynth
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkAmmo
 
 - type: listing
   id: UplinkExtendedMagazinePistol

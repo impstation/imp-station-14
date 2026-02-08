@@ -511,9 +511,22 @@
   parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatHOSColonelCap
   name: head of security's peaked cap
-  description: Tall enough to match the ego of anyone who'd chose to wear it. Does not allow you to utilize psycho power.
-  components:
+  description: Get lost. You can't compare with this hat's powers.
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Hats/hos_colonelcap.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/hos_colonelcap.rsi
+
+  parent: ClothingHeadBase
+  id: ClothingHeadHatMimeBowler
+  name: mime bowler
+  description: Un chapeau melon élégant.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/mimebowler.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/mimebowler.rsi
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon

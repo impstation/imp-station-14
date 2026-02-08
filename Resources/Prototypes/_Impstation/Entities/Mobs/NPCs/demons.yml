@@ -33,8 +33,10 @@
         - id: EvilSkullArtifactItem # fuck it
           amount: 1
     - type: Bloodstream
-      bloodMaxVolume: 300
-      bloodReagent: Blood
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Blood
+          Quantity: 300
     - type: GhostRole
       allowMovement: true
       makeSentient: true

@@ -19,7 +19,10 @@
   - type: Damageable
     damageContainer: Inorganic
   - type: Bloodstream
-    bloodReagent: Oil
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Oil
+        Quantity: 150
     bloodlossDamage:
       types:
         Bloodloss:
