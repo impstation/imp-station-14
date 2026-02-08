@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Weapons.Ranged.Components;
+namespace Content.Shared._Impstation.Weapons.Ranged.Components;
 
 /// <summary>
 /// Add/remove projectiles for guns that use cartridge-based projectiles.

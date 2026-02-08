@@ -1,6 +1,6 @@
 using Robust.Shared.GameObjects;
 
-namespace Content.Shared.Weapons.Ranged.Events;
+namespace Content.Shared._Impstation.Weapons.Ranged.Events;
 
 /// <summary>
 /// Event for guns to modify ammo projectile count.

@@ -1,10 +1,11 @@
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Weapons.Ranged.Components;
+namespace Content.Shared._Impstation.Weapons.Ranged.Components;
 
 /// <summary>
-/// Lets guns that use ammo have its own damage value that's applied to its projectiles.
+/// Sets a guns damage values independently of its ammunition.
+/// By default, without this component, a gun's ammunition is the only factor in the amount of damage it deals.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class GunDamageComponent : Component

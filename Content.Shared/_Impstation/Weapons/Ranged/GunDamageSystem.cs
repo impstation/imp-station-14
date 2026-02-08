@@ -3,8 +3,9 @@ using Content.Shared.Projectiles;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared._Impstation.Weapons.Ranged.Components;
 
-namespace Content.Shared.Weapons.Ranged.Systems;
+namespace Content.Shared._Impstation.Weapons.Ranged.Systems;
 
 /// <summary>
 /// Adds damage for guns that use cartridge-based projectiles.

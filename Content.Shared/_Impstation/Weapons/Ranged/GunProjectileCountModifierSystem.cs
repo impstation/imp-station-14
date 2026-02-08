@@ -1,8 +1,9 @@
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared._Impstation.Weapons.Ranged.Components;
+using Content.Shared._Impstation.Weapons.Ranged.Events;
 
-namespace Content.Shared.Weapons.Ranged.Systems;
+namespace Content.Shared._Impstation.Weapons.Ranged.Systems;
 
 /// <summary>
 /// Adds/removes projectiles for guns that use cartridge-based projectiles.
@@ -17,11 +18,11 @@ public sealed class GunProjectileCountModifierSystem : EntitySystem
         SubscribeLocalEvent<GunProjectileCountModifierComponent, GunGetAmmoProjectileCountEvent>(OnGetProjectileCount);
     }
 
-    private void OnGetProjectileCount(EntityUid uid, GunProjectileCountModifierComponent component, ref GunGetAmmoProjectileCountEvent args)
+    private void OnGetProjectileCount(Entity<GunProjectileCountModifierComponent> ent, ref GunGetAmmoProjectileCountEvent args)
     {
-        var countModifier = component.ProjCount;
+        var countModifier = ent.Comp.ProjCount;
 
-        foreach (var (tag, count) in component.ProjCountSpecific)
+        foreach (var (tag, count) in ent.Comp.ProjCountSpecific)
         {
             if (_tagSystem.HasTag(args.AmmoEntity, tag))
             {
