@@ -1,37 +1,24 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.Cloning;
 using Content.Server.Ghost.Roles.Components;
-using Content.Server.Popups;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
-using Content.Server._Impstation.AnimalHusbandry.BreedEffects;
 using Content.Shared._Impstation.EntityTable.Conditions;
-using Content.Server._Impstation.AnimalHusbandry.Components;
-using Content.Shared.Cloning;
-using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.EntityTable;
-using Content.Shared.EntityTable.Conditions;
-using Content.Shared.Ghost.Roles;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
-using NetCord;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Damage.Components;
 
-namespace Content.Server._Impstation.Nutrition.EntitySystems;
+namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 /// <summary>
 /// System that handles mob breeding, birthing and growing
 /// This system works alongside HTN
@@ -40,7 +27,6 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IEntitySystemManager _entSysManager = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _time = default!;
@@ -63,6 +49,8 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     {
         base.Update(frameTime);
 
+        // Runs through the list of pregnant mobs to see who is ready to give birth
+        // or whose birth should be cancelled
         foreach (var reproComp in _mobsWaiting)
         {
             // In case the mob finds itself deleted or destroyed
@@ -109,7 +97,6 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
                 infantComp.TimeUntilNextStage = _time.CurTime + infantComp.GrowthTime;
                 continue;
             }
-
 
             // No growing up until you're alive buddy
             // Also delays the animals growth so they don't wake up and immediately advance a stage if kept dead for a while.
@@ -164,6 +151,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         // Add them to our list of pregnant NPCs to be tracked
         _mobsWaiting.Add(approached, partnerComp);
 
+        // Picks which offspring to give birth to based on the mob we bred with
         var ctx = new EntityTableContext(new Dictionary<string, object>
         {
             { ValidPartnerCondition.PartnerContextKey, component.MobType },
@@ -172,12 +160,6 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
         if (TryComp<InteractionPopupComponent>(approached, out var interactionPopup))
             Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates(approached));
-
-        foreach(var effect in partnerComp.BreedEffects)
-        {
-            if (effect.ApplyOnBreed)
-                effect.BreedEffect(approached, approacher);
-        }
 
         partnerComp.PreviousPartner = approacher;
 
@@ -203,20 +185,22 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     {
         if (entity.Comp.Pregnant)
             return false;
-        
+
         if (_entManager.TryGetComponent<HungerComponent>(entity, out var hunger) && hunger.CurrentThreshold < HungerThreshold.Okay)
             return false;
 
         if (_entManager.TryGetComponent<ThirstComponent>(entity, out var thirst) && thirst.CurrentThirstThreshold < ThirstThreshold.Okay)
             return false;
-        
+
         // Player inhabited mobs cannot breed
         if (_mind.TryGetMind(entity, out var mind, out var mindComp))
             return false;
 
+        // A mob needs to be Alive. Not dead or critical
         if (_entManager.TryGetComponent<MobStateComponent>(entity, out var state) && state.CurrentState != Shared.Mobs.MobState.Alive)
             return false;
 
+        // A mob can't be too damaged
         if (_entManager.TryGetComponent<DamageableComponent>(entity, out var damage) && damage.TotalDamage >= entity.Comp.MaxBreedDamage)
             return false;
         return true;
@@ -239,10 +223,10 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     }
 
     /// <summary>
-    /// Handles the actual birthing of the new NPC
+    /// Handles the actual birthing of the new NPC and sets how long until they grow up
     /// </summary>
     /// <param name="entity"></param>
-    public void Birth(Entity<ImpReproductiveComponent> entity)
+    private void Birth(Entity<ImpReproductiveComponent> entity)
     {
         if (TryComp<InteractionPopupComponent>(entity, out var interactionPopup))
             _audio.PlayPvs(interactionPopup.InteractSuccessSound, entity);
@@ -251,12 +235,6 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
         if (offspring == null)
             return;
-
-        foreach (var effect in entity.Comp.BreedEffects)
-        {
-            if (effect.ApplyOnBirth)
-                effect.BirthEffect(entity, (EntityUid)offspring);
-        }
 
         if (_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
         {
@@ -275,7 +253,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     /// </summary>
     /// <param name="_infant"></param>
     /// <returns></returns>
-    public bool AdvanceStage(Entity<ImpInfantComponent> infant)
+    private bool AdvanceStage(Entity<ImpInfantComponent> infant)
     {
         bool isAdult = false;
 

@@ -51,6 +51,7 @@ construction-graph-tag-floatingflora-b = blue floating flora
 construction-graph-tag-floatingflora-o = orange floating flora
 construction-graph-tag-floatingflora-p = pink floating flora
 construction-graph-tag-floatingflora-y = yellow floating flora
+construction-graph-tag-fluorescent-light-tube = fluorescent light tube
 construction-graph-tag-pompom = pompoms
 
 # unique

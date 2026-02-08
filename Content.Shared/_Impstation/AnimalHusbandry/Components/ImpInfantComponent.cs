@@ -1,38 +1,47 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Content.Shared.Cloning;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.AnimalHusbandry.Components;
 
-// It took everything for me to not call this Impfant component for the record
+/// <summary>
+/// The Component that holds the info for infants. This also allows mobs to by tracked by the AnimalHusbandrySystem for growth
+/// It took everything for me to not call this Impfant component for the record
+/// </summary>
 [RegisterComponent]
 public sealed partial class ImpInfantComponent : Component
 {
-    // The information that carries over between growth stages
+    /// <summary>
+    /// The information that carries over between growth stages
+    /// </summary>
     [DataField("offspringSettings")]
     public ProtoId<CloningSettingsPrototype> OffspringSettings = "BaseOffspringClone";
 
-    // Is this animal immediately born an NPC or do they start needing incubation
+    /// <summary>
+    /// Is this animal immediately born an NPC or do they start needing incubation
+    /// </summary>
     [DataField("infantType"), ViewVariables(VVAccess.ReadWrite)]
     public InfantType InfantType = InfantType.Immediate;
 
-    // How long until the next growth stage
+    /// <summary>
+    /// How long until the next growth stage
+    /// </summary>
     [DataField("growthTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan GrowthTime = TimeSpan.FromSeconds(180);
 
-    // Next Growth stage of the animal
+    /// <summary>
+    /// Next Growth stage of the animal
+    /// </summary>
     [DataField("nextStage", required: true)]
     public EntProtoId NextStage;
 
-    // How long until we next grow up?
+    /// <summary>
+    /// How long until we next grow up?
+    /// </summary>
     public TimeSpan TimeUntilNextStage = TimeSpan.Zero;
 
-    // The parent this child should follow
+    /// <summary>
+    /// The parent this child should follow
+    /// </summary>
     public EntityUid Parent;
 }
 

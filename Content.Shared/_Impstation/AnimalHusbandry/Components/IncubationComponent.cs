@@ -1,9 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Content.Shared.DoAfter;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.AnimalHusbandry.Components;
@@ -14,11 +8,15 @@ namespace Content.Shared._Impstation.AnimalHusbandry.Components;
 [RegisterComponent]
 public sealed partial class IncubationComponent : Component
 {
-    // How long this egg incubates for
+    /// <summary>
+    /// How long this egg incubates for
+    /// </summary>
     [DataField("incubationTime")]
     public TimeSpan IncubationTime = TimeSpan.FromSeconds(90);
 
-    // What comes out when the incubation is done?
+    /// <summary>
+    /// What comes out when the incubation is done?
+    /// </summary>
     [DataField("incubatedResult"), ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId IncubatedResult;
 

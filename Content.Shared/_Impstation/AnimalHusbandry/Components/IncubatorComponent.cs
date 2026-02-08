@@ -1,10 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Content.Shared.DoAfter;
-using Content.Shared.Storage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -19,15 +12,21 @@ namespace Content.Shared._Impstation.AnimalHusbandry.Components;
 [AutoGenerateComponentPause]
 public sealed partial class EggIncubatorComponent : Component
 {
-    // When do we finish incubation?
+    /// <summary>
+    /// When do we finish incubation?
+    /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan FinishIncubation = TimeSpan.Zero;
 
-    // Egg we are currently incubating
+    /// <summary>
+    /// Egg we are currently incubating
+    /// </summary>
     public IncubationComponent CurrentlyIncubated;
 
-    // Used for tracking visuals
+    /// <summary>
+    /// Used for tracking visuals
+    /// </summary>
     public IncubatorStatus Status;
 }
 

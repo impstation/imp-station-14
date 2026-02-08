@@ -1,17 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Content.Server._Impstation.AnimalHusbandry.BreedEffects;
-using Content.Shared.EntityTable;
 using Content.Shared.EntityTable.EntitySelectors;
-using Content.Shared.Whitelist;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server._Impstation.AnimalHusbandry.Components;
+namespace Content.Shared._Impstation.AnimalHusbandry.Components;
 /// <summary>
 /// Component that keeps track of all our variables for an animals reproductive abilities.
 /// </summary>
@@ -19,34 +10,53 @@ namespace Content.Server._Impstation.AnimalHusbandry.Components;
 [AutoGenerateComponentPause]
 public sealed partial class ImpReproductiveComponent : Component
 {
-    [DataField("minSearchAttemptInterval"), ViewVariables(VVAccess.ReadWrite)]
+    /// <summary>
+    /// Minimum amount of time a mob will wait before looking for a partner
+    /// </summary>
+    [DataField("minSearch"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan MinSearchAttemptInterval = TimeSpan.FromSeconds(10);
 
-    [DataField("maxSearchAttemptInterval"), ViewVariables(VVAccess.ReadWrite)]
+    /// <summary>
+    /// Maximum amount of time a mob will wait before looking for a partner
+    /// </summary>
+    [DataField("maxSearch"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan MaxSearchAttemptInterval = TimeSpan.FromSeconds(30);
 
-    [DataField("reproductiveGroup")]
-    public string ReproductiveGroup = "MobNone";
-
-    // What type of mob is this
+    /// <summary>
+    /// TODO: Make this use something else so this doesn't have to be manual
+    /// Declares what type of mob this is. Such as a Cow or Pig
+    /// </summary>
     [DataField("mobType")]
     public string MobType = "";
 
-    // List of Partners this mob can breed with
+    /// <summary>
+    /// List of Valid partners to breed with
+    /// </summary>
     [DataField("validPartners")]
     public List<string> ValidPartners = new List<string>();
 
+    /// <summary>
+    /// Amount of hunger expended per birth
+    /// </summary>
     [DataField("hungerPerBirth")]
     public int HungerPerBirth = 75;
 
+    /// <summary>
+    /// How long a mob will stay pregnant for
+    /// </summary>
     [DataField("pregnancyLength"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan PregnancyLength = TimeSpan.FromSeconds(60);
 
-    // Maximum amount of damage allowed before the mob gives up trying to breed
+    /// <summary>
+    /// Damage threshold a mob must hit in order to not be able to breed
+    /// This is to prevent situations such as a mob close to crit looking to breed
+    /// </summary>
     [DataField("maxBreedDamage"), ViewVariables(VVAccess.ReadOnly)]
     public int MaxBreedDamage = 50;
 
-    // Animals of the same Gender won't breed EXCEPT for if they are Agender, which can breed with any
+    /// <summary>
+    /// Animals will not breed with the same Gender unless they are Agender
+    /// </summary>
     [DataField("gender"), ViewVariables(VVAccess.ReadWrite)]
     public AnimalGender Gender = AnimalGender.Agender;
 
@@ -71,9 +81,6 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan NextSearch = TimeSpan.Zero;
-
-    [DataField("breedEffects")]
-    public List<BaseBreedEffect> BreedEffects = new List<BaseBreedEffect>();
 
     public EntityUid PreviousPartner;
 
