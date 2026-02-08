@@ -217,6 +217,19 @@
       entity_storage:
         id: RCD
 
+# Imp Start
+- type: entity
+  parent: CrateEngineeringSecure
+  id: CrateRPD
+  name: RPD crate
+  description: A crate containing a single rapid piping device.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: RPD
+# Imp End
+
 - type: entity
   parent: CrateEngineeringSecure
   id: CrateParticleDecelerators
