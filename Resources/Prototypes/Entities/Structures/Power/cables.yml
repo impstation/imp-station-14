@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   id: CablePhysBase
   placement:
@@ -54,7 +54,7 @@
   - type: CableVis
     node: power
   - type: RCDDeconstructable
-    cost: 8 # Funky RPD
+    cost: 2
     delay: 0
     fx: EffectRCDConstruct0
 

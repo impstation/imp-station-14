@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   abstract: true
   parent: BaseStructure
   id: BaseMaterialDoor
@@ -48,7 +48,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: RCDDeconstructable
-    cost: 60 # Funky RPD
+    cost: 6
     delay: 6
     fx: EffectRCDDeconstruct6
   - type: Destructible

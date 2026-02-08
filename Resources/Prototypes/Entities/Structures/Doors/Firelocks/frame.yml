@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   id: FirelockFrame
   parent: BaseStructureDynamic
   name: firelock frame
@@ -26,7 +26,7 @@
     damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallicStrong
   - type: RCDDeconstructable
-    cost: 40 # Funky RPD
+    cost: 4
     delay: 6
     fx: EffectRCDDeconstruct6
   - type: Destructible
