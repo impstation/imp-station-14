@@ -37,9 +37,6 @@
   id: HeadofSecurityColonelCap
   equipment:
     head: ClothingHeadHatHOSColonelCap
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranHOS
 
 # Outer clothing
 - type: loadout
@@ -95,18 +92,12 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitHoSColonel
   groupBy: "jumpsuit"
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranHOS
 
 - type: loadout
   id: HeadofSecurityColonelJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtHoSColonel
   groupBy: "jumpskirt"
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranHOS
 
 # Belt
 - type: loadout
