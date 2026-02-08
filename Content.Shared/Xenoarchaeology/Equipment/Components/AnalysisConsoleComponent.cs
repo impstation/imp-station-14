@@ -35,6 +35,12 @@ public sealed partial class AnalysisConsoleComponent : Component
     };
 
     /// <summary>
+    /// IMP: Sound to play when trying failing to extract due to research server missing power.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? ExtractionFailedSound = new SoundPathSpecifier("/Audio/Machines/custom_deny.ogg");
+
+    /// <summary>
     /// The machine linking port for linking the console with the analyzer.
     /// </summary>
     [DataField]

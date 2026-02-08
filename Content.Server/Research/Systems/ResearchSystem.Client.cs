@@ -98,6 +98,8 @@ public sealed partial class ResearchSystem
         if (!Resolve(uid, ref component, false))
             return;
 
+        Dirty(uid, component); //IMP
+
         TryGetClientServer(uid, out _, out var serverComponent, component);
 
         var names = GetServerNames(uid);
