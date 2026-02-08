@@ -445,6 +445,16 @@
   - type: LimitedCharges
     lastCharges: -1
 
+# Imp Start
+- type: entity
+  id: RPDEmpty
+  parent: RPD
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    lastCharges: -1
+# Imp End
+
 - type: entity
   id: RCDRecharging
   parent: RCD
@@ -466,6 +476,18 @@
   components:
   - type: AutoRecharge
     rechargeDuration: 1
+
+# Imp Start
+- type: entity
+  id: RPDExperimental
+  parent: RPD
+  suffix: Admeme
+  name: experimental RPD
+  description: A bluespace-enhanced rapid construction device that passively generates its own compressed matter.
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 1
+# Imp End
 
 - type: entity
   name: compressed matter
