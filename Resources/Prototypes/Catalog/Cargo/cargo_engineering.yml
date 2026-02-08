@@ -128,18 +128,6 @@
   category: cargoproduct-category-name-engineering
   group: market
 
-# Imp Start
-- type: cargoProduct
-  id: EngineeringRPD
-  icon:
-    sprite: _Funkystation/Objects/Tools/rpd.rsi
-    state: icon
-  product: CrateRPD
-  cost: 800
-  category: cargoproduct-category-name-engineering
-  group: market
-# Imp End
-
 - type: cargoProduct
   id: EngineeringParticleDecelerators
   icon:

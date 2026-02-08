@@ -395,48 +395,6 @@
     tags:
     - DroneUsable
 
-# Funky RPD Start
-- type: entity
-  id: RPD
-  parent: RCD
-  name: RPD
-  description: A device used to rapidly pipe things.
-  components:
-  - type: RCD
-    isRpd: true
-    availablePrototypes:
-    - PipeFourway
-    - PipeStraight
-    - PipeBend
-    - PipeTJunction
-    - PipeHalf
-    - ManifoldGas
-    - OutletInjector
-    - ManualValve
-    - VolumetricPump
-    - PressurePump
-    - VentScrubber
-    - PressureValve
-    - PressureRegulator
-    - DualPortVent
-    - VentGas
-    - VentPassive
-    - MixerGas
-    - Radiator
-    - RadiatorBend
-    - SignalValve
-    - CanisterPort
-    - FilterGas
-    - Alarm
-    - Sensor
-    - SensorPipe
-    - Deconstruct
-  - type: LimitedCharges
-    maxCharges: 45 # Imp
-  - type: Sprite
-    sprite: _FunkyStation/Objects/Tools/rpd.rsi
-# Funky RPD End
-
 - type: entity
   id: RCDEmpty
   parent: RCD
@@ -444,16 +402,6 @@
   components:
   - type: LimitedCharges
     lastCharges: -1
-
-# Imp Start
-- type: entity
-  id: RPDEmpty
-  parent: RPD
-  suffix: Empty
-  components:
-  - type: LimitedCharges
-    lastCharges: -1
-# Imp End
 
 - type: entity
   id: RCDRecharging
@@ -476,18 +424,6 @@
   components:
   - type: AutoRecharge
     rechargeDuration: 1
-
-# Imp Start
-- type: entity
-  id: RPDExperimental
-  parent: RPD
-  suffix: Admeme
-  name: experimental RPD
-  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
-  components:
-  - type: AutoRecharge
-    rechargeDuration: 1
-# Imp End
 
 - type: entity
   name: compressed matter
