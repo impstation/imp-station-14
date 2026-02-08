@@ -110,7 +110,7 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         // Determine if mirrored
         var cachedProto = rcd.CachedPrototype;
         var wantMirror = _useMirrorPrototype && !string.IsNullOrEmpty(cachedProto.MirrorPrototype);
-        var prototype = wantMirror ? cachedProto.MirrorPrototype : cachedProto.Prototype; // Original prototype variable changed to include if mirrored
+        var prototype = wantMirror ? cachedProto.MirrorPrototype : cachedProto.Prototype; // Original prototype variable changed to include if mirrored alongside cached prototype
 
         bool isLayered = rcd.IsRpd
             && _protoManager.TryIndex<RCDPrototype>(cachedProto.ID, out var rcdProto)
