@@ -22,7 +22,7 @@
   - type: Rotatable
   # Funky RPD Start
   - type: RCDDeconstructable
-    cost: 5
+    cost: 1 # Imp
     delay: 2
     fx: EffectRCDDeconstruct2
     rpd: true

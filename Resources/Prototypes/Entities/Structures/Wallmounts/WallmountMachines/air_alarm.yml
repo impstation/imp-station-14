@@ -71,7 +71,7 @@
       board: !type:Container
   # Funky RPD Start
   - type: RCDDeconstructable
-    cost: 15
+    cost: 6 # Imp
     delay: 2
     fx: EffectRCDDeconstruct2
     rpd: true

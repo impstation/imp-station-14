@@ -4,7 +4,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/fourway.png
   mode: ConstructObject
   prototype: GasPipeFourway
-  cost: 10
+  cost: 1 # Imp
   delay: 0
   rotation: User
   hasLayers: true
@@ -16,7 +16,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/straight.png
   mode: ConstructObject
   prototype: GasPipeStraight
-  cost: 10
+  cost: 1 # Imp
   delay: 0
   rotation: User
   hasLayers: true
@@ -28,7 +28,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/bend.png
   mode: ConstructObject
   prototype: GasPipeBend
-  cost: 10
+  cost: 1 # Imp
   delay: 0
   rotation: User
   hasLayers: true
@@ -40,7 +40,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/tjunction.png
   mode: ConstructObject
   prototype: GasPipeTJunction
-  cost: 10
+  cost: 1 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -53,7 +53,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/pipe_half.png
   mode: ConstructObject
   prototype: GasPipeHalf
-  cost: 10
+  cost: 1 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -66,7 +66,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/manifold.png
   mode: ConstructObject
   prototype: GasPipeManifold
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -78,7 +78,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/pump_pressure.png
   mode: ConstructObject
   prototype: GasPressurePump
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -91,7 +91,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/pump_volume.png
   mode: ConstructObject
   prototype: GasVolumePump
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -104,7 +104,7 @@
   sprite: /Textures/_Impstation/Interface/Radial/RPD/pumpManualValveOn.png
   mode: ConstructObject
   prototype: GasValve
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -117,7 +117,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/pump_signal_valve.png
   mode: ConstructObject
   prototype: SignalControlledValve
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -130,7 +130,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/pneumatic_valve.png
   mode: ConstructObject
   prototype: PressureControlledValve
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -142,7 +142,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/pump_pressure_regulator.png
   mode: ConstructObject
   prototype: GasPressureRegulator
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -156,11 +156,11 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/injector.png
   mode: ConstructObject
   prototype: GasOutletInjector
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
-  hasLayers: true
+  hasLayers: true # Imp
   fx: EffectRCDConstruct0
 
 - type: rcd
@@ -169,11 +169,11 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/scrub_off.png
   mode: ConstructObject
   prototype: GasVentScrubber
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
-  hasLayers: true
+  hasLayers: true # Imp
   fx: EffectRCDConstruct0
 
 - type: rcd
@@ -182,11 +182,11 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/vent_off.png
   mode: ConstructObject
   prototype: GasVentPump
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
-  hasLayers: true
+  hasLayers: true # Imp
   fx: EffectRCDConstruct0
 
 - type: rcd
@@ -195,7 +195,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/dual_port.png
   mode: ConstructObject
   prototype: GasDualPortVentPump
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -207,11 +207,11 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/vent_passive.png
   mode: ConstructObject
   prototype: GasPassiveVent
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
-  hasLayers: true
+  hasLayers: true # Imp
   fx: EffectRCDConstruct0
 
 - type: rcd
@@ -220,11 +220,11 @@
   sprite: /Textures/_Impstation/Interface/Radial/RPD/heStraight.png
   mode: ConstructObject
   prototype: HeatExchanger
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
-  hasLayers: true
+  hasLayers: true # Imp
   fx: EffectRCDConstruct0
 
 - type: rcd
@@ -233,11 +233,11 @@
   sprite: /Textures/_Impstation/Interface/Radial/RPD/hebend.png
   mode: ConstructObject
   prototype: HeatExchangerBend
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
-  hasLayers: true
+  hasLayers: true # Imp
   fx: EffectRCDConstruct0
 
 - type: rcd
@@ -247,7 +247,7 @@
   mode: ConstructObject
   prototype: GasMixer
   mirrorPrototype: GasMixerFlipped
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -260,7 +260,7 @@
   mode: ConstructObject
   prototype: GasFilter
   mirrorPrototype: GasFilterFlipped
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -272,7 +272,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/port.png
   mode: ConstructObject
   prototype: GasPort
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -284,7 +284,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/alarm.png
   mode: ConstructObject
   prototype: AirAlarm
-  cost: 35
+  cost: 3 # Imp
   delay: 1
   rotation: User
   fx: EffectRCDConstruct0
@@ -295,7 +295,7 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/sensor.png
   mode: ConstructObject
   prototype: AirSensor
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
@@ -307,9 +307,9 @@
   sprite: /Textures/_Funkystation/Interface/Radial/RPD/sensorpipe.png
   mode: ConstructObject
   prototype: GasPipeSensor
-  cost: 20
+  cost: 2 # Imp
   delay: 0
   collisionMask: Impassable
   rotation: User
-  hasLayers: true
+  hasLayers: true # Imp
   fx: EffectRCDConstruct0
