@@ -207,6 +207,17 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mimecropped.rsi
 
 - type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpskirtMimeNouveau
+  name: nouveau mime jumpskirt
+  description: ...!?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mimenouveau.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/mimenouveau.rsi
+
+- type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtAngelDress
   name: angel dress
