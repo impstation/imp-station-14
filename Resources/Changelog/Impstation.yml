@@ -1,41 +1,4 @@
 ﻿Entries:
-- author: AvianMaiden
-  changes:
-  - message: The K2903 Star Rifle, a relic much like the Kardashev-Mosin but with
-      an interesting twist; buy now in your uplink!
-    type: Add
-  - message: Several weapon sounds and sound changes (such as volume) for feedback
-      and coolness.
-    type: Add
-  - message: More variety to Nanotrasen's cargo gifts in the armory category.
-    type: Add
-  - message: Teeny buffs and nerfs to a few weapons.
-    type: Tweak
-  - message: Have you melee'd with a flamethrower recently?
-    type: Tweak
-  - message: Rifle crate from the cargo armory catalog, since the Lecter crate already
-      exists.
-    type: Remove
-  id: 2104
-  time: '2025-08-02T08:50:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3182
-- author: Boaz1111, DinnerCalzone
-  changes:
-  - message: More atmos devices can now be constructed on layers from the construction
-      menu.
-    type: Add
-  id: 2105
-  time: '2025-08-02T08:55:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3135
-- author: Widgetbeck, AirFryerBuyOneGetOneFree
-  changes:
-  - message: The Cargorilla has a rare chance to spawn at roundstart.
-    type: Add
-  - message: The Cargorilla can now stand up and beat his chest.
-    type: Add
-  id: 2106
-  time: '2025-08-02T09:01:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3095
 - author: HippiDippi
   changes:
   - message: Added a new round end sound of coming
@@ -4160,3 +4123,32 @@
   id: 2603
   time: '2026-02-03T22:36:11.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4084
+- author: DinnerCalzone
+  changes:
+  - message: Ungu are a bit more susceptible to high body temperatures, as their guidebook
+      entry suggested.
+    type: Tweak
+  - message: Ungu's death threshold has been lowered to 200 damage from 250. Their crit threshold is unchanged.
+    type: Tweak
+  - message: Ungu no longer take three times the suffocation damage as other species.
+    type: Fix
+  id: 2604
+  time: '2026-02-04T22:43:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4076
+- author: DinnerCalzone
+  changes:
+  - message: Slime people no longer lose extra blood while bleeding.
+    type: Remove
+  - message: 'This feature can now be selected as a character trait: Hemorrhaging!'
+    type: Add
+  id: 2605
+  time: '2026-02-04T22:46:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4075
+- author: DinnerCalzone
+  changes:
+  - message: Most species' guidebook pages have been updated to better reflect their
+      mechanics.
+    type: Tweak
+  id: 2606
+  time: '2026-02-04T22:50:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4072
