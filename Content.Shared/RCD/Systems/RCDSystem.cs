@@ -1,4 +1,3 @@
-using Content.Shared._Funkystation.Atmos; // Imp
 using Content.Shared.Administration.Logs;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Construction;
@@ -23,6 +22,7 @@ using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using System.Linq;
+using Content.Shared._Funkystation.Atmos; // Imp
 // Funky RPD Start
 using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;

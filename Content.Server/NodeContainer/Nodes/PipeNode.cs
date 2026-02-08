@@ -1,11 +1,11 @@
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
-using Content.Shared._Funkystation.Atmos; // Imp
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.NodeContainer;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Utility;
+using Content.Shared._Funkystation.Atmos; // Imp
 
 namespace Content.Server.NodeContainer.Nodes
 {

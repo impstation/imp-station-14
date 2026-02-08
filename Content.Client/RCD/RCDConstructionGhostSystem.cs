@@ -1,15 +1,15 @@
-using Content.Client._Funkystation.RCD; // Imp
 using Content.Client.Hands.Systems;
-using Content.Shared.Input; // Funky RPD
 using Content.Shared.Interaction;
 using Content.Shared.RCD;
 using Content.Shared.RCD.Components;
 using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
-using Robust.Shared.Input; // Funky RPD
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Prototypes;
+using Content.Client._Funkystation.RCD; // Imp
+using Content.Shared.Input; // Funky RPD
+using Robust.Shared.Input; // Funky RPD
 
 namespace Content.Client.RCD;
 

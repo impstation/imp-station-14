@@ -1,12 +1,12 @@
 using System.Linq;
-using Content.Shared._Funkystation.Atmos; // Imp
-using Content.Shared._Funkystation.Atmos.Components; // Imp
 using Content.Shared.Atmos.Components;
 using Content.Shared.NodeContainer;
-using Content.Shared.Popups; // Funky RPD
-using Content.Shared.Construction.Components; // Funky RPD
 using JetBrains.Annotations;
 using Robust.Shared.Map.Components;
+using Content.Shared._Funkystation.Atmos; // Imp
+using Content.Shared._Funkystation.Atmos.Components; // Imp
+using Content.Shared.Popups; // Funky RPD
+using Content.Shared.Construction.Components; // Funky RPD
 // Funky RPD, removed Content.Server.Atmos.Components, Content.Server.NodeContainer, Content.Server.NodeContainer.Nodes, Content.Server.Popups, Content.Shared.Atmos, Content.Shared.Construction.Components, & Robust.Server.GameObjects
 
 namespace Content.Shared.Atmos.EntitySystems; // Funky RPD, moved file to shared
