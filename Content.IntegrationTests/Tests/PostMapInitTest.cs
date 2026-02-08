@@ -2,29 +2,28 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using YamlDotNet.RepresentationModel;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking;
-using Content.Server.Maps;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Maps;
 using Content.Shared.Roles;
+using Content.Shared.Station.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Prototypes;
-using Content.Shared.Station.Components;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
-using Robust.Shared.Utility;
-using YamlDotNet.RepresentationModel;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Map.Events;
-
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
@@ -87,6 +86,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Impstation/reach.yml", // Contains handheld crew monitor
             "/Maps/_Impstation/xeno.yml", // Contains PTK-800 "Matter Dematerializer"
             "/Maps/_Impstation/eclipse.yml", // Contains PTK-800 "Matter Dematerializer", LSE-400c "Svalinn machine gun"
+            "/Maps/_Impstation/monarch.yml", // Contains ship cannons
 
             // Shuttles
             "/Maps/_DV/Shuttles/listening_post.yml", // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
@@ -122,6 +122,7 @@ namespace Content.IntegrationTests.Tests
             //"Relic",
             "dm01-entryway",
             //"Exo",
+            //"Snowball",
 
             // IMP PROTOTYPES:
             "AmberImp",
@@ -152,6 +153,7 @@ namespace Content.IntegrationTests.Tests
             "Xeno",
             "Pathway",
             "Whisper",
+            "Monarch",
 
             // DEROTATED:
             //"Eclipse",
@@ -558,7 +560,7 @@ namespace Content.IntegrationTests.Tests
             return resultCount;
         }
 
-        [Test]
+        [Test, NonParallelizable] // imp nonparallelize for OOM
         public async Task AllMapsTested()
         {
             await using var pair = await PoolManager.GetServerClient();
@@ -577,7 +579,7 @@ namespace Content.IntegrationTests.Tests
             await pair.CleanReturnAsync();
         }
 
-        [Test]
+        [Test, NonParallelizable] // imp nonparallelize for OOM
         public async Task NonGameMapsLoadableTest()
         {
             await using var pair = await PoolManager.GetServerClient();
@@ -613,8 +615,9 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitPost(() =>
             {
-                Assert.Multiple(() =>
-                {
+                // imp disable assert to fix test running out of memory
+                // Assert.Multiple(() =>
+                // {
                     // This bunch of files contains a random mixture of both map and grid files.
                     // TODO MAPPING organize files
                     var opts = MapLoadOptions.Default with
@@ -650,7 +653,7 @@ namespace Content.IntegrationTests.Tests
                             throw new Exception($"Failed to delete map {path}", ex);
                         }
                     }
-                });
+                // }); // imp
             });
 
             await server.WaitRunTicks(1);
