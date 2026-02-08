@@ -23,18 +23,8 @@ public partial class BaseActiveGeneComponent : BaseGeneComponent
     [DataField("geneAction"), ViewVariables(VVAccess.ReadOnly)]
     public EntProtoId _action;
 
-    //public override void OnGeneAdded(EntityUid host)
-    //{
-    //    base.OnGeneAdded(host);
-
-    //    EntityUid? actionId = null;
-    //    _actionsSystem.AddAction(_host, ref actionId, _action);
-    //}
-
-    //public override void OnGeneRemoved()
-    //{
-    //    base.OnGeneRemoved();
-
-    //    //_actionsSystem.RemoveAction(_host, _action)
-    //}
+    /// <summary>
+    /// The ID for the applied action
+    /// </summary>
+    public EntityUid _actionId = EntityUid.Invalid;
 }

@@ -20,6 +20,12 @@ public abstract partial class SharedGeneHostComponent : Component
     public int _geneScaleValue = 0;
 
     /// <summary>
+    /// This is a % chance per radiation damage on the subject
+    /// </summary>
+    [DataField("baseMutateChance")]
+    public float _mutateChance = 0.5f;
+
+    /// <summary>
     /// These are all the values for where the segments of the Gene Scale begin
     /// Riskzone - Genetic damage slowly accumulates 
     /// Dangerzone - Genetic damage slowly accumulates + new genes begin developing

@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.Genetics.Genes.Effects;
 using Content.Shared._Impstation.Genetics.Systems;
 using Robust.Shared.Prototypes;
 using System;
@@ -9,14 +10,10 @@ namespace Content.Shared._Impstation.Genetics.Genes;
 /// <summary>
 /// The Base of all Genes for the Genetics system
 /// </summary>
-[ImplicitDataDefinitionForInheritors, RegisterComponent, Access(typeof(SharedGeneSystem))]
+[ImplicitDataDefinitionForInheritors, RegisterComponent]
 [Virtual]
-public partial class BaseGeneComponent : Component
+public abstract partial class BaseGeneComponent : Component
 {
-
-    [DataField("compName")]
-    public string _compName;
-
     /// <summary>
     /// The value added to a Mobs Gene Stability
     /// </summary>
@@ -51,9 +48,15 @@ public partial class BaseGeneComponent : Component
     public List<GeneGroup> _geneGroupBlacklist = new List<GeneGroup>();
 
     /// <summary>
-    /// If this Gene has been discovered by the Geneticists
+    /// The negative effect this Gene will apply on use
     /// </summary>
-    public static bool _discovered = false;
+    [DataField("negativeEffect")]
+    public BaseGeneEffect? _negativeEffect;
+
+    /// <summary>
+    /// If this Gene is active and applying its affect
+    /// </summary>
+    public static bool _active = false;
 
     /// <summary>
     /// The correct strain of the Gene & the Scrambled strain of the Gene
@@ -77,81 +80,10 @@ public partial class BaseGeneComponent : Component
     };
 
     /// <summary>
-    /// How common the Gene is in its respective Tier
-    /// </summary>
-    [DataField("weight")]
-    public float _weight = 1;
-
-    /// <summary>
     /// The person this Gene is currently stuck to
     /// Mostly used by Genes that use events or need to constantly access their master
     /// </summary>
     protected EntityUid _host;
-
-    /// <summary>
-    /// Called when the Gene System initialises
-    /// </summary>
-    public virtual void OnGeneInitialise()
-    {
-
-    }
-
-    /// <summary>
-    /// Called when a Gene is added to a Mob
-    /// </summary>
-    public virtual void OnGeneAdded(EntityUid host)
-    {
-        _host = host;
-    }
-
-    /// <summary>
-    /// Called when a Gene is removed from a Mob
-    /// </summary>
-    public virtual void OnGeneRemoved()
-    {
-
-    }
-
-    /// <summary>
-    /// Detects if a Gene is on an Entity
-    /// </summary>
-    /// <returns></returns>
-    public virtual bool DoesEntityHaveGene()
-    {
-        return false;
-    }
-
-    /// <summary>
-    /// Checks if two specific bits of Gene strain data match
-    /// </summary>
-    /// <param name="gene"></param>
-    /// <returns></returns>
-    public virtual bool DoesGeneDataMatch(int gene)
-    {
-        if (_geneStrain.Count <= gene || _geneStrainScrambled.Count <= gene)
-            return true;
-
-        return _geneStrain[gene] == _geneStrainScrambled[gene];
-    }
-
-    /// <summary>
-    /// Check if the Gene Strain and Scrambled Gene Strain match
-    /// </summary>
-    /// <returns></returns>
-    public virtual bool DoesGeneStrainMatch()
-    {
-        return false;
-    }
-
-    public virtual bool IsGeneDiscovered()
-    {
-        return _discovered;
-    }
-
-    public virtual void SetGeneDiscovered(bool discovered = true)
-    {
-        _discovered = discovered;
-    }
 
     public enum GeneData
     {
@@ -179,9 +111,14 @@ public partial class BaseGeneComponent : Component
 
 public enum Chromosome
 {
+    // Removes a Genes negative effect
     Synchronizer,
+    // Makes a Gene immune to Mutadone
     Reinforcer,
+    // Strengthens both a Genes POSITIVE and NEGATIVE effects
     PowerBooster,
+    // Reduces cooldown on Action Genes
     EnergyBooster,
+    // Hides the Gene addition message
     Camouflager
 }

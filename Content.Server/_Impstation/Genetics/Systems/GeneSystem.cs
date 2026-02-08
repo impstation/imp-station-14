@@ -5,8 +5,12 @@ using Content.Shared._Impstation.Genetics.Events;
 using Content.Shared._Impstation.Genetics.Genes;
 using Content.Shared._Impstation.Genetics.Prototypes;
 using Content.Shared._Impstation.Genetics.Systems;
+using Content.Shared.Damage.Components;
+using Content.Shared.Radiation.Events;
 using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using System;
 using System.Collections.Generic;
@@ -27,23 +31,25 @@ public sealed partial class GeneSystem : SharedGeneSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    //[Dependency] private readonly ISawmill _sawmill = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private int _geneTiers = 5;
 
     /// <summary>
     /// The table holding all of the possible Genes
-    ///     The Tier 
     /// </summary>
+    private Dictionary<string, ComponentRegistry> _registeredGenes = new();
+
     WeightedRandomPrototype _geneTierTable = default!;
     private Dictionary<string, WeightedRandomEntityPrototype> _geneTable = new();
 
-    private Dictionary<string, ComponentRegistry> _registeredGenes = new();
 
     public override void Initialize()
     {
         base.Initialize();
         LoadGeneRegistry();
+
+        SubscribeLocalEvent<GeneHostComponent, OnIrradiatedEvent>(Irradiated);
     }
 
     /// <summary>
@@ -72,12 +78,22 @@ public sealed partial class GeneSystem : SharedGeneSystem
         }
     }
 
+    /// <summary>
+    /// The base function for adding a Gene to an entity
+    /// This function will grab the Gene from a list of registered Genes and then apply it as
+    /// a component while also adding it to that Entity's GeneHostComponent
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <param name="gene"></param>
     public void AddGene(EntityUid entity, string gene)
     {
         if (!_entityManager.TryGetComponent<GeneHostComponent>(entity, out var geneComp))
             return;
 
         if (!_registeredGenes.TryGetValue(gene, out var geneEntry))
+            return;
+
+        if (CheckForGene((entity, geneComp), gene))
             return;
 
         var newGene = _componentFactory.GetRegistration(geneEntry.Keys.ElementAt(0));
@@ -96,13 +112,47 @@ public sealed partial class GeneSystem : SharedGeneSystem
         RaiseLocalEvent(entity, ref performed);
     }
 
-    public void AddGeneRandom(EntityUid entity)
+    /// <summary>
+    /// Every time an entity takes radiation damage, roll to see if they mutate based on the amount of damage
+    /// and their innate mutation chance
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <param name="args"></param>
+    public void Irradiated(Entity<GeneHostComponent> entity, ref OnIrradiatedEvent args)
     {
+        if (!_entityManager.TryGetComponent<DamageableComponent>(entity, out var damage))
+            return;
 
+        var mutateOdds = entity.Comp._mutateChance * (damage.Damage.DamageDict["Radiation"].Value / 100);
+
+        if (_random.NextFloat(0, 100) < mutateOdds)
+            AddGeneRandom(entity);
     }
 
-    public struct GeneRegistration
+    /// <summary>
+    /// Just picks a random Gene from all the Gene tables and adds it to an Entity
+    /// </summary>
+    /// <param name="entity"></param>
+    public void AddGeneRandom(EntityUid entity)
     {
-        public WeightedRandomEntityPrototype GeneTable;
-    };
+        var tier = _geneTierTable.Pick(_random);
+
+        var gene = _geneTable[tier].Pick(_random);
+
+        AddGene(entity, gene);
+    }
+
+    /// <summary>
+    /// Checks if an Entity has a particular Gene
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <param name="gene"></param>
+    /// <returns></returns>
+    public bool CheckForGene(Entity<GeneHostComponent> entity, string gene)
+    {
+        if (entity.Comp._genes.TryGetValue(gene, out var comp))
+            return true;
+
+        return false;
+    }
 }
