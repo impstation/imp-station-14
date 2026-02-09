@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 02/07/2026 17:19:21
-  entityCount: 2698
+  time: 02/09/2026 02:51:34
+  entityCount: 2699
 maps: []
 grids:
 - 2
@@ -2601,6 +2601,13 @@ entities:
       parent: 2
     - type: DeviceLinkSink
       invokeCounter: 1
+- proto: BluespaceBeaker
+  entities:
+  - uid: 779
+    components:
+    - type: Transform
+      pos: 6.542375,-0.421875
+      parent: 2
 - proto: BookshelfFilled
   entities:
   - uid: 2574
