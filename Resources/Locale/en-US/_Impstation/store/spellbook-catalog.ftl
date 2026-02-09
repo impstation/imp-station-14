@@ -59,7 +59,7 @@ spellbook-light-name = Glow squids
 spellbook-light-desc = Little glowing friends to follow you around.
 
 spellbook-wand-break-name = Obliterate
-spellbook-wand-break-description = For removing anoying walls, or doors, or furniture or-
+spellbook-wand-break-description = For removing annoying walls, or doors, or furniture or-
 
 spellbook-carp-spawn-name = MagiCarp Spawn
 spellbook-carp-spawn-desc = Summons a wizard friendly school of space carp.
