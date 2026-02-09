@@ -1,7 +1,7 @@
 uplink-animal-friends-kit-name = Animal Friends Kit
 uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alteration of cognizine that forces the injected creature to your will. Also contains an empty syringe and two mice to use it on.
 
-uplink-syndietrumps-name = TippyTrumps mystery pack.
+uplink-syndietrumps-name = TippyTrumps mystery pack
 uplink-syndietrumps-desc = Contains five random cards that summon the creature depicted when thrown.
 
 uplink-cleaner-lake-upgrade-name = Shining Spring remilitarisation kit
