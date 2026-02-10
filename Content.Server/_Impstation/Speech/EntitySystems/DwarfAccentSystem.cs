@@ -21,7 +21,7 @@ public sealed class DwarfAccentComponentSystem : EntitySystem
         SubscribeLocalEvent<DwarfAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, DwarfAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<DwarfAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

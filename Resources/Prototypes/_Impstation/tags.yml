@@ -121,7 +121,7 @@
   id: Crusher
 
 - type: Tag
-  id: Crystal
+  id: Crystal # BountyCrystal
 
 - type: Tag
   id: Dart
@@ -146,9 +146,6 @@
 
 - type: Tag
   id: Electropack
-
-- type: Tag
-  id: EncryptionKeyRevolution
 
 - type: Tag
   id: EvidenceMarker
@@ -191,6 +188,9 @@
 
 - type: Tag
   id: HolyArrowEvil
+
+- type: Tag
+  id: Hotdog # Food sequence key
 
 - type: Tag
   id: HudAdmin
@@ -409,6 +409,9 @@
   id: TranquilizerDart
 
 - type: Tag
+  id: TreatChunk
+
+- type: Tag
   id: UnguFood
 
 - type: Tag
@@ -431,3 +434,6 @@
 
 - type: Tag
   id: WeldingTool
+
+- type: Tag
+  id: DecapoidSilicon

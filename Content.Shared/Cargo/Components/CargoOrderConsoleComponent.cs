@@ -150,6 +150,12 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId AcquisitionSlip = "PaperAcquisitionSlipCargo";
+
+    /// <summary>
+    /// Imp addition. Whether the funds tab should be visible.
+    /// </summary>
+    [DataField]
+    public bool ShowFundsTab = true;
 }
 
 /// <summary>
