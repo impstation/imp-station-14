@@ -266,6 +266,7 @@
   components:
   - type: IonStormTarget
 
+
 - type: entity
   abstract: true
   id: BaseBorgTransponder
@@ -404,13 +405,13 @@
   - type: IonStormTarget
     chance: 1
   - type: ShowJobIcons
-  # imp edit start
+  #imp start
   - type: InteractionPopup
     interactSuccessString: petting-success-derelict-cyborg
     interactFailureString: petting-failure-derelict-cyborg
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-  # imp edit end
+  #imp end
 
 - type: entity
   id: BaseBorgChassisSyndicateDerelict #For assault borg and maybe others in time
@@ -453,8 +454,8 @@
   - type: TypingIndicator
     proto: syndibot
   - type: InteractionPopup
-    interactSuccessString: petting-success-syndicate-cyborg
-    interactFailureString: petting-failure-syndicate-cyborg
+    interactSuccessString: petting-success-derelict-syndicate-cyborg
+    interactFailureString: petting-failure-derelict-syndicate-cyborg
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   # imp edit end
