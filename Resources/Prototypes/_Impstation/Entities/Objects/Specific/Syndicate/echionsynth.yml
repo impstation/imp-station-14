@@ -85,9 +85,6 @@
         maxVol: 30
   - type: DrainableSolution
     solution: tank
-    drainWhitelist:
-      tags:
-        - SolutionRefuel
   - type: ItemToggle
     soundActivate:
       path: /Audio/_Impstation/Machines/echion_on.ogg

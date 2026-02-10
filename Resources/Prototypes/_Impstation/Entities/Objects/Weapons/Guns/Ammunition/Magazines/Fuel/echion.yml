@@ -40,9 +40,6 @@
         maxVol: 15
   - type: DrainableSolution
     solution: tank
-    drainWhitelist:
-      tags:
-        - SolutionRefuel
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
