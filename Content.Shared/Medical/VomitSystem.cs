@@ -15,6 +15,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Content.Shared._Impstation.Vomit; // imp add
 
 namespace Content.Shared.Medical;
 
@@ -38,19 +39,20 @@ public sealed class VomitSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BodyComponent, TryVomitEvent>(TryBodyVomitSolution);
+        SubscribeLocalEvent<VomiterComponent, TryVomitEvent>(TryBodyVomitSolution); // imp edit, BodyComponent -> VomiterComponent
     }
 
-    private const float ChemMultiplier = 0.1f;
+    // imp edit these out, use our own component's variables
+    // private const float ChemMultiplier = 0.1f;
+    //
+    // private static readonly ProtoId<SoundCollectionPrototype> VomitCollection = "Vomit";
+    //
+    // private static readonly ProtoId<ReagentPrototype> VomitPrototype = "Vomit";  // TODO: Dehardcode vomit prototype
+    //
+    // private readonly SoundSpecifier _vomitSound = new SoundCollectionSpecifier(VomitCollection,
+    //     AudioParams.Default.WithVariation(0.2f).WithVolume(-4f));
 
-    private static readonly ProtoId<SoundCollectionPrototype> VomitCollection = "Vomit";
-
-    private static readonly ProtoId<ReagentPrototype> VomitPrototype = "Vomit";  // TODO: Dehardcode vomit prototype
-
-    private readonly SoundSpecifier _vomitSound = new SoundCollectionSpecifier(VomitCollection,
-        AudioParams.Default.WithVariation(0.2f).WithVolume(-4f));
-
-    private void TryBodyVomitSolution(Entity<BodyComponent> ent, ref TryVomitEvent args)
+    private void TryBodyVomitSolution(Entity<VomiterComponent> ent, ref TryVomitEvent args) // imp edit, BodyComponent -> VomiterComponent
     {
         if (args.Handled)
             return;
@@ -73,7 +75,7 @@ public sealed class VomitSystem : EntitySystem
     /// <summary>
     /// Make an entity vomit, if they have a stomach.
     /// </summary>
-    public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f, bool force = false)
+    public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f, bool force = false, ProtoId<ReagentPrototype>? overridePrototype = null) // imp edit, parameter to override the vomit prototype
     {
         // Vomit only if entity is alive
         // Ignore condition if force was set to true
@@ -88,6 +90,19 @@ public sealed class VomitSystem : EntitySystem
 
         if (!ev.Handled)
             return;
+
+        // imp edit start
+        if (!TryComp<VomiterComponent>(uid, out var comp))
+            return;
+
+        SoundSpecifier vomitSound = new SoundCollectionSpecifier(comp.VomitCollection,
+                AudioParams.Default.WithVariation(0.2f).WithVolume(-4f));
+
+        var vomitPrototype = comp.VomitPrototype;
+
+        if (overridePrototype != null)
+            vomitPrototype = overridePrototype.Value;
+        // imp edit end
 
         // Vomiting makes you hungrier and thirstier
         if (TryComp<HungerComponent>(uid, out var hunger))
@@ -114,14 +129,14 @@ public sealed class VomitSystem : EntitySystem
 
                 if (vomitChemstreamAmount != null)
                 {
-                    vomitChemstreamAmount.ScaleSolution(ChemMultiplier);
+                    vomitChemstreamAmount.ScaleSolution(comp.ChemMultiplier); // imp edit, use vomiter component variable
                     solution.AddSolution(vomitChemstreamAmount, _proto);
                     vomitAmount -= (float)vomitChemstreamAmount.Volume;
                 }
             }
 
             // Makes a vomit solution the size of 90% of the chemicals removed from the chemstream
-            solution.AddReagent(new ReagentId(VomitPrototype, _bloodstream.GetEntityBloodData((uid, bloodStream))), vomitAmount);
+            solution.AddReagent(new ReagentId(vomitPrototype, _bloodstream.GetEntityBloodData((uid, bloodStream))), vomitAmount); // imp edit, VomitPrototype -> vomitPrototype
         }
 
         if (_puddle.TrySpillAt(uid, solution, out var puddle, false))
@@ -134,7 +149,7 @@ public sealed class VomitSystem : EntitySystem
             return;
 
         // Force sound to play as spill doesn't work if solution is empty.
-        _audio.PlayPvs(_vomitSound, uid);
+        _audio.PlayPvs(vomitSound, uid); // imp edit, remove the _
         _popup.PopupEntity(Loc.GetString("disease-vomit", ("person", Identity.Entity(uid, EntityManager))), uid);
     }
 }
