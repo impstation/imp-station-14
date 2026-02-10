@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: eviltori
-  changes:
-  - message: syndicate infiltrators now get a codeword, and a lighter. so you can
-      see
-    type: Add
-  id: 2117
-  time: '2025-08-04T19:57:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3226
 - author: AirFryerBuyOneGetOneFree
   changes:
   - message: Last Message Before Death Webhook fixes
@@ -4153,3 +4145,17 @@
   id: 2616
   time: '2026-02-09T07:50:07.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4101
+- author: jkwookee
+  changes:
+  - message: Supermatter no longer improperly destroys the gas it absorbs.
+    type: Fix
+  - message: Supermatter damage & delamination calculation is no longer affected by
+      gas changes caused by the SM
+    type: Fix
+  - message: Supermatter gas absorption back to 15% alongside related values
+    type: Tweak
+  - message: Supermatter no longer has a grace period of lower gas absorption.
+    type: Tweak
+  id: 2617
+  time: '2026-02-10T01:31:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3902
