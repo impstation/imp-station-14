@@ -81,10 +81,13 @@
       tank:
         reagents:
         - ReagentId: Echion
-          Quantity: 150
-        maxVol: 150
-  - type: SolutionFuelDrain
+          Quantity: 30
+        maxVol: 30
+  - type: DrainableSolution
     solution: tank
+    drainWhitelist:
+      tags:
+        - SolutionRefuel
   - type: ItemToggle
     soundActivate:
       path: /Audio/_Impstation/Machines/echion_on.ogg
@@ -120,4 +123,4 @@
       generated:
           reagents:
           - ReagentId: Echion
-            Quantity: 2.5
+            Quantity: 0.5
