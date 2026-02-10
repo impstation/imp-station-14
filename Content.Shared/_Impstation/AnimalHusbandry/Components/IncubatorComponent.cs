@@ -15,9 +15,7 @@ public sealed partial class EggIncubatorComponent : Component
     /// <summary>
     /// When do we finish incubation?
     /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoPausedField]
-    public TimeSpan FinishIncubation = TimeSpan.Zero;
+    public float FinishIncubation = 0;
 
     /// <summary>
     /// Egg we are currently incubating

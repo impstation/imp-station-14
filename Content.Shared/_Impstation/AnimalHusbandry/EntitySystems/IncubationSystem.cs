@@ -43,11 +43,12 @@ public sealed class IncubationSystem : EntitySystem
 
             CheckPowerchanged((uid, incuComp));
 
-            // Wait
-            if (incuComp.FinishIncubation > _time.CurTime)
-                continue;
+            if (incuComp.Status == IncubatorStatus.Active)
+                incuComp.FinishIncubation -= frameTime;
 
-            FinishIncubation((uid, incuComp));
+            // Hatch
+            if (incuComp.FinishIncubation <= 0)
+                FinishIncubation((uid, incuComp));
         }
     }
 
@@ -66,7 +67,7 @@ public sealed class IncubationSystem : EntitySystem
         _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Active);
         entity.Comp.Status = IncubatorStatus.Active;
         entity.Comp.CurrentlyIncubated = incuComp;
-        entity.Comp.FinishIncubation = _time.CurTime + incuComp.IncubationTime;
+        entity.Comp.FinishIncubation = incuComp.IncubationTime;
     }
 
     /// <summary>
@@ -78,13 +79,6 @@ public sealed class IncubationSystem : EntitySystem
         // Making sure we have a container. Should also never be false without admin shenanigans.
         if (!TryComp<ItemSlotsComponent>(entity, out var container))
             return;
-
-        // If the incubator is not powered
-        if (entity.Comp.Status == IncubatorStatus.Inactive)
-        {
-            entity.Comp.FinishIncubation = _time.CurTime + (entity.Comp.CurrentlyIncubated.IncubationTime / 2);
-            return;
-        }
 
         var newMob = SpawnNewMob(entity, entity.Comp.CurrentlyIncubated.IncubatedResult);
         var incubated = entity.Comp.CurrentlyIncubated.Owner;

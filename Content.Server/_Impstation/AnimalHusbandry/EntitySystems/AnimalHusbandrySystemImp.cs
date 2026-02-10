@@ -70,8 +70,10 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
                 reproComp.Value.Pregnant = false;
             }
 
+            reproComp.Value.EndPregnancy -= frameTime;
+
             // Is it time to give birth?
-            if (_time.CurTime > reproComp.Value.EndPregnancy)
+            if (reproComp.Value.EndPregnancy <= 0)
             {
                 reproComp.Value.Pregnant = false;
                 Birth((reproComp.Key, reproComp.Value));
@@ -91,23 +93,9 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
                 || !_entManager.TryGetComponent<MobStateComponent>(uid, out var state))
                 continue;
 
-            // Exists mainly for infants that are spawned in
-            if (infantComp.TimeUntilNextStage == TimeSpan.Zero)
-            {
-                infantComp.TimeUntilNextStage = _time.CurTime + infantComp.GrowthTime;
-                continue;
-            }
+            infantComp.GrowthTimeRemaining -= frameTime;
 
-            // No growing up until you're alive buddy
-            // Also delays the animals growth so they don't wake up and immediately advance a stage if kept dead for a while.
-            // In other words, keep your animals healthy!
-            if (state.CurrentState != Shared.Mobs.MobState.Alive)
-            {
-                infantComp.TimeUntilNextStage = _time.CurTime + (infantComp.GrowthTime / 2);
-                continue;
-            }
-
-            if (_time.CurTime > infantComp.TimeUntilNextStage)
+            if (infantComp.GrowthTimeRemaining <= 0)
                 AdvanceStage((uid, infantComp));
         }
     }
@@ -146,7 +134,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
         // Ready up for birth
         partnerComp.Pregnant = true;
-        partnerComp.EndPregnancy = _time.CurTime + partnerComp.PregnancyLength;
+        partnerComp.EndPregnancy = partnerComp.PregnancyLength;
 
         // Add them to our list of pregnant NPCs to be tracked
         _mobsWaiting.Add(approached, partnerComp);
@@ -238,7 +226,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
         if (_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
         {
-            infantComp.TimeUntilNextStage = _time.CurTime + infantComp.GrowthTime;
+            infantComp.GrowthTimeRemaining = infantComp.GrowthTime;
             infantComp.Parent = entity;
         }
     }

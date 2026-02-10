@@ -45,7 +45,7 @@ public sealed partial class ImpReproductiveComponent : Component
     /// How long a mob will stay pregnant for
     /// </summary>
     [DataField("pregnancyLength"), ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan PregnancyLength = TimeSpan.FromSeconds(60);
+    public uint PregnancyLength = 60;
 
     /// <summary>
     /// Damage threshold a mob must hit in order to not be able to breed
@@ -74,9 +74,7 @@ public sealed partial class ImpReproductiveComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public bool Pregnant = false;
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoPausedField]
-    public TimeSpan EndPregnancy = TimeSpan.Zero;
+    public float EndPregnancy = 0;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]

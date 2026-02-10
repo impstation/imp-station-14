@@ -12,7 +12,7 @@ public sealed partial class IncubationComponent : Component
     /// How long this egg incubates for
     /// </summary>
     [DataField("incubationTime")]
-    public TimeSpan IncubationTime = TimeSpan.FromSeconds(90);
+    public uint IncubationTime = 90;
 
     /// <summary>
     /// What comes out when the incubation is done?

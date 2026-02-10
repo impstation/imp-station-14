@@ -26,7 +26,7 @@ public sealed partial class ImpInfantComponent : Component
     /// How long until the next growth stage
     /// </summary>
     [DataField("growthTime"), ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan GrowthTime = TimeSpan.FromSeconds(180);
+    public uint GrowthTime = 180;
 
     /// <summary>
     /// Next Growth stage of the animal
@@ -37,7 +37,7 @@ public sealed partial class ImpInfantComponent : Component
     /// <summary>
     /// How long until we next grow up?
     /// </summary>
-    public TimeSpan TimeUntilNextStage = TimeSpan.Zero;
+    public float GrowthTimeRemaining = 0;
 
     /// <summary>
     /// The parent this child should follow
