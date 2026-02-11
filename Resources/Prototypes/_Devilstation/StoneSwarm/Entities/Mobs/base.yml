@@ -1,0 +1,93 @@
+- type: entity
+  save: false
+  parent: [ BaseMob  ]
+  id: BaseStoneSwarmMob
+  description: A fraction of a larger body.
+  abstract: true
+  components:
+  - type: Reactive
+    groups:
+      Acidic: [Touch]
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: CombatMode
+  - type: NoSlip
+  - type: CollectiveMind
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Tag
+    tags:
+    - StoneSwarmCollectiveMind
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+             sound:
+               collection: GlassBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+             ShardCrystalPink:
+              min: 1
+              max: 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: PointLight
+    color: "#da70da"
+    radius: 2
+    energy: 2
+    softness: 1
+    castShadows: false
+  - type: ZombieImmune
+  - type: GhostTakeoverAvailable
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 100
+    damage:
+      groups:
+        Brute: -1
+      types:
+        Heat: -0.5
+  - type: NightVision
+    isActive: true
+    color: "#682e83"
+    activateSound: null
+    deactivateSound: null
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard: # highly aggressive
+      VisionRadius: !type:Single
+        15
+      AggroVisionRadius: !type:Single
+        15
+      NavSmash: !type:Bool
+        true
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2
+    baseSprintSpeed : 4

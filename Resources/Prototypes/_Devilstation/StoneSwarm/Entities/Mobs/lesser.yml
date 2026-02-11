@@ -1,0 +1,115 @@
+- type: entity
+  parent: [ BaseStoneSwarmMob ]
+  id: MobSeeker
+  name: Seeker
+  description: A small fraction of a larger body.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Devilstation/StoneSwarm/Mobs/Lesser/seeker.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: seeker
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: seeker_crystals
+      shader: unshaded
+  - type: ThermalVision
+    isActive: true
+    toggleAction: PulseThermalVision
+    color: "#682e83"
+    activateSound: null
+    deactivateSound: null
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 2.5
+    baseSprintSpeed : 4.5
+  - type: MeleeWeapon
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    attackRate: 0.75
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 15
+
+- type: entity
+  parent: [ BaseStoneSwarmMob ]
+  id: MobRanger
+  name: Ranger
+  description: A small fraction of a larger body.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Devilstation/StoneSwarm/Mobs/Lesser/ranger.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: ranger
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: ranger_crystals
+      shader: unshaded
+  - type: BatteryAmmoProvider
+    proto: BulletBlasterPistolMilitary # hi
+    fireCost: 50
+  - type: BatterySelfRecharger
+    autoRechargeRate: 50
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: Gun
+    fireRate: 0.5
+    useKey: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/taser2.ogg
+  - type: HTN
+    rootTask:
+      task: SimpleRangedHostileCompound
+
+- type: entity
+  parent: [ BaseStoneSwarmMob ]
+  id: MobGuard
+  name: Guard
+  description: A small fraction of a larger body.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Devilstation/StoneSwarm/Mobs/Lesser/guard.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: guard
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: guard_crystals
+      shader: unshaded
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.7
+    baseSprintSpeed : 3.7
+  - type: MeleeWeapon
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    attackRate: 0.75
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 10 # Weaker, it's meant to protect instead of fight.
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 200
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+             sound:
+               collection: GlassBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+             ShardCrystalPink:
+              min: 1
+              max: 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      200: Dead
