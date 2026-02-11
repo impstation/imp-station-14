@@ -2930,6 +2930,15 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+    blackboard: # imp edit start
+      NavClimb: !type:Bool
+        true
+      NavInteract: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true # imp edit end
   - type: GhostRole
     makeSentient: true
     name: ghost-role-information-giant-spider-name
