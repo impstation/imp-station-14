@@ -75,3 +75,138 @@
       amount: 1
   products:
     Something: 2 #what did you expect
+
+- type: reaction
+  id: CreateCrystalRed
+  quantized: true
+  minTemp: 374
+  reactants:
+    RedFoodColoring:
+      amount: 15
+    Water:
+      amount: 15
+    Ethanol:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: ShardCrystalRed
+
+- type: reaction
+  id: CreateCrystalOrange
+  quantized: true
+  minTemp: 374
+  reactants:
+    OrangeFoodColoring:
+      amount: 15
+    Water:
+      amount: 15
+    Ethanol:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: ShardCrystalOrange
+
+- type: reaction
+  id: CreateCrystalYellow
+  quantized: true
+  minTemp: 374
+  reactants:
+    YellowFoodColoring:
+      amount: 15
+    Water:
+      amount: 15
+    Ethanol:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: ShardCrystalYellow
+
+- type: reaction
+  id: CreateCrystalGreen
+  quantized: true
+  minTemp: 374
+  reactants:
+    GreenFoodColoring:
+      amount: 15
+    Water:
+      amount: 15
+    Ethanol:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: ShardCrystalGreen
+
+- type: reaction
+  id: CreateCrystalCyan
+  quantized: true
+  minTemp: 374
+  reactants:
+    CyanFoodColoring:
+      amount: 15
+    Water:
+      amount: 15
+    Ethanol:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: ShardCrystalCyan
+
+- type: reaction
+  id: CreateCrystalBlue
+  quantized: true
+  minTemp: 374
+  reactants:
+    BlueFoodColoring:
+      amount: 15
+    Water:
+      amount: 15
+    Ethanol:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: ShardCrystalBlue
+
+- type: reaction
+  id: CreateCrystalPink
+  quantized: true
+  minTemp: 374
+  reactants:
+    PinkFoodColoring:
+      amount: 15
+    Water:
+      amount: 15
+    Ethanol:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: ShardCrystalPink
+
+- type: reaction
+  id: CreateCrystalPurple
+  quantized: true
+  minTemp: 374
+  reactants:
+    PurpleFoodColoring:
+      amount: 15
+    Water:
+      amount: 15
+    Ethanol:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: ShardCrystalPurple
+
+- type: reaction
+  id: CreateCrystalBlack
+  quantized: true
+  minTemp: 374
+  reactants:
+    BlackFoodColoring:
+      amount: 15
+    Water:
+      amount: 15
+    Ethanol:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: ShardCrystalBlack

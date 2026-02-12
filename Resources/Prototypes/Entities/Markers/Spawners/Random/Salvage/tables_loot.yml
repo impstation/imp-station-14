@@ -19,7 +19,8 @@
       - id: ScrapPAI
       - id: ScrapPAIGold
         weight: 0.1
-    - id: ScrapTube
+      - id: ScrapTube #imp edit start
+        weight: 0.5 #imp edit end
     - id: ShardGlass
       amount: !type:RangeNumberSelector
         range: 1, 3
@@ -115,13 +116,15 @@
         range: 3, 5
     - id: ResearchDisk
     - id: DrinkGoldenCup
-    - id: TreasureSampleTube
+   # - id: TreasureSampleTube #imp edit (Removed TreasureSampleTube)
     - !type:NestedSelector
       tableId: TreasureCoinPile
       rolls: !type:RangeNumberSelector
         range: 1, 2
     - !type:NestedSelector
       tableId: SalvageInstrumentTable
+    - !type:NestedSelector #imp edit start
+      tableId: RandomChemicalSampleTubeCommon #imp edit end
 
 - type: entityTable
   id: SalvageTreasureUncommon
@@ -147,6 +150,8 @@
     - id: WristwatchGold
     - !type:NestedSelector
       tableId: RingTableCommon
+    - !type:NestedSelector #imp edit start
+      tableId: RandomChemicalSampleTubeUncommon #imp edit end
 
 - type: entityTable
   id: SalvageTreasureRare
@@ -180,6 +185,8 @@
           weight: 1
     - !type:NestedSelector
       tableId: RingTableRare
+    - !type:NestedSelector #imp edit start
+      tableId: RandomChemicalSampleTubeRare #imp edit end
 
 - type: entityTable
   id: SalvageTreasureLegendary

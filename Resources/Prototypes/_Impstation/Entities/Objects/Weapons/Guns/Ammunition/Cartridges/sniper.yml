@@ -1,0 +1,20 @@
+- type: entity
+  parent: [ BaseCartridge, BaseMajorContraband ]
+  id: CartridgeAntiMateriel
+  name: cartridge (.60 anti-materiel)
+  description: A round of impressive power with a dense kinetic penetrator. As the dust settles, all that will remain is the echo.
+  components:
+  - type: Tag
+    tags:
+    - CartridgeAntiMateriel
+  - type: CartridgeAmmo
+    proto: BulletAntiMateriel
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20
