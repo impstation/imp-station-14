@@ -3191,7 +3191,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardRedSkip_One
+  id: CardSkipRed_One
   components:
   - type: Card
     name: card-1-red-skip
@@ -3202,7 +3202,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardRedSkip_Two
+  id: CardSkipRed_Two
   components:
   - type: Card
     name: card-2-red-skip
@@ -3213,7 +3213,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardRedReverse_One
+  id: CardReverseRed_One
   components:
   - type: Card
     name: card-1-red-reverse
@@ -3224,7 +3224,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardRedReverse_Two
+  id: CardReverseRed_Two
   components:
   - type: Card
     name: card-2-red-reverse
@@ -3235,7 +3235,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardRedDraw_One
+  id: CardDrawRed_One
   components:
   - type: Card
     name: card-1-red-draw
@@ -3246,7 +3246,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardRedDraw_Two
+  id: CardDrawRed_Two
   components:
   - type: Card
     name: card-2-red-draw
@@ -3257,7 +3257,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardBlueSkip_One
+  id: CardSkipBlue_One
   components:
   - type: Card
     name: card-1-blue-skip
@@ -3268,7 +3268,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardBlueSkip_Two
+  id: CardSkipBlue_Two
   components:
   - type: Card
     name: card-2-blue-skip
@@ -3279,7 +3279,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardBlueReverse_One
+  id: CardReverseBlue_One
   components:
   - type: Card
     name: card-1-blue-reverse
@@ -3290,7 +3290,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardBlueReverse_Two
+  id: CardReverseBlue_Two
   components:
   - type: Card
     name: card-2-blue-reverse
@@ -3301,7 +3301,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardBlueDraw_One
+  id: CardDrawBlue_One
   components:
   - type: Card
     name: card-1-blue-draw
@@ -3312,7 +3312,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardBlueDraw_Two
+  id: CardDrawBlue_Two
   components:
   - type: Card
     name: card-2-blue-draw
@@ -3324,7 +3324,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardYellowSkip_One
+  id: CardSkipYellow_One
   components:
   - type: Card
     name: card-1-yellow-skip
@@ -3335,7 +3335,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardGreenSkip_Two
+  id: CardSkipYellow_Two
   components:
   - type: Card
     name: card-2-yellow-skip
@@ -3346,7 +3346,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardGreenReverse_One
+  id: CardReverseYellow_One
   components:
   - type: Card
     name: card-1-yellow-reverse
@@ -3357,7 +3357,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardGreenReverse_Two
+  id: CardReverseYellow_Two
   components:
   - type: Card
     name: card-2-yellow-reverse
@@ -3368,7 +3368,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardGreenDraw_One
+  id: CardDrawYellow_One
   components:
   - type: Card
     name: card-1-yellow-draw
@@ -3379,7 +3379,7 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardGreenDraw_Two
+  id: CardDrawYellow_Two
   components:
   - type: Card
     name: card-2-yellow-draw
@@ -3390,68 +3390,68 @@
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardGreenSkip_One
+  id: CardSkipGreen_One
   components:
   - type: Card
-    name: card-1-yellow-skip
+    name: card-1-green-skip
   - type: Sprite
     sprite: _Impstation/Entities/Objects/Fun/zat.rsi
-    state: card_1_yellow_skip
+    state: card_1_green_skip
 
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardGreenSkip_Two
+  id: CardSkipGreen_Two
   components:
   - type: Card
-    name: card-2-yellow-skip
+    name: card-2-green-skip
   - type: Sprite
     sprite: _Impstation/Entities/Objects/Fun/zat.rsi
-    state: card_2_yellow_skip
+    state: card_2_green_skip
 
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardGreenReverse_One
+  id: CardReverseGreen_One
   components:
   - type: Card
-    name: card-1-yellow-reverse
+    name: card-1-green-reverse
   - type: Sprite
     sprite: _Impstation/Entities/Objects/Fun/zat.rsi
-    state: card_1_yellow_reverse
+    state: card_1_green_reverse
 
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardGreenReverse_Two
+  id: CardReverseGreen_Two
   components:
   - type: Card
-    name: card-2-yellow-reverse
+    name: card-2-green-reverse
   - type: Sprite
     sprite: _Impstation/Entities/Objects/Fun/zat.rsi
-    state: card_2_yellow_reverse
+    state: card_2_green_reverse
 
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardGreenDraw_One
+  id: CardDrawGreen_One
   components:
   - type: Card
-    name: card-1-yellow-draw
+    name: card-1-green-draw
   - type: Sprite
     sprite: _Impstation/Entities/Objects/Fun/zat.rsi
-    state: card_1_yellow_draw
+    state: card_1_green_draw
 
 - type: entity
   parent: CardBaseBlack
   categories: [ HideSpawnMenu ]
-  id: CardGreenDraw_Two
+  id: CardDrawGreen_Two
   components:
   - type: Card
-    name: card-2-yellow-draw
+    name: card-2-green-draw
   - type: Sprite
     sprite: _Impstation/Entities/Objects/Fun/zat.rsi
-    state: card_2_yellow_draw
+    state: card_2_green_draw
 
 #Wild Cards
 - type: entity
