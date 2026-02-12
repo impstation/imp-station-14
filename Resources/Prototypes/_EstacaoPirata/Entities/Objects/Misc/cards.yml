@@ -2175,3 +2175,2121 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: syndicate_joker
+
+# Zat!
+- type: entity
+  parent: CardBoxBase
+  id: CardZatBox
+  name: zat deck box
+  description: ZAT! The hit card game straight from the Gray home world! Each player gets 7 cards. 2-10 Players.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: box
+    layers:
+    - state: zat_box
+    - state: zat_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckZat
+      amount: 1
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckZat
+  name: deck of zat cards
+  components:
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: deck_zat_full
+  - type: CardStack
+    content:
+    # Red
+    - CardZeroRed
+    - CardOneRed_One
+    - CardOneRed_Two
+    - CardTwoRed_One
+    - CardTwoRed_Two
+    - CardThreeRed_One
+    - CardThreeRed_Two
+    - CardFourRed_One
+    - CardFourRed_Two
+    - CardFiveRed_One
+    - CardFiveRed_Two
+    - CardSixRed_One
+    - CardSixRed_Two
+    - CardSevenRed_One
+    - CardSevenRed_Two
+    - CardEightRed_One
+    - CardEightRed_Two
+    - CardNineRed_One
+    - CardNineRed_Two
+    # Blue
+    - CardZeroBlue
+    - CardOneBlue_One
+    - CardOneBlue_Two
+    - CardTwoBlue_One
+    - CardTwoBlue_Two
+    - CardThreeBlue_One
+    - CardThreeBlue_Two
+    - CardFourBlue_One
+    - CardFourBlue_Two
+    - CardFiveBlue_One
+    - CardFiveBlue_Two
+    - CardSixBlue_One
+    - CardSixBlue_Two
+    - CardSevenBlue_One
+    - CardSevenBlue_Two
+    - CardEightBlue_One
+    - CardEightBlue_Two
+    - CardNineBlue_One
+    - CardNineBlue_Two
+    # Green
+    - CardZeroGreen
+    - CardOneGreen_One
+    - CardOneGreen_Two
+    - CardTwoGreen_One
+    - CardTwoGreen_Two
+    - CardThreeGreen_One
+    - CardThreeGreen_Two
+    - CardFourGreen_One
+    - CardFourGreen_Two
+    - CardFiveGreen_One
+    - CardFiveGreen_Two
+    - CardSixGreen_One
+    - CardSixGreen_Two
+    - CardSevenGreen_One
+    - CardSevenGreen_Two
+    - CardEightGreen_One
+    - CardEightGreen_Two
+    - CardNineGreen_One
+    - CardNineGreen_Two
+    # Yellow
+    - CardZeroYellow
+    - CardOneYellow_One
+    - CardOneYellow_Two
+    - CardTwoYellow_One
+    - CardTwoYellow_Two
+    - CardThreeYellow_One
+    - CardThreeYellow_Two
+    - CardFourYellow_One
+    - CardFourYellow_Two
+    - CardFiveYellow_One
+    - CardFiveYellow_Two
+    - CardSixYellow_One
+    - CardSixYellow_Two
+    - CardSevenYellow_One
+    - CardSevenYellow_Two
+    - CardEightYellow_One
+    - CardEightYellow_Two
+    - CardNineYellow_One
+    - CardNineYellow_Two
+
+    # Action Cards
+      #Red
+    - CardSkipRed_One
+    - CardSkipRed_Two
+    - CardReverseRed_One
+    - CardReverseRed_Two
+    - CardDrawRed_One
+    - CardDrawRed_Two
+      #Blue
+    - CardSkipBlue_One
+    - CardSkipBlue_Two
+    - CardReverseBlue_One
+    - CardReverseBlue_Two
+    - CardDrawBlue_One
+    - CardDrawBlue_Two
+      #Green
+    - CardSkipGreen_One
+    - CardSkipGreen_Two
+    - CardReverseGreen_One
+    - CardReverseGreen_Two
+    - CardDrawGreen_One
+    - CardDrawGreen_Two
+      #Yellow
+    - CardSkipYellow_One
+    - CardSkipYellow_Two
+    - CardReverseYellow_One
+    - CardReverseYellow_Two
+    - CardDrawYellow_One
+    - CardDrawYellow_Two
+    # Wild Cards
+    - CardWild_One
+    - CardWild_Two
+    - CardWild_Three
+    - CardWild_Four
+    - CardWildDraw_One
+    - CardWildDraw_Two
+    - CardWildDraw_Three
+    - CardWildDraw_Four
+
+- type: entity
+  parent: BaseItem
+  id: CardBaseZat
+  name: card
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      collection: cardShove
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: singlecard_down_zat
+  - type: Rotatable
+  - type: Item
+    size: Tiny
+  - type: UseDelay
+    delay: 0.5
+  - type: Card
+
+#Red
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardZeroRed
+  components:
+  - type: Card
+    name: card-0-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_0_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneRed_One
+  components:
+  - type: Card
+    name: card-1-1-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_1_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneRed_Two
+  components:
+  - type: Card
+    name: card-1-2-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_2_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoRed_One
+  components:
+  - type: Card
+    name: card-2-1-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_1_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoRed_Two
+  components:
+  - type: Card
+    name: card-2-2-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_2_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeRed_One
+  components:
+  - type: Card
+    name: card-3-1-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_3_1_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeRed_Two
+  components:
+  - type: Card
+    name: card-3-2-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_3_2_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourRed_One
+  components:
+  - type: Card
+    name: card-4-1-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_4_1_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourRed_Two
+  components:
+  - type: Card
+    name: card-4-2-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_4_2_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFiveRed_One
+  components:
+  - type: Card
+    name: card-5-1-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_5_1_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFiveRed_Two
+  components:
+  - type: Card
+    name: card-5-2-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_5_2_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSixRed_One
+  components:
+  - type: Card
+    name: card-6-1-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_6_1_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSixRed_Two
+  components:
+  - type: Card
+    name: card-6-2-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_6_2_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSevenRed_One
+  components:
+  - type: Card
+    name: card-7-1-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_7_1_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSevenRed_Two
+  components:
+  - type: Card
+    name: card-7-2-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_7_2_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardEightRed_One
+  components:
+  - type: Card
+    name: card-8-1-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_8_1_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardEightRed_Two
+  components:
+  - type: Card
+    name: card-8-2-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_8_2_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardNineRed_One
+  components:
+  - type: Card
+    name: card-9-1-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_9_1_red
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardNineRed_Two
+  components:
+  - type: Card
+    name: card-9-2-red
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_9_2_red
+
+#Blue
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardZeroBlue
+  components:
+  - type: Card
+    name: card-0-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_0_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneBlue_One
+  components:
+  - type: Card
+    name: card-1-1-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_1_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneBlue_Two
+  components:
+  - type: Card
+    name: card-1-2-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_2_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoBlue_One
+  components:
+  - type: Card
+    name: card-2-1-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_1_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoBlue_Two
+  components:
+  - type: Card
+    name: card-2-2-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_2_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeBlue_One
+  components:
+  - type: Card
+    name: card-3-1-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_3_1_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeBlue_Two
+  components:
+  - type: Card
+    name: card-3-2-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_3_2_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourBlue_One
+  components:
+  - type: Card
+    name: card-4-1-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_4_1_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourBlue_Two
+  components:
+  - type: Card
+    name: card-4-2-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_4_2_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFiveBlue_One
+  components:
+  - type: Card
+    name: card-5-1-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_5_1_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFiveBlue_Two
+  components:
+  - type: Card
+    name: card-5-2-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_5_2_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSixBlue_One
+  components:
+  - type: Card
+    name: card-6-1-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_6_1_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSixBlue_Two
+  components:
+  - type: Card
+    name: card-6-2-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_6_2_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSevenBlue_One
+  components:
+  - type: Card
+    name: card-7-1-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_7_1_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSevenBlue_Two
+  components:
+  - type: Card
+    name: card-7-2-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_7_2_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardEightBlue_One
+  components:
+  - type: Card
+    name: card-8-1-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_8_1_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardEightBlue_Two
+  components:
+  - type: Card
+    name: card-8-2-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_8_2_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardNineBlue_One
+  components:
+  - type: Card
+    name: card-9-1-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_9_1_blue
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardNineBlue_Two
+  components:
+  - type: Card
+    name: card-9-2-blue
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_9_2_blue
+
+#Green
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardZeroGreen
+  components:
+  - type: Card
+    name: card-0-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_0_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneGreen_One
+  components:
+  - type: Card
+    name: card-1-1-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_1_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneGreen_Two
+  components:
+  - type: Card
+    name: card-1-2-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_2_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoGreen_One
+  components:
+  - type: Card
+    name: card-2-1-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_1_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoGreen_Two
+  components:
+  - type: Card
+    name: card-2-2-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_2_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeGreen_One
+  components:
+  - type: Card
+    name: card-3-1-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_3_1_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeGreen_Two
+  components:
+  - type: Card
+    name: card-3-2-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_3_2_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourGreen_One
+  components:
+  - type: Card
+    name: card-4-1-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_4_1_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourGreen_Two
+  components:
+  - type: Card
+    name: card-4-2-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_4_2_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFiveGreen_One
+  components:
+  - type: Card
+    name: card-5-1-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_5_1_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFiveGreen_Two
+  components:
+  - type: Card
+    name: card-5-2-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_5_2_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSixGreen_One
+  components:
+  - type: Card
+    name: card-6-1-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_6_1_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSixGreen_Two
+  components:
+  - type: Card
+    name: card-6-2-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_6_2_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSevenGreen_One
+  components:
+  - type: Card
+    name: card-7-1-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_7_1_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSevenGreen_Two
+  components:
+  - type: Card
+    name: card-7-2-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_7_2_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardEightGreen_One
+  components:
+  - type: Card
+    name: card-8-1-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_8_1_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardEightGreen_Two
+  components:
+  - type: Card
+    name: card-8-2-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_8_2_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardNineGreen_One
+  components:
+  - type: Card
+    name: card-9-1-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_9_1_green
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardNineGreen_Two
+  components:
+  - type: Card
+    name: card-9-2-green
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_9_2_green
+
+#Yellow
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardZeroYellow
+  components:
+  - type: Card
+    name: card-0-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_0_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneYellow_One
+  components:
+  - type: Card
+    name: card-1-1-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_1_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneYellow_Two
+  components:
+  - type: Card
+    name: card-1-2-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_2_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoYellow_One
+  components:
+  - type: Card
+    name: card-2-1-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_1_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoYellow_Two
+  components:
+  - type: Card
+    name: card-2-2-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_2_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeYellow_One
+  components:
+  - type: Card
+    name: card-3-1-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_3_1_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeYellow_Two
+  components:
+  - type: Card
+    name: card-3-2-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_3_2_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourYellow_One
+  components:
+  - type: Card
+    name: card-4-1-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_4_1_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourYellow_Two
+  components:
+  - type: Card
+    name: card-4-2-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_4_2_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFiveYellow_One
+  components:
+  - type: Card
+    name: card-5-1-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_5_1_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFiveYellow_Two
+  components:
+  - type: Card
+    name: card-5-2-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_5_2_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSixYellow_One
+  components:
+  - type: Card
+    name: card-6-1-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_6_1_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSixYellow_Two
+  components:
+  - type: Card
+    name: card-6-2-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_6_2_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSevenYellow_One
+  components:
+  - type: Card
+    name: card-7-1-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_7_1_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardSevenYellow_Two
+  components:
+  - type: Card
+    name: card-7-2-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_7_2_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardEightYellow_One
+  components:
+  - type: Card
+    name: card-8-1-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_8_1_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardEightYellow_Two
+  components:
+  - type: Card
+    name: card-8-2-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_8_2_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardNineYellow_One
+  components:
+  - type: Card
+    name: card-9-1-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_9_1_yellow
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardNineYellow_Two
+  components:
+  - type: Card
+    name: card-9-2-yellow
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_9_2_yellow
+
+#Action Cards
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardRedSkip_One
+  components:
+  - type: Card
+    name: card-1-red-skip
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_red_skip
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardRedSkip_Two
+  components:
+  - type: Card
+    name: card-2-red-skip
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_red_skip
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardRedReverse_One
+  components:
+  - type: Card
+    name: card-1-red-reverse
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_red_reverse
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardRedReverse_Two
+  components:
+  - type: Card
+    name: card-2-red-reverse
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_red_reverse
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardRedDraw_One
+  components:
+  - type: Card
+    name: card-1-red-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_red_draw
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardRedDraw_Two
+  components:
+  - type: Card
+    name: card-2-red-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_red_draw
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSkip_One
+  components:
+  - type: Card
+    name: card-1-blue-skip
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_blue_skip
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardBlueSkip_Two
+  components:
+  - type: Card
+    name: card-2-blue-skip
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_blue_skip
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardBlueReverse_One
+  components:
+  - type: Card
+    name: card-1-blue-reverse
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_blue_reverse
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardBlueReverse_Two
+  components:
+  - type: Card
+    name: card-2-blue-reverse
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_blue_reverse
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardBlueDraw_One
+  components:
+  - type: Card
+    name: card-1-blue-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_blue_draw
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardBlueDraw_Two
+  components:
+  - type: Card
+    name: card-2-blue-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_blue_draw
+
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardYellowSkip_One
+  components:
+  - type: Card
+    name: card-1-yellow-skip
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_yellow_skip
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSkip_Two
+  components:
+  - type: Card
+    name: card-2-yellow-skip
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_yellow_skip
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardGreenReverse_One
+  components:
+  - type: Card
+    name: card-1-yellow-reverse
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_yellow_reverse
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardGreenReverse_Two
+  components:
+  - type: Card
+    name: card-2-yellow-reverse
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_yellow_reverse
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardGreenDraw_One
+  components:
+  - type: Card
+    name: card-1-yellow-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_yellow_draw
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardGreenDraw_Two
+  components:
+  - type: Card
+    name: card-2-yellow-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_yellow_draw
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSkip_One
+  components:
+  - type: Card
+    name: card-1-yellow-skip
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_yellow_skip
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardGreenSkip_Two
+  components:
+  - type: Card
+    name: card-2-yellow-skip
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_yellow_skip
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardGreenReverse_One
+  components:
+  - type: Card
+    name: card-1-yellow-reverse
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_yellow_reverse
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardGreenReverse_Two
+  components:
+  - type: Card
+    name: card-2-yellow-reverse
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_yellow_reverse
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardGreenDraw_One
+  components:
+  - type: Card
+    name: card-1-yellow-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_yellow_draw
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardGreenDraw_Two
+  components:
+  - type: Card
+    name: card-2-yellow-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_yellow_draw
+
+#Wild Cards
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardWild_One
+  components:
+  - type: Card
+    name: card-1-wild
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_wild
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardWild_Two
+  components:
+  - type: Card
+    name: card-2-wild
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_wild
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardWild_Three
+  components:
+  - type: Card
+    name: card-3-wild
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_3_wild
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardWild_Four
+  components:
+  - type: Card
+    name: card-4-wild
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_4_wild
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardWildDraw_One
+  components:
+  - type: Card
+    name: card-1-wild-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_1_wild_draw
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardWildDraw_Two
+  components:
+  - type: Card
+    name: card-2-wild-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_2_wild_draw
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardWildDraw_Three
+  components:
+  - type: Card
+    name: card-3-wild-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_3_wild_draw
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardWildDraw_Four
+  components:
+  - type: Card
+    name: card-4-wild-draw
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/zat.rsi
+    state: card_4_wild_draw
+
+# Glorm Fish!
+- type: entity
+  parent: CardBoxBase
+  id: CardGlormFishBox
+  name: Glorm Fish deck box
+  description: Glorm Fish! Learn some Gray speak while playing! 2-3 players get 7 cards each, 4 or more players gets 5 cards each.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: box
+    layers:
+    - state: glormfish_box
+    - state: glormfish_box_open
+      map: [ "openLayer" ]
+      visible: false
+  - type: OpenTriggeredStorageFill
+    contents:
+    - id: CardDeckGlormFish
+      amount: 1
+
+- type: entity
+  parent: CardDeckBase
+  id: CardDeckGlormFish
+  name: deck of Glorm Fish cards
+  components:
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: deck_glormfish_full
+  - type: CardStack
+    content:
+    #Buuzi
+    - CardOneBuuzi
+    - CardTwoBuuzi
+    - CardThreeBuuzi
+    - CardFourBuuzi
+    #Carp
+    - CardOneCarp
+    - CardTwoCarp
+    - CardThreeCarp
+    - CardFourCarp
+    #Cheezi
+    - CardOneCheezi
+    - CardTwoCheezi
+    - CardThreeCheezi
+    - CardFourCheezi
+    #FinFin
+    - CardOneFinFin
+    - CardTwoFinFin
+    - CardThreeFinFin
+    - CardFourFinFin
+    #Frog
+    - CardOneFrog
+    - CardTwoFrog
+    - CardThreeFrog
+    - CardFourFrog
+    #HGGU
+    - CardOneHGGU
+    - CardTwoHGGU
+    - CardThreeHGGU
+    - CardFourHGGU
+    #Mothroach
+    - CardOneMothroach
+    - CardTwoMothroach
+    - CardThreeMothroach
+    - CardFourMothroach
+    #Doomba
+    - CardOneDoomba
+    - CardTwoDoomba
+    - CardThreeDoomba
+    - CardFourDoomba
+    #Pig
+    - CardOnePig
+    - CardTwoPig
+    - CardThreePig
+    - CardFourPig
+    #Ku
+    - CardOneKu
+    - CardTwoKu
+    - CardThreeKu
+    - CardFourKu
+    #Snail
+    - CardOneSnail
+    - CardTwoSnail
+    - CardThreeSnail
+    - CardFourSnail
+    #Sqoshi
+    - CardOneSqoshi
+    - CardTwoSqoshi
+    - CardThreeSqoshi
+    - CardFourSqoshi
+    #Tsshi-suni
+    - CardOneTsshisuni
+    - CardTwoTsshisuni
+    - CardThreeTsshisuni
+    - CardFourTsshisuni
+    #UGGH
+    - CardOneUGGH
+    - CardTwoUGGH
+    - CardThreeUGGH
+    - CardFourUGGH
+
+- type: entity
+  parent: BaseItem
+  id: CardBaseGlormFish
+  name: card
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      collection: cardShove
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: singlecard_down_glormfish
+  - type: Rotatable
+  - type: Item
+    size: Tiny
+  - type: UseDelay
+    delay: 0.5
+  - type: Card
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneBuuzi
+  description: Thusd Buuzi!
+  components:
+  - type: Card
+    name: card-1-buuzi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_buuzi
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoBuuzi
+  description: Thusd Buuzi!
+  components:
+  - type: Card
+    name: card-2-buuzi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_buuzi
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeBuuzi
+  description: Thusd Buuzi!
+  components:
+  - type: Card
+    name: card-3-buuzi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_buuzi
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourBuuzi
+  description: Thusd Buuzi!
+  components:
+  - type: Card
+    name: card-4-buuzi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_buuzi
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneCarp
+  description: Thusd Carp!
+  components:
+  - type: Card
+    name: card-1-carp
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_carp
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoCarp
+  description: Thusd Carp!
+  components:
+  - type: Card
+    name: card-2-carp
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_carp
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeCarp
+  description: Thusd Carp!
+  components:
+  - type: Card
+    name: card-3-carp
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_carp
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourCarp
+  description: Thusd Carp!
+  components:
+  - type: Card
+    name: card-4-carp
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_carp
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneCheezi
+  description: Thusd Cheezi!
+  components:
+  - type: Card
+    name: card-1-cheezi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_cheezi
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoCheezi
+  description: Thusd Cheezi!
+  components:
+  - type: Card
+    name: card-2-cheezi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_cheezi
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeCheezi
+  description: Thusd Cheezi!
+  components:
+  - type: Card
+    name: card-3-cheezi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_cheezi
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourCheezi
+  description: Thusd Cheezi!
+  components:
+  - type: Card
+    name: card-4-cheezi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_cheezi
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneFinFin
+  description: Thusd FinFin!
+  components:
+  - type: Card
+    name: card-1-finfin
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_finfin
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoFinFin
+  description: Thusd FinFin!
+  components:
+  - type: Card
+    name: card-2-finfin
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_finfin
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeFinFin
+  description: Thusd FinFin!
+  components:
+  - type: Card
+    name: card-3-finfin
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_finfin
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourFinFin
+  description: Thusd FinFin!
+  components:
+  - type: Card
+    name: card-4-finfin
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_finfin
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneFrog
+  description: Thusd Frog!
+  components:
+  - type: Card
+    name: card-1-frog
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_frog
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoFrog
+  description: Thusd Frog!
+  components:
+  - type: Card
+    name: card-2-frog
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_frog
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeFrog
+  description: Thusd Frog!
+  components:
+  - type: Card
+    name: card-3-frog
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_frog
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourFrog
+  description: Thusd Frog!
+  components:
+  - type: Card
+    name: card-4-frog
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_frog
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneHGGU
+  description: Thusd HGGU!
+  components:
+  - type: Card
+    name: card-1-hggu
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_hggu
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoHGGU
+  description: Thusd HGGU!
+  components:
+  - type: Card
+    name: card-2-hggu
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_hggu
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeHGGU
+  description: Thusd HGGU!
+  components:
+  - type: Card
+    name: card-3-hggu
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_hggu
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourHGGU
+  description: Thusd HGGU!
+  components:
+  - type: Card
+    name: card-4-hggu
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_hggu
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneMothroach
+  description: Thusd Innocent Creature!
+  components:
+  - type: Card
+    name: card-1-mothroach
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_mothroach
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoMothroach
+  description: Thusd Mothroach! Such innocent creature.
+  components:
+  - type: Card
+    name: card-2-mothroach
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_mothroach
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeMothroach
+  description: Thusd Mothroach! Such innocent creature.
+  components:
+  - type: Card
+    name: card-3-mothroach
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_mothroach
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourMothroach
+  description: Thusd Mothroach! Such innocent creature.
+  components:
+  - type: Card
+    name: card-4-mothroach
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_mothroach
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneDoomba
+  description: Thusd Doomba! SCARY!!
+  components:
+  - type: Card
+    name: card-1-doomba
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_doomba
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoDoomba
+  description: Thusd Doomba! SCARY!!
+  components:
+  - type: Card
+    name: card-2-doomba
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_doomba
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeDoomba
+  description: Thusd Doomba! SCARY!!
+  components:
+  - type: Card
+    name: card-3-doomba
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_doomba
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourDoomba
+  description: Thusd Doomba! SCARY!!
+  components:
+  - type: Card
+    name: card-4-doomba
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_doomba
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOnePig
+  description: Thusd Pig!
+  components:
+  - type: Card
+    name: card-1-pig
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_pig
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoPig
+  description: Thusd Pig!
+  components:
+  - type: Card
+    name: card-2-pig
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_pig
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreePig
+  description: Thusd Pig!
+  components:
+  - type: Card
+    name: card-3-pig
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_pig
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourPig
+  description: Thusd Pig!
+  components:
+  - type: Card
+    name: card-4-pig
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_pig
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneKu
+  description: Thusd Ku!
+  components:
+  - type: Card
+    name: card-1-ku
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_ku
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoKu
+  description: Thusd Ku!
+  components:
+  - type: Card
+    name: card-2-ku
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_ku
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeKu
+  description: Thusd Ku!
+  components:
+  - type: Card
+    name: card-3-ku
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_ku
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourKu
+  description: Thusd Ku!
+  components:
+  - type: Card
+    name: card-4-ku
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_ku
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneSnail
+  description: Thusd Snail!
+  components:
+  - type: Card
+    name: card-1-snail
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_snail
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoSnail
+  description: Thusd Snail!
+  components:
+  - type: Card
+    name: card-2-snail
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_snail
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeSnail
+  description: Thusd Snail!
+  components:
+  - type: Card
+    name: card-3-snail
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_snail
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourSnail
+  description: Thusd Snail!
+  components:
+  - type: Card
+    name: card-4-snail
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_snail
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneSqoshi
+  description: Thusd Sqoshi!
+  components:
+  - type: Card
+    name: card-1-sqoshi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_sqoshi
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoSqoshi
+  description: Thusd Sqoshi!
+  components:
+  - type: Card
+    name: card-2-sqoshi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_sqoshi
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeSqoshi
+  description: Thusd Sqoshi!
+  components:
+  - type: Card
+    name: card-3-sqoshi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_sqoshi
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourSqoshi
+  description: Thusd Sqoshi!
+  components:
+  - type: Card
+    name: card-4-sqoshi
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_sqoshi
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneTsshisuni
+  description: Thusd Tsshi-suni! RUN!!!!
+  components:
+  - type: Card
+    name: card-1-tsshisuni
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_tsshisuni
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoTsshisuni
+  description: Thusd Tsshi-suni! RUN!!!!
+  components:
+  - type: Card
+    name: card-2-tsshisuni
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_tsshisuni
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeTsshisuni
+  description: Thusd Tsshi-suni! RUN!!!!
+  components:
+  - type: Card
+    name: card-3-tsshisuni
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_tsshisuni
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourTsshisuni
+  description: Thusd Tsshi-suni! RUN!!!!
+  components:
+  - type: Card
+    name: card-4-tsshisuni
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_tsshisuni
+
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardOneUGGH
+  description: Thusd UGGH!
+  components:
+  - type: Card
+    name: card-1-uggh
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_1_uggh
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardTwoUGGH
+  description: Thusd UGGH!
+  components:
+  - type: Card
+    name: card-2-uggh
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_2_uggh
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardThreeUGGH
+  description: Thusd UGGH!
+  components:
+  - type: Card
+    name: card-3-uggh
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_3_uggh
+- type: entity
+  parent: CardBaseBlack
+  categories: [ HideSpawnMenu ]
+  id: CardFourUGGH
+  description: Thusd UGGH!
+  components:
+  - type: Card
+    name: card-4-uggh
+  - type: Sprite
+    sprite: _Impstation/Entities/Objects/Fun/glormfish.rsi
+    state: card_4_uggh
