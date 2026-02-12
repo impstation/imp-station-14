@@ -180,6 +180,11 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: Stamp #imp
+    stampedName: stamp-component-stamped-name-dragon
+    stampedColor: "#1c1c1c"
+    stampState: "paper_stamp-hd"
+    stampLargeIcon: "dragon_stamp" # imp
 
 - type: entity
   parent: BaseMobDragon
