@@ -9,6 +9,9 @@ using Content.Shared.Storage.EntitySystems;
 
 namespace Content.Server._Impstation.Objectives.Systems;
 
+/// <summary>
+/// Finds the exploding butler target and spawns a care package at their location.
+/// </summary>
 public sealed class ButlerConditionSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -25,6 +28,10 @@ public sealed class ButlerConditionSystem : EntitySystem
 
         SubscribeLocalEvent<ButlerConditionComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
     }
+
+    /// <summary>
+    /// Finds the exploding butler target and spawns a care package at their location.
+    /// </summary>
     private void OnAfterAssign(Entity<ButlerConditionComponent> ent, ref ObjectiveAfterAssignEvent args)
     {
         if (!_target.GetTarget(ent, out var target)) //get the butler target
