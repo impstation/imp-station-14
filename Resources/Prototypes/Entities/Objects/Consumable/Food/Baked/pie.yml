@@ -633,6 +633,7 @@
     - nothing
   - type: Sprite
     state: mime
+    sprite: _Impstation/Objects/Consumable/Food/Baked/mimetart.rsi #imp
   - type: Item
     heldPrefix: mime
   - type: SliceableFood
@@ -666,6 +667,7 @@
   - type: Sprite
     layers:
     - state: mimetart-slice
+      sprite: _Impstation/Objects/Consumable/Food/Baked/mimetart.rsi #imp
   - type: Item
     heldPrefix: mime
   - type: SolutionContainerManager # imp

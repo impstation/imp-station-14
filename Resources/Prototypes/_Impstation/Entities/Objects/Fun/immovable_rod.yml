@@ -25,6 +25,8 @@
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: NoSlip
+  - type: Physics
+    bodyType: KinematicController
 
 - type: entity
   parent: ImmovableRodKeepTilesStill
@@ -131,6 +133,22 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/_Impstation/Demons/whiteboylaser.ogg
+  - type: PointLight
+    radius: 3
+    color: red
+    energy: 2.0
+
+- type: entity
+  parent: ImmovableRodKeepTilesStill
+  id: ImmovableRodUncle
+  name: immovable uncle
+  description: What can this uncle do for you?
+  components:
+  - type: ImmovableRod
+    eviscerationPopup: immovable-rod-penetrated-mob-uncle
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/uncle.rsi
+    state: uncle
   - type: PointLight
     radius: 3
     color: red
