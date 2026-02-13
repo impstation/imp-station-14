@@ -5,11 +5,13 @@
   name: secure briefcase
   description: An expensive case that's definitely used for transportation of classified documents and nothing else.
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponSubMachineGunWt550
-      - id: MagazinePistolSubMachineGunTopMounted
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunWt550
+        - id: MagazinePistolSubMachineGunTopMounted
+          amount: 2
 
 - type: entity
   parent: GunCaseHoS
@@ -18,10 +20,12 @@
   name: secure briefcase
   description: An expensive case that's definitely used for transportation of classified documents and nothing else.
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponRifleMule
-      - id: BoxShotgunSlug
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponRifleMule
+        - id: BoxShotgunSlug
 
 - type: entity
   parent: GunCaseHoS
@@ -30,8 +34,10 @@
   name: secure briefcase
   description: An expensive case that's definitely used for transportation of classified documents and nothing else.
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponStarflareSMG
-      - id: PowerCellStarflare
-        amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponStarflareSMG
+        - id: PowerCellStarflare
+          amount: 2

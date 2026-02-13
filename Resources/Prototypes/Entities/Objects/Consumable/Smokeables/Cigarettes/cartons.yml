@@ -17,9 +17,10 @@
   - type: Storage
     grid:
     - 0,0,4,1
-  - type: StorageFill
-    contents:
-      - id: CigPackGreen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackGreen
         amount: 5
   - type: Tag
     tags:
@@ -39,9 +40,10 @@
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/red.rsi # imp
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/red.rsi # imp
-  - type: StorageFill
-    contents:
-      - id: CigPackRed
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackRed
         amount: 5
 
 - type: entity
@@ -54,9 +56,10 @@
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/blue.rsi # imp
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/blue.rsi # imp
-  - type: StorageFill
-    contents:
-      - id: CigPackBlue
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackBlue
         amount: 5
 
 - type: entity
@@ -69,9 +72,10 @@
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/black.rsi # imp
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/black.rsi # imp
-  - type: StorageFill
-    contents:
-      - id: CigPackBlack
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackBlack
         amount: 5
 
 - type: entity
@@ -84,7 +88,8 @@
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/mixed.rsi # imp
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/mixed.rsi # imp
-  - type: StorageFill
-    contents:
-    - id: CigPackMixed
-      amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigPackMixed
+        amount: 3

@@ -147,3 +147,6 @@ uplink-treatchunk-big-desc = An impractically large bag of TreatChunk hard candi
 
 uplink-hotsauces-name = Discount Dan's Hot Sauce Sampler Pack
 uplink-hotsauces-desc = New from Discount Dan's! 4 levels of heat to put your spice tolerance to the test. Plus a free* gift from Discount Dan himself!
+
+uplink-taipan-name = Taipan bundle
+uplink-taipan-desc = One "Taipan" Echion crossbow, bundled with a canister of its proprietary liquid ammo.

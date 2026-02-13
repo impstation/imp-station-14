@@ -1,18 +1,19 @@
 using Content.Server.Fluids.EntitySystems;
-using Content.Server.PowerCell;
+using Content.Shared._Impstation.Homunculi.Incubator;
+using Content.Shared._Impstation.Homunculi.Incubator.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
-using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Power.Components;
-using Content.Shared._Impstation.Homunculi.Incubator.Components;
-using Content.Shared._Impstation.Homunculi.Incubator;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -28,6 +29,7 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
     [Dependency] private readonly PowerCellSystem _cell = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedBatterySystem _battery = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
@@ -52,9 +54,9 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
             popup = Loc.GetString("incubator-no-solution");
         else if (!HasDnaData(solution))
             popup = Loc.GetString("incubator-no-dna");
-        else if (!_cell.TryGetBatteryFromSlot(ent, out var battery))
+        else if (!_cell.TryGetBatteryFromSlot(ent.Owner, out var battery))
             popup = Loc.GetString("incubator-no-cell");
-        else if (UsesRemaining(ent.Comp, battery) <= 0)
+        else if (UsesRemaining(ent, battery) <= 0)
             popup = Loc.GetString("incubator-insufficient-power");
 
         if (popup == null)
@@ -136,22 +138,22 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
         TryGetSolution(ent, out var solution);
 
         // Spawn Homunculi
-        if (solution != null && !_homunculus.CreateHomunculiWithDna(ent,solution.Value,_transform.GetMapCoordinates(ent), out _))
+        if (solution != null && !_homunculus.CreateHomunculiWithDna(ent, solution.Value, _transform.GetMapCoordinates(ent), out _))
         {
-            _puddle.TrySpillAt(ent, solution.Value.Comp.Solution, out _ );
+            _puddle.TrySpillAt(ent, solution.Value.Comp.Solution, out _);
             _solution.RemoveAllSolution(solution.Value);
         }
 
         if (TryComp<ActiveIncubatorComponent>(ent, out var activeIncubator))
             activeIncubator.IncubationFinishTime = null;
 
-        _cell.TryUseCharge(ent, ent.Comp.ChargeUse);
+        _cell.TryUseCharge(ent.Owner, ent.Comp.ChargeUse);
         _toggle.TryDeactivate(ent.Owner);
     }
 
     private void OnExamine(Entity<IncubatorComponent> ent, ref ExaminedEvent args)
     {
-        _cell.TryGetBatteryFromSlot(ent, out var battery);
+        _cell.TryGetBatteryFromSlot(ent.Owner, out var battery);
         var charges = UsesRemaining(ent, battery);
         var maxCharges = MaxUses(ent, battery);
 
@@ -166,12 +168,12 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
         }
     }
 
-    private static int UsesRemaining(IncubatorComponent component, BatteryComponent? battery = null)
+    private int UsesRemaining(Entity<IncubatorComponent> ent, BatteryComponent? battery = null)
     {
-        if (battery == null || component.ChargeUse == 0f)
+        if (battery == null || ent.Comp.ChargeUse == 0f)
             return 0;
 
-        return (int) (battery.CurrentCharge / component.ChargeUse);
+        return (int)(_battery.GetCharge((ent, battery)) / ent.Comp.ChargeUse);
     }
 
     private static int MaxUses(IncubatorComponent component, BatteryComponent? battery = null)
@@ -179,7 +181,7 @@ public sealed class IncubatorSystem : SharedIncubatorSystem
         if (battery == null || component.ChargeUse == 0f)
             return 0;
 
-        return (int) (battery.MaxCharge / component.ChargeUse);
+        return (int)(battery.MaxCharge / component.ChargeUse);
     }
 
 }

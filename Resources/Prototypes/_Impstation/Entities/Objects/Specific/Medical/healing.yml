@@ -30,10 +30,12 @@
   components:
   - type: Label
     currentLabel: psicodine 20u
-  - type: StorageFill
-    contents:
-    - id: PillLacedPsicodine
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PillLacedPsicodine
+          amount: 5
   - type: Sprite
     sprite: _Impstation/Objects/Specific/Chemistry/pills_canister.rsi
     state: pill_canister-hos
@@ -55,10 +57,12 @@
   components:
   - type: Label
     currentLabel: psicodine 20u
-  - type: StorageFill
-    contents:
-    - id: PillLacedPsicodine
-      amount: 2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PillLacedPsicodine
+          amount: 2
   - type: Sprite
     sprite: _Impstation/Objects/Specific/Chemistry/pills_canister.rsi
     state: pill_canister # while it would make sense within contect, we shouldn't use the hos bottle sprite, given that the refill is NOT a thief target.
@@ -78,10 +82,12 @@
   components:
   - type: Label
     currentLabel: psicodine 20u
-  - type: StorageFill
-    contents:
-    - id: PillLacedPsicodine
-      amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PillLacedPsicodine
+          amount: 1
   - type: Sprite
     sprite: _Impstation/Objects/Specific/Chemistry/pills_canister.rsi
     state: pill_canister
@@ -122,10 +128,12 @@
   components:
   - type: Label
     currentLabel: happiness 10u
-  - type: StorageFill
-    contents:
-    - id: PillHappiness
-      amount: 5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PillHappiness
+          amount: 5
 
 # psych pills and bottles
 

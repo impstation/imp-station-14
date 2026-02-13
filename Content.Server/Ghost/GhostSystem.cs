@@ -39,7 +39,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.Access.Systems; //imp
-using Content.Shared._Impstation.Ghost; //imp
 using Content.Shared.SSDIndicator; //imp
 
 namespace Content.Server.Ghost
@@ -112,8 +111,6 @@ namespace Content.Server.Ghost
 
             SubscribeLocalEvent<GhostComponent, GetVisMaskEvent>(OnGhostVis);
         }
-
-        //TODO: Rework medium system
 
         private void OnGhostVis(Entity<GhostComponent> ent, ref GetVisMaskEvent args)
         {
@@ -239,12 +236,6 @@ namespace Content.Server.Ghost
             _actions.AddAction(uid, ref component.ToggleLightingActionEntity, component.ToggleLightingAction);
             _actions.AddAction(uid, ref component.ToggleFoVActionEntity, component.ToggleFoVAction);
             _actions.AddAction(uid, ref component.ToggleGhostsActionEntity, component.ToggleGhostsAction);
-        }
-
-        // imp addition
-        private void OnMapInitMedium(EntityUid uid, MediumComponent component, MapInitEvent args)
-        {
-            _actions.AddAction(uid, ref component.ToggleGhostsMediumActionEntity, component.ToggleGhostsMediumAction);
         }
 
         private void OnGhostExamine(EntityUid uid, GhostComponent component, ExaminedEvent args)

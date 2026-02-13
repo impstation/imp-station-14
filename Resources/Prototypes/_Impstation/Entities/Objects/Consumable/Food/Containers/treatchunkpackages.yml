@@ -12,7 +12,7 @@
         left:
         - state: treatchunk-bag-inhand-left
         right:
-        - state: treatchunk-bag-inhand-right    
+        - state: treatchunk-bag-inhand-right
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi
     state: treatchunk-bag
@@ -36,7 +36,7 @@
         left:
         - state: treatchunk-bag-inhand-left
         right:
-        - state: treatchunk-bag-inhand-right    
+        - state: treatchunk-bag-inhand-right
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi
     state: treatchunk-bag-open
@@ -47,10 +47,12 @@
     whitelist:
       tags:
       - TreatChunk
-  - type: StorageFill
-    contents:
-    - id: FoodTreatChunkRandom
-      amount: 15
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FoodTreatChunkRandom
+          amount: 15
 
 - type: entity
   parent: [BaseItem, Tier1Contraband]
@@ -66,7 +68,7 @@
         left:
         - state: treatchunk-large-bag-inhand-left
         right:
-        - state: treatchunk-large-bag-inhand-right    
+        - state: treatchunk-large-bag-inhand-right
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/large_treatchunk_bag.rsi
     scale: 0.80, 0.80
@@ -92,7 +94,7 @@
         right:
         - state: treatchunk-large-bag-inhand-right
     size: Large
-    shape: 
+    shape:
     - 0,0,2,2
     heldPrefix: Party Sized TreatChunk bag
   - type: Sprite
@@ -106,8 +108,10 @@
     whitelist:
       tags:
       - TreatChunk
-  - type: StorageFill
-    contents:
-    - id: FoodTreatChunkRandom
-      amount: 60
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FoodTreatChunkRandom
+          amount: 60
   - type: MultiHandedItem

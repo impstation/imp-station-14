@@ -121,7 +121,10 @@
       types:
         Asphyxiation: -1.0
   - type: Bloodstream
-    bloodReagent: GrayBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GrayBlood
+        Quantity: 150
   - type: Speech
     speechSounds: PVC
   - type: TypingIndicator
@@ -220,7 +223,10 @@
   - type: Body
     prototype: HomunculusMoth
   - type: Bloodstream
-    bloodReagent: InsectBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 150
   - type: Butcherable
     butcheringType: Spike
     spawned:
@@ -243,17 +249,18 @@
     damage:
       types:
         Heat: 4.5 # moths burn more easily
-  - type: Temperature # Moths hate the heat and thrive in the cold.
+  - type: TemperatureDamage # Moths hate the heat and thrive in the cold.
     heatDamageThreshold: 320
     coldDamageThreshold: 230
-    currentTemperature: 310.15
-    specificHeat: 46
     coldDamage:
       types:
         Cold: 0.05 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat: 3 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 46
   - type: TemperatureSpeed
     thresholds:
       289: 0.8
@@ -351,7 +358,10 @@
       amount: 5
   - type: ThavenMoods
   - type: Bloodstream
-    bloodReagent: ShimmeringBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ShimmeringBlood
+        Quantity: 150
   - type: MeleeWeapon
     damage:
       types:

@@ -1,8 +1,8 @@
 - type: entity
-  id: BulletRifleWizden #imp - see the _Impstation directory for the version we use
-  name: bullet (.20 rifle)
   parent: BaseBullet
+  id: BulletRifleWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
+  name: bullet (.20 rifle)
   components:
   - type: Projectile
     damage:
@@ -10,10 +10,10 @@
         Piercing: 17
 
 - type: entity
-  id: BulletRiflePracticeWizden #imp - see the _Impstation directory for the version we use
-  name: bullet (.20 rifle practice)
   parent: BaseBulletPractice
+  id: BulletRiflePracticeWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
+  name: bullet (.20 rifle practice)
   components:
   - type: Projectile
     damage:
@@ -21,10 +21,10 @@
         Blunt: 2
 
 - type: entity
-  id: BulletRifleIncendiaryWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBulletIncendiary
-  name: bullet (.20 rifle incendiary)
+  id: BulletRifleIncendiaryWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
+  name: bullet (.20 rifle incendiary)
   components:
   - type: Projectile
     damage:
@@ -33,10 +33,10 @@
         Heat: 5
 
 - type: entity
-  id: BulletRifleUraniumWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBulletUranium
-  name: bullet (.20 rifle uranium)
+  id: BulletRifleUraniumWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
+  name: bullet (.20 rifle uranium)
   components:
   - type: Projectile
     damage:

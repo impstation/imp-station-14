@@ -13,6 +13,10 @@ tiles-white-squiggly = white steel squiggly tile
 tiles-dirty-dark-floor = dirty dark steel tile
 tiles-dirty-white-floor = dirty white steel tile
 
+tiles-damaged-steel-floor = damaged steel tile
+tiles-damaged-dark-floor = damaged dark tile
+tiles-damaged-white-floor = damaged white tile
+
 tiles-green-floor = green steel tile
 tiles-green-floor-mini = green steel mini-tile
 tiles-green-floor-pavement = green steel pavement
@@ -24,7 +28,8 @@ tiles-green-floor-herringbone = green steel herringbone
 tiles-green-floor-diagonal-mini = green steel diagonal mini-tile
 tiles-plastic-green-floor = green plastic tile
 tiles-green-squiggly = green steel squiggly tile
-tiles-dirty-green-floor = green steel squiggly tile
+tiles-dirty-green-floor = dirty green steel tile
+tiles-damaged-green-floor = damaged steel tile
 
 tiles-reaper-tiles = reaper tile
 tiles-reaper-tombstonebig = large tombstone tile

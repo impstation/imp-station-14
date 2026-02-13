@@ -50,14 +50,13 @@
     fireRate: 0.3
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: HitscanReplicator
     fireCost: 150
   - type: Battery
     maxCharge: 150
     startingCharge: 150
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 1000
   - type: MeleeWeapon
     wideAnimationRotation: -80
@@ -86,7 +85,7 @@
   - type: Icon
     sprite: _Impstation/Mobs/Replicator/replicator.rsi
     state: t2altweapon
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: HitscanReplicator2
     fireCost: 150
 

@@ -886,7 +886,7 @@
 
 - type: tile
   id: FloorSteelDamaged
-  name: tiles-steel-floor
+  name: tiles-damaged-steel-floor # Imp Edit, previously they had the same name as regular steel tiles whereas now their name reflects the fact they're damaged
   sprite: /Textures/_Impstation/Tiles/Steel/steel_damaged.png # Imp Edit
   variants: 5
   placementVariants:

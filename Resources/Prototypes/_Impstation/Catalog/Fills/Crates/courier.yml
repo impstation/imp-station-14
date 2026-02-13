@@ -4,9 +4,11 @@
   name: courier hardsuit crate
   description: "'Neither snow nor rain nor heat nor gloom of night...' doesn't apply when you're in space, but avoiding barotrauma can be helpful, and this hardsuit will get you through it."
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingOuterHardsuitCourier
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitCourier
   - type: AccessReader # this hardsuit is kind of really good so this is a preemptive anti-powergaming measure
     access: [["Courier"]]
 
@@ -16,10 +18,12 @@
   name: mail RPDS crate
   description: "For when hand delivery simply isn't enough. A repurposed grenade launcher and a box of shells to make sure the mail finds its way to the intended recipient."
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponMailLake
-      - id: BoxMailCapsulePrimed
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponMailLake
+        - id: BoxMailCapsulePrimed
   - type: AccessReader # i think it's funny
     access: [["Courier"]]
 
@@ -29,7 +33,9 @@
   name: mail RPDS capsule crate
   description: "Two boxes of primed mail capsules, for firing from a mail RPDS."
   components:
-  - type: StorageFill
-    contents:
-      - id: BoxMailCapsulePrimed
-      - id: BoxMailCapsulePrimed
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: BoxMailCapsulePrimed
+        - id: BoxMailCapsulePrimed

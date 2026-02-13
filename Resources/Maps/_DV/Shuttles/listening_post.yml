@@ -1335,8 +1335,10 @@ entities:
           - 553
           - 561
           - 557
-    - type: StorageFill
-      contents: [ ] # This is illegal lmao
+    - type: EntityTableContainerFill
+      containers:
+        storagebase: !type:AllSelector
+          children: [] # This is illegal lmao
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage

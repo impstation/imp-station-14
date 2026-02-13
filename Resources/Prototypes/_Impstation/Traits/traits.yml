@@ -149,3 +149,12 @@
   components:
   - type: HatedByDogs
   cost: -1
+
+- type: trait
+  id: Hemorrhage
+  name: trait-hemorrhage-name
+  description: trait-hemorrhage-desc
+  category: Traits
+  components:
+  - type: Hemorrhage
+  cost: -6

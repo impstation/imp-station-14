@@ -11,6 +11,7 @@ using Robust.Client.State;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
+using Content.Shared.GameTicking.Prototypes;
 
 namespace Content.Client.GameTicking.Managers
 {
@@ -28,10 +29,7 @@ namespace Content.Client.GameTicking.Managers
         [ViewVariables] public bool AreWeReady { get; private set; }
         [ViewVariables] public bool IsGameStarted { get; private set; }
         [ViewVariables] public ResolvedSoundSpecifier? RestartSound { get; private set; }
-        [ViewVariables] public string? LobbyBackgroundImage { get; private set; } // imp edit
-        [ViewVariables] public string? LobbyBackgroundName { get; private set; } // imp edit
-        [ViewVariables] public string? LobbyBackgroundArtist { get; private set; } // imp edit
-
+        [ViewVariables] public ProtoId<LobbyBackgroundPrototype>? LobbyBackground { get; private set; }
         [ViewVariables] public bool DisallowedLateJoin { get; private set; }
         [ViewVariables] public string? ServerInfoBlob { get; private set; }
         [ViewVariables] public TimeSpan StartTime { get; private set; }
@@ -127,11 +125,7 @@ namespace Content.Client.GameTicking.Managers
             RoundStartTimeSpan = message.RoundStartTimeSpan;
             IsGameStarted = message.IsRoundStarted;
             AreWeReady = message.YouAreReady;
-            // imp edit start: lobby credits
-            LobbyBackgroundImage = message.LobbyBackgroundImage;
-            LobbyBackgroundName = message.LobbyBackgroundName;
-            LobbyBackgroundArtist = message.LobbyBackgroundArtist;
-            // imp edit end
+            LobbyBackground = message.LobbyBackground;
             Paused = message.Paused;
 
             LobbyStatusUpdated?.Invoke();

@@ -35,7 +35,7 @@
     TriggerDrinkClassicMartini: 0.05
     TriggerDrinkBudgetInsuls: 0.05
     TriggerDrinkManlyDorf: 0.05
-    TriggerDrinkScrewdriver: 0.05
+    TriggerDrinkCottonBool: 0.05
     TriggerDrinkIceCream: 0.05
     TriggerDrinkLemonade: 0.05
     TriggerDrinkThavenBad: 0.05
@@ -267,6 +267,9 @@
     requiredTool: Screwing
   - type: XATExaminableText
     examineText: xenoarch-trigger-examine-screwing
+  - type: XATReactive # IMP i'm funny
+    reagents:
+    - ScrewdriverCocktail
   targetDepths: [ 0, 1, 2 ] # imp edit
 
 - type: xenoArchTrigger

@@ -1,8 +1,8 @@
 - type: entity
+  abstract: true
+  parent: [ BaseCartridge, BaseSecurityContraband ]
   id: BaseCartridgeLightRifleWizden #imp - see the _Impstation directory for the version we use
   name: cartridge (.30 rifle)
-  parent: [ BaseCartridge, BaseSecurityContraband ]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -18,21 +18,21 @@
   - type: SpentAmmoVisuals
 
 - type: entity
-  id: CartridgeLightRifleWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: cartridge (.30 rifle)
+  abstract: true # imp
   parent: BaseCartridgeLightRifle
+  id: CartridgeLightRifleWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.30 rifle)
   description: A classic intermediate cartridge used by many combat rifles and LMGs. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
     proto: BulletLightRifle
 
 - type: entity
-  id: CartridgeLightRiflePracticeWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: cartridge (.30 rifle practice)
+  abstract: true # imp
   parent: BaseCartridgeLightRifle
-  description: A classic intermediate cartridge used by many combat rifles and LMGs. Chalk ammunition is generally non-harmful, used for practice.
+  id: CartridgeLightRiflePracticeWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.30 rifle practice)
+  description: A classic intermediate cartridge used by many combat rifles and LMGs. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
   components:
   - type: CartridgeAmmo
     proto: BulletLightRiflePractice
@@ -45,11 +45,11 @@
         color: "#dbdbdb"
 
 - type: entity
-  id: CartridgeLightRifleIncendiaryWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: cartridge (.30 rifle incendiary)
+  abstract: true # imp
   parent: BaseCartridgeLightRifle
-  description: A classic intermediate cartridge used by many combat rifles and LMGs. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
+  id: CartridgeLightRifleIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.30 rifle incendiary)
+  description: A classic intermediate cartridge used by many combat rifles and LMGs. Incendiary ammunition contains a self-igniting compound that sets targets ablaze.
   components:
   - type: CartridgeAmmo
     proto: BulletLightRifleIncendiary
@@ -62,11 +62,11 @@
         color: "#ff6e52"
 
 - type: entity
-  id: CartridgeLightRifleUraniumWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: cartridge (.30 rifle uranium)
+  abstract: true # imp
   parent: BaseCartridgeLightRifle
-  description: A classic intermediate cartridge used by many combat rifles and LMGs. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating the target from the inside.
+  id: CartridgeLightRifleUraniumWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.30 rifle uranium)
+  description: A classic intermediate cartridge used by many combat rifles and LMGs. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating targets from the inside.
   components:
   - type: CartridgeAmmo
     proto: BulletLightRifleUranium

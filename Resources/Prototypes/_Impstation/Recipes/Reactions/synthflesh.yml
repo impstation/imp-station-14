@@ -3,6 +3,8 @@
   id: CreateSynthFleshBlood
   impact: Low
   conserveEnergy: true
+  requiredMixerCategories:
+    - Stir
   reactants:
     Blood:
       amount: 2
@@ -18,6 +20,8 @@
   id: CreateSynthFleshCopper
   impact: Low
   conserveEnergy: true
+  requiredMixerCategories:
+    - Stir
   reactants:
     CopperBlood:
       amount: 2
@@ -33,6 +37,8 @@
   id: CreateSynthFleshSap
   impact: Low
   conserveEnergy: true
+  requiredMixerCategories:
+    - Stir
   reactants:
     Sap:
       amount: 2
@@ -48,6 +54,8 @@
   id: CreateSynthFleshAmmonia
   impact: Low
   conserveEnergy: true
+  requiredMixerCategories:
+    - Stir
   reactants:
     AmmoniaBlood:
       amount: 2
@@ -63,6 +71,8 @@
   id: CreateSynthFleshSlime
   impact: Low
   conserveEnergy: true
+  requiredMixerCategories:
+    - Stir
   reactants:
     Slime:
       amount: 2
@@ -78,6 +88,8 @@
   id: CreateSynthFleshInsect
   impact: Low
   conserveEnergy: true
+  requiredMixerCategories:
+    - Stir
   reactants:
     InsectBlood:
       amount: 2
@@ -93,6 +105,8 @@
   id: CreateSynthFleshGray
   impact: Low
   conserveEnergy: true
+  requiredMixerCategories:
+    - Stir
   reactants:
     GrayBlood:
       amount: 2
@@ -108,6 +122,8 @@
   id: CreateSynthFleshKodepiiae
   impact: Low
   conserveEnergy: true
+  requiredMixerCategories:
+    - Stir
   reactants:
     BloodKodepiia:
       amount: 2
@@ -123,6 +139,8 @@
   id: CreateSynthFleshShimmering
   impact: Low
   conserveEnergy: true
+  requiredMixerCategories:
+    - Stir
   reactants:
     ShimmeringBlood:
       amount: 2

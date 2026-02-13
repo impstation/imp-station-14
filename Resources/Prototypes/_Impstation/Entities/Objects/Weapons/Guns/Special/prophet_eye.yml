@@ -11,11 +11,10 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 200
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 80
 
 - type: entity

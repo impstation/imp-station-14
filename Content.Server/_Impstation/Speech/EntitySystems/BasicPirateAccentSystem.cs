@@ -14,7 +14,7 @@ public sealed class BasicPirateAccentSystem : EntitySystem
         SubscribeLocalEvent<BasicPirateAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, BasicPirateAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<BasicPirateAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

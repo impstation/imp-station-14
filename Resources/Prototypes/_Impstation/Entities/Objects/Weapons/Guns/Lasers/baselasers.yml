@@ -27,11 +27,14 @@
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
   - type: StaticPrice
     price: 420
+  - type: Tag
+    tags:
+    - LaserWeapon
 
 # For small laser pistols with an internal battery
 - type: entity
@@ -54,8 +57,12 @@
     steps: 5
     zeroVisible: false
   - type: Appearance
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLaser
     fireCost: 62.5
   - type: StaticPrice
     price: 420
+  - type: Tag
+    tags:
+    - LaserWeapon
+    - Sidearm

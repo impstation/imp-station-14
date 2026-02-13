@@ -95180,6 +95180,8 @@ entities:
       allowedEmotes: []
     - type: Emoting
     - type: Examiner
+    - type: Physics
+      bodyType: KinematicController
 - proto: HeatExchanger
   entities:
   - uid: 16059

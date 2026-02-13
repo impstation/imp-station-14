@@ -4,12 +4,14 @@
   name: machine pistols crate
   description: For when you need a compact automatic weapon. Contains two Mk 93 pistols with extra ammunition. Requires Armory access to open.
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponPistolMk93
-        amount: 2
-      - id: MagazineLPistol
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponPistolMk93
+          amount: 2
+        - id: MagazineLPistol
+          amount: 4
 
 - type: entity
   id: CrateArmoryBurstPistol
@@ -17,12 +19,14 @@
   name: hyper burst pistols crate
   description: For making the most out of small calibers. Contains two Mk 92HB pistols with extra ammunition. Requires Armory access to open.
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponPistolMk92HB
-        amount: 2
-      - id: MagazineLPistol
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponPistolMk92HB
+          amount: 2
+        - id: MagazineLPistol
+          amount: 4
 
 - type: entity
   id: CrateArmoryDMR
@@ -30,12 +34,14 @@
   name: daito crate
   description: For when you need a precise and efficient weapon. Contains two Daito DMRs with extra ammunition. Requires Armory access to open.
   components:
-  - type: StorageFill
-    contents:
-      - id: WeaponRifleDaito
-        amount: 2
-      - id: MagazineDMR
-        amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRifleDaito
+          amount: 2
+        - id: MagazineDMR
+          amount: 4
 
 - type: entity
   id: CrateArmoryLecter
@@ -43,12 +49,14 @@
   name: lecter crate
   description: Contains two Lecters with four magazines. Requires Armory access to open.
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRifleLecter
-      amount: 2
-    - id: MagazineRifle
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRifleLecter
+          amount: 2
+        - id: MagazineRifle
+          amount: 4
 
 - type: entity
   id: CrateArmoryAKMS
@@ -56,12 +64,14 @@
   name: AKMS crate
   description: Contains two AKMS rifles with four magazines. Requires Armory access to open.
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponRifleAk
-      amount: 2
-    - id: MagazineLightRifle
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRifleAk
+          amount: 2
+        - id: MagazineLightRifle
+          amount: 4
 
 - type: entity
   id: CrateArmoryKammerer
@@ -69,12 +79,14 @@
   name: kammerer crate
   description: For when the enemy absolutely needs to be replaced with lead within 3-5 business days. Contains two Kammerer shotguns with four boxes of buckshot shells. Requires Armory access to open.
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponShotgunKammerer
-      amount: 2
-    - id: BoxLethalshot
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponShotgunKammerer
+          amount: 2
+        - id: BoxLethalshot
+          amount: 4
 
 - type: entity
   id: CrateArmoryDrozd
@@ -82,12 +94,14 @@
   name: drozd crate
   description: Contains two Drozd submachine guns with four magazines. Requires Armory access to open.
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponSubMachineGunDrozd
-      amount: 2
-    - id: MagazinePistolSubMachineGun
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponSubMachineGunDrozd
+          amount: 2
+        - id: MagazinePistolSubMachineGun
+          amount: 4
 
 - type: entity
   id: CrateArmoryTranq
@@ -95,12 +109,14 @@
   name: tranquiliser dart crate
   description: Contains five Irwizine darts and five Tranquilizer darts. Requires Armory access to open to ensure only the zookeeper gets its contents.
   components:
-  - type: StorageFill
-    contents:
-    - id: TranqDart
-      amount: 5
-    - id: IrwizineDart
-      amount: 3
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: TranqDart
+          amount: 5
+        - id: IrwizineDart
+          amount: 3
 
 - type: entity
   id: CrateArmoryStarflare
@@ -108,9 +124,11 @@
   name: Starflare crate
   description: Contains two Starflare EPDW-6 guns with four cells. Requires Armory access to open.
   components:
-  - type: StorageFill
-    contents:
-    - id: WeaponStarflareSMG
-      amount: 2
-    - id: PowerCellStarflare
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponStarflareSMG
+          amount: 2
+        - id: PowerCellStarflare
+          amount: 4

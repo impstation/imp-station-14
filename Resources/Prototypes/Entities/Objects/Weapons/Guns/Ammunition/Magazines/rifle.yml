@@ -1,8 +1,8 @@
 - type: entity
+  abstract: true
+  parent: [ BaseItem, BaseSecurityContraband ]
   id: BaseMagazineRifleWizden #imp - see the _Impstation directory for the version we use
   name: "magazine (.20 rifle)"
-  parent: [ BaseItem, BaseSecurityContraband ]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -32,10 +32,10 @@
   - type: Appearance
 
 - type: entity
+  abstract: true # imp
+  parent: BaseMagazineRifleWizden # imp
   id: MagazineRifleWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: "magazine (.20 rifle)"
-  parent: BaseMagazineRifleWizden #imp
   description: 25-round double stack magazine for combat rifles. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
@@ -54,11 +54,11 @@
       - state: inhand-right-mag
 
 - type: entity
+  abstract: true # imp
+  parent: MagazineRifleWizden # imp
   id: MagazineRifleEmptyWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: "magazine (.20 rifle any)"
   suffix: empty
-  parent: MagazineRifleWizden #imp
   description: 25-round double stack magazine for combat rifles.
   components:
   - type: BallisticAmmoProvider
@@ -77,10 +77,10 @@
       - state: inhand-right-mag
 
 - type: entity
+  abstract: true # imp
+  parent: MagazineRifleWizden # imp
   id: MagazineRifleIncendiaryWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: "magazine (.20 rifle incendiary)"
-  parent: MagazineRifleWizden #imp
   description: 25-round double stack magazine for combat rifles. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
@@ -105,11 +105,11 @@
         color: "#ff6e52"
 
 - type: entity
+  abstract: true # imp
+  parent: BaseMagazineRifleWizden # imp
   id: MagazineRiflePracticeWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: "magazine (.20 rifle practice)"
-  parent: BaseMagazineRifleWizden #imp
-  description: 25-round double stack magazine for combat rifles. Intended to hold non-harmful chalk ammunition.
+  description: 25-round double stack magazine for combat rifles. Intended to hold harmless practice ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRiflePractice
@@ -133,10 +133,10 @@
         color: "#dbdbdb"
 
 - type: entity
+  abstract: true # imp
+  parent: BaseMagazineRifleWizden # imp
   id: MagazineRifleUraniumWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: "magazine (.20 rifle uranium)"
-  parent: BaseMagazineRifleWizden #imp
   description: 25-round double stack magazine for combat rifles. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider

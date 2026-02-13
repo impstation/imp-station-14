@@ -76,24 +76,28 @@
         visualType: Large
         messages: [ "snail-hurt-by-chem-popup" ]
         probability: 1
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 380
     coldDamageThreshold: 285
-    currentTemperature: 310
-    specificHeat: 42
     coldDamage:
       types:
         Cold : 0.5 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat : 1.5 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310
+    specificHeat: 42
   - type: TemperatureSpeed
     thresholds: # copied over from Decapoids to remove temp speed restrictions. this is hacky and sucks.
       293: 1.0
       280: 1.0
       260: 1.0
   - type: Bloodstream
-    bloodReagent: CopperBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 300
   - type: Tag
     tags:
       - Gastropoid

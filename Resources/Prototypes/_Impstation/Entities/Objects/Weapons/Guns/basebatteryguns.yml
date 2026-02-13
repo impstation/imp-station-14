@@ -49,6 +49,10 @@
   - type: MeleeThrowOnHit
     distance: 0.8
     speed: 5
+  - type: PointingModifier
+    textSelf: pointing-system-verb-take-aim-self
+    textOther: pointing-system-verb-take-aim-other
+    pointingArrow: PointingCrosshair
 
 - type: entity
   id: BaseWeaponPowerCell
@@ -108,6 +112,10 @@
   - type: MeleeThrowOnHit
     distance: 0.8
     speed: 5
+  - type: PointingModifier
+    textSelf: pointing-system-verb-take-aim-self
+    textOther: pointing-system-verb-take-aim-other
+    pointingArrow: PointingCrosshair
 
 - type: entity
   id: BaseWeaponBatterySmall

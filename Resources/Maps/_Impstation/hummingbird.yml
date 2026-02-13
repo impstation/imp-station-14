@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 268.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/13/2026 00:15:34
-  entityCount: 25397
+  time: 01/21/2026 01:25:06
+  entityCount: 25398
 maps:
 - 1
 grids:
@@ -6645,6 +6645,7 @@ entities:
       id: Hummingbird
     - type: NavMap
     - type: ImplicitRoof
+    - type: ExplosionAirtightGrid
 - proto: AccordionInstrument
   entities:
   - uid: 3
@@ -13645,6 +13646,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 14.5,-0.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Engineering
     - type: Fixtures
       fixtures: {}
   - uid: 726
@@ -13663,6 +13667,9 @@ entities:
     - type: Transform
       pos: 15.5,-9.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Engineering
     - type: Fixtures
       fixtures: {}
   - uid: 728
@@ -19547,7 +19554,7 @@ entities:
   - uid: 1630
     components:
     - type: Transform
-      pos: 19.5,-11.5
+      pos: 22.5,-9.5
       parent: 2
   - uid: 1631
     components:
@@ -20447,7 +20454,7 @@ entities:
   - uid: 1819
     components:
     - type: Transform
-      pos: 19.5,-15.5
+      pos: 22.5,-8.5
       parent: 2
   - uid: 1820
     components:
@@ -35468,6 +35475,11 @@ entities:
     components:
     - type: Transform
       pos: 108.5,14.5
+      parent: 2
+  - uid: 19414
+    components:
+    - type: Transform
+      pos: 22.5,-10.5
       parent: 2
   - uid: 19492
     components:
@@ -63227,8 +63239,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-    missingComponents:
-    - StorageFill
 - proto: CrateFilledSpawner
   entities:
   - uid: 9792
@@ -63420,8 +63430,8 @@ entities:
       pos: 79.5,22.5
       parent: 2
     - type: EntityStorage
-      open: True
       removedMasks: 28
+      open: True
     - type: Fixtures
       fixtures:
         fix1:
@@ -63515,8 +63525,6 @@ entities:
           ent: null
     - type: Pullable
       prevFixedRotation: True
-    missingComponents:
-    - StorageFill
 - proto: CrateSecurityTrackingMindshieldImplants
   entities:
   - uid: 9824
@@ -121130,6 +121138,23 @@ entities:
     - type: Transform
       pos: 60.487103,-52.45672
       parent: 2
+- proto: PlushieSpawner50
+  entities:
+  - uid: 20883
+    components:
+    - type: Transform
+      pos: 60.5,11.5
+      parent: 2
+  - uid: 20884
+    components:
+    - type: Transform
+      pos: 8.5,-26.5
+      parent: 2
+  - uid: 25343
+    components:
+    - type: Transform
+      pos: 30.5,-22.5
+      parent: 2
 - proto: PlushieThrongler
   entities:
   - uid: 17208
@@ -145529,23 +145554,6 @@ entities:
     - type: Transform
       pos: 136.48222,8.771966
       parent: 2
-- proto: ToySpawner
-  entities:
-  - uid: 20883
-    components:
-    - type: Transform
-      pos: 60.5,11.5
-      parent: 2
-  - uid: 20884
-    components:
-    - type: Transform
-      pos: 8.5,-26.5
-      parent: 2
-  - uid: 25343
-    components:
-    - type: Transform
-      pos: 30.5,-22.5
-      parent: 2
 - proto: ToySword
   entities:
   - uid: 20886
@@ -163078,8 +163086,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
 - proto: WaterCooler
@@ -164105,7 +164113,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -222912.31
+      secondsUntilStateChange: -223041.2
       state: Opening
     - type: Airlock
       autoClose: False
