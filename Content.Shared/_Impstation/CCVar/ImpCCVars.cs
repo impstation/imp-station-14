@@ -16,6 +16,14 @@ public sealed class ImpCCVars : CVars
         CVarDef.Create("accessibility.disable_singulo_warping", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// <summary>
+    /// Toggles the effects of weather on the client.
+    /// This is a toggle because it is a photosensitivity concern.
+    /// Please keep that in mind if you are touching this in the future.
+    /// </summary>
+    public static readonly CVarDef<bool> DisableWeather =
+        CVarDef.Create("accessibility.disable_weather", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    /// </summary>
     /// Replaces the AI static camera effect with a plain black gradient.
     /// </summary>
     public static readonly CVarDef<bool> DisableAiStatic =

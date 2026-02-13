@@ -92,10 +92,12 @@
   name: goblin banishment crate
   description: The most severe punishment known to gobkind. Sealed by a wizard's curse. Occasionally releases goblins, once they have served their sentence.
   components:
-  - type: StorageFill
-    contents:
-      - id: SpawnPointGhostGoblinCastaway
-        amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SpawnPointGhostGoblinCastaway
+          amount: 10
   - type: AccessReader
     access: [[Wizard]]
     breakOnAccessBreaker: false

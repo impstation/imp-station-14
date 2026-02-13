@@ -1,7 +1,7 @@
 - type: entity
-  id: BaseCartridgeWizden #imp - see the _Impstation directory for the version we use
-  parent: BaseItem
   abstract: true
+  parent: BaseItem
+  id: BaseCartridgeWizden #imp - see the _Impstation directory for the version we use
   components:
   - type: Sprite
     drawdepth: Items
