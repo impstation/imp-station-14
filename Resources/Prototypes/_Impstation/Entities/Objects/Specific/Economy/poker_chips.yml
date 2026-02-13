@@ -11,7 +11,6 @@
     sprite: _Impstation/Objects/Economy/PokerChips/white.rsi
     state: icon
     layers:
-    # this is bad!
     - state: icon
       map: [ "chip1" ]
       visible: false
@@ -111,7 +110,6 @@
       map: [ "chip25" ]
       visible: false
       offset: 0, 0.75
-  # was that guy bothering you
   - type: Stack
     stackType: PokerChip1
     count: 1
