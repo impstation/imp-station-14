@@ -217,6 +217,10 @@
   - type: Emoting #imp. Let them emote
   - type: BodyEmotes #imp
     soundsId: GeneralBodyEmotes #imp
+  - type: Stamp
+    stampedName: HEAD OF DRAGONS
+    stampedColor: "#cc0000"
+    stampState: "paper_stamp-hos"
 
 - type: entity
   categories: [ HideSpawnMenu ]

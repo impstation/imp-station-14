@@ -10,7 +10,7 @@
   canBuildInImpassable: true
   conditions:
   - !type:WallmountCondition {}
-  
+
 - type: construction
   id: DeskIntercomAssembly
   graph: DeskIntercom
@@ -205,3 +205,22 @@
   - HeatExchangerBend
   - HeatExchangerBendAlt1
   - HeatExchangerBendAlt2
+
+- type: construction
+  id: HeatExchangerRetro
+  graph: GasBinary
+  startNode: start
+  targetNode: retroRadiator
+  category: construction-category-atmos
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+
+- type: construction
+  id: HeatExchangerRetroBend
+  name: construction-recipe-heat-exchanger-retro-bend
+  graph: GasBinary
+  startNode: start
+  targetNode: retroBendRadiator
+  category: construction-category-atmos
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
