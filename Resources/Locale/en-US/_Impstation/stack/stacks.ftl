@@ -51,3 +51,10 @@ stack-green-herringbone = green steel herringbone
 stack-green-diagonal-mini = green steel diagonal mini tile
 stack-green-squiggly = green steel squiggly tile
 stack-green-plastic = green plastic tile
+
+# poker chips
+stack-pokerchip-1 = §1 poker chip
+stack-pokerchip-5 = §5 poker chip
+stack-pokerchip-25 = §25 poker chip
+stack-pokerchip-100 = §100 poker chip
+stack-pokerchip-500 = §500 poker chip

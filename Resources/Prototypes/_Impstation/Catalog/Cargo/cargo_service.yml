@@ -28,6 +28,16 @@
   category: cargoproduct-category-name-service
   group: market
 
+- type: cargoProduct
+  id: ServicePokerChips
+  icon:
+    sprite: _Impstation/Objects/Economy/PokerChips/red.rsi
+    state: icon
+  product: CrateServicePokerChips
+  cost: 16925
+  category: cargoproduct-category-name-service
+  group: market
+
 #- type: cargoProduct # come back next february
 #  name: romantic crate
 #  id: CrateValentines

@@ -1,0 +1,122 @@
+﻿- type: entity
+  parent: BaseItem
+  id: PokerChipCase
+  name: poker chip case
+  description: A case made for storing twelve stacks of twenty-five poker chips.
+  components:
+  - type: Sprite
+    sprite: _Impstation\Objects\Storage\Briefcases\briefcase_steel.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+    sprite: _Impstation\Objects\Storage\Briefcases\briefcase_steel.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+    soundHit:
+      collection: GenericHit
+  - type: DamageOtherOnHit
+    staminaCost: 5
+  - type: ItemSlots
+    slots:
+      chip_slot_1:
+        whitelist:
+          tags:
+          - PokerChip
+      chip_slot_2:
+        whitelist:
+          tags:
+          - PokerChip
+      chip_slot_3:
+        whitelist:
+          tags:
+          - PokerChip
+      chip_slot_4:
+        whitelist:
+          tags:
+          - PokerChip
+      chip_slot_5:
+        whitelist:
+          tags:
+          - PokerChip
+      chip_slot_6:
+        whitelist:
+          tags:
+          - PokerChip
+      chip_slot_7:
+        whitelist:
+          tags:
+          - PokerChip
+      chip_slot_8:
+        whitelist:
+          tags:
+          - PokerChip
+      chip_slot_9:
+        whitelist:
+          tags:
+          - PokerChip
+      chip_slot_10:
+        whitelist:
+          tags:
+          - PokerChip
+      chip_slot_11:
+        whitelist:
+          tags:
+          - PokerChip
+      chip_slot_12:
+        whitelist:
+          tags:
+          - PokerChip
+  - type: UserInterface
+    interfaces:
+      enum.ItemSlotsUiKey.Key:
+        type: ItemSlotsBoundUserInterface
+  - type: ActivatableUI
+    key: enum.ItemSlotsUiKey.Key
+  - type: ContainerContainer
+    containers:
+      chip_slot_1: !type:ContainerSlot { }
+      chip_slot_2: !type:ContainerSlot { }
+      chip_slot_3: !type:ContainerSlot { }
+      chip_slot_4: !type:ContainerSlot { }
+      chip_slot_5: !type:ContainerSlot { }
+      chip_slot_6: !type:ContainerSlot { }
+      chip_slot_7: !type:ContainerSlot { }
+      chip_slot_8: !type:ContainerSlot { }
+      chip_slot_9: !type:ContainerSlot { }
+      chip_slot_10: !type:ContainerSlot { }
+      chip_slot_11: !type:ContainerSlot { }
+      chip_slot_12: !type:ContainerSlot { }
+
+- type: entity
+  parent: PokerChipCase
+  id: PokerChipCaseFilled
+  suffix: Filled
+  components:
+  - type: ContainerFill
+    containers:
+      chip_slot_1:
+      - PokerChip1Stack
+      chip_slot_2:
+      - PokerChip1Stack
+      chip_slot_3:
+      - PokerChip1Stack
+      chip_slot_4:
+      - PokerChip1Stack
+      chip_slot_5:
+      - PokerChip5Stack
+      chip_slot_6:
+      - PokerChip5Stack
+      chip_slot_7:
+      - PokerChip5Stack
+      chip_slot_8:
+      - PokerChip5Stack
+      chip_slot_9:
+      - PokerChip25Stack
+      chip_slot_10:
+      - PokerChip25Stack
+      chip_slot_11:
+      - PokerChip100Stack
+      chip_slot_12:
+      - PokerChip500Stack
