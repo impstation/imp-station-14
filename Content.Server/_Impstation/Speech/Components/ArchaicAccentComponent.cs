@@ -1,4 +1,4 @@
-namespace Content.Server.Speech.Components;
+namespace Content.Server._Impstation.Speech.Components;
 
 /// <summary>
 /// A replacement accent that replaces vocabulary with anachronistic and fantasy words.
