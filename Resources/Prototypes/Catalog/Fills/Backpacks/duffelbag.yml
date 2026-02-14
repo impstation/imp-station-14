@@ -153,7 +153,7 @@
   parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoFilled
   name: ammo bundle
-  description: "Reloading! Contains 4 magazines for the C-20R Gorgon, 4 drums for the Hydra, 3 magazines for the Estoc DMR and 2 ammo boxes for the L6 Nidhogg SAW." #imp
+  description: "Reloading! Contains 4 magazines for the C-20R Gorgon, 5 drums for the Hydra, 3 magazines for the Basilisk-11, and 2 ammo boxes for the L6 Nidhogg SAW." #imp
   suffix: ammo bundle #imp edit
   components:
   - type: EntityTableContainerFill
@@ -164,13 +164,13 @@
           amount: 4
         - id: MagazineShotgun
           amount: 4
-        - id: MagazineRifle
-          amount: 3
         - id: MagazineShotgunSlug
         - id: MagazineLightRifleBox
           amount: 2
-        - id: MagazineBR #imp edit
-          amount: 2
+        - id: MagazineBR #imp edit-- instead of the magazines for the Estoc, because the Basilisk is our Estoc basically.
+          amount: 3
+#        - id: MagazineRifle
+#          amount: 3 #imp -- Remove. Estoc is not in the shop.
 
 - type: entity
   parent: ClothingBackpackDuffelClown
