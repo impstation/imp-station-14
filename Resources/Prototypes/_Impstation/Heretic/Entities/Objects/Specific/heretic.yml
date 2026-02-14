@@ -29,7 +29,7 @@
           eldritch-book-icon3: ""
           eldritch-book-icon4: ""
           eldritch-book-icon5: ""
-          eldritch-book-icon6: ""          
+          eldritch-book-icon6: ""
   - type: HereticKnowledgeItem
   - type: PointLight
     radius: 1.5
@@ -38,11 +38,11 @@
   - type: Tag
     tags:
       - Book
-    
+
 - type: entity
   id: RealityTear
   name: reality tear
-  description: It hurts your head to look at. 
+  description: It hurts your head to look at.
   components:
   - type: TimedDespawn
     lifetime: 10
@@ -57,7 +57,7 @@
     sprite: _Goobstation/Heretic/reality_fracture.rsi
     state: icon_harvested
   - type: Clickable
-  
+
 - type: entity
   parent: EldritchTome
   id: DebugEldritchTome
@@ -69,7 +69,7 @@
     pointGain: 999
     useTimeSeconds: 1
 
-- type: entity 
+- type: entity
   parent: [ BaseItem, TierXContraband ]
   id: HereticBookSensor
   name: seeker's heart
@@ -94,7 +94,7 @@
         maxDistance: 1
         volume: -2
 
-- type: entity 
+- type: entity
   id: AlwaysPoweredHellLight
   parent: MarkerBase
   name: hellworldlight
@@ -113,7 +113,7 @@
       - sprite: Structures/Wallmounts/Lighting/light_tube.rsi
         state: base
 
-- type: entity 
+- type: entity
   id: HellSpawnPointMarker
   parent: MarkerBase
   name: hellworldtarget
@@ -151,6 +151,12 @@
       reflects:
         - Energy
       spread: 330
+    - type: Clothing
+      sprite: Clothing/Belt/sheath.rsi
+      slots: [belt]
+      equipSound:
+        path: /Audio/Items/belt_equip.ogg
+      quickEquip: false
 
 - type: entity
   name: frangiclave
