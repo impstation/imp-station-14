@@ -184,8 +184,10 @@
   name: psychologist bed
   description: An upholstered bed for the psychological care of patients.
   components:
-  - type: Sprite
+  - type: Sprite # Imp Edit: Uncoupled the sprite from the bed
+    sprite: _Impstation/Structures/Furniture/furniture.rsi
     state: psychbed
+    noRot: true
   - type: HealOnBuckle
     damage:
       types:
