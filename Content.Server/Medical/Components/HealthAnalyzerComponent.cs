@@ -61,4 +61,10 @@ public sealed partial class HealthAnalyzerComponent : Component
     /// </summary>
     [DataField]
     public bool Silent;
+
+    /// <summary>
+    ///     IMP ADD: whether this entity should stop scanning on insert into container
+    /// </summary>
+    [DataField]
+    public bool RemainActiveInContainer;
 }

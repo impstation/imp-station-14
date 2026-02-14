@@ -39,7 +39,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     {
         SubscribeLocalEvent<HealthAnalyzerComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<HealthAnalyzerComponent, HealthAnalyzerDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<HealthAnalyzerComponent, EntGotInsertedIntoContainerMessage>(OnInsertedIntoContainer);
+        SubscribeLocalEvent<HealthAnalyzerComponent, EntGotInsertedIntoContainerMessage>(OnInsertedIntoContainer); //imp remove lol
         SubscribeLocalEvent<HealthAnalyzerComponent, ItemToggledEvent>(OnToggled);
         SubscribeLocalEvent<HealthAnalyzerComponent, DroppedEvent>(OnDropped);
     }
@@ -119,7 +119,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
     /// </summary>
     private void OnInsertedIntoContainer(Entity<HealthAnalyzerComponent> uid, ref EntGotInsertedIntoContainerMessage args)
     {
-        if (uid.Comp.ScannedEntity is { } patient)
+        if (!uid.Comp.RemainActiveInContainer && // imp add
+            uid.Comp.ScannedEntity is { } patient)
             _toggle.TryDeactivate(uid.Owner);
     }
 
