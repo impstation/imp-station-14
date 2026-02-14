@@ -1,0 +1,444 @@
+- type: entity
+  id: ApprenticeHat
+  parent: [ BaseItem, BaseMagicalContraband, ClothingHeadHatWizardBase]
+  name: apprentice hat
+  description: For an aspiring wizard!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/apprentice_hat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/apprentice_hat.rsi
+
+- type: entity
+  id: ApprenticeRobes
+  parent: [ BaseItem, BaseMagicalContraband, ClothingOuterWizardBase]
+  name: apprentice robes
+  description: For an aspiring wizard, matches the hat!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/apprentice_robes.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Misc/apprentice_robes.rsi
+
+- type: entity
+  id: MagicBubble
+  name: bubble
+  components:
+  - type: Sprite
+    sprite: _Impstation/Magic/bubble.rsi
+    state: bullet
+  - type: Physics
+    angularDamping: 0.02
+    linearDamping: 0.02
+    bodyType: Dynamic
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    deleteOnCollide: true
+    soundHit:
+      path: /Audio/Effects/pop.ogg
+    damage:
+      types:
+        Blunt: 0
+  - type: StaminaDamageOnCollide
+    damage: 10
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.30,0.10,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Water
+          Quantity: 50
+  - type: Vapor
+    active: false
+    transferAmountPercentage: 20
+  - type: SpawnOnTrigger
+    proto: PuddleWater
+  - type: TriggerOnCollide
+    fixtureID: projectile
+
+- type: entity
+  name: cone of cold
+  parent: FoodFrozenSnowcone
+  id: FoodFrozenSnowconeMagic
+  description: It dosen't even have syrup...
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 45
+        reagents:
+        - ReagentId: Ice
+          Quantity: 10
+        - ReagentId: DoctorsDelight
+          Quantity: 30
+  - type: FlavorProfile
+    flavors:
+    - ice
+    - magic
+
+- type: entity
+  id: ProjectileIceMagic
+  parent: BaseBullet
+  name: magic icicle
+  description: Brrrrr!
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/ice_anom.rsi
+  - type: Projectile
+    deleteOnCollide: true
+    soundHit:
+      path: /Audio/_Impstation/Magic/icemagic.ogg
+    damage:
+      types:
+        Piercing: 80
+        Cold: 80
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: SpawnOnTrigger
+    proto: IceCrust
+
+- type: entity
+  parent: BaseMaterialDoorNavMap
+  id: WizardDoor
+  name: wizard door
+  description: W1Z4rD5 0N1Y!!!!!
+  suffix: Wizard, Locked
+  components:
+  - type: Sprite
+    sprite: _Impstation/Magic/door.rsi
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/smash.ogg"
+  - type: AccessReader
+    access: [["Wizard"]]
+  - type: Door
+    openSound:
+      path: /Audio/_Impstation/Magic/magicdooropen.ogg
+    closeSound:
+      path: /Audio/_Impstation/Magic/magicdoorclose.ogg
+    denySound:
+      path: /Audio/_Impstation/Magic/magicdoorno.ogg
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StrongMetallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroy
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: PlacementReplacement
+    key: walls
+  - type: BlockWeather
+
+- type: entity
+  parent: [ PersonalAI, BaseMagicalContraband ]
+  id: PersonalAIMagic
+  name: magic mirror
+  suffix: Wizard
+  description: Your magical guide.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Magic/PAI.rsi
+    layers:
+    - state: pai-base
+    - state: pai-off
+      shader: unshaded
+      map: ["screen"]
+  - type: ToggleableGhostRole
+    roleName: pai-system-role-name-wizard
+    roleDescription: pai-system-role-description-wizard
+    roleRules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        screen:
+          Off: { state: pai-off }
+          Searching: { state: pai-loading}
+          On: { state: pai-on }
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSiliconXenoborg
+
+- type: entity
+  id: BulletInstaBreakMagic
+  name: magic bullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Structural: 1000
+    ignoreResistances: true
+
+- type: entity
+  parent: [ ClothingBackpackSatchelHolding, BaseMagicalContraband, BaseBagOpenClose ]
+  id: ClothingBackpackSatchelWizard
+  name: bag of holding
+  description: For wizardly things... or anything else really, you have the room.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Back/Satchels/magicbag.rsi
+    state: close
+    layers:
+    - state: close
+    - state: open
+      map: [ "openLayer" ]
+      visible: false
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/soft_thump.ogg
+  - type: Storage
+    storageOpenSound: /Audio/_NF/Voice/Goblin/goblin_hiss_1.ogg
+    storageCloseSound: /Audio/Voice/Vulpkanin/dog_snarl3.ogg
+  - type: Appearance
+
+- type: entity
+  parent: [ ClothingHandsBase, BaseMagicalContraband ]
+  id: ClothingHandsWizard
+  name: magic gloves
+  description: Magical insuls with a killer punch!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Hands/Gloves/magicgloves.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Hands/Gloves/magicgloves.rsi
+  - type: Insulated
+  - type: DeflectThrownObjects
+  - type: MeleeThrowOnHit
+    speed: 20
+    distance: 50
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 20
+        Structural: 20
+    soundHit:
+      collection: MetalThud
+    mustBeEquippedToUse: true
+  - type: Fiber
+    fiberMaterial: fibers-magic
+  - type: FingerprintMask
+
+- type: entity
+  parent: [ ClothingShoesBase, BaseMagicalContraband ]
+  id: ClothingBootsWizard
+  name: magic shoes
+  description: Heel clicking teleport not included.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Boots/magicboots.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Boots/magicboots.rsi
+  - type: NoSlip
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBoots
+  - type: JumpAbility
+    jumpDistance: 8
+    jumpSound: /Audio/Effects/stealthoff.ogg
+  - type: ActionGrant
+    actions:
+    - ActionGravityJump
+  - type: ItemActionGrant
+    actions:
+    - ActionGravityJump
+    activeIfWorn: true
+  - type: ClothingSpeedModifier
+    walkModifier: 1.8
+    sprintModifier: 1.8
+    standing: true
+
+- type: entity
+  parent: [ RingBase, BaseMagicalContraband ]
+  id: MagicRing
+  name: ring of theft
+  description: Yeah, im dual classing mage rogue.
+  components:
+  - type: Clothing
+    slots: [ gloves ]
+    sprite: _Impstation/Clothing/Hands/Rings/magicring.rsi
+  - type: Sprite
+    sprite: _Impstation/Clothing/Hands/Rings/magicring.rsi
+    state: icon
+  - type: Appearance
+  - type: Item
+    size: Tiny
+  - type: Fiber
+    fiberMaterial: fibers-magic
+  - type: FingerprintMask
+  - type: Thieving
+    stripTimeReduction: 1
+    stealthy: true
+
+- type: entity
+  id: ProjectileMM
+  parent: [ FlyingMobBase, BaseBulletTrigger ] # dont worry about it
+  name: magic missile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: CartridgeAmmo
+    proto: PelletShotgunSpread
+  - type: CombatMode
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.30,0.10,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: MobCollision
+  - type: Physics
+    bodyType: KinematicController
+  - type: InputMover
+  - type: MobMover
+  - type: Clickable
+  - type: NpcFactionMember
+    factions:
+      - Wizard
+  - type: HTN
+    rootTask:
+      task: GrenadePenguinCompound
+  - type: TimedDespawn
+    lifetime: 8
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+      - state: magicm
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          magicm: ""
+          magicm_cyan: ""
+          magicm_green: ""
+          magicm_red: ""
+          magicm_yellow: ""
+  - type: TriggerOnCollide
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/_Impstation/Magic/woosh.ogg"
+    hidden: true
+    damage:
+      groups:
+        Brute: 0
+  - type: Projectile
+    deleteOnCollide: true
+    damage:
+      types:
+        Cellular: 10
+
+- type: entity
+  name: Rock
+  id: MagicRock
+  suffix: Wizard
+  description: Sure is a rock.
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Examiner
+  - type: Physics
+    bodyType: KinematicController
+  - type: Pullable
+  - type: Input
+    context: "human"
+  - type: ZombieImmune
+  - type: ProtectedFromStepTriggers
+  - type: Sprite
+    sprite: Objects/Decoration/Flora/flora_rockssolid.rsi
+    noRot: true
+    drawdepth: Mobs
+    layers:
+      - state: rocksolid01
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          rocksolid01: ""
+          rocksolid02: ""
+          rocksolid03: ""
+  - type: NpcFactionMember
+    factions:
+      - Wizard
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/Effects/break_stone.ogg
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 0.5
+    baseSprintSpeed : 1
+
+- type: entity
+  parent: [ClothingEyesBase, BaseMagicalContraband]
+  id: ClothingEyesGlassesWizard
+  name: magical glasses
+  description:
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Glasses/magicglasses.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Glasses/magicglasses.rsi
+  - type: FlashImmunity
+  - type: IdentityBlocker
+    coverage: EYES
