@@ -24,10 +24,11 @@
     size: Ginormous
   - type: GunRequiresWield
   - type: Gun
+    projectileSpeed: 25
     fireRate: 0.5
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/blastercannon.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterCannon
     fireCost: 200
   - type: MeleeWeapon
@@ -65,14 +66,14 @@
     sprite: _Impstation/Objects/Weapons/Guns/Blasters/advblaster.rsi
   - type: Appearance
   - type: Gun
+    projectileSpeed: 25
     fireRate: 1.75
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/blasterpist.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterMagnum
     fireCost: 150
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 20
   - type: MeleeWeapon
     wideAnimationRotation: -80
@@ -99,10 +100,11 @@
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Blasters/temp_gun.rsi
   - type: Gun
+    projectileSpeed: 25
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BoltTempgunCold
     fireCost: 100
   - type: BatteryWeaponFireModes
@@ -142,6 +144,7 @@
     steps: 5
     zeroVisible: true
   - type: Gun
+    projectileSpeed: 25
     fireRate: 2.5
     selectedMode: SemiAuto
     availableModes:
@@ -199,6 +202,7 @@
     minAngle: -14
     maxAngle: -16
   - type: Gun
+    projectileSpeed: 25
     minAngle: 16
     maxAngle: 36
     angleIncrease: 2
