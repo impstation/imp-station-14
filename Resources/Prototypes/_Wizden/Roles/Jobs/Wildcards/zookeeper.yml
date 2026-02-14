@@ -19,13 +19,13 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSafari
     head: ClothingHeadSafari
-    shoes: ClothingShoesColorWhite
+ #  shoes: ClothingShoesColorWhite # imp, shoes moved to loadout
     id: ZookeeperPDA
     belt: ClothingBeltUtility #imp
     ears: ClothingHeadsetService
-  inhand: #imp
-    - WeaponRifleTranq
   storage:
+    back: # imp
+    - WeaponRifleTranq
     belt: #imp
     - TranqDart
     - TranqDart
