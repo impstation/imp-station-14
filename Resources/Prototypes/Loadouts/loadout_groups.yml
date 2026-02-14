@@ -405,6 +405,11 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  # DEN start
+  - HatDinerTeal
+  - HatDinerPink
+  - HatDinerFastFood
+  # DEN end
 
 - type: loadoutGroup
   id: ChefMask
@@ -423,6 +428,16 @@
   - ChefSpaceJumpsuit # imp
   - HeadChefSkirt # imp
   - HeadChef # imp
+  # DEN start
+  - JumpsuitDinerTeal
+  - JumpskirtDinerTeal
+  - JumpsuitDinerPink
+  - JumpskirtDinerPink
+  - JumpsuitDinerPinkDark
+  - JumpskirtDinerPinkDark
+  - JumpsuitDinerFastFood
+  - JumpskirtDinerFastFood
+  # DEN end
 
 - type: loadoutGroup
   id: ChefOuterClothing
