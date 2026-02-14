@@ -89,6 +89,10 @@ public sealed class SolutionHeaterSystem : EntitySystem
                 var energy = heater.HeatPerSecond * frameTime;
                 foreach (var (_, soln) in _solutionContainer.EnumerateSolutions((heatingEntity, container)))
                 {
+                    // Imp - Max temperature for hotplates
+                    if (heater.MaxTemperature != null && soln.Comp.Solution.Temperature >= heater.MaxTemperature.Value)
+                        continue;
+                    // Imp
                     _solutionContainer.AddThermalEnergy(soln, energy);
                 }
             }
