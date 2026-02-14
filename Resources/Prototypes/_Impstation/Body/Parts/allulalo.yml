@@ -80,8 +80,8 @@
     sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
     state: "l_leg"
   - type: MovementBodyPart
-    sprintSpeed: 5
-    walkSpeed: 3
+    sprintSpeed: 4.5
+    walkSpeed: 2.5
 
 - type: entity
   id: RightLegAllulalo
@@ -92,8 +92,8 @@
     sprite: _Impstation/Mobs/Species/Allulalo/parts.rsi
     state: "r_leg"
   - type: MovementBodyPart
-    sprintSpeed: 5
-    walkSpeed: 3
+    sprintSpeed: 4.5
+    walkSpeed: 2.5
 
 - type: entity
   id: LeftFootAllulalo
