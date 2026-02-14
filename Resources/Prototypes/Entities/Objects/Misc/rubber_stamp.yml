@@ -15,7 +15,7 @@
         volume: -2
         maxDistance: 5
   - type: Sprite
-    sprite: Objects/Misc/stamps.rsi
+    sprite: _Impstation/Objects/Misc/stamps.rsi # imp
     state: stamp-mime
   - type: Item
     size: Tiny
@@ -219,6 +219,7 @@
     stampedColor: "#000000"
     stampState: "paper_stamp-trader"
   - type: Sprite
+    sprite: Objects/Misc/stamps.rsi # imp
     state: stamp-trader
 
 - type: entity
