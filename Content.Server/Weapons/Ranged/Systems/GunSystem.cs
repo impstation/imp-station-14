@@ -12,6 +12,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
+using Content.Shared._Impstation.Weapons.Ranged.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -161,7 +162,11 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             FiredProjectiles = shotProjectiles,
         });
-
+        /// <summary>
+        /// Imp - Allows guns that use ammo to add/subtract from projectile count.
+        /// Only works with ammo that already has multiple projectiles.
+        /// Anything marked with Imp in this method is altered from upstream.
+        /// </summary>
         void CreateAndFireProjectiles(EntityUid ammoEnt, AmmoComponent ammoComp)
         {
             if (TryComp<ProjectileSpreadComponent>(ammoEnt, out var ammoSpreadComp))
@@ -169,13 +174,16 @@ public sealed partial class GunSystem : SharedGunSystem
                 var spreadEvent = new GunGetAmmoSpreadEvent(ammoSpreadComp.Spread);
                 RaiseLocalEvent(gunUid, ref spreadEvent);
 
+                var countEvent = new GunGetAmmoProjectileCountEvent(ammoSpreadComp.Count, ammoEnt); // Imp - New
+                RaiseLocalEvent(gunUid, ref countEvent); // Imp - New
+
                 var angles = LinearSpread(mapAngle - spreadEvent.Spread / 2,
-                    mapAngle + spreadEvent.Spread / 2, ammoSpreadComp.Count);
+                    mapAngle + spreadEvent.Spread / 2, countEvent.Count); // Imp - Changed ammoSpreadComp to countEvent
 
                 ShootOrThrow(ammoEnt, angles[0].ToVec(), gunVelocity, gun, gunUid, user);
                 shotProjectiles.Add(ammoEnt);
 
-                for (var i = 1; i < ammoSpreadComp.Count; i++)
+                for (var i = 1; i < countEvent.Count; i++) // Imp - Changed ammoSpreadComp to countEvent
                 {
                     var newuid = Spawn(ammoSpreadComp.Proto, fromEnt);
                     ShootOrThrow(newuid, angles[i].ToVec(), gunVelocity, gun, gunUid, user);
