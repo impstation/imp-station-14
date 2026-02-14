@@ -110,6 +110,11 @@ public sealed class TegSystem : EntitySystem
             {
                 args.PushMarkup(Loc.GetString("teg-generator-examine-power", ("power", supplier.CurrentSupply)));
                 args.PushMarkup(Loc.GetString("teg-generator-examine-power-max-output", ("power", supplier.MaxSupply)));
+
+                // IMP ADD: TEG AMBIENT HEAT
+                // 5 different strings, so we multiply fraction by 5.
+                var uptime = MathF.Round(component.InternalHeat / component.MaxInternalHeat * 5);
+                args.PushMarkup(Loc.GetString("teg-generator-examine-uptime", ("uptime", uptime)));
             }
         }
     }
@@ -194,13 +199,34 @@ public sealed class TegSystem : EntitySystem
                 // A -> B
                 airA.Temperature -= transfer / cA;
                 airB.Temperature += outTransfer / cB;
+
+                // IMP ADD: TEGLOOSE, modify internal temperature
+                component.InternalHeat = MathF.Min(
+                    component.MaxInternalHeat,
+                    component.InternalHeat - (transfer / cA - outTransfer / cB));
             }
             else
             {
                 // B -> A
                 airA.Temperature += outTransfer / cA;
                 airB.Temperature -= transfer / cB;
+
+                // IMP ADD: TEGLOOSE, modify internal temperature
+                component.InternalHeat = MathF.Min(
+                    component.MaxInternalHeat,
+                    component.InternalHeat - (transfer / cB - outTransfer / cA));
             }
+
+            // IMP ADD: TEGLOOSE
+            // clamp to 0
+            component.InternalHeat = MathF.Max(component.InternalHeat, 0);
+
+            // modify thermal efficiency based on internal temperature, clamped to base value & min efficiency
+            // a TEG can never get more efficient, but it can get less efficient!
+            component.ThermalEfficiency = MathF.Max(component.MinThermalEfficiency, MathF.Min(
+                component.BaseThermalEfficiency,
+                component.BaseThermalEfficiency * (component.InternalHeat / component.MaxInternalHeat)));
+            // END IMP ADD
         }
 
         component.LastGeneration = electricalEnergy;
