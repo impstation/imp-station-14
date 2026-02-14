@@ -151,6 +151,7 @@
   - UplinkWeaponry
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -170,6 +171,7 @@
   - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -391,6 +393,7 @@
   - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -447,6 +450,7 @@
   restockTime: 1800
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -462,6 +466,7 @@
     - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -634,6 +639,7 @@
   - UplinkAmmo
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -698,6 +704,7 @@
   - UplinkChemicals
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -795,6 +802,7 @@
   - UplinkChemicals
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -963,6 +971,7 @@
   restockTime: 1800
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -981,6 +990,7 @@
   - UplinkDeception
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1148,6 +1158,7 @@
   - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
+     makeHidden: true # imp add
      blacklist:
        tags:
        - NukeOpsUplink
@@ -1170,6 +1181,7 @@
   - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1189,6 +1201,7 @@
   - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1208,6 +1221,7 @@
   - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1227,6 +1241,7 @@
   - UplinkDisruption
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
         - NukeOpsUplink
@@ -1281,6 +1296,7 @@
   - UplinkAllies
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1300,6 +1316,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1316,6 +1333,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1332,6 +1350,7 @@
     - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1351,6 +1370,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1370,6 +1390,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1388,6 +1409,7 @@
   - UplinkAllies
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1437,6 +1459,7 @@
     - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1523,6 +1546,7 @@
   - UplinkImplants
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1543,6 +1567,7 @@
     - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1563,6 +1588,7 @@
     - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1582,6 +1608,7 @@
   - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1597,6 +1624,7 @@
   - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1787,6 +1815,7 @@
   - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1834,6 +1863,7 @@
     - UplinkWearables
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -2063,6 +2093,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Botanist
 
@@ -2080,6 +2111,7 @@
     - UplinkJob
   conditions:
     - !type:BuyerJobCondition
+      makeHidden: true # imp add
       whitelist:
         - Passenger
 
@@ -2097,6 +2129,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chaplain
   - !type:BuyerWhitelistCondition
@@ -2118,6 +2151,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chaplain
 
@@ -2135,6 +2169,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Mime
     - Clown
@@ -2154,6 +2189,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Clown
 
@@ -2171,6 +2207,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Clown
 
@@ -2189,6 +2226,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Clown
 
@@ -2206,6 +2244,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chef
     - Botanist
@@ -2226,6 +2265,7 @@
   - UplinkJob
   conditions:
     - !type:BuyerDepartmentCondition
+      makeHidden: true # imp add
       whitelist:
       - Science
 
@@ -2243,6 +2283,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Janitor
   - !type:BuyerWhitelistCondition
@@ -2265,6 +2306,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Chef can also get this
+    makeHidden: true # imp add
     whitelist:
     - Scientist
     - ResearchDirector
@@ -2286,6 +2328,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Librarian
   - !type:BuyerWhitelistCondition
@@ -2308,6 +2351,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chef
     - Mime
@@ -2351,6 +2395,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chaplain
 
@@ -2369,6 +2414,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - MedicalDoctor
 
@@ -2386,5 +2432,6 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Lawyer
