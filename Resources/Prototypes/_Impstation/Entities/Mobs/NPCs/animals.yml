@@ -115,6 +115,9 @@
     - type: SentienceTarget
       flavorKind: station-event-random-sentience-flavor-organic
       weight: 0.05
+    - type: ImpReproductive
+      mobType: WildBoar
+      gender: Male
 
 - type: entity
   name: space boar
