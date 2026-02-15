@@ -137,7 +137,7 @@ uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding tr
 
 #imp name tweak
 uplink-emag-name = Cryptographic Sequencer
-uplink-emag-desc = The business card of the syndicate, this sequencer is able to tamper with a variety of station devices. Recharges automatically.
+uplink-emag-desc = The business card of the syndicate, this sequencer is able to tamper with a variety of station devices. Recharges automatically. The iconic emag.
 
 uplink-access-breaker-name = Access Breaker
 uplink-access-breaker-desc = A hacked access configurator and a good friend of the emag. This device is able to force airlocks open as well as erase access requirements from station equipment. Recharges automatically.
