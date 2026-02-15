@@ -76,6 +76,13 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         Dirty(ent);
     }
 
+    /// <summary>
+    /// Inform every advanced node scanner (including unpowered) to flush the unlocking session from active monitoring
+    /// into unlock history memory. ANS will advertise the session finish and result ONLY if  powered and the artifact is
+    /// on pad linked it.
+    /// </summary>
+    /// <param name="ent">The artifact which finished unlocking</param>
+    /// <param name="args">Contains the result of the unlock session</param>
     private void OnUnlockingFinished(Entity<XenoArtifactComponent> ent, ref ArtifactUnlockingFinishedEvent args)
     {
         //Advanced node scanners get to magically know if an unlocking session is finished across the map without power whatever
@@ -105,7 +112,13 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         }
     }
 
-    public void RegisterTriggeredNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent>? node, bool force)
+    /// <summary>
+    /// Powered Advanced Node Scanner will recognize which node(or artifexium) was triggered, list it in its memory about
+    /// the artifact unlock session. Will advertise the changes if advertisement is turned on for this advanced node scanner.
+    /// </summary>
+    /// <param name="artifact">The artifact that has had a node trigger</param>
+    /// <param name="node">The node which triggered, null if artifex is applied</param>
+    public void RegisterTriggeredNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent>? node)
     {
         if (artifact.Comp.AdvancedNodeScanner is not { } advancedNodeScannerUid || !_powerReceiver.IsPowered(advancedNodeScannerUid))
             return;
@@ -137,15 +150,48 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 
         // Double-check that we have ALL the unlocked nodes - if we don't, advertise each one
         if (TryComp<XenoArtifactUnlockingComponent>(artifact.Owner, out var unlockComp))
-        {
             toAdvertise.AddRange(unlockComp.TriggeredNodeIndexes.Where(i => sessionUpdate.TriggeredNodeIndexes.Add(i)));
-        }
 
         advancedNodeScannerComponent.ArtifactUnlockSessions[artifact.Owner] = sessionUpdate;
-        // ANS TODO: advertise - minus one means artifexium
+        // ANS TODO: advertise - (-1) index means artifexium
     }
 
-    /// ANS TODO: when arti goes back on pad, check for new triggered indices
+    /// <summary>
+    ///  When artifact goes back on pad, check for triggered nodes that were triggered when artifact was away.
+    ///  Only checks if advanced node scanner is powered, and only applicable if artifact is in unlock state
+    /// </summary>
+    /// <param name="advancedNodeScannerUid"></param>
+    /// <param name="artifact"></param>
+    public void CheckForTriggeredNodes(EntityUid advancedNodeScannerUid, Entity<XenoArtifactComponent> artifact)
+    {
+        if (!_powerReceiver.IsPowered(advancedNodeScannerUid))
+            return;
+
+        if (!TryComp<XenoArtifactUnlockingComponent>(artifact.Owner, out var unlock))
+            return;
+
+        if (!TryComp<AdvancedNodeScannerComponent>(advancedNodeScannerUid, out var advancedNodeScannerComponent))
+            return;
+
+        // We don't know about the unlock session at all, so we just throw responsibility to RegisterTriggeredNode
+        if (!advancedNodeScannerComponent.ArtifactUnlockSessions.TryGetValue(artifact.Owner, out var session))
+        {
+            var nodeIndex = unlock.TriggeredNodeIndexes.FirstOrDefault();
+            RegisterTriggeredNode(artifact, _artifact.GetNode(artifact, nodeIndex));
+            return;
+        }
+
+        var toAdvertise = new List<int>();
+
+        // copy data from unlocking comp to session data, marking as to advertise if not already present
+        if (TryComp<XenoArtifactUnlockingComponent>(artifact.Owner, out var unlockComp))
+            toAdvertise.AddRange(unlockComp.TriggeredNodeIndexes.Where(i => session.TriggeredNodeIndexes.Add(i)));
+
+        advancedNodeScannerComponent.ArtifactUnlockSessions[artifact.Owner] = session;
+
+        // ANS TODO: advertise - (-1) index means artifexium
+
+    }
 
     /// ANS TODO: "advertise" function to say what has changed (togglable with button)
 

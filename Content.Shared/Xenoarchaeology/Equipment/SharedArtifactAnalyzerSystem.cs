@@ -19,6 +19,7 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _deviceLink = default!;
     [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!;
+    [Dependency] private readonly SharedAdvancedNodeScannerSystem _advancedNodeScanner = default!;  //IMP
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -50,6 +51,7 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
         if (ent.Comp.AdvancedNodeScanner != null && TryComp<XenoArtifactComponent>(args.OtherEntity, out var artifact))
         {
             _artifact.SetAdvancedNodeScanner((args.OtherEntity, artifact), ent.Comp.AdvancedNodeScanner);
+            _advancedNodeScanner.CheckForTriggeredNodes(ent.Comp.AdvancedNodeScanner.Value, (args.OtherEntity, artifact));
             Dirty(args.OtherEntity, artifact);
         }
         // imp edit end

@@ -99,7 +99,7 @@ public abstract partial class SharedXenoArtifactSystem
 
         //IMP: Advanced node scanner
         if (ent.Comp.AdvancedNodeScanner != null)
-            _advancedNodeScanner.RegisterTriggeredNode(ent, node, force);
+            _advancedNodeScanner.RegisterTriggeredNode(ent, node);
     }
 
     public void SetArtifexiumApplied(Entity<XenoArtifactUnlockingComponent> ent, bool val)
