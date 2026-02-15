@@ -9,11 +9,14 @@ using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.XAT.Components;
+using Content.Shared.Xenoarchaeology.Equipment; //IMP
 
 namespace Content.Shared.Xenoarchaeology.Artifact;
 
 public abstract partial class SharedXenoArtifactSystem
 {
+    [Dependency] private readonly SharedAdvancedNodeScannerSystem _advancedNodeScanner = default!;  //IMP
+
     private void InitializeXAT()
     {
         XATRelayLocalEvent<DamageChangedEvent>();
@@ -93,6 +96,10 @@ public abstract partial class SharedXenoArtifactSystem
         {
             Dirty(ent, unlockingComp);
         }
+
+        //IMP: Advanced node scanner
+        if (ent.Comp.AdvancedNodeScanner != null)
+            _advancedNodeScanner.RegisterTriggeredNode(ent, node, force);
     }
 
     public void SetArtifexiumApplied(Entity<XenoArtifactUnlockingComponent> ent, bool val)

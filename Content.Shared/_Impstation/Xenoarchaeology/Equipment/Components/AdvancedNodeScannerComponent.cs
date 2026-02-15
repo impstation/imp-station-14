@@ -6,7 +6,7 @@ using Content.Shared.Xenoarchaeology.Artifact.Components;
 
 namespace Content.Shared.Xenoarchaeology.Equipment.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true), AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)]
 public sealed partial class AdvancedNodeScannerComponent : Component
 {
     /// <summary>
@@ -30,35 +30,22 @@ public sealed partial class AdvancedNodeScannerComponent : Component
     public int NaturalNodeGraphVisibilityModifier = 1;
 
     /// <summary>
-    /// How often the advanced node scanner will check for changes.
+    /// Do we announce unlocking session changes using advertise system?
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan DataUpdateInterval = TimeSpan.FromSeconds(0.5f);
+    public bool AnnounceUnlockingChanges = true;
 
     /// <summary>
-    /// Next update tick gametime.
-    /// </summary>
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
-    [AutoPausedField]
-    public TimeSpan NextUpdate = TimeSpan.Zero;
-
-    /// <summary>
-    /// For currently unlocking artifact - list of node incides triggered
+    /// Currently monitored unlocking sessions
     /// </summary>
     [DataField, AutoNetworkedField]
-    public HashSet<int> TriggeredNodeIndexes = new();
-
-    /// <summary>
-    /// For currently unlocking artifact - list of node incides triggered as of last update
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public HashSet<int> PreviousTriggeredNodeIndexes = new();
+    public Dictionary<EntityUid, UnlockSession> ArtifactUnlockSessions = new();
 
     /// <summary>
     /// Historic data for previous unlocking attempts per artifact
     /// </summary>
     [DataField]
-    public Dictionary<EntityUid, List<UnlockSession>> UnlockHistories = new();
+    public Dictionary<EntityUid, List<UnlockSession>> UnlockHistories = new(); //ANSTODO: Make data resistant to deletion of artifact (crush/sell)
 }
 
 [Serializable]
@@ -66,7 +53,8 @@ public struct UnlockSession(
     TimeSpan startTime,
     TimeSpan? endTime,
     HashSet<int> triggeredNodeIndexes,
-    Entity<XenoArtifactNodeComponent>? unlockedNode)
+    bool artifexiumApplied,
+    EntityUid? unlockedNode)
 {
     /// <summary>
     /// Stored data about an unlocking session
@@ -74,5 +62,6 @@ public struct UnlockSession(
     public TimeSpan StartTime = startTime;
     public TimeSpan? EndTime = endTime;
     public HashSet<int> TriggeredNodeIndexes = triggeredNodeIndexes;
-    public Entity<XenoArtifactNodeComponent>? UnlockedNode = unlockedNode;
+    public bool ArtifexiumApplied = artifexiumApplied;
+    public EntityUid? UnlockedNode = unlockedNode;
 }

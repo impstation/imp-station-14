@@ -4,6 +4,7 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Equipment.Components;
 using Content.Shared.Xenoarchaeology.Artifact;
+using Robust.Shared.Timing;
 
 namespace Content.Shared.Xenoarchaeology.Equipment;
 
@@ -16,7 +17,7 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SharedArtifactAnalyzerSystem _analyzer = default!;
     [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!;
-
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -76,13 +77,50 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 
     private void OnUnlockingFinished(Entity<XenoArtifactComponent> ent, ref ArtifactUnlockingFinishedEvent args)
     {
-        //ANSTODO get unlocking component and pass to helper function
+        //Advanced node scanners get to magically know if an unlocking session is finished across the map without power whatever
+        var query = EntityQueryEnumerator<AdvancedNodeScannerComponent>();
+        while (query.MoveNext(out var advancedNodeScannerUid, out var advancedNodeScannerComponent))
+        {
+            if (advancedNodeScannerComponent.ArtifactUnlockSessions.ContainsKey(ent.Owner))
+            {
+                var session = advancedNodeScannerComponent.ArtifactUnlockSessions[ent.Owner];
+                session.EndTime = _timing.CurTime;
+                session.UnlockedNode = args.UnlockedNode;
+                advancedNodeScannerComponent.UnlockHistories[ent.Owner].Add(session);
+                //ANS TODO: trigger advertise if powered
+                //if (_powerReceiver.IsPowered((advancedNodeScannerUid)))
+                //    advertiseChange(session);
+                advancedNodeScannerComponent.ArtifactUnlockSessions.Remove(ent.Owner);
+            }
+        }
     }
 
-    /// ANSTODO: get data on update ticks if time has passed - trigger helper function
-    /// ANSTODO: helper function should take all info from unlocking, compare to previous so new info is available
-    ///     then 'advertise'-type say the difference
-    ///     and update the historic data
+    public void RegisterTriggeredNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent>? node, bool force)
+    {
+        if (artifact.Comp.AdvancedNodeScanner is not { } advancedNodeScannerUid || !_powerReceiver.IsPowered(advancedNodeScannerUid))
+            return;
+
+        if (!TryComp<AdvancedNodeScannerComponent>(advancedNodeScannerUid, out var advancedNodeScannerComponent))
+            return;
+
+        if (!advancedNodeScannerComponent.ArtifactUnlockSessions.ContainsKey(artifact.Owner))
+        {
+            var session = new UnlockSession(_timing.CurTime, null, new HashSet<int>(), false, null);
+            advancedNodeScannerComponent.ArtifactUnlockSessions.Add(artifact.Owner, session);
+        }
+
+        var sessionUpdate = advancedNodeScannerComponent.ArtifactUnlockSessions[artifact.Owner];
+        if (node == null)
+            sessionUpdate.ArtifexiumApplied = true;
+        else
+            sessionUpdate.TriggeredNodeIndexes.Add(_artifact.GetIndex(artifact, node.Value.Owner));
+
+        advancedNodeScannerComponent.ArtifactUnlockSessions[artifact.Owner] = sessionUpdate;
+        // ANS TODO: advertise
+    }
+
+    /// ANS TODO: "advertise" function to say what has changed (togglable with button)
+
 
     public bool TryGetAdvancedNodeScanner(Entity<AnalysisConsoleComponent> ent, [NotNullWhen(true)] out Entity<AdvancedNodeScannerComponent>? advancedNodeScanner)
     {
@@ -100,6 +138,28 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
             return false;
 
         advancedNodeScanner = (advancedNodeScannerUid, ansComp);
+        return true;
+    }
+
+    public bool TryGetArtifactFromAdvancedNodeScanner(Entity<AdvancedNodeScannerComponent> ent, [NotNullWhen(true)] out Entity<XenoArtifactComponent>? artifact, bool requirePower = true)
+    {
+        artifact = null;
+        if (!_powerReceiver.IsPowered(ent.Owner) && requirePower)
+            return false;
+
+        if (ent.Comp.AnalyzerEntity is not { } analyzerUid)
+            return false;
+
+        if (!TryComp<ArtifactAnalyzerComponent>(analyzerUid, out var analyzerComp))
+            return false;
+
+        if (analyzerComp.CurrentArtifact is not { } artifactUid)
+            return false;
+
+        if (!TryComp<XenoArtifactComponent>(artifactUid, out var artifactComp))
+            return false;
+
+        artifact = (artifactUid, artifactComp);
         return true;
     }
 
