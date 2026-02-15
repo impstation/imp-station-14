@@ -231,7 +231,6 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
                 if (arti.Value.Comp.AdvancedNodeScanner is not null)
                 {
                     DeepLeftBiasButton.Pressed = true;
-                    OnDeepLeftBiasButtonPressed?.Invoke();
                 }
                 else
                 {
@@ -245,8 +244,6 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
                 if (arti.Value.Comp.AdvancedNodeScanner is not null)
                 {
                     DeepRightBiasButton.Pressed = true;
-                    OnDeepRightBiasButtonPressed?.Invoke();
-
                 }
                 else
                 {
@@ -258,14 +255,11 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             else if (ent.Comp.BiasDirection == BiasDirection.DeepRandom)
             {
                 DeepRandomBiasButton.Pressed = true;
-                OnDeepRandomBiasButtonPressed?.Invoke();
 
             }
             else if (ent.Comp.BiasDirection == BiasDirection.Shallow)
             {
                 ShallowBiasButton.Pressed = true;
-                OnShallowBiasButtonPressed?.Invoke();
-
             }
         }
         // imp edit end
