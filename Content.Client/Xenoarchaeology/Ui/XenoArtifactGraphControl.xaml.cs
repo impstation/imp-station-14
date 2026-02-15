@@ -165,7 +165,7 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                         // imp edit end
                     }
 
-                    var pos = GetNodePos(node, ySpacing, segments, ref bottomLeft);
+                    var pos = GetNodePos(node, ySpacing, segments, ref bottomLeft, artifact.Comp.Natural, controlHeight); //IMP: include artifact.Comp.Natural & controlHeight in this call for natural artifacts to be top-down
                     var hovered = (cursor - pos).LengthSquared() <= NodeRadius * NodeRadius;
                     if (hovered)
                     {
@@ -186,7 +186,8 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
             // draw edges for each segment and each node that have successors
             foreach (var node in segment)
             {
-                var fromNode = GetNodePos(node, ySpacing, segments, ref bottomLeft) + new Vector2(0, -NodeRadius);
+                var fromNode = GetNodePos(node, ySpacing, segments, ref bottomLeft, artifact.Comp.Natural, controlHeight)
+                + (artifact.Comp.Natural ? new Vector2(0, NodeRadius) : new Vector2(0, -NodeRadius)); //#IMP: Natural artifact should be top-down
                 var successorNodes = _artifactSystem.GetDirectSuccessorNodes((artifact, artifact), node);
                 foreach (var successorNode in successorNodes)
                 {
@@ -197,7 +198,8 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                         ? LockedNodeColor
                         : UnlockedNodeColor;
 
-                    var toNode = GetNodePos(successorNode, ySpacing, segments, ref bottomLeft) + new Vector2(0, NodeRadius);
+                    var toNode = GetNodePos(successorNode, ySpacing, segments, ref bottomLeft, artifact.Comp.Natural, controlHeight)
+                    + (artifact.Comp.Natural ? new Vector2(0, -NodeRadius) : new Vector2(0, NodeRadius)); //#IMP: Natural artifact should be top-down;
                     handle.DrawLine(fromNode, toNode, color);
                 }
             }
@@ -206,9 +208,13 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
         }
     }
 
-    private Vector2 GetNodePos(Entity<XenoArtifactNodeComponent> node, float ySpacing, List<List<Entity<XenoArtifactNodeComponent>>> segments, ref Vector2 bottomLeft)
+    //IMP: natural artifact trees should be top-down: include "natural" parameter
+    private Vector2 GetNodePos(Entity<XenoArtifactNodeComponent> node, float ySpacing, List<List<Entity<XenoArtifactNodeComponent>>> segments, ref Vector2 bottomLeft, bool natural, float controlHeight)
     {
         var yPos = -(NodeDiameter + ySpacing) * node.Comp.Depth;
+
+        if (natural) //IMP: natural artifact trees should be top-down
+            yPos = -yPos;
 
         var segment = segments.First(s => s.Contains(node));
         var depthOrderedNodes = _artifactSystem.GetDepthOrderedNodes(segment);
@@ -224,7 +230,13 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
 
         var xPos = NodeDiameter * index + (xSpacing * index) + layerXOffset;
 
-        return bottomLeft + new Vector2(xPos, yPos);
+        //IMP: natural artifact trees should be top-down, move to top (y=0).
+        //IMP: without imp, this would be "return bottomLeft + new Vector2(xPos, yPos);"
+        var result = bottomLeft + new Vector2(xPos, yPos);
+        if (natural)
+            result += new Vector2(0, controlHeight - (2 * bottomLeft.Y) + NodeRadius);
+
+        return result;
     }
 
     private float GetBiggestWidth(List<Entity<XenoArtifactNodeComponent>> nodes)

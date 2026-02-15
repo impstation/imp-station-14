@@ -17,11 +17,11 @@ sgdrequired-cant-speak = You can't speak without an SGD!
 trait-unborgable-name = Unborgable
 trait-unborgable-desc = Your brain is unable to fit into a Man-Machine Interface.
 
-trait-accentless-name = No species accent
-trait-accentless-desc = You don't have the accent that your species would usually have.
-
 trait-archaic-name = Archaic speech
 trait-archaic-desc = Thy language is quite outdated, and thou still hold thyself to some manner of chivalry
+
+trait-basic-archaic-name = Archaic speech (Basic)
+trait-basic-archaic-desc = Thou art up with the times, but thou can't seem to shake some anachronisms.
 
 trait-accentimmune-name = No accent
 trait-accentimmune-desc = You have no accent whatsoever, somehow. Where are you from?
@@ -55,6 +55,9 @@ trait-basicpirate-accent-desc = You can't stop speaking like a pirate! No involu
 
 trait-basicfrench-name = French (Basic)
 trait-basicfrench-desc = You speak with the cadence of someone who has cast off their vow of silence, with far fewer word replacements.
+
+trait-russian-name = Russian accent
+trait-russian-desc = Is wonderful day on Space Station 14, da?
 
 trait-basicrussian-name = Russian (Basic)
 trait-basicrussian-desc = You speak with a Russian accent, with far fewer word replacements.
@@ -118,3 +121,9 @@ trait-slight-desc = You're lighter than average.
 
 trait-soft-hands-name = Soft hands
 trait-soft-hands-desc = You're too weak to wield anything.
+
+trait-hated-by-dogs-name = Hated by dogs
+trait-hated-by-dogs-desc = Dogs will bark at you when you come near.
+
+trait-hemorrhage-name = Hemorrhaging
+trait-hemorrhage-desc = You lose more blood while bleeding.

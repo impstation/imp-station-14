@@ -57,24 +57,28 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         ref AnalysisConsoleShallowBiasButtonPressedMessage args)
     {
         ent.Comp.BiasDirection = BiasDirection.Shallow;
+        Dirty(ent);
     }
 
     private void OnDeepRandomBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
         ref AnalysisConsoleDeepRandomBiasButtonPressedMessage args)
     {
         ent.Comp.BiasDirection = BiasDirection.DeepRandom;
+        Dirty(ent);
     }
 
     private void OnDeepLeftBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
         ref AnalysisConsoleDeepLeftBiasButtonPressedMessage args)
     {
         ent.Comp.BiasDirection = BiasDirection.DeepLeft;
+        Dirty(ent);
     }
 
     private void OnDeepRightBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
         ref AnalysisConsoleDeepRightBiasButtonPressedMessage args)
     {
         ent.Comp.BiasDirection = BiasDirection.DeepRight;
+        Dirty(ent);
     }
 
     // imp edit end

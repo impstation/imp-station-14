@@ -5,7 +5,7 @@
   table: !type:GroupSelector
     children:
     - !type:NestedSelector
-      tableId: NukeOpsUplinkLootTable
+      tableId: NukeOpsUplinkLootTableImp #imp
       weight: 6.25
     - !type:NestedSelector
       tableId: NukeOpsWeaponsTable
@@ -20,6 +20,7 @@
       tableId: NukeOpsMedKitGeneral
       weight: 0.75
 
+# NukeOpsUplinkLootTable is unused for Impstation, changes to the loot pool should be made to NukeOpsUplinkLootTableImp instead
 - type: entityTable
   id: NukeOpsUplinkLootTable
   table: !type:GroupSelector
@@ -71,6 +72,12 @@
     - id: WeaponShotgunSawn
     - id: RevolverCapGunFake
       weight: .01
+    - id: WeaponPistolValu #imp
+      amount: !type:RangeNumberSelector
+        range: 1, 3
+      weight: 0.5
+    - id: WeaponPlasmaAdder #imp
+      weight: 0.5
 
 - type: entityTable
   id: NukeOpsAmmoTable
@@ -91,6 +98,8 @@
     - id: MagazinePistolCaselessRifle
       weight: 0.5
     - id: SpeedLoaderMagnumAP
+      weight: 0.5
+    - id: EchionCanister #imp
       weight: 0.5
 
 - type: entityTable

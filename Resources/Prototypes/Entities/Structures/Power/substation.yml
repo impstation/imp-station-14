@@ -5,6 +5,11 @@
   components:
   # Core power behavior
   - type: Battery
+    # Very important:
+    # Disable networking to prevent the battery getting continuously dirtied every tick as it interacts with the power network.
+    # This can not be done by changing the charge rate as the power supply ramps up over time.
+    # This disables prediction for this battery.
+    netsync: false
   - type: ExaminableBattery
   - type: NodeContainer
     examinable: true
@@ -248,12 +253,14 @@
   - type: ContainerFill
     containers:
       board: [ WallmountSubstationElectronics ]
-      manipulator: [ MicroManipulatorStockPart ]
+      capacitor: [ CapacitorStockPart ] # imp
+      # manipulator: [ MicroManipulatorStockPart ] # imp - return capacitors and matter bins
       powercell: [ PowerCellSmall ]
   - type: ContainerContainer
     containers:
       board: !type:Container
-      manipulator: !type:Container
+      capacitor: !type:Container # imp
+      # manipulator: !type:Container # imp - return capacitors and matter bins
       powercell: !type:Container
 
       # Construction Frame

@@ -10,7 +10,7 @@
   - type: Item
     sprite: Objects/Specific/Medical/syndihandheldcrewmonitor.rsi
   - type: PowerCellDraw
-    useRate: 0 # DeltaV - Changed to zero with the removal of the microreactor in observations kit
+    useCharge: 0 # DeltaV - Changed to zero with the removal of the microreactor in observations kit
   - type: CrewMonitoringConsole # DeltaV - disable crew crit / dead beeping alerts
 #    alertsEnabled: false  # imp - our crewmons dont do that lmao
   # imp edits below - unparenting from crew monitor

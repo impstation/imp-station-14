@@ -39,8 +39,8 @@
     - id: BoxCaptainCircuitboards
     - id: DoorRemoteCustom
     - id: MedalCase
-    - id: NukeDisk
     - id: PinpointerNuclear
+#    - id: NukeDisk #imp edit: Nuke Disk relocated to glass_box.yml in imp namespace
     - id: PlushieNuke
       prob: 0.1
     - id: RubberStampCaptain
@@ -215,10 +215,8 @@
     children:
     - id: BoxEncryptionKeyMedical
     - id: ClothingBackpackDuffelSurgeryFilled
-    - id: ClothingCloakCmo
     - id: ClothingEyesHudMedical
     - id: ClothingHandsGlovesNitrile
-    - id: ClothingHeadHatBeretCmo
     - id: ClothingHeadsetAltMedical
     - id: ClothingMaskSterile
     - id: DoorRemoteMedical
@@ -282,6 +280,7 @@
     - id: RubberStampRd
     - id: PersonalAILearnerScience #impspecial
     - id: PrinterDocFlatpack  # Corvax-Printer
+    - id: SiliconSynchronizer # imp
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -331,7 +330,6 @@
     - id: ClothingBeltSecurityFilled
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHeadsetAltSecurity
-    - id: ClothingMaskNeckGaiter
     - id: ClothingOuterCoatHoSTrench
     - id: ClothingShoesBootsJack
     - id: FlashlightSeclite
