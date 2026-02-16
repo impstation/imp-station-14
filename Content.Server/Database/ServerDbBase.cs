@@ -23,8 +23,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Server._CD.Records; // CD - Character Records
-using Content.Shared._CD.Records;
-using Content.Shared._Impstation.Notifier; // CD - Character Records
+using Content.Shared._CD.Records; // CD - Character Records
+using Content.Shared._Impstation.Notifier; // imp - notifier
 
 namespace Content.Server.Database
 {
