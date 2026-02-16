@@ -38,7 +38,7 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
         var notifierSystem = _entityManager.System<NotifierSystem>();
         if (!notifierSystem.TryGetNotifier(userId, out _))
             return;
-
+        message.Notifier.EnsureValid(_configManager, _prototypeManager);
         notifierSystem.SetNotifier(userId, message.Notifier);
 
         if (ShouldStoreInDb(message.MsgChannel.AuthType))
@@ -58,6 +58,7 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
         if (ShouldStoreInDb(session.AuthType))
             notifier = await _db.GetPlayerNotifierSettingsAsync(session.UserId);
 
+        notifier.EnsureValid(_configManager, _prototypeManager);
         notifierSystem.SetNotifier(session.UserId, notifier);
 
         var message = new MsgUpdateNotifier() { Notifier= notifier };
