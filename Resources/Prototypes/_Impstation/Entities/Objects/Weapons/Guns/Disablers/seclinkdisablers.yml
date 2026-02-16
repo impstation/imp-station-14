@@ -38,6 +38,7 @@
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/clowndisabler.rsi
   - type: Appearance
   - type: Gun
+    projectileSpeed: 25
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/clowndisabler.ogg
 
@@ -98,6 +99,7 @@
     steps: 6
     zeroVisible: true
   - type: Gun
+    projectileSpeed: 25
     minAngle: 2
     maxAngle: 15
     angleIncrease: 3

@@ -71,3 +71,37 @@
         children:
         - id: MobDuctSpider
           amount: 4
+
+- type: entity
+  parent: CrateLivestock
+  id: CrateUrist
+  name: urist crate
+  suffix: DEBUG
+  description: A crate containing an assortment of Urists.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MobHuman #WIZ
+        - id: MobArachnid
+        - id: MobDiona
+        - id: MobDwarf
+        - id: MobGingerbread
+        - id: MobMoth
+        - id: MobReptilian
+        - id: MobSkeletonPerson
+        - id: MobSlimePerson
+        - id: BaseMobVoxInternals
+        - id: MobVulpkanin
+        - id: MobAllulalo #IMP
+        - id: MobAnt
+        - id: MobAnomalocarid
+        - id: MobApidBaseGhostrole
+        - id: BaseMobDecapoidInternals
+        - id: MobGastropoid
+        - id: MobGray
+        - id: MobKodepiia
+        - id: MobThaven
+        - id: MobUngu
+        - id: MobGoblin #NF

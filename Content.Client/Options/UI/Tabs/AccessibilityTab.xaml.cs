@@ -27,6 +27,7 @@ public sealed partial class AccessibilityTab : Control
         Control.AddOptionColorSlider(CCVars.ChatHighlightsColor, HighlightsColorSlider);
 
         Control.AddOptionCheckBox(ImpCCVars.DisableSinguloWarping, DisableSinguloWarpingCheckBox); // imp
+        Control.AddOptionCheckBox(ImpCCVars.DisableWeather, DisableWeatherCheckBox); // imp
         Control.AddOptionCheckBox(ImpCCVars.DisableAiStatic, DisableAiStaticCheckBox); // imp
         Control.AddOptionCheckBox(DCCVars.NoVisionFilters, DisableFiltersCheckBox); // dv
 
