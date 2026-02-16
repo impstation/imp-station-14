@@ -1138,3 +1138,8 @@ accent-gray-words-replace-379 = marmi
 accent-gray-words-380 = ungus
 accent-gray-words-replace-380 = marmis
 
+accent-gray-words-381 = redshell 
+accent-gray-words-replace-381 = lobstar
+
+accent-gray-words-382 = redshells
+accent-gray-words-replace-382 = lobstars
