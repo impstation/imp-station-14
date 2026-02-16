@@ -6,3 +6,4 @@ notifier-window-saved-changes = Your changes are saved.
 notifier-window-unsaved-changes = You have unsaved changes!
 notifier-window-char-limit = Character limit: {$length} / {$maxLength}
 notifier-window-exceeded-char-limit = Exceeded character limit: {$length} / {$maxLength}
+notifier-window-freetext-placeholder = Describe issues you have that you would like to notify other players of. for example: typing difficulties, vision issues, hearing issues, phobia triggers.
