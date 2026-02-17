@@ -1,0 +1,38 @@
+- type: entity
+  name: todd howard
+  parent: [ BaseSimpleMob, MobCombat ]
+  id: AdmemeToddSkyrim
+  description: buy skyrim
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Devilstation/Mobs/Admeme/todd.rsi
+    state: "buyskyrim"
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1000: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/explosion4.ogg
+    damage:
+      types:
+        Blunt: 1000 # :3
+        Structural: 10000 # this prison, to hold ME?
+    autoAttack: true
+    attackRate: 4
+
+- type: entity
+  parent: AdmemeToddSkyrim
+  id: AdmemeToddSkyrimHostile
+  suffix: Hostile
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
