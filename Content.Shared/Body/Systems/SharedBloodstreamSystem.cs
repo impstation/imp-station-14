@@ -22,7 +22,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared._Impstation.Hemorrhage; //imp edit
 
 namespace Content.Shared.Body.Systems;
 
@@ -203,7 +202,8 @@ public abstract class SharedBloodstreamSystem : EntitySystem
 
         // TODO: Replace with RandomPredicted once the engine PR is merged
         // Use both the receiver and the damage causing entity for the seed so that we have different results for multiple attacks in the same tick
-        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id, GetNetEntity(args.Origin)?.Id ?? 0 );
+        var originId = args.Origin != null && Exists(args.Origin.Value) ? GetNetEntity(args.Origin.Value).Id : 0; // IMP - Heisentest fix
+        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id, originId); // IMP - Heisentest fix
         var rand = new System.Random(seed);
         var prob = Math.Clamp(totalFloat / 25, 0, 1);
         if (totalFloat > 0 && rand.Prob(prob))
@@ -457,11 +457,6 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         {
             return false;
         }
-
-        // imp Multiplies the blood lost per stack by the value set
-        amount = TryComp<HemorrhageComponent>(ent, out var trait) ?
-            amount * trait.BleedIncreaseMultiplier :
-            amount;
 
         var leakedBlood = SolutionContainer.SplitSolution(ent.Comp.BloodSolution.Value, amount);
 

@@ -157,6 +157,7 @@
     - FootstepSound
     - SiliconEmotes
     - EmagImmune
+    - DecapoidSilicon
   - type: Emoting
   - type: GuideHelp
     guides:
@@ -285,6 +286,8 @@
     - DoorBumpOpener
     - FootstepSound
     - SiliconEmotes
+    - EmagImmune
+    - DecapoidSilicon
   - type: BorgChassis
     maxModules: 3
     hasMindState: tcktck_e
@@ -426,6 +429,8 @@
     - SiliconEmotes
     - HudMedical
     - HudSecurity
+    - EmagImmune
+    - DecapoidSilicon
   - type: BorgChassis
     maxModules: 3
     hasMindState: tckut_e
@@ -500,6 +505,7 @@
     - SiliconEmotes
     - Bot
     - Unimplantable
+    - DecapoidSilicon
   - type: TypingIndicator #in case someone admin controls one
     proto: robot
   - type: Speech
