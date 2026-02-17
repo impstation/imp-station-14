@@ -26,6 +26,9 @@ public sealed class CurseTentacleSystem : EntitySystem
         SubscribeLocalEvent<CurseSummonTentacleAction>(OnSummonAction);
     }
 
+/// <summary>
+/// Attempts to spawn tentacles at the targets position. Checking if the target is on a grid for the tentacles to /// be spawned on and then spawning them in spots matching  the directions in CurseSummonTentacleAction 
+/// </summary>
     private void OnSummonAction(CurseSummonTentacleAction args)
     {
         if (args.Handled)
