@@ -1,52 +1,4 @@
 ﻿Entries:
-- author: VeeNomine
-  changes:
-  - message: Ported and added the magnet pickup feature from Frontier to the ore and
-      industrial ore processors. This means you can now dump your ore into the processor.
-    type: Add
-  - message: Added a fiery glow around the ore and industrial ore processors.
-    type: Tweak
-  id: 2115
-  time: '2025-08-03T13:14:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3187
-- author: Mousetrinity
-  changes:
-  - message: coming in from planet teo, it's.... wait, what? .... uhuh... the v-rex?
-      what? no- that'll destroy the station!! strap in, ready your firearms, and prepare
-      for a bloodbath!
-    type: Add
-  id: 2116
-  time: '2025-08-03T15:49:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3198
-- author: eviltori
-  changes:
-  - message: syndicate infiltrators now get a codeword, and a lighter. so you can
-      see
-    type: Add
-  id: 2117
-  time: '2025-08-04T19:57:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3226
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Last Message Before Death Webhook fixes
-    type: Tweak
-  id: 2118
-  time: '2025-08-05T07:12:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3227
-- author: TheGrimbeeper
-  changes:
-  - message: prize tickets being burned no longer leave any ash
-    type: Tweak
-  id: 2119
-  time: '2025-08-06T02:47:37.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3232
-- author: widgetbeck
-  changes:
-  - message: Peer pressure.
-    type: Add
-  id: 2120
-  time: '2025-08-06T02:48:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3225
 - author: DinnerCalzone
   changes:
   - message: Woe, usptream merge be upon ye! This update includes changes from Wizden
@@ -4158,3 +4110,53 @@
   id: 2614
   time: '2026-02-08T21:43:33.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4096
+- author: msTheowo
+  changes:
+  - message: Soap can clean decals again.
+    type: Fix
+  id: 2615
+  time: '2026-02-09T01:41:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4100
+- author: coyragon96
+  changes:
+  - message: Night Oppas are no longer extinct!
+    type: Fix
+  id: 2616
+  time: '2026-02-09T07:50:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4101
+- author: jkwookee
+  changes:
+  - message: Supermatter no longer improperly destroys the gas it absorbs.
+    type: Fix
+  - message: Supermatter damage & delamination calculation is no longer affected by
+      gas changes caused by the SM
+    type: Fix
+  - message: Supermatter gas absorption back to 15% alongside related values
+    type: Tweak
+  - message: Supermatter no longer has a grace period of lower gas absorption.
+    type: Tweak
+  id: 2617
+  time: '2026-02-10T01:31:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3902
+- author: sev7ves
+  changes:
+  - message: The aloha snackbar sign has been removed because it was a bad joke.
+    type: Remove
+  id: 2618
+  time: '2026-02-11T00:06:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4108
+- author: FlippenPage
+  changes:
+  - message: A toggle for weather effects has been added.
+    type: Add
+  id: 2619
+  time: '2026-02-11T19:59:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4077
+- author: hivehum
+  changes:
+  - message: In anticipation for the biggest holiday of the year, the NanoTrasen logistics
+      team is providing cargo with an old classic.
+    type: Add
+  id: 2620
+  time: '2026-02-12T20:21:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4083
