@@ -507,16 +507,6 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/greenescoffion.rsi
 
-- type: entity
-  parent: [ClothingHeadBase, BaseCommandContraband]
-  id: ClothingHeadHatHOSColonelCap
-  name: head of security's peaked cap
-  description: Get lost. You can't compare with this hat's powers.
-  - type: Sprite
-    sprite: _Impstation/Clothing/Head/Hats/hos_colonelcap.rsi
-  - type: Clothing
-    sprite: _Impstation/Clothing/Head/Hats/hos_colonelcap.rsi
-
   parent: ClothingHeadBase
   id: ClothingHeadHatMimeBowler
   name: mime bowler
@@ -530,3 +520,14 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingHeadBase, BaseCommandContraband]
+  id: ClothingHeadHatHOSColonelCap
+  name: head of security's peaked cap
+  description: Get lost. You can't compare with this hat's powers.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/hos_colonelcap.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/hos_colonelcap.rsi

@@ -583,17 +583,6 @@
     node: loungewear
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
-  id: ClothingUniformJumpsuitHoSColonel
-  name: head of security's dress uniform
-  description: A vintage uniform adorned with a truly gratuitous amount of medals. Worn with jodhpurs.
-  components:
-  - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
-  - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
-
-- type: entity
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitTailcoatSuit
   name: tailcoat suit
@@ -603,3 +592,14 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tailcoatsuit.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tailcoatsuit.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoSColonel
+  name: head of security's dress uniform
+  description: A vintage uniform adorned with a truly gratuitous amount of medals. Worn with jodhpurs.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
