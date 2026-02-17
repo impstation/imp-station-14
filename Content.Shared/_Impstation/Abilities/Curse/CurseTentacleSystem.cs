@@ -34,7 +34,6 @@ public sealed class CurseTentacleSystem : EntitySystem
         if (args.Handled)
             return;
 
-        // TODO: animation
 
         _popup.PopupPredicted(Loc.GetString("curse-ability-use-popup", ("entity", args.Performer)), args.Performer, args.Performer, type: PopupType.SmallCaution);
         _stun.TryAddStunDuration(args.Performer, TimeSpan.FromSeconds(0.8f));
