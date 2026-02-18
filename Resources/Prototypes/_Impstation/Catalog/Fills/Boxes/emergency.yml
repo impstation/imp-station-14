@@ -571,9 +571,10 @@
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleLargeFull
   - type: Sprite
+    sprite: _Impstation/Objects/Storage/boxes.rsi
     layers:
     - state: internals
-    - state: emergencytank # placeholder
+    - state: vaportank 
   - type: Label
     currentLabel: H2O
 
@@ -594,9 +595,10 @@
         - id: Flare
         - id: FoodSnackNutribrick
   - type: Sprite
+    sprite: _Impstation/Objects/Storage/boxes.rsi
     layers:
     - state: internals
-    - state: extendedtank # placeholder
+    - state: extendedtankvapor
 
 - type: entity
   parent: BoxSurvivalAquatic
@@ -616,10 +618,9 @@
       storagebase: !type:AllSelector
         children:
         - id: ClothingMaskBreath
-        - id: EmergencyFunnyOxygenTankFilled
         - id: PillEmergency
         - id: Flare
-        - id: FoodSnackChocolate
+        - id: FoodSnackNutribrick
         - id: DrinkWaterBottleLargeFunnyFull
   - type: Tag
     tags:
@@ -659,7 +660,7 @@
     sprite: _Impstation/Objects/Storage/boxes.rsi
     layers:
     - state: internals
-    - state: emergencytankcommand # placeholder
+    - state: emergencytankcommandvapor
 
 - type: entity
   parent: BoxSurvivalAquatic
@@ -741,7 +742,7 @@
     sprite: _Impstation/Objects/Storage/boxes.rsi
     layers:
     - state: internals
-    - state: emergencytankcommand # placeholder
+    - state: emergencytankcommandvapor 
 
 - type: entity
   parent: BoxSurvivalCommandAquatic
@@ -756,8 +757,3 @@
         - id: Flare
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleLargeFull
-  - type: Sprite
-    sprite: _Impstation/Objects/Storage/boxes.rsi
-    layers:
-    - state: internals
-    - state: emergencytankcommand # placeholder

@@ -345,7 +345,7 @@
           Quantity: 50
         maxVol: 50
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/waterbottle.rsi # placeholder
+    sprite: _Impstation/Objects/Consumable/Drinks/Plastic/bigwaterbottle.rsi
   - type: FitsInDispenser
     solution: drink
   - type: Label
@@ -355,6 +355,7 @@
   parent: [DrinkVisualsAllFilled, DrinkBottlePlasticBaseFull]
   id: DrinkWaterBottleTallFull
   suffix: Decapoid, Extended
+  name: extended-capacity water bottle
   description: A tall bottle of clean water designed with claw-based ergonomics in mind. Fresh from the mineral-aquifers of Nest Krr'kik.
   components: 
   - type: Item
@@ -369,7 +370,7 @@
           Quantity: 80
         maxVol: 80
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/waterbottle.rsi # placeholder
+    sprite: _Impstation/Objects/Consumable/Drinks/Plastic/tallwaterbottle.rsi
   - type: FitsInDispenser
     solution: drink
   - type: Label
@@ -388,8 +389,6 @@
           Quantity: 35
         - ReagentId: Laughter
           Quantity: 15
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/waterbottle.rsi # placeholder
   - type: FitsInDispenser
     solution: drink
   - type: Label
