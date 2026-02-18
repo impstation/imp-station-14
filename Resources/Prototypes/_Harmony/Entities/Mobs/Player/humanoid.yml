@@ -263,23 +263,6 @@
     - NamesClown
     nameFormat: name-format-standard
 
-## ERP Leader Timer
-
-- type: entity
-  parent: RandomHumanoidSpawnerERPLeader
-  id: RandomHumanoidSpawnerERPLeaderTime
-  suffix: Harmony, ERPRole, Time
-  components:
-  - type: RandomHumanoidSpawner
-    settings: ERPLeader
-
-- type: randomHumanoidSettings
-  parent: ERPLeader
-  id: ERPLeaderTime
-  components:
-  - type: GhostRole
-    job: ERPLeader
-
 ## ERP Clown
 
 - type: entity
@@ -317,20 +300,3 @@
     - NamesMilitaryFirst
     - NamesClown
     nameFormat: name-format-standard
-
-## ERP Clown Timer
-
-- type: entity
-  parent: RandomHumanoidSpawnerERPClown
-  id: RandomHumanoidSpawnerERPClownTime
-  suffix: Harmony, ERPRole, Time
-  components:
-  - type: RandomHumanoidSpawner
-    settings: ERPClown
-
-- type: randomHumanoidSettings
-  parent: ERPClown
-  id: ERPClownTime
-  components:
-  - type: GhostRole
-    job: ERPClown
