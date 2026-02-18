@@ -2529,7 +2529,7 @@ entities:
     - type: Transform
       pos: 1.5,3.5
       parent: 1
-- proto: RandomHumanoidSpawnerERPClownTime
+- proto: RandomHumanoidSpawnerERPClown
   entities:
   - uid: 217
     components:
@@ -2541,7 +2541,7 @@ entities:
     - type: Transform
       pos: 1.5,8.5
       parent: 1
-- proto: RandomHumanoidSpawnerERPLeaderTime
+- proto: RandomHumanoidSpawnerERPLeader
   entities:
   - uid: 219
     components:
