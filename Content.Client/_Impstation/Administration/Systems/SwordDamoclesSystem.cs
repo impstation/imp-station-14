@@ -5,6 +5,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._Impstation.Administration.Systems;
 
+/// <summary>
+/// Displays the sword part of the Sword of Damocles smite. Copied from how the Kill Sign smite worked at the time I made this, maybe out of date, haven't checked :)
+/// </summary>
 public sealed class SwordDamoclesSystem : EntitySystem
 {
     [Dependency] private readonly SpriteSystem _sprite = default!;
