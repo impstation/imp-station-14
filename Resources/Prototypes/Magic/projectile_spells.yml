@@ -5,6 +5,7 @@
   description: Fires an explosive fireball towards the clicked location.
   components:
   - type: Magic
+    requiresClothes: true # imp add
   - type: Action
     useDelay: 12 #imp edit, original is 15
     itemIconStyle: BigAction
