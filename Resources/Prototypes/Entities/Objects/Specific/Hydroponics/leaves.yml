@@ -50,6 +50,9 @@
       Burger: LeavesCannabisBurger
       Taco: LeavesCannabis
       Hotdog: LeavesCannabis 
+  - type: Tag #imp
+    tags: #imp
+      - Ruminant #imp
   - type: PluralName
     oneOf: plural-name-some
   #imp edit end
@@ -283,6 +286,9 @@
       Burger: LeavesTobaccoBurger
       Taco: LeavesTobacco
       Hotdog: LeavesTobacco
+  - type: Tag #imp
+    tags: #imp
+      - Ruminant #imp
   #imp edit end
 
 - type: entity
