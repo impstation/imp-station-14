@@ -1,4 +1,4 @@
-﻿## ERP Sepcail Forces
+﻿## ERP Sepcial Forces
 - type: entity
   parent: IDCardStandard
   id: ERPLeaderIDCard
@@ -8,7 +8,13 @@
   - type: Sprite
     layers:
     - state: gold
-    - state: ert_commander # They will never know
+    - state: stripe_top
+      color: &color-centcomm-top "#134975"
+    - state: stripe_bottom
+      color: &color-centcomm-bottom "#0d304d"
+    - sprite: &icon-rsi Interface/Misc/job_icons.rsi
+      offset: &icon-offset -0.09375, 0.0625 #3 pixels left, 2 pixels up
+      state: ERTLeader
   - type: PresetIdCard
     job: ERPLeader
   - type: Item
@@ -23,7 +29,13 @@
   - type: Sprite
     layers:
     - state: gold
-    - state: idclown
+    - state: stripe_top
+      color: *color-centcomm-top
+    - state: stripe_bottom
+      color: *color-centcomm-bottom
+    - sprite: *icon-rsi
+      offset: *icon-offset
+      state: Clown
   - type: PresetIdCard
     job: ERPClown
   - type: Item

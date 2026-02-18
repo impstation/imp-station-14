@@ -278,9 +278,7 @@
   id: ERPLeaderTime
   components:
   - type: GhostRole
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 21600 # 6 hrs
+    job: ERPLeader
 
 ## ERP Clown
 
@@ -335,6 +333,4 @@
   id: ERPClownTime
   components:
   - type: GhostRole
-    requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 10800 # 3 hrs
+    job: ERPClown
