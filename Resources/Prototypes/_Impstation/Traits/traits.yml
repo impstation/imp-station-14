@@ -155,6 +155,8 @@
   name: trait-hemorrhage-name
   description: trait-hemorrhage-desc
   category: Traits
-  components:
-  - type: Hemorrhage
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - StatusEffectHemorrhageTrait
   cost: -6
