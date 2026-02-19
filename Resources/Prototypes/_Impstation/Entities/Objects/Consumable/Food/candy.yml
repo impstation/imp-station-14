@@ -145,7 +145,6 @@
   - type: Tag
     tags:
     - FoodSnack
-    - Fruit
   - type: Item
     size: Tiny
     shape:
@@ -182,7 +181,6 @@
   - type: Tag
     tags:
     - FoodSnack
-    - Fruit
 
 - type: entity
   name: cotton macaron
@@ -228,7 +226,6 @@
   - type: Tag
     tags:
     - FoodSnack
-    - Fruit
 
 - type: entity
   name: mimana macaron
@@ -250,7 +247,6 @@
   - type: Tag
     tags:
     - FoodSnack
-    - Fruit
 
 #lolipops!!!!
 
@@ -441,7 +437,7 @@
   parent: [BaseItem, Tier1Contraband]
   id: FoodTreatChunk
   name: TreatChunk
-  description: A delicately wrapped cherry-flavored hard candy, for the traitor who needs a little treat. 
+  description: A delicately wrapped cherry-flavored hard candy, for the traitor who needs a little treat.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
@@ -473,7 +469,7 @@
   suffix: random #unwraps into a random treatchunk
   components:
   - type: SpawnItemsOnUse
-    items: 
+    items:
       - id: FoodTreatChunkTrash
       - id: FoodTreatChunkOpen
         orGroup: random
@@ -513,7 +509,7 @@
   parent: [FoodSnackBase, Tier1Contraband]
   id: FoodTreatChunkOpen
   name: TreatChunk
-  description: A tasty little cherry-flavored hard candy, for the traitor who needs a little treat. 
+  description: A tasty little cherry-flavored hard candy, for the traitor who needs a little treat.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi
@@ -521,7 +517,7 @@
   - type: FlavorProfile
     flavors:
       - treatchunk
-    ignoreReagents: 
+    ignoreReagents:
       - Stimulants
       - Nutriment
       - Sugar
@@ -544,7 +540,7 @@
     solutions:
       food:
         maxVol: 5
-        reagents: 
+        reagents:
         - ReagentId: Nutriment
           Quantity: 1
         - ReagentId: Stimulants #droplet of hyperzine. you basically just get a little lurch forward cuz the speed effect is cut so short lol
@@ -564,19 +560,19 @@
     solutions:
       food:
         maxVol: 5
-        reagents: 
+        reagents:
         - ReagentId: Lead # yum yum. 10 poison damage lmao
-          Quantity: 0.5 
+          Quantity: 0.5
         - ReagentId: Nutriment
           Quantity: 1
-        - ReagentId: Stimulants 
+        - ReagentId: Stimulants
           Quantity: 0.5
         - ReagentId: Sugar
           Quantity: 3.0
   - type: FlavorProfile
     flavors:
       - treatchunk
-    ignoreReagents: 
+    ignoreReagents:
       - Stimulants
       - Lead
       - Nutriment
@@ -591,19 +587,19 @@
     solutions:
       food:
         maxVol: 5
-        reagents: 
+        reagents:
         - ReagentId: Tazinide # bzzzap
-          Quantity: 0.5 
+          Quantity: 0.5
         - ReagentId: Nutriment
           Quantity: 1
-        - ReagentId: Stimulants 
+        - ReagentId: Stimulants
           Quantity: 0.5
         - ReagentId: Sugar
           Quantity: 3.0
   - type: FlavorProfile
     flavors:
       - treatchunk
-    ignoreReagents: 
+    ignoreReagents:
       - Stimulants
       - Tazinide
       - Nutriment
@@ -618,19 +614,19 @@
     solutions:
       food:
         maxVol: 5
-        reagents: 
+        reagents:
         - ReagentId: Bungotoxin # less poison than the lead one
-          Quantity: 0.5 
+          Quantity: 0.5
         - ReagentId: Nutriment
           Quantity: 1
-        - ReagentId: Stimulants 
+        - ReagentId: Stimulants
           Quantity: 0.5
         - ReagentId: Sugar
           Quantity: 3.0
   - type: FlavorProfile
     flavors:
       - treatchunk
-    ignoreReagents: 
+    ignoreReagents:
       - Stimulants
       - Bungotoxin
       - Nutriment
@@ -645,19 +641,19 @@
     solutions:
       food:
         maxVol: 5
-        reagents: 
+        reagents:
         - ReagentId: Vestine # ungrindable, so this isn't accessible. just slows you and asphyixates you :)
           Quantity: 1
         - ReagentId: Nutriment
           Quantity: 1
-        - ReagentId: Stimulants 
+        - ReagentId: Stimulants
           Quantity: 0.5
         - ReagentId: Sugar
           Quantity: 2.5
   - type: FlavorProfile
     flavors:
       - treatchunk
-    ignoreReagents: 
+    ignoreReagents:
       - Stimulants
       - Vestine
       - Nutriment
@@ -672,19 +668,19 @@
     solutions:
       food:
         maxVol: 5
-        reagents: 
-        - ReagentId: HeartbreakerToxin # swallowed it too fast and choked on it. nice going IDIOT. 
-          Quantity: 0.5 
+        reagents:
+        - ReagentId: HeartbreakerToxin # swallowed it too fast and choked on it. nice going IDIOT.
+          Quantity: 0.5
         - ReagentId: Nutriment
           Quantity: 1
-        - ReagentId: Stimulants 
+        - ReagentId: Stimulants
           Quantity: 0.5
         - ReagentId: Sugar
           Quantity: 3.0
   - type: FlavorProfile
     flavors:
       - treatchunk
-    ignoreReagents: 
+    ignoreReagents:
       - Stimulants
       - HeartbreakerToxin
       - Nutriment
@@ -699,25 +695,25 @@
     solutions:
       food:
         maxVol: 5
-        reagents: 
+        reagents:
         - ReagentId: Pax # the concept of someone trying to gamer with the droplet of hyperzine and popping a bunch before getting into a fight only to roll a pax one is very funny to me
-          Quantity: 0.5 
+          Quantity: 0.5
         - ReagentId: Nutriment
           Quantity: 1
-        - ReagentId: Stimulants 
+        - ReagentId: Stimulants
           Quantity: 0.5
         - ReagentId: Sugar
           Quantity: 3.0
   - type: FlavorProfile
     flavors:
       - treatchunk
-    ignoreReagents: 
+    ignoreReagents:
       - Stimulants
       - Pax
       - Nutriment
       - Sugar
 
-#nice ones!! 
+#nice ones!!
 
 - type: entity
   parent: FoodTreatChunkOpen
@@ -728,21 +724,21 @@
     solutions:
       food:
         maxVol: 5
-        reagents: 
+        reagents:
         - ReagentId: Omnizine # teeny tiny little heal
           Quantity: 1
         - ReagentId: Nutriment
           Quantity: 1
-        - ReagentId: Stimulants 
+        - ReagentId: Stimulants
           Quantity: 0.5
         - ReagentId: Sugar
           Quantity: 2.5
   - type: FlavorProfile
     flavors:
       - treatchunk
-    ignoreReagents: 
+    ignoreReagents:
       - Stimulants
-      - Omnizine         
+      - Omnizine
       - Nutriment
       - Sugar
 
@@ -755,19 +751,19 @@
     solutions:
       food:
         maxVol: 5
-        reagents: 
+        reagents:
         - ReagentId: DexalinPlus # they wanted to adress the choking problem. this didn't work and got canceled. equipment's still contaminated with it enough to make this happen, though.
-          Quantity: 0.5 
+          Quantity: 0.5
         - ReagentId: Nutriment
           Quantity: 1
-        - ReagentId: Stimulants 
+        - ReagentId: Stimulants
           Quantity: 0.5
         - ReagentId: Sugar
           Quantity: 3.0
   - type: FlavorProfile
     flavors:
       - treatchunk
-    ignoreReagents: 
+    ignoreReagents:
       - Stimulants
       - DexalinPlus
       - Nutriment
@@ -782,7 +778,7 @@
     solutions:
       food:
         maxVol: 5
-        reagents: 
+        reagents:
         - ReagentId: Nutriment
           Quantity: 1
         - ReagentId: Stimulants # they messed up and put too much hyperzine in. yay!
@@ -792,7 +788,7 @@
   - type: FlavorProfile
     flavors:
       - treatchunk
-    ignoreReagents: 
+    ignoreReagents:
       - Stimulants
       - Nutriment
       - Sugar
@@ -806,19 +802,19 @@
     solutions:
       food:
         maxVol: 5
-        reagents: 
+        reagents:
         - ReagentId: Ultravasculine # gamble to fix your lead poisoning a little
-          Quantity: 0.5 
+          Quantity: 0.5
         - ReagentId: Nutriment
           Quantity: 1
-        - ReagentId: Stimulants 
+        - ReagentId: Stimulants
           Quantity: 0.5
         - ReagentId: Sugar
           Quantity: 3.0
   - type: FlavorProfile
     flavors:
       - treatchunk
-    ignoreReagents: 
+    ignoreReagents:
       - Stimulants
       - Ultravasculine
       - Nutriment
@@ -844,4 +840,4 @@
   - type: Tag
     tags:
     - TreatChunk
-    - Trash 
+    - Trash
