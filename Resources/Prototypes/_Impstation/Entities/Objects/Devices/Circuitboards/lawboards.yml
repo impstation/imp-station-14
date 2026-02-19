@@ -35,3 +35,24 @@
     verbIcon:
       sprite: /Textures/Interface/Actions/actions_borg.rsi
       state: state-laws
+
+# Wizmov
+- type: entity
+  id: WizmovCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Wizmov)
+  description: An electronics board containing the Wizmov lawset. The Station is now the domain of The Wizard.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: WizmovLawset
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-wizmov-1
+      - law-wizmov-2
+      - law-wizmov-3
