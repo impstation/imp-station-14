@@ -6,7 +6,7 @@
   productAction: ActionFireball
   productUpgradeId: SpellbookFireballUpgrade
   cost:
-    WizCoin: 2
+    WizCoin: 4 # imp edit
   categories:
   - SpellbookOffensive
   conditions:
@@ -19,7 +19,7 @@
   description: spellbook-polymorph-rod-desc
   productAction: ActionPolymorphWizardRod
   cost:
-    WizCoin: 3
+    WizCoin: 5 # imp edit
   categories:
   - SpellbookOffensive
   conditions:
@@ -32,7 +32,7 @@
   description: spellbook-smite-desc
   productAction: ActionSmite
   cost:
-    WizCoin: 3
+    WizCoin: 5 # imp edit
   categories:
   - SpellbookOffensive
   conditions:
@@ -59,7 +59,7 @@
   description: spellbook-slip-desc
   productAction: ActionSlippery
   cost:
-    WizCoin: 2
+    WizCoin: 3 # imp edit
   categories:
   - SpellbookOffensive
   conditions:
@@ -86,7 +86,7 @@
   description: spellbook-repulse-desc
   productAction: ActionRepulse
   cost:
-    WizCoin: 2
+    WizCoin: 3 # imp edit
   categories:
   - SpellbookDefensive
   conditions:
@@ -99,7 +99,7 @@
   description: spellbook-smoke-desc
   productAction: ActionSmoke
   cost:
-    WizCoin: 1
+    WizCoin: 2 # imp edit
   categories:
   - SpellbookDefensive
   conditions:
@@ -112,8 +112,11 @@
   name: spellbook-polymorph-spider-name
   description: spellbook-polymorph-spider-desc
   productAction: ActionPolymorphWizardSpider
+  icon: #imp add
+    sprite: _Impstation/Mobs/Animals/ductspider.rsi
+    state: idle
   cost:
-    WizCoin: 2
+    WizCoin: 3 # imp edit
   categories:
   - SpellbookUtility
   conditions:
@@ -126,7 +129,7 @@
   description: spellbook-blink-desc
   productAction: ActionBlink
   cost:
-    WizCoin: 1
+    WizCoin: 2 # imp edit
   categories:
   - SpellbookUtility
   conditions:
@@ -140,7 +143,7 @@
   description: spellbook-voidapplause-desc
   productAction: ActionVoidApplause
   cost:
-    WizCoin: 1
+    WizCoin: 2 # imp edit
   categories:
   - SpellbookUtility
   conditions:
@@ -153,7 +156,7 @@
   description: spellbook-knock-desc
   productAction: ActionKnock
   cost:
-    WizCoin: 1
+    WizCoin: 2 # imp edit
   categories:
   - SpellbookUtility
   conditions:
@@ -180,7 +183,7 @@
   productAction: ActionPolymorphJaunt
   productUpgradeId: SpellbookJauntUpgrade
   cost:
-    WizCoin: 2
+    WizCoin: 4 # imp edit
   categories:
   - SpellbookUtility
   conditions:
@@ -193,7 +196,7 @@
   description: spellbook-mind-swap-description
   productAction: ActionMindSwap
   cost:
-    WizCoin: 2
+    WizCoin: 4 # imp edit
   categories:
   - SpellbookUtility
   conditions:
@@ -207,9 +210,9 @@
   description: spellbook-wand-polymorph-door-description
   productEntity: WeaponWandPolymorphDoor
   cost:
-    WizCoin: 3
+    WizCoin: 4 # imp edit
   categories:
-  - SpellbookEquipment
+  - SpellbookWand # imp edit
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -220,9 +223,9 @@
   description: spellbook-wand-polymorph-carp-description
   productEntity: WeaponWandPolymorphCarp
   cost:
-    WizCoin: 3
+    WizCoin: 4 # imp edit
   categories:
-  - SpellbookEquipment
+  - SpellbookWand # imp edit
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -233,9 +236,9 @@
   description: spellbook-wand-locker-description
   productEntity: WeaponWandLocker
   cost:
-    WizCoin: 3
+    WizCoin: 4 # imp edit
   categories:
-  - SpellbookEquipment
+  - SpellbookWand # imp edit
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -246,7 +249,7 @@
   description: spellbook-hammer-mjollnir-description
   productEntity: Mjollnir
   cost:
-    WizCoin: 2
+    WizCoin: 4 # imp edit
   categories:
   - SpellbookEquipment
   conditions:
@@ -259,26 +262,25 @@
   description: spellbook-hammer-singularity-description
   productEntity: SingularityHammer
   cost:
-    WizCoin: 2
+    WizCoin: 4 # imp edit
   categories:
   - SpellbookEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
 
-# imp (Removed until it is fixed and no longer makes everyone miserable)
-#- type: listing
-#  id: SpellbookStaffAnimation
-#  name: spellbook-staff-animation-name
-#  description: spellbook-staff-animation-description
-#  productEntity: AnimationStaff
-#  cost:
-#    WizCoin: 3
-#  categories:
-#  - SpellbookEquipment
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: SpellbookStaffAnimation
+  name: spellbook-staff-animation-name
+  description: spellbook-staff-animation-description
+  productEntity: AnimationStaff
+  cost:
+    WizCoin: 5 # imp edit
+  categories:
+  - SpellbookWand # imp edit
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 # Event
 - type: listing
@@ -286,8 +288,6 @@
   name: spellbook-event-summon-ghosts-name
   description: spellbook-event-summon-ghosts-description
   productAction: ActionSummonGhosts
-  cost:
-    WizCoin: 0
   categories:
   - SpellbookEvents
   conditions:
@@ -300,7 +300,7 @@
   description: spellbook-event-summon-guns-description
   productAction: ActionSummonGuns
   cost:
-    WizCoin: 2
+    WizCoin: 10 # imp edit
   categories:
   - SpellbookEvents
   conditions:
@@ -314,7 +314,7 @@
   description: spellbook-event-summon-magic-description
   productAction: ActionSummonMagic
   cost:
-    WizCoin: 2
+    WizCoin: 10 # imp edit
   categories:
   - SpellbookEvents
   conditions:
@@ -332,7 +332,7 @@
     sprite: Objects/Magic/magicactions.rsi
     state: fireball
   cost:
-    WizCoin: 2
+    WizCoin: 4 # imp edit
   categories:
   - SpellbookOffensive
   conditions:
@@ -352,7 +352,7 @@
     sprite: Objects/Magic/magicactions.rsi
     state: jaunt
   cost:
-    WizCoin: 2
+    WizCoin: 4 # imp edit
   categories:
   - SpellbookUtility
   conditions:

@@ -291,6 +291,14 @@
     slots: [ mask ]
     equippedPrefix: lollipop
     quickEquip: false # would block eating otherwise
+  - type: MeleeWeapon
+    wideAnimationRotation: -135 
+    damage: 
+      types: 
+        Blunt: 2
+    soundHit:
+      collection: MetalThud
+  - type: DamageOtherOnHit
 
 - type: entity
   name: cloth lollipop

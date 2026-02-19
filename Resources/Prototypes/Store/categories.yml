@@ -23,15 +23,32 @@
   name: store-caregory-spellbook-utility
   priority: 2
 
+# imp add start
+- type: storeCategory
+  id: SpellbookWand
+  name: store-caregory-spellbook-wand
+  priority: 3
+
+- type: storeCategory
+  id: SpellbookBook
+  name: store-caregory-spellbook-book
+  priority: 4
+
+- type: storeCategory
+  id: SpellbookMats
+  name: store-caregory-spellbook-mats
+  priority: 7
+# imp add end
+
 - type: storeCategory
   id: SpellbookEquipment
   name: store-caregory-spellbook-equipment
-  priority: 3
+  priority: 5 # imp edit
 
 - type: storeCategory
   id: SpellbookEvents
   name: store-caregory-spellbook-events
-  priority: 4
+  priority: 6 # imp edit
 
 #uplink categoires
 - type: storeCategory
