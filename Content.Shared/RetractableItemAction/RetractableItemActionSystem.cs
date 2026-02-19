@@ -178,12 +178,10 @@ public sealed class RetractableItemActionSystem : EntitySystem
     // imp edit start
     private void OnActionShutdown(Entity<RetractableItemActionComponent> ent, ref ComponentShutdown args)
     {
-        PredictedQueueDel(ent.Comp.ActionItemUid);
+        if (ent.Comp.ActionItemUid != null)
+            PredictedQueueDel(ent.Comp.ActionItemUid);
 
-        if (ent.Comp.ActionItemUid == null)
-            return;
-
-        var container = _containers.GetContainer(ent.Comp.ActionItemUid.Value, RetractableItemActionComponent.ContainerId);
+        var container = _containers.GetContainer(ent, RetractableItemActionComponent.ContainerId);
         _containers.ShutdownContainer(container);
     }
 
