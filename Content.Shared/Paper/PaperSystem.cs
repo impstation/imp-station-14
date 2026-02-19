@@ -175,7 +175,7 @@ public sealed class PaperSystem : EntitySystem
                     ("stamp", args.Used));
             _popupSystem.PopupClient(stampPaperSelfMessage, args.User, args.User);
 
-            _audio.PlayPredicted(stampComp?.Sound, entity, args.User);
+            _audio.PlayPredicted(stampComp?.Sound, entity, args.User); // Imp edit
 
             UpdateUserInterface(entity);
         }
