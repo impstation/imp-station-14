@@ -555,3 +555,30 @@
         - id: Flare
         - id: WheatBushel
         - id: DrinkWaterBottleFull
+
+#Anomalocarid
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSurvivalDan
+  name: Doomed Dan's budget survival kit
+  description: It won't just save your life, it'll also save your wallet.
+  suffix: Standard
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath #todo, ???
+        - id: EmergencyOxygenTankFilled #todo, half water vapor half oxy
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodSnackHardtack
+        - id: DanWaterBottleCube
+        - id: DiscountDanLighter
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/boxes.rsi
+    layers:
+    - state: internals_dans
+    - state: danslogo
