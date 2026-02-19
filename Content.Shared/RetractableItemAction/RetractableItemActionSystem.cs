@@ -180,9 +180,6 @@ public sealed class RetractableItemActionSystem : EntitySystem
     {
         if (ent.Comp.ActionItemUid != null)
             PredictedQueueDel(ent.Comp.ActionItemUid);
-
-        var container = _containers.GetContainer(ent, RetractableItemActionComponent.ContainerId);
-        _containers.ShutdownContainer(container);
     }
 
     private void OnMobStateChanged(Entity<ActionRetractableItemComponent> ent, ref HeldRelayedEvent<MobStateChangedEvent> args)
