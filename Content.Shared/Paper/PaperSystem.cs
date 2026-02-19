@@ -43,7 +43,7 @@ public sealed class PaperSystem : EntitySystem
         SubscribeLocalEvent<PaperComponent, BeforeActivatableUIOpenEvent>(BeforeUIOpen);
         SubscribeLocalEvent<PaperComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<PaperComponent, InteractUsingEvent>(OnInteractUsing);
-        SubscribeLocalEvent<PaperComponent, InteractHandEvent>(OnInteractHand);
+        SubscribeLocalEvent<PaperComponent, InteractHandEvent>(OnInteractHand); // imp edit
         SubscribeLocalEvent<PaperComponent, PaperInputTextMessage>(OnInputTextMessage);
 
         SubscribeLocalEvent<RandomPaperContentComponent, MapInitEvent>(OnRandomPaperContentMapInit);
@@ -180,7 +180,10 @@ public sealed class PaperSystem : EntitySystem
             UpdateUserInterface(entity);
         }
     }
-
+    //imp edit start
+    /// <summary>
+    ///     Allows entities with the stamp component to stamp papers if they have hands.
+    /// </summary>
     private void OnInteractHand(Entity<PaperComponent> entity, ref InteractHandEvent args)
     {
         if (TryComp<StampComponent>(args.User, out var stampComp)
@@ -201,7 +204,7 @@ public sealed class PaperSystem : EntitySystem
             UpdateUserInterface(entity);
         }
     }
-
+    //imp edit end
     private static StampDisplayInfo GetStampInfo(StampComponent stamp)
     {
         return new StampDisplayInfo
