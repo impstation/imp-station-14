@@ -182,7 +182,7 @@ public sealed class PaperSystem : EntitySystem
     }
     //imp edit start
     /// <summary>
-    ///     Allows entities with the stamp component to stamp papers if they have hands.
+    ///     Handles entities with a stamp component being able to stamp papers with their hands.
     /// </summary>
     private void OnInteractHand(Entity<PaperComponent> entity, ref InteractHandEvent args)
     {
