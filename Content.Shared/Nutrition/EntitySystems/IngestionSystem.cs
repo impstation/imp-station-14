@@ -384,7 +384,7 @@ public sealed partial class IngestionSystem : EntitySystem
 
         if (!afterEv.Destroy)
         {
-            args.Repeat = afterEv.Repeat;
+            args.Repeat = false; // imp edit, afterEv.Repeat -> false
             return;
         }
 
@@ -506,7 +506,7 @@ public sealed partial class IngestionSystem : EntitySystem
             };
             RaiseLocalEvent(args.Target, ref ev);
 
-            args.Repeat = !args.ForceFed;
+            args.Repeat = false; // imp edit, !args.ForceFed -> false
             return;
         }
 
