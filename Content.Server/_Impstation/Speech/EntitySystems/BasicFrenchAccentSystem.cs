@@ -22,9 +22,9 @@ public sealed class BasicFrenchAccentSystem : EntitySystem
         SubscribeLocalEvent<BasicFrenchAccentComponent, AccentGetEvent>(OnAccentGet);
     }
 
-    public string Accentuate(string message, BasicFrenchAccentComponent component)
+    private void OnAccentGet(Entity<BasicFrenchAccentComponent> entity, ref AccentGetEvent args)
     {
-        var msg = message;
+        var msg = args.Message;
 
         msg = _replacement.ApplyReplacements(msg, "basicfrench");
 
@@ -37,11 +37,6 @@ public sealed class BasicFrenchAccentSystem : EntitySystem
         // spaces out ! ? : and ;.
         msg = RegexSpacePunctuation.Replace(msg, " $&");
 
-        return msg;
-    }
-
-    private void OnAccentGet(EntityUid uid, BasicFrenchAccentComponent component, AccentGetEvent args)
-    {
-        args.Message = Accentuate(args.Message, component);
+        args.Message = msg;
     }
 }

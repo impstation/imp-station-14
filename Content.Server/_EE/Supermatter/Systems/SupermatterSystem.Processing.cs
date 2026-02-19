@@ -47,13 +47,12 @@ public sealed partial class SupermatterSystem
         if (mix is not { })
             return;
 
-        // Divide the gas efficiency by the grace modifier if the supermatter is unpowered
-        var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(EECCVars.SupermatterGasEfficiencyGraceModifier));
+        // Variable mix was copied as to not interfere with other calculations when gasReleased is merged
+        sm.GasMixture = mix.Clone();
 
-        sm.GasStorage = mix.Remove(gasEfficiency * mix.TotalMoles);
-        var moles = sm.GasStorage.TotalMoles;
+        sm.GasStorage = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
 
-        if (!(moles > 0f))
+        if (!(sm.GasStorage.TotalMoles > 0f))
             return;
 
         var gasComposition = sm.GasStorage.Clone();
@@ -62,7 +61,7 @@ public sealed partial class SupermatterSystem
         // They range between 0 and 1
         foreach (var gasId in Enum.GetValues<Gas>())
         {
-            var proportion = sm.GasStorage.GetMoles(gasId) / moles;
+            var proportion = sm.GasStorage.GetMoles(gasId) / sm.GasStorage.TotalMoles;
             gasComposition.SetMoles(gasId, Math.Clamp(proportion, 0, 1));
         }
 
@@ -84,13 +83,13 @@ public sealed partial class SupermatterSystem
 
         if (ammoniaProportion > 0)
         {
-            var ammoniaPartialPressure = mix.Pressure * ammoniaProportion;
+            var ammoniaPartialPressure = sm.GasMixture.Pressure * ammoniaProportion;
             var consumedMiasma = Math.Clamp((ammoniaPartialPressure - _config.GetCVar(EECCVars.SupermatterAmmoniaConsumptionPressure)) /
                 (ammoniaPartialPressure + _config.GetCVar(EECCVars.SupermatterAmmoniaPressureScaling)) *
                 (1 + powerRatio * _config.GetCVar(EECCVars.SupermatterAmmoniaGasMixScaling)),
                 0f, 1f);
 
-            consumedMiasma *= ammoniaProportion * moles;
+            consumedMiasma *= ammoniaProportion * sm.GasStorage.TotalMoles;
 
             if (consumedMiasma > 0)
             {
@@ -104,12 +103,12 @@ public sealed partial class SupermatterSystem
         sm.DynamicHeatResistance = Math.Max(heatResistance, 1);
 
         // More moles of gases are harder to heat than fewer, so let's scale heat damage around them
-        sm.MoleHeatPenaltyThreshold = (float)Math.Max(moles / _config.GetCVar(EECCVars.SupermatterMoleHeatPenalty), 0.25);
+        sm.MoleHeatPenaltyThreshold = (float)Math.Max(sm.GasStorage.TotalMoles / _config.GetCVar(EECCVars.SupermatterMoleHeatPenalty), 0.25);
 
         // Ramps up or down in increments of 0.02 up to the proportion of CO2
         // Given infinite time, powerloss_dynamic_scaling = co2comp
         // Some value from 0-1
-        if (moles > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleThreshold) && // if there are more than 6 mols,
+        if (sm.GasStorage.TotalMoles > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleThreshold) && // if there are more than 20 mols,
             gasComposition.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionGasThreshold)) // and more than 20% co2
         {
             var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
@@ -118,10 +117,10 @@ public sealed partial class SupermatterSystem
         else
             sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling - 0.05f, 0f, 1f);
 
-        // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 150))))
+        // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 500))))
         // We take the mol count, and scale it to be our inhibitor
         sm.PowerlossInhibitor = Math.Clamp(
-            1 - sm.PowerlossDynamicScaling * Math.Clamp(moles / _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleBoostThreshold), 1f, 1.5f),
+            1 - sm.PowerlossDynamicScaling * Math.Clamp(sm.GasStorage.TotalMoles / _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleBoostThreshold), 1f, 1.5f),
             0f, 1f);
 
         if (sm.MatterPower != 0)
@@ -190,7 +189,7 @@ public sealed partial class SupermatterSystem
 
         // Log the first powering of the supermatter
         if (sm.Power > 0 && !sm.HasBeenPowered)
-            LogFirstPower(uid, sm, mix);
+            LogFirstPower(uid, sm, sm.GasMixture);
     }
 
     /// <summary>
@@ -340,42 +339,40 @@ public sealed partial class SupermatterSystem
 
         sm.DamageArchived = sm.Damage;
 
-        var mix = _atmosphere.GetContainingMixture(uid, true, true);
-
         // We're in space or there is no gas to process
-        if (!xform.GridUid.HasValue || mix is not { } || MathHelper.CloseTo(mix.TotalMoles, 0f, 0.0005f)) //#IMP change from == 0f to MathHelper.CloseTo(mix.TotalMoles, 0f, 0.0005f)
+        if (!xform.GridUid.HasValue || sm.GasMixture is not { } || MathHelper.CloseTo(sm.GasMixture.TotalMoles, 0f, 0.0005f)) //#IMP change from == 0f to MathHelper.CloseTo(sm.GasMixture.TotalMoles, 0f, 0.0005f)
         {
             sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 0.1f);
             return;
         }
-
-        // Absorbed gas from surrounding area
-        var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(EECCVars.SupermatterGasEfficiencyGraceModifier));
-        var absorbedGas = mix.Remove(gasEfficiency * mix.TotalMoles);
-        var moles = absorbedGas.TotalMoles;
 
         var totalDamage = 0f;
 
         var tempThreshold = Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold);
 
         // Temperature start to have a positive effect on damage after 350
-        var tempDamage = Math.Max(Math.Clamp(moles / 200f, .5f, 1f) * absorbedGas.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
+        if (sm.GasMixture is { } && sm.GasStorage is { })
+        {
+            var tempDamage = Math.Max(Math.Clamp(sm.GasStorage.TotalMoles / 200f, .5f, 1f) * sm.GasMixture.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
             sm.MoleHeatPenaltyThreshold / 150f * sm.DamageIncreaseMultiplier;
-        totalDamage += tempDamage;
-
+            totalDamage += tempDamage;
+        }
         // Power only starts affecting damage when it is above 5000
         var powerDamage = Math.Max(sm.Power - _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold), 0f) / 500f * sm.DamageIncreaseMultiplier;
         totalDamage += powerDamage;
 
-        // Mol count only starts affecting damage when it is above 1800
-        var moleDamage = Math.Max(moles - _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold), 0f) / 80 * sm.DamageIncreaseMultiplier;
-        totalDamage += moleDamage;
+        if (sm.GasStorage is { })
+        {
+            // Mol count only starts affecting damage when it is above 1800
+            var moleDamage = Math.Max(sm.GasStorage.TotalMoles - _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold), 0f) / 80 * sm.DamageIncreaseMultiplier;
+            totalDamage += moleDamage;
+        }
 
         // Healing damage
-        if (moles < _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold))
+        if (sm.GasMixture is { } && sm.GasStorage is { } && sm.GasStorage.TotalMoles < _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold))
         {
             // Only has a net positive effect when the temp is below 313.15, heals up to 2 damage. Psychologists increase this temp min by up to 45
-            sm.HeatHealing = Math.Min(absorbedGas.Temperature - (tempThreshold + 45f * sm.PsyCoefficient), 0f) / 150f;
+            sm.HeatHealing = Math.Min(sm.GasMixture.Temperature - (tempThreshold + 45f * sm.PsyCoefficient), 0f) / 150f;
             totalDamage += sm.HeatHealing;
         }
         else
@@ -620,15 +617,10 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(EECCVars.SupermatterDoForceDelam))
             return _config.GetCVar(EECCVars.SupermatterForcedDelamType);
 
-        var mix = _atmosphere.GetContainingMixture(uid, true, true);
-
-        if (mix is { })
+        if (sm.GasStorage is { })
         {
-            var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
-            var moles = absorbedGas.TotalMoles;
-
             if (_config.GetCVar(EECCVars.SupermatterDoSingulooseDelam)
-                && moles >= _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold) * _config.GetCVar(EECCVars.SupermatterSingulooseMolesModifier))
+                && sm.GasStorage.TotalMoles >= _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold) * _config.GetCVar(EECCVars.SupermatterSingulooseMolesModifier))
                 return DelamType.Singulo;
         }
 

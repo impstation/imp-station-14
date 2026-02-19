@@ -1,0 +1,44 @@
+<Document>
+  # Natural artifacts
+  <Box>
+    <GuideEntityEmbed Entity="ComplexXenoArtifact" Caption=""/>
+    <GuideEntityEmbed Entity="ComplexXenoArtifactItem" Caption=""/>
+  </Box>
+
+  Artifacts consist of a randomly-generated tree of nodes. These nodes have a "[color=#a4885c]depth[/color]", representing how dangerous the node is, and the number of other nodes connected to it, called "[color=#a4885c]edges[/color]",
+
+  Artifacts always start at depth zero, the root of the tree. Travelling the tree to find as many nodes as possible is the main goal of the scientists working on them. Knowledge is extracted from nodes to gain Research Points and increase the artifact's sale value.
+
+  Each node has two components: its [color=#a4885c]stimulus[/color] (also known as a [color=#a4885c]trigger[/color]) and a [color=#a4885c]reaction[/color] (also known as an [color=#a4885c]effect[/color]).
+
+  A stimulus is the external behavior that triggers the reaction. There's a variety of these, and higher depth nodes have more difficult to accomplish stimuli. Some stimuli will need improvisation to trigger, and you may need to talk to other departments to get everything you need.
+
+  Some reactions are [color=green]instantaneous[/color] effects while others are [color=red]permanent[/color] or [color=#00ccff]temporary[/color] changes. Once an artifact is triggered, the reaction causes the artifact to randomly move to another node it is linked to. The direction can be influenced by use of an [textlink="Analysis Console" link="AnalysisConsoleImp"]
+
+  With some experimental science, you can begin to grasp how the different nodes of an artifact are connected, and how to move between them by repeatedly activating nodes.
+
+  All non-zero-depth nodes will have exactly one edge that leads up to its parent node. All other edges a node has lead down to the next depth.
+
+  <GuideReagentEmbed Reagent="Artifexium"/>
+
+  ## Current nodes
+
+  ## Triggers
+  Examples include:
+  - Examining the artifact
+  - Playing an instrument
+  - Damaging or throwing it
+  - Exposing it to gases (plasma, tritium, etc.)
+  - Changing pressure or temperature
+  - Using tools (screwdriver, multitool, crowbar, wrench)
+  - Splashing reagents (blood, water, ammonia, etc.)
+  - Killing something nearby
+
+  If you do not know how to activate a requested trigger, try asking a fellow Scientist, your Research Director, the Captain, or random people on the station!
+
+  ## Effects
+  Effects can be:
+  - [color=green]Instant:[/color] producing a gas, exploding, summoning (or is it creating?) an object, spewing a foam, etc.
+  - [color=#00ccff]Temporary:[/color] becoming radioactive, becoming magnetic, become invisible, etc.
+  - [color=red]Permanent:[/color] becoming playable like an instrument, gaining internal solution storage, becoming a bed, etc.
+</Document>

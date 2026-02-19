@@ -7,7 +7,7 @@ highlights-chief-medical-officer = Chief Medical Officer, "CMO", MedBay, "Med", 
 highlights-head-of-security = Head of Security, "HoS", Security, "Sec", Command
 highlights-quartermaster = Quartermaster, "QM", Cargo, Command
 highlights-research-director = Research Director, "RD", Science, "Sci", Command
-# impstation edit - new job
+# impstation edit - new job TODO:move added entries out of base directory
 highlights-administrative-assistant = Administrative Assistant, "AA", Command, Secretary
 
 # Security
@@ -54,9 +54,7 @@ highlights-passenger = Passenger
 highlights-service-worker = Service Worker
 
 # Station-specific
-highlights-boxer = Boxer
 highlights-reporter = Reporter, Journalist
-highlights-zookeeper = Zookeeper
 highlights-psychologist = Psychologist, Psychology
 
 # Silicon
