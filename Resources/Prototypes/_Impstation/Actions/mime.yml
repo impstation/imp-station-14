@@ -24,7 +24,7 @@
       preventCollideWithCaster: false
   - type: PopupOnAction
     text: mime-invisible-wall-popup-self
-    otherText: mime-invisible-wall-popup-other
+    otherText: mime-invisible-wall-popup-others
 
 - type: entity
   parent: ActionMimeBase
@@ -45,7 +45,7 @@
       tryBuckle: true
   - type: PopupOnAction
     text: mime-invisible-chair-popup-self
-    otherText: mime-invisible-chair-popup-other
+    otherText: mime-invisible-chair-popup-others
 
 - type: entity
   parent: ActionMimeBase
@@ -64,7 +64,7 @@
       prototype: BoxInvisible
   - type: PopupOnAction
     text: mime-invisible-box-popup-self
-    otherText: mime-invisible-box-popup-other
+    otherText: mime-invisible-box-popup-others
 
 - type: entity
   parent: ActionMimeInvisibleWall
