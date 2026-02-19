@@ -27,6 +27,13 @@
     species:
     - Gastropoid
 
+- type: loadoutEffectGroup
+  id: Discount
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Anomalocarid
+
 #- type: loadout
 #  id: EmergencyAquatic
 #  effects:
@@ -201,6 +208,15 @@
     lhand:
     - BoxSurvival
 
+- type: loadout
+  id: EmergencyDiscount
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalDiscount
+
 # Clown
 - type: loadout
   id: EmergencyMeatClown
@@ -219,6 +235,15 @@
   storage:
     back:
     - BoxHugUngu  
+
+- type: loadout
+  id: EmergencyDiscountClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxHugDiscount
 
 # Mime
 - type: loadout
@@ -239,6 +264,15 @@
     back:
     - BoxMimeUngu    
 
+- type: loadout
+  id: EmergencyDiscountMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxMimeDiscount
+
 # Engineering / Extended
 - type: loadout
   id: EmergencyMeatExtended
@@ -257,6 +291,15 @@
   storage:
     back:
     - BoxSurvivalEngineeringUngu   
+
+- type: loadout
+  id: EmergencyDiscountExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalEngineeringDiscount
 
 # Command
 - type: loadout
@@ -295,6 +338,15 @@
     back:
     - BoxSurvivalCommandUngu 
 
+- type: loadout
+  id: EmergencyDiscountCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalCommandDiscount
+
 # Medical
 - type: loadout
   id: EmergencyMeatMedical
@@ -313,6 +365,15 @@
   storage:
     back:
     - BoxSurvivalMedicalUngu  
+
+- type: loadout
+  id: EmergencyDiscountMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalMedicalDiscount
 
 # Medsec, idk if this is _wizden but theres a chance they also just didnt have brigmed and vox at the same time
 - type: loadout
@@ -341,6 +402,15 @@
   storage:
     back:
     - BoxSurvivalSecurityUngu
+
+- type: loadout
+  id: EmergencyDiscountSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalSecurityDiscount
 
 # Brigmedic
 - type: loadout
@@ -379,6 +449,15 @@
     back:
     - BoxSurvivalBrigmedicUngu  
 
+- type: loadout
+  id: EmergencyDiscountBrigmedic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalBrigmedicDiscount
+
 # Syndicate
 
 - type: loadout
@@ -398,6 +477,15 @@
   storage:
     back:
     - BoxSurvivalSyndicateUngu 
+
+- type: loadout
+  id: EmergencyDiscountSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalSyndicateDiscount
 
 # Chief Engineer
 - type: loadout
@@ -436,6 +524,15 @@
     back:
     - BoxSurvivalEngineeringCommandUngu 
 
+- type: loadout
+  id: EmergencyDiscountExtendedCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalEngineeringCommandDiscount
+
 # Head of Security
 - type: loadout
   id: EmergencyOxygenSecurityCommand
@@ -473,6 +570,15 @@
     back:
     - BoxSurvivalSecurityCommandUngu 
 
+- type: loadout
+  id: EmergencyDiscountSecurityCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalSecurityCommandDiscount
+
 # stupid things i have to do bc i cant have kode classified as oxygenbreather. ungu city now too
 
 - type: loadout
@@ -488,6 +594,14 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: Cow
+  equipment:
+    suitstorage: OxygenTankFilled
+
+- type: loadout
+  id: LoadoutSpeciesEVADiscount
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
   equipment:
     suitstorage: OxygenTankFilled    
 
@@ -506,6 +620,14 @@
     proto: Cow
   equipment:
     pocket1: DoubleEmergencyOxygenTankFilled    
+
+- type: loadout
+  id: LoadoutSpeciesPocketDoubleOxygenDiscount
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  equipment:
+    pocket1: DoubleEmergencyOxygenTankFilled   
 
 # commenting these out because I would like to do emergency vapor boxes at some point. - move these to imp filestructure
 #- type: loadoutEffectGroup
