@@ -560,7 +560,7 @@
 
 - type: entity
   parent: BoxCardboard
-  id: BoxSurvivalDan
+  id: BoxSurvivalAnomalocarid
   name: Doomed Dan's budget survival kit
   description: It won't just save your life, it'll also save your wallet.
   suffix: Standard
@@ -569,8 +569,8 @@
     containers:
       storagebase: !type:AllSelector
         children:
-        - id: ClothingMaskBreath #todo, ???
-        - id: EmergencyOxygenTankFilled #todo, half water vapor half oxy
+        - id: ClothingMaskBreath
+        - id: EmergencyOxygenTankFilled
         - id: EmergencyMedipenDiscountDan
         - id: FoodSnackHardtack
         - id: DanWaterBottleCube
