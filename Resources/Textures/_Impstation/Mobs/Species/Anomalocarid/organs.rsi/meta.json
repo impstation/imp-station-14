@@ -1,0 +1,140 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "sprites by atdoop (github) for impstation.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "eyeball-l"
+        },
+        {
+            "name": "eyeball-r"
+        },
+        {
+            "name": "eyeball-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "eyeball-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "lung-l"
+        },
+        {
+            "name": "lung-r"
+        },
+        {
+            "name": "lung-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "lung-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "kidney-l"
+        },
+        {
+            "name": "kidney-r"
+        },
+        {
+            "name": "kidney-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "kidney-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "kidney-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "heart-off"
+        },
+        {
+            "name": "heart-on",
+            "delays": [
+                [
+                    0.6,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "heart-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "heart-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "liver"
+        },
+        {
+            "name": "liver-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "liver-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "ticket"
+        },
+        {
+            "name": "ticket-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "ticket-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "stomach"
+        },
+        {
+            "name": "stomach-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "stomach-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "brain"
+        },
+        {
+            "name": "brain-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "brain-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "appendix",
+            "delays": [
+                [
+                    0.7,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "appendix-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "appendix-inhand-right",
+            "directions": 4
+        }
+    ]
+}

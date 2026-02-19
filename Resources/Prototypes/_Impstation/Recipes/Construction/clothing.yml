@@ -51,3 +51,35 @@
   targetNode: eyesack
   category: construction-category-clothing
   objectType: Item
+
+- type: construction
+  id: PompomCloak
+  graph: PompomCloak
+  startNode: start
+  targetNode: cloak
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: PompomEarmuffs
+  graph: PompomEarmuffs
+  startNode: start
+  targetNode: muffs
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: PompomBow
+  graph: PompomBow
+  startNode: start
+  targetNode: bow
+  category: construction-category-clothing
+  objectType: Item
+
+- type: construction
+  id: PompomBoots
+  graph: PompomBoots
+  startNode: start
+  targetNode: boots
+  category: construction-category-clothing
+  objectType: Item

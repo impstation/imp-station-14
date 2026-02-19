@@ -6,8 +6,10 @@
   abstract: true
   components:
   - type: Bloodstream
-    bloodMaxVolume: 1000
-    bloodReagent: Blood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 1000
   - type: GhostRole
     allowMovement: true
     makeSentient: true
@@ -47,8 +49,8 @@
   - type: MobMover
   - type: InputMover
   - type: MovementSpeedModifier
-    baseWalkSpeed: .6
-    baseSprintSpeed: 1.3 # original - 1.1. Can be slowed down again when rush is implemented
+    baseWalkSpeed: .8
+    baseSprintSpeed: 1.5 # original - 1.1. Can be slowed down again when rush is implemented
   - type: Sprite
     sprite: _Impstation/Mobs/Aliens/vrex.rsi
     layers:
@@ -78,8 +80,8 @@
       2000: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
-      1500: 0.7
-      1800: 0.5
+      1500: 0.8
+      1800: 0.6
   - type: StatusEffects # copied from dragon, flash protection. it's slow enough already.
     allowed:
     - Stutter
@@ -174,7 +176,7 @@
     damageContainer: Biological
     damageModifierSet: VRex
   - type: Stamina
-    critThreshold: 300
+    baseCritThreshold: 300
   - type: JumpAbility
     action: ActionVRexLeap
     jumpDistance: 3

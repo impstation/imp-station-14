@@ -83,6 +83,7 @@
     entries:
       Burger: FinfinCutlet
       Taco: FinfinCutlet
+      Hotdog: FinfinCutlet
 
 - type: entity
   name: cooked Fin Fin
@@ -145,6 +146,7 @@
   - type: FoodSequenceElement
     entries:
       Burger: FriedFinfinBurger
+      Hotdog: FriedFinfinBurger
 
 - type: entity
   name: heart carpaccio
@@ -204,6 +206,7 @@
   - type: FoodSequenceElement
     entries:
       Burger: ThavenBurger
+      Hotdog: ThavenBurger
 
 - type: entity
   name: raw kodepiia meat

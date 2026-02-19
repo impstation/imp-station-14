@@ -4,53 +4,56 @@
   group: Narcotics
   desc: reagent-desc-desoxyephedrine
   physicalDesc: reagent-physical-desc-translucent
-  contrabandSeverity: Major
+  contrabandSeverity: Minor
   flavor: bitter
   color: "#FAFAFA"
   boilingPoint: 212.0  # Dexosyephedrine vape when?
   meltingPoint: 170.0
   metabolisms:
     Poison:
+      # Main effects
       effects:
       - !type:HealthChange
         damage:
           types:
-            Poison: 0.75
+            Poison: 0.55
+            Blunt: 0.5
+      # OD
       - !type:HealthChange
         conditions:
         - !type:ReagentCondition
           reagent: Desoxyephedrine
-          min: 30
+          min: 16
         damage:
           types:
-            Poison: 2 # this is added to the base damage of the meth.
+            Poison: 3 # this is added to the base damage of the meth.
             Asphyxiation: 2
     Narcotic:
       effects:
+      # Main effects
       - !type:MovementSpeedModifier
         conditions: #imp
         - !type:MetabolizerTypeCondition #imp, effects for non-allu
           type: [ Allulalo ]
           inverted: true
-        walkSpeedModifier: 1.35
-        sprintSpeedModifier: 1.35
-      - !type:MovementSpeedModifier #imp
-        conditions:
-        - !type:MetabolizerTypeCondition #imp, effects for allu
-          type: [ Allulalo ]
-        walkSpeedModifier: 1.2
-        sprintSpeedModifier: 1.2
+        walkSpeedModifier: 1.20
+        sprintSpeedModifier: 1.20
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDesoxyStamina # You are on meth. You keep going.
+        time: 3
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 3
+      # Side effects
+      - !type:Jitter
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
-      - !type:Jitter
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectStunned
-        time: 3
-        type: Remove
-      - !type:ModifyKnockdown
-        time: 3
-        type: Remove
+        effectProto: StatusEffectPainNumbness
+        time: 2
+      # Interactions
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
@@ -68,11 +71,12 @@
         factor: -6
     Medicine:
       effects:
+      # Side effects
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentCondition
           reagent: Desoxyephedrine
-          min: 20
+          min: 5
 
 - type: reagent
   id: Ephedrine
@@ -80,7 +84,6 @@
   group: Narcotics
   desc: reagent-desc-ephedrine
   physicalDesc: reagent-physical-desc-powdery
-  contrabandSeverity: Minor
   flavor: bitter
   color: "#D2FFFA"
   boilingPoint: 255.0
@@ -88,29 +91,14 @@
   metabolisms:
     Narcotic:
       effects:
+      # Main effects
       - !type:MovementSpeedModifier
         conditions: #imp
         - !type:MetabolizerTypeCondition #imp, effects for non-allu
           type: [ Allulalo ]
           inverted: true
-        walkSpeedModifier: 1.25
-        sprintSpeedModifier: 1.25
-      - !type:MovementSpeedModifier #imp
-        conditions:
-        - !type:MetabolizerTypeCondition #imp, effects for allu
-          type: [ Allulalo ]
-        walkSpeedModifier: 1.12
-        sprintSpeedModifier: 1.12
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentCondition
-          reagent: Ephedrine
-          min: 20
-        damage:
-          types:
-            Poison: 2 # this is added to the base damage of the meth.
-            Asphyxiation: 2
-      - !type:Jitter
+        walkSpeedModifier: 1.15
+        sprintSpeedModifier: 1.15
       - !type:ModifyStatusEffect
         effectProto: StatusEffectStunned
         time: 1
@@ -118,14 +106,8 @@
       - !type:ModifyKnockdown
         time: 1
         type: Remove
-      - !type:ModifyStatusEffect
-        conditions:
-        - !type:ReagentCondition
-          reagent: Haloperidol
-          max: 0.01
-        effectProto: StatusEffectDrowsiness
-        time: 10
-        type: Remove
+      # Side effects
+      - !type:Jitter
       - !type:PopupMessage
         visualType: Medium
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
@@ -138,13 +120,33 @@
         amount: 4100
       - !type:SatiateThirst #imp
         factor: -6
+      # OD
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Ephedrine
+          min: 20
+        damage:
+          types:
+            Poison: 2
+            Asphyxiation: 2
+      # Interactions
+      - !type:ModifyStatusEffect
+        conditions:
+        - !type:ReagentCondition
+          reagent: Haloperidol
+          max: 0.01
+        effectProto: StatusEffectDrowsiness
+        time: 10
+        type: Remove
     Medicine:
       effects:
+      # Side effects
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentCondition
           reagent: Ephedrine
-          min: 30
+          min: 15
 
 - type: reagent
   id: Stimulants
@@ -159,21 +161,15 @@
   meltingPoint: 170.0
   metabolisms:
     Narcotic:
-      metabolismRate: 1.0
       effects:
+      # Main effects
       - !type:MovementSpeedModifier
         conditions: #imp
         - !type:MetabolizerTypeCondition #imp, effects for non-allu
           type: [ Allulalo ]
           inverted: true
-        walkSpeedModifier: 1.3
-        sprintSpeedModifier: 1.3
-      - !type:MovementSpeedModifier #imp
-        conditions:
-        - !type:MetabolizerTypeCondition #imp, effects for allu
-          type: [ Allulalo ]
-        walkSpeedModifier: 1.2
-        sprintSpeedModifier: 1.2
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
       - !type:HealthChange
         conditions:
           - !type:ReagentCondition
@@ -190,20 +186,35 @@
         reagent: ChloralHydrate
         amount: -10
       - !type:ModifyStatusEffect
-        effectProto: StatusEffectStunned
+        effectProto: StatusEffectStimulantsStamina # You are on meth. You keep going.
         time: 3
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectStunned
+        time: 3.5
         type: Remove
       - !type:ModifyKnockdown
-        time: 3
+        time: 3.5
         type: Remove
-      - !type:GenericStatusEffect
-        key: StaminaModifier
-        component: StaminaModifier
-        time: 3
       - !type:ModifyStatusEffect
         effectProto: StatusEffectForcedSleeping
         time: 3
         type: Remove
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 3
+      # Side effects
+      - !type:Jitter
+      # OD
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: Stimulants
+          min: 50
+        damage:
+          types:
+            Poison: 1
+      # Interactions
       - !type:ModifyStatusEffect
         conditions:
         - !type:ReagentCondition
@@ -212,22 +223,38 @@
         effectProto: StatusEffectDrowsiness
         time: 10
         type: Remove
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentCondition
+          reagent: ChloralHydrate
+          min: 1
+        reagent: ChloralHydrate
+        amount: -10
     Medicine:
-      metabolismRate: 1.0
       effects:
-        - !type:ResetNarcolepsy
-        - !type:SatiateHunger
-          factor: 1
-        - !type:SatiateThirst
-          factor: 1
-        - !type:HealthChange
-          conditions:
-          - !type:TotalDamageCondition
-            min: 70 # only heals when you're more dead than alive
-          damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
-            groups:
-              Burn: -1
-              Brute: -1
+      # Main effects
+      - !type:ModifyBleed
+        amount: -1.5
+      - !type:EvenHealthChange
+        conditions:
+        - !type:TotalDamageCondition
+          min: 70 # only heals when you're more dead than alive
+        damage: # Doesn't heal poison because if you OD'd I'm not giving you a safety net
+          Burn: -0.5
+          Brute: -0.5
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamageCondition
+          min: 95 # Just to bring you back from the brink of death
+        damage:
+          types:
+            Asphyxiation: -2
+      # Side effects
+      - !type:ResetNarcolepsy
+      - !type:SatiateHunger
+        factor: 1
+      - !type:SatiateThirst
+        factor: 1
 
 - type: reagent
   id: THC
