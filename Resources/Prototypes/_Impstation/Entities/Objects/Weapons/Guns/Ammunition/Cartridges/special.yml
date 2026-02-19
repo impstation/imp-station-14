@@ -1,0 +1,13 @@
+﻿- type: entity
+  id: CartridgeMime
+  name: cartridge
+  parent: [ BaseCartridge ]
+  components:
+  - type: Tag
+    tags:
+    - CartridgeMime
+  - type: CartridgeAmmo
+    proto: BulletMime
+    deleteOnSpawn: true
+  - type: Appearance
+  - type: SpentAmmoVisuals

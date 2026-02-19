@@ -1,0 +1,29 @@
+﻿- type: mimeGearMenuSet
+  id: InvisibleWall
+  name: mime-gearset-category-wall-name
+  description: mime-gearset-category-wall-description
+  sprite:
+    sprite: _Impstation/Interface/Actions/mime.rsi
+    state: wall
+  content:
+  - SpellbookMimeInvisibleWall
+
+- type: mimeGearMenuSet
+  id: InvisibleChair
+  name: mime-gearset-category-chair-name
+  description: mime-gearset-category-chair-description
+  sprite:
+    sprite: _Impstation/Interface/Actions/mime.rsi
+    state: chair
+  content:
+  - SpellbookMimeInvisibleChair
+
+- type: mimeGearMenuSet
+  id: InvisibleBox
+  name: mime-gearset-category-box-name
+  description: mime-gearset-category-box-description
+  sprite:
+    sprite: _Impstation/Interface/Actions/mime.rsi
+    state: box
+  content:
+  - SpellbookMimeInvisibleBox

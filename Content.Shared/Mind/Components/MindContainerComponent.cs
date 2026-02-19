@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Robust.Shared.GameStates;
+using Content.Shared.Inventory; // imp
 
 namespace Content.Shared.Mind.Components;
 
@@ -37,10 +38,11 @@ public sealed partial class MindContainerComponent : Component
     public bool GhostOnShutdown { get; set; } = true;
 }
 
-public abstract class MindEvent : EntityEventArgs
+public abstract class MindEvent : EntityEventArgs, IInventoryRelayEvent // imp add relay event & slot flags
 {
     public readonly Entity<MindComponent> Mind;
     public readonly Entity<MindContainerComponent> Container;
+    public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET; // imp
 
     public MindEvent(Entity<MindComponent> mind, Entity<MindContainerComponent> container)
     {

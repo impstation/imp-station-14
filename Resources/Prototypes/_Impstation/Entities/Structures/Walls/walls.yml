@@ -270,8 +270,17 @@
   - type: Appearance
 
 - type: entity
+  parent: WallInvisible
+  id: WallInvisibleBlockade
+  name: invisible wall
+  suffix: Blockade
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+
+- type: entity
   parent: MarkerBase
-  id: WallInvisiblePermanent #use this in special, non-station, non-wreck or debris maps only please!! 
+  id: WallInvisiblePermanent #use this in special, non-station, non-wreck or debris maps only please!!
   name: invisible wall
   suffix: Permanent
   components:

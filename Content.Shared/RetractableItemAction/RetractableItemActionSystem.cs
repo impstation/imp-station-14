@@ -7,6 +7,11 @@ using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Content.Shared._Impstation.Actions; // imp
+using Content.Shared.IdentityManagement; // imp
+using Content.Shared.Mind; // imp
+using Content.Shared.Mind.Components; // imp
+using Content.Shared.Mobs; // imp
 
 namespace Content.Shared.RetractableItemAction;
 
@@ -20,6 +25,7 @@ public sealed class RetractableItemActionSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!; // imp
 
     public override void Initialize()
     {
@@ -30,6 +36,10 @@ public sealed class RetractableItemActionSystem : EntitySystem
 
         SubscribeLocalEvent<ActionRetractableItemComponent, ComponentShutdown>(OnActionSummonedShutdown);
         Subs.SubscribeWithRelay<ActionRetractableItemComponent, HeldRelayedEvent<TargetHandcuffedEvent>>(OnItemHandcuffed, inventory: false);
+
+        SubscribeLocalEvent<RetractableItemActionComponent, ComponentShutdown>(OnActionShutdown); // imp
+        Subs.SubscribeWithRelay<ActionRetractableItemComponent, HeldRelayedEvent<MobStateChangedEvent>>(OnMobStateChanged, inventory: false); // imp
+        Subs.SubscribeWithRelay<ActionRetractableItemComponent, HeldRelayedEvent<MindRemovedMessage>>(OnMindRemoved, inventory: false); // imp
     }
 
     private void OnActionInit(Entity<RetractableItemActionComponent> ent, ref MapInitEvent args)
@@ -123,6 +133,19 @@ public sealed class RetractableItemActionSystem : EntitySystem
         if (!Resolve(action, ref action.Comp, false))
             return;
 
+        // imp edit start
+        if (TryComp<PopupOnRetractableItemActionComponent>(action, out var popupComponent))
+        {
+            var user = Identity.Name(holder, EntityManager);
+
+            _popups.PopupPredicted(
+                Loc.GetString(popupComponent.RetractedText, ("entity", item), ("user", user)),
+                Loc.GetString(popupComponent.RetractedOtherText ?? popupComponent.RetractedText, ("entity", item), ("user", user)),
+                holder,
+                holder);
+        }
+        // imp edit end
+
         RemComp<UnremoveableComponent>(item);
         var container = _containers.GetContainer(action, RetractableItemActionComponent.ContainerId);
         _containers.Insert(item, container);
@@ -134,8 +157,57 @@ public sealed class RetractableItemActionSystem : EntitySystem
         if (!Resolve(action, ref action.Comp, false))
             return;
 
+        // imp edit start
+        if (TryComp<PopupOnRetractableItemActionComponent>(action, out var popupComponent))
+        {
+            var user = Identity.Name(holder, EntityManager);
+
+            _popups.PopupPredicted(
+                Loc.GetString(popupComponent.UnretractedText, ("entity", item), ("user", user)),
+                Loc.GetString(popupComponent.UnretractedOtherText ?? popupComponent.UnretractedText, ("entity", item), ("user", user)),
+                holder,
+                holder);
+        }
+        // imp edit end
+
         _hands.TryForcePickup(holder, item, hand, checkActionBlocker: false);
         _audio.PlayPredicted(action.Comp.SummonSounds, holder, holder);
         EnsureComp<UnremoveableComponent>(item);
     }
+
+    // imp edit start
+    private void OnActionShutdown(Entity<RetractableItemActionComponent> ent, ref ComponentShutdown args)
+    {
+        PredictedQueueDel(ent.Comp.ActionItemUid);
+
+        if (ent.Comp.ActionItemUid == null)
+            return;
+
+        var container = _containers.GetContainer(ent.Comp.ActionItemUid.Value, RetractableItemActionComponent.ContainerId);
+        _containers.ShutdownContainer(container);
+    }
+
+    private void OnMobStateChanged(Entity<ActionRetractableItemComponent> ent, ref HeldRelayedEvent<MobStateChangedEvent> args)
+    {
+        if (!TryComp<RetractableItemActionComponent>(ent.Comp.SummoningAction, out var actionComponent))
+            return;
+
+        if (!actionComponent.RetractOnCrit)
+            return;
+
+        if (args.Args.NewMobState != MobState.Alive)
+            PredictedQueueDel(ent);
+    }
+
+    private void OnMindRemoved(Entity<ActionRetractableItemComponent> ent, ref HeldRelayedEvent<MindRemovedMessage> args)
+    {
+        if (!TryComp<RetractableItemActionComponent>(ent.Comp.SummoningAction, out var actionComponent))
+            return;
+
+        if (!actionComponent.RetractOnCrit)
+            return;
+
+        PredictedQueueDel(ent);
+    }
+    // imp edit end
 }

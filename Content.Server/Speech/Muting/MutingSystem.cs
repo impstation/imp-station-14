@@ -6,12 +6,15 @@ using Content.Shared.Chat.Prototypes;
 using Content.Shared.Puppet;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Muting;
+using Content.Shared.Mind; // imp
 
 namespace Content.Server.Speech.Muting
 {
     public sealed class MutingSystem : EntitySystem
     {
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly SharedMindSystem _mind = default!; // imp
+
         public override void Initialize()
         {
             base.Initialize();
@@ -37,7 +40,9 @@ namespace Content.Server.Speech.Muting
             if (args.Handled || !component.MutedScream)
                 return;
 
-            if (HasComp<MimePowersComponent>(uid))
+            var mind = _mind.GetMind(uid); // imp
+
+            if (HasComp<MimePowersComponent>(mind)) // imp edit, uid -> mind
                 _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, uid);
 
             else
@@ -54,7 +59,9 @@ namespace Content.Server.Speech.Muting
 
             // TODO something better than this.
 
-            if (HasComp<MimePowersComponent>(uid))
+            var mind = _mind.GetMind(uid); // imp
+
+            if (HasComp<MimePowersComponent>(mind)) // imp edit, uid -> mind
                 _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, uid);
             else if (HasComp<VentriloquistPuppetComponent>(uid))
                 _popupSystem.PopupEntity(Loc.GetString("ventriloquist-puppet-cant-speak"), uid, uid);
