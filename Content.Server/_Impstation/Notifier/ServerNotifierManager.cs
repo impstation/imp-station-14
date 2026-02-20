@@ -39,7 +39,8 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
         if (!notifierSystem.TryGetNotifier(userId, out _))
             return;
         message.Notifier.EnsureValid(_configManager, _prototypeManager);
-        notifierSystem.SetNotifier(userId, message.Notifier);
+        notifierSystem.SetPlayerNotifier(userId, message.Notifier);
+        notifierSystem.TrySetNotifier(userId, message.Notifier);
 
         if (ShouldStoreInDb(message.MsgChannel.AuthType))
             await _db.SavePlayerNotifierSettingsAsync(userId, message.Notifier);
@@ -59,7 +60,7 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
             notifier = await _db.GetPlayerNotifierSettingsAsync(session.UserId);
 
         notifier.EnsureValid(_configManager, _prototypeManager);
-        notifierSystem.SetNotifier(session.UserId, notifier);
+        notifierSystem.TryAddNotifier(session.UserId, notifier);
 
         var message = new MsgUpdateNotifier() { Notifier= notifier };
         _netManager.ServerSendMessage(message, session.Channel);
@@ -68,7 +69,7 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
     public void OnClientDisconnected(ICommonSession session)
     {
         var notifierSystem = _entityManager.System<NotifierSystem>();
-        notifierSystem.SetNotifier(session.UserId, null);
+        notifierSystem.SetPlayerNotifier(session.UserId, null);
     }
 
     public PlayerNotifierSettings GetPlayerNotifierSettings(NetUserId userId)

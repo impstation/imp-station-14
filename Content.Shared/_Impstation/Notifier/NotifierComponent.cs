@@ -9,4 +9,7 @@ public sealed partial class NotifierComponent : Component
 {
     [AutoNetworkedField]
     public NetUserId AttachedUserId { get; set; } = new NetUserId();
+
+    [AutoNetworkedField]
+    public PlayerNotifierSettings Settings { get; set; } = new PlayerNotifierSettings();
 }

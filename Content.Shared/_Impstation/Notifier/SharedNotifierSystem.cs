@@ -16,52 +16,52 @@ namespace Content.Shared._Impstation.Notifier;
 
 public abstract partial class SharedNotifierSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] protected readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly INetConfigurationManager _netCfg = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly ILogManager _log = default!;
-    private ISawmill _sawmill = default!;
+    [Dependency] protected readonly ILogManager _log = default!;
+    [Dependency] protected readonly IEntityManager _entManager = default!;
+    protected ISawmill _sawmill = default!;
 
-    protected readonly Dictionary<NetUserId, PlayerNotifierSettings> UserNotifiers = new();
+
     private readonly ResPath _accessibilityIcon = new("/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png");
 
 
     public override void Initialize()
     {
-        //_sawmill = _log.GetSawmill("consent");
+        _sawmill = _log.GetSawmill("notifier");
         SubscribeLocalEvent<NotifierComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<NotifierComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<NotifierComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
-
     }
 
     public bool TryGetNotifier(NetUserId userId, [NotNullWhen(true)] out PlayerNotifierSettings? notifierSettings)
     {
-        var exists = UserNotifiers.TryGetValue(userId, out notifierSettings);
+        var entity = _mindSystem.GetOrCreateMind(userId).Comp.CurrentEntity;
+        var exists = _entManager.TryGetComponent<NotifierComponent>(entity, out var notifierComponent);
+        notifierSettings = notifierComponent?.Settings;
         return exists;
     }
 
-    public virtual void SetNotifier(NetUserId userId, PlayerNotifierSettings? notifierSettings)
+    public virtual void SetPlayerNotifier(NetUserId userId, PlayerNotifierSettings? notifierSettings)
     {
         if (notifierSettings == null)
         {
-            UserNotifiers.Remove(userId);
             return;
         }
-
-        UserNotifiers[userId] = notifierSettings;
+        var entity = _mindSystem.GetOrCreateMind(userId).Comp.CurrentEntity;
+        var exists = _entManager.TryGetComponent<NotifierComponent>(entity, out var notifierComponent);
+        if (exists)
+        {
+            notifierComponent!.Settings = notifierSettings;
+            Dirty(entity!.Value,notifierComponent);
+        }
     }
 
-    private void OnPlayerAttached(Entity<NotifierComponent> ent, ref PlayerAttachedEvent args)
-    {
-
-        ent.Comp.AttachedUserId = args.Player.UserId;
-
-    }
     private void OnGetExamineVerbs(Entity<NotifierComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
-        if (!GetNotifierEnabled(ent.Comp.AttachedUserId) || Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
+        if (!ent.Comp.Settings.Enabled || Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
             return;
 
         var user = args.User;
@@ -69,26 +69,28 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         {
             Act = () =>
             {
-                var message= GetNotifierText(ent.Comp.AttachedUserId);
+                var message = new FormattedMessage();
+                message.AddText(ent.Comp.Settings.Freetext);
                 _examine.SendExamineTooltip(user, ent, message, false, false);
             },
             Text = Loc.GetString("notifier-verb-text"),
             Category = VerbCategory.Examine,
             Icon = new SpriteSpecifier.Texture(_accessibilityIcon)
         };
-        Dirty(ent.Owner, ent.Comp);
         args.Verbs.Add(verb);
+        Dirty(ent.Owner,ent.Comp);
     }
 
     private void OnExamined(Entity<NotifierComponent> ent, ref ExaminedEvent args)
     {
-        if (!GetNotifierEnabled(ent.Comp.AttachedUserId) || !args.IsInDetailsRange || _mobState.IsDead(ent.Owner)) return;
+        if (!ent.Comp.Settings.Enabled || !args.IsInDetailsRange || _mobState.IsDead(ent.Owner)) return;
         args.PushMarkup($"[color=lightblue]{Loc.GetString("notifier-info", ("ent", ent.Owner))}[/color]");
+        Dirty(ent.Owner,ent.Comp);
     }
 
-    protected virtual FormattedMessage GetNotifierText(NetUserId userId)
+    protected virtual string GetNotifierText(NetUserId userId)
     {
-        return new();
+        return "";
     }
 
     protected virtual bool GetNotifierEnabled(NetUserId userId)
@@ -96,4 +98,10 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         return false;
     }
 
+    private void OnPlayerAttached(Entity<NotifierComponent> ent, ref PlayerAttachedEvent args)
+    {
+        ent.Comp.AttachedUserId = args.Player.UserId;
+        ent.Comp.Settings.Enabled=GetNotifierEnabled(args.Player.UserId);
+        ent.Comp.Settings.Freetext=GetNotifierText(args.Player.UserId);
+    }
 }
