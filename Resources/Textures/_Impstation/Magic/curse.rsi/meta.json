@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by Starlighthowls",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "curse_tentacle_spawn",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "curse_tentacle_wiggle",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "curse_tentacle_retract",
+      "delays": [
+        [
+          0.1,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    }
+  ]
+}
