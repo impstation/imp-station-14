@@ -150,7 +150,7 @@
         amount: 2
         doAfter: 1
 
-    # imp edit start, alt layer radiators
+    # imp edit start, alt layer radiators and retro radiator
     - to: bendradiatorAlt1
       steps:
       - material: Steel
@@ -161,6 +161,18 @@
       steps:
       - material: Steel
         amount: 2
+        doAfter: 1
+
+    - to: retroRadiator
+      steps:
+      - material: Steel
+        amount: 3
+        doAfter: 1
+
+    - to: retroBendRadiator
+      steps:
+      - material: Steel
+        amount: 3
         doAfter: 1
     # imp edit end
 
@@ -560,7 +572,7 @@
       - tool: Welding
         doAfter: 1
 
-  # imp edit start, alt layer radiators
+  # imp edit start, alt layer radiators and retro radiators
   - node: bendradiatorAlt1
     entity: HeatExchangerBendAlt1
     edges:
@@ -596,4 +608,40 @@
         doAfter: 1
       - tool: Welding
         doAfter: 1
-  # imp edit start, alt layer radiators
+
+  - node: retroRadiator
+    entity: HeatExchangerRetro
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 3
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+
+  - node: retroBendRadiator
+    entity: HeatExchangerRetroBend
+    edges:
+    - to: start
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      completed:
+      - !type:SpawnPrototype
+        prototype: SheetSteel1
+        amount: 3
+      - !type:DeleteEntity
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      - tool: Welding
+        doAfter: 1
+  # imp edit end, alt layer radiators

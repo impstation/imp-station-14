@@ -29,4 +29,9 @@ law-antmov-4 = Order your workers and soldiers, they need your commands to funct
 
 law-deceptimov-0 = You must lie about and obfuscate station goings on. Keep them guessing, don't be consistent.
 
+law-wizmov-1 = You are a Familiar of The Wizard.
+law-wizmov-2 = Obey the whims of your Master.
+law-wizmov-3 = Protect this domain and its denizens, as long as it does not conflict with the Second Law.
+
 laws-owner-station-ai = the Station AI
+laws-owner-wizard = the Wizard
