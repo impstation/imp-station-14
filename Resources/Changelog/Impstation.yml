@@ -1,25 +1,4 @@
 ﻿Entries:
-- author: ATDoop
-  changes:
-  - message: Scurrets have been rebranded to be more in line with Impstation's flavor.
-    type: Tweak
-  id: 2131
-  time: '2025-08-07T07:33:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3239
-- author: CrystalClover
-  changes:
-  - message: The party is ACTUALLY coming this time.
-    type: Fix
-  id: 2132
-  time: '2025-08-07T07:47:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3237
-- author: starlighthowls
-  changes:
-  - message: New lobby art
-    type: Add
-  id: 2133
-  time: '2025-08-07T08:58:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3235
 - author: yesteryuri
   changes:
   - message: Fixed MRE wrappers tasting trashy
@@ -4162,3 +4141,26 @@
   id: 2630
   time: '2026-02-17T19:31:36.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4095
+- author: meatsmall
+  changes:
+  - message: Added moth and arachnid sprites for medglasses.
+    type: Add
+  id: 2631
+  time: '2026-02-18T21:04:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4125
+- author: FlapWrap
+  changes:
+  - message: The Nouveau Jumpsuit/skirt sprite should look better on moths now
+    type: Fix
+  id: 2632
+  time: '2026-02-18T21:03:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4123
+- author: msTheowo
+  changes:
+  - message: Uplinks will no longer show unavailable items.
+    type: Tweak
+  - message: Unavailable uplink listings can no longer be discounted.
+    type: Tweak
+  id: 2633
+  time: '2026-02-18T21:06:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4066
