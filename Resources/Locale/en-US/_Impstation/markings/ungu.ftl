@@ -13,7 +13,7 @@ marking-LimpitUngu = Barnacles/ Flowers
 marking-BackStripesUngu = Back Stripes
 marking-DormantUngu = Dormant Face
 marking-Elated1Ungu = Elated Face
-marking-Elated2Ungu = Joyfull Face
+marking-Elated2Ungu = Joyful Face
 marking-Tormented1Ungu = Tormented Face
 marking-Tormented2Ungu = Angry Face
 marking-ChestSplotchesLUngu = Chest Splotches (Left)
@@ -101,7 +101,7 @@ marking-SnoutOrcaUngu-OrcaBase = Head
 marking-SnoutOrcaUngu-OrcaMarkings = Markings
 marking-SnoutBelugaUngu = Beluga Head
 marking-SnoutBelugaUngu-Beluga = Head
-marking-SnoutBelugaUngu-BelugaEyes = Markings
+marking-SnoutBelugaUngu-BelugaEyes = Eyes
 
 # eyes
 
@@ -114,6 +114,9 @@ marking-EyesCyclopsGlowUngu-EyesCyclopsWhite = Sclera
 marking-EyesDotsGlowUngu = Glowing Eyes
 marking-EyesWaterUngu = Watery Eyes
 marking-EyesWaterUngu-EyesWater = Watery Eyes
+marking-EyesLarsonUngu = Larson Eyes
+marking-EyesCyclopsUngu-EyesLarson = Brow
+marking-EyesCyclopsUngu-EyesLarsonSides = Sides
 
 # arms
 
@@ -159,6 +162,10 @@ marking-RLegSplotchUngu= Leg Splotch (Right)
 marking-RLegSplotchesUngu= Leg Splotches (Right)
 marking-LLegSplotchUngu= Leg Splotch (Left)
 marking-LLegSplotchesUngu= Leg Splotches (Left)
+marking-HoovesUngu = Hooves (Both)
+marking-HoovesBigUngu = Big Hooves (Both)
+marking-LHoofBigUngu = Big Hoof (Left)
+marking-RHoofBigUngu = Big Hoof (Right)
 
 # underwear
 
@@ -168,7 +175,9 @@ marking-ShortsUngu = Shorts
 marking-BraStraplessUngu = Strapless Bra
 marking-BraUngu = Bra
 marking-BinderUngu = Croptop / Binder
-marking-VestUngu = Vest
+marking-VestUngu = Tank Top
+marking-TeeUngu = T-Shirt
+marking-TeeCroppedUngu = T-Shirt (Cropped)
 
 # tail
 
