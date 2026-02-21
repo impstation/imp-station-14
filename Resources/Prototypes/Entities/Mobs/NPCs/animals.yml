@@ -486,6 +486,9 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: SentienceTarget #imp restore the talking roach
+    flavorKind: station-event-random-sentience-flavor-organic
+    weight: 0.5
   # imp edit end
 
 - type: entity

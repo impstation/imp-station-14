@@ -166,18 +166,18 @@
   - type: ShowThirstIcons
 
 - type: entity
-  parent: [ClothingEyesBase, BaseLensSlot, ShowSecurityIcons, ShowMedicalIcons, BaseBrigmedicContraband] # BaseLensSlot from imp
+  parent: [ClothingEyesBase, BaseLensSlot, ShowMedicalIcons, BaseBrigmedicContraband] # BaseLensSlot from imp, remove sec hud function
   id: ClothingEyesHudMedSec
   name: medsec hud
-  description: A specialized pair of glasses that displays both medical and security information, complete with a compact antenna for data downlink and a flash-protective coating.
+  description: A specialized pair of glasses for medical personnel accompanying security officers, featuring vital scanning and a flash-protective coating. # imp, reflects function
   components:
   - type: Sprite
     sprite: Clothing/Eyes/Hud/medsec.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Hud/medsec.rsi
-  - type: Construction
-    graph: HudMedSec
-    node: medsecHud
+  #- type: Construction imp edit, uncraftable
+  #  graph: HudMedSec
+  #  node: medsecHud
   - type: FlashImmunity
   - type: EyeProtection
     protectionTime: 5

@@ -1403,7 +1403,7 @@
 
 - type: entity
   parent: BaseBullet
-  id: EnergyCrossbowBolt
+  id: EnergyCrossbowBoltWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   name: energy bolt
   description: This'll hurt.
