@@ -8,7 +8,7 @@ namespace Content.Server.Speech.Components;
 public sealed partial class SpeechRequiresEquipmentComponent : Component
 {
     [DataField(required: true)]
-    public Dictionary<string, EntityWhitelist> Equipment;
+    public EntityWhitelist? Whitelist;
 
     [DataField]
     public LocId? FailMessage;

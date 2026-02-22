@@ -11,3 +11,10 @@
   icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: hemp }
   spawn: MaterialHemp1
   maxCount: 30
+
+- type: stack
+  id: Pompoms
+  name: stack-pompoms
+  icon: { sprite: /Textures/_Impstation/Materials/poms.rsi, state: pompile }
+  spawn: MaterialPom1
+  maxCount: 30

@@ -1,0 +1,51 @@
+- type: entity
+  id: BaseCartridgeCaselessRifle
+  name: cartridge (.25 caseless)
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - CartridgeCaselessRifle
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+  - type: Sprite
+    noRot: false
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/caseless.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 10
+  - type: EmitSoundOnLand
+    sound:
+      collection: ShellEject
+      params:
+        volume: -4
+
+- type: entity
+  id: CartridgeCaselessRifle
+  name: cartridge (.25 caseless)
+  parent: BaseCartridgeCaselessRifle
+  description: A kinetic sub-caliber cartridge of odd design, but with effective application. .25 caseless ammo has propellant encasing the bullet, making the cartridge appear rectangular.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletCaselessRifle
+
+- type: entity
+  id: CartridgeCaselessRiflePractice
+  name: cartridge (.25 caseless practice)
+  parent: BaseCartridgeCaselessRifle
+  description: An oddly-shaped cartridge with a wax projectile to simulate the real deal. Can be used for force-on-force training, but still stings like a bitch. Eye protection recommended.
+  components:
+  - type: CartridgeAmmo
+    proto: BulletCaselessRiflePractice
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#ffcb6f"
