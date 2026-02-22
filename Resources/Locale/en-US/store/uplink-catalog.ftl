@@ -135,7 +135,7 @@ uplink-holster-desc = A deep shoulder holster capable of holding many types of b
 uplink-chest-rig-name = Chest Rig
 uplink-chest-rig-desc = Explosion-resistant tactical webbing used for holding traitor goods.
 
-#imp name tweak
+#imp name and desc tweak
 uplink-emag-name = Cryptographic Sequencer
 uplink-emag-desc = The business card of the syndicate, this sequencer is able to tamper with a variety of station devices. Recharges automatically. The iconic emag.
 
