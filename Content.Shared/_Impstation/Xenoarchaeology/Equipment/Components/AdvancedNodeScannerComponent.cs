@@ -69,6 +69,7 @@ public struct NodeActivation(
 [Serializable, NetSerializable]
 public struct UnlockSession(
     EntityUid? artifact,
+    string artifactName,
     TimeSpan startTime,
     TimeSpan? endTime,
     List<NodeActivation> activatedNodes,
@@ -79,6 +80,8 @@ public struct UnlockSession(
     /// Stored data about an unlocking session
     /// </summary>
     public EntityUid? Artifact = artifact;
+
+    public string ArtifactName = artifactName;
     public TimeSpan StartTime = startTime;
     public TimeSpan? EndTime = endTime;
     public List<NodeActivation> ActivatedNodes = activatedNodes;

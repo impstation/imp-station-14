@@ -135,7 +135,7 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         TimeSpan? now = _timing.CurTime;
         if (!advancedNodeScannerComponent.ArtifactUnlockSessions.ContainsKey(artifact.Owner))
         {
-            var session = new UnlockSession(artifact.Owner, now.Value, null, [], false, null);
+            var session = new UnlockSession(artifact.Owner, MetaData(artifact.Owner).EntityName, now.Value, null, [], false, null);
             advancedNodeScannerComponent.ArtifactUnlockSessions.Add(artifact.Owner, session);
         }
 
