@@ -100,13 +100,19 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
                 {
                     // Double-check that we've got all the correct triggered nodes
                     if (TryComp<XenoArtifactUnlockingComponent>(ent.Owner, out var unlockComp))
-                        session.TriggeredNodeIndexes = unlockComp.TriggeredNodeIndexes;
+                    {
+                        foreach (var nodeIndex in unlockComp.TriggeredNodeIndexes)
+                        {
+                            if (!session.ActivatedNodes.Exists(x => x.Index == nodeIndex))
+                                RegisterTriggeredNode(ent, _artifact.GetNode(ent, nodeIndex), true);
+                        }
+                    }
 
                     //ANS TODO: trigger end of unlock advertise
                 }
 
                 // Save the unlock session to Advanced Node Scanner's memory and stop thinking this artifact is unlocking
-                advancedNodeScannerComponent.UnlockHistories[ent.Owner].Add(session);
+                advancedNodeScannerComponent.UnlockHistories[ent.Owner.Id].Add(session);
                 advancedNodeScannerComponent.ArtifactUnlockSessions.Remove(ent.Owner);
             }
         }
@@ -118,7 +124,7 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
     /// </summary>
     /// <param name="artifact">The artifact that has had a node trigger</param>
     /// <param name="node">The node which triggered, null if artifex is applied</param>
-    public void RegisterTriggeredNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent>? node)
+    public void RegisterTriggeredNode(Entity<XenoArtifactComponent> artifact, Entity<XenoArtifactNodeComponent>? node, bool ignoreTime = false)
     {
         if (artifact.Comp.AdvancedNodeScanner is not { } advancedNodeScannerUid || !_powerReceiver.IsPowered(advancedNodeScannerUid))
             return;
@@ -126,11 +132,15 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         if (!TryComp<AdvancedNodeScannerComponent>(advancedNodeScannerUid, out var advancedNodeScannerComponent))
             return;
 
+        TimeSpan? now = _timing.CurTime;
         if (!advancedNodeScannerComponent.ArtifactUnlockSessions.ContainsKey(artifact.Owner))
         {
-            var session = new UnlockSession(_timing.CurTime, null, new HashSet<int>(), false, null);
+            var session = new UnlockSession(artifact.Owner, now.Value, null, [], false, null);
             advancedNodeScannerComponent.ArtifactUnlockSessions.Add(artifact.Owner, session);
         }
+
+        if (ignoreTime)
+            now = null;
 
         var toAdvertise = new List<int>();
 
@@ -138,19 +148,21 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         if (node == null)
         {
             sessionUpdate.ArtifexiumApplied = true;
+            sessionUpdate.ActivatedNodes.Add(new NodeActivation(now, -1, null, null, "artifexium"));
             toAdvertise.Add(-1);
         }
         else
         {
             var index = _artifact.GetIndex(artifact, node.Value.Owner);
-            sessionUpdate.TriggeredNodeIndexes.Add(index);
+            var triggerTip = node.Value.Comp.TriggerTip is null ? "" : Loc.GetString(node.Value.Comp.TriggerTip);
+            sessionUpdate.ActivatedNodes.Add(new NodeActivation(
+                now,
+                index,
+                node.Value.Owner,
+                _artifact.GetNodeId(node.Value.Owner),
+                triggerTip));
             toAdvertise.Add(index);
         }
-
-
-        // Double-check that we have ALL the unlocked nodes - if we don't, advertise each one
-        if (TryComp<XenoArtifactUnlockingComponent>(artifact.Owner, out var unlockComp))
-            toAdvertise.AddRange(unlockComp.TriggeredNodeIndexes.Where(i => sessionUpdate.TriggeredNodeIndexes.Add(i)));
 
         advancedNodeScannerComponent.ArtifactUnlockSessions[artifact.Owner] = sessionUpdate;
         // ANS TODO: advertise - (-1) index means artifexium
@@ -178,23 +190,16 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         {
             var nodeIndex = unlock.TriggeredNodeIndexes.FirstOrDefault();
             RegisterTriggeredNode(artifact, _artifact.GetNode(artifact, nodeIndex));
-            return;
+            session = advancedNodeScannerComponent.ArtifactUnlockSessions[artifact.Owner];
         }
 
-        var toAdvertise = new List<int>();
-
-        // copy data from unlocking comp to session data, marking as to advertise if not already present
-        if (TryComp<XenoArtifactUnlockingComponent>(artifact.Owner, out var unlockComp))
-            toAdvertise.AddRange(unlockComp.TriggeredNodeIndexes.Where(i => session.TriggeredNodeIndexes.Add(i)));
-
-        advancedNodeScannerComponent.ArtifactUnlockSessions[artifact.Owner] = session;
-
-        // ANS TODO: advertise - (-1) index means artifexium
+        foreach (var nodeIndex in unlock.TriggeredNodeIndexes)
+        {
+            if (!session.ActivatedNodes.Exists(x => x.Index == nodeIndex))
+                RegisterTriggeredNode(artifact, _artifact.GetNode(artifact, nodeIndex), true);
+        }
 
     }
-
-    /// ANS TODO: "advertise" function to say what has changed (togglable with button)
-
 
     public bool TryGetAdvancedNodeScanner(Entity<AnalysisConsoleComponent> ent, [NotNullWhen(true)] out Entity<AdvancedNodeScannerComponent>? advancedNodeScanner)
     {

@@ -3,6 +3,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Xenoarchaeology.Equipment.Components;
 
@@ -42,26 +43,45 @@ public sealed partial class AdvancedNodeScannerComponent : Component
     public Dictionary<EntityUid, UnlockSession> ArtifactUnlockSessions = new();
 
     /// <summary>
-    /// Historic data for previous unlocking attempts per artifact
+    /// Historic data for previous unlocking attempts per artifact.
+    /// Dictionary key is artifact entityuid as integer
     /// </summary>
     [DataField]
-    public Dictionary<EntityUid, List<UnlockSession>> UnlockHistories = new(); //ANSTODO: Make data resistant to deletion of artifact (crush/sell)
+    public Dictionary<int, List<UnlockSession>> UnlockHistories = new();
 }
 
-[Serializable]
+[Serializable, NetSerializable]
+public struct NodeActivation(
+    TimeSpan? activateTime,
+    int index,
+    EntityUid? node,
+    string? identifier,
+    string? trigger
+    )
+{
+    public TimeSpan? ActivateTime = activateTime;
+    public int Index = index;
+    public EntityUid? Node = node;
+    public string? Identifier = identifier;
+    public string? Trigger = trigger;
+}
+
+[Serializable, NetSerializable]
 public struct UnlockSession(
+    EntityUid? artifact,
     TimeSpan startTime,
     TimeSpan? endTime,
-    HashSet<int> triggeredNodeIndexes,
+    List<NodeActivation> activatedNodes,
     bool artifexiumApplied,
     EntityUid? unlockedNode)
 {
     /// <summary>
     /// Stored data about an unlocking session
     /// </summary>
+    public EntityUid? Artifact = artifact;
     public TimeSpan StartTime = startTime;
     public TimeSpan? EndTime = endTime;
-    public HashSet<int> TriggeredNodeIndexes = triggeredNodeIndexes;
+    public List<NodeActivation> ActivatedNodes = activatedNodes;
     public bool ArtifexiumApplied = artifexiumApplied;
     public EntityUid? UnlockedNode = unlockedNode;
 }
