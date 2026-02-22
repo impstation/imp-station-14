@@ -222,23 +222,12 @@
 
 - type: entity
   id: OrganGrayLiver
-  parent: BaseGrayOrgan
+  parent: [BaseGrayOrgan, OrganHumanLiver]
   name: beobu
   description: "Jazee sipsun alcohol."
   components:
-  - type: Sprite
-    state: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
-    maxReagents: 1
-    metabolizerTypes: [Human]
-    groups:
-    - id: Alcohol
-      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Liver
+    metabolizerTypes: [ Human ]
 
 - type: entity
   id: OrganGrayKidneys
