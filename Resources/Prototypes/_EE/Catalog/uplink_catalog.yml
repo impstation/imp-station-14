@@ -12,6 +12,7 @@
   - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -30,6 +31,7 @@
   - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -48,6 +50,7 @@
   - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -66,6 +69,7 @@
   - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
