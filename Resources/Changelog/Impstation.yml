@@ -1,49 +1,4 @@
 ﻿Entries:
-- author: yesteryuri
-  changes:
-  - message: Fixed MRE wrappers tasting trashy
-    type: Fix
-  id: 2134
-  time: '2025-08-08T08:53:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3255
-- author: VeeNomine
-  changes:
-  - message: Drones no longer know the joys of flashing others when they toggle their
-      flashlight.
-    type: Fix
-  - message: The tables have turned and now Drones are once again able to be flashed.
-    type: Fix
-  id: 2135
-  time: '2025-08-08T08:56:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3253
-- author: spanky-spanky, AirFryerBuyOneGetOneFree
-  changes:
-  - message: Added computer beeps and boops for additional ambience.
-    type: Add
-  id: 2136
-  time: '2025-08-08T08:56:00.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3252
-- author: yesteryuri
-  changes:
-  - message: Fixed Fin-Fin
-    type: Fix
-  id: 2137
-  time: '2025-08-08T11:30:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3256
-- author: honeyed-lemons
-  changes:
-  - message: Xeno has been moved to a location with meteors rich in Artifexium
-    type: Add
-  id: 2138
-  time: '2025-08-09T01:44:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3073
-- author: msTheowo
-  changes:
-  - message: Wardens can now use the security communications computer.
-    type: Tweak
-  id: 2139
-  time: '2025-08-09T06:19:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3260
 - author: TheGrimbeeper
   changes:
   - message: prize tickets can now ash again - into ONE ash
@@ -4164,3 +4119,50 @@
   id: 2633
   time: '2026-02-18T21:06:10.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4066
+- author: starlighthowls
+  changes:
+  - message: Added a new botanist specific uplink item, syndicate trained kissers.
+    type: Add
+  - message: Killer and Kisser tomatoes no longer take passive damage.
+    type: Tweak
+  id: 2634
+  time: '2026-02-22T21:08:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4050
+- author: DVDPlayerOfDiscordFame
+  changes:
+  - message: The Hushpup is now the Hypnalis! It works the same it just looks different.
+    type: Tweak
+  id: 2635
+  time: '2026-02-22T21:10:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4059
+- author: eviltori
+  changes:
+  - message: the head of security's grey jumpskirt now correctly has the same cost
+      as other command uniforms.
+    type: Fix
+  id: 2636
+  time: '2026-02-22T21:18:38.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4106
+- author: FancyPlanks
+  changes:
+  - message: Intercoms have a new casing!
+    type: Tweak
+  id: 2637
+  time: '2026-02-22T21:21:29.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4110
+- author: Doop, FlippenPage
+  changes:
+  - message: Dragons, Pipi, and Dolby can now stamp papers with their paws.
+    type: Add
+  - message: Hamlet is a stamp now too.
+    type: Add
+  id: 2638
+  time: '2026-02-22T21:31:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4126
+- author: CombustibleToast
+  changes:
+  - message: Inlet pressure regulators are no longer hidden under catwalks.
+    type: Fix
+  id: 2639
+  time: '2026-02-22T21:42:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4153
