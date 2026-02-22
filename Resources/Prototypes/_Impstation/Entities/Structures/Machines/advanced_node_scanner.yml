@@ -33,6 +33,7 @@
     needsPower: true
   - type: AdvancedNodeScanner
     naturalNodeGraphVisibilityModifier: 1
+    pointMultiplier: 1.05f # 5% bonus points
   - type: DeviceNetwork
     deviceNetId: Wired
     receiveFrequencyId: BasicDevice

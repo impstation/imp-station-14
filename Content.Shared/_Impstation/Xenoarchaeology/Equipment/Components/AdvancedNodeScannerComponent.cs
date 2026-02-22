@@ -31,6 +31,13 @@ public sealed partial class AdvancedNodeScannerComponent : Component
     public int NaturalNodeGraphVisibilityModifier = 1;
 
     /// <summary>
+    /// Point multiplier value
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float PointMultiplier = 1f;
+
+    #region Records
+    /// <summary>
     /// Do we announce unlocking session changes using advertise system?
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -46,8 +53,9 @@ public sealed partial class AdvancedNodeScannerComponent : Component
     /// Historic data for previous unlocking attempts per artifact.
     /// Dictionary key is artifact entityuid as integer
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public Dictionary<int, List<UnlockSession>> UnlockHistories = new();
+    #endregion
 }
 
 [Serializable, NetSerializable]

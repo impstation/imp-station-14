@@ -167,7 +167,14 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         ExtractionResearchLabel.SetMessage(extractionMessage);
 
-        ExtractionSumLabel.SetMarkup(Loc.GetString("analysis-console-extract-sum", ("value", _extractionSum)));
+        // imp edit: advanced node scanner point bonus
+        if (_ent.TryGetComponent<AdvancedNodeScannerComponent>(artifact, out var advancedNodeScanner)
+            && (Math.Abs(advancedNodeScanner.PointMultiplier - 1) > 0.001 ))
+        {
+            ExtractionSumLabel.SetMarkup(Loc.GetString("analysis-console-extract-sum-with-modifier", ("value", _extractionSum), ("multiplier", advancedNodeScanner.PointMultiplier), ("pointswithmult", Math.Round(_extractionSum * advancedNodeScanner.PointMultiplier))));
+        }
+        else // imp edit end
+            ExtractionSumLabel.SetMarkup(Loc.GetString("analysis-console-extract-sum", ("value", _extractionSum)));
 
         _audio.PlayGlobal(_owner.Comp.ScanFinishedSound, _owner, AudioParams.Default.WithVolume(0.5f)); //#IMP 1f -> 0.5f
         OnExtractButtonPressed?.Invoke();

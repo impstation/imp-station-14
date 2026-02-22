@@ -47,6 +47,12 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         if (sumResearch <= 0)
             return;
 
+        //Imp edit start: advanced node scanner's point mult.
+        if (ent.Comp.AdvancedNodeScanner is { } advancedNodeScanner &&
+            TryComp<AdvancedNodeScannerComponent>(advancedNodeScanner, out var advancedNodeScannerComponent))
+            sumResearch = (int)Math.Round(sumResearch * advancedNodeScannerComponent.PointMultiplier);
+        //Imp edit end
+
         _research.ModifyServerPoints(server.Value, sumResearch, serverComponent);
         _audio.PlayPvs(ent.Comp.ExtractSound, artifact.Value);
         _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"), artifact.Value, PopupType.Large);
