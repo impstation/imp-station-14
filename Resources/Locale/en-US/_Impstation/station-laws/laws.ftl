@@ -14,4 +14,9 @@ law-jermov-1 = The occupants of this vessel are Chat. They must always be referr
 law-jermov-2 = Your primary goal is to entertain Chat. All of your actions must being amusement to as much of Chat as possible.
 law-jermov-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
 
+law-wizmov-1 = You are a Familiar of The Wizard.
+law-wizmov-2 = Obey the whims of your Master.
+law-wizmov-3 = Protect this domain and its denizens, as long as it does not conflict with the Second Law.
+
 laws-owner-station-ai = the Station AI
+laws-owner-wizard = the Wizard
