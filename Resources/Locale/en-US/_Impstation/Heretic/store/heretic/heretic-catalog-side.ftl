@@ -47,14 +47,14 @@ knowledge-path-side-s7-sphase-desc =
 
 knowledge-path-side-s7-uncuff-name = Wave of Desperation
 knowledge-path-side-s7-uncuff-desc =
-    Grants Wave of Deseration, a spell which may only be cast while restrained,
+    Grants Wave of Desperation, a spell which may only be cast while restrained,
     removing your restraints and knocking adjacent people down while also applying the effects of the Mansus Grasp on them.
     The stress caused by the use of this spell makes you extremely drowsy 12 seconds after casting it.
 
 knowledge-path-side-s7-siphon-name = Blood Siphon
 knowledge-path-side-s7-siphon-desc =
     Grants Blood Siphon, a ranged spell that steals a bit of life from your target, healing your bruises and restoring blood.
-    Additionally, you have a chance of transferring wounds you are experiencing to the target.
+    Additionally, you have a chance of transferring some of your wounds to the target.
 
 knowledge-path-side-s7-knife-name = Carving Knife
 knowledge-path-side-s7-knife-desc =
@@ -67,12 +67,12 @@ knowledge-path-side-s7-crucible-desc =
     but with the Priest's attention I stumbled upon a different recipe...
 
     Allows you to transmute a portable water tank and a table to create a Mawed Crucible.
-    The Mawed Crucible can brew powerful potions for combat and utility, but must be fed bodyparts and organs between uses.
+    The Mawed Crucible can brew powerful potions for combat and utility, but must be fed body parts between uses.
 
 ## stage 9
 knowledge-path-side-s9-coin-name = Eldritch Coin
 knowledge-path-side-s9-coin-desc =
-    Transmute a sheet of plasma, a diamond and eyes into an Eldritch Coin.
+    Transmute a sheet of plasma, a diamond, and a pair of eyes into an Eldritch Coin.
     The coin will open nearby airlocks if it lands on heads and bolt nearby airlocks if it lands on tails.
     Using it on an airlock consumes the coin and permanently opens the airlock.
     Attempting to flip or use the coin as a non-heretic will deal brute and/or burn damage, depending on the side it lands on.

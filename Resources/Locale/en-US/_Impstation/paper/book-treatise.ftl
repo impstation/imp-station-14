@@ -10,7 +10,7 @@ book-text-treatise = The thought-things are the residents of the world the schol
 
         The Storm-Queen numbers three, and is the most easily contacted of her kin. She is the threshold between positive and negative, the spark of a shorted circuit, the thunderclap that can be heard in the dreams of those who have witnessed an electrocution. She is as powerful, as bright, and as deafening as the lightning that she named.
 
-        The Warden and the Fugitive number four and eight respectively. They are the ruler and the rebel, the cage and the escapist, the unending cycle of war. As with any war, their positions ebb and flow. Eventually, the Warden will become the Fugitive and the Fugitive will become the Warden and again and again until neither can remember what it is or why it fights but it can remember that it MUST.
+        The Warden and the Fugitive number four and eight respectively. They are the ruler and the rebel, the cage and the escapist, the unending cycle of war. As with any war, their positions ebb and flow. Eventually, the Warden will become the Fugitive and the Fugitive will become the Warden and again and again until neither can remember what it is or why it fights, only that it MUST.
 
         The Euphoriate numbers six. It is the source of all pleasure from the beauty of love to the flowers of the wood to the euphoria of the addict. It is a matchmaker of sorts - those who have drawn the favor of a Major will find themselves inextricably linked to their fellows as though being pulled into each others' gravitational well or into a black hole of obsession and pleasure. Its chosen are irresistably attractive in ways including and eclipsing romance or sexuality.
 
