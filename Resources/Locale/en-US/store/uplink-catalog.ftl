@@ -33,7 +33,8 @@ uplink-gloves-north-star-desc = A pair of gloves that reduce your punching coold
 uplink-gloves-knuckleduster-name = Syndicate Knuckle Dusters
 uplink-gloves-knuckleduster-desc = A pair of plastitanium knuckle dusters that let you punch hard enough to break the captains jaw into pieces.
 
-uplink-hushpup-name = Hushpup
+# Imp edit rename
+uplink-hushpup-name = Hypnalis
 uplink-hushpup-desc = A powerful silenced shotgun with a low magazine capacity. Comes with a spare box of buckshot. Uses .50 shotgun ammo.
 
 # Explosives
@@ -255,7 +256,7 @@ uplink-meds-bundle-desc = An assortment of autoinjectors and premium medical equ
 
 #imp name tweaks
 uplink-ammo-bundle-name = Ammo Bundle
-uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20R Gorgon, 4 drums for the Hydra, 3 magazines for the Estoc DMR, and 2 ammo boxes for the L6 Nidhogg SAW.
+uplink-ammo-bundle-desc = Reloading! Contains 4 magazines for the C-20R Gorgon, 5 drums for the Hydra, 3 magazines for the Basilisk-11, and 2 ammo boxes for the L6 Nidhogg SAW.
 
 #imp name tweaks
 uplink-sniper-bundle-name = Sniper Bundle

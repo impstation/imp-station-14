@@ -149,3 +149,14 @@
   components:
   - type: HatedByDogs
   cost: -1
+
+- type: trait
+  id: Hemorrhage
+  name: trait-hemorrhage-name
+  description: trait-hemorrhage-desc
+  category: Traits
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - StatusEffectHemorrhageTrait
+  cost: -6

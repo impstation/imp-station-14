@@ -4,6 +4,9 @@ uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alter
 uplink-syndietrumps-name = TippyTrumps mystery pack
 uplink-syndietrumps-desc = Contains five random cards that summon the creature depicted when thrown.
 
+uplink-kissertomato-fake-name = Syndicate Trained Kisser Tomato Seeds
+uplink-kissertomato-fake-desc = Kill 'em with kisses.
+
 uplink-cleaner-lake-upgrade-name = Shining Spring remilitarisation kit
 uplink-cleaner-lake-upgrade-desc = A kit that can be used to remove the safety measures from a Shining Spring.
 
@@ -150,3 +153,6 @@ uplink-treatchunk-big-desc = An impractically large bag of TreatChunk hard candi
 
 uplink-hotsauces-name = Discount Dan's Hot Sauce Sampler Pack
 uplink-hotsauces-desc = New from Discount Dan's! 4 levels of heat to put your spice tolerance to the test. Plus a free* gift from Discount Dan himself!
+
+uplink-taipan-name = Taipan bundle
+uplink-taipan-desc = One "Taipan" Echion crossbow, bundled with a canister of its proprietary liquid ammo.
