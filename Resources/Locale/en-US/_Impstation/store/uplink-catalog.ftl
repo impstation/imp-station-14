@@ -1,6 +1,9 @@
 uplink-animal-friends-kit-name = Animal Friends Kit
 uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alteration of cognizine that forces the injected creature to your will. Also contains an empty syringe and two mice to use it on.
 
+uplink-kissertomato-fake-name = Syndicate Trained Kisser Tomato Seeds
+uplink-kissertomato-fake-desc = Kill 'em with kisses.
+
 uplink-cleaner-lake-upgrade-name = Shining Spring remilitarisation kit
 uplink-cleaner-lake-upgrade-desc = A kit that can be used to remove the safety measures from a Shining Spring.
 
@@ -136,7 +139,7 @@ uplink-extended-pistol-magazine-caseless-desc = Four high-capacity pistol magazi
 uplink-extended-pistol-magazine-name = Extended Pistol Magazine Bundle (.35 auto)
 uplink-extended-pistol-magazine-desc = Four high-capacity pistol magazines each loaded with 20 cartridges. Compatible with the Viper.
 
-uplink-treatchunk-free-name = Complimentary TreatChunk 
+uplink-treatchunk-free-name = Complimentary TreatChunk
 uplink-treatchunk-free-desc = A free TreatChunk hard candy, as a bonus for working with the Syndicate. Enjoy!
 
 uplink-treatchunk-bag-name = TreatChunk bag (15 count)
