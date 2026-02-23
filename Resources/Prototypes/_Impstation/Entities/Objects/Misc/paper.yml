@@ -169,7 +169,7 @@
     - paper
   - type: Sprite
     sprite: _Impstation/Objects/Misc/paper.rsi
-    state: dough
+    state: pulp_ball
   # - type: Construction
     # graph: Pizza
     # node: start
@@ -187,7 +187,7 @@
     - paper
   - type: Sprite
     sprite: _Impstation/Objects/Misc/paper.rsi
-    state: dough
+    state: pulp_ball             # TODO: replace this with flat_pulp_ball, once that sprite exists
   # - type: Construction
     # graph: Pizza
     # node: start
