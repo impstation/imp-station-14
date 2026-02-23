@@ -255,9 +255,9 @@
   description: spellbook-boots-desc
   productEntity: ClothingBootsWizard
   cost:
-    WizCoin: 1
+    WizCoin: 3
   categories:
-  - SpellbookUtility
+  - SpellbookEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
