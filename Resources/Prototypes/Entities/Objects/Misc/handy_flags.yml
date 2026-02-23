@@ -21,6 +21,9 @@
     state: icon
   - type: Item
     sprite: Objects/Misc/Handy_Flags/NT_handy_flag.rsi
+  - type: Tag # DEN: Allow item to be inserted in costume bundles
+    tags:
+    - CostumeItem
 
 - type: entity
   parent: [BaseItem, Tier1Contraband]
@@ -33,6 +36,9 @@
     state: icon
   - type: Item
     sprite: Objects/Misc/Handy_Flags/syndie_handy_flag.rsi
+  - type: Tag # DEN: Allow item to be inserted in costume bundles
+    tags:
+    - CostumeItem
 
 - type: entity
   parent: BaseItem
