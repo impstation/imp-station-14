@@ -41,7 +41,7 @@
       - SpaceGlue
       - Laughter
       - JuiceThatMakesYouWeh
-      - JuiceThatMakesYouUngh
+      - JuiceThatMakesYouUngh # imp
       - Lipozine
       - Carpetium
       - Bananadine
@@ -84,7 +84,7 @@
       - Bleach
       - CarpoToxin
       - BuzzochloricBees
-      - BrosochloricBros
+      - BrosochloricBros # imp
       - Amatoxin
       - Tazinide
     - quantity: 5
@@ -105,12 +105,25 @@
         maxVol: 20
   - type: RandomFillSolution
     solution: food
-    weightedRandomId: RandomFillStrangePill
+    trueRandomMode: true # imp
+    blacklistedReagents: # imp
+    - Holium
+    - PhilosophersJuice
+    - Medium
+    - DanPersonalHotsauce
+    blacklistedGroups: # imp
+    - Drinks
+    - Foods
+    whitelistedReagents: # imp
+    - HorseradishSauce
+    - Mustard
+    - Vitamin
+    #weightedRandomId: RandomFillStrangePill # imp edit
 # RandomSprite does not work with pill component
 # IMP: now it does yay!
 # Imp edit start
   - type: Sprite
-    sprite: _Impstation/Objects/Specific/Chemistry/pills.rsi # imp
+    sprite: Objects/Specific/Chemistry/pills.rsi
     layers:
     - state: pill1
       map: [ "enum.DamageStateVisualLayers.Base" ]
