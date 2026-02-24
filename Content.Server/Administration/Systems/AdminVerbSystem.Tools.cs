@@ -1,12 +1,9 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
-using Content.Server.Administration.Components;
 using Content.Server.Cargo.Components;
 using Content.Server.Doors.Systems;
 using Content.Server.Hands.Systems;
-using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Server.Station.Systems;
 using Content.Server.Weapons.Ranged.Systems;
@@ -14,10 +11,11 @@ using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration;
+using Content.Shared.Administration.Components;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Construction.Components;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Doors.Components;
@@ -25,6 +23,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Station.Components;
 using Content.Shared.Verbs;
@@ -37,10 +36,12 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server._Impstation.StrangeMoods.Eui; // imp
+using Content.Shared._Impstation.StrangeMoods; // imp
 using Content.Server.Revenant.Components; // imp
 using Content.Server.Revenant.EntitySystems; // imp
-using Content.Shared._Impstation.Thaven.Components; // imp
 using Content.Shared.Item; // imp
+using Robust.Shared.Random; // imp
 
 namespace Content.Server.Administration.Systems;
 
@@ -55,7 +56,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly AdminTestArenaSystem _adminTestArenaSystem = default!;
     [Dependency] private readonly StationJobsSystem _stationJobsSystem = default!;
     [Dependency] private readonly JointSystem _jointSystem = default!;
-    [Dependency] private readonly BatterySystem _batterySystem = default!;
+    [Dependency] private readonly SharedBatterySystem _batterySystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly RevenantAnimatedSystem _revenantAnimate = default!; // imp
@@ -207,6 +208,8 @@ public sealed partial class AdminVerbSystem
                     var recharger = EnsureComp<BatterySelfRechargerComponent>(args.Target);
                     recharger.AutoRechargeRate = battery.MaxCharge; // Instant refill.
                     recharger.AutoRechargePauseTime = TimeSpan.Zero; // No delay.
+                    Dirty(args.Target, recharger);
+                    _batterySystem.RefreshChargeRate((args.Target, battery));
                 },
                 Impact = LogImpact.Medium,
                 Message = Loc.GetString("admin-trick-infinite-battery-object-description"),
@@ -773,8 +776,11 @@ public sealed partial class AdminVerbSystem
             args.Verbs.Add(makeInanimate);
         }
 
-        if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
+        if (TryComp<StrangeMoodsComponent>(args.Target, out var moods))
         {
+            if (moods.StrangeMood.Datasets.Count <= 0)
+                return;
+
             Verb addRandomMood = new()
             {
                 Text = "Add Random Mood",
@@ -782,7 +788,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/actions_borg.rsi"), "state-laws"),
                 Act = () =>
                 {
-                    _moods.TryAddRandomMood((args.Target, moods));
+                    _moods.TryAddRandomMood((args.Target, moods), _random.Pick(moods.StrangeMood.Datasets).Key);
                 },
                 Impact = LogImpact.High,
                 Message = Loc.GetString("admin-trick-add-random-mood-description"),
@@ -799,13 +805,15 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/actions_borg.rsi"), "state-laws"),
                 Act = () =>
                 {
-                    if (!EnsureComp<ThavenMoodsComponent>(args.Target, out moods))
-                    {
-                        //if we're adding moods to something that doesn't already have them (e.g. isn't a thaven), make them ignore the shared mood
-                        var targ = (args.Target, moods);
-                        _moods.SetMoods(targ, []);
-                        _moods.SetFollowsSharedmood(targ, false);
-                    }
+                    if (HasComp<StrangeMoodsComponent>(args.Target))
+                        return;
+
+                    var ui = new StrangeMoodsInitEui(_moods, EntityManager, _prototypeManager, _random, _adminManager, _playerManager, _euiManager, args.User);
+                    if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
+                        return;
+
+                    _euiManager.OpenEui(ui, session);
+                    ui.SetTarget(args.Target);
                 },
                 Impact = LogImpact.High,
                 Message = Loc.GetString("admin-trick-give-moods-description"),

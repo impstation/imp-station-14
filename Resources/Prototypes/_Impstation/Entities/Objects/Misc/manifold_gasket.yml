@@ -1,0 +1,12 @@
+﻿- type: entity
+  id: GasketPart
+  name: gasket
+  parent: BaseStockPart
+  description: A basic gasket used in the construction of some atmospheric devices.
+  suffix: Rating 1
+  components:
+  - type: Sprite
+    sprite: /Textures/_Impstation/Objects/Misc/manifold_gasket.rsi
+    state: manifold_gasket
+  - type: Stack
+    stackType: Gasket
