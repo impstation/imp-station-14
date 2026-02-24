@@ -1,20 +1,4 @@
 ﻿Entries:
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Echion Synthesizer can now be equipped to your belt and suit storage
-      slots.
-    type: Tweak
-  id: 2143
-  time: '2025-08-10T07:09:03.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3238
-- author: msTheowo
-  changes:
-  - message: Strong prescription lens will now correctly start in your glasses instead
-      of being on the floor if your glasses start with lenses inside them.
-    type: Fix
-  id: 2144
-  time: '2025-08-11T06:02:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3166
 - author: Oberonics
   changes:
   - message: Dying as a Cluwne no longer unravels your DNA.
@@ -4164,3 +4148,19 @@
   id: 2642
   time: '2026-02-24T07:10:09.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3992
+- author: widgetbeck
+  changes:
+  - message: Fixed a bunch of gray displacement issues that were causing stray pixels.
+      Report anything that still causes problems in the discord at [#bug-reports](https://discord.com/channels/1327800873660842097/1328801057651949712)
+    type: Fix
+  id: 2643
+  time: '2026-02-24T07:39:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4167
+- author: SuperGDPWYL, Simul-ad-Astra
+  changes:
+  - message: Conspirators have been ported from Harmony! Watch out for any heists
+      or secret plots afoot.
+    type: Add
+  id: 2644
+  time: '2026-02-24T07:59:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4003
