@@ -33,7 +33,7 @@
   icon:
     sprite: Mobs/Animals/chicken.rsi
     state: icon-1
-  product: CrateNPCChicken
+  product: CrateNPCHen # Imp
   cost: 4000
   category: cargoproduct-category-name-livestock
   group: market
@@ -91,7 +91,7 @@
 - type: cargoProduct
   id: LivestockGoat
   icon:
-    sprite: Mobs/Animals/goat.rsi
+    sprite: _Impstation/Mobs/Animals/Livestock/goat.rsi # Imp
     state: goat
   product: CrateNPCGoat
   cost: 1200
@@ -171,7 +171,7 @@
 - type: cargoProduct
   id: LivestockPig
   icon:
-    sprite: Mobs/Animals/pig.rsi
+    sprite: _Impstation/Mobs/Animals/Livestock/pig.rsi # Imp
     state: pig
   product: CrateNPCPig
   cost: 1100

@@ -1,0 +1,114 @@
+- type: entity
+  id: MachineIncubator
+  parent: [ BaseMachinePowered, SmallConstructibleMachine ]
+  name: Incubator
+  description: Clearly the egg came first.
+  components:
+  - type: EggIncubator
+  - type: Construction
+    graph: incubatorGraph
+    node: IncubatorNode  
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.20,-0.25,0.20,0.20"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: ContainerContainer
+    containers:
+     egg: !type:ContainerSlot
+     machine_board: !type:Container
+     machine_parts: !type:Container
+  - type: ItemSlots
+    slots:
+      egg:
+        whitelist:
+          tags:
+            - Incubated
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/incubator.rsi
+    layers:
+    - state: inactive
+    - map: ["enum.IncubatorVisualizerLayers.Status"]
+      shader: unshaded
+      visible: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.IncubatorVisualizerLayers.Status:
+        enum.IncubatorVisualizerLayers.Status:
+          Inactive: { visible: false, state: "inactive" }
+          Active: { visible: true, state: "active" }
+  - type: Anchorable
+  - type: PointLight
+    enabled: false
+    castShadows: false
+    radius: 2
+  - type: Rotatable
+  - type: Transform
+    noRot: false
+  - type: LitOnPowered
+  - type: ApcPowerReceiver
+    powerLoad: 50
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
+    weight: 0.2
+
+- type: entity
+  id: MachineIncubatorFrame
+  name: incubator frame
+  description: Wood in the shape of an incubator
+  suffix: Unfinished
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.20,-0.25,0.20,0.20"
+        density: 100
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Construction
+    graph: incubatorGraph
+    node: FrameNode
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Anchorable
+  - type: Rotatable
+  - type: Pullable
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/incubator_construct.rsi
+    state: frame_1
+
+- type: entity
+  id: MachineIncubatorFilled
+  parent: MachineIncubatorFrame
+  name: filled incubator frame
+  description: Wood in the shape of an incubator, with some hay in it!
+  suffix: Unfinished
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Construction
+    graph: incubatorGraph
+    node: FrameFilledNode
+  - type: Sprite
+    sprite: _Impstation/Structures/Machines/incubator_construct.rsi
+    state: frame_2
+

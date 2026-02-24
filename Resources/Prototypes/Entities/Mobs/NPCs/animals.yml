@@ -1003,16 +1003,17 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: Body
-    prototype: AnimalRuminant
-  - type: HTN
-    rootTask:
-      task: RuminantCompound
   - type: GuideHelp
     guides:
     - Chef
     - FoodRecipes
   # imp edit start
+  #- type: Body
+  #  prototype: AnimalRuminant
+  - type: HTN
+    rootTask:
+      task: PassiveLivestockCompound
+      #task: RuminantCompound
   - type: GoobAbsorbable
     biomassRestored: 0.7
   - type: CowToolProficiency #this was made for ungus, but i'm putting this here in case an admin wants to be cute and give a cow hands

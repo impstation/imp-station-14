@@ -1,0 +1,801 @@
+#========================================================================
+
+- type: entity
+  name: cowBase
+  parent: SimpleMobBase
+  abstract: true
+  id: MobCowBase
+  description: Moo.
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cow
+      sprite: Mobs/Animals/cow.rsi
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Cow
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 400
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: cow
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: ExaminableHunger
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 5
+  - type: Grammar
+    attributes:
+      gender: female # Here because of UdderComponent
+  - type: InteractionPopup
+    successChance: 0.7
+    interactDelay: 2 # Avoids overlapping SFX due to spam - these SFX are a little longer than the typical 1 second.
+    interactSuccessString: petting-success-soft-floofy
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/cow_moo.ogg
+  - type: Perishable
+    molsPerSecondPerUnitMass: 0.0015
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: PassiveLivestockCompound
+  - type: GuideHelp
+    guides:
+    - Chef
+    - FoodRecipes
+  # imp edit start
+  - type: GoobAbsorbable
+    biomassRestored: 0.7
+  - type: CowToolProficiency #this was made for ungus, but i'm putting this here in case an admin wants to be cute and give a cow hands
+  - type: AlwaysRevolutionaryConvertible
+
+- type: entity
+  name: baby cow
+  parent: MobCowBase
+  id: MobCowBaby
+  description: Moo. But smaller.
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
+  - type: ImpInfant
+    nextStage: MobCowAdult
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: cow
+      sprite: _Impstation/Mobs/Animals/Livestock/cow_infant.rsi
+
+- type: entity
+  name: cow
+  parent: MobCowBase
+  id: MobCowAdult
+  description: Moo.
+  components:
+  - type: ImpReproductive
+    hungerPerBirth: 50
+    mobType: Cow
+    validPartners:
+      - Bull
+    gender: Female
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: MobCowBaby
+        weight: 10
+      - id: MobBullBaby
+        weight: 3
+  - type: SolutionContainerManager
+    solutions:
+      udder:
+        maxVol: 250
+        reagents:
+        - ReagentId: Milk
+          Quantity: 30
+  - type: Udder
+    reagentId: Milk
+    quantityPerUpdate: 25
+    growthDelay: 30
+
+#========================================================================
+
+- type: entity
+  name: bullBase
+  parent: SimpleMobBase
+  id: MobBullBase
+  description: Mooscle.
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: bull
+      sprite: _Impstation/Mobs/Animals/Livestock/bull.rsi
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Bull
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 400
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bull
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: ExaminableHunger
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 7
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: InteractionPopup
+    successChance: 0.7
+    interactDelay: 2 # Avoids overlapping SFX due to spam - these SFX are a little longer than the typical 1 second.
+    interactSuccessString: petting-success-soft-floofy
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/cow_moo.ogg
+  - type: Perishable
+    molsPerSecondPerUnitMass: 0.0015
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: LivestockCompound
+  - type: GuideHelp
+    guides:
+    - Chef
+    - FoodRecipes
+  # imp edit start
+  - type: GoobAbsorbable
+    biomassRestored: 0.7
+  - type: CowToolProficiency #this was made for ungus, but i'm putting this here in case an admin wants to be cute and give a cow hands
+  - type: AlwaysRevolutionaryConvertible
+
+- type: entity
+  name: baby bull
+  parent: MobBullBase
+  id: MobBullBaby
+  description: Mooscle. But smaller.
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: ImpInfant
+    nextStage: MobBullAdult
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: bull
+      sprite: _Impstation/Mobs/Animals/Livestock/bull_infant.rsi
+
+- type: entity
+  name: bull
+  parent: MobBullBase
+  id: MobBullAdult
+  description: Moo.
+  components:
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: ImpReproductive
+    hungerPerBirth: 50
+    mobType: Bull
+    gender: Male
+
+#========================================================================
+
+- type: entity
+  name: chickenBase
+  parent: SimpleMobBase
+  abstract: true
+  id: MobChickenBase
+  description: Holding it won't make you glide.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: hen
+      sprite: _Impstation/Mobs/Animals/Livestock/hen.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: hen
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Chicken
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 8
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatChicken
+      amount: 1
+  - type: InteractionPopup
+    successChance: 0.8
+    interactSuccessString: petting-success-bird
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/chicken_cluck_happy.ogg
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
+  - type: ExaminableHunger
+  - type: ReplacementAccent
+    accent: chicken
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: PassiveLivestockCompound
+  - type: GoobAbsorbable
+    biomassRestored: 0.2
+  - type: Carriable #DeltaV
+    freeHandsRequired: 1
+  - type: AlwaysRevolutionaryConvertible
+
+- type: entity
+  name: BaseChick
+  parent: MobChickenBase
+  id: MobChickBase
+  abstract: true
+  description: Watch where you walk!
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 25
+  - type: ImpInfant
+    growthTime: 240
+    nextStage: MobHenAdult
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 1
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: chick
+      sprite: _Impstation/Mobs/Animals/Livestock/chicken_infant.rsi
+
+- type: entity
+  name: chick
+  parent: MobChickBase
+  id: MobHenChick
+  description: Watch where you walk!
+  components:
+  - type: ImpInfant
+    growthTime: 240
+    nextStage: MobHenAdult
+
+- type: entity
+  name: chick
+  parent: MobChickBase
+  id: MobRoosterChick
+  description: Watch where you walk!
+  components:
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: ImpInfant
+    growthTime: 240
+    nextStage: MobRoosterAdult
+
+- type: entity
+  name: hen
+  parent: MobChickenBase
+  id: MobHenAdult
+  description: Holding it won't make you glide.
+  components:
+  - type: ImpReproductive
+    hungerPerBirth: 25
+    pregnancyLength: 150
+    mobType: Chicken
+    validPartners:
+      - Rooster
+    gender: Female
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: HenEgg
+        weight: 10
+      - id: RoosterEgg
+        weight: 1
+
+- type: entity
+  name: rooster
+  parent: MobChickenBase
+  id: MobRoosterAdult
+  description: There is no gene to shut him up.
+  components:
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: rooster
+      sprite: _Impstation/Mobs/Animals/Livestock/rooster.rsi
+  - type: ImpReproductive
+    hungerPerBirth: 25
+    mobType: Rooster
+    gender: Male
+  - type: HTN
+    rootTask:
+      task: LivestockCompound
+
+#========================================================================
+
+- type: entity
+  name: pig
+  parent: [SimpleMobBase, StripableInventoryBase]
+  id: MobPigBase
+  description: Oink.
+  abstract: true
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pig
+      sprite: _Impstation/Mobs/Animals/Livestock/pig.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Inventory
+    speciesId: pig
+    templateId: pet
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - Pig
+    - VimPilot
+  - type: ReproductivePartner
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: pig
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBacon
+      amount: 7
+  - type: Grammar
+    attributes:
+      gender: female
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-pig
+    interactFailureString: petting-failure-generic
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/pig_oink.ogg
+  - type: ReplacementAccent
+    accent: pig
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-organic
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: PassiveLivestockCompound
+  # imp edit start
+  - type: GoobAbsorbable
+    biomassRestored: 0.7
+  - type: Carriable #DeltaV
+  - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
+  # imp edit end
+
+- type: entity
+  name: pig
+  parent: MobPigBase
+  id: MobPigInfantBase
+  description: Oink.
+  abstract: true
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
+  - type: ImpInfant
+    nextStage: MobPigAdult
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatBacon
+      amount: 3
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: pig
+      sprite: _Impstation/Mobs/Animals/Livestock/pig_infant.rsi
+
+- type: entity
+  name: pig
+  parent: MobPigBase
+  id: MobPigAdult
+  description: Oink.
+  components:
+  - type: ImpReproductive
+    hungerPerBirth: 50
+    pregnancyLength: 200
+    mobType: Pig
+    validPartners:
+      - Boar
+      - WildBoar   
+    gender: Female
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: MobBoar
+        weight: 30
+        conditions:
+        - !type:ValidPartnerCondition
+          validPartners:
+          - WildBoar
+      - id: MobPigInfant
+        weight: 10
+      - id: MobBoarInfant
+        weight: 3
+
+- type: entity
+  name: baby pig
+  parent: MobPigInfantBase
+  id: MobPigInfant
+  description: Oink, but smaller!.
+  components:
+  - type: ImpInfant
+    nextStage: MobPigAdult
+
+- type: entity
+  name: boar
+  parent: MobPigBase
+  id: MobBoarAdult
+  description: Oink.
+  components:
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: ImpReproductive
+    hungerPerBirth: 50
+    gender: Male
+    mobType: Boar
+  - type: HTN
+    rootTask:
+      task: LivestockCompound
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: boar
+      sprite: _Impstation/Mobs/Animals/Livestock/boar.rsi
+
+- type: entity
+  name: baby boar
+  parent: MobPigInfantBase
+  id: MobBoarInfant
+  description: Oink, but smaller!.
+  components:
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: ImpInfant
+    nextStage: MobBoarAdult
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: boar
+      sprite: _Impstation/Mobs/Animals/Livestock/boar_infant.rsi
+
+#========================================================================
+
+- type: entity
+  name: goatBase
+  parent: SimpleMobBase
+  abstract: true
+  id: MobGoatBase
+  description: Baa.
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: goat
+      sprite: _Impstation/Mobs/Animals/Livestock/goat.rsi
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - ClothMade
+    - Goat
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 400
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: goat
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: ExaminableHunger
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 4
+  - type: Grammar
+    attributes:
+      gender: female
+  - type: Speech
+    speechSounds: Goat
+    speechVerb: Goat
+  - type: Vocal
+    sounds:
+      Female: Goat
+      Male: Goat
+      Unsexed: Goat
+  - type: BleatingAccent
+  - type: InteractionPopup
+    successChance: 0.2
+    interactSuccessString: petting-success-goat
+    interactFailureString: petting-failure-goat
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/goat_bah.ogg
+  - type: Perishable
+    molsPerSecondPerUnitMass: 0.0015
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: HTN
+    rootTask:
+      task: PassiveLivestockCompound
+  - type: GuideHelp
+    guides:
+    - Chef
+    - FoodRecipes
+  # imp edit start
+  - type: GoobAbsorbable
+    biomassRestored: 0.7
+  - type: AlwaysRevolutionaryConvertible
+  - type: SolutionContainerManager
+    solutions:
+      udder:
+        maxVol: 250
+        reagents:
+        - ReagentId: MilkGoat
+          Quantity: 30
+      wool:
+        maxVol: 250
+  - type: Udder
+    reagentId: MilkGoat
+    quantityPerUpdate: 25
+    growthDelay: 20
+  - type: Wooly
+  - type: Edible
+    destroyOnEmpty: false
+    solution: wool
+    requiresSpecialDigestion: true
+    requireDead: false
+  - type: FlavorProfile
+    flavors:
+    - fiber
+
+- type: entity
+  name: infantGoatBase
+  parent: MobGoatBase
+  abstract: true
+  id: MobGoatInfantBase
+  description: Baa.
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
+  - type: ImpInfant
+    growthTime: 10
+    nextStage: MobGoatAdult
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: goat
+      sprite: _Impstation/Mobs/Animals/Livestock/goat_infant.rsi
+
+- type: entity
+  name: goat
+  parent: MobGoatBase
+  id: MobGoatAdult
+  description: Her spine consists of long sharp segments, no wonder she is so grumpy.
+  components:
+  - type: ImpReproductive
+    hungerPerBirth: 30
+    pregnancyLength: 240
+    mobType: Goat
+    validPartners:
+      - Buck  
+    gender: Female
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: MobGoatInfant
+        weight: 10
+      - id: MobBuckInfant
+        weight: 3
+
+- type: entity
+  name: baby goat
+  parent: MobGoatInfantBase
+  id: MobGoatInfant
+  description: Those horns are small, but still pointy!.
+  components:
+  - type: ImpInfant
+    nextStage: MobGoatAdult
+
+- type: entity
+  name: buck
+  parent: MobGoatBase
+  id: MobBuckAdult
+  description: I wouldn't stand in front of him. Or beside him. Or near him.
+  components:
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: ImpReproductive
+    hungerPerBirth: 30
+    mobType: Buck
+    gender: Male
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: buck
+      sprite: _Impstation/Mobs/Animals/Livestock/buck.rsi
+  - type: HTN
+    rootTask:
+      task: LivestockCompound
+
+- type: entity
+  name: baby buck
+  parent: MobGoatInfantBase
+  id: MobBuckInfant
+  description: Those horns are small, but still pointy!.
+  components:
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: ImpInfant
+    nextStage: MobBuckAdult
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: buck
+      sprite: _Impstation/Mobs/Animals/Livestock/buck_infant.rsi
+
+#========================================================================
