@@ -2,6 +2,7 @@ using Content.Server.StationEvents.Events;
 using Content.Shared.Access;
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Prototypes;
+using Content.Shared.Whitelist; // imp
 
 namespace Content.Server.StationEvents.Components;
 
@@ -35,4 +36,10 @@ public sealed partial class GreytideVirusRuleComponent : Component
     /// </summary>
     [DataField]
     public List<ProtoId<AccessLevelPrototype>> Blacklist = new();
+
+    /// <summary>
+    ///     imp. Entities with these comps/tags will be ignored.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? BannedExtras = new();
 }
