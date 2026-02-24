@@ -1,37 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Another upstream merge has happened, featuring Wizden's crawling system!
-      Be sure to check your keybindings to ensure you're using the right keys for
-      it. See the upstream changelog for full details.
-    type: Add
-  - message: You can no longer slip under plastic flaps and tables.
-    type: Remove
-  id: 2151
-  time: '2025-08-12T00:45:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3263
-- author: mqole
-  changes:
-  - message: After 3000 years, carrying is real. Pick up your friends like ragdolls
-      and toss them into deep space!
-    type: Add
-  id: 2152
-  time: '2025-08-12T01:15:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2466
-- author: VeeNomine
-  changes:
-  - message: Some cyborgs want ribbons to go with their hat.
-    type: Add
-  - message: Removed the whitelist for service borg neck slot. Unleash your fashion,
-      for it is the true endgame.
-    type: Remove
-  - message: All borgs have had their neck and hat positions manually tweaked to look
-      more clean and aesthetic. Not all items will look the best however since borgs
-      have unique proportions.
-    type: Tweak
-  id: 2153
-  time: '2025-08-12T06:30:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3271
 - author: ultramario1998
   changes:
   - message: The guidebook no longer mentions using greencomms from your headset.
@@ -4159,3 +4126,28 @@
   id: 2650
   time: '2026-02-24T18:16:51.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4133
+- author: Darkmajia
+  changes:
+  - message: Thaven moods with random variables will now properly reroll, rather than
+      giving all thaven the same variation on the prompt until the server restarts.
+    type: Fix
+  id: 2651
+  time: '2026-02-24T19:29:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3401
+- author: mqole
+  changes:
+  - message: You can now obtain NanoChat logs by using the logprobe on a PDA with
+      an ID card inside, in addition to using the logprobe on the ID itself.
+    type: Add
+  id: 2652
+  time: '2026-02-24T19:30:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3913
+- author: Jellvisk, Ark, LaCumbiaDelCoronavirus, JohnJJohn
+  changes:
+  - message: Audio is now real. Experience reverb in large rooms. Improve the acoustics
+      with furniture and carpet. All client-side and can be disabled or tweaked in
+      audio settings. Ported from Monolith+Goobstation, heavily refactored.
+    type: Add
+  id: 2653
+  time: '2026-02-24T19:30:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3632
