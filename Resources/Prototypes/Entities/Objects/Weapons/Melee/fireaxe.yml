@@ -21,7 +21,7 @@
       types:
         # axes are kinda like sharp hammers, you know?
         Blunt: 5
-        Slash: 10
+        Slash: 5 #imp
         Structural: 10
     soundHit:
       collection: MetalThud
@@ -29,7 +29,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Slash: 10
+        Slash: 5 #imp
         Structural: 40
   - type: Item
     size: Ginormous
