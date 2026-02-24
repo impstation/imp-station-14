@@ -19,7 +19,8 @@ job-name-engineer = Station Engineer
 job-name-atmostech = Atmospheric Technician
 job-name-hop = Head of Personnel
 job-name-captain = Captain
-job-name-serviceworker = Service Worker
+job-name-serviceworker = Service Attendant
+# imp edit worker -> attendant
 job-name-centcomoff = CentComm Official
 # imp (2)
 job-name-cburn = CBURN Quarantine Officer
