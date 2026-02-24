@@ -322,6 +322,17 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/greenprincessdress.rsi
 
 - type: entity
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase]
+  id: ClothingUniformAtmosFlightSkirt
+  name: atmospheric technician flightskirt
+  description: A harnessed, secure flightskirt for all the flying atmos techs do.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/atmos_flightskirt.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/atmos_flightskirt.rsi
+
+- type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
   id: ClothingUniformJumpskirtHoSColonel
   name: head of security's dress uniform
@@ -331,3 +342,4 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/hos_colonelsuitskirt.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/hos_colonelsuitskirt.rsi
+
