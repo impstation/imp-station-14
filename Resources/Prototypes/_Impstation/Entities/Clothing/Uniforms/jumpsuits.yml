@@ -570,3 +570,20 @@
   - type: Construction
     graph: WebObjects
     node: loungewear
+
+- type: entity
+  parent: [ClothingUniformBase, ClothingSlotBase, Tier3Contraband]
+  id: ClothingUniformJumpsuitRedsuit
+  name: blood-red suit
+  description: A completely unarmored suit designed to look dope and swag. Courtesy of Gôrleux Menswear.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Other/redsuit.rsi
+    layers:
+    - state: icon
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Other/redsuit.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+
