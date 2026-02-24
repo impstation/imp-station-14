@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: FlippenPage
-  changes:
-  - message: announcement consoles now play their proper announcement sounds.
-    type: Fix
-  id: 2150
-  time: '2025-08-11T06:34:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3055
 - author: DinnerCalzone
   changes:
   - message: Another upstream merge has happened, featuring Wizden's crawling system!
@@ -4158,3 +4151,11 @@
   id: 2649
   time: '2026-02-24T18:13:35.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4162
+- author: TheGrimbeeper
+  changes:
+  - message: Fixed artifact bug where unlocking time was not correctly increased when
+      triggers were applied, in some cases.
+    type: Fix
+  id: 2650
+  time: '2026-02-24T18:16:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4133
