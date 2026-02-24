@@ -212,6 +212,11 @@
   - type: Emoting #imp. Let them emote
   - type: BodyEmotes #imp
     soundsId: GeneralBodyEmotes #imp
+  - type: Stamp #imp
+    stampedName: stamp-component-stamped-name-dragon
+    stampedColor: "#1c1c1c"
+    stampState: "paper_stamp-dragon"
+    stampLargeIcon: "large_stamp-dragon" # imp
 
 - type: entity
   categories: [ HideSpawnMenu ]

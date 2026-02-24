@@ -17,6 +17,17 @@
       role: JobAtmosphericTechnician
       time: 30h
 
+# InnerClothing
+- type: loadout
+  id: FlightsuitAtmos
+  equipment:
+    innerClothing: ClothingUniformAtmosFlightSuit
+
+- type: loadout
+  id: FlightskirtAtmos
+  equipment:
+    innerClothing: ClothingUniformAtmosFlightSkirt
+
 # OuterClothing
 - type: loadout
   id: BomberAtmos
