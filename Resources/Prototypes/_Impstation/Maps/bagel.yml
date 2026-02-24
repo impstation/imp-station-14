@@ -1,6 +1,6 @@
 - type: gameMap
   id: BagelImp
-  mapName: 'Bagel Station'
+  mapName: 'Bagel'
   mapPath: /Maps/_Impstation/bagel.yml
   minPlayers: 35
   maxPlayers: 64
@@ -36,7 +36,6 @@
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            ServiceWorker: [ 2, 2 ]
             Reporter: [ 2, 2 ]
             # engineering - 7-11
             AtmosphericTechnician: [ 3, 3 ]
@@ -44,7 +43,7 @@
             TechnicalAssistant: [ 4, 4 ]
             # medical - 8-12
             Chemist: [ 2, 2 ]
-            MedicalDoctor: [ 4, 1 ]
+            MedicalDoctor: [ 4, 4 ]
             MedicalIntern: [ 4, 4 ]
             Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]

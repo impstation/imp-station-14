@@ -17,7 +17,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/_Impstation/Shuttles/NTES_Propeller.yml
         - type: StationJobs
-          availableJobs: # Total of 69 jobs roundstart, max of 83 inc. latejoins and trainees.
+          availableJobs: # Total of 67 jobs roundstart, max of 81 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -37,7 +37,6 @@
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            #ServiceWorker: [ 2, 2 ] # needs spawnpoints
             Reporter: [ 2, 2 ]
             Zookeeper: [ 1, 1 ]
             Boxer: [1, 1]

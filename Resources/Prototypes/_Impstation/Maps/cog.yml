@@ -16,7 +16,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_wode.yml
         - type: StationJobs
-          availableJobs: # Total of 85 jobs roundstart, max of 98 inc. latejoins and trainees.
+          availableJobs: # Total of 83 jobs roundstart, max of 96 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -26,7 +26,7 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 23
+            # service - 22
             Bartender: [ 2, 2 ]
             Botanist: [ 3, 3 ]
             Boxer: [ 2, 2 ]
@@ -37,18 +37,17 @@
             Librarian: [ 1, 1 ]
             Mime: [ 2, 2 ]
             Musician: [ 1, 1 ]
-            ServiceWorker: [ 2, 2 ]
             Reporter: [ 2, 2 ]
             Zookeeper: [ 1, 1 ]
             # engineering - 10-13
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 6, 6 ]
             TechnicalAssistant: [ 4, 4 ]
-            # medical - 14-18
-            Chemist: [ 3, 3 ]
+            # medical - 11-15
+            Chemist: [ 2, 2 ]
             MedicalDoctor: [ 6, 6 ]
             MedicalIntern: [ 4, 4 ]
-            Paramedic: [ 4, 4 ]
+            Paramedic: [ 2, 2 ]
             Psychologist: [ 1, 1 ]
             # science - 9-10
             Borg: [ 4, 4 ]
