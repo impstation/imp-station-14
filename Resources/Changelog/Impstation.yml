@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Leviathan won't be knocking over blood-reds, hopefully. Fingers crossed.
-    type: Fix
-  id: 2148
-  time: '2025-08-11T06:23:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3231
 - author: TheGrimbeeper
   changes:
   - message: Reticulated artifacts requiring radiation now activate from ambient radiation
@@ -4157,3 +4150,20 @@
   id: 2647
   time: '2026-02-24T18:06:39.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4132
+- author: DinnerCalzone
+  changes:
+  - message: A couple of redundant cardboard structures were removed and merged with
+      existing ones.
+    type: Tweak
+  - message: The appearance of cardboard structures and tiles has been modified to
+      look more consistent.
+    type: Tweak
+  - message: Cardboard walls and doors can now take delta pressure damage, you won't
+      want to keep these as permanent repairs to the station!
+    type: Add
+  - message: Cardboard structures can now be deconstructed with both Slicing tools
+      (knives, swords) and Cutting tools (wirecutters).
+    type: Add
+  id: 2648
+  time: '2026-02-24T18:11:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3994
