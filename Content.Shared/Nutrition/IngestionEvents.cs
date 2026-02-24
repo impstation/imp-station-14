@@ -38,8 +38,9 @@ public record struct EdibleEvent(EntityUid User)
 /// <param name="User">The entity that is trying to feed and therefore raising the event</param>
 /// <param name="Ingested">What are we trying to ingest?</param>
 /// <param name="Ingest">Should we actually try and ingest? Or are we just testing if it's even possible </param>
+/// <param name="TryRepeat">Should we try to repeat the doafter after ingesting?</param> #imp addition
 [ByRefEvent]
-public record struct AttemptIngestEvent(EntityUid User, EntityUid Ingested, bool Ingest, bool Handled = false);
+public record struct AttemptIngestEvent(EntityUid User, EntityUid Ingested, bool Ingest, bool Handled = false, bool TryRepeat = false); // imp edit, added TryRepeat
 
 /// <summary>
 ///     Raised on an entity that is consuming another entity to see if there is anything attached to the entity
@@ -150,8 +151,9 @@ public record struct IngestingEvent(EntityUid Food, Solution Split, bool ForceFe
 /// <param name="Target">Who is doing the eating?</param>
 /// <param name="Split">The solution we're currently eating.</param>
 /// <param name="ForceFed">Whether we're being fed by someone else, checkec enough I might as well pass it.</param>
+/// <param name="TryRepeat">Whether we try to repeat the doafter.</param> #imp addition
 [ByRefEvent]
-public record struct IngestedEvent(EntityUid User, EntityUid Target, Solution Split, bool ForceFed)
+public record struct IngestedEvent(EntityUid User, EntityUid Target, Solution Split, bool ForceFed, bool TryRepeat = false) //imp edit, added TryRepeat
 {
     // Should we destroy the ingested entity?
     public bool Destroy;

@@ -16,6 +16,10 @@
   noun: edible-noun-food
   verbName: ingestion-verb-food
   verbIcon: /Textures/Interface/VerbIcons/cutlery.svg.192dpi.png
+  # imp edit start, add auto-repeat verb
+  allowRepeatIngestion: true
+  repeatVerbName: ingestion-verb-food-repeat
+  # imp edit end
 
 # Drink
 
@@ -32,6 +36,10 @@
   noun: edible-noun-drink
   verbName: ingestion-verb-drink
   verbIcon: /Textures/Interface/VerbIcons/drink.svg.192dpi.png
+  # imp edit start, add auto-repeat verb
+  allowRepeatIngestion: true
+  repeatVerbName: ingestion-verb-drink-repeat
+  # imp edit end
 
 # Pills!
 
