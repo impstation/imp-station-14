@@ -19,7 +19,7 @@
 ## Licensing
 <!-- THIS IS OPTIONAL. Impstation is licensed under AGPLv3 by default. Check this box if you wish to allow other users to relicense your work to MIT. -->
 - [ ] I give permission for any changes to the repository made in this PR to be relicensed under MIT.
-<!- THIS IS OPTIONAL. -->
+<!-- THIS IS OPTIONAL. -->
 
 **Changelog**
 <!-- Add a Changelog entry to make players aware of new features or changes that could affect gameplay.
