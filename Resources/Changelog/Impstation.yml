@@ -1,20 +1,4 @@
 ﻿Entries:
-- author: TheGrimbeeper
-  changes:
-  - message: Reticulated artifacts requiring radiation now activate from ambient radiation
-      and reagents, similar to natural artifacts
-    type: Fix
-  - message: Reticulated artifact death trigger is gone
-    type: Remove
-  - message: Natural artifacts now understand the coffee content of alcohol drinks
-    type: Tweak
-  - message: Hover text on scan up button in analysis console for natural artifacts
-    type: Fix
-  - message: Timing for newxeno artifacts is slightly more permissive
-    type: Tweak
-  id: 2149
-  time: '2025-08-11T06:30:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3268
 - author: FlippenPage
   changes:
   - message: announcement consoles now play their proper announcement sounds.
@@ -4167,3 +4151,10 @@
   id: 2648
   time: '2026-02-24T18:11:39.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/3994
+- author: TuttlePants
+  changes:
+  - message: Nerfed Bounty Hunter's louder loadouts.
+    type: Tweak
+  id: 2649
+  time: '2026-02-24T18:13:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4162
