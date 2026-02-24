@@ -1,136 +1,4 @@
 ﻿Entries:
-- author: Oberonics
-  changes:
-  - message: If you focus hard enough you can feel when your grappling hook has hit
-      something. Try it out!
-    type: Tweak
-  - message: Various fixes to the grappling gun. Look on github for more information.
-    type: Fix
-  id: 2146
-  time: '2025-08-11T06:09:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3151
-- author: DinnerCalzone
-  changes:
-  - message: The amount of space cleaner in the space cleaner dispenser has been increased
-      from 1000u to 2500u.
-    type: Tweak
-  - message: The soap cargo order has been replaced with a crate of 6 jugs of space
-      cleaner for $750.
-    type: Tweak
-  - message: The soap cargo bounty has been restored.
-    type: Add
-  id: 2147
-  time: '2025-08-11T06:16:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3170
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Leviathan won't be knocking over blood-reds, hopefully. Fingers crossed.
-    type: Fix
-  id: 2148
-  time: '2025-08-11T06:23:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3231
-- author: TheGrimbeeper
-  changes:
-  - message: Reticulated artifacts requiring radiation now activate from ambient radiation
-      and reagents, similar to natural artifacts
-    type: Fix
-  - message: Reticulated artifact death trigger is gone
-    type: Remove
-  - message: Natural artifacts now understand the coffee content of alcohol drinks
-    type: Tweak
-  - message: Hover text on scan up button in analysis console for natural artifacts
-    type: Fix
-  - message: Timing for newxeno artifacts is slightly more permissive
-    type: Tweak
-  id: 2149
-  time: '2025-08-11T06:30:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3268
-- author: FlippenPage
-  changes:
-  - message: announcement consoles now play their proper announcement sounds.
-    type: Fix
-  id: 2150
-  time: '2025-08-11T06:34:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3055
-- author: DinnerCalzone
-  changes:
-  - message: Another upstream merge has happened, featuring Wizden's crawling system!
-      Be sure to check your keybindings to ensure you're using the right keys for
-      it. See the upstream changelog for full details.
-    type: Add
-  - message: You can no longer slip under plastic flaps and tables.
-    type: Remove
-  id: 2151
-  time: '2025-08-12T00:45:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3263
-- author: mqole
-  changes:
-  - message: After 3000 years, carrying is real. Pick up your friends like ragdolls
-      and toss them into deep space!
-    type: Add
-  id: 2152
-  time: '2025-08-12T01:15:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2466
-- author: VeeNomine
-  changes:
-  - message: Some cyborgs want ribbons to go with their hat.
-    type: Add
-  - message: Removed the whitelist for service borg neck slot. Unleash your fashion,
-      for it is the true endgame.
-    type: Remove
-  - message: All borgs have had their neck and hat positions manually tweaked to look
-      more clean and aesthetic. Not all items will look the best however since borgs
-      have unique proportions.
-    type: Tweak
-  id: 2153
-  time: '2025-08-12T06:30:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3271
-- author: ultramario1998
-  changes:
-  - message: The guidebook no longer mentions using greencomms from your headset.
-    type: Tweak
-  id: 2154
-  time: '2025-08-12T06:31:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3273
-- author: Smugman
-  changes:
-  - message: FOES? In your Syndicate Surplus? Its more likely than you think. Free
-      UNGH! Now.
-    type: Add
-  id: 2155
-  time: '2025-08-12T06:34:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3270
-- author: kipdotnet
-  changes:
-  - message: Added the Apid care case, a cargo order for homesick apids.
-    type: Add
-  - message: Apid cryopods now have a label slot.
-    type: Tweak
-  id: 2156
-  time: '2025-08-12T08:33:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3264
-- author: mqole
-  changes:
-  - message: Decapoids, Apids, and Gastropoids have had some adjustments to their
-      movement.
-    type: Tweak
-  - message: Gastropoids no longer take 10x the amount of cold damage as other species.
-      (Instead, they take 5x.)
-    type: Remove
-  - message: Cotton pizza no longer fulfills the cloth meal bounty. The bounty description
-      has been updated to accommodate.
-    type: Remove
-  id: 2157
-  time: '2025-08-12T09:38:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3269
-- author: honeyed-lemons
-  changes:
-  - message: Box Station has crashed into EXO-3416. What? Do you think that means
-      we'll stop sending you there? Get to work.
-    type: Add
-  id: 2158
-  time: '2025-08-12T10:12:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3267
 - author: eviltori
   changes:
   - message: savior clones are rarer (20% chance to roll from 50%)
@@ -4164,3 +4032,115 @@
   id: 2645
   time: '2026-02-24T17:09:10.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4170
+- author: CombustibleToast
+  changes:
+  - message: Flight suits for atmos techs!
+    type: Add
+  id: 2646
+  time: '2026-02-24T17:55:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4082
+- author: ultramario1998
+  changes:
+  - message: Laser gun bounties will no longer allow you to submit batteries.
+    type: Fix
+  - message: Percussion instrument bounties are gone.
+    type: Remove
+  id: 2647
+  time: '2026-02-24T18:06:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4132
+- author: DinnerCalzone
+  changes:
+  - message: A couple of redundant cardboard structures were removed and merged with
+      existing ones.
+    type: Tweak
+  - message: The appearance of cardboard structures and tiles has been modified to
+      look more consistent.
+    type: Tweak
+  - message: Cardboard walls and doors can now take delta pressure damage, you won't
+      want to keep these as permanent repairs to the station!
+    type: Add
+  - message: Cardboard structures can now be deconstructed with both Slicing tools
+      (knives, swords) and Cutting tools (wirecutters).
+    type: Add
+  id: 2648
+  time: '2026-02-24T18:11:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3994
+- author: TuttlePants
+  changes:
+  - message: Nerfed Bounty Hunter's louder loadouts.
+    type: Tweak
+  id: 2649
+  time: '2026-02-24T18:13:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4162
+- author: TheGrimbeeper
+  changes:
+  - message: Fixed artifact bug where unlocking time was not correctly increased when
+      triggers were applied, in some cases.
+    type: Fix
+  id: 2650
+  time: '2026-02-24T18:16:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4133
+- author: Darkmajia
+  changes:
+  - message: Thaven moods with random variables will now properly reroll, rather than
+      giving all thaven the same variation on the prompt until the server restarts.
+    type: Fix
+  id: 2651
+  time: '2026-02-24T19:29:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3401
+- author: mqole
+  changes:
+  - message: You can now obtain NanoChat logs by using the logprobe on a PDA with
+      an ID card inside, in addition to using the logprobe on the ID itself.
+    type: Add
+  id: 2652
+  time: '2026-02-24T19:30:58.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3913
+- author: Jellvisk, Ark, LaCumbiaDelCoronavirus, JohnJJohn
+  changes:
+  - message: Audio is now real. Experience reverb in large rooms. Improve the acoustics
+      with furniture and carpet. All client-side and can be disabled or tweaked in
+      audio settings. Ported from Monolith+Goobstation, heavily refactored.
+    type: Add
+  id: 2653
+  time: '2026-02-24T19:30:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3632
+- author: lobsterpaw
+  changes:
+  - message: Salvage borgs no longer come with an appraisal module by default.
+    type: Tweak
+  id: 2654
+  time: '2026-02-24T19:36:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4119
+- author: yesteryuri
+  changes:
+  - message: Added a trait for hungry employees that skipped out on breakfast
+    type: Add
+  - message: Allulalo can no longer select the redundant soft hands trait
+    type: Tweak
+  id: 2655
+  time: '2026-02-24T19:53:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4062
+- author: youtubevideo3
+  changes:
+  - message: NT have rolled out a new dress uniform for their Heads of Security.
+    type: Add
+  id: 2656
+  time: '2026-02-24T19:56:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4026
+- author: ATDoop
+  changes:
+  - message: Sirvals now have names befitting traditional liveried butlers.
+    type: Add
+  id: 2657
+  time: '2026-02-24T20:00:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4117
+- author: portfiend, msTheowo
+  changes:
+  - message: Chefs can now wear diner outfits imported from the Den sector!
+    type: Add
+  - message: They can also wear black heels!
+    type: Add
+  id: 2658
+  time: '2026-02-24T20:04:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4007
