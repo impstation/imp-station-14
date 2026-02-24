@@ -1,64 +1,4 @@
 ﻿Entries:
-- author: Oberonics
-  changes:
-  - message: Dying as a Cluwne no longer unravels your DNA.
-    type: Tweak
-  id: 2145
-  time: '2025-08-11T06:05:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3204
-- author: Oberonics
-  changes:
-  - message: If you focus hard enough you can feel when your grappling hook has hit
-      something. Try it out!
-    type: Tweak
-  - message: Various fixes to the grappling gun. Look on github for more information.
-    type: Fix
-  id: 2146
-  time: '2025-08-11T06:09:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3151
-- author: DinnerCalzone
-  changes:
-  - message: The amount of space cleaner in the space cleaner dispenser has been increased
-      from 1000u to 2500u.
-    type: Tweak
-  - message: The soap cargo order has been replaced with a crate of 6 jugs of space
-      cleaner for $750.
-    type: Tweak
-  - message: The soap cargo bounty has been restored.
-    type: Add
-  id: 2147
-  time: '2025-08-11T06:16:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3170
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Leviathan won't be knocking over blood-reds, hopefully. Fingers crossed.
-    type: Fix
-  id: 2148
-  time: '2025-08-11T06:23:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3231
-- author: TheGrimbeeper
-  changes:
-  - message: Reticulated artifacts requiring radiation now activate from ambient radiation
-      and reagents, similar to natural artifacts
-    type: Fix
-  - message: Reticulated artifact death trigger is gone
-    type: Remove
-  - message: Natural artifacts now understand the coffee content of alcohol drinks
-    type: Tweak
-  - message: Hover text on scan up button in analysis console for natural artifacts
-    type: Fix
-  - message: Timing for newxeno artifacts is slightly more permissive
-    type: Tweak
-  id: 2149
-  time: '2025-08-11T06:30:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3268
-- author: FlippenPage
-  changes:
-  - message: announcement consoles now play their proper announcement sounds.
-    type: Fix
-  id: 2150
-  time: '2025-08-11T06:34:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3055
 - author: DinnerCalzone
   changes:
   - message: Another upstream merge has happened, featuring Wizden's crawling system!
@@ -4164,3 +4104,58 @@
   id: 2644
   time: '2026-02-24T07:59:44.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4003
+- author: msTheowo
+  changes:
+  - message: Strange pills use our sprites now.
+    type: Fix
+  id: 2645
+  time: '2026-02-24T17:09:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4170
+- author: CombustibleToast
+  changes:
+  - message: Flight suits for atmos techs!
+    type: Add
+  id: 2646
+  time: '2026-02-24T17:55:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4082
+- author: ultramario1998
+  changes:
+  - message: Laser gun bounties will no longer allow you to submit batteries.
+    type: Fix
+  - message: Percussion instrument bounties are gone.
+    type: Remove
+  id: 2647
+  time: '2026-02-24T18:06:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4132
+- author: DinnerCalzone
+  changes:
+  - message: A couple of redundant cardboard structures were removed and merged with
+      existing ones.
+    type: Tweak
+  - message: The appearance of cardboard structures and tiles has been modified to
+      look more consistent.
+    type: Tweak
+  - message: Cardboard walls and doors can now take delta pressure damage, you won't
+      want to keep these as permanent repairs to the station!
+    type: Add
+  - message: Cardboard structures can now be deconstructed with both Slicing tools
+      (knives, swords) and Cutting tools (wirecutters).
+    type: Add
+  id: 2648
+  time: '2026-02-24T18:11:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3994
+- author: TuttlePants
+  changes:
+  - message: Nerfed Bounty Hunter's louder loadouts.
+    type: Tweak
+  id: 2649
+  time: '2026-02-24T18:13:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4162
+- author: TheGrimbeeper
+  changes:
+  - message: Fixed artifact bug where unlocking time was not correctly increased when
+      triggers were applied, in some cases.
+    type: Fix
+  id: 2650
+  time: '2026-02-24T18:16:51.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4133
