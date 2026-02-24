@@ -280,6 +280,21 @@
     - WhitelistChameleon
 
 - type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadRBJesterHat
+  name: red and black jester hood
+  description: A hood to match your red and black jester costume!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/rbjesterhat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/rbjesterhat.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
   parent: ClothingHeadHatHolyWatermelon
   id: ClothingHeadHalo
   name: halo
