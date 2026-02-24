@@ -153,6 +153,17 @@
   cost: -1
 
 - type: trait
+  id: Hemorrhage
+  name: trait-hemorrhage-name
+  description: trait-hemorrhage-desc
+  category: Traits
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - StatusEffectHemorrhageTrait
+  cost: -6
+
+- type: trait
   id: Hungry
   name: trait-hungry-name
   description: trait-hungry-desc
