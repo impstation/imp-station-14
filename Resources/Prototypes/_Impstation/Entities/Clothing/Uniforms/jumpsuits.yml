@@ -298,6 +298,17 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/mimecropped.rsi
 
 - type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMimeNouveau
+  name: nouveau mime suit
+  description: ...!?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/mimenouveau.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/mimenouveau.rsi
+
+- type: entity
   parent: [ClothingUniformBase, ClothingUniformFoldableBase]
   id: ClothingUniformJumpsuitCargoLong
   name: cargo tech jumpsuit (pants)
@@ -487,7 +498,7 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/cmo_scrubs.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, BaseCommandContraband]
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMusicianMarchingBand
   name: musician's marching uniform
   description: For when you need to join the parade.
@@ -572,6 +583,17 @@
     node: loungewear
 
 - type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTailcoatSuit
+  name: tailcoat suit
+  description: A rather fetching outfit with long tails, fit for any gentleperson looking to stand out.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tailcoatsuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tailcoatsuit.rsi
+
+- type: entity
   parent: [ClothingUniformBase, ClothingSlotBase, Tier3Contraband]
   id: ClothingUniformJumpsuitRedsuit
   name: blood-red suit
@@ -586,4 +608,3 @@
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
-

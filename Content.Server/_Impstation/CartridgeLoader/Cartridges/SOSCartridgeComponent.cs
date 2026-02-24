@@ -1,4 +1,5 @@
 using Content.Shared.Radio;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
@@ -11,6 +12,18 @@ public sealed partial class SOSCartridgeComponent : Component
 
     //Timeout between calls
     public const float TimeOut = 30;
+
+    /// Sound played when SOS is activated, audible to nearby players.
+    [DataField]
+    public SoundSpecifier ActivationSound = new SoundPathSpecifier("/Audio/_Impstation/Items/SOS.ogg");
+
+    /// hehehe
+    [DataField]
+    public SoundSpecifier TomActivationSound = new SoundPathSpecifier("/Audio/_Impstation/Misc/tomscream.ogg");
+
+    /// :)
+    [DataField]
+    public float TomSoundChance = 0.01f;
 
     [DataField]
     //Name to use if no id is found

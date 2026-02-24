@@ -34,6 +34,13 @@
       - state: equipped-OUTERCLOTHING-unshaded-anomalocarid
         shader: shaded
         #same trick here
+      outerClothing-ungu: # imp
+      - state: equipped-OUTERCLOTHING-ungu
+      - state: equipped-OUTERCLOTHING-unshaded-ungu
+        shader: unshaded
+      - state: equipped-OUTERCLOTHING-unshaded-ungu
+        shader: shaded
+        #ditto
   - type: Reflect
     reflectProb: 0.02
     reflects:
