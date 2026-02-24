@@ -4,13 +4,15 @@
   # name: observations kit # imp - nondescript box
   suffix: Observation kit, Filled
   components:
-  - type: StorageFill
-    contents:
-    - id: SyndiCrewMonitorEmpty
-      amount: 1
-    #- id: PowerCellHigh # imp - source a power cell or die
-    #  amount: 1
-    - id: ClothingEyesGlassesHiddenSecurity
-      amount: 1
-    - id: CameraBug # DeltaV - Way better than that board
-      amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SyndiCrewMonitorEmpty
+          amount: 1
+        #- id: PowerCellHigh # imp - source a power cell or die
+        #  amount: 1
+        - id: ClothingEyesGlassesHiddenSecurity
+          amount: 1
+        - id: CameraBug # DeltaV - Way better than that board
+          amount: 1

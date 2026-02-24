@@ -36,7 +36,8 @@
 
 - type: entity
   parent: [WeaponEnergyCrossbowBase, BaseSyndicateContraband]
-  id: WeaponEnergyCrossbow
+  id: WeaponEnergyCrossbowWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   name: mini energy crossbow
   description: Launches renewable toxic arrows capable of flooring targets instantly.
   components:

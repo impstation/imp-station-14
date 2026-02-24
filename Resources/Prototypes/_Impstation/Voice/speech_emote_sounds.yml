@@ -1073,3 +1073,16 @@
         volume: -3
 
         variation: 0.1
+
+- type: emoteSounds
+  parent: UnisexArachnid
+  id: ArachnidSmall
+  params:
+    pitch: 1.5
+    variation: 0.125
+  sounds:
+    Blink:
+      collection: SpiderBlinks
+      params:
+        volume: -3
+        variation: 0.1
