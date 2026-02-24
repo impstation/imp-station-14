@@ -1,17 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: The amount of space cleaner in the space cleaner dispenser has been increased
-      from 1000u to 2500u.
-    type: Tweak
-  - message: The soap cargo order has been replaced with a crate of 6 jugs of space
-      cleaner for $750.
-    type: Tweak
-  - message: The soap cargo bounty has been restored.
-    type: Add
-  id: 2147
-  time: '2025-08-11T06:16:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3170
 - author: DVDPlayerOfDiscordFame
   changes:
   - message: The Leviathan won't be knocking over blood-reds, hopefully. Fingers crossed.
@@ -4161,3 +4148,12 @@
   id: 2646
   time: '2026-02-24T17:55:52.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4082
+- author: ultramario1998
+  changes:
+  - message: Laser gun bounties will no longer allow you to submit batteries.
+    type: Fix
+  - message: Percussion instrument bounties are gone.
+    type: Remove
+  id: 2647
+  time: '2026-02-24T18:06:39.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4132
