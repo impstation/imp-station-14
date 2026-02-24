@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: Smugman
-  changes:
-  - message: FOES? In your Syndicate Surplus? Its more likely than you think. Free
-      UNGH! Now.
-    type: Add
-  id: 2155
-  time: '2025-08-12T06:34:57.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3270
 - author: kipdotnet
   changes:
   - message: Added the Apid care case, a cargo order for homesick apids.
@@ -4151,3 +4143,12 @@
   id: 2654
   time: '2026-02-24T19:36:24.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4119
+- author: yesteryuri
+  changes:
+  - message: Added a trait for hungry employees that skipped out on breakfast
+    type: Add
+  - message: Allulalo can no longer select the redundant soft hands trait
+    type: Tweak
+  id: 2655
+  time: '2026-02-24T19:53:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4062
