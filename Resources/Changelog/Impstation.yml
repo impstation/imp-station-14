@@ -1,15 +1,6 @@
 ﻿Entries:
 - author: TheGrimbeeper
   changes:
-  - message: prize tickets can now ash again - into ONE ash
-    type: Tweak
-  - message: prize tickets are not allowed in replicator nests
-    type: Tweak
-  id: 2140
-  time: '2025-08-10T03:11:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3233
-- author: TheGrimbeeper
-  changes:
   - message: Minor oldnewxeno artifact things i forgot have been fixed, check PR 3145
       for more info
     type: Fix
@@ -4166,3 +4157,11 @@
   id: 2639
   time: '2026-02-22T21:42:01.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4153
+- author: hivehum
+  changes:
+  - message: You probably didn't know that macarons were legally considered fruit,
+      but they aren't anymore. Sorry.
+    type: Remove
+  id: 2640
+  time: '2026-02-24T05:29:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4157
