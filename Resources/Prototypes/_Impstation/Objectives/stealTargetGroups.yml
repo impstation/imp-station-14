@@ -354,3 +354,10 @@
   sprite:
     sprite: _Impstation/Objects/Fun/toys.rsi
     state: plushie_bug
+
+- type: stealTargetGroup
+  id: SiliconSynchronizerRd
+  name: steal-target-groups-silicon-synchronizer-rd
+  sprite:
+    sprite: _Impstation/Objects/Specific/Robotics/synchronizer.rsi
+    state: icon
