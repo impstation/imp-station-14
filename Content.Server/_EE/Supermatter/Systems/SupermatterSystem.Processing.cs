@@ -2,12 +2,11 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using Content.Server.Chat.Systems;
-using Content.Server.Light.Components;
 using Content.Server.Singularity.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared._EE.CCVar;
 using Content.Shared._EE.Supermatter.Components;
-using Content.Shared._Impstation.Thaven.Components;
+using Content.Shared._Impstation.StrangeMoods;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Chat;
@@ -681,8 +680,11 @@ public sealed partial class SupermatterSystem
         _entityLookup.GetEntitiesOnMap<MobStateComponent>(mapId, mobLookup);
         mobLookup.RemoveWhere(x => HasComp<InsideEntityStorageComponent>(x));
 
-        // Scramble the thaven shared mood
-        _moods.NewSharedMoods();
+        // Scramble the given shared moods
+        foreach (var mood in sm.SharedMoodScrambleTargets)
+        {
+            _moods.NewSharedMoods(mood);
+        }
 
         // Flickers all powered lights on the map
         var lightLookup = new HashSet<Entity<PoweredLightComponent>>();
@@ -702,9 +704,13 @@ public sealed partial class SupermatterSystem
 
         foreach (var mob in mobLookup)
         {
-            // Scramble thaven moods
-            if (TryComp<ThavenMoodsComponent>(mob, out var moods))
+            // Scramble moods that follow the given shared moods
+            if (TryComp<StrangeMoodsComponent>(mob, out var moods) &&
+                moods.SharedMood is { UniqueId: not null } sharedMood &&
+                sm.SharedMoodScrambleTargets.Contains(sharedMood.UniqueId))
+            {
                 _moods.RefreshMoods((mob, moods));
+            }
 
             // Scramble laws for silicons, then ignore other effects
             if (TryComp<SiliconLawBoundComponent>(mob, out var law))

@@ -6,10 +6,11 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Generic;
+using Content.Shared._Impstation.Traits.Assorted; //imp
 
 namespace Content.Shared.Nutrition.Components;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(HungerSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(HungerSystem), typeof(HungryTraitSystem))] // imp, added access to HungryTraitSystem
 [AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
 public sealed partial class HungerComponent : Component
 {
@@ -33,7 +34,7 @@ public sealed partial class HungerComponent : Component
     /// The base amount at which <see cref="LastAuthoritativeHungerValue"/> decays.
     /// </summary>
     /// <remarks>Any time this is modified, <see cref="HungerSystem.SetAuthoritativeHungerValue"/> should be called.</remarks>
-    [DataField("baseDecayRate"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("baseDecayRate"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField] // imp edit, added AutoNetworkedField
     public float BaseDecayRate = 0.01666666666f;
 
     /// <summary>

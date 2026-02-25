@@ -1,6 +1,6 @@
 # Spells
 spellbook-fireball-name = Fireball
-spellbook-fireball-desc = Get most crew exploding with rage when they see this fireball heading toward them! Upgradeable.
+spellbook-fireball-desc = Get most crew exploding with rage when they see this fireball heading toward them! Upgradeable. Requires a wizard hat and robe to cast.
 
 spellbook-blink-name = Blink
 spellbook-blink-desc = Don't blink or you'll miss yourself teleporting away.
@@ -21,7 +21,7 @@ spellbook-smoke-name = Smoke
 spellbook-smoke-desc = Summons a cloud of smoke, it's pretty obvious.
 
 spellbook-polymorph-spider-name = Spider Polymorph
-spellbook-polymorph-spider-desc = Transforms you into a spider, man!
+spellbook-polymorph-spider-desc = Transforms you into a tiny spider!
 
 spellbook-polymorph-rod-name = Rod Polymorph
 spellbook-polymorph-rod-desc = Change into an Immovable Rod with limited movement.
@@ -33,7 +33,7 @@ spellbook-ethereal-jaunt-name = Ethereal Jaunt
 spellbook-ethereal-jaunt-description = Slip into the ethereal plane to slip away from your enemies!
 
 spellbook-mind-swap-name = Mind Swap
-spellbook-mind-swap-description = Exchange bodies with another person!
+spellbook-mind-swap-description = Exchange bodies with another person! Requires a wizard hat and robe to cast.
 
 spellbook-animate-name = Animate
 spellbook-animate-description = Bring an inanimate object to life!
@@ -57,10 +57,6 @@ spellbook-wand-polymorph-door-description = For when you need a get-away route.
 
 spellbook-wand-polymorph-carp-name = Wand of Carp Polymorph
 spellbook-wand-polymorph-carp-description = For when you need a carp filet quick and the clown is looking juicy.
-
-# Imp Addition
-spellbook-wand-polymorph-cluwne-name = Wand of Cluwning
-spellbook-wand-polymorph-cluwne-description = For when you really hate someone and Smite isn't enough.
 
 spellbook-wand-locker-name = Wand of the Locker
 spellbook-wand-locker-description = Shoot cursed lockers at your enemies and lock em away!
@@ -87,7 +83,7 @@ spellbook-event-summon-magic-description = Places a random magical item in front
 
 # Upgrades
 spellbook-upgrade-fireball-name = Upgrade Fireball
-spellbook-upgrade-fireball-description = Upgrades Fireball to a maximum of level 3!
+spellbook-upgrade-fireball-description = Reduces Fireball's cooldown by ten seconds!
 
 spellbook-upgrade-jaunt-name = Upgrade Ethereal Jaunt
-spellbook-upgrade-jaunt-description = Upgrades Jaunt to a maximum of level 3!
+spellbook-upgrade-jaunt-description = Reduces Jaunt's cooldown by ten seconds!
