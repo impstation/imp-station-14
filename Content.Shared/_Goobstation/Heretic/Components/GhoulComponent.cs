@@ -6,6 +6,9 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared.Heretic;
 
 [RegisterComponent, NetworkedComponent]
+/// <summary>
+///     Component for Ghouls, dead bodies raised into servants by flesh heretics
+/// </summary>
 public sealed partial class GhoulComponent : Component
 {
     /// <summary>

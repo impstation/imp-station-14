@@ -38,6 +38,10 @@ namespace Content.Server._Impstation.Heretic.EntitySystems;
 
 public sealed class HellWorldSystem : EntitySystem
 {
+    /// <summary>
+    ///     Handles moving people in and out of hell, as well as adding sacrifice debuffs
+    /// </summary>
+
     [Dependency] private readonly BlindableSystem _blind = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
@@ -94,7 +98,9 @@ public sealed class HellWorldSystem : EntitySystem
         }
     }
 
-    //set up all the info that's needed for the hell trip 
+    /// <summary>
+    ///     collects and stores all the info we'll need for the trip to hell
+    /// </summary>
     private void BeforeSend(Entity<InHellComponent> uid, ref HereticBeforeHellEvent args)
     {
         //spawn a clone of the victim
@@ -116,6 +122,9 @@ public sealed class HellWorldSystem : EntitySystem
         uid.Comp.Mind = mindContainer.Mind.Value;
     }
 
+    /// <summary>
+    ///     handles creation of the hell clone and moving the mind into it
+    /// </summary>
     private void OnSend(Entity<InHellComponent> uid, ref HereticSendToHellEvent args)
     {
         var inHell = EnsureComp<InHellComponent>(uid);
@@ -150,6 +159,10 @@ public sealed class HellWorldSystem : EntitySystem
         //add the victim & resacrifice comp to the original body
         SacrificeCleanup(uid);
     }
+
+    /// <summary>
+    ///     Handles moving the mind back into the clone and applying the status effect
+    /// </summary>
     private void OnReturn(Entity<InHellComponent> uid, ref HereticReturnFromHellEvent args)
     {
         if (!TryComp<InHellComponent>(uid, out var inHell))
@@ -203,8 +216,11 @@ public sealed class HellWorldSystem : EntitySystem
 
     }
 
-    //add NoSacrificeComp so they can)'t be sac'd again
-    //this happens BEFORE OnReturn, so the effects are generated here
+    /// <summary>
+    ///     adds the component disallowing sacrifice
+    ///     happens BEFORE onreturn, so effects are generated here
+    /// </summary>
+
     private void SacrificeCleanup(EntityUid uid, HereticSacrificeEffectPrototype? effect = null)
     {
         EnsureComp<NoSacrificeComponent>(uid);
@@ -220,6 +236,9 @@ public sealed class HellWorldSystem : EntitySystem
         return _random.Pick(allEffects);
     }
 
+    /// <summary>
+    ///     teleports the sacrifice victim to one of the pre-mapped "safe points"
+    /// </summary>
     public void TeleportToHereticSpawnPoint(EntityUid uid)
     {
         //clear physics joints so the heretic isn't teleported with the victim
@@ -238,8 +257,12 @@ public sealed class HellWorldSystem : EntitySystem
         _xform.SetCoordinates(uid, spawnTgt);
     }
 
+    /// <summary>
+    ///     Handles recoloring sac victims via desaturating their skin. 
+    /// </summary>
     private void OnInit(EntityUid ent, HellVictimComponent component, ComponentInit args)
     {
+        //TODO: apply this to markings as well
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
         {
             //there's no color saturation methods so you get this garbage instead
@@ -253,6 +276,9 @@ public sealed class HellWorldSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    ///     Handles the extra examine text for hell victims
+    /// </summary>
     private void OnExamine(Entity<HellVictimComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup($"[color=red]{Loc.GetString("heretic-hell-victim-examine", ("ent", args.Examined))}[/color]");

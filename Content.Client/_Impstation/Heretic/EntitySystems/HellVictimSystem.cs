@@ -7,6 +7,10 @@ namespace Content.Client._Impstation.Heretic.EntitySystems;
 
 public sealed class HellVictimSystem : SharedHellVictimSystem
 {
+    /// <summary>
+    ///     Handles clientside stuff for hell victims - adding the icon
+    /// </summary>
+
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     public override void Initialize()
     {

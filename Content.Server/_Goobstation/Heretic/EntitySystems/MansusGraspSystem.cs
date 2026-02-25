@@ -38,6 +38,10 @@ namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class MansusGraspSystem : EntitySystem
 {
+    /// <summary>
+    ///     Handles mansus grasp stuff - summoning & desummoning, rune drawing, special effects
+    /// </summary>
+
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -157,6 +161,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         }
         return false;
     }
+
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled || !args.CanReach)
@@ -264,6 +269,10 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (!ev.Cancelled)
             Spawn("HereticRuneRitual", ev.Coords);
     }
+
+    /// <summary>
+    ///     Special flesh grasp behavior - popups and do-after
+    /// </summary>
 
     private void OnFleshGraspDoAfter(Entity<HereticComponent> ent, ref FleshGraspDoAfterEvent ev)
     {

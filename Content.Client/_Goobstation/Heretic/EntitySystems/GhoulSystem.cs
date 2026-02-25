@@ -7,6 +7,10 @@ namespace Content.Client._Goobstation.Heretic.EntitySystems;
 
 public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
 {
+    /// <summary>
+    ///     Handles clientside ghoul changes - the sprite overlay and the icon
+    /// </summary>
+
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()

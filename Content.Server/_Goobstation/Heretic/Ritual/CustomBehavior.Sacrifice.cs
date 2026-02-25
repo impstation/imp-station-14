@@ -9,8 +9,8 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 
-
 namespace Content.Server.Heretic.Ritual;
+
 /// <summary>
 ///     Checks for a nearest dead body,
 ///     gibs it and gives the heretic knowledge points.
