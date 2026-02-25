@@ -296,7 +296,7 @@
   - type: EmitSoundOnThrow
     sound: /Audio/Weapons/bolathrow.ogg
   - type: EmitSoundOnLand
-    sound: /Audio/Effects/snap.ogg
+    sound: /Audio/Effects/gib3.ogg
   - type: Damageable #for the ensnaring behavior
     damageContainer: Inorganic
   - type: Destructible
