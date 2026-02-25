@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 02/22/2026 04:58:01
-  entityCount: 21532
+  time: 02/25/2026 03:24:45
+  entityCount: 21533
 maps:
 - 1
 grids:
@@ -10827,7 +10827,7 @@ entities:
       pos: 33.5,-43.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -261722.12
+      secondsUntilStateChange: -261774.5
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11538,7 +11538,7 @@ entities:
       pos: 37.5,-46.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -84057.53
+      secondsUntilStateChange: -84109.914
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -118333,6 +118333,13 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-45.5
+      parent: 2
+- proto: SpawnMobDogCockroachJonny
+  entities:
+  - uid: 21353
+    components:
+    - type: Transform
+      pos: -7.5,-47.5
       parent: 2
 - proto: SpawnMobFoxRenault
   entities:
