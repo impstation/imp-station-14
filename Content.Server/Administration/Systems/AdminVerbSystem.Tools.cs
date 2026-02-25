@@ -36,10 +36,12 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Content.Server._Impstation.StrangeMoods.Eui; // imp
+using Content.Shared._Impstation.StrangeMoods; // imp
 using Content.Server.Revenant.Components; // imp
 using Content.Server.Revenant.EntitySystems; // imp
-using Content.Shared._Impstation.Thaven.Components; // imp
 using Content.Shared.Item; // imp
+using Robust.Shared.Random; // imp
 
 namespace Content.Server.Administration.Systems;
 
@@ -774,8 +776,11 @@ public sealed partial class AdminVerbSystem
             args.Verbs.Add(makeInanimate);
         }
 
-        if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
+        if (TryComp<StrangeMoodsComponent>(args.Target, out var moods))
         {
+            if (moods.StrangeMood.Datasets.Count <= 0)
+                return;
+
             Verb addRandomMood = new()
             {
                 Text = "Add Random Mood",
@@ -783,7 +788,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/actions_borg.rsi"), "state-laws"),
                 Act = () =>
                 {
-                    _moods.TryAddRandomMood((args.Target, moods));
+                    _moods.TryAddRandomMood((args.Target, moods), _random.Pick(moods.StrangeMood.Datasets).Key);
                 },
                 Impact = LogImpact.High,
                 Message = Loc.GetString("admin-trick-add-random-mood-description"),
@@ -800,13 +805,15 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ResPath("Interface/Actions/actions_borg.rsi"), "state-laws"),
                 Act = () =>
                 {
-                    if (!EnsureComp<ThavenMoodsComponent>(args.Target, out moods))
-                    {
-                        //if we're adding moods to something that doesn't already have them (e.g. isn't a thaven), make them ignore the shared mood
-                        var targ = (args.Target, moods);
-                        _moods.SetMoods(targ, []);
-                        _moods.SetFollowsSharedmood(targ, false);
-                    }
+                    if (HasComp<StrangeMoodsComponent>(args.Target))
+                        return;
+
+                    var ui = new StrangeMoodsInitEui(_moods, EntityManager, _prototypeManager, _random, _adminManager, _playerManager, _euiManager, args.User);
+                    if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
+                        return;
+
+                    _euiManager.OpenEui(ui, session);
+                    ui.SetTarget(args.Target);
                 },
                 Impact = LogImpact.High,
                 Message = Loc.GetString("admin-trick-give-moods-description"),
