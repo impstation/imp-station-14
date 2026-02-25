@@ -1,13 +1,3 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorBotanist
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBotanist
-      time: 30h
-
 - type: loadout
   id: BotanistLeatherGloves
   equipment:
@@ -17,9 +7,6 @@
   id: BotanistLilyMantle
   equipment:
     neck: ClothingNeckMantleLily
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorBotanist
 
 # id
 - type: loadout
@@ -29,8 +16,5 @@
 
 - type: loadout
   id: SeniorBotanistPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorBotanist
   equipment:
     id: SeniorBotanistPDA

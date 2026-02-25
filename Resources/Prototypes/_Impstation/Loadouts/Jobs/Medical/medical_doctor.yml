@@ -1,18 +1,6 @@
-- type: loadoutEffectGroup
-  id: Medical10hr
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 10h
-
 # Jumpsuit
 - type: loadout
   id: SpaceMedicalJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Medical10hr
   equipment:
     jumpsuit: ClothingUniformSpaceJumpsuitMedical
 

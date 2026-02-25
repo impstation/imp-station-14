@@ -1,28 +1,6 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorChemist
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChemist
-      time: 30h
-
-- type: loadoutEffectGroup
-  id: Chemist10hr
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChemist
-      time: 10h
-
 # Jumpsuit
 - type: loadout
   id: SpaceChemistJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Chemist10hr
   equipment:
     jumpsuit: ClothingUniformSpaceJumpsuitChemist
 
@@ -34,8 +12,5 @@
 
 - type: loadout
   id: SeniorChemistryPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorChemist
   equipment:
     id: SeniorChemistryPDA

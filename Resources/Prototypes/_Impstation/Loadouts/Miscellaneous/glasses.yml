@@ -1,109 +1,36 @@
-﻿# colorful glasses timers
-- type: loadoutEffectGroup
-  id: SecurityGlassesTimer
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Security
-      time: 2h
-
-- type: loadoutEffectGroup
-  id: MedicalGlassesTimer
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Medical
-      time: 2h
-
-- type: loadoutEffectGroup
-  id: ScienceGlassesTimer
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Science
-      time: 2h
-
-- type: loadoutEffectGroup
-  id: ServiceGlassesTimer
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Civilian
-      time: 2h
-
-- type: loadoutEffectGroup
-  id: CargoGlassesTimer
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Cargo
-      time: 2h
-
-- type: loadoutEffectGroup
-  id: EngineeringGlassesTimer
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 2h
-
-# colorful glasses loadouts
+﻿# colorful glasses loadouts
 - type: loadout
   id: GlassesColorfulPink
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ServiceGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulPink
   groupBy: "style"
 
 - type: loadout
   id: GlassesColorfulRed
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SecurityGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulRed
   groupBy: "style"
 
 - type: loadout
   id: GlassesColorfulBlue
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MedicalGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulBlue
   groupBy: "style"
 
 - type: loadout
   id: GlassesColorfulGreen
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EngineeringGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulGreen
   groupBy: "style"
 
 - type: loadout
   id: GlassesColorfulPurple
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ScienceGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulPurple
   groupBy: "style"
 
 - type: loadout
   id: GlassesColorfulYellow
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: CargoGlassesTimer
   equipment:
     eyes: ClothingEyesGlassesColorfulYellow
   groupBy: "style"

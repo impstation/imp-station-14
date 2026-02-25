@@ -1,20 +1,7 @@
-# For the veteran quartermaster cosmetics
-- type: loadoutEffectGroup
-  id: VeteranQM
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobQuartermaster
-      time: 30h
-
 - type: loadout
   id: QuartermasterGreatcoat
   equipment:
     neck: ClothingNeckCloakQmgreatcoat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranQM
 
 - type: loadout
   id: QuartermasterPoncho
@@ -41,6 +28,3 @@
   id: QuartermasterVeteranHeadset
   equipment:
     ears: ClothingHeadsetQMveteran
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranQM
