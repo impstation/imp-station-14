@@ -378,7 +378,7 @@ public sealed partial class IngestionSystem : EntitySystem
         _reaction.DoEntityReaction(entity, split, ReactionMethod.Ingestion);
 
         // Everything is good to go item has been successfuly eaten
-        var afterEv = new IngestedEvent(args.User, entity, split, forceFed, args.Repeat); //imp edit, added args.Repeat
+        var afterEv = new IngestedEvent(args.User, entity, split, forceFed, args.TryRepeat); //imp edit, added args.TryRepeat
         RaiseLocalEvent(food, ref afterEv);
 
         _stomach.TryTransferSolution(stomachToUse.Value.Owner, split, stomachToUse);
@@ -420,7 +420,7 @@ public sealed partial class IngestionSystem : EntitySystem
     {
         var forceFeed = user != target;
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, new EatingDoAfterEvent(), target, food)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, new EatingDoAfterEvent(tryRepeat), target, food) //imp edit, added tryRepeat to EatingDoAfterEvent
         {
             BreakOnHandChange = false,
             BreakOnMove = forceFeed,
@@ -431,8 +431,6 @@ public sealed partial class IngestionSystem : EntitySystem
             // or if the item started out in the user's own hands
             NeedHand = forceFeed || _hands.IsHolding(user, food),
         };
-
-        doAfterArgs.Event.Repeat = tryRepeat; //imp edit, whether the doafter should try to be repeated
 
         return doAfterArgs;
     }

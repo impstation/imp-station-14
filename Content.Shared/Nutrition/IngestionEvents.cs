@@ -93,7 +93,21 @@ public record struct IsDigestibleEvent()
 /// Do After Event for trying to put food solution into stomach entity.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class EatingDoAfterEvent : SimpleDoAfterEvent;
+public sealed partial class EatingDoAfterEvent : SimpleDoAfterEvent
+// imp edit start
+{
+    /// <summary>
+    /// Do we attempt to repeat the eating do after by default?
+    /// </summary>
+    public bool TryRepeat;
+
+    public EatingDoAfterEvent(bool tryRepeat)
+    {
+        TryRepeat = tryRepeat;
+    }
+
+}
+// imp edit end
 
 /// <summary>
 /// We use this to determine if an entity should abort giving up its reagents at the last minute,
