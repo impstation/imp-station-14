@@ -52,7 +52,7 @@ public sealed partial class IngestionSystem
             },
             Icon = proto.VerbIcon,
             Text = Loc.GetString(proto.RepeatVerbName),
-            Priority = 1
+            Priority = 2
         };
 
         return true;
