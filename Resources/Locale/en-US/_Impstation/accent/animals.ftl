@@ -77,3 +77,9 @@ accent-words-babyanom-3 = Blbl...
 accent-words-babyanom-4 = Blblbl?
 accent-words-babyanom-5 = Brbl.
 accent-words-babyanom-6 = Klklkl!
+
+# Boar
+accent-words-boar-1 = Grunt.
+accent-words-boar-2 = Screegh.
+accent-words-boar-3 = Snrf.
+accent-words-boar-4 = Snort.
