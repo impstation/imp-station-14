@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Fixed last messages with * messing with discord formatting
-    type: Fix
-  id: 2162
-  time: '2025-08-13T10:20:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3259
 - author: DinnerCalzone
   changes:
   - message: The portable cutter machine has been added to the HD's locker! It can
@@ -4143,3 +4136,13 @@
   id: 2661
   time: '2026-02-27T10:59:35.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4176
+- author: Kandiyaki
+  changes:
+  - message: Added a new Heretic-flavored holy book to the Chaplain's starting inventory
+      options.
+    type: Add
+  - message: Rewrote a ton of the Heretic flavor text.
+    type: Tweak
+  id: 2662
+  time: '2026-02-27T11:02:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4154
