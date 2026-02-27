@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Impstation
-  changes:
-  - message: Disabled whitelist.
-    type: Remove
-  id: 2166
-  time: '2025-08-15T02:40:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3289
 - author: meridiadottxt
   changes:
   - message: in anticipation for the influx of new players, Eclipse Starport is now
@@ -4144,3 +4137,11 @@
   id: 2665
   time: '2026-02-27T11:09:53.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4174
+- author: DVD Player
+  changes:
+  - message: The Drozd is now default to full-auto, and will recover its accuracy
+      a little quicker.
+    type: Tweak
+  id: 2666
+  time: '2026-02-27T11:11:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4175
