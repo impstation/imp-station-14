@@ -7,14 +7,14 @@ knowledge-path-flesh-s1-desc =
 
 knowledge-path-flesh-s2-name = Grasp of Flesh
 knowledge-path-flesh-s2-desc =
-    My new found desires drove me to greater and greater heights.
+    That particular taste, which was neither fair nor foul, drove me to greater and greater hunger.
 
     Your Mansus Grasp gains the ability to create a ghoul out of corpse with a soul.
     Ghouls have only 50 health and look like husks to the heathens' eyes, but can use Bloody Blades effectively.
 
-knowledge-path-flesh-s3-name = Imperfect Ritual
+knowledge-path-flesh-s3-name = Imperfect Recipe
 knowledge-path-flesh-s3-desc =
-    I found notes of a dark ritual, unfinished... yet still, I pushed forward.
+    I found a certain recipe, unfinished... yet still, I pushed forward.
 
     Allows you to transmute a corpse and a poppy to create a Voiceless Dead.
     The corpse does not need to have a soul.
@@ -22,15 +22,14 @@ knowledge-path-flesh-s3-desc =
 
 knowledge-path-flesh-s4-name = Mark of Flesh
 knowledge-path-flesh-s4-desc =
-    That's when I saw them, the marked ones. They were out of reach. They screamed, and screamed.
+    I knew myself to be marked. The Wasting Doe spoke to me in my dreams.
 
     Your Mansus Grasp now applies the Mark of Flesh. The mark is triggered from an attack with your Bloody Blade.
     When triggered, the victim violently spills all it's blood on the ground.
 
 knowledge-path-flesh-s5-name = Knitting of Flesh
 knowledge-path-flesh-s5-desc =
-    But they were not out of my reach for long. With every step, the screams grew, until at last
-    I learned that they could be silenced.
+    It taught me the secrets of taste. Its pleasures, its torments, the particular savors which could influence the world outside my dreams.
 
     Grants you the spell Knit Flesh. This spell will either temporarily blind a target, temporarily mute them, or
     eject all the contents of their stomach.
@@ -38,23 +37,22 @@ knowledge-path-flesh-s5-desc =
 
 knowledge-path-flesh-s6-name = Raw Ritual
 knowledge-path-flesh-s6-desc =
-    I could not continue alone. I was able to summon The Uncanny Man to help me see more.
-    The screams... once constant, now silenced by their wretched appearance. Nothing was out of reach.
+    I could not continue alone. I had met the Prophets in my walks through the wood. They led me to become a part of something greater.
 
     Allows you to transmute a pair of eyes, a stomach, and a pool of blood to create a Raw Prophet.
     Raw Prophets can jaunt, have the ability to link minds to communicate with ease, and have a powerful laser eye, which can burn your opponents.
 
 knowledge-path-flesh-s7-name = Bleeding Steel
 knowledge-path-flesh-s7-desc =
-    The Uncanny Man was not alone. They led me to the Marshal.
+    They led me to a field of rot and bone.
     I finally began to understand. And then, blood rained from the heavens.
 
     Your Bloody Blade now causes enemies to bleed heavily on attack.
 
 knowledge-path-flesh-s8-name = Lonely Ritual
 knowledge-path-flesh-s8-desc =
-    I was able to combine my greed and desires to summon an eldritch beast I had never seen before.
-    An ever shapeshifting mass of flesh, it knew well my goals. The Marshal approved.
+    I was able to combine my hunger and desires to summon a fury of sinew and bone.
+    An ever shapeshifting mass of flesh, it knew well my goals. The Doe approved.
 
     Allows you to transmute a heart, a stomach, lungs and a pen to create a Stalker.
     Stalkers can jaunt, release EMPs, and are strong in combat.
