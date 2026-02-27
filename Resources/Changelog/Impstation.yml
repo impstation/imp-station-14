@@ -1,16 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: The portable cutter machine has been added to the HD's locker! It can
-      be unfolded into a functional cutter machine and refolded back into an item.
-    type: Add
-  - message: The belts in the HD's locker have been replaced with a unique utility
-      belt for the hospitality director! Anything that could fit in either the botanical,
-      janitorial, or chef belts can fit inside of it.
-    type: Add
-  id: 2163
-  time: '2025-08-13T10:22:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3115
 - author: TGRCdev
   changes:
   - message: 'Pride pins are no longer visible from the pocket slot. The examine functionality
@@ -4146,3 +4134,15 @@
   id: 2662
   time: '2026-02-27T11:02:31.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4154
+- author: starlighthowls
+  changes:
+  - message: Increased the price of multiple spells in the wizards' grimoire.
+    type: Tweak
+  - message: Nerfed the Grotesque, magic boots and magic gloves.
+    type: Tweak
+  - message: Renamed the science bag of holding to backpack of holding, matching the
+      other variants.
+    type: Tweak
+  id: 2663
+  time: '2026-02-27T11:04:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4165
