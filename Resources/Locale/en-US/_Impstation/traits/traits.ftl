@@ -121,6 +121,14 @@ trait-slight-desc = You're lighter than average.
 
 trait-soft-hands-name = Soft hands
 trait-soft-hands-desc = You're too weak to wield anything.
+                       Incompatible with Allulalo.
 
 trait-hated-by-dogs-name = Hated by dogs
 trait-hated-by-dogs-desc = Dogs will bark at you when you come near.
+
+trait-hemorrhage-name = Hemorrhaging
+trait-hemorrhage-desc = You lose more blood while bleeding.
+
+trait-hungry-name = Hungry
+trait-hungry-desc = You skipped breakfast and will get hungry 5x faster than the average humanoid.
+                       Incompatible with Kodepiia.
