@@ -131,6 +131,7 @@
   loadouts:
   - EmergencyMeat # imp
   - EmergencyWheat # imp
+  - EmergencyAquatic # imp
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesAquaticFullTank # Imp
@@ -759,6 +760,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatClown # imp
   - EmergencyWheatClown # imp
+  - EmergencyAquaticClown # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -834,6 +836,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMime # imp
   - EmergencyWheatMime # imp
+  - EmergencyAquaticMime # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -1222,6 +1225,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatExtended # imp
   - EmergencyWheatExtended # imp
+  - EmergencyAquaticExtended # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Science
@@ -1622,6 +1626,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSecurity # imp
   - EmergencyWheatSecurity # imp
+  - EmergencyAquaticSecurity # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Medical
@@ -1896,6 +1901,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMedical # imp
   - EmergencyWheatMedical # imp
+  - EmergencyAquaticMedical # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Wildcards
@@ -1941,6 +1947,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSyndicate # imp
   - EmergencyWheatSyndicate # imp
+  - EmergencyAquaticSyndicate # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
