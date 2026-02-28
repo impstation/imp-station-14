@@ -214,6 +214,10 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  - type: Armor # imp edit, high bullet res at the cost of everything else
+    modifiers:
+      coefficients:
+        Piercing: 0.3
 - type: entity
   parent: ClothingOuterWizardBase
   id: ClothingOuterWizard
@@ -228,6 +232,18 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  - type: Armor # imp edit, granting wizard robes resistance, blue robes are average
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Cold: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: StaminaResistance # imp edit, still in the spirit of that the blue robes remain an allrounder granting them some stamina resistance to keep with that idea
+    damageCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterWizardBase
@@ -243,6 +259,19 @@
     tags:
     - CorgiWearable
     - WhitelistChameleon
+  - type: Armor # imp edit, red wizard robes get resistance to enable intentionally fireballing yourself
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.3
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: FireProtection
+    reduction: 0.85
 
 - type: entity
   parent: ClothingOuterBase
