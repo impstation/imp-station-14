@@ -78,18 +78,12 @@
   storage:
     back:
     - HarmonicaInstrument
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MusicallyTalented
 
 - type: loadout
   id: PanFluteInstrument
   storage:
     back:
     - PanFluteInstrument
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MusicallyTalented
   groupBy: "baubles"
 
 - type: loadout

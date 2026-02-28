@@ -1,23 +1,3 @@
-# For mantles
-- type: loadoutEffectGroup
-  id: MasterHD
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobHospitalityDirector
-      time: 20h
-
-# For the veteran hospitality director cosmetics
-- type: loadoutEffectGroup
-  id: VeteranHD
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobHospitalityDirector
-      time: 30h
-
 # Jumpsuit
 - type: loadout
   id: HospitalityDirectorJumpsuit
@@ -104,9 +84,6 @@
   id: HospitalityDirectorMantle
   equipment:
     neck: ClothingNeckMantleHD
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterHD
 
 - type: startingGear
   id: HospitalityDirectorMantle
@@ -144,6 +121,3 @@
   id: HospitalityDirectorVeteranHeadset
   equipment:
     ears: ClothingHeadsetHDveteran
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: VeteranHD
