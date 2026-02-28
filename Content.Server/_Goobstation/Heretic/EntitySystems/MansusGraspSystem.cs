@@ -1,13 +1,12 @@
 using Content.Server._Goobstation.Heretic.Components;
-using System.Diagnostics.CodeAnalysis;
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Components;
+using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared.Chat;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
@@ -20,28 +19,29 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.NPC.Prototypes;
-using Content.Shared.RetractableItemAction;
+using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Temperature.Components;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.CombatMode.Pacification;
-using Content.Shared.StatusEffectNew;
 using StatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
-using Content.Shared.Weapons.Ranged.Systems;
-using Content.Shared.Movement.Systems;
 
 namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class MansusGraspSystem : EntitySystem
 {
+    /// <summary>
+    ///     Handles mansus grasp stuff - summoning & desummoning, rune drawing, special effects
+    /// </summary>
+
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -50,6 +50,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly RatvarianLanguageSystem _language = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
@@ -94,11 +95,16 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     && mobState.CurrentState == Shared.Mobs.MobState.Dead
                     && !TryComp<HellVictimComponent>(target, out _))
                 {
-                    var minion = EnsureComp<MinionComponent>(target);
-                    EnsureComp<GhoulComponent>(target);
-                    minion.BoundOwner = performer;
-                    minion.FactionsToAdd.Add(_hereticFaction);
-                    _minion.ConvertEntityToMinion((target, minion), true, true, true);
+                    var popupOthers = Loc.GetString("heretic-flesh-revive-notif");
+                    _popup.PopupEntity(popupOthers, target, PopupType.LargeCaution);
+                    var dargs = new DoAfterArgs(EntityManager, performer, 5f, new FleshGraspDoAfterEvent(target), performer)
+                    {
+                        BreakOnDamage = true,
+                        BreakOnHandChange = true,
+                        BreakOnMove = true,
+                    };
+                    _doAfter.TryStartDoAfter(dargs);
+
                 }
                 break;
 
@@ -136,6 +142,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
+        SubscribeLocalEvent<HereticComponent, FleshGraspDoAfterEvent>(OnFleshGraspDoAfter);
         SubscribeLocalEvent<MansusGraspComponent, UseInHandEvent>(OnUseInHand);
     }
 
@@ -154,6 +161,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         }
         return false;
     }
+
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled || !args.CanReach)
@@ -260,5 +268,23 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         if (!ev.Cancelled)
             Spawn("HereticRuneRitual", ev.Coords);
+    }
+
+    /// <summary>
+    ///     Special flesh grasp behavior - popups and do-after
+    /// </summary>
+
+    private void OnFleshGraspDoAfter(Entity<HereticComponent> ent, ref FleshGraspDoAfterEvent ev)
+    {
+        if (!ev.Cancelled)
+        {
+            var minion = EnsureComp<MinionComponent>(ev.Target);
+            EnsureComp<GhoulComponent>(ev.Target);
+            minion.BoundOwner = ent;
+            minion.FactionsToAdd.Add(_hereticFaction);
+            _minion.ConvertEntityToMinion((ev.Target, minion), true, true, true);
+            var popupOthers = Loc.GetString("heretic-flesh-revive-finish");
+            _popup.PopupEntity(popupOthers, ev.Target, PopupType.LargeCaution);
+        }
     }
 }

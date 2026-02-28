@@ -1,19 +1,13 @@
-using Content.Server._Goobstation.Heretic.EntitySystems;
-using Content.Server.Cloning;
-using Content.Server.Heretic.Components;
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
-using Content.Shared.Body.Systems;
-using Content.Shared.Cloning;
+using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Robust.Server.GameObjects;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -22,6 +16,7 @@ namespace Content.Server.Heretic.Ritual;
 ///     gibs it and gives the heretic knowledge points.
 /// </summary>
 // these classes should be lead out and shot
+
 [Virtual]
 public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {
@@ -45,19 +40,13 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     /// </summary>
     [DataField] public float CommandSacrificePoints = 3f;
 
-    [DataField] public ProtoId<CloningSettingsPrototype> Settings = "HellClone";
-
     // this is awful but it works so i'm not complaining
     // i'm complaining -kandiyaki
     // IM ALSO COMPLAINING -mq
     // im mad. -honeyed
     private EntityLookupSystem _lookup = default!;
-    private HellWorldSystem _hellworld = default!;
     private HereticSystem _heretic = default!;
     private SharedMindSystem _mind = default!;
-    private TransformSystem _transformSystem = default!;
-    private CloningSystem _cloning = default!;
-    private SharedBodySystem _body = default!;
 
     protected List<EntityUid> Uids = [];
 
@@ -65,13 +54,9 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     {
         // this fucking sucks -mq
         // why is this like this -honeyed
-        _hellworld = args.EntityManager.System<HellWorldSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _mind = args.EntityManager.System<SharedMindSystem>();
-        _transformSystem = args.EntityManager.System<TransformSystem>();
-        _cloning = args.EntityManager.System<CloningSystem>();
-        _body = args.EntityManager.System<SharedBodySystem>();
 
         //if the performer isn't a heretic, stop
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out _))
@@ -93,7 +78,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         {
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
             || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) //player races only
-            || args.EntityManager.HasComponent<HellVictimComponent>(look) //no reusing corpses
+            || args.EntityManager.HasComponent<NoSacrificeComponent>(look) //no reusing corpses
             || args.EntityManager.HasComponent<GhoulComponent>(look)) //shouldn't happen because they gib on death but. sanity check
                 continue;
 
@@ -112,7 +97,6 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         return true;
     }
 
-    //this does way too much
     public override void Finalize(RitualData args)
     {
 
@@ -121,28 +105,13 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(Uids[i]);
             var knowledgeGain = isCommand ? CommandSacrificePoints : SacrificePoints;
 
-            //spawn a clone of the victim
-            _cloning.TryCloning(Uids[i], _transformSystem.GetMapCoordinates(Uids[i]), Settings, out var clone);
+            //add the component to track the hell adventure
+            args.EntityManager.AddComponent<InHellComponent>(Uids[i]);
 
-            //gib clone to get matching organs.
-            if (clone != null)
-                _body.GibBody(clone.Value, true);
-
-            //send the target to hell world
-            _hellworld.AddVictimComponent(Uids[i]);
-
-            //teleport the body to a midround antag spawn spot so it's not just tossed into space
-            _hellworld.TeleportRandomly(args, Uids[i]);
-
-            //make sure that my shitty AddVictimComponent thing actually worked before trying to use a mind that isn't there
-            if (args.EntityManager.TryGetComponent<HellVictimComponent>(Uids[i], out var hellVictim))
-            {
-                //i'm so sorry to all of my computer science professors. i've failed you
-                if (hellVictim.HasMind)
-                {
-                    _hellworld.SendToHell(Uids[i], args);
-                }
-            }
+            //make a hell event and send it
+            //idk why i split these up but i'll probably thank myself for it later
+            args.EntityManager.EventBus.RaiseLocalEvent(Uids[i], new HereticBeforeHellEvent());
+            args.EntityManager.EventBus.RaiseLocalEvent(Uids[i], new HereticSendToHellEvent());
 
             //update the heretic's knowledge
             if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
@@ -162,7 +131,6 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
                     crewHeadObjComp.Sacrificed += 1;
             }
         }
-
         // reset it because it refuses to work otherwise.
         Uids = [];
         args.EntityManager.EventBus.RaiseLocalEvent(args.Performer, new EventHereticUpdateTargets());

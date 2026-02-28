@@ -1,0 +1,51 @@
+- type: hereticSacrificeEffect
+  id: SacEffectLantern
+  components:
+  - type: BlackAndWhiteOverlay
+  message: heretic-sac-effect-lantern
+
+- type: hereticSacrificeEffect
+  id: SacEffectMoth
+  components:
+  - type: ScrambledAccent
+  message: heretic-sac-effect-moth
+
+- type: hereticSacrificeEffect
+  id: SacEffectGrail
+  components:
+  - type: HemophiliaStatusEffect
+  message: heretic-sac-effect-grail
+
+- type: hereticSacrificeEffect
+  id: SacEffectHeart
+  components:
+  - type: PainNumbnessStatusEffect
+  message: heretic-sac-effect-heart
+
+- type: hereticSacrificeEffect
+  id: SacEffectWinter
+  components:
+  - type: Muted
+  message: heretic-sac-effect-winter
+
+- type: hereticSacrificeEffect
+  id: SacEffectEdge
+  components:
+  - type: Pacified
+  message: heretic-sac-effect-edge
+
+- type: hereticSacrificeEffect
+  id: SacEffectForge
+  components:
+  - type: ImpairedMobility
+  message: heretic-sac-effect-forge
+
+- type: hereticSacrificeEffect
+  id: SacEffectKnock
+  components:
+  - type: Narcolepsy
+    maxTimeBetweenIncidents: 600
+    minTimeBetweenIncidents: 300
+    maxDurationOfIncident: 30
+    minDurationOfIncident: 10
+  message: heretic-sac-effect-knock

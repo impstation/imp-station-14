@@ -1,15 +1,24 @@
 using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
+using Content.Shared.StatusIcon.Components;
 using Robust.Client.GameObjects;
-
-namespace Content.Client.Heretic.EntitySystems;
+using Robust.Shared.Prototypes;
+namespace Content.Client._Goobstation.Heretic.EntitySystems;
 
 public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
 {
+    /// <summary>
+    ///     Handles clientside ghoul changes - the sprite overlay and the icon
+    /// </summary>
+
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<GhoulComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<GhoulComponent, GetStatusIconsEvent>(GetGhoulIcon);
+
     }
 
     public void OnStartup(EntityUid uid, GhoulComponent component, ComponentStartup args)
@@ -26,5 +35,11 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
         {
             layer.Color = ghoulColor;
         }
+    }
+
+    private void GetGhoulIcon(Entity<GhoulComponent> ent, ref GetStatusIconsEvent args)
+    {
+        var iconPrototype = _prototype.Index(ent.Comp.StatusIcon);
+        args.StatusIcons.Add(iconPrototype);
     }
 }
