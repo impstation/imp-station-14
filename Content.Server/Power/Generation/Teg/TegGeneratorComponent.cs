@@ -14,10 +14,25 @@ public sealed partial class TegGeneratorComponent : Component
     /// </summary>
     /// <remarks>
     /// A value of 0.9 means that 90% of energy transferred goes to electricity.
+    /// IMP ADD: This value will modulate over time depending on the TEG's internal heat.
     /// </remarks>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("thermalEfficiency")]
     public float ThermalEfficiency = 0.65f;
+
+    /// <summary>
+    ///     IMP ADD:
+    ///     The base value to be used as thermal efficiency.
+    /// </summary>
+    [DataField]
+    public float BaseThermalEfficiency = 0.65f;
+
+    /// <summary>
+    ///     IMP ADD:
+    ///     The minimum thermal efficiency this TEG is capable of.
+    /// </summary>
+    [DataField]
+    public float MinThermalEfficiency = 0.2f;
 
     /// <summary>
     /// Simple factor that scales effective electricity generation.
@@ -81,4 +96,18 @@ public sealed partial class TegGeneratorComponent : Component
     /// </summary>
     [DataField]
     public float PowerSmoothingFactor = 0.2f;
+
+    // IMP ADD:
+
+    /// <summary>
+    ///     Amount of internal heat the TEG has accumulated.
+    /// </summary>
+    [DataField]
+    public float InternalHeat = 0f;
+
+    /// <summary>
+    ///     Maximum amount of internal heat the TEG can accumulate.
+    /// </summary>
+    [DataField]
+    public float MaxInternalHeat = 10000f;
 }
