@@ -1,22 +1,6 @@
 - type: entity
-  parent: [DrinkVisualsOpenable, DrinkBottlePlasticBaseFull]
+  parent: [DrinkVisualsAll, DrinkBottlePlasticSmallBaseFull]
   id: DrinkWaterBottleEmpty
   name: water bottle
   suffix: Empty
   description: A resealable plastic bottle. Useful for carrying around liquids.
-  components:
-  - type: Item
-    size: Small
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-  - type: Sprite
-    sprite: Objects/Consumable/Drinks/waterbottle.rsi
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    inHandsMaxFillLevels: 2
-    inHandsFillBaseName: -fill-
-  - type: Sealable
-  - type: FitsInDispenser
-    solution: drink
