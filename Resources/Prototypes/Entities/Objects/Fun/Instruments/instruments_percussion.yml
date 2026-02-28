@@ -66,7 +66,14 @@
     storedSprite:
       state: storage
       sprite: Objects/Fun/Instruments/microphone.rsi
-
+    storedRotation: -90 # imp
+  - type: Tag # imp
+    tags:
+    - BorgNeck
+  - type: Clothing #imp
+    quickEquip: false
+    slots:
+    - neck
 
 - type: entity
   parent: BasePercussionInstrument
