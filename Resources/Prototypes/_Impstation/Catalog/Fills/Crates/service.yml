@@ -44,3 +44,16 @@
         - id: DrinkShaker
         - id: CustomDrinkJug
           amount: 2
+
+- type: entity
+  id: CrateServicePokerChips
+  parent: CrateGenericSteel
+  name: set of poker chips
+  description: 300 poker chips for all your gambling needs. Contains 100x §1, 100x §5, 50x §25, 25x §100, and 25x §250.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: PokerChipCaseFilled
+          amount: 1

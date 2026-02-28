@@ -1,0 +1,224 @@
+﻿- type: entity
+  abstract: true
+  parent: BaseItem
+  id: PokerChipBase
+  name: poker chip
+  description: A small plastic chip used for gambling. A clever substitution to make the gambling addict feel like their losses are less real.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Objects/Economy/PokerChips/white.rsi
+    layers:
+    - state: icon
+      map: [ "chip1" ]
+    - state: icon
+      map: [ "chip2" ]
+      offset: 0, 0.03125
+    - state: icon
+      map: [ "chip3" ]
+      offset: 0, 0.0625
+    - state: icon
+      map: [ "chip4" ]
+      offset: 0, 0.09375
+    - state: icon
+      map: [ "chip5" ]
+      offset: 0, 0.125
+    - state: icon
+      map: [ "chip6" ]
+      offset: 0, 0.15625
+    - state: icon
+      map: [ "chip7" ]
+      offset: 0, 0.1875
+    - state: icon
+      map: [ "chip8" ]
+      offset: 0, 0.21875
+    - state: icon
+      map: [ "chip9" ]
+      offset: 0, 0.25
+    - state: icon
+      map: [ "chip10" ]
+      offset: 0, 0.28125
+    - state: icon
+      map: [ "chip11" ]
+      offset: 0, 0.3125
+    - state: icon
+      map: [ "chip12" ]
+      offset: 0, 0.34375
+    - state: icon
+      map: [ "chip13" ]
+      offset: 0, 0.375
+    - state: icon
+      map: [ "chip14" ]
+      offset: 0, 0.40625
+    - state: icon
+      map: [ "chip15" ]
+      offset: 0, 0.4375
+    - state: icon
+      map: [ "chip16" ]
+      offset: 0, 0.46875
+    - state: icon
+      map: [ "chip17" ]
+      offset: 0, 0.5
+    - state: icon
+      map: [ "chip18" ]
+      offset: 0, 0.53125
+    - state: icon
+      map: [ "chip19" ]
+      offset: 0, 0.5625
+    - state: icon
+      map: [ "chip20" ]
+      offset: 0, 0.59375
+    - state: icon
+      map: [ "chip21" ]
+      offset: 0, 0.625
+    - state: icon
+      map: [ "chip22" ]
+      offset: 0, 0.65625
+    - state: icon
+      map: [ "chip23" ]
+      offset: 0, 0.6875
+    - state: icon
+      map: [ "chip24" ]
+      offset: 0, 0.71875
+    - state: icon
+      map: [ "chip25" ]
+      offset: 0, 0.75
+  - type: Stack
+    stackType: PokerChip1
+    count: 1
+    composite: true
+    layerStates:
+    - chip1
+    - chip2
+    - chip3
+    - chip4
+    - chip5
+    - chip6
+    - chip7
+    - chip8
+    - chip9
+    - chip10
+    - chip11
+    - chip12
+    - chip13
+    - chip14
+    - chip15
+    - chip16
+    - chip17
+    - chip18
+    - chip19
+    - chip20
+    - chip21
+    - chip22
+    - chip23
+    - chip24
+    - chip25
+  - type: Tag
+    tags:
+    - PokerChip
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip1
+  name: §1 poker chip
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Economy/PokerChips/white.rsi
+  - type: Stack
+    stackType: PokerChip1
+  - type: Appearance
+  - type: StackPrice
+    price: 1
+
+- type: entity
+  parent: PokerChip1
+  id: PokerChip1Stack
+  suffix: 25
+  components:
+  - type: Stack
+    count: 25
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip5
+  name: §5 poker chip
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Economy/PokerChips/red.rsi
+  - type: Stack
+    stackType: PokerChip5
+  - type: Appearance
+  - type: StackPrice
+    price: 5
+
+- type: entity
+  parent: PokerChip5
+  id: PokerChip5Stack
+  suffix: 25
+  components:
+  - type: Stack
+    count: 25
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip25
+  name: §25 poker chip
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Economy/PokerChips/green.rsi
+  - type: Stack
+    stackType: PokerChip25
+  - type: Appearance
+  - type: StackPrice
+    price: 25
+
+- type: entity
+  parent: PokerChip25
+  id: PokerChip25Stack
+  suffix: 25
+  components:
+  - type: Stack
+    count: 25
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip100
+  name: §100 poker chip
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Economy/PokerChips/blue.rsi
+  - type: Stack
+    stackType: PokerChip100
+  - type: Appearance
+  - type: StackPrice
+    price: 100
+
+- type: entity
+  parent: PokerChip100
+  id: PokerChip100Stack
+  suffix: 25
+  components:
+  - type: Stack
+    count: 25
+
+- type: entity
+  parent: PokerChipBase
+  id: PokerChip500
+  name: §500 poker chip
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Economy/PokerChips/black.rsi
+  - type: Stack
+    stackType: PokerChip500
+  - type: Appearance
+  - type: StackPrice
+    price: 500
+
+- type: entity
+  parent: PokerChip500
+  id: PokerChip500Stack
+  suffix: 25
+  components:
+  - type: Stack
+    count: 25
