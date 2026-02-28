@@ -100,3 +100,16 @@
     sprite: _Impstation/Structures/Storage/Crates/service_secure.rsi
   - type: AccessReader
     access: [["Service"]]
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateSalvageSecure
+  name: secure salvage crate
+  components:
+  - type: Icon
+    sprite: _Impstation/Structures/Storage/Crates/salvage_secure.rsi
+  - type: Sprite
+    sprite: _Impstation/Structures/Storage/Crates/salvage_secure.rsi
+  - type: AccessReader
+    access: [["Salvage"]]
+    

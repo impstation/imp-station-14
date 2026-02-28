@@ -7,3 +7,14 @@
   cost: 2000
   category: cargoproduct-category-name-security
   group: market
+
+- type: cargoProduct
+  id: SecurityEvaKit
+  icon:
+    sprite: _Impstation/Clothing/Head/Helmets/eva_security.rsi
+    state: icon
+  product: CrateEvaSecurityKit
+  cost: 5000
+  category: cargoproduct-category-name-security
+  group: market
+  
