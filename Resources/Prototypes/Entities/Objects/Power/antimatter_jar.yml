@@ -6,9 +6,9 @@
   components:
   - type: Item
     size: Normal
-    sprite: Objects/Power/AME/ame_jar.rsi
+    sprite: _Impstation/Objects/Power/AME/ame_jar.rsi # Imp
   - type: Sprite
-    sprite: Objects/Power/AME/ame_jar.rsi
+    sprite: _Impstation/Objects/Power/AME/ame_jar.rsi # Imp
     state: jar
   - type: AmeFuelContainer
   - type: StaticPrice
