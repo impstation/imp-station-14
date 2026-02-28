@@ -196,3 +196,70 @@
     capacity: 5
     chambers: [ null, null, null, null, null ]
     ammoSlots: [ null, null, null, null, null ]
+
+- type: entity
+  name: improvised revolver
+  parent: [ BaseWeaponRevolver, BaseMajorContraband ]
+  id: WeaponRevolverImprovised
+  description: A wanderer drifts through these halls. One known by no name, draped in a cloak of gray. This item is but a shadow of the weapon used by them. Its improvised nature makes it fit .22, .35, and .45 bullets in the chambers.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/improvpistol.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: Tag
+    tags:
+    - Sidearm
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Pistols/improvpistol.rsi
+    quickEquip: false
+    slots:
+    - suitStorage
+    - Belt
+  - type: Gun
+    fireRate: 2.2
+    minAngle: 4
+    maxAngle: 45
+    angleIncrease: 9
+    angleDecay: 7
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - CartridgeLPistol
+      - CartridgePistol # maybe I should remove this, idk
+      - CartridgeMagnum
+      - SpeedLoaderMagnum
+    capacity: 5
+    chambers: [ False, False, False, False, False ]
+    ammoSlots: [ null, null, null, null, null ]
+  # - type: Construction
+  #   graph: ImprovisedRevolverGraph
+  #   node: revolver
+  - type: StaticPrice
+    price: 20
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.8
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 6
+    damage:
+      types:
+        Blunt: 5

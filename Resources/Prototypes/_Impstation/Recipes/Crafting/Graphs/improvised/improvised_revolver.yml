@@ -1,0 +1,19 @@
+- type: constructionGraph
+  id: ImprovisedRevolverGraph # THIS IS NOT DONE!!!!!!
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: frame
+      steps:
+      - material: Steel
+        amount: 5
+        doAfter: 4
+      - tag: Pen
+        icon:
+          sprite: Objects/Misc/pens.rsi
+          state: pen
+        name: construction-graph-tag-pen
+
+  - node: frame
+    entitiy: # WeaponRevolverImprovised
