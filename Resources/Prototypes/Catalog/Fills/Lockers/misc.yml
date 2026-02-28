@@ -92,6 +92,8 @@
       - id: EmergencyNitrogenTankFilled
         weight: 4
       - id: NitrogenTankFilled
+    - id: MedkitNitrogenFilled #imp
+      prob: 0.2
 
 - type: entity
   id: ClosetEmergencyN2FilledRandom
