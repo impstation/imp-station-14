@@ -109,12 +109,12 @@
       chamber:
         reagents:
         - ReagentId: Echion
-          Quantity: 75
-        maxVol: 75 #12 shots
+          Quantity: 15
+        maxVol: 15 #12 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletPlasmaAdder
-    fireCost: 6.25
+    fireCost: 1.25
   - type: SolutionItemStatus
     solution: chamber
   - type: SolutionRefuel
