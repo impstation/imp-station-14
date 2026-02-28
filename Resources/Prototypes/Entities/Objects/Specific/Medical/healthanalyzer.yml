@@ -28,6 +28,7 @@
   - type: HealthAnalyzer
     scanningEndSound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
+    remainActiveInContainer: true # imp add
   - type: Tag
     tags:
       - DiscreteHealthAnalyzer
