@@ -1,4 +1,4 @@
-namespace Content.Server.Speech.Components;
+namespace Content.Server._Impstation.Speech.Components;
 
 [RegisterComponent]
 public sealed partial class MilbratAccentComponent : Component
