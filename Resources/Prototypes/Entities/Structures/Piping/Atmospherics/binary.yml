@@ -640,6 +640,11 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: heStraight
       map: [ "enum.SubfloorLayers.FirstLayer" ]
+    - state: heStraightGlow
+      map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ] #imp edit
+      color: "#ff00ea" #imp edit
+      shader: "unshaded" #imp edit
+      visible: false #imp edit
   - type: AtmosPipeLayers
     spriteRsiPaths:
       Primary: _Impstation/Structures/Piping/Atmospherics/heatexchanger.rsi #imp edit
@@ -683,6 +688,11 @@
     - { sprite: _Impstation/Structures/Piping/Atmospherics/heatexchanger_alt2.rsi, state: pipeConnector }
   - type: Tag
     tags: [] # gets rid of unstackable, allowing radiators to be built on alt layers on the same tile
+  - type: PointLight 
+    radius: 1
+    energy: 999
+    color: "#ff00ea"
+    enabled: false
   # imp edit end
 
 - type: entity
@@ -700,6 +710,11 @@
         map: [ "enum.PipeVisualLayers.Pipe" ]
       - state: heBend
         map: [ "enum.SubfloorLayers.FirstLayer" ]
+      - state: heBendGlow
+        map: [ "enum.HeatExchangerGlowVisualLayers.Glow" ] #imp edit
+        color: "#ff00ea" #imp edit
+        shader: "unshaded" #imp edit
+        visible: false #imp edit
     - type: NodeContainer
       nodes:
         inlet:

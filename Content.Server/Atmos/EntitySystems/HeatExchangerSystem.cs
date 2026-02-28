@@ -12,6 +12,8 @@ using Content.Shared.CCVar;
 using Content.Shared.Interaction;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
+using Content.Shared.Atmos.Components; //Imp - Reference to HeatExchangerVisuals for radiator glow
+using Robust.Server.GameObjects; //Imp - PointLightSystem for radiator glow
 
 namespace Content.Server.Atmos.EntitySystems;
 
@@ -21,6 +23,8 @@ public sealed class HeatExchangerSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly PointLightSystem _pointLight = default!; //imp
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!; //imp
 
     float tileLoss;
 
@@ -135,5 +139,93 @@ public sealed class HeatExchangerSystem : EntitySystem
         else
             _atmosphereSystem.Merge(inlet.Air, xfer);
 
+        UpdateRadiatorAppearance(uid, dER, MathF.Max(inlet.Air.Temperature, outlet.Air.Temperature)); //imp
+    }
+
+    //Imp addition below -- radiator glow.
+    private void UpdateRadiatorAppearance(EntityUid uid, float radiatorEmittedEnergy, float gasTemperature)
+    {
+        //Return early if the pointlightcomponent doesn't exist (?)
+        if (!_pointLight.TryGetLight(uid, out var pointLight))
+            return;
+
+        //Find the temperature of the radiator:
+        //Assume that the radiator is made of stainless steel
+        //Stainless steel has a heat capacity of about 502 J/(kg*K)
+        //Assume the radiator is about 10 kg
+        //The radiator has a specific heat of 5020 J/K
+        const float radiatorSpecificHeat = 5020;
+
+        //Radiator temp approximation
+        float radiatorTemperature = gasTemperature;
+
+        //Divide the energy emitted this atmos tick by the radiator's specific heat to get the radiator's temperature
+        radiatorTemperature += MathF.Abs(radiatorEmittedEnergy) / radiatorSpecificHeat;
+        Log.Debug($"rad temp is {radiatorTemperature} for uid {uid}");
+
+        //Unrealistically boost the temperature for gameplay purposes. Normal setups are too cold for any glow.
+        // radiatorTemperature *= 2500; //* MathF.Log10(MathF.Pow(x, 3)); //2000logx^3 is pretty close
+
+        //Glowing starts at 1667K based on the Planckian locus approximation (calculated below).
+        //Disable the glow if the temperature is below that.
+        if (radiatorTemperature < 1667)
+        {
+            _pointLight.SetEnabled(uid, false, pointLight);
+            _appearance.SetData(uid, HeatExchangerVisuals.On, false);
+            return;
+        }
+
+        //Otherwise, start glowing
+        _pointLight.SetEnabled(uid, true, pointLight);
+        _appearance.SetData(uid, HeatExchangerVisuals.On, true);
+
+        //Calculate the color of the radiator via the Planckian locus
+        //https://en.wikipedia.org/wiki/Planckian_locus#Approximation
+        //Clamp temperature to a max of 25000
+        radiatorTemperature = radiatorTemperature > 25000 ? 25000 : radiatorTemperature;
+
+        //Code snippet (both switch blocks) provided by perryprog from Github, edited by combustibletoast.
+        //Find the x and y coordinate of the color in CIE color space based on the radiator's temperature:
+        var x = (float)(radiatorTemperature switch
+        {
+            >= 1667 and < 4000 => -0.2661239 * 1E9 / Math.Pow(radiatorTemperature, 3) - 0.2343589 * 1E6 / Math.Pow(radiatorTemperature, 2) + 0.8776956 * 1E3 / radiatorTemperature + 0.179910,
+            >= 4000 and <= 25000 => -3.0258469 * 1E9 / Math.Pow(radiatorTemperature, 3) + 2.1070379 * 1E6 / Math.Pow(radiatorTemperature, 2) + 0.2226347 * 1E3 / radiatorTemperature + 0.240390,
+            _ => 0
+        });
+        var y = (float)(radiatorTemperature switch
+        {
+            >= 1667 and < 2222 => -1.1063814 * Math.Pow(x, 3) - 1.34811020 * Math.Pow(x, 2) + 2.18555832 * x - 0.20219683,
+            >= 2222 and < 4000 => -0.954847 * Math.Pow(x, 3) - 1.37418593 * Math.Pow(x, 2) + 2.09137015 * x - 0.16748867,
+            >= 4000 and <= 25000 => 3.0817580 * Math.Pow(x, 3) - 5.87338670 * Math.Pow(x, 2) + 3.75112997 * x - 0.37001483,
+            _ => 0f
+        });
+        if (x == 0 || y == 0) //This shouldn't happen because of the guard clause above
+            Log.Debug($"Error calculating planckian locus: x = {x}, y = {y}, temp = {radiatorTemperature}");
+
+        //Convert coordinates to RGB
+        var luminance = 1f; //??? idk what this should be.
+        var radiatorColor = new Color(luminance * x / y, luminance, luminance * (1 - x - y) / y);
+        Log.Debug($"rad color is {radiatorColor} for uid {uid}");
+
+        //Set the radiator's light intensity:
+        //Per the Stefan–Boltzmann law, radiant exitance is proportional to the fourth power of the object's absolute temperature
+        float SBConstant = 0.0567f; //Scaled up 1000000x to prevent floating point errors, adjusted in the line below
+        float radiantExitance = SBConstant * (float)Math.Pow(radiatorTemperature, 4) / 1000000;
+
+        //Assuming the radiator is 1m^2, the radiant exitance *is* the wattage of light produced, no extra calculation needed.
+        //Now convert that to the energy and radius that robust toolbox wants.
+        //There is no accurate conversion of lumens to RT brightness and radius, so this is just guesswork.
+        Log.Debug($"rad radiant exitance is {radiantExitance} for uid {uid}");
+        float energy = (4) / (1 + 100 * (float)Math.Pow(Math.E, -radiantExitance / 1000000));
+        Log.Debug($"rad light energy is {energy} for uid {uid}");
+
+        // Set pointlight data
+        _pointLight.SetColor(uid, radiatorColor, pointLight);
+        _pointLight.SetEnergy(uid, energy);
+        _pointLight.SetRadius(uid, energy);
+
+        // Write color to visulaizerSystem so client can update the unshaded sprite
+        _appearance.SetData(uid, HeatExchangerVisuals.Color, radiatorColor);
+        _appearance.TryGetData(uid, HeatExchangerVisuals.Color, out var debug_color_get);
     }
 }
