@@ -296,7 +296,31 @@
   - type: EmitSoundOnThrow
     sound: /Audio/Weapons/bolathrow.ogg
   - type: EmitSoundOnLand
-    sound: /Audio/Effects/snap.ogg
+    sound: /Audio/Effects/gib3.ogg
+  - type: Damageable #for the ensnaring behavior
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib3.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: LandAtCursor
   - type: Ensnaring #think fast chucklenuts!
     freeTime: 2.0
     breakoutTime: 1.5
