@@ -3,6 +3,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization; // Funky RPD
 
 namespace Content.Shared.RCD.Components;
 
@@ -33,6 +34,30 @@ public sealed partial class RCDComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
 
+    // Funky RPD Start
+
+    /// <summary>
+    /// A cached copy of currently selected RCD prototype
+    /// </summary>
+    /// <remarks>
+    /// If the ProtoId is changed, make sure to update the CachedPrototype as well
+    /// </remarks>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public RCDPrototype CachedPrototype { get; set; } = default!;
+
+    /// <summary>
+    /// Indicates if a mirrored version of the construction prototype should be used (if available)
+    /// </summary>
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
+    public bool UseMirrorPrototype = false;
+
+    /// <summary>
+    /// Indicates whether this is an RCD or an RPD
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool IsRpd { get; set; } = false;
+    // Funky RPD End
+
     /// <summary>
     /// The direction constructed entities will face upon spawning
     /// </summary>
@@ -57,4 +82,33 @@ public sealed partial class RCDComponent : Component
     /// </remarks>
     [ViewVariables(VVAccess.ReadOnly)]
     public Transform ConstructionTransform { get; private set; }
+
+    // Funky RPD Start
+
+    /// <summary>
+    /// Stores player rotation
+    /// This is a workaround to the fact eye rotation is not currently networked and required for pipe layering
+    /// Sent only when needed
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float? LastKnownEyeRotation { get; set; } = null;
+
+    /// <summary>
+    /// Current pipe layer / build mode for RPD
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public RpdMode CurrentMode { get; set; } = RpdMode.Free;
+
+    [DataField]
+    public SoundSpecifier SoundSwitchMode { get; set; } = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg");
 }
+
+[Serializable, NetSerializable]
+public enum RpdMode : byte
+{
+    Primary = 0,
+    Secondary = 1,
+    Tertiary = 2,
+    Free = 3,
+}
+// Funky RPD End

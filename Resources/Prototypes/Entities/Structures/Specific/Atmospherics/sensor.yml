@@ -43,6 +43,13 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
+  # Funky RPD Start
+  - type: RCDDeconstructable
+    cost: 2 # Imp
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
+  # Funky RPD End
   - type: Destructible
     thresholds:
     - trigger:

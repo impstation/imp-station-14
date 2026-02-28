@@ -44,6 +44,15 @@ public sealed partial class RCDPrototype : IPrototype
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public string? Prototype { get; private set; }
 
+    // Funky RPD Start
+
+    /// <summary>
+    /// If the entity can be flipped, this prototype is available as an alternate (mode dependent)
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public string? MirrorPrototype { get; private set; } = string.Empty;
+    // Funky RPD End
+
     /// <summary>
     /// Number of charges consumed when the operation is completed
     /// </summary>
@@ -113,6 +122,15 @@ public sealed partial class RCDPrototype : IPrototype
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public RcdRotation Rotation { get; private set; } = RcdRotation.User;
+
+    // Funky RPD Start
+
+    /// <summary>
+    /// Determines whether this prototype uses layered placement (true for traditional placement, false for layered). Only applies to RPD.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool HasLayers { get; private set; } = false;
+    // Funky RPD End
 }
 
 public enum RcdMode : byte
