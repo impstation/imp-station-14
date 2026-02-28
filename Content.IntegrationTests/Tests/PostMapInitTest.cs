@@ -90,8 +90,8 @@ namespace Content.IntegrationTests.Tests
 
             // Shuttles
             "/Maps/_DV/Shuttles/listening_post.yml", // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
-            "/Maps/_Impstation/Shuttles/listening_post.yml" // No, I'm not gonna list out all these stamps again lol
-
+            "/Maps/_Impstation/Shuttles/listening_post.yml", // No, I'm not gonna list out all these stamps again lol
+            "/Maps/_Harmony/Shuttles/ShuttleEvent/ERPSmall.yml", // Harmony map
         };
 
         /// <summary>
