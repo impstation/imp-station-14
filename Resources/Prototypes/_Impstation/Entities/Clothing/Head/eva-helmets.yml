@@ -12,3 +12,21 @@
   - type: TemperatureProtection
     heatingCoefficient: 1.05
     coolingCoefficient: 0.7
+
+# Colonid Envirosuit Helmet
+- type: entity
+  parent: ClothingHeadEVAHelmetBase
+  id: ClothingHeadHelmetColonidEnvirosuit
+  name: envirosuit helmet
+  description: A space worthy helmet designed to help Colonids not combust in a non-plasma based atmosphere. Able to seal with hardsuits, even over top a envirosuit. PLACEHOLDER
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/eva_large.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/eva_large.rsi
+  - type: StaticPrice
+    price: 1000
+  - type: Tag
+    tags:
+    - HelmetEVA
+    - WhitelistChameleon

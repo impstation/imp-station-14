@@ -64,6 +64,22 @@
         ignoreResistances: true
         damage:
           types:
+            Poison:
+              7
+      - !type:FlammableReaction # Imp
+        multiplier: 0.4
+        conditions:
+        - !type:OrganType
+          type: Colonid
+      # - !type:AdjustTemperature   # I'm happy to add this back if it's needed for balence or whatever, but my first instinct is they shouldn't keep taking heat damage after they extinguish themselves
+      #   amount: 6000
+      #   conditions:
+      #   - !type:OrganType
+      #     type: Colonid
+      - !type:Ignite # Imp, Hey I'm imping over here!
+        conditions:
+        - !type:OrganType
+          type: Colonid
             Poison: 0.7
       - !type:AdjustAlert
         alertType: Toxins
@@ -90,9 +106,24 @@
   metabolisms:
     Poison:
       effects:
+      - !type:Oxygenate # imp, colonids do be breathing plasma, eh?
+        conditions:
+        - !type:OrganType
+          type: Colonid
       - !type:HealthChange
+        conditions: # imp, and thus they shouldn't be poisoned by what they breathe
+        - !type:OrganType
+          type: Colonid
+          shouldHave: false
         damage:
           types:
+            Poison: 3
+      # - !type:ModifyBloodLevel # imp
+      #   conditions:
+      #   - !type:OrganType
+      #     type: Colonid
+      #     shouldHave: true
+      #   amount: 0.48 # imp Restores plasma at a 24:25 ratio. Get sipping, boy.
             Poison: 1.5
       - !type:AdjustReagent
         reagent: Inaprovaline
@@ -101,9 +132,31 @@
       effects:
       - !type:HealthChange
         ignoreResistances: true
+        conditions: # imp,  colonids breathe the stuff, they shouldn't be poisoned by it
+        - !type:OrganType
+          type: Colonid
+          shouldHave: false
         damage:
           types:
             Poison:
+              1
+      - !type:Oxygenate # imp, colonids do be breathing plasma, eh?
+        conditions:
+        - !type:OrganType
+          type: Colonid
+      - !type:Oxygenate #imp, thaven can breathe all gases safely
+        conditions:
+        - !type:OrganType
+          type: Thaven
+      # We need a metabolism effect on reagent removal
+      - !type:AdjustAlert
+        alertType: Toxins
+        conditions:
+          - !type:ReagentThreshold
+            min: 1.5
+          - !type:OrganType
+            type: Colonid
+            shouldHave: false
               0.1
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
