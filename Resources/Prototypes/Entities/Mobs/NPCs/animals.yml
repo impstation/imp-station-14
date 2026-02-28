@@ -2045,7 +2045,7 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0
+        Slash: 1 # imp - revenge, long time coming
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
