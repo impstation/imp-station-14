@@ -105,6 +105,21 @@
   components:
   - type: RandomFillSolution
     solution: drink
-    weightedRandomId: RandomFillStrangePill
+    trueRandomMode: true # imp
+    randomAmountMax: 30 # imp
+    blacklistedReagents: # imp
+    - Holium
+    - PhilosophersJuice
+    - Medium
+    - DanPersonalHotsauce
+    - Romerol
+    blacklistedGroups: # imp
+    - Drinks
+    - Foods
+    whitelistedReagents: # imp
+    - HorseradishSauce
+    - Mustard
+    - Vitamin
+    #weightedRandomId: RandomFillStrangePill # imp edit
   - type: PressurizedSolution
     solution: drink
