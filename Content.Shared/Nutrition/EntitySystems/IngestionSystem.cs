@@ -122,8 +122,9 @@ public sealed partial class IngestionSystem : EntitySystem
     /// <param name="target">The entity who is being made to ingest something.</param>
     /// <param name="ingested">The entity that is trying to be ingested.</param>
     /// <param name="ingest"> When set to true, it tries to ingest. When false, it only checks if we can.</param>
+    /// <param name="tryRepeat"> When set to true, it tries to repeat the ingestion doafter.</param> #imp addition
     /// <returns>Returns true if we can ingest the item.</returns>
-    private bool AttemptIngest(EntityUid user, EntityUid target, EntityUid ingested, bool ingest)
+    private bool AttemptIngest(EntityUid user, EntityUid target, EntityUid ingested, bool ingest, bool tryRepeat = false) //imp edit: added tryRepeat
     {
         var eatEv = new IngestibleEvent();
         RaiseLocalEvent(ingested, ref eatEv);
@@ -131,7 +132,7 @@ public sealed partial class IngestionSystem : EntitySystem
         if (eatEv.Cancelled)
             return false;
 
-        var ingestionEv = new AttemptIngestEvent(user, ingested, ingest);
+        var ingestionEv = new AttemptIngestEvent(user, ingested, ingest, TryRepeat: tryRepeat); //imp edit, added tryRepeat
         RaiseLocalEvent(target, ref ingestionEv);
 
         return ingestionEv.Handled;
@@ -277,7 +278,7 @@ public sealed partial class IngestionSystem : EntitySystem
         if (!CanConsume(args.User, entity, args.Ingested, out var solution, out var time))
             return;
 
-        if (!_doAfter.TryStartDoAfter(GetEdibleDoAfterArgs(args.User, entity, food, time ?? TimeSpan.Zero)))
+        if (!_doAfter.TryStartDoAfter(GetEdibleDoAfterArgs(args.User, entity, food, time ?? TimeSpan.Zero, args.TryRepeat))) //imp edit, added args.TryRepeat
             return;
 
         args.Handled = true;
@@ -377,14 +378,14 @@ public sealed partial class IngestionSystem : EntitySystem
         _reaction.DoEntityReaction(entity, split, ReactionMethod.Ingestion);
 
         // Everything is good to go item has been successfuly eaten
-        var afterEv = new IngestedEvent(args.User, entity, split, forceFed);
+        var afterEv = new IngestedEvent(args.User, entity, split, forceFed, args.TryRepeat); //imp edit, added args.TryRepeat
         RaiseLocalEvent(food, ref afterEv);
 
         _stomach.TryTransferSolution(stomachToUse.Value.Owner, split, stomachToUse);
 
         if (!afterEv.Destroy)
         {
-            args.Repeat = false; // imp edit, afterEv.Repeat -> false
+            args.Repeat = afterEv.Repeat;
             return;
         }
 
@@ -413,12 +414,13 @@ public sealed partial class IngestionSystem : EntitySystem
     /// <param name="target">Entity that is eating.</param>
     /// <param name="food">Food entity we're trying to eat.</param>
     /// <param name="delay">The time delay for our DoAfter</param>
+    /// <param name="tryRepeat">Whether we try to repeat the doafter by default.</param> #imp addition
     /// <returns>Returns true if it was able to successfully start the DoAfter</returns>
-    private DoAfterArgs GetEdibleDoAfterArgs(EntityUid user, EntityUid target, EntityUid food, TimeSpan delay = default)
+    private DoAfterArgs GetEdibleDoAfterArgs(EntityUid user, EntityUid target, EntityUid food, TimeSpan delay = default, bool tryRepeat = false) //imp edit, added tryRepeat
     {
         var forceFeed = user != target;
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, new EatingDoAfterEvent(), target, food)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, new EatingDoAfterEvent(tryRepeat), target, food) //imp edit, added tryRepeat to EatingDoAfterEvent
         {
             BreakOnHandChange = false,
             BreakOnMove = forceFeed,
@@ -506,7 +508,7 @@ public sealed partial class IngestionSystem : EntitySystem
             };
             RaiseLocalEvent(args.Target, ref ev);
 
-            args.Repeat = false; // imp edit, !args.ForceFed -> false
+            args.Repeat = !args.ForceFed && args.TryRepeat; //imp edit, set to repeat if previously set to repeat and not force fed
             return;
         }
 
@@ -534,6 +536,13 @@ public sealed partial class IngestionSystem : EntitySystem
             return;
 
         args.Verbs.Add(verb);
+
+        // imp edit start, add auto-repeat ingestion verb
+        if (!TryGetRepeatIngestionVerb(user, entity, entity.Comp.Edible, out var repeatVerb))
+            return;
+
+        args.Verbs.Add(repeatVerb);
+        // imp edit end
     }
 
     private void OnAttemptShake(Entity<EdibleComponent> entity, ref AttemptShakeEvent args)

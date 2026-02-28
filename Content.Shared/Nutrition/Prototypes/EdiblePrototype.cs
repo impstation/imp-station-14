@@ -56,5 +56,19 @@ public sealed partial class EdiblePrototype : IPrototype
     [DataField]
     public SpriteSpecifier? VerbIcon;
 
+    // imp edit start
 
+    /// <summary>
+    /// If true, adds allows auto-repeat ingestion through a second ingest verb or alt-interaction where applicable.
+    /// </summary>
+    [DataField]
+    public bool AllowRepeatIngestion;
+
+    /// <summary>
+    /// Localization verb used when auto-repeat ingesting this item.
+    /// </summary>
+    [DataField]
+    public LocId? RepeatVerbName;
+
+    // imp edit end
 }
