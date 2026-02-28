@@ -1,0 +1,25 @@
+﻿<controls:PoSPaymentBox
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._Impstation.PersonalEconomy.UI.POS"
+    VerticalExpand="True"
+    HorizontalExpand="True">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True">
+        <BoxContainer Name="NamingThingsIsHard" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+            <Control VerticalExpand="True"/>
+            <RichTextLabel Name="ValidityLabel" Text="{Loc pos-payment-present-card}" HorizontalAlignment="Center"/>
+            <Control VerticalExpand="True"/>
+        </BoxContainer>
+        <BoxContainer Name="MainContainer" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Visible="False">
+            <Label Name="NameAndNumberLabel"/>
+            <Label Text="{Loc pos-payment-is-trying-to-charge}"/>
+            <Label Name="ChargeAmountLabel"/>
+            <Label Name="ChargeReasonLabel"/>
+            <Control VerticalExpand="True"/>
+            <Label Name="NoFundsLabel" Text="{Loc transaction-low-funds}" Visible="False" Access="Public"/>
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                <Button Name="CancelButton" Text="{Loc pos-payment-cancel-button-label}" HorizontalExpand="True" StyleClasses="OpenRight"/>
+                <Button Name="ConfirmTransactionButton" Text="{Loc pos-payment-confirm-button-label}" HorizontalExpand="True" StyleClasses="OpenLeft"/>
+            </BoxContainer>
+        </BoxContainer>
+    </BoxContainer>
+</controls:PoSPaymentBox>

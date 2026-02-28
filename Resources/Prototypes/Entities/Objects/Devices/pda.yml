@@ -45,6 +45,15 @@
       whitelist:
         components:
         - IdCard
+    bankCardSlot: #imp edit
+      name: bank-card-slot-name
+      priority: -3
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - BankCard
+    bankCard: BankCard
   - type: PdaVisuals
   - type: Item
     size: Small
@@ -55,6 +64,7 @@
       PDA-pai: !type:ContainerSlot {}
       Cartridge-Slot: !type:ContainerSlot {}
       program-container: !type:Container
+      PDA-bank-card: !type:ContainerSlot {} #imp edit
   - type: ItemSlots
   - type: Clothing
     quickEquip: false
