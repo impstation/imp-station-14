@@ -95,6 +95,7 @@ public abstract partial class SharedXenoArtifactSystem
                     if (!nodeEnt.Comp.Locked)
                         continue;
                     var directPredecessorNodes = GetDirectPredecessorNodes((ent, ent), nodeEnt);
+                    directPredecessorNodes.Add(nodeEnt); // Remember that triggering the 'unlock target' node shouldn't count as failing the unlock!
                     if (directPredecessorNodes.Count == 0 || directPredecessorNodes.All(x => !x.Comp.Locked))
                     {
                         // This is an unlockable node, check if is failed
