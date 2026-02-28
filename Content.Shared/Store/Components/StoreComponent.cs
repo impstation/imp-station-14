@@ -86,6 +86,12 @@ public sealed partial class StoreComponent : Component
     [DataField]
     public EntityUid? StartingMap;
 
+    /// <summary>
+    ///     Imp addition, whether the store should automatically pass all conditions for its listings, used for debug stores.
+    /// </summary>
+    [DataField]
+    public bool PassAllConditions;
+
     #region audio
     /// <summary>
     /// The sound played to the buyer when a purchase is succesfully made.

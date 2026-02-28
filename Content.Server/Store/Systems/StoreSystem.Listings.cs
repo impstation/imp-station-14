@@ -101,12 +101,14 @@ public sealed partial class StoreSystem
     /// <param name="listings">All of the listings that are available. If null, will just get all listings from the prototypes.</param>
     /// <param name="categories">What categories to filter by.</param>
     /// <param name="storeEntity">The physial entity of the store. Can be null.</param>
+    /// <param name="component">The store component the listings are coming from.</param> // imp addd
     /// <returns>The available listings.</returns>
     public IEnumerable<ListingDataWithCostModifiers> GetAvailableListings(
         EntityUid buyer,
         IReadOnlyCollection<ListingDataWithCostModifiers>? listings,
         HashSet<ProtoId<StoreCategoryPrototype>> categories,
-        EntityUid? storeEntity = null
+        EntityUid? storeEntity = null,
+        StoreComponent? component = null // imp addition
     )
     {
         listings ??= GetAllListings();
@@ -116,7 +118,7 @@ public sealed partial class StoreSystem
             if (!ListingHasCategory(listing, categories))
                 continue;
 
-            if (listing.Conditions != null)
+            if (listing.Conditions != null && component is { PassAllConditions: false }) // imp edit, add "&& component is { PassAllConditions: false }"
             {
                 var args = new ListingConditionArgs(GetBuyerMind(buyer), storeEntity, listing, EntityManager);
                 var conditionsMet = true;
