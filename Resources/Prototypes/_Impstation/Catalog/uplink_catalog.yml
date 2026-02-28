@@ -680,6 +680,28 @@
       components:
       - SurplusBundle
 
+- type: listing
+  id: uplinkAdvancedMimery
+  name: uplink-advanced-mimery-name
+  description: uplink-advanced-mimery-desc
+  productEntity: BoxAdvancedMimery
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Mime
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
 
 
 

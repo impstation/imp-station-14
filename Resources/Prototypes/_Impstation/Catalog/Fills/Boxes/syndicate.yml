@@ -195,6 +195,22 @@
       - state: syndicategunbox
 
 - type: entity
+  parent: [BoxCardboard, Tier2Contraband]
+  id: BoxAdvancedMimery
+  name: Guide to Advanced Mimery box
+  description: A box containing the classical two part series on how to further hone your mime skills.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SpellbookMimeInvisibleBlockade
+        - id: SpellbookMimeFingerGuns
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+
+- type: entity
   parent: [BoxCardboard, Tier3Contraband]
   id: TaipanBox
   name: Taipan bundle box

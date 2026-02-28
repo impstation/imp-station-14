@@ -1,0 +1,112 @@
+﻿- type: entity
+  parent: BaseAction
+  id: ActionMimeBase
+  abstract: true
+  components:
+  - type: ActionMimeVowRequirement
+
+- type: entity
+  parent: ActionMimeBase
+  id: ActionMimeInvisibleWall
+  name: Invisible Wall
+  description: The mime's performance transmutates a wall into physical reality.
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Interface/Actions/mime.rsi
+      state: wall
+  - type: InstantAction
+    event: !type:InstantSpawnSpellEvent
+      prototype: WallInvisible
+      posData: !type:TargetInFrontSingle
+      preventCollideWithCaster: false
+  - type: PopupOnAction
+    text: mime-invisible-wall-popup-self
+    otherText: mime-invisible-wall-popup-others
+
+- type: entity
+  parent: ActionMimeBase
+  id: ActionMimeInvisibleChair
+  name: Invisible Chair
+  description: The mime's performance transmutates a chair into physical reality.
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Interface/Actions/mime.rsi
+      state: chair
+  - type: InstantAction
+    event: !type:InstantSpawnSpellEvent
+      prototype: ChairMime
+      preventCollideWithCaster: false
+      tryBuckle: true
+  - type: PopupOnAction
+    text: mime-invisible-chair-popup-self
+    otherText: mime-invisible-chair-popup-others
+
+- type: entity
+  parent: ActionMimeBase
+  id: ActionMimeInvisibleBox
+  name: Invisible Box
+  description: The mime's performance transmutates a box into physical reality.
+  components:
+  - type: Action
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Interface/Actions/mime.rsi
+      state: box
+  - type: InstantAction
+    event: !type:InstantSpawnInHandActionEvent
+      prototype: BoxInvisible
+  - type: PopupOnAction
+    text: mime-invisible-box-popup-self
+    otherText: mime-invisible-box-popup-others
+
+- type: entity
+  parent: ActionMimeInvisibleWall
+  id: ActionMimeInvisibleBlockade
+  name: Invisible Blockade
+  description: Form an invisible three tile wide blockade.
+  components:
+  - type: Action
+    useDelay: 60
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Interface/Actions/mime.rsi
+      state: blockade
+  - type: InstantAction
+    event: !type:InstantSpawnSpellEvent
+      prototype: WallInvisibleBlockade
+      posData: !type:TargetInFront
+      preventCollideWithCaster: false
+  - type: PopupOnAction
+    text: mime-invisible-blockade-popup-self
+    otherText: mime-invisible-blockade-popup-others
+
+- type: entity
+  parent: ActionMimeBase
+  id: ActionMimeFingerGuns
+  name: Finger Guns
+  description: Shoot a mimed bullet from your fingers that damages and mutes its target.
+  components:
+  - type: Action
+    useDelay: 2
+    raiseOnAction: true
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Interface/Actions/mime.rsi
+      state: gun
+  - type: InstantAction
+    event: !type:OnRetractableItemActionEvent
+  - type: RetractableItemAction
+    spawnedPrototype: WeaponPistolFingerGun
+    retractOnCrit: true
+  - type: PopupOnRetractableItemAction
+    unretractedText: mime-finger-gun-popup-on-self
+    unretractedOtherText: mime-finger-gun-popup-on-others
+    retractedText: mime-finger-gun-popup-off-self
+    retractedOtherText: mime-finger-gun-popup-off-others

@@ -1,0 +1,20 @@
+﻿- type: entity
+  id: BulletMime
+  name: silenced bullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 21 # same as the cobra
+  - type: SolutionContainerManager
+    solutions:
+      bullet:
+        maxVol: 2.5
+        reagents:
+        - ReagentId: MuteToxin
+          Quantity: 2.5
+  - type: SolutionInjectOnProjectileHit
+    solution: bullet
+    transferAmount: 2.5
