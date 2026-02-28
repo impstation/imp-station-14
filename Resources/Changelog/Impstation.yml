@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: Pinkbat5
-  changes:
-  - message: Clown ruffles don't go under decapoid gills anymore.
-    type: Tweak
-  id: 2168
-  time: '2025-08-16T01:25:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3298
 - author: honeyed-lemons
   changes:
   - message: The air around Box Station has cleared of plasma a small bit.. But it's
@@ -4144,3 +4137,13 @@
   id: 2667
   time: '2026-02-27T11:17:25.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4136
+- author: eviltori
+  changes:
+  - message: decapoids now have their own survival boxes instead of just using o2
+      boxes.
+    type: Add
+  - message: decapoids no longer spawn with useless tank harnesses.
+    type: Fix
+  id: 2668
+  time: '2026-02-28T11:25:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4145
