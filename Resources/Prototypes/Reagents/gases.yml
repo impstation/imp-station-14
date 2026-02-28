@@ -149,6 +149,12 @@
         damage:
           types:
             Radiation: 1.5
+        # imp edit start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity
+          inverted: true
+        # imp edit end
     Gas:
       effects:
       - !type:HealthChange
@@ -157,6 +163,12 @@
           types:
             Radiation:
               1
+        # imp edit start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity
+          inverted: true
+        # imp edit end
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
@@ -164,11 +176,11 @@
         clear: True
         time: 5
       # imp edit start
-      - !type:Oxygenate #thaven don't suffocate from any gases
+      - !type:Oxygenate #thaven don't suffocate from any gases, gray enrichment
         scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Thaven ]
+          type: [ Thaven, Gray ]
       # imp edit end
 
 - type: reagent

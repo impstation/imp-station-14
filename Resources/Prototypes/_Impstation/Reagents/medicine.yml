@@ -151,6 +151,9 @@
         - !type:ReagentCondition
           reagent: ClarifiedPhalanximine
           min: 16
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity
+          inverted: true
         damage:
           types:
             Radiation: 0.2
