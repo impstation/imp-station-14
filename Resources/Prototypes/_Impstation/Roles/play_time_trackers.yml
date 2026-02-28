@@ -101,6 +101,12 @@
 - type: playTimeTracker
   id: AntagParadoxClone
 
+- type: playTimeTracker
+  id: AntagMothershipCore
+
+- type: playTimeTracker
+  id: AntagXenoborg
+
 # non-upstream antagonists:
 
 - type: playTimeTracker
@@ -131,8 +137,11 @@
   id: AntagBountyHunter
 
 - type: playTimeTracker
+  id: AntagButler
+
+- type: playTimeTracker
   id: AntagVRex
-  
+
 - type: playTimeTracker
   id: AntagTourist #I should probably rename this but I really want it to fit the naming scheme of everything else
 
@@ -146,3 +155,5 @@
 - type: playTimeTracker
   id: JobCentCommInternLeader
 
+- type: playTimeTracker
+  id: AntagConspirator

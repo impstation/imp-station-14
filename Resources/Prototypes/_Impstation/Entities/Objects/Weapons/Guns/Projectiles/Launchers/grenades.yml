@@ -1,0 +1,300 @@
+- type: entity
+  id: BulletGrenadeBaton
+  name: baton grenade
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 15 #imp
+    soundHit:
+      path: /Audio/Effects/gen_hit.ogg
+  - type: StaminaDamageOnCollide
+    damage: 80
+
+- type: entity
+  id: BulletGrenadeBlast
+  name: blast grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 150 # a ~2 tile radius
+    intensitySlope: 5
+    maxIntensity: 10
+    canCreateVacuum: false
+
+- type: entity
+  id: BulletGrenadeFlash
+  name: flash grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: FlashOnTrigger
+    range: 7
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: DeleteOnTrigger
+
+- type: entity
+  id: BulletGrenadeFrag
+  name: frag grenade
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: grenade
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 50
+    intensitySlope: 1
+    maxIntensity: 5
+    canCreateVacuum: false
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ProjectileGrenade
+    triggerKey: trigger
+    fillPrototype: PelletClusterLessLethal
+    capacity: 30
+
+- type: entity
+  id: BulletGrenadeEMP
+  name: EMP rocket
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: frag
+  - type: EmpOnTrigger
+    range: 5
+    energyConsumption: 50000
+    disableDuration: 10
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    radius: 3.5
+    color: blue
+    energy: 0.5
+
+- type: entity
+  id: BulletCannonBall
+  name: cannonball
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: ball
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: DemolitionCharge
+    maxIntensity: 9
+    intensitySlope: 6
+    totalIntensity: 60
+    maxTileBreak: 0
+  - type: PointLight
+    radius: 1
+    color: orange
+    energy: 0.5
+
+#this is technically a throwable now but it will absolutely not work as anything other than a bullet shot from a gun
+- type: entity
+  id: BulletGrenadeCleaner
+  name: cleaner grenade
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: CollisionWake
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/cleanmine.rsi
+    layers:
+      - state: cleanmine
+    noRot: true
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 7
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: SpaceCleaner
+        Quantity: 50
+  - type: EmitSmokeOnDespawn
+    duration: 7
+    spreadAmount: 20
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: SpaceCleaner
+        Quantity: 50
+  - type: EmitSmokePeriodically
+    duration: 7
+    spreadAmount: 1
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: SpaceCleaner
+        Quantity: 50
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    radius: 3.5
+    color: blue
+    energy: 0.5
+  - type: TileFrictionModifier
+    modifier: 0.01
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.15 #I am going to become the joker why does the game not error out if there's a fucking typo in a field name in a component come the fuck on
+        density: 10
+        mask:
+        - ItemMask
+        restitution: 1.0  # 100% bouncy
+        friction: 0.1
+  - type: TimedDespawn
+    lifetime: 7
+  - type: TriggerOnCollide
+    fixtureID: fix1
+  - type: EmitSoundOnCollide
+    sound:
+      collection: WeakHit
+  - type: EmitSoundOnSpawn
+    sound: /Audio/Items/smoke_grenade_smoke.ogg
+  - type: ProjectileSpeedOverride
+    speedOverride: 17
+
+- type: entity
+  id: BulletGrenadeCleanerBleach
+  name: heavy-duty cleaner grenade
+  parent: BulletGrenadeCleaner
+  components:
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 7
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: Bleach
+        Quantity: 8
+  - type: EmitSmokeOnDespawn
+    duration: 7
+    spreadAmount: 20
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: Bleach
+        Quantity: 8
+  - type: EmitSmokePeriodically
+    duration: 7
+    spreadAmount: 1
+    smokePrototype: Foam
+    solution:
+      reagents:
+      - ReagentId: Bleach
+        Quantity: 8
+
+
+# Pellet Clusters
+
+- type: entity
+  id: PelletClusterRubber
+  name: pellet (ball, rubber)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    layers:
+    - state: rubber
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 4
+  - type: StaminaDamageOnCollide
+    damage: 55
+  - type: TimedDespawn
+    lifetime: 0.25
+
+- type: entity
+  id: PelletClusterLethal
+  name: pellet (ball, lethal)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
+    layers:
+    - state: shard
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Piercing: 45
+  - type: TimedDespawn
+    lifetime: 0.25
+
+- type: entity
+  id: PelletClusterIncendiary
+  name: pellet (ball, incendiary)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletIncendiary
+  components:
+  - type: Sprite
+    layers:
+    - state: buckshot-flare
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Blunt: 1
+        Heat: 2
+  - type: IgniteOnCollide
+    fireStacks: 1
+    count: 10
+  - type: TimedDespawn
+    lifetime: 0.25
+
+- type: entity
+  id: PelletClusterLessLethal
+  name: pellet (ball, less lethal)
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  components:
+  - type: Sprite
+    sprite: /Textures/_Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
+    layers:
+    - state: shard
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Piercing: 5
+  - type: TimedDespawn
+    lifetime: 0.25

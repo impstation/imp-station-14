@@ -88,7 +88,7 @@
     thresholds:
       0: Alive
       150: Critical
-      250: Dead
+      200: Dead
   - type: StaminaDamageOnHit
     damage: 18
   - type: Hunger
@@ -100,18 +100,10 @@
       Dead: 0
     baseDecayRate: 0.0124 # 3/4 as fast as a human
   - type: GoobAbsorbable
-    biomassRestored: 0.8 # im so full of ungu yum
   - type: Thirst
   - type: Icon
     sprite: _Impstation/Mobs/Species/Ungu/parts.rsi
     state: full
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 3.2
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
   - type: Body
     prototype: Ungu
     requiredLegs: 2
@@ -142,19 +134,23 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Ungu
-  - type: Temperature
-    heatDamageThreshold: 340
+  - type: TemperatureDamage
+    heatDamageThreshold: 320
     coldDamageThreshold: 200
-    currentTemperature: 310
-    specificHeat: 42
     coldDamage:
       types:
-        Cold: 0.2 #per second, scales with temperature & other constants
+        Cold: 0.1 #per second, scales with temperature & other constants
     heatDamage:
       types:
-        Heat: 1.5 #per second, scales with temperature & other constants
+        Heat: 3.0 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
   - type: Bloodstream
-    bloodReagent: Blood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

@@ -47,8 +47,6 @@
     entries:
     - chemical: Cryptobiolin
       amount: 15
-    - chemical: Ethylredoxrazine
-      amount: 45
 
 - type: entity
   id: XenoArtifactInjectDrunkHigh
@@ -66,8 +64,6 @@
     - chemical: Cryptobiolin
       amount: 10
     - chemical: SpaceDrugs
-      amount: 30
-    - chemical: Ethylredoxrazine
       amount: 30
 
 - type: entity
@@ -130,7 +126,7 @@
   suffix: "Very local knockdown"
   parent: AdminInstantEffectBase
   components:
-  - type: StunOnTrigger
+  - type: StunAreaOnTrigger
     range: 4
     entireGrid: false
     knockdownTime: 1.5
@@ -163,7 +159,7 @@
   suffix: "Local knockdown"
   parent: AdminInstantEffectBase
   components:
-  - type: StunOnTrigger
+  - type: StunAreaOnTrigger
     range: 8
     entireGrid: false
     knockdownTime: 4
@@ -194,7 +190,7 @@
 - type: entity
   id: XenoArtifactDangerousFaunaSpawn
   parent: BaseXenoArtifactEffect
-  description: Create dangerous fauna
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -272,14 +268,39 @@
     damageChance: 0.85
     whitelist:
       tags:
-      - Window
       - Wall
     damage:
       types:
-        Structural: 50
+        Structural: 500
 
 - type: entity
   id: XenoArtifactPresent
+  parent: BaseXenoArtifactEffect
+  description: Matter creation
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 6
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 3
+    maxNodeUnlocks: 6
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: PresentRandom
+          prob: 0.5
+        - id: PresentRandomUnsafe
+          prob: 0.3
+        - id: PresentRandomInsane
+          prob: 0.2
+
+- type: entity
+  id: XenoArtifactPresentLesser
   parent: BaseXenoArtifactEffect
   description: Matter creation
   components:
@@ -400,11 +421,41 @@
         - id: ScrollRunes
 
 - type: entity
+  id: XenoArtifactCashSpawnMajor
+  parent: BaseXenoArtifactEffect
+  description: Matter creation #imp effect obfuscation
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 2
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 1
+    maxNodeUnlocks: 5 #IMP
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        rolls: !type:RangeNumberSelector
+          range: 2, 4
+        children:
+        - id: SpaceCash1000
+          weight: 0.75
+        - id: SpaceCash10000
+          weight: 0.5
+        - id: SpaceCash50000
+          weight: 0.25
+        - id: SpaceCash1000000 # winnning thusd lottery
+          weight: 0.005
+
+- type: entity
   id: InstantEffectGridKnockdown
   suffix: "Gridwide knockdown"
   parent: AdminInstantEffectBase
   components:
-  - type: StunOnTrigger
+  - type: StunAreaOnTrigger
     range: 15
     entireGrid: true
     knockdownTime: 3
@@ -435,7 +486,7 @@
 - type: entity
   id: XenoArtifactSupermatter
   parent: BaseOneTimeXenoArtifactEffect
-  description: Imminent doom
+  description: Stationwide destruction
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -482,3 +533,54 @@
           Bloodloss: -0.3
           Poison: -0.3
           Radiation: -0.2
+
+- type: entity
+  id: XenoArtifactMindlessClone
+  parent: BaseXenoArtifactEffect
+  description: Matter creation
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 6
+    maxDurabilityCanDecreaseBy:
+      min: 0
+      max: 3
+    maxNodeUnlocks: 0
+  - type: XAEApplyComponents
+    applyIfAlreadyHave: true
+    refreshOnReactivate: true
+    components:
+    - type: EntityTableSpawner
+      deleteSpawnerAfterSpawn: false
+      table: !type:GroupSelector
+        children:
+        - id: MobMindlessClone # ~2 in 3, passive
+          prob: 0.61
+        - id: MobMindlessCloneHostile # ~1 in 3, hostile
+          prob: 0.30
+        - id: MobMindlessCloneMindswapHostile # ~1 in 20, mindswap + hostile
+          prob: 0.05
+
+- type: entity
+  id: XenoArtifactAnimateSingle
+  parent: BaseXenoArtifactEffect
+  description: Neurological activity
+  components:
+  - type: XenoArtifactNode
+    maxDurability: 6
+    maxDurabilityCanDecreaseBy:
+      min: 1
+      max: 3
+  - type: XAEAnimate
+    range: 6
+    duration: 10
+    count: 1
+
+- type: entity
+  id: XenoArtifactAnimateTriple
+  parent: BaseXenoArtifactEffect
+  description: Neurological activity
+  components:
+  - type: XAEAnimate
+    range: 7
+    duration: 12
+    count: 3

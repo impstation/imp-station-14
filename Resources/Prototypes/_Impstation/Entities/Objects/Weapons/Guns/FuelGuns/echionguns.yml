@@ -1,0 +1,165 @@
+# Guns that use Echion as fuel and typically shoot plasma
+- type: entity
+  name: Adder
+  parent: [BaseWeaponEchion, Tier3Contraband]
+  id: WeaponPlasmaAdder
+  description: The future of stellar warfare in the palm of your hand. Uses Echion, produced from advanced synthesizers.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: Appearance
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/adder.rsi
+    size: Small
+    shape:
+    - 0,0,1,1
+  - type: Tag
+    tags:
+    - EchionGun
+    - Sidearm
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  name: Akurra
+  parent: [BaseWeaponEchion, BaseGunWieldable, Tier3Contraband]
+  id: WeaponPlasmaAkurra
+  description: A beautiful marriage of technology and malice in a single package. Uses Echion, produced from advanced synthesizers.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-4
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: Appearance
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/akurra.rsi
+    size: Large
+    shape:
+    - 0,0,3,1
+  - type: Gun
+    projectileSpeed: 25
+    clumsyProof: false
+    cameraRecoilScalar: 1
+    fireRate: 5.3
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    minAngle: 21
+    maxAngle: 39
+    angleIncrease: 2
+    angleDecay: 18
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/adder.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 150
+        maxVol: 150 #30 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: BulletPlasmaAkurra
+    fireCost: 5
+  - type: StaticPrice
+    price: 100
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+    wideAnimationRotation: 0
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+
+- type: entity
+  name: Taipan
+  parent: [BaseWeaponEchion, Tier3Contraband]
+  id: WeaponEnergyCrossbow
+  description: An experimental crossbow that launches shards of crystalized Echion, poisoning its targets and making them more volatile to combustables.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi
+    size: Small
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    minAngle: 0
+    maxAngle: 5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/energycrossbow_shoot.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 37.5
+        maxVol: 37.5 #3 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: EnergyCrossbowBolt
+    fireCost: 12.5
+  - type: Appearance
+  - type: Tag
+    tags:
+    - EchionGun
+    - Sidearm
+  - type: StaticPrice
+    price: 2500
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        empty-icon:
+          True: { visible: False }
+          False: { visible: True }

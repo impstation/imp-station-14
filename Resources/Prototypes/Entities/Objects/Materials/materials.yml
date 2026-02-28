@@ -45,6 +45,7 @@
     - cardboard_2
     - cardboard_3
   - type: Sprite
+    sprite: _Impstation/Objects/Materials/materials.rsi #imp edit
     state: cardboard_3
     layers:
     - state: cardboard_3
@@ -64,6 +65,7 @@
         - ReagentId: Pulp #imp
           Quantity: 6
   - type: Item
+    sprite: _Impstation/Objects/Materials/materials.rsi #imp edit
     heldPrefix: cardboard
   - type: FloorTile
     outputs:
@@ -87,12 +89,12 @@
     key: enum.ShortConstructionUiKey.Key
   - type: ShortConstruction
     prototypes:
-    - WallCardboard
+    - Cardwall
     - WindowCardboard
     - WindowDirectionalCardboard
     - ChairCardboard
     - TileCardboard
-    - DoorCardboard
+    - CardDoor
   - type: Tag
     tags:
       - ClothMade
@@ -332,26 +334,8 @@
     key: enum.ShortConstructionUiKey.Key
   - type: ShortConstruction
     prototypes:
-    - TileWood
-    - TileWoodBlack
-    - TileWoodChess
-    - TileWoodChessBlack
-    - TileWoodChessDark
-    - TileWoodChessLight
-    - TileWoodChessRed
-    - TileWoodDark
-    - TileWoodLarge
-    - TileWoodLargeBlack
-    - TileWoodLargeDark
-    - TileWoodLargeLight
-    - TileWoodLargeRed
-    - TileWoodLight
-    - TileWoodParquet
-    - TileWoodParquetBlack
-    - TileWoodParquetDark
-    - TileWoodParquetLight
-    - TileWoodParquetRed
-    - TileWoodRed
+    - Barricade
+    - BarricadeDirectional
   - type: PluralName
     oneOf: plural-name-plank-1
     someOf: plural-name-plank-2plus
@@ -430,7 +414,7 @@
       - HEAD
   - type: PointLight
     radius: 1.2
-    energy: 1.5
+    energy: 2.7
     color: "#4faffb"
     slots:
   # imp edit start

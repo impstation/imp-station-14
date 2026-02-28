@@ -6,9 +6,10 @@
   abstract: true
   components:
   - type: GoobAbsorbable
-    biomassRestored: 1.0
   - type: Hunger
+    baseDecayRate: 0.02 # 30% ish more than default
   - type: Thirst
+    baseDecayRate: 0.02 # 30% ish more than default
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -44,8 +45,10 @@
     damageContainer: Biological
     damageModifierSet: Allulalo #stops them from being oppressive hopefully
   - type: Bloodstream
-    bloodMaxVolume: 250 #should be 50 less than the default of 300. theyre small
-    bloodReagent: BloodAllulalo
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BloodAllulalo
+        Quantity: 250 #should be 50 less than the default of 300. theyre small
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

@@ -17,9 +17,9 @@
         maxVol: 55 # flavored cakes have less room for spiking
         reagents:
         - ReagentId: Nutriment
-          Quantity: 40 # imp
+          Quantity: 40
         - ReagentId: Vitamin
-          Quantity: 10 # imp
+          Quantity: 10
   - type: Item
     size: Normal
   - type: Tag
@@ -47,8 +47,8 @@
   components:
   - type: FlavorProfile
     flavors:
-    - sweet
-  - type: Food
+      - sweet
+  - type: Edible
   - type: SolutionContainerManager
     solutions:
       food:
@@ -152,10 +152,10 @@
     state: plain
   - type: SliceableFood
     slice: FoodCakePlainSlice
-  - type: SolutionContainerManager # imp
+  - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 30 #imp
         reagents:
         - ReagentId: Nutriment
           Quantity: 20
@@ -177,7 +177,7 @@
   components:
   - type: Sprite
     state: plain-slice
-  - type: SolutionContainerManager # imp
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 10
@@ -215,7 +215,7 @@
         #- ReagentId: Sugar # imp
         #  Quantity: 5
         - ReagentId: Vitamin
-          Quantity: 17
+          Quantity: 17 # imp
         - ReagentId: Nutriment # imp
           Quantity: 20
   - type: Tag
@@ -1452,6 +1452,8 @@
     damage:
       groups:
         Brute: 1
+  - type: Physics # imp fix
+    bodyType: KinematicController
 
 # Suppermatter
 # I can't figure out where to put this. It kind of acts like a cake I guess?
@@ -1476,7 +1478,7 @@
           Quantity: 80
         - ReagentId: Sugar
           Quantity: 30
-  - type: Food
+  - type: Edible
     transferAmount: 12
   - type: Item
     size: Normal
@@ -1484,7 +1486,7 @@
   - type: PointLight
     color: "#FFFF00"
     radius: 2
-    energy: 1.4
+    energy: 2.5
   - type: Tag # imp
     tags:
     - Cake
@@ -1508,12 +1510,12 @@
           Quantity: 10
         - ReagentId: Sugar
           Quantity: 3.75 # imp
-  - type: Food
+  - type: Edible
     transferAmount: 3
   - type: PointLight
     color: "#FFFF00"
     radius: 1.4
-    energy: 1.4
+    energy: 2.5
   - type: Tag
     tags:
     - Slice
@@ -1522,6 +1524,7 @@
     entries:
       Taco: Suppermatter
       Burger: SuppermatterBurger
+      Hotdog: Suppermatter #imp
   - type: Item
     heldPrefix: suppermatter-shard
 

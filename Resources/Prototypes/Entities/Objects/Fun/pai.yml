@@ -58,6 +58,9 @@
     - Common
   - type: DoAfter
   - type: Actions
+  - type: ActionGrant
+    actions:
+    - ActionPAIOpenShop
   - type: Store
     categories:
     - PAIAbilities
@@ -168,8 +171,6 @@
       shader: unshaded
     # imp edit end
   - type: Appearance
-  - type: StaticPrice
-    price: 5000
   # imp edit start
   - type: ToggleableGhostRole
     roleName: pai-system-role-name-golden
@@ -221,15 +222,10 @@
     node: potatoai
 
 - type: entity
-  parent: BaseMentalAction
+  parent: ActionIntrinsicStore
   id: ActionPAIOpenShop
   name: Software Catalog
   description: Install new software to assist your owner.
-  components:
-  - type: Action
-    icon: Interface/Actions/shop.png
-  - type: InstantAction
-    event: !type:PAIShopActionEvent
 
 - type: entity
   parent: BaseMentalAction

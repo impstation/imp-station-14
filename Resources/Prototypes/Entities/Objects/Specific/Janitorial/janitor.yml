@@ -50,21 +50,20 @@
       Plastic: 50
   - type: Tag
     tags:
-      - DroneUsable #No bucket because it holds chems, they can drag the cart or use a drain
+      - DroneUsable #imp edit, no bucket because it holds chems, they can drag the cart or use a drain
       - Mop
       - MopBasic
   - type: GuideHelp
     guides:
     - Janitorial
   - type: DnaSubstanceTrace
-  - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 6
+  # imp edit start
+  - type: DamageOtherOnHit
     staminaCost: 8
+  # imp edit end
 
 - type: entity
-  parent: BaseItem
+  parent: MopItem
   name: advanced mop
   id: AdvMopItem
   description: Motorized mop that has a bigger reservoir and quickly replaces reagents inside with water. Automatic Clown Countermeasure not included.
@@ -76,63 +75,32 @@
       - map: ["enum.SolutionContainerLayers.Fill"]
         state: fill-2
         visible: false
-    - type: Appearance
     - type: SolutionContainerVisuals
       maxFillLevels: 2
-      fillBaseName: fill-
-      inHandsFillBaseName: -fill-
-      inHandsMaxFillLevels: 2
-    - type: MeleeWeapon
-      damage:
-        types:
-          Blunt: 10
-      soundHit:
-         collection: MetalThud
-    - type: Spillable
-      solution: absorbed
-      spillWhenThrown: false
-      preventMelee: false
-    - type: DrainableSolution
-      solution: absorbed
-    - type: Wieldable
-    - type: IncreaseDamageOnWield
-      damage:
-        types:
-          Blunt: 5
     - type: Item
-      size: Large
       sprite: Objects/Specific/Janitorial/advmop.rsi
     - type: Absorbent
       pickupAmount: 100
-      useAbsorberSolution: true
-    - type: UseDelay
-      delay: 1.0
     - type: SolutionRegeneration
       solution: absorbed
       generated:
         reagents:
         - ReagentId: Water
-          Quantity: 5
+          Quantity: 10 # imp, from 5
     - type: SolutionPurge
       solution: absorbed
       preserve:
       - Water
-      quantity: 10
-    - type: SolutionContainerManager
-      solutions:
-        absorbed:
-          maxVol: 100
+      quantity: 15 # imp, from 10
     - type: Tag
       tags:
-        - DroneUsable #No bucket because it holds chems, they can drag the cart or use a drain
+        - DroneUsable #imp edit, no bucket because it holds chems, they can drag the cart or use a drain
         - Mop
         - MopAdv
-    - type: DnaSubstanceTrace
-    - type: DamageOtherOnHit # imp
-      damage:
-        types:
-          Blunt: 6
+    # imp edit start
+    - type: DamageOtherOnHit
       staminaCost: 8
+    # imp edit end
 
 - type: entity
   name: wet floor sign
@@ -323,7 +291,7 @@
   id: PlungerLoot
   weights:
     RandomSpawner100: 56
-    SpacemenFigureSpawner: 28
+    SpacemenFigurineSpawner90: 28
     SpawnMobCockroach: 5
     MaintenanceToolSpawner: 5
     SpawnMobMoproach: 2
@@ -376,7 +344,6 @@
         - DroneUsable #imp edit
         - Mop
         - DampRag #imp edit
-    - type: CleansForensics
     - type: Fiber
       fiberColor: fibers-white
     - type: DnaSubstanceTrace

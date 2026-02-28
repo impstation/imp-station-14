@@ -5,7 +5,6 @@
   id: BaseMobGray
   abstract: true
   components:
-  - type: GoobAbsorbable
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -47,7 +46,10 @@
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#00ff04"
   - type: Bloodstream
-    bloodReagent: GrayBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GrayBlood
+        Quantity: 300
   - type: Inventory
     speciesId: gray
     templateId: gray
@@ -111,6 +113,11 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: HomunculusType
+    homunculusType: HomunculusGray
+    recipe:
+      SynthFlesh: 20
+      Saline: 20
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -122,8 +129,8 @@
   - type: Body
     prototype: Gray
   - type: Inventory
-    speciesId: gray
     templateId: gray
+    speciesId: gray
     displacements:
       jumpsuit:
         sizeMaps:

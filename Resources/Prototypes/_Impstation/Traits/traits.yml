@@ -17,8 +17,7 @@
   category: Traits
   components:
     - type: SpeechRequiresEquipment
-      equipment:
-        neck:
+      whitelist:
           tags:
             - SGD
       failMessage: sgdrequired-cant-speak
@@ -138,6 +137,39 @@
   name: trait-soft-hands-name
   description: trait-soft-hands-desc
   category: Traits
+  excludedSpecies: 
+    - Allulalo
   components:
   - type: UnableToWield
   cost: -3
+
+- type: trait
+  id: HatedByDogs
+  name: trait-hated-by-dogs-name
+  description: trait-hated-by-dogs-desc
+  category: Traits
+  components:
+  - type: HatedByDogs
+  cost: -1
+
+- type: trait
+  id: Hemorrhage
+  name: trait-hemorrhage-name
+  description: trait-hemorrhage-desc
+  category: Traits
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - StatusEffectHemorrhageTrait
+  cost: -6
+
+- type: trait
+  id: Hungry
+  name: trait-hungry-name
+  description: trait-hungry-desc
+  category: Traits
+  excludedSpecies: 
+    - Kodepiia
+  components:
+  - type: HungryTrait
+  cost: -1

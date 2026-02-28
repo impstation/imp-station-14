@@ -11,7 +11,8 @@
   - type: Icon
     sprite: _Impstation/Mobs/Species/Thaven/parts.rsi # Unlike dwarves elves are NOT made of slime
     state: full
-  - type: ThavenMoods
+  - type: StrangeMoods
+    mood: ThavenMoods
   - type: IonStormTarget
   - type: Sprite
     noRot: true
@@ -20,7 +21,7 @@
   - type: Body
     prototype: Thaven
     requiredLegs: 2
-  - type: NoContractionsAccent
+  - type: ThavenAccent
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Thaven
@@ -72,7 +73,10 @@
     - Hair
     - Snout
   - type: Bloodstream
-    bloodReagent: ShimmeringBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ShimmeringBlood
+        Quantity: 300
   - type: Inventory
     speciesId: thaven
     templateId: thaven
@@ -97,6 +101,11 @@
           32:
             sprite: _Impstation/Mobs/Species/Thaven/displacement.rsi
             state: hands
+  - type: HomunculusType
+    homunculusType: HomunculusThaven
+    recipe:
+      SynthFlesh: 20
+      Saline: 20
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -72,6 +72,8 @@
         - NamesBountyHunterTitle
         - NamesBountyHunter
         nameFormat: name-format-bounty-hunter
+      - type: RandomHumanoidAppearance
+        randomizeName: false
 
 #vrex
 - type: entity
@@ -82,7 +84,7 @@
     weight: 3.5 #not as rare as midround ling or zombies, but rare enough to feel dread
     duration: 1
     earliestStart: 20 #maybe a strange choice, but the one play of v-rex in shift i saw was really calm
-    minimumPlayers: 50
+    minimumPlayers: 40
     maxOccurrences: 1 # imagine 2 of them
   - type: VentCrittersRule
     specialEntries:
@@ -123,6 +125,14 @@
     reoccurrenceDelay: 20
     minimumPlayers: 10
     duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostOppa
+      min: 1
+      max: 1
+      pickPlayer: false
 
 # syndicate infiltrator
 - type: entity
@@ -172,7 +182,7 @@
     - id: TouristSmallShuttle
     - id: TouristMediumShuttle
     - id: TouristLargeShuttle
-    
+
 - type: entity
   id: TouristSmallShuttle #one tourist
   parent: BaseGameRule
@@ -259,3 +269,44 @@
   - type: GlobalStatusEffectRule
     statusEffect: "StatusEffectBiomagneticPolarization"
     announcement: "station-event-biomagnetic-polarization-announcement"
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: ButlerSpawn
+  components:
+  - type: StationEvent
+    startAnnouncement: false
+    weight: 1.5
+    maxOccurrences: 1 #autolink on signaller will break with multiple butlers
+    duration: null
+  - type: AntagLoadProfileRule
+  - type: AntagObjectives
+    objectives:
+    - ButlerServeObjective
+    - ButlerDieObjective
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostButler
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: ButlerGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomHumanoidAppearance
+      - type: AutoImplant
+        implants:
+        - ButlerBombImplant
+      - type: TriggerOnMobstateChange
+        mobState:
+        - Dead
+      - type: GibOnTrigger
+        targetUser: true
+        deleteItems: false
+      - type: UnableToWield
+      - type: NpcFactionMember
+        factions:
+        - Passive
+      mindRoles:
+      - MindRoleButler

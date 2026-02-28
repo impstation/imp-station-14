@@ -85,7 +85,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed : 2.5
     baseSprintSpeed : 5
-  - type: Food
+  - type: Edible
   - type: GoobAbsorbable
     biomassRestored: 0.1
   - type: FlavorProfile
@@ -149,8 +149,10 @@
       types:
         Piercing: 0
   - type: Bloodstream
-    bloodReagent: GrayBlood
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GrayBlood
+        Quantity: 50
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning

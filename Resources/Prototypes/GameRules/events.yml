@@ -281,7 +281,7 @@
       pickPlayer: false
       startingGear: SpaceNinjaGear
       roleLoadout:
-      - RoleSurvivalEVA
+      - RoleSurvivalSpaceNinja
       briefing:
         text: ninja-role-greeting
         color: Green
@@ -485,10 +485,11 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 60 #imp. original 90
+    earliestStart: 75 #imp. original 90, dropped to 60, increased to 75
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
+    occursDuringRoundEnd: false
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -636,8 +637,17 @@
     - Research
     - Security
     - Service
+    - Medical #imp
     blacklist:
     - External # don't space everything
+    bannedExtras: #imp
+     tags:
+     - ExternalAirlock
+     components:
+     - GasCanister
+     - BorgChassis
+     - Emitter
+     - AntiTamper
 
 - type: entity
   parent: BaseGameRule

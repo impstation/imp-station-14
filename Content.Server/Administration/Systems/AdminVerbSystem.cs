@@ -9,6 +9,7 @@ using Content.Server.Prayer;
 using Content.Server.Silicons.Laws;
 using Content.Server.Station.Systems;
 using Content.Shared.Administration;
+using Content.Shared.Administration.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Configurable;
@@ -34,9 +35,10 @@ using Robust.Shared.Timing;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server._Impstation.StrangeMoods; // imp
+using Content.Server._Impstation.StrangeMoods.Eui; // imp
+using Content.Shared._Impstation.StrangeMoods; // imp
 using static Content.Shared.Configurable.ConfigurationComponent;
-using Content.Shared._Impstation.Thaven.Components; // imp
-using Content.Server._Impstation.Thaven; // imp
 
 namespace Content.Server.Administration.Systems
 {
@@ -67,7 +69,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly AdminFrozenSystem _freeze = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly SiliconLawSystem _siliconLawSystem = default!;
-        [Dependency] private readonly ThavenMoodsSystem _moods = default!; // imp
+        [Dependency] private readonly StrangeMoodsSystem _moods = default!; // imp
 
         private readonly Dictionary<ICommonSession, List<EditSolutionsEui>> _openSolutionUis = new();
 
@@ -409,15 +411,15 @@ namespace Content.Server.Administration.Systems
                 });
 
                 // Begin Impstation Additions
-                if (TryComp<ThavenMoodsComponent>(args.Target, out var moods))
+                if (TryComp<StrangeMoodsComponent>(args.Target, out var moods))
                 {
                     args.Verbs.Add(new Verb()
                     {
-                        Text = Loc.GetString("thaven-moods-ui-verb"),
+                        Text = Loc.GetString("strange-moods-ui-verb"),
                         Category = VerbCategory.Admin,
                         Act = () =>
                         {
-                            var ui = new ThavenMoodsEui(_moods, EntityManager, _adminManager);
+                            var ui = new StrangeMoodsEui(_moods, EntityManager, _random, _adminManager);
                             if (!_playerManager.TryGetSessionByEntity(args.User, out var session))
                                 return;
 
