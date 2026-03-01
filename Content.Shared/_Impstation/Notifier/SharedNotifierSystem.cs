@@ -1,9 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Impstation.CCVar;
+using Content.Shared.Cloning.Events;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Roles.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
@@ -34,6 +36,22 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         SubscribeLocalEvent<NotifierComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<NotifierComponent, PlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<NotifierComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
+        SubscribeLocalEvent<NotifierComponent, CloningEvent>(OnClone);
+    }
+
+    private void OnClone(Entity<NotifierComponent> ent, ref CloningEvent args)
+    {
+
+        if (_netManager.IsServer && HasComp<ParadoxCloneRoleComponent>(args.CloneUid))
+        {
+            CreateCopyCat(ent , args.CloneUid);
+         return;
+        }
+        var cloneNotifier = EnsureComp<NotifierComponent>(args.CloneUid);
+
+        cloneNotifier.Settings = ent.Comp.Settings;
+        cloneNotifier.AttachedUserId = ent.Comp.AttachedUserId;
+
     }
 
     public bool TryGetNotifier(NetUserId userId, [NotNullWhen(true)] out PlayerNotifierSettings? notifierSettings)
@@ -103,5 +121,10 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         ent.Comp.AttachedUserId = args.Player.UserId;
         ent.Comp.Settings.Enabled=GetNotifierEnabled(args.Player.UserId);
         ent.Comp.Settings.Freetext=GetNotifierText(args.Player.UserId);
+    }
+
+    protected virtual void CreateCopyCat(Entity<NotifierComponent> original, EntityUid clone)
+    {
+        return;
     }
 }

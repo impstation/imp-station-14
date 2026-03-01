@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server._Impstation.Notifier.Components;
 using Content.Server.Database;
 using Content.Shared._Impstation.Notifier;
 using Robust.Shared.Network;
@@ -11,7 +12,7 @@ namespace Content.Server._Impstation.Notifier;
 
 public sealed class NotifierSystem : SharedNotifierSystem
 {
-    private readonly Dictionary<NetUserId, PlayerNotifierSettings> NotifierUsers= new();// holds the notifier settings for current players, we don't get directly from the DB because those are async operations.
+    private readonly Dictionary<NetUserId, PlayerNotifierSettings> _notifierUsers= new();// holds the notifier settings for current players, we don't get directly from the DB because those are async operations.
 
     /// <summary>
     /// Get a users freetext from their settings.
@@ -41,7 +42,7 @@ public sealed class NotifierSystem : SharedNotifierSystem
 
         if (notifierSettings == null)// check if the given settings are null, we assume this means that the player has disconnected.
         {
-            NotifierUsers.Remove(userId);
+            _notifierUsers.Remove(userId);
             return;
         }
 
@@ -62,6 +63,14 @@ public sealed class NotifierSystem : SharedNotifierSystem
         return notifier?.Enabled ?? false;
     }
 
+    protected override void CreateCopyCat(Entity<NotifierComponent> original, EntityUid clone)
+    {
+        var copied = EnsureComp<NotifierCopiedComponent>(original.Owner);
+        var copycat = EnsureComp<NotifierCopycatComponent>(clone);
+        copied.Copycats.Add(clone);
+        copycat.Copies.Add(original.Owner, original.Comp.Settings);
+    }
+
     /// <summary>
     /// Add a player to the currently loaded notifiers.
     /// </summary>
@@ -70,7 +79,7 @@ public sealed class NotifierSystem : SharedNotifierSystem
     /// <returns></returns>
     public bool TryAddNotifier(NetUserId userId, PlayerNotifierSettings notifier)
     {
-        var success = NotifierUsers.TryAdd(userId, notifier);
+        var success = _notifierUsers.TryAdd(userId, notifier);
         return success;
     }
     /// <summary>
@@ -81,9 +90,9 @@ public sealed class NotifierSystem : SharedNotifierSystem
     /// <returns></returns>
     public bool TrySetServerNotifiers(NetUserId userId, PlayerNotifierSettings notifier)
     {
-        if (NotifierUsers.ContainsKey(userId))
+        if (_notifierUsers.ContainsKey(userId))
         {
-            NotifierUsers[userId] = notifier;
+            _notifierUsers[userId] = notifier;
             return true;
         }
         return false;
@@ -96,7 +105,7 @@ public sealed class NotifierSystem : SharedNotifierSystem
     /// <returns></returns>
     private bool TryGetServerNotifier(NetUserId userId, [NotNullWhen(true)] out PlayerNotifierSettings? notifierSettings)
     {
-        var exists = NotifierUsers.TryGetValue(userId, out notifierSettings);
+        var exists = _notifierUsers.TryGetValue(userId, out notifierSettings);
         return exists;
     }
 }
