@@ -617,8 +617,6 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(EECCVars.SupermatterDoForceDelam))
             return _config.GetCVar(EECCVars.SupermatterForcedDelamType);
 
-        if (sm.GasStorage.TotalMoles >= 240 && ) // Magic number mole count
-
         if (sm.GasStorage is { })
         {
             if (_config.GetCVar(EECCVars.SupermatterDoSingulooseDelam)

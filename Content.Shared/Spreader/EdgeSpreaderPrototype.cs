@@ -16,4 +16,16 @@ public sealed partial class EdgeSpreaderPrototype : IPrototype
     /// </summary>
     [DataField]
     public bool PreventSpreadOnSpaced = true;
+
+    /// <summary>
+    /// Controls whether the spreader can spread to walls.
+    /// </summary>
+    [DataField]
+    public bool IgnoreAirtight = false;
+
+    /// <summary>
+    /// Controls whether the spreader can spread to space.
+    /// </summary>
+    [DataField]
+    public bool IgnoreSpaceTiles = false;
 }

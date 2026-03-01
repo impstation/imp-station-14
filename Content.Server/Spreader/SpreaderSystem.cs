@@ -241,7 +241,7 @@ public sealed class SpreaderSystem : EntitySystem
         foreach (var (neighborEnt, neighborGrid, neighborPos, ourAtmosDir, otherAtmosDir) in neighborTiles)
         {
             // This tile is blocked to that direction.
-            if ((blockedAtmosDirs & ourAtmosDir) != 0x0)
+            if (((blockedAtmosDirs & ourAtmosDir) != 0x0) && !spreaderPrototype.IgnoreAirtight)
                 continue;
 
             if (!_map.TryGetTileRef(neighborEnt, neighborGrid, neighborPos, out var tileRef) || tileRef.Tile.IsEmpty)
@@ -267,7 +267,7 @@ public sealed class SpreaderSystem : EntitySystem
                 break;
             }
 
-            if (occupied)
+            if (occupied && !spreaderPrototype.IgnoreAirtight)
                 continue;
 
             var oldCount = occupiedTiles.Count;
