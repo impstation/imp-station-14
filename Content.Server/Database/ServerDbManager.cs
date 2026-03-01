@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
+using Content.Shared._Impstation.Notifier;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Construction.Prototypes;
@@ -361,6 +362,13 @@ namespace Content.Server.Database
         /// </remarks>
         /// <param name="notification">The notification to send.</param>
         Task SendNotification(DatabaseNotification notification);
+
+        #endregion
+
+        #region Notifier Settings
+
+        Task SavePlayerNotifierSettingsAsync(NetUserId userId, PlayerNotifierSettings notifierSettings);
+        Task<PlayerNotifierSettings> GetPlayerNotifierSettingsAsync(NetUserId userId);
 
         #endregion
     }
@@ -1069,6 +1077,18 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.SendNotification(notification));
+        }
+
+        public Task SavePlayerNotifierSettingsAsync(NetUserId userId, PlayerNotifierSettings notifierSettings)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SavePlayerNotifierSettingsAsync(userId, notifierSettings));
+        }
+
+        public Task<PlayerNotifierSettings> GetPlayerNotifierSettingsAsync(NetUserId userId)
+        {
+            DbReadOpsMetric.Inc();
+            return RunDbCommand(() => _db.GetPlayerNotifierSettingsAsync(userId));
         }
 
         private async void HandleDatabaseNotification(DatabaseNotification notification)
