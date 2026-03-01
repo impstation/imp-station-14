@@ -19,12 +19,19 @@ public sealed partial class AnalysisConsoleComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? AnalyzerEntity;
 
+    /// <summary>
+    /// #IMP The advanced node scanner entity the console is linked (via analyzer relay).
+    /// Can be null if not linked.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    public EntityUid? AdvancedNodeScanner;
+
     [DataField]
     public SoundSpecifier? ScanFinishedSound = new SoundPathSpecifier("/Audio/Machines/scan_finish.ogg");
 
     /// <summary>
     /// The sound played when an artifact has points extracted.
-    /// </summary>
+    /// </summary>e
     [DataField]
     public SoundSpecifier? ExtractSound = new SoundPathSpecifier("/Audio/Effects/radpulse11.ogg")
     {
@@ -41,10 +48,10 @@ public sealed partial class AnalysisConsoleComponent : Component
     public ProtoId<SourcePortPrototype> LinkingPort = "ArtifactAnalyzerSender";
 
     /// <summary>
-    ///     Imp edit. The direction the bias is going.
+    ///     Imp edit. The direction the up/down depth bias is going.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public BiasDirection BiasDirection = BiasDirection.Up;
+    public BiasDirection BiasDirection = BiasDirection.Shallow;
 }
 
 [Serializable, NetSerializable]
@@ -58,14 +65,22 @@ public sealed class AnalysisConsoleExtractButtonPressedMessage : BoundUserInterf
 
 // imp edit start
 [Serializable, NetSerializable]
-public sealed class AnalysisConsoleUpBiasButtonPressedMessage : BoundUserInterfaceMessage;
+public sealed class AnalysisConsoleShallowBiasButtonPressedMessage : BoundUserInterfaceMessage;
 
 [Serializable, NetSerializable]
-public sealed class AnalysisConsoleDownBiasButtonPressedMessage : BoundUserInterfaceMessage;
+public sealed class AnalysisConsoleDeepRandomBiasButtonPressedMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class AnalysisConsoleDeepLeftBiasButtonPressedMessage : BoundUserInterfaceMessage;
+
+[Serializable, NetSerializable]
+public sealed class AnalysisConsoleDeepRightBiasButtonPressedMessage : BoundUserInterfaceMessage;
 
 public enum BiasDirection : byte
 {
-    Up, //Towards depth 0
-    Down, //Away from depth 0
+    Shallow, //Towards depth 0
+    DeepRandom, //Away from depth 0, random
+    DeepLeft, // Away from depth 0, prioritizing left on graph
+    DeepRight // Away from depht 0, prioritizing right on graph
 }
 // imp edit end

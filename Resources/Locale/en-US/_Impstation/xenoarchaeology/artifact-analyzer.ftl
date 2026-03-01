@@ -10,7 +10,13 @@ analysis-console-info-natural-current-value = [font="Monospace" size=11][color={
     *[1] lime]True
 }[/color][/font]
 
-analysis-console-bias-up = Up
-analysis-console-bias-down = Down
-analysis-console-bias-button-info-up = Toggles the bias an artifact has in moving between its nodes. Up heads toward zero depth.
-analysis-console-bias-button-info-down = Toggles the bias an artifact has in moving between its nodes. Down decends toward ever-greater depths.
+analysis-console-bias-shallow = Up
+analysis-console-bias-deep-random = Down Random
+analysis-console-bias-deep-left = Down Left
+analysis-console-bias-deep-right = Down Right
+analysis-console-bias-button-info-shallow = Sets the bias an artifact has in moving between its nodes. Up heads toward zero depth.
+analysis-console-bias-button-info-deep-random = Sets the bias an artifact has in moving between its nodes. Down heads toward ever-higher depths. Selecting randomly between nodes, weighted to locked nodes.
+analysis-console-bias-button-info-deep-left = Sets the bias an artifact has in moving between its nodes. Down Left heads toward ever-higher depths. Selects the leftmost node.
+analysis-console-bias-button-info-deep-right = Sets the bias an artifact has in moving between its nodes. Down Right heads toward ever-higher depths. Selects the rightmost node.
+
+analysis-console-extract-sum-with-modifier = [font="Monospace" size=11][color=orange]Total Research: {$value}, with {$multiplier} from Advanced Node Scanner: {$pointswithmult} [/color][/font]
