@@ -114,6 +114,7 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
                 // Save the unlock session to Advanced Node Scanner's memory and stop thinking this artifact is unlocking
                 advancedNodeScannerComponent.UnlockHistories[ent.Owner.Id].Add(session);
                 advancedNodeScannerComponent.ArtifactUnlockSessions.Remove(ent.Owner);
+                Dirty(advancedNodeScannerUid, advancedNodeScannerComponent);
             }
         }
     }
@@ -165,6 +166,7 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         }
 
         advancedNodeScannerComponent.ArtifactUnlockSessions[artifact.Owner] = sessionUpdate;
+        Dirty(advancedNodeScannerUid, advancedNodeScannerComponent);
         // ANS TODO: advertise - (-1) index means artifexium
     }
 
@@ -240,6 +242,26 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 
         artifact = (artifactUid, artifactComp);
         return true;
+    }
+
+    /// <summary>
+    /// Gets the latest unlock session for a particular artifact, as witnessed by linked advanced node scanner.
+    /// </summary>
+    /// <param name="ent"> Artifact </param>
+    /// <returns> Latest UnlockSession - current or past </returns>
+    public UnlockSession? GetLatestUnlockSession(Entity<XenoArtifactComponent> ent)
+    {
+        if (ent.Comp.AdvancedNodeScanner is null ||
+            !TryComp<AdvancedNodeScannerComponent>(ent.Comp.AdvancedNodeScanner, out var ans))
+            return null;
+
+        if (ans.ArtifactUnlockSessions.ContainsKey(ent.Owner))
+            return ans.ArtifactUnlockSessions[ent.Owner];
+
+        if (!ans.UnlockHistories.ContainsKey(ent.Owner.Id))
+            return null;
+
+        return ans.UnlockHistories[ent.Owner.Id].Last();
     }
 
 }

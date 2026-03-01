@@ -596,6 +596,18 @@ public abstract partial class SharedXenoArtifactSystem
     }
 
     /// <summary>
+    /// IMP Get list of triggered nodes by index for latest unlocking session for a given artifact, if advanced node scanner is attached.
+    /// </summary>
+    public List<int> GetTriggeredNodesInLatestUnlockSession(Entity<XenoArtifactComponent> ent)
+    {
+        var session = _advancedNodeScanner.GetLatestUnlockSession(ent);
+        if (session is null)
+            return [];
+
+        return session.Value.ActivatedNodes.Select(nodeActivation => (nodeActivation.Index)).ToList();
+    }
+
+    /// <summary>
     /// IMP Recursively get all predecessor nodes of predecessors up to some visibility limit
     /// </summary>
     public HashSet<Entity<XenoArtifactNodeComponent>> GetDirectPredecessorNodesRecursive(Entity<XenoArtifactComponent> ent, Entity<XenoArtifactNodeComponent> node, int generations)
