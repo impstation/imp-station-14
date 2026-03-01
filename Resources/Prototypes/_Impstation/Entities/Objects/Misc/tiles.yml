@@ -14,6 +14,24 @@
     stackType: FloorTileApid
 
 - type: entity
+  name: cardboard floor tile
+  parent: FloorTileItemBase
+  id: FloorTileItemCardboard
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tiles/cardboard.rsi
+    state: icon
+  - type: Item
+  - type: FloorTile
+    outputs:
+    - FloorCardboard
+  - type: Stack
+    stackType: FloorTileCardboard
+  - type: Construction
+    graph: TileCardboard
+    node: cardTile
+
+- type: entity
   parent: FloorTileItemBase
   id: FloorTileItemCraftedAsphalt
   name: asphalt tile
