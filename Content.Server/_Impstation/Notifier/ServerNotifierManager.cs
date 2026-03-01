@@ -28,7 +28,7 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
 
     public void Initialize()
     {
-        _sawmill = _logManager.GetSawmill("servernotifier");
+        _sawmill = _logManager.GetSawmill("notifier");
         _netManager.RegisterNetMessage<MsgUpdateNotifier>(HandleUpdateNotifierMessage);
 
     }
@@ -40,7 +40,7 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
             return;
         message.Notifier.EnsureValid(_configManager, _prototypeManager);
         notifierSystem.SetPlayerNotifier(userId, message.Notifier);
-        notifierSystem.TrySetNotifier(userId, message.Notifier);
+        notifierSystem.TrySetServerNotifiers(userId, message.Notifier);
 
         if (ShouldStoreInDb(message.MsgChannel.AuthType))
             await _db.SavePlayerNotifierSettingsAsync(userId, message.Notifier);
