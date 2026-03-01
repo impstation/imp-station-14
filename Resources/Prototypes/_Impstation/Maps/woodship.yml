@@ -16,7 +16,7 @@
             !type:NanotrasenNameGenerator
             prefixCreator: '-IMP-SK'
         - type: StationJobs
-          availableJobs: # Total of 42 jobs, including trainee roles
+          availableJobs: # Total of 43 jobs, including trainee roles
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -26,7 +26,7 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 9
+            # service - 10
             Bartender: [ 1, 1 ]
             Botanist: [ 1, 1 ]
             Chaplain: [ 1, 1 ]
@@ -36,6 +36,7 @@
             Librarian: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
+            Reporter: [ 1, 1 ]
             # engineering - 4
             AtmosphericTechnician: [ 1, 1 ]
             StationEngineer: [ 2, 2 ]
