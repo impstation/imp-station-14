@@ -24,7 +24,7 @@ bounty-hunter-roundend-name = Bounty Hunter
 bounty-hunter-category-raider-name = Raider
 bounty-hunter-category-raider-description =
     You aren't a fan of subtlety.
-    Includes: An AKMS rifle, a box of .30 magazines, 3x composition C4,
+    Includes: An Enforcer shotgun, a box of .50 buckshot, 3x composition C4,
     a web vest, and a freedom implanter.
 
 bounty-hunter-category-hardsuit-name = Spacer
@@ -72,7 +72,7 @@ bounty-hunter-category-syndie-name = Rogue Operative
 bounty-hunter-category-syndie-description =
     You were previously a member of the Gorlex Marauders.
     Don't expect a warm welcome.
-    Includes: A Syndicate Raid Suit, a Syndicate encryption key,
+    Includes: An elite web vest, a Syndicate encryption key,
     a Syndicate gas mask, an EMP implanter, an access breaker,
     and an energy sword.
 

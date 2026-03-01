@@ -9,9 +9,6 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Serialization;
-using Content.Shared._Impstation.Thaven.Components; // imp
-using Content.Shared.Bed.Sleep; // imp
-using Content.Shared.Mobs.Systems; // imp
 using Content.Shared.Whitelist; // imp
 
 namespace Content.Shared.Emag.Systems;
@@ -30,7 +27,7 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // DeltaV - Add a whitelist/blacklist to the Emag
-    [Dependency] private readonly MobStateSystem _mobState = default!; // imp - thaven can only be emagged when crit or dead
+
     public override void Initialize()
     {
         base.Initialize();
@@ -74,14 +71,6 @@ public sealed class EmagSystem : EntitySystem
             return false;
         }
         // End of DV code
-
-        // imp. if the target is a thaven who is not sleeping, dead, or crit, skip.
-        if (TryComp<ThavenMoodsComponent>(target, out _) && !HasComp<SleepingComponent>(target) && !_mobState.IsIncapacitated(target) && target != user)
-        {
-            _popup.PopupClient(Loc.GetString("emag-thaven-alive", ("emag", ent), ("target", target)), user, user);
-            return false;
-        }
-        // end imp
 
         Entity<LimitedChargesComponent?> chargesEnt = ent.Owner;
         if (_sharedCharges.IsEmpty(chargesEnt))
