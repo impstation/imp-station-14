@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: honeyed-lemons
-  changes:
-  - message: The air around Box Station has cleared of plasma a small bit.. But it's
-      still dangerous out. Don't leave the station.
-    type: Tweak
-  id: 2169
-  time: '2025-08-16T11:43:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3283
 - author: ATDoop
   changes:
   - message: The Shining Spring now properly appears on your back when you equip it
@@ -4147,3 +4139,11 @@
   id: 2668
   time: '2026-02-28T11:25:37.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4145
+- author: DinnerCalzone
+  changes:
+  - message: Empty water bottles printed by the service techfab now properly update
+      their visuals when filled.
+    type: Fix
+  id: 2669
+  time: '2026-03-02T11:16:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4147
