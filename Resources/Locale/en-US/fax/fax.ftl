@@ -28,4 +28,4 @@ fax-machine-chat-notify = Received new fax message from "{$fax}" fax
 fax-machine-printed-paper-name = printed paper
 
 # imp edit
-fax-machine-on-examine-success = This fax machine's ID is {$id}
+fax-machine-on-examine-success = This fax machine's name is {$id}

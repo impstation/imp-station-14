@@ -13,4 +13,3 @@ surveillance-camera-setup-ui-set = Set
 
 # imp edit
 surveillance-camera-on-examine-success = This camera's ID is {$id}
-
