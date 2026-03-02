@@ -13,6 +13,7 @@ using Content.Shared.Spreader;
 using Robust.Shared.Audio.Systems;
 // using Robust.Shared.Player;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -27,7 +28,6 @@ public sealed class CrystalMassSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     // [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
 
     private static readonly ProtoId<EdgeSpreaderPrototype> CrystalMassGroup = "CrystalMass";
 
@@ -60,6 +60,17 @@ public sealed class CrystalMassSystem : EntitySystem
 
         foreach (var neighbor in args.NeighborFreeTiles)
         {
+            float offset = 0;
+
+            var location = args.neighbor.AlignWithClosestGridTile();
+
+            TryComp<MapGridComponent>(location.EntityId, out var mapGrid);
+
+            // Old map tileset, dosen't work with space tiles
+            // _map.SetTile(gridUid, neighbor.Grid, neighbor.Tile.GridIndices, new Tile(_tileDefManager["PlatingCrystalMass"].TileId));
+
+            _map.SetTile(location.EntityUID, mapGrid, location.Offset(new Vector2(offset, offset)), new Tile("PlatingCrystalMass", 0, _robustRandom.Next(1, component.SpriteVariants + 1)));
+
             foreach (var ent in _lookup.GetEntitiesInTile(neighbor.Tile, LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
             {
                 // Prevents walls/windows from being deleted when next to a tile being spread to
@@ -75,7 +86,6 @@ public sealed class CrystalMassSystem : EntitySystem
 
                 EntityManager.QueueDeleteEntity(ent);
             }
-            _map.SetTile(neighbor.Tile.GridUid, neighbor.Grid, neighbor.Tile.GridIndices, new Tile(_tileDefManager["PlatingCrystalMass"].TileId));
             var neighborUid = Spawn("CrystalMass", _map.GridTileToLocal(neighbor.Tile.GridUid, neighbor.Grid, neighbor.Tile.GridIndices));
             _audio.PlayPvs(component.CrackingCrystalSound, neighborUid);
 
