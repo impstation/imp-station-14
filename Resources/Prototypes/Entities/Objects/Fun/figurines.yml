@@ -254,6 +254,7 @@
   description: A figurine depicting an Atmos Tech holding an unlit welder.
   components:
   - type: Sprite
+    sprite: _Impstation/Objects/Fun/figurines.rsi # imp
     state: atmos
   - type: SpeakOnTrigger
     pack: FigurinesAtmosTech

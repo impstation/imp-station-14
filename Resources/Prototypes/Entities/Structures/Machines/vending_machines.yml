@@ -1887,7 +1887,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/atmosdrobe.rsi
+    sprite: _Impstation/Structures/Machines/VendingMachines/atmosdrobe.rsi #imp
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
