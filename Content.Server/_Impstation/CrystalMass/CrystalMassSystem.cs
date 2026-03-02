@@ -57,6 +57,7 @@ public sealed class CrystalMassSystem : EntitySystem
             RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
             return;
         }
+
         foreach (var neighbor in args.NeighborFreeTiles)
         {
             foreach (var ent in _lookup.GetEntitiesInTile(neighbor.Tile, LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
@@ -74,7 +75,6 @@ public sealed class CrystalMassSystem : EntitySystem
 
                 EntityManager.QueueDeleteEntity(ent);
             }
-
             _map.SetTile(neighbor.Tile.GridUid, neighbor.Grid, neighbor.Tile.GridIndices, new Tile(_tileDefManager["PlatingCrystalMass"].TileId));
             var neighborUid = Spawn("CrystalMass", _map.GridTileToLocal(neighbor.Tile.GridUid, neighbor.Grid, neighbor.Tile.GridIndices));
             _audio.PlayPvs(component.CrackingCrystalSound, neighborUid);
