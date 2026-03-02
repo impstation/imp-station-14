@@ -323,6 +323,8 @@
     earliestStart: 25
     duration: null
   - type: MidRoundAntagRule
+  - type: AntagSpawner
+    prototype: MobBloodlessChimp
   - type: AntagObjectives
     objectives:
     - BaseBloodlessChimpKillObjective

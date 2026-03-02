@@ -178,3 +178,11 @@
   - type: MindContainer
     showExamineInfo: true
   - type: SSDIndicator
+  - type: GhostRole
+    name: ghost-role-information-bloodless-chimp-name
+    description: ghost-role-information-bloodless-chimp-description
+    rules: ghost-role-information-bloodless-chimp-rules
+    mindRoles:
+    - MindRoleBloodlessChimp
+    raffle:
+      settings: default
