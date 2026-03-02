@@ -2,8 +2,6 @@
   id: CrystalMass
   placement:
     mode: SnapgridCenter
-    snap:
-      - Wall
   name: crystal mass
   description: You see this massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
   components:
@@ -12,28 +10,41 @@
       anchored: true
     - type: Physics
     - type: CrystalMass
-      spreadChance: 0.66
     - type: ActiveEdgeSpreader
     - type: EdgeSpreader
       id: CrystalMass
-    - type: MeleeSound
-      soundGroups:
-        Brute:
-          path:
-            "/Audio/Weapons/slash.ogg"
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
       state: crystal_cascade_1
-      drawdepth: Overdoors
+      drawdepth: FloorTiles
     - type: CrystalMassVisuals
     - type: Clickable
     - type: Fixtures
       fixtures:
         fix1:
           hard: false
-          density: 7
           shape:
             !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
           layer:
-          - MidImpassable
+          - BulletImpassable
+    - type: Airtight
+    - type: StepTrigger
+      ignoreWeightless: false
+
+- type: entity
+  id: CrystalBulb
+  name: crystal bulb
+  description: You see this bright and massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
+  parent: CrystalMass
+  components:
+    - type: CrystalMass
+      isBulb: true
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_6
+      drawdepth: FloorTiles
+    - type: PointLight
+      radius: 5
+      energy: 1
+      color: "#FBFF23"

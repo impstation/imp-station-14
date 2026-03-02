@@ -1,5 +1,6 @@
 - type: edgeSpreader
   id: CrystalMass
-  updatesPerSecond: 16
+  updatesPerSecond: 24
   preventSpreadOnSpaced: false
-  ignoreAirtight: true
+  preventSpreadOnAirtight: false
+  preventSpreadOnSpace: true

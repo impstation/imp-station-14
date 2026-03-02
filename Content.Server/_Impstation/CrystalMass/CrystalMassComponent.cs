@@ -1,3 +1,5 @@
+using Robust.Shared.Audio;
+
 namespace Content.Server._Impstation.CrystalMass;
 
 /// <summary>
@@ -10,11 +12,29 @@ public sealed partial class CrystalMassComponent : Component
     /// Chance to spread whenever an edge spread is possible.
     /// </summary>
     [DataField]
-    public float SpreadChance = 1f;
+    public float SpreadChance = 0.25f;
 
     /// <summary>
-    /// number of sprite variations for crystal mass
+    /// Number of sprite variations for crystal mass
     /// </summary>
     [DataField]
-    public int SpriteVariants = 6;
+    public int SpriteVariants = 5;
+
+    /// <summary>
+    /// Chance for a bulb to spawn when spread
+    /// </summary>
+    [DataField]
+    public float BulbChance = 0.1667f;
+
+    /// <summary>
+    /// If the crystal mass is a bulb
+    /// </summary>
+    [DataField]
+    public bool IsBulb = false;
+
+    [DataField]
+    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_EE/Supermatter/supermatter.ogg");
+
+    [DataField]
+    public SoundSpecifier CrackingCrystalSound = new SoundPathSpecifier("/Audio/_Impstation/Supermatter/cracking_crystal.ogg");
 }

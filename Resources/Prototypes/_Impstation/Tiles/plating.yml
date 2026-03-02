@@ -1,0 +1,19 @@
+- type: tile
+  id: PlatingCrystalMass
+  name: tiles-crystals-mass-plating
+  sprite: /Textures/_Impstation/Tiles/Plating/plating_crystal_cascade.png
+  variants: 5
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Space
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepPlating
+  friction: 1.5
+  heatCapacity: 10000
+  isSpace: true
+  mass: 200

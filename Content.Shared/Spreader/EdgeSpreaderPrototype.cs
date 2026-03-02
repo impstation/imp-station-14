@@ -18,14 +18,14 @@ public sealed partial class EdgeSpreaderPrototype : IPrototype
     public bool PreventSpreadOnSpaced = true;
 
     /// <summary>
-    /// Controls whether the spreader can spread to walls.
+    /// Controls whether the spreader can spread to airtight stuff.
     /// </summary>
     [DataField]
-    public bool IgnoreAirtight = false;
+    public bool PreventSpreadOnAirtight = true;
 
     /// <summary>
-    /// Controls whether the spreader can spread to space.
+    /// Controls whether the spreader can ignore space check & see space as a valid tile.
     /// </summary>
     [DataField]
-    public bool IgnoreSpaceTiles = false;
+    public bool PreventSpreadOnSpace = true;
 }
