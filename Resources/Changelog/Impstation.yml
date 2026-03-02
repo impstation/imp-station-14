@@ -1,91 +1,4 @@
 ﻿Entries:
-- author: eviltori
-  changes:
-  - message: savior clones are rarer (20% chance to roll from 50%)
-    type: Tweak
-  id: 2159
-  time: '2025-08-13T06:08:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3249
-- author: DinnerCalzone
-  changes:
-  - message: ID card sprites have been stretched a little.
-    type: Tweak
-  id: 2160
-  time: '2025-08-13T06:10:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3281
-- author: mqole
-  changes:
-  - message: being gay no longer causes the world to reset for everyone around you
-      (HOPEFULLY)
-    type: Fix
-  id: 2161
-  time: '2025-08-13T07:58:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3285
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Fixed last messages with * messing with discord formatting
-    type: Fix
-  id: 2162
-  time: '2025-08-13T10:20:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3259
-- author: DinnerCalzone
-  changes:
-  - message: The portable cutter machine has been added to the HD's locker! It can
-      be unfolded into a functional cutter machine and refolded back into an item.
-    type: Add
-  - message: The belts in the HD's locker have been replaced with a unique utility
-      belt for the hospitality director! Anything that could fit in either the botanical,
-      janitorial, or chef belts can fit inside of it.
-    type: Add
-  id: 2163
-  time: '2025-08-13T10:22:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3115
-- author: TGRCdev
-  changes:
-  - message: 'Pride pins are no longer visible from the pocket slot. The examine functionality
-      was reworked in a way that made this unreasonable to keep without burdening
-      other parts of the codebase. :broken_heart:'
-    type: Remove
-  id: 2164
-  time: '2025-08-14T02:18:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3286
-- author: kipdotnet
-  changes:
-  - message: Tck'Tck can now be carried.
-    type: Tweak
-  id: 2165
-  time: '2025-08-14T07:15:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3287
-- author: Impstation
-  changes:
-  - message: Disabled whitelist.
-    type: Remove
-  id: 2166
-  time: '2025-08-15T02:40:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3289
-- author: meridiadottxt
-  changes:
-  - message: in anticipation for the influx of new players, Eclipse Starport is now
-      in rotation!
-    type: Add
-  id: 2167
-  time: '2025-08-15T02:58:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3293
-- author: Pinkbat5
-  changes:
-  - message: Clown ruffles don't go under decapoid gills anymore.
-    type: Tweak
-  id: 2168
-  time: '2025-08-16T01:25:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3298
-- author: honeyed-lemons
-  changes:
-  - message: The air around Box Station has cleared of plasma a small bit.. But it's
-      still dangerous out. Don't leave the station.
-    type: Tweak
-  id: 2169
-  time: '2025-08-16T11:43:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3283
 - author: ATDoop
   changes:
   - message: The Shining Spring now properly appears on your back when you equip it
@@ -4144,3 +4057,93 @@
   id: 2658
   time: '2026-02-24T20:04:21.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4007
+- author: msTheowo
+  changes:
+  - message: YOU AREN'T NAKED IF YOU PICK ATMOS FLIGHTSUITS IN YOUR LOADOUT!!
+    type: Fix
+  id: 2659
+  time: '2026-02-24T23:20:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4179
+- author: yesteryuri
+  changes:
+  - message: Exploding butlers won't spawn naturally
+    type: Remove
+  id: 2660
+  time: '2026-02-27T10:57:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4184
+- author: DVD Player
+  changes:
+  - message: The Portable Sensor Array has been buffed
+    type: Tweak
+  id: 2661
+  time: '2026-02-27T10:59:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4176
+- author: Kandiyaki
+  changes:
+  - message: Added a new Heretic-flavored holy book to the Chaplain's starting inventory
+      options.
+    type: Add
+  - message: Rewrote a ton of the Heretic flavor text.
+    type: Tweak
+  id: 2662
+  time: '2026-02-27T11:02:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4154
+- author: starlighthowls
+  changes:
+  - message: Increased the price of multiple spells in the wizards' grimoire.
+    type: Tweak
+  - message: Nerfed the Grotesque, magic boots and magic gloves.
+    type: Tweak
+  - message: Renamed the science bag of holding to backpack of holding, matching the
+      other variants.
+    type: Tweak
+  id: 2663
+  time: '2026-02-27T11:04:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4165
+- author: lobsterpaw
+  changes:
+  - message: Claymores are no longer infesting maintenance passageways.
+    type: Tweak
+  id: 2664
+  time: '2026-02-27T11:05:40.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4169
+- author: youtubevideo3
+  changes:
+  - message: my gondal has been squashed (it's concerning)
+    type: Tweak
+  id: 2665
+  time: '2026-02-27T11:09:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4174
+- author: DVD Player
+  changes:
+  - message: The Drozd is now default to full-auto, and will recover its accuracy
+      a little quicker.
+    type: Tweak
+  id: 2666
+  time: '2026-02-27T11:11:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4175
+- author: CombustibleToast
+  changes:
+  - message: Syndicate agents can now find the iconic emag in their uplinks easier.
+    type: Tweak
+  id: 2667
+  time: '2026-02-27T11:17:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4136
+- author: eviltori
+  changes:
+  - message: decapoids now have their own survival boxes instead of just using o2
+      boxes.
+    type: Add
+  - message: decapoids no longer spawn with useless tank harnesses.
+    type: Fix
+  id: 2668
+  time: '2026-02-28T11:25:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4145
+- author: DinnerCalzone
+  changes:
+  - message: Empty water bottles printed by the service techfab now properly update
+      their visuals when filled.
+    type: Fix
+  id: 2669
+  time: '2026-03-02T11:16:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4147
