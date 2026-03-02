@@ -1156,6 +1156,7 @@
     Telecrystal: 14
   categories:
   - UplinkDisruption
+  - UplinkObjective # imp
   conditions:
   - !type:StoreWhitelistCondition
      makeHidden: true # imp add
@@ -1166,6 +1167,11 @@
     blacklist:
       components:
         - SurplusBundle #imp special (dud roll as a traitor unless you have dagd)
+  - !type:BuyerObjectiveWhitelistCondition # imp
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
 
 - type: listing
   id: UplinkNukieAntimovCircuitBoard

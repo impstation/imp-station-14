@@ -564,6 +564,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Botanist
   - !type:BuyerWhitelistCondition
@@ -675,6 +676,36 @@
     makeHidden: true
     whitelist:
     - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+
+
+
+
+
+
+# OBJECTIVE
+
+- type: listing
+  id: UplinkZombieBundleTraitor
+  name: uplink-romerol-traitor-name
+  description: uplink-romerol-traitor-desc
+  icon: { sprite: _Impstation/Objects/Specific/Medical/zombiepen.rsi, state: icon }
+  productEntity: RomerolAutoInjector
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkChemicals
+  - UplinkObjective
+  conditions:
+  - !type:BuyerObjectiveWhitelistCondition
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
