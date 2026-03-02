@@ -3,7 +3,6 @@
   id: MobBloodlessChimp
   parent:
   - MobAtmosStandard
-  - BaseMob
   - BaseSimpleMob
   - StripableInventoryBase
   description: It looks pale, is it sick?
@@ -176,3 +175,6 @@
     shiveringHeatRegulation: 500
     normalBodyTemperature: 310.15
     thermalRegulationTemperatureThreshold: 290
+  - type: MindContainer
+    showExamineInfo: true
+  - type: SSDIndicator
