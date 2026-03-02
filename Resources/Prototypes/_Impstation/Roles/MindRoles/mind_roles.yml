@@ -61,3 +61,16 @@
     antagPrototype: Butler
     roleType: Familiar
   - type: ButlerRole
+
+# Bloodless Chimp
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBloodlessChimp
+  name: Bloodless Chimp Role
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: BloodlessChimp
+    roleType: FreeAgent
+    exclusiveAntag: true
+  - type: BloodlessChimpRole

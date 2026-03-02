@@ -1,0 +1,23 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseBloodlessChimpObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-instinct
+    difficulty: 1
+  - type: RoleRequirement
+    roles:
+    - BloodlessChimpRole
+
+- type: entity
+  parent: [BaseBloodlessChimpObjective, BaseKillObjective]
+  id: BaseBloodlessChimpKillObjective
+  name: KILL.
+  description: You need to kill them. This is your purpose. They must die. They must die. They must die.
+  components:
+  - type: PickSpecificPerson
+  - type: KillPersonCondition
+    requireDead: true
+  - type: TargetObjective
+    title: objective-condition-kill-head-bloodless-chimp-title # kill <name>, <job> # imp

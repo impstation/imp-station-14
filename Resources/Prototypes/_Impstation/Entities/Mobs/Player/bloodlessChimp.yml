@@ -1,0 +1,178 @@
+- type: entity
+  name: monkey
+  id: MobBloodlessChimp
+  parent:
+  - MobAtmosStandard
+  - BaseMob
+  - BaseSimpleMob
+  - StripableInventoryBase
+  description: It looks pale, is it sick?
+  components:
+  - type: CombatMode
+    canDisarm: true
+  - type: Inventory
+    templateId: monkey
+    speciesId: monkey
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Monkey/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Monkey/displacement.rsi
+            state: outerClothing
+  - type: Deathgasp
+    prototype: MonkeyDeathgasp
+  - type: Cuffable
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Stripping
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: monkey
+      sprite: Mobs/Animals/monkey.rsi
+    - map: [ "jumpsuit" ]
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "ears" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+  - type: Hands
+  - type: ComplexInteraction
+  - type: GenericVisualizer
+    visuals:
+      enum.CreamPiedVisuals.Creamed:
+        clownedon:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Body
+    prototype: Primate
+    requiredLegs: 1 # TODO: More than 1 leg
+  - type: CreamPied
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: InteractionPopup
+    successChance: 0.7 #imp
+    interactSuccessString: petting-success-monkey
+    interactFailureString: petting-failure-monkey
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/ferret_happy.ogg
+    interactFailureSound:
+      path: /Audio/Items/wirecutter.ogg
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 5
+        Slash: 10
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Puller
+    needsHands: false
+  - type: CanHostGuardian
+  - type: IdExaminable
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - CanPilot #imp edit
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPie
+  - type: Crawler
+  - type: StatusIcon
+  - type: Blindable
+  - type: Carriable #DeltaV
+  - type: GoobAbsorbable
+    biomassRestored: 0.4
+  - type: VentCrawler
+    enterDelay: 3
+  - type: CanWieldOneHanded
+  - type: NameIdentifier
+    group: Monkey
+  - type: Speech
+    speechSounds: Monkey
+    speechVerb: Monkey
+    allowedEmotes: ['Scream', 'Laugh']
+  - type: AlwaysRevolutionaryConvertible
+  - type: Vocal
+    sounds:
+      Male: Monkey
+      Female: Monkey
+      Unsexed: Monkey
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: StatusEffects
+    allowed:
+    - Electrocution
+    - TemporaryBlindness
+    - Pacified
+    - Flashed
+    - RadiationProtection
+    - Adrenaline
+  - type: MobPrice
+    price: 150
+  - type: FloatingVisuals
+  - type: PassiveDamage # passive regen.
+    allowedStates:
+    - Alive
+    - Critical
+    damage:
+      groups:
+        Brute: -5
+        Burn: -2.5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: ThermalInvisibility
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 250
+    sweatHeatRegulation: 500
+    shiveringHeatRegulation: 500
+    normalBodyTemperature: 310.15
+    thermalRegulationTemperatureThreshold: 290
