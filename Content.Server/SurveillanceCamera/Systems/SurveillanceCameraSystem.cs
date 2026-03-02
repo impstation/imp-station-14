@@ -63,7 +63,7 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         SubscribeLocalEvent<SurveillanceCameraComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetName>(OnSetName);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetNetwork>(OnSetNetwork);
-        SubscribeLocalEvent<SurveillanceCameraComponent, ExaminedEvent>(OnCameraExamine);
+        SubscribeLocalEvent<SurveillanceCameraComponent, ExaminedEvent>(OnCameraExamine); // imp edit
     }
 
     private void OnPacketReceived(EntityUid uid, SurveillanceCameraComponent component, DeviceNetworkPacketEvent args)
