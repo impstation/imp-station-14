@@ -83,3 +83,21 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: icon_empty
+
+- type: entity
+  name: romerol micro-injector
+  parent: RomerolAutoInjector
+  id: RomerolMicroInjector
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Medical/zombiepen_micro.rsi
+    layers:
+    - state: icon
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 5

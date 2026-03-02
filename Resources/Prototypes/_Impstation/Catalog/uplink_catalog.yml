@@ -690,11 +690,11 @@
 # OBJECTIVE
 
 - type: listing
-  id: UplinkZombieBundleTraitor
+  id: UplinkRomerolMicroInjector
   name: uplink-romerol-traitor-name
   description: uplink-romerol-traitor-desc
-  icon: { sprite: _Impstation/Objects/Specific/Medical/zombiepen.rsi, state: icon }
-  productEntity: RomerolAutoInjector
+  icon: { sprite: _Impstation/Objects/Specific/Medical/zombiepen_micro.rsi, state: icon }
+  productEntity: RomerolMicroInjector
   cost:
     Telecrystal: 20
   categories:
