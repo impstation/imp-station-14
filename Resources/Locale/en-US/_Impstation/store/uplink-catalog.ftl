@@ -155,4 +155,4 @@ uplink-taipan-name = Taipan bundle
 uplink-taipan-desc = One "Taipan" Echion crossbow, bundled with a canister of its proprietary liquid ammo.
 
 uplink-romerol-traitor-name = Romerol Auto-Injector
-uplink-romerol-traitor-desc = One romerol auto-injector, for the traitor who needs to do something glorious.
+uplink-romerol-traitor-desc = One romerol auto-injector for causing a zombie outbreak.
