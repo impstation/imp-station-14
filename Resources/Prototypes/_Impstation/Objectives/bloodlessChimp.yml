@@ -16,7 +16,7 @@
   name: KILL.
   description: You need to kill them. This is your purpose. They must die. They must die. They must die.
   components:
-  - type: PickSpecificPerson
+  - type: PickRandomPerson
   - type: KillPersonCondition
     requireDead: true
   - type: TargetObjective
