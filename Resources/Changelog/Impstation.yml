@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: ATDoop
-  changes:
-  - message: The Shining Spring now properly appears on your back when you equip it
-      in your back slot.
-    type: Fix
-  id: 2170
-  time: '2025-08-16T22:35:22.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3302
 - author: honeyed-lemons
   changes:
   - message: Anomalies should no longer spawn in space on Box
@@ -4147,3 +4139,10 @@
   id: 2669
   time: '2026-03-02T11:16:11.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4147
+- author: widgetbeck
+  changes:
+  - message: Grays should no longer be tall
+    type: Fix
+  id: 2670
+  time: '2026-03-03T01:42:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4197
