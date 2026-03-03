@@ -7,3 +7,17 @@
       amount: 1
   products:
     AquaAvari: 1
+
+- type: reaction
+  id: AntiChimpSalve
+  minTemp: 370
+  reactants:
+    Phalanximine:
+      amount: 2
+    Plasma:
+      amount: 1
+      catalyst: true
+    Bananadine:
+      amount: 1
+  products:
+    AntiChimpSalve: 1
