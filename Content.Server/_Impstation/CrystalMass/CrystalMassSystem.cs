@@ -49,7 +49,7 @@ public sealed class CrystalMassSystem : EntitySystem
 
     private void ScheduleNextSpread(EntityUid uid, CrystalMassComponent component)
     {
-        var delay = _robustRandom.Next(0, 4);
+        var delay = _robustRandom.Next(1, 4);
         Timer.Spawn(delay * 1000, () =>
         {
             if (!Deleted(uid) && component.Spreading)
