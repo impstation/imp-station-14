@@ -10,9 +10,6 @@
       anchored: true
     - type: Physics
     - type: CrystalMass
-    - type: ActiveEdgeSpreader
-    - type: EdgeSpreader
-      id: CrystalMass
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
       state: crystal_cascade_1

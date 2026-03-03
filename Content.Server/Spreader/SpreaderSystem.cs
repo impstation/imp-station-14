@@ -287,7 +287,7 @@ public sealed class SpreaderSystem : EntitySystem
             }
 
             if (oldCount == occupiedTiles.Count)
-                freeTiles.Add((neighborGrid, tileRef, neighborEnt, neighborPos));
+                freeTiles.Add((neighborGrid, tileRef));
         }
     }
 

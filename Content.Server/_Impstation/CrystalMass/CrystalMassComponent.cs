@@ -9,10 +9,22 @@ namespace Content.Server._Impstation.CrystalMass;
 public sealed partial class CrystalMassComponent : Component
 {
     /// <summary>
-    /// Chance to spread whenever an edge spread is possible.
+    /// Directions available for crystal mass to spread to.
     /// </summary>
     [DataField]
-    public float SpreadChance = 0.25f;
+    public List<Direction> AvailableDirs = new()
+    {
+        Direction.North,
+        Direction.South,
+        Direction.East,
+        Direction.West,
+    };
+
+    /// <summary>
+    /// If the crystal mass can spread.
+    /// </summary>
+    [DataField]
+    public bool Spreading = true;
 
     /// <summary>
     /// Number of sprite variations for crystal mass
