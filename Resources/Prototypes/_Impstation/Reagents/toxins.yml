@@ -82,7 +82,7 @@
         type: Remove
 
 - type: reagent
-  id: AntiChimpSalve #allulalo bite toxin. does poison damage but injects adrenaline, reduces bleeding and reduces stun time
+  id: AntiChimpSalve
   name: reagent-name-AntiChimpSalve
   group: Toxins
   desc: reagent-desc-AntiChimpSalve
@@ -99,15 +99,3 @@
             Radiation: 0.5
             Caustic: 0.5
             Cellular: 0.5
-  reactiveEffects:
-    Acidic:
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        scaling: true
-        ignoreResistances: false
-        damage:
-          types:
-            Radiation: 5
-            Caustic: 5
-            Cellular: 5

@@ -35,8 +35,14 @@ public sealed class PassiveDamageSystem : EntitySystem
             if (comp.NextDamage > curTime)
                 continue;
 
+            // IMP: Make sure the passive damage is not paused
+            if (comp.DamagePause > curTime)
+                continue;
+
             if (comp.DamageCap != 0 && damage.TotalDamage >= comp.DamageCap)
                 continue;
+
+
 
             // Set the next time they can take damage
             comp.NextDamage = curTime + TimeSpan.FromSeconds(1f);

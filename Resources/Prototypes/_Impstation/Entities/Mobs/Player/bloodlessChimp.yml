@@ -119,6 +119,11 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPie
+    - reagents: [ AntiChimpSalve ]
+      methods: [ Touch ]
+      effects:
+      - !type:PausePassiveDamage
+        pauseTime: 10
   - type: Crawler
   - type: StatusIcon
   - type: Blindable
