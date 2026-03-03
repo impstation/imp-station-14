@@ -24,10 +24,11 @@
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Blasters/temp_gun.rsi
   - type: Gun
+    projectileSpeed: 25
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterMagnum
     fireCost: 150
   - type: StaticPrice
@@ -54,7 +55,7 @@
     steps: 5
     zeroVisible: false
   - type: Appearance
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterMagnum
     fireCost: 150
   - type: StaticPrice

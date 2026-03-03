@@ -1,7 +1,7 @@
 - type: entity
+  abstract: true
   parent: BaseItem
   id: BaseMagazineBoxPistolWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: ammunition box (.35 auto)
   components:
   - type: BallisticAmmoProvider
@@ -26,9 +26,9 @@
 
 # Boxes
 - type: entity
+  abstract: true # imp
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: ammunition box (.35 auto)
   description: A cardboard box of .35 auto rounds. Intended to hold general-purpose kinetic ammunition.
   components:
@@ -42,11 +42,11 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
+  abstract: true # imp
   parent: BaseMagazineBoxPistol
   id: MagazineBoxPistolPracticeWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: ammunition box (.35 auto practice)
-  description: A cardboard box of .35 auto rounds. Intended to hold non-harmful chalk ammunition.
+  description: A cardboard box of .35 auto rounds. Intended to hold harmless practice ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolPractice
@@ -59,9 +59,9 @@
     - state: practice
 
 - type: entity
-  id: MagazineBoxPistolIncendiaryWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
+  abstract: true # imp
   parent: BaseMagazineBoxPistol
+  id: MagazineBoxPistolIncendiaryWizden #imp - see the _Impstation directory for the version we use
   name: ammunition box (.35 auto incendiary)
   description: A cardboard box of .35 auto rounds. Intended to hold self-igniting incendiary ammunition.
   components:
@@ -76,9 +76,9 @@
     - state: incendiary
 
 - type: entity
-  id: MagazineBoxPistolUraniumWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
+  abstract: true # imp
   parent: BaseMagazineBoxPistol
+  id: MagazineBoxPistolUraniumWizden #imp - see the _Impstation directory for the version we use
   name: ammunition box (.35 auto uranium)
   description: A cardboard box of .35 auto rounds. Intended to hold exotic uranium-core ammunition.
   components:

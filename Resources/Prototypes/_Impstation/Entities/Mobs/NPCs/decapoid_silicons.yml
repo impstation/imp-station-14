@@ -98,10 +98,6 @@
   - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
-  - type: ItemToggle
-    onActivate: false # You should not be able to turn off a borg temporarily.
-    activated: false # gets activated when a mind is added
-    onUse: false # no item-borg toggling sorry
   - type: PowerCellDraw
     drawRate: 0 #if it doesnt have power nothing works so I just made it 0 drain instead of cutting power entirely
   # no ToggleCellDraw since dont want to lose access when power is gone
@@ -161,6 +157,7 @@
     - FootstepSound
     - SiliconEmotes
     - EmagImmune
+    - DecapoidSilicon
   - type: Emoting
   - type: GuideHelp
     guides:
@@ -202,6 +199,11 @@
     - SimpleNeutral
   - type: Carriable
   - type: CanEscapeInventory #for carrying
+  - type: InteractionPopup
+    interactSuccessString: petting-success-decapoid-silicon
+    interactFailureString: petting-failure-decapoid-silicon
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
 
 - type: entity #behold my abombination, mortal
   parent: BaseMobDecapoidSilicon
@@ -284,6 +286,8 @@
     - DoorBumpOpener
     - FootstepSound
     - SiliconEmotes
+    - EmagImmune
+    - DecapoidSilicon
   - type: BorgChassis
     maxModules: 3
     hasMindState: tcktck_e
@@ -425,6 +429,8 @@
     - SiliconEmotes
     - HudMedical
     - HudSecurity
+    - EmagImmune
+    - DecapoidSilicon
   - type: BorgChassis
     maxModules: 3
     hasMindState: tckut_e
@@ -499,6 +505,7 @@
     - SiliconEmotes
     - Bot
     - Unimplantable
+    - DecapoidSilicon
   - type: TypingIndicator #in case someone admin controls one
     proto: robot
   - type: Speech

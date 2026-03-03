@@ -82,10 +82,12 @@
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/ammo_pouch.rsi
   - type: Item
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/ammo_pouch.rsi
-  - type: StorageFill
-    contents:
-    - id: CartridgeMagnum
-      amount: 12
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CartridgeMagnum
+          amount: 12
 
 - type: entity
   id: AmmoPouchStun
@@ -98,7 +100,9 @@
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/ammo_pouch.rsi
   - type: Item
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/ammo_pouch.rsi
-  - type: StorageFill
-    contents:
-    - id: CartridgeMagnumStun
-      amount: 12
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CartridgeMagnumStun
+          amount: 12

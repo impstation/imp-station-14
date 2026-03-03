@@ -1,8 +1,8 @@
 - type: entity
+  abstract: true
+  parent: [ BaseCartridge, BaseSecurityContraband ]
   id: BaseCartridgePistolWizden #imp - see the _Impstation directory for the version we use
   name: cartridge (.35 auto)
-  parent: [ BaseCartridge, BaseSecurityContraband ]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -18,21 +18,21 @@
   - type: SpentAmmoVisuals
 
 - type: entity
+  abstract: true # imp
+  parent: BaseCartridgePistol
   id: CartridgePistolWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: cartridge (.35 auto)
   description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Standard kinetic ammunition is common and useful in most situations.
-  parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
     proto: BulletPistol
 
 - type: entity
-  id: CartridgePistolPracticeWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: cartridge (.35 auto practice)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Chalk ammunition is generally non-harmful, used for practice.
+  abstract: true # imp
   parent: BaseCartridgePistol
+  id: CartridgePistolPracticeWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.35 auto practice)
+  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
   components:
   - type: CartridgeAmmo
     proto: BulletPistolPractice
@@ -45,11 +45,11 @@
          color: "#dbdbdb"
 
 - type: entity
-  id: CartridgePistolIncendiaryWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: cartridge (.35 auto incendiary)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
+  abstract: true # imp
   parent: BaseCartridgePistol
+  id: CartridgePistolIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.35 auto incendiary)
+  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Incendiary ammunition contains a self-igniting compound that sets targets ablaze.
   components:
   - type: CartridgeAmmo
     proto: BulletPistolIncendiary
@@ -62,10 +62,10 @@
         color: "#ff6e52"
 
 - type: entity
+  abstract: true # imp
   id: CartridgePistolUraniumWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: cartridge (.35 auto uranium)
-  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Uranium core ammunition features a load of fissile material, irradiating the target from the inside.
+  description: Arguably the most popular caliber on the market, used by all manner of pistols and submachine guns. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating targets from the inside.
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
@@ -79,11 +79,11 @@
         color: "#65fe08"
 
 - type: entity
+  abstract: true # imp
+  parent: BaseCartridgePistol
   id: CartridgePistolSpentWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: cartridge (.35 auto)
   suffix: spent
-  parent: BaseCartridgePistol
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi

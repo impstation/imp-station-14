@@ -126,15 +126,6 @@
 
 - type: entity
   parent: BaseBarSign
-  id: BarSignAlohaSnackBar
-  name: Aloha Snack Bar
-  description: A tasteful, inoffensive tiki bar sign.
-  components:
-  - type: BarSign
-    current: AlohaSnackBar
-
-- type: entity
-  parent: BaseBarSign
   id: BarSignCoffeeMenu
   name: Coffee Menu
   description: The best part of waking up.

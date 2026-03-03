@@ -23,7 +23,7 @@
     - Back
     - Belt
     - suitStorage
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: EmergencyRedLaser
     fireCost: 62.5
   - type: Battery
@@ -71,7 +71,7 @@
       shader: unshaded
   - type: Item
     storedOffset: 0,-5
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 62.5
   - type: Appearance
@@ -93,7 +93,7 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_clown.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger

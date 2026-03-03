@@ -60,7 +60,7 @@
       0: Alive
       50: Dead
   - type: Stamina
-    critThreshold: 15
+    baseCritThreshold: 15
     animationThreshold: 5
   - type: Butcherable #I realize the mob deletes itself instantly on death to become a funny explosive but this is here in the event SOMETHING goes weird or an admin messes with it.
     spawned:
@@ -71,8 +71,10 @@
   - type: Body
     prototype: AnimalHemocyanin
   - type: Bloodstream
-    bloodMaxVolume: 50
-    bloodReagent: CopperBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 50
   - type: CombatMode
   - type: MeleeWeapon
     soundHit:

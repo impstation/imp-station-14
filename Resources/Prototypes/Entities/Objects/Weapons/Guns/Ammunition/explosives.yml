@@ -1,10 +1,10 @@
 # Rockets
 
 - type: entity
-  id: CartridgeRocketWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: PG-7VL grenade
+  abstract: true # imp
   parent: [BaseItem, BaseMajorContraband]
+  id: CartridgeRocketWizden #imp - see the _Impstation directory for the version we use
+  name: PG-7VL grenade
   description: A 1.5 warhead designed for the RPG-7 launcher. Has tubular shape.
   components:
   - type: Tag
@@ -22,10 +22,10 @@
     price: 20
 
 - type: entity
-  id: CartridgeRocketSlowWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: PG-7VL grenade "Snail-Rocket"
+  abstract: true # imp
   parent: [BaseItem, BaseMajorContraband]
+  id: CartridgeRocketSlowWizden #imp - see the _Impstation directory for the version we use
+  name: PG-7VL grenade "Snail-Rocket"
   description: A 1.5 warhead designed for the RPG-7 launcher. It's unusually slow.
   components:
     - type: Tag
@@ -45,10 +45,10 @@
 # Grenades
 
 - type: entity
+  abstract: true
+  parent: [BaseItem, BaseMajorContraband]
   id: BaseGrenadeWizden #imp - see the _Impstation directory for the version we use
   name: base grenade
-  parent: [BaseItem, BaseMajorContraband]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -58,10 +58,10 @@
   - type: Sprite
 
 - type: entity
-  id: GrenadeBatonWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: baton grenade
+  abstract: true # imp
   parent: BaseGrenade
+  id: GrenadeBatonWizden #imp - see the _Impstation directory for the version we use
+  name: baton grenade
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeBaton
@@ -76,10 +76,10 @@
     suffix: false
 
 - type: entity
-  id: GrenadeBlastWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: blast grenade
+  abstract: true # imp
   parent: BaseGrenade
+  id: GrenadeBlastWizden #imp - see the _Impstation directory for the version we use
+  name: blast grenade
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeBlast
@@ -94,10 +94,10 @@
     suffix: false
 
 - type: entity
-  id: GrenadeFlashWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: flash grenade
+  abstract: true # imp
   parent: BaseGrenade
+  id: GrenadeFlashWizden #imp - see the _Impstation directory for the version we use
+  name: flash grenade
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeFlash
@@ -112,10 +112,10 @@
     suffix: false
 
 - type: entity
-  id: GrenadeFragWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: frag grenade
+  abstract: true # imp
   parent: BaseGrenade
+  id: GrenadeFragWizden #imp - see the _Impstation directory for the version we use
+  name: frag grenade
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeFrag
@@ -148,10 +148,10 @@
     suffix: false
 
 - type: entity
-  id: GrenadeEMPWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: EMP grenade
+  abstract: true # imp
   parent: BaseGrenade
+  id: GrenadeEMPWizden #imp - see the _Impstation directory for the version we use
+  name: EMP grenade
   components:
   - type: CartridgeAmmo
     proto: BulletGrenadeEMP
@@ -168,10 +168,10 @@
 # Cannon Balls
 
 - type: entity
+  abstract: true
+  parent: [BaseItem, BaseMajorContraband]
   id: BaseCannonBallWizden #imp - see the _Impstation directory for the version we use
   name: base cannon ball
-  parent: [BaseItem, BaseMajorContraband]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -181,11 +181,11 @@
   - type: Sprite
 
 - type: entity
+  abstract: true # imp
+  parent: BaseCannonBall
   id: CannonBallWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: cannonball
   suffix: Pirate
-  parent: BaseCannonBall
   components:
   - type: CartridgeAmmo
     proto: BulletCannonBall
@@ -195,11 +195,11 @@
     state: ball
 
 - type: entity
+  abstract: true # imp
+  parent: BaseCannonBall
   id: CannonBallGrapeshotWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: grapeshot
   suffix: Pirate
-  parent: BaseCannonBall
   components:
   - type: CartridgeAmmo
     proto: PelletGrapeshotSpread
@@ -209,11 +209,11 @@
     state: grapeshot
 
 - type: entity
+  abstract: true # imp
+  parent: BaseCannonBall
   id: CannonBallGlassshotWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: glassshot
   suffix: Pirate
-  parent: BaseCannonBall
   components:
   - type: CartridgeAmmo
     proto: PelletGlassSpread

@@ -43,13 +43,15 @@
     whitelist:
       tags:
       - DrinkBottle
-  - type: StorageFill # imp
-    contents:
-    - id: DrinkAstrotameJug
-    - id: DrinkBbqSauceJug
-    - id: DrinkColdsauceJug
-    - id: DrinkHorseradishSauceJug
-    - id: DrinkHotsauceJug
-    - id: DrinkKetchupJug
-    - id: DrinkMustardJug
-    - id: DrinkSoysauceJug
+  - type: EntityTableContainerFill # imp
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkAstrotameJug
+        - id: DrinkBbqSauceJug
+        - id: DrinkColdsauceJug
+        - id: DrinkHorseradishSauceJug
+        - id: DrinkHotsauceJug
+        - id: DrinkKetchupJug
+        - id: DrinkMustardJug
+        - id: DrinkSoysauceJug

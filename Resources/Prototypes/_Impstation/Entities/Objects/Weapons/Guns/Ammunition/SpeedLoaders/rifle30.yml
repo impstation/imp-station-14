@@ -5,9 +5,6 @@
   description: A 5-round .30 rifle stripper clip.
   parent: [ BaseItem, BaseSecurityContraband ]
   components:
-  - type: Tag
-    tags:
-      - SpeedLoaderRifle
   - type: SpeedLoader
   - type: BallisticAmmoProvider
     mayTransfer: true

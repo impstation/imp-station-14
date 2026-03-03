@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 268.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/13/2026 00:29:11
-  entityCount: 20054
+  time: 01/21/2026 01:05:53
+  entityCount: 20061
 maps:
 - 1
 grids:
@@ -6158,6 +6158,7 @@ entities:
     - type: BecomesStation
       id: Train
     - type: ImplicitRoof
+    - type: ExplosionAirtightGrid
 - proto: AccordionInstrument
   entities:
   - uid: 3
@@ -11846,6 +11847,17 @@ entities:
       rot: 3.141592653589793 rad
       pos: 7.5,-344.5
       parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 20060
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,-300.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Engineering
     - type: Fixtures
       fixtures: {}
 - proto: APCSuperCapacity
@@ -27550,6 +27562,11 @@ entities:
     - type: Transform
       pos: 16.5,-64.5
       parent: 2
+  - uid: 20059
+    components:
+    - type: Transform
+      pos: 21.5,-300.5
+      parent: 2
 - proto: CableApcStack
   entities:
   - uid: 3173
@@ -36498,6 +36515,31 @@ entities:
     components:
     - type: Transform
       pos: 16.5,-64.5
+      parent: 2
+  - uid: 20055
+    components:
+    - type: Transform
+      pos: 22.5,-303.5
+      parent: 2
+  - uid: 20056
+    components:
+    - type: Transform
+      pos: 22.5,-302.5
+      parent: 2
+  - uid: 20057
+    components:
+    - type: Transform
+      pos: 22.5,-301.5
+      parent: 2
+  - uid: 20058
+    components:
+    - type: Transform
+      pos: 22.5,-300.5
+      parent: 2
+  - uid: 20061
+    components:
+    - type: Transform
+      pos: 21.5,-300.5
       parent: 2
 - proto: CableMVStack
   entities:
@@ -93613,6 +93655,24 @@ entities:
     - type: Transform
       pos: -13.498296,-194.43925
       parent: 2
+- proto: PlushieSpawner50
+  entities:
+  - uid: 14435
+    components:
+    - type: Transform
+      pos: -7.5,-112.5
+      parent: 2
+  - uid: 14436
+    components:
+    - type: Transform
+      pos: -8.5,-113.5
+      parent: 2
+  - uid: 14438
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,-32.5
+      parent: 2
 - proto: PlushieThavenWeird
   entities:
   - uid: 18729
@@ -110585,24 +110645,6 @@ entities:
     - type: Transform
       pos: -9.568627,-133.52042
       parent: 2
-- proto: ToySpawner
-  entities:
-  - uid: 14435
-    components:
-    - type: Transform
-      pos: -7.5,-112.5
-      parent: 2
-  - uid: 14436
-    components:
-    - type: Transform
-      pos: -8.5,-113.5
-      parent: 2
-  - uid: 14438
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -4.5,-32.5
-      parent: 2
 - proto: ToySword
   entities:
   - uid: 14439
@@ -126007,13 +126049,13 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
+      removedMasks: 20
       air:
         volume: 200
         immutable: False
         temperature: 293.14673
         moles: {}
       open: True
-      removedMasks: 20
     - type: PlaceableSurface
       isPlaceable: True
   - uid: 9694

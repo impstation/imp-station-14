@@ -1,4 +1,5 @@
-using Content.Server.GameTicking.Prototypes;
+using Content.Shared.GameTicking.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
@@ -8,31 +9,27 @@ namespace Content.Server.GameTicking;
 public sealed partial class GameTicker
 {
     [ViewVariables]
-    public string? LobbyBackgroundImage { get; private set; } // imp edit
+    public ProtoId<LobbyBackgroundPrototype>? LobbyBackground { get; private set; }
 
     [ViewVariables]
-    public string? LobbyBackgroundName { get; private set; } // imp edit
-
-    [ViewVariables]
-    public string? LobbyBackgroundArtist { get; private set; } // imp edit
-
-    [ViewVariables]
-    private List<LobbyBackgroundPrototype> _lobbyBackgrounds = []; // imp edit
+    private List<ProtoId<LobbyBackgroundPrototype>>? _lobbyBackgrounds;
 
     private static readonly string[] WhitelistedBackgroundExtensions = new string[] {"png", "jpg", "jpeg", "webp"};
 
     private void InitializeLobbyBackground()
     {
-        // imp edit
-        foreach (var prototype in _prototypeManager.EnumeratePrototypes<LobbyBackgroundPrototype>())
-        {
-            if (!WhitelistedBackgroundExtensions.Contains(prototype.Background.Extension))
-            {
-                _sawmill.Warning($"Lobby background '{prototype.ID}' has an invalid extension '{prototype.Background.Extension}' and will be ignored.");
-                continue;
-            }
+        var allprotos = _prototypeManager.EnumeratePrototypes<LobbyBackgroundPrototype>().ToList();
+        _lobbyBackgrounds ??= new List<ProtoId<LobbyBackgroundPrototype>>();
 
-            _lobbyBackgrounds.Add(prototype);
+        //create protoids from them
+        foreach (var proto in allprotos)
+        {
+            var ext = proto.Background.Extension;
+            if (!WhitelistedBackgroundExtensions.Contains(ext))
+                continue;
+
+            //create a protoid and add it to the list
+            _lobbyBackgrounds.Add(new ProtoId<LobbyBackgroundPrototype>(proto.ID));
         }
 
         RandomizeLobbyBackground();
@@ -40,20 +37,9 @@ public sealed partial class GameTicker
 
     private void RandomizeLobbyBackground()
     {
-        // imp edit
-        if (_lobbyBackgrounds.Count > 0)
-        {
-            var background = _robustRandom.Pick(_lobbyBackgrounds);
-
-            LobbyBackgroundImage = background.Background.ToString();
-            LobbyBackgroundName = background.Name;
-            LobbyBackgroundArtist = background.Artist;
-        }
+        if (_lobbyBackgrounds != null && _lobbyBackgrounds.Count != 0)
+            LobbyBackground = _robustRandom.Pick(_lobbyBackgrounds);
         else
-        {
-            LobbyBackgroundImage = null;
-            LobbyBackgroundName = null;
-            LobbyBackgroundArtist = null;
-        }
+            LobbyBackground = null;
     }
 }

@@ -24,17 +24,15 @@
   #- Chef
   #- Clown
   #- Janitor
-  #- HeadOfPersonnel
-  #- Lawyer
+  - Lawyer
   #- Librarian
   #- Mime
   #- Musician
+  - Passenger
   #- Reporter
   #- Visitor
   #- ServiceWorker
   # end imp edit, a department of TWO, available on xbox 360 and playstation 3 march 6, 2008
-  - Lawyer
-  - Passenger
   - Assistant # imp, non-roundstart
 
 - type: department
@@ -147,9 +145,7 @@
   color: "#9FED58"
   weight: 10
   roles:
-  - Boxer
   - Reporter
-  - Zookeeper
   - Psychologist
   primary: false
   manifestHidden: true #imp edit

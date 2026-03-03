@@ -54,16 +54,16 @@
 # Lecter
 
 - type: entity
-  parent: RandomHumanoidSpawnerERTLeaderEVALecter
-  id: RandomHumanoidSpawnerERTLeaderEVALecterTime
-  suffix: ERTRole, Lecter, EVA, Time
+  parent: RandomHumanoidSpawnerERTLeaderArmed
+  id: RandomHumanoidSpawnerERTLeaderArmedTime
+  suffix: ERTRole, Armed, EVA, Time
   components:
     - type: RandomHumanoidSpawner
-      settings: ERTLeaderEVALecterTime
+      settings: ERTLeaderArmedTime
 
 - type: randomHumanoidSettings
-  id: ERTLeaderEVALecterTime
-  parent: ERTLeaderEVALecter
+  id: ERTLeaderArmedTime
+  parent: ERTLeaderArmed
   components:
     - type: GhostRole
       job: ERTLeader
@@ -141,16 +141,16 @@
       job: ERTSecurity
 
 - type: entity
-  id: RandomHumanoidSpawnerERTSecurityEVALecterTime
-  parent: RandomHumanoidSpawnerERTSecurityEVALecter
-  suffix: ERTRole, Lecter, EVA, Time
+  id: RandomHumanoidSpawnerERTSecurityArmedRifleTime
+  parent: RandomHumanoidSpawnerERTSecurityArmedRifle
+  suffix: ERTRole, Armed, EVA, Time
   components:
     - type: RandomHumanoidSpawner
-      settings: ERTSecurityEVALecterTime
+      settings: ERTSecurityArmedRifleTime
 
 - type: randomHumanoidSettings
-  id: ERTSecurityEVALecterTime
-  parent: ERTSecurityEVALecter
+  id: ERTSecurityArmedRifleTime
+  parent: ERTSecurityArmedRifle
   components:
     - type: GhostRole
       job: ERTSecurity

@@ -55,6 +55,8 @@
     graph: Table
     node: TableFrame
   - type: ThrownItemImmune # imp
+  - type: AcousticData # VDS
+    absorption: 3
 
 - type: entity
   id: CounterWoodFrame
@@ -110,6 +112,8 @@
   - type: Construction
     graph: Table
     node: CounterWoodFrame
+  - type: AcousticData # VDS
+    absorption: 5
 
 - type: entity
   id: CounterMetalFrame
@@ -553,7 +557,7 @@
         acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
-          collection: GlassBreak
+          collection: WoodDestroy
     - trigger:
         !type:DamageTrigger
         damage: 15
@@ -580,6 +584,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWood
+  - type: AcousticData # VDS
+    absorption: 25
 
 - type: entity
   id: TableCarpet
@@ -633,6 +639,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
+  - type: AcousticData # VDS
+    absorption: 35
 
 - type: entity
   id: TableStone
@@ -700,6 +708,8 @@
   - type: Tag # imp edit
     tags:
     - Table
+  - type: AcousticData # VDS
+    absorption: 30
 
 - type: entity
   parent: TableBase
@@ -742,6 +752,12 @@
     damageModifierSet: Wood
   - type: Destructible
     thresholds:
+    - trigger: # Excess damage, don't spawn entities
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 25
@@ -768,6 +784,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepCarpet
+  - type: AcousticData # VDS
+    absorption: 25
 
 - type: entity
   id: TableFancyBlue
@@ -1015,6 +1033,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepWood
+  - type: AcousticData # VDS
+    absorption: 25
 
 - type: entity
   id: TableCounterMetal

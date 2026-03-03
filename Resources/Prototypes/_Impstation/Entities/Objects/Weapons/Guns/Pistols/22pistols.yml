@@ -289,13 +289,12 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletLPistol
     fireCost: 100
   - type: Battery
     maxCharge: 800
     startingCharge: 800
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 40
   - type: AmmoCounter

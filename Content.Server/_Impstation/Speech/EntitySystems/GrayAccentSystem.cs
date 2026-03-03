@@ -25,7 +25,7 @@ public sealed class GrayAccentComponentAccentSystem : EntitySystem
         SubscribeLocalEvent<GrayAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, GrayAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<GrayAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

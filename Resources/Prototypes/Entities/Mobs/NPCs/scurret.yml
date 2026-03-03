@@ -37,10 +37,11 @@
       60: Critical
       125: Dead
   - type: Temperature
-    heatDamageThreshold: 360
-    coldDamageThreshold: 285
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 360
+    coldDamageThreshold: 285
   # Good eatin', you monster.
   - type: Butcherable
     butcheringType: Spike
@@ -165,8 +166,8 @@
   # The have a rich culture
   - type: RandomMetadata
     nameSegments:
-    - NamesFirstScurret
-    - NamesLastScurret
+    - NamesSirvalFirst #imp edit
+    - NamesSirvalLast #imp edit 
     nameFormat: name-format-standard
   # They come in a variety of colours
   - type: RandomSprite

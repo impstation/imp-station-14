@@ -220,7 +220,7 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
             if (otherEnt == ent)
                 continue;
 
-            if (_whitelistSystem.IsBlacklistPass(ent.Comp.Blacklist, otherEnt.Value))
+            if (_whitelistSystem.IsWhitelistPass(ent.Comp.Blacklist, otherEnt.Value))
             {
                 return false;
             }

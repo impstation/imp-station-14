@@ -16,7 +16,7 @@ public sealed class ProperCapitalizationSystem : EntitySystem
         SubscribeLocalEvent<ProperCapitalizationComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, ProperCapitalizationComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<ProperCapitalizationComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

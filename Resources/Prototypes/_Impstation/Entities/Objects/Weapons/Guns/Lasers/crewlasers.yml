@@ -40,7 +40,7 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: EmergencyRedLaser
     fireCost: 50
   - type: Item
@@ -74,9 +74,9 @@
     sprite: _Impstation/Objects/Weapons/Guns/Lasers/laser_practice.rsi
   - type: StaticPrice
     price: 300
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedLaserPractice
-    fireCost: 10 
+    fireCost: 10
   - type: PacifismAllowedGun
   - type: Battery
     maxCharge: 160
@@ -114,7 +114,7 @@
     - Burst
     - FullAuto
     selectedMode: FullAuto
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedRifleLaser
     fireCost: 40
   - type: Battery
@@ -123,6 +123,7 @@
   - type: Tag
     tags:
     - TurretCompatibleWeapon
+    - LaserWeapon
   - type: MeleeWeapon
     attackRate: 0.4 #slower, but hits harder; bigger object to shove with
     damage:
@@ -163,7 +164,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: XrayLaser
     fireCost: 100
   - type: MagazineVisuals
@@ -211,7 +212,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
@@ -239,7 +240,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: HitscanBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
   - type: BatterySelfRecharger
@@ -254,6 +255,7 @@
     - HighRiskItem
     - Sidearm
     - WeaponAntiqueLaser
+    - LaserWeapon
   - type: StaticPrice
     price: 750
   - type: StealTarget

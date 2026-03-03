@@ -1,5 +1,4 @@
 using Content.Server._Impstation.Nutrition.Components;
-using Content.Server.PowerCell;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
 using Content.Shared.Chemistry;
@@ -15,6 +14,8 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Power.Components;
+using Content.Shared.Power.EntitySystems;
+using Content.Shared.PowerCell;
 using Content.Shared.Smoking;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -28,6 +29,7 @@ namespace Content.Server.Nutrition.EntitySystems
         [Dependency] private readonly FlavorProfileSystem _flavorProfile = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly PowerCellSystem _powerCell = default!;
+        [Dependency] private readonly SharedBatterySystem _battery = default!;
 
         private void InitializeImpVapes()
         {
@@ -83,7 +85,7 @@ namespace Content.Server.Nutrition.EntitySystems
         private void OnExamine(EntityUid uid, VapePenComponent component, ExaminedEvent args)
         {
             _powerCell.TryGetBatteryFromSlot(uid, out var battery);
-            var charges = UsesRemaining(component, battery);
+            var charges = UsesRemaining(uid, component, battery);
             var maxCharges = MaxUses(component, battery);
 
             using (args.PushGroup(nameof(VapePenComponent)))
@@ -270,7 +272,7 @@ namespace Content.Server.Nutrition.EntitySystems
                         if (vapor.Solution != null)
                         {
                             vapor.Solution.ScaleSolution(vapor.Proportion * cartComp.FlavorMultiplicationFactor);
-                            _bloodstreamSystem.TryAddToChemicals(args.Args.Target.Value, vapor.Solution);
+                            _bloodstreamSystem.TryAddToBloodstream(args.Args.Target.Value, vapor.Solution);
                         }
                         if (vapor.Gas.HasValue)
                         {
@@ -317,12 +319,12 @@ namespace Content.Server.Nutrition.EntitySystems
             args.Handled = true;
         }
 
-        private int UsesRemaining(VapePenComponent component, BatteryComponent? battery = null)
+        private int UsesRemaining(EntityUid uid, VapePenComponent component, Entity<BatteryComponent>? battery = null)
         {
             if (battery == null ||
                 component.ChargeUse == 0f) return 0;
 
-            return (int)(battery.CurrentCharge / component.ChargeUse);
+            return (int)(_battery.GetCharge(battery.Value.AsNullable()) / component.ChargeUse);
         }
 
         private int MaxUses(VapePenComponent component, BatteryComponent? battery = null)

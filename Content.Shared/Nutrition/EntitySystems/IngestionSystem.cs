@@ -19,6 +19,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tools.EntitySystems;
+using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
@@ -70,8 +71,8 @@ public sealed partial class IngestionSystem : EntitySystem
         SubscribeLocalEvent<EdibleComponent, ComponentInit>(OnEdibleInit);
 
         // Interactions
-        SubscribeLocalEvent<EdibleComponent, UseInHandEvent>(OnUseEdibleInHand, after: new[] { typeof(OpenableSystem), typeof(InventorySystem) });
-        SubscribeLocalEvent<EdibleComponent, AfterInteractEvent>(OnEdibleInteract, after: new[] { typeof(ToolOpenableSystem) });
+        SubscribeLocalEvent<EdibleComponent, UseInHandEvent>(OnUseEdibleInHand, after: [typeof(OpenableSystem), typeof(InventorySystem), typeof(ActivatableUISystem)]);
+        SubscribeLocalEvent<EdibleComponent, AfterInteractEvent>(OnEdibleInteract, after: [typeof(ToolOpenableSystem)]);
 
         // Generic Eating Handlers
         SubscribeLocalEvent<EdibleComponent, BeforeIngestedEvent>(OnBeforeIngested);
@@ -383,7 +384,7 @@ public sealed partial class IngestionSystem : EntitySystem
 
         if (!afterEv.Destroy)
         {
-            args.Repeat = afterEv.Repeat;
+            args.Repeat = false; // imp edit, afterEv.Repeat -> false
             return;
         }
 
@@ -505,7 +506,7 @@ public sealed partial class IngestionSystem : EntitySystem
             };
             RaiseLocalEvent(args.Target, ref ev);
 
-            args.Repeat = !args.ForceFed;
+            args.Repeat = false; // imp edit, !args.ForceFed -> false
             return;
         }
 

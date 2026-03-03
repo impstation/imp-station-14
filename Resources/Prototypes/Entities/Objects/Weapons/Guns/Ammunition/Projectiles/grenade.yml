@@ -1,8 +1,8 @@
 - type: entity
-  id: PelletClusterRubberWizden #imp - see the _Impstation directory for the version we use
-  name: pellet (ball, rubber)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterRubberWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, rubber)
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -18,10 +18,10 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterLethalWizden #imp - see the _Impstation directory for the version we use
-  name: pellet (ball, lethal)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterLethalWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, lethal)
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -35,10 +35,10 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterIncendiaryWizden #imp - see the _Impstation directory for the version we use
-  name: pellet (ball, incendiary)
-  categories: [ HideSpawnMenu ]
   parent: BaseBulletIncendiary
+  id: PelletClusterIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, incendiary)
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
@@ -56,10 +56,10 @@
     lifetime: 0.25
 
 - type: entity
-  id: PelletClusterLessLethalWizden #imp - see the _Impstation directory for the version we use
-  name: pellet (ball, less lethal)
-  categories: [ HideSpawnMenu ]
   parent: BaseBullet
+  id: PelletClusterLessLethalWizden #imp - see the _Impstation directory for the version we use
+  categories: [ HideSpawnMenu ]
+  name: pellet (ball, less lethal)
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi

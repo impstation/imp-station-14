@@ -1,8 +1,8 @@
 - type: entity
+  abstract: true
+  parent: [ BaseMagazinePistolWizden, BaseSecurityContraband ] # imp
   id: BaseMagazineMagnumWizden #imp - see the _Impstation directory for the version we use
   name: pistol magazine (.45 magnum)
-  parent: [ BaseMagazinePistolWizden, BaseSecurityContraband ] #imp
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -15,12 +15,12 @@
     capacity: 7
 
 - type: entity
+  abstract: true # imp
+  parent: BaseMagazineMagnumWizden # imp
   id: MagazineMagnumEmptyWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: pistol magazine (.45 magnum any)
   suffix: empty
-  parent: BaseMagazineMagnumWizden #imp
-  description: 7-round single stack pistol magazine.
+  description: 7-round single stack magazine for large-caliber pistols.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -38,11 +38,11 @@
       - state: inhand-right-mag
 
 - type: entity
+  abstract: true # imp
+  parent: BaseMagazineMagnumWizden # imp
   id: MagazineMagnumWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: pistol magazine (.45 magnum)
-  parent: BaseMagazineMagnumWizden #imp
-  description: 7-round single stack pistol magazine. Intended to hold general-purpose kinetic ammunition.
+  description: 7-round single stack magazine for large-caliber pistols. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnum
@@ -60,11 +60,11 @@
       - state: inhand-right-mag
 
 - type: entity
+  abstract: true # imp
+  parent: BaseMagazineMagnumWizden # imp
   id: MagazineMagnumPracticeWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: pistol magazine (.45 magnum practice)
-  parent: BaseMagazineMagnumWizden #imp
-  description: 7-round single stack pistol magazine. Intended to hold non-harmful chalk ammunition.
+  description: 7-round single stack magazine for large-caliber pistols. Intended to hold harmless practice ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumPractice
@@ -88,11 +88,11 @@
         color: "#dbdbdb"
 
 - type: entity
+  abstract: true # imp
+  parent: BaseMagazineMagnumWizden # imp
   id: MagazineMagnumUraniumWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: pistol magazine (.45 magnum uranium)
-  parent: BaseMagazineMagnumWizden #imp
-  description: 7-round single stack pistol magazine. Intended to hold exotic uranium-core ammunition.
+  description: 7-round single stack magazine for large-caliber pistols. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumUranium
@@ -116,11 +116,11 @@
         color: "#00cd42"
 
 - type: entity
+  abstract: true # imp
+  parent: BaseMagazineMagnumWizden # imp
   id: MagazineMagnumAPWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
   name: pistol magazine (.45 magnum armor-piercing)
-  parent: BaseMagazineMagnumWizden #imp
-  description: 7-round single stack pistol magazine. Intended to hold rare armor-piercing ammunition.
+  description: 7-round single stack magazine for large-caliber pistols. Intended to hold specialized armor-piercing ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeMagnumAP

@@ -1,8 +1,8 @@
 - type: entity
+  abstract: true
+  parent: [ BaseCartridge, BaseSecurityContraband ]
   id: BaseCartridgeHeavyRifleWizden #imp - see the _Impstation directory for the version we use
   name: cartridge (.10 rifle)
-  parent: [ BaseCartridge, BaseSecurityContraband ]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -20,10 +20,10 @@
     price: 10
 
 - type: entity
-  id: CartridgeMinigunWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: cartridge (.10 rifle)
+  abstract: true # imp
   parent: BaseCartridgeHeavyRifle
+  id: CartridgeMinigunWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.10 rifle)
   components:
   - type: CartridgeAmmo
     proto: BulletMinigun

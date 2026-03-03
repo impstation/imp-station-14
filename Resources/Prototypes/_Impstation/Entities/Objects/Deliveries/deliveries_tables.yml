@@ -61,7 +61,7 @@
   table: !type:GroupSelector
     children:
     - !type:NestedSelector
-      tableId: PackageToyWeaponEntityTable
+      tableId: PackageImpWeaponEntityTable
     - !type:NestedSelector
       tableId: PackageImpCosplayEntityTable
     - !type:NestedSelector

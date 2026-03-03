@@ -29,24 +29,26 @@
   id: ClothingBeltUtilityGoblinRandomFill
   suffix: Random Fill, Gobtools
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingHandsGlovesColorYellow
-      prob: 0.01
-    - id: ClothingHeadHatWelding
-      prob: 0.5
-    - id: GoblinWirecutters
-      prob: 0.3
-    - id: GoblinScrewdriver
-      prob: 0.3
-    - id: GoblinWrench
-      prob: 0.3
-    - id: GoblinCrowbar
-      prob: 0.3
-    - id: GoblinMultitool
-      prob: 0.3
-    - id: GoblinWelder
-      prob: 0.3
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHandsGlovesColorYellow
+          prob: 0.01
+        - id: ClothingHeadHatWelding
+          prob: 0.5
+        - id: GoblinWirecutters
+          prob: 0.3
+        - id: GoblinScrewdriver
+          prob: 0.3
+        - id: GoblinWrench
+          prob: 0.3
+        - id: GoblinCrowbar
+          prob: 0.3
+        - id: GoblinMultitool
+          prob: 0.3
+        - id: GoblinWelder
+          prob: 0.3
   - type: Storage
     maxItemSize: Normal
     # inherited from utility belt

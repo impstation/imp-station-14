@@ -1,8 +1,8 @@
 - type: entity
+  abstract: true
+  parent: [ BaseCartridge, BaseSecurityContraband ]
   id: BaseCartridgeCaselessRifleWizden #imp - see the _Impstation directory for the version we use
   name: cartridge (.25 caseless)
-  parent: [ BaseCartridge, BaseSecurityContraband ]
-  abstract: true
   components:
   - type: Tag
     tags:
@@ -21,21 +21,21 @@
     price: 10
 
 - type: entity
-  id: CartridgeCaselessRifleWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: cartridge (.25 caseless)
+  abstract: true # imp
   parent: BaseCartridgeCaselessRifle
+  id: CartridgeCaselessRifleWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.25 caseless)
   description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRifle
 
 - type: entity
-  id: CartridgeCaselessRiflePracticeWizden #imp - see the _Impstation directory for the version we use
-  abstract: true
-  name: cartridge (.25 caseless practice)
+  abstract: true # imp
   parent: BaseCartridgeCaselessRifle
-  description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Chalk ammunition is generally non-harmful, used for practice.
+  id: CartridgeCaselessRiflePracticeWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.25 caseless practice)
+  description: A small caliber utilizing caseless technology, omitting conventional brass casing in favor of hardened propellant. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
   components:
   - type: CartridgeAmmo
     proto: BulletCaselessRiflePractice

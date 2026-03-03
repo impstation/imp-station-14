@@ -70,7 +70,7 @@
       projectile:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
+          bounds: "-0.1,-0.10,0.1,0.30"
         hard: false
         mask:
         - Impassable
@@ -1118,6 +1118,17 @@
     - type: GrapplingProjectile
 
 - type: entity
+  parent: GrapplingHook
+  id: StickyHandPalm
+  name: sticky hand palm
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/sticky_hand.rsi
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
   name : disabler bolt smg
   id: BulletDisablerSmgWizden #imp - see the _Impstation directory for the version we use
   parent: BaseBullet
@@ -1392,7 +1403,7 @@
 
 - type: entity
   parent: BaseBullet
-  id: EnergyCrossbowBolt
+  id: EnergyCrossbowBoltWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   name: energy bolt
   description: This'll hurt.

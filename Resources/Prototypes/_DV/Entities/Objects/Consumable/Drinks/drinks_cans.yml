@@ -7,10 +7,12 @@
     whitelist:
       tags:
         - DrinkCan
-  - type: StorageFill
-    contents:
-      - id: DrinkNukieCan
-        amount: 6
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkNukieCan
+          amount: 6
   - type: ItemCounter
     count:
       tags: [DrinkCan]

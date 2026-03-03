@@ -1,5 +1,5 @@
-using Content.Server.Kitchen.Components;
 using Content.Server.Xenoarchaeology.Artifact.XAT.Components;
+using Content.Shared.Kitchen;
 using Content.Shared.Xenoarchaeology.Artifact;
 using Content.Shared.Xenoarchaeology.Artifact.Components;
 using Content.Shared.Xenoarchaeology.Artifact.XAT;

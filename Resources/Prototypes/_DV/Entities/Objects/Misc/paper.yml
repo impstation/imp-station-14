@@ -288,20 +288,22 @@
     whitelist:
       tags:
       - Document
-  - type: StorageFill
-    contents:
-    - id: PaperDyedYellow
-      amount: 4
-    - id: PaperDyedGreen
-      amount: 4
-    - id: PaperDyedRed
-      amount: 4
-    - id: PaperDyedOcean
-      amount: 4
-    - id: PaperDyedTan
-      amount: 4
-    - id: PaperDyedBrown
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PaperDyedYellow
+          amount: 4
+        - id: PaperDyedGreen
+          amount: 4
+        - id: PaperDyedRed
+          amount: 4
+        - id: PaperDyedOcean
+          amount: 4
+        - id: PaperDyedTan
+          amount: 4
+        - id: PaperDyedBrown
+          amount: 4
 
 - type: entity
   parent: BoxReamClassic
@@ -313,20 +315,22 @@
     sprite: _DV/Objects/Misc/bureaucracy.rsi
     layers:
     - state: ream-bright
-  - type: StorageFill
-    contents:
-    - id: PaperDyedOrange
-      amount: 4
-    - id: PaperDyedGrass
-      amount: 4
-    - id: PaperDyedYellow
-      amount: 4
-    - id: PaperDyedSky
-      amount: 4
-    - id: PaperDyedPink
-      amount: 4
-    - id: PaperDyedPurple
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PaperDyedOrange
+          amount: 4
+        - id: PaperDyedGrass
+          amount: 4
+        - id: PaperDyedYellow
+          amount: 4
+        - id: PaperDyedSky
+          amount: 4
+        - id: PaperDyedPink
+          amount: 4
+        - id: PaperDyedPurple
+          amount: 4
 
 - type: entity
   parent: BoxReamClassic
@@ -338,10 +342,12 @@
     sprite: _DV/Objects/Misc/bureaucracy.rsi
     layers:
     - state: ream-white
-  - type: StorageFill
-    contents:
-    - id: Paper
-      amount: 24
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Paper
+          amount: 24
 
 - type: entity
   parent: Paper

@@ -43,7 +43,7 @@
   - type: Battery
     maxCharge: 288
     startingCharge: 288
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterPistol
     fireCost: 36 #8 shots
   - type: Tag
@@ -85,7 +85,7 @@
   - type: Battery
     maxCharge: 576
     startingCharge: 576
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletBlasterPistolMilitary
     fireCost: 96 #6 shots
 

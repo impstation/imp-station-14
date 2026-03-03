@@ -193,7 +193,6 @@
   - type: Contraband
     allowedDepartments: [ Security ]
     allowedJobs: [ Bartender ]
-    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HospitalityDirector ] #imp edit
 
 - type: entity
   id: BaseSecurityLawyerContraband

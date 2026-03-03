@@ -13,6 +13,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Client._Impstation.ReadyManifest; // imp
 
@@ -29,6 +30,7 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
         [Dependency] private readonly ClientsidePlaytimeTrackingManager _playtimeTracking = default!;
+        [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
@@ -272,30 +274,22 @@ namespace Content.Client.Lobby
 
         private void UpdateLobbyBackground()
         {
-            // imp edit begin
-            if (_gameTicker.LobbyBackgroundImage is { } image)
+            if (_protoMan.TryIndex(_gameTicker.LobbyBackground, out var proto))
             {
-                Lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(image);
+                Lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(proto.Background);
 
-                var name = string.IsNullOrEmpty(_gameTicker.LobbyBackgroundName)
-                    ? Loc.GetString("lobby-state-background-unknown-name")
-                    : _gameTicker.LobbyBackgroundName;
-
-                var artist = string.IsNullOrEmpty(_gameTicker.LobbyBackgroundArtist)
-                    ? Loc.GetString("lobby-state-background-unknown-artist")
-                    : _gameTicker.LobbyBackgroundArtist;
-
-                var markup = Loc.GetString("lobby-state-background-text", ("name", name), ("artist", artist));
+                var markup = Loc.GetString("lobby-state-background-text",
+                    ("backgroundTitle", Loc.GetString(proto.Title)),
+                    ("backgroundArtist", Loc.GetString(proto.Artist)));
 
                 Lobby!.LobbyBackground.SetMarkup(markup);
             }
             else
             {
                 Lobby!.Background.Texture = null;
+
                 Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text"));
             }
-            // imp edit end
-
         }
 
         private void SetReady(bool newReady)

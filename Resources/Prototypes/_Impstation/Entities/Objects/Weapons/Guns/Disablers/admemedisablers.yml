@@ -23,14 +23,13 @@
       - FullAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/stunlauncher.ogg
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 200
   - type: Battery
     maxCharge: 5000
     startingCharge: 5000
   - type: BatterySelfRecharger
-    autoRecharge: true
     autoRechargeRate: 40
   - type: MeleeWeapon
     attackRate: 0.6
@@ -68,7 +67,7 @@
   - type: Battery
     maxCharge: 4000
     startingCharge: 4000
-  - type: ProjectileBatteryAmmoProvider
+  - type: BatteryAmmoProvider
     proto: BulletDisablerQuad
     fireCost: 1000
   - type: GuideHelp

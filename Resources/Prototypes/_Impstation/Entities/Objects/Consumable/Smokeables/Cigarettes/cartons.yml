@@ -24,12 +24,14 @@
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/mixedrejectscarton.rsi
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/mixedrejectscarton.rsi
-  - type: StorageFill
-    contents:
-    - id: CigPackMixedRejects
-      amount: 6
-    - id: SyndicateFlippo
-      amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigPackMixedRejects
+          amount: 6
+        - id: SyndicateFlippo
+          amount: 1
   - type: Storage
     grid:
     - 0,0,5,1

@@ -5,7 +5,7 @@ using Content.Server.Electrocution;
 using Content.Server.EUI;
 using Content.Server.Ghost;
 using Content.Server.Popups;
-using Content.Server.PowerCell;
+using Content.Shared.PowerCell;
 using Content.Shared.Traits.Assorted;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Components;
@@ -18,6 +18,8 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.PowerCell;
 using Content.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
@@ -47,6 +49,7 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!; // imp rdnr
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // imp multitool defib
 
@@ -196,6 +199,18 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (component.PlayZapSound) // imp if
             _audio.PlayPvs(component.ZapSound, uid);
         _electrocution.TryDoElectrocution(target, null, component.ZapDamage, TimeSpan.FromSeconds(component.WritheDuration), true, ignoreInsulation: true); // imp doafter -> fromseconds
+
+        var interacters = new HashSet<EntityUid>();
+        _interactionSystem.GetEntitiesInteractingWithTarget(target, interacters);
+        foreach (var other in interacters)
+        {
+            if (other == user)
+                continue;
+
+            // Anyone else still operating on the target gets zapped too
+            _electrocution.TryDoElectrocution(other, null, component.ZapDamage, TimeSpan.FromSeconds(component.WritheDuration), true); // imp timespan
+        }
+
         if (!TryComp<UseDelayComponent>(uid, out var useDelay))
             return;
         _useDelay.SetLength((uid, useDelay), component.ZapDelay, component.DelayId);

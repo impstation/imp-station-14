@@ -55,8 +55,10 @@
     baseWalkSpeed : 2.00
     baseSprintSpeed : 2.00
   - type: Bloodstream
-    bloodMaxVolume: 350
-    chemicalMaxVolume: 20 #imp
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 350
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -260,8 +262,10 @@
     spawned:
     - id: FoodHivelordRemains
   - type: Bloodstream #imp
-    bloodMaxVolume: 350
-    chemicalMaxVolume: 20
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 350
   - type: InteractionPopup #imp
     successChance: 0.5
     interactSuccessString: petting-success-hivelord
@@ -320,8 +324,10 @@
   - type: TimedDespawn
     lifetime: 100
   - type: Bloodstream #imp
-    bloodMaxVolume: 350
-    chemicalMaxVolume: 20
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 350
   - type: InteractionPopup #imp
     successChance: 0.5
     interactSuccessString: petting-success-hivelordbrood
@@ -357,7 +363,8 @@
   - type: Tag
     tags:
     - HivelordRemains
-    - KodeEdible # imp
+    - Meat
+    - Raw
 
 - type: entity
   id: FoodHivelordRemainsInert
@@ -377,7 +384,8 @@
   - type: Tag
     tags:
     - HivelordRemains
-
+    - Meat
+    - Raw
 
 - type: entity
   id: MobBasilisk
@@ -428,8 +436,10 @@
     capacity: 1
     count: 1
   - type: Bloodstream
-    bloodMaxVolume: 200
-    chemicalMaxVolume: 20 #imp
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 200
   - type: NpcFactionMember
     factions:
     - SimpleHostile
