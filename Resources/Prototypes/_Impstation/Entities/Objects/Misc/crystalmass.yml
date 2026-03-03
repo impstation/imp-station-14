@@ -27,7 +27,9 @@
           - BulletImpassable
     - type: Airtight
     - type: StepTrigger
-      ignoreWeightless: false
+      requiredTriggeredSpeed: 0
+      intersectRatio: 0.1
+      ignoreWeightless: true
 
 - type: entity
   id: CrystalBulb

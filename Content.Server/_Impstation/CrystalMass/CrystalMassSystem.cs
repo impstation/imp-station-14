@@ -10,6 +10,7 @@ using Content.Shared.Item;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
 // using Content.Shared.Popups;
+using Content.Shared.StepTrigger.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 // using Robust.Shared.Player;
@@ -35,10 +36,13 @@ public sealed class CrystalMassSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
+        base.Initialize();
+
         SubscribeLocalEvent<CrystalMassComponent, ComponentStartup>(OnStartup);
         // SubscribeLocalEvent<CrystalMassComponent, InteractHandEvent>(OnHandInteract);
         // SubscribeLocalEvent<CrystalMassComponent, InteractUsingEvent>(OnItemInteract);
-        // SubscribeLocalEvent<CrystalMassComponent, StepTriggeredOffEvent>(OnStepTriggered);
+        SubscribeLocalEvent<CrystalMassComponent, StepTriggeredOnEvent>(OnStepTriggered);
+        SubscribeLocalEvent<CrystalMassComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
     }
 
     private void OnStartup(EntityUid uid, CrystalMassComponent component, ComponentStartup args)
@@ -67,7 +71,7 @@ public sealed class CrystalMassSystem : EntitySystem
             component.Spreading = false;
             return;
         }
-;
+
         var xform = Transform(uid);
         if (xform.GridUid == null)
             return;
@@ -110,6 +114,7 @@ public sealed class CrystalMassSystem : EntitySystem
         var neighborTileCoords = Transform(uid).Coordinates.Offset(dir.ToVec());
 
         // TODO: Make floor sprite same as entity sprite, might or might not be better when loading areas with a lot of crystal mass
+        // TODO: Add limiter so it dosen't spread in space infinitly
         _map.SetTile(gridUid, mapGrid, neighborTileCoords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_robustRandom.Next(0, component.SpriteVariants)));
 
         var newTile = _map.GetTileRef(gridUid, mapGrid, neighborTileCoords);
@@ -160,5 +165,24 @@ public sealed class CrystalMassSystem : EntitySystem
             return;
 
         _appearance.SetData(uid, CrystalMassVisuals.Variant, _robustRandom.Next(1, component.SpriteVariants + 1), appearance);
+    }
+
+    private void OnStepTriggerAttempt(Entity<CrystalMassComponent> ent, ref StepTriggerAttemptEvent args)
+    {
+        if (HasComp<SupermatterImmuneComponent>(args.Tripper) || HasComp<GodmodeComponent>(args.Tripper) || HasComp<GhostComponent>(args.Tripper))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        args.Continue = true;
+    }
+
+    private void OnStepTriggered(Entity<CrystalMassComponent> ent, ref StepTriggeredOnEvent args)
+    {
+        if (HasComp<MobStateComponent>(args.Tripper) || HasComp<ItemComponent>(args.Tripper))
+            _audio.PlayPvs(ent.Comp.DustSound, args.Tripper, AudioParams.Default.WithVolume(-1f));
+
+        EntityManager.QueueDeleteEntity(args.Tripper);
     }
 }
