@@ -1,4 +1,5 @@
-using Content.Server.Spreader;
+using System.Numerics;
+// using Content.Server.Spreader; Removing
 using Content.Shared._EE.Supermatter.Components;
 using Content.Shared._Impstation.CrystalMass;
 using Content.Shared.Damage.Components;
@@ -9,7 +10,7 @@ using Content.Shared.Item;
 using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
 // using Content.Shared.Popups;
-using Content.Shared.Spreader;
+// using Content.Shared.Spreader; Removing
 using Robust.Shared.Audio.Systems;
 // using Robust.Shared.Player;
 using Robust.Shared.Map;
@@ -28,6 +29,7 @@ public sealed class CrystalMassSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     // [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
 
     private static readonly ProtoId<EdgeSpreaderPrototype> CrystalMassGroup = "CrystalMass";
 
@@ -62,19 +64,26 @@ public sealed class CrystalMassSystem : EntitySystem
         {
             float offset = 0;
 
-            var location = args.neighbor.AlignWithClosestGridTile();
+            var gridUid = Transform(uid).GridUid!.Value;
+            var coords = _map.GridTileToLocal(gridUid, neighbor.Grid, neighbor.Tile.GridIndices);
+            var location = coords.AlignWithClosestGridTile();
 
             TryComp<MapGridComponent>(location.EntityId, out var mapGrid);
 
-            // Old map tileset, dosen't work with space tiles
-            // _map.SetTile(gridUid, neighbor.Grid, neighbor.Tile.GridIndices, new Tile(_tileDefManager["PlatingCrystalMass"].TileId));
+            // Implmentation based on FloorTileSystem
+            if (mapGrid != null) {
+                _map.SetTile(location.EntityId, mapGrid, location.Offset(new Vector2(offset, offset)), new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_robustRandom.Next(0, component.SpriteVariants)));
+            }
+            else {
+                return;
+            }
 
-            _map.SetTile(location.EntityUID, mapGrid, location.Offset(new Vector2(offset, offset)), new Tile("PlatingCrystalMass", 0, _robustRandom.Next(1, component.SpriteVariants + 1)));
+            var newTile = _map.GetTileRef(gridUid, mapGrid, neighbor.Tile.GridIndices);
 
-            foreach (var ent in _lookup.GetEntitiesInTile(neighbor.Tile, LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
+            foreach (var ent in _lookup.GetEntitiesInTile(newTile, LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
             {
                 // Prevents walls/windows from being deleted when next to a tile being spread to
-                var entTile = _map.GetTileRef(neighbor.Tile.GridUid, neighbor.Grid, Transform(ent).Coordinates);
+                var entTile = _map.GetTileRef(gridUid, neighbor.Grid, Transform(ent).Coordinates);
                 if (entTile.GridIndices != neighbor.Tile.GridIndices)
                     continue;
 
@@ -86,7 +95,7 @@ public sealed class CrystalMassSystem : EntitySystem
 
                 EntityManager.QueueDeleteEntity(ent);
             }
-            var neighborUid = Spawn("CrystalMass", _map.GridTileToLocal(neighbor.Tile.GridUid, neighbor.Grid, neighbor.Tile.GridIndices));
+            var neighborUid = Spawn("CrystalMass", coords);
             _audio.PlayPvs(component.CrackingCrystalSound, neighborUid);
 
             DebugTools.Assert(HasComp<EdgeSpreaderComponent>(neighborUid));

@@ -11,7 +11,7 @@ namespace Content.Server.Spreader;
 [ByRefEvent]
 public record struct SpreadNeighborsEvent
 {
-    public ValueList<(MapGridComponent Grid, TileRef Tile)> NeighborFreeTiles;
+    public ValueList<(MapGridComponent Grid, TileRef Tile, EntityUid GridUid, Vector2i Indices)> NeighborFreeTiles;
     public ValueList<EntityUid> Neighbors;
 
     /// <summary>
