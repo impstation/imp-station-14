@@ -1,5 +1,3 @@
-using System.Linq;
-using System.Numerics;
 using Content.Shared._EE.Supermatter.Components;
 using Content.Shared._Impstation.CrystalMass;
 using Content.Shared.Damage.Components;
@@ -45,34 +43,37 @@ public sealed class CrystalMassSystem : EntitySystem
         SubscribeLocalEvent<CrystalMassComponent, StepTriggeredOnEvent>(OnStepTriggered);
     }
 
-    private void OnStartup(EntityUid uid, CrystalMassComponent component, ComponentStartup args)
+    private void OnStartup(Entity<CrystalMassComponent> ent, ref ComponentStartup args)
     {
-        SetupCrystalMass(uid, component);
-        ScheduleNextSpread(uid, component);
+        SetupCrystalMass(ent);
+        ClearTileForCrystal(ent);
+        ScheduleNextSpread(ent);
     }
 
-    private void ScheduleNextSpread(EntityUid uid, CrystalMassComponent component)
+    private void ScheduleNextSpread(Entity<CrystalMassComponent> ent)
     {
+        // Actual ss13 times would be 0, 4 but this feels more right imo
+        // 0 delay multiple times will cause it to spike out suddenly
         var delay = _robustRandom.Next(1, 5);
         Timer.Spawn(delay * 1000, () =>
         {
-            if (!Deleted(uid) && component.Spreading)
+            if (!Deleted(ent) && ent.Comp.Spreading)
             {
-                CrystalMassSpread(uid, component);
-                ScheduleNextSpread(uid, component);
+                CrystalMassSpread(ent);
+                ScheduleNextSpread(ent);
             }
         });
     }
 
-    private void CrystalMassSpread(EntityUid uid, CrystalMassComponent component)
+    private void CrystalMassSpread(Entity<CrystalMassComponent> ent)
     {
-        if (MetaData(uid).EntityPrototype?.ID == null)
+        if (MetaData(ent).EntityPrototype?.ID == null)
         {
-            component.Spreading = false;
+            ent.Comp.Spreading = false;
             return;
         }
 
-        var xform = Transform(uid);
+        var xform = Transform(ent);
         if (xform.GridUid == null)
             return;
 
@@ -82,16 +83,17 @@ public sealed class CrystalMassSystem : EntitySystem
             return;
 
         var currentTile = _map.TileIndicesFor(gridUid, mapGrid, xform.Coordinates);
+
         var allOccupied = true;
 
-        foreach (var avaialableDir in component.AvailableDirs)
+        foreach (var availableDir in ent.Comp.AvailableDirs)
         {
-            var surroundingAnchoredEntities = _map.GetAnchoredEntitiesEnumerator(gridUid, mapGrid, currentTile.Offset(avaialableDir));
+            var surroundingAnchoredEntities = _map.GetAnchoredEntitiesEnumerator(gridUid, mapGrid, currentTile.Offset(availableDir));
             var hasCrystalMass = false;
 
-            while (surroundingAnchoredEntities.MoveNext(out var ent))
+            while (surroundingAnchoredEntities.MoveNext(out var anchoredEnt))
             {
-                if (HasComp<CrystalMassComponent>(ent.Value))
+                if (HasComp<CrystalMassComponent>(anchoredEnt.Value))
                 {
                     hasCrystalMass = true;
                     break;
@@ -106,45 +108,19 @@ public sealed class CrystalMassSystem : EntitySystem
 
         if (allOccupied)
         {
-            component.Spreading = false;
+            ent.Comp.Spreading = false;
             return;
         }
 
-        var dir = _robustRandom.Pick(component.AvailableDirs);
-        var neighborTileCoords = Transform(uid).Coordinates.Offset(dir.ToVec());
+        var dir = _robustRandom.Pick(ent.Comp.AvailableDirs);
+        var neighborTileCoords = Transform(ent).Coordinates.Offset(dir.ToVec());
 
         // TODO: Make floor sprite same as entity sprite, might or might not be better when loading areas with a lot of crystal mass
         // TODO: Add limiter so it dosen't spread in space infinitly
-        _map.SetTile(gridUid, mapGrid, neighborTileCoords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_robustRandom.Next(0, component.SpriteVariants)));
+        _map.SetTile(gridUid, mapGrid, neighborTileCoords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_robustRandom.Next(0, ent.Comp.SpriteVariants)));
 
-        var newTile = _map.GetTileRef(gridUid, mapGrid, neighborTileCoords);
-
-        // Needed cause crystal mass can't be found with Static Flag in GetEntitiesInTile for some reason
-        var anchoredEntities = _map.GetAnchoredEntitiesEnumerator(gridUid, mapGrid, newTile.GridIndices);
-        while (anchoredEntities.MoveNext(out var ent))
-        {
-            EntityManager.QueueDeleteEntity(ent);
-        }
-
-        // TODO: Find why there are entities department signs/directions & signs that arn't getting destroyed
-        foreach (var ent in _lookup.GetEntitiesInTile(newTile, LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
-        {
-            // Prevents walls/windows from being deleted when next to a tile being spread to
-            var entTile = _map.GetTileRef(gridUid, mapGrid, Transform(ent).Coordinates);
-            if (entTile.GridIndices != newTile.GridIndices)
-                continue;
-
-            if (HasComp<SupermatterImmuneComponent>(ent) || HasComp<GodmodeComponent>(ent) || HasComp<GhostComponent>(ent))
-                continue;
-
-            // TODO: switch audio to playing on a newly spawned tile, or just like not
-            if (HasComp<MobStateComponent>(ent) || HasComp<ItemComponent>(ent))
-                _audio.PlayPvs(component.DustSound, uid, AudioParams.Default.WithVolume(-2f));
-
-            EntityManager.QueueDeleteEntity(ent);
-        }
-
-        if (_robustRandom.Prob(component.BulbChance))
+        // Engine lighting breaks when there are too many lights, limited to only bulb when it should all glow
+        if (_robustRandom.Prob(ent.Comp.BulbChance))
         {
             Spawn("CrystalBulb", neighborTileCoords);
         }
@@ -153,18 +129,62 @@ public sealed class CrystalMassSystem : EntitySystem
             Spawn("CrystalMass", neighborTileCoords);
         }
 
-        _audio.PlayPvs(component.CrackingCrystalSound, uid, AudioParams.Default.WithVolume(5f));
+        _audio.PlayPvs(ent.Comp.CrackingCrystalSound, ent, AudioParams.Default.WithVolume(5f));
     }
 
-    private void SetupCrystalMass(EntityUid uid, CrystalMassComponent component)
+    public void ClearTileForCrystal(Entity<CrystalMassComponent> ent)
     {
-        if (!TryComp<AppearanceComponent>(uid, out var appearance))
+        var xform = Transform(ent);
+        if (xform.GridUid == null)
             return;
 
-        if (component.IsBulb)
+        var gridUid = xform.GridUid.Value;
+
+        if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
             return;
 
-        _appearance.SetData(uid, CrystalMassVisuals.Variant, _robustRandom.Next(1, component.SpriteVariants + 1), appearance);
+        var currentTile = _map.TileIndicesFor(gridUid, mapGrid, xform.Coordinates);
+
+        // Needed cause crystal mass can't be found with Static Flag in GetEntitiesInTile for some reason
+        var anchoredEntities = _map.GetAnchoredEntitiesEnumerator(gridUid, mapGrid, currentTile);
+        while (anchoredEntities.MoveNext(out var anchoredEnt))
+        {
+            if (anchoredEnt.Value == ent.Owner)
+                continue;
+            EntityManager.QueueDeleteEntity(anchoredEnt.Value);
+        }
+
+        // TODO: Find why there are entities department signs/directions & signs that arn't getting destroyed
+        foreach (var targetEnt in _lookup.GetEntitiesInTile(_map.GetTileRef(gridUid, mapGrid, currentTile), LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
+        {
+            if (targetEnt == ent.Owner)
+                continue;
+
+            // Prevents walls/windows from being deleted when next to a tile being spread to
+            var entTile = _map.GetTileRef(gridUid, mapGrid, Transform(targetEnt).Coordinates);
+            if (entTile.GridIndices != currentTile)
+                continue;
+
+            if (HasComp<SupermatterImmuneComponent>(targetEnt) || HasComp<GodmodeComponent>(targetEnt) || HasComp<GhostComponent>(targetEnt))
+                continue;
+
+            // TODO: switch audio to playing on a newly spawned tile, or just like not
+            if (HasComp<MobStateComponent>(targetEnt) || HasComp<ItemComponent>(targetEnt))
+                _audio.PlayPvs(ent.Comp.DustSound, ent, AudioParams.Default.WithVolume(-2f));
+
+            EntityManager.QueueDeleteEntity(targetEnt);
+        }
+    }
+
+    private void SetupCrystalMass(Entity<CrystalMassComponent> ent)
+    {
+        if (!TryComp<AppearanceComponent>(ent, out var appearance))
+            return;
+
+        if (ent.Comp.IsBulb)
+            return;
+
+        _appearance.SetData(ent, CrystalMassVisuals.Variant, _robustRandom.Next(1, ent.Comp.SpriteVariants + 1), appearance);
     }
 
     private void OnStepTriggered(Entity<CrystalMassComponent> ent, ref StepTriggeredOnEvent args)

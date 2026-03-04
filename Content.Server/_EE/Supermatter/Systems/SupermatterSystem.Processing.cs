@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using System.Threading.Tasks.Dataflow;
 using Content.Server.Chat.Systems;
 using Content.Server.Singularity.Components;
 using Content.Server.StationEvents.Events;
@@ -31,6 +32,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._EE.Supermatter.Systems;
 
@@ -616,6 +618,11 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(EECCVars.SupermatterDoForceDelam))
             return _config.GetCVar(EECCVars.SupermatterForcedDelamType);
 
+        if (true)
+        {
+            return DelamType.Cascade;
+        }
+
         if (sm.GasStorage is { })
         {
             if (_config.GetCVar(EECCVars.SupermatterDoSingulooseDelam)
@@ -626,8 +633,6 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(EECCVars.SupermatterDoTeslooseDelam)
             && sm.Power >= _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) * _config.GetCVar(EECCVars.SupermatterTesloosePowerModifier))
             return DelamType.Tesla;
-
-        //TODO: Add resonance cascade when there's crazy conditions or a destabilizing crystal
 
         return DelamType.Explosion;
     }
@@ -733,8 +738,21 @@ public sealed partial class SupermatterSystem
         switch (sm.PreferredDelamType)
         {
             case DelamType.Cascade:
-                // one day...
-                // Spawn(sm.KudzuSpawnPrototype, xform.Coordinates);
+                _explosion.TriggerExplosive(uid); // TODO: FIND MACROBOMB IMPLEMENTATION & BASE OFF THAT DESTROYS CURRENT TILE RN
+
+                // TODO:Unhardcode timer
+                Timer.Spawn(7 * 1000, () =>
+                {
+                    if (xform.GridUid == null)
+                        return;
+
+                    if (!TryComp<MapGridComponent>(xform.GridUid, out var mapGrid))
+                        return;
+
+                    // TODO: Find a way to unhardcode sprite variation, or just like don't
+                    _map.SetTile(xform.GridUid.Value, mapGrid, xform.Coordinates, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, 5)));
+                    Spawn(sm.CrystalMassSpawnPrototype, xform.Coordinates);
+                });
                 break;
 
             case DelamType.Singulo:
