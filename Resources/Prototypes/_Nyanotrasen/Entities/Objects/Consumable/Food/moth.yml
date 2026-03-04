@@ -58,7 +58,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15
+        maxVol: 85 # imp
         reagents: # wth is this recipe
         - ReagentId: Nutriment
           Quantity: 11.75
