@@ -9,6 +9,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Robust.Server.Player;
+using Robust.Shared.Audio;
 
 namespace Content.Server._Impstation.StationEvents.Events;
 
@@ -39,9 +40,11 @@ public sealed class BloodlessChimpRule : StationEventSystem<BloodlessChimpRuleCo
             return;
         if((targetComp.Target == null) || !_entityManager.TryGetComponent<MindComponent>(targetComp.Target, out var targetMind))
             return;
-        if (!_playerManager.TryGetSessionById(targetMind.UserId, out var session))
+        if (!_playerManager.TryGetSessionById(targetMind.UserId, out var targetSession))
             return;
-
+        if (!_playerManager.TryGetSessionById(chimpMind.UserId, out var chimpSession))
+            return;
+        SoundSpecifier chimpAnnounce = new SoundPathSpecifier("/Audio/_Impstation/Effects/chimpAnnounce.ogg");
 
 
         _chatManager.ChatMessageToOne(ChatChannel.Notifications,
@@ -49,10 +52,14 @@ public sealed class BloodlessChimpRule : StationEventSystem<BloodlessChimpRuleCo
             Loc.GetString(ent.Comp.TargetAnnouncement),
             targetComp.Target.Value,
             false,
-            session.Channel,
+            targetSession.Channel,
             Color.Red,
             audioPath: "/Audio/_Impstation/Effects/chimpAnnounce.ogg"
         );
+
+        _antag.SendBriefing(chimpSession,Loc.GetString(ent.Comp.ChimpAnnouncement,("target", targetMind.CharacterName ?? "your target")),Color.Red, chimpAnnounce);
+
+
         if(!_inventory.TryGetSlotContainer(args.EntityUid,"pocket1",out var pocket1,out var _))
             return;
 
@@ -61,5 +68,8 @@ public sealed class BloodlessChimpRule : StationEventSystem<BloodlessChimpRuleCo
             return;
 
         _pinpointer.SetTarget(pocket1.ContainedEntity.Value, targetMind.CurrentEntity);
+
+
+
     }
 }
