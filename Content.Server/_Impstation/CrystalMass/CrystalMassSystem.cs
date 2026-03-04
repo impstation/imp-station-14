@@ -39,10 +39,10 @@ public sealed class CrystalMassSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CrystalMassComponent, ComponentStartup>(OnStartup);
-        // SubscribeLocalEvent<CrystalMassComponent, InteractHandEvent>(OnHandInteract);
+        // SubscribeLocalEvent<CrystalMassComponent, InteractHandEvent>(OnHandInteract); TODO: Add little touch interactions like SupermatterSystem.cs
         // SubscribeLocalEvent<CrystalMassComponent, InteractUsingEvent>(OnItemInteract);
-        SubscribeLocalEvent<CrystalMassComponent, StepTriggeredOnEvent>(OnStepTriggered);
         SubscribeLocalEvent<CrystalMassComponent, StepTriggerAttemptEvent>(OnStepTriggerAttempt);
+        SubscribeLocalEvent<CrystalMassComponent, StepTriggeredOnEvent>(OnStepTriggered);
     }
 
     private void OnStartup(EntityUid uid, CrystalMassComponent component, ComponentStartup args)
@@ -126,7 +126,7 @@ public sealed class CrystalMassSystem : EntitySystem
             EntityManager.QueueDeleteEntity(ent);
         }
 
-        // TODO: Find why there are entities department signs/directions & signs arn't getting destroyed
+        // TODO: Find why there are entities department signs/directions & signs that arn't getting destroyed
         foreach (var ent in _lookup.GetEntitiesInTile(newTile, LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
         {
             // Prevents walls/windows from being deleted when next to a tile being spread to
@@ -137,23 +137,23 @@ public sealed class CrystalMassSystem : EntitySystem
             if (HasComp<SupermatterImmuneComponent>(ent) || HasComp<GodmodeComponent>(ent) || HasComp<GhostComponent>(ent))
                 continue;
 
+            // TODO: switch audio to playing on a newly spawned tile, or just like not
             if (HasComp<MobStateComponent>(ent) || HasComp<ItemComponent>(ent))
-                _audio.PlayPvs(component.DustSound, ent, AudioParams.Default.WithVolume(-1f));
+                _audio.PlayPvs(component.DustSound, uid, AudioParams.Default.WithVolume(-2f));
 
             EntityManager.QueueDeleteEntity(ent);
         }
 
-        EntityUid spawnedEntity;
         if (_robustRandom.Prob(component.BulbChance))
         {
-            spawnedEntity = Spawn("CrystalBulb", neighborTileCoords);
+            Spawn("CrystalBulb", neighborTileCoords);
         }
         else
         {
-            spawnedEntity = Spawn("CrystalMass", neighborTileCoords);
+            Spawn("CrystalMass", neighborTileCoords);
         }
 
-        _audio.PlayPvs(component.CrackingCrystalSound, spawnedEntity, AudioParams.Default.WithVolume(3f));
+        _audio.PlayPvs(component.CrackingCrystalSound, uid, AudioParams.Default.WithVolume(5f));
     }
 
     private void SetupCrystalMass(EntityUid uid, CrystalMassComponent component)
@@ -167,6 +167,14 @@ public sealed class CrystalMassSystem : EntitySystem
         _appearance.SetData(uid, CrystalMassVisuals.Variant, _robustRandom.Next(1, component.SpriteVariants + 1), appearance);
     }
 
+    private void OnStepTriggered(Entity<CrystalMassComponent> ent, ref StepTriggeredOnEvent args)
+    {
+        if (HasComp<MobStateComponent>(args.Tripper) || HasComp<ItemComponent>(args.Tripper))
+            _audio.PlayPvs(ent.Comp.DustSound, ent, AudioParams.Default.WithVolume(-2f));
+
+        EntityManager.QueueDeleteEntity(args.Tripper);
+    }
+
     private void OnStepTriggerAttempt(Entity<CrystalMassComponent> ent, ref StepTriggerAttemptEvent args)
     {
         if (HasComp<SupermatterImmuneComponent>(args.Tripper) || HasComp<GodmodeComponent>(args.Tripper) || HasComp<GhostComponent>(args.Tripper))
@@ -176,13 +184,5 @@ public sealed class CrystalMassSystem : EntitySystem
         }
 
         args.Continue = true;
-    }
-
-    private void OnStepTriggered(Entity<CrystalMassComponent> ent, ref StepTriggeredOnEvent args)
-    {
-        if (HasComp<MobStateComponent>(args.Tripper) || HasComp<ItemComponent>(args.Tripper))
-            _audio.PlayPvs(ent.Comp.DustSound, args.Tripper, AudioParams.Default.WithVolume(-1f));
-
-        EntityManager.QueueDeleteEntity(args.Tripper);
     }
 }
