@@ -99,3 +99,14 @@
             Radiation: 0.5
             Caustic: 0.5
             Cellular: 0.5
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaling: true
+        ignoreResistances: false
+        damage:
+          types:
+            Radiation: 0.2
+            Caustic: 0.2
+            Cellular: 0.1

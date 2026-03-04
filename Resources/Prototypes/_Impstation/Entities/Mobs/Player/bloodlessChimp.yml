@@ -11,7 +11,7 @@
   - type: CombatMode
     canDisarm: true
   - type: Inventory
-    templateId: monkey
+    templateId: bloodlessChimp
     speciesId: monkey
     displacements:
       jumpsuit:
@@ -123,7 +123,15 @@
       methods: [ Touch ]
       effects:
       - !type:PausePassiveDamage
-        pauseTime: 10
+        pauseTime: 60
+      - !type:HealthChange
+        scaling: true
+        ignoreResistances: false
+        damage:
+          types:
+            Radiation: 0.2
+            Caustic: 0.2
+            Cellular: 0.1
   - type: Crawler
   - type: StatusIcon
   - type: Blindable
@@ -159,15 +167,16 @@
   - type: MobPrice
     price: 150
   - type: FloatingVisuals
-  - type: PassiveDamage # passive regen.
+  - type: PassiveDamage # passive regen. meant to be really hard to kill without the salve.
     allowedStates:
     - Alive
     - Critical
     - Dead
     damage:
       groups:
-        Brute: -5
-        Burn: -5
+        Brute: -15
+        Burn: -15
+    interval: 0.5
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -193,3 +202,13 @@
     - MindRoleBloodlessChimp
     raffle:
       settings: default
+  - type: GhostTakeoverAvailable
+  - type: NightVision
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
+  - type: Loadout
+    prototypes:
+      - StartingGearBloodlessChimpPinpointer
