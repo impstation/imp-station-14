@@ -21,3 +21,6 @@ reagent-desc-AntiChimpSalve = A strange, experimental toxin. If you manage to ac
 station-event-bloodless-chimp-hunt-announcement =   [head=3]Chimp Announcement:[/head]
                                                     Something wicked this way comes.
 station-event-bloodless-chimp-announcement = You must kill { $target }, this is is your only reason to be. You feel nothing but malice towards { $target }.
+
+reagent-effect-guidebook-pause-passive-damage =
+    Pauses passive damage or healing for { $time } seconds

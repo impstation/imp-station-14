@@ -9,6 +9,3 @@ entity-effect-guidebook-vomit-override =
         [1] Causes
         *[other] cause
     } vomiting of {$override}
-
-reagent-effect-guidebook-make-sentient =
-    Pauses passive damage or healing for { $time } seconds
