@@ -67,6 +67,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDeviceLinkSystem _link = default!;
+    // [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;

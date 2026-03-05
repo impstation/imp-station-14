@@ -738,20 +738,30 @@ public sealed partial class SupermatterSystem
         switch (sm.PreferredDelamType)
         {
             case DelamType.Cascade:
-                _explosion.TriggerExplosive(uid); // TODO: FIND MACROBOMB IMPLEMENTATION & BASE OFF THAT DESTROYS CURRENT TILE RN
+                if (xform.GridUid == null)
+                    return;
+
+                if (!TryComp<MapGridComponent>(xform.GridUid, out var mapGrid))
+                    return;
+
+                // Can/Will destroy the tile it is on
+                _explosion.TriggerExplosive(uid);
 
                 // TODO:Unhardcode timer
                 Timer.Spawn(7 * 1000, () =>
                 {
-                    if (xform.GridUid == null)
-                        return;
-
-                    if (!TryComp<MapGridComponent>(xform.GridUid, out var mapGrid))
-                        return;
-
+                    // TODO: Make all this hardcode components
                     // TODO: Find a way to unhardcode sprite variation, or just like don't
                     _map.SetTile(xform.GridUid.Value, mapGrid, xform.Coordinates, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, 5)));
                     Spawn(sm.CrystalMassSpawnPrototype, xform.Coordinates);
+
+                    // for (var i = 0; i < _random.Next(1, 4) && i < spawns.Count; i++)
+                    // {
+                    //     var location = _random.PickAndTake(spawns);
+
+                    //     _map.SetTile(xform.GridUid.Value, mapGrid, xform.Coordinates, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, 5)));
+                    //     Spawn(sm.CrystalMassSpawnPrototype, location);
+                    // } TODO: random spawn see midround spawner
                 });
                 break;
 

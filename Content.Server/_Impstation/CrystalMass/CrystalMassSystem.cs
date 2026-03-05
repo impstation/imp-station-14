@@ -14,7 +14,6 @@ using Robust.Shared.Audio.Systems;
 // using Robust.Shared.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 // using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
@@ -23,7 +22,7 @@ namespace Content.Server._Impstation.CrystalMass;
 
 public sealed class CrystalMassSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -54,7 +53,7 @@ public sealed class CrystalMassSystem : EntitySystem
     {
         // Actual ss13 times would be 0, 4 but this feels more right imo
         // 0 delay multiple times will cause it to spike out suddenly
-        var delay = _robustRandom.Next(1, 5);
+        var delay = _random.Next(1, 5);
         Timer.Spawn(delay * 1000, () =>
         {
             if (!Deleted(ent) && ent.Comp.Spreading)
@@ -112,15 +111,15 @@ public sealed class CrystalMassSystem : EntitySystem
             return;
         }
 
-        var dir = _robustRandom.Pick(ent.Comp.AvailableDirs);
+        var dir = _random.Pick(ent.Comp.AvailableDirs);
         var neighborTileCoords = Transform(ent).Coordinates.Offset(dir.ToVec());
 
         // TODO: Make floor sprite same as entity sprite, might or might not be better when loading areas with a lot of crystal mass
         // TODO: Add limiter so it dosen't spread in space infinitly
-        _map.SetTile(gridUid, mapGrid, neighborTileCoords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_robustRandom.Next(0, ent.Comp.SpriteVariants)));
+        _map.SetTile(gridUid, mapGrid, neighborTileCoords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, ent.Comp.SpriteVariants)));
 
         // Engine lighting breaks when there are too many lights, limited to only bulb when it should all glow
-        if (_robustRandom.Prob(ent.Comp.BulbChance))
+        if (_random.Prob(ent.Comp.BulbChance))
         {
             Spawn("CrystalBulb", neighborTileCoords);
         }
@@ -184,7 +183,7 @@ public sealed class CrystalMassSystem : EntitySystem
         if (ent.Comp.IsBulb)
             return;
 
-        _appearance.SetData(ent, CrystalMassVisuals.Variant, _robustRandom.Next(1, ent.Comp.SpriteVariants + 1), appearance);
+        _appearance.SetData(ent, CrystalMassVisuals.Variant, _random.Next(1, ent.Comp.SpriteVariants + 1), appearance);
     }
 
     private void OnStepTriggered(Entity<CrystalMassComponent> ent, ref StepTriggeredOnEvent args)
