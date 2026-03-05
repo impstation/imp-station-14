@@ -506,7 +506,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                 if (flammable.FireStacks > 0)
                 {
-                    var air = _atmosphereSystem.GetContainingMixture(uid);
+                    var air = _atmosphereSystem.GetContainingMixture(uid, excite: true);
 
                     // If we're in an oxygenless environment, put the fire out.
                     if (air == null || air.GetMoles(Gas.Oxygen) < 1f)
@@ -518,8 +518,14 @@ namespace Content.Server.Atmos.EntitySystems
                     var source = EnsureComp<IgnitionSourceComponent>(uid);
                     _ignitionSourceSystem.SetIgnited((uid, source));
 
-                    if (TryComp(uid, out TemperatureComponent? temp))
-                        _temperatureSystem.ChangeHeat(uid, 12500 * flammable.FireStacks, false, temp);
+                    // ES START
+                    // modify atmos temp instead of temp directly
+                    // atmos temp will modify temp after that
+                    //if (TryComp(uid, out TemperatureComponent? temp))
+                    //    _temperatureSystem.ChangeHeat(uid, 12500 * flammable.FireStacks, false, temp);
+                    if (air.Temperature < flammable.MaxFireTemperature)
+                        _atmosphereSystem.AddHeat(air, flammable.FireEnergyMultiplier * flammable.FireStacks);
+                    // ES END
 
                     var ev = new GetFireProtectionEvent();
                     // let the thing on fire handle it
@@ -532,6 +538,12 @@ namespace Content.Server.Atmos.EntitySystems
                     // allow empty damage
                     if (!flammable.Damage.Empty)
                         _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false);
+
+                    // release smoke
+                    // this should probably be extracted in the future,
+                    // since idk only certain flammable things should release smoke really. although it can just be zeroed out anyway
+                    if (air.GetMoles(Gas.Smoke) <= air.GetMoles(Gas.Oxygen) / 4)
+                        air.AdjustMoles(Gas.Smoke, flammable.SmokeMolsReleasedPerStack * flammable.FireStacks);
                     // ES END
 
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);

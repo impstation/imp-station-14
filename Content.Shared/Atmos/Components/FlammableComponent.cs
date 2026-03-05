@@ -121,5 +121,25 @@ namespace Content.Shared.Atmos.Components
         /// </summary>
         [DataField]
         public float BasicFireSpreadStackPercentage = 0.1f;
+
+        /// <summary>
+        ///     How much smoke will be created through this entity burning.
+        /// </summary>
+        [DataField]
+        public float SmokeMolsReleasedPerStack = 0.01f;
+
+        /// <summary>
+        ///     Multiplier on fire energy released into the atmosphere.
+        /// </summary>
+        [DataField]
+        public float FireEnergyMultiplier = 20f;
+
+        /// <summary>
+        ///     Max tile temperature at which this fire will stop releasing new energy into the atmosphere.
+        /// </summary>
+        // this is like stupidly low for a fire obviously. but i dont really want it to have much pronounced gameplay effect
+        [DataField]
+        public float MaxFireTemperature = Atmospherics.T0C + 85f;
+        // ES END
     }
 }

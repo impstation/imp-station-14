@@ -72,8 +72,10 @@
   molarMass: 44
   gasOverlaySprite: /Textures/_Impstation/Effects/atmospherics.rsi # imp
   gasOverlayState: miasma
-  gasMolesVisible: 2
-  gasVisbilityFactor: 3.5
+  # ES START
+  gasMolesVisible: 1
+  gasMolesVisibleMax: 5
+  # ES END
   color: 56941E
   reagent: Ammonia
   pricePerMole: 0.15

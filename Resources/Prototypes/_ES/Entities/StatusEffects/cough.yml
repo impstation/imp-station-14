@@ -1,0 +1,14 @@
+- type: entity
+  parent: StatusEffectBase
+  id: ESStatusEffectCoughOnApplied
+  name: cough
+  components:
+  - type: ESEmoteOnAppliedStatusEffect
+    emote: Cough
+
+- type: entity
+  parent: StatusEffectBase
+  id: ESStatusEffectCoughingAccent
+  name: coughing accent
+  components:
+  - type: ESCoughingAccent
