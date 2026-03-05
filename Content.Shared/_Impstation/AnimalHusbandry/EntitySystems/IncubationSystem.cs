@@ -67,7 +67,7 @@ public sealed class IncubationSystem : EntitySystem
         _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Active);
         entity.Comp.Status = IncubatorStatus.Active;
         entity.Comp.CurrentlyIncubated = incuComp;
-        entity.Comp.FinishIncubation = incuComp.IncubationTime;
+        entity.Comp.FinishIncubation = incuComp.IncubationTime * 10; // The * 10 is to convert the ticks into their actual seconds
     }
 
     /// <summary>
@@ -89,8 +89,7 @@ public sealed class IncubationSystem : EntitySystem
         if (TryComp<InteractionPopupComponent>(newMob, out var interactionPopup))
             Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates((EntityUid)newMob));
 
-
-        _entManager.QueueDeleteEntity(incubated);
+        _entManager.DeleteEntity(incubated);
     }
 
     private EntityUid? SpawnNewMob(EntityUid entity, EntProtoId toSpawn)

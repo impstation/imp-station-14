@@ -52,7 +52,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: MobBullAdult 
+      - id: MobBull
 
 - type: entity
   id: CrateNPCBovine
@@ -62,8 +62,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: MobBullAdult 
-      - id: MobCowAdult
+      - id: MobBull
+      - id: MobCow
 
 - type: entity
   id: CrateNPCRooster
@@ -84,7 +84,7 @@
   - type: StorageFill
     contents:
       - id: MobRoosterAdult
-      - id: MobHenAdult
+      - id: MobChicken
 
 - type: entity
   id: CrateNPCDomesticBoar
@@ -105,7 +105,7 @@
   - type: StorageFill
     contents:
       - id: MobBoarAdult
-      - id: MobPigAdult
+      - id: MobPig
 
 - type: entity
   id: CrateNPCBuck
@@ -125,7 +125,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: MobGoatAdult
+      - id: MobGoat
       - id: MobBuckAdult
 
 - type: entity

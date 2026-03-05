@@ -51,7 +51,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: MobHenAdult # Imp
+      - id: MobChicken
         amount: 4
 
 - type: entity
@@ -115,7 +115,7 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage:
-        id: MobCowAdult # Imp
+        id: MobCow
 
 - type: entity
   parent: CrateLivestock
@@ -126,7 +126,7 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage:
-        id: MobGoatAdult # Imp
+        id: MobGoat
 
 - type: entity
   parent: CrateLivestock
@@ -218,7 +218,7 @@
   - type: EntityTableContainerFill
     containers:
       entity_storage:
-        id: MobPigAdult
+        id: MobPig
 
 - type: entity
   parent: CrateLivestock

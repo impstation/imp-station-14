@@ -10,7 +10,7 @@
       sprite: _Impstation/Mobs/Animals/Livestock/bull.rsi
   - type: ConditionalSpawner
     prototypes:
-    - MobBullAdult 
+    - MobBull
 
 - type: entity
   parent: MarkerBase
@@ -24,7 +24,7 @@
       sprite: _Impstation/Mobs/Animals/Livestock/hen.rsi
   - type: ConditionalSpawner
     prototypes:
-    - MobHenAdult
+    - MobChicken
 
 - type: entity
   parent: MarkerBase
@@ -52,7 +52,7 @@
       sprite: _Impstation/Mobs/Animals/Livestock/pig.rsi
   - type: ConditionalSpawner
     prototypes:
-    - MobPigAdult
+    - MobPig
 
 - type: entity
   parent: MarkerBase

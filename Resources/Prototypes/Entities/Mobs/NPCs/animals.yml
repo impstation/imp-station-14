@@ -214,7 +214,7 @@
 
 
 - type: entity
-  name: chicken
+  name: hen # Imp
   parent: SimpleMobBase
   id: MobChicken
   description: Comes before an egg, and IS a dinosaur!
@@ -222,13 +222,13 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+    - map: ["enum.DamageStateVisualLayers.Base"]
       state: chicken-0
-      sprite: Mobs/Animals/chicken.rsi
+      sprite: Mobs/Animals/chicken.rsi 
   - type: SpriteMovement
     movementLayers:
       movement:
-        state: chicken-moving-0
+        state: chicken-moving-0 
     noMovementLayers:
       movement:
         state: chicken-0
@@ -251,16 +251,16 @@
     - DoorBumpOpener
     - Chicken
     - VimPilot
-  - type: Reproductive
-    breedChance: 0.05
-    birthPopup: reproductive-laid-egg-popup
-    makeOffspringInfant: false
-    partnerWhitelist:
-      tags:
-      - Chicken
-    offspring:
-    - id: FoodEggChickenFertilized
-      maxAmount: 3
+  # - type: Reproductive    Imp 
+  #   breedChance: 0.05     Replaced by ImpReproductive
+  #   birthPopup: reproductive-laid-egg-popup
+  #   makeOffspringInfant: false
+  #   partnerWhitelist:
+  #     tags:
+  #     - Chicken
+  #   offspring:
+  #   - id: FoodEggChickenFertilized
+  #     maxAmount: 3
   - type: ReproductivePartner
   - type: Appearance
   - type: DamageStateVisuals
@@ -287,9 +287,10 @@
       reagents:
       - ReagentId: Blood
         Quantity: 100
-  - type: EggLayer
-    eggSpawn:
-    - id: FoodEgg
+  # imp edit start
+  #- type: EggLayer 
+  #  eggSpawn:      Comes from Breeding now
+  #  - id: FoodEgg
   - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
@@ -298,12 +299,14 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  # imp edit start
   - type: GoobAbsorbable # imp edit - a good meal
     biomassRestored: 0.2
   - type: Carriable #DeltaV
     freeHandsRequired: 1
   - type: AlwaysRevolutionaryConvertible
+  - type: HTN
+    rootTask:
+      task: PassiveLivestockCompound
   # imp edit end
 
 - type: entity
@@ -941,12 +944,12 @@
     tags:
     - DoorBumpOpener
     - Cow
-  - type: Reproductive
-    partnerWhitelist:
-      tags:
-      - Cow
-    offspring:
-    - id: MobCow
+  # - type: Reproductive Imp remove
+  #   partnerWhitelist:
+  #     tags:
+  #     - Cow
+  #   offspring:
+  #   - id: MobCow
   - type: ReproductivePartner
   - type: Physics
   - type: Fixtures
@@ -1007,10 +1010,21 @@
   # imp edit start
   #- type: Body
   #  prototype: AnimalRuminant
+  - type: ImpReproductive
+    hungerPerBirth: 50
+    mobType: Cow
+    validPartners:
+      - Bull
+    gender: Female
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: MobCowBaby
+        weight: 10
+      - id: MobBullBaby
+        weight: 3
   - type: HTN
     rootTask:
       task: PassiveLivestockCompound
-      #task: RuminantCompound
   - type: GoobAbsorbable
     biomassRestored: 0.7
   - type: CowToolProficiency #this was made for ungus, but i'm putting this here in case an admin wants to be cute and give a cow hands
@@ -1117,7 +1131,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: goat
-      sprite: Mobs/Animals/goat.rsi
+      sprite: _Impstation/Mobs/Animals/Livestock/goat.rsi # imp
   - type: Fixtures
     fixtures:
       fix1:
@@ -1135,13 +1149,13 @@
     - ClothMade
     - DoorBumpOpener
     - Goat
-  - type: Reproductive
-    partnerWhitelist:
-      tags:
-      - Goat
-    offspring:
-    - id: MobGoat
-  - type: ReproductivePartner
+#  - type: Reproductive Imp, replaced by ImpReproductive
+#    partnerWhitelist:
+#      tags:
+#      - Goat
+#    offspring:
+#    - id: MobGoat
+#  - type: ReproductivePartner 
   - type: Appearance
   - type: DamageStateVisuals
     states:
@@ -1207,11 +1221,24 @@
   - type: FactionException
   - type: HTN
     rootTask:
-      task: RuminantHostileCompound
+      task: PassiveLivestockCompound # Imp #RuminantHostileCompound
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.5
   - type: AlwaysRevolutionaryConvertible
+  - type: ImpReproductive
+    hungerPerBirth: 30
+    pregnancyLength: 240
+    mobType: Goat
+    validPartners:
+      - Buck  
+    gender: Female
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: MobGoatInfant
+        weight: 10
+      - id: MobBuckInfant
+        weight: 3
   # imp edit end
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
@@ -4055,7 +4082,7 @@
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: pig
-      sprite: Mobs/Animals/pig.rsi
+      sprite: _Impstation/Mobs/Animals/Livestock/pig.rsi # Imp, you use our swine now
   - type: Fixtures
     fixtures:
       fix1:
@@ -4075,12 +4102,12 @@
     - DoorBumpOpener
     - Pig
     - VimPilot
-  - type: Reproductive
-    partnerWhitelist:
-      tags:
-      - Pig
-    offspring:
-    - id: MobPig
+#  - type: Reproductive IMP, replaced by ImpReproductive
+#    partnerWhitelist:
+#      tags:
+#      - Pig
+#    offspring:
+#    - id: MobPig
   - type: ReproductivePartner
   - type: DamageStateVisuals
     states:
@@ -4113,13 +4140,33 @@
     - Passive
   - type: HTN
     rootTask:
-      task: RuminantCompound
+      task: PassiveLivestockCompound # Imp
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.7
   - type: Carriable #DeltaV
   - type: PleebnarGibbable
   - type: AlwaysRevolutionaryConvertible
+  - type: ImpReproductive
+    hungerPerBirth: 50
+    pregnancyLength: 200
+    mobType: Pig
+    validPartners:
+      - Boar
+      - WildBoar   
+    gender: Female
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: MobBoar
+        weight: 30
+        conditions:
+        - !type:ValidPartnerCondition
+          validPartners:
+          - WildBoar
+      - id: MobPigInfant
+        weight: 10
+      - id: MobBoarInfant
+        weight: 3
   # imp edit end
 
 - type: entity
