@@ -96,26 +96,4 @@ public sealed class HungerThirstTest : InteractionTest
         var glass = HandSys.GetActiveItem((SPlayer, Hands));
         Assert.That(glass, Is.Not.Null, "Glass got deleted after drinking from it");
     }
-
-    // IMP start: Loop to fully consume the food item, because we have disabled auto-looping ingestion
-    private async Task IngestFully()
-    {
-        var bites = 0;
-        while (bites < MaximumIngestTimes)
-        {
-            if (HandSys.GetActiveItem((SPlayer, Hands)) == null)
-            {
-                Assert.That(bites, Is.GreaterThan(0), $"Entity took {bites} bites to finish: {_food}");
-                return;
-            }
-
-            bites++;
-            Assert.That(bites, Is.LessThanOrEqualTo(MaximumIngestTimes),
-                $"Entity took too many bites to finish: {_food} (count: {bites})");
-
-            await UseInHand();
-            await AwaitDoAfters();
-        }
-    }
-    // IMP end
 }
