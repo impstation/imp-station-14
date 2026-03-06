@@ -212,3 +212,12 @@
   - type: Loadout
     prototypes:
       - StartingGearBloodlessChimpPinpointer
+  - type: DropItemOnDamage
+    itemToDrop: TrashBakedBananaPeel
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+    requiredTypes:
+      types:
+        Slash: 5

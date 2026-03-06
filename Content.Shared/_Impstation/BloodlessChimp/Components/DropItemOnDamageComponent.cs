@@ -4,11 +4,17 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.BloodlessChimp.Components;
 [RegisterComponent]
+
 public sealed partial class DropItemOnDamageComponent :  Component
 {
+    [DataField("itemToDrop"), ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId ItemToDrop = new EntProtoId();
 
-    public float DropChance;
+    [DataField("dropChance"), ViewVariables(VVAccess.ReadWrite)]
+    public float DropChance = 1f;
+
+    [DataField("dropOne"), ViewVariables(VVAccess.ReadWrite)]
+    public bool DropOne = false;
 
     /// <summary>
     /// The entitys' states that passive damage will apply in
@@ -20,5 +26,5 @@ public sealed partial class DropItemOnDamageComponent :  Component
     /// Damage / Healing per interval dealt to the entity every interval
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public DamageSpecifier allowedDamageTypes = new();
+    public DamageSpecifier requiredTypes = new();
 }

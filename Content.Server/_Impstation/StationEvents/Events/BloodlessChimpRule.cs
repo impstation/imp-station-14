@@ -4,6 +4,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Objectives.Components;
 using Content.Server.Pinpointer;
 using Content.Server.StationEvents.Events;
+using Content.Shared._Impstation.BloodlessChimp.Components;
 using Content.Shared.Chat;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Inventory;
@@ -69,6 +70,10 @@ public sealed class BloodlessChimpRule : StationEventSystem<BloodlessChimpRuleCo
 
         _pinpointer.SetTarget(pocket1.ContainedEntity.Value, targetMind.CurrentEntity);
 
+        EnsureComp<FearRadiusComponent>(args.EntityUid,out var fearRadius);
+
+        fearRadius.Radius = 5f;
+        fearRadius.Target = targetMind.CurrentEntity;
 
 
     }
