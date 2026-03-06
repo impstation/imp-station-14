@@ -258,7 +258,7 @@ public sealed class HellWorldSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Handles recoloring sac victims via desaturating their skin. 
+    ///     Handles recoloring sac victims via desaturating their skin
     /// </summary>
     private void OnInit(EntityUid ent, HellVictimComponent component, ComponentInit args)
     {
