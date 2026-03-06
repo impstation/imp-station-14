@@ -196,6 +196,7 @@
   - UplinkWeaponry
   conditions: # surplus exclusive
   - !type:BuyerWhitelistCondition
+    makeHidden: true
     whitelist:
       components:
       - SurplusBundle
@@ -369,6 +370,7 @@
   - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true
     blacklist:
       tags:
       - NukeOpsUplink
@@ -439,6 +441,7 @@
   - UplinkChemicals
   conditions:
   - !type:StoreWhitelistCondition
+     makeHidden: true
      blacklist:
        tags:
        - NukeOpsUplink
@@ -458,6 +461,7 @@
   - UplinkChemicals
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true
     whitelist:
       tags:
       - NukeOpsUplink
@@ -524,6 +528,7 @@
   - UplinkImplants
   conditions: # i want this to only show up in surplus crates
   - !type:BuyerWhitelistCondition
+    makeHidden: true
     whitelist:
       components:
       - SurplusBundle
@@ -547,6 +552,25 @@
   categories:
   - UplinkAllies
 
+- type: listing
+  id: UplinkKisserTomatoFakeSeeds
+  name: uplink-kissertomato-fake-name
+  description: uplink-kissertomato-fake-desc
+  icon: { sprite: _Impstation/Objects/Specific/Hydroponics/tomatokisser.rsi, state: seed }
+  productEntity: KisserTomatoFakeSeeds
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Botanist
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
 
 
 
@@ -555,7 +579,7 @@
 
 # JOB
 
-- type: listing    
+- type: listing
   id: uplinkHotsauces
   name: uplink-hotsauces-name
   description: uplink-hotsauces-desc
@@ -570,6 +594,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Chef
 
@@ -586,6 +611,7 @@
     Telecrystal: 6
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Clown
   categories:
@@ -606,6 +632,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Chaplain
 
@@ -623,6 +650,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Janitor
   - !type:BuyerWhitelistCondition
@@ -644,6 +672,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Janitor
   - !type:BuyerWhitelistCondition
@@ -716,6 +745,7 @@
   - UplinkPointless
   conditions: # surplus exclusive. same amount of hyperzine as an injector but in an infinitely shittier form. hehehehe
   - !type:BuyerWhitelistCondition
+    makeHidden: true
     whitelist:
       components:
       - SurplusBundle
@@ -735,6 +765,7 @@
   - UplinkPointless
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true
     whitelist:
       tags:
       - NukeOpsUplink
