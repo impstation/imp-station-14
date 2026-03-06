@@ -24,3 +24,13 @@ station-event-bloodless-chimp-announcement = You must kill { $target }, this is 
 
 reagent-effect-guidebook-pause-passive-damage =
     Pauses passive damage or healing for { $time } seconds
+
+fear-radius-warning-bloodless-chimp-1 = A shiver runs down your spine.
+
+fear-radius-warning-bloodless-chimp-2 = A feeling of doom washes over you.
+
+fear-radius-warning-bloodless-chimp-3 = There's something wrong.
+
+fear-radius-warning-bloodless-chimp-4 = You have to get away.
+
+fear-radius-warning-bloodless-chimp-5 = It's after you.

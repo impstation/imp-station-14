@@ -221,3 +221,13 @@
     requiredTypes:
       types:
         Slash: 5
+  - type: FearRadius
+    radius: 5
+    cooldown: 5
+    warnings:
+    - fear-radius-warning-bloodless-chimp-1
+    - fear-radius-warning-bloodless-chimp-2
+    - fear-radius-warning-bloodless-chimp-3
+    - fear-radius-warning-bloodless-chimp-4
+    - fear-radius-warning-bloodless-chimp-5
+

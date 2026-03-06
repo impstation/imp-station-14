@@ -72,9 +72,8 @@ public sealed class BloodlessChimpRule : StationEventSystem<BloodlessChimpRuleCo
 
         EnsureComp<FearRadiusComponent>(args.EntityUid,out var fearRadius);
 
-        fearRadius.Radius = 5f;
         fearRadius.Target = targetMind.CurrentEntity;
-
+        Dirty(args.EntityUid, fearRadius);
 
     }
 }
