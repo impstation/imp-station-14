@@ -68,6 +68,11 @@ public sealed class ContainerFillSystem : EntitySystem
                 continue;
             }
 
+            // imp edit start
+            if (!ent.Comp.SpawnIfNotEmpty && container.ContainedEntities.Count > 0)
+                return;
+            // imp edit end
+
             var spawns = _entityTable.GetSpawns(table);
             foreach (var proto in spawns)
             {

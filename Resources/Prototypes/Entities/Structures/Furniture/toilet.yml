@@ -130,6 +130,7 @@
     graph: Toilet
     node: toilet
   - type: EntityTableContainerFill # imp
+    spawnIfNotEmpty: false
     containers:
       stash: !type:NestedSelector
         tableId: ToiletCisternLoot
