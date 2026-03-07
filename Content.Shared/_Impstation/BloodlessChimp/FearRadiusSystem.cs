@@ -15,7 +15,7 @@ public sealed class FearRadiusSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
 
 
-    public override void Update(float frameTime)// you may ask yourself. Sev, why aren't you using collision for this? Well. You see, COLLISION IS NOT PREDICTED!!!!!
+    public override void Update(float frameTime)
     {
         base.Update(frameTime);
         var query = EntityQueryEnumerator<FearRadiusComponent>();
