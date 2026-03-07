@@ -4,13 +4,20 @@ using Content.Server.Chat.Managers;
 using Content.Server.Objectives.Components;
 using Content.Server.Pinpointer;
 using Content.Server.StationEvents.Events;
+using Content.Shared._Impstation.BloodlessChimp;
 using Content.Shared._Impstation.BloodlessChimp.Components;
 using Content.Shared.Chat;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
+using Content.Shared.Physics;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
+using Robust.Shared.Network;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Collision.Shapes;
+using Robust.Shared.Physics.Dynamics;
+using Robust.Shared.Physics.Systems;
 
 namespace Content.Server._Impstation.StationEvents.Events;
 
@@ -24,10 +31,11 @@ public sealed class BloodlessChimpRule : StationEventSystem<BloodlessChimpRuleCo
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly PinpointerSystem _pinpointer = default!;
+    [Dependency] private readonly FixtureSystem _fixture = default!;
+    [Dependency] private readonly IServerNetManager _net = default!;
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<BloodlessChimpRuleComponent, AfterAntagEntitySelectedEvent>(AfterAntagEntitySelected);
 
     }
@@ -70,10 +78,22 @@ public sealed class BloodlessChimpRule : StationEventSystem<BloodlessChimpRuleCo
 
         _pinpointer.SetTarget(pocket1.ContainedEntity.Value, targetMind.CurrentEntity);
 
-        EnsureComp<FearRadiusComponent>(args.EntityUid,out var fearRadius);
 
-        fearRadius.Target = targetMind.CurrentEntity;
-        Dirty(args.EntityUid, fearRadius);
+        EnsureComp<FearRadiusComponent>(args.EntityUid,out var fearRadius);
+        var targetNetEntity = GetNetEntity(targetMind.CurrentEntity);
+        if (targetNetEntity == null || targetNetEntity == NetEntity.Invalid)
+            return;
+        var makeTargetEvent = new MakeTargetEvent(targetNetEntity.Value, fearRadius.CooldownTime, fearRadius.Warnings);
+        _fixture.TryCreateFixture(
+            targetMind.CurrentEntity!.Value,
+            new PhysShapeCircle(),
+            "fearRadiusTarget",
+            80,
+            false,
+            (int)CollisionGroup.GhostImpassable,
+            (int)CollisionGroup.GhostImpassable
+            );
+        RaiseNetworkEvent(makeTargetEvent,targetSession);
 
     }
 }

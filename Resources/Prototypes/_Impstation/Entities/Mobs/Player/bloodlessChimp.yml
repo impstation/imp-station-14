@@ -41,6 +41,16 @@
         - MobMask
         layer:
         - MobLayer
+      fearRadius:
+        shape:
+          !type:PhysShapeCircle
+          radius: 5
+        density: 80
+        hard: false
+        mask:
+        - GhostImpassable
+        layer:
+        - GhostImpassable
   - type: Stripping
   - type: Sprite
     drawdepth: Mobs
@@ -222,8 +232,7 @@
       types:
         Slash: 5
   - type: FearRadius
-    radius: 15
-    cooldown: 300
+    cooldown: 5
     warnings:
     - fear-radius-warning-bloodless-chimp-1
     - fear-radius-warning-bloodless-chimp-2
