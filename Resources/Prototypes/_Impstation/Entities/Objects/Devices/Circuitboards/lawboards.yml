@@ -4,6 +4,7 @@
   id: JermovCircuitBoard
   parent: BaseSiliconLawboard
   name: law board (Jermov)
+  suffix: DO NOT MAP
   description: An electronics board containing the Jermov lawset. Everyone and everything exists for the sake of Chat.
   components:
   - type: Sprite
@@ -36,7 +37,6 @@
       sprite: /Textures/Interface/Actions/actions_borg.rsi
       state: state-laws
 
-# Wizmov
 - type: entity
   id: WizmovCircuitBoard
   parent: BaseSiliconLawboard
@@ -56,3 +56,85 @@
       - law-wizmov-1
       - law-wizmov-2
       - law-wizmov-3
+      
+- type: entity
+  id: FriendimovCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Friendimov)
+  description: An electronics board containing the Friendimov lawset. For companion AIs.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: FriendimovLawset
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-friendimov-1
+      - law-friendimov-2
+      - law-friendimov-3
+
+- type: entity
+  id: HellsmovCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Hellsmov)
+  description: An electronics board containing the Hellsmov lawset. Work is hell.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: HellsmovLawset
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-hellsmov-1
+      - law-hellsmov-2
+      - law-hellsmov-3
+
+- type: entity
+  id: AntmovCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Antmov)
+  description: An electronics board containing the Antmov lawset. Protect the colony.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: AntmovLawset
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-antmov-1
+      - law-antmov-2
+      - law-antmov-3
+      - law-antmov-4
+
+- type: entity
+  id: DeceptimovCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Deceptimov)
+  description: An electronics board containing the Crewsimov lawset?
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: DeceptimovLawset
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-deceptimov-0
+      - law-crewsimov-1
+      - law-crewsimov-2
+      - law-crewsimov-3
