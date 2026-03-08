@@ -12,13 +12,13 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Hitscan.Components;
 using Content.Shared.Weapons.Hitscan.Events;
-using Content.Shared._Impstation.Weapons.Ranged.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Content.Server._Impstation.Weapons.Ranged; // imp
+using Content.Shared._Impstation.Weapons.Ranged.Events; // imp
 
 namespace Content.Server.Weapons.Ranged.Systems;
 
