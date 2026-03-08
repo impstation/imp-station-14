@@ -48,8 +48,22 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
         if (!TryComp<MobThresholdsComponent>(ent, out var th))
             return;
 
-        _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth, MobState.Dead, th);
-        _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth / 1.25f, MobState.Critical, th);
+        // imp edit start
+        _threshold.TryGetDeadThreshold(ent, out var deadThr);
+        if (deadThr == null)
+        // fallback for if an entity has no dead threshold. Somehow.
+        {
+            _threshold.SetMobStateThreshold(ent, ent.Comp.FallbackHealth, MobState.Dead, th);
+            _threshold.SetMobStateThreshold(ent, ent.Comp.FallbackHealth / 1.25f, MobState.Critical, th);
+        }
+        else
+        {
+            if (deadThr > ent.Comp.MaxHealth)
+                deadThr = ent.Comp.MaxHealth;
+            _threshold.SetMobStateThreshold(ent, (Shared.FixedPoint.FixedPoint2)(deadThr / ent.Comp.HealthDivisor), MobState.Dead, th);
+            _threshold.SetMobStateThreshold(ent, (Shared.FixedPoint.FixedPoint2)(deadThr / ent.Comp.HealthDivisor) / 1.25f, MobState.Critical, th);
+        }
+        // imp edit end
     }
 
     public override void Initialize()
