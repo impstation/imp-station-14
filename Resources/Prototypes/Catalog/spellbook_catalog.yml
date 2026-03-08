@@ -6,7 +6,7 @@
   productAction: ActionFireball
   productUpgradeId: SpellbookFireballUpgrade
   cost:
-    WizCoin: 4 # imp edit
+    WizCoin: 5 # imp edit
   categories:
   - SpellbookOffensive
   conditions:
@@ -300,7 +300,7 @@
   description: spellbook-event-summon-guns-description
   productAction: ActionSummonGuns
   cost:
-    WizCoin: 10 # imp edit
+    WizCoin: 20 # imp edit
   categories:
   - SpellbookEvents
   conditions:
@@ -314,7 +314,7 @@
   description: spellbook-event-summon-magic-description
   productAction: ActionSummonMagic
   cost:
-    WizCoin: 10 # imp edit
+    WizCoin: 20 # imp edit
   categories:
   - SpellbookEvents
   conditions:
