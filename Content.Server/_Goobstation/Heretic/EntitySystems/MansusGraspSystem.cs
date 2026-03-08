@@ -37,6 +37,7 @@ using Content.Shared.StatusEffectNew;
 using StatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Movement.Systems;
+using Content.Shared._Impstation.Heretic; // imp edit
 
 namespace Content.Server.Heretic.EntitySystems;
 

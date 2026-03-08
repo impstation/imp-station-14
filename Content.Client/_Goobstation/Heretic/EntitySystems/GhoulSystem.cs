@@ -1,4 +1,4 @@
-using Content.Shared.Heretic;
+using Content.Shared._Impstation.Heretic; // imp edit
 using Content.Shared.Humanoid;
 using Robust.Client.GameObjects;
 

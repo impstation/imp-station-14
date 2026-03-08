@@ -7,6 +7,7 @@ using Content.Server.Revolutionary.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Cloning;
 using Content.Shared.Heretic;
+using Content.Shared._Impstation.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
