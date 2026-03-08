@@ -6,7 +6,7 @@ using Content.Server.Temperature.Components;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
-using Content.Shared.Heretic;
+using Content.Shared._Impstation.Heretic; // imp edit
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
