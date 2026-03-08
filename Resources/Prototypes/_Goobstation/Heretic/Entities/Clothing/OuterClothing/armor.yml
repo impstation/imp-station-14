@@ -23,7 +23,7 @@
     heatingCoefficient: 0.005
     coolingCoefficient: 0.05
   - type: FireProtection
-    reduction: 0.65 # same as a normal firesuit
+    reduction: 0.8 #hood doesn't get reduction, so this is 0.8 overall
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodHeretic
     slot: head
