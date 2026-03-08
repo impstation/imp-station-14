@@ -28,6 +28,7 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly TemperatureSystem _temp = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TileSystem _tile = default!;
 
     public override void Update(float frameTime)
@@ -53,7 +54,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
         var mix = _atmos.GetTileMixture((ent, Transform(ent)));
         if (mix != null)
-            mix.Temperature -= 50f;
+            mix.Temperature -= 100f;
 
         // replace certain things with their winter analogue
         var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.Range);
@@ -64,8 +65,6 @@ public sealed partial class AristocratSystem : EntitySystem
 
             if (TryComp<TemperatureComponent>(look, out var temp))
                 _temp.ChangeHeat(look, -200f, true, temp);
-
-            _statusEffect.TryAddStatusEffect<MutedComponent>(look, "Muted", TimeSpan.FromSeconds(5), true);
 
             if (!TryComp<TagComponent>(look, out var tag))
                 continue;
@@ -82,9 +81,7 @@ public sealed partial class AristocratSystem : EntitySystem
         }
     }
 
-    //apparently void ascension is supposed to replace tiles?
-    //it doesn't
-    //i guess they didn't test this -kandi
+
     private void SpawnTiles(Entity<AristocratComponent> ent)
     {
         var xform = Transform(ent);
@@ -92,33 +89,28 @@ public sealed partial class AristocratSystem : EntitySystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
+        var worldPos = _transform.GetWorldPosition(ent);
         var pos = xform.Coordinates.Position;
-        var box = new Box2(pos + new Vector2(-ent.Comp.Range, -ent.Comp.Range), pos + new Vector2(ent.Comp.Range, ent.Comp.Range));
-        var tilerefs = _map.GetLocalTilesIntersecting(ent, grid, box).ToList();
+        var tilerefs = _map.GetTilesIntersecting(
+                xform.GridUid.Value,
+                grid,
+                new Box2(worldPos + new Vector2(-ent.Comp.Range), worldPos + new Vector2(ent.Comp.Range)))
+            .ToList();
 
         if (tilerefs.Count == 0)
             return;
 
         var tiles = new List<TileRef>();
-        var tiles2 = new List<TileRef>();
         foreach (var tile in tilerefs)
         {
             if (_rand.Prob(.45f))
                 tiles.Add(tile);
-
-            if (_rand.Prob(.05f))
-                tiles2.Add(tile);
         }
 
         foreach (var tileref in tiles)
         {
             var tile = _prot.Index<ContentTileDefinition>(ent.Comp.IceTilePrototype);
             _tile.ReplaceTile(tileref, tile);
-        }
-
-        foreach (var tileref in tiles2)
-        {
-            // todo add more tile variety
         }
     }
 }

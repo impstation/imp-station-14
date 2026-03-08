@@ -15,7 +15,8 @@ knowledge-path-ash-s3-name = Blazing Dash
 knowledge-path-ash-s3-desc =
     Her formulae thrust man from the slow clinks of flint to the blazing fires of industry.
 
-    Grants you Blazing Dash, a spell that lets you move extremely quickly for a short time. Be sure to bring a firesuit.
+    Grants you Blazing Dash, a spell that lets you move extremely quickly for a short time. 
+	Be sure to bring a firesuit (or Ominous Armor) to protect yourself from the heat.
 
 knowledge-path-ash-s4-name = Mark of Ash
 knowledge-path-ash-s4-desc =

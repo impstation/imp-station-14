@@ -19,6 +19,11 @@
         Caustic: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.25
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.05
+  - type: FireProtection
+    reduction: 0.65 # same as a normal firesuit
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodHeretic
     slot: head

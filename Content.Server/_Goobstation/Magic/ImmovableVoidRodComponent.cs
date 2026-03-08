@@ -1,4 +1,7 @@
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Magic;
 
@@ -15,4 +18,10 @@ public sealed partial class ImmovableVoidRodComponent : Component
 
     [DataField]
     public string IceTilePrototype = "FloorAstroIce";
+
+    [DataField]
+    public ProtoId<DamageTypePrototype> DamageType = "Cold";
+
+    [DataField]
+    public float DamageAmount = 12.5f; //assuming no resist, puts the target in range to be killed by void blade in 5 hits
 }
