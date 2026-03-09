@@ -28,6 +28,7 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
     public event Action<Entity<XenoArtifactNodeComponent>>? OnNodeSelected;
 
     private float NodeRadius => 25 * UIScale;
+    private float LastTriggeredNodeCircleOutline => 3 * UIScale; // imp edit
     private float NodeDiameter => NodeRadius * 2;
     private float MinYSpacing => NodeDiameter * 0.75f;
     private float MaxYSpacing => NodeDiameter * 1.5f;
@@ -54,6 +55,7 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
     public Color UnlockedNodeColor { get; set; } = Color.White;
     public Color HoveredNodeColor { get; set; } = Color.DimGray;
     public Color UnlockableNodeColor { get; set; } = Color.LightSlateGray;
+    public Color LatestTriggeredNodeColor { get; set; } = Color.Gold; // imp edit
 
     public void SetArtifact(Entity<XenoArtifactComponent>? artifact)
     {
@@ -111,6 +113,8 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
         bottomLeft.Y -= (controlHeight - (ySpacing * maxDepth) - (NodeDiameter * (maxDepth + 1))) / 2;
 
         var cursor = (UserInterfaceManager.MousePositionScaled.Position * UIScale) - GlobalPixelPosition;
+
+        var latestUnlockSession = _artifactSystem.GetTriggeredNodesInLatestUnlockSession(artifact);
 
         foreach (var segment in segments)
         {
@@ -173,6 +177,12 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                         _hoveredNode = node;
                         handle.DrawCircle(pos, NodeRadius, HoveredNodeColor);
                     }
+
+                    //IMP edit: Advanced node scanner draw 'latest unlock run' circle
+                    if (!artifact.Comp.Natural &&
+                        latestUnlockSession.Contains(_artifactSystem.GetIndex(artifact, node)))
+                        handle.DrawCircle(pos, LastTriggeredNodeCircleOutline, Color.ToSrgb(LatestTriggeredNodeColor), false);
+                    //IMP edit end: Advanced node scanner draw 'latest unlock run' circle
 
                     // render circle and text with node id inside
                     handle.DrawCircle(pos, NodeRadius, Color.ToSrgb(color), false);
