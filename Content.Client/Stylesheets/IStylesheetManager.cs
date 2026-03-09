@@ -13,6 +13,9 @@ public interface IStylesheetManager
     ///
     Stylesheet SheetSystem { get; }
 
+    /// Imp addition, it's the syndicate.
+    Stylesheet SheetSyndicate { get; }
+
 
     [Obsolete("Update to use SheetNanotrasen instead")]
     Stylesheet SheetNano { get; }
