@@ -1,0 +1,12 @@
+- type: entity
+  id: CrateEvaSalvageKit
+  parent: CrateSalvageSecure
+  name: salvage EVA kit
+  description: A set consisting of two clunky EVA suits and helmets in salvage colors.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHelmetEVASalvage
+        amount: 2
+      - id: ClothingOuterHardsuitEVASalvage
+        amount: 2

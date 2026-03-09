@@ -11,9 +11,16 @@
   parent: [ClothingBackpackSatchel, Tier1Contraband]
   id: ClothingBackpackSatchelSyndicate
   name: syndicate satchel
-  description:
+  description: A traitorous-looking satchel.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Back/Satchels/syndicate.rsi
   - type: ExplosionResistance
     damageCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 1,0,2,0
+    - 0,1,2,3
+    - 4,0,7,3
+    - 9,0,10,0
+    - 9,1,11,3
