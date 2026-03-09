@@ -147,7 +147,7 @@ public sealed partial class PlayerProvidedCharacterRecords
             year: 0,
             allergies: "None",
             drugAllergies: "None",
-            postmortemInstructions: "Return home",
+            postmortemInstructions: "None given",
             medicalEntries: new List<RecordEntry>(),
             securityEntries: new List<RecordEntry>(),
             employmentEntries: new List<RecordEntry>()

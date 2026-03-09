@@ -263,7 +263,7 @@ accent-milbrat-words-replace-56 = delta HVT
 
 accent-milbrat-words-57 = i see
 accent-milbrat-words-57-2 = sure
-accent-milbrat-words-replace-57 = aknowledged
+accent-milbrat-words-replace-57 = acknowledged
 
 accent-milbrat-words-58 = vent pest
 accent-milbrat-words-58-2 = vent pests
