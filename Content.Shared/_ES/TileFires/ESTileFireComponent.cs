@@ -26,7 +26,7 @@ public sealed partial class ESTileFireComponent : Component
     public float BaseSpreadChance = 0.66f;
 
     [DataField]
-    public float MinimumOxyMolesToSpread = 0.5f;
+    public float MinimumOxyMolesToSpread = 8f;
 
     /// <summary>
     ///     Minimum time after the fire spawns at which it will smolder (return to first stage and stop spreading)

@@ -509,7 +509,9 @@ namespace Content.Server.Atmos.EntitySystems
                     var air = _atmosphereSystem.GetContainingMixture(uid, excite: true);
 
                     // If we're in an oxygenless environment, put the fire out.
-                    if (air == null || air.GetMoles(Gas.Oxygen) < 1f)
+                    // ES START
+                    if (air == null || air.GetMoles(Gas.Oxygen) < 5f)
+                    // ES END
                     {
                         Extinguish(uid, flammable);
                         continue;
