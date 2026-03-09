@@ -137,6 +137,7 @@ namespace Content.IntegrationTests.Tests
             "CogImp",
             "CoreImp",
             "E1M1",
+            "Eclipse",
             "ElkridgeImp",
             "GateImp",
             "Hummingbird",
@@ -156,7 +157,6 @@ namespace Content.IntegrationTests.Tests
             "Monarch",
 
             // DEROTATED:
-            //"Eclipse",
             //"Luna",
             //"Refsdal",
             //"reHash",
