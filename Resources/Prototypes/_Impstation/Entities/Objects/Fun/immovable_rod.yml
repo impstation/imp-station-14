@@ -137,3 +137,19 @@
     radius: 3
     color: red
     energy: 2.0
+
+- type: entity
+  parent: ImmovableRodKeepTilesStill
+  id: ImmovableRodUncle
+  name: immovable uncle
+  description: What can this uncle do for you?
+  components:
+  - type: ImmovableRod
+    eviscerationPopup: immovable-rod-penetrated-mob-uncle
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/uncle.rsi
+    state: uncle
+  - type: PointLight
+    radius: 3
+    color: red
+    energy: 2.0

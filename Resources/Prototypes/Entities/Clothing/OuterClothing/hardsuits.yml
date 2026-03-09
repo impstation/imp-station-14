@@ -43,7 +43,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitAtmos
   - type: Tag
     tags:
-    - CorgiWearable      
+    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -85,7 +85,7 @@
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
   - type: Tag
     tags:
-    - CorgiWearable      
+    - CorgiWearable
     - Hardsuit
     - WhitelistChameleon
 
@@ -794,7 +794,7 @@
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
   - type: ExplosionResistance
-    damageCoefficient: 0.5
+    damageCoefficient: 0.1 # imp edit, stop exploding!!!!
   - type: Armor
     modifiers:
       coefficients:
