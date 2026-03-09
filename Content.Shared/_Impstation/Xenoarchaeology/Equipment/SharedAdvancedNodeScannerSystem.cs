@@ -133,10 +133,15 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         if (!TryComp<AdvancedNodeScannerComponent>(advancedNodeScannerUid, out var advancedNodeScannerComponent))
             return;
 
+        // Predict what the end time will be if we don't get any more correct triggers
+        TimeSpan? predictedEndTime = null;
+        if (TryComp<XenoArtifactUnlockingComponent>(artifact.Owner, out var unlock))
+            predictedEndTime = unlock.EndTime;
+
         TimeSpan? now = _timing.CurTime;
         if (!advancedNodeScannerComponent.ArtifactUnlockSessions.ContainsKey(artifact.Owner))
         {
-            var session = new UnlockSession(artifact.Owner, MetaData(artifact.Owner).EntityName, now.Value, null, [], false, null);
+            var session = new UnlockSession(artifact.Owner, MetaData(artifact.Owner).EntityName, now.Value, predictedEndTime, [], false, null);
             advancedNodeScannerComponent.ArtifactUnlockSessions.Add(artifact.Owner, session);
         }
 
@@ -164,6 +169,9 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
                 triggerTip));
             toAdvertise.Add(index);
         }
+
+        if (predictedEndTime != null)
+            sessionUpdate.EndTime = predictedEndTime;
 
         advancedNodeScannerComponent.ArtifactUnlockSessions[artifact.Owner] = sessionUpdate;
         Dirty(advancedNodeScannerUid, advancedNodeScannerComponent);
@@ -262,6 +270,44 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
             return null;
 
         return ans.UnlockHistories[ent.Owner.Id].Last();
+    }
+
+    /// <summary>
+    /// Gets the latest unlock session for a particular artifact, as witnessed by linked advanced node scanner.
+    /// </summary>
+    /// <param name="artifact"> Artifact </param>
+    /// <param name="ans"> Advanced node scanner </param>
+    /// <returns> Latest UnlockSession - current or past </returns>
+    public UnlockSession? GetLatestUnlockSession(Entity<XenoArtifactComponent> artifact, Entity<AdvancedNodeScannerComponent> ans)
+    {
+        if (artifact.Comp.AdvancedNodeScanner != ans.Owner)
+            return null;
+
+        if (ans.Comp.ArtifactUnlockSessions.ContainsKey(artifact.Owner))
+            return ans.Comp.ArtifactUnlockSessions[artifact.Owner];
+
+        if (!ans.Comp.UnlockHistories.ContainsKey(artifact.Owner.Id))
+            return null;
+
+        return ans.Comp.UnlockHistories[ans.Owner.Id].Last();
+    }
+
+    /// <summary>
+    /// Gets the current unlock session for a particular artifact, as witnessed by linked advanced node scanner.
+    /// Does not return historic unlock sessions.
+    /// </summary>
+    /// <param name="artifact"> Artifact </param>
+    /// <param name="ans"> Artifact </param>
+    /// <returns> Latest UnlockSession - current or past </returns>
+    public UnlockSession? GetCurrentUnlockSession(Entity<XenoArtifactComponent> artifact, Entity<AdvancedNodeScannerComponent> ans)
+    {
+        if (artifact.Comp.AdvancedNodeScanner != ans.Owner)
+            return null;
+
+        if (ans.Comp.ArtifactUnlockSessions.ContainsKey(artifact.Owner))
+            return ans.Comp.ArtifactUnlockSessions[artifact.Owner];
+
+        return null;
     }
 
 }
