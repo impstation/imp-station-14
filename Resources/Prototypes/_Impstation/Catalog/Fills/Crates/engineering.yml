@@ -1,4 +1,17 @@
 - type: entity
+  id: CrateEvaEngineeringKit
+  parent: CrateEngineeringSecure
+  name: engineering EVA kit
+  description: A set consisting of two shiny EVA suits and helmets in engineering colors.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHelmetEVAEngineering
+        amount: 2
+      - id: ClothingOuterHardsuitEVAEngineering
+        amount: 2
+
+- type: entity
   parent: CrateEngineeringSecure
   id: CrateRPD
   name: RPD crate

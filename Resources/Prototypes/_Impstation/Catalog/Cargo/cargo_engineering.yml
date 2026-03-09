@@ -1,4 +1,13 @@
 - type: cargoProduct
+  id: EngineeringEvaKit
+  icon:
+    sprite: _Impstation/Clothing/Head/Helmets/eva_engineering.rsi
+    state: icon
+  product: CrateEvaEngineeringKit
+  cost: 5000
+  category: cargoproduct-category-name-engineering
+
+- type: cargoProduct
   id: EngineeringRPD
   icon:
     sprite: _Funkystation/Objects/Tools/rpd.rsi

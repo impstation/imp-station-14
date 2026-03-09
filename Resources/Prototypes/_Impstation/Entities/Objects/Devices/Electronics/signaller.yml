@@ -1,0 +1,19 @@
+- type: entity
+  parent: RemoteSignallerAdvanced
+  id: RemoteSignallerButler
+  name: butler detonation device
+  description: A handheld device used for remotely expressing ones dissatisfaction with their butler.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/butlersignaller.rsi
+    state: icon
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: AutoLinkTransmitter
+    channel: Butler
+  - type: WirelessNetworkConnection
+    range: 10000
