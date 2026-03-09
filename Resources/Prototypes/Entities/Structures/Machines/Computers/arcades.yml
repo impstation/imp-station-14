@@ -190,8 +190,8 @@
   suffix: Filled
   components:
   - type: SpaceVillainArcade
-    rewardMinAmount: 5
-    rewardMaxAmount: 8
+    rewardMinAmount: 10 # imp edit - increasing the minimum and maximum reward from 5 and 8 to 10 and 15 to let players get more rewards, as the machines drop tickets now
+    rewardMaxAmount: 15
 
 - type: entity
   id: BlockGameArcade
