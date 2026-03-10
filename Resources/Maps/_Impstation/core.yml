@@ -127765,7 +127765,7 @@ entities:
     - type: Transform
       pos: 48.5,-7.5
       parent: 2
-- proto: ToiletDirtyWater
+- proto: ToiletDirtyWaterFilled
   entities:
   - uid: 10189
     components:
@@ -127786,7 +127786,7 @@ entities:
           occludes: True
           ents:
           - 10190
-- proto: ToiletEmpty
+- proto: ToiletFilled
   entities:
   - uid: 2320
     components:

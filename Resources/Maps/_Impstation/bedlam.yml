@@ -46075,14 +46075,14 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -2.5,-0.5
       parent: 2
-- proto: ToiletDirtyWater
+- proto: ToiletDirtyWaterFilled
   entities:
   - uid: 5673
     components:
     - type: Transform
       pos: 34.5,-21.5
       parent: 2
-- proto: ToiletEmpty
+- proto: ToiletFilled
   entities:
   - uid: 7688
     components:

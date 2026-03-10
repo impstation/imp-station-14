@@ -65292,7 +65292,7 @@ entities:
         In order to ensure the crew aboard this vessel are healthy enough to perform expected tasks, it is advised that the radiation collectors be [bold]regularly refilled[/bold] with tanks of gaseous plasma at standard atmospheric pressure and temperature. Additionally, it is of the utmost importance that the station's air distribution and waste management systems are enabled.
 
 
-        Failure to adhere to this may result in injury, death, and a large deduction from your paycheck. 
+        Failure to adhere to this may result in injury, death, and a large deduction from your paycheck.
 
         ────────────────────────────────────
 
@@ -79725,7 +79725,7 @@ entities:
     - type: Transform
       pos: -36.5,13.5
       parent: 2
-- proto: ToiletEmpty
+- proto: ToiletFilled
   entities:
   - uid: 10924
     components:

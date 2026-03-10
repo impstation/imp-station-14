@@ -129,12 +129,6 @@
   - type: Construction
     graph: Toilet
     node: toilet
-  - type: EntityTableContainerFill # imp
-    spawnIfNotEmpty: false
-    containers:
-      stash: !type:NestedSelector
-        tableId: ToiletCisternLoot
-        prob: 0.25
 
 # so theres not actually any way to replenish the gastrotoxin / gold in these.
 # I wouldn't add it to the solutionregeneration comp because that doesn't make a lot of sense imo.
@@ -164,8 +158,9 @@
     containers:
       stash: !type:NestedSelector
         tableId: ToiletCisternLoot
-        rolls: !type:RangeNumberSelector
-          range: 0, 1
+        prob: 0.5 # imp
+        #rolls: !type:RangeNumberSelector # imp comment out
+        #  range: 0, 1 # imp comment out
 
 - type: entity
   parent: ToiletDirtyWater
@@ -176,8 +171,9 @@
     containers:
       stash: !type:NestedSelector
         tableId: ToiletCisternLoot
-        rolls: !type:RangeNumberSelector
-          range: 0, 1
+        prob: 0.5 # imp
+        #rolls: !type:RangeNumberSelector # imp comment out
+        #  range: 0, 1 # imp comment out
 
 - type: entity
   parent: BaseToilet

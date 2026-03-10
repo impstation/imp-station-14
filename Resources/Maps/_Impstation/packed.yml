@@ -84232,7 +84232,7 @@ entities:
     - type: Transform
       pos: 60.5,-8.5
       parent: 2
-- proto: ToiletDirtyWater
+- proto: ToiletDirtyWaterFilled
   entities:
   - uid: 6527
     components:
@@ -84261,7 +84261,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 45.5,38.5
       parent: 2
-- proto: ToiletEmpty
+- proto: ToiletFilled
   entities:
   - uid: 5701
     components:

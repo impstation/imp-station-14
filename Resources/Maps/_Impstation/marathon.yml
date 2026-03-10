@@ -131357,7 +131357,7 @@ entities:
     - type: Transform
       pos: 10.5,-14.5
       parent: 2
-- proto: ToiletDirtyWater
+- proto: ToiletDirtyWaterFilled
   entities:
   - uid: 19686
     components:
@@ -131371,7 +131371,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -55.5,45.5
       parent: 2
-- proto: ToiletEmpty
+- proto: ToiletFilled
   entities:
   - uid: 15744
     components:

@@ -121858,7 +121858,7 @@ entities:
         [head=2]Maintenance[/head]
 
 
-        As stated previously, this guide focuses on ease of setup, not efficiency. The burn chamber in particular will require some attention. 
+        As stated previously, this guide focuses on ease of setup, not efficiency. The burn chamber in particular will require some attention.
 
 
         Once the plasma in the burn chamber has burnt out, the temperature inside will begin to drop as the temperature between the hot and cold loops begin to equalize.
@@ -121969,7 +121969,7 @@ entities:
         [head=2]Maintenance[/head]
 
 
-        As stated previously, this guide focuses on ease of setup, not efficiency. The burn chamber in particular will require some attention. 
+        As stated previously, this guide focuses on ease of setup, not efficiency. The burn chamber in particular will require some attention.
 
 
         Once the plasma in the burn chamber has burnt out, the temperature inside will begin to drop as the temperature between the hot and cold loops begin to equalize.
@@ -122063,7 +122063,7 @@ entities:
         [head=2]Maintenance[/head]
 
 
-        As stated previously, this guide focuses on ease of setup, not efficiency. The burn chamber in particular will require some attention. 
+        As stated previously, this guide focuses on ease of setup, not efficiency. The burn chamber in particular will require some attention.
 
 
         Once the plasma in the burn chamber has burnt out, the temperature inside will begin to drop as the temperature between the hot and cold loops begin to equalize.
@@ -145506,7 +145506,7 @@ entities:
     - type: Transform
       pos: -42.5,15.5
       parent: 2
-- proto: ToiletDirtyWater
+- proto: ToiletDirtyWaterFilled
   entities:
   - uid: 905
     components:
@@ -145534,7 +145534,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -33.5,3.5
       parent: 2
-- proto: ToiletEmpty
+- proto: ToiletFilled
   entities:
   - uid: 3714
     components:
