@@ -139,7 +139,7 @@ namespace Content.Shared.Atmos.Components
         /// </summary>
         // this is like stupidly low for a fire obviously. but i dont really want it to have much pronounced gameplay effect
         [DataField]
-        public float MaxFireTemperature = Atmospherics.T0C + 85f;
+        public float MaxFireTemperature = Atmospherics.T0C + 130f;
         // ES END
     }
 }
