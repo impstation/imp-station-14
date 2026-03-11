@@ -16,7 +16,7 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
 {
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     // [Dependency] private readonly AnnouncerSystem _announcer = default!;
-    [Dependency] private readonly RoundEndSystem _roundEndSystem = default!; 
+    [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
 
     public override void Initialize()
     {
@@ -43,6 +43,7 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
         // );
 
         // Ends game after rule initialized
+        // TODO: REMOVE TIMER.SPAWN
         Timer.Spawn(TimeSpan.FromMinutes(2), () => _roundEndSystem.EndRound());
     }
 

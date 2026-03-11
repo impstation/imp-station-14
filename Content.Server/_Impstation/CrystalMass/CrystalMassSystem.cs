@@ -15,20 +15,21 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 // using Robust.Shared.Utility;
-using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._Impstation.CrystalMass;
 
 public sealed class CrystalMassSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    // [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    // [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -45,23 +46,44 @@ public sealed class CrystalMassSystem : EntitySystem
     private void OnStartup(Entity<CrystalMassComponent> ent, ref ComponentStartup args)
     {
         SetupCrystalMass(ent);
-        ClearTileForCrystal(ent);
-        ScheduleNextSpread(ent);
-    }
-
-    private void ScheduleNextSpread(Entity<CrystalMassComponent> ent)
-    {
-        // Actual ss13 times would be 0, 4 but this feels more right imo
+        // Actual ss13 times would be 0, 3 but they have a update delay, aksi this feels more right imo
         // 0 delay multiple times will cause it to spike out suddenly
         var delay = _random.Next(1, 5);
-        Timer.Spawn(delay * 1000, () =>
+        ent.Comp.NextSpread = _timing.CurTime + TimeSpan.FromSeconds(delay);
+
+        // TODO: REMOVE TIMER.SPAWN
+        // Slightly longer than one tick
+        Timer.Spawn(TimeSpan.FromMilliseconds(17), () =>
         {
-            if (!Deleted(ent) && ent.Comp.Spreading)
-            {
-                CrystalMassSpread(ent);
-                ScheduleNextSpread(ent);
-            }
+            ClearTileForCrystal(ent);
         });
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var curTime = _timing.CurTime;
+        var toSpread = new List<Entity<CrystalMassComponent>>();
+        var query = EntityQueryEnumerator<CrystalMassComponent>();
+
+        while (query.MoveNext(out var ent, out var crystalMassComponent))
+        {
+            if (!crystalMassComponent.Spreading)
+                continue;
+            if (crystalMassComponent.NextSpread > curTime)
+                continue;
+
+            toSpread.Add(new Entity<CrystalMassComponent>(ent, crystalMassComponent));
+        }
+
+        foreach (var ent in toSpread)
+        {
+            CrystalMassSpread(ent);
+
+            var delay = _random.Next(1, 5);
+            ent.Comp.NextSpread = _timing.CurTime + TimeSpan.FromSeconds(delay);
+        }
     }
 
     private void CrystalMassSpread(Entity<CrystalMassComponent> ent)
@@ -72,6 +94,7 @@ public sealed class CrystalMassSystem : EntitySystem
             return;
         }
 
+        // Figure out a way to not repeat logic for grid/world cords in both CrystalMassSpread & ClearTileForCrystal
         var xform = Transform(ent);
         if (xform.GridUid == null)
             return;
@@ -114,6 +137,7 @@ public sealed class CrystalMassSystem : EntitySystem
         var dir = _random.Pick(ent.Comp.AvailableDirs);
         var neighborTileCoords = Transform(ent).Coordinates.Offset(dir.ToVec());
 
+        // TODO: Check if spreadersystem stuff is deleted
         // TODO: Make floor sprite same as entity sprite, might or might not be better when loading areas with a lot of crystal mass
         // TODO: Add limiter so it dosen't spread in space infinitly
         _map.SetTile(gridUid, mapGrid, neighborTileCoords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, ent.Comp.SpriteVariants)));
@@ -128,11 +152,14 @@ public sealed class CrystalMassSystem : EntitySystem
             Spawn("CrystalMass", neighborTileCoords);
         }
 
-        _audio.PlayPvs(ent.Comp.CrackingCrystalSound, ent, AudioParams.Default.WithVolume(5f));
+        _audio.PlayPvs(ent.Comp.CrackingCrystalSound, ent, AudioParams.Default.WithVolume(20f));
     }
 
     public void ClearTileForCrystal(Entity<CrystalMassComponent> ent)
     {
+        if (Deleted(ent))
+            return;
+
         var xform = Transform(ent);
         if (xform.GridUid == null)
             return;
@@ -167,7 +194,6 @@ public sealed class CrystalMassSystem : EntitySystem
             if (HasComp<SupermatterImmuneComponent>(targetEnt) || HasComp<GodmodeComponent>(targetEnt) || HasComp<GhostComponent>(targetEnt))
                 continue;
 
-            // TODO: switch audio to playing on a newly spawned tile, or just like not
             if (HasComp<MobStateComponent>(targetEnt) || HasComp<ItemComponent>(targetEnt))
                 _audio.PlayPvs(ent.Comp.DustSound, ent, AudioParams.Default.WithVolume(-2f));
 

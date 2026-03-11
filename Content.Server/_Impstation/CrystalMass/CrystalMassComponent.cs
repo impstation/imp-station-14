@@ -33,6 +33,12 @@ public sealed partial class CrystalMassComponent : Component
     public int SpriteVariants = 5;
 
     /// <summary>
+    /// Next time to spread at
+    /// </summary>
+    [DataField]
+    public TimeSpan NextSpread = TimeSpan.FromSeconds(3);
+
+    /// <summary>
     /// Chance for a bulb to spawn when spread
     /// </summary>
     [DataField]
