@@ -32,6 +32,10 @@
   - type: Tag
     tags:
       - HideContextMenu
+  - type: ESSparkOnProjectileHit
+    count: 3
+  - type: ESSparkOnDespawn
+    count: 1
 
 - type: entity
   name : kinetic blaster bolt
