@@ -82,11 +82,9 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Impstation/boat.yml", // Contains janitorial bomb suit closet, cat ears, doggy ears
             "/Maps/_Impstation/gate.yml", // Contains positronic brain, LSE-1200c "Perforator"
             "/Maps/_Impstation/lilboat.yml", // Contains janitorial bomb suit closet, cat ears
-            "/Maps/_Impstation/meta.yml", // Contains warden's rubber stamp
             "/Maps/_Impstation/reach.yml", // Contains handheld crew monitor
             "/Maps/_Impstation/xeno.yml", // Contains PTK-800 "Matter Dematerializer"
             "/Maps/_Impstation/eclipse.yml", // Contains PTK-800 "Matter Dematerializer", LSE-400c "Svalinn machine gun"
-            "/Maps/_Impstation/monarch.yml", // Contains ship cannons
 
             // Shuttles
             "/Maps/_DV/Shuttles/listening_post.yml", // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
