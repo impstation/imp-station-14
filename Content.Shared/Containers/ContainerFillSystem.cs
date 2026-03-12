@@ -75,6 +75,19 @@ public sealed class ContainerFillSystem : EntitySystem
     }
 
     // IMP start: just move this shit into a public API who cares
+
+    /// <summary>
+    /// Resolves an entity table into spawned entities, and then fills an entity's container with the spawned entities.
+    /// </summary>
+    /// <remarks>
+    /// This is used by EntityTableContainerFillComponent to fill containers upon initialization.
+    /// </remarks>
+    /// <param name="ent">The entity with containers to fill.</param>
+    /// <param name="containerId">The ID of the container to fill.</param>
+    /// <param name="table">The entity table to populate the container with.</param>
+    /// <param name="coords">Spawn coordinates for the table entities.</param>
+    /// <param name="xform">The transform component of the container entity.</param>
+    /// <param name="componentName">The name of the component invoking this, for logging purposes.</param>
     [PublicAPI]
     public void FillContainer(Entity<ContainerManagerComponent?> ent,
         string containerId,
