@@ -89,7 +89,7 @@ public sealed partial class DeliveryComponent : Component
     [DataField]
     public string Container = "delivery";
 
-    // IMP end: delivery loot handled by delivery system
+    // IMP start: delivery loot handled by delivery system
 
     /// <summary>
     /// The basic, "universal" loot table that the delivery will draw from.
