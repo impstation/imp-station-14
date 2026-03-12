@@ -1,4 +1,6 @@
 using Content.Shared.Cargo.Prototypes;
+using Content.Shared.EntityTable.EntitySelectors;
+using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -86,4 +88,35 @@ public sealed partial class DeliveryComponent : Component
     /// </summary>
     [DataField]
     public string Container = "delivery";
+
+    // IMP end: delivery loot handled by delivery system
+
+    /// <summary>
+    /// The basic, "universal" loot table that the delivery will draw from.
+    /// </summary>
+    /// <remarks>
+    /// This may be replaced under certain circumstances, such as departmental mail.
+    /// </remarks>
+    [DataField]
+    public EntityTableSelector BaseTable = default!;
+
+    /// <summary>
+    /// A dictionary of department IDs mapping to table selectors, for per-department mail.
+    /// </summary>
+    /// <remarks>
+    /// This overrides the base table. This gets overriden by the job table.
+    /// </remarks>
+    [DataField]
+    public Dictionary<ProtoId<DepartmentPrototype>, EntityTableSelector> DepartmentTables = default!;
+
+    /// <summary>
+    /// A dictionary of job IDs mapping to table selectors, for per-job mail.
+    /// </summary>
+    /// <remarks>
+    /// This overrides both departmental tables and the base table.
+    /// </remarks>
+    [DataField]
+    public Dictionary<ProtoId<JobPrototype>, EntityTableSelector> JobTables = default!;
+
+    // IMP end
 }
