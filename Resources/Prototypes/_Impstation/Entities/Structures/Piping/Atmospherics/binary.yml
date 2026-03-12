@@ -61,7 +61,7 @@
     #lower values *do* affect performance negatively, though.
 
     #radiationCoefficient (alpha) affects how effective the radiator is at transferring heat out
-    #a value of 200 gets to abount 1.25 effectiveness based on emperical testing
+    #a value of 200 gets to about 1.25 effectiveness based on empirical testing
     radiationCoefficient: 200
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
