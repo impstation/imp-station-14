@@ -1,4 +1,7 @@
+using System.Numerics; // Funky RPD
 using Content.Shared.Administration.Logs;
+using Content.Shared.Atmos.EntitySystems; // Funky RPD
+using Content.Shared.Atmos.Components; // Funky RPD
 using Content.Shared.Charges.Systems;
 using Content.Shared.Construction;
 using Content.Shared.Database;
@@ -7,11 +10,13 @@ using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
+using Content.Shared.NodeContainer; // Funky RPD
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.RCD.Components;
 using Content.Shared.Tag;
 using Content.Shared.Tiles;
+using Content.Shared.Verbs; // Funky RPD
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -21,16 +26,10 @@ using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility; // Funky RPD
 using System.Linq;
-using Content.Shared._Funkystation.Atmos; // Imp
-// Funky RPD Start
-using Content.Shared.Atmos.EntitySystems;
-using Content.Shared.Atmos.Components;
-using System.Numerics;
-using Content.Shared.Verbs;
-using Robust.Shared.Utility;
-using Content.Shared.NodeContainer;
-// Funky RPD End
+
+using Content.Shared._Funkystation.Atmos;
 
 namespace Content.Shared.RCD.Systems;
 
@@ -160,7 +159,7 @@ public sealed class RCDSystem : EntitySystem
 
         args.PushMarkup(msg);
 
-    // Funky RPD Start
+        // Funky RPD Start
         if (component.IsRpd)
         {
             var modeLoc = $"rcd-rpd-mode-{component.CurrentMode.ToString().ToLowerInvariant()}";
@@ -670,6 +669,7 @@ public sealed class RCDSystem : EntitySystem
                 return false;
             }
             // Funky RPD End
+
             // The tile is empty
             if (tile.Tile.IsEmpty)
             {
@@ -805,9 +805,9 @@ public sealed class RCDSystem : EntitySystem
 
                 var entityCoords = _mapSystem.GridTileToLocal(gridUid, mapGrid, position);
                 var mapCoords = new MapCoordinates(entityCoords.ToMapPos(EntityManager, _transform), entityCoords.GetMapId(EntityManager));
+                // Funky RPD End
 
                 var ent = Spawn(proto, mapCoords, rotation: rotation); // Funky RPD, added rotation & changed to use new variables
-                // Funky RPD End
 
                 switch (prototype.Rotation)
                 {

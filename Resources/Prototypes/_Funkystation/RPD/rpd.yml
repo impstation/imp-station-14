@@ -101,7 +101,7 @@
 - type: rcd
   id: ManualValve
   category: PumpsValves
-  sprite: /Textures/_Impstation/Interface/Radial/RPD/pumpManualValveOn.png
+  sprite: /Textures/_Impstation/Interface/Radial/RPD/pumpManualValveOn.png # Imp
   mode: ConstructObject
   prototype: GasValve
   cost: 2 # Imp
@@ -217,7 +217,7 @@
 - type: rcd
   id: Radiator
   category: AtmosphericUtility
-  sprite: /Textures/_Impstation/Interface/Radial/RPD/heStraight.png
+  sprite: /Textures/_Impstation/Interface/Radial/RPD/heStraight.png # Imp
   mode: ConstructObject
   prototype: HeatExchanger
   cost: 2 # Imp
@@ -230,7 +230,7 @@
 - type: rcd
   id: RadiatorBend
   category: AtmosphericUtility
-  sprite: /Textures/_Impstation/Interface/Radial/RPD/heBend.png
+  sprite: /Textures/_Impstation/Interface/Radial/RPD/heBend.png # Imp
   mode: ConstructObject
   prototype: HeatExchangerBend
   cost: 2 # Imp

@@ -6,10 +6,11 @@ using Robust.Client.Placement;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
-using Content.Client._Funkystation.RCD; // Imp
 using Content.Shared.Input; // Funky RPD
 using Robust.Shared.Input; // Funky RPD
 using Robust.Shared.Input.Binding; // Funky RPD
+
+using Content.Client._Funkystation.RCD;
 
 namespace Content.Client.RCD;
 
@@ -134,10 +135,10 @@ public sealed class RCDConstructionGhostSystem : EntitySystem
         var newObjInfo = new PlacementInformation
         {
             MobUid = heldEntity.Value,
-            PlacementOption = desiredMode, // Funky RPD, changes to new created variable
-            EntityType = prototype, // Funky RPD, changes to new created variable
+            PlacementOption = desiredMode, // Funky RPD, changes to new variable
+            EntityType = prototype, // Funky RPD, changes to new variable
             Range = (int)Math.Ceiling(SharedInteractionSystem.InteractionRange),
-            IsTile = (cachedProto.Mode == RcdMode.ConstructTile), // Funky RPD, changes to new created variable
+            IsTile = (cachedProto.Mode == RcdMode.ConstructTile), // Funky RPD, changes to new variable
             UseEditorContext = false,
         };
 

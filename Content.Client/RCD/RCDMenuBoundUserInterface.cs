@@ -33,8 +33,6 @@ public sealed class RCDMenuBoundUserInterface : BoundUserInterface
             // Funky RPD End
         };
 
-    private bool IsRpd => EntMan.TryGetComponent<RCDComponent>(Owner, out var rcd) && rcd.IsRpd; // Funky RPD
-
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
