@@ -16,7 +16,7 @@ public sealed partial class DeliverySystem
     /// Fills a delivery entity with loot from the best applicable mail loot table.
     /// </summary>
     /// <remarks>
-    /// This is called when the map initializes.
+    /// This is called on MapInit for the delivery item.
     /// </remarks>
     /// <param name="ent">The delivery entity to populate.</param>
     /// <param name="jobProto">A job prototype ID associated with the recipient.</param>
