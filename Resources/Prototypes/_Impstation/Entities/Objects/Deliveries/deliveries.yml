@@ -24,7 +24,7 @@
   id: DepartmentalLetters
   components:
   - type: Delivery
-    departmentTables:
+    departmentTables: {}
       # FIG 1. command is not a primary department, so this is a "fallback" for command members
       # who do not have mail for their job or primary department defined
       # Command: !type:NestedSelector
@@ -44,7 +44,7 @@
       # FIG 3. science just gets food, including the research director
       # Science: !type:NestedSelector
       #   tableId: MealFoodTable
-    jobTables:
+    jobTables: {}
       # FIG 4. chief engineers will only get CE mail, they won't get engineering mail.
       # per-job tables are always the highest priority loot table
       # ChiefEngineer: !type:NestedSelector
