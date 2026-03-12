@@ -1,9 +1,8 @@
 using System.Linq;
 using Content.Server.Administration.Logs;
+using Content.Shared.Damage.Components;
 using Content.Server.Cloning;
 using Content.Server.Ghost.Roles.Components;
-using Content.Shared._Impstation.AnimalHusbandry.Components;
-using Content.Shared._Impstation.EntityTable.Conditions;
 using Content.Shared.Database;
 using Content.Shared.EntityTable;
 using Content.Shared.Interaction.Components;
@@ -16,7 +15,9 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-using Content.Shared.Damage.Components;
+
+using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared._Impstation.EntityTable.Conditions;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 /// <summary>

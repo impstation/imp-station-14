@@ -158,11 +158,10 @@
 
 - type: entity
   name: chick
-  parent: MobChicken
+  parent: MobHenChick
   id: MobRoosterChick
   description: Watch where you walk!
   components:
-  - type: ImpReproductive
   - type: Grammar
     attributes:
       gender: male

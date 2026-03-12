@@ -8,8 +8,6 @@ namespace Content.Shared._Impstation.AnimalHusbandry.Components;
 /// Exists purely for the ability for Incubators to keep track of what they're doing
 /// </summary>
 [RegisterComponent]
-[NetworkedComponent]
-[AutoGenerateComponentPause]
 public sealed partial class EggIncubatorComponent : Component
 {
     /// <summary>

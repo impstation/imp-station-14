@@ -3,6 +3,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Power.EntitySystems;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -17,6 +18,7 @@ public sealed class IncubationSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
     public override void Initialize()
     {
@@ -67,7 +69,7 @@ public sealed class IncubationSystem : EntitySystem
         _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Active);
         entity.Comp.Status = IncubatorStatus.Active;
         entity.Comp.CurrentlyIncubated = incuComp;
-        entity.Comp.FinishIncubation = incuComp.IncubationTime * 10; // The * 10 is to convert the ticks into their actual seconds
+        entity.Comp.FinishIncubation = incuComp.IncubationTime;// * 10; // The * 10 is to convert the ticks into their actual seconds
     }
 
     /// <summary>
@@ -89,14 +91,15 @@ public sealed class IncubationSystem : EntitySystem
         if (TryComp<InteractionPopupComponent>(newMob, out var interactionPopup))
             Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates((EntityUid)newMob));
 
-        _entManager.DeleteEntity(incubated);
+        _containerSystem.RemoveEntity(entity, incubated);
+        _entManager.PredictedDeleteEntity(incubated);
     }
 
     private EntityUid? SpawnNewMob(EntityUid entity, EntProtoId toSpawn)
     {
         var xform = Transform(entity);
 
-        var newMob = Spawn(toSpawn, xform.Coordinates);
+        var newMob = PredictedSpawnAtPosition(toSpawn, xform.Coordinates);
 
         return newMob;
     }
