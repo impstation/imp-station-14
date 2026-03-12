@@ -151,14 +151,10 @@ namespace Content.IntegrationTests.Tests
             "Xeno",
             "Pathway",
             "Whisper",
-            "Monarch",
 
             // DEROTATED:
-            //"Luna",
-            //"Refsdal",
-            //"reHash",
             //"RelicImp",
-            //"Skimmer",
+
         };
 
         private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
