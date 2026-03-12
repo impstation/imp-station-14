@@ -107,7 +107,7 @@ public sealed partial class DeliveryComponent : Component
     /// This overrides the base table. This gets overriden by the job table.
     /// </remarks>
     [DataField]
-    public Dictionary<ProtoId<DepartmentPrototype>, EntityTableSelector> DepartmentTables = new();
+    public Dictionary<ProtoId<DepartmentPrototype>, EntityTableSelector> DepartmentTables = default!;
 
     /// <summary>
     /// A dictionary of job IDs mapping to table selectors, for per-job mail.
@@ -116,7 +116,7 @@ public sealed partial class DeliveryComponent : Component
     /// This overrides both departmental tables and the base table.
     /// </remarks>
     [DataField]
-    public Dictionary<ProtoId<JobPrototype>, EntityTableSelector> JobTables = new();
+    public Dictionary<ProtoId<JobPrototype>, EntityTableSelector> JobTables = default!;
 
     // IMP end
 }
