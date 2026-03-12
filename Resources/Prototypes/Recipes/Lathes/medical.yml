@@ -153,6 +153,12 @@
   result: MedkitO2
   name: lathe-recipe-MedkitO2-name
 
+- type: latheRecipe #imp
+  parent: Medkit
+  id: MedkitN2
+  result: MedkitN2
+  name: lathe-recipe-MedkitN2-name
+
 - type: latheRecipe
   parent: Medkit
   id: MedkitBrute
