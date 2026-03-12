@@ -65,7 +65,12 @@ public sealed class ContainerFillSystem : EntitySystem
         foreach (var (containerId, table) in ent.Comp.Containers)
         {
             // IMP edit: what if i just moved it out. what are you gonna do about that huh.
-            FillContainer((ent.Owner, containerComp), containerId, table, coords, xform);
+            FillContainer((ent.Owner, containerComp),
+                containerId,
+                table,
+                coords,
+                xform,
+                nameof(EntityTableContainerFillComponent));
         }
     }
 
@@ -75,17 +80,19 @@ public sealed class ContainerFillSystem : EntitySystem
         string containerId,
         EntityTableSelector table,
         EntityCoordinates? coords = null,
-        TransformComponent? xform = null)
+        TransformComponent? xform = null,
+        string? componentName = null)
     {
         if (!Resolve(ent.Owner, ref ent.Comp, logMissing: false))
             return;
 
         xform ??= Transform(ent);
         coords ??= new EntityCoordinates(ent, Vector2.Zero);
+        var componentText = componentName == null ? "" : $" with a {componentName}";
 
         if (!_containerSystem.TryGetContainer(ent.Owner, containerId, out var container, ent.Comp))
         {
-            Log.Error($"Entity {ToPrettyString(ent)} with a {nameof(EntityTableContainerFillComponent)} is missing a container ({containerId}).");
+            Log.Error($"Entity {ToPrettyString(ent)}{componentText} is missing a container ({containerId}).");
             return;
         }
 
@@ -96,7 +103,7 @@ public sealed class ContainerFillSystem : EntitySystem
             if (!_containerSystem.Insert(spawn, container, containerXform: xform))
             {
                 var alreadyContained = container.ContainedEntities.Count > 0 ? string.Join("\n", container.ContainedEntities.Select(e => $"\t - {ToPrettyString(e)}")) : "< empty >";
-                Log.Error($"Entity {ToPrettyString(ent)} with a {nameof(EntityTableContainerFillComponent)} failed to insert an entity: {ToPrettyString(spawn)}.\nCurrent contents:\n{alreadyContained}");
+                Log.Error($"Entity {ToPrettyString(ent)}{componentText} failed to insert an entity: {ToPrettyString(spawn)}.\nCurrent contents:\n{alreadyContained}");
                 _transform.AttachToGridOrMap(spawn);
                 break;
             }

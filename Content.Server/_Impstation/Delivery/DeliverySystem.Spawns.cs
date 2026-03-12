@@ -17,7 +17,7 @@ public sealed partial class DeliverySystem
         var containerId = ent.Comp.Container;
         var table = GetDeliveryLootTable(ent, jobProto);
 
-        _containerFill.FillContainer(ent.Owner, containerId, table);
+        _containerFill.FillContainer(ent.Owner, containerId, table, componentName: nameof(DeliveryComponent));
     }
 
     private EntityTableSelector GetDeliveryLootTable(Entity<DeliveryComponent> ent, string jobProto)
