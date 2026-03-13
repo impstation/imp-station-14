@@ -150,3 +150,9 @@ uplink-hotsauces-desc = New from Discount Dan's! 4 levels of heat to put your sp
 
 uplink-taipan-name = Taipan bundle
 uplink-taipan-desc = One "Taipan" Echion crossbow, bundled with a canister of its proprietary liquid ammo.
+
+uplink-muldoon-sniper-name = Muldoon Sniper
+uplink-muldoon-sniper-desc = A modified version of the muldoon tranquilizer gun that accepts both darts and .60 anti-materiel ammo.
+
+uplink-shock-dart-box-name = Shock Dart Box
+uplink-shock-dart-box-desc = A box of 4 tranquilizer darts that fit in the muldoon. Each dart contains 6 units of tazinide and will shock the target after injection.

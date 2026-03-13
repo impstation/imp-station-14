@@ -521,3 +521,14 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBucketHat
+  name: bucket hat
+  description: A great hat for the great outdoors.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/buckethat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/buckethat.rsi

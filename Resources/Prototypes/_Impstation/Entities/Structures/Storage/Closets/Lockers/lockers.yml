@@ -92,3 +92,16 @@
     stateDoorClosed: cburn_door
   - type: AccessReader
     access: [["CentralCommand"]]
+
+# Zookeeper
+- type: entity
+  id: LockerZoo
+  parent: LockerBaseSecure
+  name: zoo locker
+  components:
+  - type: EntityStorageVisuals
+    stateBaseClosed: zoo
+    stateDoorOpen: generic_open
+    stateDoorClosed: zoo_door
+  - type: AccessReader
+    access: [["Zoo"]]

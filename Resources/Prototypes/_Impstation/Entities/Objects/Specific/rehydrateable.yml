@@ -107,6 +107,42 @@
     possibleSpawns:
     - MobBananaDeer
 
+- type: entity
+  parent: RehydratableAnimalCube
+  id: GooseCube
+  name: goose cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobGoose
+
+- type: entity
+  parent: RehydratableAnimalCube
+  id: GorillaCube
+  name: gorilla cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobGorilla
+
+- type: entity
+  parent: RehydratableAnimalCube
+  id: ParrotCube
+  name: parrot cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobParrot
+
+- type: entity
+  parent: RehydratableAnimalCube
+  id: RaptorCube
+  name: raptor cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobRaptor
+
 # zombie infection-less here
 
 - type: entity

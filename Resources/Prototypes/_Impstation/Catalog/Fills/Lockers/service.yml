@@ -63,3 +63,25 @@
     children:
     - id: BananaDeerCube
       prob: 0.1
+
+# Zookeeper
+- type: entity
+  id: LockerZooFilled
+  suffix: Filled
+  parent: LockerZoo
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerZoo
+
+- type: entityTable
+  id: FillLockerZoo
+  table: !type:AllSelector
+    children:
+    - id: WeaponRifleTranq
+    - id: ClothingBeltDart
+    - id: BoxTranqDart
+    - id: BoxIrwizineDart
+    - id: PetCarrier
+    - id: ZookeeperCubeBox

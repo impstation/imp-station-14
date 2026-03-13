@@ -36,3 +36,14 @@
     sprite: _Impstation/Clothing/Head/Hoods/Coat/hoodhd.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hoods/Coat/hoodhd.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHatHoodWinterZookeeper
+  categories: [ HideSpawnMenu ]
+  name: zookeeper's coat hood
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hoods/Coat/hoodzookeeper.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hoods/Coat/hoodzookeeper.rsi
