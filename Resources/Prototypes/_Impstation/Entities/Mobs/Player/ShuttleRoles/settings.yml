@@ -77,9 +77,9 @@
       prototypes: [ VisitorParamedic, VisitorParamedicAlt ]
       roleLoadout: [ RoleSurvivalMedical ]
     - type: RandomAntagChance
-      antagRole: InitialInfected
+      antagRole: MindRoleInitialInfected 
       fallbackRole: MindRoleGhostRoleNeutral
-      chance: .3
+      chance: .15
 
 #this is here to facilitate the random spawners for the shuttles, so that the RandomAntagChance component can be used
 - type: randomHumanoidSettings
