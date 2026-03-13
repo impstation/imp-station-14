@@ -307,6 +307,19 @@
   - type: HTN
     rootTask:
       task: PassiveLivestockCompound
+  - type: ImpReproductive
+    hungerPerBirth: 25
+    pregnancyLength: 150
+    mobType: Chicken
+    validPartners:
+      - Rooster
+    gender: Female
+    possibleInfants: !type:GroupSelector
+      children:
+      - id: HenEgg
+        weight: 10
+      - id: RoosterEgg
+        weight: 1
   # imp edit end
 
 - type: entity
@@ -1214,8 +1227,8 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: Body
-    prototype: AnimalRuminant
+  #- type: Body Imp
+  #  prototype: AnimalRuminant 
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException

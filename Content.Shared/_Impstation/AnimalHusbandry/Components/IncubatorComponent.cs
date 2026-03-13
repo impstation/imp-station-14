@@ -13,7 +13,7 @@ public sealed partial class EggIncubatorComponent : Component
     /// <summary>
     /// When do we finish incubation?
     /// </summary>
-    public float FinishIncubation = 0;
+    public TimeSpan FinishIncubation = TimeSpan.Zero;
 
     /// <summary>
     /// Egg we are currently incubating

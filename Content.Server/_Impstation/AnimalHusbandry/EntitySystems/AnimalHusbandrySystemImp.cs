@@ -71,10 +71,8 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
                 reproComp.Value.Pregnant = false;
             }
 
-            reproComp.Value.EndPregnancy -= frameTime;
-
             // Is it time to give birth?
-            if (reproComp.Value.EndPregnancy <= 0)
+            if (reproComp.Value.EndPregnancy <= _time.CurTime)
             {
                 reproComp.Value.Pregnant = false;
                 Birth((reproComp.Key, reproComp.Value));
@@ -94,9 +92,16 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
                 || !_entManager.TryGetComponent<MobStateComponent>(uid, out var state))
                 continue;
 
-            infantComp.GrowthTimeRemaining -= frameTime;
+            // Doing this here for the purpose of if admins spawn in baby mobs.
+            // Prevents them from growing up instantly when placed.
+            if (infantComp.GrowthTimeRemaining == TimeSpan.Zero)
+                infantComp.GrowthTimeRemaining = _time.CurTime.Add(infantComp.GrowthTime);
 
-            if (infantComp.GrowthTimeRemaining <= 0)
+            // If the mob isn't alive we need to delay its growth
+            if (state.CurrentState != Shared.Mobs.MobState.Alive)
+                infantComp.GrowthTimeRemaining = infantComp.GrowthTimeRemaining.Add(_time.FrameTime);
+
+            if (infantComp.GrowthTimeRemaining <= _time.CurTime)
                 AdvanceStage((uid, infantComp));
         }
     }
@@ -135,7 +140,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
         // Ready up for birth
         partnerComp.Pregnant = true;
-        partnerComp.EndPregnancy = partnerComp.PregnancyLength;
+        partnerComp.EndPregnancy = _time.CurTime.Add(partnerComp.PregnancyLength);
 
         // Add them to our list of pregnant NPCs to be tracked
         _mobsWaiting.Add(approached, partnerComp);
@@ -175,14 +180,18 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (entity.Comp.Pregnant)
             return false;
 
-        if (_entManager.TryGetComponent<HungerComponent>(entity, out var hunger) && hunger.CurrentThreshold < HungerThreshold.Okay)
-            return false;
-
-        if (_entManager.TryGetComponent<ThirstComponent>(entity, out var thirst) && thirst.CurrentThirstThreshold < ThirstThreshold.Okay)
+        // Making sure we're not trying to breed with an infant
+        if (_entManager.TryGetComponent<ImpInfantComponent>(entity, out var infant))
             return false;
 
         // Player inhabited mobs cannot breed
         if (_mind.TryGetMind(entity, out var mind, out var mindComp))
+            return false;
+
+        if (_entManager.TryGetComponent<HungerComponent>(entity, out var hunger) && hunger.CurrentThreshold < HungerThreshold.Okay)
+            return false;
+
+        if (_entManager.TryGetComponent<ThirstComponent>(entity, out var thirst) && thirst.CurrentThirstThreshold < ThirstThreshold.Okay)
             return false;
 
         // A mob needs to be Alive. Not dead or critical
@@ -227,7 +236,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
         if (_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
         {
-            infantComp.GrowthTimeRemaining = infantComp.GrowthTime;
+            infantComp.GrowthTimeRemaining = _time.CurTime.Add(infantComp.GrowthTime);
             infantComp.Parent = entity;
         }
     }
@@ -273,7 +282,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         QueueDel(infant);
 
         // So they don't immediately try to breed the second they grow up
-        if(isAdult && _entManager.TryGetComponent<ImpReproductiveComponent>(newStage, out var reproComp))
+        if (isAdult && _entManager.TryGetComponent<ImpReproductiveComponent>(newStage, out var reproComp))
             reproComp.NextSearch = _time.CurTime + _random.Next(reproComp.MinSearchAttemptInterval, reproComp.MaxSearchAttemptInterval);
 
         return isAdult;

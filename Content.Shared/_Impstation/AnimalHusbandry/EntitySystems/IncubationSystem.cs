@@ -37,7 +37,7 @@ public sealed class IncubationSystem : EntitySystem
 
         // Just run through and check on all the incubators
         var query = EntityQueryEnumerator<EggIncubatorComponent>();
-        while(query.MoveNext(out var uid, out var incuComp))
+        while (query.MoveNext(out var uid, out var incuComp))
         {
             // Making sure we're incubating something
             if (incuComp.CurrentlyIncubated == null || _entManager.Deleted(incuComp.CurrentlyIncubated.Owner))
@@ -45,11 +45,11 @@ public sealed class IncubationSystem : EntitySystem
 
             CheckPowerchanged((uid, incuComp));
 
-            if (incuComp.Status == IncubatorStatus.Active)
-                incuComp.FinishIncubation -= frameTime;
+            if (incuComp.Status != IncubatorStatus.Active)
+                incuComp.FinishIncubation = incuComp.FinishIncubation.Add(_time.FrameTime);
 
             // Hatch
-            if (incuComp.FinishIncubation <= 0)
+            if (incuComp.FinishIncubation <= _time.CurTime)
                 FinishIncubation((uid, incuComp));
         }
     }
@@ -112,7 +112,7 @@ public sealed class IncubationSystem : EntitySystem
     {
         var powered = _powerSystem.IsPowered(entity.Owner);
 
-        if(powered && entity.Comp.Status == IncubatorStatus.Inactive)
+        if (powered && entity.Comp.Status == IncubatorStatus.Inactive)
         {
             _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Active);
             entity.Comp.Status = IncubatorStatus.Active;
