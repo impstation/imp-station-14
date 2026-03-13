@@ -57,7 +57,7 @@ public sealed class RandomAntagChanceSystem : EntitySystem
             case "Traitor":
                 _antag.ForceMakeAntag<TraitorRuleComponent>(session, role);
                 return;
-            case "InitialInfected":
+            case "MindRoleInitialInfected":
                 _antag.ForceMakeAntag<ZombieRuleComponent>(session, "Zombie");
                 return;
             case "Zombie":
