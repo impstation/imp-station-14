@@ -68,5 +68,9 @@
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
+      outerClothing-anomalocarid:
+      - state: equipped-OUTERCLOTHING-anomalocarid
+      outerClothing-vox:
+      - state: equipped-OUTERCLOTHING-vox
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterZookeeper
