@@ -6,6 +6,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Content.Shared.Heretic.Prototypes; // imp
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array; // imp
 
 namespace Content.Shared.Store;
 
@@ -281,8 +282,19 @@ public partial class ListingData : IEquatable<ListingData>
 /// </summary>
 [Prototype]
 [DataDefinition]
-public sealed partial class ListingPrototype : ListingData, IPrototype
+public sealed partial class ListingPrototype : ListingData, IPrototype, IInheritingPrototype // imp edit, add IInheritingPrototype
 {
+    // imp edit start, add support for parents and abstract
+    ///  <inheritdoc />
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<ListingPrototype>))]
+    public string[]? Parents { get; private set; }
+
+    ///  <inheritdoc />
+    [NeverPushInheritance]
+    [AbstractDataField]
+    public bool Abstract { get; private set; }
+    // imp edit end
+
     /// <summary> Setter/getter for item cost from prototype. </summary>
     [DataField]
     public IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Cost
