@@ -3,18 +3,19 @@
     <BoxContainer Margin="16,8,16,8" Orientation="Horizontal">
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8,0,0,0">
             <BoxContainer Orientation="Horizontal">
-                <Label Name="StoreItemName" HorizontalExpand="True" Margin="8,0,0,0" />
-                <Label Name="DiscountSubText"
-                       HorizontalAlignment="Center"
-                       Margin="0,0,8,0"/>
-                <Button
-                    Name="StoreItemBuyButton"
-                    MinWidth="32"
-                    MaxHeight="32"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Margin="0,0,8,0"
-                    Access="Public" />
+                <PanelContainer VerticalExpand="True" HorizontalExpand="True" StyleClasses="BackgroundPanel">
+                    <Label Name="StoreItemName"/>
+                    <Label Name="DiscountSubText"
+                           HorizontalAlignment="Right"
+                           Margin="0,0,8,0"/>
+                    <Button
+                        Name="StoreItemBuyButton"
+                        MinWidth="32"
+                        MaxHeight="32"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Access="Public" />
+                </PanelContainer>
             </BoxContainer>
             <PanelContainer StyleClasses="HighDivider" Margin="0,4,0,3"/>
             <BoxContainer HorizontalExpand="True" Orientation="Horizontal" Margin="8,0,8,0">
