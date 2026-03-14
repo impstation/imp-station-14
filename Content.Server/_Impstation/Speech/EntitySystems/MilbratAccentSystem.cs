@@ -14,7 +14,7 @@ public sealed class MilbratAccentSystem : EntitySystem
         SubscribeLocalEvent<MilbratAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, MilbratAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<MilbratAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

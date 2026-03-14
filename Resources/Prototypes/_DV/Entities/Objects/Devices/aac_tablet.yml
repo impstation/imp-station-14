@@ -2,7 +2,7 @@
   parent: BaseItem
   id: AACTablet
   name: AAC tablet
-  description: An "augmentative and alternative communication" device that allows speech-impaired individuals to communicate.
+  description: An "augmentative and alternative communication" device. # imp edit
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/tablets.rsi
@@ -40,5 +40,8 @@
   - type: Speech
     speechSounds: Borg
   - type: AACTablet
-    phraseGroup: BasicPhrases
+    phraseGroup: BasicPhrasesImp # imp edit
   - type: VoiceMask
+  - type: Construction # imp add
+    graph: AACHack
+    node: start

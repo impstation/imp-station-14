@@ -34,7 +34,7 @@
     TriggerDrinkClassicMartini: 0.05
     TriggerDrinkBudgetInsuls: 0.05
     TriggerDrinkManlyDorf: 0.05
-    TriggerDrinkScrewdriver: 0.05
+    TriggerDrinkCottonBool: 0.05
     TriggerDrinkIceCream: 0.05
     TriggerDrinkLemonade: 0.05
     TriggerDrinkThavenBad: 0.05
@@ -114,7 +114,6 @@
     - Tea
     - EnergyDrink
     - VodkaRedBool
-    - PwrGame
     - FourteenLoko
     - XenoBasher
     - IrishBool
@@ -136,6 +135,7 @@
     - Rewriter
     - SoyLatte
     - EspressoMartini
+    - PumpkinSpiceLatte
 
 - type: xenoArchTrigger
   id: TriggerDrinkClassicMartini
@@ -165,13 +165,13 @@
     - ManlyDorf
 
 - type: xenoArchTrigger
-  id: TriggerDrinkScrewdriver
-  tip: xenoarch-trigger-hint-drink-screwdriver
+  id: TriggerDrinkCottonBool
+  tip: xenoarch-trigger-hint-drink-cotton-bool
   targetDepths: [ 2, 3, 4 ]
   components:
   - type: XATReactive
     reagents:
-    - ScrewdriverCocktail
+    - CottonBool
 
 - type: xenoArchTrigger
   id: TriggerDrinkIceCream
@@ -190,6 +190,7 @@
   - type: XATReactive
     reagents:
     - Lemonade
+    - Milk # Don't make this weird with "freshly"?
 
 - type: xenoArchTrigger
   id: TriggerDrinkThavenBad
@@ -208,6 +209,7 @@
   - type: XATReactive
     reagents:
     - Starkist
+    - SolDry #Also fits maybe?
 
 - type: xenoArchTrigger
   id: TriggerDrinkZombieSlushie
@@ -217,6 +219,8 @@
   - type: XATReactive
     reagents:
     - ZombieSlushie
+    - ZombieCocktail
+    - Vampiro
 
 - type: xenoArchTrigger
   id: TriggerDrinkVoxRocks
@@ -244,6 +248,7 @@
   - type: XATReactive
     reagents:
     - SyndicateBomb
+    - AtomicBomb
 
 - type: xenoArchTrigger
   id: TriggerDrinkArnoldPalmer
@@ -271,6 +276,7 @@
   - type: XATReactive
     reagents:
     - LongIslandIcedTea
+    - ThreeMileIsland
 
 - type: xenoArchTrigger
   id: TriggerDrinkCogChamp

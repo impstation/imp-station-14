@@ -16,7 +16,7 @@ public sealed class MonotonousSystem : EntitySystem
         SubscribeLocalEvent<MonotonousComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, MonotonousComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<MonotonousComponent> entity, ref AccentGetEvent args)
     {
         args.Message = RegexAnyPunctuationNotPeriod.Replace(args.Message, ".");
 

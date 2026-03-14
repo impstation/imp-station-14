@@ -17,6 +17,7 @@
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Blasters/energy_shotgun.rsi
   - type: Gun
+    projectileSpeed: 25
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/eshotgun.ogg
   - type: BatteryAmmoProvider
@@ -71,6 +72,7 @@
   - type: StealTarget
     stealGroup: WeaponEnergyMagnum
   - type: Gun
+    projectileSpeed: 25
     fireRate: 1.5
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/blasterrevolver.ogg

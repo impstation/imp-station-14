@@ -24,6 +24,7 @@
   - type: Clothing
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/disabler_smg.rsi
   - type: Gun
+    projectileSpeed: 25
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: PacifismAllowedGun
@@ -54,6 +55,7 @@
     steps: 5
     zeroVisible: false
   - type: Gun
+    projectileSpeed: 25
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/taser2.ogg
   - type: BatteryAmmoProvider

@@ -49,6 +49,7 @@ public sealed class StationPowerTests
         "CogImp",
         "CoreImp",
         //"E1M1",
+        "Eclipse",
         "ElkridgeImp",
         "GateImp",
         "Hummingbird",
@@ -65,9 +66,9 @@ public sealed class StationPowerTests
         "Xeno",
         "Pathway",
         "Whisper",
+        "Monarch",
 
         // DEROTATED:
-        //"Eclipse",
         //"Luna",
         //"Refsdal",
         //"reHash",

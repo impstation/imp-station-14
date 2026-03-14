@@ -115,7 +115,7 @@ public sealed partial class EECCVars : CVars
     ///     The amount of matter power generated for every mole of ammonia consumed.
     /// </summary>
     public static readonly CVarDef<float> SupermatterAmmoniaPowerGain =
-        CVarDef.Create("supermatter.ammonia_power_gain", 30f, CVar.SERVER);
+        CVarDef.Create("supermatter.ammonia_power_gain", 10f, CVar.SERVER);
 
     /// <summary>
     ///     When true, bypass the normal checks to determine delam type, and instead use the type chosen by supermatter.forced_delam_type
@@ -143,12 +143,6 @@ public sealed partial class EECCVars : CVars
         CVarDef.Create("supermatter.matter_power_conversion", 10f, CVar.SERVER);
 
     /// <summary>
-    ///     Divisor on the amount of gas absorbed by the supermatter during the roundstart grace period.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterGasEfficiencyGraceModifier =
-        CVarDef.Create("supermatter.gas_efficiency_grace_modifier", 2.5f, CVar.SERVER);
-
-    /// <summary>
     ///     Divisor on the amount of damage that the supermatter takes from absorbing hot gas.
     /// </summary>
     public static readonly CVarDef<float> SupermatterMoleHeatPenalty =
@@ -159,7 +153,7 @@ public sealed partial class EECCVars : CVars
     ///     Below this threshold, the supermatter can heal damage.
     /// </summary>
     public static readonly CVarDef<float> SupermatterMolePenaltyThreshold =
-        CVarDef.Create("supermatter.mole_penalty_threshold", 600f, CVar.SERVER);
+        CVarDef.Create("supermatter.mole_penalty_threshold", 1800f, CVar.SERVER);
 
     /// <summary>
     ///     Divisor on the amount of oxygen released during atmospheric reactions.
@@ -184,13 +178,13 @@ public sealed partial class EECCVars : CVars
     ///     Scales powerloss inhibition down until this amount of moles is reached.
     /// </summary>
     public static readonly CVarDef<float> SupermatterPowerlossInhibitionMoleThreshold =
-        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 6f, CVar.SERVER);
+        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 20f, CVar.SERVER);
 
     /// <summary>
     ///     Bonus powerloss inhibition boost if this amount of moles is reached.
     /// </summary>
     public static readonly CVarDef<float> SupermatterPowerlossInhibitionMoleBoostThreshold =
-        CVarDef.Create("supermatter.powerloss_inhibition_mole_boost_threshold", 150f, CVar.SERVER);
+        CVarDef.Create("supermatter.powerloss_inhibition_mole_boost_threshold", 500f, CVar.SERVER);
 
     /// <summary>
     ///     Base amount of radiation that the supermatter emits.

@@ -193,3 +193,23 @@
     sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
     layers:
       - state: syndicategunbox
+
+- type: entity
+  parent: [BoxCardboard, Tier3Contraband]
+  id: TaipanBox
+  name: Taipan bundle box
+  description: An Echion Crossbow, bundled with 1 canister of its proprietary fuel.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponEnergyCrossbow
+        - id: EchionCanister
+  - type: Sprite
+    sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi
+    layers:
+      - state: syndicategunbox
