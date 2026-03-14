@@ -62,37 +62,37 @@ public sealed partial class AdvancedNodeScannerComponent : Component
 public struct NodeActivation(
     TimeSpan? activateTime,
     int index,
-    EntityUid? node,
+    int? node,
     string? identifier,
     string? trigger
     )
 {
     public TimeSpan? ActivateTime = activateTime;
     public int Index = index;
-    public EntityUid? Node = node;
+    public int? Node = node;
     public string? Identifier = identifier;
     public string? Trigger = trigger;
 }
 
 [Serializable, NetSerializable]
 public struct UnlockSession(
-    EntityUid? artifact,
+    int? artifact,
     string artifactName,
     TimeSpan startTime,
     TimeSpan? endTime,
     List<NodeActivation> activatedNodes,
     bool artifexiumApplied,
-    EntityUid? unlockedNode)
+    int? unlockedNode)
 {
     /// <summary>
     /// Stored data about an unlocking session
     /// </summary>
-    public EntityUid? Artifact = artifact;
+    public int? Artifact = artifact;
 
     public string ArtifactName = artifactName;
     public TimeSpan StartTime = startTime;
     public TimeSpan? EndTime = endTime;
     public List<NodeActivation> ActivatedNodes = activatedNodes;
     public bool ArtifexiumApplied = artifexiumApplied;
-    public EntityUid? UnlockedNode = unlockedNode;
+    public int? UnlockedNode = unlockedNode;
 }

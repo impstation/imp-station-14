@@ -11,9 +11,10 @@ analysis-console-info-natural-current-value = [font="Monospace" size=11][color={
 }[/color][/font]
 
 analysis-console-bias-shallow = Up
-analysis-console-bias-deep-random = Down Random
-analysis-console-bias-deep-left = Down Left
-analysis-console-bias-deep-right = Down Right
+analysis-console-bias-deep-random = ? Down
+analysis-console-bias-deep = Down
+analysis-console-bias-deep-left = L Down
+analysis-console-bias-deep-right = R Down
 analysis-console-bias-button-info-shallow = Sets the bias an artifact has in moving between its nodes. Up heads toward zero depth.
 analysis-console-bias-button-info-deep-random = Sets the bias an artifact has in moving between its nodes. Down heads toward ever-higher depths. Selecting randomly between nodes, weighted to locked nodes.
 analysis-console-bias-button-info-deep-left = Sets the bias an artifact has in moving between its nodes. Down Left heads toward ever-higher depths. Selects the leftmost node.

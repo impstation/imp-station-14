@@ -28,7 +28,7 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
     public event Action<Entity<XenoArtifactNodeComponent>>? OnNodeSelected;
 
     private float NodeRadius => 25 * UIScale;
-    private float LastTriggeredNodeCircleOutline => 3 * UIScale; // imp edit
+    private float LastTriggeredNodeCircleOutline => NodeRadius + (3 * UIScale); // imp edit
     private float NodeDiameter => NodeRadius * 2;
     private float MinYSpacing => NodeDiameter * 0.75f;
     private float MaxYSpacing => NodeDiameter * 1.5f;

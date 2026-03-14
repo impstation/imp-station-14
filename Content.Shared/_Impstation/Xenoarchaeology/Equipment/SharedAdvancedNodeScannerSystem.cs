@@ -16,7 +16,6 @@ namespace Content.Shared.Xenoarchaeology.Equipment;
 public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 {
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
-    [Dependency] private readonly SharedArtifactAnalyzerSystem _analyzer = default!;
     [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
@@ -93,7 +92,10 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
             {
                 var session = advancedNodeScannerComponent.ArtifactUnlockSessions[ent.Owner];
                 session.EndTime = _timing.CurTime;
-                session.UnlockedNode = args.UnlockedNode;
+                if (args.UnlockedNode is { } unlockedNode)
+                    session.UnlockedNode = unlockedNode.Id;
+                else
+                    session.UnlockedNode = null;
 
                 if (_powerReceiver.IsPowered((advancedNodeScannerUid)) &&
                     ent.Comp.AdvancedNodeScanner == advancedNodeScannerUid)
@@ -112,6 +114,8 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
                 }
 
                 // Save the unlock session to Advanced Node Scanner's memory and stop thinking this artifact is unlocking
+                if (!advancedNodeScannerComponent.UnlockHistories.ContainsKey(ent.Owner.Id))
+                    advancedNodeScannerComponent.UnlockHistories[ent.Owner.Id] = new List<UnlockSession>();
                 advancedNodeScannerComponent.UnlockHistories[ent.Owner.Id].Add(session);
                 advancedNodeScannerComponent.ArtifactUnlockSessions.Remove(ent.Owner);
                 Dirty(advancedNodeScannerUid, advancedNodeScannerComponent);
@@ -141,21 +145,21 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         TimeSpan? now = _timing.CurTime;
         if (!advancedNodeScannerComponent.ArtifactUnlockSessions.ContainsKey(artifact.Owner))
         {
-            var session = new UnlockSession(artifact.Owner, MetaData(artifact.Owner).EntityName, now.Value, predictedEndTime, [], false, null);
+            var session = new UnlockSession(artifact.Owner.Id, MetaData(artifact.Owner).EntityName, now.Value, predictedEndTime, [], false, null);
             advancedNodeScannerComponent.ArtifactUnlockSessions.Add(artifact.Owner, session);
         }
 
         if (ignoreTime)
             now = null;
 
-        var toAdvertise = new List<int>();
+        //var toAdvertise = new List<int>(); placeholder for advertising in future
 
         var sessionUpdate = advancedNodeScannerComponent.ArtifactUnlockSessions[artifact.Owner];
         if (node == null)
         {
             sessionUpdate.ArtifexiumApplied = true;
             sessionUpdate.ActivatedNodes.Add(new NodeActivation(now, -1, null, null, "artifexium"));
-            toAdvertise.Add(-1);
+            //toAdvertise.Add(-1);
         }
         else
         {
@@ -164,10 +168,10 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
             sessionUpdate.ActivatedNodes.Add(new NodeActivation(
                 now,
                 index,
-                node.Value.Owner,
+                node.Value.Owner.Id,
                 _artifact.GetNodeId(node.Value.Owner),
                 triggerTip));
-            toAdvertise.Add(index);
+            //toAdvertise.Add(index);
         }
 
         if (predictedEndTime != null)
@@ -214,10 +218,18 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
     public bool TryGetAdvancedNodeScanner(Entity<AnalysisConsoleComponent> ent, [NotNullWhen(true)] out Entity<AdvancedNodeScannerComponent>? advancedNodeScanner)
     {
         advancedNodeScanner = null;
-        if (!_analyzer.TryGetAnalyzer(ent, out var analyzer))
+
+        var consoleEnt = ent.Owner;
+        if (!_powerReceiver.IsPowered(consoleEnt))
             return false;
 
-        if (analyzer.Value.Comp.AdvancedNodeScanner is not { } advancedNodeScannerUid)
+        if (!TryComp<ArtifactAnalyzerComponent>(ent.Comp.AnalyzerEntity, out var analyzerComp))
+            return false;
+
+        if (!_powerReceiver.IsPowered(ent.Comp.AnalyzerEntity.Value))
+            return false;
+
+        if (analyzerComp.AdvancedNodeScanner is not { } advancedNodeScannerUid)
             return false;
 
         if (!TryComp<AdvancedNodeScannerComponent>(advancedNodeScannerUid, out var ansComp))
@@ -266,7 +278,7 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         if (ans.ArtifactUnlockSessions.ContainsKey(ent.Owner))
             return ans.ArtifactUnlockSessions[ent.Owner];
 
-        if (!ans.UnlockHistories.ContainsKey(ent.Owner.Id))
+        if (!ans.UnlockHistories.ContainsKey(ent.Owner.Id)) //TODO: PISKUN NETENTITY!!!
             return null;
 
         return ans.UnlockHistories[ent.Owner.Id].Last();
