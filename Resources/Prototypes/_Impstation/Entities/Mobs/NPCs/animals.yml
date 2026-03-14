@@ -74,7 +74,7 @@
     - type: Hunger
       baseDecayRate: 0.3
     - type: Thirst
-      baseDecayRate: 0.05
+      baseDecayRate: 0.04 # previously 0.05 but getting too thirsty makes them slow
     - type: YoungKodepiiaRetaliation
       attackMemoryLength: 15
     - type: GoobAbsorbable
@@ -112,6 +112,11 @@
       interactSuccessSpawn: EffectHearts
       interactSuccessSound:
         path: /Audio/Animals/pig_oink.ogg
+    - type: ReplacementAccent
+      accent: boar
+    - type: Speech
+      speechSounds: Ungu # goooood speech noise
+      speechVerb: Bros # all they do is grunt
     - type: SentienceTarget
       flavorKind: station-event-random-sentience-flavor-organic
       weight: 0.05
