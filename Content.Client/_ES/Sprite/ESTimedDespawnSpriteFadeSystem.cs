@@ -17,6 +17,9 @@ public sealed class ESTimedDespawnSpriteFadeSystem : VisualizerSystem<ESTimedDes
 
     private const string FadeTrack = "es-sprite-fade";
 
+    /// <summary>
+    /// When an entity despawns via <see cref="ESTimedDespawnComponent"/>, run an animation on it to make it gradually fade out.
+    /// </summary>
     protected override void OnAppearanceChange(EntityUid uid, ESTimedDespawnSpriteFadeComponent component, ref AppearanceChangeEvent args)
     {
         base.OnAppearanceChange(uid, component, ref args);

@@ -3,6 +3,9 @@ using Robust.Shared.Physics.Events;
 
 namespace Content.Shared._ES.Physics.PreventCollide;
 
+/// <summary>
+/// Prevents two specific entities from colliding with each other.
+/// </summary>
 public sealed class ESPreventCollideSystem : EntitySystem
 {
     /// <inheritdoc/>

@@ -7,6 +7,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._ES.Lighting;
 
+/// <summary>
+/// Handles a point light that fades out while synced to a <see cref="ESTimedDespawnComponent"/>
+/// </summary>
 public sealed class ESTimedDespawnLightFadeSystem : VisualizerSystem<ESTimedDespawnLightFadeComponent>
 {
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -14,6 +17,10 @@ public sealed class ESTimedDespawnLightFadeSystem : VisualizerSystem<ESTimedDesp
 
     private const string FadeTrack = "light-fade";
 
+    /// <summary>
+    /// When an entity despawns via <see cref="ESTimedDespawnComponent"/>, run an animation on
+    /// its <see cref="PointLightComponent"/> to make it gradually fade out.
+    /// </summary>
     protected override void OnAppearanceChange(EntityUid uid, ESTimedDespawnLightFadeComponent component, ref AppearanceChangeEvent args)
     {
         base.OnAppearanceChange(uid, component, ref args);

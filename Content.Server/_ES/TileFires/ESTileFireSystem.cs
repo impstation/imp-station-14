@@ -37,6 +37,10 @@ public sealed class ESTileFireSystem : ESSharedTileFireSystem
         SubscribeLocalEvent<ESTileFireComponent, SpreadNeighborsEvent>(OnSpreadNeighbors);
     }
 
+    /// <summary>
+    /// Smoldering logic. Lower a fire's stage if it's after its SmolderingTime, then remove its
+    /// <see cref="AmbientSoundComponent"/>.
+    /// </summary>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -61,6 +65,10 @@ public sealed class ESTileFireSystem : ESSharedTileFireSystem
     }
 
     #region Events
+
+    /// <summary>
+    /// Add burn decals to the tile the fire's on then set its SmolderTime to a random value between the min and max.
+    /// </summary>
     private void OnMapInit(Entity<ESTileFireComponent> ent, ref MapInitEvent args)
     {
         var xform = Transform(ent);
@@ -73,6 +81,9 @@ public sealed class ESTileFireSystem : ESSharedTileFireSystem
         ent.Comp.SmolderTime = _timing.CurTime + _random.Next(ent.Comp.MinSmolderTime, ent.Comp.MaxSmolderTime);
     }
 
+    /// <summary>
+    /// Choose which tiles to spread to based on the flammability of the tiles and the atmospherics.
+    /// </summary>
     private void OnSpreadNeighbors(Entity<ESTileFireComponent> ent, ref SpreadNeighborsEvent args)
     {
         if (!TryComp<FlammableComponent>(ent, out var flammable))
@@ -142,6 +153,9 @@ public sealed class ESTileFireSystem : ESSharedTileFireSystem
 
     #region API
 
+    /// <summary>
+    /// Attempt to start a TileFire at the selected coords, making sure the tile's air isn't blocked first.
+    /// </summary>
     [PublicAPI]
     public override bool TryDoTileFire(EntityCoordinates coords, EntityUid? originatingUser = null, int stage = 1)
     {

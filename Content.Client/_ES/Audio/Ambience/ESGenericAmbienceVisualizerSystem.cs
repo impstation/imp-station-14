@@ -4,11 +4,18 @@ using Robust.Shared.Utility;
 
 namespace Content.Client._ES.Audio.Ambience;
 
-/// <see cref="ESGenericAmbienceVisualizerComponent"/>
+/// <summary>
+///     Used to control properties of <see cref="AmbientSoundComponent"/> via appearance data on <see cref="AppearanceComponent"/>.
+///     Controlled ambient sounds should be netsync false.
+/// </summary>
 public sealed class ESGenericAmbienceVisualizerSystem : VisualizerSystem<ESGenericAmbienceVisualizerComponent>
 {
     [Dependency] private readonly SharedAmbientSoundSystem _ambience = default!;
 
+    /// <summary>
+    ///     When the appearance of an entity with <see cref="ESGenericAmbienceVisualizerComponent"/> changes to a certain value,
+    ///     sets <see cref="AmbientSoundComponent"/> to the specified values.
+    /// </summary>
     protected override void OnAppearanceChange(EntityUid uid, ESGenericAmbienceVisualizerComponent component, ref AppearanceChangeEvent args)
     {
         if (!TryComp<AmbientSoundComponent>(uid, out var ambientSound))

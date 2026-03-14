@@ -16,15 +16,27 @@ public sealed partial class ESTileFireComponent : Component
     [DataField]
     public EntProtoId Prototype = "ESTileFire";
 
+    /// <summary>
+    /// The minimum amount of firestacks a fire needs to spread to another tile.
+    /// </summary>
     [DataField]
     public float MinFirestacksToSpread = 10;
 
+    /// <summary>
+    /// The amount of firestacks to remove from a fire when it spreads.
+    /// </summary>
     [DataField]
     public float FirestacksRemoveOnSpread = 3;
 
+    /// <summary>
+    /// The chance to successfully spread every <see cref="SpreadNeighborsEvent"/>.
+    /// </summary>
     [DataField]
     public float BaseSpreadChance = 0.66f;
 
+    // <summary>
+    /// The minimum amount of oxygen moles in a neighbor tile required to successfully spread.
+    /// </summary>
     [DataField]
     public float MinimumOxyMolesToSpread = 8f;
 

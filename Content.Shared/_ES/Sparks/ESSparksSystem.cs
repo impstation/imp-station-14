@@ -13,6 +13,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._ES.Sparks;
 
+/// <summary>
+/// Handles sparks, which are released after certain events and can cause fires.
+/// </summary>
 public sealed partial class ESSparksSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
