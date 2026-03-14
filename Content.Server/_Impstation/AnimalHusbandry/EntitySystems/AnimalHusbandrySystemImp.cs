@@ -281,9 +281,10 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         _cloning.CloneComponents(infant, (EntityUid)newStage, settings);
 
         // If there is a ghost role attached to this mob, keep it
-        if (_entManager.TryGetComponent<GhostRoleComponent>(infant, out var ghostComp))
+        // We also make sure the new stage doesn't already come with one, otherwise the game crashes.
+        if (_entManager.TryGetComponent<GhostRoleComponent>(infant, out var ghostComp) &&
+            !_entManager.TryGetComponent<GhostRoleComponent>(newStage, out var newGhostcomp))
         {
-            AddComp<GhostRoleComponent>((EntityUid)newStage);
             CopyComp(infant, (EntityUid)newStage, ghostComp);
         }
 

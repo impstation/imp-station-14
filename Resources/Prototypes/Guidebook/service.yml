@@ -19,6 +19,8 @@
   id: Botany
   name: guide-entry-botany
   text: "/ServerInfo/Guidebook/Service/Botany.xml"
+  children: # Imp
+  - AnimalHusbandry
 
 - type: guideEntry
   id: Chef

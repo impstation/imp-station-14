@@ -23,19 +23,6 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField("maxSearch"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan MaxSearchAttemptInterval = TimeSpan.FromSeconds(30);
 
-    ///// <summary>
-    ///// TODO: Make this use something else so this doesn't have to be manual
-    ///// Declares what type of mob this is. Such as a Cow or Pig
-    ///// </summary>
-    //[DataField("mobType")]
-    //public string MobType = "";
-
-    ///// <summary>
-    ///// List of Valid partners to breed with
-    ///// </summary>
-    //[DataField("validPartners")]
-    //public List<string> ValidPartners = new List<string>();
-
     /// <summary>
     /// Amount of hunger expended per birth
     /// </summary>
@@ -46,7 +33,7 @@ public sealed partial class ImpReproductiveComponent : Component
     /// How long a mob will stay pregnant for
     /// </summary>
     [DataField("pregnancyLength"), ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan PregnancyLength = TimeSpan.FromSeconds(60);
+    public TimeSpan PregnancyLength = TimeSpan.FromSeconds(120);
 
     /// <summary>
     /// Damage threshold a mob must hit in order to not be able to breed
@@ -60,17 +47,6 @@ public sealed partial class ImpReproductiveComponent : Component
     /// </summary>
     [DataField("gender"), ViewVariables(VVAccess.ReadWrite)]
     public AnimalGender Gender = AnimalGender.Agender;
-
-    ///// <summary>
-    ///// Format the chosen animals like this within your YAML.
-    ///// This variable allows animals to have multiple offspring
-    /////     possibleInfants: !type:GroupSelector
-    /////children:
-    /////  - id: Example
-    /////    weight: 10
-    ///// </summary>
-    //[DataField("possibleInfants"), ViewVariables(VVAccess.ReadWrite)]
-    //public EntityTableSelector? PossibleInfants = default!;
 
     /// <summary>
     /// The settings used for things such as an animals compatible partners and

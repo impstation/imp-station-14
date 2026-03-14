@@ -48,3 +48,14 @@
       weight: 10
     - id: RoosterEgg
       weight: 1
+
+- type: breedSettings
+  id: MouseSettings
+  compatibleBreeds:
+    - MobMouse
+    - MobMouse1
+    - MobMouse2        
+  possibleInfants: !type:GroupSelector
+    children:
+    - id: MobMouseBaby
+      weight: 1

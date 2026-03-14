@@ -2091,6 +2091,12 @@
       - !type:GibBehavior
         recursive: false
   # imp edit start
+  - type: ImpReproductive
+    hungerPerBirth: 20
+    gender: agender  
+    breedPrototype: MouseSettings
+    pregnancyLength: 30
+    maxBreedDamage: 5
   - type: GoobAbsorbable
     biomassRestored: 0.1
   - type: Damageable
@@ -2108,17 +2114,6 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
-  - type: Reproductive
-    partnerWhitelist:
-      tags:
-      - Mouse
-    offspring:
-    - id: MobMouse
-      maxAmount: 3
-    hungerPerBirth: 35
-    gestationDuration: 45
-    breedChance: 0.25
-  - type: ReproductivePartner
   # imp edit end
 
 - type: entity
