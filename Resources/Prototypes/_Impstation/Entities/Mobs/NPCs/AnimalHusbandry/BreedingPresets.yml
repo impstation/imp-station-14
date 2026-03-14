@@ -14,7 +14,6 @@
   compatibleBreeds:
     - MobBoarAdult
     - MobBoar   
-  gender: Female
   possibleInfants: !type:GroupSelector
     children:
     - id: MobBoar
