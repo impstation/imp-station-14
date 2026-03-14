@@ -16,6 +16,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Impstation.Uplink;
 
+/// <summary>
+/// Control for the uplink.
+/// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class UplinkMenu : FancyWindow
 {
@@ -45,6 +48,9 @@ public sealed partial class UplinkMenu : FancyWindow
         SearchBar.OnTextChanged += _ => SearchTextUpdated?.Invoke(this, SearchBar.Text);
     }
 
+    /// <summary>
+    /// Update the current balance, enable the withdraw button if applicable.
+    /// </summary>
     public void UpdateBalance(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance)
     {
         Balance = balance;
@@ -74,6 +80,9 @@ public sealed partial class UplinkMenu : FancyWindow
         WithdrawButton.Disabled = disabled;
     }
 
+    /// <summary>
+    /// Update every listing.
+    /// </summary>
     public void UpdateListing(List<ListingDataWithCostModifiers> listings)
     {
         _cachedListings = listings;
@@ -81,6 +90,9 @@ public sealed partial class UplinkMenu : FancyWindow
         UpdateListing();
     }
 
+    /// <summary>
+    /// Get every possible listing and add them to the listing container.
+    /// </summary>
     public void UpdateListing()
     {
         var sorted = _cachedListings.OrderBy(l => l.Priority)
@@ -95,6 +107,9 @@ public sealed partial class UplinkMenu : FancyWindow
         }
     }
 
+    /// <summary>
+    /// Open the withdraw window.
+    /// </summary>
     private void OnWithdrawButtonDown(BaseButton.ButtonEventArgs args)
     {
         // check if window is already open
@@ -112,11 +127,17 @@ public sealed partial class UplinkMenu : FancyWindow
         _withdrawWindow.OnWithdrawAttempt += OnWithdrawAttempt;
     }
 
+    /// <summary>
+    /// Send the attempt refund action.
+    /// </summary>
     private void OnRefundButtonDown(BaseButton.ButtonEventArgs args)
     {
         OnRefundAttempt?.Invoke(args);
     }
 
+    /// <summary>
+    /// Get the specific listing's data and make a new listing control for it, then add it to the listing container.
+    /// </summary>
     private void AddListingGui(ListingDataWithCostModifiers listing)
     {
         if (!listing.Categories.Contains(CurrentCategory))
@@ -175,7 +196,9 @@ public sealed partial class UplinkMenu : FancyWindow
     }
     // imp edit end
 
-
+    /// <summary>
+    /// Get the price of the listing and get the string for it.
+    /// </summary>
     private string GetListingPriceString(ListingDataWithCostModifiers listing)
     {
         var text = string.Empty;
@@ -199,6 +222,9 @@ public sealed partial class UplinkMenu : FancyWindow
         return text.TrimEnd();
     }
 
+    /// <summary>
+    /// Make a string to represent how much the listing has been discounted by.
+    /// </summary>
     private string GetDiscountString(ListingDataWithCostModifiers listingDataWithCostModifiers)
     {
         string discountMessage;
@@ -249,11 +275,18 @@ public sealed partial class UplinkMenu : FancyWindow
         return discountMessage;
     }
 
+    /// <summary>
+    /// Clear every listing from the listing container.
+    /// </summary>
     private void ClearListings()
     {
         StoreListingsContainer.Children.Clear();
     }
 
+    /// <summary>
+    /// Go over each listing available to the store and add a button to the category container representing every
+    /// category included at least once.
+    /// </summary>
     public void PopulateStoreCategoryButtons(HashSet<ListingDataWithCostModifiers> listings)
     {
         var allCategories = new List<StoreCategoryPrototype>();
@@ -299,17 +332,26 @@ public sealed partial class UplinkMenu : FancyWindow
         }
     }
 
+    /// <summary>
+    /// Close the window, and the withdraw window.
+    /// </summary>
     public override void Close()
     {
         base.Close();
         _withdrawWindow?.Close();
     }
 
+    /// <summary>
+    /// Set the refund button's visibility to the supplied value.
+    /// </summary>
     public void UpdateRefund(bool allowRefund)
     {
         RefundButton.Visible = allowRefund;
     }
 
+    /// <summary>
+    /// Button with an id, for category buttons.
+    /// </summary>
     private sealed class StoreCategoryButton : Button
     {
         public string? Id;

@@ -7,6 +7,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Impstation.Uplink;
 
+/// <summary>
+/// Bound user interface for uplinks.
+/// </summary>
 [UsedImplicitly]
 public sealed class UplinkBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
@@ -21,6 +24,9 @@ public sealed class UplinkBoundUserInterface(EntityUid owner, Enum uiKey) : Boun
     [ViewVariables]
     private HashSet<ListingDataWithCostModifiers> _listings = new();
 
+    /// <summary>
+    /// Create the window and assign all the buttons and such.
+    /// </summary>
     protected override void Open()
     {
         base.Open();
@@ -56,6 +62,10 @@ public sealed class UplinkBoundUserInterface(EntityUid owner, Enum uiKey) : Boun
             SendMessage(new StoreRequestRefundMessage());
         };
     }
+
+    /// <summary>
+    /// Update the store whenever we get the StoreUpdateState message.
+    /// </summary>
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
@@ -73,6 +83,9 @@ public sealed class UplinkBoundUserInterface(EntityUid owner, Enum uiKey) : Boun
         }
     }
 
+    /// <summary>
+    /// Update the store whenever with the given search filter.
+    /// </summary>
     private void UpdateListingsWithSearchFilter()
     {
         if (_menu == null)

@@ -2,6 +2,9 @@
 
 namespace Content.Client._Impstation.Stylesheets;
 
+/// <summary>
+/// Colors for the syndicate stylesheet.
+/// </summary>
 public sealed partial class SyndicateStylesheet
 {
     public override ColorPalette PrimaryPalette => Palettes.Maroon;

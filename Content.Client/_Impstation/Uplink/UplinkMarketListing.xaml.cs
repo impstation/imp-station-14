@@ -9,6 +9,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Client._Impstation.Uplink;
 
+/// <summary>
+/// Control for the individual item listings.
+/// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class UplinkMarketListing : Control
 {
@@ -45,6 +48,9 @@ public sealed partial class UplinkMarketListing : Control
         StoreItemTexture.Texture = texture;
     }
 
+    /// <summary>
+    /// Checks if an item is purchasable in the current context.
+    /// </summary>
     private bool CanBuy()
     {
         if (!_data.Buyable) // imp add
@@ -60,6 +66,9 @@ public sealed partial class UplinkMarketListing : Control
         return true;
     }
 
+    /// <summary>
+    /// Update the button in some cases, like it being discounted, unpurchasable, or needs more time to be bought.
+    /// </summary>
     private void UpdateBuyButtonText()
     {
         var stationTime = _timing.CurTime.Subtract(_ticker.RoundStartTimeSpan);
@@ -85,6 +94,9 @@ public sealed partial class UplinkMarketListing : Control
         }
     }
 
+    /// <summary>
+    /// Set the name of the listing, and adds out of stock text if it is.
+    /// </summary>
     private void UpdateName()
     {
         var name = ListingLocalisationHelpers.GetLocalisedNameOrEntityName(_data, _prototype);
@@ -98,6 +110,9 @@ public sealed partial class UplinkMarketListing : Control
         StoreItemName.Text = name;
     }
 
+    /// <summary>
+    /// Refresh the listing every frame.
+    /// </summary>
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);

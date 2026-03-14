@@ -10,6 +10,9 @@ using static Robust.Client.UserInterface.StylesheetHelpers;
 
 namespace Content.Client._Impstation.Stylesheets;
 
+/// <summary>
+/// Stylesheet for syndicate-themed UIs.
+/// </summary>
 [Virtual]
 public partial class SyndicateStylesheet : CommonStylesheet
 {

@@ -9,6 +9,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Impstation.Uplink;
 
+/// <summary>
+/// Control for the uplink's withdraw window.
+/// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class UplinkWithdrawWindow : FancyWindow
 {
@@ -26,6 +29,9 @@ public sealed partial class UplinkWithdrawWindow : FancyWindow
         Stylesheet = "Syndicate";
     }
 
+    /// <summary>
+    /// Go over each currency the store uses and make a button and slider for each.
+    /// </summary>
     public void CreateCurrencyButtons(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance)
     {
         _validCurrencies.Clear();
@@ -76,6 +82,9 @@ public sealed partial class UplinkWithdrawWindow : FancyWindow
         OnValueChanged(WithdrawSlider.Value);
     }
 
+    /// <summary>
+    /// Set if the button's disabled based on if you have at least that much of the currency.
+    /// </summary>
     public void OnValueChanged(int i)
     {
         foreach (var button in _buttons)
@@ -84,6 +93,9 @@ public sealed partial class UplinkWithdrawWindow : FancyWindow
         }
     }
 
+    /// <summary>
+    /// Button with an id and an amount.
+    /// </summary>
     private sealed class CurrencyWithdrawButton : Button
     {
         public string? Id;
