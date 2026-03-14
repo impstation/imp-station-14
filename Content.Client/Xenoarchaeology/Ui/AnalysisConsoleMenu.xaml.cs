@@ -199,7 +199,23 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         // imp edit: display remaining unlock time for reticulated artifacts if advanced node scanner is present
         // note: advanced node scanner detection is handled in Update()
-        //TODO
+
+        if (_unlockEndTime is not { } unlockEndTime)
+        {
+            UnlockingTimeLabel.Visible = false;
+            return;
+        }
+
+        var remainingTime = (int)(unlockEndTime - _timing.CurTime).TotalSeconds;
+        if (remainingTime <= 0)
+        {
+            UnlockingTimeLabel.Visible = false;
+            return;
+        }
+
+        UnlockingTimeLabel.Visible = true;
+        UnlockingTimeLabel.Text = Loc.GetString("analysis-console-unlock-time-text", ("seconds", remainingTime));
+        // imp edit end
     }
 
     public void Update(Entity<AnalysisConsoleComponent> ent)
@@ -239,6 +255,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         if (arti is { Comp.Natural: true })
         {
+            _unlockEndTime = null;
             ShallowBiasButton.Pressed = false;
             DeepRandomBiasButton.Pressed = false;
             DeepLeftBiasButton.Pressed = false;

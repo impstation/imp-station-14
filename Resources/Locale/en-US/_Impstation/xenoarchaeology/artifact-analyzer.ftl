@@ -19,4 +19,8 @@ analysis-console-bias-button-info-deep-random = Sets the bias an artifact has in
 analysis-console-bias-button-info-deep-left = Sets the bias an artifact has in moving between its nodes. Down Left heads toward ever-higher depths. Selects the leftmost node.
 analysis-console-bias-button-info-deep-right = Sets the bias an artifact has in moving between its nodes. Down Right heads toward ever-higher depths. Selects the rightmost node.
 
+analysis-console-unlock-time-text = Unlocking ends in {$seconds ->
+                                      [one] {$seconds} second
+                                      *[other] {$seconds} seconds
+}
 analysis-console-extract-sum-with-modifier = [font="Monospace" size=11][color=orange]Total Research: {$value}, with {$multiplier} from Advanced Node Scanner: {$pointswithmult} [/color][/font]

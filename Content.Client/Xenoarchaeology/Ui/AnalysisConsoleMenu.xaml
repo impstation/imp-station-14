@@ -37,6 +37,9 @@
                 <ScrollContainer HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True">
                     <BoxContainer Orientation="Vertical" HorizontalExpand="False" VerticalExpand="True">
                         <Label Name="NoneSelectedLabel" Text="{Loc 'analysis-console-no-node'}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalExpand="True" Visible="False"/>
+                        <!-- imp edit start -->
+                        <Label Name="UnlockingTimeLabel" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalExpand="True" Visible="False"/>
+                        <!-- imp edit end -->
                         <BoxContainer Name="InfoContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
                             <BoxContainer HorizontalExpand="True">
                                 <RichTextLabel Name="IDLabel" HorizontalExpand="True" Text="{Loc 'analysis-console-info-id'}"/>
