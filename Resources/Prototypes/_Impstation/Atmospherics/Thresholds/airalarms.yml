@@ -1,0 +1,29 @@
+# Threshold prototypes for AtmosMonitors
+
+# NOTE: Warning thresholds are given as multipliers of the danger bound. For
+# example, if upperBound=10 (kPa) and upperWarnRound=0.5, that means the upper
+# warning threshold is actually 5 (kPa).
+#
+# As a result, all upperWarn's should be <1 and lowerWarn's should be >1,
+# otherwise the warning will never kick in.
+
+# For gas concentrations, threshold=0.1 means 10%
+# this is a copy of stationOxygen
+- type: alarmThreshold
+  id: decapoidWaterVapor
+  lowerBound: !type:AlarmThresholdSetting
+    threshold: 0.10
+  lowerWarnAround: !type:AlarmThresholdSetting
+    threshold: 1.5
+
+
+- type: alarmThreshold
+  id: thermostatTemperature
+  upperBound: !type:AlarmThresholdSetting
+    threshold: 310.93 # danger at ~37.8C/~100F
+  lowerBound: !type:AlarmThresholdSetting
+    threshold: 273.15 # danger at 0C/32F
+  upperWarnAround: !type:AlarmThresholdSetting
+    threshold: 0.964 # warn at 299.74K/~26.7C/~80F
+  lowerWarnAround: !type:AlarmThresholdSetting
+    threshold: 1.036 # warn at 282.98K/~10C/~50F can you tell these were defined by an american yet?
