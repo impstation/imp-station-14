@@ -18,6 +18,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 using Robust.Shared.Timing;
 using Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using JetBrains.Annotations;
 
 namespace Content.Server._Impstation.NPC.HTN.PrimitiveTasks.Operators;
 
@@ -28,6 +29,7 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IGameTiming _time = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private AnimalHusbandrySystemImp _breedSystem = default!;
 
@@ -44,6 +46,14 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
         _breedSystem = sysManager.GetEntitySystem<AnimalHusbandrySystemImp>();
     }
 
+    /// <summary>
+    /// Function that handles searching for our breedable partner
+    /// Initially chooses based on distance and score, then checks from other factors
+    /// If a mob is ineligible, try again until we can't
+    /// </summary>
+    /// <param name="blackboard"></param>
+    /// <param name="cancelToken"></param>
+    /// <returns></returns>
     public override async Task<(bool Valid, Dictionary<string, object>? Effects)> Plan(NPCBlackboard blackboard, CancellationToken cancelToken)
     {
         blackboard.TryGetValue<EntityUid>(NPCBlackboard.Owner, out var owner, _entManager);
@@ -52,9 +62,18 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
         if (!_entManager.TryGetComponent<ImpReproductiveComponent>(owner, out var reproComp))
             return (false, null);
 
+        // Make sure we have Metadata. We sort of need this.
+        if (!_entManager.TryGetComponent<MetaDataComponent>(owner, out var ownerMeta))
+            return (false, null);
+
+        if (ownerMeta.EntityPrototype == null)
+            return (false, null);
+
         var result = _entManager.System<NPCUtilitySystem>().GetEntities(blackboard, Prototype);
         var score = -float.MaxValue;
         EntityUid? target = null;
+
+        var ownerID = ownerMeta.EntityPrototype.ID;
 
         //for every target
         foreach (var potentialTarget in result.Entities.Keys)
@@ -65,7 +84,7 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
                 continue;
 
             // Checks if we are in the list of valid mob partners
-            if (!IsValidPartner(comp, reproComp.MobType))
+            if (!IsValidPartner(comp, ownerID))
                 continue;
 
             // Checking if the other mob reaches breeding conditions
@@ -99,12 +118,23 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
         });
     }
 
+    /// <summary>
+    /// Checking that this is a mob we can breed with based on partners
+    /// </summary>
+    /// <param name="comp"></param>
+    /// <param name="self"></param>
+    /// <returns></returns>
     public bool IsValidPartner(ImpReproductiveComponent comp, string self)
     {
-        if(comp.ValidPartners.Count == 0 || self == "")
+        var settingsProto = _proto.Index(comp.BreedSettings);
+
+        if(settingsProto == null || settingsProto.CompatibleBreeds == null)
+            return false;
+
+        if (settingsProto.CompatibleBreeds.Count == 0)
             return true;
 
-        foreach(var partner in comp.ValidPartners)
+        foreach(var partner in settingsProto.CompatibleBreeds)
         {
             if (partner == self) return true;
         }

@@ -100,8 +100,9 @@
       gender: male
   - type: ImpReproductive
     hungerPerBirth: 50
-    mobType: Bull
     gender: Male
+  - type: Body
+    prototype: AnimalRuminant
 
 - type: entity
   name: baby bull
@@ -186,7 +187,6 @@
       sprite: _Impstation/Mobs/Animals/Livestock/rooster.rsi
   - type: ImpReproductive
     hungerPerBirth: 25
-    mobType: Rooster
     gender: Male
   - type: HTN
     rootTask:
@@ -231,7 +231,6 @@
   - type: ImpReproductive
     hungerPerBirth: 50
     gender: Male
-    mobType: Boar
   - type: HTN
     rootTask:
       task: LivestockCompound
@@ -298,7 +297,6 @@
       gender: male
   - type: ImpReproductive
     hungerPerBirth: 30
-    mobType: Buck
     gender: Male
   - type: Sprite
     drawdepth: Mobs

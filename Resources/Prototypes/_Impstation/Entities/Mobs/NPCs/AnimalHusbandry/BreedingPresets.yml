@@ -1,0 +1,51 @@
+- type: breedSettings
+  id: CowSettings
+  compatibleBreeds:
+    - MobBull
+  possibleInfants: !type:GroupSelector
+    children:
+    - id: MobCowBaby
+      weight: 10
+    - id: MobBullBaby
+      weight: 3
+
+- type: breedSettings
+  id: PigSettings
+  compatibleBreeds:
+    - MobBoarAdult
+    - MobBoar   
+  gender: Female
+  possibleInfants: !type:GroupSelector
+    children:
+    - id: MobBoar
+      weight: 30
+      conditions:
+      - !type:ValidPartnerCondition
+        validPartners:
+        - MobBoar
+    - id: MobPigInfant
+      weight: 10
+    - id: MobBoarInfant
+      weight: 3
+
+- type: breedSettings
+  id: GoatSettings
+  compatibleBreeds:
+    - MobBuckAdult
+  possibleInfants: !type:GroupSelector
+    children:
+    - id: MobGoatInfant
+      weight: 10
+    - id: MobBuckInfant
+      weight: 3  
+
+- type: breedSettings
+  id: HenSettings
+  compatibleBreeds:
+    - MobRoosterAdult
+  possibleInfants: !type:GroupSelector
+    children:
+    - id: HenEgg
+      weight: 10
+    - id: RoosterEgg
+      weight: 1

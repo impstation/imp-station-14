@@ -125,17 +125,25 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         if (!_entManager.TryGetComponent<ImpReproductiveComponent>(approached, out var partnerComp))
             return false;
 
-        // Just being 100% sure we aren't trying to self breed.
-        if (approacher == approached)
+        // Meta data of our approaching mob
+        if (!_entManager.TryGetComponent<MetaDataComponent>(approacher, out var meta))
             return false;
 
-        // The one giving birth needs to have options
-        if (partnerComp.PossibleInfants == null)
+        if (meta.EntityPrototype == null)
+            return false;
+
+        // Just being 100% sure we aren't trying to self breed.
+        if (approacher == approached)
             return false;
 
         // one last check in case someone beat us to the cow or bred us on the way there
         // It's dumb but unless I make the system assign pairings this is the best i can think of for the moment
         if (!CanYouBreed((approacher, component)) || !CanYouBreed((approached, partnerComp)))
+            return false;
+
+        var partnerSettings = _prototype.Index(partnerComp.BreedSettings);
+
+        if (partnerSettings == null)
             return false;
 
         // Ready up for birth
@@ -148,9 +156,9 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         // Picks which offspring to give birth to based on the mob we bred with
         var ctx = new EntityTableContext(new Dictionary<string, object>
         {
-            { ValidPartnerCondition.PartnerContextKey, component.MobType },
+            { ValidPartnerCondition.PartnerContextKey, meta.EntityPrototype.ID },
         });
-        partnerComp.MobToBirth = _entTable.GetSpawns(partnerComp.PossibleInfants, ctx: ctx).ElementAt(0);
+        partnerComp.MobToBirth = _entTable.GetSpawns(partnerSettings.PossibleInfants, ctx: ctx).ElementAt(0);
 
         if (TryComp<InteractionPopupComponent>(approached, out var interactionPopup))
             Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates(approached));

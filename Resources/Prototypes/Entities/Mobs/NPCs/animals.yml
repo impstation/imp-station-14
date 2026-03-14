@@ -288,9 +288,8 @@
       - ReagentId: Blood
         Quantity: 100
   # imp edit start
-  #- type: EggLayer 
-  #  eggSpawn:      Comes from Breeding now
-  #  - id: FoodEgg
+  - type: Body
+    prototype: AnimalRuminant
   - type: ExaminableHunger
   - type: ReplacementAccent
     accent: chicken
@@ -299,7 +298,7 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  - type: GoobAbsorbable # imp edit - a good meal
+  - type: GoobAbsorbable
     biomassRestored: 0.2
   - type: Carriable #DeltaV
     freeHandsRequired: 1
@@ -310,16 +309,8 @@
   - type: ImpReproductive
     hungerPerBirth: 25
     pregnancyLength: 150
-    mobType: Chicken
-    validPartners:
-      - Rooster
     gender: Female
-    possibleInfants: !type:GroupSelector
-      children:
-      - id: HenEgg
-        weight: 10
-      - id: RoosterEgg
-        weight: 1
+    breedPrototype: HenSettings
   # imp edit end
 
 - type: entity
@@ -1021,20 +1012,12 @@
     - Chef
     - FoodRecipes
   # imp edit start
-  #- type: Body
-  #  prototype: AnimalRuminant
+  - type: Body
+    prototype: AnimalRuminant
   - type: ImpReproductive
     hungerPerBirth: 50
-    mobType: Cow
-    validPartners:
-      - Bull
     gender: Female
-    possibleInfants: !type:GroupSelector
-      children:
-      - id: MobCowBaby
-        weight: 10
-      - id: MobBullBaby
-        weight: 3
+    breedPrototype: CowSettings
   - type: HTN
     rootTask:
       task: PassiveLivestockCompound
@@ -1227,8 +1210,8 @@
   - type: NpcFactionMember
     factions:
     - Passive
-  #- type: Body Imp
-  #  prototype: AnimalRuminant 
+  - type: Body
+    prototype: AnimalRuminant
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1242,16 +1225,8 @@
   - type: ImpReproductive
     hungerPerBirth: 30
     pregnancyLength: 240
-    mobType: Goat
-    validPartners:
-      - Buck  
     gender: Female
-    possibleInfants: !type:GroupSelector
-      children:
-      - id: MobGoatInfant
-        weight: 10
-      - id: MobBuckInfant
-        weight: 3
+    breedPrototype: GoatSettings
   # imp edit end
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
@@ -4155,6 +4130,8 @@
     rootTask:
       task: PassiveLivestockCompound # Imp
   # imp edit start
+  - type: Body
+    prototype: AnimalRuminant
   - type: GoobAbsorbable
     biomassRestored: 0.7
   - type: Carriable #DeltaV
@@ -4163,23 +4140,8 @@
   - type: ImpReproductive
     hungerPerBirth: 50
     pregnancyLength: 200
-    mobType: Pig
-    validPartners:
-      - Boar
-      - WildBoar   
     gender: Female
-    possibleInfants: !type:GroupSelector
-      children:
-      - id: MobBoar
-        weight: 30
-        conditions:
-        - !type:ValidPartnerCondition
-          validPartners:
-          - WildBoar
-      - id: MobPigInfant
-        weight: 10
-      - id: MobBoarInfant
-        weight: 3
+    breedPrototype: PigSettings
   # imp edit end
 
 - type: entity

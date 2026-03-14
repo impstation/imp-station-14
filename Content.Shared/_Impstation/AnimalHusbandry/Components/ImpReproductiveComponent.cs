@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.AnimalHusbandry.Prototypes;
 using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -22,18 +23,18 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField("maxSearch"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan MaxSearchAttemptInterval = TimeSpan.FromSeconds(30);
 
-    /// <summary>
-    /// TODO: Make this use something else so this doesn't have to be manual
-    /// Declares what type of mob this is. Such as a Cow or Pig
-    /// </summary>
-    [DataField("mobType")]
-    public string MobType = "";
+    ///// <summary>
+    ///// TODO: Make this use something else so this doesn't have to be manual
+    ///// Declares what type of mob this is. Such as a Cow or Pig
+    ///// </summary>
+    //[DataField("mobType")]
+    //public string MobType = "";
 
-    /// <summary>
-    /// List of Valid partners to breed with
-    /// </summary>
-    [DataField("validPartners")]
-    public List<string> ValidPartners = new List<string>();
+    ///// <summary>
+    ///// List of Valid partners to breed with
+    ///// </summary>
+    //[DataField("validPartners")]
+    //public List<string> ValidPartners = new List<string>();
 
     /// <summary>
     /// Amount of hunger expended per birth
@@ -60,16 +61,23 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField("gender"), ViewVariables(VVAccess.ReadWrite)]
     public AnimalGender Gender = AnimalGender.Agender;
 
+    ///// <summary>
+    ///// Format the chosen animals like this within your YAML.
+    ///// This variable allows animals to have multiple offspring
+    /////     possibleInfants: !type:GroupSelector
+    /////children:
+    /////  - id: Example
+    /////    weight: 10
+    ///// </summary>
+    //[DataField("possibleInfants"), ViewVariables(VVAccess.ReadWrite)]
+    //public EntityTableSelector? PossibleInfants = default!;
+
     /// <summary>
-    /// Format the chosen animals like this within your YAML.
-    /// This variable allows animals to have multiple offspring
-    ///     possibleInfants: !type:GroupSelector
-    ///children:
-    ///  - id: Example
-    ///    weight: 10
+    /// The settings used for things such as an animals compatible partners and
+    /// the possible offspring that it can have.
     /// </summary>
-    [DataField("possibleInfants"), ViewVariables(VVAccess.ReadWrite)]
-    public EntityTableSelector? PossibleInfants = default!;
+    [DataField("breedPrototype")]
+    public ProtoId<BreedSettingsPrototype>? BreedSettings;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public bool Pregnant = false;
