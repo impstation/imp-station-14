@@ -137,6 +137,8 @@
   name: trait-soft-hands-name
   description: trait-soft-hands-desc
   category: Traits
+  excludedSpecies: 
+    - Allulalo
   components:
   - type: UnableToWield
   cost: -3
@@ -155,6 +157,19 @@
   name: trait-hemorrhage-name
   description: trait-hemorrhage-desc
   category: Traits
-  components:
-  - type: Hemorrhage
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - StatusEffectHemorrhageTrait
   cost: -6
+
+- type: trait
+  id: Hungry
+  name: trait-hungry-name
+  description: trait-hungry-desc
+  category: Traits
+  excludedSpecies: 
+    - Kodepiia
+  components:
+  - type: HungryTrait
+  cost: -1
