@@ -69,6 +69,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Botanist
   - !type:BuyerWhitelistCondition
