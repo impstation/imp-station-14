@@ -185,6 +185,10 @@ ghost-role-information-eeep-desc = A bad tempered and fully grown Electric sheep
 ghost-role-information-ductspider-name = Duct Spider
 ghost-role-information-ductspider-description = A hungry tiny spider.
 
+butler-spawn = You have received a great responsibility from The Sirs Collective!
+ghost-role-information-butler-name = Exploding Butler
+ghost-role-information-butler-description = You are a devoted butler destined to explode. Your target holds the remote that will end your life. Serve them well.
+
 ghost-role-information-rock-name = Grotesque
 ghost-role-information-rock-desc = A powerfull stone monster, you must protect your wizard!
 
