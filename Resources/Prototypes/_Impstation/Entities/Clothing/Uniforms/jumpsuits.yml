@@ -603,3 +603,14 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/atmos_flightsuit.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/atmos_flightsuit.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseCommandContraband]
+  id: ClothingUniformJumpsuitHoSColonel
+  name: head of security's dress uniform
+  description: A vintage uniform adorned with a truly gratuitous amount of medals. Worn with jodhpurs.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/hos_colonelsuitpants.rsi
