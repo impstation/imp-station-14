@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 03/02/2026 13:56:14
-  entityCount: 10733
+  time: 03/15/2026 15:55:09
+  entityCount: 10740
 maps:
 - 1
 grids:
@@ -3260,13 +3260,14 @@ entities:
             0: 33023
             1: 28672
           -1,6:
-            0: 4351
+            0: 255
             1: 49152
+            2: 4096
           0,7:
-            0: 13104
+            2: 13104
             1: 34944
           -1,7:
-            0: 34945
+            2: 34945
             1: 13104
           1,5:
             0: 4369
@@ -7607,13 +7608,6 @@ entities:
     - type: Transform
       pos: 28.220274,29.715117
       parent: 2
-- proto: ArtistCircuitBoard
-  entities:
-  - uid: 5943
-    components:
-    - type: Transform
-      pos: 37.414978,13.510408
-      parent: 2
 - proto: Ashtray
   entities:
   - uid: 2622
@@ -7656,13 +7650,6 @@ entities:
     components:
     - type: Transform
       pos: 29.524918,38.719116
-      parent: 2
-- proto: AsimovCircuitBoard
-  entities:
-  - uid: 5832
-    components:
-    - type: Transform
-      pos: 37.397614,14.864575
       parent: 2
 - proto: AtmosDeviceFanDirectional
   entities:
@@ -7879,10 +7866,30 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,23.5
       parent: 2
+  - uid: 5474
+    components:
+    - type: Transform
+      pos: -3.5,27.5
+      parent: 2
   - uid: 5835
     components:
     - type: Transform
       pos: -12.5,-16.5
+      parent: 2
+  - uid: 7057
+    components:
+    - type: Transform
+      pos: -3.5,28.5
+      parent: 2
+  - uid: 8008
+    components:
+    - type: Transform
+      pos: -0.5,29.5
+      parent: 2
+  - uid: 8009
+    components:
+    - type: Transform
+      pos: -0.5,30.5
       parent: 2
   - uid: 8736
     components:
@@ -7933,6 +7940,21 @@ entities:
     components:
     - type: Transform
       pos: 52.5,20.5
+      parent: 2
+  - uid: 10673
+    components:
+    - type: Transform
+      pos: -0.5,31.5
+      parent: 2
+  - uid: 10674
+    components:
+    - type: Transform
+      pos: 0.5,29.5
+      parent: 2
+  - uid: 10675
+    components:
+    - type: Transform
+      pos: 0.5,30.5
       parent: 2
   - uid: 10676
     components:
@@ -8218,6 +8240,26 @@ entities:
     components:
     - type: Transform
       pos: -34.5,24.5
+      parent: 2
+  - uid: 10737
+    components:
+    - type: Transform
+      pos: 0.5,31.5
+      parent: 2
+  - uid: 10738
+    components:
+    - type: Transform
+      pos: 1.5,29.5
+      parent: 2
+  - uid: 10739
+    components:
+    - type: Transform
+      pos: 1.5,30.5
+      parent: 2
+  - uid: 10740
+    components:
+    - type: Transform
+      pos: 1.5,31.5
       parent: 2
 - proto: AtmosFixFreezerMarker
   entities:
@@ -8837,11 +8879,6 @@ entities:
     - type: Transform
       pos: -10.5,30.5
       parent: 2
-  - uid: 4169
-    components:
-    - type: Transform
-      pos: -15.5,30.5
-      parent: 2
 - proto: BookshelfGuidebooksFilled
   entities:
   - uid: 1898
@@ -8886,12 +8923,6 @@ entities:
       parent: 2
 - proto: BorgCharger
   entities:
-  - uid: 5474
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -6.5,27.5
-      parent: 2
   - uid: 5475
     components:
     - type: Transform
@@ -22582,6 +22613,11 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -15.5,31.5
       parent: 2
+  - uid: 4205
+    components:
+    - type: Transform
+      pos: -15.5,30.5
+      parent: 2
   - uid: 9481
     components:
     - type: Transform
@@ -29630,11 +29666,11 @@ entities:
     - type: Transform
       pos: -12.5,34.5
       parent: 2
-  - uid: 4205
+  - uid: 6638
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -14.5,30.5
+      pos: -15.5,30.5
       parent: 2
 - proto: Cobweb2
   entities:
@@ -30857,6 +30893,11 @@ entities:
     components:
     - type: Transform
       pos: 9.5,0.5
+      parent: 2
+  - uid: 5943
+    components:
+    - type: Transform
+      pos: 34.5,15.5
       parent: 2
   - uid: 8128
     components:
@@ -37079,13 +37120,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: GameMasterCircuitBoard
-  entities:
-  - uid: 5785
-    components:
-    - type: Transform
-      pos: 37.57126,14.656241
-      parent: 2
 - proto: GasAnalyzer
   entities:
   - uid: 912
@@ -51704,13 +51738,16 @@ entities:
     - type: Physics
       canCollide: True
     - type: ActionsContainer
-- proto: LiveLetLiveCircuitBoard
+- proto: LawVend
   entities:
-  - uid: 5884
+  - uid: 4169
     components:
     - type: Transform
-      pos: 37.414978,14.482631
+      pos: 37.5,14.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Command
 - proto: LockableButtonAtmospherics
   entities:
   - uid: 1449
@@ -52619,13 +52656,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 10.5,45.5
-      parent: 2
-- proto: NutimovCircuitBoard
-  entities:
-  - uid: 6543
-    components:
-    - type: Transform
-      pos: 37.397614,13.805548
       parent: 2
 - proto: OperatingTable
   entities:
@@ -55653,18 +55683,6 @@ entities:
     components:
     - type: Transform
       pos: -4.5,54.5
-      parent: 2
-  - uid: 8008
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 37.5,14.5
-      parent: 2
-  - uid: 8009
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 37.5,13.5
       parent: 2
 - proto: RadiationCollectorFullTank
   entities:
@@ -59863,13 +59881,6 @@ entities:
     - type: Transform
       pos: 0.5,69.5
       parent: 2
-- proto: StationEfficiencyCircuitBoard
-  entities:
-  - uid: 6638
-    components:
-    - type: Transform
-      pos: 37.57126,13.649298
-      parent: 2
 - proto: StationMap
   entities:
   - uid: 9356
@@ -61401,6 +61412,12 @@ entities:
     - type: Transform
       pos: 19.5,25.5
       parent: 2
+  - uid: 5832
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 37.5,13.5
+      parent: 2
   - uid: 5852
     components:
     - type: Transform
@@ -62472,16 +62489,18 @@ entities:
     - type: Transform
       pos: -19.5,-2.5
       parent: 2
-  - uid: 7057
-    components:
-    - type: Transform
-      pos: -17.5,-2.5
-      parent: 2
   - uid: 8262
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 12.5,55.5
+      parent: 2
+- proto: ToiletFilled
+  entities:
+  - uid: 6543
+    components:
+    - type: Transform
+      pos: -17.5,-2.5
       parent: 2
 - proto: ToolboxArtisticFilled
   entities:
@@ -62549,6 +62568,13 @@ entities:
     components:
     - type: Transform
       pos: 16.530012,18.733221
+      parent: 2
+- proto: ToyAi
+  entities:
+  - uid: 5884
+    components:
+    - type: Transform
+      pos: 37.393612,13.671111
       parent: 2
 - proto: ToyFigurineCargoTech
   entities:
@@ -62990,6 +63016,13 @@ entities:
     components:
     - type: Transform
       pos: 9.5,10.5
+      parent: 2
+- proto: VendingMachineGames
+  entities:
+  - uid: 5785
+    components:
+    - type: Transform
+      pos: -15.5,30.5
       parent: 2
 - proto: VendingMachineGeneDrobe
   entities:
