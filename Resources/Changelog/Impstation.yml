@@ -1,39 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: We have once again undergone another upstream merge. See the upstream
-      changelog for full details.
-    type: Add
-  id: 2204
-  time: '2025-08-26T12:42:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3314
-- author: EpicToast
-  changes:
-  - message: Crew visitor ghost roles outside of security and command no longer require
-      playtime.
-    type: Remove
-  id: 2205
-  time: '2025-08-26T22:09:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3311
-- author: DinnerCalzone
-  changes:
-  - message: Amber has been updated pulling the latest version from Wizden, which
-      includes genpop! The main station engine has also been restored to the TEG.
-      Station engineers without experience with it may want to utilize the station's
-      extra solar assembly crates.
-    type: Add
-  - message: Marathon has been updated to feature genpop!
-    type: Add
-  id: 2206
-  time: '2025-08-26T22:09:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3322
-- author: BubbaBean
-  changes:
-  - message: contracts will now be terminated if you run during delta alert
-    type: Tweak
-  id: 2207
-  time: '2025-08-26T22:11:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3344
 - author: AirFryerBuyOneGetOneFree
   changes:
   - message: Changed traitor flavor text to include optional RP info such as your
@@ -4143,3 +4108,33 @@
   id: 2703
   time: '2026-03-14T22:31:18.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4195
+- author: honeyed-lemons
+  changes:
+  - message: Cryopods on Box should now function!
+    type: Fix
+  id: 2704
+  time: '2026-03-15T17:08:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4049
+- author: DinnerCalzone
+  changes:
+  - message: You can now repeatedly eat or drink an item through a new right-click
+      chug/scarf down option and through the alt-interaction key where applicable.
+    type: Add
+  id: 2705
+  time: '2026-03-15T17:16:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4171
+- author: eviltori
+  changes:
+  - message: changed fugitive's ghost role rule text. do some crimes!
+    type: Tweak
+  id: 2706
+  time: '2026-03-15T17:22:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4207
+- author: yesteryuri
+  changes:
+  - message: The Station AI is listed as crew borg's job supervisor instead of the
+      Research Director
+    type: Tweak
+  id: 2707
+  time: '2026-03-15T17:43:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4232
