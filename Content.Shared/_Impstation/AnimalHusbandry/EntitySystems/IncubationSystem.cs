@@ -20,11 +20,14 @@ public sealed class IncubationSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _powerSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
 
+    bool _justSwapped = false;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<EggIncubatorComponent, InteractUsingEvent>(OnAfterInteract);
+        SubscribeLocalEvent<EggIncubatorComponent, EntRemovedFromContainerMessage>(OnEntityRemoved);
     }
 
     /// <summary>
@@ -66,10 +69,39 @@ public sealed class IncubationSystem : EntitySystem
         if (!_entManager.TryGetComponent<IncubationComponent>(args.Used, out var incuComp))
             return;
 
+        if (entity.Comp.CurrentlyIncubated != null)
+            _justSwapped = true;
+
         _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Active);
         entity.Comp.Status = IncubatorStatus.Active;
         entity.Comp.CurrentlyIncubated = incuComp;
-        entity.Comp.FinishIncubation = incuComp.IncubationTime;// * 10; // The * 10 is to convert the ticks into their actual seconds
+        entity.Comp.FinishIncubation = incuComp.IncubationTime.Add(_time.CurTime);
+    }
+
+    /// <summary>
+    /// Handles updating our incubator whenever the egg is removed
+    /// This wipes the reference to the egg so the incubator isn't still trying to incubate even after it's gone
+    /// </summary>
+    /// <param name="entity"></param>
+    /// <param name="args"></param>
+    private void OnEntityRemoved(Entity<EggIncubatorComponent> entity, ref EntRemovedFromContainerMessage args)
+    {
+        // We weren't even incubating so just ignore whatever is going on
+        if (entity.Comp.CurrentlyIncubated == null)
+            return;
+
+        // Prevents us totally wiping the incubator if you swapped a new egg in
+        if(_justSwapped)
+        {
+            _justSwapped = false;
+            return;
+        }
+
+        _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Inactive);
+        entity.Comp.Status = IncubatorStatus.Inactive;
+        _containerSystem.RemoveEntity(entity, entity.Comp.CurrentlyIncubated.Owner);
+        entity.Comp.CurrentlyIncubated = null;
+        entity.Comp.FinishIncubation = TimeSpan.Zero;
     }
 
     /// <summary>
@@ -80,6 +112,9 @@ public sealed class IncubationSystem : EntitySystem
     {
         // Making sure we have a container. Should also never be false without admin shenanigans.
         if (!TryComp<ItemSlotsComponent>(entity, out var container))
+            return;
+
+        if (entity.Comp.CurrentlyIncubated == null)
             return;
 
         var newMob = SpawnNewMob(entity, entity.Comp.CurrentlyIncubated.IncubatedResult);

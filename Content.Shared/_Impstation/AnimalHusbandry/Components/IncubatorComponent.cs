@@ -13,12 +13,14 @@ public sealed partial class EggIncubatorComponent : Component
     /// <summary>
     /// When do we finish incubation?
     /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan FinishIncubation = TimeSpan.Zero;
 
     /// <summary>
     /// Egg we are currently incubating
     /// </summary>
-    public IncubationComponent CurrentlyIncubated;
+    [ViewVariables(VVAccess.ReadOnly)]
+    public IncubationComponent? CurrentlyIncubated;
 
     /// <summary>
     /// Used for tracking visuals

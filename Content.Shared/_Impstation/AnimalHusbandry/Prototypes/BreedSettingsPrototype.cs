@@ -19,7 +19,7 @@ public sealed partial class BreedSettingsPrototype : IPrototype
     /// <summary>
     /// The compatible mobs that this can breed with
     /// </summary>
-    [DataField("compatibleBreeds")]
+    [DataField("compatibleBreeds"), ViewVariables(VVAccess.ReadWrite)]
     public List<EntProtoId> CompatibleBreeds = default!;
 
     /// <summary>
@@ -30,6 +30,6 @@ public sealed partial class BreedSettingsPrototype : IPrototype
     ///  - id: Example
     ///    weight: 10
     /// </summary>
-    [DataField("possibleInfants")]
+    [DataField("possibleInfants"), ViewVariables(VVAccess.ReadWrite)]
     public EntityTableSelector? PossibleInfants = default!;
 }

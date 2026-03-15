@@ -52,7 +52,7 @@ public sealed partial class ImpReproductiveComponent : Component
     /// The settings used for things such as an animals compatible partners and
     /// the possible offspring that it can have.
     /// </summary>
-    [DataField("breedPrototype")]
+    [DataField("breedPrototype"), ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<BreedSettingsPrototype>? BreedSettings;
 
     [ViewVariables(VVAccess.ReadOnly)]

@@ -31,7 +31,7 @@ public sealed partial class ImpInfantComponent : Component
     /// <summary>
     /// Next Growth stage of the animal
     /// </summary>
-    [DataField("nextStage", required: true)]
+    [DataField("nextStage", required: true), ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId NextStage;
 
     /// <summary>

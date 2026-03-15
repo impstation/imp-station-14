@@ -11,7 +11,7 @@ public sealed partial class IncubationComponent : Component
     /// <summary>
     /// How long this egg incubates for
     /// </summary>
-    [DataField("incubationTime")]
+    [DataField("incubationTime"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan IncubationTime = TimeSpan.FromSeconds(90);
 
     /// <summary>

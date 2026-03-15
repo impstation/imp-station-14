@@ -37,7 +37,7 @@
 - type: entity
   name: baby mouse
   id: MobMouseBaby1
-  parent: MobMouse
+  parent: MobMouseBaby
   description: Eep!
   components:
   - type: ImpInfant
@@ -46,7 +46,7 @@
 - type: entity
   name: baby mouse
   id: MobMouseBaby2
-  parent: MobMouse
+  parent: MobMouseBaby
   description: Eep!
   components:
   - type: ImpInfant
