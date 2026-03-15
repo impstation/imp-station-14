@@ -67,14 +67,10 @@ public sealed class StationPowerTests
         "Xeno",
         "Pathway",
         "Whisper",
-        "Monarch",
 
         // DEROTATED:
-        //"Luna",
-        //"Refsdal",
-        //"reHash",
         //"RelicImp",
-        //"Skimmer",
+
     };
 
     [Explicit]
