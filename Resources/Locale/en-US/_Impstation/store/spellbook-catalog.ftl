@@ -5,7 +5,7 @@ spellbook-wizspore-name = Wizspores
 spellbook-wizspore-desc = A resummonable group of magical minions! Requires a wizard hat and robe to cast.
 
 spellbook-rock-name = Grotesque
-spellbook-rock-desc = Summons powerfull stone protector.
+spellbook-rock-desc = Summons a powerful stone protector. Manifests on purchase, so be careful where you buy it!
 
 spellbook-wizonly-name = Wizards Domain
 spellbook-wizonly-desc = Make any door wizards only. Requires a wizard hat and robe to cast.
