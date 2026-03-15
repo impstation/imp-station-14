@@ -154,6 +154,9 @@ uplink-hotsauces-desc = New from Discount Dan's! 4 levels of heat to put your sp
 uplink-taipan-name = Taipan bundle
 uplink-taipan-desc = One "Taipan" Echion crossbow, bundled with a canister of its proprietary liquid ammo.
 
+uplink-romerol-traitor-name = Romerol Micro-Injector
+uplink-romerol-traitor-desc = One romerol micro-injector for causing a zombie outbreak.
+
 uplink-muldoon-sniper-name = Muldoon Sniper
 uplink-muldoon-sniper-desc = A modified version of the muldoon tranquilizer gun that accepts both darts and .60 anti-materiel ammo.
 
