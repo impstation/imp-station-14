@@ -1,13 +1,4 @@
 ﻿Entries:
-- author: VeeNomine
-  changes:
-  - message: Added a laugh, scream, and muttering to Tck'tck
-    type: Add
-  - message: Changed Tck'tck to have a unique voice.
-    type: Tweak
-  id: 2203
-  time: '2025-08-24T06:12:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3349
 - author: DinnerCalzone
   changes:
   - message: We have once again undergone another upstream merge. See the upstream
@@ -4139,3 +4130,16 @@
   id: 2702
   time: '2026-03-12T08:08:30.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4131
+- author: msTheowo
+  changes:
+  - message: DAGD traitors can buy a romerol micro-injector for 20 TC.
+    type: Add
+  - message: The antimov lawboard and singularity beacon are now only buyable for
+      DAGD traitors.
+    type: Tweak
+  - message: Fake kisser tomatoes are now hidden in the uplink when the buyer isn't
+      a botanist.
+    type: Tweak
+  id: 2703
+  time: '2026-03-14T22:31:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4195
