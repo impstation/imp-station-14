@@ -32,6 +32,9 @@ public sealed class MimeGearMenuSystem : EntitySystem
         UpdateUI(backpack.Owner, backpack.Comp);
     }
 
+    /// <summary>
+    /// Spawn each selected set in the user's hand, then delete the entity that gave the gear.
+    /// </summary>
     private void OnApprove(Entity<MimeGearMenuComponent> backpack, ref MimeGearMenuApproveMessage args)
     {
         if (backpack.Comp.SelectedSets.Count != backpack.Comp.MaxSelectedSets)
@@ -49,6 +52,10 @@ public sealed class MimeGearMenuSystem : EntitySystem
         }
         QueueDel(backpack);
     }
+
+    /// <summary>
+    /// Add the selected gear to the SelectedSets list then update the UI.
+    /// </summary>
     private void OnChangeSet(Entity<MimeGearMenuComponent> backpack, ref MimeGearChangeSetMessage args)
     {
         // Switch selecting set
@@ -58,6 +65,9 @@ public sealed class MimeGearMenuSystem : EntitySystem
         UpdateUI(backpack.Owner, backpack.Comp);
     }
 
+    /// <summary>
+    /// Add each possible set to the data dictionary, then set the UI state.
+    /// </summary>
     private void UpdateUI(EntityUid uid, MimeGearMenuComponent? component = null)
     {
         if (!Resolve(uid, ref component))

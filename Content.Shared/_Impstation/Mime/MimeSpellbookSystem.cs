@@ -8,6 +8,9 @@ using Content.Shared.Popups;
 
 namespace Content.Shared._Impstation.Mime;
 
+/// <summary>
+/// System to give actions to users with mime vows, and a way to give mime vows themselves.
+/// </summary>
 public sealed class MimeSpellbookSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -21,6 +24,9 @@ public sealed class MimeSpellbookSystem : EntitySystem
         SubscribeLocalEvent<MimeSpellbookComponent, MimeSpellbookDoAfterEvent>(OnMimeSpellbookDoAfter);
     }
 
+    /// <summary>
+    /// Make checks. If everything seems good, start the DoAfter.
+    /// </summary>
     private void OnUseInHand(Entity<MimeSpellbookComponent> ent, ref UseInHandEvent args)
     {
         if (args.Handled)
@@ -82,6 +88,9 @@ public sealed class MimeSpellbookSystem : EntitySystem
         args.Handled = true;
     }
 
+    /// <summary>
+    /// Get the user's mind and give it the actions and a mime vow if applicable.
+    /// </summary>
     private void OnMimeSpellbookDoAfter<T>(Entity<MimeSpellbookComponent> ent, ref T args) where T : DoAfterEvent
     {
         if (args.Handled || args.Cancelled)

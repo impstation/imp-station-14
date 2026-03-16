@@ -3,6 +3,9 @@ using Robust.Shared.Spawners;
 
 namespace Content.Shared._Impstation.Containers;
 
+/// <summary>
+/// Emptys the container when the owner of this entity timed despawns.
+/// </summary>
 public sealed class EmptyContainerOnTimedDespawnSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;

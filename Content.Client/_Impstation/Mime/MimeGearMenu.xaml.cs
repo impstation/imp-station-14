@@ -6,6 +6,9 @@ using Robust.Client.UserInterface.XAML;
 
 namespace Content.Client._Impstation.Mime;
 
+/// <summary>
+/// The UI for the mime performance ui.
+/// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class MimeGearMenu : FancyWindow
 {
@@ -15,6 +18,9 @@ public sealed partial class MimeGearMenu : FancyWindow
     public event Action? OnApprove;
     public event Action<int>? OnSetChange;
 
+    /// <summary>
+    /// Set up the required systems and the approve button.
+    /// </summary>
     public MimeGearMenu()
     {
         RobustXamlLoader.Load(this);
@@ -27,6 +33,9 @@ public sealed partial class MimeGearMenu : FancyWindow
         };
     }
 
+    /// <summary>
+    /// Get every possible gear and make a button for each, then set text to the supplied values.
+    /// </summary>
     public void UpdateState(MimeGearMenuBoundUserInterfaceState state)
     {
         SetsGrid.DisposeAllChildren();

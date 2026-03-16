@@ -4,6 +4,9 @@ using Robust.Client.UserInterface;
 
 namespace Content.Client._Impstation.Mime;
 
+/// <summary>
+/// Bound user interace for the mime gear menu.
+/// </summary>
 [UsedImplicitly]
 public sealed class MimeGearMenuBoundUserInterface : BoundUserInterface
 {

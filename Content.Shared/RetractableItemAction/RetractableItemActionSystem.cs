@@ -176,12 +176,16 @@ public sealed class RetractableItemActionSystem : EntitySystem
     }
 
     // imp edit start
+
     private void OnActionShutdown(Entity<RetractableItemActionComponent> ent, ref ComponentShutdown args)
     {
         if (ent.Comp.ActionItemUid != null)
             PredictedQueueDel(ent.Comp.ActionItemUid);
     }
 
+    /// <summary>
+    /// If the mob dies or goes into crit, delete the reacted item.
+    /// </summary>
     private void OnMobStateChanged(Entity<ActionRetractableItemComponent> ent, ref HeldRelayedEvent<MobStateChangedEvent> args)
     {
         if (!TryComp<RetractableItemActionComponent>(ent.Comp.SummoningAction, out var actionComponent))
@@ -194,6 +198,9 @@ public sealed class RetractableItemActionSystem : EntitySystem
             PredictedQueueDel(ent);
     }
 
+    /// <summary>
+    /// If the mob loses their mind, delete the retracted item.
+    /// </summary>
     private void OnMindRemoved(Entity<ActionRetractableItemComponent> ent, ref HeldRelayedEvent<MindRemovedMessage> args)
     {
         if (!TryComp<RetractableItemActionComponent>(ent.Comp.SummoningAction, out var actionComponent))

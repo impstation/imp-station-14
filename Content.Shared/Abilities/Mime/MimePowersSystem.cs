@@ -249,6 +249,10 @@ public sealed class MimePowersSystem : EntitySystem
     }
 
     // imp edit start
+
+    /// <summary>
+    /// Add the various components to an entity if a mind is added to them with the mime vow component.
+    /// </summary>
     private void OnMindGotAdded(Entity<MimePowersComponent> ent, ref MindGotAddedEvent args)
     {
         if (HasComp<GhostComponent>(args.Container))
@@ -274,6 +278,9 @@ public sealed class MimePowersSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Remove the various components from an entity if a mind is removed from them with the mime vow component.
+    /// </summary>
     private void OnMindGotRemoved(Entity<MimePowersComponent> ent, ref MindGotRemovedEvent args)
     {
         RemComp<MutedComponent>(args.Container.Owner);

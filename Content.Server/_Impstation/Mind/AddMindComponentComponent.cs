@@ -8,9 +8,15 @@ namespace Content.Server._Impstation.Mind;
 [RegisterComponent]
 public sealed partial class AddMindComponentComponent : Component
 {
+    /// <summary>
+    /// The components to add to the mind.
+    /// </summary>
     [DataField]
     public ComponentRegistry Components = new();
 
+    /// <summary>
+    /// Whether to remove existing components of the same type before adding the new ones.
+    /// </summary>
     [DataField]
     public bool RemoveExisting = true;
 }

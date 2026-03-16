@@ -2,6 +2,9 @@
 
 namespace Content.Server._Impstation.Mind;
 
+/// <summary>
+/// Adds components to an entity's mind when they get one, deletes itself after.
+/// </summary>
 public sealed class AddMindComponentSystem : EntitySystem
 {
     public override void Initialize()

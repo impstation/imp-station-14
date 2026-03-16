@@ -8,17 +8,29 @@ namespace Content.Shared._Impstation.Mime;
 [RegisterComponent]
 public sealed partial class MimeSpellbookComponent : Component
 {
+    /// <summary>
+    /// The action to give to the user's mind.
+    /// </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId? Action;
 
+    /// <summary>
+    /// The length of the doafter.
+    /// </summary>
     [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
     public float LearnTime = .75f;
 
+    /// <summary>
+    /// Whether it will give a vow if the user is vowless.
+    /// </summary>
     [DataField]
     public bool GivesVow;
 
+    /// <summary>
+    /// Whether it will delete itself after one use.
+    /// </summary>
     [DataField]
     public bool OneUse;
 }

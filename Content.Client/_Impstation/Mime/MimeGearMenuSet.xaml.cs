@@ -6,6 +6,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client._Impstation.Mime;
 
+/// <summary>
+/// Control for an individual mime gear.
+/// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class MimeGearMenuSet : Control
 {

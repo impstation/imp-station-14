@@ -4,6 +4,9 @@ using Content.Shared.Popups;
 
 namespace Content.Shared._Impstation.Actions;
 
+/// <summary>
+/// Creates a popup triggered by an action.
+/// </summary>
 public sealed class PopupOnActionSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -15,6 +18,9 @@ public sealed class PopupOnActionSystem : EntitySystem
         SubscribeLocalEvent<PopupOnActionComponent, ActionPerformedEvent>(OnActionPerformed);
     }
 
+    /// <summary>
+    /// Create the popup for the client and all other entities.
+    /// </summary>
     private void OnActionPerformed(Entity<PopupOnActionComponent> ent, ref ActionPerformedEvent args)
     {
         var user = Identity.Name(args.Performer, EntityManager);

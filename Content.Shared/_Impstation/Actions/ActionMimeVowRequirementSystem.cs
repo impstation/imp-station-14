@@ -5,6 +5,9 @@ using Content.Shared.Popups;
 
 namespace Content.Shared._Impstation.Actions;
 
+/// <summary>
+/// Makes an action require its user have an active mime vow to use.
+/// </summary>
 public sealed class ActionMimeVowRequirementSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
@@ -18,6 +21,9 @@ public sealed class ActionMimeVowRequirementSystem : EntitySystem
         SubscribeLocalEvent<ActionMimeVowRequirementComponent, BeforeCastSpellEvent>(OnBeforeCastSpell);
     }
 
+    /// <summary>
+    /// Check if the user has a mime vow and it's currently active. If not, cancel the action and create a popup.
+    /// </summary>
     private void OnBeforeCastSpell(Entity<ActionMimeVowRequirementComponent> ent, ref BeforeCastSpellEvent args)
     {
         var mind = _mind.GetMind(args.Performer);

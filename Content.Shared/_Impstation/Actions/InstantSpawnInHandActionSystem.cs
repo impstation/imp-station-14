@@ -6,6 +6,9 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared._Impstation.Actions;
 
+/// <summary>
+/// Spawns an entity into the action user's hand.
+/// </summary>
 public sealed class InstantSpawnInHandActionSystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -21,6 +24,10 @@ public sealed class InstantSpawnInHandActionSystem : EntitySystem
         SubscribeLocalEvent<InstantSpawnInHandActionEvent>(OnInstantSpawnInHandAction);
     }
 
+    /// <summary>
+    /// Make sure the entity has an open hand or if they can drop the item in their active hand, then summon the action item
+    /// into their active hand.
+    /// </summary>
     private void OnInstantSpawnInHandAction(InstantSpawnInHandActionEvent args)
     {
         if (_hands.GetActiveHand(args.Performer) is not { } activeHand)
