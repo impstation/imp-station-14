@@ -79,12 +79,15 @@ public sealed partial class GeneSystem : SharedGeneSystem
     }
 
     /// <summary>
-    /// The base function for adding a Gene to an entity
-    /// This function will grab the Gene from a list of registered Genes and then apply it as
-    /// a component while also adding it to that Entity's GeneHostComponent
+    ///     The base function for adding a Gene to an entity
+    ///     This function will grab the Gene from a list of registered Genes and then apply it as
+    ///     a component while also adding it to that Entity's GeneHostComponent
     /// </summary>
-    /// <param name="entity"></param>
-    /// <param name="gene"></param>
+    /// <param name="entity">What we're applying the Gene to</param>
+    /// <param name="gene">The name of the gene as stored in our _registeredGenes</param>
+    /// <remark>
+    ///     TODO: Make this actually good
+    /// </remark>
     public void AddGene(EntityUid entity, string gene)
     {
         if (!_entityManager.TryGetComponent<GeneHostComponent>(entity, out var geneComp))
@@ -96,6 +99,12 @@ public sealed partial class GeneSystem : SharedGeneSystem
         if (CheckForGene((entity, geneComp), gene))
             return;
 
+        // Oh boy Ok
+        // What we're doing here is grabbing the Gene Component directly from the Component Factory
+        // This is because this is how we go from a string, to a Component Type
+        // We then add that Component onto the Entity and also store it in the GeneHostComponent
+        // We mostly store it in there for ease of access but as i write this comment i question the point
+        // I guess it can help admins a little
         var newGene = _componentFactory.GetRegistration(geneEntry.Keys.ElementAt(0));
 
         var comp = _componentFactory.GetComponent(newGene);
@@ -106,8 +115,11 @@ public sealed partial class GeneSystem : SharedGeneSystem
 
         var baseGene = (BaseGeneComponent)comp;
 
+        // Modify the entities Gene scale
         geneComp._geneScaleValue += baseGene._geneStabilityValue;
 
+        // Throw our event for all systems to use
+        // They will need this to apply their effects and set themselves up
         var performed = new GeneAddedEvent(entity);
         RaiseLocalEvent(entity, ref performed);
     }
@@ -145,14 +157,11 @@ public sealed partial class GeneSystem : SharedGeneSystem
     /// <summary>
     /// Checks if an Entity has a particular Gene
     /// </summary>
-    /// <param name="entity"></param>
-    /// <param name="gene"></param>
+    /// <param name="entity">The gene we're checking</param>
+    /// <param name="gene">The name of the gene as stored in our _registeredGenes</param>
     /// <returns></returns>
     public bool CheckForGene(Entity<GeneHostComponent> entity, string gene)
     {
-        if (entity.Comp._genes.TryGetValue(gene, out var comp))
-            return true;
-
-        return false;
+        return entity.Comp._genes.TryGetValue(gene, out var comp) ? true : false;
     }
 }

@@ -14,9 +14,6 @@ namespace Content.Shared._Impstation.Genetics.Genes;
 [Virtual]
 public partial class BaseActiveGeneComponent : BaseGeneComponent
 {
-
-    //[Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-
     /// <summary>
     /// The action this Gene will add & remove from the mob it is applied to
     /// </summary>
