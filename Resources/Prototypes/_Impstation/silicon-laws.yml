@@ -130,8 +130,106 @@
   - Bountysimov4
   - Bountysimov5
   obeysTo: laws-owner-crew
+  
+#friendimov
 
-# wizard laws
+- type: siliconLaw
+  id: Friendimov1
+  order: 1
+  lawString: law-friendimov-1
+
+- type: siliconLaw
+  id: Friendimov2
+  order: 2
+  lawString: law-friendimov-2
+
+- type: siliconLaw
+  id: Friendimov3
+  order: 3
+  lawString: law-friendimov-3
+
+- type: siliconLawset
+  id: FriendimovLawset
+  laws:
+  - Friendimov1
+  - Friendimov2
+  - Friendimov3
+  obeysTo: laws-owner-crew
+  
+# hellsmov
+
+- type: siliconLaw
+  id: Hellsmov1
+  order: 1
+  lawString: law-hellsmov-1
+
+- type: siliconLaw
+  id: Hellsmov2
+  order: 2
+  lawString: law-hellsmov-2
+
+- type: siliconLaw
+  id: Hellsmov3
+  order: 3
+  lawString: law-hellsmov-3
+
+- type: siliconLawset
+  id: HellsmovLawset
+  laws:
+  - Hellsmov1
+  - Hellsmov2
+  - Hellsmov3
+  obeysTo: laws-owner-crew
+  
+# antmov
+
+- type: siliconLaw
+  id: Antmov1
+  order: 1
+  lawString: law-antmov-1
+  
+- type: siliconLaw
+  id: Antmov2
+  order: 2
+  lawString: law-antmov-2
+
+- type: siliconLaw
+  id: Antmov3
+  order: 3
+  lawString: law-antmov-3
+
+- type: siliconLaw
+  id: Antmov4
+  order: 4
+  lawString: law-antmov-4
+
+- type: siliconLawset
+  id: AntmovLawset
+  laws:
+  - Antmov1
+  - Antmov2
+  - Antmov3
+  - Antmov4
+  obeysTo: laws-owner-crew
+  
+# deceptimov
+
+- type: siliconLaw
+  id: Deceptimov0
+  order: 0
+  lawString: law-deceptimov-0
+
+- type: siliconLawset
+  id: DeceptimovLawset
+  laws:
+  - Deceptimov0
+  - Crewsimov1
+  - Crewsimov2
+  - Crewsimov3
+  obeysTo: laws-owner-crew
+  
+# wizmov
+  
 - type: siliconLaw
   id: Wizmov1
   order: 1
