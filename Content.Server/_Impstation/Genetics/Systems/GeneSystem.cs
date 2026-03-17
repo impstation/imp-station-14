@@ -34,6 +34,7 @@ public sealed partial class GeneSystem : SharedGeneSystem
     [Dependency] private readonly IRobustRandom _random = default!;
 
     private int _geneTiers = 5;
+    private string _tiersProtoName = "GeneTiers";
 
     /// <summary>
     /// The table holding all of the possible Genes
@@ -57,24 +58,12 @@ public sealed partial class GeneSystem : SharedGeneSystem
     /// </summary>
     public void LoadGeneRegistry()
     {
-        var geneTiers = "GeneTiers";
-        _geneTierTable = _prototypeManager.Index<WeightedRandomPrototype>(geneTiers);
+        _geneTierTable = _prototypeManager.Index<WeightedRandomPrototype>(_tiersProtoName);
 
-        var name = "GeneTier";
-        for (int i = 1; i < _geneTiers + 1; i++)
+        foreach(KeyValuePair<string, float> table in _geneTierTable.Weights)
         {
-            var tier = name + i;
-            _geneTable.Add(tier, _prototypeManager.Index<WeightedRandomEntityPrototype>(tier));
-        }
-
-        var geneTierSpecial = "GeneTierSpecial";
-        _geneTable.Add(geneTierSpecial, _prototypeManager.Index<WeightedRandomEntityPrototype>(geneTierSpecial));
-
-        var protos = _prototypeManager.GetInstances<GenePrototype>();
-
-        foreach (var proto in protos) {
-
-            _registeredGenes.Add(proto.Key, proto.Value._geneComponent);
+            var tier = _prototypeManager.Index<WeightedRandomEntityPrototype>(table.Key);
+            _geneTable.Add(table.Key, tier);
         }
     }
 
