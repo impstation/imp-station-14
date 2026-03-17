@@ -1,97 +1,4 @@
 ﻿Entries:
-- author: honeyed-lemons
-  changes:
-  - message: Xeno's Atmos is looking pretttyy good..
-    type: Tweak
-  id: 2200
-  time: '2025-08-23T11:56:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3340
-- author: CrystalClover
-  changes:
-  - message: The Syndicate has gotten their hands on a shipment of discontinued heavy-duty
-      cleanades, traitor janitors can order a box of them for the price of 10TC!
-    type: Add
-  id: 2201
-  time: '2025-08-23T13:07:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3334
-- author: CrystalClover
-  changes:
-  - message: "Added tacos de cart\xF3n; cardboard tacos especially for moths! Fill\
-      \ them with plushies!"
-    type: Add
-  - message: Added string cheese; special cheese made from fiber, milk and enzymes.
-      Perfect for moth foods!
-    type: Add
-  - message: OH FUCK IT'S PLUSHIES!
-    type: Add
-  - message: A new food category has been added to the crafting menu.
-    type: Add
-  - message: Plushies are now more flavourful.
-    type: Tweak
-  - message: Fixed Normal Thaven not being as sloppable as it should have been.
-    type: Fix
-  id: 2202
-  time: '2025-08-23T14:56:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3327
-- author: VeeNomine
-  changes:
-  - message: Added a laugh, scream, and muttering to Tck'tck
-    type: Add
-  - message: Changed Tck'tck to have a unique voice.
-    type: Tweak
-  id: 2203
-  time: '2025-08-24T06:12:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3349
-- author: DinnerCalzone
-  changes:
-  - message: We have once again undergone another upstream merge. See the upstream
-      changelog for full details.
-    type: Add
-  id: 2204
-  time: '2025-08-26T12:42:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3314
-- author: EpicToast
-  changes:
-  - message: Crew visitor ghost roles outside of security and command no longer require
-      playtime.
-    type: Remove
-  id: 2205
-  time: '2025-08-26T22:09:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3311
-- author: DinnerCalzone
-  changes:
-  - message: Amber has been updated pulling the latest version from Wizden, which
-      includes genpop! The main station engine has also been restored to the TEG.
-      Station engineers without experience with it may want to utilize the station's
-      extra solar assembly crates.
-    type: Add
-  - message: Marathon has been updated to feature genpop!
-    type: Add
-  id: 2206
-  time: '2025-08-26T22:09:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3322
-- author: BubbaBean
-  changes:
-  - message: contracts will now be terminated if you run during delta alert
-    type: Tweak
-  id: 2207
-  time: '2025-08-26T22:11:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3344
-- author: AirFryerBuyOneGetOneFree
-  changes:
-  - message: Changed traitor flavor text to include optional RP info such as your
-      companies allies and notes from your employer.
-    type: Tweak
-  id: 2208
-  time: '2025-08-26T22:12:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3005
-- author: wendyribstonpippin
-  changes:
-  - message: milbrats will now stop screaming ADMIN ACTUAL
-    type: Fix
-  id: 2209
-  time: '2025-08-26T22:13:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3358
 - author: DinnerCalzone
   changes:
   - message: Fixed wizards being able to teleport to artifacts, anomalies, and the
@@ -4150,3 +4057,92 @@
   id: 2699
   time: '2026-03-09T19:52:26.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4203
+- author: youtubevideo3
+  changes:
+  - message: randomly generated ungu no longer have a chance for their name to be
+      a slur.
+    type: Tweak
+  id: 2700
+  time: '2026-03-10T07:27:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4219
+- author: DinnerCalzone
+  changes:
+  - message: Amber, Bagel, Cog, and Hummingbird have been updated to support service
+      attendant, add the AI Lawvend, as well as some other minor changes.
+    type: Tweak
+  id: 2701
+  time: '2026-03-10T10:33:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4218
+- author: msTheowo
+  changes:
+  - message: The blacks on syndicate objects are more saturated.
+    type: Tweak
+  id: 2702
+  time: '2026-03-12T08:08:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4131
+- author: msTheowo
+  changes:
+  - message: DAGD traitors can buy a romerol micro-injector for 20 TC.
+    type: Add
+  - message: The antimov lawboard and singularity beacon are now only buyable for
+      DAGD traitors.
+    type: Tweak
+  - message: Fake kisser tomatoes are now hidden in the uplink when the buyer isn't
+      a botanist.
+    type: Tweak
+  id: 2703
+  time: '2026-03-14T22:31:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4195
+- author: honeyed-lemons
+  changes:
+  - message: Cryopods on Box should now function!
+    type: Fix
+  id: 2704
+  time: '2026-03-15T17:08:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4049
+- author: DinnerCalzone
+  changes:
+  - message: You can now repeatedly eat or drink an item through a new right-click
+      chug/scarf down option and through the alt-interaction key where applicable.
+    type: Add
+  id: 2705
+  time: '2026-03-15T17:16:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4171
+- author: eviltori
+  changes:
+  - message: changed fugitive's ghost role rule text. do some crimes!
+    type: Tweak
+  id: 2706
+  time: '2026-03-15T17:22:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4207
+- author: yesteryuri
+  changes:
+  - message: The Station AI is listed as crew borg's job supervisor instead of the
+      Research Director
+    type: Tweak
+  id: 2707
+  time: '2026-03-15T17:43:24.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4232
+- author: TheGrimbeeper
+  changes:
+  - message: You could extract points from artifacts if the research server was unpowered.
+      This has been fixed.
+    type: Fix
+  - message: Sentient artifacts that are melee weapons are now able to attack. Biting
+      you is enrichment.
+    type: Tweak
+  - message: tweaked chances & depth of the two 'explosion' effects to make more sense
+    type: Tweak
+  id: 2708
+  time: '2026-03-15T20:57:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4099
+- author: VeeNomine
+  changes:
+  - message: Microphones are now equippable in the neck slot.
+    type: Tweak
+  - message: Harmonicas and pan flutes are once more wearable by all cyborgs and Decapoid
+      silicons.
+    type: Fix
+  id: 2709
+  time: '2026-03-15T21:24:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4146
