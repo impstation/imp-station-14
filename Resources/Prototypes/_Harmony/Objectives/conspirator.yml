@@ -86,7 +86,7 @@
   - type: Objective
     icon:
       sprite: _Impstation/Objects/Weapons/Melee/stunbaton.rsi # imp edit
-      state: stunbaton_off
+      state: stunbaton_on
 
 - type: entity
   parent: BaseConspiratorObjective
@@ -108,8 +108,8 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Walls/solid.rsi
-      state: rgeneric
+      sprite: Structures/Holo/security.rsi
+      state: icon
 
 
 - type: entity
