@@ -46,40 +46,6 @@
     outerClothing: ClothingOuterVestTank
     suitstorage: NitrogenTankFilled
 
-# The usual loadouts of the decapoid harness that spawn in your chest slot for jobs that don't have outerwear in their loadout
-- type: loadoutGroup
-  id: GroupTankHarnessAquatic
-  name: loadout-group-tank-harness-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquatic
-
-- type: loadoutGroup
-  id: GroupTankHarnessCommandAquatic
-  name: loadout-group-tank-harness-command-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquaticCommand
-
-# Tank harnesses for jobs that spawn with outerwear, puts them in their inventory instead of dropping items at their feet
-- type: loadoutGroup
-  id: GroupTankHarnessWithOuterwearAquatic
-  name: loadout-group-tank-harness-with-outerwear-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquaticWithOuterwear
-
-- type: loadoutGroup
-  id: GroupTankHarnessCommandWithOuterwearAquatic
-  name: loadout-group-tank-harness-command-with-outerwear-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquaticCommandWithOuterwear
-
 # breath tool
 - type: loadoutGroup
   id: GroupSpeciesBreathToolCommand
@@ -320,6 +286,7 @@
   - EmergencyOxygenCommand
   - EmergencyMeatCommand
   - EmergencyWheatCommand
+  - EmergencyAquaticCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -333,6 +300,7 @@
   - EmergencyOxygenExtendedCommand
   - EmergencyMeatExtendedCommand
   - EmergencyWheatExtendedCommand
+  - EmergencyAquaticExtendedCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -346,6 +314,7 @@
   - EmergencyOxygenSecurityCommand
   - EmergencyMeatSecurityCommand
   - EmergencyWheatSecurityCommand
+  - EmergencyAquaticSecurityCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -504,6 +473,7 @@
   loadouts:
   - BlackShoes
   - ChefShoes
+  - BlackHeels
   - ClownShoesExpert
   - HeadChefShoes
 
@@ -1141,6 +1111,7 @@
   - EmergencyOxygenBrigmedic
   - EmergencyMeatBrigmedic
   - EmergencyWheatBrigmedic
+  - EmergencyAquaticBrigmedic
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen
 
