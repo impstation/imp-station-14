@@ -68,6 +68,8 @@
   - type: CleansForensics
   - type: Residue
     residueAdjective: residue-slippery
+  - type: CleansDecals # imp
+    solution: soap
 
 - type: entity
   parent: BaseSoap
@@ -80,8 +82,6 @@
       map: ["enum.SolutionContainerLayers.Fill"]
   - type: Residue
     residueColor: residue-green
-  - type: CleansDecals # imp
-    solution: soap
 
 - type: entity
   parent: BaseSoap

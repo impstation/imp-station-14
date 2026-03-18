@@ -82,14 +82,12 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Impstation/boat.yml", // Contains janitorial bomb suit closet, cat ears, doggy ears
             "/Maps/_Impstation/gate.yml", // Contains positronic brain, LSE-1200c "Perforator"
             "/Maps/_Impstation/lilboat.yml", // Contains janitorial bomb suit closet, cat ears
-            "/Maps/_Impstation/meta.yml", // Contains warden's rubber stamp
             "/Maps/_Impstation/reach.yml", // Contains handheld crew monitor
             "/Maps/_Impstation/xeno.yml", // Contains PTK-800 "Matter Dematerializer"
             "/Maps/_Impstation/eclipse.yml", // Contains PTK-800 "Matter Dematerializer", LSE-400c "Svalinn machine gun"
 
             // Shuttles
-            "/Maps/_DV/Shuttles/listening_post.yml", // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
-            "/Maps/_Impstation/Shuttles/listening_post.yml" // No, I'm not gonna list out all these stamps again lol
+            "/Maps/_Impstation/Shuttles/listening_post.yml" // // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
 
         };
 
@@ -136,6 +134,7 @@ namespace Content.IntegrationTests.Tests
             "CogImp",
             "CoreImp",
             "E1M1",
+            "Eclipse",
             "ElkridgeImp",
             "GateImp",
             "Hummingbird",
@@ -154,12 +153,8 @@ namespace Content.IntegrationTests.Tests
             "Whisper",
 
             // DEROTATED:
-            //"Eclipse",
-            //"Luna",
-            //"Refsdal",
-            //"reHash",
             //"RelicImp",
-            //"Skimmer",
+
         };
 
         private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
@@ -558,7 +553,7 @@ namespace Content.IntegrationTests.Tests
             return resultCount;
         }
 
-        [Test]
+        [Test, NonParallelizable] // imp nonparallelize for OOM
         public async Task AllMapsTested()
         {
             await using var pair = await PoolManager.GetServerClient();
@@ -577,7 +572,7 @@ namespace Content.IntegrationTests.Tests
             await pair.CleanReturnAsync();
         }
 
-        [Test]
+        [Test, NonParallelizable] // imp nonparallelize for OOM
         public async Task NonGameMapsLoadableTest()
         {
             await using var pair = await PoolManager.GetServerClient();
@@ -613,8 +608,9 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitPost(() =>
             {
-                Assert.Multiple(() =>
-                {
+                // imp disable assert to fix test running out of memory
+                // Assert.Multiple(() =>
+                // {
                     // This bunch of files contains a random mixture of both map and grid files.
                     // TODO MAPPING organize files
                     var opts = MapLoadOptions.Default with
@@ -650,7 +646,7 @@ namespace Content.IntegrationTests.Tests
                             throw new Exception($"Failed to delete map {path}", ex);
                         }
                     }
-                });
+                // }); // imp
             });
 
             await server.WaitRunTicks(1);

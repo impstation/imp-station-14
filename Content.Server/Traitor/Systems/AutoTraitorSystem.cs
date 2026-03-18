@@ -26,6 +26,12 @@ public sealed class AutoTraitorSystem : EntitySystem
         if (!_player.TryGetSessionById(args.Mind.Comp.UserId, out var session))
             return;
 
+        //#IMP limit number of times this can activate.
+        if (comp.MaxActivations > 0 && comp.NumActivations >= comp.MaxActivations)
+            return;
+
+        comp.NumActivations ++; //IMP
+
         _antag.ForceMakeAntag<AutoTraitorComponent>(session, comp.Profile);
     }
 }

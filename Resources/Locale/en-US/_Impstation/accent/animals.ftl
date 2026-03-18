@@ -109,3 +109,10 @@ accent-words-monkey-2 = ooh
 accent-words-monkey-3 = a
 accent-words-monkey-3-suffix = h
 accent-words-monkey-4 = ah
+
+# Boar
+accent-words-boar-1 = Grunt.
+accent-words-boar-2 = Screegh.
+accent-words-boar-3 = Snrf.
+accent-words-boar-4 = Snort.
+accent-words-boar-5 = Squeal.
