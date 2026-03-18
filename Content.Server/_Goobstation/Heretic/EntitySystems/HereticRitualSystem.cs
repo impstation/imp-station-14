@@ -19,6 +19,9 @@ using System.Text;
 
 namespace Content.Server.Heretic.EntitySystems;
 
+/// <summary>
+/// Handles heretic rituals and their activation on the runes
+/// </summary>
 public sealed partial class HereticRitualSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -40,7 +43,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Try to perform a selected ritual
+    /// Try to perform a selected ritual
     /// </summary>
     /// <returns> If the ritual succeeded or not </returns>
     public bool TryDoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
@@ -176,6 +179,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
         SubscribeLocalEvent<HereticRitualRuneComponent, HereticRitualMessage>(OnRitualChosenMessage);
     }
 
+    /// <summary>
+    /// Runs when someone clicks a rune with their empty hand
+    /// </summary>
     private void OnInteract(Entity<HereticRitualRuneComponent> ent, ref InteractHandEvent args)
     {
         if (!TryComp<HereticComponent>(args.User, out var heretic))
@@ -203,6 +209,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), user, user);
     }
 
+    /// <summary>
+    /// Handles interacting with ritual runes with an item.
+    /// </summary>
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
     {
         if (!TryComp<HereticComponent>(args.User, out var heretic))

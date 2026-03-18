@@ -35,12 +35,11 @@ using System.Linq;
 
 namespace Content.Server._Impstation.Heretic.EntitySystems;
 
-
+/// <summary>
+/// Handles moving people in and out of hell during heretic sacrifices, as well as adding sacrifice debuffs
+/// </summary>
 public sealed class HellWorldSystem : EntitySystem
 {
-    /// <summary>
-    ///     Handles moving people in and out of hell, as well as adding sacrifice debuffs
-    /// </summary>
 
     [Dependency] private readonly BlindableSystem _blind = default!;
     [Dependency] private readonly EuiManager _euiMan = default!;
@@ -87,7 +86,7 @@ public sealed class HellWorldSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        //hell world return
+        //if they've been in hell long enough, let them out
         var returnQuery = EntityQueryEnumerator<InHellComponent>();
         while (returnQuery.MoveNext(out var uid, out var hellComp))
         {
@@ -99,7 +98,7 @@ public sealed class HellWorldSystem : EntitySystem
     }
 
     /// <summary>
-    ///     collects and stores all the info we'll need for the trip to hell
+    /// collects and stores all the info we'll need for the trip to hell
     /// </summary>
     private void BeforeSend(Entity<InHellComponent> uid, ref HereticBeforeHellEvent args)
     {
@@ -123,7 +122,7 @@ public sealed class HellWorldSystem : EntitySystem
     }
 
     /// <summary>
-    ///     handles creation of the hell clone and moving the mind into it
+    /// handles creation of the hell clone and moving the mind into it
     /// </summary>
     private void OnSend(Entity<InHellComponent> uid, ref HereticSendToHellEvent args)
     {
@@ -161,7 +160,7 @@ public sealed class HellWorldSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Handles moving the mind back into the clone and applying the status effect
+    /// Handles moving the mind back into the clone and applying the status effect
     /// </summary>
     private void OnReturn(Entity<InHellComponent> uid, ref HereticReturnFromHellEvent args)
     {
@@ -204,6 +203,9 @@ public sealed class HellWorldSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Adds a random debuff to the sac victim
+    /// </summary>
     private void AddHellTrait(EntityUid uid, HellVictimComponent hellVictim)
     {
         //store the effect for later
@@ -217,8 +219,8 @@ public sealed class HellWorldSystem : EntitySystem
     }
 
     /// <summary>
-    ///     adds the component disallowing sacrifice
-    ///     happens BEFORE onreturn, so effects are generated here
+    /// adds the component disallowing sacrifice
+    /// happens BEFORE onreturn, so effects are generated here
     /// </summary>
 
     private void SacrificeCleanup(EntityUid uid, HereticSacrificeEffectPrototype? effect = null)
@@ -237,7 +239,7 @@ public sealed class HellWorldSystem : EntitySystem
     }
 
     /// <summary>
-    ///     teleports the sacrifice victim to one of the pre-mapped "safe points"
+    /// teleports the sacrifice victim to one of the pre-mapped "safe points"
     /// </summary>
     public void TeleportToHereticSpawnPoint(EntityUid uid)
     {
@@ -258,7 +260,7 @@ public sealed class HellWorldSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Handles recoloring sac victims via desaturating their skin
+    /// Handles recoloring sac victims via desaturating their skin
     /// </summary>
     private void OnInit(EntityUid ent, HellVictimComponent component, ComponentInit args)
     {
@@ -277,7 +279,7 @@ public sealed class HellWorldSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Handles the extra examine text for hell victims
+    /// Handles the extra examine text for hell victims
     /// </summary>
     private void OnExamine(Entity<HellVictimComponent> ent, ref ExaminedEvent args)
     {

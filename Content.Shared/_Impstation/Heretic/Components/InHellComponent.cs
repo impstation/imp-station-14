@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Impstation.Heretic.Components;
 
 /// <summary>
-///     for tracking the subject's trip through hell.
+/// for tracking the subject's trip through hell.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class InHellComponent : Component

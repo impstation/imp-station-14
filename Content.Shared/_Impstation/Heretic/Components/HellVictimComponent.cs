@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.Heretic.Components;
 /// <summary>
-///     for making them look like they went through some shit & adding debuffs
+/// for making them look like they went through some shit & adding debuffs
 /// </summary>
 
 [RegisterComponent, NetworkedComponent]

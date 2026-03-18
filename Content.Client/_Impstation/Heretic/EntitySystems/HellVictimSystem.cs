@@ -5,11 +5,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Impstation.Heretic.EntitySystems;
 
+/// <summary>
+/// Handles clientside stuff for hell victims - adding the icon
+/// </summary>
 public sealed class HellVictimSystem : SharedHellVictimSystem
 {
-    /// <summary>
-    ///     Handles clientside stuff for hell victims - adding the icon
-    /// </summary>
 
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     public override void Initialize()
@@ -18,6 +18,9 @@ public sealed class HellVictimSystem : SharedHellVictimSystem
         SubscribeLocalEvent<HellVictimComponent, GetStatusIconsEvent>(GetSacIcon);
     }
 
+    /// <summary>
+    /// Add the icon that tells heretics this entity is already sacrificed
+    /// </summary>
     private void GetSacIcon(Entity<HellVictimComponent> ent, ref GetStatusIconsEvent args)
     {
         var iconPrototype = _prototype.Index(ent.Comp.StatusIcon);

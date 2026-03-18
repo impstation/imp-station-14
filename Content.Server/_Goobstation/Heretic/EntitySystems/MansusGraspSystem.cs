@@ -36,11 +36,11 @@ using StatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
 
 namespace Content.Server.Heretic.EntitySystems;
 
+/// <summary>
+///     Handles mansus grasp stuff - summoning & desummoning, rune drawing, special effects
+/// </summary>
 public sealed partial class MansusGraspSystem : EntitySystem
 {
-    /// <summary>
-    ///     Handles mansus grasp stuff - summoning & desummoning, rune drawing, special effects
-    /// </summary>
 
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -64,6 +64,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
     public static readonly EntProtoId FlashSlowdown = "FlashSlowdownStatusEffect";
 
 
+    /// <summary>
+    /// Applies mansus grasp effect. huge switch case for each path
+    /// </summary>
     public void ApplyGraspEffect(EntityUid performer, EntityUid target, HereticComponent heretic)
     {
         var path = heretic.MainPath;
@@ -146,6 +149,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
         SubscribeLocalEvent<MansusGraspComponent, UseInHandEvent>(OnUseInHand);
     }
 
+    /// <summary>
+    /// Returns whether the user has a mansus grasp in either hand
+    /// </summary>
     public bool MansusGraspActive(EntityUid heretic)
     {
         foreach (var hand in _hands.EnumerateHands(heretic))
@@ -162,6 +168,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
         return false;
     }
 
+    /// <summary>
+    /// Applies the base grasp effects, then goes to ApplyGraspEffect for path specific upgrades
+    /// </summary>
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled || !args.CanReach)
@@ -208,6 +217,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
         QueueDel(ent);
     }
 
+    /// <summary>
+    /// Removes the mansus grasp if you use it in your hand
+    /// </summary>
     private void OnUseInHand(EntityUid uid, MansusGraspComponent component, UseInHandEvent args)
     {
         if (args.Handled)
@@ -223,6 +235,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
         QueueDel(uid);
     }
 
+    /// <summary>
+    /// Handle events relating to clicking the rune with different items
+    /// </summary>
     private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
     {
         var tags = ent.Comp.Tags;
@@ -241,7 +256,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         || args.Target != null && HasComp<ItemComponent>(args.Target)) //don't allow clicking items (otherwise the circle gets stuck to them)
             return;
 
-        // remove our rune if clicked
+        // if clicking rune with a pen, with grasp active: remove it
         if (args.Target != null && HasComp<HereticRitualRuneComponent>(args.Target))
         {
             // todo: add more fluff
@@ -250,7 +265,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
             return;
         }
 
-        // spawn our rune
+        // if clicking ground with a pen with grasp active: spawn rune
         var rune = Spawn("HereticRuneRitualDrawAnimation", args.ClickLocation);
         var dargs = new DoAfterArgs(EntityManager, args.User, 14f, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
         {
@@ -261,6 +276,10 @@ public sealed partial class MansusGraspSystem : EntitySystem
         };
         _doAfter.TryStartDoAfter(dargs);
     }
+
+    /// <summary>
+    /// Replace the animation of the rune being drawn with the actual functional rune
+    /// </summary>
     private void OnRitualRuneDoAfter(Entity<HereticComponent> ent, ref DrawRitualRuneDoAfterEvent ev)
     {
         // delete the animation rune regardless
@@ -271,9 +290,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Special flesh grasp behavior - popups and do-after
-    /// </summary>
-
+    /// Special flesh grasp behavior - popups and do-after
+    /// </summary
     private void OnFleshGraspDoAfter(Entity<HereticComponent> ent, ref FleshGraspDoAfterEvent ev)
     {
         if (!ev.Cancelled)
