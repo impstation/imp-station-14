@@ -1,0 +1,23 @@
+- type: factionIcon
+  id: GhouledFaction
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Heretic
+    - Ghoul
+  icon:
+    sprite: /Textures/_Impstation/Heretic/status_icons.rsi
+    state: Ghoul
+
+- type: factionIcon
+  id: SacrificedFaction
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Heretic
+    - Ghoul
+  icon:
+    sprite: /Textures/_Impstation/Heretic/status_icons.rsi
+    state: Sacrificed
