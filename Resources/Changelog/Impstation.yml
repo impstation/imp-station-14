@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Fixed wizards being able to teleport to artifacts, anomalies, and the
-      supermatter.
-    type: Fix
-  id: 2210
-  time: '2025-08-26T22:18:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3361
 - author: FlippenPage
   changes:
   - message: Nanotrasen would like to once again dispel the foolish rumor of job issued
@@ -4146,3 +4138,15 @@
   id: 2709
   time: '2026-03-15T21:24:43.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4146
+- author: Kandiyaki
+  changes:
+  - message: Being sacrificed by a Heretic will now give you one of a variety of debuffs.
+    type: Add
+  - message: Ghouls and Sacrifice victims now have icons denoting them as such, only
+      visible to heretics.
+    type: Add
+  - message: Flesh path's Mansus grasp has been tweaked to be tougher to pull off.
+    type: Tweak
+  id: 2710
+  time: '2026-03-18T05:36:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3937

@@ -4,5 +4,5 @@ namespace Content.Server._Goobstation.Heretic.UI;
 
 public sealed class HellMemoryEui : BaseEui
 {
-    // serverside does nothing!
+    //serverside does nothing
 }

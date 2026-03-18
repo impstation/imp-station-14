@@ -1,25 +1,27 @@
 using Content.Client.Eui;
+using JetBrains.Annotations;
 
-namespace Content.Client._Goobstation.Heretic.UI;
+namespace Content.Client._Impstation.Heretic.UI;
 
+[UsedImplicitly]
 public sealed class HellMemoryEui : BaseEui
 {
-    private readonly HellMemoryMenu _menu;
+    private HellMemoryMenu Menu { get; }
 
     public HellMemoryEui()
     {
-        _menu = new HellMemoryMenu();
+        Menu = new HellMemoryMenu();
     }
 
     public override void Opened()
     {
-        _menu.OpenCentered();
+        Menu.OpenCentered();
     }
 
     public override void Closed()
     {
         base.Closed();
 
-        _menu.Close();
+        Menu.Close();
     }
 }
