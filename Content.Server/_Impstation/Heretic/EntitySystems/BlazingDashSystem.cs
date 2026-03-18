@@ -7,7 +7,11 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Heretic.Components;
 
-namespace Content.Server.Heretic.Abilities;
+namespace Content.Server._Impstation.Heretic.EntitySystems;
+
+/// <summary>
+/// System for ash path's blazing dash spell
+/// </summary>
 public sealed partial class BlazingDashSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -22,6 +26,9 @@ public sealed partial class BlazingDashSystem : EntitySystem
         SubscribeLocalEvent<BlazingDashComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
     }
 
+    /// <summary>
+    /// If the dash isn't over, refresh the fire stacks
+    /// </summary>
     public override void Update(float timeframe)
     {
         base.Update(timeframe);
@@ -48,6 +55,9 @@ public sealed partial class BlazingDashSystem : EntitySystem
         args.Handled = true;
     }
 
+    /// <summary>
+    /// Set fire stacks and movement speed modifier back to what they should be
+    /// </summary>
     private void RefreshBlazingDash(EntityUid uid, BlazingDashComponent dashComp)
     {
         if (dashComp.BlazingDashActive && _timing.CurTime >= dashComp.BlazingDashEndTime)
