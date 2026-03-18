@@ -467,14 +467,16 @@
   save: false
   abstract: true
   components:
+# imp edit start
   #- type: RandomMetadata
   #  nameSegments:
   #  - NamesXenoborg
-  - type: RandomMetadata #Imp-- see the commented out version for the upstream version. So we can do different names.
+  - type: RandomMetadata #see the commented out version for the upstream version.
     nameSegments:
     - NamesXenoborgFirst
     - NamesXenoborgLast
     nameFormat: name-format-xenoborg
+# imp edit end
   - type: NameIdentifier
     group: Xenoborg
   - type: Sprite
