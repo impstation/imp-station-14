@@ -21,7 +21,7 @@
     - type: Spellbook
       spellActions:
         ActionSpawnSpaceGreaseSpell: null
-    
+
 - type: entity
   id: BaseSpellbookSafeLibrarian
   name: spellbook
@@ -201,4 +201,126 @@
   - type: Tag
     tags:
     - Flashlight
+    - Spellbook
+
+- type: entity
+  parent: BaseItem
+  id: SpellbookMimeVow
+  name: Beginner's Guide to Mimery
+  description: The first step on the long path of mimery, giving the user a vow of silence. One use only.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: mime
+  - type: MimeSpellbook
+    givesVow: true
+    oneUse: true
+  - type: Tag
+    tags:
+    - Spellbook
+
+- type: entity
+  parent: BaseItem
+  id: MimeRoutineBook
+  name: undecided mime routine
+  description: Teaches one of three classic pantomime routines, allowing a practiced mime to conjure invisible objects into corporeal existence.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: mime
+  - type: MimeGearMenu
+    possibleSets:
+    - InvisibleWall
+    - InvisibleChair
+    - InvisibleBox
+  - type: ActivatableUI
+    key: enum.MimeGearMenuUIKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.MimeGearMenuUIKey.Key:
+        type: MimeGearMenuBoundUserInterface
+  - type: Tag
+    tags:
+    - Spellbook
+
+- type: entity
+  parent: BaseItem
+  id: SpellbookMimeInvisibleWall
+  name: "Guide to Mimery: Invisible Walls"
+  description: The classic mime trick.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: mime
+  - type: MimeSpellbook
+    action: ActionMimeInvisibleWall
+  - type: Tag
+    tags:
+    - Spellbook
+
+- type: entity
+  parent: BaseItem
+  id: SpellbookMimeInvisibleChair
+  name: "Guide to Mimery: Invisible Chairs"
+  description: Useful when science is having too much fun with an artifact.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: mime
+  - type: MimeSpellbook
+    action: ActionMimeInvisibleChair
+  - type: Tag
+    tags:
+    - Spellbook
+
+- type: entity
+  parent: BaseItem
+  id: SpellbookMimeInvisibleBox
+  name: "Guide to Mimery: Invisible Boxes"
+  description: You don't have anything you need to hide, right?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: mime
+  - type: MimeSpellbook
+    action: ActionMimeInvisibleBox
+  - type: Tag
+    tags:
+    - Spellbook
+
+- type: entity
+  parent: [BaseItem, Tier2Contraband]
+  id: SpellbookMimeInvisibleBlockade
+  name: "Guide to Advanced Mimery: Invisible Blockade"
+  description: The pages don't make any sound when turned.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: mime
+  - type: MimeSpellbook
+    action: ActionMimeInvisibleBlockade
+  - type: Tag
+    tags:
+    - Spellbook
+
+- type: entity
+  parent: [BaseItem, Tier2Contraband]
+  id: SpellbookMimeFingerGuns
+  name: "Guide to Advanced Mimery: Finger Guns"
+  description: There aren't any words written...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/book.rsi
+    layers:
+    - state: mime
+  - type: MimeSpellbook
+    action: ActionMimeFingerGuns
+  - type: Tag
+    tags:
     - Spellbook
