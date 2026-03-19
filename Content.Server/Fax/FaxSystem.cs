@@ -643,6 +643,9 @@ public sealed class FaxSystem : EntitySystem
     }
 
     // imp edit
+    /// <summary>
+    /// Allows the examiner to see the fax's name, if the examiner is a ghost.
+    /// </summary>
     private void OnFaxExamine(EntityUid uid, FaxMachineComponent component, ExaminedEvent args)
     {
         if (!HasComp<GhostComponent>(args.Examiner))

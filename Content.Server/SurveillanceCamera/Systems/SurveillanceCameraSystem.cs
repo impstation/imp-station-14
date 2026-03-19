@@ -400,6 +400,9 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
     }
 
     // imp edit
+    /// <summary>
+    /// Allows the examiner to see the camera's ID, if the examiner is a ghost.
+    /// </summary>
     private void OnCameraExamine(EntityUid uid, SurveillanceCameraComponent component, ExaminedEvent args)
     {
         if (!HasComp<GhostComponent>(args.Examiner))
