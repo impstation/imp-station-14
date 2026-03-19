@@ -45,7 +45,7 @@
     whitelist:
       tags:
         - CartridgePistol
-    capacity: 16
+    capacity: 15
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -409,7 +409,7 @@
   id: MagazinePistolHighCapacityEmptyWizden  #imp - see the _Impstation directory for the version we use
   name: machine pistol magazine (.35 auto any)
   suffix: empty
-  description: Custom 16-round double-stack magazine for the Viper pistol.
+  description: Custom 15-round double-stack magazine for the Viper pistol.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -431,7 +431,7 @@
   parent: BaseMagazinePistolHighCapacityWizden # imp
   id: MagazinePistolHighCapacityWizden #imp - see the _Impstation directory for the version we use
   name: machine pistol magazine (.35 auto)
-  description: Custom 16-round double-stack magazine for the Viper pistol. Intended to hold general-purpose kinetic ammunition.
+  description: Custom 15-round double-stack magazine for the Viper pistol. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistol
@@ -453,7 +453,7 @@
   parent: BaseMagazinePistolHighCapacityWizden # imp
   id: MagazinePistolHighCapacityPracticeWizden #imp - see the _Impstation directory for the version we use
   name: machine pistol magazine (.35 auto practice)
-  description: Custom 16-round double-stack magazine for the Viper pistol. Intended to hold harmless practice ammunition.
+  description: Custom 15-round double-stack magazine for the Viper pistol. Intended to hold harmless practice ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgePistolPractice

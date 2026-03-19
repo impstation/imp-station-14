@@ -16,7 +16,7 @@
     - HamsterWearable
     - WhitelistChameleon
     - GasMask # goob edit
-    - Mask
+    - Mask #imp edit
   - type: HideLayerClothing
     layers:
       Snout: Mask
@@ -46,7 +46,7 @@
       - SecurityBreathMask
 
 - type: entity
-  parent: [ClothingMaskGas, Tier2Contraband]
+  parent: [ClothingMaskGas, Tier2Contraband] #imp edit, tiered contraband
   id: ClothingMaskGasSyndicate
   name: syndicate gas mask
   description: A close-fitting tactical mask that can be connected to an air supply.
@@ -242,9 +242,23 @@
 - type: entity
   parent: ClothingMaskClownChameleonBasic #imp
   id: ClothingMaskClown
+  #description: A clown mask featuring a foldable wig; a true prankster's attire. #imp, use parent's description
   components:
-  - type: ChameleonClothing #imp
-    default: ClothingMaskClown
+  # imp edit, use chameleon system instead of folding for options
+  #- type: Appearance
+  #- type: Foldable
+  #  canFoldInsideContainer: true
+  #- type: FoldableClothing
+  #  foldedEquippedPrefix: opened
+  #  foldedHeldPrefix: opened
+  #- type: Sprite
+  #  sprite: Clothing/Mask/clown.rsi
+  #  layers:
+  #  - state: icon
+  #    map: [ "unfoldedLayer" ]
+  #  - state: icon-opened
+  #    map: [ "foldedLayer" ]
+  #    visible: false
   #- type: Tag #imp
   #  tags:
   #  - ClownMask
@@ -254,6 +268,8 @@
     slots:
     - Snout
     - SnoutCover # imp
+  - type: ChameleonClothing #imp
+    default: ClothingMaskClown
 
 - type: entity
   parent: ClothingMaskClownBase #imp
@@ -261,36 +277,49 @@
   name: banana clown wig and mask
   components:
   - type: Sprite
-    sprite: Clothing/Mask/clown_banana.rsi #imp
+    sprite: Clothing/Mask/clown_banana.rsi
   - type: Clothing
-    sprite: Clothing/Mask/clown_banana.rsi #imp
+    sprite: Clothing/Mask/clown_banana.rsi
   - type: Construction
     graph: BananaClownMask
     node: mask
-  - type: Tag  #imp
+  - type: Tag
     tags:
     - ClownMask
     - HamsterWearable
     - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
-
-# - type: entity
-#   parent: [ClothingMaskClown, BaseSecurityContraband]
-#   id: ClothingMaskClownSecurity
-#   name: security clown wig and mask
-#   description: A debatably oxymoronic but protective mask and wig.
-#   components:
-#   - type: Sprite
-#     sprite: Clothing/Mask/clown.rsi
-#   - type: Clothing
-#     sprite: Clothing/Mask/clown.rsi
-#   - type: Armor
-#     modifiers:
-#       coefficients:
-#         Blunt: 0.95
-#         Slash: 0.95
-#         Piercing: 0.95
-#         Heat: 0.95
+- type: entity
+  parent: ClothingMaskClownChameleonSecurity #imp edit
+  id: ClothingMaskClownSecurity
+  name: security clown wig and mask
+  #description: A debatably oxymoronic but protective mask and wig. #imp edit, use parent description
+  components:
+  # imp edit, components moved to ClothingMaskClownChameleonSecurity
+  #- type: Sprite
+  #  sprite: Clothing/Mask/clown_security.rsi
+  #- type: Clothing
+  #  sprite: Clothing/Mask/clown_security.rsi
+  #- type: Armor
+  #  modifiers:
+  #    coefficients:
+  #      Blunt: 0.95
+  #      Slash: 0.95
+  #      Piercing: 0.95
+  #      Heat: 0.95
+  #- type: Tag
+  #  tags:
+  #  - ClownMask
+  #  - HamsterWearable
+  #  - WhitelistChameleon
+  #- type: HideLayerClothing
+  #  slots:
+  #  - Snout
+  - type: ChameleonClothing #imp edit
+    default: ClothingMaskClownSecurity
 
 - type: entity
   parent: ClothingMaskBase
@@ -642,7 +671,7 @@
     - SnoutCover # imp
 
 - type: entity
-  parent: ClothingMaskPullableBase
+  parent: ClothingMaskPullableBase #imp edit
   id: ClothingMaskNeckGaiter
   name: neck gaiter
   description: Stylish neck gaiter for your neck, can protect from the cosmic wind?...
