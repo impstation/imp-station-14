@@ -1,4 +1,4 @@
-using Content.Shared._Impstation.Heretic;
+using Content.Shared._Impstation.Heretic; // imp edit
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Speech.Muting;
 
