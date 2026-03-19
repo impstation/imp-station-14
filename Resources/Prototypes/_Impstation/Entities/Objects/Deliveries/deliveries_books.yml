@@ -20,5 +20,17 @@
     - id: SpellbookSafeLibrarianFireball
     - id: SpellbookSafeLibrarianScissors
     - id: SpellbookSafeLibrarianFlashlight
+    - !type:NestedSelector
+      tableId: RandomMimeBookTable
     - id: CodexCicatrix #antag obfuscation my beloved
       weight: 0.2
+
+- type: entityTable
+  id: RandomMimeBookTable
+  table: !type:GroupSelector
+    children:
+    - id: SpellbookMimeInvisibleWall
+    - id: SpellbookMimeInvisibleChair
+    - id: SpellbookMimeInvisibleBox
+    - id: SpellbookMimeVow
+      weight: 0.1

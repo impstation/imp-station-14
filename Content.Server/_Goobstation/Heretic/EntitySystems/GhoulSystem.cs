@@ -1,8 +1,6 @@
-using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Humanoid;
-using Content.Server.Temperature.Components;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
