@@ -5,13 +5,15 @@
   suffix: Filled
   parent: MedkitCombat
   components:
-  - type: StorageFill
-    contents:
-    - id: AirlossAutoInjector
-    - id: BruteAutoInjector
-    - id: BurnAutoInjector
-    - id: RadAutoInjector
-    - id: AntiPoisonMedipen
-    - id: SpaceMedipen
-    - id: EmergencyMedipen
-    - id: EmergencyMedipen
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: AirlossAutoInjector
+        - id: BruteAutoInjector
+        - id: BurnAutoInjector
+        - id: RadAutoInjector
+        - id: AntiPoisonMedipen
+        - id: SpaceMedipen
+        - id: EmergencyMedipen
+        - id: EmergencyMedipen

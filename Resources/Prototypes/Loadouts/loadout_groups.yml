@@ -131,6 +131,7 @@
   loadouts:
   - EmergencyMeat # imp
   - EmergencyWheat # imp
+  - EmergencyAquatic # imp
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesAquaticFullTank # Imp
@@ -405,6 +406,11 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  # DEN start
+  - HatDinerTeal
+  - HatDinerPink
+  - HatDinerFastFood
+  # DEN end
 
 - type: loadoutGroup
   id: ChefMask
@@ -423,6 +429,16 @@
   - ChefSpaceJumpsuit # imp
   - HeadChefSkirt # imp
   - HeadChef # imp
+  # DEN start
+  - JumpsuitDinerTeal
+  - JumpskirtDinerTeal
+  - JumpsuitDinerPink
+  - JumpskirtDinerPink
+  - JumpsuitDinerPinkDark
+  - JumpskirtDinerPinkDark
+  - JumpsuitDinerFastFood
+  - JumpskirtDinerFastFood
+  # DEN end
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -526,6 +542,7 @@
   - ChaplainMaskClayshaper # imp
   - ChaplainMaskFire # imp
   - ChaplainClown # imp
+  - ChaplainSilentMask # imp
 
 - type: loadoutGroup
   id: ChaplainJumpsuit
@@ -555,6 +572,7 @@
   - ChaplainHoodie
   - ChaplainOuterMoon # imp
   - ChaplainHonkrobes # imp
+  - ChaplainSilentRobes # imp
 
 - type: loadoutGroup
   id: ChaplainNeck
@@ -594,6 +612,7 @@
   - BibleNarsie
    #imp edit start, kind of insane they labeled all holy books as bibles but oh well, using this loadout group will save headache in the future
   - ChaplainBookScroll
+  - ChaplainBookMansus
   - ChaplainBookTablet
   - ChaplainBookGreybible
   - ChaplainBookKojiki
@@ -741,6 +760,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatClown # imp
   - EmergencyWheatClown # imp
+  - EmergencyAquaticClown # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -749,6 +769,7 @@
   minLimit: 0
   loadouts:
   - LizardPlushieClown
+  - FlowerWaterClown
 
 - type: loadoutGroup
   id: MimeHead
@@ -758,6 +779,7 @@
   - MimeHead
   - MimeFrenchBeret
   - MimeCap
+  - MimeBowler #imp
 
 - type: loadoutGroup
   id: MimeMask
@@ -775,6 +797,8 @@
   - MimeJumpskirt
   - MimeJumpsuitCropped #imp
   - MimeJumpskirtCropped #imp
+  - MimeJumpsuitNouveau #imp
+  - MimeJumpskirtNouveau #imp
 
 - type: loadoutGroup
   id: MimeBackpack
@@ -812,6 +836,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMime # imp
   - EmergencyWheatMime # imp
+  - EmergencyAquaticMime # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -1153,6 +1178,8 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
+  - FlightsuitAtmos #imp
+  - FlightskirtAtmos #imp
 
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
@@ -1198,6 +1225,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatExtended # imp
   - EmergencyWheatExtended # imp
+  - EmergencyAquaticExtended # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Science
@@ -1364,6 +1392,7 @@
   - HeadofSecurityBeret
   - HeadofSecurityHeadDV # DeltaV
   - HeadofSecurityPatrolCap # imp
+  - HeadofSecurityColonelCap # imp
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1379,6 +1408,8 @@
   - HeadofSecurityJumpskirtGrey #imp
   - HeadofSecurityProfessionalJumpsuit # imp
   - HeadofSecurityProfessionalJumpskirt # imp
+  - HeadofSecurityColonelJumpsuit # imp
+  - HeadofSecurityColonelJumpskirt # imp
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1595,6 +1626,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSecurity # imp
   - EmergencyWheatSecurity # imp
+  - EmergencyAquaticSecurity # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Medical
@@ -1869,6 +1901,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMedical # imp
   - EmergencyWheatMedical # imp
+  - EmergencyAquaticMedical # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Wildcards
@@ -1902,36 +1935,6 @@
   loadouts:
   - LizardPlushiePsychologist
 
-- type: loadoutGroup
-  id: BoxerJumpsuit
-  name: loadout-group-boxer-jumpsuit
-  loadouts:
-  - BoxerShorts
-  - BoxerShortsWithTop
-
-- type: loadoutGroup
-  id: BoxerGloves
-  name: loadout-group-boxer-gloves
-  loadouts:
-  - RedBoxingGloves
-  - BlueBoxingGloves
-  - GreenBoxingGloves
-  - YellowBoxingGloves
-
-- type: loadoutGroup
-  id: BoxerJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieBoxer
-
-- type: loadoutGroup
-  id: ZookeeperJobTrinkets
-  name: loadout-group-jobtrinkets
-  minLimit: 0
-  loadouts:
-  - LizardPlushieZookeeper
-
 # Other
 - type: loadoutGroup
   id: SurvivalSyndicate
@@ -1944,6 +1947,17 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSyndicate # imp
   - EmergencyWheatSyndicate # imp
+  - EmergencyAquaticSyndicate # imp
+  - LoadoutSpeciesAquaticFullTank # Imp
+
+- type: loadoutGroup
+  id: SurvivalMilitaryDouble
+  name: loadout-group-survival-military
+  minLimit: 2
+  hidden: true
+  loadouts:
+  - EmergencyNitrogenMilitaryDouble
+  - EmergencyOxygenMilitaryDouble
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup

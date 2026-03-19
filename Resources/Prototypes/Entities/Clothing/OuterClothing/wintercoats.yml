@@ -567,7 +567,7 @@
   name: mime winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _Impstation/Clothing/OuterClothing/WinterCoats/mimecoat.rsi #imp
     layers:
     - state: MIME-icon
   - type: Item
@@ -577,7 +577,7 @@
       right:
       - state: MIME-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _Impstation/Clothing/OuterClothing/WinterCoats/mimecoat.rsi #imp
     clothingVisuals:
       outerClothing:
       - state: MIME-equipped-OUTERCLOTHING
@@ -585,6 +585,8 @@
       - state: MIME-equipped-OUTERCLOTHING-vox
       outerClothing-anomalocarid: # imp
       - state: MIME-equipped-OUTERCLOTHING-anomalocarid
+      outerClothing-ungu: # imp
+      - state: MIME-equipped-OUTERCLOTHING-ungu
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterMime
 

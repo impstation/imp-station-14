@@ -472,10 +472,19 @@
       - salty
       - oily
   - type: Sprite
-    state: chinese1
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    layers:
+    - state: takeout-empty
+    - state: chow-mein
   - type: Item
-    heldPrefix: chinese1
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    # heldPrefix: chinese1 #imp
     storedOffset: 1,-2
+    inhandVisuals: # imp
+      left:
+      - state: takeout-inhand-left
+      right:
+      - state: takeout-inhand-right
   - type: SolutionContainerManager
     solutions:
       food:
@@ -506,10 +515,19 @@
       - oily
       - spicy
   - type: Sprite
-    state: chinese2
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    layers:
+        - state: takeout-empty
+        - state: dan-dan-noodles
   - type: Item
-    heldPrefix: chinese2
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    # heldPrefix: chinese2 #imp
     storedOffset: 0,-2
+    inhandVisuals: # imp
+      left:
+      - state: takeout-inhand-left
+      right:
+      - state: takeout-inhand-right
   - type: SolutionContainerManager
     solutions:
       food:
@@ -954,9 +972,16 @@
   name: empty chow mein box
   components:
   - type: Sprite
-    state: chinese1
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    state: takeout-empty # imp
   - type: Item
-    heldPrefix: chinese1
+    #heldPrefix: chinese1 #imp
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    inhandVisuals: # imp
+      left:
+      - state: takeout-inhand-left
+      right:
+      - state: takeout-inhand-right
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -965,9 +990,16 @@
   name: empty dan dan box
   components:
   - type: Sprite
-    state: chinese2
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    state: takeout-empty # imp
   - type: Item
-    heldPrefix: chinese2
+    #heldPrefix: chinese2 #imp
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/chinese.rsi # imp
+    inhandVisuals: # imp
+      left:
+      - state: takeout-inhand-left
+      right:
+      - state: takeout-inhand-right
 
 - type: entity
   categories: [ HideSpawnMenu ]

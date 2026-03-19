@@ -41,16 +41,16 @@
         Quantity: 10
   - type: SolutionAmmoProvider
     solutionId: chamber
-    proto: BulletWaterShot
-  - type: SolutionTransfer
-    transferAmount: 5
-    maxTransferAmount: 50
-    minTransferAmount: 5
-    canChangeTransferAmount: true
-  - type: UserInterface
-    interfaces:
-      enum.TransferAmountUiKey.Key:
-        type: TransferAmountBoundUserInterface
+    proto: BulletAnomalocaridWaterShot
+
+- type: entity
+  id: BulletAnomalocaridWaterShot
+  parent: BulletWaterShot
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EmitSoundOnSpawn #this is evil but its broken and an upstream issue. remove when action guns are fixed upstream
+    sound: /Audio/Weapons/Guns/Gunshots/water_spray.ogg
+    positional: true
 
 - type: entity
   id: ActionAnomalocaridSpit

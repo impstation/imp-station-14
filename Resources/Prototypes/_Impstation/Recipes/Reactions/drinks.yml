@@ -18,8 +18,6 @@
   products:
     UAP: 6
 
-
-
 # Razz whatever the fuck you did here has caused horrible things
 - type: reaction
   id: TheeHorsepussy
@@ -70,7 +68,7 @@
   requiredMixerCategories:
     - Stir
   reactants:
-    LemonAsterade:
+    YellowAsterade:
       amount: 1
     Wine:
       amount: 1
@@ -201,6 +199,8 @@
 
 - type: reaction
   id: BloodierMary
+  requiredMixerCategories:
+    - Stir
   reactants:
     BloodyMary:
       amount: 2
@@ -352,6 +352,8 @@
 
 - type: reaction
   id: CleverGirl
+  requiredMixerCategories:
+    - Stir
   reactants:
     Vodka:
       amount: 2
@@ -492,7 +494,7 @@
       amount: 1
     Vodka:
       amount: 2
-    LemonAsterade:
+    TealAsterade:
       amount: 3
   products:
     WeldingCoils: 6
@@ -675,3 +677,17 @@
       amount: 1
   products:
     RoseMilk: 3
+
+- type: reaction
+  id: FunnyLiftingDrink
+  requiredMixerCategories:
+    - Shake
+  reactants:
+    LiftingConcentrate:
+      amount: 1
+    CyanFoodColoring:
+      amount: 2
+    SodaWater:
+      amount: 3
+  products:
+    FunnyLiftingDrink: 6

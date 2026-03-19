@@ -22,6 +22,8 @@
 - type: reaction
   id: ClarifiedPhalanximine
   minTemp: 300
+  requiredMixerCategories:
+    - Stir
   reactants:
     Phalanximine:
       amount: 1

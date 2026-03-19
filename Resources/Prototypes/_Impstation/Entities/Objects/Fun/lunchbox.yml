@@ -30,9 +30,11 @@
           True: { state: icon-open }
           False: { state: icon }
   - type: Appearance
-  - type: StorageFill
-    contents:
-      - id: Paper
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Paper
   - type: Engraveable
 
 - type: entity
@@ -91,12 +93,14 @@
   suffix: Apid, Filled
   parent: SteelLunchboxApid
   components:
-  - type: StorageFill
-    contents:
-    - id: DrinkHummingBirdGlass
-    - id: FoodCakeAppleSlice
-    - id: FoodBerries
-    - id: PaperApidMissive
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkHummingBirdGlass
+        - id: FoodCakeAppleSlice
+        - id: FoodBerries
+        - id: PaperApidMissive
 
 - type: entity
   id: PaperApidMissive
@@ -141,8 +145,10 @@
   suffix: MaidKit
   parent: SteelLunchboxSyndicate
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingHeadHatTacticalMaidHeadband
-    - id: ClothingUniformJumpskirtTacticalMaid
-    - id: ClothingHandsTacticalMaidGloves
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatTacticalMaidHeadband
+        - id: ClothingUniformJumpskirtTacticalMaid
+        - id: ClothingHandsTacticalMaidGloves

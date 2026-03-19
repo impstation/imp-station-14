@@ -37,7 +37,9 @@
   id: PenHolderFilled
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-    - id: Pen
-      amount: 8
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Pen
+          amount: 8

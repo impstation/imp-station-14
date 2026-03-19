@@ -1,0 +1,254 @@
+# Both Force AND Tether guns!
+- type: entity
+  name: tether gun
+  parent:
+  - BaseItem
+  - PowerCellSlotMediumItem
+  id: WeaponTetherGun
+  description: You can call it the Zero-Point Energy Field Manipulator if you really want to.
+  components:
+    - type: Item
+      size: Normal
+    - type: TetherGun
+      frequency: 5
+      dampingRatio: 4
+    - type: ItemToggle
+      onUse: false
+    - type: PowerCellDraw
+    - type: ToggleCellDraw
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
+      layers:
+        - state: base
+        - state: base-unshaded
+          map: [ "unshaded" ]
+          shader: unshaded
+          visible: false
+    - type: ToggleableVisuals
+      spriteLayer: unshaded
+      inhandVisuals:
+        left:
+          - state: inhand-left-unshaded
+            shader: unshaded
+        right:
+          - state: inhand-right-unshaded
+            shader: unshaded
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.TetherVisualsStatus.Key:
+          unshaded:
+            True: { visible: true }
+            False: { visible: false }
+    - type: MeleeWeapon
+      range: 0.8
+      attackRate: 0.8
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        path: /Audio/Effects/hit_kick.ogg
+      soundSwing:
+        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+      resetOnHandSelected: false
+    - type: AltFireMelee
+      attackType: Heavy
+    - type: DamageOtherOnHit #for throwing
+      staminaCost: 6
+      damage:
+        types:
+          Blunt: 5
+
+- type: entity
+  name: force gun
+  parent:
+    - BaseItem
+    - PowerCellSlotMediumItem
+  id: WeaponForceGun
+  description: Pulls stuff, then throws stuff, probably hitting someone.
+  components:
+    - type: Item
+      size: Normal
+    - type: ForceGun
+      frequency: 15
+      dampingRatio: 4
+      massLimit: 50
+      lineColor: "#18a2d5"
+      soundLaunch:
+        path: /Audio/Weapons/soup.ogg
+        params:
+          volume: 2
+    - type: ItemToggle
+      onUse: false
+    - type: PowerCellDraw
+    - type: ToggleCellDraw
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Launchers/force_gun.rsi
+      layers:
+        - state: base
+        - state: base-unshaded
+          map: [ "unshaded" ]
+          shader: unshaded
+          visible: false
+        - type: ToggleableVisuals
+          spriteLayer: unshaded
+          inhandVisuals:
+            left:
+              - state: inhand-left-unshaded
+                shader: unshaded
+            right:
+              - state: inhand-right-unshaded
+                shader: unshaded
+        - type: Appearance
+        - type: GenericVisualizer
+          visuals:
+            enum.TetherVisualsStatus.Key:
+              unshaded:
+                True: { visible: true }
+                False: { visible: false }
+    - type: MeleeWeapon
+      range: 0.8
+      attackRate: 0.8
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        path: /Audio/Effects/hit_kick.ogg
+      soundSwing:
+        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+      resetOnHandSelected: false
+    - type: AltFireMelee
+      attackType: Heavy
+    - type: DamageOtherOnHit #for throwing
+      staminaCost: 6
+      damage:
+        types:
+          Blunt: 5
+
+# Admeme
+- type: entity
+  name: tether gun
+  parent: BaseItem
+  id: WeaponTetherGunAdmin
+  suffix: Admeme
+  description: Counter-resonant singularity device.
+  components:
+    - type: Item
+      size: Normal
+    - type: TetherGun
+      canTetherAlive: true
+      canUnanchor: true
+      maxForce: 10000
+      massLimit: 10000
+      dampingRatio: 4
+      frequency: 20
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
+      layers:
+        - state: base
+        - state: base-unshaded
+          map: [ "unshaded" ]
+          shader: unshaded
+          visible: false
+    - type: ToggleableVisuals
+      spriteLayer: unshaded
+      inhandVisuals:
+        left:
+          - state: inhand-left-unshaded
+            shader: unshaded
+        right:
+          - state: inhand-right-unshaded
+            shader: unshaded
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.TetherVisualsStatus.Key:
+          unshaded:
+            True: { visible: true }
+            False: { visible: false }
+    - type: MeleeWeapon
+      range: 0.8
+      attackRate: 0.8
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        path: /Audio/Effects/hit_kick.ogg
+      soundSwing:
+        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+      resetOnHandSelected: false
+    - type: AltFireMelee
+      attackType: Heavy
+    - type: DamageOtherOnHit #for throwing
+      staminaCost: 6
+      damage:
+        types:
+          Blunt: 5
+    - type: MeleeThrowOnHit
+      distance: 6
+      speed: 6
+
+- type: entity
+  name: force gun
+  parent: BaseItem
+  id: WeaponForceGunAdmin
+  suffix: Admeme
+  description: A gun for the admin who'll ban you forever.
+  components:
+    - type: Item
+      size: Normal
+    - type: ForceGun
+      canTetherAlive: true
+      canUnanchor: true
+      maxForce: 10000
+      massLimit: 10000
+      frequency: 15
+      dampingRatio: 4
+      throwForce: 50
+      throwDistance: 100
+      lineColor: "#18a2d5"
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Launchers/force_gun.rsi
+      layers:
+        - state: base
+        - state: base-unshaded
+          map: [ "unshaded" ]
+          shader: unshaded
+          visible: false
+    - type: ToggleableVisuals
+      spriteLayer: unshaded
+      inhandVisuals:
+        left:
+          - state: inhand-left-unshaded
+            shader: unshaded
+        right:
+          - state: inhand-right-unshaded
+            shader: unshaded
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.TetherVisualsStatus.Key:
+          unshaded:
+            True: { visible: true }
+            False: { visible: false }
+    - type: MeleeWeapon
+      range: 0.8
+      attackRate: 0.8
+      damage:
+        types:
+          Blunt: 5
+      soundHit:
+        path: /Audio/Effects/hit_kick.ogg
+      soundSwing:
+        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+      resetOnHandSelected: false
+    - type: AltFireMelee
+      attackType: Heavy
+    - type: DamageOtherOnHit #for throwing
+      staminaCost: 6
+      damage:
+        types:
+          Blunt: 5
+    - type: MeleeThrowOnHit
+      distance: 6
+      speed: 6

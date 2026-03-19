@@ -8,8 +8,9 @@
       connections:
       - torso
       organs:
-        brain: OrganHumanBrain
-        eyes: OrganHumanEyes
+        brain: OrganAnomalocaridBrain
+        eyes: OrganAnomalocaridEyes
+        tongue: OrganAnomalocaridTongue
     torso:
       part: TorsoAnomalocarid
       connections:
@@ -18,11 +19,12 @@
       - right_leg
       - left_leg
       organs:
-        heart: OrganHumanHeart
-        lungs: OrganHumanLungs
-        liver: OrganHumanLiver
-        kidneys: OrganHumanKidneys
-        stomach: OrganHumanStomach
+        heart: OrganAnomalocaridHeart
+        lungs: OrganAnomalocaridLungs
+        liver: OrganAnomalocaridLiver
+        kidneys: OrganAnomalocaridKidneys
+        stomach: OrganAnomalocaridStomach
+        appendix: OrganAnomalocaridAppendix
     right_arm:
       part: RightArmAnomalocarid
       connections:

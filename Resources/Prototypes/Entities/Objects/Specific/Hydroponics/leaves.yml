@@ -21,6 +21,7 @@
     entries:
       Burger: LeavesCannabisBurger
       Taco: LeavesCannabis
+      Hotdog: LeavesCannabis #imp
   - type: PluralName # imp
     oneOf: plural-name-some
 
@@ -48,6 +49,10 @@
     entries:
       Burger: LeavesCannabisBurger
       Taco: LeavesCannabis
+      Hotdog: LeavesCannabis 
+  - type: Tag #imp
+    tags: #imp
+      - Ruminant #imp
   - type: PluralName
     oneOf: plural-name-some
   #imp edit end
@@ -124,6 +129,7 @@
     entries:
       Burger: LeavesRainbowCannabisBurger
       Taco: LeavesRainbowCannabis
+      Hotdog: LeavesRainbowCannabis #imp
 
 - type: entity
   name: dried rainbow cannabis leaves
@@ -160,6 +166,7 @@
     entries:
       Burger: LeavesRainbowCannabisBurger
       Taco: LeavesRainbowCannabis
+      Hotdog: LeavesRainbowCannabis
   # imp edit end
 
 - type: entity
@@ -251,6 +258,7 @@
     entries:
       Burger: LeavesTobaccoBurger
       Taco: LeavesTobacco
+      Hotdog: LeavesTobacco
   # imp edit end
 
 - type: entity
@@ -277,6 +285,10 @@
     entries:
       Burger: LeavesTobaccoBurger
       Taco: LeavesTobacco
+      Hotdog: LeavesTobacco
+  - type: Tag #imp
+    tags: #imp
+      - Ruminant #imp
   #imp edit end
 
 - type: entity

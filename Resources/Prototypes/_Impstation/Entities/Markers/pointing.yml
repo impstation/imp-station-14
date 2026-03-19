@@ -1,0 +1,11 @@
+- type: entity
+  name: pointing crosshair
+  parent: PointingArrow
+  id: PointingCrosshair
+  save: false
+  components:
+  - type: Sprite
+    sprite: _Impstation/Interface/Misc/pointing.rsi
+    state: crosshair
+  - type: PointingArrow
+    offset: 0, 0.05

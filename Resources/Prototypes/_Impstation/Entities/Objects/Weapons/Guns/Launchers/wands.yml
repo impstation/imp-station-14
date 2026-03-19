@@ -1,0 +1,66 @@
+- type: entity
+  name: bubble wand
+  parent: WeaponWandBase
+  id: WeaponWandWater
+  description: This wand emits an aura of evil, dark magic is at work here...
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Basic/wands.rsi
+    state: water
+  - type: Gun
+    fireRate: 4
+    projectileSpeed: 2
+    clumsyProof: true
+    cameraRecoilScalar: 0
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Effects/pop.ogg
+  - type: BasicEntityAmmoProvider
+    proto: MagicBubble
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: water-inhand-left
+      right:
+      - state: water-inhand-right
+
+- type: entity
+  name: wand of pig polymorph
+  parent: WeaponWandBase
+  id: WeaponWandPig
+  description: Sometimes you just need to ruin someone's day.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/salami.rsi
+    state: salami
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: BasicEntityAmmoProvider
+    proto: ProjectilePolyboltPig
+    capacity: 5
+    count: 5
+
+- type: entity
+  name: magical wand of destruction
+  parent: WeaponWandBase
+  id: WeaponWandBreak
+  description: "I dont care if we're in space the feng shui is off!"
+  components:
+  - type: Sprite
+    layers:
+    - state: death
+    - state: death-effect
+      map: ["effect"]
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletInstaBreakMagic
+    capacity: 12
+    count: 12

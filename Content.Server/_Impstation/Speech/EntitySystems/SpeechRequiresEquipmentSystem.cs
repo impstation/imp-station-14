@@ -1,3 +1,4 @@
+using Content.Server._Impstation.Speech.Components;
 using Content.Server.Speech.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
@@ -21,32 +22,18 @@ public sealed partial class SpeechRequiresEquipmentSystem : EntitySystem
 
     public void OnSpeechAttempt(Entity<SpeechRequiresEquipmentComponent> ent, ref SpeakAttemptEvent args)
     {
-        var canSpeak = true;
-
-        foreach (var (slot, whitelist) in ent.Comp.Equipment)
+        if (_inventory.TryGetContainerSlotEnumerator(ent.Owner, out var enumerator, SlotFlags.WITHOUT_POCKET))
         {
-            if (!_inventory.TryGetSlotEntity(ent, slot, out var item))
+            while (enumerator.NextItem(out var item, out _))
             {
-                canSpeak = false;
-                break;
-            }
-
-            if (_whitelist.IsWhitelistFail(whitelist, item.Value))
-            {
-                canSpeak = false;
-                break;
+                if (TryComp<SpeechSoundComponent>(item, out var comp)
+                    && !_whitelist.IsWhitelistFail(ent.Comp.Whitelist, item))
+                    return;
             }
         }
 
-        // TODO: SpeakAttemptEvent should be modified to include an optional LocId
-        // reason for why the speak attempt was cancelled.
-        if (!canSpeak)
-        {
-            args.Cancel();
-            if (ent.Comp.FailMessage != null)
-            {
-                _popup.PopupEntity(Loc.GetString(ent.Comp.FailMessage), ent, ent);
-            }
-        }
+        args.Cancel();
+        if (ent.Comp.FailMessage != null)
+            _popup.PopupEntity(Loc.GetString(ent.Comp.FailMessage), ent, ent);
     }
 }

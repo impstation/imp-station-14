@@ -1,0 +1,2286 @@
+# Chem Tube
+- type: entity
+  parent: BaseItem
+  id: ChemSampleTube
+  name: chemical sample tube
+  description: A glass tube with some sort of goop in it. Looks prone to breaking.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chemistry/sample_tube.rsi
+    layers:
+      - state: sample_tube
+      - state: sample_tube1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: Item
+    sprite: _Impstation/Objects/Specific/Chemistry/sample_tube.rsi
+  - type: StaticPrice
+    price: 120
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+  - type: Edible
+    edible: Drink
+    solution: beaker
+    destroyOnEmpty: false
+  - type: DrawableSolution
+    solution: beaker
+  - type: InjectableSolution
+    solution: beaker
+  - type: ExaminableSolution
+    solution: beaker
+  - type: FitsInDispenser
+    solution: beaker
+  - type: MixableSolution
+    solution: beaker
+  - type: RefillableSolution
+    solution: beaker
+  - type: DrainableSolution
+    solution: beaker
+  - type: SolutionTransfer
+    maxTransferAmount: 10
+    canChangeTransferAmount: true
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: sample_tube
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior { }
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ScrapTube:
+            min: 0
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 2
+    damage:
+      types:
+        Blunt: 5
+  - type: DnaSubstanceTrace
+  - type: Spillable
+    solution: beaker
+  - type: TrashOnSolutionEmpty
+    solution: beaker
+  - type: Tag
+    tags:
+    - CentrifugeCompatible
+  
+# tables
+- type: entityTable
+  id: RandomChemicalSampleTubeCommon
+  table: !type:GroupSelector
+    children:
+    - id: ChemSampleTubeBlood
+    - id: ChemSampleTubeCopperBlood
+    - id: ChemSampleTubeInsectBlood
+    - id: ChemSampleTubeShimmeringBlood
+    - id: ChemSampleTubeAmmoniaBlood
+    - id: ChemSampleTubeGrayBlood
+    - id: ChemSampleTubeBloodKodepiia
+    - id: ChemSampleTubeBloodAllulalo
+    - id: ChemSampleTubeSap
+    - id: ChemSampleTubeSynthBlood
+    - id: ChemSampleTubeSlime
+    - id: ChemSampleCarbonDioxide
+    - id: ChemSampleAmmonia
+    - id: ChemSampleTubeRadium
+    - id: ChemSampleTubeBarozine
+    - id: ChemSampleTubeDiphenhydramine
+    - id: ChemSampleTubeDiphenylmethylamine
+    - id: ChemSampleTubeTestosterone
+    - id: ChemSampleTubeEstradiol
+    - id: ChemSampleTubeEthylredoxrazine
+    - id: ChemSampleTubeHaloperidol
+    - id: ChemSampleTubeOculine
+    - id: ChemSampleTubeSynaptizine
+    - id: ChemSampleTubeTranexamicAcid
+    - id: ChemSampleTubeBananadine
+    - id: ChemSampleTubeImpedrezene
+    - id: ChemSampleTubeNicotine
+    - id: ChemSampleTubeTHC
+    - id: ChemSampleTubeFluorosurfactant
+    - id: ChemSampleTubeFoamingAgent
+    - id: ChemSampleTubeBrosochloricBros
+    - id: ChemSampleTubeButterflies
+    - id: ChemSampleTubeEthanotoxin
+    - id: ChemSampleTubeGastroToxin
+    - id: ChemSampleTubeHonk
+    - id: ChemSampleTubeToxin
+    - id: ChemSampleTubeTheobromine
+    - id: ChemSampleTubeEveryspice
+    - id: ChemSampleTubeFrostOil
+    - id: ChemSampleTubeHoney
+    - id: ChemSampleTubeKetchunaise
+    - id: ChemSampleTubeLaughinSyrup
+    - id: ChemSampleTubeLeft4Zed
+    - id: ChemSampleTubeMucin
+    - id: ChemSampleTubeSedin
+    - id: ChemSampleTubeGroundBee
+    - id: ChemSampleTubeGroundBros
+    - id: ChemSampleTubeIrwizine
+    - id: ChemSampleTubeMouseBites
+    - id: ChemSampleTubeNitrousOxide
+    - id: ChemSampleTubeSadness
+    - id: ChemSampleTubeGoblinBlood
+    - id: ChemSampleTubeAloe
+    - id: ChemSampleTubeAntifreeze
+    - id: ChemSampleTubeDoubleGreen
+    - id: ChemSampleTubeJuiceRose
+    - id: ChemSampleTubeJuiceBerry
+    - id: ChemSampleTubeLiquidLunch
+    - id: ChemSampleTubeJuicePotato
+    - id: ChemSampleTubeSalvagersSoothe
+    - id: ChemSampleTubeDoctorsDelight
+    - id: ChemSampleTubeUAP
+
+- type: entityTable
+  id: RandomChemicalSampleTubeUncommon
+  table: !type:GroupSelector
+    children:
+    - id: ChemSampleTubeDinoBlood
+    - id: ChemSampleTubeBloodChangeling
+    - id: ChemSampleTubeFerrochromicAcid
+    - id: ChemSampleTubeZombieBlood
+    - id: ChemSamplePlasma
+    - id: ChemSampleFrezon
+    - id: ChemSampleTritium
+    - id: ChemSampleAnomalium
+    - id: ChemSampleArtifexium
+    - id: ChemSampleArtifactGlue
+    - id: ChemSampleTubeMuteToxin
+    - id: ChemSampleTubeNocturine
+    - id: ChemSampleTubeHyperzine
+    - id: ChemSampleTubeGold
+    - id: ChemSampleTubeSilver
+    - id: ChemSampleTubeLead
+    - id: ChemSampleTubeUranium
+    - id: ChemSampleTubeAmbuzol
+    - id: ChemSampleTubeCryptobiolin
+    - id: ChemSampleTubeDoxarubixadone
+    - id: ChemSampleTubeIpecac
+    - id: ChemSampleTubeNecrosol
+    - id: ChemSampleTubePolypyryliumOligomers
+    - id: ChemSampleTubePsicodine
+    - id: ChemSampleTubeUltravasculine
+    - id: ChemSampleTubeDesoxyephedrine
+    - id: ChemSampleTubeHappiness
+    - id: ChemSampleTubeSpaceMirage
+    - id: ChemSampleTubePax
+    - id: ChemSampleTubeThermite
+    - id: ChemSampleTubeAquaAvari
+    - id: ChemSampleTubeAquamDivinos
+    - id: ChemSampleTubeBungotoxin
+    - id: ChemSampleTubeButterfliesInfestation
+    - id: ChemSampleTubeBuzzochloricBees
+    - id: ChemSampleTubeCarpotoxin
+    - id: ChemSampleTubeChloralHydrate
+    - id: ChemSampleTubeCorgium
+    - id: ChemSampleTubeFresium
+    - id: ChemSampleTubeMindbreakerToxin
+    - id: ChemSampleTubeRazorium
+    - id: ChemSampleTubeLipolicide
+    - id: ChemSampleTubeUnstableMutagen
+    - id: ChemSampleTubeDiethylamine
+    - id: ChemSampleTubeEctoplasm
+    - id: ChemSampleTubeSynthflesh
+    - id: ChemSampleTubeLaughter
+    - id: ChemSampleTubeBenzene
+    - id: ChemSampleTubeBleach
+    - id: ChemSampleTubeSaxoite
+    - id: ChemSampleTubeSomething
+    - id: ChemSampleTubeBacchussBlessing
+    - id: ChemSampleTubeNothing
+    - id: ChemSampleTubeDrink
+    - id: ChemSampleTubeGenderfluid
+    - id: ChemSampleTubeFeverDream
+    - id: ChemSampleTubeGinAndSonic
+    - id: ChemSampleTubeNeurotoxin
+    - id: ChemSampleTubePoisonWine
+    - id: ChemSampleTubeTheGrease
+    - id: ChemSampleTubeTheHorsepussy
+
+- type: entityTable
+  id: RandomChemicalSampleTubeRare
+  table: !type:GroupSelector
+    children:
+    - id: ChemSampleTubeCognizine
+    - id: ChemSampleTubeOmnizine
+    - id: ChemSampleTubeIchor
+    - id: ChemSampleTubeForeverWeed
+    - id: ChemSampleTubeLexorin
+    - id: ChemSampleTubeOpporozidone
+    - id: ChemSampleTubeChlorineTrifluoride
+    - id: ChemSampleTubeEchion
+    - id: ChemSampleTubePhlogiston
+    - id: ChemSampleTubeFluorosulfuricAcid
+    - id: ChemSampleTubePhilosophersJuice
+
+# Chems
+
+#Common
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBlood
+  suffix: Blood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Blood
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+  
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeCopperBlood
+  suffix: CopperBlood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: CopperBlood
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeInsectBlood
+  suffix: InsectBlood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: InsectBlood
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+  
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeShimmeringBlood
+  suffix: ShimmeringBlood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: ShimmeringBlood
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeAmmoniaBlood
+  suffix: AmmoniaBlood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: AmmoniaBlood
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeGrayBlood
+  suffix: GrayBlood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: GrayBlood
+          Quantity: 10
+  - type: Label
+    currentLabel: Radioactive, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBloodKodepiia
+  suffix: BloodKodepiia
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: BloodKodepiia
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBloodAllulalo
+  suffix: BloodAllulalo
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: BloodAllulalo
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSap
+  suffix: Sap
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sap
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleCarbonDioxide
+  suffix: CarbonDioxide
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: CarbonDioxide
+          Quantity: 10
+  - type: Label
+    currentLabel: Airborn Hazard, Do Not Inhale
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleAmmonia
+  suffix: Ammonia
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ammonia
+          Quantity: 10
+  - type: Label
+    currentLabel: Airborn Hazard, Do Not Inhale
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSlime
+  suffix: Slime
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Slime
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSynthBlood
+  suffix: SynthBlood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: SynthBlood
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeRadium
+  suffix: Radium
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Radium
+          Quantity: 10
+  - type: Label
+    currentLabel: Radioactive Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBarozine
+  suffix: Barozine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Barozine
+          Quantity: 10
+  - type: Label
+    currentLabel: Pressurized Sample, Handle With Care
+    
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeDiphenhydramine
+  suffix: Diphenhydramine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Diphenhydramine
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+        
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeDiphenylmethylamine
+  suffix: Diphenylmethylamine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Diphenylmethylamine
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+        
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeTestosterone
+  suffix: Testosterone
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Testosterone
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+            
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeEstradiol
+  suffix: Estradiol
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Estradiol
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeEthylredoxrazine
+  suffix: Ethylredoxrazine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ethylredoxrazine
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeHaloperidol
+  suffix: Haloperidol
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Haloperidol
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeOculine
+  suffix: Oculine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Oculine
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSynaptizine
+  suffix: Synaptizine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Synaptizine
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeTranexamicAcid
+  suffix: TranexamicAcid
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: TranexamicAcid
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBananadine
+  suffix: Bananadine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Bananadine
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeImpedrezene
+  suffix: Impedrezene
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Impedrezene
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeNicotine
+  suffix: Nicotine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nicotine
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+    
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeTHC
+  suffix: THC
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: THC
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeFluorosurfactant
+  suffix: Fluorosurfactant
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fluorosurfactant
+          Quantity: 10
+  - type: Label
+    currentLabel: Highly Reactive With Water, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeFoamingAgent
+  suffix: FoamingAgent
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: FoamingAgent
+          Quantity: 10
+  - type: Label
+    currentLabel: Highly Reactive With Metal, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBrosochloricBros
+  suffix: BrosochloricBros
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: BrosochloricBros
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeButterflies
+  suffix: Butterflies
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: ButterfliesReagent
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeEthanotoxin
+  suffix: Ethanotoxin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ethanotoxin
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeGastroToxin
+  suffix: GastroToxin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: GastroToxin
+          Quantity: 10
+  - type: Label
+    currentLabel: Toxic Substance, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeHonk
+  suffix: Honk
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Honk
+          Quantity: 10
+  - type: Label
+    currentLabel: Humerous Substance, Hand With Reckless Abandon
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeToxin
+  suffix: Toxin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Toxin
+          Quantity: 10
+  - type: Label
+    currentLabel: Toxic Substance, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeTheobromine
+  suffix: Theobromine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Theobromine
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeEveryspice
+  suffix: Everyspice
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Everyspice
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeFrostOil
+  suffix: FrostOil
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: FrostOil
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeHoney
+  suffix: Honey
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Honey
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeKetchunaise
+  suffix: Ketchunaise
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ketchunaise
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeLaughinSyrup
+  suffix: LaughinSyrup
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: LaughinSyrup
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeLeft4Zed
+  suffix: Left4Zed
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Left4Zed
+          Quantity: 10
+  - type: Label
+    currentLabel: Highly Reactive With Plantlife, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeMucin
+  suffix: Mucin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Mucin
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSedin
+  suffix: Sedin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sedin
+          Quantity: 10
+  - type: Label
+    currentLabel: Highly Reactive With Plantlife, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeGroundBee
+  suffix: GroundBee
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: GroundBee
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+    
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeGroundBros
+  suffix: GroundBros
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: GroundBros
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeIrwizine
+  suffix: Irwizine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Irwizine
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeMouseBites
+  suffix: MouseBites
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: MouseBites
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeNitrousOxide
+  suffix: NitrousOxide
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: NitrousOxide
+          Quantity: 10
+  - type: Label
+    currentLabel: Airborn Hazard, Do Not Inhale
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSadness
+  suffix: Sadness
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sadness
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeGoblinBlood
+  suffix: GoblinBlood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: GoblinBlood
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeAloe
+  suffix: Aloe
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Aloe
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeAntifreeze
+  suffix: Antifreeze
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Antifreeze
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeDoubleGreen
+  suffix: DoubleGreen
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: DoubleGreen
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeJuiceRose
+  suffix: JuiceRose
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: JuiceRose
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeJuiceBerry
+  suffix: JucieBerry
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: JuiceBerry
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeLiquidLunch
+  suffix: LiquidLunch
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: LiquidLunch
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Substance, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeJuicePotato
+  suffix: JuicePotato
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: JuicePotato
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSalvagersSoothe
+  suffix: SalvagersSoothe
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: SalvagersSoothe
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeDoctorsDelight
+  suffix: DoctorsDelight
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: DoctorsDelight
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeUAP
+  suffix: UAP
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: UAP
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+#Uncommon
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeDinoBlood
+  suffix: DinoBlood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: DinoBlood
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBloodChangeling
+  suffix: BloodChangeling
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: BloodChangeling
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Hazard, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeFerrochromicAcid
+  suffix: FerrochromicAcid
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: FerrochromicAcid
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Hazard, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeZombieBlood
+  suffix: ZombieBlood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: ZombieBlood
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Hazard, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSamplePlasma
+  suffix: Plasma
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 10
+  - type: Label
+    currentLabel: Airborn Hazard, Do Not Inhale
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleFrezon
+  suffix: Frezon
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Frezon
+          Quantity: 10
+  - type: Label
+    currentLabel: Airborn Hazard, Do Not Inhale
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTritium
+  suffix: Tritium
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Tritium
+          Quantity: 10
+  - type: Label
+    currentLabel: Airborn Hazard, Do Not Inhale
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleAnomalium
+  suffix: Anomalium
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Anomalium
+          Quantity: 10
+  - type: Label
+    currentLabel: Anomalous Materials, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleArtifexium
+  suffix: Artifexium
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Artifexium
+          Quantity: 10
+  - type: Label
+    currentLabel: Anomalous Materials, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleArtifactGlue
+  suffix: ArtifactGlue
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: ArtifactGlue
+          Quantity: 10
+  - type: Label
+    currentLabel: Anomalous Materials, Handle With Care
+  
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeRororium
+  suffix: Rororium
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Rororium
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeIchor
+  suffix: Ichor
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ichor
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeMuteToxin
+  suffix: MuteToxin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: MuteToxin
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeNocturine
+  suffix: Nocturine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nocturine
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeHyperzine
+  suffix: Hyperzine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Stimulants
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeGold
+  suffix: Gold
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Gold
+          Quantity: 10
+  - type: Label
+    currentLabel: Metallurgic Sample, Handle With Care
+    
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSilver
+  suffix: Silver
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Silver
+          Quantity: 10
+  - type: Label
+    currentLabel: Metallurgic Sample, Handle With Care
+
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeLead
+  suffix: Lead
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Lead
+          Quantity: 10
+  - type: Label
+    currentLabel: Metallurgic Sample, Handle With Care
+    
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeUranium
+  suffix: Uranium
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Uranium
+          Quantity: 10
+  - type: Label
+    currentLabel: Metallurgic Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeAmbuzol
+  suffix: Ambuzol
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ambuzol
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeCryptobiolin
+  suffix: Cryptobiolin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Cryptobiolin
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeDoxarubixadone
+  suffix: Doxarubixadone
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Doxarubixadone
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeIpecac
+  suffix: Ipecac
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ipecac
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeNecrosol
+  suffix: Necrosol
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Necrosol
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubePolypyryliumOligomers
+  suffix: PolypyryliumOligomers
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: PolypyryliumOligomers
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubePsicodine
+  suffix: Psicodine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Psicodine
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeUltravasculine
+  suffix: Ultravasculine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Ultravasculine
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeDesoxyephedrine
+  suffix: Desoxyephedrine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeHappiness
+  suffix: Happiness
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Happiness
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSpaceMirage
+  suffix: SpaceMirage
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubePax
+  suffix: Pax
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Pax
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeThermite
+  suffix: Thermite
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Thermite
+          Quantity: 10
+  - type: Label
+    currentLabel: Highly Reactive Substance, Handle With Extreme Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeAquaAvari
+  suffix: AquaAvari
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: AquaAvari
+          Quantity: 10
+  - type: Label
+    currentLabel: UNSacred Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeAquamDivinos
+  suffix: AquamDivinos
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: AquamDivinos
+          Quantity: 10
+  - type: Label
+    currentLabel: Sacred Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBungotoxin
+  suffix: Bungotoxin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Bungotoxin
+          Quantity: 10
+  - type: Label
+    currentLabel: Botanical Sample, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeButterfliesInfestation
+  suffix: ButterfliesInfestation
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: ButterfliesBiggerReagent
+          Quantity: 10
+  - type: Label
+    currentLabel: Highly Infectious, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBuzzochloricBees
+  suffix: BuzzochloricBees
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: BuzzochloricBees
+          Quantity: 10
+  - type: Label
+    currentLabel: Hazardous Sample, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeCarpotoxin
+  suffix: Carpotoxin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: CarpoToxin
+          Quantity: 10
+  - type: Label
+    currentLabel: Toxic Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeChloralHydrate
+  suffix: ChloralHydrate
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeCorgium
+  suffix: Corgium
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: CorgiJuice
+          Quantity: 10
+  - type: Label
+    currentLabel: Body And Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeFresium
+  suffix: Fresium
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 10
+  - type: Label
+    currentLabel: Hazardous Substance, Handle With Caution
+    
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeMindbreakerToxin
+  suffix: MindbreakerToxin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: MindbreakerToxin
+          Quantity: 10
+  - type: Label
+    currentLabel: Hazardous Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeRazorium
+  suffix: Razorium
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Razorium
+          Quantity: 10
+  - type: Label
+    currentLabel: Hazardous Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeLipolicide
+  suffix: Lipolicide
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Lipolicide
+          Quantity: 10
+  - type: Label
+    currentLabel: Hazardous Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeUnstableMutagen
+  suffix: UnstableMutagen
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: UnstableMutagen
+          Quantity: 10
+  - type: Label
+    currentLabel: Radioactive Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeDiethylamine
+  suffix: Diethylamine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Diethylamine
+          Quantity: 10
+  - type: Label
+    currentLabel: Toxic Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeEctoplasm
+  suffix: Ectoplasm
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: ReaperBlood
+          Quantity: 10
+  - type: Label
+    currentLabel: Supernatural Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSynthflesh
+  suffix: Synthflesh
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: SynthFlesh
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeLaughter
+  suffix: Laughter
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Laughter
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBenzene
+  suffix: Benzene
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Benzene
+          Quantity: 10
+  - type: Label
+    currentLabel: Carcenogenic Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBleach
+  suffix: Bleach
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Bleach
+          Quantity: 10
+  - type: Label
+    currentLabel: Carcenogenic Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSaxoite
+  suffix: Saxoite
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Saxoite
+          Quantity: 10
+  - type: Label
+    currentLabel: Groovy Substance, Handle With Care
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeSomething
+  suffix: Something
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Something
+          Quantity: 10
+  - type: Label
+    currentLabel: Substance
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeBacchussBlessing
+  suffix: BacchussBlessing
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: BacchusBlessing
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeNothing
+  suffix: Nothing
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nothing
+          Quantity: 10
+  - type: Label
+    currentLabel:  
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeDrink
+  suffix: Drink
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: TheDrink
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeGenderfluid
+  suffix: Genderfluid
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Genderfluid
+          Quantity: 10
+  - type: Label
+    currentLabel: Biological Sample, Handle With Care
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeFeverDream
+  suffix: FeverDream
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: FeverDream
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeGinAndSonic
+  suffix: GinAndSonic
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: GinAndSonic
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeNeurotoxin
+  suffix: Neurotoxin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Neurotoxin
+          Quantity: 10
+  - type: Label
+    currentLabel: Toxic Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubePoisonWine
+  suffix: PoisonWine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: PoisonWine
+          Quantity: 10
+  - type: Label
+    currentLabel: Toxic Substance, Handle With Caution
+   
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeTheGrease
+  suffix: TheGrease
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: TheGrease
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+  
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeTheHorsepussy
+  suffix: TheHorsepussy
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: TheeHorsepussy
+          Quantity: 10
+  - type: Label
+    currentLabel: Hazardous Substance, Handle With Caution
+
+#Rare
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeCognizine
+  suffix: Cognizine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Cognizine
+          Quantity: 10
+  - type: Label
+    currentLabel: Mind Altering Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeOmnizine
+  suffix: Omnizine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Substance, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeForeverWeed
+  suffix: ForeverWeed
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: ForeverWeed
+          Quantity: 10
+  - type: Label
+    currentLabel: Permanent Mind Altering Substance, Handle With Extreme Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeLexorin
+  suffix: Lexorin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Lexorin
+          Quantity: 10
+  - type: Label
+    currentLabel: Hazardous Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeVestine
+  suffix: Vestine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Vestine
+          Quantity: 10
+  - type: Label
+    currentLabel: Completly Normal Substance, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeOpporozidone
+  suffix: Opporozidone
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Opporozidone
+          Quantity: 10
+  - type: Label
+    currentLabel: Medicinal Substance, Handle With Care
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeChlorineTrifluoride
+  suffix: ChlorineTrifluoride
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: ChlorineTrifluoride
+          Quantity: 10
+  - type: Label
+    currentLabel: Highly Reactive Substance, Handle With Extreme Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeEchion
+  suffix: Echion
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Echion
+          Quantity: 10
+  - type: Label
+    currentLabel: Radioactive Substnace, Handle With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubePhlogiston
+  suffix: Phlogiston
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: Phlogiston
+          Quantity: 10
+  - type: Label
+    currentLabel: Highly Reactive Substance, Handle With Extreme Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubeFluorosulfuricAcid
+  suffix: FluorosulfuricAcid
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: FluorosulfuricAcid
+          Quantity: 10
+  - type: Label
+    currentLabel: Highly Corrosive Substance, Hanlde With Caution
+
+- type: entity
+  parent: ChemSampleTube
+  id: ChemSampleTubePhilosophersJuice
+  suffix: PhilosophersJuice
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 10
+        reagents:
+        - ReagentId: PhilosophersJuice
+          Quantity: 10
+  - type: Label
+    currentLabel: Matter Alteringing Substance, Handle With Caution

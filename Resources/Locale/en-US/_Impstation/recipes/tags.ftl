@@ -39,6 +39,7 @@ construction-graph-tag-bowl = bowl
 construction-graph-tag-chopsticks = chopsticks
 construction-graph-tag-crystal = a crystal shard
 construction-graph-tag-gas-tank = any gas tank
+construction-graph-tag-gasket = a gasket
 construction-graph-tag-glowstick = a glowstick
 construction-graph-tag-hemp-sack = a sack made from hemp cloth
 construction-graph-tag-light-tube = light tube
@@ -50,6 +51,7 @@ construction-graph-tag-floatingflora-b = blue floating flora
 construction-graph-tag-floatingflora-o = orange floating flora
 construction-graph-tag-floatingflora-p = pink floating flora
 construction-graph-tag-floatingflora-y = yellow floating flora
+construction-graph-tag-pompom = pompoms
 
 # unique
 construction-graph-tag-memorial-ash = your vaporized loved one

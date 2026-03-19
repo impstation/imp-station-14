@@ -31,11 +31,11 @@
       connections:
       - legs
       organs:
-        lungs: OrganAnimalLungs
+        lungs: OrganArachnidLungs # imp edit
         stomach: OrganArachnidStomach
-        liver: OrganAnimalLiver
+        liver: OrganArachnidLiver # imp edit
         heart: OrganArachnidHeart
-        kidneys: OrganAnimalKidneys
+        kidneys: OrganArachnidKidneys # imp edit
     legs:
       part: LegsAnimal
       connections:

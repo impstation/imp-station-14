@@ -1,0 +1,13 @@
+- type: entity
+  parent: CrateMedical
+  id: CrateDefibrillatorCompact
+  name: compact defibrillator
+  description: A nifty downscaled version of the classic defibrillator, perfect for those that have one hand or missed arm day.
+  components:
+  - type: Icon
+    sprite: _Impstation/Structures/Storage/Crates/medical.rsi # imp
+  - type: Sprite
+    sprite: _Impstation/Structures/Storage/Crates/medical.rsi # imp
+  - type: StorageFill
+    contents:
+    - id: DefibrillatorCompact

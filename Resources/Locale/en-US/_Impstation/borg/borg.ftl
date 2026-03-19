@@ -7,3 +7,5 @@ borg-type-cargo-transponder = cargo cyborg
 borg-type-any-transponder = cyborg
 station-ai-transponder = station ai
 toggle-borg-pda = View PDA
+
+borg-mmi-fail-popup = The brain suddenly dissolves on contact with the interface!

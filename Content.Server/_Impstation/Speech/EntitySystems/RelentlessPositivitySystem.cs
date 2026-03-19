@@ -16,7 +16,7 @@ public sealed class RelentlessPositivitySystem : EntitySystem
         SubscribeLocalEvent<RelentlessPositivityComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, RelentlessPositivityComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<RelentlessPositivityComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

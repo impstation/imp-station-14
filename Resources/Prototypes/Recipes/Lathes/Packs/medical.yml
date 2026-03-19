@@ -17,6 +17,9 @@
   - PillCanister
   - HandLabeler
   - BaseChemistryEmptyVial
+  - ConicalFlask #Imp
+  - LargeConicalFlask #Imp
+  - ChemSampleTube #Imp
   - Dropper
 
 - type: latheRecipePack
@@ -49,6 +52,7 @@
   - WhiteCane
   - OffsetCane
   - OffsetCaneWood
+  - JetInjector
 
 - type: latheRecipePack
   id: RollerBedsStatic
@@ -72,6 +76,7 @@
   - MedkitBurn
   - MedkitToxin
   - MedkitO2
+  - MedkitN2 #imp
   - MedkitBrute
   - MedkitAdvanced
   - MedkitRadiation
@@ -100,6 +105,7 @@
   - SyringeBluespace
   - LauncherSyringe
   - MiniSyringe
+  - AdvancedJetInjector
 
 - type: latheRecipePack
   id: MedicalBoards

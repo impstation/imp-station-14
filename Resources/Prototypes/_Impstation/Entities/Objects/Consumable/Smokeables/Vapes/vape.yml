@@ -10,6 +10,7 @@
     size: Small
     shape:
     - 0,0,0,1
+  - type: BatteryVisuals
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Smokeables/Vapes/vape-swappable.rsi
     layers:
@@ -25,7 +26,7 @@
       map: [ "enum.SolutionContainerLayers.Overlay" ]
       visible: false
     - state: led
-      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+      map: [ "enum.PowerCellVisualLayers.Base" ]
       visible: false
 
 - type: entity
@@ -123,22 +124,23 @@
   name: vape cart variety pack
   description: A pack of the best sellers.
   components:
-  - type: StorageFill
-    contents:
-    - id: WaterVapeCart
-      amount: 2
-    - id: SugarVapeCart
-      prob: 0.9
-      orGroup: cloud9-1
-    - id: HorsepussyVapeCart
-      prob: 0.1
-      orGroup: cloud9-1
-    - id: NicotineVapeCart
-      prob: 0.6
-      orGroup: cloud9-2
-    - id: THCVapeCart
-      prob: 0.4
-      orGroup: cloud9-2
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WaterVapeCart
+          amount: 2
+        - !type:GroupSelector
+          children:
+          - id: SugarVapeCart
+            weight: 9
+          - id: HorsepussyVapeCart
+        - !type:GroupSelector
+          children:
+          - id: NicotineVapeCart
+            weight: 3
+          - id: THCVapeCart
+            weight: 2
   - type: Appearance
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Smokeables/Vapes/vape-cart.rsi

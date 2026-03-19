@@ -80,6 +80,10 @@
     clothingVisuals:
       neck:
       - state: QM-equipped-OUTERCLOTHING
+      neck-vox:
+      - state: QM-equipped-OUTERCLOTHING-vox
+      neck-anomalocarid:
+      - state: QM-equipped-NECK-anomalocarid #offsets...
       outerClothing:
       - state: QM-equipped-OUTERCLOTHING
       outerClothing-vox:

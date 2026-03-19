@@ -1,22 +1,16 @@
+# When adding new figurines, also add them to id: AllFigurineMechsTable
+
 #TODO give these the new base sprite used in the regular action figures.
 #No, not like a template. Just the base of the toy.
 - type: entity
-  parent: BaseItem
-  id: BaseFigurineMech
-  name: figurine
-  description: A small miniature.
   abstract: true
+  parent: BaseFigurine
+  id: BaseFigurineMech
   components:
   - type: Sprite
     sprite: Objects/Fun/mech_figurines.rsi
-  - type: PhysicalComposition
-    materialComposition:
-      Plastic: 100
-  - type: StaticPrice
-    price: 75
-  - type: Tag
-    tags:
-    - Figurine
+  - type: SpeakOnTrigger
+    pack: FigurinesMechGeneric
 
 #Ripley APLU
 - type: entity
@@ -45,6 +39,9 @@
         color: "#524c14"
       - state: inhand-right-visor
         color: "#7aef83"
+  - type: Construction
+    graph: mech_kit_ripley
+    node: mech
 
 #Fire Ripley
 - type: entity
@@ -73,6 +70,9 @@
         color: "#486b2f"
       - state: inhand-right-visor
         color: "#5a150e"
+  - type: Construction
+    graph: mech_kit_fireripley
+    node: mech
 
 #Death Ripley
 - type: entity
@@ -101,6 +101,9 @@
         color: "#b3001b"
       - state: inhand-right-visor
         color: "#e1131e"
+  - type: Construction
+    graph: mech_kit_deathripley
+    node: mech
 
 #Ggygax
 - type: entity
@@ -129,6 +132,9 @@
         color: "#4f5359"
       - state: inhand-right-visor
         color: "#00ff33"
+  - type: Construction
+    graph: mech_kit_gygax
+    node: mech
 
 #Durand
 - type: entity
@@ -157,6 +163,9 @@
         color: "#686d78"
       - state: inhand-right-visor
         color: "#8cc865"
+  - type: Construction
+    graph: mech_kit_durand
+    node: mech
 
 #H.O.N.K
 - type: entity
@@ -185,6 +194,9 @@
         color: "#ffffff"
       - state: inhand-right-visor
         color: "#ff040b"
+  - type: Construction
+    graph: mech_kit_honk
+    node: mech
 
 #Marauder
 - type: entity
@@ -213,6 +225,9 @@
         color: "#557a48"
       - state: inhand-right-visor
         color: "#00ff33"
+  - type: Construction
+    graph: mech_kit_marauder
+    node: mech
 
 #Seraph
 - type: entity
@@ -241,6 +256,9 @@
         color: "#943226"
       - state: inhand-right-visor
         color: "#f31a33"
+  - type: Construction
+    graph: mech_kit_seraph
+    node: mech
 
 #Mauler
 - type: entity
@@ -269,6 +287,9 @@
         color: "#660000"
       - state: inhand-right-visor
         color: "#ff0000"
+  - type: Construction
+    graph: mech_kit_mauler
+    node: mech
 
 #Odysseus
 - type: entity
@@ -297,6 +318,9 @@
         color: "#7d7f97"
       - state: inhand-right-visor
         color: "#857149"
+  - type: Construction
+    graph: mech_kit_odysseus
+    node: mech
 
 #Phazon
 - type: entity
@@ -325,6 +349,9 @@
         color: "#f38233"
       - state: inhand-right-visor
         color: "#f38233"
+  - type: Construction
+    graph: mech_kit_phazon
+    node: mech
 
 #Reticence
 - type: entity
@@ -353,3 +380,6 @@
         color: "#8b8b8b"
       - state: inhand-right-visor
         color: "#1f1f1f"
+  - type: Construction
+    graph: mech_kit_reticence
+    node: mech

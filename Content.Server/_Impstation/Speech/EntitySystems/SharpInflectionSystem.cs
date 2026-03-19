@@ -19,7 +19,7 @@ public sealed class SharpInflectionSystem : EntitySystem
         SubscribeLocalEvent<SharpInflectionComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, SharpInflectionComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<SharpInflectionComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

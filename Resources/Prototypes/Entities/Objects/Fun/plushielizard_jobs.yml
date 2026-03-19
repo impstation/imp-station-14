@@ -204,6 +204,7 @@
   components:
   - type: Sprite
     state: mime
+    sprite: _Impstation/Objects/Fun/plushielizard_jobs.rsi #imp
   - type: EmitSoundOnUse
     sound: null # mime is silent...
   - type: EmitSoundOnLand
@@ -331,8 +332,8 @@
 - type: entity
   parent: BasePlushieLizardJob
   id: PlushieLizardJobServiceworker
-  name: service worker lizard plushie
-  description: An adorable stuffed toy that resembles a lizardperson as a service worker. Smells like a mix of cleaning supplies and food.
+  name: service attendant lizard plushie # imp edit
+  description: An adorable stuffed toy that resembles a lizardperson as a service attendant. Smells like a mix of cleaning supplies and food. # imp edit
   components:
   - type: Sprite
     state: serviceworker

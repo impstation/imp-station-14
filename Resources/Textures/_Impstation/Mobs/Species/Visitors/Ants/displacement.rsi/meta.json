@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "by atdoop (github) for impstation",
+  "size": {
+    "x": 32,
+    "y": 32
+},
+"load": {
+    "srgb": false
+},
+"states": [
+    {
+      "name": "hands",
+      "directions": 4
+    },
+    {
+      "name": "head",
+      "directions": 4
+    },
+    {
+      "name": "outerClothing",
+      "directions": 4
+    },
+    {
+      "name": "jumpsuit",
+      "directions": 4
+    },
+    {
+      "name": "ears",
+      "directions": 4
+    },
+    {
+      "name": "id",
+      "directions": 4
+    },
+    {
+      "name": "back",
+      "directions": 4
+    },
+    {
+      "name": "mask",
+      "directions": 4
+    },
+    {
+      "name": "neck",
+      "directions": 4
+    },
+    {
+      "name": "eyes",
+      "directions": 4
+    },
+    {
+      "name": "feet",
+      "directions": 4
+    },
+    {
+      "name": "belt",
+      "directions": 4
+    },
+    {
+      "name": "suitstorage",
+      "directions": 4
+    },
+    {
+      "name": "inhand_left",
+      "directions": 4
+    },
+    {
+      "name": "inhand_right",
+      "directions": 4
+    }
+  ]
+}

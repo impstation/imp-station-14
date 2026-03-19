@@ -6251,14 +6251,14 @@ entities:
     - type: Transform
       pos: -5.5,6.5
       parent: 1
-- proto: RandomHumanoidSpawnerERTSecurityEVALecter
+- proto: RandomHumanoidSpawnerERTSecurityArmedRifle
   entities:
   - uid: 1020
     components:
     - type: Transform
       pos: 1.5,4.5
       parent: 1
-- proto: RandomHumanoidSpawnerERTSecurityEVALecterTime
+- proto: RandomHumanoidSpawnerERTSecurityArmedRifleTime
   entities:
   - uid: 1019
     components:

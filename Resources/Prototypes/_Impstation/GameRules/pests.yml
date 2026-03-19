@@ -55,6 +55,19 @@
       prob: 0
 
 - type: entity
+  id: DuctSpiderMigration
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    weight: 4
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobDuctSpider
+      prob: 0.05
+
+- type: entity
   id: LuggageMigration
   parent: BaseStationEventShortDelay
   components:

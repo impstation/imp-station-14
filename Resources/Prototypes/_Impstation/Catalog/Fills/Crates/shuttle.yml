@@ -4,9 +4,11 @@
   name: mini gyroscope crate
   description: Contains a mini gyroscope flatpack.
   components:
-  - type: StorageFill
-    contents:
-      - id: MiniGyroscopeFlatpack
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MiniGyroscopeFlatpack
 
 - type: entity
   parent: CrateEngineering
@@ -14,14 +16,16 @@
   name: shittle starter pack
   description: The bare minimum required for a spaceworthy vehicle. Go wild, buddy.
   components:
-  - type: StorageFill
-    contents:
-      - id: ThrusterFlatpack
-      - id: MiniGyroscopeFlatpack
-      - id: ShuttleConsoleCircuitboard
-      - id: PortableGeneratorJrPacmanMachineCircuitboard
-      - id: JugWeldingFuel
-      - id: InflatableDoorStack1
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ThrusterFlatpack
+        - id: MiniGyroscopeFlatpack
+        - id: ShuttleConsoleCircuitboard
+        - id: PortableGeneratorJrPacmanMachineCircuitboard
+        - id: JugWeldingFuel
+        - id: InflatableDoorStack1
 
 - type: entity
   id: CrateEngineeringAdvancedShittle
@@ -29,11 +33,12 @@
   name: shittle powering pack
   description: Contains boards for a wallmount generator, substation, and APC. Leave those poor escape pods alone.
   components:
-  - type: StorageFill
-    contents:
-      - id: WallmountSubstationElectronics
-      - id: WallmountGeneratorAPUElectronics
-      - id: APCElectronics #added apc electronics, manipulator, and empty power cell from the upstream equivelant
-      - id: MicroManipulatorStockPart
-      - id: PowerCellSmallPrinted
-
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WallmountSubstationElectronics
+        - id: WallmountGeneratorAPUElectronics
+        - id: APCElectronics #added apc electronics, manipulator, and empty power cell from the upstream equivelant
+        - id: MicroManipulatorStockPart
+        - id: PowerCellSmallPrinted

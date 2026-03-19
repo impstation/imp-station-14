@@ -1,6 +1,6 @@
 - type: entity
   name: lethal poison auto-injector
-  parent: [BaseItem, Tier3Contraband]
+  parent: [ChemicalMedipen, Tier3Contraband]
   description: A single dose of a lethal toxin mix, induces gradual organ failure and esophagus inflammation which eliminates a subject within one to two minutes of injection. Small print on it says "Non-Recyclable. Please return to Gorlex Customer Satisfaction for reuse and rebate."
   id: PoisonAutoInjector
   components:
@@ -40,17 +40,64 @@
           Quantity: 2
         - ReagentId: Impedrezene
           Quantity: 1
-  - type: ExaminableSolution
-    solution: pen
-  - type: Hypospray
-    solutionName: pen
-    transferAmount: 30
-    onlyAffectsMobs: false
-    injectOnly: true
-  - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: poisonpen_empty
-  - type: Tag
-    tags: []
+
+- type: entity
+  name: romerol auto-injector
+  parent: [ ChemicalMedipen, Tier3Contraband ]
+  id: RomerolAutoInjector
+  description: A rapid and unsafe way to stabilize patients in critical condition by turning them into a zombie.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Medical/zombiepen.rsi
+    layers:
+    - state: icon
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: Item
+    sprite: Objects/Specific/Medical/medipen.rsi
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#5B0010"
+      - state: base-colorB-inhand-left
+        color: "#820A16"
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#5B0010"
+      - state: base-colorB-inhand-right
+        color: "#820A16"
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 15
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: icon_empty
+
+- type: entity
+  name: romerol micro-injector
+  parent: RomerolAutoInjector
+  id: RomerolMicroInjector
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Medical/zombiepen_micro.rsi
+    layers:
+    - state: icon
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 5

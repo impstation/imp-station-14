@@ -135,9 +135,10 @@
                 </BoxContainer>
                 <BoxContainer Orientation="Vertical" Margin="10">
                     <!-- Antag roll reminder, imp edit -->
-                    <BoxContainer Orientation="Vertical">
-                        <RichTextLabel Text="{Loc 'humanoid-profile-editor-antag-roll-reminder-top'}" />
-                        <RichTextLabel Text="{Loc 'humanoid-profile-editor-antag-roll-reminder-bottom'}" />
+                    <BoxContainer Margin="4" HorizontalExpand="True" Orientation="Vertical">
+                        <Label Text="{Loc 'humanoid-profile-editor-antag-roll-reminder-top'}" SetWidth="180" HorizontalAlignment="Left" />
+                        <Label Text="{Loc 'humanoid-profile-editor-antag-roll-reminder-mid'}"  SetWidth="180" HorizontalAlignment="Left"  />
+                        <Label Text="{Loc 'humanoid-profile-editor-antag-roll-reminder-bottom'}"  SetWidth="180" HorizontalAlignment="Left"  />
                     </BoxContainer>
                     <!-- Antags -->
                     <ScrollContainer VerticalExpand="True">
@@ -158,11 +159,12 @@
                 </BoxContainer>
             </TabContainer>
         </BoxContainer>
-        <!-- Right side -->
-        <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center">
-            <!-- IMP: change spriteview margin 4 > 4, 10 -->
-            <SpriteView Name="SpriteView" Scale="8 8" Margin="4, 10" SizeFlagsStretchRatio="1" />
-            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5">
+        <!-- Right side --> <!-- IMP: MinSize 0 500-->
+        <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center" MinSize="0 500">
+            <!-- IMP: change spriteview margin 4 > 4, 10. SetSize 320 480, Stretch=None, Horizontal and Vertical expand false. -->
+            <!-- IMP: TODO: revert our changes when robust spriteview changes are merged -->
+            <SpriteView Name="SpriteView" Scale="8 8" Margin="0, 0" SetSize="320 480" Stretch="Fit" HorizontalExpand="False" VerticalExpand="False" VerticalAlignment="Bottom"/>
+            <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 5">
                 <Button Name="SpriteRotateLeft" Text="◀" StyleClasses="OpenRight" />
                 <cc:VSeparator Margin="2 0 3 0" />
                 <Button Name="SpriteRotateRight" Text="▶" StyleClasses="OpenLeft" />

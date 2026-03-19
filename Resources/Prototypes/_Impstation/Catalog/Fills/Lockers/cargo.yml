@@ -4,8 +4,10 @@
   name: courier's locker
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: BoxEnvelope
           amount: 2
         - id: MaterialCardboard10

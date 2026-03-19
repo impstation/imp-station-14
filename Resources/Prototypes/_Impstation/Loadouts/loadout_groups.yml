@@ -32,46 +32,19 @@
   loadouts:
   - LoadoutSpeciesAquaticFullTank
 
-# the full internals setup for decapoids as StartingGear
+# the full internals setups for StartingGear
 - type: startingGear
   id: StartingGearDecapoidVaporizer
   equipment:
     mask: DecapoidBreathingApparatus
     suitstorage: DecapoidVaporTankFilled
 
-# The usual loadouts of the decapoid harness that spawn in your chest slot for jobs that don't have outerwear in their loadout
-- type: loadoutGroup
-  id: GroupTankHarnessAquatic
-  name: loadout-group-tank-harness-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquatic
-
-- type: loadoutGroup
-  id: GroupTankHarnessCommandAquatic
-  name: loadout-group-tank-harness-command-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquaticCommand
-
-# Tank harnesses for jobs that spawn with outerwear, puts them in their inventory instead of dropping items at their feet
-- type: loadoutGroup
-  id: GroupTankHarnessWithOuterwearAquatic
-  name: loadout-group-tank-harness-with-outerwear-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquaticWithOuterwear
-
-- type: loadoutGroup
-  id: GroupTankHarnessCommandWithOuterwearAquatic
-  name: loadout-group-tank-harness-command-with-outerwear-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquaticCommandWithOuterwear
+- type: startingGear
+  id: StartingGearNitrogenInternals
+  equipment:
+    mask: ClothingMaskBreath
+    outerClothing: ClothingOuterVestTank
+    suitstorage: NitrogenTankFilled
 
 # breath tool
 - type: loadoutGroup
@@ -313,6 +286,7 @@
   - EmergencyOxygenCommand
   - EmergencyMeatCommand
   - EmergencyWheatCommand
+  - EmergencyAquaticCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -326,6 +300,7 @@
   - EmergencyOxygenExtendedCommand
   - EmergencyMeatExtendedCommand
   - EmergencyWheatExtendedCommand
+  - EmergencyAquaticExtendedCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -339,6 +314,7 @@
   - EmergencyOxygenSecurityCommand
   - EmergencyMeatSecurityCommand
   - EmergencyWheatSecurityCommand
+  - EmergencyAquaticSecurityCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
 
@@ -497,6 +473,7 @@
   loadouts:
   - BlackShoes
   - ChefShoes
+  - BlackHeels
   - ClownShoesExpert
   - HeadChefShoes
 
@@ -653,6 +630,7 @@
   minLimit: 0
   loadouts:
   - ScarfZebra
+  - ScarfAscot
 
 - type: loadoutGroup
   id: MimeShoes
@@ -660,6 +638,7 @@
   loadouts:
   - WhiteShoes
   - BlackShoes
+  - MimeBoots
 
 - type: loadoutGroup
   id: MusicianNeck
@@ -1002,6 +981,7 @@
   minLimit: 0
   loadouts:
   - SecurityClown
+  - SecurityMime
 
 - type: loadoutGroup
   id: SecurityNeck
@@ -1131,6 +1111,7 @@
   - EmergencyOxygenBrigmedic
   - EmergencyMeatBrigmedic
   - EmergencyWheatBrigmedic
+  - EmergencyAquaticBrigmedic
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen
 

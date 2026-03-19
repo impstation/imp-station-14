@@ -14,12 +14,14 @@
       visible: false
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cartons/syndicate.rsi #imp - moved rsi with resprite
-  - type: StorageFill
-    contents:
-    - id: CigPackSyndicate
-      amount: 6
-    - id: SyndicateFlippo #imp - fixing the proto
-      amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: CigPackSyndicate
+          amount: 6
+        - id: SyndicateFlippo #imp - fixing the proto
+          amount: 1
   - type: Storage
     grid:
     - 0,0,5,1

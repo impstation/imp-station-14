@@ -2,7 +2,6 @@ using Content.Server._Impstation.Drone.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
-using Content.Server.PowerCell;
 using Content.Server.Tools.Innate;
 using Content.Shared._Impstation.Drone;
 using Content.Shared.Alert;
@@ -17,6 +16,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Throwing;
@@ -39,6 +39,7 @@ namespace Content.Server._Impstation.Drone
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly PowerCellSystem _powerCell = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly SharedBatterySystem _battery = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
@@ -61,7 +62,7 @@ namespace Content.Server._Impstation.Drone
         // imp. for the battery system
         private void OnMapInit(Entity<DroneComponent> ent, ref MapInitEvent args)
         {
-            UpdateBatteryAlert((ent.Owner, ent.Comp));
+            UpdateBatteryAlert(ent);
 
             if (!TryComp<MindContainerComponent>(ent.Owner, out var mind) || !mind.HasMind)
                 _powerCell.SetDrawEnabled(ent.Owner, false);
@@ -79,7 +80,7 @@ namespace Content.Server._Impstation.Drone
                 }
             }
 
-            else if (_whitelist.IsBlacklistPass(component.Blacklist, args.Used)) // imp special. blacklist. this one *does* prevent actions. it would probably be best if this read from the component or something.
+            else if (_whitelist.IsWhitelistPass(component.Blacklist, args.Used)) // imp special. blacklist. this one *does* prevent actions. it would probably be best if this read from the component or something.
             {
                 args.Cancel();
                 if (_gameTiming.CurTime >= component.NextProximityAlert)
@@ -92,7 +93,7 @@ namespace Content.Server._Impstation.Drone
 
         private void OnActivateUIAttempt(EntityUid uid, DroneComponent component, UserOpenActivatableUIAttemptEvent args)
         {
-            if (_whitelist.IsBlacklistPass(component.Blacklist, args.Target))
+            if (_whitelist.IsWhitelistPass(component.Blacklist, args.Target))
             {
                 args.Cancel();
             }
@@ -185,23 +186,26 @@ namespace Content.Server._Impstation.Drone
             if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
             {
                 hasBattery = true;
-                chargePercent = battery.CurrentCharge / battery.MaxCharge;
+                chargePercent = _battery.GetCharge(battery.Value.AsNullable()) / battery.Value.Comp.MaxCharge;
             }
 
             var state = new DroneBuiState(chargePercent, hasBattery);
             _ui.SetUiState(uid, DroneUiKey.Key, state);
         }
 
-        private void UpdateBatteryAlert(Entity<DroneComponent> ent, PowerCellSlotComponent? slotComponent = null)
+        private void UpdateBatteryAlert(Entity<DroneComponent> ent)
         {
-            if (!_powerCell.TryGetBatteryFromSlot(ent, out var battery, slotComponent))
+            if (!TryComp<PowerCellSlotComponent>(ent, out var slotComponent))
+                return;
+
+            if (!_powerCell.TryGetBatteryFromSlot((ent, slotComponent), out var battery))
             {
                 _alerts.ClearAlert(ent.Owner, ent.Comp.BatteryAlert);
                 _alerts.ShowAlert(ent.Owner, ent.Comp.NoBatteryAlert);
                 return;
             }
 
-            var chargePercent = (short)MathF.Round(battery.CurrentCharge / battery.MaxCharge * 10f);
+            var chargePercent = (short)MathF.Round(_battery.GetCharge(battery.Value.AsNullable()) / battery.Value.Comp.MaxCharge * 10f);
 
             if (chargePercent == 5 && chargePercent < ent.Comp.LastChargePercent)
             {
@@ -223,7 +227,7 @@ namespace Content.Server._Impstation.Drone
 
             // we make sure 0 only shows if they have absolutely no battery.
             // also account for floating point imprecision
-            if (chargePercent == 0 && _powerCell.HasDrawCharge(ent, cell: slotComponent))
+            if (chargePercent == 0 && _powerCell.HasDrawCharge(ent.Owner))
             {
                 chargePercent = 1;
             }

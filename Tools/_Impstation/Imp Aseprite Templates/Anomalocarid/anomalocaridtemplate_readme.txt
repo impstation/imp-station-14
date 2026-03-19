@@ -1,0 +1,5 @@
+Anomalocarids have weird body shapes, so they require the use of templates if you want to make clothes for them. Custom clothes aren't strictly necessary, outside of helmets, but they do help a lot and if you're willing to make them these templates should help.
+
+The clothing file has templates for outerclothing, jumpsuits, and head slot items. New ear and glasses sprites can also use the head slot template. Neck, back, gloves, shoes, and belts are all covered by displacements, so you don't need to worry about making sprites for those.
+
+The reason why you need to use templates is because Anomalocarids use a lot of offsets. You can't really just sprite directly onto a dummy constructed from parts.rsi without it coming out weird. Hopefully these help! If you have any questions you can contact me at doop.toys on Discord or atdoop on GitHub!

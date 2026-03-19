@@ -18,16 +18,18 @@
     whitelist:
       tags:
       - DrinkBottle
-  - type: StorageFill
-    contents:
-    - id: DrinkCoffeeJug
-    - id: DrinkCreamCartonXL
-    - id: DrinkSugarJug
-    - id: DrinkIceJug
-    - id: DrinkMilkCarton
-    - id: DrinkSoyMilkCarton
-    - id: JugCaramexinin
-    - id: JugCocoa
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: DrinkCoffeeJug
+        - id: DrinkCreamCartonXL
+        - id: DrinkSugarJug
+        - id: DrinkIceJug
+        - id: DrinkMilkCarton
+        - id: DrinkSoyMilkCarton
+        - id: JugCaramexinin
+        - id: JugCocoa
   - type: Transform
     noRot: false
   - type: Machine

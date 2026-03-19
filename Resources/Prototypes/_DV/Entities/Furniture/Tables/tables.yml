@@ -5,9 +5,9 @@
   description: A classic wooden table. Extra robust.
   components:
   - type: Sprite
-    sprite: _DV/Structures/Furniture/Tables/rwood.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_wood_reinforced.rsi # Imp
   - type: Icon
-    sprite: _DV/Structures/Furniture/Tables/rwood.rsi
+    sprite: _Impstation/Structures/Furniture/Tables/table_wood_reinforced.rsi # Imp
   - type: Damageable
     damageModifierSet: Wood
   - type: Destructible

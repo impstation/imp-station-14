@@ -67,6 +67,8 @@
       path: /Audio/_Impstation/Animals/bananadeer_eee.ogg
     interactFailureSound:
       path: /Audio/_Impstation/Animals/bananadeer_euh.ogg
+  - type: ReplacementAccent
+    accent: bananadeer
   - type: Speech
     speechSounds: BananaDeer
     speechVerb: Goat
@@ -95,7 +97,7 @@
     baseSprintSpeed : 4.5
   - type: Body
     prototype: AnimalRuminant
-  - type: GoobAbsorbable 
+  - type: GoobAbsorbable
     biomassRestored: 0.7 #cow amount. yummy animal lots of banana on it.
   #part where it gets silly
   - type: SpamEmitSound
@@ -112,8 +114,10 @@
     - id: MaterialBananium
       amount: 1
   - type: Bloodstream
-    bloodMaxVolume: 300
-    bloodReagent: Bananadine
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Bananadine
+        Quantity: 300
   - type: SolutionContainerManager
     solutions:
       udder:

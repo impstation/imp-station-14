@@ -28,7 +28,6 @@
           components:
           - Delivery
           - Paper
-          - HyperlinkBook
           - Envelope
           tags:
           - Document
@@ -42,7 +41,7 @@
         startingItem: null
         whitelist:
           components:
-          - Food
+          - Edible
         insertOnInteract: true
         priority: 2
   - type: ContainerContainer
@@ -65,13 +64,12 @@
       icon-food:
         whitelist:
           components:
-          - Food
+          - Edible
       icon-mail:
         whitelist:
           components:
           - Delivery
           - Paper
-          - HyperlinkBook
           - Envelope
           tags:
           - Document
@@ -112,10 +110,12 @@
   - type: Storage
     grid:
     - 0,0,4,3
-  - type: StorageFill
-    contents:
-      - id: MailCapsulePrimed
-        amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MailCapsulePrimed
+          amount: 10
   - type: Sprite
     layers:
       - state: box

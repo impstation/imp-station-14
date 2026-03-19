@@ -4,9 +4,11 @@
   name: luggage crate
   description: A crate containing a chest made of sapient pearwood. It looks hungry...
   components:
-  - type: StorageFill
-    contents:
-      - id: MobDiscworldLuggage
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MobDiscworldLuggage
 
 - type: entity
   id: CrateNPCCargorilla
@@ -14,9 +16,11 @@
   name: cargorilla crate
   description: A crate containing a Very strong cargo technician.
   components:
-  - type: StorageFill
-    contents:
-      - id: MobCargorilla
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MobCargorilla
 
 - type: entity
   id: CrateNPCFinfin
@@ -24,10 +28,11 @@
   name: fin fin crate
   description: A crate containing your new best friend, imported straight from Teo. Adorable, but otherwise useless. Are you SURE you want to buy this one?
   components:
-  - type: StorageFill
-    contents:
-      - id: MobFinfin
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MobFinfin
 
 - type: entity
   id: CrateNPCBananaDeer
@@ -35,6 +40,68 @@
   name: banana deer crate
   description: A crate containing a slippery beast, imported straight from Teo. Please try not to provoke it..
   components:
-  - type: StorageFill
-    contents:
-      - id: MobBananaDeer
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MobBananaDeer
+
+- type: entity
+  id: CrateNPCPompom
+  parent: CrateLivestock
+  name: crate of pom poms
+  description: A crate containing three Pom Poms, tiny creatures from Planet Teo said to only appear during a new moon.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MobPompom
+          amount: 3
+
+- type: entity
+  id: CrateNPCDuctSpider
+  parent: CrateLivestock
+  name: duct spider crate
+  description: Awww! Straight from the Australicus sector to your station's ventilation system!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MobDuctSpider
+          amount: 4
+
+- type: entity
+  parent: CrateLivestock
+  id: CrateUrist
+  name: urist crate
+  suffix: DEBUG
+  description: A crate containing an assortment of Urists.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MobHuman #WIZ
+        - id: MobArachnid
+        - id: MobDiona
+        - id: MobDwarf
+        - id: MobGingerbread
+        - id: MobMoth
+        - id: MobReptilian
+        - id: MobSkeletonPerson
+        - id: MobSlimePerson
+        - id: BaseMobVoxInternals
+        - id: MobVulpkanin
+        - id: MobAllulalo #IMP
+        - id: MobAnt
+        - id: MobAnomalocarid
+        - id: MobApidBaseGhostrole
+        - id: BaseMobDecapoidInternals
+        - id: MobGastropoid
+        - id: MobGray
+        - id: MobKodepiia
+        - id: MobThaven
+        - id: MobUngu
+        - id: MobGoblin #NF

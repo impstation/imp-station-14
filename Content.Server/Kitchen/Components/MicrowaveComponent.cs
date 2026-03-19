@@ -155,22 +155,4 @@ namespace Content.Server.Kitchen.Components
         public MicrowaveUiKey Key = MicrowaveUiKey.Key;
         // End Frontier
     }
-
-    public sealed class BeingMicrowavedEvent : HandledEntityEventArgs
-    {
-        public EntityUid Microwave;
-        public EntityUid? User;
-        // Frontier: fields for whether or not the object is actually being heated or irradiated.
-        public bool BeingHeated;
-        public bool BeingIrradiated;
-        // End Frontier
-
-        public BeingMicrowavedEvent(EntityUid microwave, EntityUid? user, bool heating, bool irradiating) // Frontier: added heating, irradiating
-        {
-            Microwave = microwave;
-            User = user;
-            BeingHeated = heating; // Frontier
-            BeingIrradiated = irradiating; // Frontier
-        }
-    }
 }

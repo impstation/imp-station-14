@@ -29,8 +29,8 @@ using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 // imp:
+using Content.Shared._Impstation.Carrying;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Buckle;
 
 namespace Content.Shared._EE.Carrying;
 
@@ -234,7 +234,8 @@ public sealed partial class CarryingSystem : EntitySystem
         // NF: change arbitrary doafter length cancel to a mass check
         if (!TryComp<PhysicsComponent>(carrier, out var carrierPhysics)
             || !TryComp<PhysicsComponent>(carried, out var carriedPhysics)
-            || carriedPhysics.Mass > carrierPhysics.Mass * carried.Comp.WeightThreshold)
+            || carriedPhysics.Mass > carrierPhysics.Mass * carried.Comp.WeightThreshold
+            && !HasComp<StrongAsFuckAntComponent>(carrier)) // imp add
         {
             _popup.PopupClient(Loc.GetString("carry-too-heavy"), carried, carrier, PopupType.SmallCaution);
             return;
@@ -327,7 +328,8 @@ public sealed partial class CarryingSystem : EntitySystem
 
     private void ApplyCarrySlowdown(EntityUid carrier, Entity<CarriableComponent?> carried)
     {
-        if (!Resolve(carried, ref carried.Comp))
+        if (!Resolve(carried, ref carried.Comp) ||
+            HasComp<StrongAsFuckAntComponent>(carrier)) // IMP ADD
             return;
         // Frontier edits. Yup, we're using mass contests again.
         var massRatio = _contests.MassContest(carrier, carried.Owner);
