@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 03/20/2026 21:48:30
+  time: 03/20/2026 22:37:58
   entityCount: 8989
 maps:
 - 1
@@ -28460,8 +28460,8 @@ entities:
       pos: 39.5,-15.5
       parent: 2
     - type: GasMixer
-      inletTwoConcentration: 0.029999971
-      inletOneConcentration: 0.97
+      inletTwoConcentration: 0.78
+      inletOneConcentration: 0.22
     - type: AtmosPipeColor
       color: '#0055CCFF'
 - proto: GasOutletInjector
