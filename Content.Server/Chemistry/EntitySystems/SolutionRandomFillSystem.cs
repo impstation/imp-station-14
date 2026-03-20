@@ -23,6 +23,10 @@ public sealed class SolutionRandomFillSystem : EntitySystem
         SubscribeLocalEvent<RandomFillSolutionComponent, MapInitEvent>(OnRandomSolutionFillMapInit);
     }
 
+    /// <summary>
+    /// Get every reagent that passes the whitelists and blacklists, then select a random one at a random quantity
+    /// to fill the specified solution with.
+    /// </summary>
     private void OnRandomSolutionFillMapInit(Entity<RandomFillSolutionComponent> entity, ref MapInitEvent args)
     {
         // imp edit start
