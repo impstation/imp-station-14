@@ -25,3 +25,5 @@ analysis-console-unlock-time-text = Unlocking ends in {$seconds ->
                                       *[other] {$seconds} seconds
 }
 analysis-console-extract-sum-with-modifier = [font="Monospace" size=11][color=orange]Total Research: {$value}, with {$multiplier} from Advanced Node Scanner: {$pointswithmult} [/color][/font]
+
+analyzer-artifact-extract-failed-popup = Cannot extract points: Research Server not connected or out of power.

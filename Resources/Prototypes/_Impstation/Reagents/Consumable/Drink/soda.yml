@@ -90,7 +90,7 @@
         type: Local
         visualType: MediumCaution
         messages: [ "shrimpsoda-anomalocarid-effect-best" ]
-        probability: 0.2
+        probability: 0.01
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
