@@ -1,0 +1,7 @@
+﻿- type: entity
+  id: BorgChassisEntertainment
+  parent: BorgChassisSelectable
+  name: entertainment cyborg
+  components:
+  - type: BorgSwitchableType
+    selectedBorgType: entertainment
