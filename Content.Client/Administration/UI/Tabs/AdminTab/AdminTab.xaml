@@ -18,6 +18,8 @@
             <cc:CommandButton Command="achatwindow" Text="{Loc admin-player-actions-window-admin-chat}"/>
             <!-- CD: records purge button -->
             <cc:UICommandButton Command="purgecharacterrecords" Text="{Loc admin-player-actions-window-cd-record-purge}" WindowType="{x:Type cdAdmin:ModifyCharacterRecords}"/>
+            <!-- IMP: Shared moods -->
+            <cc:CommandButton Command="sharedmoods" Text="{Loc admin-player-actions-window-shared-moods}"/>
         </GridContainer>
     </BoxContainer>
 </Control>

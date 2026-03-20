@@ -44,3 +44,60 @@
     maxFillLevels: 1
     changeColor: false
     emptySpriteName: poisonpen_empty
+
+- type: entity
+  name: romerol auto-injector
+  parent: [ ChemicalMedipen, Tier3Contraband ]
+  id: RomerolAutoInjector
+  description: A rapid and unsafe way to stabilize patients in critical condition by turning them into a zombie.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Medical/zombiepen.rsi
+    layers:
+    - state: icon
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: Item
+    sprite: Objects/Specific/Medical/medipen.rsi
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#5B0010"
+      - state: base-colorB-inhand-left
+        color: "#820A16"
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#5B0010"
+      - state: base-colorB-inhand-right
+        color: "#820A16"
+    size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 15
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: icon_empty
+
+- type: entity
+  name: romerol micro-injector
+  parent: RomerolAutoInjector
+  id: RomerolMicroInjector
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Medical/zombiepen_micro.rsi
+    layers:
+    - state: icon
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 5
+        reagents:
+        - ReagentId: Romerol
+          Quantity: 5
