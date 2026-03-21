@@ -207,11 +207,11 @@ public sealed partial class GunSystem : SharedGunSystem
         //todo turn this into a specific event?
         //or something more complicated that (hopefully) goes into upstream instead of exclusively being an us thing
         //anyway - tried hooking into a couple different events & it didn't like working consistently, would either break after the first shot or persist after the ammo w/ modified proj speed had been fired w/ no clear way to un-modify the proj speed
-        var projspeed = gun.ProjectileSpeedModified;
+        var projspeed = gun.Comp.ProjectileSpeedModified;
         if (TryComp<ProjectileSpeedOverrideComponent>(uid, out var speedComp))
         {
-            var baseSpeed = gun.ProjectileSpeed;
-            var modifiedSpeed = gun.ProjectileSpeedModified;
+            var baseSpeed = gun.Comp.ProjectileSpeed;
+            var modifiedSpeed = gun.Comp.ProjectileSpeedModified;
             var ratio = modifiedSpeed / baseSpeed;
 
             projspeed = speedComp.SpeedOverride * ratio;

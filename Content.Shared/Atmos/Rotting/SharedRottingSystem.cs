@@ -73,7 +73,7 @@ public abstract class SharedRottingSystem : EntitySystem
 
     private void OnShutdown(EntityUid uid, RottingComponent component, ComponentShutdown args)
     {
-        if (TryComp<PerishableComponent>(ent, out var perishable))
+        if (TryComp<PerishableComponent>(uid, out var perishable))
         {
             perishable.RotNextUpdate = TimeSpan.Zero;
         }
