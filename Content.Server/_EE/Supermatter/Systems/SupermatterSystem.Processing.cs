@@ -621,7 +621,15 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(EECCVars.SupermatterDoForceDelam))
             return _config.GetCVar(EECCVars.SupermatterForcedDelamType);
 
-        if (true)
+        if (sm.GasComposition is { } && sm.GasStorage is { })
+        {
+            if (sm.GasComposition.GetMoles(Gas.Frezon) >= 0.4 && sm.GasComposition.GetMoles(Gas.Tritium) >= 0.4 && sm.GasStorage.TotalMoles >= 240)
+            {
+                return DelamType.Cascade;
+            }
+        }
+
+        if (sm.DestabilizingCrystal)
         {
             return DelamType.Cascade;
         }

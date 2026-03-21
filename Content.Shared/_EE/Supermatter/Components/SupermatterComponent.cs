@@ -379,6 +379,12 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public DelamType PreferredDelamType = DelamType.Explosion;
 
+    /// <summary>
+    /// The point at which the SM begins showing warning signs.
+    /// </summary>
+    [DataField]
+    public bool DestabilizingCrystal;
+
     #endregion
 
     #region Announcements
@@ -578,7 +584,12 @@ public enum SupermatterVisuals : byte
 }
 
 [Serializable, NetSerializable]
-public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
+public sealed partial class SupermatterScapelDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed partial class DestabalizingCrystalDoAfterEvent : SimpleDoAfterEvent
 {
 }
 

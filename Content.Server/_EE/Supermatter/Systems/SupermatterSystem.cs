@@ -4,6 +4,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.DoAfter;
 using Content.Server.Examine;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
@@ -22,6 +23,7 @@ using Content.Shared.Audio;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
+using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
@@ -29,6 +31,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using NetCord.Gateway;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -50,6 +53,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly ExamineSystem _examine = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
@@ -88,7 +92,8 @@ public sealed partial class SupermatterSystem : EntitySystem
         SubscribeLocalEvent<SupermatterComponent, InteractHandEvent>(OnHandInteract);
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
+        SubscribeLocalEvent<SupermatterComponent, SupermatterScapelDoAfterEvent>(OnGetSliver);
+        SubscribeLocalEvent<SupermatterComponent, DestabalizingCrystalDoAfterEvent>(OnDestabalizeSupermatter);
         SubscribeLocalEvent<SupermatterComponent, GravPulseEvent>(OnGravPulse);
     }
 
@@ -192,6 +197,31 @@ public sealed partial class SupermatterSystem : EntitySystem
             HasComp<GodmodeComponent>(item))
             return;
 
+        // Unhardcode these timers... mabye
+        if (HasComp<SupermatterScalpel>(item))
+        {
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(30), new SupermatterScapelDoAfterEvent(), uid)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+                NeedHand = true,
+            });
+            return;
+        }
+
+        if (HasComp<DestbalaizingCrystal>(item))
+        {
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(30), new DestabalizingCrystalDoAfterEvent(), uid)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+                NeedHand = true,
+            });
+            return;
+        }
+
         // TODO: supermatter scalpel
         if (HasComp<UnremoveableComponent>(item))
         {
@@ -243,7 +273,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterDoAfterEvent args)
+    private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterScapelDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
@@ -258,6 +288,24 @@ public sealed partial class SupermatterSystem : EntitySystem
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
 
         sm.DelamTimer /= 2;
+    }
+
+    private void OnDestabalizeSupermatter(EntityUid uid, SupermatterComponent sm, ref DestabalizingCrystalDoAfterEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (GetIntegrity(sm) < 80)
+        {
+            _popup.PopupClient(Loc.GetString("supermatter-integrity-too-low"), uid, args.User);
+            return;
+        }
+
+        SendSupermatterAnnouncement(uid, sm, Loc.GetString("supermatter-announcement-cc-resonance-cascade"), true);
+
+        _popup.PopupClient(Loc.GetString("supermatter-destabalize-end"), uid, args.User);
+
+        sm.DestabilizingCrystal = true;
     }
 
     private void OnGravPulse(Entity<SupermatterComponent> ent, ref GravPulseEvent args)
