@@ -33,6 +33,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using StatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
+using Content.Shared._Impstation.Heretic; // imp edit
 
 namespace Content.Server.Heretic.EntitySystems;
 
