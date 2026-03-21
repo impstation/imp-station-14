@@ -1,4 +1,4 @@
-using Content.Client._Goobstation.Heretic.UI;
+using Content.Client._Impstation.Heretic.UI;
 using Content.Shared._Goobstation.Heretic.Components;
 using Content.Shared.Heretic.Prototypes;
 using Robust.Client.Graphics;
