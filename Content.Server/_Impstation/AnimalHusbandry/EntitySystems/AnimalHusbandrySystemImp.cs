@@ -46,6 +46,14 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
         base.Initialize();
     }
 
+    /// <summary>
+    /// Here we do two things
+    /// 1. Loop through the pregnant mobs to see who needs to give birth
+    /// 2. Track the infant mobs to see who is ready to grow up
+    /// I've done this so it should be calling as minimally as possible.
+    /// If there's no infants and no-one is pregnant, this basically does nothing.
+    /// </summary>
+    /// <param name="frameTime">Time between frames</param>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -112,9 +120,9 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     /// Our function for handling the breeding action once all checks are finished and the
     /// animal has approached its partner.
     /// </summary>
-    /// <param name="approacher"></param>
-    /// <param name="approached"></param>
-    /// <returns></returns>
+    /// <param name="approacher">The mob seeking to impregnate</param>
+    /// <param name="approached">The mob that will be impregnated</param>
+    /// <returns>True if the mob has successfully bred with the target</returns>
     public bool TryBreedWithTarget(EntityUid approacher, EntityUid approached)
     {
         // Realistically this should never return false but it's just here for the moment
@@ -181,8 +189,8 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     /// This isn't set in stone to remain and it largely in this class for the moment so multiple scripts
     /// Can use it, whether it remains is yet to be discovered. Depends on if it needs to be.
     /// </summary>
-    /// <param name="entity"></param>
-    /// <returns></returns>
+    /// <param name="entity">The fella we're checking out. Or ourself</param>
+    /// <returns>If the mob is eligible to breed</returns>
     public bool CanYouBreed(Entity<ImpReproductiveComponent> entity)
     {
         if (entity.Comp.Pregnant)
@@ -215,8 +223,8 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     /// <summary>
     /// Same as CanYouBreed except this one takes into account the animals search times
     /// </summary>
-    /// <param name="entity"></param>
-    /// <returns></returns>
+    /// <param name="entity">The mob checking if it's eligible to breed</param>
+    /// <returns>If the mob is eligible for breeding</returns>
     public bool CanIBreed(Entity<ImpReproductiveComponent> entity)
     {
         if (entity.Comp.NextSearch > _time.CurTime)
@@ -231,7 +239,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     /// <summary>
     /// Handles the actual birthing of the new NPC and sets how long until they grow up
     /// </summary>
-    /// <param name="entity"></param>
+    /// <param name="entity">The mob giving birth</param>
     private void Birth(Entity<ImpReproductiveComponent> entity)
     {
         if (TryComp<InteractionPopupComponent>(entity, out var interactionPopup))
@@ -257,7 +265,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     /// Handles growing an infant by deleting the current mob and making a new one
     /// This also transfers the previous components to the new mob
     /// </summary>
-    /// <param name="_infant"></param>
+    /// <param name="infant">The infant that will be growing up</param>
     /// <returns></returns>
     private bool AdvanceStage(Entity<ImpInfantComponent> infant)
     {
@@ -288,6 +296,7 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
             CopyComp(infant, (EntityUid)newStage, ghostComp);
         }
 
+        // Pompeii Ash Baby.png
         QueueDel(infant);
 
         // So they don't immediately try to breed the second they grow up
@@ -301,6 +310,12 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
 
     #region UNIVERSAL
 
+    /// <summary>
+    /// Handles spawning a new mob for us
+    /// </summary>
+    /// <param name="entity">Entity calling the creation</param>
+    /// <param name="toSpawn">What entity will be spawned</param>
+    /// <returns>The ID of our new mob! Or nothing if for some reason it didn't spawn.</returns>
     public EntityUid? SpawnNewMob(EntityUid entity, EntProtoId toSpawn)
     {
         var xform = Transform(entity);

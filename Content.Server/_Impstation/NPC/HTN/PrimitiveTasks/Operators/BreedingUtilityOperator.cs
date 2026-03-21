@@ -33,6 +33,9 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
 
     private AnimalHusbandrySystemImp _breedSystem = default!;
 
+    /// <summary>
+    /// Who we hunting
+    /// </summary>
     [DataField("key")] public string Key = "Target";
 
     [DataField("keyCoordinates")] public string KeyCoordinates = "TargetCoordinates";
@@ -121,9 +124,9 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
     /// <summary>
     /// Checking that this is a mob we can breed with based on partners
     /// </summary>
-    /// <param name="comp"></param>
-    /// <param name="self"></param>
-    /// <returns></returns>
+    /// <param name="comp">Our reproductive component</param>
+    /// <param name="self">Our Mob ProtoID as a string</param>
+    /// <returns>True if the mobs are copmatible OR the one being checked has no compatible partners in which case everyone is valid.</returns>
     public bool IsValidPartner(ImpReproductiveComponent comp, string self)
     {
         var settingsProto = _proto.Index(comp.BreedSettings);

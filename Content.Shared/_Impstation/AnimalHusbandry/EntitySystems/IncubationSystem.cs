@@ -33,7 +33,7 @@ public sealed class IncubationSystem : EntitySystem
     /// <summary>
     /// Goes through and checks on each active incubator to see if it's time to hatch
     /// </summary>
-    /// <param name="frameTime"></param>
+    /// <param name="frameTime">Time between frames</param>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -61,8 +61,8 @@ public sealed class IncubationSystem : EntitySystem
     /// Called whenever someone tries to place something into the Incubator
     /// If it's valid, we'll store it and begin the hatch timer
     /// </summary>
-    /// <param name="entity"></param>
-    /// <param name="args"></param>
+    /// <param name="entity">The Incubator being touched</param>
+    /// <param name="args">Our arguments for the event</param>
     private void OnAfterInteract(Entity<EggIncubatorComponent> entity, ref InteractUsingEvent args)
     {
         // If it can't be incubated, cancel
@@ -82,8 +82,8 @@ public sealed class IncubationSystem : EntitySystem
     /// Handles updating our incubator whenever the egg is removed
     /// This wipes the reference to the egg so the incubator isn't still trying to incubate even after it's gone
     /// </summary>
-    /// <param name="entity"></param>
-    /// <param name="args"></param>
+    /// <param name="entity">The incubator we're removing from</param>
+    /// <param name="args">Our arguments for the event</param>
     private void OnEntityRemoved(Entity<EggIncubatorComponent> entity, ref EntRemovedFromContainerMessage args)
     {
         // We weren't even incubating so just ignore whatever is going on
@@ -107,7 +107,7 @@ public sealed class IncubationSystem : EntitySystem
     /// <summary>
     /// Handles hatching our egg once the time has passed and creating the new mob.
     /// </summary>
-    /// <param name="entity"></param>
+    /// <param name="entity">The incubator hatching our mob</param>
     private void FinishIncubation(Entity<EggIncubatorComponent> entity)
     {
         // Making sure we have a container. Should also never be false without admin shenanigans.
@@ -130,6 +130,12 @@ public sealed class IncubationSystem : EntitySystem
         _entManager.PredictedDeleteEntity(incubated);
     }
 
+    /// <summary>
+    /// Handles spawning a new mob for us
+    /// </summary>
+    /// <param name="entity">Entity calling the creation</param>
+    /// <param name="toSpawn">What entity will be spawned</param>
+    /// <returns>The ID of our new mob! Or nothing if for some reason it didn't spawn.</returns>
     private EntityUid? SpawnNewMob(EntityUid entity, EntProtoId toSpawn)
     {
         var xform = Transform(entity);
@@ -142,7 +148,7 @@ public sealed class IncubationSystem : EntitySystem
     /// <summary>
     /// Check if we're still powered and based on our activity, update the Incubators Status and visuals as needed
     /// </summary>
-    /// <param name="entity"></param>
+    /// <param name="entity">The incubator we're checking in on</param>
     private void CheckPowerchanged(Entity<EggIncubatorComponent> entity)
     {
         var powered = _powerSystem.IsPowered(entity.Owner);

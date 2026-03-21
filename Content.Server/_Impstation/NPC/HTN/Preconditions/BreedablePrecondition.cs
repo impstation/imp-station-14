@@ -25,9 +25,15 @@ public sealed partial class BreedablePrecondition : HTNPrecondition
 
     private AnimalHusbandrySystemImp _breedSystem = default!;
 
+    /// <summary>
+    /// Minimum amount of hunger required to breed
+    /// </summary>
     [DataField("minHungerState", required: true)]
     public HungerThreshold MinHungerToBreed = HungerThreshold.Okay;
 
+    /// <summary>
+    /// Minimum amount of thirst required to breed
+    /// </summary>
     [DataField("minThirstState", required: true)]
     public ThirstThreshold MinThirstToBreed = ThirstThreshold.Okay;
 
