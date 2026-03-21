@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [BaseStructureDynamic, BasePaperLabelableVisualized, BaseWrappedParcel]
+  parent: [BaseWrappedParcel, BaseStructureDynamic]
   id: WrappedParcelCrate
   name: wrapped crate
   description: A crate wrapped up in paper.
@@ -28,7 +28,7 @@
     absorption: 10
 
 - type: entity
-  parent: [BaseStructureDynamic, BasePaperLabelableVisualized, BaseWrappedParcel]
+  parent: [BaseWrappedParcel, BaseStructureDynamic]
   id: WrappedParcelLocker
   name: wrapped locker
   description: A locker wrapped up in paper.
