@@ -281,13 +281,13 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 
         var netArtifact = GetNetEntity(ent.Owner);
 
-        if (ans.ArtifactUnlockSessions.ContainsKey(netArtifact))
-            return ans.ArtifactUnlockSessions[netArtifact];
+        if (ans.ArtifactUnlockSessions.TryGetValue(netArtifact, out var session))
+            return session;
 
-        if (!ans.UnlockHistories.ContainsKey(netArtifact.Id))
+        if (!ans.UnlockHistories.TryGetValue(netArtifact.Id, out var history))
             return null;
 
-        return ans.UnlockHistories[netArtifact.Id].Last();
+        return history.Last();
     }
 
     /// <summary>
