@@ -6,6 +6,7 @@ using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Cloning;
+using Content.Shared.Gibbing;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
@@ -51,6 +52,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     // i'm complaining -kandiyaki
     // IM ALSO COMPLAINING -mq
     // im mad. -honeyed
+    // what the fuck -dinner
     private EntityLookupSystem _lookup = default!;
     private HellWorldSystem _hellworld = default!;
     private HereticSystem _heretic = default!;
@@ -58,6 +60,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     private TransformSystem _transformSystem = default!;
     private CloningSystem _cloning = default!;
     private SharedBodySystem _body = default!;
+    private GibbingSystem _gibbing = default!;
 
     protected List<EntityUid> Uids = [];
 
@@ -65,6 +68,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
     {
         // this fucking sucks -mq
         // why is this like this -honeyed
+        // TODO IMP: remove heretic -dinner
         _hellworld = args.EntityManager.System<HellWorldSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
@@ -72,6 +76,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
         _transformSystem = args.EntityManager.System<TransformSystem>();
         _cloning = args.EntityManager.System<CloningSystem>();
         _body = args.EntityManager.System<SharedBodySystem>();
+        _gibbing = args.EntityManager.System<GibbingSystem>();
 
         //if the performer isn't a heretic, stop
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out _))
@@ -126,7 +131,7 @@ public partial class RitualSacrificeBehavior : RitualCustomBehavior
 
             //gib clone to get matching organs.
             if (clone != null)
-                _body.GibBody(clone.Value, true);
+                _gibbing.Gib(clone.Value, true);
 
             //send the target to hell world
             _hellworld.AddVictimComponent(Uids[i]);

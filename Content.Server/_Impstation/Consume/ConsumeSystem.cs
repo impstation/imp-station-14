@@ -10,6 +10,7 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.Gibbing;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.EntitySystems;
@@ -40,6 +41,7 @@ public sealed class ConsumeSystem : SharedConsumeSystem
     [Dependency] private readonly RottingSystem _rotting = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     /// <summary>
     /// How far consumed the consumed must be before they gib
@@ -196,8 +198,8 @@ public sealed class ConsumeSystem : SharedConsumeSystem
         consumed.ConsumedValue += ent.Comp.PercentageConsumed;
         Dirty(args.Target.Value, consumed);
 
-        if (consumed.ConsumedValue >= GibThreshold && TryComp<BodyComponent>(args.Target.Value, out var targetBody) && ent.Comp.CanGib)
-            _body.GibBody(args.Target.Value,true,targetBody);
+        if (consumed.ConsumedValue >= GibThreshold && ent.Comp.CanGib)
+            _gibbing.Gib(args.Target.Value);
     }
 
     public void PlayMeatySound(Entity<ConsumeActionComponent> ent)

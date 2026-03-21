@@ -6,6 +6,7 @@ using Content.Server.Temperature.Components;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Gibbing;
 using Content.Shared.Heretic;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
@@ -23,6 +24,7 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
@@ -73,6 +75,6 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
-            _body.GibBody(ent);
+            _gibbing.Gib(ent);
     }
 }
