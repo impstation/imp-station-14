@@ -47,11 +47,11 @@ public sealed partial class AdvancedNodeScannerComponent : Component
     /// Currently monitored unlocking sessions
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<EntityUid, UnlockSession> ArtifactUnlockSessions = new();
+    public Dictionary<NetEntity, UnlockSession> ArtifactUnlockSessions = new();
 
     /// <summary>
     /// Historic data for previous unlocking attempts per artifact.
-    /// Dictionary key is artifact entityuid as integer
+    /// Dictionary key is artifact NetEntity ID - to persist against deleted/crushed/sold artifact
     /// </summary>
     [DataField, AutoNetworkedField]
     public Dictionary<int, List<UnlockSession>> UnlockHistories = new();
@@ -62,37 +62,37 @@ public sealed partial class AdvancedNodeScannerComponent : Component
 public struct NodeActivation(
     TimeSpan? activateTime,
     int index,
-    int? node,
+    int? node, // NetEntity ID - int to persist after artifact is crushed/sold/deleted
     string? identifier,
     string? trigger
     )
 {
     public TimeSpan? ActivateTime = activateTime;
     public int Index = index;
-    public int? Node = node;
+    public int? Node = node; // NetEntity ID - int to persist after artifact is crushed/sold/deleted
     public string? Identifier = identifier;
     public string? Trigger = trigger;
 }
 
 [Serializable, NetSerializable]
 public struct UnlockSession(
-    int? artifact,
+    int? artifact, // NetEntity ID - int to persist after artifact is crushed/sold/deleted
     string artifactName,
     TimeSpan startTime,
     TimeSpan? endTime,
     List<NodeActivation> activatedNodes,
     bool artifexiumApplied,
-    int? unlockedNode)
+    int? unlockedNode) // NetEntity ID - int to persist after artifact is crushed/sold/deleted
 {
     /// <summary>
     /// Stored data about an unlocking session
     /// </summary>
-    public int? Artifact = artifact;
+    public int? Artifact = artifact; // NetEntity ID - int to persist after artifact is crushed/sold/deleted
 
     public string ArtifactName = artifactName;
     public TimeSpan StartTime = startTime;
     public TimeSpan? EndTime = endTime;
     public List<NodeActivation> ActivatedNodes = activatedNodes;
     public bool ArtifexiumApplied = artifexiumApplied;
-    public int? UnlockedNode = unlockedNode;
+    public int? UnlockedNode = unlockedNode; // NetEntity ID - int to persist after artifact is crushed/sold/deleted
 }

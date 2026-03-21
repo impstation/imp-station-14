@@ -206,32 +206,36 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
     {
         base.FrameUpdate(args);
 
-        if (_hideExtractInfoIn == null || _timing.CurTime + _meta.GetPauseTime(_owner) < _hideExtractInfoIn)
-            return;
-
-        ExtractContainer.Visible = false;
-        NodeViewContainer.Visible = true;
-        _hideExtractInfoIn = null;
-
         // imp edit: display remaining unlock time for reticulated artifacts if advanced node scanner is present
         // note: advanced node scanner detection is handled in Update()
 
         if (_unlockEndTime is not { } unlockEndTime)
         {
             UnlockingTimeLabel.Visible = false;
-            return;
         }
-
-        var remainingTime = (int)(unlockEndTime - _timing.CurTime).TotalSeconds;
-        if (remainingTime <= 0)
+        else
         {
-            UnlockingTimeLabel.Visible = false;
-            return;
-        }
 
-        UnlockingTimeLabel.Visible = true;
-        UnlockingTimeLabel.Text = Loc.GetString("analysis-console-unlock-time-text", ("seconds", remainingTime));
+            var remainingTime = (int)(unlockEndTime - _timing.CurTime).TotalSeconds;
+            if (remainingTime <= 0)
+            {
+                UnlockingTimeLabel.Visible = false;
+            }
+            else
+            {
+                UnlockingTimeLabel.Visible = true;
+                UnlockingTimeLabel.Text =
+                    Loc.GetString("analysis-console-unlock-time-text", ("seconds", remainingTime));
+            }
+        }
         // imp edit end
+
+        if (_hideExtractInfoIn == null || _timing.CurTime + _meta.GetPauseTime(_owner) < _hideExtractInfoIn)
+            return;
+
+        ExtractContainer.Visible = false;
+        NodeViewContainer.Visible = true;
+        _hideExtractInfoIn = null;
     }
 
     public void Update(Entity<AnalysisConsoleComponent> ent)
