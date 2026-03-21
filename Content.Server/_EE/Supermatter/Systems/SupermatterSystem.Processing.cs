@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using System.Threading.Tasks.Dataflow;
 using Content.Server.Chat.Systems;
 using Content.Server.Singularity.Components;
 using Content.Server.StationEvents.Events;
@@ -624,15 +623,11 @@ public sealed partial class SupermatterSystem
         if (sm.GasComposition is { } && sm.GasStorage is { })
         {
             if (sm.GasComposition.GetMoles(Gas.Frezon) >= 0.4 && sm.GasComposition.GetMoles(Gas.Tritium) >= 0.4 && sm.GasStorage.TotalMoles >= 240)
-            {
                 return DelamType.Cascade;
-            }
         }
 
         if (sm.DestabilizingCrystal)
-        {
             return DelamType.Cascade;
-        }
 
         if (sm.GasStorage is { })
         {

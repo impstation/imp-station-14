@@ -584,12 +584,12 @@ public enum SupermatterVisuals : byte
 }
 
 [Serializable, NetSerializable]
-public sealed partial class SupermatterScapelDoAfterEvent : SimpleDoAfterEvent
+public sealed partial class SupermatterScalpelDoAfterEvent : SimpleDoAfterEvent
 {
 }
 
 [Serializable, NetSerializable]
-public sealed partial class DestabalizingCrystalDoAfterEvent : SimpleDoAfterEvent
+public sealed partial class DestabilizingCrystalDoAfterEvent : SimpleDoAfterEvent
 {
 }
 

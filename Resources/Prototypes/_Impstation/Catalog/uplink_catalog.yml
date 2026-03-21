@@ -735,6 +735,30 @@
 # OBJECTIVE
 
 - type: listing
+  id: UplinkDestabilizingCrystal
+  name: uplink-destabilizing-crystal-name
+  description: uplink-destabilizing-crystal-desc
+  # icon: { sprite: sprite path, state: icon }
+  productEntity: DestabilizingCrystal
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkDisruption
+  - UplinkObjective
+  conditions:
+  - !type:BuyerObjectiveWhitelistCondition
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: UplinkRomerolMicroInjector
   name: uplink-romerol-traitor-name
   description: uplink-romerol-traitor-desc

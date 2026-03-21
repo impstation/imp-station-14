@@ -1,0 +1,19 @@
+# If this inherits the ability to perform surgery in the future, thats a good thing.
+- type: entity
+  name: supermatter scalpel
+  id: SupermatterScalpel
+  parent: [ Scalpel, BaseSyndicateContraband ]
+  # description:
+  components:
+  - type: Sprite
+    # sprite:
+  - type: Item
+    # sprite:
+    storedRotation: 90
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 8
+        Radiation: 8
+  - type: SupermatterScapel
+  - type: SupermatterImmune

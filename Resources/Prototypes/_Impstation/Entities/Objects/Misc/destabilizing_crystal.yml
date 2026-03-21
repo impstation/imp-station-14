@@ -1,0 +1,12 @@
+- type: entity
+  parent: [ BaseItem, BaseSyndicateContraband]
+  id: DestabilizingCrystal
+  name: destabilizing crystal
+  # description:
+  components:
+  - type: Sprite
+    sprite: # destabl crystal sprite path
+    state: icon
+  - type: Item
+  - type: SupermatterDestabalizer
+  - type: SupermatterImmuneComponent

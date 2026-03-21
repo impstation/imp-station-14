@@ -31,7 +31,6 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
-using NetCord.Gateway;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -92,8 +91,8 @@ public sealed partial class SupermatterSystem : EntitySystem
         SubscribeLocalEvent<SupermatterComponent, InteractHandEvent>(OnHandInteract);
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<SupermatterComponent, SupermatterScapelDoAfterEvent>(OnGetSliver);
-        SubscribeLocalEvent<SupermatterComponent, DestabalizingCrystalDoAfterEvent>(OnDestabalizeSupermatter);
+        SubscribeLocalEvent<SupermatterComponent, SupermatterScalpelDoAfterEvent>(OnGetSliver);
+        SubscribeLocalEvent<SupermatterComponent, DestabilizingCrystalDoAfterEvent>(OnDestabalizeSupermatter);
         SubscribeLocalEvent<SupermatterComponent, GravPulseEvent>(OnGravPulse);
     }
 
@@ -191,38 +190,37 @@ public sealed partial class SupermatterSystem : EntitySystem
         var item = args.Used;
         var othersFilter = Filter.Pvs(uid).RemovePlayerByAttachedEntity(target);
 
+        // Unhardcode these timers... mabye
+        if (HasComp<SupermatterScapelComponent>(item))
+        {
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(30), new SupermatterScalpelDoAfterEvent(), uid)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+                NeedHand = true,
+            });
+            return;
+        }
+
+        if (HasComp<SupermatterDestabalizerComponent>(item))
+        {
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(30), new DestabilizingCrystalDoAfterEvent(), uid)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+                NeedHand = true,
+            });
+            return;
+        }
+
         if (args.Handled ||
             HasComp<GhostComponent>(target) ||
             HasComp<SupermatterImmuneComponent>(item) ||
             HasComp<GodmodeComponent>(item))
             return;
 
-        // Unhardcode these timers... mabye
-        if (HasComp<SupermatterScalpel>(item))
-        {
-            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(30), new SupermatterScapelDoAfterEvent(), uid)
-            {
-                BreakOnDamage = true,
-                BreakOnMove = true,
-                BreakOnWeightlessMove = false,
-                NeedHand = true,
-            });
-            return;
-        }
-
-        if (HasComp<DestbalaizingCrystal>(item))
-        {
-            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(30), new DestabalizingCrystalDoAfterEvent(), uid)
-            {
-                BreakOnDamage = true,
-                BreakOnMove = true,
-                BreakOnWeightlessMove = false,
-                NeedHand = true,
-            });
-            return;
-        }
-
-        // TODO: supermatter scalpel
         if (HasComp<UnremoveableComponent>(item))
         {
             if (!sm.HasBeenPowered)
@@ -273,7 +271,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterScapelDoAfterEvent args)
+    private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterScalpelDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
@@ -290,7 +288,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         sm.DelamTimer /= 2;
     }
 
-    private void OnDestabalizeSupermatter(EntityUid uid, SupermatterComponent sm, ref DestabalizingCrystalDoAfterEvent args)
+    private void OnDestabalizeSupermatter(EntityUid uid, SupermatterComponent sm, ref DestabilizingCrystalDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
