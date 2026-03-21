@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 03/20/2026 19:47:15
-  entityCount: 14459
+  time: 03/21/2026 01:25:13
+  entityCount: 14463
 maps:
 - 1
 grids:
@@ -6643,15 +6643,8 @@ entities:
   - uid: 3570
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -19.5,28.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -28031.186
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
   - uid: 3676
     components:
     - type: Transform
@@ -38977,6 +38970,11 @@ entities:
     - type: Transform
       pos: -11.5,7.5
       parent: 2
+  - uid: 11184
+    components:
+    - type: Transform
+      pos: -46.5,31.5
+      parent: 2
   - uid: 12088
     components:
     - type: Transform
@@ -39001,6 +38999,16 @@ entities:
     components:
     - type: Transform
       pos: -28.5,5.5
+      parent: 2
+  - uid: 13456
+    components:
+    - type: Transform
+      pos: -46.5,28.5
+      parent: 2
+  - uid: 13458
+    components:
+    - type: Transform
+      pos: -46.5,29.5
       parent: 2
   - uid: 13503
     components:
@@ -39061,6 +39069,11 @@ entities:
     components:
     - type: Transform
       pos: -23.5,34.5
+      parent: 2
+  - uid: 14461
+    components:
+    - type: Transform
+      pos: -48.5,23.5
       parent: 2
 - proto: DecalSpawnerDirtNear
   entities:
@@ -39123,16 +39136,6 @@ entities:
     components:
     - type: Transform
       pos: -53.5,29.5
-      parent: 2
-  - uid: 13457
-    components:
-    - type: Transform
-      pos: -46.5,30.5
-      parent: 2
-  - uid: 13458
-    components:
-    - type: Transform
-      pos: -46.5,30.5
       parent: 2
   - uid: 13459
     components:
@@ -39799,6 +39802,11 @@ entities:
     - type: Transform
       pos: -33.5,-16.5
       parent: 2
+  - uid: 14462
+    components:
+    - type: Transform
+      pos: -47.5,30.5
+      parent: 2
 - proto: DecalSpawnerDirtSingle
   entities:
   - uid: 7511
@@ -40223,11 +40231,6 @@ entities:
     - type: Transform
       pos: -55.5,28.5
       parent: 2
-  - uid: 13456
-    components:
-    - type: Transform
-      pos: -46.5,31.5
-      parent: 2
   - uid: 13460
     components:
     - type: Transform
@@ -40542,6 +40545,11 @@ entities:
     components:
     - type: Transform
       pos: -33.5,-5.5
+      parent: 2
+  - uid: 14463
+    components:
+    - type: Transform
+      pos: -47.5,29.5
       parent: 2
 - proto: DecalSpawnerGraffiti
   entities:
@@ -81145,6 +81153,13 @@ entities:
     - type: Transform
       pos: -33.5,-30.5
       parent: 2
+- proto: SpawnPointMusician
+  entities:
+  - uid: 14460
+    components:
+    - type: Transform
+      pos: -26.5,-6.5
+      parent: 2
 - proto: SpawnPointObserver
   entities:
   - uid: 4508
@@ -81226,10 +81241,10 @@ entities:
       parent: 2
 - proto: SpawnPointSalvageSpecialist
   entities:
-  - uid: 11184
+  - uid: 13457
     components:
     - type: Transform
-      pos: -46.5,29.5
+      pos: -46.5,30.5
       parent: 2
 - proto: SpawnPointScientist
   entities:
