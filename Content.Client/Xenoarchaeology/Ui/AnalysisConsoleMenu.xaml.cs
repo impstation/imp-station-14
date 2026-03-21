@@ -207,27 +207,34 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         base.FrameUpdate(args);
 
         // imp edit: display remaining unlock time for reticulated artifacts if advanced node scanner is present
-        // note: advanced node scanner detection is handled in Update()
+        _artifactAnalyzer.TryGetArtifactFromConsole(_owner, out var arti);
 
-        if (_unlockEndTime is not { } unlockEndTime)
+        if (arti is {Comp.Natural: false } && arti.Value.Comp.AdvancedNodeScanner is not null)
         {
-            UnlockingTimeLabel.Visible = false;
-        }
-        else
-        {
-
-            var remainingTime = (int)(unlockEndTime - _timing.CurTime).TotalSeconds;
-            if (remainingTime <= 0)
+            // Minimise TryComp calls: save component
+            if (arti.Value.Comp.AdvancedNodeScanner.Value != _advancedNodeScanner.Owner)
             {
-                UnlockingTimeLabel.Visible = false;
+                if (_advancedNodeScannerSystem.TryGetAdvancedNodeScanner(_owner, out var advancedNodeScanner))
+                    _advancedNodeScanner = advancedNodeScanner.Value;
+            }
+
+            if (_advancedNodeScannerSystem.GetCurrentUnlockSession(arti.Value, _advancedNodeScanner) is
+                { } unlockSession && unlockSession.EndTime is { } endTime)
+            {
+                var remainingTime = (endTime - _timing.CurTime).TotalSeconds;
+                if (remainingTime <= 0f)
+                    UnlockingTimeLabel.Visible = false;
+                else
+                {
+                    UnlockingTimeLabel.Visible = true;
+                    UnlockingTimeLabel.Text = Loc.GetString("analysis-console-unlock-time-text", ("seconds", Math.Round(remainingTime, 1)));
+                }
             }
             else
-            {
-                UnlockingTimeLabel.Visible = true;
-                UnlockingTimeLabel.Text =
-                    Loc.GetString("analysis-console-unlock-time-text", ("seconds", remainingTime));
-            }
+                UnlockingTimeLabel.Visible = false;
         }
+        else
+            UnlockingTimeLabel.Visible = false;
         // imp edit end
 
         if (_hideExtractInfoIn == null || _timing.CurTime + _meta.GetPauseTime(_owner) < _hideExtractInfoIn)
@@ -317,19 +324,6 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
             {
                 ShallowBiasButton.Pressed = true;
             }
-        }
-        else if (arti is {Comp.Natural: false } && arti.Value.Comp.AdvancedNodeScanner is not null)
-        {
-            // Minimise TryComp calls in update(): save component
-            if (arti.Value.Comp.AdvancedNodeScanner.Value != _advancedNodeScanner.Owner)
-            {
-                if (_advancedNodeScannerSystem.TryGetAdvancedNodeScanner(_owner, out var advancedNodeScanner))
-                    _advancedNodeScanner = advancedNodeScanner.Value;
-            }
-
-            if (_advancedNodeScannerSystem.GetCurrentUnlockSession(arti.Value, _advancedNodeScanner) is
-                { } unlockSession)
-                _unlockEndTime = unlockSession.EndTime;
         }
         // imp edit end
 

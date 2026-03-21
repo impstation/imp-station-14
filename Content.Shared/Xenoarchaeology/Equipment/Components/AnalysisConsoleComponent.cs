@@ -23,7 +23,7 @@ public sealed partial class AnalysisConsoleComponent : Component
     /// #IMP The advanced node scanner entity the console is linked (via analyzer relay).
     /// Can be null if not linked.
     /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
     public EntityUid? AdvancedNodeScanner;
 
     [DataField]

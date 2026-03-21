@@ -35,7 +35,7 @@ public sealed partial class ArtifactAnalyzerComponent : Component
     /// #IMP The corresponding advanced node scanner entity.
     /// Can be null if not linked.
     /// </summary>
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? AdvancedNodeScanner;
 
     /// <summary>
