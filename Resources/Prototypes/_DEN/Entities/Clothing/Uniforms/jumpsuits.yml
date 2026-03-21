@@ -86,3 +86,29 @@
     sprite: _DEN/Clothing/Uniforms/Jumpskirt/diner_fastfood.rsi
   - type: Clothing
     sprite: _DEN/Clothing/Uniforms/Jumpskirt/diner_fastfood.rsi
+
+## BASEBALL
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBaseballNT
+  name: NT Dogs baseball uniform
+  suffix: jumpsuit
+  description: Finally, an excuse to carry a baseball bat around.
+  components:
+  - type: Sprite
+    sprite: _DEN/Clothing/Uniforms/Jumpsuit/nt_baseball.rsi
+  - type: Clothing
+    sprite: _DEN/Clothing/Uniforms/Jumpsuit/nt_baseball.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBaseballSyndicate
+  name: Syndi-Cats baseball uniform
+  suffix: jumpsuit
+  description: "The pleasant red of this uniform will hide any stains, should you happen to hit a \"home run\" with a coworker instead of a ball."
+  components:
+  - type: Sprite
+    sprite: _DEN/Clothing/Uniforms/Jumpsuit/syndie_baseball.rsi
+  - type: Clothing
+    sprite: _DEN/Clothing/Uniforms/Jumpsuit/syndie_baseball.rsi
