@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Content.Server._Impstation.Traits;
+namespace Content.Shared._Impstation.Traits;
 
 [RegisterComponent]
 public sealed partial class RandomUnrevivableComponent : Component

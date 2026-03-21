@@ -17,7 +17,7 @@ using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random; // imp rdnr
-using Content.Server._Impstation.Traits; // imp rdnr
+using Content.Shared._Impstation.Traits; // imp rdnr
 using Content.Shared.Whitelist; // imp multitool defib
 
 namespace Content.Shared.Medical;
