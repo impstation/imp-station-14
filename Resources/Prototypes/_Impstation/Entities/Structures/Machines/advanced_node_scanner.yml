@@ -43,7 +43,7 @@
     ports:
       - AdvancedNodeScannerSender
   - type: Machine
-    board: ArtifactAnalyzerMachineCircuitboard
+    board: AdvancedNodeScannerMachineCircuitboard
   - type: PointLight
     radius: 1.5
     energy: 1.6
