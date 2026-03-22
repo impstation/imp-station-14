@@ -28,7 +28,7 @@
         Access="Internal"
         Icon="{xe:Tex '/Textures/_Impstation/Interface/VerbIcons/star.svg.192dpi.png'}"
         BoundKey = "{x:Static is:ContentKeyFunctions.OpenNotifierWindow}"
-        ToolTip="{Loc 'game-hud-open-consent-window-button-tooltip'}"
+        ToolTip="{Loc 'game-hud-open-notifier-window-button-tooltip'}"
         MinSize="42 64"
         HorizontalExpand="True"
         AppendStyleClass="{x:Static style:StyleClass.ButtonSquare}"
