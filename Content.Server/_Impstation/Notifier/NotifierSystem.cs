@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Server._Impstation.Notifier.Components;
 using Content.Server.Database;
 using Content.Shared._Impstation.Notifier;
 using Robust.Shared.Network;
@@ -61,14 +60,6 @@ public sealed class NotifierSystem : SharedNotifierSystem
     {
         TryGetServerNotifier(userId, out var notifier);
         return notifier?.Enabled ?? false;
-    }
-
-    protected override void CreateCopyCat(Entity<NotifierComponent> original, EntityUid clone)
-    {
-        var copied = EnsureComp<NotifierCopiedComponent>(original.Owner);
-        var copycat = EnsureComp<NotifierCopycatComponent>(clone);
-        copied.Copycats.Add(clone);
-        copycat.Copies.Add(original.Owner, original.Comp.Settings);
     }
 
     /// <summary>

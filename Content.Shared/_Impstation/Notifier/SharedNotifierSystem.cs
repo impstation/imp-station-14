@@ -42,10 +42,10 @@ public abstract partial class SharedNotifierSystem : EntitySystem
     private void OnClone(Entity<NotifierComponent> ent, ref CloningEvent args)
     {
 
-        if (_netManager.IsServer && HasComp<ParadoxCloneRoleComponent>(args.CloneUid))
+        if (args.Settings.ID.Equals("ParadoxCloningSettings"))
         {
             CreateCopyCat(ent , args.CloneUid);
-         return;
+            return;
         }
         var cloneNotifier = EnsureComp<NotifierComponent>(args.CloneUid);
 
@@ -70,10 +70,16 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         }
         var entity = _mindSystem.GetOrCreateMind(userId).Comp.CurrentEntity;
         var exists = _entManager.TryGetComponent<NotifierComponent>(entity, out var notifierComponent);
-        if (exists)
+        if (!exists)
+            return;
+        notifierComponent!.Settings = notifierSettings;
+        Dirty(entity!.Value,notifierComponent);
+        foreach (var copycat in notifierComponent.Copycats)
         {
-            notifierComponent!.Settings = notifierSettings;
-            Dirty(entity!.Value,notifierComponent);
+            var copycatEntity = GetEntity(copycat);
+            EnsureComp<NotifierCopycatComponent>(copycatEntity, out var notifierCopycat);
+            notifierCopycat.Settings = notifierSettings;
+            Dirty(copycatEntity,notifierCopycat);
         }
     }
 
@@ -123,8 +129,13 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         ent.Comp.Settings.Freetext=GetNotifierText(args.Player.UserId);
     }
 
-    protected virtual void CreateCopyCat(Entity<NotifierComponent> original, EntityUid clone)
+    private void CreateCopyCat(Entity<NotifierComponent> original, EntityUid clone)
     {
-        return;
+        EnsureComp<NotifierCopycatComponent>(clone, out var component);
+        component.OriginUserId = original.Comp.AttachedUserId;
+        component.Settings = original.Comp.Settings;
+        original.Comp.Copycats.Add(GetNetEntity(clone));
+        Dirty(clone,component);
+        Dirty(original);
     }
 }
