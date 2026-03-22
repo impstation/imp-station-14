@@ -32,8 +32,8 @@
     powerLoad: 500
     needsPower: true
   - type: AdvancedNodeScanner
-    naturalNodeGraphVisibilityModifier: 1
-    pointMultiplier: 1.05 # 5% bonus points
+    naturalNodeGraphVisibilityModifier: 1 #one further step
+    pointMultiplier: 1.05 # 5% bonus points - remember to also change value in guidebook at Resources/ServerInfo/_Impstation/Guidebook/Science/AdvancedNodeScanner.xml
   - type: DeviceNetwork
     deviceNetId: Wired
     receiveFrequencyId: BasicDevice
@@ -50,7 +50,7 @@
     color: "#b53ca1"
   - type: GuideHelp
     guides:
-    - Xenoarchaeology
+    - AdvancedNodeScanner
   - type: LitOnPowered
   - type: Appearance
   - type: GenericVisualizer
@@ -66,11 +66,11 @@
         enum.WiresVisualLayers.MaintenancePanel:
           True: { visible: false }
           False: { visible: true }
-  - type: Destructible # Make Advanced Node Scanner very resilient
+  - type: Destructible # Make Advanced Node Scanner very resilient - todo: upload to research server instead
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 1200
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
