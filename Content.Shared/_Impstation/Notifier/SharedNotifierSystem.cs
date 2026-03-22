@@ -39,6 +39,11 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         SubscribeLocalEvent<NotifierComponent, CloningEvent>(OnClone);
     }
 
+    /// <summary>
+    /// Is triggered on cloning an entity with the notifier component.
+    /// Clones the originals notifier to the clone.
+    /// If this is a paradox clone, create a copycat.
+    /// </summary>
     private void OnClone(Entity<NotifierComponent> ent, ref CloningEvent args)
     {
 
@@ -54,6 +59,12 @@ public abstract partial class SharedNotifierSystem : EntitySystem
 
     }
 
+    /// <summary>
+    /// Get The notifier from the target players current entity.
+    /// </summary>
+    /// <param name="userId">Target user</param>
+    /// <param name="notifierSettings"> The users notifier</param>
+    /// <returns></returns>
     public bool TryGetNotifier(NetUserId userId, [NotNullWhen(true)] out PlayerNotifierSettings? notifierSettings)
     {
         var entity = _mindSystem.GetOrCreateMind(userId).Comp.CurrentEntity;
@@ -62,6 +73,12 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         return exists;
     }
 
+    /// <summary>
+    /// Set the players current entity notifier settings to the provided settings.
+    /// If there are any copycats, pass the new notifier settings to them.
+    /// </summary>
+    /// <param name="userId">Target player</param>
+    /// <param name="notifierSettings">New notifier settings</param>
     public virtual void SetPlayerNotifier(NetUserId userId, PlayerNotifierSettings? notifierSettings)
     {
         if (notifierSettings == null)
@@ -82,7 +99,9 @@ public abstract partial class SharedNotifierSystem : EntitySystem
             Dirty(copycatEntity,notifierCopycat);
         }
     }
-
+    /// <summary>
+    ///  Loads the notifier settings attached to the entity into the examine text
+    /// </summary>
     private void OnGetExamineVerbs(Entity<NotifierComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
         if (!ent.Comp.Settings.Enabled || Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
@@ -105,6 +124,9 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         Dirty(ent.Owner,ent.Comp);
     }
 
+    /// <summary>
+    /// Adds the notifier examine verb as well as the disclaimer to the examine text
+    /// </summary>
     private void OnExamined(Entity<NotifierComponent> ent, ref ExaminedEvent args)
     {
         if (!ent.Comp.Settings.Enabled || !args.IsInDetailsRange || _mobState.IsDead(ent.Owner)) return;
@@ -122,6 +144,9 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         return false;
     }
 
+    /// <summary>
+    ///  Gets the players notifier setting and adds them to the entity the player is attaching to.
+    /// </summary>
     private void OnPlayerAttached(Entity<NotifierComponent> ent, ref PlayerAttachedEvent args)
     {
         ent.Comp.AttachedUserId = args.Player.UserId;
@@ -129,6 +154,11 @@ public abstract partial class SharedNotifierSystem : EntitySystem
         ent.Comp.Settings.Freetext=GetNotifierText(args.Player.UserId);
     }
 
+    /// <summary>
+    /// Add the NotifierCopycat component to the clone, and copies information from the original.
+    /// </summary>
+    /// <param name="original">Player being copied</param>
+    /// <param name="clone">Clone being turned into a copycat</param>
     private void CreateCopyCat(Entity<NotifierComponent> original, EntityUid clone)
     {
         EnsureComp<NotifierCopycatComponent>(clone, out var component);

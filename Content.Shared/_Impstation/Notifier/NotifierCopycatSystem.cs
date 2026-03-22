@@ -18,6 +18,9 @@ public sealed class NotifierCopycatSystem : EntitySystem
         SubscribeLocalEvent<NotifierCopycatComponent, GetVerbsEvent<ExamineVerb>>(OnGetExamineVerbs);
     }
 
+    /// <summary>
+    /// Copied from shared notifier system, replicated for copy cat.
+    /// </summary>
     private void OnGetExamineVerbs(Entity<NotifierCopycatComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
         if (!ent.Comp.Settings.Enabled || Identity.Name(args.Target, EntityManager) != MetaData(args.Target).EntityName)
@@ -40,6 +43,9 @@ public sealed class NotifierCopycatSystem : EntitySystem
         Dirty(ent.Owner,ent.Comp);
     }
 
+    /// <summary>
+    /// Copied from shared notifier system, replicated for copy cat.
+    /// </summary>
     private void OnExamined(Entity<NotifierCopycatComponent> ent, ref ExaminedEvent args)
     {
         if (!ent.Comp.Settings.Enabled || !args.IsInDetailsRange || _mobState.IsDead(ent.Owner)) return;
