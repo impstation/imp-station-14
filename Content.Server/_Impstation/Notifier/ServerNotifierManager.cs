@@ -32,6 +32,10 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
         _netManager.RegisterNetMessage<MsgUpdateNotifier>(HandleUpdateNotifierMessage);
 
     }
+    /// <summary>
+    /// Update notifier of the sending player.
+    /// </summary>
+    /// <param name="message"></param>
     private async void HandleUpdateNotifierMessage(MsgUpdateNotifier message)
     {
         var userId = message.MsgChannel.UserId;
@@ -49,7 +53,11 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
         // send it back to confirm to client that consent was updated
         _netManager.ServerSendMessage(message, message.MsgChannel);
     }
-
+    /// <summary>
+    /// Load data of a player from the database into cached notifiers.
+    /// </summary>
+    /// <param name="session">Session of the target player</param>
+    /// <param name="cancel"></param>
     public async Task LoadData(ICommonSession session, CancellationToken cancel)
     {
         var notifier = new PlayerNotifierSettings();
@@ -66,12 +74,21 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
         _netManager.ServerSendMessage(message, session.Channel);
     }
 
+    /// <summary>
+    /// clear disconnecting players notifier from the notifier cache.
+    /// </summary>
+    /// <param name="session">Target players session</param>
     public void OnClientDisconnected(ICommonSession session)
     {
         var notifierSystem = _entityManager.System<NotifierSystem>();
         notifierSystem.SetPlayerNotifier(session.UserId, null);
     }
 
+    /// <summary>
+    /// Get a users notifier from currently cached notifiers
+    /// </summary>
+    /// <param name="userId"></param>
+    /// <returns></returns>
     public PlayerNotifierSettings GetPlayerNotifierSettings(NetUserId userId)
     {
         var notifierSystem = _entityManager.System<NotifierSystem>();
@@ -79,7 +96,11 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
             return notifier;
         return new();
     }
-
+    /// <summary>
+    /// Checks if the user has a static user id, I.E is not a guest.
+    /// </summary>
+    /// <param name="loginType">How the player has logged in</param>
+    /// <returns></returns>
     private static bool ShouldStoreInDb(LoginType loginType)
     {
         return loginType.HasStaticUserId();

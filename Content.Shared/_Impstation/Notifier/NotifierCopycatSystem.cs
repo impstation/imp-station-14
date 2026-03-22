@@ -1,4 +1,3 @@
-using Content.Shared._Impstation.Notifier.events;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Systems;

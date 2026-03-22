@@ -11,7 +11,10 @@ namespace Content.Server._Impstation.Notifier;
 
 public sealed class NotifierSystem : SharedNotifierSystem
 {
-    private readonly Dictionary<NetUserId, PlayerNotifierSettings> _notifierUsers= new();// holds the notifier settings for current players, we don't get directly from the DB because those are async operations.
+    /// <summary>
+    /// Cached player notifiers of connected players. These are loaded from the database upon player connection, and removed on disconnect.
+    /// </summary>
+    private readonly Dictionary<NetUserId, PlayerNotifierSettings> _notifierUsers= new();
 
     /// <summary>
     /// Get a users freetext from their settings.
