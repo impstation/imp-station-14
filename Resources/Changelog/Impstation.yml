@@ -1,111 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Fixed wizards being able to teleport to artifacts, anomalies, and the
-      supermatter.
-    type: Fix
-  id: 2210
-  time: '2025-08-26T22:18:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3361
-- author: FlippenPage
-  changes:
-  - message: Nanotrasen would like to once again dispel the foolish rumor of job issued
-      PDAs being conductive to electricity.
-    type: Tweak
-  id: 2211
-  time: '2025-08-26T22:24:52.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3352
-- author: soup4food
-  changes:
-  - message: Added a seclight to the HoS locker
-    type: Add
-  - message: changed the standard gas mask in the Warden hardsuit table to the security
-      gas mask, matching both the sec hardsuit locker and HoS locker
-    type: Tweak
-  id: 2212
-  time: '2025-08-26T22:26:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3356
-- author: Smugman
-  changes:
-  - message: Syndicate Recruiters now start with a special briefcase, giving them
-      access to their own uplink full of useless trash. Recruit people to obtain more
-      budget.
-    type: Add
-  id: 2213
-  time: '2025-08-26T22:43:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3058
-- author: mqole
-  changes:
-  - message: TEG circulators have been fitted with flow rate meters.
-    type: Add
-  id: 2214
-  time: '2025-08-28T09:37:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3364
-- author: jtfg-dev
-  changes:
-  - message: Items whose quantities were not clear when in someone's hands (i.e. "a
-      grapes", "a gloves", "a gold bar", "a steel") now should be grammatically correct
-      (i.e. "some grapes", "a pair of gloves", "some gold bars" "a sheet / some sheets
-      of steel"). Please report any applicable (but unaffected) items to the "make
-      text less bad" thread on the discord!
-    type: Add
-  id: 2215
-  time: '2025-08-28T12:27:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3136
-- author: TheGrimbeeper
-  changes:
-  - message: Natural artifacts now count for the artifact bounty.
-    type: Fix
-  id: 2216
-  time: '2025-08-29T11:51:58.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3372
-- author: youtubevideo3
-  changes:
-  - message: New bomber jacket for the HOS!
-    type: Add
-  id: 2217
-  time: '2025-08-29T23:22:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3378
-- author: EpicToastTM
-  changes:
-  - message: Hash has been derotated for renovations.
-    type: Remove
-  id: 2218
-  time: '2025-08-29T23:27:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3387
-- author: HAPPYNEWYEAR1999
-  changes:
-  - message: Pathway's medical department has undergone some surgery.
-    type: Tweak
-  id: 2219
-  time: '2025-08-29T23:31:16.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3388
-- author: youtubevideo3
-  changes:
-  - message: A new jumpskirt and apron for medical doctors!
-    type: Add
-  - message: the Nurse Hat has been resprited.
-    type: Tweak
-  id: 2220
-  time: '2025-08-30T00:36:06.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3384
-- author: astral_amy
-  changes:
-  - message: Added a surgical bay to Bedlam. Also, completely redesigned Bedlam's
-      medical bay.
-    type: Add
-  - message: A couple of touch-ups for Bedlam and Whisper - see PR for details.
-    type: Tweak
-  id: 2221
-  time: '2025-08-30T02:06:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3389
-- author: starlighthowls
-  changes:
-  - message: Added headchef uniform!
-    type: Add
-  id: 2222
-  time: '2025-08-30T02:38:11.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3368
 - author: youtubevideo3
   changes:
   - message: you can now use "UNR" as a shortcut for "Unrevivable"!
@@ -4146,3 +4039,110 @@
   id: 2709
   time: '2026-03-15T21:24:43.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4146
+- author: Kandiyaki
+  changes:
+  - message: Being sacrificed by a Heretic will now give you one of a variety of debuffs.
+    type: Add
+  - message: Ghouls and Sacrifice victims now have icons denoting them as such, only
+      visible to heretics.
+    type: Add
+  - message: Flesh path's Mansus grasp has been tweaked to be tougher to pull off.
+    type: Tweak
+  id: 2710
+  time: '2026-03-18T05:36:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3937
+- author: yesteryuri
+  changes:
+  - message: Allulalo and anomalocarid mimes spawn with a survival box
+    type: Fix
+  id: 2711
+  time: '2026-03-18T10:26:45.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4243
+- author: DVD Player
+  changes:
+  - message: The Freelancer's .35 Stun shots are now slightly better at stunning.
+      Very slightly.
+    type: Tweak
+  - message: .45 Stun now properly works as it did before.
+    type: Fix
+  id: 2712
+  time: '2026-03-18T15:40:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4225
+- author: msTheowo
+  changes:
+  - message: Mimes can choose one of three different powers from their routine book
+      in their bag.
+    type: Add
+  - message: Traitor mimes can buy a new set of two unique mime powers from their
+      uplinks.
+    type: Add
+  - message: Mimes can scream silently after retaking their vow.
+    type: Fix
+  id: 2713
+  time: '2026-03-18T15:48:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4150
+- author: TheGrimbeeper
+  changes:
+  - message: ACTUALLY fixed the xenoarch node unlock time thing this time!
+    type: Fix
+  id: 2714
+  time: '2026-03-18T16:36:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4188
+- author: lichpassing, Pinkbat5, msTheowo
+  changes:
+  - message: Batter up! You can now rep the NT Dogs with a cap or full uniform. Craft
+      them at the uniform printer. Use an EMAG on the printer for a special surprise...
+    type: Add
+  id: 2715
+  time: '2026-03-18T16:45:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4227
+- author: msTheowo
+  changes:
+  - message: More syndicate objects use the new black palette.
+    type: Tweak
+  id: 2716
+  time: '2026-03-18T16:49:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4236
+- author: DVD Player
+  changes:
+  - message: Xenoborgs have different names now (like proper names the chassis types
+      are still called the same)
+    type: Tweak
+  id: 2717
+  time: '2026-03-18T23:37:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4230
+- author: CombustibleToast
+  changes:
+  - message: You can climb on top of the suspiciously bed-shaped and warm TEG.
+    type: Tweak
+  id: 2718
+  time: '2026-03-20T01:29:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4247
+- author: CombustibleToast
+  changes:
+  - message: Fat (retro) radiators actually radiate a little better now.
+    type: Tweak
+  id: 2719
+  time: '2026-03-21T00:19:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4222
+- author: salamanderskies
+  changes:
+  - message: Ghouls of many non-humanoid mobs are now slightly weaker.
+    type: Tweak
+  id: 2720
+  time: '2026-03-21T00:38:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4212
+- author: salamanderskies
+  changes:
+  - message: Ghosts can now examine cameras and faxes to see their names! Neat!
+    type: Add
+  id: 2721
+  time: '2026-03-21T00:57:14.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4196
+- author: msTheowo
+  changes:
+  - message: Strange pills can now have (almost) anything.
+    type: Tweak
+  id: 2722
+  time: '2026-03-21T01:11:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4172
