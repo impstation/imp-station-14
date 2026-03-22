@@ -1484,6 +1484,9 @@
     ears: ClothingHeadsetService
     pocket1: CrayonMime
     pocket2: RubberStampMime
+  storage: # imp
+    back:
+    - MimeRoutineBook
 
 - type: startingGear
   id: VisitorMimeAlt
@@ -1502,6 +1505,9 @@
     pocket2: RubberStampMime
   inhand:
   - FoodBurgerMime
+  storage: # imp
+    back:
+    - MimeRoutineBook
 
 - type: startingGear
   id: VisitorReporter

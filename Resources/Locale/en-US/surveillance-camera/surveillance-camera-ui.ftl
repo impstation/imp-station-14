@@ -11,3 +11,5 @@ surveillance-camera-monitor-ui-no-subnets = No Subnets
 surveillance-camera-setup = Setup
 surveillance-camera-setup-ui-set = Set
 
+# imp edit
+surveillance-camera-on-examine-success = This camera's ID is {$id}

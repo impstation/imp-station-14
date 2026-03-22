@@ -544,11 +544,13 @@
     - PrideFlags # imp
     - BeltsDeltaV # DeltaV
     - ClothingJustice # DeltaV
+    - ClothingBaseballNanotrasen # den
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ClothingCentComm
     - ClothingSyndie
     - ImpClothesEmagged # Imp
+    - ClothingBaseballSyndicate # den
   - type: MaterialStorage
     whitelist: *StandardMaterialWhitelist
   - type: OreSiloClient
