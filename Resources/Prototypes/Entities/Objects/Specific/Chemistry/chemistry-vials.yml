@@ -4,7 +4,7 @@
   id: BaseChemistryVial
   components:
   - type: Item
-    size: Small #imp edit
+    size: Tiny
   - type: Openable
     sound:
       collection: bottleCloseSounds # using closed here for the quieter sound
@@ -30,6 +30,11 @@
   components:
   - type: Item
     sprite: Objects/Specific/Chemistry/vial.rsi
+    #imp edit start, tiny -> small, but ratain shape
+    size: Small
+    shape:
+    - 0,0,0,0
+    #imp edit end
   - type: Sprite
     sprite: Objects/Specific/Chemistry/vial.rsi
   - type: SolutionContainerVisuals
@@ -124,6 +129,8 @@
   - type: Tag
     tags: &TagVial # Remove trash tag when we have a filled solution
     - CentrifugeCompatible
+  - type: Item #imp edit, match size to volume
+    size: Small
 
 - type: entity
   parent: ChemistryEmptyVialSmall
