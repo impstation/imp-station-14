@@ -203,9 +203,9 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         if (!TryComp<AdvancedNodeScannerComponent>(advancedNodeScannerUid, out var advancedNodeScannerComponent))
             return;
 
-        // We don't know about the unlock session at all, so we just throw responsibility to RegisterTriggeredNode
         if (!advancedNodeScannerComponent.ArtifactUnlockSessions.TryGetValue(GetNetEntity(artifact.Owner), out var session))
         {
+            // We don't know about the unlock session at all
             var nodeIndex = unlock.TriggeredNodeIndexes.FirstOrDefault();
             RegisterTriggeredNode(artifact, _artifact.GetNode(artifact, nodeIndex));
             session = advancedNodeScannerComponent.ArtifactUnlockSessions[GetNetEntity(artifact.Owner)];
