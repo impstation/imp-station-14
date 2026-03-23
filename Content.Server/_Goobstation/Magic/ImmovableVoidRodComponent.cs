@@ -1,6 +1,4 @@
-using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Magic;
@@ -22,6 +20,9 @@ public sealed partial class ImmovableVoidRodComponent : Component
     [DataField]
     public string IceTilePrototype = "FloorAstroIce";
 
+    /// <summary>
+    /// The type of damage to do to entities colliding with the rod.
+    /// </summary>
     [DataField]
     public ProtoId<DamageTypePrototype> DamageType = "Cold";
 
