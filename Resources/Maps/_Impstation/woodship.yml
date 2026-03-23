@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 03/16/2026 15:20:38
-  entityCount: 10764
+  time: 03/23/2026 16:41:36
+  entityCount: 10766
 maps:
 - 1
 grids:
@@ -5433,12 +5433,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,41.5
       parent: 2
-- proto: AirlockBrigLocked
+- proto: AirlockBrigGlassLocked
   entities:
-  - uid: 5986
+  - uid: 5982
     components:
     - type: Transform
-      pos: 21.5,52.5
+      pos: 21.5,49.5
       parent: 2
 - proto: AirlockCaptainGlassLocked
   entities:
@@ -6528,10 +6528,10 @@ entities:
       parent: 2
 - proto: AirlockSecurityGlassLocked
   entities:
-  - uid: 5982
+  - uid: 5986
     components:
     - type: Transform
-      pos: 21.5,49.5
+      pos: 21.5,52.5
       parent: 2
 - proto: AirlockServiceLocked
   entities:
@@ -53090,6 +53090,13 @@ entities:
     - type: Transform
       pos: -5.247364,29.581682
       parent: 2
+- proto: PinpointerNuclear
+  entities:
+  - uid: 10766
+    components:
+    - type: Transform
+      pos: 9.592007,46.341797
+      parent: 2
 - proto: PlaqueAtmos
   entities:
   - uid: 4640
@@ -59522,6 +59529,13 @@ entities:
     components:
     - type: Transform
       pos: 0.5,21.5
+      parent: 2
+- proto: SpawnMobDogCockroachJonny
+  entities:
+  - uid: 10765
+    components:
+    - type: Transform
+      pos: -17.5,-2.5
       parent: 2
 - proto: SpawnMobFoxRenault
   entities:
