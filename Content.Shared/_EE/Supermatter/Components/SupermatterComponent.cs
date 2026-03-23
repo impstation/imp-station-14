@@ -285,7 +285,7 @@ public sealed partial class SupermatterComponent : Component
     /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
     /// </summary>
     [DataField]
-    public float DelamTimer = 30f;
+    public float DelamTimer = 15f;
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered

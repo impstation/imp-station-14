@@ -3,7 +3,8 @@
   name: supermatter scalpel
   id: SupermatterScalpel
   parent: [ Scalpel, BaseSyndicateContraband ]
-  # description:
+  # Hyper-noblium is not real and can't hurt you.
+  description: A scalpel with a fragile tip of condensed hyper-noblium gas, searingly cold to the touch, that can safely shave a sliver off a supermatter crystal.
   components:
   - type: Sprite
     # sprite:
@@ -13,7 +14,7 @@
   - type: MeleeWeapon
     damage:
       types:
+        Cold: 8
         Slash: 8
-        Radiation: 8
   - type: SupermatterScapel
   - type: SupermatterImmune

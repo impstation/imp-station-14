@@ -25,9 +25,10 @@ public sealed class CrystalMassSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     // [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
@@ -48,7 +49,7 @@ public sealed class CrystalMassSystem : EntitySystem
         SetupCrystalMass(ent);
         // Actual ss13 times would be 0, 3 but they have a update delay, aksi this feels more right imo
         // 0 delay multiple times will cause it to spike out suddenly
-        var delay = _random.Next(1, 5);
+        var delay = _random.Next(0, 4);
         ent.Comp.NextSpread = _timing.CurTime + TimeSpan.FromSeconds(delay);
 
         // TODO: REMOVE TIMER.SPAWN
@@ -104,13 +105,13 @@ public sealed class CrystalMassSystem : EntitySystem
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
             return;
 
-        var currentTile = _map.TileIndicesFor(gridUid, mapGrid, xform.Coordinates);
+        var currentTile = _mapSystem.TileIndicesFor(gridUid, mapGrid, xform.Coordinates);
 
         var allOccupied = true;
 
         foreach (var availableDir in ent.Comp.AvailableDirs)
         {
-            var surroundingAnchoredEntities = _map.GetAnchoredEntitiesEnumerator(gridUid, mapGrid, currentTile.Offset(availableDir));
+            var surroundingAnchoredEntities = _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, mapGrid, currentTile.Offset(availableDir));
             var hasCrystalMass = false;
 
             while (surroundingAnchoredEntities.MoveNext(out var anchoredEnt))
@@ -137,10 +138,22 @@ public sealed class CrystalMassSystem : EntitySystem
         var dir = _random.Pick(ent.Comp.AvailableDirs);
         var neighborTileCoords = Transform(ent).Coordinates.Offset(dir.ToVec());
 
+        var gridAngle = _transform.GetWorldRotation(xform).Reduced();
+        var aabb = Box2.UnitCentered.Translated(neighborTileCoords.Position);
+        var box = new Box2Rotated(aabb, gridAngle);
+
+        foreach (var tileRef in _mapSystem.GetTilesIntersecting(gridUid, mapGrid, box))
+        {
+            if (tileRef is { })
+                continue;
+
+            _mapSystem.SetTile(tileRef.GridUid, tileRef.GridIndices, Tile.Empty);
+        }
+
         // TODO: Check if spreadersystem stuff is deleted
         // TODO: Make floor sprite same as entity sprite, might or might not be better when loading areas with a lot of crystal mass
         // TODO: Add limiter so it dosen't spread in space infinitly
-        _map.SetTile(gridUid, mapGrid, neighborTileCoords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, ent.Comp.SpriteVariants)));
+        _mapSystem.SetTile(gridUid, mapGrid, neighborTileCoords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, ent.Comp.SpriteVariants)));
 
         // Engine lighting breaks when there are too many lights, limited to only bulb when it should all glow
         if (_random.Prob(ent.Comp.BulbChance))
@@ -169,10 +182,10 @@ public sealed class CrystalMassSystem : EntitySystem
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
             return;
 
-        var currentTile = _map.TileIndicesFor(gridUid, mapGrid, xform.Coordinates);
+        var currentTile = _mapSystem.TileIndicesFor(gridUid, mapGrid, xform.Coordinates);
 
         // Needed cause crystal mass can't be found with Static Flag in GetEntitiesInTile for some reason
-        var anchoredEntities = _map.GetAnchoredEntitiesEnumerator(gridUid, mapGrid, currentTile);
+        var anchoredEntities = _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, mapGrid, currentTile);
         while (anchoredEntities.MoveNext(out var anchoredEnt))
         {
             if (anchoredEnt.Value == ent.Owner)
@@ -181,13 +194,13 @@ public sealed class CrystalMassSystem : EntitySystem
         }
 
         // TODO: Find why there are entities department signs/directions & signs that arn't getting destroyed
-        foreach (var targetEnt in _lookup.GetEntitiesInTile(_map.GetTileRef(gridUid, mapGrid, currentTile), LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
+        foreach (var targetEnt in _lookup.GetEntitiesInTile(_mapSystem.GetTileRef(gridUid, mapGrid, currentTile), LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
         {
             if (targetEnt == ent.Owner)
                 continue;
 
             // Prevents walls/windows from being deleted when next to a tile being spread to
-            var entTile = _map.GetTileRef(gridUid, mapGrid, Transform(targetEnt).Coordinates);
+            var entTile = _mapSystem.GetTileRef(gridUid, mapGrid, Transform(targetEnt).Coordinates);
             if (entTile.GridIndices != currentTile)
                 continue;
 
