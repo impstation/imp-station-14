@@ -1,4 +1,4 @@
-﻿# base
+# base
 
 - type: entity
   id: VendingMachine
@@ -106,6 +106,9 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: AcousticData # VDS
+    absorption: 20
+    reflectRay: true
 
 - type: entity
   id: VendingMachineWallmount

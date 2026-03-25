@@ -36,10 +36,6 @@
       # imp edit start
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.ThavenMoodsUiKey.Key:
-        type: ThavenMoodsBoundUserInterface
-        requireInputValidation: false
-      # imp edit end
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5

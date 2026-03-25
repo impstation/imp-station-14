@@ -251,8 +251,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Blunt: 20
-        Structural: 20
+        Blunt: 5
     soundHit:
       collection: MetalThud
     mustBeEquippedToUse: true
@@ -285,15 +284,15 @@
     - ActionGravityJump
     activeIfWorn: true
   - type: ClothingSpeedModifier
-    walkModifier: 1.8
-    sprintModifier: 1.8
+    walkModifier: 1.4
+    sprintModifier: 1.4
     standing: true
 
 - type: entity
   parent: [ RingBase, BaseMagicalContraband ]
   id: MagicRing
   name: ring of theft
-  description: Yeah, im dual classing mage rogue.
+  description: Yeah, i'm dual classing mage rogue.
   components:
   - type: Clothing
     slots: [ gloves ]
