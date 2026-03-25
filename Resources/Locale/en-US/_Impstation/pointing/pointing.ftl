@@ -3,7 +3,7 @@
 imp-pointing-system-try-point-cannot-reach = You can't reach there!
 imp-pointing-system-point-at-self = You {$verb} at yourself.
 imp-pointing-system-point-at-other = You {$verb} at {THE($other)}.
-imp-pointing-system-point-at-self-others = {CAPITALIZE(THE($otherName))} {$verb} at imp-{REFLEXIVE($other)}.
+imp-pointing-system-point-at-self-others = {CAPITALIZE(THE($otherName))} {$verb} at {REFLEXIVE($other)}.
 imp-pointing-system-point-at-other-others = {CAPITALIZE(THE($otherName))} {$verb} at {THE($other)}.
 imp-pointing-system-point-at-you-other = {CAPITALIZE(THE($otherName))} {$verb} at you.
 imp-pointing-system-point-at-tile = You {$verb} at the {$tileName}.

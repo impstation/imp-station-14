@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Medical;
 using Robust.Shared.Prototypes;
+using Content.Shared.Chemistry.Reagent; // imp add
 
 namespace Content.Shared.EntityEffects.Effects.Body;
 
@@ -13,7 +14,7 @@ public sealed partial class VomitEntityEffectSystem : EntityEffectSystem<MetaDat
 
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<Vomit> args)
     {
-        _vomit.Vomit(entity.Owner, args.Effect.ThirstAmount * args.Scale, args.Effect.HungerAmount * args.Scale);
+        _vomit.Vomit(entity.Owner, args.Effect.ThirstAmount * args.Scale, args.Effect.HungerAmount * args.Scale, overridePrototype: args.Effect.VomitPrototype); // imp edit, override prototype
     }
 }
 
@@ -32,6 +33,20 @@ public sealed partial class Vomit : EntityEffectBase<Vomit>
     [DataField]
     public float HungerAmount = -8f;
 
+    /// <summary>
+    /// Imp addition. The reagent prototype to use to override the entity's vomit prototype. Should be null if you're not doing this.
+    /// </summary>
+    [DataField]
+    public ProtoId<ReagentPrototype>? VomitPrototype;
+
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-        => Loc.GetString("entity-effect-guidebook-vomit", ("chance", Probability));
+    {
+        // imp add, vomit override proto
+        if (prototype.Resolve(VomitPrototype, out var vomitProto))
+            return Loc.GetString("entity-effect-guidebook-vomit-override",
+                ("chance", Probability),
+                ("override", vomitProto.LocalizedName));
+
+        return Loc.GetString("entity-effect-guidebook-vomit", ("chance", Probability));
+    }
 }

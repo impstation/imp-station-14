@@ -196,6 +196,7 @@
   - UplinkWeaponry
   conditions: # surplus exclusive
   - !type:BuyerWhitelistCondition
+    makeHidden: true
     whitelist:
       components:
       - SurplusBundle
@@ -369,6 +370,7 @@
   - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true
     blacklist:
       tags:
       - NukeOpsUplink
@@ -439,6 +441,7 @@
   - UplinkChemicals
   conditions:
   - !type:StoreWhitelistCondition
+     makeHidden: true
      blacklist:
        tags:
        - NukeOpsUplink
@@ -458,6 +461,7 @@
   - UplinkChemicals
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true
     whitelist:
       tags:
       - NukeOpsUplink
@@ -504,6 +508,29 @@
 
 # DISRUPTION
 
+- type: listing
+  id: UplinkSingularityBeaconNukie
+  name: uplink-singularity-beacon-name
+  description: uplink-singularity-beacon-desc
+  productEntity: SingularityBeacon
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:StoreWhitelistCondition
+    makeHidden: true
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
 
 
 
@@ -524,6 +551,7 @@
   - UplinkImplants
   conditions: # i want this to only show up in surplus crates
   - !type:BuyerWhitelistCondition
+    makeHidden: true
     whitelist:
       components:
       - SurplusBundle
@@ -547,6 +575,26 @@
   categories:
   - UplinkAllies
 
+- type: listing
+  id: UplinkKisserTomatoFakeSeeds
+  name: uplink-kissertomato-fake-name
+  description: uplink-kissertomato-fake-desc
+  icon: { sprite: _Impstation/Objects/Specific/Hydroponics/tomatokisser.rsi, state: seed }
+  productEntity: KisserTomatoFakeSeeds
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Botanist
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
 
 
 
@@ -555,7 +603,7 @@
 
 # JOB
 
-- type: listing    
+- type: listing
   id: uplinkHotsauces
   name: uplink-hotsauces-name
   description: uplink-hotsauces-desc
@@ -570,6 +618,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Chef
 
@@ -586,6 +635,7 @@
     Telecrystal: 6
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Clown
   categories:
@@ -606,6 +656,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Chaplain
 
@@ -623,6 +674,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Janitor
   - !type:BuyerWhitelistCondition
@@ -644,8 +696,61 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Janitor
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: uplinkAdvancedMimery
+  name: uplink-advanced-mimery-name
+  description: uplink-advanced-mimery-desc
+  productEntity: BoxAdvancedMimery
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 8
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Mime
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+
+
+
+
+
+
+# OBJECTIVE
+
+- type: listing
+  id: UplinkRomerolMicroInjector
+  name: uplink-romerol-traitor-name
+  description: uplink-romerol-traitor-desc
+  icon: { sprite: _Impstation/Objects/Specific/Medical/zombiepen_micro.rsi, state: icon }
+  productEntity: RomerolMicroInjector
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkChemicals
+  - UplinkObjective
+  conditions:
+  - !type:BuyerObjectiveWhitelistCondition
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
@@ -716,6 +821,7 @@
   - UplinkPointless
   conditions: # surplus exclusive. same amount of hyperzine as an injector but in an infinitely shittier form. hehehehe
   - !type:BuyerWhitelistCondition
+    makeHidden: true
     whitelist:
       components:
       - SurplusBundle
@@ -735,6 +841,7 @@
   - UplinkPointless
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true
     whitelist:
       tags:
       - NukeOpsUplink

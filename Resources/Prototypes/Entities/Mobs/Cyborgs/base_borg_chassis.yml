@@ -467,9 +467,16 @@
   save: false
   abstract: true
   components:
-  - type: RandomMetadata
+# imp edit start
+  #- type: RandomMetadata
+  #  nameSegments:
+  #  - NamesXenoborg
+  - type: RandomMetadata #see the commented out version for the upstream version.
     nameSegments:
-    - NamesXenoborg
+    - NamesXenoborgFirst
+    - NamesXenoborgLast
+    nameFormat: name-format-xenoborg
+# imp edit end
   - type: NameIdentifier
     group: Xenoborg
   - type: Sprite

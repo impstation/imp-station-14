@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/21/2026 01:25:06
-  entityCount: 25398
+  time: 03/10/2026 01:19:08
+  entityCount: 25390
 maps:
 - 1
 grids:
@@ -14586,13 +14586,6 @@ entities:
     - type: Transform
       pos: 33.141743,8.68924
       parent: 2
-- proto: ArtistCircuitBoard
-  entities:
-  - uid: 841
-    components:
-    - type: Transform
-      pos: 52.496395,-31.368275
-      parent: 2
 - proto: Ashtray
   entities:
   - uid: 843
@@ -14614,13 +14607,6 @@ entities:
     components:
     - type: Transform
       pos: 103.51407,-10.747023
-      parent: 2
-- proto: AsimovCircuitBoard
-  entities:
-  - uid: 846
-    components:
-    - type: Transform
-      pos: 52.57452,-31.524525
       parent: 2
 - proto: AsteroidRock
   entities:
@@ -18121,6 +18107,20 @@ entities:
     components:
     - type: Transform
       pos: 74.5,52.5
+      parent: 2
+- proto: BorgModuleFireExtinguisher
+  entities:
+  - uid: 9564
+    components:
+    - type: Transform
+      pos: 54.339363,-31.33739
+      parent: 2
+- proto: BorgModuleService
+  entities:
+  - uid: 846
+    components:
+    - type: Transform
+      pos: 54.57374,-31.634266
       parent: 2
 - proto: BoxAgrichem
   entities:
@@ -61949,13 +61949,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 143.5,-19.5
       parent: 2
-- proto: CommandmentCircuitBoard
-  entities:
-  - uid: 9564
-    components:
-    - type: Transform
-      pos: 54.29327,-31.555775
-      parent: 2
 - proto: CommsComputerCircuitboard
   entities:
   - uid: 9565
@@ -62957,13 +62950,6 @@ entities:
     components:
     - type: Transform
       pos: 78.5,-47.5
-      parent: 2
-- proto: CorporateCircuitBoard
-  entities:
-  - uid: 9724
-    components:
-    - type: Transform
-      pos: 52.54327,-31.462025
       parent: 2
 - proto: CottonSeeds
   entities:
@@ -69932,14 +69918,23 @@ entities:
       parent: 2
   - uid: 11057
     components:
+    - type: MetaData
+      desc: Transports prisoners between the brig and locker room.
+      name: Prison People Mover
     - type: Transform
       pos: 108.5,-1.5
       parent: 2
+    - type: ApcPowerReceiver
+      needsPower: False
   - uid: 11094
     components:
+    - type: MetaData
+      name: Prison People Mover
     - type: Transform
       pos: 111.5,4.5
       parent: 2
+    - type: ApcPowerReceiver
+      needsPower: False
   - uid: 15040
     components:
     - type: Transform
@@ -80247,13 +80242,6 @@ entities:
     components:
     - type: Transform
       pos: 73.494705,44.604782
-      parent: 2
-- proto: GameMasterCircuitBoard
-  entities:
-  - uid: 11917
-    components:
-    - type: Transform
-      pos: 53.246395,-31.35265
       parent: 2
 - proto: GasAnalyzer
   entities:
@@ -117583,6 +117571,13 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
+- proto: LawVend
+  entities:
+  - uid: 9724
+    components:
+    - type: Transform
+      pos: 53.5,-31.5
+      parent: 2
 - proto: LeavesCannabis
   entities:
   - uid: 16733
@@ -117616,13 +117611,6 @@ entities:
     components:
     - type: Transform
       pos: 50.812973,-1.2319909
-      parent: 2
-- proto: LiveLetLiveCircuitBoard
-  entities:
-  - uid: 16739
-    components:
-    - type: Transform
-      pos: 53.29327,-31.430775
       parent: 2
 - proto: LockerAdministrativeAssistantFilled
   entities:
@@ -118153,6 +118141,9 @@ entities:
     - type: Transform
       pos: 109.5,-1.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Security
 - proto: LockerPrisoner7
   entities:
   - uid: 531
@@ -119775,13 +119766,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: NTDefaultCircuitBoard
-  entities:
-  - uid: 17012
-    components:
-    - type: Transform
-      pos: 53.371395,-31.524525
-      parent: 2
 - proto: NuclearBombKeg
   entities:
   - uid: 17013
@@ -119795,13 +119779,6 @@ entities:
     components:
     - type: Transform
       pos: 130.5,-19.5
-      parent: 2
-- proto: NutimovCircuitBoard
-  entities:
-  - uid: 17015
-    components:
-    - type: Transform
-      pos: 53.35577,-31.4464
       parent: 2
 - proto: OcarinaInstrument
   entities:
@@ -120038,13 +120015,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: PaladinCircuitBoard
-  entities:
-  - uid: 17053
-    components:
-    - type: Transform
-      pos: 54.121395,-31.35265
-      parent: 2
 - proto: Paper
   entities:
   - uid: 11105
@@ -126361,6 +126331,11 @@ entities:
       parent: 2
 - proto: RandomBoard
   entities:
+  - uid: 841
+    components:
+    - type: Transform
+      pos: 52.5,-31.5
+      parent: 2
   - uid: 18013
     components:
     - type: Transform
@@ -131440,13 +131415,6 @@ entities:
     components:
     - type: Transform
       pos: 119.51434,-5.434152
-      parent: 2
-- proto: RobocopCircuitBoard
-  entities:
-  - uid: 18994
-    components:
-    - type: Transform
-      pos: 54.16827,-31.430775
       parent: 2
 - proto: RollingPin
   entities:
@@ -139459,13 +139427,6 @@ entities:
     - type: Transform
       pos: 32.5,-8.5
       parent: 2
-- proto: StationEfficiencyCircuitBoard
-  entities:
-  - uid: 19997
-    components:
-    - type: Transform
-      pos: 54.23077,-31.493275
-      parent: 2
 - proto: StationMap
   entities:
   - uid: 18267
@@ -144045,12 +144006,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 54.5,-31.5
       parent: 2
-  - uid: 20624
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 53.5,-31.5
-      parent: 2
   - uid: 20625
     components:
     - type: Transform
@@ -145179,24 +145134,26 @@ entities:
     - type: Transform
       pos: 89.5,19.5
       parent: 2
-- proto: ToiletEmpty
+- proto: ToiletDirtyWaterFilled
   entities:
-  - uid: 20822
-    components:
-    - type: Transform
-      pos: 52.5,-7.5
-      parent: 2
-  - uid: 20823
+  - uid: 11917
     components:
     - type: Transform
       pos: 54.5,-7.5
       parent: 2
-  - uid: 20824
+  - uid: 16739
+    components:
+    - type: Transform
+      pos: 52.5,-7.5
+      parent: 2
+  - uid: 17012
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 108.5,4.5
       parent: 2
+- proto: ToiletEmpty
+  entities:
   - uid: 20825
     components:
     - type: Transform
@@ -164113,7 +164070,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -223041.2
+      secondsUntilStateChange: -224289.28
       state: Opening
     - type: Airlock
       autoClose: False

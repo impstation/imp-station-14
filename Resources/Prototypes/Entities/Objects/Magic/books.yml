@@ -48,7 +48,7 @@
       refundAllowed: true
       ownerOnly: true # Lesser minds cannot comprehend the arcane secrets within
       balance:
-        WizCoin: 10 # prices are balanced around this 10 point maximum and how strong the spells are
+        WizCoin: 25 # imp edit
 
 # No-refund version meant for manual spawning, so people can't abuse refund if they were given a tome. Not meant for wizard antag proper!
 - type: entity
@@ -206,7 +206,7 @@
     - state: spell_default
   - type: Spellbook
     spellActions:
-      ActionFlashRune: null
+#      ActionFlashRune: null  Imp edit remove, its broken
       ActionExplosionRune: null
       ActionIgniteRune: null
       ActionStunRune: null

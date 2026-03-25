@@ -153,3 +153,23 @@
     radius: 3
     color: red
     energy: 2.0
+
+- type: entity
+  parent: ImmovableRodGondal
+  id: ImmovableRodGondalWide
+  name: immovable girthful gondal
+  description: F U C K
+  components:
+  - type: ImmovableRod
+    minSpeed: 0.15
+    maxSpeed: 0.15
+    eviscerationPopup: immovable-rod-penetrated-mob-gondalwide
+  - type: TimedDespawn
+    lifetime: 141.0
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_Impstation/Effects/gondalmono.ogg
+      params:
+        pitch: 0.5
+  - type: ScaleVisuals
+    scale: 2, 1
