@@ -72,7 +72,7 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
         _window.OnClose += () => {
             if (NotifierButton is not null)
                 NotifierButton.Pressed = false;
-//            _window.UpdateUi(); // Discard unsaved changes
+            _window.UpdateUi();
         };
     }
 
