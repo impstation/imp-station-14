@@ -23,17 +23,17 @@
   - type: ItemToggle
   - type: ProximityBeeper
   - type: ProximityDetector
-    range: 8
+    range: 10
     components:
     - type: Stealth
   - type: Beeper
     isMuted: true
-    minBeepInterval: 1.00
+    minBeepInterval: 0.25
     maxBeepInterval: 1.00
     beepSound:
       path: "/Audio/_Impstation/Items/detectorbeep.ogg"
       params:
-        maxDistance: 1
+        maxDistance: 5
         volume: -8
 
 - type: entity
@@ -42,7 +42,7 @@
   suffix: Powered
   components:
   - type: PowerCellDraw
-    drawRate: 6
+    drawRate: 3
     useCharge: 0
   - type: ToggleCellDraw
 

@@ -373,7 +373,7 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Silicon/Bots/mimebot.rsi #imp
     state: mimebot
-  - type: MimePowers
+  #- type: MimePowers # imp
   - type: Construction
     graph: MimeBot
     node: bot
@@ -392,6 +392,12 @@
     interactFailureString: petting-failure-mimebot
   - type: Inventory
     templateId: head
+  - type: AddMindComponent # imp
+    components:
+    - type: MimeVow
+  - type: ActionGrant # imp
+    actions:
+    - ActionMimeInvisibleWall
 
 - type: entity
   parent:

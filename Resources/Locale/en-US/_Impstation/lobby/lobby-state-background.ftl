@@ -10,9 +10,6 @@ lobby-state-background-screwloose-artist = SnazzyGator
 lobby-state-background-akakichinogrey-title = Akakichi no Grey
 lobby-state-background-akakichinogrey-artist = lazyriverfolk
 
-lobby-state-background-kaasidoshi-title = CAPTAIN'S BURDEN
-lobby-state-background-kaasidoshi-artist = GooseyTeeth
-
 lobby-state-background-dinowarsreport-title = Commando Lama's Report On The Dino Wars (Top Secret)
 lobby-state-background-dinowarsreport-artist = Wendy, Pixel Curatrix
 
@@ -37,14 +34,8 @@ lobby-state-background-ptaswoe-artist = widgetbeck
 lobby-state-background-bugsdream-title = Bug's Dream
 lobby-state-background-bugsdream-artist = Doop
 
-lobby-state-background-varvaraheretic-title = Heretic Varvara
-lobby-state-background-varvaraheretic-artist = Six-Valentine
-
 lobby-state-background-secmakeover-title = Sec Makeover
 lobby-state-background-secmakeover-artist = Wendy, Pixel Curatrix
-
-lobby-state-background-staresblankly-title = stares blankly
-lobby-state-background-staresblankly-artist = Wendy, Pixel Curatrix
 
 lobby-state-background-bunchachibis-title = Buncha Chibis
 lobby-state-background-bunchachibis-artist = Wendy, Pixel Curatrix

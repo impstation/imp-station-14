@@ -19,6 +19,9 @@
     guides:
     - Security
     - Antagonists
+  - type: Currency
+    price:
+      DisablerToken: 1
 
 - type: entity
   name: discombobulator
@@ -38,8 +41,12 @@
     sprite: _Impstation/Objects/Weapons/Guns/Disablers/clowndisabler.rsi
   - type: Appearance
   - type: Gun
+    projectileSpeed: 25
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/clowndisabler.ogg
+  - type: Currency
+    price:
+      DisablerToken: 1
 
 - type: entity
   name: pocket disabler
@@ -72,6 +79,9 @@
   - type: BatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 90
+  - type: Currency
+    price:
+      DisablerToken: 1
 
 - type: entity
   name: auto disabler
@@ -98,6 +108,7 @@
     steps: 6
     zeroVisible: true
   - type: Gun
+    projectileSpeed: 25
     minAngle: 2
     maxAngle: 15
     angleIncrease: 3
@@ -114,6 +125,9 @@
   - type: BatteryAmmoProvider
     proto: BulletAutoDisabler
     fireCost: 80
+  - type: Currency
+    price:
+      DisablerToken: 1
 
 - type: entity
   name: magnum disabler
@@ -147,3 +161,6 @@
   - type: Battery
     maxCharge: 1050
     startingCharge: 1050
+  - type: Currency
+    price:
+      DisablerToken: 1

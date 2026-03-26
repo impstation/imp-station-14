@@ -7,6 +7,14 @@
     <BoxContainer Name="MainContainer" Orientation="Vertical">
         <LineEdit Name="SearchBar" PlaceHolder="{Loc 'vending-machine-component-search-filter'}" HorizontalExpand="True"  Margin ="4 4"/>
         <co:SearchListContainer Name="VendingContents" VerticalExpand="True" Margin="4 4"/>
+        <!-- IMP ADD store button -->
+        <BoxContainer Orientation="Vertical"
+                      Margin="4 4">
+            <Button Name="StoreButton"
+                    Access="Public"
+                    Text="{Loc 'vending-machine-open-store'}"
+                    HorizontalAlignment="Center"/>
+        </BoxContainer>
          <!-- Footer -->
         <BoxContainer Orientation="Vertical">
             <PanelContainer StyleClasses="LowDivider" />
