@@ -184,7 +184,13 @@ accent-french-words-replace-59 = mec
 accent-french-words-60 = please
 accent-french-words-replace-60 = s'il vous plaît
 
-accent-french-words-61 = thank you
-accent-french-words-61-2 = thankyou
-accent-french-words-61-3 = thanks
-accent-french-words-replace-61 = merci
+accent-french-words-61 = thanks a lot
+accent-french-words-61-2 = thank you a lot
+accent-french-words-61-3 = thank you very much
+accent-french-words-61-4 = thank you so much
+accent-french-words-replace-61 = merci beaucoup
+
+accent-french-words-62 = thank you
+accent-french-words-62-2 = thankyou
+accent-french-words-62-3 = thanks
+accent-french-words-replace-62 = merci
