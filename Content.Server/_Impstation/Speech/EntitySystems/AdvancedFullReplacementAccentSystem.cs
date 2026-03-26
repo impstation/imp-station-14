@@ -34,15 +34,21 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
         _proto.PrototypesReloaded += OnPrototypesReloaded;
     }
 
+
+
     public override void Shutdown()
     {
         base.Shutdown();
 
         _proto.PrototypesReloaded -= OnPrototypesReloaded;
     }
-    private void OnAccent(EntityUid uid, AdvancedFullReplacementAccentComponent component, AccentGetEvent args)
+
+    /// <summary>
+    /// When an entity with an accent sends a chat message, apply replacements to the message.
+    /// </summary>
+    private void OnAccent(Entity<AdvancedFullReplacementAccentComponent> ent, ref AccentGetEvent args)
     {
-        args.Message = ApplyReplacements(args.Message, component.Accent);
+        args.Message = ApplyReplacements(args.Message, ent.Comp.Accent);
     }
 
     /// <summary>
@@ -111,6 +117,10 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
         return replacedMessage;
     }
 
+    /// <summary>
+    ///  Get the cached word replacements for the specified accent.
+    /// </summary>
+    /// <returns></returns>
     private Dictionary<CachedWord, float> GetCachedReplacements(AdvancedFullReplacementAccentPrototype prototype)
     {
         if (!_cachedReplacements.TryGetValue(prototype.ID, out var replacements))
@@ -121,7 +131,10 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
 
         return replacements.ToDictionary();
     }
-
+    /// <summary>
+    /// Get and store the replacements for the specified accent into the cache.
+    /// </summary>
+    /// <returns></returns>
     private (CachedWord cached, float weight)[] GenerateCachedReplacements(AdvancedFullReplacementAccentPrototype prototype)
     {
         if (prototype.Words is not { } words)
@@ -131,9 +144,12 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
         return words.Select(kv =>
             {
                 var (wordID, weight) = kv;
+
                 if (!_proto.TryIndex(wordID, out var word))
                     return default;
+
                 CachedWord cached;
+
                 if (word.LengthMatch)
                 {
                     cached = new CachedWord(
@@ -142,6 +158,7 @@ public sealed class AdvancedFullReplacementAccentSystem : EntitySystem
                         _loc.GetString(word.Prefix ?? ""),
                         _loc.GetString(word.Suffix ?? ""));
                 }
+
                 else
                 {
                     cached = new CachedWord(
