@@ -1,0 +1,23 @@
+﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
+
+- type: listing
+  id: UplinkRomerolMicroInjector
+  name: uplink-romerol-traitor-name
+  description: uplink-romerol-traitor-desc
+  icon: { sprite: _Impstation/Objects/Specific/Medical/zombiepen_micro.rsi, state: icon }
+  productEntity: RomerolMicroInjector
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkChemicals
+  - UplinkObjective
+  conditions:
+  - !type:BuyerObjectiveWhitelistCondition
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

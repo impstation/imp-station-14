@@ -1,0 +1,23 @@
+﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
+
+- type: listing
+  id: UplinkFugitiveCloak
+  name: uplink-fugitivecloak-name
+  description: uplink-fugitivecloak-desc
+  icon: { sprite: /Textures/_Impstation/Clothing/Neck/Cloaks/fugitivecloak.rsi, state: icon }
+  productEntity: ClothingNeckCloakFugitiveCloak
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkDeception
+
+- type: listing
+  id: UplinkKaijuCloak
+  name: uplink-kaijucloak-name
+  description: uplink-kaijucloak-desc
+  icon: { sprite: /Textures/_Impstation/Clothing/Neck/Cloaks/kaijucloak.rsi, state: icon }
+  productEntity: ClothingNeckCloakKaijuCloak
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkDeception
