@@ -630,13 +630,14 @@
   productEntity: BoxShockDart
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 3
   cost:
-    Telecrystal: 4
+    Telecrystal: 5
   categories:
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Zookeeper
 
@@ -661,21 +662,25 @@
 
 - type: listing
   id: uplinkMuldoonSniper
-  name: uplink-muldoon-sniper-name
-  description: uplink-muldoon-sniper-desc
-  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Snipers/tranqrifle.rsi, state: icon }
-  productEntity: WeaponRifleTranqSniper
+  name: uplink-muldoon-sniper-kit-name
+  description: uplink-muldoon-sniper-kit-desc
+  productEntity: WeaponSniperMuldoonUpgradeKit
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 6
+    Telecrystal: 4
   cost:
-    Telecrystal: 8
+    Telecrystal: 6
   categories:
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true
     whitelist:
     - Zookeeper
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
 
 - type: listing
   id: uplinkNullrodUpgrade

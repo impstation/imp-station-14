@@ -66,17 +66,17 @@
 
 # Zookeeper
 - type: entity
-  id: LockerZooFilled
+  id: LockerZookeeperFilled
   suffix: Filled
-  parent: LockerZoo
+  parent: LockerZookeeper
   components:
   - type: EntityTableContainerFill
     containers:
       entity_storage: !type:NestedSelector
-        tableId: FillLockerZoo
+        tableId: FillLockerZookeeper
 
 - type: entityTable
-  id: FillLockerZoo
+  id: FillLockerZookeeper
   table: !type:AllSelector
     children:
 #   - id: WeaponRifleTranq # Re-Enable these when fully mapped in

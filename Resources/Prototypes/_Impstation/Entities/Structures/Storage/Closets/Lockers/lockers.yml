@@ -95,13 +95,13 @@
 
 # Zookeeper
 - type: entity
-  id: LockerZoo
+  id: LockerZookeeper
   parent: LockerBaseSecure
-  name: zoo locker
+  name: zookeeper locker
   components:
   - type: EntityStorageVisuals
-    stateBaseClosed: zoo
+    stateBaseClosed: zookeeper
     stateDoorOpen: generic_open
-    stateDoorClosed: zoo_door
+    stateDoorClosed: zookeeper_door
   - type: AccessReader
     access: [["Zoo"]]

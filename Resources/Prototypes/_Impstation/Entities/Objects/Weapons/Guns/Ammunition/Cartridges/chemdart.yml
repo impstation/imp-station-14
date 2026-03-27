@@ -110,13 +110,13 @@
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVol: 6
+        maxVol: 4
         reagents:
         - ReagentId: Tazinide
-          Quantity: 6
+          Quantity: 4
   - type: SolutionInjectWhileEmbedded
-    transferAmount: 6
+    transferAmount: 4
     solution: injector
     updateInterval: 1
   - type: SolutionInjectOnEmbed
-    transferAmount: 6
+    transferAmount: 4
