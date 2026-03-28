@@ -310,3 +310,15 @@
         - Passive
       mindRoles:
       - MindRoleButler
+
+- type: entity
+  parent: BaseGameRule
+  id: SupermatterSurge
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    reoccurrenceDelay: 20
+    weight: 2
+    minimumPlayers: 15
+    duration: 60
+  - type: SupermatterSurgeRule

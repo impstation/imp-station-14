@@ -1,0 +1,1 @@
+station-event-supermatter-surge-announcement = The Crystal Integrity Monitoring System has detected unusual atmospheric properties in the supermatter chamber, energy output from the supermatter crystal has increased significantly. Engineering intervention is required to stabilize the engine.
