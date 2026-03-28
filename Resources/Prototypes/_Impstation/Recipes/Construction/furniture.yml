@@ -281,3 +281,27 @@
   objectType: Structure
   placementMode: SnapgridCenter
   canBuildInImpassable: true
+
+# cabinets
+
+- type: construction
+  id: ExtinguisherCabinet
+  graph: CabinetImp
+  startNode: start
+  targetNode: ExtinguisherCabinet
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
+
+- type: construction
+  id: DefibrillatorCabinet
+  graph: CabinetImp
+  startNode: start
+  targetNode: DefibrillatorCabinet
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: true
+  conditions:
+    - !type:WallmountCondition
