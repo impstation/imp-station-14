@@ -344,21 +344,21 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: IrwizineDart
-  result: IrwizineDart
+  id: BoxIrwizineDart
+  result: BoxIrwizineDart
   materials:
-    Steel: 50
-    Glass: 50
-    Plasma: 50
+    Steel: 200
+    Glass: 200
+    Plasma: 200
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: TranqDart
-  result: TranqDart
+  id: BoxTranqDart
+  result: BoxTranqDart
   materials:
-    Steel: 50
-    Glass: 50
-    Plasma: 150
+    Steel: 200
+    Glass: 200
+    Plasma: 250
 
 - type: latheRecipe
   parent: BaseWeaponRecipeLong
