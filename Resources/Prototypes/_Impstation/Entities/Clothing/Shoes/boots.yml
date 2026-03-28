@@ -412,3 +412,14 @@
     sprite: _Impstation/Clothing/Shoes/Boots/kneehighboots.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Shoes/Boots/kneehighboots.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesLeatherBoots
+  name: leather boots
+  description: A pair of durable leather boots.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Boots/leatherboots.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Boots/leatherboots.rsi
