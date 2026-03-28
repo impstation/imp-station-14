@@ -6,12 +6,14 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: Structures/Machines/tech_disk_printer.rsi
+    sprite: _impstation/Structures/Machines/advanced_node_scanner.rsi
     layers:
     - map: ["computerLayerBody"]
       state: icon
     - map: ["computerLayerScreen"]
       state: unshaded
+    #- map: ["computerLayerLink"]
+    #  state: linked
   - type: Physics
     bodyType: Static
     canCollide: true
@@ -20,7 +22,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.25,-0.48,0.25,0.48"
+          bounds: "-0.13,-0.28,0.1,0.58"
         density: 75
         mask:
         - MachineMask
