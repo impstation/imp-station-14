@@ -17,7 +17,7 @@ public sealed partial class SupermatterComponent : Component
     #region Base
 
     /// <summary>
-    /// The current status of the singularity, used for alert sounds and the monitoring console
+    /// The current status of the supermatter, used for alert sounds, the monitoring console, & supermatter power surge
     /// </summary>
     [DataField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
@@ -193,6 +193,12 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float MoleHeatPenaltyThreshold;
+
+    /// <summary>
+    /// Imp change, if the Supermatter is experiencing a surge then power & heat calculations are stopped
+    /// </summary>
+    [DataField]
+    public bool Surge;
 
     /// <summary>
     /// Modifier to damage taken during supermatter reactions, soothing the supermatter when a psychologist is nearby

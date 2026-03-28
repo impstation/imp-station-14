@@ -74,8 +74,10 @@ public sealed partial class SupermatterSystem
         var h2OBonus = 1 - gasComposition.GetMoles(Gas.WaterVapor) * 0.25f;
 
         powerRatio = Math.Clamp(powerRatio, 0, 1);
-        sm.HeatModifier = Math.Max(sm.GasHeatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
+
+        if (!sm.Surge) // Imp change, if surging then dosen't calculate heat modifier and uses the currently set one
+            sm.HeatModifier = Math.Max(sm.GasHeatModifier, 0.5f);
 
         // Miasma is really just microscopic particulate. It gets consumed like anything else that touches the crystal.
         var ammoniaProportion = gasComposition.GetMoles(Gas.Ammonia);
@@ -135,8 +137,9 @@ public sealed partial class SupermatterSystem
         // Based on gas mix, makes the power more based on heat or less effected by heat
         var tempFactor = powerRatio > 0.8 ? 50f : 30f;
 
-        // If there is more frezon and N2 than anything else, we receive no power increase from heat
-        sm.Power = Math.Max(sm.GasStorage.Temperature * tempFactor / Atmospherics.T0C * powerRatio + sm.Power, 0);
+        if (!sm.Surge) // Imp change, if surging then it dosen't calculate power, instead using the currently set one
+            // If there is more frezon and N2 than anything else, we receive no power increase from heat
+            sm.Power = Math.Max(sm.GasStorage.Temperature * tempFactor / Atmospherics.T0C * powerRatio + sm.Power, 0);
 
         // Irradiate stuff
         if (TryComp<RadiationSourceComponent>(uid, out var rad))
@@ -180,7 +183,9 @@ public sealed partial class SupermatterSystem
         // After this point power is lowered
         // This wraps around to the begining of the function
         sm.PowerLoss = Math.Min(powerReduction * sm.PowerlossInhibitor, sm.Power * 0.83f * sm.PowerlossInhibitor);
-        sm.Power = Math.Max(sm.Power - sm.PowerLoss, 0f);
+
+        if (!sm.Surge) // Imp change, if surging dosen't decay power so that lightning can appear
+            sm.Power = Math.Max(sm.Power - sm.PowerLoss, 0f);
 
         // Adjust the gravity pull range
         if (TryComp<GravityWellComponent>(uid, out var gravityWell))
