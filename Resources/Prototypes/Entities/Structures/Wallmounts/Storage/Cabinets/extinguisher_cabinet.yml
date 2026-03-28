@@ -41,6 +41,9 @@
                 collection: MetalGlassBreak
                 params:
                   volume: -4
+    - type: Construction #imp edit start
+      graph: CabinetImp
+      node: ExtinguisherCabinet # imp edit end
 
 - type: entity
   parent: ExtinguisherCabinet
