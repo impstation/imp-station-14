@@ -1707,6 +1707,11 @@
   suffix: NukeOps
   components:
   - type: NukeOperative
+  - type: RandomMetadata # imp
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateMonkey
+    nameFormat: name-format-nukie-generic
 
 - type: entity
   name: kobold
@@ -3656,6 +3661,11 @@
   - type: ActiveRadio
     channels:
     - Syndicate
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateCat
+    nameFormat: name-format-nukie-generic
   # imp edit end
 
 - type: entity
