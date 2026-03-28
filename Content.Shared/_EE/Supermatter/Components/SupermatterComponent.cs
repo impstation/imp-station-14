@@ -195,7 +195,7 @@ public sealed partial class SupermatterComponent : Component
     public float MoleHeatPenaltyThreshold;
 
     /// <summary>
-    /// Imp change, If the Supermatter is experiencing a surge, if it is power & heat calculations are stopped
+    /// Imp change, if the Supermatter is experiencing a surge then power & heat calculations are stopped
     /// </summary>
     [DataField]
     public bool Surge;
