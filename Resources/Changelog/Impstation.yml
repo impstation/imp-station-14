@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: yesteryuri
-  changes:
-  - message: Pulp no longer makes non-moths bleed
-    type: Remove
-  id: 2224
-  time: '2025-09-03T05:03:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3406
 - author: Darkmajia
   changes:
   - message: Inserting compressed paint into a spray painter plays a sound.
@@ -4146,3 +4139,13 @@
   id: 2723
   time: '2026-03-27T06:43:12.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4224
+- author: coyragon96
+  changes:
+  - message: Added new zookeeper outfits and 2 new syndicate zookeeper items, Also
+      added zoo access. doors, and lockers (May not be mapped yet).
+    type: Add
+  - message: Changed a bunch of small things related to zookeeper :)
+    type: Tweak
+  id: 2724
+  time: '2026-03-28T05:28:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4231

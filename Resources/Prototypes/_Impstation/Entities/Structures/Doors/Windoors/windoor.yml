@@ -167,3 +167,12 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsFreelance ]
+
+- type: entity
+  parent: WindoorSecureServiceLocked
+  id: WindoorSecureZooLocked
+  suffix: Zoo, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsZoo ]

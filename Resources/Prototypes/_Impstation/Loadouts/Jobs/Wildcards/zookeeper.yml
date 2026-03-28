@@ -1,0 +1,82 @@
+# Time requirement for senior zookeeper items
+- type: loadoutEffectGroup
+  id: SeniorZookeeper
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobZookeeper
+      time: 10h
+
+# Head
+- type: loadout
+  id: SafariHat
+  equipment:
+    head: ClothingHeadSafari
+
+- type: loadout
+  id: BucketHat
+  equipment:
+    head: ClothingHeadHatBucketHat
+
+# Jumpsuit
+- type: loadout
+  id: ZookeeperBeastUniform
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorZookeeper
+  equipment:
+    jumpsuit: ClothingUniformZookeeperBeast
+
+- type: loadout
+  id: AnimalControlSuit
+  equipment:
+    jumpsuit: ClothingUniformAnimalControlSuit
+
+- type: loadout
+  id: SafariSuitPants
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSafariPants
+
+- type: loadout
+  id: SafariSuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSafari
+
+# OuterClothing
+- type: loadout
+  id: ZookeeperWinterCoat
+  equipment:
+    outerClothing: ClothingOuterWinterZookeeper
+
+# Gloves
+- type: loadout
+  id: BrownGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorBrown
+
+- type: loadout
+  id: LightBrownGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorLightBrown
+
+# Shoes
+- type: loadout
+  id: LeatherBoots
+  equipment:
+    shoes: ClothingShoesLeatherBoots
+
+- type: loadout
+  id: BrownCowboyBoots
+  equipment:
+    shoes: ClothingShoesBootsCowboyBrown
+
+- type: loadout
+  id: BlackCowboyBoots
+  equipment:
+    shoes: ClothingShoesBootsCowboyBlack
+
+- type: loadout
+  id: LightBrownWinterBoots
+  equipment:
+    shoes: ClothingShoesBootsWinterColorLightBrown
