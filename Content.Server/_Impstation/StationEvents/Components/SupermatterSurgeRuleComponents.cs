@@ -36,13 +36,13 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// Maximum heat modifier that the supermatter can surge to
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MaxHeatSurge = 2.5f;
+    public float MaxHeatSurge = 2f;
 
     /// <summary>
     /// Time tracker for next explosive lightning strike
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TimeUntilNextLightning = 5f;
+    public float TimeUntilNextLightning = 10f;
 
     /// <summary>
     /// Minimum time until next explosive lightning strike
@@ -66,11 +66,5 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// Amount of explosive lightning strikes
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public int ZapCount = 2;
-
-    /// <summary>
-    /// Recursive firing of explosive lightning strikes
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public int ZapArcDepth = 1;
+    public int ZapCount = 1;
 }

@@ -66,7 +66,7 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         else
         {
             // Explosive supermatter lightning strikes
-            _lightning.ShootRandomLightnings(component.SupermatterUid, component.ZapRange, component.ZapCount, sm.LightningPrototypes[2], arcDepth: component.ZapArcDepth);
+            _lightning.ShootRandomLightnings(component.SupermatterUid, component.ZapRange, component.ZapCount, sm.LightningPrototypes[2]);
 
             component.TimeUntilNextLightning += _random.NextFloat(component.MinTimeForLightning, component.MaxTimeForLightning);
         }
