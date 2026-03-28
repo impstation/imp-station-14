@@ -61,14 +61,14 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         sm.Power = powerSurge;
         sm.HeatModifier = heatSurge;
 
-        if (component.TimeUntilNextLighting > 0)
-            component.TimeUntilNextLighting -= frameTime;
+        if (component.TimeUntilNextLightning > 0)
+            component.TimeUntilNextLightning -= frameTime;
         else
         {
             // Explosive supermatter lightning strikes
             _lightning.ShootRandomLightnings(component.SupermatterUid, component.ZapRange, component.ZapCount, sm.LightningPrototypes[2], arcDepth: component.ZapArcDepth);
 
-            component.TimeUntilNextLighting += _random.NextFloat(component.MinTimeForLighting, component.MaxTimeForLighting);
+            component.TimeUntilNextLightning += _random.NextFloat(component.MinTimeForLightning, component.MaxTimeForLightning);
         }
     }
 

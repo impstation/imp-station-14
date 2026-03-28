@@ -42,19 +42,19 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// Time tracker for next explosive lightning strike
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TimeUntilNextLighting = 5f;
+    public float TimeUntilNextLightning = 5f;
 
     /// <summary>
     /// Minimum time until next explosive lightning strike
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MinTimeForLighting = 10f;
+    public float MinTimeForLightning = 10f;
 
     /// <summary>
     /// Maximum time until next explosive lightning strike
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MaxTimeForLighting = 20f;
+    public float MaxTimeForLightning = 20f;
 
     /// <summary>
     /// Range that the explosive lightning can strike in
