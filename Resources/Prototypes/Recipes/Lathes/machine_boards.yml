@@ -219,7 +219,7 @@
   result: ArtifactAnalyzerMachineCircuitboard
 
 - type: latheRecipe #imp
-  parent: [ BaseGoldCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
+  parent: [ BaseCircuitboardRecipe, BaseResearchMachineRecipeCategory ]
   id: AdvancedNodeScannerMachineCircuitboard
   result: AdvancedNodeScannerMachineCircuitboard
 
@@ -260,7 +260,7 @@
   parent: [BaseCircuitboardRecipe]
   id: SmartFridgeCircuitboard
   result: SmartFridgeCircuitboard
-  
+
 # Bar
 - type: latheRecipe
   parent: [ BaseCircuitboardRecipe, BaseServiceMachineRecipeCategory ]
