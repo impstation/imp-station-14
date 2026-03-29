@@ -49,6 +49,12 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
 
     protected override void ActiveTick(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
+        if (component.TimeUntilSurgeStart > 0)
+        {
+            component.TimeUntilSurgeStart -= frameTime;
+            return;
+        }
+
         if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
             return;
 

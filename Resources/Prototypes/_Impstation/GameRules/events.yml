@@ -316,9 +316,9 @@
   id: SupermatterSurge
   components:
   - type: StationEvent
-    earliestStart: 20
-    reoccurrenceDelay: 20
-    weight: 3.5
+    earliestStart: 30
+    reoccurrenceDelay: 25
+    weight: 4
     minimumPlayers: 30
-    duration: 60
+    duration: 90
   - type: SupermatterSurgeRule

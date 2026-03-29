@@ -15,6 +15,12 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     public EntityUid SupermatterUid;
 
     /// <summary>
+    /// Time tracker for when to begin supermatter surge
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float TimeUntilSurgeStart = 30f;
+
+    /// <summary>
     /// Minimum power that the supermatter can surge to
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
@@ -42,7 +48,7 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// Time tracker for next explosive lightning strike
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TimeUntilNextLightning = 10f;
+    public float TimeUntilNextLightning = 5f;
 
     /// <summary>
     /// Minimum time until next explosive lightning strike
@@ -60,11 +66,11 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// Range that the explosive lightning can strike in
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float ZapRange = 8f;
+    public float ZapRange = 7f;
 
     /// <summary>
     /// Amount of explosive lightning strikes
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public int ZapCount = 1;
+    public int ZapCount = 2;
 }
