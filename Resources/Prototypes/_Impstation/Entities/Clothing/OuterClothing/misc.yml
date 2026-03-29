@@ -34,3 +34,82 @@
     sprite: _Harmony/Clothing/OuterClothing/Misc/apronnurse.rsi
   - type: Clothing
     sprite: _Harmony/Clothing/OuterClothing/Misc/apronnurse.rsi
+
+  #Wizard Armored robes
+- type: entity
+  parent: ClothingOuterWizard
+  id: ClothingOuterWizardarmored
+  name: wizard robes
+  description: A bizarre gem-encrusted blue robe that radiates magical energies.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/wizard.rsi # imp edit
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Misc/wizard.rsi # imp edit
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
+  - type: Armor # Granting wizard robes resistance, blue robes are average
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.6
+        Cold: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: StaminaResistance # Still in the spirit of that the blue robes remain an allrounder granting them some stamina resistance to keep with that idea
+    damageCoefficient: 0.7
+
+- type: entity
+  parent: ClothingOuterWizardRed
+  id: ClothingOuterWizardRedarmored
+  name: red wizard robes
+  description: Strange-looking, red, hat-wear that most certainly belongs to a real magic user.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/redwizard.rsi # imp edit
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Misc/redwizard.rsi # imp edit
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
+  - type: Armor #red wizard robes get resistance to enable intentionally fireballing yourself
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.3
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: FireProtection
+    reduction: 0.85
+
+- type: entity
+  parent: ClothingOuterWizardViolet
+  id: ClothingOuterWizardVioletarmored 
+  name: violet wizard robes
+  description: A bizarre gem-encrusted violet robe that radiates magical energies.
+  suffix: DO NOT MAP
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Misc/violetwizard.rsi # imp edit
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Misc/violetwizard.rsi # imp edit
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
+  - type: Armor # high bullet res at the cost of everything else
+    modifiers:
+      coefficients:
+        Piercing: 0.3
+
