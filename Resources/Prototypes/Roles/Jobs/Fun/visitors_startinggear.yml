@@ -1562,47 +1562,59 @@
   id: VisitorZookeeper
   equipment:
     jumpsuit: ClothingUniformJumpsuitSafari
-    shoes: ClothingShoesBootsSalvage
+    shoes: ClothingShoesLeatherBoots # imp
     head: ClothingHeadSafari
     id: ZookeeperPDA # imp
-    belt: ClothingBeltUtility
+    belt: ClothingBeltDart # imp
     back: ClothingBackpackDuffel
     ears: ClothingHeadsetService
     pocket1: WeaponFlareGun
     pocket2: PillCanisterDylovene
-  inhand: #imp
+  storage: # imp edit start
+    back:
     - WeaponRifleTranq
-  storage: # imp
     belt:
     - TranqDart
     - TranqDart
+    - IrwizineDart
+    - IrwizineDart
+    - TranqDart
     - TranqDart
     - IrwizineDart
     - IrwizineDart
+    - TranqDart
+    - TranqDart
     - IrwizineDart
+    - IrwizineDart #imp edit end
 
 - type: startingGear
   id: VisitorZookeeperAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSafari
-    shoes: ClothingShoesBootsWork
-    head: ClothingHeadSafari
+    jumpsuit: ClothingUniformAnimalControlSuit # imp
+    shoes: ClothingShoesLeatherBoots # imp
+#   head: ClothingHeadSafari # imp removed
     id: ZookeeperPDA # imp
-    belt: ClothingBeltStorageWaistbag
-    back: WeaponShotgunDoubleBarreledRubber
+    belt: ClothingBeltDart # imp
+    back: ClothingBackpackSatchel #imp
     ears: ClothingHeadsetService
     pocket1: WeaponFlareGun
     pocket2: PillCanisterDylovene
-  inhand: #imp
+  storage: # imp edit start
+    back:
     - WeaponRifleTranq
-  storage: # imp
     belt:
     - TranqDart
     - TranqDart
+    - IrwizineDart
+    - IrwizineDart
+    - TranqDart
     - TranqDart
     - IrwizineDart
     - IrwizineDart
+    - TranqDart
+    - TranqDart
     - IrwizineDart
+    - IrwizineDart # imp edit end
 
 # Misc
 

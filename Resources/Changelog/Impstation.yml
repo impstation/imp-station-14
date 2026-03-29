@@ -1,39 +1,4 @@
 ﻿Entries:
-- author: youtubevideo3
-  changes:
-  - message: you can now use "UNR" as a shortcut for "Unrevivable"!
-    type: Add
-  id: 2223
-  time: '2025-08-30T07:13:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3335
-- author: yesteryuri
-  changes:
-  - message: Pulp no longer makes non-moths bleed
-    type: Remove
-  id: 2224
-  time: '2025-09-03T05:03:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3406
-- author: Darkmajia
-  changes:
-  - message: Inserting compressed paint into a spray painter plays a sound.
-    type: Add
-  id: 2225
-  time: '2025-09-03T11:46:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3369
-- author: widgetbeck
-  changes:
-  - message: Fixed replicator nest sound effects lingering after the nest is destroyed.
-    type: Fix
-  - message: Fixed replicators from old nests not getting leveled up from their new
-      nest - instead, all replicators on the map are affected by all nests. There
-      is one Hive.
-    type: Fix
-  - message: Fixed replicators not getting a popup notification when they are orphaned
-      (when their Queen dies.) The Queen will also now lose its Crown upon its death.
-    type: Fix
-  id: 2226
-  time: '2025-09-03T11:48:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3348
 - author: Darkmajia
   changes:
   - message: Fixed a text display issue with antagonists on the round end summary.
@@ -4146,3 +4111,39 @@
   id: 2722
   time: '2026-03-21T01:11:07.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4172
+- author: msTheowo
+  changes:
+  - message: Nukie corpsmen, monkeys, and cats have new designations.
+    type: Tweak
+  id: 2723
+  time: '2026-03-27T06:43:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4224
+- author: coyragon96
+  changes:
+  - message: Added new zookeeper outfits and 2 new syndicate zookeeper items, Also
+      added zoo access. doors, and lockers (May not be mapped yet).
+    type: Add
+  - message: Changed a bunch of small things related to zookeeper :)
+    type: Tweak
+  id: 2724
+  time: '2026-03-28T05:28:54.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4231
+- author: Yental
+  changes:
+  - message: Members of the Space Wizard Federation may notice that the gems covering
+      their robes are crustier then ever before! (added resistances to wizard robes)
+    type: Add
+  - message: Someone tried to usurp the goddess of magic again, so she has adjusted
+      the fireball spell for their hubris, sorry! (fireball has a lower cooldown but
+      deals less damage).
+    type: Tweak
+  id: 2725
+  time: '2026-03-28T06:50:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4114
+- author: lobsterpaw
+  changes:
+  - message: Minor Dolphin changes and fixes.
+    type: Tweak
+  id: 2726
+  time: '2026-03-29T00:52:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4242
