@@ -1,0 +1,60 @@
+- type: entity
+  id: CrystalMass
+  placement:
+    mode: SnapgridCenter
+  name: crystal mass
+  description: You see this massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
+  components:
+    - type: Appearance
+    - type: Transform
+    - type: Physics
+      bodyType: static
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_1
+      layers:
+      - state: crystal_cascade_1
+        visible: false
+        shader: unshaded
+        map: [ "light" ]
+      drawdepth: FloorTiles
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          layer:
+          - WallLayer
+          mask:
+          - ItemMask
+          density: 500
+          hard: false
+    - type: Airtight
+    - type: CrystalMassVisuals
+    - type: Clickable
+    - type: CrystalMass
+    - type: PointLight
+      color: "#FBFF23"
+    - type: StepTrigger
+      requiredTriggeredSpeed: 0
+      intersectRatio: 0.1
+      ignoreWeightless: true
+      stepOn: true
+
+- type: entity
+  id: CrystalBulb
+  name: crystal bulb
+  description: You see this bright and massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
+  parent: CrystalMass
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_6
+      drawdepth: FloorTiles
+    - type: CrystalMass
+      isBulb: true
+    - type: PointLight
+      radius: 5
+      energy: 1
+      color: "#FBFF23"

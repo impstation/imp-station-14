@@ -34,6 +34,12 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public GasMixture? GasStorage;
 
+    /// <summary>
+    /// The supermatter's gas composition proportions
+    /// </summary>
+    [DataField]
+    public GasMixture? GasComposition;
+
     [DataField]
     public Color LightColorNormal = Color.FromHex("#ffe000");
 
@@ -64,9 +70,8 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public EntProtoId TeslaSpawnPrototype = "TeslaEnergyBall";
 
-    // one day...
-    // [DataField]
-    // public EntProtoId KudzuSpawnPrototype = "SupermatterKudzu";
+    [DataField]
+    public EntProtoId CrystalMassSpawnPrototype = "CrystalMass";
 
     [DataField]
     public EntProtoId AnomalyBluespaceSpawnPrototype = "AnomalyBluespace";
@@ -280,7 +285,7 @@ public sealed partial class SupermatterComponent : Component
     /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
     /// </summary>
     [DataField]
-    public float DelamTimer = 30f;
+    public float DelamTimer = 15f;
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
@@ -373,6 +378,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public DelamType PreferredDelamType = DelamType.Explosion;
+
+    /// <summary>
+    /// The point at which the SM begins showing warning signs.
+    /// </summary>
+    [DataField]
+    public bool DestabilizingCrystal;
 
     #endregion
 
@@ -573,7 +584,12 @@ public enum SupermatterVisuals : byte
 }
 
 [Serializable, NetSerializable]
-public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
+public sealed partial class SupermatterScalpelDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed partial class DestabilizingCrystalDoAfterEvent : SimpleDoAfterEvent
 {
 }
 

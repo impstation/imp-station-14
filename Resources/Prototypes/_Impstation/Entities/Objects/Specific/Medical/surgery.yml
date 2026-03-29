@@ -1,0 +1,20 @@
+# If this inherits the ability to perform surgery in the future, thats a good thing.
+- type: entity
+  name: supermatter scalpel
+  id: SupermatterScalpel
+  parent: [ Scalpel, BaseSyndicateContraband ]
+  # Hyper-noblium is not real and can't hurt you.
+  description: A scalpel with a fragile tip of condensed hyper-noblium gas, searingly cold to the touch, that can safely shave a sliver off a supermatter crystal.
+  components:
+  - type: Sprite
+    # sprite:
+  - type: Item
+    # sprite:
+    storedRotation: 90
+  - type: MeleeWeapon
+    damage:
+      types:
+        Cold: 8
+        Slash: 8
+  - type: SupermatterScapel
+  - type: SupermatterImmune

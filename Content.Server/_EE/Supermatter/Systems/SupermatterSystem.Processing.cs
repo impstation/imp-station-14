@@ -31,6 +31,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._EE.Supermatter.Systems;
 
@@ -54,31 +55,34 @@ public sealed partial class SupermatterSystem
         if (!(sm.GasStorage.TotalMoles > 0f))
             return;
 
-        var gasComposition = sm.GasStorage.Clone();
+        sm.GasComposition = sm.GasStorage.Clone();
+
+        if (!(sm.GasComposition.TotalMoles > 0f))
+            return;
 
         // Let's get the proportions of the gases in the mix for scaling stuff later
         // They range between 0 and 1
         foreach (var gasId in Enum.GetValues<Gas>())
         {
             var proportion = sm.GasStorage.GetMoles(gasId) / sm.GasStorage.TotalMoles;
-            gasComposition.SetMoles(gasId, Math.Clamp(proportion, 0, 1));
+            sm.GasComposition.SetMoles(gasId, Math.Clamp(proportion, 0, 1));
         }
 
         // No less then zero, and no greater then one, we use this to do explosions and heat to power transfer.
-        var powerRatio = SupermatterGasData.GetPowerMixRatios(gasComposition);
+        var powerRatio = SupermatterGasData.GetPowerMixRatios(sm.GasComposition);
 
         // Affects plasma, o2 and heat output.
-        sm.GasHeatModifier = SupermatterGasData.GetHeatPenalties(gasComposition);
-        var transmissionBonus = SupermatterGasData.GetTransmitModifiers(gasComposition);
+        sm.GasHeatModifier = SupermatterGasData.GetHeatPenalties(sm.GasComposition);
+        var transmissionBonus = SupermatterGasData.GetTransmitModifiers(sm.GasComposition);
 
-        var h2OBonus = 1 - gasComposition.GetMoles(Gas.WaterVapor) * 0.25f;
+        var h2OBonus = 1 - sm.GasComposition.GetMoles(Gas.WaterVapor) * 0.25f;
 
         powerRatio = Math.Clamp(powerRatio, 0, 1);
         sm.HeatModifier = Math.Max(sm.GasHeatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
 
         // Miasma is really just microscopic particulate. It gets consumed like anything else that touches the crystal.
-        var ammoniaProportion = gasComposition.GetMoles(Gas.Ammonia);
+        var ammoniaProportion = sm.GasComposition.GetMoles(Gas.Ammonia);
 
         if (ammoniaProportion > 0)
         {
@@ -98,7 +102,7 @@ public sealed partial class SupermatterSystem
         }
 
         // Affects the damage heat does to the crystal
-        var heatResistance = SupermatterGasData.GetHeatResistances(gasComposition);
+        var heatResistance = SupermatterGasData.GetHeatResistances(sm.GasComposition);
         sm.DynamicHeatResistance = Math.Max(heatResistance, 1);
 
         // More moles of gases are harder to heat than fewer, so let's scale heat damage around them
@@ -108,9 +112,9 @@ public sealed partial class SupermatterSystem
         // Given infinite time, powerloss_dynamic_scaling = co2comp
         // Some value from 0-1
         if (sm.GasStorage.TotalMoles > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleThreshold) && // if there are more than 20 mols,
-            gasComposition.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionGasThreshold)) // and more than 20% co2
+            sm.GasComposition.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionGasThreshold)) // and more than 20% co2
         {
-            var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
+            var co2powerloss = Math.Clamp(sm.GasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
             sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
         }
         else
@@ -616,6 +620,15 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(EECCVars.SupermatterDoForceDelam))
             return _config.GetCVar(EECCVars.SupermatterForcedDelamType);
 
+        if (sm.GasComposition is { } && sm.GasStorage is { })
+        {
+            if (sm.GasComposition.GetMoles(Gas.Frezon) >= 0.4 && sm.GasComposition.GetMoles(Gas.Tritium) >= 0.4 && sm.GasStorage.TotalMoles >= 240)
+                return DelamType.Cascade;
+        }
+
+        if (sm.DestabilizingCrystal)
+            return DelamType.Cascade;
+
         if (sm.GasStorage is { })
         {
             if (_config.GetCVar(EECCVars.SupermatterDoSingulooseDelam)
@@ -626,8 +639,6 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(EECCVars.SupermatterDoTeslooseDelam)
             && sm.Power >= _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) * _config.GetCVar(EECCVars.SupermatterTesloosePowerModifier))
             return DelamType.Tesla;
-
-        //TODO: Add resonance cascade when there's crazy conditions or a destabilizing crystal
 
         return DelamType.Explosion;
     }
@@ -733,8 +744,36 @@ public sealed partial class SupermatterSystem
         switch (sm.PreferredDelamType)
         {
             case DelamType.Cascade:
-                // one day...
-                // Spawn(sm.KudzuSpawnPrototype, xform.Coordinates);
+                // Assumes supermatter is anchored on grid, might need to have it default to singularity if it returns
+                // Getting tile values before explosion removes them
+                var gridUid = xform.GridUid;
+                if (gridUid == null)
+                    return;
+
+                if (!TryComp<MapGridComponent>(xform.GridUid, out var mapGrid))
+                    return;
+
+                var tileCoords = xform.Coordinates;
+
+                // Can/Will destroy the tile it is on
+                _explosion.TriggerExplosive(uid);
+
+                // TODO: Remove Timer.Spawn & use the SM timer that exists already
+                Timer.Spawn(7 * 1000, () =>
+                {
+                    // TODO: Make all this hardcode components
+                    // TODO: Find a way to unhardcode sprite variation, or just like don't
+                    _map.SetTile(gridUid.Value, mapGrid, tileCoords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, 5)));
+                    Spawn(sm.CrystalMassSpawnPrototype, tileCoords);
+
+                    // for (var i = 0; i < _random.Next(1, 4) && i < spawns.Count; i++)
+                    // {
+                    //     var location = _random.PickAndTake(spawns);
+
+                    //     _map.SetTile(xform.GridUid.Value, mapGrid, xform.Coordinates, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, 5)));
+                    //     Spawn(sm.CrystalMassSpawnPrototype, location);
+                    // } TODO: random spawn see midround spawner
+                });
                 break;
 
             case DelamType.Singulo:
