@@ -7,7 +7,7 @@
   - type: Magic
     requiresClothes: true # imp add
   - type: Action
-    useDelay: 30 # imp edit
+    useDelay: 12 #imp edit, original is 15
     itemIconStyle: BigAction
     raiseOnUser: true
     sound: !type:SoundPathSpecifier
@@ -35,7 +35,7 @@
   description: Fires a fireball, but faster!
   components:
   - type: Action
-    useDelay: 20 # imp edit
+    useDelay: 8 #imp edit, original is 10
 
 - type: entity
   parent: ActionFireball
@@ -44,4 +44,4 @@
   description: The fastest fireball in the west!
   components:
   - type: Action
-    useDelay: 10 # imp edit
+    useDelay: 6 #imp edit, original is 8
