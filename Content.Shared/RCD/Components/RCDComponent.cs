@@ -34,9 +34,8 @@ public sealed partial class RCDComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
 
-    // Funky RPD Start
-
     /// <summary>
+    /// Funky
     /// A cached copy of currently selected RCD prototype
     /// </summary>
     /// <remarks>
@@ -46,17 +45,18 @@ public sealed partial class RCDComponent : Component
     public RCDPrototype CachedPrototype { get; set; } = default!;
 
     /// <summary>
+    /// Funky
     /// Indicates if a mirrored version of the construction prototype should be used (if available)
     /// </summary>
     [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
     public bool UseMirrorPrototype = false;
 
     /// <summary>
+    /// Funky
     /// Indicates whether this is an RCD or an RPD
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IsRpd { get; set; } = false;
-    // Funky RPD End
 
     /// <summary>
     /// The direction constructed entities will face upon spawning
@@ -83,9 +83,8 @@ public sealed partial class RCDComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public Transform ConstructionTransform { get; private set; }
 
-    // Funky RPD Start
-
     /// <summary>
+    /// Funky
     /// Stores player rotation
     /// This is a workaround to the fact eye rotation is not currently networked and required for pipe layering
     /// Sent only when needed
@@ -94,6 +93,7 @@ public sealed partial class RCDComponent : Component
     public float? LastKnownEyeRotation { get; set; } = null;
 
     /// <summary>
+    /// Funky
     /// Current pipe layer / build mode for RPD
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -103,6 +103,7 @@ public sealed partial class RCDComponent : Component
     public SoundSpecifier SoundSwitchMode { get; set; } = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg");
 }
 
+// Funky RPD Start
 [Serializable, NetSerializable]
 public enum RpdMode : byte
 {

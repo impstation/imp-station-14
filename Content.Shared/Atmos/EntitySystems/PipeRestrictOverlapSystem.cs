@@ -81,8 +81,6 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         }
     }
 
-    // Funky RPD Start
-
     /// <summary>
     /// Funky
     /// Checks if the device overlaps with any other devices.
@@ -99,6 +97,7 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         }
     }
 
+    // Funky RPD Start
     private void OnDeviceAnchorAttempt(Entity<DeviceRestrictOverlapComponent> ent, ref AnchorAttemptEvent args)
     {
         if (args.Cancelled)
@@ -146,8 +145,6 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         return false;
     }
 
-    // Funky RPD Start
-
     /// <summary>
     /// Funky
     /// Checks if the device overlaps with any other devices.
@@ -181,7 +178,6 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
 
         return false;
     }
-    // Funky RPD End
 
     public bool PipeNodesOverlap(Entity<NodeContainerComponent, TransformComponent> ent, Entity<NodeContainerComponent, TransformComponent> other)
     {
@@ -209,9 +205,8 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         }
     }
 
-    // Funky RPD Start
-
     /// <summary>
+    /// Funky
     /// Checks if placing a new pipe with the given direction and layer on the specified tile would conflict
     /// with any existing anchored pipe on the same tile, same layer and overlapping direction.
     /// Returns the EntityUid of the first conflicting pipe found, or null if no conflict.
@@ -252,6 +247,7 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         return null;
     }
 
+    // Funky RPD Start
     private static IEnumerable<(PipeDirection RotatedDirection, AtmosPipeLayer Layer)> GetPipeNodeData(
         Entity<NodeContainerComponent, TransformComponent> pipe)
     {
