@@ -15,8 +15,11 @@
     - MindRoleGhostRoleTeamAntagonist
     - MindRoleGhostRoleFamiliar
   - type: GhostTakeoverAvailable
-  - type: RandomMetadata
-    nameSegments: [ MouseDeathCommando ] # imp
+  - type: RandomMetadata # imp
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateMouse
+    nameFormat: name-format-nukie-generic
   - type: NpcFactionMember
     factions:
     - Syndicate
