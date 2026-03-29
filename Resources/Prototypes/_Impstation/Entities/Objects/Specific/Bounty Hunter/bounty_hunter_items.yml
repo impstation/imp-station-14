@@ -482,6 +482,9 @@
   name: old phone
   description: For freelancers to call their anonymous employer.
   components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/tanphone.rsi
+    state: icon
   - type: Prayable
     sentMessage: prayer-popup-notify-freelance-sent
     notificationPrefix: prayer-chat-notify-freelance
