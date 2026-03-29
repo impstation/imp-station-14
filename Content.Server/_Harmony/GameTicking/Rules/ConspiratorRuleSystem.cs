@@ -62,7 +62,7 @@ public sealed class ConspiratorRuleSystem : GameRuleSystem<ConspiratorRuleCompon
             args.Append(Loc.GetString("conspirator-name", ("name", Name(id))));
         }
 
-        args.Append(Loc.GetString("conspirator-radio-implant"));
+        // args.Append(Loc.GetString("conspirator-radio-implant")); // imp edit, commented out
     }
 
     private void OnAntagSelected(Entity<ConspiratorRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
