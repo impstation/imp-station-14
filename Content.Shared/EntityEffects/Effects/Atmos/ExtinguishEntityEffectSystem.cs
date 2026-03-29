@@ -29,7 +29,9 @@ public sealed partial class Extinguish : EntityEffectBase<Extinguish>
     ///     Amount of FireStacks reduced.
     /// </summary>
     [DataField]
-    public float FireStacksAdjustment = -1.5f;
+    // ES START
+    public float FireStacksAdjustment = -0.66f;
+    // ES END
 
     public override string EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) =>
         Loc.GetString("entity-effect-guidebook-extinguish-reaction", ("chance", Probability));

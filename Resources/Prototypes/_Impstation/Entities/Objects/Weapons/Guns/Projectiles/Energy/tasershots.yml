@@ -52,6 +52,10 @@
     slowdownAmount: 2.5
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5
+  - type: ESSparkOnProjectileHit
+    count: 3
+  - type: ESSparkOnDespawn
+    count: 1
 
 - type: entity
   parent: BulletTaser

@@ -85,6 +85,10 @@
           collection: GlassBreak
   - type: PlacementReplacement
     key: lights
+# ES START
+  - type: ESSparkOnHit
+    tileFireChance: 0.05
+# ES END
   placement:
     mode: SnapgridCenter
     snap:

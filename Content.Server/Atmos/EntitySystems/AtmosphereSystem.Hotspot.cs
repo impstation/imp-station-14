@@ -106,31 +106,10 @@ public sealed partial class AtmosphereSystem
             var gridUid = ent.Owner;
             var tilePos = tile.GridIndices;
 
-            // Get the existing decals on the tile
-            var tileDecals = _decalSystem.GetDecalsInRange(gridUid, tilePos);
-
-            // Count the burnt decals on the tile
-            var tileBurntDecals = 0;
-
-            foreach (var set in tileDecals)
-            {
-                if (Array.IndexOf(_burntDecals, set.Decal.Id) == -1)
-                    continue;
-
-                tileBurntDecals++;
-
-                if (tileBurntDecals > 4)
-                    break;
-            }
-
-            // Add a random burned decal to the tile only if there are less than 4 of them
-            if (tileBurntDecals < 4)
-            {
-                _decalSystem.TryAddDecal(_burntDecals[_random.Next(_burntDecals.Length)],
-                    new EntityCoordinates(gridUid, tilePos),
-                    out _,
-                    cleanable: true);
-            }
+            // ES START
+            // pull burnt decal logic out into a public method to be used elsewhere
+            TryAddBurntDecalsToTile(gridUid, tilePos);
+            // ES END
 
             if (tile.Air.Temperature > Atmospherics.FireMinimumTemperatureToSpread)
             {
@@ -175,6 +154,46 @@ public sealed partial class AtmosphereSystem
 
         // TODO ATMOS Maybe destroy location here?
     }
+
+    // ES START
+    // api for adding burnt decals
+    /// <summary>
+    ///     Tries to add burnt decals to a tile, counting them and stopping at a maximum of 4.
+    /// </summary>
+    public void TryAddBurntDecalsToTile(EntityUid gridUid, Vector2i tilePos, int count = 1)
+    {
+        // Get the existing decals on the tile
+        var tileDecals = _decalSystem.GetDecalsInRange(gridUid, tilePos);
+
+        // Count the burnt decals on the tile
+        var tileBurntDecals = 0;
+
+        foreach (var set in tileDecals)
+        {
+            if (Array.IndexOf(_burntDecals, set.Decal.Id) == -1)
+                continue;
+
+            tileBurntDecals++;
+
+            if (tileBurntDecals > 4)
+                break;
+        }
+
+        for (var i = 0; i < count; i++)
+        {
+            // Add a random burned decal to the tile only if there are less than 4 of them
+            if (tileBurntDecals > 4)
+                break;
+
+            _decalSystem.TryAddDecal(_burntDecals[_random.Next(_burntDecals.Length)],
+                new EntityCoordinates(gridUid, tilePos),
+                out _,
+                cleanable: true);
+
+            tileBurntDecals += 1;
+        }
+    }
+    // ES END
 
     /// <summary>
     /// Exposes a tile to a hotspot of given temperature and volume, igniting it if conditions are met.

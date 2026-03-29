@@ -104,7 +104,9 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Visible moles multiplied by this factor to get moles at which gas is at max visibility.
         /// </summary>
-        public const float FactorGasVisibleMax = 20f;
+        // ES START
+        public const float FactorGasVisibleMax = 10f;
+        // ES END
 
         /// <summary>
         ///     Minimum number of moles a gas can have.
@@ -168,6 +170,10 @@ namespace Content.Shared.Atmos
         /// </summary>
         public static Dictionary<Gas, string> GasAbbreviations = new Dictionary<Gas, string>()
         {
+            // ES START
+            // todo why the fuck does it work like this and why is it not just on the prototype dude
+            [Gas.Smoke] = Loc.GetString("gas-smoke-abbreviation"),
+            // ES END
             [Gas.Ammonia] = Loc.GetString("gas-ammonia-abbreviation"),
             [Gas.CarbonDioxide] = Loc.GetString("gas-carbon-dioxide-abbreviation"),
             [Gas.Frezon] = Loc.GetString("gas-frezon-abbreviation"),
@@ -206,7 +212,9 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 9;
+        // ES START
+        public const int TotalNumberOfGases = 10;
+        // ES END
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -361,6 +369,9 @@ namespace Content.Shared.Atmos
     [Serializable, NetSerializable]
     public enum Gas : sbyte
     {
+        // ES START
+        Smoke = 9,
+        // ES END
         Oxygen = 0,
         Nitrogen = 1,
         CarbonDioxide = 2,
