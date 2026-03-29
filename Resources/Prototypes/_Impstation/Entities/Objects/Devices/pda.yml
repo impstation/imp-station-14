@@ -177,6 +177,8 @@
   components:
   - type: Pda
     id: AtmosIDCard
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/atmos_pda.rsi
   - type: Appearance
     appearanceDataInit:
       enum.PdaVisuals.PdaType:
@@ -184,7 +186,7 @@
         pda-senioratmos
   - type: PdaBorderColor
     borderColor: "#949137"
-    accentVColor: "#447987"
+    accentVColor: "#488B8F"
   - type: Icon
     state: pda-senioratmos
 
