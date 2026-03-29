@@ -131,8 +131,6 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
                                 RegisterTriggeredNode(ent, _artifact.GetNode(ent, nodeIndex), true);
                         }
                     }
-
-                    //ANS TODO: trigger end of unlock advertise
                 }
 
                 // Save the unlock session to Advanced Node Scanner's memory and stop thinking this artifact is unlocking
@@ -177,14 +175,11 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         if (ignoreTime)
             now = null;
 
-        //var toAdvertise = new List<int>(); placeholder for advertising in future
-
         var sessionUpdate = advancedNodeScannerComponent.ArtifactUnlockSessions[netArtifact];
         if (node == null)
         {
             sessionUpdate.ArtifexiumApplied = true;
             sessionUpdate.ActivatedNodes.Add(new NodeActivation(now, -1, null, null, "artifexium"));
-            //toAdvertise.Add(-1);
         }
         else
         {
@@ -196,7 +191,6 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
                 GetNetEntity(node.Value.Owner).Id,
                 _artifact.GetNodeId(node.Value.Owner),
                 triggerTip));
-            //toAdvertise.Add(index);
         }
 
         if (predictedEndTime != null)
@@ -204,7 +198,6 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 
         advancedNodeScannerComponent.ArtifactUnlockSessions[netArtifact] = sessionUpdate;
         Dirty(advancedNodeScannerUid, advancedNodeScannerComponent);
-        // ANS TODO: advertise - (-1) index means artifexium
     }
 
     /// <summary>
