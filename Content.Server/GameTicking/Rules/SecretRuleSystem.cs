@@ -12,6 +12,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
+using Content.Shared.GameTicking; // imp
+using Robust.Server.Player; // imp
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -22,6 +24,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly GameTicker _ticker = default!; // imp
+    [Dependency] private readonly IPlayerManager _playerManager = default!; // imp
 
     // IMP - Dictionary that contains the minimum round number for certain preset
     // prototypes to be allowed to roll again
@@ -88,6 +91,28 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     {
         var options = _prototypeManager.Index(weights).Weights.ShallowClone();
         var players = GameTicker.ReadyPlayerCount();
+
+        // imp edit start
+        var unreadied = 0;
+
+        // get every UNREADIED player
+        foreach (var (userId, status) in GameTicker.PlayerGameStatuses)
+        {
+            if (status != PlayerGameStatus.NotReadyToPlay)
+                continue;
+
+            if (!_playerManager.TryGetSessionById(userId, out _))
+                continue;
+
+            unreadied++;
+        }
+
+        // divide it by two because not all unreadied players will actually join the round
+        unreadied /= 2;
+
+        // add it to players. half of the unreadied amount will count for game preset rolling
+        players += unreadied;
+        // imp edit end
 
         GamePresetPrototype? selectedPreset = null;
         var sum = options.Values.Sum();
