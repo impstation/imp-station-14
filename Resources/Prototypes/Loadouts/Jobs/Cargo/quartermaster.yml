@@ -1,12 +1,12 @@
 # For mantles
-- type: loadoutEffectGroup
-  id: MasterQM
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobQuartermaster
-      time: 10h # imp, was 20
+# - type: loadoutEffectGroup
+#   id: MasterQM
+#   effects:
+#   - !type:JobRequirementLoadoutEffect Imp
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobQuartermaster
+#       time: 10h # imp, was 20
 
 # Jumpsuit
 - type: loadout
@@ -55,9 +55,9 @@
   id: QuartermasterMantle
   equipment:
     neck: ClothingNeckMantleQM
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterQM
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: MasterQM
 
 - type: startingGear
   id: QuartermasterMantle

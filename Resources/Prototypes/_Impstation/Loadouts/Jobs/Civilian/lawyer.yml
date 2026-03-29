@@ -1,13 +1,3 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorLawyer
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobLawyer
-      time: 30h
-
 # Jumpsuit
 - type: loadout
   id: ClothingUniformCreamSuit
@@ -29,25 +19,16 @@
   id: LawyerArmband
   equipment:
     neck: ClothingNeckLawyerArmband
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorLawyer
 
 - type: loadout
   id: ProsecutorArmband
   equipment:
     neck: ClothingNeckProsecutorArmband
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorLawyer
 
 - type: loadout
   id: DefenseAttorneyArmband
   equipment:
     neck: ClothingNeckDefenseAttorneyArmband
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorLawyer
 
 # PDA
 - type: loadout
@@ -59,9 +40,6 @@
   id: SeniorLawyerPDA
   equipment:
     id: SeniorLawyerPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorLawyer
 
 # Briefcases
 - type: loadout

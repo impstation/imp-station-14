@@ -1,49 +1,49 @@
-# Senior Time
-- type: loadoutEffectGroup
-  id: SeniorPhysician
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChemist
-      time: 5h # imp, was 6
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 5h # imp, was 6
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Medical
-      time: 30h # imp, was 60
+# # Senior Time Imp
+# - type: loadoutEffectGroup
+#   id: SeniorPhysician
+#   effects:
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobChemist
+#       time: 5h # imp, was 6
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobMedicalDoctor
+#       time: 5h # imp, was 6
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:DepartmentTimeRequirement
+#       department: Medical
+#       time: 30h # imp, was 60
 
 # Other Timers
 
-- type: loadoutEffectGroup
-  id: MedicalHeadMirrorTimer
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobMedicalDoctor
-      time: 30h
+# - type: loadoutEffectGroup Imp
+#   id: MedicalHeadMirrorTimer
+#   effects:
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobMedicalDoctor
+#       time: 30h
 
 # Head
 
 - type: loadout
   id: SeniorPhysicianBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: SeniorPhysician
   equipment:
     head: ClothingHeadHatBeretSeniorPhysician
 
 - type: loadout
   id: MedicalHeadMirror
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MedicalHeadMirrorTimer
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: MedicalHeadMirrorTimer
   equipment:
     head: ClothingHeadMirror
 
@@ -85,17 +85,17 @@
 
 - type: loadout
   id: SeniorPhysicianJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: SeniorPhysician
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorPhysician
 
 - type: loadout
   id: SeniorPhysicianJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: SeniorPhysician
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorPhysician
 
@@ -138,9 +138,9 @@
 
 - type: loadout
   id: SeniorPhysicianLabCoat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: SeniorPhysician
   equipment:
     outerClothing: ClothingOuterCoatLabSeniorPhysician
 
@@ -158,9 +158,9 @@
 
 - type: loadout
   id: SeniorPhysicianPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorPhysician
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: SeniorPhysician
   equipment:
     id: SeniorPhysicianPDA
 

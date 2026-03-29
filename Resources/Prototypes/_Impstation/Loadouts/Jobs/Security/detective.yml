@@ -1,13 +1,3 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorDetective
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobDetective
-      time: 30h
-
 # Jumpsuits
 - type: loadout
   id: ClothingUniformMiamiVice
@@ -102,8 +92,5 @@
 
 - type: loadout
   id: SeniorDetectivePDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorDetective
   equipment:
     id: SeniorDetectivePDA

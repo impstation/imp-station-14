@@ -1,13 +1,3 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorParamedic
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobParamedic
-      time: 30h
-
 # id
 - type: loadout
   id: ParamedicPDA
@@ -16,8 +6,5 @@
 
 - type: loadout
   id: SeniorParamedicPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorParamedic
   equipment:
     id: SeniorParamedicPDA

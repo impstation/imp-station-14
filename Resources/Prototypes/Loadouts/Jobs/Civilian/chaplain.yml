@@ -1,32 +1,33 @@
-# Playtime requirement for NanoTrasen Bible, Codex NanoTrasimus
-- type: loadoutEffectGroup
-  id: NanoTrasenBibleRequirement
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobCaptain
-      time: 7200 #2 hrs
+# Mass Imp Event
+# # Playtime requirement for NanoTrasen Bible, Codex NanoTrasimus
+# - type: loadoutEffectGroup
+#   id: NanoTrasenBibleRequirement
+#   effects:
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobCaptain
+#       time: 7200 #2 hrs
 
-# Playtime requirement for Druid Bible, Druidic Tablet
-- type: loadoutEffectGroup
-  id: DruidBibleRequirement
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobBotanist
-      time: 18000 #5 hrs
+# # Playtime requirement for Druid Bible, Druidic Tablet
+# - type: loadoutEffectGroup
+#   id: DruidBibleRequirement
+#   effects:
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobBotanist
+#       time: 18000 #5 hrs
 
-# Playtime requirement for Clown Bible, Mirth of the Honkmother
-- type: loadoutEffectGroup
-  id: ClownBibleRequirement
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobClown
-      time: 18000 #5 hrs
+# # Playtime requirement for Clown Bible, Mirth of the Honkmother
+# - type: loadoutEffectGroup
+#   id: ClownBibleRequirement
+#   effects:
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobClown
+#       time: 18000 #5 hrs
 
 # Head
 - type: loadout
@@ -117,18 +118,18 @@
 
 - type: loadout
   id: BibleDruid
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: DruidBibleRequirement
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: DruidBibleRequirement
   storage:
     back:
     - BibleDruid
 
 - type: loadout
   id: BibleNanoTrasen
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: NanoTrasenBibleRequirement
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: NanoTrasenBibleRequirement
   storage:
     back:
     - BibleNanoTrasen
@@ -141,9 +142,9 @@
 
 - type: loadout
   id: BibleHonk
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: ClownBibleRequirement
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: ClownBibleRequirement
   storage:
     back:
     - BibleHonk

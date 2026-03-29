@@ -1,22 +1,3 @@
-# Senior Times
-- type: loadoutEffectGroup
-  id: Atmos10hr
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 10h
-
-- type: loadoutEffectGroup
-  id: SeniorAtmosphericTechnician
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 30h
-
 # InnerClothing
 - type: loadout
   id: FlightsuitAtmos
@@ -38,9 +19,6 @@
   id: BomberAtmosHolo
   equipment:
     outerClothing: ClothingOuterCoatBomberAtmosHolo
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Atmos10hr
 
 # id
 - type: loadout
@@ -50,8 +28,5 @@
 
 - type: loadout
   id: SeniorAtmosphericTechnicianPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorAtmosphericTechnician
   equipment:
     id: SeniorAtmosPDA
