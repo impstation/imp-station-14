@@ -16,7 +16,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Anomalocarid ] #imp, added apid, thaven, anomalocarid TODO: thaven should have their own waste reaction for all gases
+          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Anomalocarid, Gray ] #imp, added apid, thaven, anomalocarid, gray TODO: thaven should have their own waste reaction for all gases
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -47,7 +47,7 @@
       - !type:Oxygenate
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Dinosaur, Anomalocarid ] #imp, added apid, dinosaur, thaven TODO: thaven should have their own waste reaction for all gases
+          type: [ Human, Animal, Rat, Plant, Apid, Thaven, Dinosaur, Anomalocarid, Gray ] #imp, added apid, dinosaur, thaven, gray TODO: thaven should have their own waste reaction for all gases
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
@@ -149,6 +149,12 @@
         damage:
           types:
             Radiation: 1.5
+        # imp edit start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity
+          inverted: true
+        # imp edit end
     Gas:
       effects:
       - !type:HealthChange
@@ -157,6 +163,12 @@
           types:
             Radiation:
               1
+        # imp edit start
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity
+          inverted: true
+        # imp edit end
       # We need a metabolism effect on reagent removal
       - !type:AdjustAlert
         alertType: Toxins
@@ -164,11 +176,14 @@
         clear: True
         time: 5
       # imp edit start
-      - !type:Oxygenate #thaven don't suffocate from any gases
-        scaling: true
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Thaven ]
+          type: [ Gray ] #they don't need a toxin alert if it's not toxic to them, right?
+          inverted: true
+      - !type:Oxygenate #thaven don't suffocate from any gases, gray enrichment
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Thaven, Gray ]
       # imp edit end
 
 - type: reagent
