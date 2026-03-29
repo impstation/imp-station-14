@@ -1021,14 +1021,14 @@
   parent: BasePlushie
   id: PlushieAtmosian
   name: atmosian plushie
-  description: An adorable stuffed toy that resembles a brave atmosian. Unfortunately, he won't fix those depressurizations for you.
+  description: An adorable stuffed toy that resembles a brave atmosian. Unfortunately, she won't fix those depressurizations for you. #imp
   components:
   - type: Sprite
-    sprite: Objects/Fun/Plushies/atmosian.rsi
+    sprite: _Impstation/Objects/Fun/Plushies/atmosian.rsi #imp
     state: icon
   - type: Clothing
     quickEquip: false
-    sprite: Objects/Fun/Plushies/atmosian.rsi
+    sprite: _Impstation/Objects/Fun/Plushies/atmosian.rsi #imp
     slots:
     - HEAD
     clothingVisuals:

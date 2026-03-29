@@ -84,9 +84,9 @@
   description: An expensive firesuit that protects against even the most deadly of station fires. Designed to protect even if the wearer is set aflame.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Suits/atmos_firesuit.rsi #imp
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Suits/atmos_firesuit.rsi #imp
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000

@@ -1100,6 +1100,8 @@
   components:
   - type: Pda
     id: AtmosIDCard
+  - type: Sprite #imp
+    sprite: _Impstation/Objects/Devices/atmos_pda.rsi #imp
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -1107,7 +1109,7 @@
        pda-atmos
   - type: PdaBorderColor
     borderColor: "#949137"
-    accentVColor: "#447987"
+    accentVColor: "#488B8F" #imp
   - type: Icon
     state: pda-atmos
 
