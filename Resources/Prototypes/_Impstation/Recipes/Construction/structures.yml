@@ -168,6 +168,18 @@
     - !type:TileNotBlocked
 
 - type: construction
+  id: Incubator
+  graph: incubatorGraph
+  startNode: start
+  targetNode: IncubatorNode
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+    - !type:TileNotBlocked
+
+- type: construction
   id: WindowCardboard
   graph: CardboardStructures
   startNode: start
