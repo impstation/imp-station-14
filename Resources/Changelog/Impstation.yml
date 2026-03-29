@@ -1,32 +1,4 @@
 ﻿Entries:
-- author: widgetbeck
-  changes:
-  - message: Fixed replicator nest sound effects lingering after the nest is destroyed.
-    type: Fix
-  - message: Fixed replicators from old nests not getting leveled up from their new
-      nest - instead, all replicators on the map are affected by all nests. There
-      is one Hive.
-    type: Fix
-  - message: Fixed replicators not getting a popup notification when they are orphaned
-      (when their Queen dies.) The Queen will also now lose its Crown upon its death.
-    type: Fix
-  id: 2226
-  time: '2025-09-03T11:48:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3348
-- author: Darkmajia
-  changes:
-  - message: Fixed a text display issue with antagonists on the round end summary.
-    type: Fix
-  id: 2227
-  time: '2025-09-03T11:52:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3376
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The Xiuhcoatl has some more gusto now
-    type: Tweak
-  id: 2228
-  time: '2025-09-05T11:08:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3412
 - author: FlippenPage
   changes:
   - message: The Big Red Button has been approved for use on Nanotrasen stations.
@@ -4154,3 +4126,25 @@
   id: 2725
   time: '2026-03-28T06:50:52.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4114
+- author: lobsterpaw
+  changes:
+  - message: Minor Dolphin changes and fixes.
+    type: Tweak
+  id: 2726
+  time: '2026-03-29T00:52:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4242
+- author: salamanderskies
+  changes:
+  - message: Saltern Station has recieved major rennovations (see PR for details).
+    type: Tweak
+  id: 2727
+  time: '2026-03-29T02:08:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4251
+- author: HAPPYNEWYEAR1999
+  changes:
+  - message: The Atmospheric Department has gotten a (slightly) different coat of
+      paint.
+    type: Tweak
+  id: 2728
+  time: '2026-03-29T02:15:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4193
