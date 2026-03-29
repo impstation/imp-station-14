@@ -96,3 +96,15 @@ public struct UnlockSession(
     public bool ArtifexiumApplied = artifexiumApplied;
     public int? UnlockedNode = unlockedNode; // NetEntity ID - int to persist after artifact is crushed/sold/deleted
 }
+
+[Serializable, NetSerializable]
+public enum AdvancedNodeScannerVisuals : byte
+{
+    Linked,
+}
+
+[Serializable, NetSerializable]
+public enum AdvancedNodeScannerVisualLayers : byte
+{
+    Base,
+}

@@ -17,6 +17,7 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 {
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly SharedXenoArtifactSystem _artifact = default!;
+    [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     /// <inheritdoc/>
@@ -25,10 +26,14 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<AdvancedNodeScannerComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<AdvancedNodeScannerComponent, PortDisconnectedEvent>(OnPortDisconnected);
-
+        SubscribeLocalEvent<AdvancedNodeScannerComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<XenoArtifactComponent, ArtifactUnlockingFinishedEvent>(OnUnlockingFinished);
     }
 
+    private void OnMapInit(EntityUid uid, AdvancedNodeScannerComponent comp, MapInitEvent args)
+    {
+        UpdateANSLinkAppearance((uid, comp), comp.AnalyzerEntity is not null);
+    }
 
     private void OnNewLink(Entity<AdvancedNodeScannerComponent> ent, ref NewLinkEvent args)
     {
@@ -37,6 +42,9 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 
         ent.Comp.AnalyzerEntity = args.Sink;
         analyzer.AdvancedNodeScanner = ent;
+
+        // Turn the 'linked' light on
+        UpdateANSLinkAppearance(ent, true);
 
         if (analyzer.CurrentArtifact is { } artifact && TryComp<XenoArtifactComponent>(artifact, out var artifactComp))
         {
@@ -70,9 +78,22 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
                 Dirty(artifact, artifactComp);
             }
         }
+        // Turn the 'linked' light off
+        UpdateANSLinkAppearance(ent, false);
 
         ent.Comp.AnalyzerEntity = null;
         Dirty(ent);
+    }
+
+    /// <summary>
+    /// Updates the appearance of the advanced node scanner - turns the 'linked' light on or off.
+    /// </summary>
+    private void UpdateANSLinkAppearance(Entity<AdvancedNodeScannerComponent> ent, bool linked)
+    {
+        if (!TryComp<AppearanceComponent>(ent.Owner, out var appearance))
+            return;
+
+        Appearance.SetData(ent.Owner, AdvancedNodeScannerVisuals.Linked, linked, appearance);
     }
 
     /// <summary>

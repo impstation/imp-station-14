@@ -12,8 +12,8 @@
       state: icon
     - map: ["computerLayerScreen"]
       state: unshaded
-    #- map: ["computerLayerLink"]
-    #  state: linked
+    - map: ["enum.AdvancedNodeScannerVisualLayers.Base"]
+      state: linked
   - type: Physics
     bodyType: Static
     canCollide: true
@@ -61,10 +61,7 @@
         computerLayerScreen:
           True: { visible: true, shader: unshaded }
           False: { visible: false }
-        computerLayerKeys:
+      enum.AdvancedNodeScannerVisuals.Linked:
+        enum.AdvancedNodeScannerVisualLayers.Base:
           True: { visible: true, shader: unshaded }
-          False: { visible: true, shader: shaded }
-      enum.WiresVisuals.MaintenancePanelState:
-        enum.WiresVisualLayers.MaintenancePanel:
-          True: { visible: false }
-          False: { visible: true }
+          False: { visible: false }
