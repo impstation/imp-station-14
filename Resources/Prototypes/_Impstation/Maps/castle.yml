@@ -1,0 +1,66 @@
+- type: gameMap
+  id: Castle
+  mapName: 'Castle'
+  mapPath: /Maps/_Impstation/castle.yml
+  minPlayers: 4
+  maxPlayers: 50
+  stations:
+    Submarine:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Castle {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'WZ'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/Shuttles/emergency_amber.yml
+        - type: StationJobs
+          availableJobs: # Total of 67 jobs roundstart, max of 81 inc. latejoins and trainees.
+            # command - 8
+            Captain: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            ChiefEngineer: [ 1, 1 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            ResearchDirector: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            HospitalityDirector: [ 1, 1 ]
+            Quartermaster: [ 1, 1 ]
+            # service - 8-9
+            Bartender: [ 1, 1 ]
+            Botanist: [ 1, 1 ]
+            Chef: [ 1, 1 ]
+            Clown: [ 1, 1 ]
+            Janitor: [ 2, 2 ]
+            Librarian: [ 1, 1 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 1, 1 ]
+            # engineering - 3-4
+            AtmosphericTechnician: [ 1, 1 ]
+            StationEngineer: [ 2, 2 ]
+            TechnicalAssistant: [ 1, 1 ]
+            # medical - 5-6
+            Chemist: [ 1, 1 ]
+            MedicalDoctor: [ 2, 2 ]
+            MedicalIntern: [ 1, 1 ]
+            Paramedic: [ 1, 1 ]
+            Psychologist: [ 1, 1 ]
+            # science - 5-6
+            Borg: [ 2, 2 ]
+            ResearchAssistant: [ 1, 1 ]
+            Scientist: [ 2, 2 ]
+            StationAi: [ 1, 1 ]
+            # security - 4-7
+            Brigmedic: [ 1, 1 ]
+            Detective: [ 1, 1 ]
+            Lawyer: [ 1, 1 ]
+            SecurityCadet: [ 1, 1 ]
+            SecurityOfficer: [ 2, 2 ]
+            Warden: [ 1, 1 ]
+            # supply - 3-6
+            CargoTechnician: [ 2, 2 ]
+            Courier: [ 1, 1 ]
+            SalvageSpecialist: [ 2, 2 ]
+            SupplyAssistant: [ 1, 1 ]
+            # civilian
+            Passenger: [ -1, -1 ]
