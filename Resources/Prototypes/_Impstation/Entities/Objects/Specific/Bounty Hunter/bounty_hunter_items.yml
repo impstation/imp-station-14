@@ -475,3 +475,15 @@
     - id: MuteAutoInjector
     sound:
       path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: PhoneInstrument
+  id: PhoneInstrumentBountyHunter
+  name: old phone
+  description: For freelancers to call their anonymous employer.
+  components:
+  - type: Prayable
+    sentMessage: prayer-popup-notify-freelance-sent
+    notificationPrefix: prayer-chat-notify-freelance
+    verb: prayer-verbs-call
+    verbImage: null
