@@ -13,96 +13,23 @@ namespace Content.Server.Atmos.EntitySystems
     {
         [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
-        private GasReactionPrototype[] _gasReactions = Array.Empty<GasReactionPrototype>();
-        private float[] _gasSpecificHeats = new float[Atmospherics.TotalNumberOfGases];
+        private GasReactionPrototype[] _gasReactions = [];
 
         /// <summary>
         ///     List of gas reactions ordered by priority.
         /// </summary>
         public IEnumerable<GasReactionPrototype> GasReactions => _gasReactions;
 
-        /// <summary>
-        ///     Cached array of gas specific heats.
-        /// </summary>
-        public float[] GasSpecificHeats => _gasSpecificHeats;
-
-        private void InitializeGases()
+        public override void InitializeGases()
         {
+            base.InitializeGases();
+
             _gasReactions = _protoMan.EnumeratePrototypes<GasReactionPrototype>().ToArray();
             Array.Sort(_gasReactions, (a, b) => b.Priority.CompareTo(a.Priority));
-
-            Array.Resize(ref _gasSpecificHeats, MathHelper.NextMultipleOf(Atmospherics.TotalNumberOfGases, 4));
-
-            for (var i = 0; i < GasPrototypes.Length; i++)
-            {
-                _gasSpecificHeats[i] = GasPrototypes[i].SpecificHeat / HeatScale;
-            }
         }
-
-        // BEGIN IMP ADD
-        /// <summary>
-        ///     Calculates the specific heat for a gas mixture.
-        ///     <br></br><b>Ensure that you know the difference between specific heat and heat capacity, and that you're using the correct function.</b>
-        /// </summary>
-        /// <param name="mixture">The mixture whose specific heat should be calculated</param>
-        public float GetSpecificHeat(GasMixture mixture)
-            => GetSpecificHeatCalculation(mixture.Moles, mixture.Immutable);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private float GetSpecificHeatCalculation(float[] moles, bool space)
-        {
-            //Mirroring heat capacity calculation: return space's specific heat
-            if (space && MathHelper.CloseTo(NumericsHelpers.HorizontalAdd(moles), 0f))
-            {
-                return Atmospherics.SpaceHeatCapacity;
-            }
-
-            //Create a proportional moles vector. Essentially we want the heat capacity of one mol of gas.
-            //Note: we *don't* want a normalized vector, as the denominator of the fraction will be a square root.
-            //E.g. A mix with 50/50 oxygen/nitrogen will compute to be 0.70 oxygen and 0.70 nitrogen instead of 0.5 and 0.5.
-            Span<float> temp = stackalloc float[moles.Length];
-
-            //Get the sum of the vector.
-            var molesSum = NumericsHelpers.HorizontalAdd(moles);
-
-            //This should never happen, but just in case.
-            if (molesSum == 0f)
-            {
-                return Atmospherics.SpaceHeatCapacity;
-            }
-
-            //Proportionalize the mols vector by dividing all elements within it by its sum.
-            //Here temp contains the fractional values of each gas in the mixture.
-            NumericsHelpers.Divide(moles, molesSum, temp);
-
-            //Multiply fractional moles with specific heats and return the sum. This is the specific heat of the mixture.
-            //Here temp contains the partial specific heat of each gas in the mixture.
-            NumericsHelpers.Multiply(temp, GasSpecificHeats, temp);
-            return NumericsHelpers.HorizontalAdd(temp);
-        }
-        // END IMP ADD
-
-        /// <summary>
-        ///     Calculates the heat capacity for a gas mixture.
-        /// </summary>
-        /// <param name="mixture">The mixture whose heat capacity should be calculated</param>
-        /// <param name="applyScaling"> Whether the internal heat capacity scaling should be applied. This should not be
-        /// used outside of atmospheric related heat transfer.</param>
-        /// <returns></returns>
-        public float GetHeatCapacity(GasMixture mixture, bool applyScaling)
-        {
-            var scale = GetHeatCapacityCalculation(mixture.Moles, mixture.Immutable);
-
-            // By default GetHeatCapacityCalculation() has the heat-scale divisor pre-applied.
-            // So if we want the un-scaled heat capacity, we have to multiply by the scale.
-            return applyScaling ? scale : scale * HeatScale;
-        }
-
-        private float GetHeatCapacity(GasMixture mixture)
-            =>  GetHeatCapacityCalculation(mixture.Moles, mixture.Immutable);
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private float GetHeatCapacityCalculation(float[] moles, bool space)
+        protected override float GetHeatCapacityCalculation(float[] moles, bool space)
         {
             // Little hack to make space gas mixtures have heat capacity, therefore allowing them to cool down rooms.
             if (space && MathHelper.CloseTo(NumericsHelpers.HorizontalAdd(moles), 0f))

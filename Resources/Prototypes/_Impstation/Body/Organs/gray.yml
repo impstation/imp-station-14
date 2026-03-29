@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseGrayOrganUnGibbable
+  id: BaseGrayOrgan
   parent: BaseItem
   abstract: true
   components:
@@ -28,16 +28,10 @@
     - Meat
     - Organ
 
-- type: entity
-  id: BaseGrayOrgan
-  parent: BaseGrayOrganUnGibbable
-  abstract: true
-  components:
-  - type: Gibbable
 
 - type: entity
   id: OrganGrayBrain
-  parent: BaseGrayOrganUnGibbable
+  parent: BaseGrayOrgan
   name: moluuma
   description: "Jazee thinking pib talking."
   components:
