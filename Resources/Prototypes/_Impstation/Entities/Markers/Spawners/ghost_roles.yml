@@ -91,3 +91,22 @@
       state: green
     - sprite: Mobs/Aliens/paradox_clone.rsi
       state: preview
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostBloodlessChimp
+  components:
+  - type: GhostRole
+    name: ghost-role-information-bloodless-chimp-name
+    description: ghost-role-information-bloodless-chimp-description
+    rules: ghost-role-information-bloodless-chimp-rules
+    mindRoles:
+    - MindRoleBloodlessChimp
+    raffle:
+      settings: default
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Animals/monkey.rsi
+      state: monkey

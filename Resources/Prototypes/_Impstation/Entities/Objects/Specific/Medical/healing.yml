@@ -687,3 +687,18 @@
             Quantity: 12
           - ReagentId: TranexamicAcid
             Quantity: 3
+
+- type: entity
+  suffix: Anti Chimp salve
+  parent: PrefilledSyringe
+  id: SyringeAntiChimpSalve
+  components:
+  - type: Label
+    currentLabel: reagent-name-AntiChimpSalve
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: AntiChimpSalve
+          Quantity: 15

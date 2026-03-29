@@ -310,3 +310,35 @@
         - Passive
       mindRoles:
       - MindRoleButler
+
+# Bloodless Chimp
+- type: entity
+  parent: BaseMidRoundAntag
+  id: BloodlessChimpSpawn
+  components:
+  - type: StationEvent
+    weight: 3
+    reoccurrenceDelay: 5
+    minimumPlayers: 15
+    earliestStart: 25
+    duration: null
+  - type: MidRoundAntagRule
+  - type: BloodlessChimpRule
+  - type: AntagSpawner
+    prototype: MobBloodlessChimp
+  - type: AntagObjectives
+    objectives:
+    - BaseBloodlessChimpKillObjective
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostBloodlessChimp
+      min: 1
+      max: 1
+      pickPlayer: false
+      components:
+      - type: NpcFactionMember
+        factions:
+        - Passive
+      mindRoles:
+      - MindRoleBloodlessChimp
+
