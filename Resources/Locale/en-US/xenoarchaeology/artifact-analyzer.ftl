@@ -1,5 +1,7 @@
-analysis-console-menu-title = Broad-Spectrum Mark 4 Analysis Console
-#IMP Mark 3 -> Mark 4
+analysis-console-menu-title = Broad-Spectrum Mark 3 Analysis Console
+#IMP Mark 4:
+analysis-console-menu-title-with-advanced-node-scanner = Broad-Spectrum Mark 4 Analysis Console
+
 analysis-console-server-list-button = Server
 analysis-console-extract-button = Extract points
 
