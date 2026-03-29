@@ -240,6 +240,32 @@
   hasLayers: true # Imp
   fx: EffectRCDConstruct0
 
+# Imp Start
+- type: rcd
+  id: RetroRadiator
+  category: AtmosphericUtility
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/radiator.png
+  mode: ConstructObject
+  prototype: HeatExchangerRetro
+  cost: 2
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+
+- type: rcd
+  id: RetroBendRadiator
+  category: AtmosphericUtility
+  sprite: /Textures/_Funkystation/Interface/Radial/RPD/he_bend.png
+  mode: ConstructObject
+  prototype: HeatExchangerRetroBend
+  cost: 2
+  delay: 0
+  collisionMask: Impassable
+  rotation: User
+  fx: EffectRCDConstruct0
+# Imp End
+
 - type: rcd
   id: MixerGas
   category: AtmosphericUtility
