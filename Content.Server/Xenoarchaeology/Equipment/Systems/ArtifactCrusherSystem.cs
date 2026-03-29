@@ -47,7 +47,7 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                 }
             }
 
-            if (TryComp<XenoArtifactComponent>(contained, out var artifact) && artifact.Natural) //imp if statement and all code within
+            if (TryComp<XenoArtifactComponent>(contained, out var artifact)) //imp if statement and all code within
             {
                 var unlocking = EnsureComp<XenoArtifactUnlockingComponent>(contained);
                 _artifact.FinishUnlockingState((contained, unlocking, artifact));

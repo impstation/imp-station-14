@@ -32,6 +32,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
     private readonly ArtifactAnalyzerSystem _artifactAnalyzer;
     private readonly XenoArtifactSystem _xenoArtifact;
+    private readonly AdvancedNodeScannerSystem _advancedNodeScannerSystem; //imp: advanced node scanner system
     private readonly AudioSystem _audio;
     private readonly MetaDataSystem _meta = default!;
 
@@ -41,12 +42,17 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
     private TimeSpan? _hideExtractInfoIn;
     private int _extractionSum;
 
+    private Entity<AdvancedNodeScannerComponent> _advancedNodeScanner; //imp: advanced node scanner
+    private TimeSpan? _unlockEndTime; //imp: advanced node scanner (reticulated only) display remaining unlock session time
+
     public event Action? OnServerSelectionButtonPressed;
     public event Action? OnExtractButtonPressed;
 
     // imp edit start, thusd buttons
-    public event Action? OnUpBiasButtonPressed;
-    public event Action? OnDownBiasButtonPressed;
+    public event Action? OnShallowBiasButtonPressed;
+    public event Action? OnDeepRandomBiasButtonPressed;
+    public event Action? OnDeepLeftBiasButtonPressed;
+    public event Action? OnDeepRightBiasButtonPressed;
     // imp edit end
 
     public AnalysisConsoleMenu()
@@ -56,6 +62,7 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         _xenoArtifact = _ent.System<XenoArtifactSystem>();
         _artifactAnalyzer = _ent.System<ArtifactAnalyzerSystem>();
+        _advancedNodeScannerSystem = _ent.System<AdvancedNodeScannerSystem>(); //imp: advanced node scanner system
         _audio = _ent.System<AudioSystem>();
         _meta = _ent.System<MetaDataSystem>();
 
@@ -76,19 +83,41 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         ExtractButton.OnPressed += StartExtract;
 
         // imp edit start
-        UpBiasButton.OnPressed += _ =>
+        ShallowBiasButton.OnPressed += _ =>
         {
-            UpBiasButton.Pressed = true;
-            DownBiasButton.Pressed = false;
-            OnUpBiasButtonPressed?.Invoke();
-            _owner.Comp.BiasDirection = BiasDirection.Up;
+            OnShallowBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.Shallow;
+            ShallowBiasButton.Pressed = true;
+            DeepRandomBiasButton.Pressed = false;
+            DeepLeftBiasButton.Pressed = false;
+            DeepRightBiasButton.Pressed = false;
         };
-        DownBiasButton.OnPressed += _ =>
+        DeepRandomBiasButton.OnPressed += _ =>
         {
-            UpBiasButton.Pressed = false;
-            DownBiasButton.Pressed = true;
-            OnDownBiasButtonPressed?.Invoke();
-            _owner.Comp.BiasDirection = BiasDirection.Down;
+            OnDeepRandomBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.DeepRandom;
+            ShallowBiasButton.Pressed = false;
+            DeepRandomBiasButton.Pressed = true;
+            DeepLeftBiasButton.Pressed = false;
+            DeepRightBiasButton.Pressed = false;
+        };
+        DeepLeftBiasButton.OnPressed += _ =>
+        {
+            OnDeepLeftBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.DeepLeft;
+            ShallowBiasButton.Pressed = false;
+            DeepRandomBiasButton.Pressed = false;
+            DeepLeftBiasButton.Pressed = true;
+            DeepRightBiasButton.Pressed = false;
+        };
+        DeepRightBiasButton.OnPressed += _ =>
+        {
+            OnDeepRightBiasButtonPressed?.Invoke();
+            _owner.Comp.BiasDirection = BiasDirection.DeepRight;
+            ShallowBiasButton.Pressed = false;
+            DeepRandomBiasButton.Pressed = false;
+            DeepLeftBiasButton.Pressed = false;
+            DeepRightBiasButton.Pressed = true;
         };
         // imp edit end
     }
@@ -155,11 +184,21 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         if (count == 0)
             extractionMessage.AddMarkupOrThrow(Loc.GetString("analysis-console-extract-none"));
+        else if (artifact.Value.Comp.AdvancedNodeScanner is { } ansEntity && // imp edit start: advanced node scanner point bonus
+            _ent.TryGetComponent<AdvancedNodeScannerComponent>(ansEntity, out var advancedNodeScanner)
+            && (Math.Abs(advancedNodeScanner.PointMultiplier - 1) > 0.001 ))
+        {
+            var text = Loc.GetString("analysis-console-advanced-node-scanner-multiplier-bonus",
+                ("multiplier", Math.Round(advancedNodeScanner.PointMultiplier, 3)),
+                    ("bonus", Math.Round(_extractionSum * advancedNodeScanner.PointMultiplier - _extractionSum)));
+            extractionMessage.AddMarkupOrThrow(text);
+            _extractionSum = (int)Math.Round(_extractionSum * advancedNodeScanner.PointMultiplier);
+        }
+        // imp edit end
 
         _hideExtractInfoIn = _timing.CurTime + ExtractInfoDisplayForDuration;
 
         ExtractionResearchLabel.SetMessage(extractionMessage);
-
         ExtractionSumLabel.SetMarkup(Loc.GetString("analysis-console-extract-sum", ("value", _extractionSum)));
 
         _audio.PlayGlobal(_owner.Comp.ScanFinishedSound, _owner, AudioParams.Default.WithVolume(0.5f)); //#IMP 1f -> 0.5f
@@ -169,6 +208,37 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
+
+        // imp edit: display remaining unlock time for reticulated artifacts if advanced node scanner is present
+        _artifactAnalyzer.TryGetArtifactFromConsole(_owner, out var arti);
+
+        if (arti is {Comp.Natural: false } && arti.Value.Comp.AdvancedNodeScanner is not null)
+        {
+            // Minimise TryComp calls: save component
+            if (arti.Value.Comp.AdvancedNodeScanner.Value != _advancedNodeScanner.Owner)
+            {
+                if (_advancedNodeScannerSystem.TryGetAdvancedNodeScanner(_owner, out var advancedNodeScanner))
+                    _advancedNodeScanner = advancedNodeScanner.Value;
+            }
+
+            if (_advancedNodeScannerSystem.GetCurrentUnlockSession(arti.Value, _advancedNodeScanner) is
+                { } unlockSession && unlockSession.EndTime is { } endTime)
+            {
+                var remainingTime = (endTime - _timing.CurTime).TotalSeconds;
+                if (remainingTime <= 0f)
+                    UnlockingTimeLabel.Visible = false;
+                else
+                {
+                    UnlockingTimeLabel.Visible = true;
+                    UnlockingTimeLabel.Text = Loc.GetString("analysis-console-unlock-time-text", ("seconds", Math.Round(remainingTime, 1)));
+                }
+            }
+            else
+                UnlockingTimeLabel.Visible = false;
+        }
+        else
+            UnlockingTimeLabel.Visible = false;
+        // imp edit end
 
         if (_hideExtractInfoIn == null || _timing.CurTime + _meta.GetPauseTime(_owner) < _hideExtractInfoIn)
             return;
@@ -194,6 +264,20 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
         {
             BiasBox.Visible = true;
             BiasDivider.Visible = true;
+            if (arti.Value.Comp.AdvancedNodeScanner is not null)
+            {
+                DeepRandomBiasButton.Text = Loc.GetString("analysis-console-bias-deep-random");
+                DeepLeftBiasButton.Visible = true;
+                DeepRightBiasButton.Visible = true;
+                BiasInternalDivider.Visible = true;
+            }
+            else
+            {
+                DeepRandomBiasButton.Text = Loc.GetString("analysis-console-bias-deep");
+                DeepLeftBiasButton.Visible = false;
+                DeepRightBiasButton.Visible = false;
+                BiasInternalDivider.Visible = false;
+            }
         }
         else
         {
@@ -203,15 +287,45 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
 
         if (arti is { Comp.Natural: true })
         {
-            if (ent.Comp.BiasDirection == BiasDirection.Down)
+            _unlockEndTime = null;
+            ShallowBiasButton.Pressed = false;
+            DeepRandomBiasButton.Pressed = false;
+            DeepLeftBiasButton.Pressed = false;
+            DeepRightBiasButton.Pressed = false;
+            if (ent.Comp.BiasDirection == BiasDirection.DeepLeft)
             {
-                DownBiasButton.Pressed = true;
-                UpBiasButton.Pressed = false;
+                if (arti.Value.Comp.AdvancedNodeScanner is not null)
+                {
+                    DeepLeftBiasButton.Pressed = true;
+                }
+                else
+                {
+                    OnDeepRandomBiasButtonPressed?.Invoke();
+                    ent.Comp.BiasDirection = BiasDirection.DeepRandom;
+                    DeepRandomBiasButton.Pressed = true;
+                }
             }
-            else if (ent.Comp.BiasDirection == BiasDirection.Up)
+            else if (ent.Comp.BiasDirection == BiasDirection.DeepRight)
             {
-                UpBiasButton.Pressed = true;
-                DownBiasButton.Pressed = false;
+                if (arti.Value.Comp.AdvancedNodeScanner is not null)
+                {
+                    DeepRightBiasButton.Pressed = true;
+                }
+                else
+                {
+                    OnDeepRandomBiasButtonPressed?.Invoke();
+                    ent.Comp.BiasDirection = BiasDirection.DeepRandom;
+                    DeepRandomBiasButton.Pressed = true;
+                }
+            }
+            else if (ent.Comp.BiasDirection == BiasDirection.DeepRandom)
+            {
+                DeepRandomBiasButton.Pressed = true;
+
+            }
+            else if (ent.Comp.BiasDirection == BiasDirection.Shallow)
+            {
+                ShallowBiasButton.Pressed = true;
             }
         }
         // imp edit end

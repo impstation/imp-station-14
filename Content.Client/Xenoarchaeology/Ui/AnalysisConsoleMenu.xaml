@@ -37,6 +37,9 @@
                 <ScrollContainer HScrollEnabled="False" HorizontalExpand="True" VerticalExpand="True">
                     <BoxContainer Orientation="Vertical" HorizontalExpand="False" VerticalExpand="True">
                         <Label Name="NoneSelectedLabel" Text="{Loc 'analysis-console-no-node'}" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalExpand="True" Visible="False"/>
+                        <!-- imp edit start -->
+                        <Label Name="UnlockingTimeLabel" Text="" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalExpand="True" Visible="False"/>
+                        <!-- imp edit end -->
                         <BoxContainer Name="InfoContainer" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
                             <BoxContainer HorizontalExpand="True">
                                 <RichTextLabel Name="IDLabel" HorizontalExpand="True" Text="{Loc 'analysis-console-info-id'}"/>
@@ -69,20 +72,35 @@
                     </BoxContainer>
                 </ScrollContainer>
                 <Control MinHeight="5"/>
-                <!-- Imp edit start, my bias buttons :) -->
-                <BoxContainer Name="BiasBox" Orientation="Horizontal">
-                    <Button Name="UpBiasButton"
-                            Text="{Loc 'analysis-console-bias-up'}"
-                            ToolTip="{Loc 'analysis-console-bias-button-info-up'}"
+                <!-- Imp edit start, OUR bias buttons :) -->
+                <BoxContainer Name="BiasBox" Orientation="Vertical">
+                    <Button Name="ShallowBiasButton"
+                            Text="{Loc 'analysis-console-bias-shallow'}"
+                            ToolTip="{Loc 'analysis-console-bias-button-info-shallow'}"
                             HorizontalExpand="True"
-                            StyleClasses="OpenRight">
+                            StyleClasses="OpenBottom">
                     </Button>
-                    <Button Name="DownBiasButton"
-                            Text="{Loc 'analysis-console-bias-down'}"
-                            ToolTip="{Loc 'analysis-console-bias-button-info-down'}"
-                            HorizontalExpand="True"
-                            StyleClasses="OpenLeft">
-                    </Button>
+                    <Control Name="BiasInternalDivider" MinHeight="2"/>
+                    <BoxContainer Name="BiasDeep" Orientation="Horizontal">
+                        <Button Name="DeepLeftBiasButton"
+                                Text="{Loc 'analysis-console-bias-deep-left'}"
+                                ToolTip="{Loc 'analysis-console-bias-button-info-deep-left'}"
+                                HorizontalExpand="True"
+                                StyleClasses="OpenTopLeft">
+                        </Button>
+                        <Button Name="DeepRandomBiasButton"
+                                Text="{Loc 'analysis-console-bias-deep-random'}"
+                                ToolTip="{Loc 'analysis-console-bias-button-info-deep-random'}"
+                                HorizontalExpand="True"
+                                StyleClasses="OpenTopMiddle">
+                        </Button>
+                        <Button Name="DeepRightBiasButton"
+                                Text="{Loc 'analysis-console-bias-deep-right'}"
+                                ToolTip="{Loc 'analysis-console-bias-button-info-deep-right'}"
+                                HorizontalExpand="True"
+                                StyleClasses="OpenTopRight">
+                        </Button>
+                    </BoxContainer>
                 </BoxContainer>
                 <Control Name="BiasDivider" MinHeight="5"/>
                 <!-- Imp edit end -->

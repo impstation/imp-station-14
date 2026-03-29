@@ -183,6 +183,7 @@
   - [bold]Artifact Analyzer:[/bold] Stationary device that scans artifacts, sending data to the Console.
   - [bold][textlink="Analysis Console:" link="AnalysisConsoleImp"][/bold] Stationary device that is used to display the node tree. Must be linked to an Analyzer with a multitool.
   - [bold]Node Scanner:[/bold] Small hand-held device that can show the ID of the node currently being activated and whether the artifact is ready to trigger, letting scientist have minimal required knowledge for operating inside chamber near artifact and far without direct access to console.
+  - [bold][textlink="Advanced Node Scanner:" link="AdvancedNodeScanner"][/bold] Stationary multifunction device which allows gathering and display of increased data from the artifact. Must be linked to an Analyzer with a multitool. View the gathered information on the analysis console.
 
   <Box>
     <GuideEntityEmbed Entity="CrateArtifactContainer" Caption="Artifact Container"/>

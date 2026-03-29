@@ -28,6 +28,7 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
     public event Action<Entity<XenoArtifactNodeComponent>>? OnNodeSelected;
 
     private float NodeRadius => 25 * UIScale;
+    private float LastTriggeredNodeCircleOutline => NodeRadius + (3 * UIScale); // imp edit
     private float NodeDiameter => NodeRadius * 2;
     private float MinYSpacing => NodeDiameter * 0.75f;
     private float MaxYSpacing => NodeDiameter * 1.5f;
@@ -54,6 +55,7 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
     public Color UnlockedNodeColor { get; set; } = Color.White;
     public Color HoveredNodeColor { get; set; } = Color.DimGray;
     public Color UnlockableNodeColor { get; set; } = Color.LightSlateGray;
+    public Color LatestTriggeredNodeColor { get; set; } = Color.Gold; // imp edit
 
     public void SetArtifact(Entity<XenoArtifactComponent>? artifact)
     {
@@ -112,6 +114,8 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
 
         var cursor = (UserInterfaceManager.MousePositionScaled.Position * UIScale) - GlobalPixelPosition;
 
+        var latestUnlockSession = _artifactSystem.GetTriggeredNodesInLatestUnlockSession(artifact);
+
         foreach (var segment in segments)
         {
             // For each segment we draw nodes in order of depth. Method returns List of nodes for each depth level.
@@ -127,16 +131,13 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                     // selecting color for node based on its state
                     var node = nodes[i];
 
-                    // Imp edit: natural artifacts should have nodes hidden if you haven't at least seen their parent
-                    if (artifact.Comp.Natural && node.Comp.Locked && !_artifactSystem.IsNodeActive(artifact, node)) //natural artifact with a locked, inactive node passes this
+                    // Imp edit: natural artifacts should have nodes hidden if you haven't at least seen their parent, or grandparent+ if you have advanced node scanner.
+                    if (artifact.Comp.Natural && !_artifactSystem.NaturalNodeVisible((artifact, artifact), node))
                     {
-                        var directPredecessorNodes = _artifactSystem.GetDirectPredecessorNodes((artifact, artifact), node);
-                        if (!directPredecessorNodes.Any(x => _artifactSystem.IsNodeActive(artifact, x) || !x.Comp.Locked)) // no parent is active or unlocked
-                        {
-                            hiddenNodes.Add(node);
-                            continue;
-                        }
+                        hiddenNodes.Add(node);
+                        continue;
                     }
+                    // end imp edit
 
                     var color = LockedNodeColor;
                     if (_artifactSystem.IsNodeActive(artifact, node) && !node.Comp.Locked) // imp edit, we want locked activate nodes to be a different color
@@ -176,6 +177,12 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                         _hoveredNode = node;
                         handle.DrawCircle(pos, NodeRadius, HoveredNodeColor);
                     }
+
+                    //IMP edit: Advanced node scanner draw 'latest unlock run' circle
+                    if (!artifact.Comp.Natural &&
+                        latestUnlockSession.Contains(_artifactSystem.GetIndex(artifact, node)))
+                        handle.DrawCircle(pos, LastTriggeredNodeCircleOutline, Color.ToSrgb(LatestTriggeredNodeColor), false);
+                    //IMP edit end: Advanced node scanner draw 'latest unlock run' circle
 
                     // render circle and text with node id inside
                     handle.DrawCircle(pos, NodeRadius, Color.ToSrgb(color), false);
