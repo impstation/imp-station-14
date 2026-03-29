@@ -1100,7 +1100,7 @@
   components:
   - type: Pda
     id: AtmosIDCard
-  - type: Sprite
+  - type: Sprite #imp
     sprite: _Impstation/Objects/Devices/atmos_pda.rsi #imp
   - type: Appearance
     appearanceDataInit:
