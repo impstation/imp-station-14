@@ -153,7 +153,7 @@
   - type: Gun
     soundGunshot: /Audio/Weapons/plasma_cutter.ogg
     fireRate: 1
-    useKey: false
+    useKey: true # imp
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 0.5
     rechargeSound:
@@ -184,6 +184,8 @@
   # imp edits #
   - type: DamageOtherOnHit
     staminaCost: 8
+  - type: AltFireMelee
+    attackType: Heavy
   # end imp edits #
 
 # No mark ability in exchange for wideswing, autoattack, and being one-handed
