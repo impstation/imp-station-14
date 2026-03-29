@@ -26,6 +26,7 @@ spray-painter-style-airlockstandard-reporter = Reporter
 spray-painter-style-airlockstandard-secmed = Sec/Med
 spray-painter-style-airlockstandard-service = Service
 spray-painter-style-airlockstandard-theatre = Theatre
+spray-painter-style-airlockstandard-zoo = Zoo
 
 spray-painter-style-airlockglass-armory = Armory
 spray-painter-style-airlockglass-bar = Bar
@@ -54,6 +55,7 @@ spray-painter-style-airlockglass-reporter = Reporter
 spray-painter-style-airlockglass-secmed = Sec/Med
 spray-painter-style-airlockglass-service = Service
 spray-painter-style-airlockglass-theatre = Theatre
+spray-painter-style-airlockglass-zoo = Zoo
 
 # Lockers
 spray-painter-style-locker-aa = Administrative Assistant
@@ -63,6 +65,7 @@ spray-painter-style-locker-griffy = Griffy
 spray-painter-style-locker-hd = Hospitality Director
 spray-painter-style-locker-janitor = Janitor
 spray-painter-style-locker-musician = Musician
+spray-painter-style-locker-zookeeper = Zookeeper
 
 spray-painter-style-closet-business = Business
 
