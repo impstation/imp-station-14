@@ -1,6 +1,6 @@
-using Content.Server.Atmos.EntitySystems;
+using Content.Shared.Atmos.EntitySystems; // Funky RPD, moved from server to shared
 
-namespace Content.Server.Atmos.Components;
+namespace Content.Shared.Atmos.Components; // Funky RPD, moved from server to shared
 
 /// <summary>
 /// This is used for restricting anchoring pipes so that they do not overlap.
