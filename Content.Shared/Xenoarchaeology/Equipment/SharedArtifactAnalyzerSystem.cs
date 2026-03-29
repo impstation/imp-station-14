@@ -47,11 +47,22 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
         if (ent.Comp.Console != null)
             bias.Provider = ent.Comp.Console.Value;
 
-        //If the pad has a linked advanced node scanner, let the artifact know
-        if (ent.Comp.AdvancedNodeScanner != null && TryComp<XenoArtifactComponent>(args.OtherEntity, out var artifact))
+        if (!TryComp<XenoArtifactComponent>(args.OtherEntity, out var artifact))
         {
-            _artifact.SetAdvancedNodeScanner((args.OtherEntity, artifact), ent.Comp.AdvancedNodeScanner);
-            _advancedNodeScanner.CheckForTriggeredNodes(ent.Comp.AdvancedNodeScanner.Value, (args.OtherEntity, artifact));
+            Dirty(ent);
+            return;
+        }
+        //If the pad has a linked advanced node scanner, let the artifact know
+        if (ent.Comp.AdvancedNodeScanner is { } advancedNodeScanner && !MetaData(advancedNodeScanner).EntityDeleted)
+        {
+            _artifact.SetAdvancedNodeScanner((args.OtherEntity, artifact), advancedNodeScanner);
+            _advancedNodeScanner.CheckForTriggeredNodes(advancedNodeScanner, (args.OtherEntity, artifact));
+            Dirty(args.OtherEntity, artifact);
+        }
+        else
+        {
+            // No linked advanced node scanner, explicitly set to null in case something destroyed the advanced node scanner.
+            _artifact.SetAdvancedNodeScanner((args.OtherEntity, artifact), null);
             Dirty(args.OtherEntity, artifact);
         }
         // imp edit end
