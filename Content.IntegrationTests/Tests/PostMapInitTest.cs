@@ -145,6 +145,7 @@ namespace Content.IntegrationTests.Tests
             "PlasmaImp",
             "ReachImp",
             "SalternImp",
+            "SnowballImp",
             "Submarine",
             "TrainImp",
             "Union",
