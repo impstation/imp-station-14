@@ -9,3 +9,7 @@ station-ai-transponder = station ai
 toggle-borg-pda = View PDA
 
 borg-mmi-fail-popup = The brain suddenly dissolves on contact with the interface!
+
+borg-type-entertainment-name = Entertainment
+borg-type-entertainment-desc = Entertain and socialize with the crew, whether through playing music or clowning around.
+borg-type-entertainment-transponder = entertainment cyborg
