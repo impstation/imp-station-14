@@ -78,6 +78,9 @@
     graph: Bookshelf
     node: bookshelf
   - type: BlockWeather
+  - type: AcousticData # VDS
+    absorption: 30
+    reflectRay: true
 
 - type: entity
   id: BookshelfWeb
@@ -148,3 +151,6 @@
     graph: WebStructures
     node: bookshelf
   - type: BlockWeather
+  - type: AcousticData # VDS
+    absorption: 40
+    reflectRay: true

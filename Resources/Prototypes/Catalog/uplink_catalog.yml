@@ -151,6 +151,7 @@
   - UplinkWeaponry
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -170,6 +171,7 @@
   - UplinkWeaponry
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -192,7 +194,7 @@
   id: UplinkHushpup
   name: uplink-hushpup-name
   description: uplink-hushpup-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/hushpup.rsi, state: icon }
+  icon: { sprite: /Textures/_Impstation/Objects/Weapons/Guns/Shotguns/hypnalis.rsi, state: icon } #Imp
   productEntity: ClothingBackpackDuffelSyndicateFilledHushpup
   discountCategory: rareDiscounts
   discountDownTo:
@@ -391,6 +393,7 @@
   - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -447,6 +450,7 @@
   restockTime: 1800
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -462,6 +466,7 @@
     - UplinkExplosives
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -634,6 +639,7 @@
   - UplinkAmmo
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -698,6 +704,7 @@
   - UplinkChemicals
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -795,6 +802,7 @@
   - UplinkChemicals
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -963,6 +971,7 @@
   restockTime: 1800
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -981,6 +990,7 @@
   - UplinkDeception
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1146,8 +1156,10 @@
     Telecrystal: 14
   categories:
   - UplinkDisruption
+  - UplinkObjective # imp
   conditions:
   - !type:StoreWhitelistCondition
+     makeHidden: true # imp add
      blacklist:
        tags:
        - NukeOpsUplink
@@ -1155,6 +1167,11 @@
     blacklist:
       components:
         - SurplusBundle #imp special (dud roll as a traitor unless you have dagd)
+  - !type:BuyerObjectiveWhitelistCondition # imp
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
 
 - type: listing
   id: UplinkNukieAntimovCircuitBoard
@@ -1170,6 +1187,7 @@
   - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1189,6 +1207,7 @@
   - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1208,6 +1227,7 @@
   - UplinkDisruption
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1227,6 +1247,7 @@
   - UplinkDisruption
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
         - NukeOpsUplink
@@ -1248,11 +1269,17 @@
     Telecrystal: 12
   categories:
     - UplinkDisruption
+    - UplinkObjective # imp
   conditions:
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
         - SurplusBundle # imp special. could maybe make a flatpack that only shows up in surplus bundles at some point, but rn its worse than useless and has a good chance of getting people stuck in wallsa nd shit
+  - !type:BuyerObjectiveWhitelistCondition # imp
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
 
 - type: listing
   id: UplinkCameraBug
@@ -1281,6 +1308,7 @@
   - UplinkAllies
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1300,6 +1328,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1316,6 +1345,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1332,6 +1362,7 @@
     - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1351,6 +1382,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1370,6 +1402,7 @@
   - UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1388,6 +1421,7 @@
   - UplinkAllies
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     blacklist:
       tags:
       - NukeOpsUplink
@@ -1437,6 +1471,7 @@
     - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1523,6 +1558,7 @@
   - UplinkImplants
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1543,6 +1579,7 @@
     - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1563,6 +1600,7 @@
     - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1582,6 +1620,7 @@
   - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       blacklist:
         tags:
           - NukeOpsUplink
@@ -1597,6 +1636,7 @@
   - UplinkImplants
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -1787,6 +1827,7 @@
   - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
+    makeHidden: true # imp add
     whitelist:
       tags:
       - NukeOpsUplink
@@ -1834,6 +1875,7 @@
     - UplinkWearables
   conditions:
     - !type:StoreWhitelistCondition
+      makeHidden: true # imp add
       whitelist:
         tags:
           - NukeOpsUplink
@@ -2063,6 +2105,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Botanist
 
@@ -2080,6 +2123,7 @@
     - UplinkJob
   conditions:
     - !type:BuyerJobCondition
+      makeHidden: true # imp add
       whitelist:
         - Passenger
 
@@ -2097,6 +2141,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chaplain
   - !type:BuyerWhitelistCondition
@@ -2118,6 +2163,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chaplain
 
@@ -2135,6 +2181,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Mime
     - Clown
@@ -2154,6 +2201,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Clown
 
@@ -2171,6 +2219,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Clown
 
@@ -2189,6 +2238,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Clown
 
@@ -2206,6 +2256,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chef
     - Botanist
@@ -2226,6 +2277,7 @@
   - UplinkJob
   conditions:
     - !type:BuyerDepartmentCondition
+      makeHidden: true # imp add
       whitelist:
       - Science
 
@@ -2243,6 +2295,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Janitor
   - !type:BuyerWhitelistCondition
@@ -2265,6 +2318,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition # We can't use BuyerDepartmentCondition here since Chef can also get this
+    makeHidden: true # imp add
     whitelist:
     - Scientist
     - ResearchDirector
@@ -2286,6 +2340,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Librarian
   - !type:BuyerWhitelistCondition
@@ -2308,6 +2363,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chef
     - Mime
@@ -2351,6 +2407,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Chaplain
 
@@ -2369,6 +2426,7 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - MedicalDoctor
 
@@ -2386,5 +2444,6 @@
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
+    makeHidden: true # imp add
     whitelist:
     - Lawyer

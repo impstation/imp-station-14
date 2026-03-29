@@ -187,6 +187,7 @@
     visibleLayers:
     - enum.SubfloorLayers.FirstLayer
   - type: Sprite
+    drawdepth: FloorObjects #imp
     sprite: Structures/Piping/Atmospherics/pump.rsi
     layers:
     - sprite: Structures/Piping/Atmospherics/pipe.rsi

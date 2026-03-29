@@ -93,6 +93,8 @@
   - type: Body
     prototype: Anomalocarid
     requiredLegs: 2
+  - type: Vomiter
+    vomitPrototype: ShrimpSoda
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Anomalocarid

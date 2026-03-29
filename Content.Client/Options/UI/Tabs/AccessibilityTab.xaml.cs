@@ -31,6 +31,7 @@ public sealed partial class AccessibilityTab : Control
         Control.AddOptionTextEdit(ImpCCVars.NotifierExamine, NotifierExamineTextEdit);//imp
 
         Control.AddOptionCheckBox(ImpCCVars.DisableSinguloWarping, DisableSinguloWarpingCheckBox); // imp
+        Control.AddOptionCheckBox(ImpCCVars.DisableWeather, DisableWeatherCheckBox); // imp
         Control.AddOptionCheckBox(ImpCCVars.DisableAiStatic, DisableAiStaticCheckBox); // imp
         Control.AddOptionCheckBox(DCCVars.NoVisionFilters, DisableFiltersCheckBox); // dv
 

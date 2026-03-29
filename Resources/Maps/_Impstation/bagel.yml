@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/20/2026 23:49:01
-  entityCount: 25968
+  time: 03/10/2026 00:27:12
+  entityCount: 25959
 maps:
 - 1
 grids:
@@ -16026,13 +16026,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: ArtistCircuitBoard
-  entities:
-  - uid: 673
-    components:
-    - type: Transform
-      pos: -113.65644,8.510696
-      parent: 2
 - proto: Ashtray
   entities:
   - uid: 674
@@ -16055,13 +16048,6 @@ entities:
     components:
     - type: Transform
       pos: 15.501148,-34.944977
-      parent: 2
-- proto: AsimovCircuitBoard
-  entities:
-  - uid: 677
-    components:
-    - type: Transform
-      pos: -112.765816,8.588821
       parent: 2
 - proto: AtmosDeviceFanDirectional
   entities:
@@ -17935,6 +17921,13 @@ entities:
     components:
     - type: Transform
       pos: 4.5,-44.5
+      parent: 2
+- proto: BorgModuleTool
+  entities:
+  - uid: 11492
+    components:
+    - type: Transform
+      pos: -110.36685,8.603096
       parent: 2
 - proto: BoxBeaker
   entities:
@@ -35005,6 +34998,13 @@ entities:
     - type: Transform
       pos: 43.501133,-45.572235
       parent: 2
+- proto: CableApcStack10
+  entities:
+  - uid: 1035
+    components:
+    - type: Transform
+      pos: -113.53873,8.556221
+      parent: 2
 - proto: CableHV
   entities:
   - uid: 4269
@@ -44174,6 +44174,13 @@ entities:
     - type: Transform
       pos: 8.521963,46.60242
       parent: 2
+- proto: CableHVStack10
+  entities:
+  - uid: 673
+    components:
+    - type: Transform
+      pos: -113.47623,8.759346
+      parent: 2
 - proto: CableMV
   entities:
   - uid: 1779
@@ -50502,6 +50509,13 @@ entities:
     components:
     - type: Transform
       pos: 8.521963,46.85242
+      parent: 2
+- proto: CableMVStack10
+  entities:
+  - uid: 9520
+    components:
+    - type: Transform
+      pos: -113.2106,8.493721
       parent: 2
 - proto: CableTerminal
   entities:
@@ -62762,13 +62776,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 18.5,-38.5
       parent: 2
-- proto: CommandmentCircuitBoard
-  entities:
-  - uid: 9520
-    components:
-    - type: Transform
-      pos: -109.31948,8.323196
-      parent: 2
 - proto: CommsComputerCircuitboard
   entities:
   - uid: 9521
@@ -63727,13 +63734,6 @@ entities:
     components:
     - type: Transform
       pos: 53.5,6.5
-      parent: 2
-- proto: CorporateCircuitBoard
-  entities:
-  - uid: 9659
-    components:
-    - type: Transform
-      pos: -113.578316,8.401321
       parent: 2
 - proto: CowToolboxFilled
   entities:
@@ -76366,13 +76366,6 @@ entities:
     components:
     - type: Transform
       pos: -56.367672,-21.840908
-      parent: 2
-- proto: GameMasterCircuitBoard
-  entities:
-  - uid: 11492
-    components:
-    - type: Transform
-      pos: -112.672066,8.495071
       parent: 2
 - proto: GasAnalyzer
   entities:
@@ -115800,6 +115793,16 @@ entities:
     - type: Transform
       pos: 21.334734,-11.3924055
       parent: 2
+- proto: LawVend
+  entities:
+  - uid: 16941
+    components:
+    - type: Transform
+      pos: -109.5,11.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Command
 - proto: LGBTQHandyFlag
   entities:
   - uid: 16938
@@ -115820,13 +115823,6 @@ entities:
     components:
     - type: Transform
       pos: -5.6705914,-28.301483
-      parent: 2
-- proto: LiveLetLiveCircuitBoard
-  entities:
-  - uid: 16941
-    components:
-    - type: Transform
-      pos: -112.56269,8.416946
       parent: 2
 - proto: LockableButtonAtmospherics
   entities:
@@ -117709,13 +117705,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: NTDefaultCircuitBoard
-  entities:
-  - uid: 17153
-    components:
-    - type: Transform
-      pos: -110.50698,8.604446
-      parent: 2
 - proto: NuclearBomb
   entities:
   - uid: 17154
@@ -117723,13 +117712,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 4.5,-9.5
-      parent: 2
-- proto: NutimovCircuitBoard
-  entities:
-  - uid: 17155
-    components:
-    - type: Transform
-      pos: -110.44448,8.510696
       parent: 2
 - proto: Ointment
   entities:
@@ -118075,13 +118057,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: PaladinCircuitBoard
-  entities:
-  - uid: 17205
-    components:
-    - type: Transform
-      pos: -109.60073,8.635696
-      parent: 2
 - proto: Paper
   entities:
   - uid: 14850
@@ -125362,6 +125337,21 @@ entities:
       parent: 2
 - proto: RandomBoard
   entities:
+  - uid: 479
+    components:
+    - type: Transform
+      pos: -112.5,8.5
+      parent: 2
+  - uid: 677
+    components:
+    - type: Transform
+      pos: -109.5,8.5
+      parent: 2
+  - uid: 9659
+    components:
+    - type: Transform
+      pos: -112.5,13.5
+      parent: 2
   - uid: 18241
     components:
     - type: Transform
@@ -131349,13 +131339,6 @@ entities:
     components:
     - type: Transform
       pos: -40.494568,11.691846
-      parent: 2
-- proto: RobocopCircuitBoard
-  entities:
-  - uid: 19348
-    components:
-    - type: Transform
-      pos: -109.491356,8.541946
       parent: 2
 - proto: RockGuitarInstrument
   entities:
@@ -139358,12 +139341,7 @@ entities:
   - uid: 8313
     components:
     - type: Transform
-      pos: 18.5,-37.5
-      parent: 2
-  - uid: 11010
-    components:
-    - type: Transform
-      pos: 20.5,-38.5
+      pos: 17.5,-41.5
       parent: 2
 - proto: SpawnPointStationEngineer
   entities:
@@ -139611,25 +139589,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -113.5,11.5
       parent: 2
-  - uid: 20535
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -109.5,11.5
-      parent: 2
 - proto: StationAnchor
   entities:
   - uid: 20536
     components:
     - type: Transform
       pos: -16.5,33.5
-      parent: 2
-- proto: StationEfficiencyCircuitBoard
-  entities:
-  - uid: 20537
-    components:
-    - type: Transform
-      pos: -109.397606,8.432571
       parent: 2
 - proto: StationMap
   entities:
@@ -145556,22 +145521,16 @@ entities:
     - type: Transform
       pos: -56.586422,-21.669033
       parent: 2
-- proto: ToiletDirtyWater
+- proto: ToiletDirtyWaterFilled
   entities:
-  - uid: 1035
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 19.5,11.5
-      parent: 2
-- proto: ToiletEmpty
-  entities:
-  - uid: 479
+  - uid: 17155
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -6.5,-20.5
       parent: 2
+- proto: ToiletEmpty
+  entities:
   - uid: 21370
     components:
     - type: Transform
@@ -145582,6 +145541,14 @@ entities:
     components:
     - type: Transform
       pos: 58.5,-44.5
+      parent: 2
+- proto: ToiletFilled
+  entities:
+  - uid: 17153
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 19.5,11.5
       parent: 2
 - proto: ToiletGoldenDirtyWater
   entities:
@@ -163361,30 +163328,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -106.5,26.5
-      parent: 2
-  - uid: 24480
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -113.5,8.5
-      parent: 2
-  - uid: 24481
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -112.5,8.5
-      parent: 2
-  - uid: 24482
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -110.5,8.5
-      parent: 2
-  - uid: 24483
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -109.5,8.5
       parent: 2
   - uid: 24484
     components:
