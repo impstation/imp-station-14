@@ -78,3 +78,15 @@
       catalyst: true
   products:
     Medium: 1
+
+- type: reaction
+  id: PulpBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    Pulp:
+      amount: 10
+  products:
+    Cellulose: 5
+    Water: 5
