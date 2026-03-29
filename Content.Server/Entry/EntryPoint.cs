@@ -1,3 +1,4 @@
+using Content.Server._Impstation.Notifier;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -76,6 +77,7 @@ namespace Content.Server.Entry
         [Dependency] private readonly ServerApi _serverApi = default!;
         [Dependency] private readonly ServerInfoManager _serverInfo = default!;
         [Dependency] private readonly ServerUpdateManager _updateManager = default!;
+        [Dependency] private readonly IServerNotifierManager _notifyManager = default!;//imp
 
         public override void PreInit()
         {
@@ -130,6 +132,7 @@ namespace Content.Server.Entry
             _watchlistWebhookManager.Initialize();
             _job.Initialize();
             _rateLimit.Initialize();
+            _notifyManager.Initialize();//imp
         }
 
         public override void PostInit()
