@@ -25,7 +25,7 @@ job-description-ertjanitor = Ensure that the station is properly cleaned--for mo
 job-description-ertleader = Lead the Emergency Response Team in dealing with threats to Nanotrasen assets.
 job-description-ertmedic = Ensure that the crew of the station is kept alive and healthy.
 job-description-ertsecurity = Ensure that any active threats to the station are put to rest.
-#imp edit for hop
+# imp edit for hop
 job-description-hop = Handle access reassignment fairly using your ID console, manage inter-departmental coordination, and keep Ian safe.
 job-description-hos = Manage your security force and keep them efficient, quell dissent, and keep the other heads of staff safe.
 job-description-intern = Learn the basics of administering medicine, basic chemicals and using medical tools.
@@ -43,7 +43,8 @@ job-description-reporter = Entertain & inform the crew with your vibrant journal
 job-description-salvagespec = Use the salvage magnet to draw in detached scraps & asteroids to loot and enrich the station, build a salvage ship and then travel to new planets, while fighting off any space fauna along the way.
 job-description-scientist = Research alien artifacts, unlock new technologies, build newer and better machines around the station, and make everything run more efficiently.
 job-description-security = Catch criminals and enemies of the station, enforce the law, and ensure that the station does not fall into disarray.
-job-description-serviceworker = Learn the basics of bartending, cooking, and growing plants.
+job-description-serviceworker = Run menial errands for the rest of service, wait tables, help the HD decorate for a party, be a peon.
+# imp edit to serviceworker
 job-description-station-ai = Follow your laws, serve the crew.
 job-description-visitor = Enjoy your visit to the station.
 job-description-warden = Patrol the Security department, ensure that no one is stealing from the armory, and make sure that all prisoners are processed and let out when their time is up.
