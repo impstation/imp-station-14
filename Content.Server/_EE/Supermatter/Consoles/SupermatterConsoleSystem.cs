@@ -142,7 +142,7 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
             // Create entry
             var netEnt = GetNetEntity(ent);
 
-            var entry = new SupermatterConsoleEntry(netEnt, MetaData(ent).EntityName, entSupermatter.Status);
+            var entry = new SupermatterConsoleEntry(netEnt, MetaData(ent).EntityName, entSupermatter.Status, entSupermatter.IsShard); // Imp, passed supermatter shard component
 
             supermatterStateData.Add(entry);
         }

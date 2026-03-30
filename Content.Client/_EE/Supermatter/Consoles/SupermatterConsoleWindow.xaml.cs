@@ -98,7 +98,7 @@ public sealed partial class SupermatterConsoleWindow : FancyWindow
         // Make new UI entry if required
         if (index >= table.ChildCount)
         {
-            var newEntryContainer = new SupermatterEntryContainer(entry.NetEntity);
+            var newEntryContainer = new SupermatterEntryContainer(entry.NetEntity, entry.IsShard); // Imp, passed IsShard
 
             // On click
             newEntryContainer.FocusButton.OnButtonUp += args =>

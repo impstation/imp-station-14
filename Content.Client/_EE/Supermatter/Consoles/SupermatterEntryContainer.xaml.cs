@@ -34,6 +34,10 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
     private readonly Color _colorGreen = StyleNano.GoodGreenFore;
     private readonly Color _colorTurquoise = Color.FromHex("#00fff7");
 
+    // Imp, Supermatter Icons
+    private readonly string _supermatter = "/Textures/_EE/Interface/Supermatter/supermatter.png";
+    private readonly string _supermatterShard = "/Textures/_Impstation/Interface/Supermatter/supermatter.png";
+
     // Arrow icons
     private readonly string _arrowUp = "/Textures/_EE/Interface/Supermatter/arrow_up.png";
     private readonly string _arrowDown = "/Textures/_EE/Interface/Supermatter/arrow_down.png";
@@ -49,7 +53,7 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
     // Other saved variables
     private bool _showAllGases;
 
-    public SupermatterEntryContainer(NetEntity uid)
+    public SupermatterEntryContainer(NetEntity uid, bool isShard) // Imp, added isShard
     {
         RobustXamlLoader.Load(this);
 
@@ -135,8 +139,10 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
             WasteBaseLabel,
             WasteGasLabel
         };
-
         #endregion
+
+        // Imp, set sprite for supermatter
+        SupermatterSprite.TexturePath = isShard ? _supermatterShard : _supermatter;
 
         // Load values and set base labels
         _radiationBase = _config.GetCVar(EECCVars.SupermatterRadsBase);

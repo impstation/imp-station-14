@@ -14,7 +14,7 @@
         path: /Audio/Effects/teleport_arrival.ogg
 
 - type: entity
-  parent: Supermatter
+  parent: BaseSupermatter
   id: SupermatterShard
   name: supermatter shard
   description: A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure.
@@ -37,11 +37,32 @@
       GlowDelam: { state: supermatter-glow }
   - type: Explosive
     explosionType: Supermatter
-    totalIntensity: 40000 # half of normal crystal
-    intensitySlope: 5
+    totalIntensity: 27500
+    intensitySlope: 15
     maxIntensity: 100
+  - type: GravityWell
+    baseRadialAcceleration: 1
+    maxRange: 0.5
+    gravPulsePeriod: 15
+  - type: SinguloFood
+    energy: 10000
+  - type: Appearance
   - type: Supermatter
-    gasEfficiency: 0.04 # approx 83.3% of normal crystal
+    isShard: true
+    gasEfficiency: 0.125
+  - type: AtmosDevice
+    requireAnchored: false
+    joinSystem: true
+  - type: RadiationSource
+  - type: DeviceLinkSource
+    ports:
+    - SupermatterInactive
+    - SupermatterNormal
+    - SupermatterCaution
+    - SupermatterWarning
+    - SupermatterDanger
+    - SupermatterEmergency
+    - SupermatterDelaminating
   - type: Transform
     anchored: false
     noRot: true

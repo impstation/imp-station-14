@@ -1,20 +1,20 @@
-﻿- type: entity
+- type: entity
   id: CrateEngineeringSupermatter
-  parent: [CrateEngineeringSecure, BaseRestrictedChiefEngineerContraband]
+  parent: [ CrateEngineeringSecure, BaseRestrictedChiefEngineerContraband ]
   name: supermatter shard crate
-  description: Contains a supermatter shard. Has an anti-tamper acidifier system.
+  description: A specialized crate immune to the supermatter, containing a supermatter shard. Personal protective equipment is recommended for transport. Requires Chief Engineer access to open.
   components:
   - type: Icon
     sprite: _Impstation/Structures/Storage/Crates/supermatter.rsi
   - type: Sprite
     sprite: _Impstation/Structures/Storage/Crates/supermatter.rsi
-  - type: ContainerFill
+  - type: EntityTableContainerFill
     containers:
-      entity_storage:
-      - SupermatterShardSpawner
+      entity_storage: !type:AllSelector
+        children:
+        - id: SupermatterShard
   - type: AccessReader
     access: [ [ "ChiefEngineer" ] ]
   - type: AntiTamper
-    containers:
-    - entity_storage
+    containers: [ entity_storage ]
   - type: SupermatterImmune

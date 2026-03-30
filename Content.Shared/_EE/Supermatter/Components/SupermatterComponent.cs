@@ -17,6 +17,13 @@ public sealed partial class SupermatterComponent : Component
     #region Base
 
     /// <summary>
+    /// Imp
+    /// Used for knowing if the supermatter is a shard
+    /// </summary>
+    [DataField]
+    public bool IsShard;
+
+    /// <summary>
     /// The current status of the singularity, used for alert sounds and the monitoring console
     /// </summary>
     [DataField]
