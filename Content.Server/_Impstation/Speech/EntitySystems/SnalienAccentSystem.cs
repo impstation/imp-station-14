@@ -60,7 +60,7 @@ public sealed class SnalienAccentSystem : EntitySystem
         SubscribeLocalEvent<SnalienAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, SnalienAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<SnalienAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

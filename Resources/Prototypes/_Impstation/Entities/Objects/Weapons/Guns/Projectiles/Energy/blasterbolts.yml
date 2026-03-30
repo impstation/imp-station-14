@@ -44,7 +44,7 @@
   name: lethal laser barrage
   id: BulletLaserSpreadNarrow
   categories: [ HideSpawnMenu ]
-  parent: BaseBulletLaser
+  parent: BulletLaserHeavy
   components:
   - type: ProjectileSpread
     proto: BulletLaserHeavy
@@ -55,7 +55,7 @@
   name: wide laser barrage
   id: BulletLaserSpread
   categories: [ HideSpawnMenu ]
-  parent: BaseBulletLaser
+  parent: BulletLaser
   components:
   - type: ProjectileSpread
     proto: BulletLaser

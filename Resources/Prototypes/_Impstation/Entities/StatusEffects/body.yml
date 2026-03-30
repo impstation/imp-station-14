@@ -1,0 +1,9 @@
+#used for Hemorrhage trait
+#needs to be its own status effect so it can stack with the hemorrhage debuff and isn't removed by admin rejuvenate
+- type: entity
+  parent: BloodstreamStatusEffectBase
+  id: StatusEffectHemorrhageTrait
+  components:
+  - type: HemophiliaStatusEffect
+    bleedReductionMultiplier: 1
+    bleedAmountMultiplier: 1.33 #matches StatusEffectHemorrhage for consistency

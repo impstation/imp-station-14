@@ -48,7 +48,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
 
         SubscribeLocalEvent<FishingProjectileComponent, ProjectileEmbedEvent>(OnGrappleCollide);
         SubscribeLocalEvent<FishingProjectileComponent, JointRemovedEvent>(OnGrappleJointRemoved);
-        SubscribeLocalEvent<FishingProjectileComponent, RemoveEmbedEvent>(OnRemoveEmbed);
+        SubscribeLocalEvent<FishingProjectileComponent, EmbedDetachEvent>(OnRemoveEmbed);
     }
 
     private void OnGrappleJointRemoved(EntityUid uid, FishingProjectileComponent component, JointRemovedEvent args)
@@ -227,7 +227,7 @@ public abstract class SharedFishingRodSystem : EntitySystem
         Dirty(args.Weapon.Value, jointComp);
     }
 
-    private void OnRemoveEmbed(EntityUid uid, FishingProjectileComponent component, RemoveEmbedEvent args)
+    private void OnRemoveEmbed(EntityUid uid, FishingProjectileComponent component, EmbedDetachEvent args)
     {
         if (TryComp<EmbeddableProjectileComponent>(uid, out var projectile))
         {

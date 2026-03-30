@@ -14,6 +14,10 @@
     setup:
       !type:TabletopParchisSetup
       boardPrototype: ParchisBoardTabletop
+    blacklist: #imp.
+      components:
+      - HTN # NO COCKROACH GAMBIT
+    entMax: 26 # imp. standard setup (16) + 10
 
 # Parchís tabletop item (item only visible in tabletop game)
 - type: entity

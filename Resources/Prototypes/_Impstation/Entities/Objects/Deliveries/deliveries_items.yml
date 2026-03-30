@@ -4,16 +4,18 @@
   id: MailImpContractKillerKit
   description: An unremarkable bag filled with the uniform and tools of a cold-hearted killer.
   components:
-  - type: StorageFill
-    contents:
-      - id: ClothingUniformHitmanSuit
-        amount: 1
-      - id: RevolverCapGun
-        amount: 1
-      - id: SyringeIpecac
-        amount: 1
-      - id: ClothingShoesBootsLaceup
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingUniformHitmanSuit
+          amount: 1
+        - id: RevolverCapGun
+          amount: 1
+        - id: SyringeIpecac
+          amount: 1
+        - id: ClothingShoesBootsLaceup
+          amount: 1
 
 - type: entity
   suffix: testosterone
@@ -82,13 +84,15 @@
   id: BoxHomunculusKit
   description: A high quality cardboard box filled with various beakers and vials.
   components:
-  - type: StorageFill
-    contents:
-    - id: HomunculusKitBeaker
-    - id: HomunculusKitVialA
-    - id: BaseChemistryEmptyVial
-    - id: Syringe
-    - id: PaperMailHomunculusKit
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HomunculusKitBeaker
+        - id: HomunculusKitVialA
+        - id: BaseChemistryEmptyVial
+        - id: Syringe
+        - id: PaperMailHomunculusKit
   - type: Sprite
     layers:
     - state: box_hug

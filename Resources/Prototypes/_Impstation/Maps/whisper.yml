@@ -18,7 +18,7 @@
         - type: StationCargoShuttle
           path: /Maps/_Impstation/Shuttles/cargo.yml
         - type: StationJobs
-          availableJobs: # total jobs: 63
+          availableJobs: # total jobs: 64
             # command - 8 jobs
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -28,12 +28,12 @@
             HeadOfSecurity: [ 1, 1 ]
             HospitalityDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
-            # service - 16 jobs
+            # service - 17 jobs
             Zookeeper: [ 1, 1 ]
             Boxer: [ 2, 2 ]
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
-            Chef: [ 1, 1 ]
+            Chef: [ 2, 2 ]
             Clown: [ 1, 1 ]
             Janitor: [ 2, 2 ]
             Mime: [ 1, 1 ]

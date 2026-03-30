@@ -7,3 +7,13 @@
   cost: 6500
   category: cargoproduct-category-name-medical
   group: market
+
+- type: cargoProduct
+  id: CargoDefibrillatorCompact
+  icon:
+    sprite: _Impstation/Objects/Specific/Medical/defibinterdyne.rsi
+    state: icon
+  product: CrateDefibrillatorCompact
+  cost: 6000
+  category: cargoproduct-category-name-medical
+  group: market

@@ -250,3 +250,23 @@
   - type: ConditionalSpawner
     prototypes:
     - MobTckut
+
+- type: entity
+  name: Jonny spawner
+  suffix: passenger pet
+  id: SpawnMobDogCockroachJonny
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCockroachJonnyCutter
+    - MobCockroachJonnyDriver
+    - MobCockroachJonnyCrowbar
+    - MobCockroachJonnyWrench
+    - MobCockroachJonnyNetworkConfig
+    - MobCockroachJonnyPulser
+    - MobCockroachJonnyWelder

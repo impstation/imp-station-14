@@ -205,6 +205,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (component.EmbeddedIntoUid == null)
             return; // the entity is not embedded, so do nothing
 
+        var embeddedInto = component.EmbeddedIntoUid;
+
         if (TryComp<EmbeddedContainerComponent>(component.EmbeddedIntoUid.Value, out var embeddedContainer))
         {
             embeddedContainer.EmbeddedObjects.Remove(uid);
@@ -226,15 +228,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (!TryComp<PhysicsComponent>(uid, out var physics))
             return;
 
-        // ee add auto fall out
-        component.AutoRemoveTime = null;
-        var ev = new RemoveEmbedEvent(user);
-        RaiseLocalEvent(uid, ref ev);
-        // ee end
-
         _physics.SetBodyType(uid, BodyType.Dynamic, body: physics, xform: xform);
         _transform.AttachToGridOrMap(uid, xform);
         component.EmbeddedIntoUid = null;
+        component.AutoRemoveTime = null; // ee add
         Dirty(uid, component);
 
         // Reset whether the projectile has damaged anything if it successfully was removed
@@ -246,6 +243,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
             Dirty(uid, projectile);
         }
+
+        var ev = new EmbedDetachEvent(user, embeddedInto.Value);
+        RaiseLocalEvent(uid, ref ev);
 
         if (user != null)
         {

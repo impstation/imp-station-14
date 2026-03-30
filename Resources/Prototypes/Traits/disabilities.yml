@@ -115,8 +115,10 @@
   name: trait-painnumbness-name
   description: trait-painnumbness-desc
   category: Traits # imp
-  components:
-  - type: PainNumbness
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - PainNumbnessTraitStatusEffect
   # imp addition starts
   cost: -4
   # imp addition ends
@@ -126,8 +128,10 @@
   name: trait-hemophilia-name
   description: trait-hemophilia-desc
   category: Traits # imp
-  components:
-  - type: Hemophilia
+  specials:
+  - !type:ApplyStatusEffectSpecial
+    statusEffects:
+    - StatusEffectHemophiliaTrait
   # imp addition starts
   cost: -6
   # imp addition ends

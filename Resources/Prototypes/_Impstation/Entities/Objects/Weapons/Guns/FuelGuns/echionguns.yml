@@ -59,6 +59,7 @@
     shape:
     - 0,0,3,1
   - type: Gun
+    projectileSpeed: 25
     clumsyProof: false
     cameraRecoilScalar: 1
     fireRate: 5.3
@@ -77,12 +78,12 @@
       chamber:
         reagents:
         - ReagentId: Echion
-          Quantity: 150
-        maxVol: 150 #30 shots
+          Quantity: 30
+        maxVol: 30 #30 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletPlasmaAkurra
-    fireCost: 5
+    fireCost: 1
   - type: StaticPrice
     price: 100
   - type: MeleeWeapon
@@ -110,3 +111,55 @@
   - type: MeleeThrowOnHit
     distance: 0.8
     speed: 5
+
+- type: entity
+  name: Taipan
+  parent: [BaseWeaponEchion, Tier3Contraband]
+  id: WeaponEnergyCrossbow
+  description: An experimental crossbow that launches shards of crystalized Echion, poisoning its targets and making them more volatile to combustables.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi
+    size: Small
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/energy_crossbow.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    minAngle: 0
+    maxAngle: 5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/energycrossbow_shoot.ogg
+  - type: SolutionContainerManager
+    solutions:
+      chamber:
+        reagents:
+        - ReagentId: Echion
+          Quantity: 7.5
+        maxVol: 7.5 #3 shots
+  - type: SolutionAmmoProvider
+    solutionId: chamber
+    proto: EnergyCrossbowBolt
+    fireCost: 2.5
+  - type: Appearance
+  - type: Tag
+    tags:
+    - EchionGun
+    - Sidearm
+  - type: StaticPrice
+    price: 2500
+  - type: GenericVisualizer
+    visuals:
+      enum.AmmoVisuals.HasAmmo:
+        empty-icon:
+          True: { visible: False }
+          False: { visible: True }

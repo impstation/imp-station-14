@@ -92,12 +92,12 @@
       whitelist:
         components:
         - TraitorRole
-    # Can't have multiple objectives to help/save the same person
-    - !type:TargetObjectiveMindFilter
-      blacklist:
-        components:
-        - RandomTraitorAlive
-        - RandomTraitorProgress
+    # Can't have multiple objectives to help/save the same person # TODO FIX THIS
+    # - !type:TargetObjectiveMindFilter
+    #   blacklist:
+    #     components:
+    #     - RandomTraitorAlive
+    #     - RandomTraitorProgress
   - type: ObjectiveBlacklistRequirement
     blacklist:
       component: null

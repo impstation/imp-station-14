@@ -161,8 +161,10 @@
   name: Cindy, the Red Carnage Cat bundle
   description: "A suit in the image of Cindy, The Red Carnage Cat! Space safe with minimal armor to wreck maximum morale damage against the dogs of Nanotrasen!"
   components:
-  - type: StorageFill
-    contents:
-      - id: MascotCindyHead
-      - id: MascotCindySuit
-      - id: PaperSyndicateMascotCindyManual
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MascotCindyHead
+        - id: MascotCindySuit
+        - id: PaperSyndicateMascotCindyManual

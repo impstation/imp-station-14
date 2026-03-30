@@ -23,9 +23,11 @@
   id: ClothingBeltPaperworkFilled
   suffix: Filled
   components:
-  - type: StorageFill
-    contents:
-    - id: BoxFolderBase
-    - id: BoxFolderBlack
-    - id: BoxFolderClipboard
-    - id: DrinkVacuumFlask
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BoxFolderBase
+        - id: BoxFolderBlack
+        - id: BoxFolderClipboard
+        - id: DrinkVacuumFlask

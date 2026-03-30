@@ -6,16 +6,14 @@
   id: BoxSoapsAssorted
   description: A box of various scented soaps. Ooh, lavender.
   components:
-  - type: StorageFill
-    contents:
-      - id: SoapNT
-        amount: 1
-      - id: Soap
-        amount: 1
-      - id: SoapHomemade
-        amount: 1
-      - id: SoapDeluxe
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SoapNT
+        - id: Soap
+        - id: SoapHomemade
+        - id: SoapDeluxe
   - type: Storage
     maxItemSize: Normal
     grid:
@@ -33,16 +31,14 @@
   id: BoxSoapsAssortedOmega
   description: A box of various scented soaps. Ooh, bluespace.
   components:
-  - type: StorageFill
-    contents:
-      - id: SoapNT
-        amount: 1
-      - id: Soap
-        amount: 1
-      - id: SoapOmega
-        amount: 1
-      - id: SoapDeluxe
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SoapNT
+        - id: Soap
+        - id: SoapOmega
+        - id: SoapDeluxe
   - type: Storage
     maxItemSize: Normal
     grid:
@@ -61,28 +57,20 @@
   id: BoxBuildABuddyHuman
   description: "\"Henry the Human\" Build-a-Buddy kit. Some assembly required."
   components:
-  - type: StorageFill
-    contents:
-      - id: HeadHuman
-        amount: 1
-      - id: TorsoHuman
-        amount: 1
-      - id: LeftArmHuman
-        amount: 1
-      - id: RightArmHuman
-        amount: 1
-      - id: LeftHandHuman
-        amount: 1
-      - id: RightHandHuman
-        amount: 1
-      - id: LeftLegHuman
-        amount: 1
-      - id: RightLegHuman
-        amount: 1
-      - id: LeftFootHuman
-        amount: 1
-      - id: RightFootHuman
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HeadHuman
+        - id: TorsoHuman
+        - id: LeftArmHuman
+        - id: RightArmHuman
+        - id: LeftHandHuman
+        - id: RightHandHuman
+        - id: LeftLegHuman
+        - id: RightLegHuman
+        - id: LeftFootHuman
+        - id: RightFootHuman
   - type: Storage
     grid:
     - 0,0,4,3
@@ -98,28 +86,20 @@
   id: BoxBuildABuddyGoblin
   description: "\"Greta the Goblin\" Build-a-Buddy kit. Some assembly required."
   components:
-  - type: StorageFill
-    contents:
-      - id: HeadGoblin
-        amount: 1
-      - id: TorsoGoblin
-        amount: 1
-      - id: LeftArmGoblin
-        amount: 1
-      - id: RightArmGoblin
-        amount: 1
-      - id: LeftHandGoblin
-        amount: 1
-      - id: RightHandGoblin
-        amount: 1
-      - id: LeftLegGoblin
-        amount: 1
-      - id: RightLegGoblin
-        amount: 1
-      - id: LeftFootGoblin
-        amount: 1
-      - id: RightFootGoblin
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HeadGoblin
+        - id: TorsoGoblin
+        - id: LeftArmGoblin
+        - id: RightArmGoblin
+        - id: LeftHandGoblin
+        - id: RightHandGoblin
+        - id: LeftLegGoblin
+        - id: RightLegGoblin
+        - id: LeftFootGoblin
+        - id: RightFootGoblin
 
 - type: entity
   name: Build-a-Buddy kit
@@ -128,28 +108,20 @@
   id: BoxBuildABuddyReptilian
   description: "\"Randy the Reptilian\" Build-a-Buddy kit. Some assembly required."
   components:
-  - type: StorageFill
-    contents:
-      - id: HeadReptilian
-        amount: 1
-      - id: TorsoReptilian
-        amount: 1
-      - id: LeftArmReptilian
-        amount: 1
-      - id: RightArmReptilian
-        amount: 1
-      - id: LeftHandReptilian
-        amount: 1
-      - id: RightHandReptilian
-        amount: 1
-      - id: LeftLegReptilian
-        amount: 1
-      - id: RightLegReptilian
-        amount: 1
-      - id: LeftFootReptilian
-        amount: 1
-      - id: RightFootReptilian
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HeadReptilian
+        - id: TorsoReptilian
+        - id: LeftArmReptilian
+        - id: RightArmReptilian
+        - id: LeftHandReptilian
+        - id: RightHandReptilian
+        - id: LeftLegReptilian
+        - id: RightLegReptilian
+        - id: LeftFootReptilian
+        - id: RightFootReptilian
 
 - type: entity
   name: Build-a-Buddy kit
@@ -158,25 +130,17 @@
   id: BoxBuildABuddySlime
   description: "\"Steven the Slime\" Build-a-Buddy kit. Some assembly required."
   components:
-  - type: StorageFill
-    contents:
-      - id: HeadSlime
-        amount: 1
-      - id: TorsoSlime
-        amount: 1
-      - id: LeftArmSlime
-        amount: 1
-      - id: RightArmSlime
-        amount: 1
-      - id: LeftHandSlime
-        amount: 1
-      - id: RightHandSlime
-        amount: 1
-      - id: LeftLegSlime
-        amount: 1
-      - id: RightLegSlime
-        amount: 1
-      - id: LeftFootSlime
-        amount: 1
-      - id: RightFootSlime
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: HeadSlime
+        - id: TorsoSlime
+        - id: LeftArmSlime
+        - id: RightArmSlime
+        - id: LeftHandSlime
+        - id: RightHandSlime
+        - id: LeftLegSlime
+        - id: RightLegSlime
+        - id: LeftFootSlime
+        - id: RightFootSlime

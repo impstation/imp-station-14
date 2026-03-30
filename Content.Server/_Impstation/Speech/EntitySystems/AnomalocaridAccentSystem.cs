@@ -31,7 +31,7 @@ public sealed partial class AnomalocaridAccentSystem : EntitySystem
         SubscribeLocalEvent<AnomalocaridAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, AnomalocaridAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<AnomalocaridAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

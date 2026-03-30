@@ -30,7 +30,10 @@
     damageContainer: Biological
     damageModifierSet: Moth # they're related, right?
   - type: Bloodstream
-    bloodReagent: InsectBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 250
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:

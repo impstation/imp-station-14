@@ -111,14 +111,16 @@
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
-  - type: ProjectileBatteryAmmoProvider
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - CartridgePistol
+    capacity: 30
     proto: CartridgePistol
-    fireCost: 100
-  - type: Battery
-    maxCharge: 3000
-    startingCharge: 3000
-  - type: BatterySelfRecharger
-    autoRechargeRate: 25
+    cycleable: false # No synthesizing ammo for your syndicate masters.
+  - type: BallisticAmmoSelfRefiller
+    autoRefillRate: 4s
+    affectedByEmp: true
   - type: AmmoCounter
 
 - type: entity
@@ -144,17 +146,18 @@
     - type: Gun
       minAngle: 21
       maxAngle: 32
+      angleDecay: 20
       fireRate: 6
       burstFireRate: 12
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
       availableModes:
-      - Burst
       - FullAuto
+      - Burst
       - SemiAuto
       shotsPerBurst: 3
       burstCooldown: 0.25
-      selectedMode: Burst
+      selectedMode: FullAuto
     - type: ItemSlots
       slots:
         gun_magazine:

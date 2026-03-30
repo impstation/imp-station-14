@@ -24,7 +24,7 @@
   suffix: Atmospherics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/atmospherics.rsi
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/atmospherics.rsi #imp
 
 - type: entity
   parent: Airlock
@@ -216,7 +216,7 @@
   suffix: Atmospherics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/atmospherics.rsi
+    sprite: _Impstation/Structures/Doors/Airlocks/Glass/atmospherics.rsi #imp
 
 - type: entity
   parent: AirlockGlass

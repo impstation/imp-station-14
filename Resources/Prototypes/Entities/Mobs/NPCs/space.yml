@@ -36,15 +36,18 @@
       0: Alive
       80: Dead
   - type: Stamina
-    critThreshold: 150
+    baseCritThreshold: 150
   - type: GoobAbsorbable # imp - im just going off vibes here
     biomassRestored: 0.6
   - type: MovementAlwaysTouching
   - type: Bloodstream
-    bloodMaxVolume: 300
-    bloodReagent: Cryoxadone
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Cryoxadone
+        Quantity: 300
   - type: CombatMode
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 500
     coldDamageThreshold: 0
   - type: MeleeWeapon
@@ -163,7 +166,7 @@
       Dead:
         Base: kangaroo-space-dead
   - type: Stamina
-    critThreshold: 180
+    baseCritThreshold: 180
   - type: Inventory
     speciesId: kangaroo
     templateId: spacekangaroo
@@ -209,7 +212,7 @@
       0: Alive
       45: Dead
   - type: Stamina
-    critThreshold: 150
+    baseCritThreshold: 150
   - type: DamageStateVisuals
     states:
       Alive:
@@ -227,8 +230,10 @@
     - id: FoodMeatSpiderLeg # imp
       amount: 1
   - type: Bloodstream
-    bloodMaxVolume: 250
-    bloodReagent: Cryoxadone
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Cryoxadone
+        Quantity: 250
   - type: Fixtures
     fixtures:
       fix1:
@@ -312,7 +317,7 @@
         0: Alive
         45: Dead
     - type: Stamina
-      critThreshold: 150
+      baseCritThreshold: 150
     - type: DamageStateVisuals
       states:
         Alive:
@@ -330,8 +335,10 @@
           amount: 1
           prob: 0.3
     - type: Bloodstream
-      bloodMaxVolume: 200
-      bloodReagent: Cryoxadone
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Cryoxadone
+          Quantity: 200
     - type: Fixtures
       fixtures:
         fix1:
@@ -385,57 +392,6 @@
   suffix: "Salvage Ruleset"
   components:
     - type: SalvageMobRestrictions
-
-- type: entity
-  name: basic
-  id: MobSpaceNice
-  parent: SimpleSpaceMobBase
-  abstract: true
-  description: It looks friendly?
-  components:
-  - type: Sprite
-    drawdepth: Mobs
-    sprite: Mobs/Animals/bear.rsi
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: major
-    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
-      state: major_glow
-      shader: unshaded
-  - type: NPCRetaliation
-    attackMemoryLength: 20
-  - type: FactionException
-  - type: NpcFactionMember
-    factions:
-      - Passive
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.40
-        density: 100
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: MobThresholds
-    thresholds:
-      0: Alive
-      100: Dead
-  - type: Stamina
-    critThreshold: 150
-  - type: MovementAlwaysTouching
-  - type: Bloodstream
-    bloodMaxVolume: 300
-    bloodReagent: Cryoxadone
-  - type: CombatMode
-  - type: Temperature
-    heatDamageThreshold: 500
-    coldDamageThreshold: 0
 
 - type: entity
   parent: SimpleSpaceMobBase
@@ -556,8 +512,10 @@
   - type: CombatMode
     combatToggleAction: ActionCombatModeToggleOff
   - type: Bloodstream
-    bloodMaxVolume: 30
-    bloodReagent: Cryoxadone
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Cryoxadone
+        Quantity: 30
   - type: CanEscapeInventory
   - type: MobPrice
     price: 50
@@ -567,6 +525,7 @@
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 500
     coldDamageThreshold: 0
   - type: Reactive

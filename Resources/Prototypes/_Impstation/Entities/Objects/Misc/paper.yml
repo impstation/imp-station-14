@@ -67,16 +67,12 @@
     tags:
     - Folder
     - SecTicket
-  - type: StorageFill
-    contents:
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
-      - id: FineTicket
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: FineTicket
+          amount: 8
 
 - type: entity
   id: BoxFolderBlackLoadout
@@ -93,11 +89,13 @@
     sprite: _Impstation/Objects/Misc/bureaucracy.rsi
     size: Small
     shape: null
-  - type: StorageFill
-    contents:
-    - id: Paper
-    - id: Paper
-    - id: PaperOffice
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Paper
+          amount: 2
+        - id: PaperOffice
 
 - type: entity
   id: BoxFolderHamster
