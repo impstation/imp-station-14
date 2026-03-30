@@ -17,7 +17,7 @@ public sealed partial class SupermatterComponent : Component
     #region Base
 
     /// <summary>
-    /// The current status of the supermatter, used for alert sounds, and the monitoring console
+    /// The current status of the supermatter, used for alert sounds and the monitoring console
     /// </summary>
     [DataField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
