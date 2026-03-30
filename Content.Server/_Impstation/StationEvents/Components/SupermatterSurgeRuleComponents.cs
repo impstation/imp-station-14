@@ -16,7 +16,7 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     public EntityUid SupermatterUid;
 
     /// <summary>
-    /// Stores the time when the supermatter surge should begin
+    /// Stores the time for when the supermatter surge should begin
     /// </summary>
     [DataField]
     public TimeSpan SurgeStartTime;
