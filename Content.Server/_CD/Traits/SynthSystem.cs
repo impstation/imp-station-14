@@ -11,7 +11,7 @@ public sealed class SynthSystem : EntitySystem
 {
     // Begin DeltaV - make strings static readonly
     private static readonly ProtoId<TypingIndicatorPrototype> RobotTypingIndicator = "robot";
-    private static readonly ProtoId<ReagentPrototype> SynthBloodReagent = "SynthBlood";
+    // private static readonly ProtoId<ReagentPrototype> SynthBloodReagent = "SynthBlood"; // VDS - use solution in component instead.
     // End DeltaV
 
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
@@ -32,8 +32,8 @@ public sealed class SynthSystem : EntitySystem
         }
 
         // Give them synth blood. Ion storm notif is handled in that system
-        _bloodstream.ChangeBloodReagent(uid, SynthBloodReagent); // DeltaV - make strings static readonly
-
+        _bloodstream.ChangeBloodReagents(uid, component.SynthBloodReagent); // DeltaV - make strings static readonly 
+                                                                            // VDS - update to use new ChangeBloodReagents
         // Gives them the DamagedSiliconAccent component
         EnsureComp<DamagedSiliconAccentComponent>(uid, out var accent);
         accent.EnableChargeCorruption = false; //Disables corruption on low battery. This would always be active since non-silicons don't have a battery
