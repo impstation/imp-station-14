@@ -20,37 +20,48 @@ public sealed partial class BlackAndWhiteOverlaySystem : EquipmentHudSystem<Blac
         base.Initialize();
 
         _overlay = new();
-
+        //imp addition begins
         SubscribeLocalEvent<BlackAndWhiteOverlayComponent, ComponentInit>(OnBWVisionInit);
         SubscribeLocalEvent<BlackAndWhiteOverlayComponent, ComponentShutdown>(OnBWVisionShutdown);
         SubscribeLocalEvent<BlackAndWhiteOverlayComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
         SubscribeLocalEvent<BlackAndWhiteOverlayComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
 
         Subs.CVar(_cfg, DCCVars.NoVisionFilters, OnNoVisionFiltersChanged);
+        //imp addition ends
     }
+# region imp additions
 
-    private void OnPlayerDetached(Entity<BlackAndWhiteOverlayComponent> ent, ref LocalPlayerDetachedEvent args)
+    private void OnPlayerDetached(Entity<BlackAndWhiteOverlayComponent> ent, ref LocalPlayerDetachedEvent args) //imp add
     {
         _overlayMan.RemoveOverlay(_overlay);
     }
 
-    private void OnPlayerAttached(Entity<BlackAndWhiteOverlayComponent> ent, ref LocalPlayerAttachedEvent args)
+    private void OnPlayerAttached(Entity<BlackAndWhiteOverlayComponent> ent, ref LocalPlayerAttachedEvent args) //imp add
     {
         if (!_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
 
-    private void OnBWVisionShutdown(Entity<BlackAndWhiteOverlayComponent> ent, ref ComponentShutdown args)
+    private void OnBWVisionShutdown(Entity<BlackAndWhiteOverlayComponent> ent, ref ComponentShutdown args) //imp add
     {
         if (ent.Owner == _playerMan.LocalEntity)
             _overlayMan.RemoveOverlay(_overlay);
     }
 
-    private void OnBWVisionInit(Entity<BlackAndWhiteOverlayComponent> ent, ref ComponentInit args)
+    private void OnBWVisionInit(Entity<BlackAndWhiteOverlayComponent> ent, ref ComponentInit args) //imp add
     {
         if (ent.Owner == _playerMan.LocalEntity && !_cfg.GetCVar(DCCVars.NoVisionFilters))
             _overlayMan.AddOverlay(_overlay);
     }
+
+    private void OnNoVisionFiltersChanged(bool enabled) //imp add
+    {
+        if (enabled)
+            _overlayMan.RemoveOverlay(_overlay);
+        else
+            _overlayMan.AddOverlay(_overlay);
+    }
+    #endregion
 
     protected override void UpdateInternal(RefreshEquipmentHudEvent<BlackAndWhiteOverlayComponent> component)
     {
@@ -66,11 +77,4 @@ public sealed partial class BlackAndWhiteOverlaySystem : EquipmentHudSystem<Blac
         _overlayMan.RemoveOverlay(_overlay);
     }
 
-    private void OnNoVisionFiltersChanged(bool enabled)
-    {
-        if (enabled)
-            _overlayMan.RemoveOverlay(_overlay);
-        else
-            _overlayMan.AddOverlay(_overlay);
-    }
 }
