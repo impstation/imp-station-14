@@ -70,7 +70,6 @@
     sprite: Clothing/Eyes/Glasses/meson.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/meson.rsi
-    insecure: false # imp
   - type: EyeProtection
   - type: IdentityBlocker
     coverage: EYES
@@ -162,7 +161,6 @@
     sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/outlawglasses.rsi
-    insecureDropChance: .7
   - type: IdentityBlocker
   # imp start
   - type: ItemSlots
@@ -326,7 +324,6 @@
       sprite: Clothing/Eyes/Glasses/science.rsi
     - type: Clothing
       sprite: Clothing/Eyes/Glasses/science.rsi
-      insecure: false # imp
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
@@ -348,7 +345,6 @@
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
   - type: Clothing
     sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
-    insecure: false # imp
   - type: FlashImmunity
   - type: NightVision # EE edit
     isEquipment: true
