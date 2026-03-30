@@ -38,6 +38,8 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         }
 
         component.SupermatterUid = _random.Pick(supermatterUids);
+        // Dosen't start explodings stuff immediately
+        component.NextLightningTime = component.SurgeStartTime + TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(RobustRandom));
 
         _announcer.SendAnnouncement(
             _announcer.GetAnnouncementId(args.RuleId),
@@ -49,7 +51,7 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
 
     protected override void ActiveTick(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
-        if (Timing.CurTime < component.TimeUntilSurgeStart)
+        if (Timing.CurTime < component.SurgeStartTime)
             return;
 
         if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
@@ -64,14 +66,14 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         sm.Power = powerSurge;
         sm.HeatModifier = heatSurge;
 
-        if (Timing.CurTime < component.TimeUntilNextLightning)
+        if (Timing.CurTime < component.NextLightningTime)
             return;
         else
         {
             // Explosive supermatter lightning strikes
             _lightning.ShootRandomLightnings(component.SupermatterUid, component.ZapRange, component.ZapCount, sm.LightningPrototypes[2]);
 
-            component.TimeUntilNextLightning += TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(RobustRandom));
+            component.NextLightningTime += TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(RobustRandom));
         }
     }
 

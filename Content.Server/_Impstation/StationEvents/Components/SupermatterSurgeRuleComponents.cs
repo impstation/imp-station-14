@@ -16,10 +16,10 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     public EntityUid SupermatterUid;
 
     /// <summary>
-    /// Time tracker for when to begin supermatter surge
+    /// How long after the rule to begin the supermatter surge
     /// </summary>
     [DataField]
-    public TimeSpan TimeUntilSurgeStart = TimeSpan.FromSeconds(30);
+    public TimeSpan SurgeStartTime = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Minimum & maximum power that the supermatter can surge to
@@ -37,7 +37,7 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// Time tracker for next explosive lightning strike
     /// </summary>
     [DataField]
-    public TimeSpan TimeUntilNextLightning = TimeSpan.FromSeconds(5);
+    public TimeSpan NextLightningTime;
 
     /// <summary>
     /// Minimum & maximum time until next explosive lightning strike
