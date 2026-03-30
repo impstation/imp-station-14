@@ -49,32 +49,29 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
 
     protected override void ActiveTick(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
-        if (component.TimeUntilSurgeStart > 0)
-        {
-            component.TimeUntilSurgeStart -= frameTime;
+        if (Timing.CurTime < component.TimeUntilSurgeStart)
             return;
-        }
 
         if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
             return;
 
-        sm.Surge = true;
+        sm.Surging = true;
 
-        var powerSurge = _random.NextFloat(component.MinPowerSurge, component.MaxPowerSurge);
-        var heatSurge = _random.NextFloat(component.MinHeatSurge, component.MaxHeatSurge);
+        var powerSurge = component.PowerMinMax.Next(RobustRandom);
+        var heatSurge = (float)component.HeatModifierMinMax.Next(RobustRandom) / 100;
 
         // Power & heat modifer changes every tick so isn't always used by the supermatter, but creates a good visual on the console
         sm.Power = powerSurge;
         sm.HeatModifier = heatSurge;
 
-        if (component.TimeUntilNextLightning > 0)
-            component.TimeUntilNextLightning -= frameTime;
+        if (Timing.CurTime < component.TimeUntilNextLightning)
+            return;
         else
         {
             // Explosive supermatter lightning strikes
             _lightning.ShootRandomLightnings(component.SupermatterUid, component.ZapRange, component.ZapCount, sm.LightningPrototypes[2]);
 
-            component.TimeUntilNextLightning += _random.NextFloat(component.MinTimeForLightning, component.MaxTimeForLightning);
+            component.TimeUntilNextLightning += TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(RobustRandom));
         }
     }
 
@@ -85,6 +82,6 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
             return;
 
-        sm.Surge = false;
+        sm.Surging = false;
     }
 }

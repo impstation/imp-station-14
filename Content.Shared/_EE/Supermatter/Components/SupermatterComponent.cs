@@ -198,7 +198,7 @@ public sealed partial class SupermatterComponent : Component
     /// Imp change, if the Supermatter is experiencing a surge then power & heat calculations are stopped
     /// </summary>
     [DataField]
-    public bool Surge;
+    public bool Surging;
 
     /// <summary>
     /// Modifier to damage taken during supermatter reactions, soothing the supermatter when a psychologist is nearby

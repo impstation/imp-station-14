@@ -1,4 +1,5 @@
 using Content.Server._Impstation.StationEvents.Events;
+using Content.Shared.Destructible.Thresholds;
 
 namespace Content.Server._Impstation.StationEvents.Components;
 
@@ -17,60 +18,42 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// <summary>
     /// Time tracker for when to begin supermatter surge
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TimeUntilSurgeStart = 30f;
+    [DataField]
+    public TimeSpan TimeUntilSurgeStart = TimeSpan.FromSeconds(30);
 
     /// <summary>
-    /// Minimum power that the supermatter can surge to
+    /// Minimum & maximum power that the supermatter can surge to
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MinPowerSurge = 5000f;
+    [DataField]
+    public MinMax PowerMinMax = new(5000, 10000);
 
     /// <summary>
-    /// Maximum power that the supermatter can surge to
+    /// Minimum & maximum heat modifier that the supermatter can surge to, scaled by 100
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MaxPowerSurge = 10000f;
-
-    /// <summary>
-    /// Minimum heat modifier that the supermatter can surge to
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MinHeatSurge = 1f;
-
-    /// <summary>
-    /// Maximum heat modifier that the supermatter can surge to
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MaxHeatSurge = 2f;
+    [DataField]
+    public MinMax HeatModifierMinMax = new(100, 200);
 
     /// <summary>
     /// Time tracker for next explosive lightning strike
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TimeUntilNextLightning = 5f;
+    [DataField]
+    public TimeSpan TimeUntilNextLightning = TimeSpan.FromSeconds(5);
 
     /// <summary>
-    /// Minimum time until next explosive lightning strike
+    /// Minimum & maximum time until next explosive lightning strike
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MinTimeForLightning = 10f;
-
-    /// <summary>
-    /// Maximum time until next explosive lightning strike
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float MaxTimeForLightning = 20f;
+    [DataField]
+    public MinMax LightningCooldownMinMax = new(10, 20);
 
     /// <summary>
     /// Range that the explosive lightning can strike in
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float ZapRange = 7f;
 
     /// <summary>
     /// Amount of explosive lightning strikes
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public int ZapCount = 2;
 }
