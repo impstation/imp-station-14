@@ -38,8 +38,10 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         }
 
         component.SupermatterUid = _random.Pick(supermatterUids);
+        // When the supermatter surge starts can be randomized if desired similar to how NextLightningTime is done
+        component.SurgeStartTime = Timing.CurTime + component.SurgeStartLength;
         // Dosen't start explodings stuff immediately
-        component.NextLightningTime = component.SurgeStartTime + TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(RobustRandom));
+        component.NextLightningTime = component.SurgeStartTime + TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(_random));
 
         _announcer.SendAnnouncement(
             _announcer.GetAnnouncementId(args.RuleId),
@@ -59,8 +61,8 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
 
         sm.Surging = true;
 
-        var powerSurge = component.PowerMinMax.Next(RobustRandom);
-        var heatSurge = (float)component.HeatModifierMinMax.Next(RobustRandom) / 100;
+        var powerSurge = component.PowerMinMax.Next(_random);
+        var heatSurge = (float)component.HeatModifierMinMax.Next(_random) / 100;
 
         // Power & heat modifer changes every tick so isn't always used by the supermatter, but creates a good visual on the console
         sm.Power = powerSurge;
@@ -73,7 +75,7 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
             // Explosive supermatter lightning strikes
             _lightning.ShootRandomLightnings(component.SupermatterUid, component.ZapRange, component.ZapCount, sm.LightningPrototypes[2]);
 
-            component.NextLightningTime += TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(RobustRandom));
+            component.NextLightningTime += TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(_random));
         }
     }
 

@@ -16,10 +16,16 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     public EntityUid SupermatterUid;
 
     /// <summary>
+    /// Stores the time when the supermatter surge should begin
+    /// </summary>
+    [DataField]
+    public TimeSpan SurgeStartTime;
+
+    /// <summary>
     /// How long after the rule to begin the supermatter surge
     /// </summary>
     [DataField]
-    public TimeSpan SurgeStartTime = TimeSpan.FromSeconds(30);
+    public TimeSpan SurgeStartLength = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Minimum & maximum power that the supermatter can surge to
