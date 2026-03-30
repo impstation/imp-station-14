@@ -735,6 +735,28 @@
 # OBJECTIVE
 
 - type: listing
+  id: UplinkSupermatterScalpel
+  name: uplink-supermatter-scalpel-name
+  description: uplink-supermatter-scalpel-desc
+  # icon: { sprite: sprite path, state: icon }
+  productEntity: SupermatterScalpel
+  categories:
+  - UplinkDisruption
+  - UplinkObjective
+  conditions:
+  - !type:BuyerObjectiveWhitelistCondition
+    makeHidden: true
+    whitelist:
+      components:
+      - SupermatterSliverCondition
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
   id: UplinkRomerolMicroInjector
   name: uplink-romerol-traitor-name
   description: uplink-romerol-traitor-desc

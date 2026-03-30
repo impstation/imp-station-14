@@ -4,6 +4,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.DoAfter; // Imp
 using Content.Server.Examine;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
@@ -17,11 +18,13 @@ using Content.Server.Singularity.EntitySystems;
 using Content.Server.Traits.Assorted;
 using Content.Shared._EE.CCVar;
 using Content.Shared._EE.Supermatter.Components;
+using Content.Shared._Impstation.Supermatter.Components; // Imp
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
+using Content.Shared.DoAfter; // Imp
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
@@ -49,6 +52,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!; // Imp
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly ExamineSystem _examine = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
@@ -86,7 +90,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         SubscribeLocalEvent<SupermatterComponent, InteractHandEvent>(OnHandInteract);
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
+        SubscribeLocalEvent<SupermatterComponent, SupermatterScalpelDoAfterEvent>(OnGetSliver);
         SubscribeLocalEvent<SupermatterComponent, GravPulseEvent>(OnGravPulse);
     }
 
@@ -184,13 +188,26 @@ public sealed partial class SupermatterSystem : EntitySystem
         var item = args.Used;
         var othersFilter = Filter.Pvs(uid).RemovePlayerByAttachedEntity(target);
 
+        // Imp start, scalpel
+        if (HasComp<SupermatterScalpelComponent>(item))
+        {
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, sm.ScalpelTime, new SupermatterScalpelDoAfterEvent(), uid)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+                NeedHand = true,
+            });
+            return;
+        }
+        // Imp end
+
         if (args.Handled ||
             HasComp<GhostComponent>(target) ||
             HasComp<SupermatterImmuneComponent>(item) ||
             HasComp<GodmodeComponent>(item))
             return;
 
-        // TODO: supermatter scalpel
         if (HasComp<UnremoveableComponent>(item))
         {
             if (!sm.HasBeenPowered)
@@ -241,10 +258,18 @@ public sealed partial class SupermatterSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterDoAfterEvent args)
+    private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterScalpelDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
+
+        // Imp start
+        if (sm.SliverTaken)
+        {
+            _popup.PopupClient(Loc.GetString("future"), uid, args.User);
+            return;
+        }
+        // Imp end
 
         // Your criminal actions will not go unnoticed
         sm.Damage += sm.DamageDelaminationPoint / 10;
@@ -252,9 +277,11 @@ public sealed partial class SupermatterSystem : EntitySystem
         var integrity = GetIntegrity(sm).ToString("0.00");
         SendSupermatterAnnouncement(uid, sm, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)));
 
+        // In the future could there could be tongs & ashing from touching the sliver
         Spawn(sm.SliverPrototype, Transform(args.User).Coordinates);
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
 
+        // Trigger Supermatter Surge here
         sm.DelamTimer /= 2;
     }
 
