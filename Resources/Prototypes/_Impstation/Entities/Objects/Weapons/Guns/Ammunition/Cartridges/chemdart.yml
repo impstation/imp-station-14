@@ -1,57 +1,122 @@
 - type: entity
-  parent: [ BaseCartridge, BaseRestrictedZookeeperContraband ]
-  id: TranqDart
   name: Tranquilizer Dart
-  description: A dart designed to be loaded into a tranquilizer rifle. This one contains a chemical that induces drowsiness, but takes time to accumulate. Contains 7u of chloral hydrate.
+  parent: [ BaseItem, BaseRestrictedZookeeperContraband ]
+  description: A dart designed to be loaded into a tranquilizer rifle. This one contains the chemical chloral hydrate, which induces drowsiness, but takes time to accumulate.
+  id: TranqDart
   components:
-  - type: Tag
-    tags:
-    - Dart
-  - type: CartridgeAmmo
-    deleteOnSpawn: true
-    proto: ChemDartProjectile
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/darttranq.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/chem_darts.rsi
     layers:
-    - state: base
-      map: ["enum.AmmoVisualLayers.Base"]
-  - type: ChemicalAmmo
+      - state: dart1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+      - state: tranqdart
   - type: SolutionContainerManager
     solutions:
-      ammo:
+      injector:
+        maxVol: 8
         reagents:
         - ReagentId: ChloralHydrate
-          Quantity: 7
-  - type: SolutionTransfer
-    maxTransferAmount: 7
-  - type: SpentAmmoVisuals
-    state: "tranquilizer"
-
-- type: entity
-  parent: [ BaseCartridge, BaseRestrictedZookeeperContraband ]
-  id: IrwizineDart
-  name: Irwizine Dart
-  description: A dart designed to be loaded into a tranquilizer rifle. This one contains a chemical that pacifies aggressive creatures, for when they can't be put to sleep. Only takes one shot to work.
-  components:
+          Quantity: 8
+  - type: ExaminableSolution
+    solution: injector
+    exactVolume: true
+  - type: TrashOnSolutionEmpty
+    solution: injector
+  - type: Item
+    size: Tiny
   - type: Tag
     tags:
     - Dart
-  - type: CartridgeAmmo
-    deleteOnSpawn: true
-    proto: ChemDartProjectile
+    - Trash
+  - type: EmbeddableProjectile
+    offset: "0,-0.05"
+    minimumSpeed: 3
+    removalTime: 0.25
+    embedOnThrow: false
+  - type: SolutionInjectWhileEmbedded
+    transferAmount: 8
+    solution: injector
+    updateInterval: 1
+  - type: SolutionInjectOnEmbed
+    transferAmount: 8
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: dart
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.3,0.1,0.3"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Piercing: 1
+
+- type: entity
+  parent: TranqDart
+  id: IrwizineDart
+  name: Irwizine Dart
+  description: A dart designed to be loaded into a tranquilizer rifle. This one contains the chemical irwizine, which pacifies aggressive creatures, for when they can't be put to sleep. Only takes one shot to work.
+  components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/dartirwizine.rsi
     layers:
-    - state: base
-      map: ["enum.AmmoVisualLayers.Base"]
-  - type: ChemicalAmmo
+      - state: dart1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+      - state: irwizinedart
   - type: SolutionContainerManager
     solutions:
-      ammo:
+      injector:
+        maxVol: 10
         reagents:
         - ReagentId: Irwizine
           Quantity: 10
-  - type: SolutionTransfer
-    maxTransferAmount: 10
-  - type: SpentAmmoVisuals
-    state: "tranquilizer"
+  - type: SolutionInjectWhileEmbedded
+    transferAmount: 10
+    solution: injector
+    updateInterval: 1
+  - type: SolutionInjectOnEmbed
+    transferAmount: 10
+
+- type: entity
+  parent: [ Tier3Contraband, TranqDart ]
+  id: ShockDart
+  name: Shock Dart
+  description: A dart designed to be loaded into a tranquilizer rifle. This one contains the chemical tazinide which shocks the target after injection.
+  components:
+  - type: Sprite
+    layers:
+      - state: dart1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+      - state: shockdart
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 4
+        reagents:
+        - ReagentId: Tazinide
+          Quantity: 4
+  - type: SolutionInjectWhileEmbedded
+    transferAmount: 4
+    solution: injector
+    updateInterval: 1
+  - type: SolutionInjectOnEmbed
+    transferAmount: 4
