@@ -69,7 +69,7 @@
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
+        type: UplinkBoundUserInterface # imp edit, was StoreBoundUserInterface
   - type: ActivatableUI
     key: enum.StoreUiKey.Key
   - type: Store
@@ -127,3 +127,4 @@
   - type: Store
     balance:
       Telecrystal: 99999
+    passAllConditions: true # imp

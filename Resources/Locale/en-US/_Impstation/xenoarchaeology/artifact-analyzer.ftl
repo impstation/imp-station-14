@@ -14,3 +14,5 @@ analysis-console-bias-up = Up
 analysis-console-bias-down = Down
 analysis-console-bias-button-info-up = Toggles the bias an artifact has in moving between its nodes. Up heads toward zero depth.
 analysis-console-bias-button-info-down = Toggles the bias an artifact has in moving between its nodes. Down decends toward ever-greater depths.
+
+analyzer-artifact-extract-failed-popup = Cannot extract points: Research Server not connected or out of power.

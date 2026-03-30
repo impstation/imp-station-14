@@ -78,12 +78,12 @@
       chamber:
         reagents:
         - ReagentId: Echion
-          Quantity: 150
-        maxVol: 150 #30 shots
+          Quantity: 30
+        maxVol: 30 #30 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: BulletPlasmaAkurra
-    fireCost: 5
+    fireCost: 1
   - type: StaticPrice
     price: 100
   - type: MeleeWeapon
@@ -144,12 +144,12 @@
       chamber:
         reagents:
         - ReagentId: Echion
-          Quantity: 37.5
-        maxVol: 37.5 #3 shots
+          Quantity: 7.5
+        maxVol: 7.5 #3 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: EnergyCrossbowBolt
-    fireCost: 12.5
+    fireCost: 2.5
   - type: Appearance
   - type: Tag
     tags:

@@ -1,4 +1,5 @@
 - type: entity
+<<<<<<< HEAD
   id: CrateEngineeringSupermatter
   parent: [ CrateEngineeringSecure, BaseRestrictedChiefEngineerContraband ]
   name: supermatter shard crate
@@ -18,3 +19,16 @@
   - type: AntiTamper
     containers: [ entity_storage ]
   - type: SupermatterImmune
+=======
+  id: CrateEvaEngineeringKit
+  parent: CrateEngineeringSecure
+  name: engineering EVA kit
+  description: A set consisting of two shiny EVA suits and helmets in engineering colors.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingHeadHelmetEVAEngineering
+        amount: 2
+      - id: ClothingOuterHardsuitEVAEngineering
+        amount: 2
+>>>>>>> 8b4682e7986aa8dc496008e8ba699f9c6a91dc0e

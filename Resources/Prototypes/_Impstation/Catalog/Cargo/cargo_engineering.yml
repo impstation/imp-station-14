@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿- type: cargoProduct
   id: EngineeringSupermatter
   icon:
@@ -7,3 +8,13 @@
   cost: 10000
   category: cargoproduct-category-name-engineering
   group: market
+=======
+- type: cargoProduct
+  id: EngineeringEvaKit
+  icon:
+    sprite: _Impstation/Clothing/Head/Helmets/eva_engineering.rsi
+    state: icon
+  product: CrateEvaEngineeringKit
+  cost: 5000
+  category: cargoproduct-category-name-engineering
+>>>>>>> 8b4682e7986aa8dc496008e8ba699f9c6a91dc0e
