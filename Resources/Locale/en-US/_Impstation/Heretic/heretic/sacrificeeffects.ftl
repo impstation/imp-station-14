@@ -1,4 +1,3 @@
-heretic-sac-effect-lantern = The world is but a shadow, and you have seen the light by which it is cast. Now, you are among the shadows again, and the world seems grey like shadows ought to be.
 heretic-sac-effect-moth = Your brain is buzzing. Your mind is tangled within itself. Everything is where it should be. Nothing is in its place.
 heretic-sac-effect-grail = Your blood, like water, has been used to slake the thirst of another. Your blood, like water, flows unfettered.
 heretic-sac-effect-heart = The drumbeat in your chest beats wildly. It shall not slow, no matter what pain might be inflicted upon it.

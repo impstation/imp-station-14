@@ -1,10 +1,4 @@
 - type: hereticSacrificeEffect
-  id: SacEffectLantern
-  components:
-  - type: BlackAndWhiteOverlay
-  message: heretic-sac-effect-lantern
-
-- type: hereticSacrificeEffect
   id: SacEffectMoth
   components:
   - type: ScrambledAccent
@@ -49,4 +43,3 @@
     maxDurationOfIncident: 30
     minDurationOfIncident: 10
   message: heretic-sac-effect-knock
-  
