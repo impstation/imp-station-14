@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-﻿- type: cargoProduct
-  id: EngineeringSupermatter
-  icon:
-    sprite: _Impstation/Structures/Power/Generation/Supermatter/supermatter_shard.rsi
-    state: supermatter
-  product: CrateEngineeringSupermatter
-  cost: 10000
-  category: cargoproduct-category-name-engineering
-  group: market
-=======
 - type: cargoProduct
   id: EngineeringEvaKit
   icon:
@@ -17,4 +6,13 @@
   product: CrateEvaEngineeringKit
   cost: 5000
   category: cargoproduct-category-name-engineering
->>>>>>> 8b4682e7986aa8dc496008e8ba699f9c6a91dc0e
+
+- type: cargoProduct
+  id: EngineeringSupermatter
+  icon:
+    sprite: _Impstation/Structures/Power/Generation/Supermatter/supermatter_shard.rsi
+    state: supermatter
+  product: CrateEngineeringSupermatter
+  cost: 10000
+  category: cargoproduct-category-name-engineering
+  group: market
