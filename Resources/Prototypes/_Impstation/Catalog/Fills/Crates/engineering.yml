@@ -13,7 +13,7 @@
 
 - type: entity
   id: CrateEngineeringSupermatter
-  parent: [ CrateEngineeringSecure, BaseRestrictedChiefEngineerContraband ]
+  parent: [ CrateEngineeringSecure, BaseEngineeringContraband ]
   name: supermatter shard crate
   description: A specialized crate immune to the supermatter, containing a supermatter shard. Personal protective equipment is recommended for transport. Requires Chief Engineer access to open.
   components:
@@ -26,8 +26,6 @@
       entity_storage: !type:AllSelector
         children:
         - id: SupermatterShard
-  - type: AccessReader
-    access: [ [ "ChiefEngineer" ] ]
   - type: AntiTamper
     containers: [ entity_storage ]
   - type: SupermatterImmune
