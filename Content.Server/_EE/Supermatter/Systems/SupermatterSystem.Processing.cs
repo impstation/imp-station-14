@@ -620,14 +620,14 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(EECCVars.SupermatterDoForceDelam))
             return _config.GetCVar(EECCVars.SupermatterForcedDelamType);
 
+        if (sm.DestabilizingCrystal)
+            return DelamType.Cascade;
+
         if (sm.GasComposition is { } && sm.GasStorage is { })
         {
             if (sm.GasComposition.GetMoles(Gas.Frezon) >= 0.4 && sm.GasComposition.GetMoles(Gas.Tritium) >= 0.4 && sm.GasStorage.TotalMoles >= 240)
                 return DelamType.Cascade;
         }
-
-        if (sm.DestabilizingCrystal)
-            return DelamType.Cascade;
 
         if (sm.GasStorage is { })
         {
@@ -711,8 +711,6 @@ public sealed partial class SupermatterSystem
         var gamerule = _gameTicker.AddGameRule(sm.DelamGamerulePrototype);
         _gameTicker.StartGameRule(gamerule);
 
-        var effects = _proto.Index(sm.DelamEffectsPrototype).Components;
-
         foreach (var mob in mobLookup)
         {
             // Scramble moods that follow the given shared moods
@@ -750,7 +748,7 @@ public sealed partial class SupermatterSystem
                 if (gridUid == null)
                     return;
 
-                if (!TryComp<MapGridComponent>(xform.GridUid, out var mapGrid))
+                if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
                     return;
 
                 var tileCoords = xform.Coordinates;
@@ -758,21 +756,13 @@ public sealed partial class SupermatterSystem
                 // Can/Will destroy the tile it is on
                 _explosion.TriggerExplosive(uid);
 
-                // TODO: Remove Timer.Spawn & use the SM timer that exists already
-                Timer.Spawn(7 * 1000, () =>
+                Timer.Spawn(7000, () =>
                 {
-                    // TODO: Make all this hardcode components
-                    // TODO: Find a way to unhardcode sprite variation, or just like don't
+                    var cascadeGamerule = _gameTicker.AddGameRule(sm.CascadeDelamGamerulePrototype);
+                    _gameTicker.StartGameRule(cascadeGamerule);
+
                     _map.SetTile(gridUid.Value, mapGrid, tileCoords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, 5)));
                     Spawn(sm.CrystalMassSpawnPrototype, tileCoords);
-
-                    // for (var i = 0; i < _random.Next(1, 4) && i < spawns.Count; i++)
-                    // {
-                    //     var location = _random.PickAndTake(spawns);
-
-                    //     _map.SetTile(xform.GridUid.Value, mapGrid, xform.Coordinates, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, 5)));
-                    //     Spawn(sm.CrystalMassSpawnPrototype, location);
-                    // } TODO: random spawn see midround spawner
                 });
                 break;
 

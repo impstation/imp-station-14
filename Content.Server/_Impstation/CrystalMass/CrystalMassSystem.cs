@@ -52,7 +52,6 @@ public sealed class CrystalMassSystem : EntitySystem
         var delay = _random.Next(0, 4);
         ent.Comp.NextSpread = _timing.CurTime + TimeSpan.FromSeconds(delay);
 
-        // TODO: REMOVE TIMER.SPAWN
         // Slightly longer than one tick
         Timer.Spawn(TimeSpan.FromMilliseconds(17), () =>
         {

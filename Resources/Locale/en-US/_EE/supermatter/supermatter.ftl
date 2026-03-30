@@ -39,6 +39,24 @@ supermatter-tamper-end =
 supermatter-announcement-cc-tamper =
     Our automatic casualty system has detected that the supermatter crystal structural integrity was compromised by an external force.
     Engineering department, report to the supermatter engine immediately.
+supermatter-sliver-taken =
+
+
+supermatter-destabalize-start =
+
+supermatter-destabalize-end =
+
+supermatter-integrity-too-low =
+
+
+supermatter-announcement-announcement-cascade-begin =
+    Attention: Long range anomaly scans indicate abnormal quantities of harmonic flux originating from
+	a subject within {THE($station)}, a resonance collapse may occur.
+supermatter-component-announcement-resonance-cascade =
+    A Type-C resonance shift event has occurred in your sector. Scans indicate local oscillation flux affecting spatial and gravitational substructure.
+	Multiple resonance hotspots have formed. Please standby.
+supermatter-component-cascade-announcement-sender =
+    Nanotrasen Star Observation Association
 
 supermatter-collide =
     {CAPITALIZE(THE($target))} slams into {THE($sm)}!
@@ -55,3 +73,10 @@ supermatter-collide-insert-unremoveable-user =
 
 supermatter-paracusia-player-message =
     You feel your head throb with otherworldly visions...
+
+supermatter-cascade-player-message =
+    "Space seems to be shifting around you...",
+    "You hear a high-pitched ringing sound.",
+    "You feel tingling going down your back.",
+    "Something feels very off.",
+    "A drowning sense of dread washes over you.",

@@ -91,6 +91,9 @@ public sealed partial class SupermatterComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public EntProtoId DelamGamerulePrototype = "SupermatterDelamEventScheduler";
 
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public EntProtoId CascadeDelamGamerulePrototype = "SupermatterCascadeDelamRule";
+
     [DataField]
     public HashSet<ProtoId<SharedMoodPrototype>> SharedMoodScrambleTargets = ["Thaven"];
 
@@ -380,7 +383,13 @@ public sealed partial class SupermatterComponent : Component
     public DelamType PreferredDelamType = DelamType.Explosion;
 
     /// <summary>
-    /// The point at which the SM begins showing warning signs.
+    /// If a sliver has already been taken or not fromt the SM.
+    /// </summary>
+    [DataField]
+    public bool SliverTaken;
+
+    /// <summary>
+    /// If a destabalizing crystal is attatched to the SM.
     /// </summary>
     [DataField]
     public bool DestabilizingCrystal;

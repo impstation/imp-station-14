@@ -1,5 +1,6 @@
 using Content.Server._Impstation.StrangeMoods;
 using Content.Server.Administration.Logs;
+using Content.Server.Announcements.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;
@@ -193,6 +194,14 @@ public sealed partial class SupermatterSystem : EntitySystem
         // Unhardcode these timers... mabye
         if (HasComp<SupermatterScapelComponent>(item))
         {
+            if (sm.SliverTaken)
+            {
+                _popup.PopupClient(Loc.GetString("supermatter-sliver-taken"), uid, args.User);
+                return;
+            }
+
+            _popup.PopupClient(Loc.GetString("supermatter-tamper-begin"), uid, args.User);
+
             _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(30), new SupermatterScalpelDoAfterEvent(), uid)
             {
                 BreakOnDamage = true,
@@ -205,6 +214,8 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (HasComp<SupermatterDestabalizerComponent>(item))
         {
+            _popup.PopupClient(Loc.GetString("supermatter-destabalize-start"), uid, args.User);
+
             _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(30), new DestabilizingCrystalDoAfterEvent(), uid)
             {
                 BreakOnDamage = true,
@@ -276,6 +287,8 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (args.Cancelled)
             return;
 
+        sm.SliverTaken = true;
+
         // Your criminal actions will not go unnoticed
         sm.Damage += sm.DamageDelaminationPoint / 10;
 
@@ -299,8 +312,6 @@ public sealed partial class SupermatterSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("supermatter-integrity-too-low"), uid, args.User);
             return;
         }
-
-        SendSupermatterAnnouncement(uid, sm, Loc.GetString("supermatter-announcement-cc-resonance-cascade"), true);
 
         _popup.PopupClient(Loc.GetString("supermatter-destabalize-end"), uid, args.User);
 
