@@ -1,0 +1,12 @@
+- type: constructionGraph
+  id: paperDough
+  start: start
+  graph:
+  - node: start
+    entity: WoodPulpBall
+    edges: flat
+    steps:
+      - tool: Rolling
+        doAfter: 1
+  - node: flat
+    enttiy: WoodPulpBallFlat
