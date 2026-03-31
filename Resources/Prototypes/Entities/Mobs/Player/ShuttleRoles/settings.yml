@@ -513,12 +513,15 @@
   id: VisitorMime
   parent: VisitorCivilian
   components:
-    - type: MimePowers
+    #- type: MimePowers # imp
     - type: GhostRole
       name: job-name-mime
     - type: Loadout
       prototypes: [ VisitorMime, VisitorMimeAlt ]
       roleLoadout: [ RoleSurvivalStandard ]
+    - type: AddMindComponent # imp
+      components:
+      - type: MimeVow
 
 - type: randomHumanoidSettings
   id: VisitorReporter
