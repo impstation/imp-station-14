@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
-  engineVersion: 267.3.0
+  category: Grid
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 12/13/2025 21:05:20
-  entityCount: 312
-maps:
-- 1
+  time: 03/31/2026 15:22:07
+  entityCount: 311
+maps: []
 grids:
 - 2
-orphans: []
+orphans:
+- 2
 nullspace: []
 tilemap:
   0: Space
@@ -39,21 +39,12 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 1
-    components:
-    - type: MetaData
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 2
     components:
     - type: MetaData
       name: grid
     - type: Transform
-      parent: 1
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -499,6 +490,9 @@ entities:
     - type: RadiationGridResistance
     - type: SpreaderGrid
     - type: ImplicitRoof
+    - type: Shuttle
+      dampingModifier: 0.25
+    - type: ExplosionAirtightGrid
 - proto: AirAlarm
   entities:
   - uid: 5
@@ -1067,8 +1061,8 @@ entities:
           restitution: 0
           friction: 0.4
     - type: EntityStorage
-      open: True
       removedMasks: 20
+      open: True
     - type: PlaceableSurface
       isPlaceable: True
 - proto: ClosetWallEmergencyFilledRandom
