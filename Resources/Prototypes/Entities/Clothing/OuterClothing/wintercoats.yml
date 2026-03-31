@@ -59,7 +59,7 @@
   name: atmospherics winter coat
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _Impstation/Clothing/OuterClothing/WinterCoats/atmoscoat.rsi #imp
     layers:
     - state: ATMOS-icon
   - type: Item
@@ -69,7 +69,7 @@
       right:
       - state: ATMOS-inhand-right
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
+    sprite: _Impstation/Clothing/OuterClothing/WinterCoats/atmoscoat.rsi #imp
     clothingVisuals:
       outerClothing:
       - state: ATMOS-equipped-OUTERCLOTHING
