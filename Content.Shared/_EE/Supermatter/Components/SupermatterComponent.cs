@@ -269,7 +269,7 @@ public sealed partial class SupermatterComponent : Component
     /// Length of Supermatter Scalpel interaction
     /// </summary>
     [DataField]
-    public TimeSpan ScalpelTime = TimeSpan.FromSeconds(30);
+    public TimeSpan ScalpelTime = TimeSpan.FromSeconds(15);
 
     /// <summary>
     /// We yell if over 50 damage every YellTimer Seconds

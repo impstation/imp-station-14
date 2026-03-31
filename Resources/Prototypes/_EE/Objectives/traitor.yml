@@ -3,8 +3,11 @@
   id: StealSupermatterSliverObjective
   components:
   - type: Objective
-    difficulty: 3.5
+    difficulty: 3 # Imp
   - type: StealCondition
     stealGroup: SupermatterSliver
     objectiveNoOwnerText: objective-condition-steal-smsliver-title
     descriptionText: objective-condition-steal-smsliver-description
+  - type: StealSupermatterSliver # Imp, allows a traitor to purchase the supermatter scalpel
+  - type: ObjectiveLimit # Imp
+    limit: 1

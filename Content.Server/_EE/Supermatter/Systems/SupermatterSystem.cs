@@ -191,6 +191,14 @@ public sealed partial class SupermatterSystem : EntitySystem
         // Imp start, scalpel
         if (HasComp<SupermatterScalpelComponent>(item))
         {
+            if (sm.SliverTaken)
+            {
+                _popup.PopupEntity(Loc.GetString("supermatter-tamper-taken"), args.User);
+                return;
+            }
+
+            _popup.PopupEntity(Loc.GetString("supermatter-tamper-begin"), args.User);
+
             _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, sm.ScalpelTime, new SupermatterScalpelDoAfterEvent(), uid)
             {
                 BreakOnDamage = true,
@@ -198,6 +206,7 @@ public sealed partial class SupermatterSystem : EntitySystem
                 BreakOnWeightlessMove = false,
                 NeedHand = true,
             });
+
             return;
         }
         // Imp end
@@ -263,14 +272,6 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        // Imp start
-        if (sm.SliverTaken)
-        {
-            _popup.PopupClient(Loc.GetString("future"), uid, args.User);
-            return;
-        }
-        // Imp end
-
         // Your criminal actions will not go unnoticed
         sm.Damage += sm.DamageDelaminationPoint / 10;
 
@@ -279,10 +280,10 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         // In the future could there could be tongs & ashing from touching the sliver
         Spawn(sm.SliverPrototype, Transform(args.User).Coordinates);
-        _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
+        _popup.PopupEntity(Loc.GetString("supermatter-tamper-end"), args.User); // Imp, now PopupEntity since this isn't shared/client
 
-        // Trigger Supermatter Surge here
-        sm.DelamTimer /= 2;
+        sm.GasEfficiency = 1; // Imp, changed effect to increase gas absorption to 100%
+        sm.SliverTaken = true; // Imp
     }
 
     private void OnGravPulse(Entity<SupermatterComponent> ent, ref GravPulseEvent args)

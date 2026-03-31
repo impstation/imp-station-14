@@ -1,2 +1,3 @@
 objective-condition-steal-smsliver-title = Cut off a sliver from the supermatter crystal.
-objective-condition-steal-smsliver-description = Use the Supermatter Scalpel provided in your uplink and try not to lose it. Also, don't die of radiation poisoning.
+# Imp, changed text slightly
+objective-condition-steal-smsliver-description = A supermatter scalpel has been provided in your uplink. Don't die from the radiation or the gravitational pull.

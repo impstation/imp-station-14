@@ -119,6 +119,8 @@
     - SupermatterDanger
     - SupermatterEmergency
     - SupermatterDelaminating
+  - type: StealTarget # Imp, used so that StealConditionSystem.cs can verify if a Supermatter/Sliver exists
+    stealGroup: SupermatterSliver
   - type: HolidayVisuals #IMP: Mariah crystal
     holidays:
       festive:

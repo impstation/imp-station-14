@@ -161,4 +161,4 @@ uplink-romerol-traitor-name = Romerol Micro-Injector
 uplink-romerol-traitor-desc = One romerol micro-injector for causing a zombie outbreak.
 
 uplink-supermatter-scalpel-name = Supermatter Scalpel
-uplink-supermatter-scalpel-desc = ADD TEXT HERE
+uplink-supermatter-scalpel-desc = One-time transport of a Dahir Insaat engineered scalpel, capable of shaving a sliver off the supermatter crystal.

@@ -32,7 +32,7 @@
     # imp
     CMOMedChemHUDStealObjective: 0.48
     AntiqueDisablerStealObjective: 0.71
-    #StealSupermatterSliverObjective: 0.5 # imp, disabled until StealCondition can verify the supermatter's existence
+    StealSupermatterSliverObjective: 0.48
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill

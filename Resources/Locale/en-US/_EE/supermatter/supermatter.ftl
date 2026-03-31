@@ -37,8 +37,11 @@ supermatter-tamper-begin =
 supermatter-tamper-end =
     You feel the power of a thousand suns laying on your palms. Or is it all the radiation?
 supermatter-announcement-cc-tamper =
-    Our automatic casualty system has detected that the supermatter crystal structural integrity was compromised by an external force.
+    Our automatic causality system has detected that the supermatter crystal structural integrity was compromised by an external force.
     Engineering department, report to the supermatter engine immediately.
+# Imp
+supermatter-tamper-taken =
+    The supermatter violently resists another attempt at taking a sliver. A piece has already been taken.
 
 supermatter-collide =
     {CAPITALIZE(THE($target))} slams into {THE($sm)}!
