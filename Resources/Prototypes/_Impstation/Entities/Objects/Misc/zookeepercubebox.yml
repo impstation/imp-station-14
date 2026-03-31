@@ -1,0 +1,60 @@
+- type: entity
+  parent: BoxCardboard
+  name: zookeeper cube box
+  id: ZookeeperCubeBox
+  description: A selection of dehydrated animal cubes to start off a zoo. Just add some water!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Misc/zookeepercubebox.rsi
+    state: box
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:NestedSelector
+        rolls: !type:RangeNumberSelector
+          range: 9, 9
+        tableId: RandomZookeeperCubeTable
+
+- type: entityTable
+  id: RandomZookeeperCubeTable
+  table: !type:GroupSelector
+    children:
+    - id: FinfinCube
+      weight: 1
+    - id: BananaDeerCube
+      weight: 1
+    - id: XenoCube
+      weight: 1
+    - id: SpaceCarpCube
+      weight: 2.5
+    - id: BearCube
+      weight: 3
+    - id: SpiderCube
+      weight: 4
+    - id: RaptorCube
+      weight: 4
+    - id: CowCube
+      weight: 4
+    - id: GoatCube
+      weight: 4
+    - id: PigCube
+      weight: 4
+    - id: ChickenCube
+      weight: 4
+    - id: GorillaCube
+      weight: 6
+    - id: LizardCube
+      weight: 8
+    - id: PenguinCube
+      weight: 8
+    - id: MonkeyCube
+      weight: 8
+    - id: KoboldCube
+      weight: 8
+    - id: DuckCube
+      weight: 8
+    - id: CrabCube
+      weight: 8
+    - id: GooseCube
+      weight: 8
+    - id: ParrotCube
+      weight: 8
