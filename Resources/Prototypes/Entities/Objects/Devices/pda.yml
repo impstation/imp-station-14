@@ -102,7 +102,7 @@
       enum.PdaUiKey.Key:
         type: PdaBoundUserInterface
       enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
+        type: UplinkBoundUserInterface # imp edit, was StoreBoundUserInterface
       enum.RingerUiKey.Key:
         type: RingerBoundUserInterface
       enum.InstrumentUiKey.Key:
@@ -1625,7 +1625,7 @@
       enum.PdaUiKey.Key:
         type: PdaBoundUserInterface
       enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
+        type: UplinkBoundUserInterface # imp edit, was StoreBoundUserInterface
       enum.RingerUiKey.Key:
         type: RingerBoundUserInterface
       enum.InstrumentUiKey.Key:
