@@ -389,6 +389,20 @@
         variation: 0.09
 
 - type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesMimeBoots
+  name: mime boots
+  description: Bottes en cuir ciré. Pour l'artiste qui travaille dur.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Boots/mimeboots.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Boots/mimeboots.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBoots
+
+- type: entity
   parent: ClothingShoesBaseWinterBoots
   id: ClothingShoesKneeHighBoots
   name: knee high boots
@@ -398,3 +412,14 @@
     sprite: _Impstation/Clothing/Shoes/Boots/kneehighboots.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Shoes/Boots/kneehighboots.rsi
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesLeatherBoots
+  name: leather boots
+  description: A pair of durable leather boots.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Boots/leatherboots.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Boots/leatherboots.rsi

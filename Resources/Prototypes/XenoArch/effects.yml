@@ -274,12 +274,12 @@
       weight: 10.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [4, 5]
+        depths: [3, 4, 5]
     - id: XenoArtifactBoom
-      weight: 10.0 # imp edit
+      weight: 7.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [3, 4, 5]
+        depths: [4, 5]
     - id: XenoArtifactEffectCreationGasPlasma
       weight: 10.0 # imp edit
       conditions:
@@ -623,6 +623,7 @@
       soundHit:
         path: /Audio/Weapons/bladeslice.ogg
     - type: Sharp
+    - type: CombatMode # imp: let the artifacts bite you
 
 - type: entity
   id: XenoArtifactGenerateEnergy
@@ -686,7 +687,7 @@
       description: ghost-role-information-artifact-description
       rules: ghost-role-information-freeagent-rules
       raffle:
-        settings: default
+        settings: short #imp edit
       mindRoles:
       - MindRoleGhostRoleFreeAgent
     - type: GhostTakeoverAvailable
@@ -1636,7 +1637,7 @@
 - type: entity
   id: XenoArtifactSingularity #IMP swapped the id of this and the tesla because they were incorrect??
   parent: BaseOneTimeXenoArtifactEffect
-  description: Imminent doom #IMP desc changed
+  description: Stationwide destruction #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1651,7 +1652,7 @@
 - type: entity
   id: XenoArtifactTesla #IMP swapped the id of this and the singulo because they were incorrect??
   parent: BaseOneTimeXenoArtifactEffect
-  description: Imminent doom #IMP desc changed
+  description: Stationwide destruction #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true

@@ -217,3 +217,36 @@
     impactFlash:
       sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
       state: impact_laser_rifle
+
+- type: entity
+  parent: RedMediumLaser
+  id: XenoborgLightLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: muzzle_xenolight
+    travelFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: beam_xenolight
+    impactFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: impact_xenolight
+
+- type: entity
+  parent: RedHeavyLaser
+  id: XenoborgHeavyLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: muzzle_xenoheavy
+    travelFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: beam_xenoheavy
+    impactFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: impact_xenoheavy
+

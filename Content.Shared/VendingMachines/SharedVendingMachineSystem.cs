@@ -18,6 +18,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Robust.Shared.Serialization; // IMP ADD
 
 namespace Content.Shared.VendingMachines;
 
@@ -444,4 +445,11 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
 
         UISystem.CloseUi(uid, VendingMachineUiKey.Key);
     }
+}
+
+// IMP ADD
+[Serializable, NetSerializable]
+public sealed class VendingStoreOpenMessage : BoundUserInterfaceMessage
+{
+    public VendingStoreOpenMessage() { }
 }

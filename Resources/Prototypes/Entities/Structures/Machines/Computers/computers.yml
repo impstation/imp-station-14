@@ -1794,7 +1794,7 @@
     unlockOnClick: false
   - type: SiliconLawUpdater
     components:
-    - type: StationAiHeld
+    - type: LawSynced # imp
   - type: ItemSlotsLock
     slots:
     - circuit_holder
@@ -1809,6 +1809,7 @@
           components:
           - SiliconLawProvider
           - Item
+        startingItem: AsimovCircuitBoard # imp
   - type: ContainerContainer
     containers:
       circuit_holder: !type:ContainerSlot

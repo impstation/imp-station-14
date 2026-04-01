@@ -41,6 +41,11 @@
           Full: {visible: true, state: o2}
           Neither: {visible: true, state: o1}
           Empty: {visible: false}
+#Imp The following component is needed here for the Svalinn to work. DO NOT REMOVE. If you wanna know why ask DVD Player.
+  - type: BatteryAmmoProvider
+    proto: RedLightLaser
+    fireCost: 50
+#Imp end of edits.
 
 - type: entity
   name: potato battery

@@ -159,3 +159,14 @@
       sprite: _Impstation/Clothing/Eyes/Glasses/whitehalfmask.rsi
     - type: Clothing
       sprite: _Impstation/Clothing/Eyes/Glasses/whitehalfmask.rsi
+
+- type: entity
+  parent: [ClothingEyesBase, BaseLensSlot]
+  id: ClothingEyesMonocle
+  name: monocle
+  description: A singular lens for the sophisticated spectacle-wearers of the world.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Glasses/monocle.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Glasses/monocle.rsi

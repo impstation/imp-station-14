@@ -131,6 +131,9 @@
       sprite: Mobs/Aliens/Carps/magic.rsi
     - type: TypingIndicator
       proto: guardian
+    - type: NpcFactionMember # Imp add
+      factions:
+      - Wizard
 
 - type: entity
   name: holocarp

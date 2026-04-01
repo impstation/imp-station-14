@@ -60,7 +60,7 @@
     - id: ClothingHeadsetWarden
     - id: TicketPad
     - id: BoxToken
-    - id: BaseSeclinkRadio
+    - id: UtilityToken1
     - id: TckutFlatpack
     - id: Multitool
     # imp edit end
@@ -89,7 +89,7 @@
     children:
     - id: FlashlightSeclite
       prob: 0.8
-    #- id: WeaponDisabler #imp, included in SecLink
+    - id: WeaponDisabler
     - id: WeaponTaser
     - id: ClothingUniformJumpsuitSecGrey
       prob: 0.3
@@ -110,7 +110,7 @@
       prob: 0.5
     # imp edit start
     - id: TicketPad
-    - id: BaseSeclinkRadio
+    - id: UtilityToken1
     - !type:GroupSelector
       children:
         - id: ClothingOuterArmorBasic
@@ -133,7 +133,7 @@
   table: !type:AllSelector
     children:
     - id: ClothingEyesGlassesSecurity
-    #- id: WeaponDisabler #imp, included in SecLink
+    - id: WeaponDisabler
     - id: WeaponTaser
     - id: TrackingImplanter
       amount: 2
@@ -165,7 +165,7 @@
       prob: 0.15
     # imp edit start
     - id: TicketPad
-    - id: BaseSeclinkRadio
+    - id: UtilityToken1
     # imp edit end
 
 - type: entity

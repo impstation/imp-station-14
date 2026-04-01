@@ -18,7 +18,8 @@
     - Carpet
     - ForceFixRotations
   - type: Physics
-    canCollide: false
+    bodyType: static # VDS
+    canCollide: true # VDS - from false, so carpets collide with acoustic rays.
   - type: Fixtures
     fixtures:
       fix1:
@@ -26,6 +27,7 @@
           !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.45"
         density: 5
+        hard: false # VDS
         layer:
         - DoorPassable
   - type: Damageable
@@ -45,6 +47,8 @@
     - id: MaterialCloth1
       amount: 1
   - type: TrayScanReveal
+  - type: AcousticData # VDS
+    absorption: 12
 
 - type: entity
   id: Carpet
@@ -78,7 +82,7 @@
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_red
   # imp edit start
-  - type: Construction
+  - type: Construction #lets it be deconstructed with wirecutters
     graph: Carpet
     node: carpet
   # imp edit end
@@ -116,7 +120,7 @@
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_black
   # imp edit start
-  - type: Construction
+  - type: Construction #lets it be deconstructed with wirecutters
     graph: CarpetBlack
     node: carpet
   # imp edit end
@@ -154,7 +158,7 @@
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_pink
   # imp edit start
-  - type: Construction
+  - type: Construction #lets it be deconstructed with wirecutters
     graph: CarpetPink
     node: carpet
   # imp edit end
@@ -192,7 +196,7 @@
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_blue
   # imp edit start
-  - type: Construction
+  - type: Construction #lets it be deconstructed with wirecutters
     graph: CarpetBlue
     node: carpet
   # imp edit end
@@ -230,7 +234,7 @@
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_green
   # imp edit start
-  - type: Construction
+  - type: Construction #lets it be deconstructed with wirecutters
     graph: CarpetGreen
     node: carpet
   # imp edit end
@@ -268,7 +272,7 @@
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_orange
   # imp edit start
-  - type: Construction
+  - type: Construction #lets it be deconstructed with wirecutters
     graph: CarpetOrange
     node: carpet
   # imp edit end
@@ -306,7 +310,7 @@
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_skyblue
   # imp edit start
-  - type: Construction
+  - type: Construction #lets it be deconstructed with wirecutters
     graph: CarpetSBlue
     node: carpet
   # imp edit end
@@ -344,7 +348,7 @@
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_purple
   # imp edit start
-  - type: Construction
+  - type: Construction #lets it be deconstructed with wirecutters
     graph: CarpetPurple
     node: carpet
   # imp edit end
@@ -382,7 +386,7 @@
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_cyan
   # imp edit start
-  - type: Construction
+  - type: Construction #lets it be deconstructed with wirecutters
     graph: CarpetCyan
     node: carpet
   # imp edit end
@@ -420,7 +424,7 @@
   - type: IconSmooth #imp edit, make carpets not smooth with each other
     key: full_white
   # imp edit start
-  - type: Construction
+  - type: Construction #lets it be deconstructed with wirecutters
     graph: CarpetWhite
     node: carpet
   # imp edit end
@@ -515,3 +519,8 @@
     - id: MaterialCardboard1
       amount: 1
   - type: TrayScanReveal
+  # imp edit start
+  - type: Construction #lets it be deconstructed with wirecutters
+    graph: CarpetCard
+    node: carpet
+  # imp edit end
