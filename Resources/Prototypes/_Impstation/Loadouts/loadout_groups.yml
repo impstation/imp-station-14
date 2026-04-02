@@ -46,40 +46,6 @@
     outerClothing: ClothingOuterVestTank
     suitstorage: NitrogenTankFilled
 
-# The usual loadouts of the decapoid harness that spawn in your chest slot for jobs that don't have outerwear in their loadout
-- type: loadoutGroup
-  id: GroupTankHarnessAquatic
-  name: loadout-group-tank-harness-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquatic
-
-- type: loadoutGroup
-  id: GroupTankHarnessCommandAquatic
-  name: loadout-group-tank-harness-command-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquaticCommand
-
-# Tank harnesses for jobs that spawn with outerwear, puts them in their inventory instead of dropping items at their feet
-- type: loadoutGroup
-  id: GroupTankHarnessWithOuterwearAquatic
-  name: loadout-group-tank-harness-with-outerwear-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquaticWithOuterwear
-
-- type: loadoutGroup
-  id: GroupTankHarnessCommandWithOuterwearAquatic
-  name: loadout-group-tank-harness-command-with-outerwear-aquatic
-  minLimit: 1
-  hidden: true
-  loadouts:
-  - LoadoutTankHarnessAquaticCommandWithOuterwear
-
 # breath tool
 - type: loadoutGroup
   id: GroupSpeciesBreathToolCommand
@@ -320,6 +286,7 @@
   - EmergencyOxygenCommand
   - EmergencyMeatCommand
   - EmergencyWheatCommand
+  - EmergencyAquaticCommand
   - EmergencyDiscountCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
@@ -334,6 +301,7 @@
   - EmergencyOxygenExtendedCommand
   - EmergencyMeatExtendedCommand
   - EmergencyWheatExtendedCommand
+  - EmergencyAquaticExtendedCommand
   - EmergencyDiscountExtendedCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
@@ -348,6 +316,7 @@
   - EmergencyOxygenSecurityCommand
   - EmergencyMeatSecurityCommand
   - EmergencyWheatSecurityCommand
+  - EmergencyAquaticSecurityCommand
   - EmergencyDiscountSecurityCommand
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogenCommand
@@ -703,6 +672,48 @@
   minLimit: 0
   loadouts:
   - MusicianSingerGloves
+
+- type: loadoutGroup
+  id: ZookeeperOuterClothing
+  name: loadout-group-zookeeper-outerclothing
+  minLimit: 0
+  loadouts:
+  - ZookeeperWinterCoat
+
+- type: loadoutGroup
+  id: ZookeeperJumpsuit
+  name: loadout-group-zookeeper-jumpsuit
+  loadouts:
+  - SafariSuit
+  - SafariSuitPants
+  - AnimalControlSuit
+  - ZookeeperBeastUniform
+
+- type: loadoutGroup
+  id: ZookeeperShoes
+  name: loadout-group-zookeeper-shoes
+  loadouts:
+  - WhiteShoes
+  - LeatherBoots
+  - BrownCowboyBoots
+  - BlackCowboyBoots
+  - LightBrownWinterBoots
+
+- type: loadoutGroup
+  id: ZookeeperHead
+  name: loadout-group-zookeeper-head
+  minLimit: 0
+  loadouts:
+  - SafariHat
+  - BucketHat
+
+- type: loadoutGroup
+  id: ZookeeperGloves
+  name: loadout-group-zookeeper-gloves
+  minLimit: 0
+  loadouts:
+  - BrownGloves
+  - LightBrownGloves
 
 - type: loadoutGroup
   id: ReporterNeck
@@ -1145,6 +1156,7 @@
   - EmergencyOxygenBrigmedic
   - EmergencyMeatBrigmedic
   - EmergencyWheatBrigmedic
+  - EmergencyAquaticBrigmedic
   - EmergencyDiscountBrigmedic
   - LoadoutSpeciesAquaticFullTank
   - LoadoutSpeciesVoxNitrogen

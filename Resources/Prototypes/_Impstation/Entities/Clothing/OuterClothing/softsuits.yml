@@ -1,24 +1,74 @@
 #Emergency Winter EVA
 - type: entity
-  parent: ClothingOuterEVASuitBase
+  parent: ClothingOuterSuitEmergency
   id: ClothingOuterSuitEmergencyWinter
   name: emergency winter EVA suit
-  description: An emergency EVA suit with a built-in mask. It's horribly slow, but it'll keep you warm in the cold climate while letting you hold an air tank.
+  description: An insulated emergency EVA suit with a built-in mask. It's horribly bulky, but it'll keep you warm in the cold climate while letting you hold an air tank.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Suits/emergency_winter_eva.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Suits/emergency_winter_eva.rsi
-  - type: ClothingSpeedModifier
-    walkModifier: 0.7
-    sprintModifier: 0.7
-  - type: HeldSpeedModifier
-  - type: TemperatureProtection
+  - type: TemperatureProtection #matches winter coats
     heatingCoefficient: 1.1
     coolingCoefficient: 0.1
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetWinterEVALarge
+    clothingPrototype: ClothingHeadHelmetEVAWinter
     slot: head
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+
+#Security EVA
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterHardsuitEVASecurity
+  name: security EVA suit
+  description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space. This one's in security colors, just without any security armouring.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_security.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_security.rsi
+  - type: Tag
+    tags:
+    - SuitEVA
+    # - MonkeyWearable # imp
+    - CorgiWearable
+    - WhitelistChameleon
+
+#Salvage EVA
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterHardsuitEVASalvage
+  name: salvage EVA suit
+  description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space. The tubes sometimes hiss, it's probably fine.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_salvage.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_salvage.rsi
+  - type: Tag
+    tags:
+    - SuitEVA
+    # - MonkeyWearable # imp
+    - CorgiWearable
+    - WhitelistChameleon
+
+#Engineering EVA
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterHardsuitEVAEngineering
+  name: engineering EVA suit
+  description: A lightweight space suit with the basic ability to protect the wearer from the vacuum of space. The reflective straps have a tendency to shine light in your eyes.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_engineering.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Suits/eva_engineering.rsi
+  - type: Tag
+    tags:
+    - SuitEVA
+    # - MonkeyWearable # imp
+    - CorgiWearable
+    - WhitelistChameleon
