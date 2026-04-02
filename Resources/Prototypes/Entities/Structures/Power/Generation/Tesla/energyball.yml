@@ -101,9 +101,9 @@
       - GhostOnlyWarp
   - type: Sprite
     drawdepth: Effects
-    sprite: Structures/Power/Generation/Tesla/energy_ball.rsi
+    sprite: _Impstation/deadlock.rsi # IMP FOOLS EDITS
     layers:
-    - state: energy_ball
+    - state: tesla
       shader: unshaded
   - type: EmitSoundOnSpawn
     sound:
