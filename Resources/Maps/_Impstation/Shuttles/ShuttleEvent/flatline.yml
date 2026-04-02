@@ -1770,7 +1770,7 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: VisitorParamedicSpawner
+- proto: VisitorParamedicSpawnerFlatline #imp change: this has an antag chance
   entities:
   - uid: 214
     components:

@@ -1990,7 +1990,7 @@ entities:
     - type: Transform
       pos: 2.5559573,-9.177956
       parent: 1
-- proto: VisitorChaplainSpawner
+- proto: VisitorChaplainSpawnerEternal #imp change: this is here for RandomAntagChance
   entities:
   - uid: 299
     components:
