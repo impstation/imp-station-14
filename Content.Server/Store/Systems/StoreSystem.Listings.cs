@@ -130,6 +130,11 @@ public sealed partial class StoreSystem
                 {
                     if (!condition.Condition(args))
                     {
+                        // imp edit start
+                        if (condition.MakeHidden)
+                            listing.HiddenWhenUnbuyable = true;
+                        // imp edit end
+
                         conditionsMet = false;
                         break;
                     }
@@ -141,6 +146,9 @@ public sealed partial class StoreSystem
                     listing.Buyable = false;
                     if (listing.Priority < 1000)
                         listing.Priority += 1000;
+
+                    if (!listing.Buyable && listing.HiddenWhenUnbuyable)
+                        continue;
                     // imp end
                 }
             }

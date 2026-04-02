@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 268.0.0
+  engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 01/13/2026 07:11:19
-  entityCount: 21510
+  time: 02/01/2026 22:41:15
+  entityCount: 21522
 maps:
 - 1
 grids:
@@ -804,6 +804,7 @@ entities:
             4747: 23,-8
             4748: 28,-8
             4749: 29,-8
+            4802: 18,-8
         - node:
             color: '#DE3A3A96'
             id: BrickTileSteelLineW
@@ -2950,6 +2951,10 @@ entities:
             4553: -31,-18
             4587: -16,18
             4591: -15,18
+            4789: 24,-8
+            4793: 28,1
+            4794: 27,-4
+            4798: 19,-7
         - node:
             cleanable: True
             color: '#A46106FF'
@@ -3324,6 +3329,13 @@ entities:
             4298: 3,-26
             4588: -16,18
             4592: -15,17
+            4790: 27,-6
+            4791: 25,-6
+            4795: 28,-5
+            4796: 30,-7
+            4797: 22,-2
+            4800: 15,-6
+            4801: 17,-1
         - node:
             cleanable: True
             color: '#A46106FF'
@@ -3503,6 +3515,7 @@ entities:
             4548: -32,-18
             4549: -31,-20
             4589: -16,18
+            4792: 23,-1
         - node:
             color: '#FFFFFFFF'
             id: Flowersy1
@@ -4413,6 +4426,7 @@ entities:
             4777: 32,4
             4778: 33,4
             4779: 34,4
+            4804: 33,-9
         - node:
             color: '#52B4E996'
             id: WarnLineS
@@ -4734,6 +4748,7 @@ entities:
             4774: 32,4
             4775: 33,4
             4776: 34,4
+            4803: 33,-9
         - node:
             color: '#FFFFFFFF'
             id: WoodTrimThinCornerNe
@@ -6976,6 +6991,7 @@ entities:
       id: Union
     - type: NavMap
     - type: ImplicitRoof
+    - type: ExplosionAirtightGrid
 - proto: AcousticGuitarInstrument
   entities:
   - uid: 14890
@@ -10305,7 +10321,7 @@ entities:
       pos: -36.5,0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -129132.17
+      secondsUntilStateChange: -130249.766
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -10656,7 +10672,7 @@ entities:
       pos: 33.5,-43.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -257469.3
+      secondsUntilStateChange: -258586.89
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11367,7 +11383,7 @@ entities:
       pos: 37.5,-46.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -79804.7
+      secondsUntilStateChange: -80922.3
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11991,12 +12007,8 @@ entities:
     - type: Transform
       pos: -8.5,-0.5
       parent: 2
-    - type: Door
-      secondsUntilStateChange: -71928.33
-      state: Opening
-    - type: DeviceLinkSource
-      lastSignals:
-        DoorStatus: True
+    - type: AccessReader
+      accessListsOriginal: []
   - uid: 204
     components:
     - type: MetaData
@@ -12004,6 +12016,8 @@ entities:
     - type: Transform
       pos: -2.5,-0.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal: []
   - uid: 452
     components:
     - type: MetaData
@@ -15858,6 +15872,13 @@ entities:
     components:
     - type: Transform
       pos: 33.5,-40.5
+      parent: 2
+- proto: BorgChargerDroneSpawner
+  entities:
+  - uid: 4596
+    components:
+    - type: Transform
+      pos: 47.5,-43.5
       parent: 2
 - proto: BoxBeaker
   entities:
@@ -53403,8 +53424,6 @@ entities:
           showEnts: False
           occludes: True
           ent: null
-    missingComponents:
-    - StorageFill
 - proto: CrateNPCCow
   entities:
   - uid: 5985
@@ -53812,6 +53831,18 @@ entities:
     - type: Transform
       pos: 62.536514,-18.556124
       parent: 2
+- proto: DecalSpawnerDirtNear
+  entities:
+  - uid: 20642
+    components:
+    - type: Transform
+      pos: 15.5,-6.5
+      parent: 2
+  - uid: 20644
+    components:
+    - type: Transform
+      pos: 17.5,-2.5
+      parent: 2
 - proto: DecalSpawnerDirtWide
   entities:
   - uid: 473
@@ -53843,6 +53874,41 @@ entities:
     components:
     - type: Transform
       pos: 22.5,21.5
+      parent: 2
+  - uid: 20622
+    components:
+    - type: Transform
+      pos: 27.5,2.5
+      parent: 2
+  - uid: 20623
+    components:
+    - type: Transform
+      pos: 22.5,3.5
+      parent: 2
+  - uid: 20634
+    components:
+    - type: Transform
+      pos: 24.5,1.5
+      parent: 2
+  - uid: 20639
+    components:
+    - type: Transform
+      pos: 23.5,-1.5
+      parent: 2
+  - uid: 20640
+    components:
+    - type: Transform
+      pos: 30.5,-6.5
+      parent: 2
+  - uid: 20641
+    components:
+    - type: Transform
+      pos: 29.5,-1.5
+      parent: 2
+  - uid: 20645
+    components:
+    - type: Transform
+      pos: 19.5,-0.5
       parent: 2
 - proto: DefaultStationBeacon
   entities:
@@ -102378,8 +102444,8 @@ entities:
     - type: Transform
       parent: 251
     - type: Clothing
-      inSlotFlag: HEAD
       inSlot: head
+      inSlotFlag: HEAD
     - type: Physics
       canCollide: False
 - proto: MascotGriffySuit
@@ -102389,8 +102455,8 @@ entities:
     - type: Transform
       parent: 251
     - type: Clothing
-      inSlotFlag: OUTERCLOTHING
       inSlot: outerClothing
+      inSlotFlag: OUTERCLOTHING
     - type: Physics
       canCollide: False
 - proto: MaterialCloth
@@ -103218,10 +103284,10 @@ entities:
       parent: 2
 - proto: NuclearBomb
   entities:
-  - uid: 3733
+  - uid: 20647
     components:
     - type: Transform
-      pos: -13.5,15.5
+      pos: -12.5,14.5
       parent: 2
 - proto: NuclearBombKeg
   entities:
@@ -104168,15 +104234,15 @@ entities:
     - type: Transform
       pos: -0.5,-20.5
       parent: 2
+  - uid: 10368
+    components:
+    - type: Transform
+      pos: 46.5,-50.5
+      parent: 2
   - uid: 10626
     components:
     - type: Transform
       pos: -12.5,-60.5
-      parent: 2
-  - uid: 11585
-    components:
-    - type: Transform
-      pos: 47.5,-43.5
       parent: 2
   - uid: 13730
     components:
@@ -105092,6 +105158,21 @@ entities:
     components:
     - type: Transform
       pos: 73.5,7.5
+      parent: 2
+  - uid: 20619
+    components:
+    - type: Transform
+      pos: 17.5,-7.5
+      parent: 2
+  - uid: 20620
+    components:
+    - type: Transform
+      pos: 28.5,1.5
+      parent: 2
+  - uid: 20621
+    components:
+    - type: Transform
+      pos: 23.5,-7.5
       parent: 2
 - proto: PottedPlantRD
   entities:
@@ -118002,13 +118083,6 @@ entities:
     components:
     - type: Transform
       pos: -31.5,-45.5
-      parent: 2
-- proto: SpawnMobDrone
-  entities:
-  - uid: 21451
-    components:
-    - type: Transform
-      pos: 46.5,-43.5
       parent: 2
 - proto: SpawnMobFoxRenault
   entities:
@@ -140555,11 +140629,6 @@ entities:
       parent: 2
 - proto: WaterTankFull
   entities:
-  - uid: 4596
-    components:
-    - type: Transform
-      pos: 14.5,9.5
-      parent: 2
   - uid: 6876
     components:
     - type: Transform
@@ -140579,11 +140648,6 @@ entities:
     components:
     - type: Transform
       pos: 16.5,11.5
-      parent: 2
-  - uid: 10368
-    components:
-    - type: Transform
-      pos: 2.5,-48.5
       parent: 2
   - uid: 10828
     components:
@@ -140610,7 +140674,19 @@ entities:
     - type: Transform
       pos: 6.5,-47.5
       parent: 2
-  - uid: 20787
+- proto: WaterTankHighCapacity
+  entities:
+  - uid: 11585
+    components:
+    - type: Transform
+      pos: 14.5,9.5
+      parent: 2
+  - uid: 20616
+    components:
+    - type: Transform
+      pos: 2.5,-48.5
+      parent: 2
+  - uid: 20617
     components:
     - type: Transform
       pos: 49.5,-1.5
@@ -140767,11 +140843,10 @@ entities:
       - 21495
 - proto: WeaponEnergyTurretCommand
   entities:
-  - uid: 21044
+  - uid: 3733
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -12.5,14.5
+      pos: -13.5,15.5
       parent: 2
     - type: DeviceNetwork
       deviceLists:
@@ -140787,7 +140862,7 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 21044
+      - 3733
   - uid: 21494
     components:
     - type: Transform
@@ -140796,7 +140871,7 @@ entities:
       parent: 2
     - type: DeviceList
       devices:
-      - 21044
+      - 3733
 - proto: WeaponEnergyTurretSecurity
   entities:
   - uid: 446

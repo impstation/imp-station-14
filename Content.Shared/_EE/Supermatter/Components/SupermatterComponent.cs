@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.StrangeMoods;
 using Content.Shared.Atmos;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DoAfter;
@@ -20,6 +21,12 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
+
+    /// <summary>
+    /// The supermatter's external gas mixture on the tile
+    /// </summary>
+    [DataField]
+    public GasMixture? GasMixture;
 
     /// <summary>
     /// The supermatter's internal gas storage
@@ -78,6 +85,9 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public EntProtoId DelamGamerulePrototype = "SupermatterDelamEventScheduler";
+
+    [DataField]
+    public HashSet<ProtoId<SharedMoodPrototype>> SharedMoodScrambleTargets = ["Thaven"];
 
     #endregion
 
@@ -157,7 +167,7 @@ public sealed partial class SupermatterComponent : Component
     /// The percentage of the gas on the supermatter's tile that is absorbed each atmos tick.
     /// </summary>
     [DataField]
-    public float GasEfficiency = 0.05f;
+    public float GasEfficiency = 0.15f;
 
     /// <summary>
     /// Uses <see cref="PowerlossDynamicScaling"/> and <see cref="GasStorage"/> to lessen the effects of our powerloss functions

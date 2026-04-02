@@ -122,6 +122,11 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: Rootable
+  # imp edit start
+  - type: LightningTarget # dionae are as likely to be struck by lightning as a tesla coil
+    priority: 4
+    lightningExplode: false
+  # imp edit end
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -1,4 +1,4 @@
-﻿# base
+# base
 
 - type: entity
   id: VendingMachine
@@ -106,6 +106,9 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: AcousticData # VDS
+    absorption: 20
+    reflectRay: true
 
 - type: entity
   id: VendingMachineWallmount
@@ -1029,10 +1032,10 @@
     color: "#326e3f"
 
 - type: entity
-  parent: VendingMachine
+  parent: [ VendingMachine, StorePresetSeclink ] # IMP ADD seclink
   id: VendingMachineSec
   name: SecTech
-  description: A vending machine containing Security equipment. A label reads SECURITY PERSONNEL ONLY.
+  description: A vending machine containing Security equipment. There's a slot for returning disablers and stun batons. # imp desc edit
   components:
   - type: VendingMachine
     pack: SecTechInventory
@@ -1067,6 +1070,14 @@
     - Antagonists
   - type: StealTarget #imp
     stealGroup: SecTech
+  - type: UserInterface # imp
+    interfaces:
+      enum.VendingMachineUiKey.Key:
+        type: VendingMachineBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
 
 - type: entity
   parent: VendingMachine

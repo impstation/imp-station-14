@@ -110,7 +110,7 @@
 # IMP: now it does yay!
 # Imp edit start
   - type: Sprite
-    sprite: Objects/Specific/Chemistry/pills.rsi
+    sprite: _Impstation/Objects/Specific/Chemistry/pills.rsi # imp
     layers:
     - state: pill1
       map: [ "enum.DamageStateVisualLayers.Base" ]

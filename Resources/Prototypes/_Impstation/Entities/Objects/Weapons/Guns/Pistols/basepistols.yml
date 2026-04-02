@@ -88,6 +88,10 @@
     damage:
       types:
         Blunt: 5
+  - type: PointingModifier
+    textSelf: pointing-system-verb-take-aim-self
+    textOther: pointing-system-verb-take-aim-other
+    pointingArrow: PointingCrosshair
 
 # For pistols that hold their bullets inside and do not use magazines. Think like a shotgun how you're loading the loose shells into the gun directly.
 - type: entity
@@ -160,3 +164,7 @@
     damage:
       types:
         Blunt: 5
+  - type: PointingModifier
+    textSelf: pointing-system-verb-take-aim-self
+    textOther: pointing-system-verb-take-aim-other
+    pointingArrow: PointingCrosshair

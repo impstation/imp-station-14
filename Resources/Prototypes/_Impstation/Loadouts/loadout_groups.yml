@@ -507,6 +507,7 @@
   loadouts:
   - BlackShoes
   - ChefShoes
+  - BlackHeels
   - ClownShoesExpert
   - HeadChefShoes
 
@@ -663,6 +664,7 @@
   minLimit: 0
   loadouts:
   - ScarfZebra
+  - ScarfAscot
 
 - type: loadoutGroup
   id: MimeShoes
@@ -670,6 +672,7 @@
   loadouts:
   - WhiteShoes
   - BlackShoes
+  - MimeBoots
 
 - type: loadoutGroup
   id: MusicianNeck
@@ -1012,6 +1015,7 @@
   minLimit: 0
   loadouts:
   - SecurityClown
+  - SecurityMime
 
 - type: loadoutGroup
   id: SecurityNeck

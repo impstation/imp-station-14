@@ -1,3 +1,31 @@
+# chairs
+- type: construction
+  id: ChairApid
+  graph: ImpSeat
+  startNode: start
+  targetNode: chairapid
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: false
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: ChairCardboard
+  graph: ImpSeat
+  startNode: start
+  targetNode: chairCardboard
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canRotate: true
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+# tables
 - type: construction
   id: TableUraniumGlass
   graph: Table

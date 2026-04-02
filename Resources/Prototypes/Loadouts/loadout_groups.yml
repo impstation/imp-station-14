@@ -408,6 +408,11 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  # DEN start
+  - HatDinerTeal
+  - HatDinerPink
+  - HatDinerFastFood
+  # DEN end
 
 - type: loadoutGroup
   id: ChefMask
@@ -426,6 +431,16 @@
   - ChefSpaceJumpsuit # imp
   - HeadChefSkirt # imp
   - HeadChef # imp
+  # DEN start
+  - JumpsuitDinerTeal
+  - JumpskirtDinerTeal
+  - JumpsuitDinerPink
+  - JumpskirtDinerPink
+  - JumpsuitDinerPinkDark
+  - JumpskirtDinerPinkDark
+  - JumpsuitDinerFastFood
+  - JumpskirtDinerFastFood
+  # DEN end
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -765,6 +780,7 @@
   - MimeHead
   - MimeFrenchBeret
   - MimeCap
+  - MimeBowler #imp
 
 - type: loadoutGroup
   id: MimeMask
@@ -782,6 +798,8 @@
   - MimeJumpskirt
   - MimeJumpsuitCropped #imp
   - MimeJumpskirtCropped #imp
+  - MimeJumpsuitNouveau #imp
+  - MimeJumpskirtNouveau #imp
 
 - type: loadoutGroup
   id: MimeBackpack
@@ -1161,6 +1179,8 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
+  - FlightsuitAtmos #imp
+  - FlightskirtAtmos #imp
 
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
@@ -1373,6 +1393,7 @@
   - HeadofSecurityBeret
   - HeadofSecurityHeadDV # DeltaV
   - HeadofSecurityPatrolCap # imp
+  - HeadofSecurityColonelCap # imp
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1388,6 +1409,8 @@
   - HeadofSecurityJumpskirtGrey #imp
   - HeadofSecurityProfessionalJumpsuit # imp
   - HeadofSecurityProfessionalJumpskirt # imp
+  - HeadofSecurityColonelJumpsuit # imp
+  - HeadofSecurityColonelJumpskirt # imp
 
 - type: loadoutGroup
   id: HeadofSecurityNeck

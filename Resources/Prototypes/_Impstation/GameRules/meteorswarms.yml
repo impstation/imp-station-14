@@ -30,6 +30,14 @@
     rodPrototypes:
     - id: ImmovableRodBaguette
 
+- type: entity
+  id: ImmovableUncleSpawn
+  parent: ImmovableRodSpawn
+  components:
+  - type: ImmovableRodRule
+    rodPrototypes:
+    - id: ImmovableRodUncle
+
 - type: weightedRandomEntity
   id: XenoMeteorSpawnAsteroidWallTable
   weights:
