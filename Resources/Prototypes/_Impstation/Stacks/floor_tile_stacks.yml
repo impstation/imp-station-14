@@ -5,6 +5,12 @@
   maxCount: 30
 
 - type: stack
+  id: FloorTileCardboard
+  name: stack-cardboard-floor-tile
+  spawn: FloorTileItemCardboard
+  maxCount: 30
+
+- type: stack
   id: FloorTileChapelNE
   name: stack-chapel-floor-ne
   spawn: FloorTileItemChapelNE

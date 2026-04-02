@@ -49,3 +49,15 @@
     antagPrototype: VRex
     roleType: TeamAntagonist
     exclusiveAntag: true
+
+# Butler
+- type: entity
+  parent: BaseMindRole
+  id: MindRoleButler
+  name: Butler Role
+  components:
+  - type: MindRole
+    antag: true #well actually
+    antagPrototype: Butler
+    roleType: Familiar
+  - type: ButlerRole
