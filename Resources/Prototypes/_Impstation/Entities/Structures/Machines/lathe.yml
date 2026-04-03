@@ -147,3 +147,40 @@
     bodyType: Dynamic
   - type: Foldable
     folded: true
+
+- type: entity
+  parent: BaseLathe
+  id: ClothingPrinter
+  name: clothing printer
+  description: Prints clothing not approved by Nanotrasen for uniform compliance.
+  components:
+  - type: Transform
+    noRot: false
+  - type: Sprite
+    color: green
+    sprite: Structures/Machines/uniform_printer.rsi
+    snapCardinals: false
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+  - type: Machine
+    board: UniformPrinterMachineCircuitboard
+  - type: Lathe
+    producingSound: /Audio/Machines/uniformprinter.ogg
+    idleState: icon
+    runningState: building
+    staticPacks:
+    - ClothingCivilianImp
+    - Scarves
+    - PrideFlags
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - ClothingSyndie
+    - ImpClothesEmagged
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+        - Ingot
+  - type: OreSiloClient

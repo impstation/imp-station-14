@@ -1,4 +1,5 @@
-# if you add a new pack, make it a parent to the corresponding area in upsteam's Recipes/Lathes/Packs/clothing.yml
+# if you add a new pack, make it a parent to the corresponding area in upstream's Recipes/Lathes/Packs/clothing.yml
+# or for non uniforms (loadout clothes) directly to the clothing printer in _Impstation\Entities\Structures\Machines\lathe.yml
 # new recipes located in _imp Lathes\Recipes\clothing.yml, sorry there's 5 files named that
 
 # Static
@@ -11,10 +12,12 @@
   - ClothingUniformJumpskirtCourier
   - ClothingUniformJumpsuitCourier
   # CT
+  - ClothingBeltCargoSenior
   - ClothingHeadHatCargosoft
   - ClothingUniformJumpsuitCargoSenior
   - ClothingUniformJumpsuitCargoLong
   # Salv
+  - ClothingBeltSalvageWebbing
   - ClothingNeckCloakDriller
   - ClothingOuterRainCape
   - ClothingUniformJumpskirtSalvageSpecialist
@@ -34,6 +37,7 @@
   id: ClothingCommandImp
   recipes:
   # captain
+  - ClothingBeltSheath
   - ClothingHeadHatBeretCaptain
   - ClothingHeadHatCaptaincrushercap
   - ClothingHeadHatCaptainTricorne
@@ -44,6 +48,7 @@
   - ClothingNeckMantleCap
   - ClothingUniformJumpsuitCaptaineveningattire
   # ce
+  - ClothingBeltChiefEngineer
   - ClothingNeckCloakCe
   - ClothingNeckMantleCE
   - ClothingUniformJumpsuitCEForeman
@@ -61,6 +66,7 @@
   - ClothingUniformJumpsuitCMOFormal
   - ClothingUniformJumpsuitCMOScrubs
   # hd
+  - ClothingBeltHospitalityDirector
   - ClothingHeadHatHDsoft
   - ClothingHeadBandHD
   - ClothingHeadHatBellhopHD
@@ -85,6 +91,7 @@
   - ClothingUniformJumpskirtHopPowerSuit
   - ClothingUniformJumpsuitBoatswain
   # hos
+  - ClothingBeltHolsterHOS
   - ClothingHeadHatHoshatDV
   - ClothingHeadHatHOSsoft
   - ClothingNeckCloakHos
@@ -121,6 +128,7 @@
   - ClothingOuterApronChemist
   - ClothingUniformSpaceJumpsuitChemist
   # Medical Doctor
+  - ClothingBeltMedical
   - ClothingHeadHatSurgcapBlue
   - ClothingHeadHatSurgcapGreen
   - ClothingHeadHatSurgcapPurple
@@ -142,6 +150,7 @@
   - UniformScrubsColorGreen
   - UniformScrubsColorPurple
   # Paramedic
+  - ClothingBeltMedicalEMT
   - ClothingHeadHatParamedicSirenCapEmpty
   - ClothingOuterCoatParamedicWB
   # Psychologist
@@ -166,6 +175,7 @@
   # brigmedic
   - ClothingHeadHatBrigmedicsoft
   # detective
+  - ClothingBeltHolster
   - ClothingHeadDeerstalker
   - ClothingOuterCoatDetective
   - ClothingOuterCoatDetectiveLoadoutGrey
@@ -178,6 +188,8 @@
   - ClothingUniformMiamiVice
   - ClothingUniformMiamiViceSkirt
   # security officer
+  - ClothingBeltSecurity
+  - ClothingBeltSecurityWebbing
   - ClothingHeadHatSecurityTrooper
   - ClothingUniformSecurityTrooper
   - ClothingUniformSpaceJumpsuitSecurity
@@ -186,9 +198,10 @@
   - ClothingUniformJumpsuitWardenTurtle
 
 - type: latheRecipePack
-  id: ClothingServiceImp #idk what counts as civilian these days on imp. theyre service.
+  id: ClothingServiceImp
   recipes:
   # bartender
+  - ClothingBeltBandolier
   - ClothingOuterApronBar
   - ClothingOuterApronCuteBar
   - ClothingUniformJumpsuitBartenderPurple
@@ -197,6 +210,7 @@
   - ClothingUniformSeniorBartender
   - ClothingUniformSeniorBartenderSkirt
   # botanist
+  - ClothingBeltPlant
   - ClothingNeckMantleLily
   - ClothingOuterApronBotanist
   - ClothingUniformOveralls
@@ -204,6 +218,7 @@
   - UniformShortsRed
   - UniformShortsRedWithTop
   # chaplain
+  - ClothingBeltChaplainDragon
   - ClothingHeadHatDruid
   - ClothingHeadHatMoon
   - ClothingHeadHatSun
@@ -229,6 +244,7 @@
   - ClothingUniformTech
   - ClothingUniformSkirtTidal
   # chef 
+  - ClothingBeltChef
   - ClothingHeadHatChef
   - ClothingNeckHeadChef
   - ClothingOuterApronChef
@@ -249,6 +265,8 @@
   - ClothingUniformJokester
   - ClothingUniformJumpsuitJester
   - ClothingUniformJumpsuitJesterAlt
+  # janitor
+  - ClothingBeltJanitor
   # lawyer
   - ClothingUniformBrownSuit
   - ClothingUniformBrownSuitSkirt
@@ -267,6 +285,9 @@
   - ClothingUniformJumpskirtSpaceDress
   - ClothingUniformJumpsuitCurator
   # mime
+  - ClothingBeltFoamSheath
+  - ClothingBeltSuspendersBlack
+  - ClothingBeltSuspendersRed
   - ClothingHeadHatBeret
   - ClothingHeadHatBeretFrench
   - ClothingNeckScarfStripedZebra
@@ -320,26 +341,7 @@
   id: BeltsImp
   recipes:
   - ClothingBeltUtility
-  - ClothingBeltChiefEngineer
-  - ClothingBeltJanitor
-  - ClothingBeltMedical
-  - ClothingBeltMedicalEMT
-  - ClothingBeltPlant
-  - ClothingBeltChef
-  - ClothingBeltSecurity
-  - ClothingBeltSheath
-  - ClothingBeltBandolier
-  - ClothingBeltHolster
-  - ClothingBeltSecurityWebbing
-  - ClothingBeltSalvageWebbing
-  - ClothingBeltSuspendersRed
-  - ClothingBeltSuspendersBlack
-  - ClothingBeltHolsterHOS
   - ClothingBeltUtilityBlack
-  - ClothingBeltCargoSenior
-  - ClothingBeltHospitalityDirector
-  - ClothingBeltChaplainDragon
-  - ClothingBeltFoamSheath
 
 - type: latheRecipePack
   id: ScarvesImp

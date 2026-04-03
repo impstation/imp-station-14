@@ -1,4 +1,5 @@
-# alphabetical for roles, misc pride and generic at the bottom
+# alphabetical for roles, misc pride and generic / non uniform at the bottom
+# uniform for our purposes meaning loadout clothing, except passengers because they dont have a job
 # find the recipe to parent off of then add to the imp recipe pack in _imp Lathes\Packs\clothing.yml
 # BaseJumpsuitRecipe
 # BaseCommandJumpsuitRecipe
@@ -12,6 +13,7 @@
 # BaseCommandNeckClothingRecipe
 # BaseBeltRecipe
 
+## Base Recipes
 - type: latheRecipe
   abstract: true
   id: BaseApronRecipe
@@ -71,6 +73,11 @@
 
 # Bartender
 - type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltBandolier
+  result: ClothingBeltBandolier
+
+- type: latheRecipe
   parent: BaseApronRecipe
   id: ClothingOuterApronBar
   result: ClothingOuterApronBar
@@ -106,6 +113,11 @@
   result: ClothingUniformSeniorBartender
 
 # Botanist
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltPlant
+  result: ClothingBeltPlant
+
 - type: latheRecipe
   parent: BaseNeckClothingRecipe
   id: ClothingNeckMantleLily
@@ -144,6 +156,11 @@
   result: ClothingOuterWinterBrigmedic
 
 # Captain
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltSheath
+  result: ClothingBeltSheath
+
 - type: latheRecipe
   parent: BaseCommandHatRecipe
   id: ClothingHeadHatBeretCaptain
@@ -191,6 +208,11 @@
 
 # Cargo Technician
 - type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltCargoSenior
+  result: ClothingBeltCargoSenior
+
+- type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatCargosoft
   result: ClothingHeadHatCargosoft
@@ -206,6 +228,11 @@
   result: ClothingUniformJumpsuitCargoLong
 
 # Chaplain
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltChaplainDragon
+  result: ClothingBeltChaplainDragon
+
 - type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatDruid
@@ -328,6 +355,11 @@
 
 # Chef
 - type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltChef
+  result: ClothingBeltChef
+
+- type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatChef
   result: ClothingHeadHatChef
@@ -397,6 +429,11 @@
   result: ClothingUniformSpaceJumpsuitChemist
 
 # Chief Engineer
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltChiefEngineer
+  result: ClothingBeltChiefEngineer
+
 - type: latheRecipe
   parent: BaseCommandNeckClothingRecipe
   id: ClothingNeckCloakCe
@@ -631,6 +668,11 @@
 
 # Head of Security
 - type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltHolsterHOS
+  result: ClothingBeltHolsterHOS
+
+- type: latheRecipe
   parent: BaseCommandHatRecipe
   id: ClothingHeadHatHoshatDV
   result: ClothingHeadHatHoshatDV
@@ -666,6 +708,11 @@
   result: ClothingUniformJumpsuitHoSPro
 
 # Hospitality Director
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltHospitalityDirector
+  result: ClothingBeltHospitalityDirector
+
 - type: latheRecipe
   parent: BaseCommandHatRecipe
   id: ClothingHeadHatHDsoft
@@ -761,6 +808,12 @@
   id: ClothingOuterWinterHD
   result: ClothingOuterWinterHD
 
+# Janitor
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltJanitor
+  result: ClothingBeltJanitor
+
 # Lawyer
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -839,6 +892,11 @@
   result: ClothingUniformJumpsuitCurator
 
 # Medical Doctor
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltMedical
+  result: ClothingBeltMedical
+
 - type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatSurgcapBlue
@@ -936,6 +994,21 @@
 
 # Mime
 - type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltFoamSheath
+  result: ClothingBeltFoamSheath
+
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltSuspendersRed
+  result: ClothingBeltSuspendersRed
+
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltSuspendersBlack
+  result: ClothingBeltSuspendersBlack
+
+- type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatBeret
   result: ClothingHeadHatBeret
@@ -973,6 +1046,11 @@
 
 # Paramedic
 - type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltMedicalEMT
+  result: ClothingBeltMedicalEMT
+
+- type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatParamedicSirenCapEmpty
   result: ClothingHeadHatParamedicSirenCapEmpty
@@ -982,11 +1060,7 @@
   id: ClothingOuterCoatParamedicWB
   result: ClothingOuterCoatParamedicWB
 
-# Passenger
-- type: latheRecipe
-  parent: BaseNeckClothingRecipe
-  id: ClothingNeckCloakPassenger
-  result: ClothingNeckCloakPassenger
+# Passenger items should be put in non uniform at the bottom
 
 # Psychologist
 - type: latheRecipe
@@ -1069,6 +1143,11 @@
 
 # Salvage Specialist
 - type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltSalvageWebbing
+  result: ClothingBeltSalvageWebbing
+
+- type: latheRecipe
   parent: BaseNeckClothingRecipe
   id: ClothingNeckCloakDriller
   result: ClothingNeckCloakDriller
@@ -1116,6 +1195,21 @@
 
 # Security Officer
 - type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltHolster
+  result: ClothingBeltHolster
+
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltSecurity
+  result: ClothingBeltSecurity
+
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltSecurityWebbing
+  result: ClothingBeltSecurityWebbing
+
+- type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatSecurityTrooper
   result: ClothingHeadHatSecurityTrooper
@@ -1131,6 +1225,11 @@
   result: ClothingUniformSecurityTrooper
 
 # Station Engineer
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltUtility
+  result: ClothingBeltUtility
+
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitEngineeringHazard
@@ -1163,7 +1262,60 @@
   id: ClothingUniformJumpsuitSafari
   result: ClothingUniformJumpsuitSafari
 
-# Generic
+## Generic / Non Uniform
+# Belts
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltUtilityBlack
+  result: ClothingBeltUtilityBlack
+
+# Emag
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatCentcommIntern
+  result: ClothingHeadHatCentcommIntern
+
+- type: latheRecipe
+  parent: BaseCommandNeckClothingRecipe
+  id: ClothingNeckCloakCentcom
+  result: ClothingNeckCloakCentcom
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckCloakFugitiveCloak
+  result: ClothingNeckCloakFugitiveCloak
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckCloakKaijuCloak
+  result: ClothingNeckCloakKaijuCloak
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckCloakStraight
+  result: ClothingNeckCloakStraight
+
+- type: latheRecipe
+  parent: BaseCommandNeckClothingRecipe
+  id: ClothingNeckScarfStripedCentcom
+  result: ClothingNeckScarfStripedCentcom
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckScarfStripedSyndieRed
+  result: ClothingNeckScarfStripedSyndieRed
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckScarfStripedSyndieGreen
+  result: ClothingNeckScarfStripedSyndieGreen
+
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltSyndieHolster
+  result: ClothingBeltSyndieHolster
+
+# Head
 - type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatKippahBlueAndGold
@@ -1179,20 +1331,11 @@
   id: ClothingHeadHatKippahWhiteAndBlue
   result: ClothingHeadHatKippahWhiteAndBlue
 
+# Neck
 - type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformColorRainbow
-  result: ClothingUniformColorRainbow
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpskirtColorRainbow
-  result: ClothingUniformJumpskirtColorRainbow
-
-- type: latheRecipe
-  parent: BaseJumpsuitRecipe
-  id: ClothingUniformJumpsuitNanotrasen
-  result: ClothingUniformJumpsuitNanotrasen
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckCloakPassenger
+  result: ClothingNeckCloakPassenger
 
 - type: latheRecipe
   parent: BaseNeckClothingRecipe
@@ -1208,6 +1351,22 @@
   parent: BaseNeckClothingRecipe
   id: ClothingNeckScarfStripedLimeGreen
   result: ClothingNeckScarfStripedLimeGreen
+
+# Jumpsuit
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformColorRainbow
+  result: ClothingUniformColorRainbow
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtColorRainbow
+  result: ClothingUniformJumpskirtColorRainbow
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitNanotrasen
+  result: ClothingUniformJumpsuitNanotrasen
 
 # Pride
 - type: latheRecipe
@@ -1326,155 +1485,3 @@
   parent: BaseNeckClothingRecipe
   id: ClothingNeckScarfStripedTrans
   result: ClothingNeckScarfStripedTrans
-
-# Belts
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltUtility
-  result: ClothingBeltUtility
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltChiefEngineer
-  result: ClothingBeltChiefEngineer
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltJanitor
-  result: ClothingBeltJanitor
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltMedical
-  result: ClothingBeltMedical
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltMedicalEMT
-  result: ClothingBeltMedicalEMT
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltPlant
-  result: ClothingBeltPlant
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltChef
-  result: ClothingBeltChef
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltSecurity
-  result: ClothingBeltSecurity
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltSheath
-  result: ClothingBeltSheath
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltBandolier
-  result: ClothingBeltBandolier
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltHolster
-  result: ClothingBeltHolster
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltSecurityWebbing
-  result: ClothingBeltSecurityWebbing
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltSalvageWebbing
-  result: ClothingBeltSalvageWebbing
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltSuspendersRed
-  result: ClothingBeltSuspendersRed
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltSuspendersBlack
-  result: ClothingBeltSuspendersBlack
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltHolsterHOS
-  result: ClothingBeltHolsterHOS
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltUtilityBlack
-  result: ClothingBeltUtilityBlack
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltCargoSenior
-  result: ClothingBeltCargoSenior
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltHospitalityDirector
-  result: ClothingBeltHospitalityDirector
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltChaplainDragon
-  result: ClothingBeltChaplainDragon
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltFoamSheath
-  result: ClothingBeltFoamSheath
-
-# Emag
-- type: latheRecipe
-  parent: BaseCommandHatRecipe
-  id: ClothingHeadHatCentcommIntern
-  result: ClothingHeadHatCentcommIntern
-
-- type: latheRecipe
-  parent: BaseCommandNeckClothingRecipe
-  id: ClothingNeckCloakCentcom
-  result: ClothingNeckCloakCentcom
-
-- type: latheRecipe
-  parent: BaseNeckClothingRecipe
-  id: ClothingNeckCloakFugitiveCloak
-  result: ClothingNeckCloakFugitiveCloak
-
-- type: latheRecipe
-  parent: BaseNeckClothingRecipe
-  id: ClothingNeckCloakKaijuCloak
-  result: ClothingNeckCloakKaijuCloak
-
-- type: latheRecipe
-  parent: BaseNeckClothingRecipe
-  id: ClothingNeckCloakStraight
-  result: ClothingNeckCloakStraight
-
-- type: latheRecipe
-  parent: BaseCommandNeckClothingRecipe
-  id: ClothingNeckScarfStripedCentcom
-  result: ClothingNeckScarfStripedCentcom
-
-- type: latheRecipe
-  parent: BaseNeckClothingRecipe
-  id: ClothingNeckScarfStripedSyndieRed
-  result: ClothingNeckScarfStripedSyndieRed
-
-- type: latheRecipe
-  parent: BaseNeckClothingRecipe
-  id: ClothingNeckScarfStripedSyndieGreen
-  result: ClothingNeckScarfStripedSyndieGreen
-
-- type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltSyndieHolster
-  result: ClothingBeltSyndieHolster
