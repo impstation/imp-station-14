@@ -105,7 +105,7 @@ public sealed partial class CCVars
     ///     Any value equal to or less than zero will disable this check.
     /// </summary>
     public static readonly CVarDef<float> FTLMassLimit =
-        CVarDef.Create("shuttle.mass_limit", 1000f, CVar.SERVERONLY); //imp, from 300 april 1 only
+        CVarDef.Create("shuttle.mass_limit", 300f, CVar.SERVERONLY);
 
     /// <summary>
     ///     How long to knock down entities for if they aren't buckled when FTL starts and stops.
