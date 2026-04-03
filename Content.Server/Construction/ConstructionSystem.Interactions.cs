@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Construction.Components;
 using Content.Server.Temperature.Components;
-using Content.Shared._Impstation.Construction.Steps;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Components;
 using Content.Shared.Construction.EntitySystems;
@@ -14,9 +13,11 @@ using Content.Shared.Prying.Systems;
 using Content.Shared.Radio.EntitySystems;
 using Content.Shared.Stacks;
 using Content.Shared.Temperature;
+using Content.Shared.Temperature.Components;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;
+using Content.Shared._Impstation.Construction.Steps; // imp
 #if EXCEPTION_TOLERANCE
 // ReSharper disable once RedundantUsingDirective
 using Robust.Shared.Exceptions;
@@ -423,7 +424,7 @@ namespace Content.Server.Construction
                         break;
 
                     if (partAssemblyStep.Condition(uid, EntityManager))
-                        return HandleResult.True;
+                        return validation ? HandleResult.Validated : HandleResult.True;  // imp: fixing an upstream bug, was HandleResult.True
                     return HandleResult.False;
                 }
 
@@ -432,11 +433,13 @@ namespace Content.Server.Construction
                     if (ev is not EntRemovedFromContainerMessage entRemoved)
                         break;
 
-                    var toRemove = entRemoved.Entity;
+                    var container = entRemoved.Container;
+                    var removed = entRemoved.Entity;
 
-                    if (removeStep.EntityValid(toRemove, EntityManager, Factory)) // Does the removed entity have the desired tag?
-                        return HandleResult.True;
-                    return HandleResult.False;
+                    if (!removeStep.EntityValid(removed, container, EntityManager)) // Does the removed entity have the desired tag?
+                        return HandleResult.False;
+
+                    return validation ? HandleResult.Validated : HandleResult.True;
                 }
 
                 #endregion
@@ -584,6 +587,10 @@ namespace Content.Server.Construction
                 handled.Handled = true;
             }
 
+            // Make sure the event passes validation before enqueuing it
+            if (HandleEvent(uid, args, true, construction) != HandleResult.Validated)
+                return;
+
             // Enqueue this event so it'll be handled in the next tick.
             // This prevents some issues that could occur from entity deletion, component deletion, etc in a handler.
             construction.InteractionQueue.Enqueue(args);
@@ -649,6 +656,7 @@ namespace Content.Server.Construction
         public HandleResult? Result;
     }
 
+    // imp add
     public sealed class ConstructionConsumedObjectEvent : EntityEventArgs
     {
         public EntityUid Old;

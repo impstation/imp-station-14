@@ -53,7 +53,7 @@
     layoutId: SurveillanceCamera
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: Metallic
+    damageModifierSet: Electronic #imp edit to make their health less insane - was Metallic
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/camera.rsi
@@ -85,7 +85,7 @@
             acts: [ "Destruction" ]
       - trigger:
           !type:DamageTrigger
-          damage: 100
+          damage: 50 #imp edit - reduce camera health by a shit ton. this is ~10 crowbar hits
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]

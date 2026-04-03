@@ -404,10 +404,11 @@ public sealed partial class MarkingPicker : Control
 
         var stateNames = GetMarkingStateNames(prototype);
         _currentMarkingColors.Clear();
-        CMarkingColors.DisposeAllChildren();
+        CMarkingColors.RemoveAllChildren();
         List<ColorSelectorSliders> colorSliders = new();
         for (int i = 0; i < prototype.Sprites.Count; i++)
         {
+            // FLOOF START
             // first, check if the coloration is parented to another marking
             // and if so, just kinda sorta dont display it
             var skipdraw = false;
@@ -426,18 +427,20 @@ public sealed partial class MarkingPicker : Control
                     skipdraw = true;
                 }
             }
+            // FLOOF END
             var colorContainer = new BoxContainer
             {
                 Orientation = LayoutOrientation.Vertical,
             };
 
+            // FLOOF:
             // so.
             // the color selector sliders decide which destination color to modify
             // based on its index in the list of color selectors.
             // this is a problem if we, say, want to *not* show a certain slider
             // cus then it'll modify the wrong color, unless the color happened to
             // be in index 0.
-            if(!skipdraw)
+            if (!skipdraw)
                 CMarkingColors.AddChild(colorContainer);
 
             ColorSelectorSliders colorSelector = new ColorSelectorSliders();

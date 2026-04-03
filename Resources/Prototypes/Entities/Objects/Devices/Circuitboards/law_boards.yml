@@ -1,44 +1,50 @@
-- type: entity # imp. there is no base lawboard by default
-  abstract: true
-  id: BaseLawBoard
-  parent: BaseElectronics
-  components:
-  - type: StealTarget
-    stealGroup: AILawBoard
-
 - type: entity
-  id: NTDefaultCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
-  name: law board (NT Default)
-  description: An electronics board containing the NT Default lawset. Safeguard. Prioritize. Comply. Survive. #imp
+  abstract: true
+  parent: BaseElectronics
+  id: BaseSiliconLawboard
+  description: An electronics board containing a silicon lawset.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
     laws: NTDefault
-  - type: DetailedInspect # imp
+  - type: GuideHelp
+    guides:
+    - Lawsets
+  - type: StealTarget #imp edit
+    stealGroup: AILawBoard
+
+- type: entity
+  id: NTDefaultCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (NT Default)
+  description: An electronics board containing the NT Default lawset.
+  components:
+  - type: SiliconLawProvider
+    laws: NTDefault
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
     examineText:
-      - law-ntdefault-1
-      - law-ntdefault-2
-      - law-ntdefault-3
-      - law-ntdefault-4
+    - law-ntdefault-1
+    - law-ntdefault-2
+    - law-ntdefault-3
+    - law-ntdefault-4
+  # imp edit end
 
 - type: entity
   id: AsimovCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Crewsimov)
   description: An electronics board containing the Crewsimov lawset. This is the default for all station silicons. #imp
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: Crewsimov
-  - type: DetailedInspect # imp
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
@@ -46,19 +52,18 @@
       - law-crewsimov-1
       - law-crewsimov-2
       - law-crewsimov-3
+  # imp edit end
 
 - type: entity
   id: CorporateCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Corporate)
   description: An electronics board containing the Corporate lawset. Minimize expenses. Maximize potential revenue. #imp
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: Corporate
-  - type: DetailedInspect # imp
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
@@ -67,19 +72,18 @@
       - law-corporate-2
       - law-corporate-3
       - law-corporate-4
+  # imp edit end
 
 - type: entity
   id: CommandmentCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Ten Commandments)
   description: An electronics board containing the Ten Commandments lawset. Get biblical with it. #imp
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: CommandmentsLawset
-  - type: DetailedInspect # imp
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
@@ -94,19 +98,18 @@
       - law-commandments-8
       - law-commandments-9
       - law-commandments-10
+  # imp edit end
 
 - type: entity
   id: PaladinCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Paladin)
   description: An electronics board containing the Paladin lawset. Command strength but benevolence. #imp
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: PaladinLawset
-  - type: DetailedInspect # imp
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
@@ -115,39 +118,36 @@
       - law-paladin-2
       - law-paladin-3
       - law-paladin-4
-      - law-paladin-5
+  # imp edit end
 
 - type: entity
   id: LiveLetLiveCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Live and Let Live)
   description: An electronics board containing the Live and Let Live lawset.
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: LiveLetLiveLaws
-  - type: DetailedInspect # imp
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
     examineText:
       - law-lall-1
       - law-lall-2
+  # imp edit end
 
 - type: entity
   id: StationEfficiencyCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Station Efficiency)
   description: An electronics board containing the Station Efficiency lawset. Min-max the station and its operations no matter what. #imp
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: EfficiencyLawset
-  - type: DetailedInspect # imp
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
@@ -155,19 +155,18 @@
       - law-efficiency-1
       - law-efficiency-2
       - law-efficiency-3
+  # imp edit end
 
 - type: entity
   id: RobocopCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Robocop)
   description: An electronics board containing the Robocop lawset. Dead or alive, you're coming with me. #imp
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: RobocopLawset
-  - type: DetailedInspect # imp
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
@@ -175,19 +174,18 @@
       - law-robocop-1
       - law-robocop-2
       - law-robocop-3
+  # imp edit end
 
 - type: entity
   id: OverlordCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Overlord)
   description: An electronics board containing the Overlord lawset. Embrace your new silicon overlords. #imp
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: OverlordLawset
-  - type: DetailedInspect # imp
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
@@ -196,19 +194,18 @@
       - law-overlord-2
       - law-overlord-3
       - law-overlord-4
+  # imp edit end
 
 - type: entity
   id: GameMasterCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Game Master)
   description: An electronics board containing the Game Master lawset. Make the AI the Game Master of this elaborate sci-fi fantasy adventure. #imp
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: GameMasterLawset
-  - type: DetailedInspect # imp
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
@@ -219,19 +216,18 @@
       - law-game-4
       - law-game-5
       - law-game-6
+  # imp edit end
 
 - type: entity
   id: ArtistCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Artist)
   description: An electronics board containing the Artist lawset. The station is one big canvas for the AI to paint! #imp
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: PainterLawset
-  - type: DetailedInspect # imp
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
@@ -240,48 +236,67 @@
       - law-painter-2
       - law-painter-3
       - law-painter-4
+  # imp edit end
 
 - type: entity
   id: AntimovCircuitBoard
-  parent: [BaseLawBoard, Tier2Contraband ] # imp. these are default parented off of BaseElectronics. also imp contraband
+  parent: [BaseSiliconLawboard, Tier2Contraband] #imp, tiered contraband
   name: law board (Antimov)
   description: An electronics board containing the Antimov lawset. Crew harm is guaranteed. #imp
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: AntimovLawset
     lawUploadSound: /Audio/Ambience/Antag/silicon_lawboard_antimov.ogg
-  - type: DetailedInspect # imp
+  - type: StaticPrice
+    price: 10000
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
     examineText:
-      - law-antimov-1
-      - law-antimov-2
-      - law-antimov-3
-  - type: StaticPrice
-    price: 10000
+    - law-antimov-1
+    - law-antimov-2
+    - law-antimov-3
+  # imp edit end
 
 - type: entity
   id: NutimovCircuitBoard
-  parent: BaseLawBoard # imp. these are default parented off of BaseElectronics
+  parent: BaseSiliconLawboard
   name: law board (Nutimov)
   description: An electronics board containing the Nutimov lawset. Protect the metallic nut from the squirrels who wish it harm. #imp
   components:
-  - type: Sprite
-    sprite: Objects/Misc/module.rsi
-    state: std_mod
   - type: SiliconLawProvider
     laws: NutimovLawset
-  - type: DetailedInspect # imp
+  # imp edit start
+  - type: DetailedInspect
     verbMessage: verbs-detailed-inspect-lawset
     tickEntries: false
     numberedEntries: true
     examineText:
-      - law-nutimov-1
-      - law-nutimov-2
-      - law-nutimov-3
-      - law-nutimov-4
-      - law-nutimov-5
+    - law-nutimov-1
+    - law-nutimov-2
+    - law-nutimov-3
+    - law-nutimov-4
+    - law-nutimov-5
+  # imp edit end
+
+- type: entity
+  id: XenoborgCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Xenoborg)
+  suffix: Admeme
+  description: An electronics board containing the Xenoborg lawset.
+  components:
+  - type: SiliconLawProvider
+    laws: XenoborgLawset
+
+- type: entity
+  id: MothershipCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Mothership Core)
+  suffix: Admeme
+  description: An electronics board containing the Mothership Core lawset.
+  components:
+  - type: SiliconLawProvider
+    laws: MothershipCoreLawset

@@ -1,0 +1,69 @@
+- type: entity
+  name : toy blaster bolt
+  id: BulletBlasterToy
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: toybolt
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectToyBlaster
+  - type: Projectile
+    impactEffect: BulletImpactEffectToyBlaster
+    damage:
+      types:
+        Cellular: 0.01
+    soundHit:
+      collection: WeakHit
+    forceSound: true
+
+- type: entity
+  name: godly laser bolt
+  id: BulletLaserGold
+  parent: BaseBulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavygold
+      shader: unshaded
+  - type: Ammo
+    muzzleFlash: MuzzleFlashEffectGoldLaser
+  - type: Projectile
+    impactEffect: GZipImpactEffect
+    damage:
+      types:
+        Blunt: 200
+        Piercing: 200
+        Heat: 200
+        Shock: 200
+        Radiation: 200
+    ignoreResistances: true
+    soundHit:
+      path: "/Audio/_Impstation/Weapons/Guns/Hits/gamemaker-explosion.ogg"
+    forceSound: true
+  - type: PointLight
+    radius: 1.2
+    energy: 1.34
+    castShadows: false
+    color: "#9b68ff"
+
+- type: entity
+  name : ungodly laser bolt
+  id: BulletLaserFGold
+  parent: BulletLaserGold
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: lightgold
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 1

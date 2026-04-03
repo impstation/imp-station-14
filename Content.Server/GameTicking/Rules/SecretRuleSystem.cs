@@ -50,11 +50,13 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
         Log.Info($"Selected {preset.ID} as the secret preset.");
         _adminLogger.Add(LogType.EventStarted, $"Selected {preset.ID} as the secret preset.");
 
+        // imp preset cooldown start
         if (preset.Cooldown > 0)
         {
             _nextRoundAllowed[preset.ID] = _ticker.RoundId + preset.Cooldown + 1;
             Log.Info($"{preset.ID} is now on cooldown until {_nextRoundAllowed[preset.ID]}");
         }
+        // imp end
 
         foreach (var rule in preset.Rules)
         {
@@ -176,6 +178,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
             if (ruleComp.MinPlayers > players && ruleComp.CancelPresetOnTooFewPlayers)
                 return false;
 
+            // imp start
             if (ruleComp.MaxPlayers < players && ruleComp.CancelPresetOnTooManyPlayers)
                 return false;
         }
@@ -185,6 +188,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
             Log.Info($"Skipping preset {selected.ID} (Not available until round {_nextRoundAllowed[selected.ID]}");
             return false;
         }
+        // imp end
 
         return true;
     }

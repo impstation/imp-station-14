@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Objectives;
 using Content.Shared.Antag;
 using Content.Shared.Chat;
 using Content.Shared.GameTicking.Components;
@@ -82,20 +81,6 @@ public sealed partial class AntagSelectionSystem
 
         return count;
     }
-
-    // goob edit
-    public List<ICommonSession> GetAliveConnectedPlayers(IList<ICommonSession> pool)
-    {
-        var l = new List<ICommonSession>();
-        foreach (var session in pool)
-        {
-            if (session.Status is SessionStatus.Disconnected or SessionStatus.Zombie)
-                continue;
-            l.Add(session);
-        }
-        return l;
-    }
-    // goob edit end
 
     /// <summary>
     /// Gets the number of antagonists that should be present for a given antag definition based on the provided pool.
@@ -177,59 +162,38 @@ public sealed partial class AntagSelectionSystem
     }
 
     /// <summary>
-    /// Checks if a given session has the primary antag preferences for a given definition
+    /// Checks if a given session has enabled the antag preferences for a given definition,
+    /// and if it is blocked by any requirements or bans.
     /// </summary>
-    public bool HasPrimaryAntagPreference(ICommonSession? session, AntagSelectionDefinition def)
+    /// <returns>Returns true if at least one role from the provided list passes every condition</returns>>
+    public bool ValidAntagPreference(ICommonSession? session, List<ProtoId<AntagPrototype>> roles)
     {
         if (session == null)
-            return false;
-
-        if (def.PrefRoles.Count == 0)
-            return false;
-
-        var pref = (HumanoidCharacterProfile) _pref.GetPreferences(session.UserId).SelectedCharacter;
-        return pref.AntagPreferences.Any(p => def.PrefRoles.Contains(p));
-    }
-
-    /// <summary>
-    /// Checks if a given session has the fallback antag preferences for a given definition
-    /// </summary>
-    public bool HasFallbackAntagPreference(ICommonSession? session, AntagSelectionDefinition def)
-    {
-        if (session == null)
-            return false;
-
-        if (def.FallbackRoles.Count == 0)
-            return false;
-
-        var pref = (HumanoidCharacterProfile)_pref.GetPreferences(session.UserId).SelectedCharacter;
-        return pref.AntagPreferences.Any(p => def.FallbackRoles.Contains(p));
-    }
-    /// imp addition
-    /// <summary>
-    /// Checks if a given session has jobs that can be an antagonist enabled
-    /// </summary>
-    public bool HasValidAntagJobs(ICommonSession? session)
-    {
-        if (session == null)
-            return false;
-
-        var pref = (HumanoidCharacterProfile)_pref.GetPreferences(session.UserId).SelectedCharacter;
-        if (pref.PreferenceUnavailable == PreferenceUnavailableMode.SpawnAsOverflow)
             return true;
 
-        var profileJobs = pref.JobPriorities.Keys.Select(k => new ProtoId<JobPrototype>(k)).ToList();
-        foreach (var jobId in profileJobs)
+        if (roles.Count == 0)
+            return false;
+
+        if (!_pref.TryGetCachedPreferences(session.UserId, out var pref))
+            return false;
+
+        var character = (HumanoidCharacterProfile) pref.SelectedCharacter;
+
+        var valid = false;
+
+        // Check each individual antag role
+        foreach (var role in roles)
         {
-            if (!_prototype.TryIndex(jobId, out var job))
-                continue;
-            if (job.CanBeAntag)
-                return true;
+            var list = new List<ProtoId<AntagPrototype>>{role};
+
+            if (character.AntagPreferences.Contains(role)
+                && !_ban.IsRoleBanned(session, list)
+                && _playTime.IsAllowed(session, list))
+                valid = true;
         }
 
-        return false;
+        return valid;
     }
-    /// end imp addition
 
     /// <summary>
     /// Returns all the antagonists for this rule who are currently alive

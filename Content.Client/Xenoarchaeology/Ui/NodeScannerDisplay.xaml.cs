@@ -71,6 +71,16 @@ public sealed partial class NodeScannerDisplay : FancyWindow
 
         _triggeredNodeNames.Clear();
         ArtifactState artifactState;
+
+        // imp edit start, add the current node to the triggered node names
+        if (artifactComponent.Natural)
+        {
+            var currentNode = artifactComponent.CurrentNode;
+            var currentNodeName = (_ent.GetComponentOrNull<NameIdentifierComponent>(currentNode)?.Identifier ?? 0).ToString("D3");
+            _triggeredNodeNames.Add(currentNodeName);
+        }
+        // imp edit end
+
         if (unlockingComponent == null)
         {
             var timeToUnlockAvailable = artifactComponent.NextUnlockTime - _timing.CurTime;

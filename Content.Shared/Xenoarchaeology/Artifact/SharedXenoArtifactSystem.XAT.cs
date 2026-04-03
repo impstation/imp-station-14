@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared.Chemistry;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Pulling.Events;
@@ -69,27 +70,44 @@ public abstract partial class SharedXenoArtifactSystem
             unlockingComp.EndTime = _timing.CurTime + ent.Comp.UnlockStateDuration;
             Log.Debug($"{ToPrettyString(ent)} entered unlocking state");
 
-            if (_net.IsServer)
+            if (_net.IsServer && !ent.Comp.Natural) // imp edit add natural, don't talk to me
                 _popup.PopupEntity(Loc.GetString("artifact-unlock-state-begin"), ent);
             Dirty(ent);
+            //IMP: Begin imp edit - I'm upstreaming this change so if it's just the //IMP that gets removed in upmerge then feel free to let 'em go
+            if (node != null && unlockingComp.TriggeredNodeIndexes.Add(GetIndex(ent, node.Value)))
+            {
+                Dirty(ent, unlockingComp);
+            }
         }
         else if (node != null)
         {
             var index = GetIndex(ent, node.Value);
 
-            var predecessorNodeIndices = GetPredecessorNodes((ent, ent), index);
-            var successorNodeIndices = GetSuccessorNodes((ent, ent), index);
-            if (unlockingComp.TriggeredNodeIndexes.Count == 0
-                || unlockingComp.TriggeredNodeIndexes.All(
-                    x => predecessorNodeIndices.Contains(x) || successorNodeIndices.Contains(x)
-                )
-               )
-                // we add time on each new trigger, if it is not going to fail us
-                unlockingComp.EndTime += ent.Comp.UnlockStateIncrementPerNode;
-        }
+            // We need to add time, UNLESS the unlocking process is in a failed state after adding the new trigger.
+            // An unlockable node will fail to unlock if there is a trigger other than its required triggers.
+            // A failing unlocking state is one where there exists no unlockable nodes that have not failed.
 
-        if (node != null && unlockingComp.TriggeredNodeIndexes.Add(GetIndex(ent, node.Value)))
-        {
+            if (unlockingComp.TriggeredNodeIndexes.Add(index))
+            {
+                var allnodes = GetAllNodes((ent, ent));
+                foreach (var nodeEnt in allnodes)
+                {
+                    if (!nodeEnt.Comp.Locked)
+                        continue;
+                    var directPredecessorNodes = GetDirectPredecessorNodes((ent, ent), nodeEnt);
+                    if (directPredecessorNodes.Count == 0 || directPredecessorNodes.All(x => !x.Comp.Locked))
+                    {
+                        // This is an unlockable node, check if is failed
+                        var predecessorNodeIndices = GetPredecessorNodes((ent, ent), GetIndex(ent, nodeEnt.Owner));
+                        predecessorNodeIndices.Add(GetIndex(ent, nodeEnt.Owner)); // Remember that triggering the 'unlock target' node shouldn't count as failing the unlock!
+                        if (unlockingComp.TriggeredNodeIndexes.All(x => predecessorNodeIndices.Contains(x)))
+                        {
+                            unlockingComp.EndTime += ent.Comp.UnlockStateIncrementPerNode; // We have found an unlockable node that is still possible to unlock - it contains all triggers in its predecessors
+                            break;
+                        }
+                    }
+                }
+            }// IMP: End Imp Edit
             Dirty(ent, unlockingComp);
         }
     }

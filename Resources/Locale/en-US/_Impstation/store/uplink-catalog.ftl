@@ -1,11 +1,17 @@
 uplink-animal-friends-kit-name = Animal Friends Kit
 uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alteration of cognizine that forces the injected creature to your will. Also contains an empty syringe and two mice to use it on.
 
+uplink-kissertomato-fake-name = Syndicate Trained Kisser Tomato Seeds
+uplink-kissertomato-fake-desc = Kill 'em with kisses.
+
 uplink-cleaner-lake-upgrade-name = Shining Spring remilitarisation kit
 uplink-cleaner-lake-upgrade-desc = A kit that can be used to remove the safety measures from a Shining Spring.
 
 uplink-cleaning-grenade-bleach-name = Box of heavy-duty cleanades
 uplink-cleaning-grenade-bleach-desc = A box containing some discontinued heavy-duty cleaning grenades. WARNING: DO NOT INHALE
+
+uplink-advanced-mimery-name = Guide to Advanced Mimery Series
+uplink-advanced-mimery-desc = The classical two part series on how to further hone your mime skills. Upon studying the series, the user should be able to make 3x1 invisible walls, and shoot bullets out of their fingers.
 
 uplink-zipper-ap-name = Zipper .22
 uplink-zipper-ap-desc = A regretful purchase from a liquidation sale. Comes loaded with armor-piercing rounds. Uses .22 auto.
@@ -129,3 +135,33 @@ uplink-super-mosin-desc = A modified bolt-action service rifle with a large maga
 
 uplink-ourobros-name = OuroBROS
 uplink-ourobros-desc = UNGH!
+
+uplink-extended-pistol-magazine-caseless-name = Extended Pistol Magazine Bundle (.25 caseless)
+uplink-extended-pistol-magazine-caseless-desc = Four high-capacity pistol magazines each loaded with 16 cartridges. Compatible with the Cobra.
+
+uplink-extended-pistol-magazine-name = Extended Pistol Magazine Bundle (.35 auto)
+uplink-extended-pistol-magazine-desc = Four high-capacity pistol magazines each loaded with 20 cartridges. Compatible with the Viper.
+
+uplink-treatchunk-free-name = Complimentary TreatChunk
+uplink-treatchunk-free-desc = A free TreatChunk hard candy, as a bonus for working with the Syndicate. Enjoy!
+
+uplink-treatchunk-bag-name = TreatChunk bag (15 count)
+uplink-treatchunk-bag-desc = A bag of individually wrapped TreatChunk hard candies. Enjoy!
+
+uplink-treatchunk-big-name = Party Sized TreatChunk bag (60 count)
+uplink-treatchunk-big-desc = An impractically large bag of TreatChunk hard candies. Don't eat them all in one sitting.
+
+uplink-hotsauces-name = Discount Dan's Hot Sauce Sampler Pack
+uplink-hotsauces-desc = New from Discount Dan's! 4 levels of heat to put your spice tolerance to the test. Plus a free* gift from Discount Dan himself!
+
+uplink-taipan-name = Taipan bundle
+uplink-taipan-desc = One "Taipan" Echion crossbow, bundled with a canister of its proprietary liquid ammo.
+
+uplink-romerol-traitor-name = Romerol Micro-Injector
+uplink-romerol-traitor-desc = One romerol micro-injector for causing a zombie outbreak.
+
+uplink-muldoon-sniper-kit-name = Muldoon Sniper Conversion Kit
+uplink-muldoon-sniper-kit-desc = An upgrade kit that modifies the muldoon to allow both darts and .60 anti-material rounds to fit and fire inside.
+
+uplink-shock-dart-box-name = Shock Dart Box
+uplink-shock-dart-box-desc = A box of 4 tranquilizer darts that fit in the muldoon. Each dart contains 4 units of tazinide and will shock the target after injection.

@@ -54,7 +54,7 @@ ui-options-interface-label = Interface
 
 ui-options-auto-fill-highlights = Auto-fill the highlights with the character's information
 ui-options-highlights-color = Highlights color:
-ui-options-highlights-color-example = This is an highlighted text!
+ui-options-highlights-color-example = This is highlighted text.
 ui-options-show-held-item = Show held item next to cursor
 ui-options-show-combat-mode-indicators = Show combat mode indicators with cursor
 ui-options-opaque-storage-window = Opaque storage window
@@ -170,6 +170,9 @@ ui-options-static-storage-ui = Lock storage window to hotbar
 
 ui-options-function-smart-equip-backpack = Smart-equip to backpack
 ui-options-function-smart-equip-belt = Smart-equip to belt
+ui-options-function-smart-equip-suit-storage = Smart-equip to suit storage
+ui-options-function-smart-equip-pocket1 = Smart-equip to pocket 1
+ui-options-function-smart-equip-pocket2 = Smart-equip to pocket 2
 ui-options-function-open-backpack = Open backpack
 ui-options-function-open-belt = Open belt
 ui-options-function-throw-item-in-hand = Throw item
@@ -227,6 +230,11 @@ ui-options-function-editor-copy-object = Copy
 ui-options-function-show-debug-console = Open Console
 ui-options-function-show-debug-monitors = Show Debug Monitors
 ui-options-function-inspect-entity = Inspect Entity
+ui-options-function-inspect-entity-tooltip = Open a ViewVariables window for the entity your mouse is currently hovering over.
+ui-options-function-inspect-server-component = Inspect Server Component
+ui-options-function-inspect-server-component-tooltip = Open a ViewVariables window with the server component set by the "quickinspect" command for the entity your mouse is currently hovering over.
+ui-options-function-inspect-client-component = Inspect Client Component
+ui-options-function-inspect-client-component-tooltip = Open a ViewVariables window with the client component set by the "quickinspect" command for the entity your mouse is currently hovering over.
 ui-options-function-hide-ui = Hide UI
 
 ui-options-function-hotbar1 = Hotbar slot 1
@@ -359,6 +367,7 @@ ui-options-enable-color-name = Add colors to character names
 ui-options-colorblind-friendly = Colorblind friendly mode
 ui-options-reduced-motion = Reduce motion of visual effects
 ui-options-disable-singulo-warp = Disable the singularity's screen warping effect
+ui-options-disable-ai-static = Disable the static effect on the AI camera overlay
 ui-options-chat-window-opacity = Chat window opacity
 ui-options-screen-shake-intensity = Screen shake intensity
 ui-options-speech-bubble-text-opacity = Speech bubble text opacity
@@ -389,6 +398,7 @@ ui-options-admin-player-tab-color-setting-roletype = Colorize all role types
 ui-options-admin-player-tab-color-setting-both = Colorize both
 
 ui-options-admin-overlay-title = Admin Overlay
+
 ui-options-admin-overlay-antag-format = Antag label style
 ui-options-admin-overlay-antag-format-binary = Show antag status
 ui-options-admin-overlay-antag-format-roletype = Show role type

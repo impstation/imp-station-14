@@ -1,0 +1,156 @@
+# Magazines compatible with the Lecter and the Valkyrie.
+- type: entity
+  id: BaseMagazineRifle
+  name: "magazine (.20 rifle)"
+  parent: [ BaseItem, BaseSecurityContraband ]
+  description: A 25-round .20 rifle magazine.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineRifle
+  - type: Item
+    size: Small
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeRifle
+    capacity: 25
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineRifle
+  name: "magazine (.20 rifle)"
+  parent: BaseMagazineRifle
+  description: A 25-round .20 rifle magazine, marked as live-fire ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifle
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#820a16"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#820a16"
+
+- type: entity
+  id: MagazineRifleEmpty
+  name: "magazine (.20 rifle any)"
+  suffix: empty
+  parent: MagazineRifle
+  description: A 25-round .20 rifle magazine with no apparent markings.
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      right:
+      - state: inhand-right-mag
+
+- type: entity
+  id: MagazineRifleIncendiary
+  name: "magazine (.20 rifle incendiary)"
+  parent: MagazineRifle
+  description: A 25-round .20 rifle magazine, marked as incendiary ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleIncendiary
+  - type: Sprite
+    layers:
+    - state: incendiary
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#d46925"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#d46925"
+
+- type: entity
+  id: MagazineRiflePractice
+  name: "magazine (.20 rifle practice)"
+  parent: BaseMagazineRifle
+  description: A 25-round .20 rifle magazine, marked as practice ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRiflePractice
+  - type: Sprite
+    layers:
+    - state: practice
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#ffcb6f"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#ffcb6f"
+
+- type: entity
+  id: MagazineRifleUranium
+  name: "magazine (.20 rifle uranium)"
+  parent: BaseMagazineRifle
+  description: A 25-round .20 rifle magazine, marked as uranium ammo.
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeRifleUranium
+  - type: Sprite
+    layers:
+    - state: uranium
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-mag
+      - state: inhand-left-stripe
+        color: "#22b24d"
+      right:
+      - state: inhand-right-mag
+      - state: inhand-right-stripe
+        color: "#22b24d"

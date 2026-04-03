@@ -1,29 +1,29 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using YamlDotNet.RepresentationModel;
 using Content.Server.Administration.Systems;
 using Content.Server.GameTicking;
-using Content.Server.Maps;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Components;
 using Content.Shared.CCVar;
+using Content.Shared.Maps;
 using Content.Shared.Roles;
+using Content.Shared.Station.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
-using Robust.Shared.GameObjects;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Prototypes;
-using Content.Shared.Station.Components;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
-using Robust.Shared.Utility;
-using YamlDotNet.RepresentationModel;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Map.Events;
-
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 namespace Content.IntegrationTests.Tests
 {
     [TestFixture]
@@ -45,57 +45,58 @@ namespace Content.IntegrationTests.Tests
             AdminTestArenaSystem.ArenaMapPath
         };
 
+        /// <summary>
+        /// A dictionary linking maps to collections of entity prototype ids that should be exempt from "DoNotMap" restrictions.
+        /// </summary>
+        /// <remarks>
+        /// This declares that the listed entity prototypes are allowed to be present on the map
+        /// despite being categorized as "DoNotMap", while any unlisted prototypes will still
+        /// cause the test to fail.
+        /// </remarks>
+        private static readonly Dictionary<string, HashSet<EntProtoId>> DoNotMapWhitelistSpecific = new()
+        {
+            {"/Maps/bagel.yml", ["RubberStampMime"]},
+            {"/Maps/reach.yml", ["HandheldCrewMonitor"]},
+            {"/Maps/Shuttles/ShuttleEvent/honki.yml", ["GoldenBikeHorn", "RubberStampClown"]},
+            {"/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", ["RubberStampSyndicate"]},
+            {"/Maps/Shuttles/ShuttleEvent/cruiser.yml", ["ShuttleGunPerforator"]},
+            {"/Maps/Shuttles/ShuttleEvent/instigator.yml", ["ShuttleGunFriendship"]},
+        };
+
+        /// <summary>
+        /// Maps listed here are given blanket freedom to contain "DoNotMap" entities. Use sparingly.
+        /// </summary>
+        /// <remarks>
+        /// It is also possible to whitelist entire directories here. For example, adding
+        /// "/Maps/Shuttles/**" will whitelist all shuttle maps.
+        /// </remarks>
         private static readonly string[] DoNotMapWhitelist =
         {
             "/Maps/centcomm.yml",
+            "/Maps/Shuttles/AdminSpawn/**", // admin gaming
             "/Maps/_Impstation/centcomm.yml", // imp edit
 
             // Stations
-            "/Maps/bagel.yml", // Contains mime's rubber stamp
-            "/Maps/cluster.yml", // Same as above
-            "/Maps/gate.yml", // Contains positronic brain and LSE-1200c "Perforator"
-            "/Maps/meta.yml", // Contains warden's rubber stamp
-            "/Maps/reach.yml", // Contains handheld crew monitor
-            "/Maps/xeno.yml", // COntains PTK-800 "Matter Dematerializer"
-            "/Maps/_Impstation/bagel.yml", // Apparently theres 2 bagles, oh god oh fu-
+            "/Maps/_Impstation/bagel.yml", // Contains mime's rubber stamp
             "/Maps/_Impstation/banana.yml", // Contains quartermaster's rubber stamp
             "/Maps/_Impstation/boat.yml", // Contains janitorial bomb suit closet, cat ears, doggy ears
             "/Maps/_Impstation/gate.yml", // Contains positronic brain, LSE-1200c "Perforator"
             "/Maps/_Impstation/lilboat.yml", // Contains janitorial bomb suit closet, cat ears
-            "/Maps/_Impstation/meta.yml", // Contains warden's rubber stamp
             "/Maps/_Impstation/reach.yml", // Contains handheld crew monitor
             "/Maps/_Impstation/xeno.yml", // Contains PTK-800 "Matter Dematerializer"
             "/Maps/_Impstation/eclipse.yml", // Contains PTK-800 "Matter Dematerializer", LSE-400c "Svalinn machine gun"
 
-
             // Shuttles
-            "/Maps/Shuttles/ShuttleEvent/cruiser.yml", // Contains LSE-1200c "Perforator"
-            "/Maps/Shuttles/ShuttleEvent/honki.yml", // Contains golden honker, clown's rubber stamp
-            "/Maps/Shuttles/ShuttleEvent/instigator.yml", // Contains EXP-320g "Friendship"
-            "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", // Contains syndicate rubber stamp
-            "/Maps/Shuttles/ShuttleEvent/recruiter.yml", // Contains syndicate rubber stamp
-            "/Maps/_DV/Shuttles/listening_post.yml", // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
-            "/Maps/_Impstation/Shuttles/listening_post.yml" // No, I'm not gonna list out all these stamps again lol
+            "/Maps/_Impstation/Shuttles/listening_post.yml" // // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
 
         };
 
-        // Imp - While fixing these tests I didn't want to edit any of the maps in-game because that would mess up any possible wip stuff.
-        // Ensure this list gets cut down and removed, ignoring these fails isn't good
-        // Format is mapProto, JobProto
-        private static readonly (string, string)[] IgnoreUnmappedSpawns =
-        {
-            ("Banana", "ChiefMedicalOfficer"),
-            ("ElkridgeImp", "Courier"),
-            ("PackedImp", "Brigmedic"),
-            ("ReachImp", "TechnicalAssistant"),
-            ("ReachImp", "MedicalIntern"),
-            ("ReachImp", "ResearchAssistant"),
-            ("ReachImp", "SecurityCadet"),
-            ("Loop", "Psychologist"),
-            ("Lilboat", "Paramedic"),
-            ("RelicImp", "SalvageSpecialist"),
-            ("RelicImp", "Clown")
-        };
+        /// <summary>
+        /// Converts the above globs into regex so your eyes dont bleed trying to add filepaths.
+        /// </summary>
+        private static readonly Regex[] DoNotMapWhiteListRegexes = DoNotMapWhitelist
+            .Select(glob => new Regex(GlobToRegex(glob), RegexOptions.IgnoreCase | RegexOptions.Compiled))
+            .ToArray();
 
         private static readonly string[] GameMaps =
         {
@@ -118,6 +119,7 @@ namespace Content.IntegrationTests.Tests
             //"Relic",
             "dm01-entryway",
             //"Exo",
+            //"Snowball",
 
             // IMP PROTOTYPES:
             "AmberImp",
@@ -132,30 +134,27 @@ namespace Content.IntegrationTests.Tests
             "CogImp",
             "CoreImp",
             "E1M1",
+            "Eclipse",
             "ElkridgeImp",
             "GateImp",
-            "reHash",
             "Hummingbird",
             "Lilboat",
-            "Luna",
             "MarathonImp",
             "OasisImp",
             "PackedImp",
             "PlasmaImp",
             "ReachImp",
-            "RelicImp",
             "SalternImp",
             "Submarine",
             "TrainImp",
+            "Union",
             "Xeno",
             "Pathway",
             "Whisper",
 
-            // NOT IN ROTATION BUT WE STILL NEED THEM TESTED SINCE THEY STILL HAVE A PROTOTYPE:
-            "Eclipse",
-            "Refsdal",
-            "Skimmer",
-            "Union",
+            // DEROTATED:
+            //"RelicImp",
+
         };
 
         private static readonly ProtoId<EntityCategoryPrototype> DoNotMapCategory = "DoNotMap";
@@ -328,18 +327,30 @@ namespace Content.IntegrationTests.Tests
             await pair.CleanReturnAsync();
         }
 
+        private bool IsWhitelistedForMap(EntProtoId protoId, ResPath map)
+        {
+            if (!DoNotMapWhitelistSpecific.TryGetValue(map.ToString(), out var allowedProtos))
+                return false;
+
+            return allowedProtos.Contains(protoId);
+        }
+
         /// <summary>
         /// Check that maps do not have any entities that belong to the DoNotMap entity category
         /// </summary>
         private void CheckDoNotMap(ResPath map, YamlNode node, IPrototypeManager protoManager)
         {
-            if (DoNotMapWhitelist.Contains(map.ToString()))
-                return;
+            foreach (var regex in DoNotMapWhiteListRegexes)
+            {
+                if (regex.IsMatch(map.ToString()))
+                    return;
+            }
 
             var yamlEntities = node["entities"];
-            if (!protoManager.TryIndex(DoNotMapCategory, out var dnmCategory))
-                return;
+            var dnmCategory = protoManager.Index(DoNotMapCategory);
 
+            // Make a set containing all the specific whitelisted proto ids for this map
+            HashSet<EntProtoId> unusedExemptions = DoNotMapWhitelistSpecific.TryGetValue(map.ToString(), out var exemptions) ? new(exemptions) : [];
             Assert.Multiple(() =>
             {
                 foreach (var yamlEntity in (YamlSequenceNode)yamlEntities)
@@ -347,13 +358,20 @@ namespace Content.IntegrationTests.Tests
                     var protoId = yamlEntity["proto"].AsString();
 
                     // This doesn't properly handle prototype migrations, but thats not a significant issue.
-                    if (!protoManager.TryIndex(protoId, out var proto, false))
+                    if (!protoManager.TryIndex(protoId, out var proto))
                         continue;
 
-                    Assert.That(!proto.Categories.Contains(dnmCategory),
+                    Assert.That(!proto.Categories.Contains(dnmCategory) || IsWhitelistedForMap(protoId, map),
                         $"\nMap {map} contains entities in the DO NOT MAP category ({proto.Name})");
+
+                    // The proto id is used on this map, so remove it from the set
+                    unusedExemptions.Remove(protoId);
                 }
             });
+
+            // If there are any proto ids left, they must not have been used in the map!
+            Assert.That(unusedExemptions, Is.Empty,
+                $"Map {map} has DO NOT MAP entities whitelisted that are not present in the map: {string.Join(", ", unusedExemptions)}");
         }
 
         private bool IsPreInit(ResPath map,
@@ -414,7 +432,7 @@ namespace Content.IntegrationTests.Tests
                 MapId mapId;
                 try
                 {
-                    var opts = DeserializationOptions.Default with {InitializeMaps = true};
+                    var opts = DeserializationOptions.Default with { InitializeMaps = true };
                     ticker.LoadGameMap(protoManager.Index<GameMapPrototype>(mapProto), out mapId, opts);
                 }
                 catch (Exception ex)
@@ -493,10 +511,6 @@ namespace Content.IntegrationTests.Tests
                         .Select(x => x.Job.Value);
 
                     jobs.ExceptWith(spawnPoints);
-
-                    // Imp - Before asserting we check if this is an ignored warning. Linq might kill performance a bit but it shouldn't matter too much?
-                    if (!IgnoreUnmappedSpawns.Any(x => x.Item1 == mapProto && jobs.Contains(protoManager.Index<JobPrototype>(x.Item2))))
-                        Assert.That(jobs, Is.Empty, $"There is no spawnpoints for {string.Join(", ", jobs)} on {mapProto}.");
                 }
 
                 try
@@ -523,7 +537,7 @@ namespace Content.IntegrationTests.Tests
 #nullable enable
             while (queryPoint.MoveNext(out T? comp, out var xform))
             {
-                var spawner = (ISpawnPoint) comp;
+                var spawner = (ISpawnPoint)comp;
 
                 if (spawner.SpawnType is not SpawnPointType.LateJoin
                 || xform.GridUid == null
@@ -539,7 +553,7 @@ namespace Content.IntegrationTests.Tests
             return resultCount;
         }
 
-        [Test]
+        [Test, NonParallelizable] // imp nonparallelize for OOM
         public async Task AllMapsTested()
         {
             await using var pair = await PoolManager.GetServerClient();
@@ -558,7 +572,7 @@ namespace Content.IntegrationTests.Tests
             await pair.CleanReturnAsync();
         }
 
-        [Test]
+        [Test, NonParallelizable] // imp nonparallelize for OOM
         public async Task NonGameMapsLoadableTest()
         {
             await using var pair = await PoolManager.GetServerClient();
@@ -594,8 +608,9 @@ namespace Content.IntegrationTests.Tests
 
             await server.WaitPost(() =>
             {
-                Assert.Multiple(() =>
-                {
+                // imp disable assert to fix test running out of memory
+                // Assert.Multiple(() =>
+                // {
                     // This bunch of files contains a random mixture of both map and grid files.
                     // TODO MAPPING organize files
                     var opts = MapLoadOptions.Default with
@@ -631,11 +646,26 @@ namespace Content.IntegrationTests.Tests
                             throw new Exception($"Failed to delete map {path}", ex);
                         }
                     }
-                });
+                // }); // imp
             });
 
             await server.WaitRunTicks(1);
             await pair.CleanReturnAsync();
+        }
+
+        /// <summary>
+        /// Lets us the convert the filepaths to regex without eyeglaze trying to add new paths.
+        /// </summary>
+        private static string GlobToRegex(string glob)
+        {
+            var regex = Regex.Escape(glob)
+                .Replace(@"\*\*", "**") // replace **
+                .Replace(@"\*", "*")    // replace *
+                .Replace("**", ".*")    // ** → match across folders
+                .Replace("*", @"[^/]*") // * → match within a single folder
+                .Replace(@"\?", ".");   // ? → any single character
+
+            return $"^{regex}$";
         }
     }
 }

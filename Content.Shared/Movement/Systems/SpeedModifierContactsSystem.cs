@@ -2,13 +2,13 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Gravity;
 using Content.Shared.Slippery;
-using Content.Shared.StepTrigger.Components; // imp edit
-using Content.Shared.StepTrigger.Systems; // imp edit
 using Content.Shared.Whitelist;
-using Robust.Shared.Map.Components; // imp edit
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Content.Shared.StepTrigger.Components; // imp edit
+using Content.Shared.StepTrigger.Systems; // imp edit
+using Robust.Shared.Map.Components; // imp edit
 
 namespace Content.Shared.Movement.Systems;
 
@@ -220,7 +220,7 @@ public sealed class SpeedModifierContactsSystem : EntitySystem
             if (otherEnt == ent)
                 continue;
 
-            if (_whitelistSystem.IsBlacklistPass(ent.Comp.Blacklist, otherEnt.Value))
+            if (_whitelistSystem.IsWhitelistPass(ent.Comp.Blacklist, otherEnt.Value))
             {
                 return false;
             }

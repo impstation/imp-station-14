@@ -7,6 +7,7 @@ namespace Content.Shared.Trigger.Components.Effects;
 /// Spawns a protoype when triggered.
 /// If TargetUser is true it will be spawned at their location.
 /// </summary>
+/// <seealso cref="SpawnEntityTableOnTriggerComponent"/>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SpawnOnTriggerComponent : BaseXOnTriggerComponent
 {
@@ -28,17 +29,4 @@ public sealed partial class SpawnOnTriggerComponent : BaseXOnTriggerComponent
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool Predicted;
-
-    /// <summary>
-    ///     #IMP Allows multiple entities to be spawned.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public int Amount = 1;
-
-    /// <summary>
-    ///     #IMP Amount reduces by one for every entity spawned.
-    ///     If SingleUse is set to false, this will be reset after all entities spawned.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool SingleUse = true;
 }

@@ -5,14 +5,13 @@
   id: BaseMobReptilian
   abstract: true
   components:
-  - type: GoobAbsorbable
   - type: HumanoidAppearance
     species: Reptilian
     hideLayersOnEquip:
     - Snout
     - HeadTop
     - HeadSide
-    - Tail #imp
+    - Tail
     undergarmentBottom: UndergarmentBottomBoxersReptilian
   - type: Hunger
   - type: Puller
@@ -33,14 +32,14 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Thump', 'Hiss']
+    allowedEmotes: ['Thump', 'Hiss', 'Chirp']  #imp edit to add Hiss and Chirp
   - type: TypingIndicator
     proto: lizard
   - type: Vocal
     sounds:
       Male: MaleReptilian
       Female: FemaleReptilian
-      Unsexed: UnisexReptilian
+      Unsexed: UnisexReptilian #imp
   - type: BodyEmotes
     soundsId: ReptilianBodyEmotes
   - type: Damageable
@@ -55,10 +54,11 @@
       types:
         Slash: 5
   - type: Temperature
-    heatDamageThreshold: 400
-    coldDamageThreshold: 285
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 400
+    coldDamageThreshold: 285
     coldDamage:
       types:
         Cold : 0.1 #per second, scales with temperature & other constants
@@ -79,6 +79,27 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -100,7 +121,28 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: Mobs/Species/Reptilian/displacement.rsi
             state: jumpsuit-female
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
+    displacements:
+      head:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Reptilian/displacement.rsi
+            state: mask
 
 #Weh

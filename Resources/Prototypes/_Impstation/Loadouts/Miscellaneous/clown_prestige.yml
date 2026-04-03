@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
 
 - type: loadoutEffectGroup
   id: ClownJanitorTimer
@@ -15,12 +15,12 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
       role: JobJanitor
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
 
 - type: loadoutEffectGroup
   id: ClownCargoTimer
@@ -29,12 +29,12 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Cargo
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
 
 - type: loadoutEffectGroup
   id: ClownEngineerTimer
@@ -43,12 +43,12 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Engineering
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
 
 - type: loadoutEffectGroup
   id: ClownDoctorTimer
@@ -57,12 +57,12 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Medical
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
 
 - type: loadoutEffectGroup
   id: ClownScientistTimer
@@ -71,12 +71,12 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Science
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
 
 - type: loadoutEffectGroup
   id: ClownSecurityTimer
@@ -85,12 +85,12 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobClown
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Security
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
 
 # Civilian
 - type: loadout

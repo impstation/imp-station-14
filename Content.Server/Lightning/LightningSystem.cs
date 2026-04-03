@@ -1,12 +1,11 @@
 using System.Linq;
-using System.Numerics;
 using Content.Server.Beam;
 using Content.Server.Beam.Components;
 using Content.Server.Lightning.Components;
 using Content.Shared.Lightning;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map;
 using Robust.Shared.Random;
+using Robust.Shared.Map; // imp
 
 namespace Content.Server.Lightning;
 
@@ -49,19 +48,20 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <param name="target">Where the lightning fires to</param>
     /// <param name="lightningPrototype">The prototype for the lightning to be created</param>
     /// <param name="triggerLightningEvents">if the lightnings being fired should trigger lightning events.</param>
-    /// <param name="canExplode">Whether this lightning can trigger explosions.</param>
-    public void ShootLightning(EntityUid user, EntityUid target, string lightningPrototype = "Lightning", bool triggerLightningEvents = true, bool canExplode = true)
+    /// <param name="canExplode">Imp - Whether this lightning can trigger explosions.</param>
+    public void ShootLightning(EntityUid user, EntityUid target, string lightningPrototype = "Lightning", bool triggerLightningEvents = true, bool canExplode = true) // imp canexplode
     {
         var spriteState = LightningRandomizer();
         _beam.TryCreateBeam(user, target, lightningPrototype, spriteState);
 
         if (triggerLightningEvents) // we don't want certain prototypes to trigger lightning level events
         {
-            var ev = new HitByLightningEvent(user, target, canExplode);
+            var ev = new HitByLightningEvent(user, target, canExplode); // impcanexplode
             RaiseLocalEvent(target, ref ev);
         }
     }
 
+    // imp add start
     /// <summary>
     /// Fires lightning from user to coordinates
     /// </summary>
@@ -105,7 +105,7 @@ public sealed class LightningSystem : SharedLightningSystem
         var spriteState = LightningRandomizer();
         _beam.TryCreateBeam(coordinates, targetCoordinates, lightningPrototype, spriteState);
     }
-
+    // imp add end
 
     /// <summary>
     /// Looks for objects with a LightningTarget component in the radius, prioritizes them, and hits the highest priority targets with lightning.
@@ -120,31 +120,32 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <param name="canExplode">Whether this lightning can trigger explosions.</param>
     /// <param name="user">The entity that is shooting lightning.</param>
     public void ShootRandomLightnings(
-        MapCoordinates coordinates,
+        MapCoordinates coordinates, // imp user -> coordinates
         float range,
         int boltCount,
         string lightningPrototype = "Lightning",
         int arcDepth = 0,
         bool triggerLightningEvents = true,
-        float hitCoordsChance = 0f,
-        bool canExplode = true,
-        EntityUid? user = null)
+        float hitCoordsChance = 0f, // imp
+        bool canExplode = true, // imp
+        EntityUid? user = null) // imp
     {
         //TODO: add support to different priority target tablem for different lightning types
         //TODO: Remove Hardcode LightningTargetComponent (this should be a parameter of the SharedLightningComponent)
         //TODO: This is still pretty bad for perf but better than before and at least it doesn't re-allocate
         // several hashsets every time
 
-        var targets = _lookup.GetEntitiesInRange<LightningTargetComponent>(coordinates, range).ToList();
+        var targets = _lookup.GetEntitiesInRange<LightningTargetComponent>(coordinates, range).ToList(); // imp coordinates
         _random.Shuffle(targets);
         targets.Sort((x, y) => y.Comp.Priority.CompareTo(x.Comp.Priority));
 
         int shootedCount = 0;
         int count = -1;
-        int mobLightningResistance = 2;
-        while (shootedCount < boltCount)
+        int mobLightningResistance = 2; // imp
+        while(shootedCount < boltCount)
         {
             count++;
+            // imp add start
             var outOfRange = count >= targets.Count ? true : false;
             var targetLightningResistance = outOfRange ? 0 : targets[count].Comp.LightningResistance;
 
@@ -167,11 +168,13 @@ public sealed class LightningSystem : SharedLightningSystem
             }
 
             if (outOfRange || targetLightningResistance <= 0) { break; } //#IMP targetLightningResistance <= 0 check to fix crash
+            // imp end
 
             var curTarget = targets[count];
             if (!_random.Prob(curTarget.Comp.HitProbability)) //Chance to ignore target
                 continue;
 
+            // imp edit start
             if (user != null)
                 ShootLightning(user.Value, targets[count].Owner, lightningPrototype, triggerLightningEvents, canExplode);
             else
@@ -181,10 +184,12 @@ public sealed class LightningSystem : SharedLightningSystem
             {
                 ShootRandomLightnings(targets[count].Owner, range, 1, lightningPrototype, arcDepth - targetLightningResistance, triggerLightningEvents, hitCoordsChance);
             }
+            // imp edit end
             shootedCount++;
         }
     }
 
+    // imp add
     /// <summary>
     /// Looks for objects with a LightningTarget component in the radius, prioritizes them, and hits the highest priority targets with lightning.
     /// </summary>

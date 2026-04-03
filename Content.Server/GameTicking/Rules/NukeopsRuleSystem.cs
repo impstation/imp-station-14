@@ -26,11 +26,10 @@ using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Station.Components;
-using Content.Shared.Humanoid; //imp addition
-using Content.Shared.Mind; //imp addition
-using Content.Shared.Roles; //imp addition
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
+using Content.Shared.Humanoid; //imp addition
+using Content.Shared.Mind; //imp addition
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -222,6 +221,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             }
             //imp edit end
         }
+        args.AddLine("");
     }
 
     private void OnNukeExploded(NukeExplodedEvent ev)

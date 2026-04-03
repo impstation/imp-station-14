@@ -1,0 +1,94 @@
+# Chest
+
+# Head
+
+- type: marking
+  id: AntAbdomen
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [ Ant ]
+  followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Visitors/Ants/chest.rsi
+    state: abdomen
+
+# Snout
+
+# Eyes
+
+# RArm
+
+# LArm
+
+# RLeg
+
+# LLeg
+
+# UndergarmentBottom
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+
+# HeadSide
+
+# HeadTop
+
+- type: marking
+  id: AntAntennae1
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ant ]
+  followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Visitors/Ants/headtop.rsi
+    state: antennae_1
+
+- type: marking
+  id: AntAntennae2
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ant ]
+  followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Visitors/Ants/headtop.rsi
+    state: antennae_2
+
+- type: marking
+  id: AntAntennae3
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ant ]
+  followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Visitors/Ants/headtop.rsi
+    state: antennae_3
+
+- type: marking
+  id: AntAntennae4
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [ Ant ]
+  followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Visitors/Ants/headtop.rsi
+    state: antennae_4
+
+# Tail
+
+# RArmExtension

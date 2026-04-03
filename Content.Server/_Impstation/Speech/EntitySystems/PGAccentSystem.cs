@@ -13,7 +13,7 @@ public sealed class PGAccentSystem : EntitySystem
         SubscribeLocalEvent<PGAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, PGAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<PGAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

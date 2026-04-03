@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Announcements;
-using Content.Server._Wizden.Chat.Systems; // Imp Edit LastMessageBeforeDeath Webhook
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
 using Content.Server.Maps;
@@ -9,6 +8,7 @@ using Content.Server.Roles;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
+using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
@@ -24,7 +24,8 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using Content.Server.Announcements.Systems;
+using Content.Server.Announcements.Systems; // ee
+using Content.Server._Wizden.Chat.Systems; // Imp Edit LastMessageBeforeDeath Webhook
 
 namespace Content.Server.GameTicking
 {
@@ -397,7 +398,9 @@ namespace Content.Server.GameTicking
                 }
                 else
                 {
-                    profile = HumanoidCharacterProfile.Random();
+                    var speciesToBlacklist =
+                        new HashSet<string>(_cfg.GetCVar(CCVars.ICNewAccountSpeciesBlacklist).Split(","));
+                    profile = HumanoidCharacterProfile.Random(ignoredSpecies: speciesToBlacklist); // imp build fix
                 }
                 readyPlayerProfiles.Add(userId, profile);
             }
@@ -633,6 +636,7 @@ namespace Content.Server.GameTicking
 
                 await _discord.CreateMessage(_webhookIdentifier.Value, payload);
 
+                // imp postround start
                 if (_webhookIdentifierPostround == null)
                     return;
 
@@ -641,6 +645,7 @@ namespace Content.Server.GameTicking
                 payload = new WebhookPayload { Content = content };
 
                 await _discord.CreateMessage(_webhookIdentifierPostround.Value, payload);
+                // imp end
             }
             catch (Exception e)
             {
@@ -818,8 +823,8 @@ namespace Content.Server.GameTicking
 
             var proto = _robustRandom.Pick(options);
 
-            _announcer.SendAnnouncement(_announcer.GetAnnouncementId(proto.ID), Filter.Broadcast(),
-                proto.Message ?? "game-ticker-welcome-to-the-station");
+            _announcer.SendAnnouncement(_announcer.GetAnnouncementId(proto.ID), Filter.Broadcast(), // ee announce
+                proto.Message ?? "game-ticker-welcome-to-the-station"); // ee
         }
 
         private async void SendRoundStartedDiscordMessage()

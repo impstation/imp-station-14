@@ -99,7 +99,7 @@ public abstract partial class SharedSolutionContainerSystem
         return TryGetSolution((entity.Owner, entity.Comp2), entity.Comp1.Solution, out soln, out solution);
     }
 
-// imp edit beginning
+    // imp edit beginning
     public bool TryGetInjectorSolution(Entity<InjectorComponent?, SolutionContainerManagerComponent?> entity, [NotNullWhen(true)] out Entity<SolutionComponent>? soln, [NotNullWhen(true)] out Solution? solution)
     {
         if (!Resolve(entity, ref entity.Comp1, logMissing: false))
@@ -110,7 +110,7 @@ public abstract partial class SharedSolutionContainerSystem
 
         return TryGetSolution((entity.Owner, entity.Comp2), entity.Comp1.SolutionName, out soln, out solution);
     }
-// imp edit end
+    // imp edit end
 
     #endregion Solution Accessors
 

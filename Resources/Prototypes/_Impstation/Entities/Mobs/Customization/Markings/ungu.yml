@@ -435,6 +435,18 @@
     state: SnoutPig
 
 - type: marking
+  id: SnoutBoarUngu
+  bodyPart: Snout
+  markingCategory: Snout
+  speciesRestriction: [ Ungu ]
+  forcedColoring: false
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: SnoutPig
+  - sprite: _Impstation/Mobs/Customization/Ungu/snout.rsi
+    state: TusksPig
+
+- type: marking
   id: SnoutTapirUngu
   bodyPart: SnoutCover
   markingCategory: Snout
@@ -534,6 +546,19 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
     state: EyesWater
+
+- type: marking
+  id: EyesLarsonUngu
+  bodyPart: Eyes
+  markingCategory: Eyes
+  speciesRestriction: [ Ungu ]
+  forcedColoring: true
+  followSkinColor: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
+    state: EyesLarson
+  - sprite: _Impstation/Mobs/Customization/Ungu/eyes.rsi
+    state: EyesLarsonSides
 
 # RArm
 
@@ -782,6 +807,33 @@
 # RFoot
 
 - type: marking
+  id: HoovesBigUngu
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: HoovesBig
+
+- type: marking
+  id: RHoofBigUngu
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: HoofBigR
+
+- type: marking
+  id: HoovesUngu
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: Hooves
+
+- type: marking
   id: RHoofUngu
   bodyPart: RFoot
   markingCategory: Legs
@@ -874,6 +926,15 @@
     state: LLegSpotBig
 
 # LFoot
+
+- type: marking
+  id: LHoofBigUngu
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [ Ungu ]
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/legs.rsi
+    state: HoofBigL
 
 - type: marking
   id: LHoofUngu
@@ -980,6 +1041,34 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/Ungu/undergarments.rsi
     state: Binder
+
+- type: marking
+  id: TeeUngu
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [ Ungu ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/undergarments.rsi
+    state: Tee
+
+- type: marking
+  id: TeeCroppedUngu
+  bodyPart: UndergarmentTop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [ Ungu ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Ungu/undergarments.rsi
+    state: TeeCropped
 
 - type: marking
   id: VestUngu

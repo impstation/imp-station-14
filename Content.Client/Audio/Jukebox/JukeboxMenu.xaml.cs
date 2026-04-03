@@ -106,7 +106,7 @@ public sealed partial class JukeboxMenu : FancyWindow
         {
             //imp edit -- supporting the emag songs
             var songName = ((entry.EmagOnly) ? "#!D2NT_BEATZ!#> " : "") + entry.Name; // we literally cannot style these at time of writing, so... signify the emag songs only way we can
-            MusicList.AddItem(songName, metadata: entry.ID);
+            MusicList.AddItem(songName, metadata: entry.ID); // imp entry.Name -> songName
         }
     }
 

@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using Content.Server.GameTicking.Rules.VariationPass.Components;
+﻿using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Shared.Storage;
 using Robust.Shared.Random;
+using System.Linq; // imp
 
 namespace Content.Server.GameTicking.Rules.VariationPass;
 

@@ -25,6 +25,8 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 

@@ -11,7 +11,7 @@
           - !type:SpawnPrototype
             prototype: SprayPainter
           steps:
-            - tag: BeltUtility
+            - tag: UtilityBelt
               name: construction-graph-tag-belt-utility
               icon:
                 sprite: Clothing/Belt/utility.rsi

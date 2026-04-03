@@ -144,6 +144,18 @@ public sealed partial class CargoOrderConsoleComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan DenySoundDelay = TimeSpan.FromSeconds(2);
+
+    /// <summary>
+    /// Imp addition. Acquisition slip prototype to use.
+    /// </summary>
+    [DataField]
+    public EntProtoId AcquisitionSlip = "PaperAcquisitionSlipCargo";
+
+    /// <summary>
+    /// Imp addition. Whether the funds tab should be visible.
+    /// </summary>
+    [DataField]
+    public bool ShowFundsTab = true;
 }
 
 /// <summary>

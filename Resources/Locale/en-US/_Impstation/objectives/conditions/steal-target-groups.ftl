@@ -22,6 +22,8 @@ steal-target-groups-antiquedisabler = "antique" disabler
 
 steal-target-groups-clothing-neck-bureaucracymedal = excellence in bureaucracy medal
 
+steal-target-groups-toolboxgolden = golden toolbox
+
 # Thief Animal
 
 steal-target-groups-finfin = Fin Fin
@@ -66,3 +68,4 @@ steal-target-groups-positronicbrains = positronic brain
 steal-target-groups-ailawboard = AI law board
 steal-target-groups-commandheadset = commander's headset
 steal-target-groups-plushie = plushie
+steal-target-groups-silicon-synchronizer-rd = RD's silicon synchronizer

@@ -1,14 +1,14 @@
 using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Roles; // imp
-using Content.Shared._DV.Roles; // imp
 using Content.Server.GameTicking.Rules;
 using Content.Server.Revolutionary.Components;
-using Content.Server.Roles; // imp
 using Robust.Shared.Random;
 using System.Linq;
 using Content.Server._Goobstation.Roles; // imp
+using Content.Server.Roles; // imp
+using Content.Shared._DV.Roles; // imp
+using Content.Shared.Roles; // imp
 using Content.Shared.Roles.Components; // imp
 
 namespace Content.Server.Objectives.Systems;
@@ -159,28 +159,28 @@ public sealed class PickObjectiveTargetSystem : EntitySystem
         }
 
         // failed to roll an antag as a target
+        if (antags.Count == 0)
+        {
+            //fallback to target a random head
+            foreach (var person in allHumans)
+            {
+                if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
+                    antags.Add(person);
+            }
+
+            // just go for some random person if there's no command.
             if (antags.Count == 0)
             {
-                //fallback to target a random head
-                foreach (var person in allHumans)
-                {
-                    if (TryComp<MindComponent>(person, out var mind) && mind.OwnedEntity is { } owned && HasComp<CommandStaffComponent>(owned))
-                        antags.Add(person);
-                }
-
-                // just go for some random person if there's no command.
-                if (antags.Count == 0)
-                {
-                    antags = new HashSet<EntityUid>(allHumans.Select(p => p.Owner)); //imp
-                }
-
-                // One last check for the road, then cancel it if there's nothing left
-                if (antags.Count == 0)
-                {
-                    args.Cancelled = true;
-                    return;
-                }
+                antags = new HashSet<EntityUid>(allHumans.Select(p => p.Owner)); //imp
             }
+
+            // One last check for the road, then cancel it if there's nothing left
+            if (antags.Count == 0)
+            {
+                args.Cancelled = true;
+                return;
+            }
+        }
         var randomTarget = _random.Pick(antags);
         _target.SetTarget(ent.Owner, randomTarget, target);
     }

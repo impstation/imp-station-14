@@ -30,6 +30,10 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Server._Impstation.Fax; // imp edit
+using Content.Server.Radio.EntitySystems; // imp edit
+using Content.Shared.Examine; // imp edit
+using Content.Shared.Ghost; // imp edit
 
 namespace Content.Server.Fax;
 
@@ -51,6 +55,7 @@ public sealed class FaxSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly FaxecuteSystem _faxecute = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly RadioSystem _radio = default!; // imp edit
 
     private static readonly ProtoId<ToolQualityPrototype> ScrewingQuality = "Screwing";
 
@@ -73,6 +78,7 @@ public sealed class FaxSystem : EntitySystem
         // Interaction
         SubscribeLocalEvent<FaxMachineComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<FaxMachineComponent, GotEmaggedEvent>(OnEmagged);
+        SubscribeLocalEvent<FaxMachineComponent, ExaminedEvent>(OnFaxExamine); // imp edit
 
         // UI
         SubscribeLocalEvent<FaxMachineComponent, AfterActivatableUIOpenEvent>(OnToggleInterface);
@@ -580,6 +586,17 @@ public sealed class FaxSystem : EntitySystem
         if (component.NotifyAdmins)
             NotifyAdmins(faxName);
 
+        // imp edit start, fax radio announcement
+        if (TryComp<FaxAnnouncingComponent>(uid, out var announcingComponent))
+        {
+            var message = Loc.GetString("fax-machine-radio-received", ("from", faxName), ("to", component.FaxName));
+            foreach (var channel in announcingComponent.Channels)
+            {
+                _radio.SendRadioMessage(uid, message, channel, uid, escapeMarkup: false);
+            }
+        }
+        // imp edit end
+
         component.PrintingQueue.Enqueue(printout);
     }
 
@@ -623,5 +640,18 @@ public sealed class FaxSystem : EntitySystem
     {
         _chat.SendAdminAnnouncement(Loc.GetString("fax-machine-chat-notify", ("fax", faxName)));
         _audioSystem.PlayGlobal("/Audio/Machines/high_tech_confirm.ogg", Filter.Empty().AddPlayers(_adminManager.ActiveAdmins), false, AudioParams.Default.WithVolume(-8f));
+    }
+
+    // imp edit
+    /// <summary>
+    /// Allows the examiner to see the fax's name, if the examiner is a ghost.
+    /// </summary>
+    private void OnFaxExamine(EntityUid uid, FaxMachineComponent component, ExaminedEvent args)
+    {
+        if (!HasComp<GhostComponent>(args.Examiner))
+            return;
+
+        var loc = $"'{component.FaxName}'";
+        args.PushText(Loc.GetString("fax-machine-on-examine-success", ("id", loc)));
     }
 }

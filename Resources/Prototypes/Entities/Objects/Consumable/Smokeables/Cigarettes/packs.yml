@@ -51,10 +51,11 @@
   - type: Storage
     grid:
     - 0,0,4,1
-  - type: StorageFill
-    contents:
-    - id: Cigarette
-      amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: Cigarette
+        amount: 10
   - type: ItemCounter
     count:
       tags: [Cigarette]
@@ -192,10 +193,11 @@
     sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi # imp
   - type: Item
     sprite: _Impstation/Objects/Consumable/Smokeables/Cigarettes/Packs/syndicate.rsi # imp
-  - type: StorageFill
-    contents:
-    - id: CigaretteSyndicate
-      amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase:
+        id: CigaretteSyndicate
+        amount: 10
 
 - type: entity
   id: CigPackMixed

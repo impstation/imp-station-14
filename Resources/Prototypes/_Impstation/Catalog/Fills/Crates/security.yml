@@ -4,9 +4,25 @@
   name: nonlethal shotgun crate
   description: For when the station is being a bit too rowdy. Contains two stun Kammerer shotguns with extra ammunition. Requires Security access to open.
   components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponShotgunKammererBeanbag
+          amount: 2
+        - id: BoxBeanbag
+          amount: 3
+
+- type: entity
+  id: CrateEvaSecurityKit
+  parent: CrateSecgear
+  name: security EVA kit
+  description: A set consisting of two rugged EVA suits and helmets in security colors.
+  components:
   - type: StorageFill
     contents:
-      - id: WeaponShotgunKammererBeanbag
+      - id: ClothingHeadHelmetEVASecurity
         amount: 2
-      - id: BoxBeanbag
-        amount: 3
+      - id: ClothingOuterHardsuitEVASecurity
+        amount: 2
+        

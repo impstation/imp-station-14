@@ -15,7 +15,7 @@
         volume: -2
         maxDistance: 5
   - type: Sprite
-    sprite: Objects/Misc/stamps.rsi
+    sprite: _Impstation/Objects/Misc/stamps.rsi # imp
     state: stamp-mime
   - type: Item
     size: Tiny
@@ -109,9 +109,6 @@
     stampLargeIcon: "large_stamp-clown" # imp
   - type: Sprite
     state: stamp-clown
-  - type: Tag
-    tags:
-      - ClownRubberStamp
 
 - type: entity
   name: chief engineer's rubber stamp
@@ -222,6 +219,7 @@
     stampedColor: "#000000"
     stampState: "paper_stamp-trader"
   - type: Sprite
+    sprite: Objects/Misc/stamps.rsi # imp
     state: stamp-trader
 
 - type: entity

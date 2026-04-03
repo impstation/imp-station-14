@@ -187,7 +187,7 @@ namespace Content.Server.Construction
 
                             // TODO allow taking from several stacks.
                             // Also update crafting steps to check if it works.
-                            var splitStack = _stackSystem.Split(entity, materialStep.Amount, user.ToCoordinates(0, 0), stack);
+                            var splitStack = _stackSystem.Split((entity, stack), materialStep.Amount, user.ToCoordinates(0, 0));
 
                             if (splitStack == null)
                                 continue;
@@ -294,7 +294,7 @@ namespace Content.Server.Construction
                 }
             }
 
-            // Inform consumed items that they have been consumed
+            // imp- Inform consumed items that they have been consumed
             foreach (var entity in container.ContainedEntities.ToArray())
             {
                 RaiseLocalEvent(entity, new ConstructionConsumedObjectEvent(entity, newEntity));

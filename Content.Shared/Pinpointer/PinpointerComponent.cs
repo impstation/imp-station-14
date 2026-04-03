@@ -64,9 +64,9 @@ public sealed partial class PinpointerComponent : Component
     public bool HasTarget => DistanceToTarget != Distance.Unknown;
 
     /// <summary>
-    /// #IMP Force pinpointer to activate immediately.
+    ///     #IMP Force pinpointer to activate immediately.
     /// </summary>
-    [DataField("activateImmediately"), ViewVariables]
+    [DataField, ViewVariables]
     public bool ActivateImmediately = false;
 }
 

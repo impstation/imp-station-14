@@ -2,6 +2,7 @@ using Content.Shared.Construction;
 using Content.Shared.Construction.Steps;
 using Content.Shared.Examine;
 using Content.Shared.Tag;
+using Robust.Shared.Containers;
 
 namespace Content.Shared._Impstation.Construction.Steps;
 
@@ -12,13 +13,13 @@ public sealed partial class EntityRemoveConstructionGraphStep : ConstructionGrap
     /// A tag of the item you want to remove.
     /// </summary>
     [DataField("remove")]
-    private string? _tag;
+    public string Tag = string.Empty;
 
     /// <summary>
     /// A string representing the '$name' variable of the Loc file. By default, it's "Next, remove {$name}".
     /// </summary>
     [DataField]
-    public string Name { get; private set; } = string.Empty;
+    public string Name { get; private set; } = "something";
 
     /// <summary>
     /// A localization string used when examining and for the guidebook.
@@ -26,25 +27,27 @@ public sealed partial class EntityRemoveConstructionGraphStep : ConstructionGrap
     [DataField]
     public LocId GuideString = "construction-remove-arbitrary-entity";
 
-    public bool EntityValid(EntityUid uid, IEntityManager entityManager, IComponentFactory compFactory)
+    public bool EntityValid(EntityUid uid, BaseContainer container, IEntityManager entityManager)
     {
-        var tagSystem = entityManager.EntitySysManager.GetEntitySystem<TagSystem>();
-        return !string.IsNullOrEmpty(_tag) && tagSystem.HasTag(uid, _tag);
+        return entityManager.System<RemoveEntitySysten>().IsValid(uid, container, Tag);
     }
 
     public override void DoExamine(ExaminedEvent args)
     {
         if (string.IsNullOrEmpty(Name))
             return;
-        args.PushMarkup(Loc.GetString(GuideString, ("name", Name)));
+
+        var name = Loc.GetString(Name);
+        args.PushMarkup(Loc.GetString(GuideString, ("name", name)));
     }
 
     public override ConstructionGuideEntry GenerateGuideEntry()
     {
+        var name = Loc.GetString(Name);
         return new ConstructionGuideEntry
         {
             Localization = "arbitrary-remove-construction-graph-step",
-            Arguments = new (string, object)[] { ("name", Name) },
+            Arguments = new (string, object)[] { ("name", name) },
         };
     }
 }

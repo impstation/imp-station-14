@@ -44,6 +44,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
         SubscribeLocalEvent<CanWeightlessMoveEvent>(OnWeightlessMove);
         SubscribeAllEvent<RequestGrapplingReelMessage>(OnGrapplingReel);
 
+        // TODO: After step trigger refactor, dropping a grappling gun should manually try and activate step triggers it's suppressing.
         SubscribeLocalEvent<GrapplingGunComponent, GunShotEvent>(OnGrapplingShot);
         SubscribeLocalEvent<GrapplingGunComponent, ActivateInWorldEvent>(OnGunActivate);
         SubscribeLocalEvent<GrapplingGunComponent, HandDeselectedEvent>(OnGrapplingDeselected);
@@ -75,7 +76,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
             var visuals = EnsureComp<JointVisualsComponent>(shotUid.Value);
             visuals.Sprite = component.RopeSprite;
             visuals.OffsetA = new Vector2(0f, 0.5f);
-            visuals.Target = GetNetEntity(uid);
+            visuals.Target = uid;
             Dirty(shotUid.Value, visuals);
         }
 
@@ -127,7 +128,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
     private void OnGunActivate(EntityUid uid, GrapplingGunComponent component, ActivateInWorldEvent args)
     {
-        if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex || component.Projectile is not {} projectile)
+        if (!Timing.IsFirstTimePredicted || args.Handled || !args.Complex || component.Projectile is not { } projectile)
             return;
 
         _audio.PlayPredicted(component.CycleSound, uid, args.User);
@@ -138,7 +139,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
 
         component.Projectile = null;
         SetReeling(uid, component, false, args.User);
-        _gun.ChangeBasicEntityAmmoCount(uid,  1);
+        _gun.ChangeBasicEntityAmmoCount(uid, 1);
 
         args.Handled = true;
     }
@@ -198,7 +199,7 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
                 var player = jointComp.Relay.Value;
 
                 var playerPosition = _physics.GetPhysicsTransform(player).Position;
-                if (_physics.GetLinearVelocity(player ,playerPosition) != Vector2.Zero)
+                if (_physics.GetLinearVelocity(player, playerPosition) != Vector2.Zero)
                 {
                     var contacts = new HashSet<EntityUid>();
                     _physics.GetContactingEntities(player, contacts);
@@ -241,20 +242,39 @@ public abstract class SharedGrapplingGunSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Checks whether the entity is hooked to something via grappling gun.
+    /// </summary>
+    /// <param name="entity">Entity to check.</param>
+    /// <returns>True if hooked, false otherwise.</returns>
+    public bool IsEntityHooked(Entity<JointRelayTargetComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return false;
+
+        foreach (var uid in entity.Comp.Relayed)
+        {
+            if (HasComp<GrapplingGunComponent>(uid))
+                return true;
+        }
+
+        return false;
+    }
+
     private void OnGrappleCollide(EntityUid uid, GrapplingProjectileComponent component, ref ProjectileEmbedEvent args)
     {
-        if (!Timing.IsFirstTimePredicted)
+        if (!Timing.IsFirstTimePredicted || !args.Weapon.HasValue)
             return;
 
         var jointComp = EnsureComp<JointComponent>(uid);
-        var joint = _joints.CreateDistanceJoint(uid, args.Weapon, anchorA: new Vector2(0f, 0.5f), id: GrapplingJoint);
+        var joint = _joints.CreateDistanceJoint(uid, args.Weapon.Value, anchorA: new Vector2(0f, 0.5f), id: GrapplingJoint);
         joint.MaxLength = joint.Length + 0.2f;
         joint.Stiffness = 1f;
         joint.MinLength = 0.35f;
         // Setting velocity directly for mob movement fucks this so need to make them aware of it.
         // joint.Breakpoint = 4000f;
 
-        _popup.PopupEntity(Loc.GetString("grapple-hit"), args.Weapon); // IMP
+        _popup.PopupEntity(Loc.GetString("grapple-hit"), args.Weapon.Value); // IMP
 
         Dirty(uid, jointComp);
     }

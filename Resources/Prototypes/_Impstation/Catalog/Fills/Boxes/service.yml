@@ -4,11 +4,14 @@
   id: BoxSoapNT
   description: A box full of Nanotrasen brand soap. Smells like plasma.
   components:
-  - type: StorageFill
-    contents:
-    - id: SoapNT
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SoapNT
+          amount: 4
   - type: Sprite
     layers:
     - state: box
-    - state: soap
+    - sprite: _Impstation/Objects/Storage/boxes.rsi
+      state: soap

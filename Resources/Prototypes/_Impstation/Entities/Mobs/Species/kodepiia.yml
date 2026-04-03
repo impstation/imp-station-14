@@ -5,13 +5,27 @@
   id: MobKodepiiaBase
   abstract: true
   components:
-  - type: GoobAbsorbable
   - type: HarpySinger
   - type: KodepiiaScrambler
-  - type: KodepiiaConsumeAction
+  - type: ConsumeAction
+    popupSelfStart: kodepiia-consume-start-self
+    popupSelfEnd: kodepiia-consume-end-self
+    popupOthersStart: kodepiia-consume-start-others
+    popupOthersEnd: kodepiia-consume-end-self
+    consumeActionId: ActionKodepiiaConsume
     damage:
       groups:
-        Genetic: 25
+        Genetic: 15
+      types:
+        Piercing: 15
+    whitelist:
+      components:
+      - Respirator
+      - Bloodstream
+    blacklist:
+      components:
+      - SiliconLawBound
+    percentageConsumed: 0.25
   - type: Instrument
     allowPercussion: false
     program: 52
@@ -39,9 +53,6 @@
         type: StrippableBoundUserInterface
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.ThavenMoodsUiKey.Key:
-        type: ThavenMoodsBoundUserInterface
-        requireInputValidation: false
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.TailBehind" ]
@@ -111,8 +122,8 @@
       fix1:
         shape:
           !type:PhysShapeCircle
-          radius: 0.32
-        density: 150
+          radius: 0.35
+        density: 175
         restitution: 0.0
         mask:
         - MobMask
@@ -121,7 +132,10 @@
   - type: Body
     prototype: Kodepiia
   - type: Bloodstream
-    bloodReagent: BloodKodepiia
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BloodKodepiia
+        Quantity: 300
   - type: Damageable
     damageModifierSet: Kodepiia
   - type: MeleeWeapon

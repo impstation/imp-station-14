@@ -1,7 +1,7 @@
 ﻿- type: entity
-  parent: [BaseStructureDynamic, BaseXAEXenoArtifact]
-  id: BaseXAEXenoArtifactStructure #IMP 'XAE' in name
-  name: reticulated artifact
+  parent: [BaseStructureDynamic, BaseXenoArtifact]
+  id: BaseXenoArtifactStructure
+  name: artifact
   abstract: true
   noSpawn: true
   components:
@@ -19,6 +19,8 @@
     - state: artifact-activation
       map: [ "enum.ArtifactsVisualLayers.ActivationEffect" ]
       visible: false
+  - type: Physics
+    bodyType: KinematicController
   - type: RandomArtifactSprite
     maxSprite: 36
   - type: RandomSprite
@@ -46,8 +48,8 @@
   # imp edit end
 
 - type: entity
-  parent: BaseXAEXenoArtifactStructure #IMP 'XAE' in name
-  id: ComplexXAEXenoArtifact
+  parent: BaseXenoArtifactStructure
+  id: ComplexXenoArtifact
   components:
   - type: XenoArtifact
     nodeCount:

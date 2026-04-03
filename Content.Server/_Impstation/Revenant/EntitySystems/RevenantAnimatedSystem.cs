@@ -25,6 +25,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
 using Robust.Shared.Timing;
 using Content.Shared.Construction.Components;
+using Content.Shared.Damage.Components;
 using Content.Shared.Trigger.Components;
 
 namespace Content.Server.Revenant.EntitySystems;

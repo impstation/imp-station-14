@@ -56,7 +56,6 @@ public sealed class FailAndStartPresetTest
     ///     Test that a nuke ops gamemode can start after failing to start once.
     /// </summary>
     [Test]
-    [Ignore("Broken due to engine issue relating to RemCompDeferred. Note: This test will only fail occasionally.")]
     public async Task FailAndStartTest()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -141,11 +140,13 @@ public sealed class TestRuleSystem : EntitySystem
         while (query.MoveNext(out _, out _, out var gameRule))
         {
             var minPlayers = gameRule.MinPlayers;
+            // imp edit start: lowpop limiter
             var maxPlayers = gameRule.MaxPlayers;
             if (!gameRule.CancelPresetOnTooFewPlayers && !gameRule.CancelPresetOnTooManyPlayers)
                 continue;
             if (args.Players.Length >= minPlayers && args.Players.Length <= maxPlayers)
                 continue;
+            // imp edit end
 
             args.Cancel();
         }

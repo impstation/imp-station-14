@@ -90,7 +90,7 @@
           tags:
             - PowerCell
             - PowerCellSmall
-  - type: MagazineAmmoProvider #imp, removed HitscanBatteryAmmoProvider to replace with this.
+  - type: MagazineAmmoProvider #imp, removed BatteryAmmoProvider to replace with this.
 
 - type: entity
   id: ShuttleGunPerforator
@@ -142,7 +142,7 @@
         whitelist:
           tags:
             - PowerCage
-  - type: MagazineAmmoProvider #imp, removed HitscanBatteryAmmoProvider to replace with this.
+  - type: MagazineAmmoProvider #imp, removed BatteryAmmoProvider to replace with this.
 
 # ---- Launchers ----
 # naming: EXP (Explosion) + conventional power + suffix (g for Grenade, c for RPG Cartridge) + Name

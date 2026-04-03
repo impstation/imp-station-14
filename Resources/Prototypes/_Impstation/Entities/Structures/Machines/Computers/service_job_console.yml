@@ -1,0 +1,72 @@
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerServiceJobBoard
+  name: service job board
+  description: Console for assigning stationwide events to the Service department.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerScreen"]
+      state: servicejob
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+  - type: ServiceJobBoardConsole
+  - type: ActivatableUI
+    key: enum.ServiceJobBoardUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ServiceJobBoardUiKey.Key:
+        type: ServiceJobBoardBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ActiveRadio
+    channels: [ Service ]
+  - type: Computer
+    board: ServiceJobBoardComputerCircuitboard
+  - type: PointLight
+    radius: 2.4
+    energy: 1.6
+    color: "#b89f25"
+
+- type: entity
+  parent: [BaseStructureComputerTabletop, ComputerServiceJobBoard]
+  id: ComputerTabletopServiceJobBoard
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    layers:
+    - map: ["computerLayerBody"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: computer_tabletop
+    - map: ["computerLayerKeyboard"]
+      sprite: _Impstation/Structures/Machines/computer_tabletop.rsi
+      state: generic_keyboard_tabletop
+    - map: ["computerLayerScreen"]
+      state: servicejob
+      sprite: _Impstation/Structures/Machines/computers.rsi
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi
+
+- type: entity
+  parent: [ BaseComputerCircuitboard, BaseServiceContraband ]
+  id: ServiceJobBoardComputerCircuitboard
+  name: service job board computer board
+  description: A computer printed circuit board for a service job board computer.
+  components:
+  - type: Sprite
+    state: cpu_service
+  - type: ComputerBoard
+    prototype: ComputerServiceJobBoard

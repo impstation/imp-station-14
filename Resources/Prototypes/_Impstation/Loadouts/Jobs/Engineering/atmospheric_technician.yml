@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 36000 #10 hrs, ~7 rounds
+      time: 10h
 
 - type: loadoutEffectGroup
   id: SeniorAtmosphericTechnician
@@ -15,7 +15,18 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobAtmosphericTechnician
-      time: 108000 #30 hrs, ~20 rounds
+      time: 30h
+
+# InnerClothing
+- type: loadout
+  id: FlightsuitAtmos
+  equipment:
+    jumpsuit: ClothingUniformAtmosFlightSuit
+
+- type: loadout
+  id: FlightskirtAtmos
+  equipment:
+    jumpsuit: ClothingUniformAtmosFlightSkirt
 
 # OuterClothing
 - type: loadout

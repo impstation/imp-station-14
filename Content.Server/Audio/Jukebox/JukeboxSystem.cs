@@ -8,7 +8,6 @@ using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.Emag.Systems; //imp
 using JukeboxComponent = Content.Shared.Audio.Jukebox.JukeboxComponent;
 using Robust.Shared.Random; // Frontier
 
@@ -32,6 +31,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         SubscribeLocalEvent<JukeboxComponent, JukeboxSetTimeMessage>(OnJukeboxSetTime);
         SubscribeLocalEvent<JukeboxComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<JukeboxComponent, ComponentShutdown>(OnComponentShutdown);
+
         SubscribeLocalEvent<JukeboxComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<JukeboxComponent, JukeboxSetPlaybackModeMessage>(OnJukeboxSetPlayback); // Frontier
         SubscribeLocalEvent<JukeboxComponent, ComponentStartup>(OnComponentStartup); // Frontier
@@ -79,7 +79,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             // End Frontier
 
             if (string.IsNullOrEmpty(component.SelectedSongId) ||
-                !_protoManager.TryIndex(component.SelectedSongId, out var jukeboxProto))
+                !_protoManager.Resolve(component.SelectedSongId, out var jukeboxProto))
             {
                 return;
             }

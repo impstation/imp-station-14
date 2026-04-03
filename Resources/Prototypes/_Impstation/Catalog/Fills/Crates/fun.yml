@@ -4,10 +4,12 @@
   name: one single fin fin plushie
   description: A single ultra-rare plushie of the dolphin-bird Fin Fin. You aren't... actually going to buy this one, are you?
   components:
-  - type: StorageFill
-    contents:
-      - id: PlushieFinfin
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: PlushieFinfin
+          amount: 1
 
 - type: entity
   id: CrateFun500Cigarettes
@@ -15,7 +17,53 @@
   name: 500 cigarettes
   description: The tingles... Do you feel them?
   components:
-  - type: StorageFill
-    contents:
-      - id: StackOfCigs
-        amount: 1
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: StackOfCigs
+          amount: 1
+
+- type: entity
+  id: CrateFunPrincessSet
+  parent: CratePirate
+  name: Princess Set
+  description: All you need for a royal dress up adventure!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingUniformPinkPrincessDress
+          amount: 1
+        - id: ClothingUniformGreenPrincessDress
+          amount: 1
+        - id: ClothingHeadHatCuteTiara
+          amount: 2
+        - id: ClothingHeadHatSimpleTiara
+          amount: 2
+        - id: ClothingHeadHatPrincess
+          amount: 1
+        - id: ClothingHeadHatGreenEscoffion
+          amount: 1
+    
+- type: entity
+  id: CrateFunMagicianSet
+  parent: CratePirate
+  name: magician's crate
+  description: A chest containing a set of magician's clothing. Put on a dazzling show!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+       children:
+       - id: ClothingUniformJumpsuitTailcoatSuit
+         amount: 1
+       - id: ClothingEyesGlassesWhiteHalfMask
+         amount: 1
+       - id: ClothingHeadHatMagician
+         amount: 1
+       - id: ClothingShoesKneeHighBoots
+         amount: 1
+       - id: ClothingNeckCloakMagicianCape
+         amount: 1

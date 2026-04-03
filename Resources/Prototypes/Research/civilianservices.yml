@@ -84,6 +84,7 @@
   - FatExtractorMachineCircuitboard
   - BiofabricatorMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
+  - PortableIncubator # Imp
 
 # Tier 2
 
@@ -100,9 +101,12 @@
   - FauxTileAstroGrass
   - FauxTileMowedAstroGrass
   - FauxTileJungleAstroGrass
+  - FauxTileDarkAstroGrass
+  - FauxTileLightAstroGrass
   - FauxTileAstroIce
   - FauxTileAstroSnow
   - FauxTileAstroAsteroidSand
+  - FauxTileDesertAstroSand
   - FauxTileShoveledAstroSnow # imp
   - FauxTileAstroCave # imp
 
@@ -132,6 +136,7 @@
   cost: 5000
   recipeUnlocks:
   - BorgModuleAdvancedChemical
+  - AdvancedJetInjector
 
 - type: technology
   id: AdvancedCleaning
@@ -184,7 +189,7 @@
   id: BluespaceCargoTransport
   name: research-technology-bluespace-cargo-transport
   icon:
-    sprite: _Impstation/Structures/cargo_telepad.rsi
+    sprite: _Impstation/Structures/cargo_telepad.rsi #imp
     state: display
   discipline: CivilianServices
   tier: 2

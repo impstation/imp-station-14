@@ -13,6 +13,7 @@
   - type: Sprite
     sprite: _Corvax/Structures/Machines/printer.rsi
     snapCardinals: true
+    drawdepth: SmallObjects #imp
     layers:
     - state: icon
       map: ["enum.LatheVisualLayers.IsRunning"]
@@ -44,9 +45,9 @@
           bounds: "-0.25,-0.4,0.25,0.4"
         density: 25
         mask:
-        - MachineMask
+        - TabletopMachineMask #imp
         layer:
-        - MachineLayer
+        - TabletopMachineLayer #imp
   - type: MaterialStorage
     whitelist:
       tags:

@@ -37,9 +37,17 @@ public sealed partial class RadioChannelPrototype : IPrototype
     public bool LongRange = false;
 
     /// <summary>
-    /// ImpStation original. If a channel is readOnly, then headsets cannot send messages through it.
-    /// Intercomms still can.
+    ///     ImpStation original. If a channel is readOnly, then headsets cannot send messages through it.
+    ///     Intercomms still can.
     /// </summary>
-    [DataField("intercomOnly")]
+    [DataField]
     public bool IntercomOnly = false;
+
+    // Frontier: radio channel frequencies
+    /// <summary>
+    /// If true, the frequency of the message being sent will be appended to the chat message
+    /// </summary>
+    [DataField, ViewVariables]
+    public bool ShowFrequency = false;
+    // End Frontier
 }

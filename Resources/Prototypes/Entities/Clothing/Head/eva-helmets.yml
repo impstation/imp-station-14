@@ -91,6 +91,8 @@
       - state: equipped-head-light-vox
       head-dog:
       - state: equipped-head-light-dog
+      head-anomalocarid: #imp edit
+      - state: equipped-head-light-anomalocarid
   - type: Clothing
     clothingVisuals:
       head:
@@ -99,6 +101,8 @@
       - state: equipped-head-vox
       head-dog:
       - state: equipped-head-dog
+      head-anomalocarid: #imp edit
+      - state: equipped-head-anomalocarid
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1

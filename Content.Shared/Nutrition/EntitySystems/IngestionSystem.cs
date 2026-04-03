@@ -19,10 +19,12 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tools.EntitySystems;
+using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
+using Content.Shared.Projectiles; // imp
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
@@ -54,6 +56,7 @@ public sealed partial class IngestionSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedProjectileSystem _projectile = default!; // imp
 
     // Body Component Dependencies
     [Dependency] private readonly SharedBodySystem _body = default!;
@@ -68,8 +71,8 @@ public sealed partial class IngestionSystem : EntitySystem
         SubscribeLocalEvent<EdibleComponent, ComponentInit>(OnEdibleInit);
 
         // Interactions
-        SubscribeLocalEvent<EdibleComponent, UseInHandEvent>(OnUseEdibleInHand, after: new[] { typeof(OpenableSystem), typeof(InventorySystem) });
-        SubscribeLocalEvent<EdibleComponent, AfterInteractEvent>(OnEdibleInteract, after: new[] { typeof(ToolOpenableSystem) });
+        SubscribeLocalEvent<EdibleComponent, UseInHandEvent>(OnUseEdibleInHand, after: [typeof(OpenableSystem), typeof(InventorySystem), typeof(ActivatableUISystem)]);
+        SubscribeLocalEvent<EdibleComponent, AfterInteractEvent>(OnEdibleInteract, after: [typeof(ToolOpenableSystem)]);
 
         // Generic Eating Handlers
         SubscribeLocalEvent<EdibleComponent, BeforeIngestedEvent>(OnBeforeIngested);
@@ -118,10 +121,10 @@ public sealed partial class IngestionSystem : EntitySystem
     /// <param name="user">The entity who is trying to make this happen.</param>
     /// <param name="target">The entity who is being made to ingest something.</param>
     /// <param name="ingested">The entity that is trying to be ingested.</param>
-    /// <param name="ingest">Bool that determines whethere this is a Try or a Can effectively.
-    /// When set to true, it tries to ingest, when false it checks if we can.</param>
+    /// <param name="ingest"> When set to true, it tries to ingest. When false, it only checks if we can.</param>
+    /// <param name="tryRepeat"> When set to true, it tries to repeat the ingestion doafter.</param> #imp addition
     /// <returns>Returns true if we can ingest the item.</returns>
-    private bool AttemptIngest(EntityUid user, EntityUid target, EntityUid ingested, bool ingest)
+    private bool AttemptIngest(EntityUid user, EntityUid target, EntityUid ingested, bool ingest, bool tryRepeat = false) //imp edit: added tryRepeat
     {
         var eatEv = new IngestibleEvent();
         RaiseLocalEvent(ingested, ref eatEv);
@@ -129,7 +132,7 @@ public sealed partial class IngestionSystem : EntitySystem
         if (eatEv.Cancelled)
             return false;
 
-        var ingestionEv = new AttemptIngestEvent(user, ingested, ingest);
+        var ingestionEv = new AttemptIngestEvent(user, ingested, ingest, TryRepeat: tryRepeat); //imp edit, added tryRepeat
         RaiseLocalEvent(target, ref ingestionEv);
 
         return ingestionEv.Handled;
@@ -137,12 +140,13 @@ public sealed partial class IngestionSystem : EntitySystem
 
     private void OnEdibleInit(Entity<EdibleComponent> entity, ref ComponentInit args)
     {
-        // TODO: When Food and Drink component are kill make sure to nuke both TryComps and just have it update appearance...
-        // Beakers, Soap and other items have drainable, and we should be able to eat that solution...
-        // If I could make drainable properly support sound effects and such I'd just have it use TryIngest itself
-        // Does this exist just to make tests fail? That way you have the proper yaml???
-        if (TryComp<DrainableSolutionComponent>(entity, out var existingDrainable))
+        // Beakers, Soap and other items have drainable, and we should be able to eat that solution.
+        // This ensures that tests fail when you configured the yaml from and EdibleComponent uses the wrong solution,
+        if (TryComp<DrainableSolutionComponent>(entity, out var existingDrainable)
+            && !existingDrainable.OverrideEdibleSolution) // imp add
             entity.Comp.Solution = existingDrainable.Solution;
+        else
+            _solutionContainer.EnsureSolution(entity.Owner, entity.Comp.Solution, out _);
 
         UpdateAppearance(entity);
 
@@ -177,8 +181,10 @@ public sealed partial class IngestionSystem : EntitySystem
     /// </summary>
     /// <param name="food">Entity being eaten</param>
     /// <param name="stomachs">Stomachs available to digest</param>
-    public bool IsDigestibleBy(EntityUid food, List<Entity<StomachComponent, OrganComponent>> stomachs)
+    /// <param name="popup">Should we also display popup text if it exists?</param>
+    public bool IsDigestibleBy(EntityUid food, List<Entity<StomachComponent, OrganComponent>> stomachs, out bool popup)
     {
+        popup = false;
         var ev = new IsDigestibleEvent();
         RaiseLocalEvent(food, ref ev);
 
@@ -210,6 +216,7 @@ public sealed partial class IngestionSystem : EntitySystem
         }
 
         // If we didn't find a stomach that can digest our food then it doesn't exist.
+        popup = true;
         return false;
     }
 
@@ -247,9 +254,9 @@ public sealed partial class IngestionSystem : EntitySystem
             return;
 
         // Can we digest the specific item we're trying to eat?
-        if (!IsDigestibleBy(args.Ingested, stomachs))
+        if (!IsDigestibleBy(args.Ingested, stomachs, out var popup))
         {
-            if (!args.Ingest)
+            if (!args.Ingest || !popup)
                 return;
 
             if (forceFed)
@@ -271,7 +278,7 @@ public sealed partial class IngestionSystem : EntitySystem
         if (!CanConsume(args.User, entity, args.Ingested, out var solution, out var time))
             return;
 
-        if (!_doAfter.TryStartDoAfter(GetEdibleDoAfterArgs(args.User, entity, food, time ?? TimeSpan.Zero)))
+        if (!_doAfter.TryStartDoAfter(GetEdibleDoAfterArgs(args.User, entity, food, time ?? TimeSpan.Zero, args.TryRepeat))) //imp edit, added args.TryRepeat
             return;
 
         args.Handled = true;
@@ -339,7 +346,7 @@ public sealed partial class IngestionSystem : EntitySystem
             if (!forceFed)
                 return;
 
-            _popup.PopupClient(Loc.GetString("ingestion-other-cannot-ingest-any-more", ("target", entity), ("verb", GetEdibleVerb(food))),  args.Target.Value, args.User);
+            _popup.PopupClient(Loc.GetString("ingestion-other-cannot-ingest-any-more", ("target", entity), ("verb", GetEdibleVerb(food))), args.Target.Value, args.User);
             return;
         }
 
@@ -354,7 +361,7 @@ public sealed partial class IngestionSystem : EntitySystem
             if (!forceFed)
                 return;
 
-            _popup.PopupClient(Loc.GetString("ingestion-other-cannot-ingest-any-more", ("target", entity), ("verb", GetEdibleVerb(food))),  args.Target.Value, args.User);
+            _popup.PopupClient(Loc.GetString("ingestion-other-cannot-ingest-any-more", ("target", entity), ("verb", GetEdibleVerb(food))), args.Target.Value, args.User);
             return;
         }
 
@@ -362,17 +369,17 @@ public sealed partial class IngestionSystem : EntitySystem
 
         var split = _solutionContainer.SplitSolution(solution.Value, transfer);
 
+        if (beforeEv.Refresh)
+            _solutionContainer.TryAddSolution(solution.Value, split);
+
         var ingestEv = new IngestingEvent(food, split, forceFed);
         RaiseLocalEvent(entity, ref ingestEv);
 
         _reaction.DoEntityReaction(entity, split, ReactionMethod.Ingestion);
 
         // Everything is good to go item has been successfuly eaten
-        var afterEv = new IngestedEvent(args.User, entity, split, forceFed);
+        var afterEv = new IngestedEvent(args.User, entity, split, forceFed, args.TryRepeat); //imp edit, added args.TryRepeat
         RaiseLocalEvent(food, ref afterEv);
-
-        if (afterEv.Refresh)
-            _solutionContainer.TryAddSolution(solution.Value, split);
 
         _stomach.TryTransferSolution(stomachToUse.Value.Owner, split, stomachToUse);
 
@@ -407,12 +414,13 @@ public sealed partial class IngestionSystem : EntitySystem
     /// <param name="target">Entity that is eating.</param>
     /// <param name="food">Food entity we're trying to eat.</param>
     /// <param name="delay">The time delay for our DoAfter</param>
+    /// <param name="tryRepeat">Whether we try to repeat the doafter by default.</param> #imp addition
     /// <returns>Returns true if it was able to successfully start the DoAfter</returns>
-    private DoAfterArgs GetEdibleDoAfterArgs(EntityUid user, EntityUid target, EntityUid food, TimeSpan delay = default)
+    private DoAfterArgs GetEdibleDoAfterArgs(EntityUid user, EntityUid target, EntityUid food, TimeSpan delay = default, bool tryRepeat = false) //imp edit, added tryRepeat
     {
         var forceFeed = user != target;
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, new EatingDoAfterEvent(), target, food)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay, new EatingDoAfterEvent(tryRepeat), target, food) //imp edit, added tryRepeat to EatingDoAfterEvent
         {
             BreakOnHandChange = false,
             BreakOnMove = forceFeed,
@@ -449,7 +457,7 @@ public sealed partial class IngestionSystem : EntitySystem
 
         var edible = _proto.Index(entity.Comp.Edible);
 
-        _audio.PlayPredicted(edible.UseSound, args.Target, args.User);
+        _audio.PlayPredicted(entity.Comp.UseSound ?? edible.UseSound, args.Target, args.User);
 
         var flavors = _flavorProfile.GetLocalizedFlavorsMessage(entity.Owner, args.Target, args.Split);
 
@@ -462,6 +470,7 @@ public sealed partial class IngestionSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("edible-force-feed-success-user", ("target", targetName), ("verb", edible.Verb)), args.User, args.User);
 
             // log successful forced feeding
+            // TODO: Use correct verb
             _adminLogger.Add(LogType.ForceFeed, LogImpact.Medium, $"{ToPrettyString(entity):user} forced {ToPrettyString(args.User):target} to eat {ToPrettyString(entity):food}");
         }
         else
@@ -472,6 +481,9 @@ public sealed partial class IngestionSystem : EntitySystem
                 args.User);
 
             // log successful voluntary eating
+            // TODO: Use correct verb
+            // the past tense is tricky here
+            // localized admin logs when?
             _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(args.User):target} ate {ToPrettyString(entity):food}");
         }
 
@@ -496,7 +508,7 @@ public sealed partial class IngestionSystem : EntitySystem
             };
             RaiseLocalEvent(args.Target, ref ev);
 
-            args.Repeat = !args.ForceFed;
+            args.Repeat = !args.ForceFed && args.TryRepeat; //imp edit, set to repeat if previously set to repeat and not force fed
             return;
         }
 
@@ -524,6 +536,13 @@ public sealed partial class IngestionSystem : EntitySystem
             return;
 
         args.Verbs.Add(verb);
+
+        // imp edit start, add auto-repeat ingestion verb
+        if (!TryGetRepeatIngestionVerb(user, entity, entity.Comp.Edible, out var repeatVerb))
+            return;
+
+        args.Verbs.Add(repeatVerb);
+        // imp edit end
     }
 
     private void OnAttemptShake(Entity<EdibleComponent> entity, ref AttemptShakeEvent args)

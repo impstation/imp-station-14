@@ -24,7 +24,7 @@
   suffix: Atmospherics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/atmospherics.rsi
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/atmospherics.rsi #imp
 
 - type: entity
   parent: Airlock
@@ -181,6 +181,15 @@
   - type: Paintable
     group: null
 
+- type: entity
+  parent: Airlock
+  id: AirlockHatchSyndicate
+  name: airtight hatch
+  suffix: Syndicate
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/hatch_syndicate.rsi
+
 # Glass
 - type: entity
   parent: AirlockGlass
@@ -207,7 +216,7 @@
   suffix: Atmospherics
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Glass/atmospherics.rsi
+    sprite: _Impstation/Structures/Doors/Airlocks/Glass/atmospherics.rsi #imp
 
 - type: entity
   parent: AirlockGlass

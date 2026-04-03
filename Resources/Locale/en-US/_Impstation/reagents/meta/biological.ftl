@@ -27,3 +27,6 @@ reagent-desc-testosterone = A fundamental bodily hormone, synthesized from plant
 
 reagent-name-estradiol = estradiol
 reagent-desc-estradiol = A fundamental bodily hormone, synthesized from cell matter for pharmaceutical distribution.
+
+reagent-name-bloodallulalo = methylated blood
+reagent-desc-bloodallulalo = An ancient alkylate form of blood. Known to rapidly evaporate if spilled.

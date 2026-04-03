@@ -50,6 +50,7 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
 
     public Color LockedNodeColor { get; set; } = Color.FromHex("#777777");
     public Color ActiveNodeColor { get; set; } = Color.Plum;
+    public Color ActiveLockedNodeColor { get; set; } = Color.PaleVioletRed; // imp edit
     public Color UnlockedNodeColor { get; set; } = Color.White;
     public Color HoveredNodeColor { get; set; } = Color.DimGray;
     public Color UnlockableNodeColor { get; set; } = Color.LightSlateGray;
@@ -115,17 +116,39 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
         {
             // For each segment we draw nodes in order of depth. Method returns List of nodes for each depth level.
             var orderedNodes = _artifactSystem.GetDepthOrderedNodes(segment);
+
+            // Imp edit: list of hidden nodes (if we hide any)
+            var hiddenNodes = new List<Entity<XenoArtifactNodeComponent>>();
+
             foreach (var (_, nodes) in orderedNodes)
             {
                 for (var i = 0; i < nodes.Count; i++)
                 {
                     // selecting color for node based on its state
                     var node = nodes[i];
+
+                    // Imp edit: natural artifacts should have nodes hidden if you haven't at least seen their parent
+                    if (artifact.Comp.Natural && node.Comp.Locked && !_artifactSystem.IsNodeActive(artifact, node)) //natural artifact with a locked, inactive node passes this
+                    {
+                        var directPredecessorNodes = _artifactSystem.GetDirectPredecessorNodes((artifact, artifact), node);
+                        if (!directPredecessorNodes.Any(x => _artifactSystem.IsNodeActive(artifact, x) || !x.Comp.Locked)) // no parent is active or unlocked
+                        {
+                            hiddenNodes.Add(node);
+                            continue;
+                        }
+                    }
+
                     var color = LockedNodeColor;
-                    if (_artifactSystem.IsNodeActive(artifact, node))
+                    if (_artifactSystem.IsNodeActive(artifact, node) && !node.Comp.Locked) // imp edit, we want locked activate nodes to be a different color
                     {
                         color = ActiveNodeColor;
                     }
+                    // imp edit start, special color for active nodes that are locked
+                    else if (_artifactSystem.IsNodeActive(artifact, node) && node.Comp.Locked)
+                    {
+                        color = ActiveLockedNodeColor;
+                    }
+                    // imp edit end
                     else if (!node.Comp.Locked)
                     {
                         color = UnlockedNodeColor;
@@ -137,9 +160,15 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
                         {
                             color = UnlockableNodeColor;
                         }
+                        // imp edit start, successor nodes of locked active nodes should also be the unlockable node color
+                        else if (directPredecessorNodes.All(x => _artifactSystem.IsNodeActive(artifact, x)))
+                        {
+                            color = UnlockableNodeColor;
+                        }
+                        // imp edit end
                     }
 
-                    var pos = GetNodePos(node, ySpacing, segments, ref bottomLeft);
+                    var pos = GetNodePos(node, ySpacing, segments, ref bottomLeft, artifact.Comp.Natural, controlHeight); //IMP: include artifact.Comp.Natural & controlHeight in this call for natural artifacts to be top-down
                     var hovered = (cursor - pos).LengthSquared() <= NodeRadius * NodeRadius;
                     if (hovered)
                     {
@@ -160,15 +189,20 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
             // draw edges for each segment and each node that have successors
             foreach (var node in segment)
             {
-                var fromNode = GetNodePos(node, ySpacing, segments, ref bottomLeft) + new Vector2(0, -NodeRadius);
+                var fromNode = GetNodePos(node, ySpacing, segments, ref bottomLeft, artifact.Comp.Natural, controlHeight)
+                + (artifact.Comp.Natural ? new Vector2(0, NodeRadius) : new Vector2(0, -NodeRadius)); //#IMP: Natural artifact should be top-down
                 var successorNodes = _artifactSystem.GetDirectSuccessorNodes((artifact, artifact), node);
                 foreach (var successorNode in successorNodes)
                 {
+                    // Imp edit: Don't draw a line to hidden nodes
+                    if (hiddenNodes.Contains(successorNode))
+                        continue;
                     var color = node.Comp.Locked
                         ? LockedNodeColor
                         : UnlockedNodeColor;
 
-                    var toNode = GetNodePos(successorNode, ySpacing, segments, ref bottomLeft) + new Vector2(0, NodeRadius);
+                    var toNode = GetNodePos(successorNode, ySpacing, segments, ref bottomLeft, artifact.Comp.Natural, controlHeight)
+                    + (artifact.Comp.Natural ? new Vector2(0, -NodeRadius) : new Vector2(0, NodeRadius)); //#IMP: Natural artifact should be top-down;
                     handle.DrawLine(fromNode, toNode, color);
                 }
             }
@@ -177,9 +211,13 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
         }
     }
 
-    private Vector2 GetNodePos(Entity<XenoArtifactNodeComponent> node, float ySpacing, List<List<Entity<XenoArtifactNodeComponent>>> segments, ref Vector2 bottomLeft)
+    //IMP: natural artifact trees should be top-down: include "natural" parameter
+    private Vector2 GetNodePos(Entity<XenoArtifactNodeComponent> node, float ySpacing, List<List<Entity<XenoArtifactNodeComponent>>> segments, ref Vector2 bottomLeft, bool natural, float controlHeight)
     {
         var yPos = -(NodeDiameter + ySpacing) * node.Comp.Depth;
+
+        if (natural) //IMP: natural artifact trees should be top-down
+            yPos = -yPos;
 
         var segment = segments.First(s => s.Contains(node));
         var depthOrderedNodes = _artifactSystem.GetDepthOrderedNodes(segment);
@@ -195,7 +233,13 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
 
         var xPos = NodeDiameter * index + (xSpacing * index) + layerXOffset;
 
-        return bottomLeft + new Vector2(xPos, yPos);
+        //IMP: natural artifact trees should be top-down, move to top (y=0).
+        //IMP: without imp, this would be "return bottomLeft + new Vector2(xPos, yPos);"
+        var result = bottomLeft + new Vector2(xPos, yPos);
+        if (natural)
+            result += new Vector2(0, controlHeight - (2 * bottomLeft.Y) + NodeRadius);
+
+        return result;
     }
 
     private float GetBiggestWidth(List<Entity<XenoArtifactNodeComponent>> nodes)

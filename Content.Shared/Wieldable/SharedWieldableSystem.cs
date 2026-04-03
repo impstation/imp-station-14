@@ -24,6 +24,7 @@ using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Timing;
+using Content.Shared._Impstation.Decapoids; // imp
 
 namespace Content.Shared.Wieldable;
 
@@ -259,7 +260,8 @@ public abstract class SharedWieldableSystem : EntitySystem
             return false;
         }
 
-        if (_hands.CountFreeableHands((user, hands)) < component.FreeHandsRequired)
+        if (_hands.CountFreeableHands((user, hands), except: uid) < component.FreeHandsRequired
+            && !HasComp<CanWieldOneHandedComponent>(user)) // IMP ADD
         {
             if (!quiet)
             {
@@ -314,7 +316,8 @@ public abstract class SharedWieldableSystem : EntitySystem
         var virtuals = new ValueList<EntityUid>();
         for (var i = 0; i < component.FreeHandsRequired; i++)
         {
-            if (_virtualItem.TrySpawnVirtualItemInHand(used, user, out var virtualItem, true))
+            // don't show a popup when dropping items because it will overlap with the popup for wielding
+            if (_virtualItem.TrySpawnVirtualItemInHand(used, user, out var virtualItem, true, silent: true))
             {
                 virtuals.Add(virtualItem.Value);
                 continue;

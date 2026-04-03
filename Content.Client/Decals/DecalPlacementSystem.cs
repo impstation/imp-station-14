@@ -76,7 +76,7 @@ public sealed class DecalPlacementSystem : EntitySystem
                 //imp edit - kinda dirty but get the shader ID from the prototype
                 var shaderID = _protoMan.Index<DecalPrototype>(_decalId).ShaderID;
 
-                var decal = new Decal(coords.Position, _decalId, _decalColor, _decalAngle, _zIndex, _cleanable, shaderID);
+                var decal = new Decal(coords.Position, _decalId, _decalColor, _decalAngle, _zIndex, _cleanable, shaderID); // imp add shaderID
                 RaiseNetworkEvent(new RequestDecalPlacementEvent(decal, GetNetCoordinates(coords)));
 
                 return true;
@@ -137,7 +137,7 @@ public sealed class DecalPlacementSystem : EntitySystem
         //imp edit - kinda dirty but get the shader ID from the prototype
         var shaderID = _protoMan.Index<DecalPrototype>(args.DecalId).ShaderID;
 
-        var decal = new Decal(args.Target.Position, args.DecalId, args.Color, Angle.FromDegrees(args.Rotation), args.ZIndex, args.Cleanable, shaderID);
+        var decal = new Decal(args.Target.Position, args.DecalId, args.Color, Angle.FromDegrees(args.Rotation), args.ZIndex, args.Cleanable, shaderID); // imp add shaderID
         RaiseNetworkEvent(new RequestDecalPlacementEvent(decal, GetNetCoordinates(args.Target)));
     }
 

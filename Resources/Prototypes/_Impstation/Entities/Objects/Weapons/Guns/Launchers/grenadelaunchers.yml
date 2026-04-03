@@ -1,0 +1,240 @@
+# You will most commonly know the China Lake as being one of these.
+# If we get actual rocket mechanics, Grenade Launchers will be primarily differentiated as firing "dumb" projectiles-- large, explosive bullets, rather than something with its own thruster.
+- type: entity
+  name: China Lake
+  parent: [BaseWeaponLauncher, BaseGunWieldable, Tier3Contraband]
+  id: WeaponLauncherChinaLake
+  description: THOOMP.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/china_lake.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/china_lake.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,4,2
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/clake.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 3
+    proto: GrenadeFrag
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    soundRack:
+      path: /Audio/_Impstation/Weapons/Guns/Cock/clake_cock.ogg
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+  - type: GunRequiresWield
+  - type: StaticPrice
+    price: 10000
+
+- type: entity
+  name: pirate cannon
+  parent: BaseWeaponLauncher
+  id: WeaponLauncherPirateCannon
+  description: Kaboom!
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+      layers:
+        - state: icon
+          map: ["enum.GunVisualLayers.Base"]
+    - containers:
+        balistic-ammo: !type:Container
+          ents: []
+        ballistic-ammo: !type:Container
+          ents: []
+      type: ContainerContainer
+    - type: Clothing
+      sprite: _Impstation/Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+    - type: Gun
+      fireRate: 1
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+    - type: BallisticAmmoProvider
+      whitelist:
+        tags:
+          - CannonBall
+      capacity: 1
+      proto: CannonBall
+      soundInsert:
+        path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+    - type: MeleeWeapon
+      range: 0.8
+      attackRate: 0.4 #slower, but hits harder; bigger object to shove with
+      damage:
+        types:
+          Blunt: 8
+      soundHit:
+        path: /Audio/Effects/hit_kick.ogg
+      soundSwing:
+        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+      resetOnHandSelected: false
+    - type: AltFireMelee
+      attackType: Heavy
+    - type: DamageOtherOnHit #for throwing
+      staminaCost: 15
+      damage:
+        types:
+          Blunt: 12
+    - type: StaminaDamageOnHit
+      damage: 15 #slight stagger, but still like 7 hits to stun completely
+    - type: MeleeRequiresWield
+    - type: MeleeThrowOnHit
+      distance: 0.8
+      speed: 5
+
+- type: entity
+  name: Shining Spring
+  parent: [BaseWeaponLauncher, BaseGunWieldable, BaseJanitorContraband]
+  id: WeaponLauncherCleanerLake
+  description: A demilitarized piece of military surplus equipment, repurposed for the real troops. Load it with cleannades and give 'em a show!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/cleaner_lake.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/cleaner_lake.rsi
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/_Impstation/Weapons/Guns/Gunshots/clake.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - CleanerGrenade
+    capacity: 3
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    soundRack:
+      path: /Audio/_Impstation/Weapons/Guns/Cock/clake_cock.ogg
+  - type: Construction
+    graph: UpgradeWeaponCleanerLake
+    node: start
+  - type: StealTarget
+    stealGroup: ShiningSpring
+  - type: MeleeWeapon
+    range: 0.8
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+    soundSwing:
+      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
+    resetOnHandSelected: false
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: DamageOtherOnHit #for throwing
+    staminaCost: 10
+    damage:
+      types:
+        Blunt: 8
+  - type: StaminaDamageOnHit
+    damage: 10 #slight stagger, but still like 10 hits to stun completely
+  - type: MeleeRequiresWield
+  - type: MeleeThrowOnHit
+    distance: 0.8
+    speed: 5
+
+- type: entity
+  name: Shining Spring # it's a secret. until a janitor kills you
+  parent: [WeaponLauncherCleanerLake, BaseGunWieldable]
+  id: WeaponLauncherCleanerLakeRemilitarised
+  description: I love you, Kitchen Gun!
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 3
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+
+- type: entity
+  name: texas pond
+  parent: BaseWeaponLauncher
+  id: WeaponTexasPond
+  description: A compact, violently-modified, spray-painted, single-shot pistol that fires grenades. Make sure it doesn't blow in your hand.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Prospectors/Weapons/texas_pond.rsi
+    layers:
+      - state: icon
+        map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Small
+    sprite: _Impstation/Prospectors/Weapons/texas_pond.rsi
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - Grenade
+    capacity: 1
+    proto: GrenadeFrag
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Shotguns/flaregun.rsi
+    quickEquip: false
+    slots:
+    - Belt
+    - suitStorage

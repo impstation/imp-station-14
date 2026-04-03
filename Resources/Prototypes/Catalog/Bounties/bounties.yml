@@ -8,7 +8,6 @@
     whitelist:
       components:
       - XenoArtifact
-      - Artifact #IMP
 
 - type: cargoBounty
   id: BountyBaseballBat
@@ -22,7 +21,7 @@
       tags:
       - BaseballBat
 
-# imp edit - no longer a practical bounty with offmed
+# imp edit - removed due to unpopularity
 # - type: cargoBounty
 #   id: BountyBrain
 #   reward: 12500
@@ -112,7 +111,7 @@
 
 - type: cargoBounty
   id: BountyCrayon
-  reward: 4000
+  reward: 1500
   description: bounty-description-crayon
   entries:
   - name: bounty-item-crayon
@@ -147,7 +146,7 @@
 
 - type: cargoBounty
   id: BountyFigurine
-  reward: 8000
+  reward: 3500
   description: bounty-description-figurine
   entries:
   - name: bounty-item-figurine
@@ -204,14 +203,16 @@
 
 - type: cargoBounty
   id: BountyKnife
-  reward: 6000
+  reward: 2000
   description: bounty-description-knife
   entries:
   - name: bounty-item-knife
     amount: 5
     whitelist:
       components:
-        - Sharp
+      - Sharp
+      tags:
+      - UtilityKnife # required because retracted utility knives are not Sharp
 
 - type: cargoBounty
   id: BountyLemon
@@ -236,6 +237,7 @@
       tags:
       - Lime
 
+# imp edit - removed due to unpopularity
 # - type: cargoBounty
 #   id: BountyLung
 #   reward: 2000
@@ -293,16 +295,17 @@
       tags:
       - Pen
 
-- type: cargoBounty
-  id: BountyPercussion
-  reward: 15000
-  description: bounty-description-percussion
-  entries:
-  - name: bounty-item-percussion
-    amount: 4
-    whitelist:
-      tags:
-      - PercussionInstrument
+# imp edit - removed due to unpopularity
+# - type: cargoBounty
+#   id: BountyPercussion
+#   reward: 2500
+#   description: bounty-description-percussion
+#   entries:
+#   - name: bounty-item-percussion
+#     amount: 4
+#     whitelist:
+#       tags:
+#       - PercussionInstrument
 
 - type: cargoBounty
   id: BountyPie
@@ -468,7 +471,6 @@
       tags:
       - ArtifactFragment
 
-# imp edit - no longer a practical bounty with offmed
 # - type: cargoBounty
 #   id: BountyOrgans
 #   reward: 2000
@@ -523,7 +525,7 @@
 
 - type: cargoBounty
   id: BountyLaserGun
-  reward: 28500
+  reward: 9600
   description: bounty-description-lasergun
   idPrefix: IV
   entries:
@@ -531,7 +533,9 @@
     amount: 6
     whitelist:
       components:
-      - HitscanBatteryAmmoProvider
+      - BatteryAmmoProvider
+      - Clothing # imp edit - this will otherwise just accept any weapon battery
+      requireAll: true
     blacklist:
       components:
       - PowerCell
@@ -600,11 +604,10 @@
 
 - type: cargoBounty
   id: BountyRollerskates
-  reward: 6500
+  reward: 900
   description: bounty-description-rollerskates
   entries:
   - name: bounty-item-rollerskates
-    amount: 2
     whitelist:
       components:
       - Skates
@@ -710,7 +713,7 @@
 
 - type: cargoBounty
   id: BountyWine
-  reward: 3000
+  reward: 1500
   description: bounty-description-wine
   entries:
   - name: bounty-item-wine

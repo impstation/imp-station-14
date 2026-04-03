@@ -134,6 +134,12 @@
     - HolyTextQuran
 
 - type: loadout
+  id: BibleTanakh
+  storage:
+    back:
+    - BibleTanakh
+
+- type: loadout
   id: ChaplainBookBibble
   storage:
     back:
@@ -150,6 +156,12 @@
   storage:
     back:
     - HolyTextKojiki
+
+- type: loadout
+  id: ChaplainBookMansus
+  storage:
+    back:
+    - HolyTextMansus
 
 - type: loadout
   id: ChaplainBookGrimoire

@@ -3,10 +3,12 @@
   name: guide-entry-impghostroles
   text: "/ServerInfo/_Impstation/Guidebook/Ghostroles/Ghostroles.xml"
   children:
-  - ImpGoblins
   - ImpApids
-  - ImpLuggage
   - ImpBountyHunter
+  - ImpButler
+  - ImpGoblins
+  - ImpLuggage
+  - ImpTourist
 
 - type: guideEntry
   id: ImpGoblins
@@ -40,3 +42,13 @@
   id: ImpBountyHunter
   name: guide-entry-impbountyhunter
   text: "/ServerInfo/_Impstation/Guidebook/Ghostroles/BountyHunter.xml"
+
+- type: guideEntry
+  id: ImpTourist
+  name: guide-entry-imptourist
+  text: "/ServerInfo/_Impstation/Guidebook/Ghostroles/Tourists.xml"
+
+- type: guideEntry
+  id: ImpButler
+  name: guide-entry-impbutler
+  text: "/ServerInfo/_Impstation/Guidebook/Ghostroles/Butlers.xml"

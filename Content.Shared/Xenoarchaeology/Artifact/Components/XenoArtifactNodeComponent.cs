@@ -32,7 +32,13 @@ public sealed partial class XenoArtifactNodeComponent : Component
     /// The entity whose graph this node is a part of.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public NetEntity? Attached;
+    public EntityUid? Attached;
+
+    /// <summary>
+    /// #IMP (For natural artifacts only) If the effect should be applied at node entry and removed at node exit
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool EffectActiveOnlyWhileNodeIsCurrent = false;
 
     #region Durability
     /// <summary>
@@ -57,6 +63,18 @@ public sealed partial class XenoArtifactNodeComponent : Component
     /// </summary>
     [DataField]
     public MinMax MaxDurabilityCanDecreaseBy = new(0, 2);
+
+    /// <summary>
+    /// #IMP Max number of times this node can be unlocked (used for natural artifacts). Ignored if 0
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int MaxNodeUnlocks = 0;
+
+    /// <summary>
+    /// #IMP number of times this node has been unlocked (used for natural artifacts)
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int NumNodeUnlocks = 0;
     #endregion
 
     #region Research

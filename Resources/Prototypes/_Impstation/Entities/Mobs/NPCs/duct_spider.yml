@@ -1,0 +1,157 @@
+﻿- type: entity
+  name: duct spider
+  id: MobDuctSpider
+  parent: MobSpiderBase
+  description: Nanotrasen's imported solution to mice, comes with its own problems.
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
+      state: idle
+      sprite: _Impstation/Mobs/Animals/ductspider.rsi
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: moving
+    noMovementLayers:
+      movement:
+        state: idle
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: idle
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+        density: 200
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSpider
+      amount: 1
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Critical
+      60: Dead
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 50
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+  - type: Clothing
+    quickEquip: false
+    sprite: _Impstation/Mobs/Animals/ductspider.rsi
+    slots:
+    - HEAD
+  - type: CanEscapeInventory
+  - type: PleebnarGibbable
+  - type: NpcFactionMember
+    factions:
+    - DuctSpider
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MeleeWeapon
+    altDisarm: false
+    angle: 0
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 1
+  - type: VentCrawler
+    enterDelay: 1
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-ductspider-name
+    description: ghost-role-information-ductspider-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgentHarmless
+  - type: GhostTakeoverAvailable
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: Spider
+    spawnOneWeb: true
+  - type: Prying
+    pryPowered: false
+    force: false
+    speedModifier: 0.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4
+  - type: Speech
+    audioParams:
+      pitch: 2
+  - type: Vocal
+    sounds:
+      Male: ArachnidSmall
+      Female: ArachnidSmall
+      Unsexed: ArachnidSmall
+  - type: Tag
+    tags:
+    - Trash
+    - CannotSuicide
+    - VimPilot
+    - MultitoolDefibrillatorTarget
+    - FootstepSound
+    - SpiderCraft # specifically for admemes. shouldn't be able to craft anything in normal gameplay
+    - DoorBumpOpener
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Mouse_burning
+  - type: Extractable
+    grindableSolutionName: food
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 30
+      food:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+        - ReagentId: Fat
+          Quantity: 5
+        - ReagentId: Mechanotoxin
+          Quantity: 5
+  - type: Strippable
+  - type: UserInterface
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: InventorySlots
+  - type: Inventory
+    speciesId: ductSpider
+    templateId: ductSpider
+  - type: Reactive
+    reactions:
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:SpawnEntityInInventory
+        slot: head
+        entity: WaterDropletHat
+  - type: Edible
+  - type: Appearance
+  - type: IgnoreSpiderWeb

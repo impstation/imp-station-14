@@ -38,6 +38,11 @@
   - type: SliceableFood
     count: 6
     slice: FoodMealAvocadoSushiSlice
+  - type: Tag # imp
+    tags:
+    - Sushi
+    - Fruit
+    - Vegetable
 
 - type: entity
   name: avocado sushi
@@ -66,6 +71,12 @@
           Quantity: 1
   - type: Item
     size: Tiny
+  - type: Tag # imp
+    tags:
+    - Sushi
+    - Fruit
+    - Vegetable
+    - Slice
 
 - type: entity
   name: carp sushi
@@ -93,6 +104,10 @@
   - type: SliceableFood
     count: 6
     slice: FoodMealCarpSushiSlice
+  - type: Tag # imp
+    tags:
+    - Meat
+    - Sushi
 
 - type: entity
   name: carp sushi
@@ -119,6 +134,11 @@
           Quantity: 0.83
   - type: Item
     size: Tiny
+  - type: Tag # imp
+    tags:
+    - Meat
+    - Sushi
+    - Slice
 
 - type: entity
   name:  fresh fish sushi
@@ -146,6 +166,10 @@
   - type: SliceableFood
     count: 6
     slice: FoodMealCarpSushiSlice
+  - type: Tag # imp
+    tags:
+    - Meat
+    - Sushi
 
 - type: entity
   name: fresh fish sushi
@@ -172,6 +196,11 @@
           Quantity: 1.5
   - type: Item
     size: Tiny
+  - type: Tag # imp
+    tags:
+    - Meat
+    - Sushi
+    - Slice
 
 - type: entity
   name: gas station sushi

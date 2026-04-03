@@ -34,5 +34,5 @@ public sealed partial class XATReactiveComponent : Component
     /// Min amount of reagent to trigger.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public FixedPoint2 MinQuantity = 5f;
+    public FixedPoint2 MinQuantity = 4f; //#IMP 5 -> 4
 }

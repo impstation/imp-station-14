@@ -5,18 +5,18 @@
 # Jumpsuit
 # OuterClothing
 # Gloves
+# Belt
 # Shoes
 # Headset
 # Glasses
 # Backpack
-# Belt
 # PDA
 # Survival
 # Trinkets
 # Special
 # GroupSpeciesBreathTool
 # GroupTankHarness
-# Weapon 
+# Weapon
 # Ammo
 
 # Cargo
@@ -30,12 +30,12 @@
   - CourierShoes
   - Glasses
   - CourierBackpack
+  - CourierID
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid
   - GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic
 
 # Security
 - type: roleLoadout
@@ -51,11 +51,10 @@
   - BrigmedicBackpack
   - SurvivalBrigmedic
   - Trinkets
-  - SecurityStar
+  - SecurityJobTrinkets # who give a fuck
   - GroupSpeciesBreathToolMedSec
   - GroupBreathToolDecapoid
   - GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic
 
 # Service
 - type: roleLoadout
@@ -76,4 +75,3 @@
   - GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid
   - GroupTankHarnessCommandWithOuterwear
-  - GroupTankHarnessCommandWithOuterwearAquatic

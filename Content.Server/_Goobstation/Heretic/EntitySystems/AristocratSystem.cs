@@ -14,6 +14,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
 using Content.Server._Goobstation.Heretic.Components;
+using Content.Shared.Temperature.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 

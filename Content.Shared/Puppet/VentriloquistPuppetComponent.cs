@@ -6,21 +6,21 @@ namespace Content.Shared.Puppet;
 public sealed partial class VentriloquistPuppetComponent : Component
 {
     // Frontier edit below
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<LocId> RemoveHand = new ();
+    [DataField]
+    public List<LocId> RemoveHand = [];
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<LocId> RemovedHand = new();
+    [DataField]
+    public List<LocId> RemovedHand = [];
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<LocId> InsertHand = new ();
+    [DataField]
+    public List<LocId> InsertHand = [];
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<LocId> InsertedHand = new ();
+    [DataField]
+    public List<LocId> InsertedHand = [];
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<LocId> PuppetRoleName = new ();
+    [DataField]
+    public List<LocId> PuppetRoleName = [];
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public List<LocId> PuppetRoleDescription = new ();
+    [DataField]
+    public List<LocId> PuppetRoleDescription = [];
 }

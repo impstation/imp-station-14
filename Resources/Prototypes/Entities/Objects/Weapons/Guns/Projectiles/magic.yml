@@ -7,12 +7,12 @@
   components:
   - type: PointLight
     color: "#E25822"
-    radius: 2.0
-    energy: 5.0
+    radius: 3.0           #imp edit, original is 2.0
+    energy: 4.0           #imp edit, original is 5.0
   - type: Projectile
     damage:
       types:
-        Heat: 10
+        Heat: 30          #imp edit, original is 10
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
@@ -20,15 +20,15 @@
       shader: unshaded
   - type: Explosive
     explosionType: Default
-    maxIntensity: 40
-    intensitySlope: 6
-    totalIntensity: 200
+    maxIntensity: 4       #imp edit original is 40
+    intensitySlope: 6       
+    totalIntensity: 30 #imp edit original is 200
     maxTileBreak: 0
   - type: IgnitionSource
-    temperature: 400
+    temperature: 1850   #imp edit original is 400
     ignited: true
   - type: IgniteOnCollide
-    fireStacks: 0.35
+    fireStacks: 3.2 #imp edit original is 0.35
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -176,6 +176,9 @@
         Poison: 5
   - type: TriggerOnCollide
     fixtureID: projectile
+    # Projectile.DeleteOnCollide is true, but allow this to hit multiple entities if they're
+    # stacked up (they will all trigger a collide), so this isn't frustrating to use
+    maxTriggers: null
   - type: PolymorphOnTrigger
     targetUser: true
 

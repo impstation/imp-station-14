@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: Airlock
   parent: BaseStructure
   name: airlock
@@ -45,6 +45,10 @@
       shader: unshaded
       visible: false
       map: ["enum.ElectrifiedLayers.Sparks"]
+    - state: sparks
+      map: ["enum.DoorVisualLayers.BaseEmagging"]
+      shader: unshaded
+      visible: false
   - type: AnimationPlayer
   - type: Physics
   - type: Fixtures
@@ -179,6 +183,9 @@
     - Airlocks
     - WirePanels
     - Networking
+  - type: AcousticData # VDS
+    absorption: 10
+    reflectRay: true
   placement:
     mode: SnapgridCenter
 

@@ -1,11 +1,11 @@
 using System.Linq;
 using Content.Shared.FixedPoint;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Store.Components;
 using Content.Shared.StoreDiscount.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Heretic.Prototypes; // imp
 
 namespace Content.Shared.Store;
 
@@ -28,7 +28,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.Description,
         other.Conditions,
         other.Icon,
-        other.Buyable,
+        other.Buyable, // imp add
         other.Priority,
         other.ProductEntity,
         other.ProductAction,
@@ -42,8 +42,9 @@ public partial class ListingData : IEquatable<ListingData>
         other.OriginalCost,
         other.RestockTime,
         other.DiscountDownTo,
-        other.ProductHereticKnowledge,
-        other.DisableRefund
+        other.ProductHereticKnowledge, // imp add
+        other.DisableRefund,
+        other.ApplyToMob
     )
     {
 
@@ -55,7 +56,7 @@ public partial class ListingData : IEquatable<ListingData>
         string? description,
         List<ListingCondition>? conditions,
         SpriteSpecifier? icon,
-        bool buyable,
+        bool buyable, // imp
         int priority,
         EntProtoId? productEntity,
         EntProtoId? productAction,
@@ -69,8 +70,9 @@ public partial class ListingData : IEquatable<ListingData>
         IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> originalCost,
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
-        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge,
-        bool disableRefund
+        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge, // imp
+        bool disableRefund,
+        bool applyToMob
     )
     {
         Name = name;
@@ -78,7 +80,7 @@ public partial class ListingData : IEquatable<ListingData>
         Description = description;
         Conditions = conditions?.ToList();
         Icon = icon;
-        Buyable = buyable;
+        Buyable = buyable; // imp
         Priority = priority;
         ProductEntity = productEntity;
         ProductAction = productAction;
@@ -92,8 +94,9 @@ public partial class ListingData : IEquatable<ListingData>
         OriginalCost = originalCost;
         RestockTime = restockTime;
         DiscountDownTo = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(dataDiscountDownTo);
-        ProductHereticKnowledge = productHereticKnowledge;
+        ProductHereticKnowledge = productHereticKnowledge; // imp
         DisableRefund = disableRefund;
+        ApplyToMob = applyToMob;
     }
 
     [ViewVariables]
@@ -145,11 +148,18 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public SpriteSpecifier? Icon;
 
+    // imp
     /// <summary>
     /// Labels a listing as available to purchase
     /// </summary>
     [DataField]
     public bool Buyable = true;
+
+    /// <summary>
+    /// Imp addition, if this listing should be hidden from the store when it's unbuyable.
+    /// </summary>
+    [DataField]
+    public bool HiddenWhenUnbuyable;
 
     /// <summary>
     /// The priority for what order the listings will show up in on the menu.
@@ -223,6 +233,12 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public bool DisableRefund = false;
 
+    /// <summary>
+    /// Whether or not to apply the store listing to the player mob rather than the player mind.
+    /// </summary>
+    [DataField]
+    public bool ApplyToMob = false;
+
     public bool Equals(ListingData? listing)
     {
         if (listing == null)
@@ -235,7 +251,9 @@ public partial class ListingData : IEquatable<ListingData>
             ProductEntity != listing.ProductEntity ||
             ProductAction != listing.ProductAction ||
             ProductEvent?.GetType() != listing.ProductEvent?.GetType() ||
-            RestockTime != listing.RestockTime)
+            RestockTime != listing.RestockTime ||
+            DisableRefund != listing.DisableRefund ||
+            ApplyToMob != listing.ApplyToMob)
             return false;
 
         if (Icon != null && !Icon.Equals(listing.Icon))
@@ -255,6 +273,7 @@ public partial class ListingData : IEquatable<ListingData>
 
         return true;
     }
+
 }
 
 /// <summary>
@@ -302,7 +321,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.Description,
             listingData.Conditions,
             listingData.Icon,
-            listingData.Buyable,
+            listingData.Buyable, // imp
             listingData.Priority,
             listingData.ProductEntity,
             listingData.ProductAction,
@@ -316,8 +335,9 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.OriginalCost,
             listingData.RestockTime,
             listingData.DiscountDownTo,
-            listingData.ProductHereticKnowledge,
-            listingData.DisableRefund
+            listingData.ProductHereticKnowledge, // imp
+            listingData.DisableRefund,
+            listingData.ApplyToMob
         )
     {
     }

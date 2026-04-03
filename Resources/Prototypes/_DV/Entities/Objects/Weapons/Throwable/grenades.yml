@@ -11,6 +11,7 @@
   - type: ExplodeOnTrigger
     keysIn:
     - timer
+  - type: TimerTriggerVisuals #imp
   - type: Explosive
     explosionType: Default
     maxIntensity: 10

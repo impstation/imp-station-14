@@ -1,5 +1,4 @@
 using Content.Server.StationEvents.Components;
-using Content.Server.StationEvents.Events; // imp add
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Dataset;
@@ -12,6 +11,7 @@ using Content.Shared.Silicons.Laws.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Server.StationEvents.Events; // imp add
 
 namespace Content.Server.Silicons.Laws;
 

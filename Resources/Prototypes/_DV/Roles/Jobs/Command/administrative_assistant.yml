@@ -5,7 +5,7 @@
   playTimeTracker: JobAdminAssistant
   requirements:
   - !type:OverallPlaytimeRequirement # DeltaV - Playtime requirement
-    time: 90000 # 25 hours
+    time: 25h
   startingGear: AdminAssistantGear
   icon: "JobIconAdminAssitant"
   supervisors: job-supervisors-command

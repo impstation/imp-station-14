@@ -4,13 +4,7 @@
   components:
     - type: GhostRole
       name: job-name-brigmedic
-      requirements:
-        - !type:DepartmentTimeRequirement
-          department: Security
-          time: 36000 #10 hrs
-        - !type:DepartmentTimeRequirement
-          department: Medical
-          time: 14400 #4 hrs
+      job: Brigmedic
     - type: Loadout
       prototypes: [ VisitorBrigmedic, VisitorBrigmedicAlt ]
       roleLoadout: [ RoleSurvivalSecurity ]
@@ -51,12 +45,7 @@
   components:
     - type: GhostRole
       name: job-name-hd
-      requirements:
-        - !type:DepartmentTimeRequirement
-          department: Service
-          time: 18000 #5 hrs
-        - !type:OverallPlaytimeRequirement
-          time: 36000 #10 hrs
+      job: HospitalityDirector
     - type: Loadout
       prototypes: [ VisitorHospitalityDirector, VisitorHospitalityDirectorAlt ]
       roleLoadout: [ RoleSurvivalStandard ]

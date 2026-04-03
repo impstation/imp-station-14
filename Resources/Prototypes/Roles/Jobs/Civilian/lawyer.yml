@@ -5,15 +5,10 @@
   playTimeTracker: JobLawyer
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 36000 # 10 hrs, imp
-    #imp edit start, substitute secoff playtime with sec playtime, better match upstream intent
-    #- !type:RoleTimeRequirement
-    #  role: JobSecurityOfficer
-    #  time: 7200 #2 hrs
-    - !type:DepartmentTimeRequirement
+      time: 10h # imp, was 2.5h
+    - !type:DepartmentTimeRequirement # imp add
       department: Security
-      time: 18000 #5 hrs
-    #imp edit end,
+      time: 5h
   startingGear: LawyerGear
   icon: "JobIconLawyer"
   supervisors: job-supervisors-hop

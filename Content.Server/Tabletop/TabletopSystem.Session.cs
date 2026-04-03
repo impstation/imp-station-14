@@ -3,6 +3,7 @@ using Content.Server.Tabletop.Components;
 using Content.Shared.Tabletop.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Shared.Database; //imp
 
 namespace Content.Server.Tabletop
 {
@@ -32,9 +33,13 @@ namespace Content.Server.Tabletop
             tabletop.Setup.SetupTabletop(session, EntityManager);
 
             Log.Info($"Created tabletop session number {tabletop} at position {session.Position}.");
+            _adminLog.Add(LogType.Action, LogImpact.Medium, //imp. added logging.
+                $"New tabletop session {ToPrettyString(tabletop.Owner)} created at Pos:{$"{session.Position}"}.");
 
             return session;
         }
+
+        // imp start
 
         /// <summary>
         ///     Cleans up a tabletop game session, deleting every entity in it.
@@ -59,6 +64,34 @@ namespace Content.Server.Tabletop
             }
 
             tabletop.Session = null;
+        }
+
+        // imp end
+
+        /// <summary>
+        ///     Lightly cleans a tabletop session, and resets the game board.
+        /// </summary>
+        /// <param name="uid">The UID of the tabletop game entity.</param>
+        public void ResetSession(EntityUid uid)
+        {
+            if (!TryComp(uid, out TabletopGameComponent? tabletop))
+                return;
+
+            if (tabletop.Session is not { } session)
+                return;
+
+            foreach (var euid in session.Entities)
+            {
+                if (euid == uid)
+                    continue;
+                else
+                    QueueDel(euid);
+            }
+
+            session.Entities.Clear();
+            tabletop.Setup.SetupTabletop(session, EntityManager);
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
+                $"Tabletop session {ToPrettyString(tabletop.Owner)} was reset at Pos:{$"{session.Position}"}.");
         }
 
         /// <summary>

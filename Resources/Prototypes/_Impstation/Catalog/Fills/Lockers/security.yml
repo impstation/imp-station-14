@@ -3,10 +3,50 @@
   suffix: Filled
   parent: LockerGriffy
   components:
-  - type: StorageFill
-    contents:
-      - id: MascotGriffySuit
-      - id: MascotGriffyHead
-      - id: GriffyPDA
-      - id: PlushieGriffy
-      - id: PaperSecurityGriffyManual
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerGriffy
+
+- type: entityTable
+  id: FillLockerGriffy
+  table: !type:AllSelector
+    children:
+    - id: MascotGriffySuit
+    - id: MascotGriffyHead
+    - id: GriffyPDA
+    - id: PlushieGriffy
+    - id: PaperSecurityGriffyManual
+
+# this is kind of backwards, but these warden locker prototypes represent the upstream contents of LockerWardenFilledHardsuit and LockerWardenFilled
+# e-shotgun was removed from locker upstream to be manually mapped from spawner, we retained shotgun inside base locker prototypes to prevent mapping issue
+# these prototypes exist to provide mapping options to follow this intent without making mapping changes a hard-requirement
+- type: entity
+  id: LockerWardenFilledHardsuitNoWeapon
+  suffix: Filled, Hardsuit, No Weapon
+  parent: LockerWarden
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: FillLockerWarden
+        - !type:NestedSelector
+          tableId: FillLockerWardenHarduit
+
+- type: entity
+  id: LockerWardenFilledNoWeapon
+  suffix: Filled, No Weapon
+  parent: LockerWarden
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillLockerWarden
+
+- type: entityTable
+  id: FillLockerWardenWeapon
+  table: !type:AllSelector
+    children:
+    - id: WeaponEnergyShotgun

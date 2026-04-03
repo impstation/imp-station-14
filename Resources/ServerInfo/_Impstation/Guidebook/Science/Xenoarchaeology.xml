@@ -1,0 +1,200 @@
+<Document>
+  # Xenoarchaeology
+
+  Xenoarchaeology is a branch of Science focused on researching alien [bold]artifacts[/bold].
+
+  Unlocking their secrets grants research points and reveals strange, potentially useful, or dangerous effects.
+
+  At round start, Science usually has one or two artifacts in the lab. More can be:
+  - Ordered from [color=orange]Cargo[/color]
+  - Found by [color=orange]Salvage[/color]
+  - Assembled from [bold]fragments[/bold]
+  - Appear during certain station events
+
+  ## Artifacts
+  <Box>
+    <GuideEntityEmbed Entity="ComplexXenoArtifact" Caption=""/>
+    <GuideEntityEmbed Entity="ComplexXenoArtifactItem" Caption=""/>
+  </Box>
+
+  There are two different types of artifacts: [textlink="Natural" link="XenoarchaeologyNatural"] and [textlink="Reticulated" link="XenoarchaeologyReticulated"]
+
+  Artifacts contain [bold]nodes[/bold] arranged in [bold]layers[/bold].
+  - Unlocking a node unlocks connected nodes on upper layers.
+  - Each node has [bold]triggers[/bold], actions that must be performed near (or to) the artifact to unlock a node.
+  - When a node is unlocked, its [bold]effect[/bold] will trigger, and the node becomes [bold][color=plum]Active[/color][/bold].
+  - Higher nodes are harder to reach but give more [bold]research points[/bold].
+  - Unlocking all nodes provides no special bonus, but every node yields research points.
+
+  Differences between types:
+  <Table Columns="3">
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch">
+        Natural
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch">
+        Reticulated
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch">
+        Notes
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Only the current node is active at a time.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        All unlocked nodes with durability remaining are active (except a node that is buried by all the higher nodes).
+        'Use'ing the artifact will activate the effect of all active nodes, depleting their durability.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Unlocking and activating are the same thing. 'Use'ing the artifact does nothing.
+        You can instead trigger a node whenever it is current, and it will activate the effect (and move the current node to an adjacent node).
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Unlocking the node will allow it to be activated when the artifact is used, until its durability is depleted.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Some nodes may become depleted as they are triggered.
+        Triggering the artifact will NOT activate the effect if the node is depleted.
+        There is no indication of the node being depleted except if nothing happens when it is triggered.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        The analysis console shows the durability of all unlockable/unlocked nodes.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Some [color=green]Instant[/color] effects CANNOT be depleted, (e.g producing foam).
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        All [color=green]Instant[/color] effects have a durability.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        The analysis console does not show the entire tree at the start, you must reach a node to see if it has deeper 'children' nodes.
+        Reaching a node for Natural artifacts means making it the current node at least once.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        The analysis console shows the entire tree, you know if a node has 'child' nodes even if you haven't reached it yet.
+        Reaching a node for Reticulated artifacts means having it available to unlock - when all its parent nodes are unlocked.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        For both types of artifacts, you need to have 'reached' a node to know the triggers and effects.
+      </Box>
+    </ColorBox>
+        <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        The effects of [color=#00ccff]Temporary[/color] nodes are only active while the artifact is on the current node, e.g Radioactivity of the artifact.
+        These effects begin once the artifact switches to the effect node as the current node, and ends once the node is triggered (and the artifact switches to a different current node).
+        All other effects are either [color=green]Instant[/color] or [color=red]Permanent[/color].
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        All effects which are not [color=green]Instant[/color] effects are [color=red]Permanent[/color].
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        [color=red]Permanent[/color] effects begin when their node is triggered, and do not end.
+        [color=green]Instant[/color] effects are any effect which does something immediately, once (e.g spawn an item, release an EMP, teleport the artifact, etc.)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Crushing a Natural artifact will activate the current node.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Crushing a Reticulated artifact will NOT activate any nodes.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Only one trigger is needed for any node, no matter the depth.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Deeper nodes require more and more triggers applied during the unlocking period in order to unlock.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      </Box>
+    </ColorBox>
+        <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        There are no options as to which node to activate, there is only ever one current node.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        Multiple nodes can be unlockable at the same time.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      </Box>
+    </ColorBox>
+  </Table>
+
+  ## Equipment
+  <Box>
+    <GuideEntityEmbed Entity="MachineArtifactAnalyzer" Caption="Analyzer"/>
+    <GuideEntityEmbed Entity="ComputerAnalysisConsole" Caption="Analysis Console"/>
+    <GuideEntityEmbed Entity="NodeScanner" Caption="Node Scanner"/>
+  </Box>
+  - [bold]Artifact Analyzer:[/bold] Stationary device that scans artifacts, sending data to the Console.
+  - [bold][textlink="Analysis Console:" link="AnalysisConsoleImp"][/bold] Stationary device that is used to display the node tree. Must be linked to an Analyzer with a multitool.
+  - [bold]Node Scanner:[/bold] Small hand-held device that can show the ID of the node currently being activated and whether the artifact is ready to trigger, letting scientist have minimal required knowledge for operating inside chamber near artifact and far without direct access to console.
+
+  <Box>
+    <GuideEntityEmbed Entity="CrateArtifactContainer" Caption="Artifact Container"/>
+    <GuideEntityEmbed Entity="HandheldArtifactContainer" Caption="Handheld Container"/>
+  </Box>
+  - [bold]Artifact Containers:[/bold] Safely store and transports artifacts and prevent nodes from triggering.
+  <Box>
+    <GuideEntityEmbed Entity="MachineArtifactCrusher" Caption="Crusher"/>
+  </Box>
+  - [bold]Artifact Crusher:[/bold] Crushes artifacts into fragments. Four fragments can be rebuilt into a new artifact.
+  <Box>
+    <GuideEntityEmbed Entity="ArtifactFragment" Caption="Artifact Fragment"/>
+  </Box>
+  - [bold]Artifact Fragment:[/bold] Pieces of destroyed artifacts. Four fragments can be rebuilt into a new artifact using the craft menu.
+</Document>

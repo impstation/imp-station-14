@@ -5,7 +5,9 @@
   suffix: filled
   description: Appears to be made of a fine wood of a gorgeous, deep purple hue. Suspiciously light.
   components:
-    - type: StorageFill
-      contents:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
         - id: NullRodBowEvil
         - id: ClothingBeltQuiverNullrodEvilFilled

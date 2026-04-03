@@ -4,8 +4,8 @@
   description: job-description-bartender
   playTimeTracker: JobBartender
   requirements:
-    - !type:OverallPlaytimeRequirement #imp edit
-      time: 1800
+    - !type:OverallPlaytimeRequirement #imp edit, was civilian
+      time: 0.5h
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hd

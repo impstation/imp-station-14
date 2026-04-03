@@ -31,6 +31,7 @@
     tags:
     - DoorBumpOpener
     - StunImmune
+  - type: Blindable
 
 - type: entity
   abstract: true
@@ -67,6 +68,7 @@
   - type: Tag #imp edit to make space mobs stunnable
     tags:
     - DoorBumpOpener
+  - type: Vomiter # imp addition
 
 - type: entity
   parent:
@@ -98,12 +100,14 @@
     - Electrocution
     - TemporaryBlindness
     - Pacified
-    - StaminaModifier
     - Flashed
     - RadiationProtection
     - Adrenaline
   - type: Bloodstream
-    bloodMaxVolume: 150
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 150
   - type: MobPrice
     price: 150
   - type: FloatingVisuals

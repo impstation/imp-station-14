@@ -44,9 +44,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 11
     staminaCost: 15
 
 - type: entity
@@ -289,6 +286,8 @@
     canRestock:
     - NanoMedInventory
     - NanoMedPlusInventory
+    - NanoMedCivilianInventory
+    - NanoMedCivilianWallInventory
   - type: Sprite
     layers:
     - state: base

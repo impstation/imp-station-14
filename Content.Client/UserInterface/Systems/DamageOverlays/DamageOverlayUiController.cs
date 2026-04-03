@@ -1,8 +1,9 @@
-using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Traits.Assorted;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
@@ -20,6 +21,7 @@ public sealed class DamageOverlayUiController : UIController
     [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     [UISystemDependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+    [UISystemDependency] private readonly StatusEffectsSystem _statusEffects = default!;
     private Overlays.DamageOverlay _overlay = default!;
 
     public override void Initialize()
@@ -98,7 +100,7 @@ public sealed class DamageOverlayUiController : UIController
                 FixedPoint2 painLevel = 0;
                 _overlay.PainLevel = 0;
 
-                if (!EntityManager.HasComponent<PainNumbnessComponent>(entity))
+                if (!_statusEffects.TryEffectsWithComp<PainNumbnessStatusEffectComponent>(entity, out _))
                 {
                     foreach (var painDamageType in damageable.PainDamageGroups)
                     {
@@ -112,6 +114,7 @@ public sealed class DamageOverlayUiController : UIController
                         _overlay.PainLevel = 0;
                     }
                 }
+                // imp edit start: pain insensitivity
                 else
                     _overlay.PainLevel = 0;
 
@@ -119,6 +122,7 @@ public sealed class DamageOverlayUiController : UIController
                     _overlay.OxygenLevel = FixedPoint2.Min(1f, oxyDamage / critThreshold).Float();
                 else
                     _overlay.OxygenLevel = 0;
+                // imp edit end
 
                 _overlay.CritLevel = 0;
                 _overlay.DeadLevel = 0;
@@ -129,10 +133,12 @@ public sealed class DamageOverlayUiController : UIController
                 if (!_mobThresholdSystem.TryGetDeadPercentage(entity,
                         FixedPoint2.Max(0.0, damageable.TotalDamage), out var critLevel))
                     return;
+                // imp edit start
                 if (thresholds.ShowCritOverlay)
-                    _overlay.CritLevel = critLevel.Value.Float();
+                        _overlay.CritLevel = critLevel.Value.Float();
                 else
                     _overlay.CritLevel = 0;
+                // imp edit end
 
                 _overlay.PainLevel = 0;
                 _overlay.DeadLevel = 0;

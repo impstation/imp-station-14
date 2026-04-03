@@ -7,6 +7,9 @@
   id: Aloe
 
 - type: Tag
+  id: AnomalocaridClaw
+
+- type: Tag
   id: Ash
 
 - type: Tag
@@ -19,13 +22,19 @@
   id: BearHide
 
 - type: Tag
-  id: BeltUtility
-
-- type: Tag
   id: BlasterCell
 
 - type: Tag
+  id: BoarFriend #lets boar choose the tagged entity as a target for NPCImprintingOnSpawnBehavior
+
+- type: Tag
+  id: BorgModuleTckut
+
+- type: Tag
   id: BorgModuleTckTck
+
+- type: Tag
+  id: BorgNeck
 
 - type: Tag
   id: Bowl
@@ -53,6 +62,12 @@
 
 - type: Tag
   id: CartridgeLPistol
+
+- type: Tag
+  id: CartridgeMime
+
+- type: Tag
+  id: CartridgeMinigun
 
 - type: Tag
   id: CartridgePistolStun
@@ -112,7 +127,7 @@
   id: Crusher
 
 - type: Tag
-  id: Crystal
+  id: Crystal # BountyCrystal
 
 - type: Tag
   id: Dart
@@ -130,9 +145,6 @@
   id: DecapoidGenericTag
 
 - type: Tag
-  id: DionaMinded
-
-- type: Tag
   id: DroneUsable
 
 - type: Tag
@@ -142,10 +154,10 @@
   id: Electropack
 
 - type: Tag
-  id: EncryptionKeyRevolution
+  id: EvidenceMarker
 
 - type: Tag
-  id: EvidenceMarker
+  id: ExternalAirlock
 
 - type: Tag
   id: Eyepatch
@@ -182,6 +194,9 @@
 
 - type: Tag
   id: HolyArrowEvil
+
+- type: Tag
+  id: Hotdog # Food sequence key
 
 - type: Tag
   id: HudAdmin
@@ -313,6 +328,12 @@
   id: NullrodUpgradeKit
 
 - type: Tag
+  id: OlympusBackTank
+
+- type: Tag
+  id: OlympusFlamer
+
+- type: Tag
   id: OreBag
 
 - type: Tag
@@ -320,6 +341,9 @@
 
 - type: Tag
   id: Pribar
+
+- type: Tag
+  id: PlantAnalyzer
 
 - type: Tag
   id: Plushie
@@ -370,6 +394,9 @@
   id: SprayPainter
 
 - type: Tag
+  id: StarflareCell
+
+- type: Tag
   id: Stunbaton
 
 - type: Tag
@@ -388,6 +415,12 @@
   id: TranquilizerDart
 
 - type: Tag
+  id: TreatChunk
+
+- type: Tag
+  id: UnguFood
+
+- type: Tag
   id: VapeCart
 
 - type: Tag
@@ -400,6 +433,9 @@
   id: WeaponCleanerLakeUpgradeKit
 
 - type: Tag
+  id: WeaponSniperMuldoonUpgradeKit
+
+- type: Tag
   id: WeaponSurvivalRifleUpgradeRifleKit
 
 - type: Tag
@@ -407,3 +443,6 @@
 
 - type: Tag
   id: WeldingTool
+
+- type: Tag
+  id: DecapoidSilicon

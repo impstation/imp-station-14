@@ -6,9 +6,9 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Medical
-    time: 14400 #4 hrs, imp
+    time: 4h # imp, was 2.5h
   - !type:OverallPlaytimeRequirement # imp
-    time: 54000 # 15 hrs
+    time: 15h
   startingGear: ParamedicGear
   icon: "JobIconParamedic"
   supervisors: job-supervisors-cmo

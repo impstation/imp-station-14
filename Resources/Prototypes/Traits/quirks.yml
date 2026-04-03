@@ -4,15 +4,18 @@
   id: Pacifist
   name: trait-pacifist-name
   description: trait-pacifist-desc
-  category: Quirks
+  category: Traits # imp
   components:
   - type: Pacified
+  # imp addition starts
+  cost: -12
+  # imp addition ends
 
 - type: trait
   id: LightweightDrunk
   name: trait-lightweight-name
   description: trait-lightweight-desc
-  category: Quirks
+  category: Traits # imp
   components:
   - type: LightweightDrunk
     boozeStrengthMultiplier: 2
@@ -21,6 +24,6 @@
   id: Snoring
   name: trait-snoring-name
   description: trait-snoring-desc
-  category: Quirks
+  category: Traits # imp
   components:
   - type: Snoring

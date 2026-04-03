@@ -29,8 +29,10 @@
         layer:
         - SmallMobLayer
   - type: Bloodstream
-    bloodReagent: BloodChangeling
-    bloodMaxVolume: 60
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BloodChangeling
+        Quantity: 60
   - type: DamageStateVisuals
     states:
       Alive:

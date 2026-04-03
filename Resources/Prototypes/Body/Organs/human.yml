@@ -6,7 +6,7 @@
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
   - type: Organ
-  - type: Food
+  - type: Edible
   - type: Extractable
     grindableSolutionName: organ
   - type: SolutionContainerManager
@@ -74,6 +74,7 @@
     entries:
       Burger: Brain
       Taco: Brain
+      Hotdog: Brain #imp
   - type: Item
     size: Small
     heldPrefix: brain
@@ -248,7 +249,6 @@
     metabolizerTypes: [Human]
     groups:
     - id: Alcohol
-      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
   - type: Tag # goob edit
     tags:
       - Meat

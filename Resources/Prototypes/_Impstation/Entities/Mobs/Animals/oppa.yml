@@ -69,7 +69,7 @@
         Base: dead-night
       Dead:
         Base: dead-night
-  - type: Food
+  - type: Edible
   - type: GoobAbsorbable # imp edit
     biomassRestored: 0.2
   - type: FlavorProfile
@@ -131,7 +131,10 @@
       types:
         Piercing: 5
   - type: Bloodstream
-    bloodMaxVolume: 75
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 75
   - type: CanEscapeInventory
   - type: MobPrice
     price: 500

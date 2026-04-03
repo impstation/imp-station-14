@@ -17,3 +17,24 @@
   cost: 600
   category: cargoproduct-category-name-cargo
   group: market
+
+- type: cargoProduct
+  id: CargoTckA
+  icon:
+    sprite: _Impstation/Objects/Storage/decacapsule.rsi
+    state: icon
+  product: TckACanister
+  cost: 4000
+  category: cargoproduct-category-name-cargo
+  group: market
+
+- type: cargoProduct
+  id: SalvageEvaKit
+  icon:
+    sprite: _Impstation/Clothing/Head/Helmets/eva_salvage.rsi
+    state: icon
+  product: CrateEvaSalvageKit
+  cost: 5000
+  category: cargoproduct-category-name-cargo
+  group: market
+  

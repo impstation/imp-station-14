@@ -53,6 +53,7 @@ public sealed partial class CCVars
     public static readonly CVarDef<string> DiscordRoundUpdateWebhook =
         CVarDef.Create("discord.round_update_webhook", string.Empty, CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
+    // imp:
     /// <summary>
     ///     URL of the Discord webhook which will relay round restart messages.
     /// </summary>

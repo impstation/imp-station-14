@@ -17,3 +17,4 @@ name-identifier-anomalite-reagent = ANOM-LQ {$number}
 name-identifier-anomalite-rock = ANOM-RK {$number}
 name-identifier-anomalite-shadow = ANOM-SH {$number}
 name-identifier-anomalite-tech = ANOM-TK {$number}
+name-identifier-anomalite-santa = ANOM-CL {$number}

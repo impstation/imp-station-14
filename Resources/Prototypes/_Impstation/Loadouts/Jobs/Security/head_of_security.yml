@@ -6,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobHeadOfSecurity
-      time: 54000 #15 hrs, ~10 rounds, half the standard due to HoS having an extreme unlock requirement
+      time: 15h # ~10 rounds, half the standard due to HoS having an extreme unlock requirement
 
 # Headset
 - type: loadout
@@ -32,6 +32,11 @@
   id: HeadofSecurityPatrolCap
   equipment:
     head: ClothingHeadHatHOSsoft
+
+- type: loadout
+  id: HeadofSecurityColonelCap
+  equipment:
+    head: ClothingHeadHatHOSColonelCap
 
 # Outer clothing
 - type: loadout
@@ -82,6 +87,18 @@
     jumpsuit: ClothingUniformJumpskirtHoSPro
   groupBy: "jumpskirt"
 
+- type: loadout
+  id: HeadofSecurityColonelJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHoSColonel
+  groupBy: "jumpsuit"
+
+- type: loadout
+  id: HeadofSecurityColonelJumpskirt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtHoSColonel
+  groupBy: "jumpskirt"
+
 # Belt
 - type: loadout
   id: HeadofSecurityShoulderHolster
@@ -93,6 +110,11 @@
   id: SecurityPistolSturm
   equipment:
     pocket1: WeaponPistolSturm
+
+- type: loadout
+  id: SecurityOfficerKnife
+  equipment:
+    pocket1: OfficerKnife
 
 # Ammunition
 - type: loadout

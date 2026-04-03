@@ -12,7 +12,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Server.Announcements.Systems; // imp
 using Robust.Shared.Player; // imp
-using Content.Shared.Chemistry.Reaction; // imp
 
 namespace Content.Server.StationEvents.Events;
 
@@ -34,8 +33,7 @@ public sealed class VentClogRule : StationEventSystem<VentClogRuleComponent>
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
             "station-event-vent-clog-announcement",
-            null,
-            Color.Gold
+            colorOverride: Color.Gold
         );
     }
     // imp edit end
@@ -55,7 +53,7 @@ public sealed class VentClogRule : StationEventSystem<VentClogRuleComponent>
         // Imp edit, 'Safe random' for chems, excludes chems in the blacklist defined in the component
         allReagents.RemoveAll(r => component.BlacklistedVentChemicals.Any(a => a == r));
 
-        foreach (var (_, transform) in EntityManager.EntityQuery<GasVentPumpComponent, TransformComponent>())
+        foreach (var (_, transform) in EntityQuery<GasVentPumpComponent, TransformComponent>())
         {
             if (CompOrNull<StationMemberComponent>(transform.GridUid)?.Station != chosenStation)
             {

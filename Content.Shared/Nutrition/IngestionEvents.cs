@@ -38,8 +38,9 @@ public record struct EdibleEvent(EntityUid User)
 /// <param name="User">The entity that is trying to feed and therefore raising the event</param>
 /// <param name="Ingested">What are we trying to ingest?</param>
 /// <param name="Ingest">Should we actually try and ingest? Or are we just testing if it's even possible </param>
+/// <param name="TryRepeat">Should we try to repeat the doafter after ingesting?</param> #imp addition
 [ByRefEvent]
-public record struct AttemptIngestEvent(EntityUid User, EntityUid Ingested, bool Ingest, bool Handled = false);
+public record struct AttemptIngestEvent(EntityUid User, EntityUid Ingested, bool Ingest, bool Handled = false, bool TryRepeat = false); // imp edit, added TryRepeat
 
 /// <summary>
 ///     Raised on an entity that is consuming another entity to see if there is anything attached to the entity
@@ -92,7 +93,21 @@ public record struct IsDigestibleEvent()
 /// Do After Event for trying to put food solution into stomach entity.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class EatingDoAfterEvent : SimpleDoAfterEvent;
+public sealed partial class EatingDoAfterEvent : SimpleDoAfterEvent
+// imp edit start
+{
+    /// <summary>
+    /// Do we attempt to repeat the eating do after by default?
+    /// </summary>
+    public bool TryRepeat;
+
+    public EatingDoAfterEvent(bool tryRepeat)
+    {
+        TryRepeat = tryRepeat;
+    }
+
+}
+// imp edit end
 
 /// <summary>
 /// We use this to determine if an entity should abort giving up its reagents at the last minute,
@@ -110,6 +125,10 @@ public record struct BeforeIngestedEvent(FixedPoint2 Min, FixedPoint2 Max, Solut
 
     // Whether this event, and therefore eat attempt, should be cancelled.
     public bool Cancelled;
+
+    // When and if we eat this solution, should we actually remove solution or should it get replaced?
+    // This bool basically only exists because of stackable system.
+    public bool Refresh;
 
     public bool TryNewMinimum(FixedPoint2 newMin)
     {
@@ -130,6 +149,12 @@ public record struct BeforeIngestedEvent(FixedPoint2 Min, FixedPoint2 Max, Solut
     }
 }
 
+/// <summary>
+/// Raised on an entity while it is eating
+/// </summary>
+/// <param name="Food">The item being ingested</param>
+/// <param name="Split">The solution being ingested</param>
+/// <param name="ForceFed">Whether or not we're being forced</param>
 [ByRefEvent]
 public record struct IngestingEvent(EntityUid Food, Solution Split, bool ForceFed);
 
@@ -140,13 +165,10 @@ public record struct IngestingEvent(EntityUid Food, Solution Split, bool ForceFe
 /// <param name="Target">Who is doing the eating?</param>
 /// <param name="Split">The solution we're currently eating.</param>
 /// <param name="ForceFed">Whether we're being fed by someone else, checkec enough I might as well pass it.</param>
+/// <param name="TryRepeat">Whether we try to repeat the doafter.</param> #imp addition
 [ByRefEvent]
-public record struct IngestedEvent(EntityUid User, EntityUid Target, Solution Split, bool ForceFed)
+public record struct IngestedEvent(EntityUid User, EntityUid Target, Solution Split, bool ForceFed, bool TryRepeat = false) //imp edit, added TryRepeat
 {
-    // Should we refill the solution now that we've eaten it?
-    // This bool basically only exists because of stackable system.
-    public bool Refresh;
-
     // Should we destroy the ingested entity?
     public bool Destroy;
 

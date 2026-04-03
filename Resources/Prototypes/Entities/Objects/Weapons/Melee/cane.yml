@@ -26,18 +26,16 @@
         Blunt: 3
   - type: UseDelay
     delay: 1
-  - type: DamageOtherOnHit
+  - type: DamageOtherOnHit # imp
 
 - type: entity
   name: cane blade
-  parent: [BaseItem, Tier2Contraband]
+  parent: [BaseSword, Tier2Contraband] #imp, contraband
   id: CaneBlade
   description: A sharp blade with a cane shaped hilt.
   components:
-  - type: Sharp
   - type: Sprite
     sprite: Objects/Weapons/Melee/cane_blade.rsi
-    state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 65
     attackRate: 1.5
@@ -47,7 +45,6 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
-    size: Normal
     sprite: Objects/Weapons/Melee/cane_blade.rsi
   - type: Tag
     tags:

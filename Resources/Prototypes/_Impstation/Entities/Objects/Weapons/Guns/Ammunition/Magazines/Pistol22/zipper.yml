@@ -1,0 +1,79 @@
+# Magazines compatible with the Zipper .22.
+- type: entity
+  id: BaseMagazineZipper
+  name: Zipper .22 magazine (.22 auto)
+  description: A 6-round holder-of-bullets. Looks like half a toy. # gave this a description for roleplay when it shows up in maints loot
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineZipper
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLPistol
+    capacity: 6
+  - type: Item
+    size: Tiny
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/zipper_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineZipper
+  name: Zipper magazine (.22 auto)
+  parent: BaseMagazineZipper
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLPistol
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineZipperAP
+  name: Zipper magazine (.22 auto APDSFS)
+  description: A 6-round holder-of-bullets, marked as armor-piercing darts.
+  parent: BaseMagazineZipper
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeLPistolAP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MagazineZipperEmpty
+  name: Zipper .22 magazine (.22 auto any)
+  description: A 6-round holder-of-bullets with no apparent markings.
+  suffix: empty
+  parent: BaseMagazineZipper
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]

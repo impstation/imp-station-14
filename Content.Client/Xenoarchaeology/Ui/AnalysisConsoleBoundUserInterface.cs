@@ -34,6 +34,16 @@ public sealed class AnalysisConsoleBoundUserInterface(EntityUid owner, Enum uiKe
         {
             SendMessage(new AnalysisConsoleExtractButtonPressedMessage());
         };
+        // imp edit start, keb buttons
+        _consoleMenu.OnUpBiasButtonPressed += () =>
+        {
+            SendMessage(new AnalysisConsoleUpBiasButtonPressedMessage());
+        };
+        _consoleMenu.OnDownBiasButtonPressed += () =>
+        {
+            SendMessage(new AnalysisConsoleDownBiasButtonPressedMessage());
+        };
+        // imp edit end
     }
 
     /// <summary>

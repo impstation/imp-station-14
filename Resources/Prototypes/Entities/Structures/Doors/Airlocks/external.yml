@@ -20,6 +20,11 @@
     layoutId: AirlockExternal
   - type: Paintable
     group: null
+  - type: Tag # imp
+    tags: 
+      - Structure
+      - Airlock
+      - ExternalAirlock
 
 - type: entity
   parent: AirlockExternal

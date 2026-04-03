@@ -1,17 +1,16 @@
 - type: entity
-  id: BaseCartridgeRifle
-  name: cartridge (.20 rifle)
-  parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
+  parent: [ BaseCartridge, BaseSecurityContraband ]
+  id: BaseCartridgeRifleWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.20 rifle)
   components:
   - type: Tag
     tags:
-      - Cartridge
       - CartridgeRifle
   - type: CartridgeAmmo
     proto: BulletRifle
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
     - state: base
       map: ["enum.AmmoVisualLayers.Base"]
@@ -19,19 +18,21 @@
   - type: SpentAmmoVisuals
 
 - type: entity
-  id: CartridgeRifle
-  name: cartridge (.20 rifle)
-  description: A kinetic intermediate cartridge that serves as the backbone for modern assault rifles, often considered the galactic standard. #imp
+  abstract: true # imp
   parent: BaseCartridgeRifle
+  id: CartridgeRifleWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.20 rifle)
+  description: A modern intermediate cartridge for combat rifles. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
     proto: BulletRifle
 
 - type: entity
-  id: CartridgeRiflePractice
-  name: cartridge (.20 rifle practice)
-  description: An intermediate cartridge with a wax projectile to simulate the real deal. Can be used for force-on-force training but still stings like a bitch. Eye protection recommended. #imp
+  abstract: true # imp
   parent: BaseCartridgeRifle
+  id: CartridgeRiflePracticeWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.20 rifle practice)
+  description: A modern intermediate cartridge for combat rifles. Practice ammunition fires a chalk projectile that stings a little, but otherwise causes no lasting damage.
   components:
   - type: CartridgeAmmo
     proto: BulletRiflePractice
@@ -41,13 +42,14 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#ffcb6f" #imp
+        color: "#dbdbdb"
 
 - type: entity
-  id: CartridgeRifleIncendiary
-  name: cartridge (.20 rifle incendiary)
-  description: An intermediate cartridge tipped with a softer projectile containing a pyrophoric compound, setting targets ablaze. #imp
+  abstract: true # imp
   parent: BaseCartridgeRifle
+  id: CartridgeRifleIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.20 rifle incendiary)
+  description: A modern intermediate cartridge for combat rifles. Incendiary ammunition contains a self-igniting compound that sets targets ablaze.
   components:
   - type: CartridgeAmmo
     proto: BulletRifleIncendiary
@@ -57,13 +59,14 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#d46925" #imp
+        color: "#ff6e52"
 
 - type: entity
-  id: CartridgeRifleUranium
-  name: cartridge (.20 rifle uranium)
-  description: An intermediate cartridge with a heavier depleted uranium projectile, delivering radiation poisoning at the cost of worse penetration. #imp
+  abstract: true # imp
   parent: BaseCartridgeRifle
+  id: CartridgeRifleUraniumWizden #imp - see the _Impstation directory for the version we use
+  name: cartridge (.20 rifle uranium)
+  description: A modern intermediate cartridge for combat rifles. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating targets from the inside.
   components:
   - type: CartridgeAmmo
     proto: BulletRifleUranium
@@ -73,4 +76,4 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
       - state: tip
         map: [ "enum.AmmoVisualLayers.Tip" ]
-        color: "#22b24d" #imp
+        color: "#65fe08"

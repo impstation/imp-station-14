@@ -36,7 +36,7 @@ public sealed partial class SiliconLawProviderComponent : Component
     public bool Subverted = false;
 
     /// <summary>
-    /// Whether this silicon can be subverted by an emag. Imp special
+    ///     Whether this silicon can be subverted by an emag. Imp special
     /// </summary>
     [DataField]
     public bool CanBeSubverted = true;

@@ -140,7 +140,7 @@ public sealed class NewsSystem : SharedNewsSystem
         }
         else
         {
-            _popup.PopupEntity(Loc.GetString("news-write-no-access-popup"), ent);
+            _popup.PopupEntity(Loc.GetString("news-write-no-access-popup"), ent); // imp
             _audio.PlayPvs(ent.Comp.NoAccessSound, ent);
         }
 

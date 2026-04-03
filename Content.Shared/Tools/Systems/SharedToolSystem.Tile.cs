@@ -1,4 +1,3 @@
-using Content.Shared._Impstation.Tools.Components; // imp
 using Content.Shared.Database;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
@@ -9,6 +8,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Utility;
+using Content.Shared._Impstation.Tools.Components; // imp
 
 namespace Content.Shared.Tools.Systems;
 
@@ -97,6 +97,7 @@ public abstract partial class SharedToolSystem
         else
             delay = comp.Delay;
         // imp edit end
+
         var args = new TileToolDoAfterEvent(GetNetEntity(gridUid), tileRef.GridIndices);
         UseTool(ent, user, ent, delay, tool.Qualities, args, out _, toolComponent: tool); // imp edit, delay was previously comp.Delay
         return true;

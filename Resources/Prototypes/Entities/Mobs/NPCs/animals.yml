@@ -50,7 +50,10 @@
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: ReplacementAccent
     accent: mouse
   - type: MeleeWeapon
@@ -123,7 +126,7 @@
       0: Alive
       10: Dead
   - type: Stamina
-    critThreshold: 10
+    baseCritThreshold: 10
     animationThreshold: 1
   - type: DamageStateVisuals
     states:
@@ -152,8 +155,10 @@
     - Trash
     - MultitoolDefibrillatorTarget #imp
   - type: Bloodstream
-    bloodReagent: InsectBlood
-    bloodMaxVolume: 0.1
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 0.1
   - type: MobPrice
     price: 50
   - type: NPCRetaliation
@@ -200,7 +205,10 @@
     factions:
     - SimpleHostile
   - type: Bloodstream
-    bloodMaxVolume: 0.1
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 0.1
   - type: ZombieImmune
   - type: AlwaysRevolutionaryConvertible #imp
 
@@ -275,7 +283,10 @@
     interactSuccessSound:
       path: /Audio/Animals/chicken_cluck_happy.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
@@ -292,8 +303,8 @@
     biomassRestored: 0.2
   - type: Carriable #DeltaV
     freeHandsRequired: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   parent: MobChicken
@@ -362,7 +373,7 @@
   - type: TimedDespawn #delete the egg after the chicken spawns
     lifetime: 21
 
-- type: entity # TODO: figure out how to make these guys gib when stepped on
+- type: entity
   name: cockroach
   parent: SimpleMobBase
   id: MobCockroach
@@ -409,9 +420,11 @@
       Dead:
         Base: cockroach_dead
   - type: Bloodstream
-    bloodReagent: InsectBlood
-    bloodMaxVolume: 20
-  - type: Food
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 20
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - horrible
@@ -449,8 +462,13 @@
       - !type:GibBehavior
         recursive: false
   - type: NonSpreaderZombie
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-organic
+  - type: StepTrigger
+    requiredTriggeredSpeed: 1
+  - type: TriggerOnStepTrigger
+  - type: RandomChanceTriggerCondition
+    successChance: 0.2
+  - type: GibOnTrigger
+  - type: ProtectedFromStepTriggers
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Effects/bite.ogg
@@ -468,6 +486,9 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: SentienceTarget #imp restore the talking roach
+    flavorKind: station-event-random-sentience-flavor-organic
+    weight: 0.5
   # imp edit end
 
 - type: entity
@@ -580,7 +601,10 @@
     damageContainer: Biological
     damageModifierSet: Moth
   - type: Bloodstream
-    bloodReagent: InsectBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 20
   - type: Respirator
     damage:
       types:
@@ -676,8 +700,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 
 # Note that the mallard duck is actually a male drake mallard, with the brown duck being the female variant of the same species, however ss14 lacks sex specific textures
@@ -743,7 +767,10 @@
     interactSuccessSound:
       path: /Audio/Animals/duck_quack_happy.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
@@ -760,8 +787,8 @@
     biomassRestored: 0.2
   - type: Carriable #DeltaV
     freeHandsRequired: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: white duck #Quack
@@ -880,8 +907,10 @@
     - MultitoolDefibrillatorTarget #imp
     - Butterfly #imp, for butterfly orchid
   - type: Bloodstream
-    bloodReagent: InsectBlood
-    bloodMaxVolume: 0.1
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 0.1
   - type: MobPrice
     price: 50
   - type: Destructible
@@ -893,10 +922,11 @@
       behaviors:
       - !type:GibBehavior
         recursive: false
+  - type: ZombieImmune
   # imp edit start
   - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: cow
@@ -986,8 +1016,8 @@
   - type: GoobAbsorbable
     biomassRestored: 0.7
   - type: CowToolProficiency #this was made for ungus, but i'm putting this here in case an admin wants to be cute and give a cow hands
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: crab
@@ -1046,8 +1076,10 @@
   - type: ReplacementAccent
     accent: crab
   - type: Bloodstream
-    bloodMaxVolume: 50
-    bloodReagent: CopperBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 50
   - type: Tag
     tags:
     - VimPilot
@@ -1073,8 +1105,8 @@
       Male: UnisexDecapoid
       Female: UnisexDecapoid
       Unsexed: UnisexDecapoid
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: goat
@@ -1181,8 +1213,8 @@
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.5
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
@@ -1228,7 +1260,10 @@
     interactSuccessSound:
       path: /Audio/Animals/goose_honk.ogg
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: NpcFactionMember
     factions:
     - Passive
@@ -1236,8 +1271,8 @@
   - type: GoobAbsorbable
     biomassRestored: 0.3
   - type: Carriable #DeltaV
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: gorilla
@@ -1276,7 +1311,10 @@
     - id: FoodMeat
       amount: 4
   - type: Bloodstream
-    bloodMaxVolume: 300
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
     # if you fuck with the gorilla he will harambe you
   - type: MeleeWeapon
     soundHit:
@@ -1302,6 +1340,8 @@
         true
       NavSmash: !type:Bool
         true
+  - type: Puller
+    needsHands: false
   - type: Prying
     pryPowered: true
     force: true
@@ -1425,6 +1465,7 @@
   abstract: true
   components:
   - type: CombatMode
+    canDisarm: true
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1443,7 +1484,6 @@
     #imp edit end
   - type: Deathgasp
     prototype: MonkeyDeathgasp
-  - type: Blindable #imp
   - type: Cuffable
   - type: RotationVisuals
     defaultRotation: 90
@@ -1481,7 +1521,6 @@
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
       visible: false
-  - type: Carriable #DeltaV
   - type: Hands
   - type: ComplexInteraction
   - type: GenericVisualizer
@@ -1547,13 +1586,17 @@
     - reagents: [ Water, SpaceCleaner ]
       methods: [ Touch ]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   - type: Crawler
+  - type: StatusIcon
   # imp edit start
-  - type: GoobAbsorbable # imp edit
+  - type: Blindable
+  - type: Carriable #DeltaV
+  - type: GoobAbsorbable
     biomassRestored: 0.4
-  - type: VentCrawler #imp
+  - type: VentCrawler
     enterDelay: 3
+  - type: CanWieldOneHanded
   # imp edit end
 
 - type: entity
@@ -1584,8 +1627,7 @@
       types:
         Blunt: 5
         Piercing: 4
-      groups:
-        Burn: 3
+        Heat: 3
     catchingFailDamage:
       types:
         Blunt: 1
@@ -1665,6 +1707,11 @@
   suffix: NukeOps
   components:
   - type: NukeOperative
+  - type: RandomMetadata # imp
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateMonkey
+    nameFormat: name-format-nukie-generic
 
 - type: entity
   name: kobold
@@ -1718,10 +1765,11 @@
         Slash: 5
         Piercing: 4
   - type: Temperature
-    heatDamageThreshold: 360
-    coldDamageThreshold: 285
     currentTemperature: 310.15
     specificHeat: 42
+  - type: TemperatureDamage
+    heatDamageThreshold: 360
+    coldDamageThreshold: 285
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -1790,8 +1838,7 @@
       types:
         Blunt: 2
         Piercing: 7
-      groups:
-        Burn: 3
+        Heat: 3
     catchingFailDamage:
       types:
         Blunt: 1
@@ -1928,7 +1975,7 @@
         Base: dead-0
       Dead:
         Base: splat-0
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - meaty
@@ -2005,7 +2052,10 @@
       types:
         Piercing: 0
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: CanEscapeInventory
   - type: MobPrice
     price: 50
@@ -2019,6 +2069,7 @@
       Taco: RatTaco
       Burger: RatBurger
       Skewer: RatSkewer
+      Hotdog: RatTaco #imp
   - type: Destructible
     thresholds:
     - trigger:
@@ -2179,6 +2230,12 @@
   parent: MobMouse
   id: MobMouseCancer
   components:
+  - type: GhostRole
+    name: ghost-role-information-cancer-mouse-name
+    description: ghost-role-information-cancer-mouse-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleGhostRoleFreeAgent
   - type: Sprite
     color: LightGreen
   - type: PointLight
@@ -2189,7 +2246,10 @@
   - type: RadiationSource
     intensity: 0.3
   - type: Bloodstream
-    bloodReagent: UnstableMutagen
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: UnstableMutagen
+        Quantity: 50
   - type: SolutionContainerManager
     solutions:
       food:
@@ -2255,7 +2315,10 @@
     interactSuccessSound:
       path: /Audio/Animals/lizard_happy.ogg
   - type: Bloodstream
-    bloodMaxVolume: 150
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 150
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
@@ -2271,7 +2334,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: [ 'Hiss' ] # Can't thump tail because no body component
+    allowedEmotes: [ 'Hiss', 'Chirp' ] # Can't thump tail because no body component # imp edit to add chirp
   - type: Vocal
     sounds:
       Male: MaleReptilian
@@ -2285,9 +2348,8 @@
     activateSound: null
     deactivateSound: null
   - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
-
 
 - type: entity
   name: slug
@@ -2334,7 +2396,10 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   # imp edit start
   - type: Tag
     tags:
@@ -2352,8 +2417,8 @@
   - type: PleebnarGibbable
   - type: VentCrawler
     enterDelay: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: frog
@@ -2409,7 +2474,10 @@
     interactSuccessSound:
       path: /Audio/Animals/frog_ribbit.ogg
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: Tag
     tags:
     - VimPilot
@@ -2436,8 +2504,8 @@
   - type: PleebnarGibbable
   - type: VentCrawler
     enterDelay: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 # Would be cool to have some functionality for the parrot to be able to sit on stuff
 - type: entity
@@ -2516,7 +2584,10 @@
     interactSuccessSound:
       path: /Audio/Animals/parrot_raught.ogg
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.2
@@ -2580,10 +2651,11 @@
     factions:
     - Passive
   - type: Temperature
-    heatDamageThreshold: 335
-    coldDamageThreshold: 230
     currentTemperature: 310.15
     specificHeat: 46
+  - type: TemperatureDamage
+    heatDamageThreshold: 335
+    coldDamageThreshold: 230
     coldDamage:
       types:
         Cold : 0.05 #per second, scales with temperature & other constants
@@ -2594,8 +2666,8 @@
   - type: GoobAbsorbable
     biomassRestored: 0.3
   - type: Carriable #DeltaV
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 # TODO: Make grenade penguin voice activated like the rest of the stealth items.
 - type: entity
@@ -2611,7 +2683,7 @@
   - type: MobMover
   - type: HTN
     rootTask:
-      task: GrenadePenguinCompound # imp
+      task: GrenadePenguinCompound
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -2651,7 +2723,7 @@
     sprite: Mobs/Animals/grenadepenguin.rsi
   - type: TriggerOnUse
   - type: TimerTrigger
-    delay: 15 #imp
+    delay: 10
     beepSound:
       path: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg #funny sfx use
       params:
@@ -2659,9 +2731,9 @@
     beepInterval: 1
   - type: Explosive
     explosionType: Default
-    maxIntensity: 10 # imp
-    intensitySlope: 20
-    totalIntensity: 225
+    maxIntensity: 10
+    intensitySlope: 3
+    totalIntensity: 150
   - type: ExplodeOnTrigger
     keysIn:
     - timer
@@ -2716,7 +2788,10 @@
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
   - type: Bloodstream
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 50
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Scale
@@ -2734,8 +2809,8 @@
     tags: []
   - type: VentCrawler
     enterDelay: 2
-  - type: AlwaysRevolutionaryConvertible #imp
-# imp edit end
+  - type: AlwaysRevolutionaryConvertible
+  # imp edit end
 
 # Code unique spider prototypes or combine them all into one spider and get a
 # random sprite state when you spawn it.
@@ -2791,16 +2866,20 @@
     interactSuccessSpawn: EffectHearts
     interactSuccessSound:
       path: /Audio/Animals/snake_hiss.ogg
+  - type: Puller
+    needsHands: false
   - type: NoSlip
   - type: Spider
   - type: IgnoreSpiderWeb
   - type: Bloodstream
-    bloodMaxVolume: 150
-    bloodReagent: CopperBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 150
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
-    allowedEmotes: ['Click', 'Chitter']
+    allowedEmotes: ['Click', 'Chitter', 'Hiss'] # imp edit to add hiss
   - type: Vocal
     sounds:
       Male: UnisexArachnid
@@ -2812,6 +2891,7 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+    - SpiderCraft # imp edit, if a vent spider somehow gets the ability to craft it should be able to make silk stuff
   - type: Prying # Open door from xeno.yml.
     pryPowered: true
     force: true
@@ -2829,19 +2909,6 @@
         Brute: -0.07
         Burn: -0.07
   # imp edit start
-  - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: [ "enum.DamageStateVisualLayers.Base", "movement" ]
-      state: tarantula
-      sprite: Mobs/Animals/spider.rsi
-  - type: SpriteMovement
-    movementLayers:
-      movement:
-        state: tarantula-moving
-    noMovementLayers:
-      movement:
-        state: tarantula
   - type: GoobAbsorbable # big enough to restore a good amount of biomass
     biomassRestored: 0.7
   - type: NightVision # EE edit
@@ -2868,6 +2935,13 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+    blackboard: # imp edit start
+      NavClimb: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true # imp edit end
   - type: GhostRole
     makeSentient: true
     name: ghost-role-information-giant-spider-name
@@ -2967,9 +3041,10 @@
     - type: Speech
       speechVerb: Cluwne
     - type: Bloodstream
-      bloodMaxVolume: 150
-      bloodReagent: Laughter
-
+      bloodReferenceSolution:
+        reagents:
+        - ReagentId: Laughter
+          Quantity: 150
 - type: entity
   name: wizard spider
   parent: MobGiantSpider
@@ -3043,8 +3118,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: possum
@@ -3137,8 +3212,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: fox
@@ -3197,7 +3272,10 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodMaxVolume: 100
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 100
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -3279,11 +3357,11 @@
     biomassRestored: 0.3
   - type: Carriable #DeltaV
   - type: DogVision
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
-  parent: MobCorgiBase
+  parent: [DogBarkBase, MobCorgiBase] # imp edit
   id: MobCorgi
   components:
   - type: DamageStateVisuals
@@ -3300,15 +3378,16 @@
       amount: 2
   - type: ReplacementAccent
     accent: dog
-  - type: SentienceTarget
-    flavorKind: station-event-random-sentience-flavor-corgi
   - type: Tag
     tags:
     - VimPilot
+  - type: NpcFactionMember # imp edit
+    factions:
+      - Dog
 
 - type: entity
   name: corrupted corgi
-  parent: [ MobCorgi, MobCombat ]
+  parent: [ MobCorgiBase, MobCombat ] # imp edit
   id: MobCorgiNarsi
   description: Ian! No!
   components:
@@ -3351,21 +3430,36 @@
     attributes:
       gender: epicene
   - type: Bloodstream
-    bloodReagent: DemonsBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: DemonsBlood
+        Quantity: 150
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: Infernal
   - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: TemperatureDamage
     heatDamageThreshold: 4000 #They come from hell, so..
     coldDamageThreshold: 260
-    currentTemperature: 310.15
     coldDamage:
       types:
         Cold : 1 #per second, scales with temperature & other constants
-    specificHeat: 42
     heatDamage:
       types:
         Heat : 1 #per second, scales with temperature & other constants
+# start imp, Unparented from MobCorgi
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 2
+  - type: ReplacementAccent
+    accent: dog
+  - type: Tag
+    tags:
+    - VimPilot
+# end imp
 
 - type: entity
   name: corgi puppy
@@ -3483,8 +3577,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: calico cat
@@ -3567,6 +3661,11 @@
   - type: ActiveRadio
     channels:
     - Syndicate
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateCat
+    nameFormat: name-format-nukie-generic
   # imp edit end
 
 - type: entity
@@ -3588,6 +3687,7 @@
       Dead:
         Base: spacecat_dead
   - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 423
     coldDamageThreshold: 0
   - type: Tag
@@ -3725,11 +3825,11 @@
     tags:
     - VimPilot
   # imp edit start
-  - type: GoobAbsorbable # imp edit
+  - type: GoobAbsorbable
     biomassRestored: 0.3
   - type: Carriable #DeltaV
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: ferret
@@ -3796,8 +3896,8 @@
     deactivateSound: null
   - type: VentCrawler
     enterDelay: 3
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: hamster
@@ -3873,7 +3973,7 @@
         Base: dead-0
       Dead:
         Base: splat-0
-  - type: Food
+  - type: Edible
   - type: FlavorProfile
     flavors:
     - meaty
@@ -3933,7 +4033,10 @@
     interactSuccessSound:
       path: /Audio/Animals/fox_squeak.ogg
   - type: Bloodstream
-    bloodMaxVolume: 60
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 60
   - type: CanEscapeInventory
     baseResistTime: 3
   - type: MobPrice
@@ -3957,8 +4060,8 @@
   - type: PleebnarGibbable
   - type: VentCrawler
     enterDelay: 1
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: pig
@@ -4035,8 +4138,8 @@
     biomassRestored: 0.7
   - type: Carriable #DeltaV
   - type: PleebnarGibbable
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: diona nymph
@@ -4066,8 +4169,10 @@
     speciesId: cat
     templateId: pet
   - type: Bloodstream
-    bloodReagent: Sap
-    bloodMaxVolume: 60
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Sap
+        Quantity: 60
   - type: DamageStateVisuals
     states:
       Alive:
@@ -4110,7 +4215,7 @@
     tags:
     - DoorBumpOpener
     - VimPilot
-    - DionaMinded #imp
+    - DionaHivemind #imp
   - type: Emoting
   - type: BodyEmotes
     soundsId: Nymph
@@ -4189,7 +4294,10 @@
     - id: FoodMeat
       amount: 4
   - type: Bloodstream
-    bloodMaxVolume: 300
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 300
     # Horns though
   - type: MeleeWeapon
     damage:
@@ -4215,8 +4323,8 @@
     color: "#50595C"
     activateSound: null
     deactivateSound: null
+  - type: AlwaysRevolutionaryConvertible
   # imp edit end
-  - type: AlwaysRevolutionaryConvertible #imp
 
 - type: entity
   name: reindeer doe

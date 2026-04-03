@@ -8,7 +8,7 @@
     layers:
     - state: stick
     - state: nogga # TODO: rename this or migrate & rename if deleted
-  - type: Food
+  - type: Edible
     trash:
     - FoodFrozenPopsicleTrash
   - type: SolutionContainerManager

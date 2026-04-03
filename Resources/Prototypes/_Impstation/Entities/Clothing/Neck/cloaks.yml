@@ -124,6 +124,7 @@
   - type: HideLayerClothing
     slots:
     - Tail
+    overrideSpeciesLayers: true
 
 - type: entity
   parent: [ClothingNeckBase, Tier1Contraband]
@@ -148,6 +149,7 @@
   - type: HideLayerClothing
     slots:
     - Tail
+    overrideSpeciesLayers: true
   - type: WearerGetsExamineText # imp
     examineText: obvious-x-cloak-straight
     warnExamine: true # the fugitive knows they're straight as fuck
@@ -218,12 +220,21 @@
   - type: Butcherable
     butcheringType: Knife
   - type: HideLayerClothing
-    slots: 
+    slots:
     - RArmExtension
   - type: FlavorProfile
-    flavors: 
+    flavors:
      - batteryacid # imp
   - type: TemperatureProtection
     heatingCoefficient: 1.1
 
     coolingCoefficient: 0.1
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakMagicianCape
+  name: magician's cape
+  description: "A collared cape with red lining, a staple accessory for any magician or vampire."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Cloaks/magiciancape.rsi

@@ -87,6 +87,10 @@ public sealed class SpiderSystem : SharedSpiderSystem
             result = true;
         }
 
+        // Imp addition, return early if you're only supposed to spawn one web
+        if (ent.Comp.SpawnOneWeb)
+            return result;
+
         // Spawn web in other directions
         for (var i = 0; i < 4; i++)
         {

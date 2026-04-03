@@ -2,6 +2,7 @@
 using Content.Shared.FixedPoint;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Nutrition.Prototypes;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -11,7 +12,7 @@ namespace Content.Shared.Nutrition.Components;
 /// This is used on an entity with a solution container to flag a specific solution as being able to have its
 /// reagents consumed directly.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(IngestionSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(IngestionSystem)), AutoGenerateComponentState(true)] //#IMP Add  Autogeneratecomponentstate
 public sealed partial class EdibleComponent : Component
 {
     /// <summary>
@@ -79,8 +80,15 @@ public sealed partial class EdibleComponent : Component
     public bool RequireDead = true;
 
     /// <summary>
-    /// Verb, icon, and sound data for our edible.
+    /// An optional override for the sound made when consuming this item.
+    /// Useful for if an edible type doesn't justify a new prototype, like with plushies.
     /// </summary>
     [DataField]
+    public SoundSpecifier? UseSound;
+
+    /// <summary>
+    /// Verb, icon, and sound data for our edible.
+    /// </summary>
+    [DataField, AutoNetworkedField] //#IMP Added autonetworkedfield to fix clientside 'food' verb
     public ProtoId<EdiblePrototype> Edible = IngestionSystem.Food;
 }

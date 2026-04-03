@@ -14,5 +14,5 @@ public sealed partial class RoomEntranceDunGen : IDunGenLayer
     public ProtoId<ContentTileDefinition> Tile;
 
     [DataField]
-    public EntProtoId Contents; // imp
+    public EntProtoId Contents; // imp, was entitytable
 }

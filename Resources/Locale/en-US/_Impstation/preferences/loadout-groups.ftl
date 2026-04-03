@@ -79,6 +79,12 @@ loadout-group-musician-gloves = Musician gloves
 loadout-group-musician-shoes = Musician shoes
 loadout-group-musician-head = Musician head
 
+loadout-group-zookeeper-head = Zookeeper head
+loadout-group-zookeeper-jumpsuit = Zookeeper jumpsuit
+loadout-group-zookeeper-outerclothing = Zookeeper outer clothing
+loadout-group-zookeeper-gloves = Zookeeper gloves
+loadout-group-zookeeper-shoes = Zookeeper shoes
+
 loadout-group-reporter-mask = Reporter mask
 loadout-group-reporter-neck = Reporter neck
 loadout-group-reporter-shoes = Reporter shoes
@@ -89,7 +95,6 @@ loadout-group-quartermaster-headset = Quartermaster headset
 
 loadout-group-cargo-technician-mask = Cargo Technician mask
 loadout-group-cargo-technician-neck = Cargo Technician neck
-loadout-group-cargo-technician-id = Cargo Technician ID
 loadout-group-cargo-technician-belt = Cargo Technician belt
 
 loadout-group-salvage-specialist-neck = Salvage Specialist neck
@@ -103,6 +108,7 @@ loadout-group-courier-backpack = Courier backpack
 loadout-group-courier-neck = Courier neck
 loadout-group-courier-outerclothing = Courier outer clothing
 loadout-group-courier-shoes = Courier shoes
+loadout-group-courier-id = Courier ID
 
 # engineering
 loadout-group-chief-engineer-backpack = Chief Engineer backpack
@@ -129,6 +135,7 @@ loadout-group-head-of-security-belt = Head of Security belt
 loadout-group-security-gun-command = Sidearm
 loadout-group-security-ammo-command = Ammunition
 
+loadout-group-security-glasses = Security glasses
 loadout-group-warden-neck = Warden neck
 loadout-group-upper-security-shoes = Security shoes
 loadout-group-warden-id = Warden ID

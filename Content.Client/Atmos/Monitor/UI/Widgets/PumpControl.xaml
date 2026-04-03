@@ -30,6 +30,7 @@
                         <FloatSpinBox Name="CInternalBound" HorizontalExpand="True" />
                     </BoxContainer>
                 </BoxContainer>
+                <!-- imp add: supermatter pressure lockout -->
                 <BoxContainer>
                     <CheckBox Name="CPressureLockout" Text="{Loc 'air-alarm-ui-vent-pressure-lockout-label'}" />
                 </BoxContainer>
