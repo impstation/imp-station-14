@@ -54,8 +54,29 @@
     Cloth: 200
     Durathread: 100
 
+## Static
 ## Job Uniforms
 # Atmos Technician
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingOuterCoatBomberAtmos
+  result: ClothingOuterCoatBomberAtmos
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingOuterCoatBomberAtmosHolo
+  result: ClothingOuterCoatBomberAtmosHolo
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformAtmosFlightSkirt
+  result: ClothingUniformAtmosFlightSkirt
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformAtmosFlightSuit
+  result: ClothingUniformAtmosFlightSuit
+
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtAtmos
@@ -152,6 +173,11 @@
 
 - type: latheRecipe
   parent: BaseCoatRecipe
+  id: ClothingOuterCoatBomberBrigmed
+  result: ClothingOuterCoatBomberBrigmed
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
   id: ClothingOuterWinterBrigmedic
   result: ClothingOuterWinterBrigmedic
 
@@ -216,6 +242,11 @@
   parent: BaseHatRecipe
   id: ClothingHeadHatCargosoft
   result: ClothingHeadHatCargosoft
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatBomberCargo
+  result: ClothingOuterCoatBomberCargo
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -606,6 +637,11 @@
   result: ClothingOuterCoatDetectiveLoadoutGrey
 
 - type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatFieldJacket
+  result: ClothingOuterCoatFieldJacket
+
+- type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformDetectiveSuit
   result: ClothingUniformDetectiveSuit
@@ -674,6 +710,11 @@
 
 - type: latheRecipe
   parent: BaseCommandHatRecipe
+  id: ClothingHeadHatHOSColonelCap
+  result: ClothingHeadHatHOSColonelCap
+
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
   id: ClothingHeadHatHoshatDV
   result: ClothingHeadHatHoshatDV
 
@@ -698,9 +739,24 @@
   result: ClothingNeckMantleHOS
 
 - type: latheRecipe
+  parent: BaseCommandCoatRecipe
+  id: ClothingOuterCoatHosBomber
+  result: ClothingOuterCoatHosBomber
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpskirtHoSColonel
+  result: ClothingUniformJumpskirtHoSColonel
+
+- type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
   id: ClothingUniformJumpskirtHoSPro
   result: ClothingUniformJumpskirtHoSPro
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitHoSColonel
+  result: ClothingUniformJumpsuitHoSColonel
 
 - type: latheRecipe
   parent: BaseCommandJumpsuitRecipe
@@ -929,6 +985,11 @@
 
 - type: latheRecipe
   parent: BaseCoatRecipe
+  id: ClothingOuterCoatBomberMedical
+  result: ClothingOuterCoatBomberMedical
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
   id: ClothingOuterCoatLab
   result: ClothingOuterCoatLab
 
@@ -1019,15 +1080,55 @@
   result: ClothingHeadHatBeretFrench
 
 - type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatMimeBowler
+  result: ClothingHeadHatMimeBowler
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckScarfAscot
+  result: ClothingNeckScarfAscot
+
+- type: latheRecipe
   parent: BaseNeckClothingRecipe
   id: ClothingNeckScarfStripedZebra
   result: ClothingNeckScarfStripedZebra
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatPufferMime
+  result: ClothingOuterCoatPufferMime
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtMimeCropped
+  result: ClothingUniformJumpskirtMimeCropped
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpskirtMimeNouveau
+  result: ClothingUniformJumpskirtMimeNouveau
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitMimeCropped
+  result: ClothingUniformJumpsuitMimeCropped
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitMimeNouveau
+  result: ClothingUniformJumpsuitMimeNouveau
 
 # Musician
 - type: latheRecipe
   parent: BaseHatRecipe
   id: ClothingHeadHatMusicianShako
   result: ClothingHeadHatMusicianShako
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatMusicianFurCoat
+  result: ClothingOuterCoatMusicianFurCoat
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -1170,6 +1271,11 @@
 
 - type: latheRecipe
   parent: BaseCoatRecipe
+  id: ClothingOuterCoatBomberScience
+  result: ClothingOuterCoatBomberScience
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
   id: ClothingOuterCoatLabSeniorResearcher
   result: ClothingOuterCoatLabSeniorResearcher
 
@@ -1215,6 +1321,11 @@
   result: ClothingHeadHatSecurityTrooper
 
 - type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatBomberSecurity
+  result: ClothingOuterCoatBomberSecurity
+
+- type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformSpaceJumpsuitSecurity
   result: ClothingUniformSpaceJumpsuitSecurity
@@ -1226,9 +1337,9 @@
 
 # Station Engineer
 - type: latheRecipe
-  parent: BaseBeltRecipe
-  id: ClothingBeltUtility
-  result: ClothingBeltUtility
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatBomberEngineer
+  result: ClothingOuterCoatBomberEngineer
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -1254,8 +1365,18 @@
 # Zookeeper
 - type: latheRecipe
   parent: BaseHatRecipe
+  id: ClothingHeadHatBucketHat
+  result: ClothingHeadHatBucketHat
+
+- type: latheRecipe
+  parent: BaseHatRecipe
   id: ClothingHeadSafari
   result: ClothingHeadSafari
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterWinterZookeeper
+  result: ClothingOuterWinterZookeeper
 
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
@@ -1266,54 +1387,18 @@
 # Belts
 - type: latheRecipe
   parent: BaseBeltRecipe
-  id: ClothingBeltUtilityBlack
-  result: ClothingBeltUtilityBlack
-
-# Emag
-- type: latheRecipe
-  parent: BaseCommandHatRecipe
-  id: ClothingHeadHatCentcommIntern
-  result: ClothingHeadHatCentcommIntern
-
-- type: latheRecipe
-  parent: BaseCommandNeckClothingRecipe
-  id: ClothingNeckCloakCentcom
-  result: ClothingNeckCloakCentcom
-
-- type: latheRecipe
-  parent: BaseNeckClothingRecipe
-  id: ClothingNeckCloakFugitiveCloak
-  result: ClothingNeckCloakFugitiveCloak
-
-- type: latheRecipe
-  parent: BaseNeckClothingRecipe
-  id: ClothingNeckCloakKaijuCloak
-  result: ClothingNeckCloakKaijuCloak
-
-- type: latheRecipe
-  parent: BaseNeckClothingRecipe
-  id: ClothingNeckCloakStraight
-  result: ClothingNeckCloakStraight
-
-- type: latheRecipe
-  parent: BaseCommandNeckClothingRecipe
-  id: ClothingNeckScarfStripedCentcom
-  result: ClothingNeckScarfStripedCentcom
-
-- type: latheRecipe
-  parent: BaseNeckClothingRecipe
-  id: ClothingNeckScarfStripedSyndieRed
-  result: ClothingNeckScarfStripedSyndieRed
-
-- type: latheRecipe
-  parent: BaseNeckClothingRecipe
-  id: ClothingNeckScarfStripedSyndieGreen
-  result: ClothingNeckScarfStripedSyndieGreen
+  id: ClothingBeltUtility
+  result: ClothingBeltUtility
 
 - type: latheRecipe
   parent: BaseBeltRecipe
-  id: ClothingBeltSyndieHolster
-  result: ClothingBeltSyndieHolster
+  id: ClothingBeltUtilityBlack
+  result: ClothingBeltUtilityBlack
+
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltPlushiePrinter
+  result: ClothingBeltPlushie
 
 # Head
 - type: latheRecipe
@@ -1352,7 +1437,53 @@
   id: ClothingNeckScarfStripedLimeGreen
   result: ClothingNeckScarfStripedLimeGreen
 
-# Jumpsuit
+# Outer Clothing
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatBomberBlack
+  result: ClothingOuterCoatBomberBlack
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatBomberWhite
+  result: ClothingOuterCoatBomberWhite
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatPufferDark
+  result: ClothingOuterCoatPufferDark
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatPufferRed
+  result: ClothingOuterCoatPufferRed
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatPufferBlue
+  result: ClothingOuterCoatPufferBlue
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatPufferSilver
+  result: ClothingOuterCoatPufferSilver
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterCoatPufferPink
+  result: ClothingOuterCoatPufferPink
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterBlackPoncho
+  result: ClothingOuterBlackPoncho
+
+- type: latheRecipe
+  parent: BaseCoatRecipe
+  id: ClothingOuterWhitePoncho
+  result: ClothingOuterWhitePoncho
+
+# Torso (jumpsuit)
 - type: latheRecipe
   parent: BaseJumpsuitRecipe
   id: ClothingUniformColorRainbow
@@ -1490,3 +1621,50 @@
   parent: BaseNeckClothingRecipe
   id: ClothingNeckScarfStripedTrans
   result: ClothingNeckScarfStripedTrans
+
+## Dynamic
+# Emag
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatCentcommIntern
+  result: ClothingHeadHatCentcommIntern
+
+- type: latheRecipe
+  parent: BaseCommandNeckClothingRecipe
+  id: ClothingNeckCloakCentcom
+  result: ClothingNeckCloakCentcom
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckCloakFugitiveCloak
+  result: ClothingNeckCloakFugitiveCloak
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckCloakKaijuCloak
+  result: ClothingNeckCloakKaijuCloak
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckCloakStraight
+  result: ClothingNeckCloakStraight
+
+- type: latheRecipe
+  parent: BaseCommandNeckClothingRecipe
+  id: ClothingNeckScarfStripedCentcom
+  result: ClothingNeckScarfStripedCentcom
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckScarfStripedSyndieRed
+  result: ClothingNeckScarfStripedSyndieRed
+
+- type: latheRecipe
+  parent: BaseNeckClothingRecipe
+  id: ClothingNeckScarfStripedSyndieGreen
+  result: ClothingNeckScarfStripedSyndieGreen
+
+- type: latheRecipe
+  parent: BaseBeltRecipe
+  id: ClothingBeltSyndieHolster
+  result: ClothingBeltSyndieHolster

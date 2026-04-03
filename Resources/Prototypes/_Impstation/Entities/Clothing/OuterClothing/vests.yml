@@ -11,7 +11,7 @@
     sprite: _Impstation/Clothing/OuterClothing/Vests/hd_vest.rsi
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothingGasTanks]
+  parent: ClothingOuterStorageBase
   id: ClothingOuterCowVest
   name: Cow print vest
   description: A vest made of synthetic cow skin. NO COWS WERE HARMED IN THE MAKING OF THIS PRODUCT.
@@ -31,7 +31,7 @@
     price: 0
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothingGasTanks]
+  parent: ClothingOuterStorageBase
   id: ClothingOuterBlackVest
   name: Cow print vest
   description: A slick black leather vest like the ones the cowboys used to wear.

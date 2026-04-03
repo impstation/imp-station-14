@@ -14,6 +14,7 @@
   # CT
   - ClothingBeltCargoSenior
   - ClothingHeadHatCargosoft
+  - ClothingOuterCoatBomberCargo
   - ClothingUniformJumpsuitCargoSenior
   - ClothingUniformJumpsuitCargoLong
   # Salv
@@ -29,6 +30,15 @@
   - ClothingHeadHatKippahSimple
   - ClothingHeadHatKippahWhiteAndBlue
   - ClothingNeckCloakPassenger
+  - ClothingOuterCoatBomberBlack
+  - ClothingOuterCoatBomberWhite
+  - ClothingOuterCoatPufferDark
+  - ClothingOuterCoatPufferRed
+  - ClothingOuterCoatPufferBlue
+  - ClothingOuterCoatPufferSilver
+  - ClothingOuterCoatPufferPink
+  - ClothingOuterBlackPoncho
+  - ClothingOuterWhitePoncho
   - ClothingUniformColorRainbow
   - ClothingUniformJumpskirtColorRainbow
   - ClothingUniformJumpsuitNanotrasen
@@ -92,12 +102,15 @@
   - ClothingUniformJumpsuitBoatswain
   # hos
   - ClothingBeltHolsterHOS
+  - ClothingHeadHatHOSColonelCap
   - ClothingHeadHatHoshatDV
   - ClothingHeadHatHOSsoft
   - ClothingNeckCloakHos
   - ClothingNeckCloakHosgreatcoat
   - ClothingNeckMantleHOS
+  - ClothingUniformJumpskirtHoSColonel
   - ClothingUniformJumpskirtHoSPro
+  - ClothingUniformJumpsuitHoSColonel
   - ClothingUniformJumpsuitHoSPro
   # rd
   - ClothingNeckCloakMystagogue
@@ -114,10 +127,13 @@
   id: ClothingEngineeringImp
   recipes:
   # atmos
+  - ClothingUniformAtmosFlightSkirt
+  - ClothingUniformAtmosFlightSuit
   - ClothingUniformJumpskirtAtmos
   - ClothingUniformJumpsuitAtmos
   - ClothingUniformJumpsuitAtmosCasual
   # engineer
+  - ClothingOuterCoatBomberEngineer
   - ClothingUniformJumpsuitEngineeringHazard
   - ClothingUniformSpaceJumpsuitEngineer
 
@@ -125,6 +141,7 @@
   id: ClothingMedicalImp
   recipes:
   # Chemist
+  - ClothingNeckTieChem
   - ClothingOuterApronChemist
   - ClothingUniformSpaceJumpsuitChemist
   # Medical Doctor
@@ -173,6 +190,7 @@
   id: ClothingSecurityImp
   recipes:
   # brigmedic
+  - ClothingOuterCoatBomberBrigmed
   - ClothingHeadHatBrigmedicsoft
   # detective
   - ClothingBeltHolster
@@ -290,7 +308,13 @@
   - ClothingBeltSuspendersRed
   - ClothingHeadHatBeret
   - ClothingHeadHatBeretFrench
+  - ClothingHeadHatMimeBowler
+  - ClothingNeckScarfAscot
   - ClothingNeckScarfStripedZebra
+  - ClothingUniformJumpskirtMimeCropped
+  - ClothingUniformJumpskirtMimeNouveau
+  - ClothingUniformJumpsuitMimeCropped
+  - ClothingUniformJumpsuitMimeNouveau
   # musician
   - ClothingHeadHatMusicianShako
   - ClothingUniformJumpsuitMusicianMarchingBand
@@ -300,6 +324,7 @@
   - ClothingUniformJumpsuitReporter
   - ClothingUniformJumpsuitJournalist
   # zookeeper
+  - ClothingHeadHatBucketHat
   - ClothingHeadSafari
   - ClothingUniformJumpsuitSafari
 
@@ -309,6 +334,7 @@
   - ClothingOuterWinterBrigmedic
   - ClothingOuterWinterCourier
   - ClothingOuterWinterHD
+  - ClothingOuterWinterZookeeper
 
 - type: latheRecipePack
   id: PrideFlags
@@ -341,6 +367,7 @@
 - type: latheRecipePack
   id: BeltsImp
   recipes:
+  - ClothingBeltPlushie
   - ClothingBeltUtility
   - ClothingBeltUtilityBlack
 
@@ -350,13 +377,8 @@
   - ClothingNeckScarfStripedLimeGreen
   - ClothingNeckScarfWrappedBlack
   - ClothingNeckScarfWrappedWhite
-  - ClothingNeckTieChem #please dont make me make a new pack for one tie
 
 # Dynamic
-
-# - type: latheRecipePack
-#   id: ImpClothesDynamic
-#   recipes:
 
 # Emagged
 
