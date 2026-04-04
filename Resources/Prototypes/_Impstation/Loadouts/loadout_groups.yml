@@ -671,6 +671,48 @@
   - MusicianSingerGloves
 
 - type: loadoutGroup
+  id: ZookeeperOuterClothing
+  name: loadout-group-zookeeper-outerclothing
+  minLimit: 0
+  loadouts:
+  - ZookeeperWinterCoat
+
+- type: loadoutGroup
+  id: ZookeeperJumpsuit
+  name: loadout-group-zookeeper-jumpsuit
+  loadouts:
+  - SafariSuit
+  - SafariSuitPants
+  - AnimalControlSuit
+  - ZookeeperBeastUniform
+
+- type: loadoutGroup
+  id: ZookeeperShoes
+  name: loadout-group-zookeeper-shoes
+  loadouts:
+  - WhiteShoes
+  - LeatherBoots
+  - BrownCowboyBoots
+  - BlackCowboyBoots
+  - LightBrownWinterBoots
+
+- type: loadoutGroup
+  id: ZookeeperHead
+  name: loadout-group-zookeeper-head
+  minLimit: 0
+  loadouts:
+  - SafariHat
+  - BucketHat
+
+- type: loadoutGroup
+  id: ZookeeperGloves
+  name: loadout-group-zookeeper-gloves
+  minLimit: 0
+  loadouts:
+  - BrownGloves
+  - LightBrownGloves
+
+- type: loadoutGroup
   id: ReporterNeck
   name: loadout-group-reporter-neck
   minLimit: 0
