@@ -289,6 +289,7 @@ public sealed partial class ListingPrototype : ListingData, IPrototype, IInherit
     ///     The collection of parents for this prototype. Parents' data is applied to the child in order of
     ///     specification in the array.
     /// </summary>
+    ///  <inheritdoc />
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<ListingPrototype>))]
     public string[]? Parents { get; private set; }
 
@@ -297,6 +298,7 @@ public sealed partial class ListingPrototype : ListingData, IPrototype, IInherit
     ///     indexable and do not show up when enumerating prototypes, as they're just a source of data to inherit
     ///     from.
     /// </summary>
+    ///  <inheritdoc />
     [NeverPushInheritance]
     [AbstractDataField]
     public bool Abstract { get; private set; }
