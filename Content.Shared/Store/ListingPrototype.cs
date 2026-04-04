@@ -285,11 +285,18 @@ public partial class ListingData : IEquatable<ListingData>
 public sealed partial class ListingPrototype : ListingData, IPrototype, IInheritingPrototype // imp edit, add IInheritingPrototype
 {
     // imp edit start, add support for parents and abstract
-    ///  <inheritdoc />
+    /// <summary>
+    ///     The collection of parents for this prototype. Parents' data is applied to the child in order of
+    ///     specification in the array.
+    /// </summary>
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<ListingPrototype>))]
     public string[]? Parents { get; private set; }
 
-    ///  <inheritdoc />
+    /// <summary>
+    ///     Whether this prototype is "abstract". This behaves ike an abstract class, abstract prototypes are never
+    ///     indexable and do not show up when enumerating prototypes, as they're just a source of data to inherit
+    ///     from.
+    /// </summary>
     [NeverPushInheritance]
     [AbstractDataField]
     public bool Abstract { get; private set; }
