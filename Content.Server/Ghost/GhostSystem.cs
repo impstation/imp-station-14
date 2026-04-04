@@ -38,6 +38,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Server._Impstation.AdminGhost; // imp
 using Content.Server.Access.Systems; //imp
 using Content.Shared.SSDIndicator; //imp
 
@@ -344,7 +345,7 @@ namespace Content.Server.Ghost
         {
             _adminLog.Add(LogType.GhostWarp, $"{ToPrettyString(uid)} ghost warped to {ToPrettyString(target)}");
 
-            if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target) || HasComp<GhostComponent>(target)) // imp edit add "|| HasComp<GhostComponent>(target)"
+            if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target) || HasComp<AdminGhostComponent>(target)) // imp edit add "|| HasComp<AdminGhostComponent>(target)"
             {
                 _followerSystem.StartFollowingEntity(uid, target);
                 return;
@@ -401,10 +402,10 @@ namespace Content.Server.Ghost
             }
 
             // imp edit start, make aghosts warpable
-            var ghostEnumerator = EntityQueryEnumerator<GhostComponent>();
-            while (ghostEnumerator.MoveNext(out var uid, out var ghostComponent))
+            var adminGhostEnumerator = EntityQueryEnumerator<AdminGhostComponent>();
+            while (adminGhostEnumerator.MoveNext(out var uid, out var adminGhostComponent))
             {
-                if (!ghostComponent.CanGhostInteract)
+                if (!adminGhostComponent.Warpable)
                     continue;
 
                 var info = $"{Comp<MetaDataComponent>(uid).EntityName} (Admin Ghost)";
