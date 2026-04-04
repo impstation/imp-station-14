@@ -91,7 +91,7 @@ public sealed partial class StoreSystem
     /// <returns>The available listings.</returns>
     public IEnumerable<ListingDataWithCostModifiers> GetAvailableListings(EntityUid buyer, EntityUid store, StoreComponent component)
     {
-        return GetAvailableListings(buyer, component.FullListingsCatalog, component.Categories, store);
+        return GetAvailableListings(buyer, component.FullListingsCatalog, component.Categories, store, component); // imp edit, add component
     }
 
     /// <summary>
@@ -118,7 +118,7 @@ public sealed partial class StoreSystem
             if (!ListingHasCategory(listing, categories))
                 continue;
 
-            if (listing.Conditions != null && component is { PassAllConditions: false }) // imp edit, add "&& component is { PassAllConditions: false }"
+            if (listing.Conditions != null)
             {
                 var args = new ListingConditionArgs(GetBuyerMind(buyer), storeEntity, listing, EntityManager);
                 var conditionsMet = true;
@@ -130,6 +130,11 @@ public sealed partial class StoreSystem
 
                 foreach (var condition in listing.Conditions)
                 {
+                    // imp edit start
+                    if (component is { PassAllConditions: true })
+                        break;
+                    // imp edit end
+
                     if (!condition.Condition(args))
                     {
                         // imp edit start
