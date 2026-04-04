@@ -42,7 +42,7 @@
     checkCanAccess: false
   - type: WorldTargetAction
     event: !type:ProjectileSpellEvent
-      prototype: BulletLPistol
+      prototype: BulletPistol
   - type: SpeakOnAction
     sentence: action-speech-spell-gun
 

@@ -1,8 +1,8 @@
 # Magazines compatible with the L6-SAW.
 - type: entity
   id: BaseMagazineLightMachineGun
-  name: "magazine (.20 rifle)"
-  description: A 100-round .20 rifle box magazine.
+  name: "SAW magazine (.20 assault)"
+  description: A 100-round .20 assault box magazine.
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -36,9 +36,9 @@
 
 - type: entity
   id: MagazineLightRifleBox
-  name: "L6 SAW magazine box (.20 rifle)"
+  name: "L6-SAW box magazine (.20 assault)"
   parent: BaseMagazineLightMachineGun
-  description: A 100-round .20 rifle box magazine of disintegrating links, designed for a belt-fed light machine gun.
+  description: A 100-round .20 assault box magazine of disintegrating links, designed for a belt-fed light machine gun.
   components:
   - type: BallisticAmmoProvider
     whitelist:

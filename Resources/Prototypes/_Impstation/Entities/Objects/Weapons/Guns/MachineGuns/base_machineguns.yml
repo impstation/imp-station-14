@@ -32,6 +32,14 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/smg.ogg
     defaultDirection: 1, 0
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 6 #16 pierce for .35 auto
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/smg_cock.ogg
@@ -120,6 +128,14 @@
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 9 #19 pierce for .20 Assault
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/lmg_cock.ogg
@@ -203,6 +219,14 @@
       path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: -5 #.10 Minigun deals 5 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: StaticPrice
     price: 500
   # No chamber because HMG may want its own

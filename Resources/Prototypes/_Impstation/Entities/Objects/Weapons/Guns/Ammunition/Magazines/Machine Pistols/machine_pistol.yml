@@ -1,8 +1,8 @@
 # Magazines compatible with the Mk 92HB and the Mk 93.
 - type: entity
   id: BaseMagazineLPistol
-  name: pistol magazine (.22 auto)
-  description: A 20-round .22 auto high-capacity pistol magazine.
+  name: machine pistol magazine (.35 auto)
+  description: A 20-round .35 auto high-capacity machine pistol magazine.
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -13,7 +13,7 @@
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgeLPistol
+        - CartridgePistol
     capacity: 20
   - type: Item
     size: Small
@@ -35,8 +35,8 @@
 
 - type: entity
   id: MagazineLPistolEmpty
-  name: pistol magazine (.22 auto any)
-  description: A 20-round .22 auto high-capacity pistol magazine with no apparent markings.
+  name: machine pistol magazine (.35 auto any)
+  description: A 20-round .35 auto high-capacity machine pistol magazine with no apparent markings.
   parent: BaseMagazineLPistol
   components:
   - type: BallisticAmmoProvider
@@ -50,12 +50,12 @@
 
 - type: entity
   id: MagazineLPistol
-  name: pistol magazine (.22 auto)
-  description: A 20-round .22 auto high-capacity pistol magazine, marked as live-fire ammo.
+  name: machine pistol magazine (.35 auto)
+  description: A 20-round .35 auto high-capacity machine pistol magazine, marked as live-fire ammo.
   parent: BaseMagazineLPistol
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistol
+    proto: CartridgePistol
   - type: Sprite
     layers:
     - state: red
@@ -75,12 +75,12 @@
 
 - type: entity
   id: MagazineLPistolIncendiary
-  name: pistol magazine (.22 auto incendiary)
-  description: A 20-round .22 auto high-capacity pistol magazine, marked as incendiary ammo.
+  name: machine pistol magazine (.35 auto incendiary)
+  description: A 20-round .35 auto high-capacity machine pistol magazine, marked as incendiary ammo.
   parent: BaseMagazineLPistol
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistolIncendiary
+    proto: CartridgePistolIncendiary
   - type: Sprite
     layers:
     - state: incendiary
@@ -100,12 +100,12 @@
 
 - type: entity
   id: MagazineLPistolPractice
-  name: pistol magazine (.22 auto practice)
-  description: A 20-round .22 auto high-capacity pistol magazine, marked as practice ammo.
+  name: machine pistol magazine (.35 auto practice)
+  description: A 20-round .35 auto high-capacity machine pistol magazine, marked as practice ammo.
   parent: BaseMagazineLPistol
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistolPractice
+    proto: CartridgePistolPractice
   - type: Sprite
     layers:
     - state: practice
@@ -125,12 +125,12 @@
 
 - type: entity
   id: MagazineLPistolUranium
-  name: pistol magazine (.22 auto uranium)
-  description: A 20-round .22 auto high-capacity pistol magazine, marked as uranium ammo.
+  name: machine pistol magazine (.35 auto uranium)
+  description: A 20-round .35 auto high-capacity machine pistol magazine, marked as uranium ammo.
   parent: BaseMagazineLPistol
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistolUranium
+    proto: CartridgePistolUranium
   - type: Sprite
     layers:
     - state: uranium

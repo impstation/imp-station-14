@@ -1,8 +1,8 @@
 # Magazines compatible with the P-2 Diver.
 - type: entity
   id: BaseMagazinePistolP2
-  name: P-2 pistol magazine (.22 auto any)
-  description: A 12-round .22 auto pistol magazine.
+  name: P-2 pistol magazine (.35 auto any)
+  description: A 12-round .35 auto pistol magazine.
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
@@ -13,7 +13,7 @@
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgeLPistol
+        - CartridgePistol
     capacity: 12
   - type: Item
     size: Small
@@ -35,8 +35,8 @@
 
 - type: entity
   id: MagazinePistolP2Empty
-  name: P-2 pistol magazine (.22 auto any)
-  description: A 12-round .22 auto pistol magazine with no apparent markings.
+  name: P-2 pistol magazine (.35 auto any)
+  description: A 12-round .35 auto pistol magazine with no apparent markings.
   parent: BaseMagazinePistolP2
   components:
   - type: BallisticAmmoProvider
@@ -50,8 +50,8 @@
 
 - type: entity
   id: MagazinePistolP2ExtendedEmpty
-  name: P-2 extended pistol magazine (.22 auto any)
-  description: A 24-round .22 auto pistol magazine with no apparent markings.
+  name: P-2 extended pistol magazine (.35 auto any)
+  description: A 24-round .35 auto pistol magazine with no apparent markings.
   parent: BaseMagazinePistolP2
   components:
   - type: Sprite
@@ -73,8 +73,8 @@
 
 - type: entity
   id: MagazinePistolP2Extended
-  name: P-2 extended pistol magazine (.22 auto)
-  description: A 24-round .22 auto pistol magazine, marked as live-fire ammo.
+  name: P-2 extended pistol magazine (.35 auto)
+  description: A 24-round .35 auto pistol magazine, marked as live-fire ammo.
   parent: BaseMagazinePistolP2
   components:
   - type: Sprite
@@ -85,7 +85,7 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistol
+    proto: CartridgePistol
     capacity: 24
   - type: Item
     inhandVisuals:
@@ -100,12 +100,12 @@
 
 - type: entity
   id: MagazinePistolP2
-  name: P-2 pistol magazine (.22 auto)
-  description: A 12-round .22 auto pistol magazine, marked as live-fire ammo.
+  name: P-2 pistol magazine (.35 auto)
+  description: A 12-round .35 auto pistol magazine, marked as live-fire ammo.
   parent: BaseMagazinePistolP2
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistol
+    proto: CartridgePistol
   - type: Sprite
     layers:
     - state: red
@@ -125,12 +125,12 @@
 
 - type: entity
   id: MagazinePistolP2Incendiary
-  name: P-2 pistol magazine (.22 auto incendiary)
-  description: A 12-round .22 auto pistol magazine, marked as incendiary ammo.
+  name: P-2 pistol magazine (.35 auto incendiary)
+  description: A 12-round .35 auto pistol magazine, marked as incendiary ammo.
   parent: BaseMagazinePistolP2
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistolIncendiary
+    proto: CartridgePistolIncendiary
   - type: Sprite
     layers:
     - state: incendiary
@@ -150,12 +150,12 @@
 
 - type: entity
   id: MagazinePistolP2Practice
-  name: P-2 pistol magazine (.22 auto practice)
-  description: A 12-round .22 auto pistol magazine, marked as practice ammo.
+  name: P-2 pistol magazine (.35 auto practice)
+  description: A 12-round .35 auto pistol magazine, marked as practice ammo.
   parent: BaseMagazinePistolP2
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistolPractice
+    proto: CartridgePistolPractice
   - type: Sprite
     layers:
     - state: practice
@@ -175,12 +175,12 @@
 
 - type: entity
   id: MagazinePistolP2Uranium
-  name: P-2 pistol magazine (.22 auto uranium)
-  description: A 12-round .22 auto pistol magazine, marked as uranium ammo.
+  name: P-2 pistol magazine (.35 auto uranium)
+  description: A 12-round .35 auto pistol magazine, marked as uranium ammo.
   parent: BaseMagazinePistolP2
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLPistolUranium
+    proto: CartridgePistolUranium
   - type: Sprite
     layers:
     - state: uranium

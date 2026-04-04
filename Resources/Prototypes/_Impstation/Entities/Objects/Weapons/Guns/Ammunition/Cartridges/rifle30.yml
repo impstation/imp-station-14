@@ -1,6 +1,6 @@
 - type: entity
   id: BaseCartridgeLightRifle
-  name: cartridge (.30 rifle)
+  name: cartridge (.30 tactical)
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
@@ -8,7 +8,7 @@
     tags:
     - CartridgeLightRifle
   - type: CartridgeAmmo
-    proto: BulletLightRifle
+    proto: BulletStandard
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
@@ -19,21 +19,21 @@
 
 - type: entity
   id: CartridgeLightRifle
-  name: cartridge (.30 rifle)
+  name: cartridge (.30 tactical)
   description: A kinetic full-power cartridge that boasts superior lethality and range but with a greater size than an intermediate cartridge. Typically used in precision rifles.
   parent: BaseCartridgeLightRifle
   components:
   - type: CartridgeAmmo
-    proto: BulletLightRifle
+    proto: BulletStandard
 
 - type: entity
   id: CartridgeLightRiflePractice
-  name: cartridge (.30 rifle practice)
+  name: cartridge (.30 tactical practice)
   description: A precision rifle cartridge with a wax projectile to simulate the real deal. Can be used for force-on-force training but still stings like a bitch. Eye protection recommended.
   parent: BaseCartridgeLightRifle
   components:
   - type: CartridgeAmmo
-    proto: BulletLightRiflePractice
+    proto: BulletStandardPractice
   - type: Sprite
     layers:
       - state: base
@@ -44,12 +44,12 @@
 
 - type: entity
   id: CartridgeLightRifleIncendiary
-  name: cartridge (.30 rifle incendiary)
+  name: cartridge (.30 tactical incendiary)
   description: A precision rifle cartridge tipped with a softer projectile containing a pyrophoric compound, setting targets ablaze.
   parent: BaseCartridgeLightRifle
   components:
   - type: CartridgeAmmo
-    proto: BulletLightRifleIncendiary
+    proto: BulletStandardIncendiary
   - type: Sprite
     layers:
       - state: base
@@ -60,12 +60,12 @@
 
 - type: entity
   id: CartridgeLightRifleUranium
-  name: cartridge (.30 rifle uranium)
+  name: cartridge (.30 tactical uranium)
   description: A precision rifle cartridge with a heavier depleted uranium projectile, delivering radiation poisoning at the cost of worse penetration.
   parent: BaseCartridgeLightRifle
   components:
   - type: CartridgeAmmo
-    proto: BulletLightRifleUranium
+    proto: BulletStandardUranium
   - type: Sprite
     layers:
       - state: base
