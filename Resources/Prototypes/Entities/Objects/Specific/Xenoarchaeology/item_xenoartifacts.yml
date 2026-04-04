@@ -57,10 +57,10 @@
       children:
       - !type:NestedSelector
         tableId: XenoArtifactEffectsDefaultTable
-        weight: 54
+        weight: 749
       - !type:NestedSelector
         tableId: XenoArtifactEffectsHandheldOnlyTable
-        weight: 2
+        weight: 20
   - type: StealTarget #imp
     stealGroup: ArtifactFragment
 
