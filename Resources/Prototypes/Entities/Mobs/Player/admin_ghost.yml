@@ -16,7 +16,7 @@
     - SilentStorageUser
     - PreventAccessLogging
     - AllowBiomeLoading
-    - NotGhostnadoWarpable
+    #- NotGhostnadoWarpable # imp comment out
   - type: Input
     context: "aghost"
   - type: Ghost

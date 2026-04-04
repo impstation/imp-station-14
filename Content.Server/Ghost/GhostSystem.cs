@@ -344,7 +344,7 @@ namespace Content.Server.Ghost
         {
             _adminLog.Add(LogType.GhostWarp, $"{ToPrettyString(uid)} ghost warped to {ToPrettyString(target)}");
 
-            if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target))
+            if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target) || HasComp<GhostComponent>(target)) // imp edit add "|| HasComp<GhostComponent>(target)"
             {
                 _followerSystem.StartFollowingEntity(uid, target);
                 return;
@@ -399,6 +399,19 @@ namespace Content.Server.Ghost
                     yield return new GhostWarp(GetNetEntity(uid), info, false);
                 }
             }
+
+            // imp edit start, make aghosts warpable
+            var ghostEnumerator = EntityQueryEnumerator<GhostComponent>();
+            while (ghostEnumerator.MoveNext(out var uid, out var ghostComponent))
+            {
+                if (!ghostComponent.CanGhostInteract)
+                    continue;
+
+                var info = $"{Comp<MetaDataComponent>(uid).EntityName} (Admin Ghost)";
+
+                yield return new GhostWarp(GetNetEntity(uid), info, false);
+            }
+            // imp edit end
         }
 
         #endregion
