@@ -1,0 +1,13 @@
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
+  name: cybersun stealthsuit bundle
+  description: "An advanced cybersun stealth hardsuit bundle."
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingOuterHardsuitCybersunStealth
+        - !type:NestedSelector
+          tableId: SyndicateHardsuitExtrasEntityTable
