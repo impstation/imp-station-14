@@ -12,11 +12,6 @@
       conditions:
       - !type:XenoArchDepthCondition
         depths: [1, 2, 3]
-    - id: XenoArtifactBed
-      weight: 10.0
-      conditions:
-      - !type:XenoArchDepthCondition
-        depths: [ 1, 2, 3 ]
     - id: XenoArtifactEffectUniversalIntercom
       weight: 10.0
       conditions:

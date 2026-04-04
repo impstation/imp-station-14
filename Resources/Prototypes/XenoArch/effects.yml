@@ -431,7 +431,12 @@
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 3, 4, 5]
-    # imp edit end
+    - id: XenoArtifactBed
+      weight: 8.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 1, 2, 3 ]
+      # imp edit end
 
 - type: entityTable
   id: XenoArtifactEffectsHandheldOnlyTable
