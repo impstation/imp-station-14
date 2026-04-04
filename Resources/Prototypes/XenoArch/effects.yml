@@ -1,5 +1,5 @@
 - type: entityTable
-  id: XenoArtifactEffectsDefaultTable #749 total weight - propagate any changes to the table weights in all (item_/structure_)xenoartifacts.yml definitions
+  id: XenoArtifactEffectsDefaultTable #760 total weight - propagate any changes to the table weights in all (item_/structure_)xenoartifacts.yml definitions
   table: !type:GroupSelector
     children:
     # hijacks use key, prevents from using artifact, sadly
@@ -417,12 +417,12 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 3, 4, 5 ]
     - id: XenoArtifactAnimateSingle
-      weight: 7.0 # imp edit
+      weight: 9.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4, 5 ]
     - id: XenoArtifactAnimateTriple
-      weight: 6.0 # imp edit
+      weight: 8.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 4, 5 ]
@@ -432,7 +432,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 3, 4, 5 ]
     - id: XenoArtifactBed
-      weight: 8.0 # imp edit
+      weight: 15.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 1, 2, 3 ]
