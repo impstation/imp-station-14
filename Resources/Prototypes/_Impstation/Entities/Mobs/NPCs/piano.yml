@@ -72,6 +72,7 @@
     blockSpectators: false # ghost piano = spooky
     inHandsOnly: false
     singleUser: true
+    requiresActiveHand: false
     requiresComplex: false
     verbText: verb-instrument-openui
     key: enum.InstrumentUiKey.Key
