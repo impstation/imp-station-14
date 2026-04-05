@@ -970,9 +970,15 @@
     components:
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
-      table: !type:AllSelector
+      table: !type:GroupSelector #imp structure instruments edit start
         children:
-        - id: RandomInstruments
+        - !type:NestedSelector
+          tableId: RandomInstrumentTable
+          weight: 100
+        - !type:NestedSelector
+          tableId: RandomStructureInstrumentTable
+          weight: 20
+        #imp structure instruments edit end
 
 - type: entity
   id: XenoArtifactMonkeySpawn
