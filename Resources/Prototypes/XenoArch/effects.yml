@@ -978,6 +978,10 @@
         - !type:NestedSelector
           tableId: RandomStructureInstrumentTable
           weight: 20
+        - !type:GroupSelector
+          weight: 1
+          children:
+          - id: MobPianoInstrumentMimic
         #imp structure instruments edit end
 
 - type: entity

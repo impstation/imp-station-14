@@ -1,0 +1,80 @@
+- type: entity
+  parent: BaseAction
+  id: ActionPianoPlayMidi
+  name: Play MIDI
+  description: Congratulations, you played yourself.
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: Objects/Fun/Instruments/structureinstruments.rsi
+      state: piano
+  - type: InstantAction
+    event: !type:OpenUiActionEvent
+      key: enum.InstrumentUiKey.Key
+
+- type: entity
+  id: MobPianoInstrumentMimic
+  name: Piano
+  suffix: Mimic
+  parent: [ MobCombat, SimpleMobBase, PianoInstrument ]
+  components:
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: MimicHostileCompound
+    blackboard:
+      VisionRadius: !type:Single
+        3
+      AggroVisionRadius: !type:Single
+        4
+      NavSmash: !type:Bool
+        false
+  - type: NpcFactionMember
+    factions:
+    - AllHostile
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepPiano
+      params:
+        variation: 0.2
+  - type: Tag
+    tags:
+    - FootstepSound
+  - type: MeleeWeapon
+    soundHit: /Audio/_Impstation/Weapons/pianobite.ogg
+    angle: 0
+    animation: WeaponArcSmash
+    damage:
+      types:
+        Blunt: 23
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 2
+  - type: Butcherable
+    spawned:
+    - id: Wood
+      amount: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      140: Dead
+  - type: WaddleAnimation
+  - type: AnimationPlayer
+  - type: HarpySinger
+    midiActionId: ActionPianoPlayMidi
+  - type: UserInterface
+    interfaces:
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+  - type: ActivatableUI
+    blockSpectators: false # ghost piano = spooky
+    inHandsOnly: false
+    singleUser: true
+    requiresComplex: false
+    verbText: verb-instrument-openui
+    key: enum.InstrumentUiKey.Key
+  - type: Insulated
+  - type: Climbing
+    canClimb: false
