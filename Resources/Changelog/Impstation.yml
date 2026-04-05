@@ -1,32 +1,4 @@
 ﻿Entries:
-- author: Kandiyaki
-  changes:
-  - message: Two new markings for humans - Glowing Eyes!
-    type: Add
-  id: 2247
-  time: '2025-09-11T12:04:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3394
-- author: Mousetrinity
-  changes:
-  - message: certain midround antagonists have a chance to spawn earlier in a shift.
-    type: Tweak
-  id: 2248
-  time: '2025-09-12T00:36:17.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3391
-- author: Kandiyaki
-  changes:
-  - message: Eldritch tomes should be spawning during Heretic rounds again.
-    type: Fix
-  id: 2249
-  time: '2025-09-12T00:45:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3379
-- author: Mousetrinity
-  changes:
-  - message: the v-rex can now charge at you. be fucking careful.
-    type: Tweak
-  id: 2250
-  time: '2025-09-13T05:56:51.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3439
 - author: widgetbeck
   changes:
   - message: Fixed Drones and high-tier Replicators not being affected by changes
@@ -4135,3 +4107,34 @@
   id: 2746
   time: '2026-04-04T01:09:01.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4259
+- author: salamanderskies
+  changes:
+  - message: Paracusia-havers will now hallucinate a wider variaty of sounds!
+    type: Tweak
+  id: 2747
+  time: '2026-04-04T23:28:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4257
+- author: salamanderskies
+  changes:
+  - message: Schooner fixes.
+    type: Tweak
+  id: 2748
+  time: '2026-04-05T02:12:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4289
+- author: sev7ves
+  changes:
+  - message: Four new ruins have been sighted around the station!
+    type: Add
+  id: 2749
+  time: '2026-04-05T02:16:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4277
+- author: mousesweater
+  changes:
+  - message: adjusts the wording on certain descriptions and names in game to be a
+      bit more sensitive. you should always reflect and reconsider
+    type: Tweak
+  - message: removes a painting from the pool due to issues with the title
+    type: Remove
+  id: 2750
+  time: '2026-04-05T02:18:52.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4244
