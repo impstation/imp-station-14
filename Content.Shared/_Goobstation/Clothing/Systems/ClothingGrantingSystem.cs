@@ -1,9 +1,9 @@
 using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
-using Robust.Shared.Serialization.Manager;
 using Content.Shared.Tag;
+using Robust.Shared.Serialization.Manager;
 
-namespace Content.Shared.SimpleStation14.Clothing;
+namespace Content.Shared._Goobstation.Clothing.Systems;
 
 public sealed class ClothingGrantingSystem : EntitySystem
 {
@@ -15,58 +15,66 @@ public sealed class ClothingGrantingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ClothingGrantComponentComponent, GotEquippedEvent>(OnCompEquip);
-        SubscribeLocalEvent<ClothingGrantComponentComponent, GotUnequippedEvent>(OnCompUnequip);
+        SubscribeLocalEvent<Content.Shared._Goobstation.Clothing.Components.ClothingGrantComponentComponent, GotEquippedEvent>(OnCompEquip);
+        SubscribeLocalEvent<Content.Shared._Goobstation.Clothing.Components.ClothingGrantComponentComponent, GotUnequippedEvent>(OnCompUnequip);
 
-        SubscribeLocalEvent<ClothingGrantTagComponent, GotEquippedEvent>(OnTagEquip);
-        SubscribeLocalEvent<ClothingGrantTagComponent, GotUnequippedEvent>(OnTagUnequip);
+        SubscribeLocalEvent<Content.Shared._Goobstation.Clothing.Components.ClothingGrantTagComponent, GotEquippedEvent>(OnTagEquip);
+        SubscribeLocalEvent<Content.Shared._Goobstation.Clothing.Components.ClothingGrantTagComponent, GotUnequippedEvent>(OnTagUnequip);
     }
 
-    private void OnCompEquip(EntityUid uid, ClothingGrantComponentComponent component, GotEquippedEvent args)
+    private void OnCompEquip(EntityUid uid, Content.Shared._Goobstation.Clothing.Components.ClothingGrantComponentComponent component, GotEquippedEvent args)
     {
         if (!TryComp<ClothingComponent>(uid, out var clothing)) return;
 
         if (!clothing.Slots.HasFlag(args.SlotFlags)) return;
 
-        if (component.Components.Count > 1)
-        {
-            //Logger.Error("Although a component registry supports multiple components, we cannot bookkeep more than 1 component for ClothingGrantComponent at this time.");
-            return;
-        }
+        // Goobstation
+        //if (component.Components.Count > 1)
+        //{
+        //    Logger.Error("Although a component registry supports multiple components, we cannot bookkeep more than 1 component for ClothingGrantComponent at this time.");
+        //    return;
+        //}
 
         foreach (var (name, data) in component.Components)
         {
-            var newComp = (Component)_componentFactory.GetComponent(name);
+            var newComp = (Component) _componentFactory.GetComponent(name);
 
             if (HasComp(args.Equipee, newComp.GetType()))
                 continue;
 
             newComp.Owner = args.Equipee;
 
-            var temp = (object)newComp;
+            var temp = (object) newComp;
             _serializationManager.CopyTo(data.Component, ref temp);
             EntityManager.AddComponent(args.Equipee, (Component)temp!);
 
-            component.IsActive = true;
+            component.Active[name] = true; // Goobstation
         }
     }
 
-    private void OnCompUnequip(EntityUid uid, ClothingGrantComponentComponent component, GotUnequippedEvent args)
+    private void OnCompUnequip(EntityUid uid, Content.Shared._Goobstation.Clothing.Components.ClothingGrantComponentComponent component, GotUnequippedEvent args)
     {
-        if (!component.IsActive) return;
+        // Goobstation
+        //if (!component.IsActive) return;
 
         foreach (var (name, data) in component.Components)
         {
-            var newComp = (Component)_componentFactory.GetComponent(name);
+            // Goobstation
+            if (!component.Active.ContainsKey(name) || !component.Active[name])
+                continue;
+
+            var newComp = (Component) _componentFactory.GetComponent(name);
 
             RemComp(args.Equipee, newComp.GetType());
+            component.Active[name] = false; // Goobstation
         }
 
-        component.IsActive = false;
+        // Goobstation
+        //component.IsActive = false;
     }
 
 
-    private void OnTagEquip(EntityUid uid, ClothingGrantTagComponent component, GotEquippedEvent args)
+    private void OnTagEquip(EntityUid uid, Content.Shared._Goobstation.Clothing.Components.ClothingGrantTagComponent component, GotEquippedEvent args)
     {
         if (!TryComp<ClothingComponent>(uid, out var clothing))
             return;
@@ -80,7 +88,7 @@ public sealed class ClothingGrantingSystem : EntitySystem
         component.IsActive = true;
     }
 
-    private void OnTagUnequip(EntityUid uid, ClothingGrantTagComponent component, GotUnequippedEvent args)
+    private void OnTagUnequip(EntityUid uid, Content.Shared._Goobstation.Clothing.Components.ClothingGrantTagComponent component, GotUnequippedEvent args)
     {
         if (!component.IsActive)
             return;
