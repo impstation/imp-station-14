@@ -198,7 +198,7 @@
     sprite: _Impstation/Objects/Misc/paper.rsi
     state: pulp_ball
   - type: Construction
-    graph: PpaperDougha
+    graph: PaperDough
     node: start
 
 - type: entity
@@ -216,5 +216,5 @@
     sprite: _Impstation/Objects/Misc/paper.rsi
     state: pulp_ball             # TODO: replace this with flat_pulp_ball, once that sprite exists
   - type: Construction
-    graph: paperDough
+    graph: PaperDough
     node: flat
