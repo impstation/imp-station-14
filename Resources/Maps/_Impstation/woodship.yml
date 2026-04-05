@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/04/2026 13:41:05
-  entityCount: 10851
+  time: 04/05/2026 00:08:42
+  entityCount: 10859
 maps:
 - 1
 grids:
@@ -3395,7 +3395,8 @@ entities:
             0: 4375
             7: 26208
           -2,8:
-            0: 65297
+            0: 64273
+            8: 1024
             7: 102
           -1,8:
             1: 227
@@ -3450,17 +3451,17 @@ entities:
             0: 65023
           1,10:
             0: 29503
-            8: 34816
+            9: 34816
           1,11:
             0: 36627
-            8: 8
+            9: 8
           1,12:
             0: 65326
           2,9:
             0: 47615
           2,10:
             0: 35979
-            8: 13056
+            9: 13056
           2,11:
             0: 61152
           2,12:
@@ -3993,6 +3994,11 @@ entities:
           temperature: 293.15
           moles:
             Nitrogen: 103.92799
+        - volume: 2500
+          temperature: 293.14996
+          moles:
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         - volume: 2500
           temperature: 235
           moles:
@@ -5067,6 +5073,8 @@ entities:
       - 8222
       - 8223
       - 9387
+      - 4528
+      - 5049
     - type: Fixtures
       fixtures: {}
   - uid: 8425
@@ -27901,6 +27909,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 29.5,28.5
       parent: 2
+  - uid: 8524
+    components:
+    - type: Transform
+      pos: 10.5,62.5
+      parent: 2
+  - uid: 8525
+    components:
+    - type: Transform
+      pos: 9.5,62.5
+      parent: 2
   - uid: 8562
     components:
     - type: Transform
@@ -28463,6 +28481,11 @@ entities:
     components:
     - type: Transform
       pos: 12.5,-17.5
+      parent: 2
+  - uid: 10854
+    components:
+    - type: Transform
+      pos: 11.5,60.5
       parent: 2
 - proto: ClockworkGrilleBroken
   entities:
@@ -37469,17 +37492,17 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#FF1212FF'
-  - uid: 8524
+  - uid: 2417
     components:
     - type: Transform
-      pos: -5.5,35.5
+      pos: -5.5,34.5
       parent: 2
-    - type: AtmosPipeColor
-      color: '#0335FCFF'
     - type: GasFilter
       filteredGas: Oxygen
     - type: AtmosPipeLayers
       pipeLayer: Tertiary
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
 - proto: GasFilterEnabled
   entities:
   - uid: 29
@@ -45187,18 +45210,11 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 4531
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -6.5,35.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0335FCFF'
   - uid: 4532
     components:
     - type: Transform
-      pos: -7.5,34.5
+      rot: 1.5707963267948966 rad
+      pos: -6.5,34.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
@@ -45271,6 +45287,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 5.5,36.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
+  - uid: 4582
+    components:
+    - type: Transform
+      pos: -7.5,35.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
@@ -47043,13 +47066,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
-  - uid: 8525
-    components:
-    - type: Transform
-      pos: -5.5,34.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0335FCFF'
   - uid: 8653
     components:
     - type: Transform
@@ -48477,6 +48493,14 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
+  - uid: 3479
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -7.5,34.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
   - uid: 3564
     components:
     - type: Transform
@@ -48591,14 +48615,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -23.5,6.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0335FCFF'
-  - uid: 4590
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -7.5,35.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
@@ -49256,6 +49272,15 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0099FFFF'
+- proto: GasPressurePumpAlt2
+  entities:
+  - uid: 4531
+    components:
+    - type: Transform
+      pos: -5.5,35.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0335FCFF'
 - proto: GasThermoMachineFreezer
   entities:
   - uid: 1580
@@ -49608,6 +49633,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 16.5,50.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 8278
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 4726
@@ -50516,6 +50544,9 @@ entities:
       rot: 3.141592653589793 rad
       pos: 11.5,50.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 8278
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 5239
@@ -58255,6 +58286,11 @@ entities:
     - type: Transform
       pos: -25.529665,13.76948
       parent: 2
+  - uid: 10855
+    components:
+    - type: Transform
+      pos: 11.488094,7.278052
+      parent: 2
 - proto: SheetPlasma
   entities:
   - uid: 7108
@@ -58282,6 +58318,11 @@ entities:
     components:
     - type: Transform
       pos: 11.44791,6.860158
+      parent: 2
+  - uid: 10856
+    components:
+    - type: Transform
+      pos: 11.468559,6.867896
       parent: 2
 - proto: SheetPlastic
   entities:
@@ -59620,11 +59661,6 @@ entities:
     - type: Transform
       pos: 5.5,38.5
       parent: 2
-  - uid: 3479
-    components:
-    - type: Transform
-      pos: -16.5,15.5
-      parent: 2
 - proto: SmartFridgeMedical
   entities:
   - uid: 400
@@ -59639,6 +59675,17 @@ entities:
       parent: 2
     - type: AccessReader
       accessListsOriginal:
+      - - Medical
+  - uid: 4590
+    components:
+    - type: Transform
+      pos: -16.5,15.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Medical
+      access:
+      - - Hydroponics
       - - Medical
 - proto: SMESAdvanced
   entities:
@@ -63826,6 +63873,11 @@ entities:
     - type: Transform
       pos: -13.5,-2.5
       parent: 2
+  - uid: 7990
+    components:
+    - type: Transform
+      pos: 14.5,21.5
+      parent: 2
 - proto: VendingMachineClothing
   entities:
   - uid: 1029
@@ -63870,11 +63922,6 @@ entities:
       parent: 2
 - proto: VendingMachineDiscount
   entities:
-  - uid: 2417
-    components:
-    - type: Transform
-      pos: 14.5,21.5
-      parent: 2
   - uid: 2940
     components:
     - type: Transform
@@ -71985,6 +72032,10 @@ entities:
     - type: Transform
       pos: 39.5,13.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - StationAi
+      - - Command
     - type: DeviceNetwork
       deviceLists:
       - 8505
@@ -72016,6 +72067,15 @@ entities:
       deviceLists:
       - 8505
       - 10184
+  - uid: 10857
+    components:
+    - type: Transform
+      pos: 35.5,14.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 10859
+      - 10858
 - proto: WeaponEnergyTurretCommandControlPanel
   entities:
   - uid: 8505
@@ -72059,6 +72119,23 @@ entities:
       - 9683
       - 9684
       - 10092
+  - uid: 10858
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 34.5,16.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 10857
+  - uid: 10859
+    components:
+    - type: Transform
+      pos: 34.5,16.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 10857
 - proto: WeaponEnergyTurretSecurity
   entities:
   - uid: 10238
