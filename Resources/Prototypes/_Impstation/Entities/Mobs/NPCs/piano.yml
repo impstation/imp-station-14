@@ -15,7 +15,7 @@
 
 - type: entity
   id: MobPianoInstrumentMimic
-  name: Piano
+  name: piano
   suffix: Mimic
   parent: [ MobCombat, SimpleMobBase, PianoInstrument ]
   components:
@@ -61,6 +61,7 @@
       0: Alive
       140: Dead
   - type: WaddleAnimation
+    isWaddling: true
   - type: AnimationPlayer
   - type: HarpySinger
     midiActionId: ActionPianoPlayMidi
@@ -76,6 +77,11 @@
     requiresComplex: false
     verbText: verb-instrument-openui
     key: enum.InstrumentUiKey.Key
+  - type: Instrument
+    program: 1
+    allowSpectatorPlaying: true # goast
   - type: Insulated
   - type: Climbing
     canClimb: false
+  - type: NameIdentifier
+    group: null # hide the number - noone can tell that its a mimic
