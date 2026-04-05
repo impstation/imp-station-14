@@ -1,27 +1,33 @@
+using Content.Server._Goobstation.Heretic.Components;
+using Content.Server.Administration.Logs;
 using Content.Server.Heretic.Components;
-using Content.Shared.Heretic.Prototypes;
+using Content.Shared._Goobstation.Heretic.Components;
+using Content.Shared.Database;
+using Content.Shared.Examine;
 using Content.Shared.Heretic;
+using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
-using System.Text;
-using System.Linq;
-using Content.Server._Goobstation.Heretic.Components;
-using Robust.Shared.Serialization.Manager;
-using Content.Shared.Examine;
-using Content.Shared._Goobstation.Heretic.Components;
 using Robust.Shared.Containers;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
+using System.Linq;
+using System.Text;
 
 namespace Content.Server.Heretic.EntitySystems;
 
+/// <summary>
+/// Handles heretic rituals and their activation on the runes
+/// </summary>
 public sealed partial class HereticRitualSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _series = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -37,7 +43,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Try to perform a selected ritual
+    /// Try to perform a selected ritual
     /// </summary>
     /// <returns> If the ritual succeeded or not </returns>
     public bool TryDoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
@@ -121,6 +127,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
         }
 
         // yay! ritual successfull!
+        // log it. this could have a big range of impact so i set it high just in case
+        _adminLogManager.Add(LogType.Action, LogImpact.High, $"{performer} performed ritual {ritualId}");
 
         // reset fields to their initial values
         // BECAUSE FOR SOME REASON IT DOESN'T FUCKING WORK OTHERWISE!!!
@@ -171,6 +179,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
         SubscribeLocalEvent<HereticRitualRuneComponent, HereticRitualMessage>(OnRitualChosenMessage);
     }
 
+    /// <summary>
+    /// Runs when someone clicks a rune with their empty hand
+    /// </summary>
     private void OnInteract(Entity<HereticRitualRuneComponent> ent, ref InteractHandEvent args)
     {
         if (!TryComp<HereticComponent>(args.User, out var heretic))
@@ -198,6 +209,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), user, user);
     }
 
+    /// <summary>
+    /// Handles interacting with ritual runes with an item.
+    /// </summary>
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
     {
         if (!TryComp<HereticComponent>(args.User, out var heretic))

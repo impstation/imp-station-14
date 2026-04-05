@@ -1156,6 +1156,7 @@
     Telecrystal: 14
   categories:
   - UplinkDisruption
+  - UplinkObjective # imp
   conditions:
   - !type:StoreWhitelistCondition
      makeHidden: true # imp add
@@ -1166,6 +1167,11 @@
     blacklist:
       components:
         - SurplusBundle #imp special (dud roll as a traitor unless you have dagd)
+  - !type:BuyerObjectiveWhitelistCondition # imp
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
 
 - type: listing
   id: UplinkNukieAntimovCircuitBoard
@@ -1263,11 +1269,17 @@
     Telecrystal: 12
   categories:
     - UplinkDisruption
+    - UplinkObjective # imp
   conditions:
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
         - SurplusBundle # imp special. could maybe make a flatpack that only shows up in surplus bundles at some point, but rn its worse than useless and has a good chance of getting people stuck in wallsa nd shit
+  - !type:BuyerObjectiveWhitelistCondition # imp
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
 
 - type: listing
   id: UplinkCameraBug

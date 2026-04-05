@@ -60,20 +60,17 @@ public sealed class StationPowerTests
         "PlasmaImp",
         "ReachImp",
         "SalternImp",
+        "Schooner",
         "Submarine",
         "TrainImp",
         "Union",
         "Xeno",
         "Pathway",
         "Whisper",
-        "Monarch",
 
         // DEROTATED:
-        //"Luna",
-        //"Refsdal",
-        //"reHash",
         //"RelicImp",
-        //"Skimmer",
+
     };
 
     [Explicit]
