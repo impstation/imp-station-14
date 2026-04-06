@@ -31,6 +31,9 @@
   - type: EyeCursorOffset
     maxOffset: 3
     pvsIncrease: 0.3
+  - type: Construction
+    graph: UpgradeWeaponSniperMuldoon
+    node: start
   #melee start
   - type: MeleeWeapon
     range: 0.8
@@ -57,3 +60,19 @@
     distance: 0.8
     speed: 5
 #melee end
+
+#Syndicate sniper version
+- type: entity
+  name: Muldoon
+  parent: WeaponRifleTranq
+  id: WeaponRifleTranqSniper
+  suffix: Sniper
+  description: A tranquilizer rifle designed to administer drugs to dangerous animals. Only takes pre-loaded darts. Not to be used on human targets.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - Dart
+      - CartridgeAntiMateriel
+    capacity: 1
+    proto: CartridgeAntiMateriel

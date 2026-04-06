@@ -60,6 +60,7 @@ public sealed class StationPowerTests
         "PlasmaImp",
         "ReachImp",
         "SalternImp",
+        "Schooner",
         "Submarine",
         "TrainImp",
         "Union",
