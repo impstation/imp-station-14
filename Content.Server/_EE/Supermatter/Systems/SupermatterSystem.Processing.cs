@@ -142,11 +142,14 @@ public sealed partial class SupermatterSystem
         if (TryComp<RadiationSourceComponent>(uid, out var rad))
         {
             rad.Intensity =
+                (
                 _config.GetCVar(EECCVars.SupermatterRadsBase) +
                 sm.Power
                 * Math.Max(0, 1f + transmissionBonus / 10f)
                 * 0.003f
-                * _config.GetCVar(EECCVars.SupermatterRadsModifier);
+                * _config.GetCVar(EECCVars.SupermatterRadsModifier)
+                )
+                * sm.RadiationMultiplier; // Imp
 
             rad.Slope = Math.Clamp(rad.Intensity / 15, 0.2f, 1f);
         }
