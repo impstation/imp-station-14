@@ -60,7 +60,7 @@
   - type: StationEvent
     maxOccurrences: 2
   - type: LoadMapRule
-    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/lost_cargo.yml # imp, april 1
+    gridPath: /Maps/Shuttles/ShuttleEvent/lost_cargo.yml
 
 - type: entity
   parent: BaseUnknownShuttleRule

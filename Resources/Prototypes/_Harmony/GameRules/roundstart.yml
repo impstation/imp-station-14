@@ -12,15 +12,15 @@
   id: Conspirators
   components:
   - type: GameRule
-    minPlayers: 28 # minimum of 4 conspirators
+    minPlayers: 24 # minimum of 3 conspirators. imp edit, was 28
   - type: ConspiratorRule
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:
     - prefRoles: [ Conspirator ]
-      min: 4
-      max: 7
-      playerRatio: 7
+      min: 3 # imp edit, was 4
+      max: 5 # imp edit, was 7
+      playerRatio: 8 # imp edit, was 7
       briefing:
         text: conspirator-role-greeting
         color: "#724F29"
