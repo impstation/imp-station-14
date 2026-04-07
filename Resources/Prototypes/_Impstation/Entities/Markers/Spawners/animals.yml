@@ -20,8 +20,8 @@
   - type: Sprite
     layers:
     - state: green
-    - state: hen
-      sprite: _Impstation/Mobs/Animals/Livestock/hen.rsi
+    - state: chicken-0
+      sprite: Mobs/Animals/chicken.rsi 
   - type: ConditionalSpawner
     prototypes:
     - MobChicken
