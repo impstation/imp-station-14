@@ -190,6 +190,13 @@ public sealed partial class SupermatterComponent : Component
     public float PowerlossDynamicScaling;
 
     /// <summary>
+    /// Imp
+    /// Radiation multiplier for the supermatter, affects base rads as well
+    /// </summary>
+    [DataField]
+    public float RadiationMultiplier = 1f;
+
+    /// <summary>
     /// Affects the amount of damage and minimum point at which the SM takes heat damage
     /// </summary>
     [DataField]

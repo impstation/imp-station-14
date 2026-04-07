@@ -49,7 +49,8 @@
   - type: Appearance
   - type: Supermatter
     isShard: true
-    gasEfficiency: 0.125
+    gasEfficiency: 0.1
+    radiationMultiplier: 0.5
   - type: AtmosDevice
     requireAnchored: false
     joinSystem: true
