@@ -23,6 +23,12 @@ public sealed partial class SupermatterComponent : Component
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
 
     /// <summary>
+    /// The current supermatter event thats occuring
+    /// </summary>
+    [DataField]
+    public SupermatterEvent Event = SupermatterEvent.None;
+
+    /// <summary>
     /// The supermatter's external gas mixture on the tile
     /// </summary>
     [DataField]
@@ -193,12 +199,6 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float MoleHeatPenaltyThreshold;
-
-    /// <summary>
-    /// Imp change, if the Supermatter is experiencing a surge then power & heat calculations are stopped
-    /// </summary>
-    [DataField]
-    public bool Surging;
 
     /// <summary>
     /// Modifier to damage taken during supermatter reactions, soothing the supermatter when a psychologist is nearby
@@ -569,6 +569,14 @@ public enum SupermatterCrystalState : byte
     Glow,
     GlowEmergency,
     GlowDelam
+}
+
+[Serializable, NetSerializable]
+public enum SupermatterEvent : byte
+{
+    None = 0,
+    Surging = 1,
+    Discharging = 2,
 }
 
 [Serializable, NetSerializable]

@@ -32,7 +32,6 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
 
         if (supermatterUids.Count == 0)
         {
-            // Means a scheduled event can be skipped on maps without supermatter, but hopefully the rarity of the event offsets that
             _ticker.EndGameRule(uid, gameRule);
             return;
         }
@@ -59,7 +58,7 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
             return;
 
-        sm.Surging = true;
+        sm.Event = SupermatterEvent.Surging;
 
         var powerSurge = component.PowerMinMax.Next(_random);
         var heatSurge = (float)component.HeatModifierMinMax.Next(_random) / 100;
@@ -86,6 +85,6 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
             return;
 
-        sm.Surging = false;
+        sm.Event = SupermatterEvent.None;
     }
 }
