@@ -14,6 +14,7 @@
   description: An adorable stuffed toy that resembles a lizardperson as an atmospheric technician. Smells faintly of frezon.
   components:
   - type: Sprite
+    sprite: _Impstation/Objects/Fun/plushielizard_jobs.rsi #imp
     state: atmospherictechnician
 
 - type: entity
@@ -381,4 +382,5 @@
   description: An adorable stuffed toy that resembles a lizardperson as every job! It's a plushie of many talents. You can hear a HoP crying in the distance.
   components:
   - type: Sprite
+    sprite: _Impstation/Objects/Fun/plushielizard_jobs.rsi #imp
     state: multiweh

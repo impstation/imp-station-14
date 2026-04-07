@@ -65,3 +65,20 @@
         - id: WeaponRifleNemesis
         - id: MagazineBR
           amount: 2
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledBaseball
+  name: Syndi-Cats baseball uniform bundle
+  description: Go to bat for the winning team with this stylish uniform.
+  suffix: Syndi-Cats baseball bundle
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingHeadHatSyndieballsoft
+        - id: ClothingUniformJumpsuitBaseballSyndicate
+        - id: ClothingHandsGlovesColorWhite
+        - id: ClothingShoesBootsLaceup
+        - id: SyndieHandyFlag

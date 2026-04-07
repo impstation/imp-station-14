@@ -30,3 +30,27 @@
     sprite: _DEN/Clothing/Head/Hats/diner_fastfood.rsi
   - type: Clothing
     sprite: _DEN/Clothing/Head/Hats/diner_fastfood.rsi
+
+## BASEBALL
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatNanoballsoft
+  name: NT Dogs baseball cap
+  description: This is the only baseball team you're allowed to rep at work.
+  components:
+  - type: Sprite
+    sprite: _DEN/Clothing/Head/Hats/nt_baseballcap.rsi
+  - type: Clothing
+    sprite: _DEN/Clothing/Head/Hats/nt_baseballcap.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatSyndieballsoft
+  name: Syndi-Cats baseball cap
+  description: "\"War is an inefficient business.\""
+  components:
+  - type: Sprite
+    sprite: _DEN/Clothing/Head/Hats/syndie_baseballcap.rsi
+  - type: Clothing
+    sprite: _DEN/Clothing/Head/Hats/syndie_baseballcap.rsi
