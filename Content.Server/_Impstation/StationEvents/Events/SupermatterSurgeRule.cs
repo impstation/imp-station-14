@@ -32,7 +32,6 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
 
         if (supermatterUids.Count == 0)
         {
-            // Means a scheduled event can be skipped on maps without supermatter, but hopefully the rarity of the event offsets that
             _ticker.EndGameRule(uid, gameRule);
             return;
         }

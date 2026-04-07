@@ -11,13 +11,13 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.StationEvents.Events;
 
-public sealed class SupermatterEventRule : StationEventSystem<SupermatterEventRuleComponent>
+public sealed class SupermatterLocalDelamRule : StationEventSystem<SupermatterLocalDelamRuleComponent>
 {
     [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
-    protected override void Added(EntityUid uid, SupermatterEventRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    protected override void Added(EntityUid uid, SupermatterLocalDelamRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
 
@@ -43,7 +43,7 @@ public sealed class SupermatterEventRule : StationEventSystem<SupermatterEventRu
         );
     }
 
-    protected override void Ended(EntityUid uid, SupermatterEventRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    protected override void Ended(EntityUid uid, SupermatterLocalDelamRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
     {
         if (!TryFindRandomTile(out var _, out var _, out var _, out var coords))
             return;

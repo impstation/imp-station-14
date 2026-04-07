@@ -1,12 +1,13 @@
 using Content.Server._Impstation.StationEvents.Events;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.StationEvents.Components;
 
 /// <summary>
 /// Used an event that discharges mass amounts of gas from the Supermatter
 /// </summary>
-[RegisterComponent, Access(typeof(SupermatterEventRule))]
-public sealed partial class SupermatterEventRuleComponent : Component
+[RegisterComponent, Access(typeof(SupermatterLocalDelamRule))]
+public sealed partial class SupermatterLocalDelamRuleComponent : Component
 {
     /// <summary>
     /// The entity uid of the supermatter selected
@@ -15,10 +16,10 @@ public sealed partial class SupermatterEventRuleComponent : Component
     public EntityUid SupermatterUid;
 
     /// <summary>
-    /// Locids of text that pops up when you're far too hot.
+    /// Events that can be started if there is a supermatter
     /// </summary>
     [DataField]
-    public List<LocId> SupermatterEvents = ["SupermatterDischarge", "SupermatterSurge"];
+    public List<EntProtoId> SupermatterEvents = ["SupermatterDischarge", "SupermatterSurge"];
 
     /// <summary>
     /// Range that the EMP can disable devices in

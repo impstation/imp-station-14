@@ -14,8 +14,8 @@ namespace Content.Server._Impstation.StationEvents.Events;
 
 public sealed class SupermatterDischargeRule : StationEventSystem<SupermatterDischargeRuleComponent>
 {
-    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
@@ -33,7 +33,6 @@ public sealed class SupermatterDischargeRule : StationEventSystem<SupermatterDis
 
         if (supermatterUids.Count == 0)
         {
-            // Means a scheduled event can be skipped on maps without supermatter, but hopefully the rarity of the event offsets that
             _ticker.EndGameRule(uid, gameRule);
             return;
         }
