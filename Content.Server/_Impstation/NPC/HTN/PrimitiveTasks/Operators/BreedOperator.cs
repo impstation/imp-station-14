@@ -50,12 +50,15 @@ public sealed partial class BreedOperator : HTNOperator
         });
     }
 
-    // I don't know why this is here yet and if i can't figure it out i'll be removing it
-    // yes it's my code but i don't know which era of me wrote it
+    /// <summary>
+    /// We don't need to update so we just finish. This is seen in a few other HTN operators as well.
+    /// </summary>
+    /// <param name="blackboard"></param>
+    /// <param name="frameTime"></param>
+    /// <returns></returns>
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
-        var result = false;
-        return result ? HTNOperatorStatus.Finished : HTNOperatorStatus.Failed;
+        return HTNOperatorStatus.Finished;
     }
 
     #region OVERRIDES
@@ -70,12 +73,20 @@ public sealed partial class BreedOperator : HTNOperator
         blackboard.Remove<EntityUid>(Target);
     }
 
+    /// <summary>
+    /// Called when our task is done
+    /// </summary>
+    /// <param name="blackboard"></param>
+    /// <param name="status"></param>
     public override void TaskShutdown(NPCBlackboard blackboard, HTNOperatorStatus status)
     {
         base.TaskShutdown(blackboard, status);
-        //Shutdown(blackboard);
     }
 
+    /// <summary>
+    /// Called when our entire plan is done
+    /// </summary>
+    /// <param name="blackboard"></param>
     public override void PlanShutdown(NPCBlackboard blackboard)
     {
         base.PlanShutdown(blackboard);

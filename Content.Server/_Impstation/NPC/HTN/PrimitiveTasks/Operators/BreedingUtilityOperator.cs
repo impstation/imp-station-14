@@ -154,7 +154,6 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
 
     public void Shutdown(NPCBlackboard blackboard)
     {
-        //blackboard.Remove<EntityUid>(Key);
         blackboard.Remove<EntityCoordinates>(KeyCoordinates);
     }
 
@@ -243,7 +242,6 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
         // Have we done our job? Or have we waited too long
         if (targetComp.Pregnant
             || reproComp.Pregnant)
-            //|| reproComp.NextSearch > _time.CurTime)
         {
             return HTNOperatorStatus.Continuing;
         }

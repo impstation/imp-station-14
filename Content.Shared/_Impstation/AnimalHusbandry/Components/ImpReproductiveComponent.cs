@@ -45,7 +45,7 @@ public sealed partial class ImpReproductiveComponent : Component
     /// <summary>
     /// Animals will not breed with the same Gender unless they are Agender
     /// </summary>
-    [DataField("gender"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("sex"), ViewVariables(VVAccess.ReadWrite)]
     public AnimalGender Gender = AnimalGender.Agender;
 
     /// <summary>

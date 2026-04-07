@@ -222,7 +222,7 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"] # IMP, added ", "movement"" which should have been there??? but wasn't??????????
       state: chicken-0
       sprite: Mobs/Animals/chicken.rsi 
   - type: SpriteMovement
@@ -309,7 +309,7 @@
   - type: ImpReproductive
     hungerPerBirth: 25
     pregnancyLength: 150
-    gender: Female
+    sex: Female
     breedPrototype: HenSettings
   # imp edit end
 
@@ -1019,7 +1019,7 @@
     prototype: AnimalRuminant
   - type: ImpReproductive
     hungerPerBirth: 50
-    gender: Female
+    sex: Female
     breedPrototype: CowSettings
   - type: HTN
     rootTask:
@@ -1228,7 +1228,7 @@
   - type: ImpReproductive
     hungerPerBirth: 30
     pregnancyLength: 240
-    gender: Female
+    sex: Female
     breedPrototype: GoatSettings
   # imp edit end
 
@@ -2093,7 +2093,7 @@
   # imp edit start
   - type: ImpReproductive
     hungerPerBirth: 20
-    gender: agender  
+    sex: agender  
     breedPrototype: MouseSettings
     pregnancyLength: 30
     maxBreedDamage: 5

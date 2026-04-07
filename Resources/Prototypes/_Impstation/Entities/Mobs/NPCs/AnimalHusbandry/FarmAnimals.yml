@@ -97,10 +97,10 @@
   - type: AlwaysRevolutionaryConvertible
   - type: Grammar
     attributes:
-      gender: male
+      sex: male
   - type: ImpReproductive
     hungerPerBirth: 50
-    gender: Male
+    sex: Male
   - type: Body
     prototype: AnimalRuminant
 
@@ -128,6 +128,14 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: bull
       sprite: _Impstation/Mobs/Animals/Livestock/bull_infant.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: bull
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
 
 #========================================================================
 
@@ -153,9 +161,24 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: chick
       sprite: _Impstation/Mobs/Animals/Livestock/chicken_infant.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: chick
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: chick-moving 
+    noMovementLayers:
+      movement:
+        state: chick
 
 - type: entity
   name: chick
@@ -165,7 +188,7 @@
   components:
   - type: Grammar
     attributes:
-      gender: male
+      sex: male
   - type: ImpInfant
     growthTime: 240
     nextStage: MobRoosterAdult
@@ -178,19 +201,34 @@
   components:
   - type: Grammar
     attributes:
-      gender: male
+      sex: male
   - type: Sprite
     drawdepth: Mobs
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
       state: rooster
       sprite: _Impstation/Mobs/Animals/Livestock/rooster.rsi
   - type: ImpReproductive
     hungerPerBirth: 25
-    gender: Male
+    sex: Male
   - type: HTN
     rootTask:
       task: LivestockCompound
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: rooster
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead  
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: rooster-moving 
+    noMovementLayers:
+      movement:
+        state: rooster
 
 #========================================================================
 
@@ -227,10 +265,10 @@
   components:
   - type: Grammar
     attributes:
-      gender: male
+      sex: male
   - type: ImpReproductive
     hungerPerBirth: 50
-    gender: Male
+    sex: Male
   - type: HTN
     rootTask:
       task: LivestockCompound
@@ -240,6 +278,14 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: boar
       sprite: _Impstation/Mobs/Animals/Livestock/boar.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: boar
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead      
 
 - type: entity
   name: baby boar
@@ -249,7 +295,7 @@
   components:
   - type: Grammar
     attributes:
-      gender: male
+      sex: male
   - type: ImpInfant
     nextStage: MobBoarAdult
   - type: Sprite
@@ -258,6 +304,14 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: boar
       sprite: _Impstation/Mobs/Animals/Livestock/boar_infant.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: boar
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
 
 #========================================================================
 
@@ -294,10 +348,10 @@
   components:
   - type: Grammar
     attributes:
-      gender: male
+      sex: male
   - type: ImpReproductive
     hungerPerBirth: 30
-    gender: Male
+    sex: Male
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -307,6 +361,14 @@
   - type: HTN
     rootTask:
       task: LivestockCompound
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: buck
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
 
 - type: entity
   name: baby buck
@@ -316,7 +378,7 @@
   components:
   - type: Grammar
     attributes:
-      gender: male
+      sex: male
   - type: ImpInfant
     nextStage: MobBuckAdult
   - type: Sprite
@@ -325,5 +387,13 @@
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: buck
       sprite: _Impstation/Mobs/Animals/Livestock/buck_infant.rsi
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: buck
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
 
 #========================================================================
