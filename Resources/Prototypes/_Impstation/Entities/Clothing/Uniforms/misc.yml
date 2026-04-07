@@ -13,3 +13,59 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingUniformBase]
+  id: ClothingUniformNTPJsBlue
+  name: blue NT branded PJs
+  description: Sweet NT dreams!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Other/nt_pjs/bluepjs.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Other/nt_pjs/bluepjs.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingUniformBase]
+  id: ClothingUniformNTPJsGreen
+  name: green NT branded PJs
+  description: Sweet NT dreams!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Other/nt_pjs/greenpjs.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Other/nt_pjs/greenpjs.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingUniformBase]
+  id: ClothingUniformNTPJsRed
+  name: red NT branded PJs
+  description: Sweet NT dreams!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Other/nt_pjs/redpjs.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Other/nt_pjs/redpjs.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingUniformBase]
+  id: ClothingUniformNTPJsYGreen
+  name: light greeb NT branded PJs
+  description: Sweet NT dreams!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Other/nt_pjs/yellow_greenpjs.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Other/nt_pjs/yellow_greenpjs.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon

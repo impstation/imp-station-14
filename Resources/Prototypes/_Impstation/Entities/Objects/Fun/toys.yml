@@ -1275,3 +1275,53 @@
     sound:
       path: /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_scream.ogg
   - type: MultiHandedItem
+
+- type: entity
+  abstract: true
+  parent: [BaseItem, BaseStash]
+  id: Pillow
+  name: pillow
+  description: A pillow
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 100
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/pillow.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Impstation/Objects/Fun/pillow.rsi
+    slots:
+    - Back
+    - SuitStorage
+  - type: StaminaDamageOnHit
+    damage: 6
+  - type: Appearance
+  - type: DisarmMalus
+    malus: 0
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1.25
+    damage:
+      types:
+        Blunt: 0.3
+    soundHit:
+      path: /Audio/Items/Toys/card_tube_bonk.ogg
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 0.4
+        StaminaDamageOnHit: 8
+  - type: Item
+    size: Large
+    storedSprite:
+      state: icon
+      sprite: _Impstation/Objects/Fun/pillow.rsi
+    shape:
+    - 0,0,0,3
+  - type: Tag
+    tags:
+    - ClothMade

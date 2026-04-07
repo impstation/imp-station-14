@@ -97,3 +97,13 @@
   cost: 1500
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct
+  id: SleepOverKit
+  icon:
+    sprite: _Impstation/Objects/Fun/pillow.rsi
+    state: icon
+  product: CrateSleepOverKit
+  cost: 300
+  category: cargoproduct-category-name-fun
+  group: market

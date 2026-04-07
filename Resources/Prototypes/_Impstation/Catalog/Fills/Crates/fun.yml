@@ -46,7 +46,7 @@
           amount: 1
         - id: ClothingHeadHatGreenEscoffion
           amount: 1
-    
+
 - type: entity
   id: CrateFunMagicianSet
   parent: CratePirate
@@ -67,3 +67,34 @@
          amount: 1
        - id: ClothingNeckCloakMagicianCape
          amount: 1
+
+- type: entity
+  id: CrateSleepOverKit
+  parent: CrateGenericSteel
+  name: sleep over kit
+  description: Everything you need for an NT branded sleep over!
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: ClothingUniformNTPJsBlue
+          amount: 1
+        - id: ClothingUniformNTPJsGreen
+          amount: 1
+        - id: ClothingUniformNTPJsRed
+          amount: 1
+        - id: ClothingUniformNTPJsYGreen
+          amount: 1
+        - id: ClothingHeadNTPJBlue
+          amount: 1
+        - id: ClothingHeadNTPJGreen
+          amount: 1
+        - id: ClothingHeadNTPJRed
+          amount: 1
+        - id: ClothingHeadNTPJYellow
+          amount: 1
+        - id: ClothingShoeSlippersIan
+          amount: 2
+        - id: Pillow
+          amount: 4
