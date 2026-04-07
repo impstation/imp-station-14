@@ -5,7 +5,7 @@
   name: Atreides
   parent: [BaseWeaponSubMachineGun, BaseMajorContraband]
   id: WeaponSubMachineGunAtreides
-  description: A rare machine pistol hailing from the Corporate Wars. Its extremely high fire rate and compact profile make it useful in close quarters combat. Despite its age, it is in remarkably good condition. Feeds from .35 Auto SMG magazines.
+  description: A rare machine pistol hailing from the Corporate Wars. Its extremely high fire rate and compact profile make it useful in close quarters combat. Despite its age, it is in remarkably good condition. Feeds from SMG magazines (.35 Auto).
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/atreides.rsi
@@ -28,7 +28,7 @@
   name: C-20R Gorgon
   parent: [BaseWeaponSubMachineGun, Tier3Contraband]
   id: WeaponSubMachineGunC20r
-  description: An SMG often used by the infamous Nuclear Operatives... allegedly. Automatically ejects empty magazines. Feeds from .35 Auto SMG magazines.
+  description: An SMG often used by the infamous Nuclear Operatives... allegedly. Automatically ejects empty magazines. Feeds from SMG magazines (.35 Auto).
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/c20r.rsi
@@ -129,7 +129,7 @@
   name: Drozd
   parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
   id: WeaponSubMachineGunDrozd
-  description: A standard burst-fire two-handed submachine gun. Boasts an impressive fire rate at the cost of accuracy. Feeds from .35 Auto SMG magazines.
+  description: A standard burst-fire two-handed submachine gun. Boasts an impressive fire rate at the cost of accuracy. Feeds from SMG magazines (.35 Auto).
   components:
     - type: Sprite
       sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/drozd.rsi

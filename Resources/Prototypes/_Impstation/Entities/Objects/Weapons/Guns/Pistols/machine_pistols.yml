@@ -6,7 +6,7 @@
   name: Mk 93
   parent: [ BaseWeaponPistol, BaseSecurityContraband ]
   id: WeaponPistolMk93
-  description: A cheap pistol built for fully automatic fire. Feeds from .35 auto machine pistol magazines.
+  description: A cheap pistol built for fully automatic fire. Feeds from machine pistol magazines (.35 auto).
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Pistols/mk93.rsi
@@ -64,7 +64,7 @@
   name: Mk 92HB
   parent: [ BaseWeaponPistol, BaseSecurityContraband ]
   id: WeaponPistolMk92HB
-  description: Designed in an attempt to make the most of a small cartridge. Feeds from .35 auto machine pistol magazines.
+  description: Designed in an attempt to make the most of a small cartridge. Feeds from machine pistol magazines (.35 auto).
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Pistols/mk92hb.rsi

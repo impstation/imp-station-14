@@ -55,7 +55,7 @@
   name: Viper
   parent: [BaseWeaponPistol, Tier3Contraband]
   id: WeaponPistolViper
-  description: A small, easily-concealable but somewhat underpowered handgun. Retrofitted with a fully automatic receiver. Feeds from .35 auto pistol magazines.
+  description: A small, easily-concealable but somewhat underpowered handgun. Retrofitted with a fully automatic receiver. Feeds from pistol magazines (.35 auto).
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Pistols/viper.rsi
@@ -126,7 +126,7 @@
   name: Mk 58
   parent: [BaseWeaponPistol, BaseSecurityContraband]
   id: WeaponPistolMk58
-  description: A cheap, ubiquitous sidearm produced by a Nanotrasen subsidiary. It does its job without any hassle. Feeds from .35 auto pistol magazines.
+  description: A cheap, ubiquitous sidearm produced by a Nanotrasen subsidiary. It does its job without any hassle. Feeds from pistol magazines (.35 auto).
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Pistols/mk58.rsi
