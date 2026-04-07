@@ -1,7 +1,8 @@
 using Content.Server._Impstation.StationEvents.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Announcements.Systems;
+using Content.Server.Emp;
 using Content.Server.GameTicking;
-using Content.Server.Lightning;
 using Content.Server.StationEvents.Events;
 using Content.Shared._EE.Supermatter.Components;
 using Content.Shared.GameTicking.Components;
@@ -11,14 +12,16 @@ using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.StationEvents.Events;
 
-public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRuleComponent>
+public sealed class SupermatterDischargeRule : StationEventSystem<SupermatterDischargeRuleComponent>
 {
+    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly AnnouncerSystem _announcer = default!;
-    [Dependency] private readonly LightningSystem _lightning = default!;
+    [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    protected override void Added(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    protected override void Added(EntityUid uid, SupermatterDischargeRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
 
@@ -26,9 +29,7 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         var query = EntityQueryEnumerator<SupermatterComponent>();
 
         while (query.MoveNext(out var supermatterUid, out _))
-        {
             supermatterUids.Add(supermatterUid);
-        }
 
         if (supermatterUids.Count == 0)
         {
@@ -38,10 +39,14 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         }
 
         component.SupermatterUid = _random.Pick(supermatterUids);
-        // When the supermatter surge starts can be randomized if desired similar to how NextLightningTime is done
-        component.SurgeStartTime = Timing.CurTime + component.SurgeStartLength;
-        // Dosen't start explodings stuff immediately
-        component.NextLightningTime = component.SurgeStartTime + TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(_random));
+
+        if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
+            return;
+
+        // Dosen't start discharging a emp immediately
+        component.NextEMPTime = Timing.CurTime + TimeSpan.FromSeconds(component.EMPCooldownMinMax.Next(_random));
+        component.BaseGasEfficiency = sm.GasEfficiency;
+        sm.GasEfficiency = component.DischargeGasEfficiency; // Also controls how much mix is merged into the atmosphere
 
         _announcer.SendAnnouncement(
             _announcer.GetAnnouncementId(args.RuleId),
@@ -51,35 +56,29 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         );
     }
 
-    protected override void ActiveTick(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, float frameTime)
+    protected override void ActiveTick(EntityUid uid, SupermatterDischargeRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
-        if (Timing.CurTime < component.SurgeStartTime)
-            return;
-
         if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
             return;
 
-        sm.Event = SupermatterEvent.Surging;
+        sm.Event = SupermatterEvent.Discharging;
+        var mix = _atmosphere.GetTileMixture(component.SupermatterUid, true);
 
-        var powerSurge = component.PowerMinMax.Next(_random);
-        var heatSurge = (float)component.HeatModifierMinMax.Next(_random) / 100;
+        if (mix is { } && sm.GasStorage is { })
+            _atmosphere.Merge(mix, sm.GasStorage);
 
-        // Power & heat modifer changes every tick so isn't always used by the supermatter, but creates a good visual on the console
-        sm.Power = powerSurge;
-        sm.HeatModifier = heatSurge;
-
-        if (Timing.CurTime < component.NextLightningTime)
+        if (Timing.CurTime < component.NextEMPTime)
             return;
         else
         {
-            // Explosive supermatter lightning strikes
-            _lightning.ShootRandomLightnings(component.SupermatterUid, component.ZapRange, component.ZapCount, sm.LightningPrototypes[2]);
+            // Supermatter EMP discharge
+            _emp.EmpPulse(_transform.GetMapCoordinates(uid), component.EMPRange, component.EmpEnergyConsumption, component.EmpDisabledDuration);
 
-            component.NextLightningTime += TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(_random));
+            component.NextEMPTime += TimeSpan.FromSeconds(component.EMPCooldownMinMax.Next(_random));
         }
     }
 
-    protected override void Ended(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    protected override void Ended(EntityUid uid, SupermatterDischargeRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
     {
         base.Ended(uid, component, gameRule, args);
 
@@ -87,5 +86,6 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
             return;
 
         sm.Event = SupermatterEvent.None;
+        sm.GasEfficiency = component.BaseGasEfficiency;
     }
 }
