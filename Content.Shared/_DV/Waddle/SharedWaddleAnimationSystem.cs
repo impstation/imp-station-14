@@ -2,6 +2,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Gravity;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
@@ -28,8 +29,8 @@ public abstract class SharedWaddleAnimationSystem : EntitySystem
         SubscribeLocalEvent<WaddleAnimationComponent, ComponentStartup>(OnComponentStartup);
 
         // Start moving possibilities
-        // IMP - redundant: SubscribeLocalEvent<WaddleAnimationComponent, MoveInputEvent>(OnMovementInput);
-        // IMP - redundant: SubscribeLocalEvent<WaddleAnimationComponent, StoodEvent>(OnStood);
+        SubscribeLocalEvent<WaddleAnimationComponent, MoveInputEvent>(OnMovementInput);
+        SubscribeLocalEvent<WaddleAnimationComponent, StoodEvent>(OnStood);
         SubscribeLocalEvent<WaddleAnimationComponent, DuringMovementEvent>(OnAllMovement); //Imp - allow NPC waddling
 
         // Stop moving possibilities
@@ -56,31 +57,35 @@ public abstract class SharedWaddleAnimationSystem : EntitySystem
             SetWaddling(ent, true);
     }
 
-    // IMP - redundant: private void OnMovementInput(Entity<WaddleAnimationComponent> ent, ref MoveInputEvent args)
-    // {
-    //     // Only start waddling if we're actually moving.
-    //     SetWaddling(ent, args.HasDirectionalMovement);
-    // }
+    private void OnMovementInput(Entity<WaddleAnimationComponent> ent, ref MoveInputEvent args)
+    {
+        // Only start waddling if we're actually moving.
+        SetWaddling(ent, args.HasDirectionalMovement);
+    }
 
     //Imp: allow NPC movement to trigger waddling
     private void OnAllMovement(Entity<WaddleAnimationComponent> ent, ref DuringMovementEvent args)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
+
+        // This waddle method is for NPC only, waddle using movement inputs mind-bozos
+        if (TryComp<MindContainerComponent>(ent, out var mindContainer) && mindContainer.HasMind)
+            return;
         SetWaddling(ent, args.NonZeroMovement);
     }
 
-    // IMP - redundant: private void OnStood(Entity<WaddleAnimationComponent> ent, ref StoodEvent args)
-    // {
-    //     if (!TryComp<InputMoverComponent>(ent, out var mover))
-    //         return;
-    //
-    //     // only resume waddling if they are trying to move
-    //     if ((mover.HeldMoveButtons & MoveButtons.AnyDirection) == MoveButtons.None)
-    //         return;
-    //
-    //     SetWaddling(ent, true);
-    // }
+    private void OnStood(Entity<WaddleAnimationComponent> ent, ref StoodEvent args)
+    {
+        if (!TryComp<InputMoverComponent>(ent, out var mover))
+            return;
+
+        // only resume waddling if they are trying to move
+        if ((mover.HeldMoveButtons & MoveButtons.AnyDirection) == MoveButtons.None)
+            return;
+
+        SetWaddling(ent, true);
+    }
 
     private void StopWaddling(Entity<WaddleAnimationComponent> ent)
     {
