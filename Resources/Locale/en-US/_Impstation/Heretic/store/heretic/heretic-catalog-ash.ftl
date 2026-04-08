@@ -15,7 +15,7 @@ knowledge-path-ash-s2-desc =
 
 knowledge-path-ash-s3-name = Blazing Dash
 knowledge-path-ash-s3-desc =
-    Grants you, a spell that lets you move extremely quickly for a short time, while setting you ablaze. Be sure to bring a firesuit.
+    Grants you Blazing Dash, a spell that lets you move extremely quickly for a short time, while setting you ablaze. Be sure to bring a firesuit.
     This spell requires a Focus to cast.
     ---
 
