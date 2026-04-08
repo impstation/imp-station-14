@@ -79,7 +79,7 @@
   parent: ClothingShoesClownBase #imp edit
   id: ClothingShoeSlippersIan
   name: ian slippers
-  description: they are so soft they feel like the real thing!
+  description: they are so soft they could almost be made of real fur! ... Almost!
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Shoes/Misc/ianslippers.rsi
@@ -90,3 +90,29 @@
       collection: FootstepCarpet
       params:
         variation: 0.07
+  - type: ItemToggle
+    onUse: false
+    onActivate: false
+    soundActivate:
+      path: /Audio/Animals/dog_bark3.ogg
+    soundDeactivate:
+      path: /Audio/Animals/dog_bark3.ogg
+      params:
+          pitch: .8
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: UncookedAnimalProteins
+        Quantity: 60
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Fat
+          Quantity: 20
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 20
