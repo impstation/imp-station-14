@@ -90,10 +90,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
 
         //#IMP: Make sure they can use the store button
         var uiComp = EnsureComp<UserInterfaceComponent>(target);
-        if (!_userInterfaceSystem.HasUi(target, StoreUiKey.Key, uiComp))
-        {
-            _userInterfaceSystem.SetUi(target, StoreUiKey.Key, new InterfaceData("HereticStoreBoundUserInterface"));
-        }
+        _userInterfaceSystem.SetUi((target, uiComp), StoreUiKey.Key, new InterfaceData("HereticKnowledgeBoundUserInterface"));
 
         rule.Minds.Add(mindId);
 

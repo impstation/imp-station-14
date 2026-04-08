@@ -9,7 +9,7 @@ namespace Content.Client._Impstation.Heretic.Store;
 /// Heavily stripped down StoreBoundUI for heretic flavor store stuff.
 /// </summary>
 [UsedImplicitly]
-public sealed class HereticStoreBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+public sealed class HereticKnowledgeBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     private IPrototypeManager _prototypeManager = default!;
 
