@@ -10,6 +10,8 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.DeviceNetwork.Components;
+using Content.Shared.Examine; // imp edit
+using Content.Shared.Ghost; // imp edit
 
 namespace Content.Server.SurveillanceCamera;
 
@@ -61,6 +63,7 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         SubscribeLocalEvent<SurveillanceCameraComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetName>(OnSetName);
         SubscribeLocalEvent<SurveillanceCameraComponent, SurveillanceCameraSetupSetNetwork>(OnSetNetwork);
+        SubscribeLocalEvent<SurveillanceCameraComponent, ExaminedEvent>(OnCameraExamine); // imp edit
     }
 
     private void OnPacketReceived(EntityUid uid, SurveillanceCameraComponent component, DeviceNetworkPacketEvent args)
@@ -394,6 +397,19 @@ public sealed class SurveillanceCameraSystem : SharedSurveillanceCameraSystem
         }
 
         _appearance.SetData(uid, SurveillanceCameraVisualsKey.Key, key, appearance);
+    }
+
+    // imp edit
+    /// <summary>
+    /// Allows the examiner to see the camera's ID, if the examiner is a ghost.
+    /// </summary>
+    private void OnCameraExamine(EntityUid uid, SurveillanceCameraComponent component, ExaminedEvent args)
+    {
+        if (!HasComp<GhostComponent>(args.Examiner))
+            return;
+
+        var loc = $"'{component.CameraId}'";
+        args.PushText(Loc.GetString("surveillance-camera-on-examine-success", ("id", loc)));
     }
 }
 

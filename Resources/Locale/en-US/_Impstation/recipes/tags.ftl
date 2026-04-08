@@ -26,6 +26,7 @@ construction-graph-tag-survival-rifle-rifle = a survival rifle .20 converter
 construction-graph-tag-survival-rifle-smg = a survival rifle .35 converter
 construction-graph-tag-upgrade-kit-cleaner-lake = a Shining Spring re-militarisation kit
 construction-graph-tag-upgrade-kit-nullrod = a profane censer
+construction-graph-tag-upgrade-kit-sniper-muldoon = a muldoon sniper conversion kit
 
 # clothing
 construction-graph-tag-belt-utility = utility belt

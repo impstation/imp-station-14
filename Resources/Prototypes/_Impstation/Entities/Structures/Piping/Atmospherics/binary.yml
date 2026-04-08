@@ -53,11 +53,16 @@
   components:
   - type: HeatExchanger
     #the intent of this is to make fat radiators 25% more efficient per entity than thin ones as the cost of being more expensive and less dense
-    #however no matter how much I test these datafields, none of them seem to have an actual effect on the environment
-    #so I am leaving these in as at worst a placebo or at best something that may have an appreciable difference only in an actual round
-    conductivity: 1.25
-    #convectionCoefficient: 10000
-    #radiationCoefficient: 175
+    #conductivity (G) affects how much gas passes through the radiator
+    #seemingly does not affect efficiency, just how much gas can be processed per tick
+
+    #convectionCoefficient (K) affects how effective the radiator is at transferring heat between the atmosphere and the gas in the pipe
+    #effectiveness is asymptotic starting at ~250. Based on emperical testing, higher values don't do anything.
+    #lower values *do* affect performance negatively, though.
+
+    #radiationCoefficient (alpha) affects how effective the radiator is at transferring heat out
+    #a value of 200 gets to about 1.25 effectiveness based on empirical testing
+    radiationCoefficient: 200
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
   - type: AtmosPipeLayers
