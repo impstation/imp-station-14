@@ -19,6 +19,9 @@
                     VerticalAlignment="Top"
                     Margin="0,4,0,0"
                     Access="Public" />
+                <Label Name="PowerSubText"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,8,0"/>
             </BoxContainer>
             <RichTextLabel Name="StoreItemDescription" VerticalAlignment="Top"/>
         </BoxContainer>

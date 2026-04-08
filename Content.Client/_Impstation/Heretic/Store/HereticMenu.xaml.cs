@@ -1,8 +1,6 @@
 using System.Linq;
-using System.Text;
 using Content.Client.Actions;
 using Content.Client.Message;
-using Content.Client.Store.Ui;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic.Prototypes;
@@ -16,6 +14,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Impstation.Heretic.Store;
 
+/// <summary>
+/// Menu for the heretic store.
+/// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class HereticMenu : FancyWindow
 {
@@ -25,7 +26,6 @@ public sealed partial class HereticMenu : FancyWindow
     public event EventHandler<string>? SearchTextUpdated;
     public event Action<BaseButton.ButtonEventArgs, ListingDataWithCostModifiers>? OnListingButtonPressed;
     public event Action<BaseButton.ButtonEventArgs, string>? OnCategoryButtonPressed;
-    public event Action<BaseButton.ButtonEventArgs>? OnRefundAttempt;
 
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Balance = new();
     public string CurrentCategory = string.Empty;
@@ -39,6 +39,9 @@ public sealed partial class HereticMenu : FancyWindow
         SearchBar.OnTextChanged += _ => SearchTextUpdated?.Invoke(this, SearchBar.Text);
     }
 
+    /// <summary>
+    /// Update the balance.
+    /// </summary>
     public void UpdateBalance(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance)
     {
         Balance = balance;
@@ -56,6 +59,9 @@ public sealed partial class HereticMenu : FancyWindow
         BalanceInfo.SetMarkup(balanceStr.TrimEnd());
     }
 
+    /// <summary>
+    /// Update our listings.
+    /// </summary>
     public void UpdateListing(List<ListingDataWithCostModifiers> listings)
     {
         _cachedListings = listings;
@@ -63,6 +69,9 @@ public sealed partial class HereticMenu : FancyWindow
         UpdateListing();
     }
 
+    /// <summary>
+    /// Get our listings and add them to the listing container. Used with the UpdateListing(List<ListingDataWithCostModifiers> listings).
+    /// </summary>
     public void UpdateListing()
     {
         var sorted = _cachedListings.OrderBy(l => l.Priority)
@@ -77,12 +86,9 @@ public sealed partial class HereticMenu : FancyWindow
         }
     }
 
-    public void SetFooterVisibility(bool visible)
-    {
-        TraitorFooter.Visible = visible;
-    }
-
-
+    /// <summary>
+    /// Get listing data, make a control for it, and add it to the listing container. Used with UpdateListing().
+    /// </summary>
     private void AddListingGui(ListingDataWithCostModifiers listing)
     {
         if (!listing.Categories.Contains(CurrentCategory))
@@ -107,24 +113,20 @@ public sealed partial class HereticMenu : FancyWindow
             if (_entityManager.System<ActionsSystem>().GetAction(actionId)?.Comp?.Icon is { } icon)
                 texture = spriteSys.Frame0(icon);
         }
-        //imp edit
-        //i hate UI code i hate it with my life
-        //hopefully this is useful for other people messing with stores
         string? extraText = GetExtraText(listing);
 
         var listingInStock = GetListingPriceString(listing);
-        var discount = GetDiscountString(listing);
 
-        var newListing = new HereticStoreListingControl(listing, listingInStock, hasBalance, texture, extraText); // imp extratext
+        var newListing = new HereticStoreListingControl(listing, listingInStock, hasBalance, texture, extraText);
         newListing.StoreItemBuyButton.OnButtonDown += args
             => OnListingButtonPressed?.Invoke(args, listing);
 
         StoreListingsContainer.AddChild(newListing);
     }
 
-    //imp edit
-    //this will replace the text area usually reserved for discount info.
-    //this will ALWAYS show up, as opposed to discounts, which are hidden on unavailable items
+    /// <summary>
+    /// Uses the discount text to display the required power for a particular listing.
+    /// </summary>
     private string? GetExtraText(ListingDataWithCostModifiers listing)
     {
         if (listing.ProductHereticKnowledge != null)
@@ -139,8 +141,10 @@ public sealed partial class HereticMenu : FancyWindow
 
         return null;
     }
-    // imp edit end
 
+    /// <summary>
+    /// Get the price of a listing, as a string.
+    /// </summary>
     private string GetListingPriceString(ListingDataWithCostModifiers listing)
     {
         var text = string.Empty;
@@ -164,61 +168,17 @@ public sealed partial class HereticMenu : FancyWindow
         return text.TrimEnd();
     }
 
-    private string GetDiscountString(ListingDataWithCostModifiers listingDataWithCostModifiers)
-    {
-        string discountMessage;
-        var sb = new StringBuilder(); // imp moved this up
-
-
-        if (!listingDataWithCostModifiers.IsCostModified)
-        {
-            return string.Empty;
-        }
-
-        var relativeModifiersSummary = listingDataWithCostModifiers.GetModifiersSummaryRelative();
-        if (relativeModifiersSummary.Count > 1)
-        {
-            // var sb = new StringBuilder(); // imp moved it up
-            sb.Append('(');
-            foreach (var (currency, amount) in relativeModifiersSummary)
-            {
-                var currencyPrototype = _prototypeManager.Index(currency);
-                if (sb.Length != 0)
-                {
-                    sb.Append(", ");
-                }
-                var currentDiscountMessage = Loc.GetString(
-                    "store-ui-discount-display-with-currency",
-                    ("amount", amount.ToString("P0")),
-                    ("currency", Loc.GetString(currencyPrototype.DisplayName))
-                );
-                sb.Append(currentDiscountMessage);
-            }
-
-            sb.Append(')');
-            discountMessage = sb.ToString();
-        }
-        else
-        {
-            // if cost was modified - it should have diff relatively to original cost in 1 or more currency
-            // ReSharper disable once GenericEnumeratorNotDisposed Dictionary enumerator doesn't require dispose
-            var enumerator = relativeModifiersSummary.GetEnumerator();
-            enumerator.MoveNext();
-            var amount = enumerator.Current.Value;
-            discountMessage = Loc.GetString(
-                "store-ui-discount-display",
-                ("amount", (amount.ToString("P0")))
-            );
-        }
-
-        return discountMessage;
-    }
-
+    /// <summary>
+    /// Clear listings from the listing container.
+    /// </summary>
     private void ClearListings()
     {
         StoreListingsContainer.Children.Clear();
     }
 
+    /// <summary>
+    /// Add buttons to the category container.
+    /// </summary>
     public void PopulateStoreCategoryButtons(HashSet<ListingDataWithCostModifiers> listings)
     {
         var allCategories = new List<StoreCategoryPrototype>();
@@ -263,11 +223,17 @@ public sealed partial class HereticMenu : FancyWindow
         }
     }
 
+    /// <summary>
+    /// Close the window.
+    /// </summary>
     public override void Close()
     {
         base.Close();
     }
 
+    /// <summary>
+    /// Store category button, with an ID.
+    /// </summary>
     private sealed class StoreCategoryButton : Button
     {
         public string? Id;

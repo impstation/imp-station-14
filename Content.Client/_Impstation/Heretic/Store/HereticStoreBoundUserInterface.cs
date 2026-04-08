@@ -5,7 +5,9 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._Impstation.Heretic.Store;
-
+/// <summary>
+/// Heavily stripped down StoreBoundUI for heretic flavor store stuff.
+/// </summary>
 [UsedImplicitly]
 public sealed class HereticStoreBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
@@ -48,6 +50,10 @@ public sealed class HereticStoreBoundUserInterface(EntityUid owner, Enum uiKey) 
             UpdateListingsWithSearchFilter();
         };
     }
+
+    /// <summary>
+    /// Update the store when a StoreUpdateState message is received.
+    /// </summary>
     protected override void UpdateState(BoundUserInterfaceState state)
     {
         base.UpdateState(state);
@@ -60,11 +66,13 @@ public sealed class HereticStoreBoundUserInterface(EntityUid owner, Enum uiKey) 
                 _menu?.UpdateBalance(msg.Balance);
 
                 UpdateListingsWithSearchFilter();
-                _menu?.SetFooterVisibility(msg.ShowFooter);
                 break;
         }
     }
 
+    /// <summary>
+    /// Update the store listings with a search.
+    /// </summary>
     private void UpdateListingsWithSearchFilter()
     {
         if (_menu == null)

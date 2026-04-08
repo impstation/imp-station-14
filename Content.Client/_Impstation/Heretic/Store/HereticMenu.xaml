@@ -4,20 +4,24 @@
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     Title="{Loc 'store-ui-heretic-title'}"
     MinSize="512 512"
-    SetSize="850 600">
+    SetSize="700 600">
     <BoxContainer Orientation="Vertical">
         <BoxContainer Orientation="Vertical" VerticalExpand="True">
+            <!--  Header  -->
             <BoxContainer Margin="4,4,4,4" Orientation="Horizontal">
+                <!--  This button is fake.  -->
                 <Button
-                    HorizontalExpand="True">
+                    Margin="2,2,0,2"
+                    HorizontalExpand="False"
+                    MinWidth="132">
                 <RichTextLabel
                     Name="BalanceInfo"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Center"
                     Access="Public"
-                    HorizontalExpand="True" />
+                    HorizontalExpand="False"/>
                 </Button>
             </BoxContainer>
-            <LineEdit Name="SearchBar" Margin="0,4,0,4" PlaceHolder="Search" HorizontalExpand="false" MinWidth="150"/>
+            <LineEdit Name="SearchBar" Margin="2,4,2,4" PlaceHolder="Search" HorizontalExpand="True" MinWidth="150"/>
                 <PanelContainer VerticalExpand="True">
                 <PanelContainer.PanelOverride>
                     <gfx:StyleBoxFlat BackgroundColor="#000000FF" />
@@ -50,14 +54,12 @@
                 </BoxContainer>
             </PanelContainer>
         </BoxContainer>
-
         <!-- Footer -->
-        <BoxContainer Orientation="Vertical" Name="TraitorFooter">
+        <BoxContainer Orientation="Vertical" Name="HereticFooter">
             <PanelContainer StyleClasses="LowDivider" />
             <BoxContainer Orientation="Horizontal" Margin="10 2 5 0" VerticalAlignment="Bottom">
-                <Label Text="{Loc 'store-ui-traitor-flavor'}" StyleClasses="WindowFooterText" />
-                <Label Text="{Loc 'store-ui-traitor-warning'}" StyleClasses="WindowFooterText"
-                        HorizontalAlignment="Right" HorizontalExpand="True"  Margin="0 0 5 0" />
+                <!--  Empty label to extend out the footer a bit  -->
+                <Label Text=" " StyleClasses="WindowFooterText" />
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>
