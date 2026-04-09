@@ -1290,7 +1290,7 @@
     attackRate: 1.25
     damage:
       types:
-        Blunt: 0.3
+        Blunt: 0.1
     soundHit:
       path: /Audio/Items/Toys/ToyFall2.ogg
   - type: StaminaDamageOnHit
@@ -1302,7 +1302,7 @@
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 0.4
+        Blunt: 0.2
         StaminaDamageOnHit: 8
   - type: Item
     size: Normal
