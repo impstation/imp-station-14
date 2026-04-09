@@ -1311,11 +1311,6 @@
       sprite: _Impstation/Objects/Fun/pillow.rsi
     shape:
     - 0,0,2,2
-  - type: PhysicalComposition
-    materialComposition:
-      Cloth: 100
-  - type: Edible
-    requiresSpecialDigestion: true
   - type: Tag
     tags:
     - ClothMade
