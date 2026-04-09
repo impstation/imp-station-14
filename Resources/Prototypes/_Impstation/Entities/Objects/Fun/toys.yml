@@ -1286,7 +1286,6 @@
     sprite: _Impstation/Objects/Fun/pillow.rsi
     state: icon
   - type: MeleeWeapon
-    sprite: _Impstation/Objects/Fun/pillow.rsi
     wideAnimationRotation: -135
     attackRate: 1.25
     damage:
@@ -1307,11 +1306,11 @@
         StaminaDamageOnHit: 8
   - type: Item
     size: Normal
-    shape:
-    - 0,0,2,2
     storedSprite:
       state: pillow
       sprite: _Impstation/Objects/Fun/pillow.rsi
+    shape:
+    - 0,0,2,2
   - type: Clothing
     quickEquip: false
     slots:
