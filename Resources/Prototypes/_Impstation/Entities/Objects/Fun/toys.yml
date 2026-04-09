@@ -1320,9 +1320,6 @@
     - 0,0,0,3
   - type: StaticPrice
     price: 5
-  - type: Edible
-    requiresSpecialDigestion: true
-    delay: 2
   - type: SolutionContainerManager
     solutions:
       food:
