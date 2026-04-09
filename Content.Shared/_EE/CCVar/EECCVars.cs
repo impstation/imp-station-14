@@ -168,19 +168,6 @@ public sealed partial class EECCVars : CVars
         CVarDef.Create("supermatter.plasma_release_modifier", 750f, CVar.SERVER);
 
     /// <summary>
-    ///     Percentage of inhibitor gas needed before the charge inertia chain reaction effect starts.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterPowerlossInhibitionGasThreshold =
-        CVarDef.Create("supermatter.powerloss_inhibition_gas_threshold", 0.2f, CVar.SERVER);
-
-    /// <summary>
-    ///     Moles of the gas needed before the charge inertia chain reaction effect starts.
-    ///     Scales powerloss inhibition down until this amount of moles is reached.
-    /// </summary>
-    public static readonly CVarDef<float> SupermatterPowerlossInhibitionMoleThreshold =
-        CVarDef.Create("supermatter.powerloss_inhibition_mole_threshold", 20f, CVar.SERVER);
-
-    /// <summary>
     ///     Bonus powerloss inhibition boost if this amount of moles is reached.
     /// </summary>
     public static readonly CVarDef<float> SupermatterPowerlossInhibitionMoleBoostThreshold =

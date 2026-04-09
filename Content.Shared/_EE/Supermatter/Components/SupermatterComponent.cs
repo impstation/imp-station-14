@@ -23,6 +23,7 @@ public sealed partial class SupermatterComponent : Component
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
 
     /// <summary>
+    /// Imp
     /// The supermatter's external gas mixture on the tile
     /// </summary>
     [DataField]
@@ -33,6 +34,13 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public GasMixture? GasStorage;
+
+    /// <summary>
+    /// Imp
+    /// The supermatter's gas composition proportions
+    /// </summary>
+    [DataField]
+    public GasMixture? GasComposition;
 
     [DataField]
     public Color LightColorNormal = Color.FromHex("#ffe000");
@@ -280,7 +288,7 @@ public sealed partial class SupermatterComponent : Component
     /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
     /// </summary>
     [DataField]
-    public float DelamTimer = 30f;
+    public float DelamTimer = 1f;
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
