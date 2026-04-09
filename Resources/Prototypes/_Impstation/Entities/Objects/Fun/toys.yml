@@ -1282,22 +1282,11 @@
   name: pillow
   description: A pillow
   components:
-  - type: PhysicalComposition
-    materialComposition:
-      Cloth: 100
-  - type: Edible
-    requiresSpecialDigestion: true
   - type: Sprite
     sprite: _Impstation/Objects/Fun/pillow.rsi
     state: icon
-  - type: Clothing
-    sprite: _Impstation/Objects/Fun/pillow.rsi
-  - type: StaminaDamageOnHit
-    damage: 6
-  - type: Appearance
-  - type: DisarmMalus
-    malus: 0
   - type: MeleeWeapon
+    sprite: _Impstation/Objects/Fun/pillow.rsi
     wideAnimationRotation: -135
     attackRate: 1.25
     damage:
@@ -1305,6 +1294,11 @@
         Blunt: 0.3
     soundHit:
       path: /Audio/Items/Toys/ToyFall2.ogg
+  - type: StaminaDamageOnHit
+    damage: 6
+  - type: Appearance
+  - type: DisarmMalus
+    malus: 0
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -1312,21 +1306,23 @@
         Blunt: 0.4
         StaminaDamageOnHit: 8
   - type: Item
-    size: Large
-    storedSprite:
-      state: icon
-      sprite: _Impstation/Objects/Fun/pillow.rsi
+    size: Normal
     shape:
-    - 0,0,0,3
+    - 0,0,2,2
+    storedSprite:
+      state: pillow
+      sprite: _Impstation/Objects/Fun/pillow.rsi
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
   - type: StaticPrice
     price: 5
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 100
+  - type: Edible
+    requiresSpecialDigestion: true
   - type: Tag
     tags:
     - ClothMade
