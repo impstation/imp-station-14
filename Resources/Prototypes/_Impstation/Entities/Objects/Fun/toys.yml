@@ -1293,9 +1293,6 @@
     state: icon
   - type: Clothing
     sprite: _Impstation/Objects/Fun/pillow.rsi
-    slots:
-    - Back
-    - SuitStorage
   - type: StaminaDamageOnHit
     damage: 6
   - type: Appearance
@@ -1308,7 +1305,7 @@
       types:
         Blunt: 0.3
     soundHit:
-      path: /Audio/Items/Toys/card_tube_bonk.ogg
+      path: /Audio/Items/Toys/ToyFall2.ogg
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
@@ -1322,6 +1319,21 @@
       sprite: _Impstation/Objects/Fun/pillow.rsi
     shape:
     - 0,0,0,3
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 100
+  - type: StaticPrice
+    price: 5
+  - type: Edible
+    requiresSpecialDigestion: true
+    delay: 2
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 10
   - type: Tag
     tags:
     - ClothMade
