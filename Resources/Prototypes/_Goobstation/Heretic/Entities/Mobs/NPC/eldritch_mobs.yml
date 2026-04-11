@@ -42,13 +42,7 @@
       settings: short
     mindRoles: # imp
     - MindRoleGhostRoleFamiliar
-  - type: ActiveRadio
-    channels:
-    - Mansus
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Mansus
+  - type: HereticMansusLink
   - type: GhostTakeoverAvailable
   - type: InnateHereticMagic
 
