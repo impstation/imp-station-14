@@ -70,7 +70,7 @@
             Poison: 3
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [Plant, Snail] #imp, added snail reaction
+          type: [Plant, Gastropoid] #Macrocosm, added Gastropoid
 
 - type: reagent
   id: PlantBGone

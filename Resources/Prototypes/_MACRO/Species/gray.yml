@@ -1,0 +1,23 @@
+- type: species
+  id: Gray
+  name: species-name-gray
+  roundStart: false
+  #randomViable: false
+  prototype: MobGray
+  dollPrototype: AppearanceGray
+  skinColoration: GrayToned
+  maleFirstNames: NamesGrayFirst
+  femaleFirstNames: NamesGrayFirst
+  lastNames: NamesGrayLast
+  youngAge: 999
+
+# Developer Notes
+#
+# Grays are very self explanatory.
+# They have a whopping 50% weakness to all brutes, and are very lightweight, but in return they are extremely resilient to
+# energy weapons after all their years of being shot by ray guns.
+# They have a word replacement accent that makes them almost completely inscrutable, and are mostly just
+# very funny in all contexts they end up in.
+#
+# You might choose to enable them if you want something more light-hearted for your fork, or conversely you may want to keep them
+# disabled if you're trying to be as serious as possible.

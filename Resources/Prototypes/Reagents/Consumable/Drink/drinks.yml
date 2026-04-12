@@ -487,6 +487,7 @@
         - !type:MetabolizerTypeCondition
           type: [ Thaven ]
         factor: 0.1
+        #MACROCOSM START
       - !type:PopupMessage # for apids. they're bees, they get calm if you smoke 'em
         conditions:
         - !type:ReagentCondition
@@ -507,18 +508,18 @@
           type: [ Apid ]
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
-      - !type:GenericStatusEffect
+      - !type:ModifyStatusEffect
+        minScale: 1.8
         conditions:
         - !type:ReagentCondition
           reagent: Water
           min: 1.8
         - !type:MetabolizerTypeCondition
           type: [ Apid ]
-        key: ForcedSleep
-        component: ForcedSleeping
+        effectProto: StatusEffectForcedSleeping
         time: 3
-        type: Add
-# imp edits end
+        type: Update
+        #MACROCOSM END
 
 - type: reagent
   id: Ice
@@ -623,16 +624,18 @@
   physicalDesc: reagent-physical-desc-sour
   flavor: bitter
   color: "#B3B599"
-  metabolisms: #imp
-    Poison:
+  #Macrocosm start
+  metabolisms:
+    Bloodstream:
       effects:
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Snail ]
+          type: [ Gastropoid ]
         damage:
           types:
             Poison: 4
+  #Macrocosm end
 
 - type: reagent
   id: OrangeLimeSoda

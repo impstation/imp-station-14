@@ -38,7 +38,6 @@ flavor-complex-radiation = like radiation
 flavour-stardust = like stardust
 flavor-complex-brotherly = brotherly
 flavor-complex-crud = like crud
-flavor-complex-snotty = like snot
 flavor-complex-speed = like speed
 flavor-base-whimsy = whimsical
 flavor-complex-secticket = like rotten eggs

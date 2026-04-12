@@ -24,7 +24,7 @@ using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Timing;
-using Content.Shared._Impstation.Decapoids; // imp
+using Content.Shared._MACRO.Species; // Macrocosm edit
 
 namespace Content.Shared.Wieldable;
 
@@ -261,7 +261,7 @@ public abstract class SharedWieldableSystem : EntitySystem
         }
 
         if (_hands.CountFreeableHands((user, hands), except: uid) < component.FreeHandsRequired
-            && !HasComp<CanWieldOneHandedComponent>(user)) // IMP ADD
+            && !HasComp<CanWieldOneHandedComponent>(user)) // Macrocosm add
         {
             if (!quiet)
             {

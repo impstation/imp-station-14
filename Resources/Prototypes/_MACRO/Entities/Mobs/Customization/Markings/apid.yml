@@ -1,0 +1,131 @@
+# Chest
+
+- type: marking
+  id: ApidChestStripesDefault
+  bodyPart: Chest
+  groupWhitelist: [Apid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffe600"
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Apid/chest.rsi
+    state: stripes
+
+# Head
+
+# Snout
+
+# Eyes
+
+- type: marking
+  id: ApidEyesDefault
+  bodyPart: Eyes
+  forcedColoring: true
+  groupWhitelist: [Apid]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFaa"
+  sprites:
+  - sprite: _MACRO/Mobs/Species/Apid/parts.rsi
+    state: eyes
+
+
+# RArm
+
+# LArm
+
+# RLeg
+
+# LLeg
+
+# UndergarmentBottom
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+- type: marking
+  id: ApidAntennaeDefault
+  bodyPart: Hair
+  forcedColoring: true
+  groupWhitelist: [Apid]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Apid/hair.rsi
+    state: defaultAntennae
+
+- type: marking
+  id: ApidAntennaeDroopy
+  bodyPart: Hair
+  forcedColoring: true
+  groupWhitelist: [Apid]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Apid/hair.rsi
+    state: antennaeDroopy
+
+- type: marking
+  id: ApidAntennaeSad
+  bodyPart: Hair
+  forcedColoring: true
+  groupWhitelist: [Apid]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Apid/hair.rsi
+    state: antennaeSad
+
+- type: marking
+  id: ApidAntennaeForward
+  bodyPart: Hair
+  forcedColoring: true
+  groupWhitelist: [Apid]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Apid/hair.rsi
+    state: antennaeForward
+
+# HeadSide
+
+# HeadTop
+
+# Tail
+
+- type: marking
+  id: ApidBeeButtDefault
+  bodyPart: Tail
+  groupWhitelist: [Apid]
+  forcedColoring: false
+  coloring:
+    default:
+      type:
+        !type:SkinColoring #did U know that this just doesnt work on randomappearance mobs for midround spawns upstream. fascinating
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Apid/tail.rsi
+    state: apidBeeButtDefault
+
+#TailOverlay
+
+- type: marking
+  id: ApidWingsAnimatedDefault
+  bodyPart: TailOverlay
+  groupWhitelist: [Apid]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#ffffff"
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Apid/tail.rsi
+    state: apidWingsDefault
+
+# RArmExtension

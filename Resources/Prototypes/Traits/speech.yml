@@ -13,11 +13,11 @@
     removes:
     - type: LizardAccent
     - type: MothAccent
-#    - type: ReplacementAccent #imp, moved to DwarfAccent
-#      accent: dwarf
+    - type: ReplacementAccent
+      accent: scottish
+    - type: GrayAccent # macro
+    - type: GastropoidAccent # macro
     # Imp accents below
-    - type: GastropoidAccent
-    - type: GrayAccent
     - type: DwarfAccent
     - type: ThavenAccent
     - type: AllulaloAccent

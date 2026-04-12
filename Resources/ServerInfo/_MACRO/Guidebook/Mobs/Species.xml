@@ -1,0 +1,27 @@
+﻿<Document>
+  # Species
+
+  Nanotrasen employs a variety of sapient species.
+
+  <Box> <!--MACROCOSM: If you enable any extra species, be sure to uncomment them here!-->
+    <GuideEntityEmbed Entity="MobAllulalo" Caption="Allulalo"/> <!--Macrocosm-->
+    <GuideEntityEmbed Entity="MobAnomalocarid" Caption="Anomalocarid"/> <!--Macrocosm-->
+    <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/> <!--Macrocosm-->
+    <GuideEntityEmbed Entity="MobApid" Caption="Apid"/> <!--Macrocosm-->
+    <GuideEntityEmbed Entity="MobDecapoid" Caption="Decapoid"/> <!--Macrocosm-->
+    <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
+    <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
+    <GuideEntityEmbed Entity="MobKodepiia" Caption="Kodepiia"/> <!--Macrocosm-->
+    <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
+    <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
+    <GuideEntityEmbed Entity="MobThaven" Caption="Thaven"/> <!--Macrocosm-->
+    <GuideEntityEmbed Entity="MobUngu" Caption="Ungu"/>
+    <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
+  </Box>
+</Document>

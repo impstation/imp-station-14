@@ -1,0 +1,265 @@
+﻿# Chest
+
+- type: marking
+  id: BellyGem
+  bodyPart: Chest
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/chest.rsi
+    state: bellygem
+
+- type: marking
+  id: GrayObject
+  bodyPart: Chest
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/chest.rsi
+    state: object1
+  - sprite: _MACRO/Mobs/Customization/Gray/chest.rsi
+    state: object2
+
+- type: marking
+  id: GrayTattooCar
+  bodyPart: Chest
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/chest.rsi
+    state: car1
+  - sprite: _MACRO/Mobs/Customization/Gray/chest.rsi
+    state: car2
+
+- type: marking
+  id: GrayTattooPlane
+  bodyPart: Chest
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/chest.rsi
+    state: plane1
+  - sprite: _MACRO/Mobs/Customization/Gray/chest.rsi
+    state: plane2
+
+- type: marking
+  id: RadiumGlow
+  bodyPart: Chest
+  groupWhitelist: [ Gray ]
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/chest.rsi
+    state: radiumglow
+  #shader: unshaded
+
+# Head
+
+- type: marking
+  id: GrayEyebags
+  bodyPart: Head
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/head.rsi
+    state: eyebags
+
+- type: marking
+  id: GrayHeadgem
+  bodyPart: Head
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/head.rsi
+    state: gem
+
+- type: marking
+  id: GrayLittleEyebrows
+  bodyPart: Head
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/head.rsi
+    state: littleeyebrows
+
+- type: marking
+  id: GraySpots
+  bodyPart: Head
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/head.rsi
+    state: spots
+
+- type: marking
+  id: GraySunkenCheeks
+  bodyPart: Head
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/head.rsi
+    state: sunkencheeks
+
+- type: marking
+  id: GrayTallEars
+  bodyPart: Head
+  groupWhitelist: [ Gray ]
+  #followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/head.rsi
+    state: tallears
+
+- type: marking
+  id: GrayWrinkles
+  bodyPart: Head
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/head.rsi
+    state: wrinkles
+
+- type: marking
+  id: RadiumGlowBrain
+  bodyPart: Head
+  groupWhitelist: [ Gray ]
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/head.rsi
+    state: radiumglowbrain
+  #shader: unshaded
+
+- type: marking
+  id: RadiumGlowCheeks
+  bodyPart: Head
+  groupWhitelist: [ Gray ]
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/head.rsi
+    state: radiumglowcheeks
+  #shader: unshaded
+
+# Snout
+
+# Eyes
+
+- type: marking
+  id: GrayCoolEyes
+  bodyPart: Eyes
+  groupWhitelist: [ Gray ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#000000"
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/eyes.rsi
+    state: cool
+
+- type: marking
+  id: GrayCuteEyes
+  bodyPart: Eyes
+  groupWhitelist: [ Gray ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/eyes.rsi
+    state: cute
+
+- type: marking
+  id: GrayFakeLashes
+  bodyPart: Eyes
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/eyes.rsi
+    state: fakelashes
+
+- type: marking
+  id: GrayWideEyes
+  bodyPart: Eyes
+  groupWhitelist: [ Gray ]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#3D3D3D"
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/eyes.rsi
+    state: wide
+
+# RArm
+
+# LArm
+
+# RLeg
+
+# LLeg
+
+# UndergarmentBottom
+
+- type: marking
+  id: GrayUnderwearClassic
+  bodyPart: UndergarmentBottom
+  groupWhitelist: [ Gray ]
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/undergarmentbottom.rsi
+    state: classic
+
+- type: marking
+  id: GrayUnderwearStriped
+  bodyPart: UndergarmentBottom
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/undergarmentbottom.rsi
+    state: striped1
+  - sprite: _MACRO/Mobs/Customization/Gray/undergarmentbottom.rsi
+    state: striped2
+
+- type: marking
+  id: GrayUnderwearToga
+  bodyPart: UndergarmentBottom
+  groupWhitelist: [ Gray ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/undergarmentbottom.rsi
+    state: toga
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+
+# HeadSide
+# okay for whatever reason headside and headtop dont work for grays
+- type: marking
+  id: GrayCuteEars
+  bodyPart: HeadSide # temp
+  groupWhitelist: [ Gray ]
+  forcedColoring: true
+  #followSkinColor: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/headside.rsi
+    state: cute
+
+# HeadTop
+
+- type: marking
+  id: GrayClassicAntenna
+  bodyPart: HeadSide # temp
+  groupWhitelist: [ Gray ]
+  #followSkinColor: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gray/headtop.rsi
+    state: classic
+
+# Tail
+
+# RArmExtension

@@ -1,0 +1,442 @@
+﻿- type: markingsGroup
+  id: Gray
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+      nudityDefault: [ GrayUnderwearStriped ]
+    enum.HumanoidVisualLayers.Chest:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RFoot:
+      limit: 1
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceGray
+  name: gray appearance
+  components:
+  - type: Inventory
+    templateId: gray
+    speciesId: gray
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: head
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: outerClothing
+      neck:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: neck
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: head
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: hand
+      back:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: head
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: feet
+  - type: InitialBody
+    organs:
+      Torso: OrganGrayTorso
+      Head: OrganGrayHead
+      ArmLeft: OrganGrayArmLeft
+      ArmRight: OrganGrayArmRight
+      HandRight: OrganGrayHandRight
+      HandLeft: OrganGrayHandLeft
+      LegLeft: OrganGrayLegLeft
+      LegRight: OrganGrayLegRight
+      FootLeft: OrganGrayFootLeft
+      FootRight: OrganGrayFootRight
+      Brain: OrganGrayBrain
+      Eyes: OrganGrayEyes
+      Tongue: OrganGrayTongue
+      Appendix: OrganGrayAppendix
+      Ears: OrganGrayEars
+      Lungs: OrganGrayLungs
+      Heart: OrganGrayHeart
+      Stomach: OrganGrayStomach
+      Liver: OrganGrayLiver
+      Kidneys: OrganGrayKidneys
+  - type: HumanoidProfile
+    species: Gray
+
+- type: entity
+  parent:
+  - AppearanceGray
+  - BaseSpeciesMobOrganic
+  id: MobGray
+  name: Urist McGray
+  components:
+  - type: GrayAccent
+  - type: TypingIndicator
+    proto: gray
+  - type: Vocal
+    sounds:
+      Male: UnisexGray
+      Female: UnisexGray
+      Unsexed: UnisexGray
+  - type: Speech
+    speechSounds: PVC
+  - type: Damageable
+    damageModifierSet: Gray
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GrayBlood
+        Quantity: 300
+
+
+- type: entity
+  parent: OrganBase
+  id: OrganGray
+  abstract: true
+  suffix: Gray
+
+- type: entity
+  id: OrganGrayMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Human ]
+
+- type: entity
+  parent: OrganGray
+  id: OrganGrayInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MACRO/Mobs/Species/Gray/organs.rsi
+
+- type: entity
+  parent: OrganGray
+  id: OrganGrayExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MACRO/Mobs/Species/Gray/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _MACRO/Mobs/Species/Gray/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Gray
+
+- type: entity
+  id: OrganGrayVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _MACRO/Mobs/Species/Gray/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Gray
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganGrayExternal ]
+  id: OrganGrayTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganGrayExternal ]
+  id: OrganGrayHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganGrayExternal ]
+  id: OrganGrayArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganGrayExternal ]
+  id: OrganGrayArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganGrayExternal ]
+  id: OrganGrayHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganGrayExternal ]
+  id: OrganGrayHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganGrayExternal ]
+  id: OrganGrayLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganGrayExternal ]
+  id: OrganGrayLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganGrayExternal ]
+  id: OrganGrayFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganGrayExternal ]
+  id: OrganGrayFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganGrayInternal ]
+  id: OrganGrayBrain
+  name: moluuma
+  description: "Jazee thinking pib talking."
+
+- type: entity
+  parent: [ OrganGrayVisual, OrganBaseEyes, OrganGrayInternal ]
+  id: OrganGrayEyes
+  name: shuui
+  description: "Soulful."
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganGrayInternal ]
+  id: OrganGrayTongue
+  name: jorp
+  description: "It's still wriggling..."
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganGrayInternal ]
+  id: OrganGrayAppendix
+  name: weird squishy part
+  description: "Seben?"
+
+- type: entity
+  parent: [ OrganBaseEars, OrganGrayInternal ]
+  id: OrganGrayEars
+  name: tubules
+  description: "You think maybe this is like, their ears."
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganGrayInternal, OrganHumanMetabolizer, BaseHandheldInstrument ]
+  id: OrganGrayLungs
+  name: cupod
+  description: "Eugh..."
+  components:
+  - type: Instrument
+    program: 109
+  - type: Tag
+    tags:
+    - Meat
+    - WoodwindInstrument
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganGrayInternal, OrganHumanMetabolizer ]
+  id: OrganGrayHeart
+  name: tumpii
+  description: "You honestly have no idea what this does."
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganGrayInternal, OrganHumanMetabolizer ]
+  id: OrganGrayStomach
+  name: fuubu
+  description: "Looks kind of appetizing."
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganGrayInternal, OrganHumanMetabolizer ]
+  id: OrganGrayLiver
+  name: beobu
+  description: "Jazee sipsun alcohol."
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganGrayInternal, OrganGrayMetabolizer ]
+  id: OrganGrayKidneys
+  name: cube
+  description: "A small, hard cube of an unidentifiable metal. It's warm to the touch, and pulsates faintly."
+  components:
+  - type: Tool
+    qualities:
+    - Pulsing
+  - type: Sprite
+    layers:
+      - state: kidney-r
+
+- type: entity
+  save: false
+  name: Urist McGray
+  parent: BaseSpeciesMobOrganic
+  id: BaseMobGray
+  abstract: true
+  components:
+  - type: Hunger
+  - type: Thirst
+  - type: Icon
+    sprite: _MACRO/Mobs/Species/Gray/parts.rsi
+    state: full
+  - type: Body
+    prototype: Gray
+    requiredLegs: 2
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        # they r smaller #they r smaller (2)
+        density: 100
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Vocal
+    sounds:
+      Male: UnisexGray
+      Female: UnisexGray
+      Unsexed: UnisexGray
+  - type: GrayAccent
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Gray
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#00ff04"
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GrayBlood
+        Quantity: 300
+  - type: Inventory
+    speciesId: gray
+    templateId: gray
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: jumpsuit
+      head:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: head
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: outerClothing
+      neck:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: neck
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: eyes
+      mask:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: head
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: hand
+      back:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: ears
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gray/displacement.rsi
+            state: feet
+  - type: Speech
+    speechSounds: PVC
+  - type: TypingIndicator
+    proto: gray

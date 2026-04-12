@@ -1,0 +1,29 @@
+- type: species
+  id: Apid
+  name: species-name-apid
+  roundStart: false
+  #randomViable: false
+  prototype: MobApid
+  defaultSkinTone: "#fcd719"
+  dollPrototype: AppearanceApid
+  skinColoration: Hues # this prevents RandomHumanoidAppearance from fucking with their colorscheme too much
+  maleFirstNames: ApidNamesSoup
+  femaleFirstNames: ApidNamesSoup
+  lastNames: ApidNames
+  sexes:
+  - Male
+  - Female
+  - Unsexed
+
+# Developer Notes
+#
+# Apids are smaller, floatier moths. You can almost think of them like a moth equivelant of a monkey stats wise.
+# They have dramatically lower health, are limited to one hand (although they can still wield!), and are permanently
+# immune to gravity in all contexts. In return, theyre very fast!
+#
+# Apids are primarily intended to be a ghost role, but that code isn't on macrocosm. Instead, they're here as an option
+# if you want to use them for something, or if youd like to roundstart them for your server.
+#
+# Be aware if you choose to do so that they have a lot of overlap with moths, and have a fairly dramatic lack of customization
+# options, so if you would like to have them as an available species you might want to give them a little bit of love and care first.
+# (And if you do, please send it upstream!)

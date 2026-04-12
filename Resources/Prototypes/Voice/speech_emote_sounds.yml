@@ -407,26 +407,28 @@
       path: /Audio/_Impstation/Voice/Arachnid/arachnid_gasp.ogg #imp
     DefaultDeathgasp:
       collection: DeathGasp
-    # imp edit start
-    Hiss:
-      path: /Audio/_Impstation/Voice/Arachnid/arachnid_hiss.ogg
+    # Macrocosm start
+    #Hiss:
+    #  path: /Audio/_MACRO/Voice/Arachnid/arachnid_hiss.ogg
     Sneeze:
       collection: UnisexSneezes #placeholder
     Cough:
-      path: /Audio/_Impstation/Voice/Arachnid/arachnid_cough.ogg
+      path: /Audio/_MACRO/Voice/Arachnid/arachnid_cough.ogg
     Yawn:
-      path: /Audio/_Impstation/Voice/Arachnid/arachnid_yawn.ogg
+      path: /Audio/_MACRO/Voice/Arachnid/arachnid_yawn.ogg
     Sigh:
-      path: /Audio/_Impstation/Voice/Arachnid/arachnid_sigh.ogg
+      path: /Audio/_MACRO/Voice/Arachnid/arachnid_sigh.ogg
     Crying:
-      path: /Audio/_Impstation/Voice/Arachnid/arachnid_cry.ogg
+      path: /Audio/_MACRO/Voice/Arachnid/arachnid_cry.ogg
     Whistle:
       collection: Whistles
+    # Macrocosm end
+    # imp start
     Wuhey:
       collection: Wuhey
     Ungh:
       collection: Ungh
-    # imp edit end
+    # imp end
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -551,24 +553,26 @@
       path: /Audio/_Impstation/Voice/Moth/mothgasp.ogg # imp
     DefaultDeathgasp:
       collection: MothDeathGasp
-    # imp edit start
+    # Macrocosm start
     Sneeze:
       collection: UnisexSneezes #placeholder
     Cough:
-      path: /Audio/_Impstation/Voice/Moth/mothcough.ogg
+      path: /Audio/_MACRO/Voice/Moth/mothcough.ogg
     Yawn:
-      path: /Audio/_Impstation/Voice/Moth/mothyawn.ogg
+      path: /Audio/_MACRO/Voice/Moth/mothyawn.ogg
     Sigh:
-      path: /Audio/_Impstation/Voice/Moth/mothsigh.ogg
+      path: /Audio/_MACRO/Voice/Moth/mothsigh.ogg
     Crying:
-      path: /Audio/_Impstation/Voice/Moth/mothcry.ogg
+      path: /Audio/_MACRO/Voice/Moth/mothcry.ogg
     Whistle:
       collection: Whistles
+    # Macrocosm end
+    # imp start
     Wuhey:
       collection: Wuhey
     Ungh:
       collection: Ungh
-    # imp edit end
+    # imp end
 
 - type: emoteSounds
   id: UnisexSilicon

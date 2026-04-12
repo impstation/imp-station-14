@@ -1,0 +1,330 @@
+- type: markingsGroup
+  parent: Undergarments
+  id: Gastropoid
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 0
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: true
+      default: [ GastropoidFaceEyes1 ]
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: true
+      default: [ GastropoidShellSmall ]
+    enum.HumanoidVisualLayers.TailOverlay:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.RHand:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.LFoot:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Special:
+      limit: 0
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceGastropoid
+  name: gastropoid appearance
+  components:
+  - type: Inventory
+    speciesId: gastropoid
+    templateId: gastropoid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gastropoid/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gastropoid/displacement.rsi
+            state: outerClothing
+      head:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gastropoid/displacement.rsi
+            state: head
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gastropoid/displacement.rsi
+            state: feet
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gastropoid/displacement.rsi
+            state: eyes
+      back:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gastropoid/displacement.rsi
+            state: back
+      neck:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gastropoid/displacement.rsi
+            state: neck
+      mask:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Gastropoid/displacement.rsi
+            state: mask
+  - type: InitialBody
+    organs:
+      Torso: OrganGastropoidTorso
+      Head: OrganGastropoidHead
+      ArmLeft: OrganGastropoidArmLeft
+      ArmRight: OrganGastropoidArmRight
+      HandRight: OrganGastropoidHandRight
+      HandLeft: OrganGastropoidHandLeft
+      FootLeft: OrganGastropoidFootLeft
+      Brain: OrganGastropoidBrain
+      Eyes: OrganGastropoidEyes
+      Tongue: OrganGastropoidTongue
+      Appendix: OrganGastropoidAppendix
+      Ears: OrganGastropoidEars
+      Lungs: OrganGastropoidLungs
+      Heart: OrganGastropoidHeart
+      Stomach: OrganGastropoidStomach
+      Liver: OrganGastropoidLiver
+      Kidneys: OrganGastropoidKidneys
+  - type: HumanoidProfile
+    species: Gastropoid
+
+- type: entity
+  parent:
+  - AppearanceGastropoid
+  - BaseSpeciesMobOrganic
+  id: MobGastropoid
+  name: Uristsiru McShell
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSnail
+      amount: 5
+  - type: TemperatureDamage
+    heatDamageThreshold: 380
+    coldDamageThreshold: 285
+    coldDamage:
+      types:
+        Cold : 0.5 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 1.5 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310
+    specificHeat: 42
+  - type: TemperatureSpeed
+    thresholds: # removes their temp speed restrictions. this is hacky and sucks.
+      293: 1.0
+      280: 1.0
+      260: 1.0
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CopperBlood
+        Quantity: 300
+  - type: Tag
+    tags:
+      - DoorBumpOpener
+      - CanPilot
+      - FootstepSound
+      - AnomalyHost
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300 # this matches diona
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/_MACRO/Effects/Footsteps/snailstep.ogg
+  - type: Vocal
+    sounds:
+      Male: UnisexSnail
+      Female: UnisexSnail
+      Unsexed: UnisexSnail
+  - type: BodyEmotes
+    soundsId: GastropoidBodyEmotes
+  - type: GastropoidAccent
+  - type: Reactive
+    reactions:
+    - reagents: [ Diphenhydramine, Lipozine, Oculine, Saline, Fresium, Hotsauce, TableSalt, Bleach, SodiumCarbonate, PestKiller, Posca ] # theres got to be a better way of doing this.
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaling: true
+        damage:
+          types:
+            Heat: 0.4
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "snail-hurt-by-chem-popup" ]
+        probability: 1
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 2.25
+    baseWalkSpeed: 1.25
+  - type: SnailSprint
+    action: ActionSlime
+    thirstCost: 100
+    sprintLength: 2
+    speedBoost: 1.5
+    reagentProduced: Mucin
+  - type: NoSlip
+  - type: Magboots
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Gastropoid
+  - type: TypingIndicator
+    proto: Gastropoid
+
+- type: entity
+  parent: OrganBase
+  id: OrganGastropoid
+  abstract: true
+  suffix: gastropoid
+
+- type: entity
+  id: OrganGastropoidMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Gastropoid ]
+
+- type: entity
+  parent: OrganGastropoid
+  id: OrganGastropoidInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  id: OrganGastropoidVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _MACRO/Mobs/Species/Gastropoid/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Gastropoid
+
+- type: entity
+  parent: OrganGastropoid
+  id: OrganGastropoidExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MACRO/Mobs/Species/Gastropoid/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _MACRO/Mobs/Species/Gastropoid/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Gastropoid
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganGastropoidExternal ]
+  id: OrganGastropoidTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganGastropoidExternal ]
+  id: OrganGastropoidHead
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganGastropoidExternal ]
+  id: OrganGastropoidArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganGastropoidExternal ]
+  id: OrganGastropoidArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganGastropoidExternal ]
+  id: OrganGastropoidHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganGastropoidExternal ]
+  id: OrganGastropoidHandRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganGastropoidExternal ]
+  id: OrganGastropoidFootLeft
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganGastropoidInternal ]
+  id: OrganGastropoidBrain
+
+- type: entity
+  parent: [ OrganGastropoidVisual, OrganBaseEyes, OrganGastropoidInternal ]
+  id: OrganGastropoidEyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganGastropoidInternal ]
+  id: OrganGastropoidTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganGastropoidInternal ]
+  id: OrganGastropoidAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganGastropoidInternal ]
+  id: OrganGastropoidEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganGastropoidInternal, OrganHumanMetabolizer ]
+  id: OrganGastropoidLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganGastropoidInternal, OrganGastropoidMetabolizer ]
+  id: OrganGastropoidHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganGastropoidInternal, OrganGastropoidMetabolizer ]
+  id: OrganGastropoidStomach
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganGastropoidInternal, OrganGastropoidMetabolizer ]
+  id: OrganGastropoidLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganGastropoidInternal, OrganGastropoidMetabolizer ]
+  id: OrganGastropoidKidneys

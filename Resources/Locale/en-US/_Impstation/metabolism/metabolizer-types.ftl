@@ -1,7 +1,3 @@
-metabolizer-type-snail = Snail
-
-metabolizer-type-apid = Apid
-
 metabolizer-type-decapoid = Decapoid
 
 metabolizer-type-thaven = Thaven
@@ -14,4 +10,3 @@ metabolizer-type-anomalocarid = Anomalocarid
 
 metabolizer-type-dinosaur = Dinosaur
 
-metabolizer-type-gray = Gray

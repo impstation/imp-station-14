@@ -1,0 +1,18 @@
+- type: entity
+  parent: OrganBase
+  id: OrganBaseHandLeftInactive #allows you to define a left hand that works visually only- used for apids
+  name: left hand
+  abstract: true
+  components:
+  - type: Organ
+    category: HandLeft
+  - type: Sprite
+    state: l_hand
+  - type: VisualOrgan
+    layer: enum.HumanoidVisualLayers.LHand
+    data:
+      state: l_hand
+  - type: VisualOrganMarkings
+    markingData:
+      layers:
+      - LHand

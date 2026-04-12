@@ -13,14 +13,8 @@ reagent-desc-anomalocarid-blood = A strangely effervescent fluid with a color th
 reagent-name-bloodkodepiia = kodepiia ooze
 reagent-desc-bloodkodepiia = The fluid that bleeds from a kodepiia if you cut it. Smells delicious.
 
-reagent-name-gray-blood = joos
-reagent-desc-gray-blood = Thui hope glump mochigi ketchup.
-
 reagent-name-reaper-blood = ectoplasm
 reagent-desc-reaper-blood = The liquefied essence of soul that maintains the corporeal forms of various spectral entities.
-
-reagent-name-mucin = mucin
-reagent-desc-mucin = A fascinating secretion capable of accelerating the movement of Gastropoids. It looks exploitable...
 
 reagent-name-testosterone = testosterone
 reagent-desc-testosterone = A fundamental bodily hormone, synthesized from plant matter for pharmaceutical distribution.

@@ -1,0 +1,810 @@
+# Chest
+
+- type: marking
+  id: GastropoidPuff1
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: puff1
+
+- type: marking
+  id: GastropoidPuff2
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: puff2
+
+- type: marking
+  id: GastropoidSpotsBody
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: spots
+
+- type: marking
+  id: GastropoidStripesBody
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: stripes
+
+- type: marking
+  id: GastropoidVertStripes
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: streaks
+
+- type: marking
+  id: GastropoidFreckledBody
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: freckled
+
+- type: marking
+  id: GastropoidGlowDotsBody
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: glow
+  ###shader: unshaded
+
+- type: marking
+  id: GastropoidLinesBody
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: lines
+
+- type: marking
+  id: GastropoidLoopsBody
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: loops
+
+- type: marking
+  id: GastropoidPaintedBody
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: painted
+
+- type: marking
+  id: GastropoidSeamBody
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: seam
+
+- type: marking
+  id: GastropoidSplashBody
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: splash
+
+- type: marking
+  id: GastropoidGradientBody
+  bodyPart: Chest
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/chest.rsi
+    state: gradient
+
+# Head
+
+- type: marking
+  id: GastropoidAltHead
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: lobster
+
+- type: marking
+  id: GastropoidCheekGlow
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: cheekglow
+  #shader: unshaded
+
+- type: marking
+  id: GastropoidCheeks
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: cheeks
+
+- type: marking
+  id: GastropoidSpotsHeadLeft
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: spotsleft
+
+- type: marking
+  id: GastropoidSpotsHeadRight
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: spotsright
+
+- type: marking
+  id: GastropoidStripesHead
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: stripes
+
+- type: marking
+  id: GastropoidFaceSplash
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: splash
+
+- type: marking
+  id: GastropoidAntennaGlow
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: antennaglow
+  #shader: unshaded
+
+- type: marking
+  id: GastropoidFaceLoops
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: loops
+
+- type: marking
+  id: GastropoidHood
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: hood
+
+- type: marking
+  id: GastropoidAntennaColor
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: antennacolor
+
+- type: marking
+  id: GastropoidFacePatch
+  bodyPart: Head
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: patch
+
+# Snout
+
+# Eyes
+
+- type: marking
+  id: GastropoidFaceEyes1
+  bodyPart: Eyes
+  groupWhitelist: [ Gastropoid ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: predator
+
+- type: marking
+  id: GastropoidFaceEyes2
+  bodyPart: Eyes
+  groupWhitelist: [ Gastropoid ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: prey
+
+- type: marking
+  id: GastropoidFaceEyes3
+  bodyPart: Eyes
+  groupWhitelist: [ Gastropoid ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/head.rsi
+    state: tentacle
+
+# RArm
+
+- type: marking
+  id: GastropoidSpotsArmRight
+  bodyPart: RArm
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/rarm.rsi
+    state: spots
+
+- type: marking
+  id: GastropoidStripesArmRight
+  bodyPart: RArm
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/rarm.rsi
+    state: stripes
+
+- type: marking
+  id: GastropoidGradientArmRight
+  bodyPart: RArm
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/rarm.rsi
+    state: gradientra
+
+- type: marking
+  id: GastropoidShawlArmRight
+  bodyPart: RArm
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/rarm.rsi
+    state: shawlra
+
+# LArm
+
+- type: marking
+  id: GastropoidSpotsArmLeft
+  bodyPart: LArm
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/larm.rsi
+    state: spots
+
+- type: marking
+  id: GastropoidStripesArmLeft
+  bodyPart: LArm
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/larm.rsi
+    state: stripes
+
+- type: marking
+  id: GastropoidGradientArmLeft
+  bodyPart: LArm
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/larm.rsi
+    state: gradientla
+
+- type: marking
+  id: GastropoidShawlArmLeft
+  bodyPart: LArm
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/larm.rsi
+    state: shawlla
+
+# RLeg
+
+# LLeg
+
+# UndergarmentBottom
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+- type: marking
+  id: GastropoidGradientHandLeft
+  bodyPart: LHand
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/lhand.rsi
+    state: gradientlh
+
+- type: marking
+  id: GastropoidShawlHandLeft
+  bodyPart: LHand
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/lhand.rsi
+    state: shawllh
+
+# RHand
+
+- type: marking
+  id: GastropoidGradientHandRight
+  bodyPart: RHand
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/rhand.rsi
+    state: gradientrh
+
+- type: marking
+  id: GastropoidShawlHandRight
+  bodyPart: RHand
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/rhand.rsi
+    state: shawlrh
+
+# FacialHair
+
+# Hair
+
+# HeadSide
+
+# HeadTop
+
+- type: marking
+  id: GastropoidTentacleBeard
+  bodyPart: HeadTop
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/headtop.rsi
+    state: beard
+
+- type: marking
+  id: GastropoidTentacleMoustache
+  bodyPart: HeadTop
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/headtop.rsi
+    state: moustache
+
+- type: marking
+  id: GastropoidTentacleStubs
+  bodyPart: HeadTop
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/headtop.rsi
+    state: stubs
+
+# Tail
+
+- type: marking
+  id: GastropoidShellBig
+  bodyPart: Tail
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: big
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigstripes
+
+- type: marking
+  id: GastropoidShellCone
+  bodyPart: Tail
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: cone
+
+- type: marking
+  id: GastropoidShellProsthetic
+  bodyPart: Tail
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: prosthetic
+
+- type: marking
+  id: GastropoidShellProstheticSimple
+  bodyPart: Tail
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: prostheticsimple
+
+- type: marking
+  id: GastropoidShellSmall
+  bodyPart: Tail
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: small
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallstripes
+
+# Tail Overlays (layer on top of tail)
+
+- type: marking
+  id: GlowInTheDarkStars
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: prostheticsimpleglowinthedarkstars
+  #shader: unshaded
+
+- type: marking
+  id: ProstheticInnerLight
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: prostheticinnerlight
+  #shader: unshaded
+
+- type: marking
+  id: ProstheticPulse
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: prostheticpulse
+  #shader: unshaded
+
+- type: marking
+  id: SimpleBow
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: prostheticsimplebow
+
+- type: marking
+  id: SimpleCracks
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: prostheticsimplecracks
+
+- type: marking
+  id: SnailWeewoo
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: weewoo1
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: weewoo2
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: weewoo3
+  #shader: unshaded
+
+- type: marking
+  id: SnailWeewooSmall
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: weewoosmall1
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: weewoosmall2
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: weewoosmall3
+  #shader: unshaded
+
+- type: marking
+  id: ConeBigStripes
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: conebigstripes
+
+- type: marking
+  id: ConeCracked
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: conecracked
+
+- type: marking
+  id: ConeDuotone
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: coneduotone
+
+- type: marking
+  id: ConeGlow
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: coneglow
+  ##shader: unshaded
+
+- type: marking
+  id: ConeGradient
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: conegradient
+
+- type: marking
+  id: ConeOvergrown
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: coneovergrown
+
+- type: marking
+  id: ConeSpecks
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: conespecks
+
+- type: marking
+  id: ConeStripes
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: conestripes
+
+- type: marking
+  id: SmallDuotone
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallduotone
+
+- type: marking
+  id: SmallGlow
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallglow
+  ###shader: unshaded
+
+- type: marking
+  id: SmallGradient
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallgradient
+
+- type: marking
+  id: SmallOvergrown
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallovergrown
+
+- type: marking
+  id: SmallSeam
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallseam
+
+- type: marking
+  id: SmallSpiral
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallspiral
+
+- type: marking
+  id: SmallSpots
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallspots
+
+- type: marking
+  id: SmallSwirl
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallswirl
+
+- type: marking
+  id: BigCracked
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigcracked
+
+- type: marking
+  id: BigDuotone
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigduotone
+
+- type: marking
+  id: BigGlow
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigglow
+  ###shader: unshaded
+
+- type: marking
+  id: BigGradient
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: biggradient
+
+- type: marking
+  id: BigOvergrown
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigovergrown
+
+- type: marking
+  id: BigSeam
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigseam
+
+- type: marking
+  id: BigSpiral
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigspiral
+
+- type: marking
+  id: BigSpots
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigspots
+
+- type: marking
+  id: BigSwirl
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigswirl
+
+- type: marking
+  id: ProstheticSimpleGlass
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: prostheticsimpleglass
+
+- type: marking
+  id: SmallMantle
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallmantle1
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallmantle2
+
+- type: marking
+  id: SmallRibbon
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallribbon1
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallribbon2
+
+- type: marking
+  id: ConeMantle
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: conemantle1
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: conemantle2
+
+- type: marking
+  id: ConeRibbon
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: coneribbon1
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: coneribbon2
+
+- type: marking
+  id: BigMantle
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigmantle1
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigmantle2
+
+- type: marking
+  id: BigRibbon
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigribbon1
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: bigribbon2
+
+- type: marking
+  id: ProstheticMulticolor
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: prostheticmulticolor1
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: prostheticmulticolor2
+
+- type: marking
+  id: SmallFlowers
+  bodyPart: TailOverlay
+  groupWhitelist: [ Gastropoid ]
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallflowers1
+  - sprite: _MACRO/Mobs/Customization/Gastropoid/tail.rsi
+    state: smallflowers2
+
+# RArmExtension

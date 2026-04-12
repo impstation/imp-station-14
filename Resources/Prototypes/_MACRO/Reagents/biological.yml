@@ -1,0 +1,36 @@
+﻿- type: reagent
+  id: GrayBlood
+  name: reagent-name-gray-blood
+  group: Biological
+  parent: Radium
+  desc: reagent-desc-gray-blood
+  physicalDesc: reagent-physical-desc-glowing
+
+- type: reaction
+  id: GrayBloodBreakdown
+  source: true
+  requiredMixerCategories:
+  - Centrifuge
+  reactants:
+    GrayBlood:
+      amount: 5
+  products:
+    Radium: 5
+
+- type: reagent
+  id: Mucin
+  name: reagent-name-mucin
+  group: Biological
+  desc: reagent-desc-mucin
+  flavor: snotty
+  color: "#b1d8c1"
+  recognizable: true
+  physicalDesc: reagent-physical-desc-viscous
+  slipData:
+    requiredSlipSpeed: 4.0 #It's not as slippery as water
+  friction: 0.4
+  evaporationSpeed: 15.0
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6

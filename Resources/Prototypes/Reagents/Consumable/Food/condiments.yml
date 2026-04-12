@@ -136,7 +136,7 @@
   color: saddlebrown
   recognizable: true
   metabolisms:
-    Food:
+    Bloodstream: #Macrocosm changed from disgestion > bloodstream
       effects:
       - !type:SatiateHunger
         factor: 0.5
@@ -146,6 +146,15 @@
           inverted: true
       - !type:SatiateThirst
         factor: -0.5 # high salt content
+      #Macrocosm start
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gastropoid ]
+        damage:
+          types:
+            Poison: 4
+      #Macrocosm end
 
 - type: reagent
   id: TableSalt
@@ -172,23 +181,20 @@
   - !type:PlantAdjustHealth
     amount: -2
   metabolisms:
-    Food:
+    Bloodstream: #Macrocosm changed from disgestion > bloodstream
       effects:
       # eating salt on its own kinda sucks, kids
       - !type:SatiateThirst
         factor: -0.5
-      - !type:HealthChange #start imp
+      #Macrocosm start
+      - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Snail ]
+          type: [ Gastropoid ]
         damage:
           types:
             Poison: 4
-  tileReactions:
-    - !type:EnsureTileReaction
-      components:
-        - type: RevealRevenantOnCollide
-          popupText: revenant-revealed-salt #end imp
+      #Macrocosm end
 
 - type: reagent
   id: Syrup
