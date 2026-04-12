@@ -3,6 +3,7 @@ using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
 using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared.Heretic;
+using Content.Shared._Impstation.Heretic; // imp edit
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;

@@ -159,3 +159,9 @@ uplink-taipan-desc = One "Taipan" Echion crossbow, bundled with a canister of it
 
 uplink-romerol-traitor-name = Romerol Micro-Injector
 uplink-romerol-traitor-desc = One romerol micro-injector for causing a zombie outbreak.
+
+uplink-muldoon-sniper-kit-name = Muldoon Sniper Conversion Kit
+uplink-muldoon-sniper-kit-desc = An upgrade kit that modifies the muldoon to allow both darts and .60 anti-material rounds to fit and fire inside.
+
+uplink-shock-dart-box-name = Shock Dart Box
+uplink-shock-dart-box-desc = A box of 4 tranquilizer darts that fit in the muldoon. Each dart contains 4 units of tazinide and will shock the target after injection.

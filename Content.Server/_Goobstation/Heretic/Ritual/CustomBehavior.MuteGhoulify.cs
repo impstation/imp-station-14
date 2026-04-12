@@ -1,4 +1,4 @@
-using Content.Shared.Heretic;
+using Content.Shared._Impstation.Heretic; // imp edit
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Speech.Muting;
 
@@ -17,7 +17,7 @@ public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
         {
             var ghoul = new GhoulComponent()
             {
-                TotalHealth = 125f,
+                HealthDivisor = 1.60, // imp edit
             };
             args.EntityManager.AddComponent(uid, ghoul, overwrite: true);
             args.EntityManager.EnsureComponent<MutedComponent>(uid);
