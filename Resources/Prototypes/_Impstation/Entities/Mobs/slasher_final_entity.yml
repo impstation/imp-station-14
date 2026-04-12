@@ -1,0 +1,52 @@
+# The Slasher final boss entity spawned in the death maze when the effigy is fully fed.
+# Uses a sensor-only fixture so it phases through walls but still fires StartCollideEvent
+# against humanoid mobs, allowing SlasherFinalEntitySystem to gib them on contact.
+
+- type: entity
+  parent: BaseMob
+  id: SlasherFinalEntity
+  name: "???"
+  description: Something ancient and terrible stirs from the dark.
+  components:
+  - type: Sprite
+    sprite: Structures/Power/Generation/Singularity/singularity_2.rsi
+    state: singularity_2
+    scale: 1.5, 1.5
+    noRot: true
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+  - type: WarpPoint
+    location: Slasher Final Entity
+  - type: RandomWalk
+    minSpeed: 2.0
+    maxSpeed: 3.0
+    breakPulling: true
+    stepOnStartup: true
+  - type: SlasherFinalAttractor
+  - type: Fixtures
+    fixtures:
+      boss_sensor:
+        shape:
+          !type:PhysShapeCircle
+          radius: 3.0
+        density: 1
+        hard: false
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: SlasherFinalEntity
+
+# Marker placed in the death maze map. Replaced by the actual boss entity at victory time.
+- type: entity
+  parent: MarkerBase
+  id: SlasherBossSpawner
+  name: slasher boss spawner
+  suffix: Slasher
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - state: skull
+  - type: SlasherBossSpawner

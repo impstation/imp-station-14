@@ -1,0 +1,182 @@
+# Pulse effects triggered when a Slasher effigy re-hides after a reveal window.
+# These are started programmatically by SlasherEffigySystem and are not in the random event pool.
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherBloodFoamPulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleBloodFoam
+    reagentQuantity: 50
+    spread: 8
+    foamTime: 15
+    ventProcChance: 0.1
+    bloodReagentWhitelist:
+    - Blood
+    - CopperBlood
+    - InsectBlood
+    - GrayBlood
+    - BloodKodepiia
+    - ShimmeringBlood
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherPowerOutagePulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRulePowerOutage
+    shutdownDelay: 5
+    duration: 30
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherCorruptedAnnouncementPulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleCorruptedAnnouncement
+    announcementLocaleKeys:
+    - slasher-pulse-announcement-1
+    - slasher-pulse-announcement-2
+    - slasher-pulse-announcement-3
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherDoorMalicePulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleDoorMalice
+    doorRadius: 6
+    cycleCount: 6
+    cycleIntervalSeconds: 0.8
+    playerFractionPerCycle: 0.33
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherAnomalyBurstPulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleAnomalyBurst
+    fleshSpawnerPrototype: SlasherAnomalySpawnerFlesh
+    shadowSpawnerPrototype: SlasherAnomalySpawnerShadow
+    fleshCount: 2
+    shadowCount: 1
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherVentCorpsePulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleVentCorpse
+  - type: SpawnCrewCorpse
+    minSpawnCount: 6
+    maxSpawnCount: 10
+    corpsePrototype: SalvageHumanCorpse
+    cloneAppearance: true
+    distinctCrewPerBatch: true
+    copyJumpsuitOnly: true
+    corpseName: unidentified corpse
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherFakeRodPulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleFakeRod
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherRedLightPulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleRedLight
+    minLights: 15
+    maxLights: 30
+    bulbPrototype: LightTubeCrystalRed
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherMassCasualityPulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleMassCasuality
+    minEntries: 5
+    maxEntries: 10
+    durationSeconds: 60
+    deadWeight: 3
+    critWeight: 4
+    badWeight: 5
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherSpookyFaxPulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleSpookyFax
+    minRandomFaxes: 2
+    maxRandomFaxes: 4
+    printoutTitle: priority transmission
+    messageLocaleKeys:
+    - slasher-pulse-fax-message-1
+    - slasher-pulse-fax-message-2
+    - slasher-pulse-fax-message-3
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherGhostOrbPulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleGhostOrb
+    orbPrototype: SlasherGhostOrb
+    ventSampleCount: 5
+    orbCount: 3
+    orbSpeed: 12
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherUristGibPulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleUristGib
+    uristPrototypes:
+    - MobHuman
+    - MobMoth
+    - MobReptilian
+    - MobSlimePerson
+    - MobVulpkanin
+    - MobDwarf
+    - MobDiona
+    - MobArachnid
+    - MobGray
+    - MobKodepiia
+    spawnRange: 3
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherRevenantSpookPulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleRevenantSpook
+
+- type: entity
+  parent: BaseGameRule
+  id: SlasherGhostBooPulse
+  components:
+  - type: GameRule
+    minPlayers: 0
+  - type: SlasherGameRuleGhostBoo
+    maxTargets: 40
+
+

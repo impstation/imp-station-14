@@ -1,0 +1,36 @@
+- type: thiefBackpackSet
+  id: SlasherSetClown
+  name: slasher-gear-set-clown-name
+  description: slasher-gear-set-clown-description
+  sprite:
+    entity: ClothingMaskSlasherClown
+  content:
+  - ClothingHandsGlovesSlasherClown
+  - ClothingMaskSlasherClown
+  - ClothingUniformJumpsuitSlasherClown
+  - ClothingOuterCoatSlasherClown
+  - ClothingShoesSlasherClown
+
+- type: thiefBackpackSet
+  id: SlasherSetGriffy
+  name: slasher-gear-set-griffy-name
+  description: slasher-gear-set-griffy-description
+  sprite:
+    entity: ClothingHeadSlasherGriffy
+  content:
+  - ClothingHeadSlasherGriffy
+  - ClothingOuterSlasherGriffy
+  - SlasherGriffyPDA
+
+- type: thiefBackpackSet
+  id: SlasherSetCaptain
+  name: slasher-gear-set-captain-name
+  description: slasher-gear-set-captain-description
+  sprite:
+    entity: ClothingHeadHatSlasherCaptain
+  content:
+  - ClothingHeadHatSlasherCaptain
+  - ClothingOuterArmorSlasherCaptainCarapace
+  - ClothingUniformJumpsuitSlasherCaptain
+  - ClothingHandsGlovesSlasherCaptain
+  - ClothingShoesBootsSlasherCaptain

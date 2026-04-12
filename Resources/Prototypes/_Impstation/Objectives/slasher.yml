@@ -1,0 +1,60 @@
+- type: entity
+  abstract: true
+  parent: BaseObjective
+  id: BaseSlasherObjective
+  components:
+  - type: Objective
+    issuer: objective-issuer-slasher
+
+- type: entity
+  parent: BaseSlasherObjective
+  id: SlasherPlaceEffigyObjective
+  name: slasher-objective-condition-place-effigy-title
+  description: slasher-objective-condition-place-effigy-description
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: Structures/Specific/Anomalies/shadow_anom.rsi
+      state: pulse
+  - type: SlasherEffigyCondition
+
+- type: entity
+  parent: BaseSlasherObjective
+  id: SlasherPlaceMeathooksObjective
+  name: slasher-objective-condition-place-meathooks-title
+  description: slasher-objective-condition-place-meathooks-description
+  components:
+  - type: Objective
+    difficulty: 1
+    icon:
+      sprite: Structures/meat_spike.rsi
+      state: spike
+  - type: SlasherMeathookCondition
+    required: 2
+
+- type: entity
+  parent: BaseSlasherObjective
+  id: SlasherFeedSoulFragmentsObjective
+  name: slasher-objective-condition-feed-fragments-title
+  description: slasher-objective-condition-feed-fragments-description
+  components:
+  - type: Objective
+    difficulty: 1.25
+    icon:
+      sprite: Mobs/Ghosts/revenant.rsi
+      state: ectoplasm
+  - type: SlasherFeedEffigyCondition
+
+- type: entity
+  parent: BaseSlasherObjective
+  id: SlasherDoNotKillFlavorObjective
+  components:
+  - type: Objective
+    difficulty: 0.5
+    icon:
+      sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi
+      state: advkit
+    trivial: true
+  - type: SlasherDoNotKillFlavorCondition
+  - type: AutoCompleteCondition

@@ -1,0 +1,22 @@
+# Midround antag teleporter variant of the shade rift.
+- type: entity
+  id: MidroundAntagTeleporter
+  parent: SlasherDarkTeleportMarker
+  name: shade rift
+  description: A tear in darkness that drags you elsewhere.
+  components:
+  - type: Physics
+    bodyType: Static
+    canCollide: true
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: SlasherRiftTeleport

@@ -229,3 +229,67 @@
     specialEntries:
     - id: MobFoxRenault
       prob: 0.005
+
+- type: entity
+  parent: BaseGameRule
+  id: Slasher
+  components:
+  - type: SlasherRule
+    spawnShuttlePath: Maps/Shuttles/emergency.yml
+    deathMazePath: Maps/Shuttles/emergency.yml
+  - type: GameRule
+    minPlayers: 15
+    maxPlayers: 40
+  - type: AntagObjectives
+    objectives:
+    - SlasherPlaceEffigyObjective
+    - SlasherPlaceMeathooksObjective
+    - SlasherFeedSoulFragmentsObjective
+    - SlasherDoNotKillFlavorObjective
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Slasher ]
+      max: 2
+      playerRatio: 15
+      startingGear: SlasherGear
+      components:
+      - type: FlashWeakness
+      - type: CombatModeSprint
+        sprintCoefficient: 0.8
+      - type: Clumsy
+        clumsyHypo: false
+        clumsyVaulting: false
+        clumsyDefib: false
+      - type: OnDeathEntitySpawn
+        entityPrototype: ShadowKudzu
+        radius: 1
+      - type: SlasherRole
+        actions:
+        - ActionSlasherGainShroud
+        - ActionSlasherRend
+        - ActionSlasherPlaceEffigy
+        - ActionSlasherDarkStep
+        - ActionSlasherDarkHeal
+        - ActionSlasherWeaponRecall
+      - type: SlasherShroud
+      - type: SlasherCombatHeartbeat
+        beatInterval: 1.2
+        heartbeatSound:
+          path: /Audio/_Goobstation/Heretic/heartbeat.ogg
+      - type: Prying
+        pryPowered: true
+        force: true
+        speedModifier: 1.0
+        useSound:
+          path: /Audio/Items/crowbar.ogg
+      mindRoles:
+      - MindRoleSlasher
+      briefing:
+        text: slasher-role-greeting
+        color: Crimson
+        guides:
+        - Slasher
+        sound:
+          path: /Audio/Items/Anomaly/shadow_crit.ogg
+          params:
+            volume: -3 # this is in dB. If you make it 0 it's extremely loud.

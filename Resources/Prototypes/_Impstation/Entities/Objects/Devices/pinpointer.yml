@@ -56,3 +56,14 @@
   id: StartingGearAnomalitePinpointer
   equipment:
     pocket1: PinpointerAnomalite
+
+- type: entity
+  parent: PinpointerBase
+  id: PinpointerSlasherEffigy
+  name: effigy locator
+  description: A ritual tracker tuned to the Slasher's blood effigy.
+  components:
+  - type: Pinpointer
+    targetName: blood effigy
+  - type: SlasherEffigyPinpointer
+  - type: Unremoveable

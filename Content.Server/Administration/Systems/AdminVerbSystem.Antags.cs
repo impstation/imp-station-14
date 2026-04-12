@@ -2,6 +2,7 @@ using Content.Server.Antag;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server._Harmony.GameTicking.Rules.Components; //harmony
+using Content.Server._Impstation.GameTicking.Rules.Components; // Imp Add: Slasher
 using Content.Server.Zombies;
 using Content.Shared.Administration;
 using Content.Server.Clothing.Systems;
@@ -34,6 +35,7 @@ public sealed partial class AdminVerbSystem
     private static readonly EntProtoId ParadoxCloneRuleId = "ParadoxCloneSpawn";
     private static readonly EntProtoId DefaultConspiratorRule = "Conspirators"; // Harmony
     private static readonly EntProtoId DefaultWizardRule = "Wizard";
+    private static readonly EntProtoId DefaultSlasherRule = "Slasher"; // Imp Add: Slasher
     private static readonly EntProtoId DefaultNinjaRule = "NinjaSpawn";
     private static readonly ProtoId<StartingGearPrototype> PirateGearId = "PirateGear";
 
@@ -210,6 +212,22 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", wizardName, Loc.GetString("admin-verb-make-wizard")),
         };
         args.Verbs.Add(wizard);
+
+        // Imp Add: Slasher
+        var slasherName = Loc.GetString("admin-verb-text-make-slasher");
+        Verb slasher = new()
+        {
+            Text = slasherName,
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Weapons/Melee/chainsaw.rsi"), "icon"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<SlasherRuleComponent>(targetPlayer, DefaultSlasherRule);
+            },
+            Impact = LogImpact.High,
+            Message = string.Join(": ", slasherName, Loc.GetString("admin-verb-make-slasher")),
+        };
+        args.Verbs.Add(slasher);
 
         var ninjaName = Loc.GetString("admin-verb-text-make-space-ninja");
         Verb ninja = new()

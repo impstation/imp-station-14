@@ -1,0 +1,22 @@
+# Slasher Gear Store
+- type: entity
+  parent: ToolboxThief
+  id: SlasherGearContainer
+  name: slasher's gear
+  description: A compact collection of various outfit options for a versatile hunter.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Back/Duffels/scargo_purple.rsi
+    state: icon
+  - type: SlasherGearContainer
+    toolName: slasher-gear-window-title
+    toolDesc: slasher-gear-window-description
+    maxSelectedSets: 1
+    possibleSets:
+    - SlasherSetClown
+    - SlasherSetGriffy
+    - SlasherSetCaptain
+    setToVariantGear:
+      SlasherSetClown: SlasherGearClown
+      SlasherSetGriffy: SlasherGearGriffy
+      SlasherSetCaptain: SlasherGearCaptain

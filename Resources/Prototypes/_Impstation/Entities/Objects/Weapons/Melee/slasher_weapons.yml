@@ -1,0 +1,99 @@
+# Slasher-exclusive melee weapons.
+# These are spawned as part of SlasherGear and are not obtainable by normal crew.
+
+# Chainsaw is split from the admeme version
+- type: entity
+  name: slasher's chainsaw
+  parent: BaseItem
+  id: SlasherChainsaw
+  description: The Slasher's Chainsaw. It's loud.
+  components:
+  - type: Wieldable
+    wieldSound: !type:SoundPathSpecifier
+      path: /Audio/Weapons/chainsawwield.ogg
+      params:
+        volume: -3
+  - type: Sharp
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/chainsaw.rsi
+    state: icon
+  - type: MeleeWeapon
+    autoAttack: true
+    angle: 0
+    wideAnimationRotation: -135
+    attackRate: 4
+    damage:
+      types:
+        Slash: 10
+        Blunt: 4
+        Structural: 16
+    soundHit:
+      path: /Audio/Weapons/chainsaw.ogg
+      params:
+        volume: -3
+  - type: Item
+    size: Large
+    sprite: Objects/Weapons/Melee/chainsaw.rsi
+  - type: DisarmMalus
+  - type: UseDelay
+    delay: 1
+
+# Knife for when you can't 2 hand. A gift for Allu. Also flavor for quieter Slashers
+- type: entity
+  name: puncture knife
+  parent: CombatKnife
+  id: SlasherKnife
+  description: A puncturing knife.
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 12
+    angle: 0
+    animation: WeaponArcThrust
+    wideAnimationRotation: -135
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 10
+
+# Stamina Destroyer 9000
+- type: entity
+  name: slasher's hatchet
+  parent: BaseItem
+  id: SlasherHatchet
+  description: A hatchet. It stuns you when it hits you. It is very good at doing that.
+  components:
+  - type: Tag
+    tags:
+    - BotanyHatchet
+  - type: Sharp
+  - type: Sprite
+    sprite: Objects/Tools/Hydroponics/hatchet.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 135
+    swingLeft: true
+    damage:
+      types:
+        Slash: 12
+    soundHit: !type:SoundCollectionSpecifier
+      collection: MetalThud
+  - type: Item
+    sprite: Objects/Tools/Hydroponics/hatchet.rsi #TEMP
+    storedSprite:
+      state: storage
+      sprite: Objects/Tools/Hydroponics/hatchet.rsi #TEMP
+  - type: StaminaDamageOnCollide
+    damage: 90 # This Insta-slows people
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+  - type: LandAtCursor
+  - type: DamageOtherOnHit
+    staminaCost: 0
+    damage:
+      types:
+        Slash: 8
+  - type: DisarmMalus
+  - type: ThrowingAngle
+    angle: 135

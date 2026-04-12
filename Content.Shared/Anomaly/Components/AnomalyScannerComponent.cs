@@ -13,10 +13,20 @@ namespace Content.Shared.Anomaly.Components;
 public sealed partial class AnomalyScannerComponent : Component
 {
     /// <summary>
-    /// The anomaly that was last scanned by this scanner.
+    /// The entity that was last scanned by this scanner.
+    /// Can be an anomaly or another scanner-compatible target.
     /// </summary>
     [ViewVariables]
-    public EntityUid? ScannedAnomaly;
+    public EntityUid? ScannedEntity;
+
+    /// <summary>
+    /// Backward-compatible alias for anomaly scanner code paths that still refer to scanned anomaly.
+    /// </summary>
+    public EntityUid? ScannedAnomaly
+    {
+        get => ScannedEntity;
+        set => ScannedEntity = value;
+    }
 
     /// <summary>
     /// How long the scan takes

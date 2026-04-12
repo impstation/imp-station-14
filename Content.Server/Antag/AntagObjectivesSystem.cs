@@ -21,7 +21,7 @@ public sealed class AntagObjectivesSystem : EntitySystem
 
     private void OnAntagSelected(Entity<AntagObjectivesComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-        if (!_mind.TryGetMind(args.Session, out var mindId, out var mind))
+        if (!_mind.TryGetMind(args.EntityUid, out var mindId, out var mind))
         {
             Log.Error($"Antag {ToPrettyString(args.EntityUid):player} was selected by {ToPrettyString(ent):rule} but had no mind attached!");
             return;

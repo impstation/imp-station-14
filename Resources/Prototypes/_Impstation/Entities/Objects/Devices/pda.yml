@@ -398,3 +398,23 @@
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
+
+- type: entity
+  parent: ClearPDA
+  id: SlasherPDA
+  components:
+  - type: Pda
+    id: VisitorIDCard
+  - type: Tag # Ignore Chameleon tags
+    tags:
+    - DoorBumpOpener
+
+- type: entity
+  parent: GriffyPDA
+  id: SlasherGriffyPDA
+  name: slasher's griffy PDA
+  components:
+  - type: Pda
+  - type: Tag
+    tags:
+    - DoorBumpOpener

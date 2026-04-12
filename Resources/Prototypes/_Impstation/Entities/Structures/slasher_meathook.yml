@@ -1,0 +1,46 @@
+- type: entity
+  id: SlasherMeatHook
+  parent: BaseStructure
+  name: meat hook
+  description: A cruel hook that binds victims in place for ritual harvesting.
+  suffix: slasher meat hook
+  components:
+  - type: InteractionOutline
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+  - type: WarpPoint
+    location: Slasher Meat Hook
+  - type: Sprite
+    sprite: Structures/meat_spike.rsi
+    state: spike
+    layers:
+    - state: spike
+      map: ["base"]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Transform
+    noRot: true
+  - type: SlasherMeatHookSpike
+  - type: SlasherMeatHook
+    minimumEffigyDistance: 25
+    targetDamage: 95
+  - type: PointLight
+    enabled: false
+    color: "#a855f7"
+    energy: 2
+    radius: 3
+    softness: 1
+  - type: Appearance
+  - type: AntiRottingContainer
+  - type: GenericVisualizer
+    visuals:
+      enum.SlasherMeatHookVisuals.Status:
+        base:
+          Empty: { state: spike }
+          PendingHarvest: { state: spikebloody }
+          Harvested: { state: spikebloody }
+  - type: ContainerContainer
+    containers:
+      body: !type:ContainerSlot

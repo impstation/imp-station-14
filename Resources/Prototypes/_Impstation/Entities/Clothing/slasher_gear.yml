@@ -1,0 +1,193 @@
+- type: entity
+  parent: [ClothingMaskGas, BaseMajorContraband]
+  id: ClothingMaskSlasher
+  name: slasher's mask
+  description: A tactical mask worn by a relentless hunter.
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: ThermalVision
+    isEquipment: true
+    pulseTime: 2
+    toggleAction: PulseThermalVision
+
+- type: entity
+  parent: [ClothingHeadsetGrey, BaseMajorContraband]
+  id: ClothingHeadsetSlasher
+  name: slasher's headset
+  description: A slasher's passenger headset.
+
+- type: entity
+  parent: [ClothingHandsGlovesCombat, BaseMajorContraband]
+  id: ClothingHandsGlovesSlasher
+  name: bloody gloves
+  description: Black gloves stained with old blood.
+  components:
+  - type: Fiber
+    fiberColor: fibers-red
+
+- type: entity
+  parent: [ClothingUniformJumpsuitColorGrey, BaseMajorContraband]
+  id: ClothingUniformJumpsuitSlasher
+  name: slasher's jumpsuit
+  description: A slasher's tattered.
+
+- type: entity
+  parent: [ClothingShoesBootsCombat, BaseMajorContraband]
+  id: ClothingShoesBootsSlasher
+  name: slasher's combat boots
+  description: Heavy combat boots built for long hunts.
+
+- type: entity
+  parent: [ClothingOuterCoatBomberBlack, BaseMajorContraband]
+  id: ClothingOuterCoatSlasher
+  name: slasher's coat
+  description: A heavy coat that turns even glancing blows.
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
+        Heat: 0.7
+        Caustic: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: [ClothingHeadHatCapcap, BaseMajorContraband]
+  id: ClothingHeadHatSlasherCaptain
+  name: slasher's captain cap
+  description: A captain's cap repurposed for a ruthless hunt.
+
+- type: entity
+  parent: [ClothingOuterArmorCaptainCarapace, BaseMajorContraband]
+  id: ClothingOuterArmorSlasherCaptainCarapace
+  name: Slasher's Captain Carapace
+  description: A reinforced captain's carapace adapted for a relentless hunter.
+
+- type: entity
+  parent: [ClothingUniformJumpsuitCaptain, BaseMajorContraband]
+  id: ClothingUniformJumpsuitSlasherCaptain
+  name: Slasher captain's jumpsuit
+  description: A captain's jumpsuit torn and bloodied by repeated hunts.
+
+- type: entity
+  parent: [ClothingHandsGlovesCaptain, BaseMajorContraband]
+  id: ClothingHandsGlovesSlasherCaptain
+  name: bloody captain gloves
+  description: Regal gloves stained with old blood.
+
+- type: entity
+  parent: [ClothingShoesBootsCaptainjumpboots, BaseMajorContraband]
+  id: ClothingShoesBootsSlasherCaptain
+  name: slasher's jump boots
+  description: Honor-guard jump boots that announce every step of the hunt.
+
+- type: entity
+  parent: [ClothingMaskClown, BaseMajorContraband]
+  id: ClothingMaskSlasherClown
+  name: slasher's clown mask
+  description: A slasher mask painted in clown colors.
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: ThermalVision
+    isEquipment: true
+    pulseTime: 2
+    toggleAction: PulseThermalVision
+
+- type: entity
+  parent: [ClothingHandsGlovesColorWhite, BaseMajorContraband]
+  id: ClothingHandsGlovesSlasherClown
+  name: bloody clown gloves
+  description: White gloves stained with old blood.
+  components:
+  - type: Fiber
+    fiberColor: fibers-red
+
+- type: entity
+  parent: [ClothingUniformJumpsuitClown, BaseMajorContraband]
+  id: ClothingUniformJumpsuitSlasherClown
+  name: slasher's clown jumpsuit
+  description: A clown-pattern slasher jumpsuit.
+
+- type: entity
+  parent: [ClothingOuterCoatSlasher, BaseMajorContraband]
+  id: ClothingOuterCoatSlasherClown
+  name: slasher's jokester coat
+  description: A jokester-styled coat worn by a slasher.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Coats/clown_jokestercoat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Coats/clown_jokestercoat.rsi
+
+- type: entity
+  parent: [ClothingShoesBootsSlasher, BaseMajorContraband]
+  id: ClothingShoesSlasherClown
+  name: slasher's clown shoes
+  description: Oversized clown shoes fit for a slasher.
+  components:
+  - type: ItemToggle
+    activated: true
+    onUse: false
+    onActivate: false
+    soundActivate:
+      collection: BikeHorn
+    soundDeactivate:
+      collection: BikeHorn
+      params:
+        pitch: .8
+  - type: ToggleClothing
+    action: ActionToggleWaddling
+  - type: WaddleWhenWorn
+    waddlingAlert: Waddling
+  - type: Sprite
+    sprite: Clothing/Shoes/Specific/clown.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Specific/clown.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepClown
+      params:
+        variation: 0.08
+  - type: Tag
+    tags:
+    - ClownShoes
+    - WhitelistChameleon
+
+- type: entity
+  parent: [MascotGriffyHead, BaseMajorContraband]
+  id: ClothingHeadSlasherGriffy
+  name: slasher's griffy head
+  description: A slasher-altered griffy mascot head.
+  components:
+  - type: EquipmentHeater
+    tempIncrease: 0 # this is used on the parent to make it increase body temp so we 0 it so it doesn't.
+
+- type: entity
+  parent: [MascotGriffySuit, BaseMajorContraband]
+  id: ClothingOuterSlasherGriffy
+  name: slasher's griffy suit
+  description: A slasher-altered griffy suit.
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.6
+        Heat: 0.7
+        Caustic: 0.75

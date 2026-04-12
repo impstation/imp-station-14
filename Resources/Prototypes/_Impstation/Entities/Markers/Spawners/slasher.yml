@@ -1,0 +1,31 @@
+- type: entity
+  id: SpawnPointLocationDeathMaze
+  name: death maze spawn location
+  suffix: Slasher
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: prisoner
+  - type: DeathMazeSpawnLocation
+
+# Deterministic anomaly spawners used by SlasherAnomalyBurstPulse.
+- type: entity
+  id: SlasherAnomalySpawnerFlesh
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    chance: 1
+    prototypes:
+    - AnomalyFlesh
+
+- type: entity
+  id: SlasherAnomalySpawnerShadow
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    chance: 1
+    prototypes:
+    - AnomalyShadow

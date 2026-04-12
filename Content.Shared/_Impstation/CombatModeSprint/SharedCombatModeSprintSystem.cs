@@ -18,16 +18,22 @@ public abstract class SharedCombatModeSprintSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<CombatModeSprintComponent, ToggleCombatActionEvent>(OnToggleCombat);
+        SubscribeLocalEvent<CombatModeSprintComponent, CombatModeChangedEvent>(OnCombatModeChanged);
+        SubscribeLocalEvent<CombatModeSprintComponent, ComponentStartup>(OnHandleState);
         SubscribeLocalEvent<CombatModeSprintComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
     }
 
-    private void OnToggleCombat(Entity<CombatModeSprintComponent> ent, ref ToggleCombatActionEvent args)
+    private void OnHandleState(Entity<CombatModeSprintComponent> ent, ref ComponentStartup args)
     {
         _movementSpeed.RefreshMovementSpeedModifiers(ent);
-        if (ent.Comp.BeginCombatMessage != null && _combatMode.IsInCombatMode(ent))
+    }
+
+    private void OnCombatModeChanged(Entity<CombatModeSprintComponent> ent, ref CombatModeChangedEvent args)
+    {
+        _movementSpeed.RefreshMovementSpeedModifiers(ent);
+        if (ent.Comp.BeginCombatMessage != null && args.Enabled)
             _popup.PopupEntity(Loc.GetString(ent.Comp.BeginCombatMessage, ("name", Identity.Entity(ent, EntityManager))), ent, Filter.PvsExcept(ent), true);
-        if (ent.Comp.EndCombatMessage != null && !_combatMode.IsInCombatMode(ent))
+        if (ent.Comp.EndCombatMessage != null && !args.Enabled)
             _popup.PopupEntity(Loc.GetString(ent.Comp.EndCombatMessage, ("name", Identity.Entity(ent, EntityManager))), ent, Filter.PvsExcept(ent), true);
     }
 
