@@ -393,6 +393,27 @@
   categories:
     - UplinkWearables
 
+- type: listing
+  id: UplinkHardsuitSyndieBlue
+  name: uplink-hardsuit-syndie-name
+  description: uplink-hardsuit-syndie-desc
+  icon: { sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator_blue.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateHardsuitBundleBlue
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:BuyerWhitelistCondition
+    makeHidden: true
+    whitelist:
+      components:
+      - SurplusBundle
+
+
 
 
 
