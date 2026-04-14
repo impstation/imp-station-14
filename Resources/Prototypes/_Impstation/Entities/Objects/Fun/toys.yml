@@ -1277,13 +1277,13 @@
   - type: MultiHandedItem
 
 - type: entity
-  parent: BaseItem
+  parent: BasePlushie
   id: Pillow
   name: pillow
   description: A pillow
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/pillow.rsi
+    sprite: _Impstation/Objects/Fun/Pillows/pillow.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -1292,7 +1292,7 @@
       types:
         Blunt: 0.1
     soundHit:
-      path: /Audio/Items/Toys/ToyFall2.ogg
+      path: /Audio/Items/Toys/ToyFall1.ogg
   - type: StaminaDamageOnHit
     damage: 6
   - type: Appearance
@@ -1308,9 +1308,60 @@
     size: Normal
     storedSprite:
       state: pillow
-      sprite: _Impstation/Objects/Fun/pillow.rsi
+      sprite: _Impstation/Objects/Fun/Pillows/pillow.rsi
     shape:
     - 0,0,2,2
   - type: Tag
     tags:
     - ClothMade
+
+- type: entity
+  parent: BasePlushie
+  id: BodyPillow
+  name: A body pillow
+  description: You are sure to win the pillow fight with this one
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/Pillows/body_pillow.rsi
+    state: plushie_gray_jumbo
+  - type: Item
+    size: Large
+    sprite: _Impstation/Objects/Fun/Pillows/body_pillow.rsi
+    inhandVisuals:
+      left:
+      - state: body-pillow-inhand
+      right:
+      - state: body-pillow-inhand
+  - type: Damage
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/ToyFall2.ogg
+      params:
+        pitch: 0.5
+  - type: ThrowingAngle
+    angle: 180
+  - type: LandAtCursor
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 4
+    soundHit:
+      path: /Audio/Items/Toys/ToyFall2.ogg
+      params:
+        pitch: 0.5
+  - type: DamageOnHit
+    Structural: 0.1
+    StaminaDamageOnHit: 50
+  - type: StaminaDamageOnHit
+    damage: 50
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: HeldSpeedModifier
+    walkModifier: 0.3
+    sprintModifier: 0.3
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 0.3
+    soundHit: /Audio/Items/Toys/ToyFall2.ogg
+    staminaCost: 50
+  - type: MultiHandedItem
