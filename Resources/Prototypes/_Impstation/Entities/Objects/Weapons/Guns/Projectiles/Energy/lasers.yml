@@ -250,3 +250,27 @@
       sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
       state: impact_xenoheavy
 
+- type: entity
+  parent: BasicHitscan
+  id: GlykonBeam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HitscanBasicDamage
+    damage:
+      types:
+        Heat: 8
+        Piercing: 8
+  - type: HitscanBasicRaycast
+    collisionMask:
+        - Impassable
+        - BulletImpassable
+  - type: HitscanBasicVisuals
+    muzzleFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: muzzle_synd
+    travelFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: beam_synd
+    impactFlash:
+      sprite: _Impstation/Objects/Weapons/Guns/Projectiles/hitscan.rsi
+      state: impact_synd
