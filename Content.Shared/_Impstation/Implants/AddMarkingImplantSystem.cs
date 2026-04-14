@@ -4,6 +4,9 @@ using Content.Shared.Implants;
 
 namespace Content.Shared._Impstation.Implants;
 
+/// <summary>
+/// Add markings to the recepient of this implant.
+/// </summary>
 public sealed class AddMarkingImplantSystem: EntitySystem
 {
     [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
