@@ -757,3 +757,227 @@
         - id: Flare
         - id: FoodSnackNutribrick
         - id: DrinkWaterBottleLargeFull
+
+# Discount Dan
+
+- type: entity
+  parent: BoxCardboard
+  id: BoxSurvivalDiscount
+  name: Doomed Dan's budget survival kit
+  description: It won't just save your life, it'll also save your wallet.
+  suffix: Standard
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodSnackHardtack
+        - id: DanWaterBottleCube
+        - id: DiscountDanLighter
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
+  - type: Sprite
+    sprite: _Impstation/Objects/Storage/boxes.rsi
+    layers:
+    - state: internals_dans
+    - state: danslogo
+
+- type: entity
+  parent: BoxSurvivalDiscount
+  id: BoxSurvivalCommandDiscount
+  name: Doomed Dan's premium survival kit
+  description: It won't just save your life. It also won't save your wallet.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathCommand
+        - id: EmergencyOxygenTankCommandFilled
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodSnackHardtack
+        - id: DanWaterBottleCube
+        - id: FlippoLighter #it's premium!
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
+
+- type: entity
+  parent: BoxSurvivalDiscount
+  id: BoxHugDiscount
+  name: Doting Dan's box of hug derived substitutes
+  description: Discount Dan's promises to provide the highest quality huglike consumption experiences to budget conscious disaster survivors.
+  components:
+  - type: Sprite
+    sprite: _Wizden/Objects/Storage/boxes.rsi
+    layers:
+    - state: box_hug
+    - state: heart
+  - type: Item
+    heldPrefix: hug
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyFunnyOxygenTankFilled
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodMealBigLollipop
+        - id: DanWaterBottleCube
+        - id: DiscountDanLighter
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
+  - type: Tag
+    tags:
+    - BoxHug
+
+- type: entity
+  parent: BoxSurvivalDiscount
+  id: BoxMimeDiscount
+  suffix: Mime, Standard
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodBreadNutriBatard #mimes dont settle for the budget option
+        - id: DanWaterBottleCube
+        - id: DiscountDanLighter
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
+
+- type: entity
+  parent: BoxSurvivalDiscount
+  id: BoxSurvivalSyndicateDiscount
+  name: Doomed Dan's extended-capacity survival kit
+  suffix: Syndicate
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSyndicate
+        - id: ExtendedEmergencyOxygenTankFilled
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodSnackHardtack
+        - id: DanWaterBottleCube
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
+
+- type: entity
+  parent: BoxSurvivalDiscount
+  id: BoxSurvivalEngineeringDiscount
+  name: Doomed Dan's extended-capacity survival kit
+  suffix: Extended
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreath
+        - id: ExtendedEmergencyOxygenTankFilled
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodSnackHardtack
+        - id: DanWaterBottleCube
+        - id: DiscountDanLighter
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
+
+- type: entity
+  parent: BoxSurvivalDiscount
+  id: BoxSurvivalSecurityDiscount
+  suffix: Security
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasSecurity
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodSnackHardtack
+        - id: DanWaterBottleCube
+        - id: DiscountDanLighter
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
+
+- type: entity
+  parent: BoxSurvivalDiscount
+  id: BoxSurvivalMedicalDiscount
+  suffix: Medical
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathMedical
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodSnackHardtack
+        - id: DanWaterBottleCube
+        - id: DiscountDanLighter
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
+
+- type: entity
+  parent: BoxSurvivalDiscount
+  id: BoxSurvivalBrigmedicDiscount
+  suffix: MedSec
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathMedicalSecurity
+        - id: EmergencyOxygenTankFilled
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodSnackHardtack
+        - id: DanWaterBottleCube
+        - id: DiscountDanLighter
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
+
+- type: entity
+  parent: BoxSurvivalDiscount
+  id: BoxSurvivalEngineeringCommandDiscount
+  name: Doomed Dan's extended-capacity survival kit
+  description: It won't just save your life. It also won't save your wallet.
+  suffix: Extended
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathCommand
+        - id: ExtendedEmergencyOxygenTankCommandFilled
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodSnackHardtack
+        - id: DanWaterBottleCube
+        - id: DiscountDanLighter
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
+
+- type: entity
+  parent: BoxSurvivalDiscount
+  id: BoxSurvivalSecurityCommandDiscount
+  name: command survival box
+  description: It won't just save your life. It also won't save your wallet.
+  suffix: Standard
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskGasHOS
+        - id: EmergencyOxygenTankCommandFilled
+        - id: EmergencyMedipenDiscountDan
+        - id: FoodSnackHardtack
+        - id: DanWaterBottleCube
+        - id: DiscountDanLighter
+        - !type:NestedSelector
+          tableId: RandomSoakedSmokeTable
