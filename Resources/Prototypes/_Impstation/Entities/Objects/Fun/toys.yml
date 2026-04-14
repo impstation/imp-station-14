@@ -1347,9 +1347,6 @@
       path: /Audio/Items/Toys/ToyFall2.ogg
       params:
         pitch: 0.5
-  - type: DamageOnHit
-    Structural: 0.1
-    StaminaDamageOnHit: 50
   - type: StaminaDamageOnHit
     damage: 50
   - type: Edible
@@ -1361,6 +1358,7 @@
     damage:
       types:
         Blunt: 0.3
+        Structural: 5
     soundHit: /Audio/Items/Toys/ToyFall2.ogg
     staminaCost: 50
   - type: MultiHandedItem
