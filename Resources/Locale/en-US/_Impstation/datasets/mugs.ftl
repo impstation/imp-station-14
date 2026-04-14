@@ -1,6 +1,6 @@
 novelty-mugs-dataset-1 = It says: "My other mug is an Automobile".
 novelty-mugs-dataset-2 = It says: "Don't talk to me until I've had my razorium".
-novelty-mugs-dataset-3 = It says" "Don't talk to me until I've had my testosterone".
+novelty-mugs-dataset-3 = It says: "Don't talk to me until I've had my testosterone".
 novelty-mugs-dataset-4 = It says: "Don't talk to me until I've had my estrogen".
 novelty-mugs-dataset-5 = It says: "Don't talk to me until I've had my doxarubixadone".
 novelty-mugs-dataset-6 = It says: "Don't talk to me until I've had my bad".
@@ -37,3 +37,8 @@ novelty-mugs-dataset-36 = It says: "This and some Yuri".
 novelty-mugs-dataset-37 = It says: "This and some Yaoi".
 novelty-mugs-dataset-38 = It says: "HoS: head of Sass".
 novelty-mugs-dataset-39 = It says: "It's pronounced Nanotrasen".
+novelty-mugs-dataset-40 = It says: "I fronted to be here".
+novelty-mugs-dataset-41 = It says: "SORRY!! Our morning person is dormant".
+novelty-mugs-dataset-42 = It says: "Don't talk to us before our COFFEE or we'll introject your MOM".
+novelty-mugs-dataset-43 = It says: "I'm the ~evil~ alter".
+novelty-mugs-dataset-44 = It says: "We aren't ignoring you we're DISSOCIATING".
