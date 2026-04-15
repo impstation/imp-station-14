@@ -1,3 +1,6 @@
+uplink-pillow-name = Pillow
+uplink-pillow-desc = A syndicate brand pillow filled with rocks to ensure you win in the NT pillow fight.
+
 uplink-animal-friends-kit-name = Animal Friends Kit
 uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alteration of cognizine that forces the injected creature to your will. Also contains an empty syringe and two mice to use it on.
 

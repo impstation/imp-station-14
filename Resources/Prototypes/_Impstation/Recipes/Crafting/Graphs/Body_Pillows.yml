@@ -12,7 +12,26 @@
           - tag: Pillow
             name: construction-graph-tag-pillow
             icon:
-              sprite: _Impstation/Objects/Fun/Pillows/pillow.rsi
+              sprite: Objects/Consumable/Food/bowl.rsi
               state: pillow
    - node: bpillow
      entity: BodyPillow
+
+- type: constructionGraph
+  id: SyndieBodyPillow
+  start: start
+  graph:
+   - node: start
+     edges:
+        - to: syndiebpillow
+          steps:
+          - material: Cloth
+            amount: 5
+            doAfter: 5
+          - tag: SyndiePillow
+            name: construction-graph-tag-syndie-pillow
+            icon:
+              sprite: _Impstation/Objects/Fun/Pillows/syndie_pillow.rsi
+              state: pillow
+   - node: syndiebpillow
+     entity: SyndieBodyPillow

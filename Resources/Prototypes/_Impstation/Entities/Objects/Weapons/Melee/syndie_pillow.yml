@@ -43,6 +43,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - SyndiePillow
 
 - type: entity
   parent: BasePlushie
@@ -92,3 +93,6 @@
     soundHit: /Audio/Items/Toys/ToyFall2.ogg
     staminaCost: 20
   - type: MultiHandedItem
+  - type: Construction
+    graph: SyndieBodyPillow
+    node: syndiebpillow
