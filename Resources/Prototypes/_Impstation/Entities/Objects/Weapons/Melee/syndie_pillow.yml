@@ -71,13 +71,13 @@
     angle: 180
   - type: LandAtCursor
   - type: MeleeWeapon
-    angle: 100
+    angle: 50
     wideAnimationRotation: -135
     attackRate: 4
     soundHit:
       path: /Audio/Items/Toys/ToyFall2.ogg
       params:
-        pitch: 0.5
+        pitch: 0.7
   - type: StaminaDamageOnHit
     damage: 20
   - type: Edible
