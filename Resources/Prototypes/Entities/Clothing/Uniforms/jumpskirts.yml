@@ -523,9 +523,9 @@
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/operative_s.rsi #imp resprite
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/operative_s.rsi #imp resprite
   - type: StaticPrice
     price: 500
 
