@@ -12,7 +12,7 @@
     attackRate: 1.25
     damage:
       types:
-        Blunt: 1
+        Blunt: 3
     angle: 100
     soundHit:
       path: /Audio/Items/Toys/ToyFall2.ogg
@@ -66,14 +66,17 @@
     sound:
       path: /Audio/Items/Toys/ToyFall2.ogg
       params:
-        pitch: 0.10
+        pitch: 0.7
   - type: ThrowingAngle
     angle: 180
   - type: LandAtCursor
   - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 10
     angle: 50
     wideAnimationRotation: -135
-    attackRate: 4
+    attackRate: 0.75
     soundHit:
       path: /Audio/Items/Toys/ToyFall2.ogg
       params:
