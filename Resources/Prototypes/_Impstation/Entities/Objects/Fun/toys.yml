@@ -1334,6 +1334,10 @@
       - state: body-pillow-inhand
       right:
       - state: body-pillow-inhand
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/ToyFall1.ogg
+      pitch: 0.7
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/Toys/ToyFall2.ogg
