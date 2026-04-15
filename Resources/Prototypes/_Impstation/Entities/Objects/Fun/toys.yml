@@ -1291,6 +1291,7 @@
     damage:
       types:
         Blunt: 0.1
+    angle: 0
     soundHit:
       path: /Audio/Items/Toys/ToyFall1.ogg
   - type: StaminaDamageOnHit
@@ -1314,6 +1315,7 @@
   - type: Tag
     tags:
     - ClothMade
+    - Pillow
 
 - type: entity
   parent: BasePlushie
@@ -1322,11 +1324,11 @@
   description: You are sure to win the pillow fight with this one
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/Pillows/body_pillow.rsi
+    sprite: _Impstation/Objects/Fun/Pillows/bodypillow.rsi
     state: bodypillow
   - type: Item
     size: Large
-    sprite: _Impstation/Objects/Fun/Pillows/body_pillow.rsi
+    sprite: _Impstation/Objects/Fun/Pillows/bodypillow.rsi
     inhandVisuals:
       left:
       - state: body-pillow-inhand
@@ -1336,19 +1338,19 @@
     sound:
       path: /Audio/Items/Toys/ToyFall2.ogg
       params:
-        pitch: 0.5
+        pitch: 0.10
   - type: ThrowingAngle
     angle: 180
   - type: LandAtCursor
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    attackRate: 4
+    attackRate: 3
     soundHit:
       path: /Audio/Items/Toys/ToyFall2.ogg
       params:
         pitch: 0.5
   - type: StaminaDamageOnHit
-    damage: 50
+    damage: 10
   - type: Edible
     requiresSpecialDigestion: true
   - type: HeldSpeedModifier
@@ -1360,5 +1362,8 @@
         Blunt: 0.3
         Structural: 5
     soundHit: /Audio/Items/Toys/ToyFall2.ogg
-    staminaCost: 50
+    staminaCost: 5
   - type: MultiHandedItem
+  - type: Construction
+    graph: BodyPillow
+    node: bpillow

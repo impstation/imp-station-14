@@ -53,6 +53,7 @@ construction-graph-tag-floatingflora-o = orange floating flora
 construction-graph-tag-floatingflora-p = pink floating flora
 construction-graph-tag-floatingflora-y = yellow floating flora
 construction-graph-tag-pompom = pompoms
+construction-graph-tag-pillow = pillow
 
 # unique
 construction-graph-tag-memorial-ash = your vaporized loved one

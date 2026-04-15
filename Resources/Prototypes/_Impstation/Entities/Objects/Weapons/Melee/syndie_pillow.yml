@@ -5,7 +5,7 @@
   description: A pillow
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Fun/Pillows/syndie-pillow.rsi
+    sprite: _Impstation/Objects/Fun/Pillows/syndie_pillow.rsi
     state: pillow
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -17,7 +17,7 @@
     soundHit:
       path: /Audio/Items/Toys/ToyFall2.ogg
   - type: StaminaDamageOnHit
-    damage: 6
+    damage: 10
   - type: Appearance
   - type: DisarmMalus
     malus: 0
@@ -49,7 +49,7 @@
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/Pillows/syndie_bodypillow.rsi
-    state: syndiebodypillow
+    state: syndie-bodypillow
   - type: Item
     size: Large
     sprite: _Impstation/Objects/Fun/Pillows/syndie_bodypillow.rsi
@@ -62,7 +62,7 @@
     sound:
       path: /Audio/Items/Toys/ToyFall2.ogg
       params:
-        pitch: 0.5
+        pitch: 0.10
   - type: ThrowingAngle
     angle: 180
   - type: LandAtCursor
@@ -75,7 +75,7 @@
       params:
         pitch: 0.5
   - type: StaminaDamageOnHit
-    damage: 50
+    damage: 20
   - type: Edible
     requiresSpecialDigestion: true
   - type: HeldSpeedModifier
@@ -87,5 +87,5 @@
         Blunt: 25
         Structural: 5
     soundHit: /Audio/Items/Toys/ToyFall2.ogg
-    staminaCost: 50
+    staminaCost: 20
   - type: MultiHandedItem

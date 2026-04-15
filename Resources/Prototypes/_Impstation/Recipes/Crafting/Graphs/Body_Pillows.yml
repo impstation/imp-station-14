@@ -1,0 +1,18 @@
+- type: constructionGraph
+  id: BodyPillow
+  start: start
+  graph:
+   - node: start
+     edges:
+        - to: bpillow
+          steps:
+          - material: Cloth
+            amount: 5
+            doAfter: 5
+          - tag: Pillow
+            name: construction-graph-tag-pillow
+            icon:
+              sprite: _Impstation/Objects/Fun/Pillows/pillow.rsi
+              state: pillow
+   - node: bpillow
+     entity: BodyPillow
