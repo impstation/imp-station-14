@@ -1,24 +1,4 @@
 ﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
-
-- type: listing
-  id: uplinkPillow
-  name: uplink-pillow-name
-  description: uplink-pillow-desc
-  icon: { sprite: _Impstation/Objects/Fun/Pillows/syndie_pillow.rsi, state: pillow }
-  productEntity: SyndiePillow
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 0
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkJob
-  - !type:BuyerWhitelistCondition
-  conditions:
-    blacklist:
-      components:
-      - SurplusBundle
-
 - type: listing
   id: uplinkHotsauces
   name: uplink-hotsauces-name
