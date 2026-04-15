@@ -1294,6 +1294,9 @@
     angle: 0
     soundHit:
       path: /Audio/Items/Toys/ToyFall1.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/ToyFall1.ogg
   - type: StaminaDamageOnHit
     damage: 6
   - type: Appearance
