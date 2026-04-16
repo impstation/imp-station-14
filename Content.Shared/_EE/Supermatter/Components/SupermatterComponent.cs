@@ -288,7 +288,7 @@ public sealed partial class SupermatterComponent : Component
     /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
     /// </summary>
     [DataField]
-    public float DelamTimer = 15f;
+    public float DelamTimer = 30f;
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
@@ -381,12 +381,6 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public DelamType PreferredDelamType = DelamType.Explosion;
-
-    /// <summary>
-    /// If a sliver has already been taken or not fromt the SM.
-    /// </summary>
-    [DataField]
-    public bool SliverTaken;
 
     /// <summary>
     /// If a destabalizing crystal is attatched to the SM.
@@ -593,7 +587,7 @@ public enum SupermatterVisuals : byte
 }
 
 [Serializable, NetSerializable]
-public sealed partial class SupermatterScalpelDoAfterEvent : SimpleDoAfterEvent
+public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
 {
 }
 

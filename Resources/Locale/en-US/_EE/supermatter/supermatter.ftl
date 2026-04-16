@@ -39,8 +39,6 @@ supermatter-tamper-end =
 supermatter-announcement-cc-tamper =
     Our automatic casualty system has detected that the supermatter crystal structural integrity was compromised by an external force.
     Engineering department, report to the supermatter engine immediately.
-supermatter-sliver-taken =
-
 
 supermatter-destabalize-start =
 

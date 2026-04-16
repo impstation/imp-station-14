@@ -711,6 +711,8 @@ public sealed partial class SupermatterSystem
         var gamerule = _gameTicker.AddGameRule(sm.DelamGamerulePrototype);
         _gameTicker.StartGameRule(gamerule);
 
+        var effects = _proto.Index(sm.DelamEffectsPrototype).Components;
+
         foreach (var mob in mobLookup)
         {
             // Scramble moods that follow the given shared moods
