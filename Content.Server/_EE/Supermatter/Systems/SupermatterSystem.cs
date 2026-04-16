@@ -191,27 +191,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         var item = args.Used;
         var othersFilter = Filter.Pvs(uid).RemovePlayerByAttachedEntity(target);
 
-        // Unhardcode these timers... mabye
-        if (HasComp<SupermatterScapelComponent>(item))
-        {
-            if (sm.SliverTaken)
-            {
-                _popup.PopupClient(Loc.GetString("supermatter-sliver-taken"), uid, args.User);
-                return;
-            }
-
-            _popup.PopupClient(Loc.GetString("supermatter-tamper-begin"), uid, args.User);
-
-            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(30), new SupermatterScalpelDoAfterEvent(), uid)
-            {
-                BreakOnDamage = true,
-                BreakOnMove = true,
-                BreakOnWeightlessMove = false,
-                NeedHand = true,
-            });
-            return;
-        }
-
+        // Unhardcode timer
         if (HasComp<SupermatterDestabalizerComponent>(item))
         {
             _popup.PopupClient(Loc.GetString("supermatter-destabalize-start"), uid, args.User);
