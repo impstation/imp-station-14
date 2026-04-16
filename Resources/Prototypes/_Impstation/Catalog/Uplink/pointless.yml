@@ -15,6 +15,20 @@
   - UplinkPointless
 
 - type: listing
+  id: UplinkCindySlippers
+  name: uplink-cindyslippers-name
+  description: uplink-cindyslippers-desc
+  icon: { sprite: _Impstation/Clothing/Shoes/Misc/cindyslippers.rsi, state: icon }
+  productEntity: CindySlippers
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkPointless
+
+- type: listing
   id: UplinkFreeTreatChunk
   name: uplink-treatchunk-free-name
   description: uplink-treatchunk-free-desc

@@ -117,3 +117,46 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 20
 
+- type: entity
+  parent: ClothingShoesClownBase #imp edit
+  id: ClothingShoeSlippersCindy
+  name: cindy slippers
+  suffix: No-slip
+  description: these no-slip shoes are the favorite slippers of any syndicate operative!
+  components:
+  - type: NoSlip
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Misc/cindyslippers.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Misc/cindyslippers.rsi
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepCarpet
+      params:
+        variation: 0.07
+  - type: ItemToggle
+    onUse: false
+    onActivate: false
+    soundActivate:
+      path: /Audio/Animals/cat_meow.ogg
+    soundDeactivate:
+      path: /Audio/Animals/cat_meow.ogg
+      params:
+          pitch: .9
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Hyperzine
+        Quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 40
+        reagents:
+        - ReagentId: Fat
+          Quantity: 20
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 20
