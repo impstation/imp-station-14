@@ -96,6 +96,8 @@
           - /Maps/_Impstation/Ruins/snowy-sauna.yml #imp
           - /Maps/_Impstation/Ruins/shuttle-repair-bay.yml #imp
           - /Maps/_Impstation/Ruins/decapoid-shuttle-wreck.yml #imp
+          - /Maps/_Impstation/Ruins/garden.yml #imp
+          - /Maps/_Impstation/Ruins/vox-saloon.yml #imp
           # imp - maps below this line are from the salvage map set
           - /Maps/_Impstation/Salvage/build-a-bot-ambulance.yml #imp
           - /Maps/_Impstation/Salvage/car-yacht.yml #imp
@@ -119,6 +121,7 @@
           - /Maps/Salvage/small-syndicate.yml #imp
           - /Maps/Salvage/small-tesla.yml #imp
           - /Maps/Salvage/tick-colony.yml #imp
+          - /Maps/_Impstation/Salvage/reach-kessler-debris.yml #imp
         rareRuin: !type:GridSpawnGroup # imp category
           hide: true
           nameGrid: true
@@ -134,6 +137,7 @@
           - /Maps/_Impstation/Salvage/perma-breakout.yml # two guns
           - /Maps/Ruins/empty_flagship.yml # less common, further out, so it's fine
           - /Maps/_Impstation/Ruins/wizwreck.yml # imp, lots of uranium and plasma, large
+          - /Maps/_Impstation/Salvage/quiet-apartment.yml # imp, it has monsters and guns and such!
         wrecks: !type:DungeonSpawnGroup
           minimumDistance: 150
           maximumDistance: 300
