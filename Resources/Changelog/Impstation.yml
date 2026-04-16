@@ -1,12 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Station Specific and Dining Services departments are now properly hidden
-      from the crew monitoring console once again.
-    type: Fix
-  id: 2256
-  time: '2025-09-14T14:02:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3410
 - author: TheGrimbeeper
   changes:
   - message: Syndicate Shuttle Pilots and listening post guards have been woken up
@@ -4138,3 +4130,16 @@
   id: 2755
   time: '2026-04-11T14:10:44.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4306
+- author: msTheowo
+  changes:
+  - message: Added fun!
+    type: Add
+  - message: Removed fun!
+    type: Remove
+  - message: Changed fun!
+    type: Tweak
+  - message: Fixed fun!
+    type: Fix
+  id: 2756
+  time: '2026-04-15T22:31:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4313
