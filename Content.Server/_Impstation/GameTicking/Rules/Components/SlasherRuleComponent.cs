@@ -55,6 +55,12 @@ public sealed partial class SlasherRuleComponent : Component
 	public bool VictoryTriggered { get; set; }
 
 	/// <summary>
+	/// Captured round-end outcome used for Slasher major/minor EOR messaging.
+	/// </summary>
+	[DataField]
+	public SlasherRoundEndOutcome RoundEndOutcome { get; set; } = SlasherRoundEndOutcome.Unset;
+
+	/// <summary>
 	/// Set once the round enters the final two-fragments phase.
 	/// Prevents repeatedly applying medium/alert-side effects on every insertion.
 	/// </summary>
@@ -84,4 +90,15 @@ public sealed partial class SlasherRuleComponent : Component
 	/// </summary>
 	[DataField]
 	public int DeathMazeSearchAttempts { get; set; } = 100;
+}
+
+/// <summary>
+/// Round-end result categories used for Slasher EOR summary text.
+/// </summary>
+public enum SlasherRoundEndOutcome : byte
+{
+	Unset,
+	SlasherMajor,
+	CrewMinor,
+	CrewMajor,
 }

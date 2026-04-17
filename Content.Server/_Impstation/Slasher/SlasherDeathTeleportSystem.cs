@@ -18,9 +18,11 @@ using Robust.Shared.Maths;
 using Robust.Shared.Random;
 using Content.Shared.Mind;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Body.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using Robust.Shared.Containers;
+using Content.Shared.Gibbing.Events;
 
 namespace Content.Server._Impstation.Slasher;
 
@@ -66,8 +68,36 @@ public sealed class SlasherDeathTeleportSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<SlasherRoleComponent, MobStateChangedEvent>(OnMobStateChanged,
             after: [typeof(OnDeathEntitySpawnSystem)]);
+        SubscribeLocalEvent<SlasherRoleComponent, BeingGibbedEvent>(OnBeingGibbed);
         SubscribeLocalEvent<DeathMazeSpawnLocationComponent, EntityTerminatingEvent>(OnDeathMazeMarkerTerminating);
         SubscribeLocalEvent<MapGridComponent, EntityTerminatingEvent>(OnDeathMazeGridTerminating);
+        SubscribeLocalEvent<SlasherRoleComponent, AttemptEntityGibEvent>(OnAttemptGib);
+    }
+
+    /// <summary>
+    /// Sends gibbed Slasher remains to the death maze right before the source body is deleted.
+    /// </summary>
+    /// <param name="ent">Slasher entity and role component.</param>
+    /// <param name="args">Gib event payload containing spawned gib parts.</param>
+    private void OnBeingGibbed(Entity<SlasherRoleComponent> ent, ref BeingGibbedEvent args)
+    {
+        // If the Slasher is in effigy-failure state, allow normal gibbing (do nothing).
+        if (HasComp<SlasherEffigyFailureComponent>(ent.Owner))
+            return;
+
+        // Cancel gibbing: teleport and rejuvenate instead, then prevent gibs from spawning.
+        if (!TryGetDeathMazeSpawn(out var target))
+            return;
+
+        if (_mind.TryGetMind(ent.Owner, out var ownerMind, out _))
+            ReclaimOwnedItems(ent.Owner, ownerMind, target);
+
+        _xform.SetCoordinates(ent.Owner, target);
+
+
+        // Prevent gib parts from being spawned/handled.
+        args.GibbedParts.Clear();
+        _rejuvenate.PerformRejuvenate(ent.Owner); //they'll stlll dump all their blood on the floor but we can put that back
     }
 
     /// <summary>
@@ -132,6 +162,9 @@ public sealed class SlasherDeathTeleportSystem : EntitySystem
     /// Base starter-kit items in slots covered by the active cosmetic variant are also left alone,
     /// since the cosmetic kit replacement takes ownership of those slots.
     /// </summary>
+    /// <param name="slasher">Slasher entity whose items are being reclaimed.</param>
+    /// <param name="ownerMind">Mind whose owned items should be reclaimed.</param>
+    /// <param name="destination">Coordinates to which reclaimed items should be teleported.</param
     private void ReclaimOwnedItems(EntityUid slasher, EntityUid ownerMind, EntityCoordinates destination)
     {
         // Build the set of equipment slots suppressed by the active cosmetic variant.
@@ -166,10 +199,10 @@ public sealed class SlasherDeathTeleportSystem : EntitySystem
     }
 
     /// <summary>
-    /// Type definition for IsContainedByEntity.
+    /// IsConntainedByEntity checks whether the specified entity is contained (directly or indirectly) by the potential owner.
     /// </summary>
-    /// <param name="entity">Parameter used by this method: entity.</param>
-    /// <param name="potentialOwner">Parameter used by this method: potentialOwner.</param>
+    /// <param name="entity">Entity to check for containment.</param>
+    /// <param name="potentialOwner">Entity that may be an ancestor container of the target entity.</param>
     private bool IsContainedByEntity(EntityUid entity, EntityUid potentialOwner)
     {
         var current = entity;
@@ -236,6 +269,29 @@ public sealed class SlasherDeathTeleportSystem : EntitySystem
             return false;
 
         return TryFindRandomValidTile(gridUid, gridComp, out destination, rule.Comp.DeathMazeSearchAttempts);
+    }
+
+    /// <summary>
+    /// Prevents gibbing of Slashers unless in effigy-failure state. Teleports and rejuvenates instead.
+    /// <param name="ent">Slasher entity and role component.</param>
+    /// <param name="args">Gib event payload containing attempted gib type and count,
+    /// </summary>
+    private void OnAttemptGib(Entity<SlasherRoleComponent> ent, ref AttemptEntityGibEvent args)
+    {
+        if (HasComp<SlasherEffigyFailureComponent>(ent.Owner))
+            return; // Allow gibbing in failure state
+
+        args.Cancelled = true;
+
+        // Teleport and rejuvenate as in OnBeingGibbed
+        if (!TryGetDeathMazeSpawn(out var target))
+            return;
+
+        if (_mind.TryGetMind(ent.Owner, out var ownerMind, out _))
+            ReclaimOwnedItems(ent.Owner, ownerMind, target);
+
+        _xform.SetCoordinates(ent.Owner, target);
+        _rejuvenate.PerformRejuvenate(ent.Owner);
     }
 
     /// <summary>

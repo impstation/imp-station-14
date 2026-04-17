@@ -2,8 +2,10 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Prototypes;
 using Content.Shared.Anomaly;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Eye;
 using Content.Shared._Impstation.Slasher.Prototypes;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._Impstation.Slasher.Components;
 
@@ -52,6 +54,12 @@ public sealed partial class SlasherEffigyComponent : Component
     public float HealPerFragment { get; set; } = 50f;
 
     /// <summary>
+    /// Damage groups healed when feeding the effigy succeeds.
+    /// </summary>
+    [DataField]
+    public ProtoId<DamageGroupPrototype>[] HealDamageGroups { get; set; } = { "Brute", "Burn" };
+
+    /// <summary>
     /// Total damage threshold at which all Slashers receive a warning that the effigy is under attack.
     /// </summary>
     [DataField]
@@ -62,6 +70,24 @@ public sealed partial class SlasherEffigyComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan VictorySequenceDelay { get; set; } = TimeSpan.FromSeconds(3);
+
+    /// <summary>
+    /// Sound played when the effigy is destroyed.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier EffigyDestroyedSound { get; set; } = new SoundPathSpecifier("/Audio/Items/Anomaly/shadow_crit.ogg", AudioParams.Default.WithVolume(5f));
+
+    /// <summary>
+    /// Particle types that can be rolled for crewside effigy disruption.
+    /// </summary>
+    [DataField]
+    public AnomalousParticleType[] DisruptionParticleTypes { get; set; } =
+    {
+        AnomalousParticleType.Delta,
+        AnomalousParticleType.Epsilon,
+        AnomalousParticleType.Zeta,
+        AnomalousParticleType.Sigma,
+    };
 
     /// <summary>
     /// Number of fragments remaining to trigger the final phase

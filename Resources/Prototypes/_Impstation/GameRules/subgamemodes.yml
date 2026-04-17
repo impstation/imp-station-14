@@ -34,3 +34,64 @@
       - MindRoleThief
       briefing:
         sound: "/Audio/Misc/thief_greeting.ogg"
+
+- type: entity
+  parent: Slasher
+  id: SlasherSubgamemode
+  components:
+  - type: GameRule
+    minPlayers: 20
+    maxPlayers: 100
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn
+    definitions:
+    - prefRoles: [ Slasher ]
+      min: 1
+      max: 1
+      playerRatio: 35
+      startingGear: SlasherGear
+      components:
+      - type: FlashWeakness
+      - type: CombatModeSprint
+        sprintCoefficient: 0.8
+      - type: Clumsy
+        clumsyHypo: false
+        clumsyVaulting: false
+        clumsyDefib: false
+      - type: OnDeathEntitySpawn
+        entityPrototype: ShadowKudzu
+        radius: 1
+      - type: NoGhoul
+      - type: NoSacrifice
+      - type: SlasherRole
+        actions:
+        - ActionSlasherGainShroud
+        - ActionSlasherRend
+        - ActionSlasherPlaceEffigy
+        - ActionSlasherDarkStep
+        - ActionSlasherDarkHeal
+        - ActionSlasherWeaponRecall
+      - type: ZombieImmune
+      - type: AntagImmune
+      - type: SlasherShroud
+      - type: SlasherCombatHeartbeat
+        beatInterval: 1.2
+        heartbeatSound:
+          path: /Audio/_Goobstation/Heretic/heartbeat.ogg
+      - type: Prying
+        pryPowered: true
+        force: true
+        speedModifier: 1.0
+        useSound:
+          path: /Audio/Items/crowbar.ogg
+      mindRoles:
+      - MindRoleSlasher
+      briefing:
+        text: slasher-role-greeting
+        color: Crimson
+        guides:
+        - Slasher
+        sound:
+          path: /Audio/Items/Anomaly/shadow_crit.ogg
+          params:
+            volume: -3

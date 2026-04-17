@@ -263,6 +263,8 @@
       - type: OnDeathEntitySpawn
         entityPrototype: ShadowKudzu
         radius: 1
+      - type: NoGhoul
+      - type: NoSacrifice
       - type: SlasherRole
         actions:
         - ActionSlasherGainShroud
@@ -271,6 +273,8 @@
         - ActionSlasherDarkStep
         - ActionSlasherDarkHeal
         - ActionSlasherWeaponRecall
+      - type: ZombieImmune
+      - type: AntagImmune
       - type: SlasherShroud
       - type: SlasherCombatHeartbeat
         beatInterval: 1.2

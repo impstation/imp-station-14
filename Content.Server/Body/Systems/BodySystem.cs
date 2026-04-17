@@ -13,6 +13,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Timing;
+using Content.Shared.Gibbing.Events; //imp add
 
 namespace Content.Server.Body.Systems;
 
@@ -112,6 +113,12 @@ public sealed class BodySystem : SharedBodySystem
         }
 
         if (HasComp<GodmodeComponent>(bodyId))
+            return new HashSet<EntityUid>();
+
+        //imp add: add an event right before gibbing that allows cancelling the gib
+        var attemptEv = new AttemptEntityGibEvent(bodyId, GibType.Gib);
+        RaiseLocalEvent(bodyId, ref attemptEv);
+        if (attemptEv.Cancelled)
             return new HashSet<EntityUid>();
 
         var xform = Transform(bodyId);

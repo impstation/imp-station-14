@@ -68,6 +68,18 @@
     allowed:
     - Flashed
   - type: SlasherEffigy
+    effigyDestroyedSound:
+      path: /Audio/Items/Anomaly/shadow_crit.ogg
+      params:
+        volume: -3
+    healDamageGroups:
+    - Brute
+    - Burn
+    disruptionParticleTypes:
+    - Delta
+    - Epsilon
+    - Zeta
+    - Sigma
     finalPhaseFragmentsRemaining: 2
     revealedDamageTypes:
     - Heat

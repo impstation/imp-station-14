@@ -3,6 +3,15 @@ roles-antag-slasher-objective = Survive and terrorize the station.
 slasher-role-greeting = You are the Slasher.
 guide-entry-slasher = Slasher
 
+slasher-round-end-slasher-major = Slasher Major - The ritual was completed.
+slasher-round-end-slasher-major-plural = Slasher Major - The ritual was completed.
+slasher-round-end-crew-minor = Crew Minor - The Slasher was unable to complete the ritual.
+slasher-round-end-crew-minor-plural = Crew Minor - The Slashers were unable to complete the ritual.
+slasher-round-end-crew-major = Crew Major - The Slasher was defeated.
+slasher-round-end-crew-major-plural = Crew Major - The Slashers were defeated.
+slasher-round-end-list-start = Slasher identities:
+slasher-round-end-list-entry = {$name} ({$username}) was a Slasher.
+
 # Slasher hotbar actions
 slasher-action-gain-shroud-name = Vanish
 slasher-action-gain-shroud-desc = Fade from view. Activating this ability causes you to bleed. Overly hostile intent will cause you to return.

@@ -22,6 +22,8 @@
     rules:
     - id: Thief
       prob: 0.5
+    - id: SlasherSubgamemode #imp add
+      prob: 0.1
     - id: SubWizard
       prob: 0.05
     - id: Xenoborgs
@@ -37,6 +39,8 @@
     rules:
     - id: Thief
       prob: 0.5
+    - id: SlasherSubgamemode #imp add
+      prob: 0.1
     - id: Xenoborgs
       prob: 0.05
     - id: Conspirators # imp edit
@@ -50,6 +54,8 @@
     rules:
     - id: Thief
       prob: 0.5
+    - id: SlasherSubgamemode #imp add
+      prob: 0.1
     - id: SubWizard
       prob: 0.05
     - id: Conspirators # imp edit
@@ -63,6 +69,8 @@
     rules:
     - id: Thief
       prob: 0.5
+    - id: SlasherSubgamemode #imp add
+      prob: 0.1
     - id: Conspirators # imp edit
       prob: 0.05
 

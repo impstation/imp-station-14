@@ -2,6 +2,7 @@ using Content.Server._Impstation.GameTicking.Rules.Components;
 using Content.Server._Impstation.Slasher;
 using Content.Server._Impstation.Slasher.Components;
 using Content.Server.Antag;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.RoundEnd;
 using Content.Shared.Dataset;
@@ -39,6 +40,7 @@ public sealed class SlasherRuleSystem : GameRuleSystem<SlasherRuleComponent>
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SlasherDeathTeleportSystem _deathTeleport = default!;
     [Dependency] private readonly SlasherEffigySystem _effigy = default!;
 
@@ -83,8 +85,40 @@ public sealed class SlasherRuleSystem : GameRuleSystem<SlasherRuleComponent>
         comp.EffigyPlacedEver = false;
         comp.FinalPhaseTriggered = false;
         comp.VictoryTriggered = false;
+        comp.RoundEndOutcome = SlasherRoundEndOutcome.Unset;
         comp.ActiveEffigy = null;
         _effigy.SyncEffigyPinpointers(null);
+    }
+
+    /// <summary>
+    /// Appends Slasher round-end outcome text and identified Slasher player entries.
+    /// </summary>
+    /// <param name="uid">Rule entity UID.</param>
+    /// <param name="component">Rule state component.</param>
+    /// <param name="gameRule">Base game-rule component.</param>
+    /// <param name="args">Round-end text aggregation event data.</param>
+    protected override void AppendRoundEndText(EntityUid uid,
+        SlasherRuleComponent component,
+        GameRuleComponent gameRule,
+        ref RoundEndTextAppendEvent args)
+    {
+        base.AppendRoundEndText(uid, component, gameRule, ref args);
+
+        var antags = _antag.GetAntagIdentifiers(uid);
+        if (antags.Count == 0)
+            return;
+
+        var plural = antags.Count > 1;
+        var outcome = ResolveRoundEndOutcome(component);
+        args.AddLine(Loc.GetString(GetOutcomeLocaleKey(outcome, plural)));
+        args.AddLine(Loc.GetString("slasher-round-end-list-start"));
+
+        foreach (var (_, sessionData, name) in antags)
+        {
+            args.AddLine(Loc.GetString("slasher-round-end-list-entry",
+                ("name", name),
+                ("username", sessionData.UserName)));
+        }
     }
 
     /// <summary>
@@ -251,16 +285,68 @@ public sealed class SlasherRuleSystem : GameRuleSystem<SlasherRuleComponent>
         if (!rule.Comp.EffigyDestroyed || rule.Comp.EvacTriggered)
             return;
 
-        // Check whether any Slasher is still alive before ending the round.
+        if (AnyAliveSlashers())
+            return;
+
+        rule.Comp.RoundEndOutcome = SlasherRoundEndOutcome.CrewMajor;
+        rule.Comp.EvacTriggered = true;
+        _roundEnd.RequestRoundEnd(TimeSpan.FromMinutes(5), null, checkCooldown: false,
+            text: "slasher-threat-passed-announcement",
+            name: "slasher-threat-passed-sender",
+            cantRecall: true);
+    }
+
+    /// <summary>
+    /// Resolves the most accurate round-end outcome for Slasher EOR text.
+    /// </summary>
+    /// <param name="component">Rule state to evaluate.</param>
+    /// <returns>Resolved Slasher round-end outcome.</returns>
+    private SlasherRoundEndOutcome ResolveRoundEndOutcome(SlasherRuleComponent component)
+    {
+        if (component.RoundEndOutcome != SlasherRoundEndOutcome.Unset)
+            return component.RoundEndOutcome;
+
+        if (component.VictoryTriggered)
+            return SlasherRoundEndOutcome.SlasherMajor;
+
+        return AnyAliveSlashers()
+            ? SlasherRoundEndOutcome.CrewMinor
+            : SlasherRoundEndOutcome.CrewMajor;
+    }
+
+    /// <summary>
+    /// Returns the locale key for the resolved Slasher round-end outcome.
+    /// </summary>
+    /// <param name="outcome">Resolved outcome category.</param>
+    /// <param name="plural">True when multiple slashers participated.</param>
+    /// <returns>Locale key used for the top EOR result line.</returns>
+    private static string GetOutcomeLocaleKey(SlasherRoundEndOutcome outcome, bool plural)
+    {
+        return outcome switch
+        {
+            SlasherRoundEndOutcome.SlasherMajor when plural => "slasher-round-end-slasher-major-plural",
+            SlasherRoundEndOutcome.SlasherMajor => "slasher-round-end-slasher-major",
+            SlasherRoundEndOutcome.CrewMinor when plural => "slasher-round-end-crew-minor-plural",
+            SlasherRoundEndOutcome.CrewMinor => "slasher-round-end-crew-minor",
+            SlasherRoundEndOutcome.CrewMajor when plural => "slasher-round-end-crew-major-plural",
+            _ => "slasher-round-end-crew-major",
+        };
+    }
+
+    /// <summary>
+    /// Checks whether any Slasher-role entity is currently alive.
+    /// </summary>
+    /// <returns>True when at least one Slasher is alive.</returns>
+    private bool AnyAliveSlashers()
+    {
         var slashers = EntityQueryEnumerator<SlasherRoleComponent, MobStateComponent>();
         while (slashers.MoveNext(out _, out _, out var mobState))
         {
-            if (mobState.CurrentState == Shared.Mobs.MobState.Alive)
-                return;
+            if (mobState.CurrentState == MobState.Alive)
+                return true;
         }
 
-        rule.Comp.EvacTriggered = true;
-        _roundEnd.RequestRoundEnd(TimeSpan.FromMinutes(5), null, checkCooldown: false, cantRecall: true);
+        return false;
     }
 
     /// <summary>

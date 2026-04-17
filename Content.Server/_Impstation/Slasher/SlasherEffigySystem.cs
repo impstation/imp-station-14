@@ -1,4 +1,5 @@
 using Content.Server._Impstation.GameTicking.Rules;
+using Content.Server._Impstation.GameTicking.Rules.Components;
 using Content.Server._Impstation.Ghost;
 using Content.Server._Impstation.Slasher.Components;
 using Content.Server.AlertLevel;
@@ -48,7 +49,6 @@ namespace Content.Server._Impstation.Slasher;
 /// </summary>
 public sealed class SlasherEffigySystem : EntitySystem
 {
-    private static readonly SoundSpecifier EffigyDestroyedSound = new SoundPathSpecifier("/Audio/Items/Anomaly/shadow_crit.ogg", AudioParams.Default.WithVolume(5f));
     private readonly ISawmill _sawmill = Logger.GetSawmill("slasher.effigy");
 
     /// <summary>
@@ -70,7 +70,7 @@ public sealed class SlasherEffigySystem : EntitySystem
     /// <summary>
     /// Visibility layer used while the effigy is hidden from non-Slashers.
     /// </summary>
-    private static readonly ushort HiddenEffigyVisibilityLayer = (ushort)SlasherEffigyComponent.LayerMask;
+    private static readonly ushort HiddenEffigyVisibilityLayer = SlasherEffigyComponent.LayerMask;
 
     /// <summary>
     /// Prototype ID for soul fragments fed into the effigy.
@@ -87,25 +87,9 @@ public sealed class SlasherEffigySystem : EntitySystem
     private static readonly EntProtoId SlasherPlaceEffigyActionProto = "ActionSlasherPlaceEffigy";
 
     /// <summary>
-    /// Damage groups healed when feeding the effigy succeeds.
-    /// </summary>
-    private static readonly ProtoId<DamageGroupPrototype>[] EffigyHealGroups = { "Brute", "Burn" };
-
-    /// <summary>
     /// Tracks last recorded damage for each effigy to detect threshold crossings.
     /// </summary>
     private readonly Dictionary<EntityUid, FixedPoint2> _effigyLastDamage = new();
-
-    /// <summary>
-    /// Particle types that can be rolled for crewside effigy disruption.
-    /// </summary>
-    private static readonly AnomalousParticleType[] EffigyParticleTypes =
-    {
-        AnomalousParticleType.Delta,
-        AnomalousParticleType.Epsilon,
-        AnomalousParticleType.Zeta,
-        AnomalousParticleType.Sigma,
-    };
 
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly AnomalySystem _anomaly = default!;
@@ -612,14 +596,7 @@ public sealed class SlasherEffigySystem : EntitySystem
         ent.Comp.Insertions = insertions;
         Dirty(ent);
 
-        if (ent.Comp.HealPerFragment > 0f && TryComp<DamageableComponent>(args.User, out var damageable))
-        {
-            // Split the configured healing evenly across the configured damage groups.
-            var healTotal = FixedPoint2.New(ent.Comp.HealPerFragment);
-            var healPerGroup = healTotal / EffigyHealGroups.Length;
-            foreach (var group in EffigyHealGroups)
-                _damageable.HealEvenly((args.User, damageable), -healPerGroup, group, args.User);
-        }
+        ApplyFragmentHeal(args.User, ent.Comp.HealPerFragment, ent.Comp.HealDamageGroups);
 
         _popup.PopupEntity(
             Loc.GetString("slasher-effigy-crackle-shift"),
@@ -641,6 +618,7 @@ public sealed class SlasherEffigySystem : EntitySystem
         if (insertions >= target && !rule.Comp.VictoryTriggered)
         {
             rule.Comp.VictoryTriggered = true;
+            rule.Comp.RoundEndOutcome = SlasherRoundEndOutcome.SlasherMajor;
             _popup.PopupEntity(Loc.GetString("slasher-effigy-insert-complete"), args.User, args.User, PopupType.LargeCaution);
             // Small delay so the final-insertion popup is visible before effects fire.
             Timer.Spawn(ent.Comp.VictorySequenceDelay, () =>
@@ -649,6 +627,24 @@ public sealed class SlasherEffigySystem : EntitySystem
                 RaiseLocalEvent(rule.Owner, ref ev);
             });
         }
+    }
+
+    /// <summary>
+    /// Applies configured post-insertion healing to the slasher user.
+    /// </summary>
+    /// <param name="user">Slasher who completed the insertion.</param>
+    /// <param name="healPerFragment">Total heal amount to split across groups.</param>
+    /// <param name="healGroups">Damage groups eligible for split healing.</param>
+    private void ApplyFragmentHeal(EntityUid user, float healPerFragment, ProtoId<DamageGroupPrototype>[] healGroups)
+    {
+        if (healPerFragment <= 0f || healGroups.Length == 0 || !TryComp<DamageableComponent>(user, out var damageable))
+            return;
+
+        // Split the configured healing evenly across the configured damage groups.
+        var healTotal = FixedPoint2.New(healPerFragment);
+        var healPerGroup = healTotal / healGroups.Length;
+        foreach (var group in healGroups)
+            _damageable.HealEvenly((user, damageable), -healPerGroup, group, user);
     }
 
     /// <summary>
@@ -749,12 +745,12 @@ public sealed class SlasherEffigySystem : EntitySystem
         rule.Comp.ActiveEffigy = null;
         UpdateEffigyPinpointers(null);
 
-        _audio.PlayPvs(EffigyDestroyedSound, ent, AudioParams.Default);
-
         // Notify Slashers of destruction
         var slashers = EntityQueryEnumerator<SlasherRoleComponent>();
         while (slashers.MoveNext(out var uid, out _))
             _popup.PopupEntity(Loc.GetString("slasher-effigy-destroyed"), uid, uid, PopupType.LargeCaution);
+
+        _audio.PlayPvs(ent.Comp.EffigyDestroyedSound, ent, AudioParams.Default);
 
         // Notify nearby players
         _popup.PopupEntity(Loc.GetString("slasher-effigy-destroyed-others"), ent,
@@ -891,7 +887,13 @@ public sealed class SlasherEffigySystem : EntitySystem
     /// <param name="ent">Effigy entity and component data.</param>
     private void RerollRequiredParticle(Entity<SlasherEffigyComponent> ent)
     {
-        ent.Comp.RequiredContainmentParticle = _random.Pick(EffigyParticleTypes);
+        if (ent.Comp.DisruptionParticleTypes.Length == 0)
+        {
+            ent.Comp.RequiredContainmentParticle = AnomalousParticleType.Delta;
+            return;
+        }
+
+        ent.Comp.RequiredContainmentParticle = _random.Pick(ent.Comp.DisruptionParticleTypes);
     }
 
     /// <summary>
@@ -900,7 +902,7 @@ public sealed class SlasherEffigySystem : EntitySystem
     /// <param name="ent">Effigy entity and component data.</param>
     private void EnsureValidRequiredParticle(Entity<SlasherEffigyComponent> ent)
     {
-        if (Array.IndexOf(EffigyParticleTypes, ent.Comp.RequiredContainmentParticle) >= 0)
+        if (Array.IndexOf(ent.Comp.DisruptionParticleTypes, ent.Comp.RequiredContainmentParticle) >= 0)
             return;
 
         RerollRequiredParticle(ent);
