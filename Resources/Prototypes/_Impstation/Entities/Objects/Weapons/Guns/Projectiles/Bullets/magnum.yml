@@ -62,8 +62,15 @@
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/kineticprojectiles.rsi
+    layers:
+    - state: stunbullet
+      shader: unshaded
   - type: Projectile
     impactEffect: BulletImpactEffectKineticStun
     damage:
       types:
-        Blunt: 5
+        Shock: 3
+  - type: StaminaDamageOnCollide
+    damage: 30 #4 hits to stun

@@ -523,6 +523,17 @@
     - WhitelistChameleon
 
 - type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBucketHat
+  name: bucket hat
+  description: A great hat for the great outdoors.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Hats/buckethat.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Hats/buckethat.rsi
+    
+- type: entity
   parent: [ClothingHeadBase, BaseCommandContraband]
   id: ClothingHeadHatHOSColonelCap
   name: head of security's peaked cap
