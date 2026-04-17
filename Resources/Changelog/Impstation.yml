@@ -1,43 +1,4 @@
 ﻿Entries:
-- author: yesteryuri
-  changes:
-  - message: The old walking cane trinket now works as a mobility aid
-    type: Fix
-  id: 2252
-  time: '2025-09-14T10:30:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3447
-- author: DinnerCalzone
-  changes:
-  - message: The HD's portable cutter machine is now a bit more durable and is guaranteed
-      to drop its machine board when destroyed.
-    type: Tweak
-  id: 2253
-  time: '2025-09-14T10:33:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3446
-- author: eviltori
-  changes:
-  - message: '"assistant" is now a job that can be assigned at an ID card computer,
-      with its iconic A.'
-    type: Add
-  id: 2254
-  time: '2025-09-14T13:50:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3279
-- author: Darkmajia
-  changes:
-  - message: Signature font and color selection popups will only appear for the relevant
-      player, rather than everybody nearby.
-    type: Fix
-  id: 2255
-  time: '2025-09-14T13:58:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3402
-- author: DinnerCalzone
-  changes:
-  - message: Station Specific and Dining Services departments are now properly hidden
-      from the crew monitoring console once again.
-    type: Fix
-  id: 2256
-  time: '2025-09-14T14:02:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3410
 - author: TheGrimbeeper
   changes:
   - message: Syndicate Shuttle Pilots and listening post guards have been woken up
@@ -4137,3 +4098,48 @@
   id: 2751
   time: '2026-04-06T04:49:02.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4294
+- author: Simul-ad-Astra
+  changes:
+  - message: Conspirators is no longer a main gamemode, now a sub gamemode instead!
+    type: Remove
+  - message: Conspirator teams are now slightly smaller
+    type: Tweak
+  - message: Removed mentions of a non-existent Conspirator radio implant
+    type: Fix
+  id: 2752
+  time: '2026-04-06T19:45:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4241
+- author: mothrii, meatsmall
+  changes:
+  - message: Haven Outpost is now ready for regular work!
+    type: Add
+  id: 2753
+  time: '2026-04-07T05:08:33.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4300
+- author: ATDoop
+  changes:
+  - message: Anomalocarids now have a unique survival box!
+    type: Add
+  id: 2754
+  time: '2026-04-09T22:28:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4285
+- author: kipdotnet
+  changes:
+  - message: Added a handful of new novelty mugs.
+    type: Add
+  id: 2755
+  time: '2026-04-11T14:10:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4306
+- author: msTheowo
+  changes:
+  - message: Added fun!
+    type: Add
+  - message: Removed fun!
+    type: Remove
+  - message: Changed fun!
+    type: Tweak
+  - message: Fixed fun!
+    type: Fix
+  id: 2756
+  time: '2026-04-15T22:31:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4313
