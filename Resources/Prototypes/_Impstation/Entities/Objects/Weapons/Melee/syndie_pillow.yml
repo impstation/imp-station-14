@@ -1,5 +1,5 @@
 - type: entity
-  parent: BasePlushie
+  parent: [BasePlushie, BaseMajorContraband]
   id: SyndiePillow
   name: pillow
   description: pillow
@@ -46,7 +46,7 @@
     - SyndiePillow
 
 - type: entity
-  parent: BasePlushie
+  parent: [BasePlushie, BaseMajorContraband]
   id: SyndieBodyPillow
   name: body pillow
   description: You are sure to win the pillow fight with this one

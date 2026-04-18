@@ -118,7 +118,7 @@
           Quantity: 20
 
 - type: entity
-  parent: ClothingShoesClownBase #imp edit
+  parent: [ClothingShoesClownBase, BaseMajorContraband]
   id: ClothingShoeSlippersCindy
   name: cindy slippers
   suffix: No-slip
