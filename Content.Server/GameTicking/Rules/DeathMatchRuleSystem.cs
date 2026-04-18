@@ -13,6 +13,8 @@ using Content.Shared.Storage;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
+using Content.Shared.Mobs; // imp
+using Content.Shared.Mobs.Systems; // imp
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -29,6 +31,7 @@ public sealed class DeathMatchRuleSystem : GameRuleSystem<DeathMatchRuleComponen
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!; //imp
 
     public override void Initialize()
     {
@@ -54,6 +57,11 @@ public sealed class DeathMatchRuleSystem : GameRuleSystem<DeathMatchRuleComponen
             var mobMaybe = _stationSpawning.SpawnPlayerCharacterOnStation(ev.Station, null, ev.Profile);
             DebugTools.AssertNotNull(mobMaybe);
             var mob = mobMaybe!.Value;
+
+            // imp edit start, set the death threshold to the critical threshold
+            if (dm.InstantDeath)
+                _mobThresholdSystem.SetMobStateThreshold(mob, _mobThresholdSystem.GetThresholdForState(mob, MobState.Critical), MobState.Dead);
+            // imp edit end
 
             _mind.TransferTo(newMind, mob);
             _outfitSystem.SetOutfit(mob, dm.Gear);
