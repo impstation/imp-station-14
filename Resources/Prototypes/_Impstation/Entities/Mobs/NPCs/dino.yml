@@ -150,12 +150,14 @@
         proto: DinoLootSpawner
         keysIn:
         - stageTwo
-      - type: Explosive
-        explosionType: Default
-        maxIntensity: 0.01
+      - type: ExplosionOnTrigger #maintaining kips beautiful mind
+        maxTileIntensity: 0.01
         intensitySlope: 1
         totalIntensity: 0.01
-      - type: ExplodeOnTrigger #this is just as a joke honestly
+        canCreateVacuum: false
+        keysIn:
+        - stageTwo
+      - type: GibOnTrigger
         keysIn:
         - stageTwo
 
