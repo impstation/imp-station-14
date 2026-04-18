@@ -70,6 +70,14 @@ public sealed class DeathMatchRuleSystem : GameRuleSystem<DeathMatchRuleComponen
 
             _point.EnsurePlayer(ev.Player.UserId, uid, point);
 
+            // imp edit start, make the Dead state count as the kill state instead of Critical, for instant deathmatch death
+            if (dm.InstantDeath)
+            {
+                if (TryComp<KillTrackerComponent>(mob, out var killTrackerComponent))
+                    killTrackerComponent.KillState = MobState.Dead;
+            }
+            // imp edit end
+
             ev.Handled = true;
             break;
         }
