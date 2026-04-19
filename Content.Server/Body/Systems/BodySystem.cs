@@ -116,7 +116,7 @@ public sealed class BodySystem : SharedBodySystem
             return new HashSet<EntityUid>();
 
         //imp add: add an event right before gibbing that allows cancelling the gib
-        var attemptEv = new AttemptEntityGibEvent(bodyId, GibType.Gib);
+        var attemptEv = new AttemptEntityGibCancelEvent(bodyId);
         RaiseLocalEvent(bodyId, ref attemptEv);
         if (attemptEv.Cancelled)
             return new HashSet<EntityUid>();

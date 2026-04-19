@@ -18,9 +18,26 @@ namespace Content.Shared.Gibbing.Events;
     List<string>? ExcludedContainers
     );
 
+/// <summary>
+/// Raised just before gibbing to allow systems to cancel the gib.
+/// </summary>
+/// <param name="Target">The entity being gibed</param>
+/// <param name="Cancelled">Set to true to prevent the gibbing from happening</param>
+[ByRefEvent]
+public struct AttemptEntityGibCancelEvent
+{
+    public EntityUid Target;
+    public bool Cancelled;
+
+    public AttemptEntityGibCancelEvent(EntityUid target)
+    {
+        Target = target;
+        Cancelled = false;
+    }
+}
 
 /// <summary>
-/// Called just before we actually gib the target entity
+/// Called just before we actually gib the target entity, allows modification of gibbing parameters.
 /// </summary>
 /// <param name="Target">The entity being gibed</param>
 /// <param name="GibletCount">how many giblets to spawn</param>

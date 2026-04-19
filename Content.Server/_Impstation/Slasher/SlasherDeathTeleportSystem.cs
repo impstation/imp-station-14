@@ -68,24 +68,23 @@ public sealed class SlasherDeathTeleportSystem : EntitySystem
         base.Initialize();
         SubscribeLocalEvent<SlasherRoleComponent, MobStateChangedEvent>(OnMobStateChanged,
             after: [typeof(OnDeathEntitySpawnSystem)]);
-        SubscribeLocalEvent<SlasherRoleComponent, BeingGibbedEvent>(OnBeingGibbed);
         SubscribeLocalEvent<DeathMazeSpawnLocationComponent, EntityTerminatingEvent>(OnDeathMazeMarkerTerminating);
         SubscribeLocalEvent<MapGridComponent, EntityTerminatingEvent>(OnDeathMazeGridTerminating);
-        SubscribeLocalEvent<SlasherRoleComponent, AttemptEntityGibEvent>(OnAttemptGib);
+        SubscribeLocalEvent<SlasherRoleComponent, AttemptEntityGibCancelEvent>(OnAttemptGib);
     }
 
     /// <summary>
-    /// Sends gibbed Slasher remains to the death maze right before the source body is deleted.
+    /// Sends Slasher to the death maze right before the source body is deleted.
     /// </summary>
     /// <param name="ent">Slasher entity and role component.</param>
-    /// <param name="args">Gib event payload containing spawned gib parts.</param>
-    private void OnBeingGibbed(Entity<SlasherRoleComponent> ent, ref BeingGibbedEvent args)
+    /// <param name="args">Gib event payload.</param>
+    private void OnBeingGibbed(Entity<SlasherRoleComponent> ent, ref AttemptEntityGibCancelEvent args)
     {
         // If the Slasher is in effigy-failure state, allow normal gibbing (do nothing).
         if (HasComp<SlasherEffigyFailureComponent>(ent.Owner))
             return;
 
-        // Cancel gibbing: teleport and rejuvenate instead, then prevent gibs from spawning.
+        // Cancel gibbing: teleport and rejuvenate instead
         if (!TryGetDeathMazeSpawn(out var target))
             return;
 
@@ -94,9 +93,6 @@ public sealed class SlasherDeathTeleportSystem : EntitySystem
 
         _xform.SetCoordinates(ent.Owner, target);
 
-
-        // Prevent gib parts from being spawned/handled.
-        args.GibbedParts.Clear();
         _rejuvenate.PerformRejuvenate(ent.Owner); //they'll stlll dump all their blood on the floor but we can put that back
     }
 
@@ -276,7 +272,7 @@ public sealed class SlasherDeathTeleportSystem : EntitySystem
     /// <param name="ent">Slasher entity and role component.</param>
     /// <param name="args">Gib event payload containing attempted gib type and count,
     /// </summary>
-    private void OnAttemptGib(Entity<SlasherRoleComponent> ent, ref AttemptEntityGibEvent args)
+    private void OnAttemptGib(Entity<SlasherRoleComponent> ent, ref AttemptEntityGibCancelEvent args)
     {
         if (HasComp<SlasherEffigyFailureComponent>(ent.Owner))
             return; // Allow gibbing in failure state
