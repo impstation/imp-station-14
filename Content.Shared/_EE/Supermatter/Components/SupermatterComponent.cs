@@ -71,9 +71,6 @@ public sealed partial class SupermatterComponent : Component
     public EntProtoId TeslaSpawnPrototype = "TeslaEnergyBall";
 
     [DataField]
-    public EntProtoId CrystalMassSpawnPrototype = "CrystalMass";
-
-    [DataField]
     public EntProtoId AnomalyBluespaceSpawnPrototype = "AnomalyBluespace";
 
     [DataField]

@@ -744,28 +744,10 @@ public sealed partial class SupermatterSystem
         switch (sm.PreferredDelamType)
         {
             case DelamType.Cascade:
-                // Assumes supermatter is anchored on grid, might need to have it default to singularity if it returns
-                // Getting tile values before explosion removes them
-                var gridUid = xform.GridUid;
-                if (gridUid == null)
-                    return;
+                var cascadeGamerule = _gameTicker.AddGameRule(sm.CascadeDelamGamerulePrototype);
+                _gameTicker.StartGameRule(cascadeGamerule);
 
-                if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
-                    return;
-
-                var tileCoords = xform.Coordinates;
-
-                // Can/Will destroy the tile it is on
                 _explosion.TriggerExplosive(uid);
-
-                Timer.Spawn(7000, () =>
-                {
-                    var cascadeGamerule = _gameTicker.AddGameRule(sm.CascadeDelamGamerulePrototype);
-                    _gameTicker.StartGameRule(cascadeGamerule);
-
-                    _map.SetTile(gridUid.Value, mapGrid, tileCoords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, 5)));
-                    Spawn(sm.CrystalMassSpawnPrototype, tileCoords);
-                });
                 break;
 
             case DelamType.Singulo:

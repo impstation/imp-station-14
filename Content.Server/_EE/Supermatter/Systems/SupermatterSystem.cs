@@ -92,7 +92,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         SubscribeLocalEvent<SupermatterComponent, InteractHandEvent>(OnHandInteract);
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<SupermatterComponent, SupermatterScalpelDoAfterEvent>(OnGetSliver);
+        SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
         SubscribeLocalEvent<SupermatterComponent, DestabilizingCrystalDoAfterEvent>(OnDestabalizeSupermatter);
         SubscribeLocalEvent<SupermatterComponent, GravPulseEvent>(OnGravPulse);
     }
@@ -262,12 +262,10 @@ public sealed partial class SupermatterSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterScalpelDoAfterEvent args)
+    private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
-
-        sm.SliverTaken = true;
 
         // Your criminal actions will not go unnoticed
         sm.Damage += sm.DamageDelaminationPoint / 10;
@@ -275,7 +273,6 @@ public sealed partial class SupermatterSystem : EntitySystem
         var integrity = GetIntegrity(sm).ToString("0.00");
         SendSupermatterAnnouncement(uid, sm, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)));
 
-        // In the future could there could be tongs & ashing from touching the sliver
         Spawn(sm.SliverPrototype, Transform(args.User).Coordinates);
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
 

@@ -1,3 +1,5 @@
+using Robust.Shared.Prototypes;
+
 namespace Content.Server._Impstation.GameTicking.Rules;
 
 
@@ -10,6 +12,18 @@ public sealed partial class CascadeRuleComponent : Component
     /// <summary>
     /// Time until the round is ended in seconds
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float TimeUntilEndRound = 120f;
+
+    /// <summary>
+    /// Prototype that is spawned in
+    /// </summary>
+    [DataField]
+    public EntProtoId CrystalMassSpawnPrototype = "CrystalMass";
+
+    /// <summary>
+    /// Prototype that is spawned in
+    /// </summary>
+    [DataField]
+    public EntProtoId CrystalMassTileSpawnPrototype = "PlatingCrystalMass";
 }

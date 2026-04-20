@@ -1,3 +1,4 @@
+using Content.Shared._EE.Supermatter.Components;
 using Content.Server.AlertLevel;
 using Content.Server.Announcements.Systems;
 using Content.Server.Communications;
@@ -6,6 +7,7 @@ using Content.Server.RoundEnd;
 using Content.Server.Station.Systems;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.GameTicking.Rules;
@@ -44,7 +46,7 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
             station: _station.GetOwningStation(uid)
         );
 
-        RandomSpawnCrystalMass();
+        SpawnCrystalMass(component);
     }
 
     protected override void ActiveTick(EntityUid uid, CascadeRuleComponent component, GameRuleComponent gameRule, float frameTime)
@@ -65,19 +67,40 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
         ev.Reason = Loc.GetString("resonance-cascade-shuttle-call-unavailable");
     }
 
-    private void RandomSpawnCrystalMass()
+    private void SpawnCrystalMass(CascadeRuleComponent component)
     {
+        var cascadingSupermatterUid = new EntityUid();
+        var query = EntityQueryEnumerator<SupermatterComponent>();
+        while (query.MoveNext(out var supermatterUid, out var sm))
+            if (sm.PreferredDelamType == DelamType.Cascade && sm.DelamEndTime <= Timing.CurTime)
+                // Two will not be fully delaminating at the exact same time... right?
+                cascadingSupermatterUid = supermatterUid;
+
+        var xform = Transform(cascadingSupermatterUid);
+        var supermatterCoords = xform.Coordinates;
+        var gridUid = xform.GridUid;
+
+        if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
+            return;
+
+        _map.SetTile(gridUid.Value, mapGrid, supermatterCoords, new Tile(_tileDefManager[component.CrystalMassTileSpawnPrototype].TileId, 0, (byte)_random.Next(0, 5)));
+        Spawn(component.CrystalMassSpawnPrototype, supermatterCoords);
+
         var randomSpawns = _random.Next(1, 4);
 
         for (var i = 0; i < randomSpawns; i++)
         {
             if (TryFindRandomTile(out _, out _, out var targetGrid, out var coords))
             {
-                if (targetGrid is { })
+                // For if a supermatter offgrid cascade delams
+                if (targetGrid != gridUid)
+                    return;
+
+                if (coords.X * coords.Y < supermatterCoords.X * supermatterCoords.Y + 20)
                     continue;
 
-                _map.SetTile(targetGrid, coords, new Tile(_tileDefManager["PlatingCrystalMass"].TileId, 0, (byte)_random.Next(0, 5)));
-                Spawn("CrystalMass", coords);
+                _map.SetTile(gridUid.Value, mapGrid, coords, new Tile(_tileDefManager[component.CrystalMassTileSpawnPrototype].TileId, 0, (byte)_random.Next(0, 5)));
+                Spawn(component.CrystalMassSpawnPrototype, coords);
             }
         }
     }
