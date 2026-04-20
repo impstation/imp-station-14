@@ -24,17 +24,17 @@
     drawdepth: Mobs
     snapCardinals: true
     layers:
-    - state: supermatter
+    - state: supermatter-shard
       map: [ "enum.SupermatterVisuals.Crystal" ]
-    - state: supermatter-psy
+    - state: supermatter-shard-psy
       map: [ "enum.SupermatterVisuals.Psy" ]
       color: "#ffffff00"
   - type: SupermatterVisuals
     crystal:
-      Normal: { state: supermatter }
-      Glow: { state: supermatter-glow }
-      GlowEmergency: { state: supermatter-glow }
-      GlowDelam: { state: supermatter-glow }
+      Normal: { state: supermatter-shard }
+      Glow: { state: supermatter-shard-glow }
+      GlowEmergency: { state: supermatter-shard-glow }
+      GlowDelam: { state: supermatter-shard-glow }
   - type: Explosive
     explosionType: Supermatter
     totalIntensity: 16000
