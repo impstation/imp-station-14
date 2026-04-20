@@ -20,7 +20,7 @@ public sealed partial class SupermatterComponent : Component
     /// Imp
     /// Used for knowing if the supermatter is a shard
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public bool IsShard;
 
     /// <summary>
