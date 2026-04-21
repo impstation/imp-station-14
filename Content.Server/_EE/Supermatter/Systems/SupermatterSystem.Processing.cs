@@ -223,46 +223,33 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void GenerateAnomalies(EntityUid uid, SupermatterComponent sm)
     {
+        if (sm.Status == SupermatterStatusType.Inactive)
+            return;
+
         var xform = Transform(uid);
-        var anomalies = new List<string>();
+        var anomalyCount = 0;
 
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        // Bluespace anomaly: ~1/150 chance
-        if (_random.Prob(1 / sm.AnomalyBluespaceChance))
-            anomalies.Add(sm.AnomalyBluespaceSpawnPrototype);
-
-        // Gravity anomaly: ~1/150 chance above SeverePowerPenaltyThreshold, or ~1/750 chance otherwise
-        if (sm.Power > _config.GetCVar(EECCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyGravityChanceSevere) ||
-            _random.Prob(1 / sm.AnomalyGravityChance))
-            anomalies.Add(sm.AnomalyGravitySpawnPrototype);
-
-        // Pyroclastic anomaly: ~1/375 chance above SeverePowerPenaltyThreshold, or ~1/2500 chance above PowerPenaltyThreshold
-        if (sm.Power > _config.GetCVar(EECCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPyroChanceSevere) ||
-            sm.Power > _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPyroChance))
-            anomalies.Add(sm.AnomalyPyroSpawnPrototype);
-
-        var count = anomalies.Count;
-        if (count == 0)
+        // Random anomaly chances: ~1/750 when active, ~1/500 if power penalty, ~1/250 if severe power penalty
+        if (sm.Power > _config.GetCVar(EECCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalySeverePenaltyChance) ||
+            sm.Power > _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPenaltyChance) ||
+            _random.Prob(1 / sm.AnomalyNaturalChance))
+            anomalyCount++;
+        else
             return;
 
-        var tiles = GetSpawningPoints(uid, sm, count);
-        if (tiles == null)
-            return;
-
-        foreach (var tileref in tiles)
-        {
-            var anomaly = Spawn(_random.Pick(anomalies), _map.ToCenterCoordinates(tileref, grid));
-            EnsureComp<TimedDespawnComponent>(anomaly).Lifetime = sm.AnomalyLifetime;
-        }
+        var tileRef = GetSpawningPoint(uid, sm);
+        if (tileRef is { } tile)
+            Spawn(sm.RandomAnomaly, _map.ToCenterCoordinates(tile, grid));
     }
 
     /// <summary>
-    /// Gets random points around the supermatter.
+    /// Gets a random point around the supermatter.
     /// Most of this is from GetSpawningPoints() in SharedAnomalySystem
     /// </summary>
-    private List<TileRef>? GetSpawningPoints(EntityUid uid, SupermatterComponent sm, int amount)
+    private TileRef? GetSpawningPoint(EntityUid uid, SupermatterComponent sm)
     {
         var xform = Transform(uid);
 
@@ -280,8 +267,8 @@ public sealed partial class SupermatterSystem
             return null;
 
         var physQuery = GetEntityQuery<PhysicsComponent>();
-        var resultList = new List<TileRef>();
-        while (resultList.Count < amount)
+        var result = new TileRef?();
+        while (result is not { })
         {
             if (tilerefs.Count == 0)
                 break;
@@ -318,10 +305,10 @@ public sealed partial class SupermatterSystem
                 continue;
             }
 
-            resultList.Add(tileref);
+            result = tileref;
         }
 
-        return resultList;
+        return result;
     }
 
     /// <summary>

@@ -130,12 +130,10 @@ public sealed partial class SupermatterSystem : EntitySystem
         HandleStatus(uid, sm);
         HandleSoundLoop(uid, sm);
         HandleAccent(uid, sm);
+        GenerateAnomalies(uid, sm);
 
         if (sm.Power > _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) || sm.Damage > sm.DamagePenaltyPoint)
-        {
             SupermatterZap(uid, sm);
-            GenerateAnomalies(uid, sm);
-        }
     }
 
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
