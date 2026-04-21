@@ -258,8 +258,8 @@
   - type: HitscanBasicDamage
     damage:
       types:
-        Heat: 8
-        Piercing: 8
+        Heat: 6.5
+        Piercing: 6.5
   - type: HitscanBasicRaycast
     collisionMask:
         - Impassable

@@ -167,7 +167,7 @@ uplink-shock-dart-box-name = Shock Dart Box
 uplink-shock-dart-box-desc = A box of 4 tranquilizer darts that fit in the muldoon. Each dart contains 4 units of tazinide and will shock the target after injection.
 
 uplink-ananke-name = Ananke bundle
-uplink-ananke-desc = Brutal and unapolagetic-- the Ananke plasma shotgun, bundled with 2 canisters of its proprietary liquid ammo.
+uplink-ananke-desc = Brutal and unapolagetic-- the Ananke plasma shotgun, bundled with 4 canisters of its proprietary liquid ammo.
 
 uplink-glykon-name = Glykon bundle
 uplink-glykon-desc = Beautiful, elegant, and deadly. The Glykon bundled with 4 canisters of its proprietary liquid ammo.

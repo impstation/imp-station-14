@@ -285,22 +285,21 @@
   - type: Gun
     clumsyProof: false
     cameraRecoilScalar: 1
-    fireRate: 0.5
-    burstFireRate: 10
-    shotsPerBurst: 5
-    burstCooldown: 1.5
-    selectedMode: Burst
+    fireRate: 10
+    selectedMode: FullAuto
     availableModes:
-    - Burst
+    - SemiAuto
+    - FullAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/glykon.ogg
+  - type: GunRequiresWield
   - type: SolutionContainerManager
     solutions:
       chamber:
         reagents:
         - ReagentId: Echion
-          Quantity: 30
-        maxVol: 30 #4 bursts
+          Quantity: 7.5
+        maxVol: 7.5 #5 shots
   - type: SolutionAmmoProvider
     solutionId: chamber
     proto: GlykonBeam
