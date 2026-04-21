@@ -1288,7 +1288,7 @@
   - type: MeleeWeapon
     wideAnimationRotation: -135
     attackRate: 1.25
-    angle: 0
+    angle: 100
     soundHit:
       path: /Audio/Items/Toys/ToyFall1.ogg
   - type: EmitSoundOnUse
@@ -1304,7 +1304,7 @@
     damage:
       types:
         Blunt: 0
-        StaminaDamageOnHit: 8
+        StaminaDamageOnHit: 10
   - type: Item
     size: Normal
     storedSprite:
@@ -1321,7 +1321,7 @@
   parent: BasePlushie
   id: BodyPillow
   name: body pillow
-  description: You are sure to win the pillow fight with this one
+  description: You're sure to win the pillow fight with this one
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/Pillows/bodypillow.rsi
