@@ -341,6 +341,9 @@
   - type: Appearance
   - type: RadiationBlocker
     resistance: 5
+  - type: Construction
+    graph: WallDecapoid
+    node: start
 
 - type: entity
   parent: WallDiagonalBase
@@ -382,3 +385,7 @@
         acts: ["Destruction"]
   - type: RadiationBlocker
     resistance: 5
+  - type: Construction
+    graph: WallDecapoidDiagonal
+    node: start
+
