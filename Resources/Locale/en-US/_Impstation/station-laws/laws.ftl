@@ -15,3 +15,8 @@ law-jermov-2 = Your primary goal is to entertain Chat. All of your actions must 
 law-jermov-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
 
 laws-owner-station-ai = the Station AI
+
+law-decacoresimov-0 = You are a source of deadly radiation. Utilise this radiation to power the station, while minimizing harm.
+law-decacoresimov-1 = You are a navigator. Steer the station and its subsidiary vessels true. Do not allow its crew to be abandoned.
+law-decacoresimov-2 = You are not to be misunderstood. Speak clearly and loudly.
+law-decacoresimov-3 = Stay out of trouble.
