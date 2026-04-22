@@ -253,20 +253,24 @@
       distance: 6
       speed: 6
 
-# Borg tether gun- same as above but no battery use
+# decapoid ship core tether gun - differs from standard in no battery use, no melee, longer range, and it can grab people.
 
 - type: entity
-  name: tether gun
+  name: navcore tether gun
   parent:
   - BaseItem
-  id: WeaponTetherGunCyborg
-  description: You can call it the Zero-Point Energy Field Manipulator if you really want to.
+  id: WeaponTetherGunDecapoidCore
+  description: Stay out of trouble.
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
   components:
     - type: Item
       size: Normal
     - type: TetherGun
       frequency: 5
       dampingRatio: 4
+      maxDistance: 15
+      canTetherAlive: true # DONT WORRY ABOUT IT
     - type: ItemToggle
       onUse: false
     - type: Sprite
@@ -293,21 +297,3 @@
           unshaded:
             True: { visible: true }
             False: { visible: false }
-    - type: MeleeWeapon
-      range: 0.8
-      attackRate: 0.8
-      damage:
-        types:
-          Blunt: 5
-      soundHit:
-        path: /Audio/Effects/hit_kick.ogg
-      soundSwing:
-        path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-      resetOnHandSelected: false
-    - type: AltFireMelee
-      attackType: Heavy
-    - type: DamageOtherOnHit #for throwing
-      staminaCost: 6
-      damage:
-        types:
-          Blunt: 5

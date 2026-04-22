@@ -4,13 +4,9 @@
   name: tck'ju'q'tp
   description: The navigational core of the vessel. Dont bother trying to pronounce its actual name.
   components:
-  - type: InputMover # needs this to pilot the mothership
-  #- type: BlockMovement # They should never be moving!
-  #  blockInteraction: false
-  #  blockUse: false
+  - type: InputMover # needs this to pilot shuttles
   - type: CombatMode
   - type: Appearance
-  - type: WiresVisuals
   - type: Damageable
     damageContainer: Inorganic
   - type: Fixtures
@@ -27,10 +23,12 @@
   - type: Sprite
     sprite: _Impstation/Mobs/Silicon/Bots/decacore.rsi
     layers:
+    - state: icon
+    - state: radiation
+      shader: unshaded
     - state: lights
       map: ["enum.BorgVisualLayers.Light"]
       shader: unshaded
-    - state: icon
   - type: PointLight
     enabled: true
     mask: /Textures/Effects/LightMasks/cone.png
@@ -65,7 +63,7 @@
             CarbonDioxide: 340.5701689 # carbon dioxide
           temperature: 373.15
   - type: Repairable
-    doAfterDelay: 30 # you can heal the mothership core, but it takes a while
+    doAfterDelay: 15
   - type: DamagedSiliconAccent
     enableChargeCorruption: false
   - type: SurveillanceCameraSpeaker
@@ -224,7 +222,7 @@
   - type: Label
     currentLabel: station-core-name-decapoid
   - type: RadiationSource
-    intensity: 3.5
+    intensity: 3.0
     slope: 0.6
   - type: Pda
     idSlot:
