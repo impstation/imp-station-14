@@ -9,7 +9,6 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Content.Shared.Interaction;
 
 namespace Content.Server._Impstation.StationEvents.Events;
 

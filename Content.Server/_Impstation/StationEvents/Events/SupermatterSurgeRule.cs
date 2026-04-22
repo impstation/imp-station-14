@@ -4,7 +4,6 @@ using Content.Server.GameTicking;
 using Content.Server.Lightning;
 using Content.Server.StationEvents.Events;
 using Content.Shared._EE.Supermatter.Components;
-using Content.Shared.Anomaly.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Player;
