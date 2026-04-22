@@ -34,10 +34,10 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     public MinMax PowerMinMax = new(5000, 10000);
 
     /// <summary>
-    /// Minimum & maximum heat modifier that the supermatter can surge to, scaled by 100
+    /// Minimum & maximum heat modifier that the supermatter can surge to
     /// </summary>
     [DataField]
-    public MinMax HeatModifierMinMax = new(100, 200);
+    public (float, float) HeatModifierMinMax = (1f, 2f);
 
     /// <summary>
     /// Time tracker for next explosive lightning strike

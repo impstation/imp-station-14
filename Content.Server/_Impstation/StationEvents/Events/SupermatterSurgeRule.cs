@@ -4,6 +4,7 @@ using Content.Server.GameTicking;
 using Content.Server.Lightning;
 using Content.Server.StationEvents.Events;
 using Content.Shared._EE.Supermatter.Components;
+using Content.Shared.Anomaly.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Player;
@@ -60,12 +61,9 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
 
         sm.Event = SupermatterEvent.Surging;
 
-        var powerSurge = component.PowerMinMax.Next(_random);
-        var heatSurge = (float)component.HeatModifierMinMax.Next(_random) / 100;
-
         // Power & heat modifer changes every tick so isn't always used by the supermatter, but creates a good visual on the console
-        sm.Power = powerSurge;
-        sm.HeatModifier = heatSurge;
+        sm.Power = component.PowerMinMax.Next(_random);
+        sm.HeatModifier = _random.NextFloat(component.HeatModifierMinMax.Item1, component.HeatModifierMinMax.Item2);
 
         if (Timing.CurTime < component.NextLightningTime)
             return;
