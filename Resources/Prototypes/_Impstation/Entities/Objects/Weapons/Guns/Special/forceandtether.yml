@@ -253,7 +253,7 @@
       distance: 6
       speed: 6
 
-# decapoid ship core tether gun - differs from standard in no battery use, no melee, longer range, and it can grab people.
+# decapoid ship core tether gun - differs from standard in no battery use, no melee, and longer range.
 
 - type: entity
   name: navcore tether gun
@@ -270,7 +270,7 @@
       frequency: 5
       dampingRatio: 4
       maxDistance: 15
-      canTetherAlive: true # DONT WORRY ABOUT IT
+      massLimit: 150 #so it can move dead decapoids
     - type: ItemToggle
       onUse: false
     - type: Sprite
