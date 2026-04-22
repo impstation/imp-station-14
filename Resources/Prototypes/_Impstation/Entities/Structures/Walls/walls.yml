@@ -340,7 +340,7 @@
     base: deca
   - type: Appearance
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 10
   - type: Construction
     graph: WallDecapoid
     node: start
@@ -384,7 +384,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: RadiationBlocker
-    resistance: 5
+    resistance: 10
   - type: Construction
     graph: WallDecapoidDiagonal
     node: start
