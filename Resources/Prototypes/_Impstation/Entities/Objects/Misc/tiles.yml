@@ -411,26 +411,25 @@
   id: FloorTileItemDecapoid
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Tiles/apid.rsi
-    state: apid
+    sprite: _Impstation/Objects/Tiles/decapoid.rsi
+    state: decapoid
   - type: FloorTile
     outputs:
       - Plating
       - FloorDecapoid
   - type: Stack
-    stackType: FloorTileApid
-
+    stackType: FloorTileDecapoid
 - type: entity
   name: imperial flourish tile
   parent: FloorTileItemBase
   id: FloorTileItemDecapoidFancy
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Tiles/apid.rsi
-    state: apid
+    sprite: _Impstation/Objects/Tiles/decapoid.rsi
+    state: decapoid_fancy
   - type: FloorTile
     outputs:
       - Plating
       - FloorDecapoidFancy
   - type: Stack
-    stackType: FloorTileApid
+    stackType: FloorTileDecapoidFancy
