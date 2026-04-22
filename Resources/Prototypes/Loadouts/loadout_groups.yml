@@ -131,6 +131,8 @@
   loadouts:
   - EmergencyMeat # imp
   - EmergencyWheat # imp
+  - EmergencyAquatic # imp
+  - EmergencyDiscount # imp
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesAquaticFullTank # Imp
@@ -145,6 +147,7 @@
   - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesEVAKodepiia # imp
   - LoadoutSpeciesEVAUngu # imp
+  - LoadoutSpeciesEVADiscount # imp
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
 
@@ -165,6 +168,7 @@
   - LoadoutSpeciesPocketDoubleOxygen
   - LoadoutSpeciesPocketDoubleOxygenKodepiia # imp
   - LoadoutSpeciesPocketDoubleOxygenUngu # imp
+  - LoadoutSpeciesPocketDoubleOxygenDiscount # imp
 
 # Command
 - type: loadoutGroup
@@ -405,6 +409,11 @@
   minLimit: 0
   loadouts:
   - ChefHead
+  # DEN start
+  - HatDinerTeal
+  - HatDinerPink
+  - HatDinerFastFood
+  # DEN end
 
 - type: loadoutGroup
   id: ChefMask
@@ -423,6 +432,16 @@
   - ChefSpaceJumpsuit # imp
   - HeadChefSkirt # imp
   - HeadChef # imp
+  # DEN start
+  - JumpsuitDinerTeal
+  - JumpskirtDinerTeal
+  - JumpsuitDinerPink
+  - JumpskirtDinerPink
+  - JumpsuitDinerPinkDark
+  - JumpskirtDinerPinkDark
+  - JumpsuitDinerFastFood
+  - JumpskirtDinerFastFood
+  # DEN end
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -596,6 +615,7 @@
   - BibleNarsie
    #imp edit start, kind of insane they labeled all holy books as bibles but oh well, using this loadout group will save headache in the future
   - ChaplainBookScroll
+  - ChaplainBookMansus
   - ChaplainBookTablet
   - ChaplainBookGreybible
   - ChaplainBookKojiki
@@ -743,6 +763,8 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatClown # imp
   - EmergencyWheatClown # imp
+  - EmergencyAquaticClown # imp
+  - EmergencyDiscountClown # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -818,6 +840,8 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMime # imp
   - EmergencyWheatMime # imp
+  - EmergencyAquaticMime # imp
+  - EmergencyDiscountMime # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -1159,6 +1183,8 @@
   - AtmosphericTechnicianJumpsuit
   - AtmosphericTechnicianJumpskirt
   - AtmosphericTechnicianJumpsuitCasual
+  - FlightsuitAtmos #imp
+  - FlightskirtAtmos #imp
 
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
@@ -1204,6 +1230,8 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatExtended # imp
   - EmergencyWheatExtended # imp
+  - EmergencyAquaticExtended # imp
+  - EmergencyDiscountExtended # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Science
@@ -1370,6 +1398,7 @@
   - HeadofSecurityBeret
   - HeadofSecurityHeadDV # DeltaV
   - HeadofSecurityPatrolCap # imp
+  - HeadofSecurityColonelCap # imp
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1385,6 +1414,8 @@
   - HeadofSecurityJumpskirtGrey #imp
   - HeadofSecurityProfessionalJumpsuit # imp
   - HeadofSecurityProfessionalJumpskirt # imp
+  - HeadofSecurityColonelJumpsuit # imp
+  - HeadofSecurityColonelJumpskirt # imp
 
 - type: loadoutGroup
   id: HeadofSecurityNeck
@@ -1601,6 +1632,8 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSecurity # imp
   - EmergencyWheatSecurity # imp
+  - EmergencyAquaticSecurity # imp
+  - EmergencyDiscountSecurity # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Medical
@@ -1875,6 +1908,8 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatMedical # imp
   - EmergencyWheatMedical # imp
+  - EmergencyAquaticMedical # imp
+  - EmergencyDiscountMedical # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Wildcards
@@ -1920,6 +1955,8 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyMeatSyndicate # imp
   - EmergencyWheatSyndicate # imp
+  - EmergencyAquaticSyndicate # imp
+  - EmergencyDiscountSyndicate # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup

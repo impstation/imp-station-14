@@ -510,3 +510,22 @@
   - type: Sprite
     sprite: _Impstation/Structures/Doors/Airlocks/Standard/theatre.rsi
     state: "assembly"
+
+#Zookeeper
+- type: entity
+  parent: AirlockAssembly
+  id: AirlockAssemblyZoo
+  suffix: Zoo
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/zoo.rsi
+    state: "assembly"
+
+- type: entity
+  parent: AirlockAssembly
+  id: AirlockAssemblyZooGlass
+  suffix: Zoo, Glass
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Doors/Airlocks/Standard/zoo.rsi
+    state: "assembly"

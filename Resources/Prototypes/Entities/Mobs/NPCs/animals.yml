@@ -1707,6 +1707,11 @@
   suffix: NukeOps
   components:
   - type: NukeOperative
+  - type: RandomMetadata # imp
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateMonkey
+    nameFormat: name-format-nukie-generic
 
 - type: entity
   name: kobold
@@ -2930,6 +2935,13 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+    blackboard: # imp edit start
+      NavClimb: !type:Bool
+        true
+      NavPry: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true # imp edit end
   - type: GhostRole
     makeSentient: true
     name: ghost-role-information-giant-spider-name
@@ -3649,6 +3661,11 @@
   - type: ActiveRadio
     channels:
     - Syndicate
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateCat
+    nameFormat: name-format-nukie-generic
   # imp edit end
 
 - type: entity
