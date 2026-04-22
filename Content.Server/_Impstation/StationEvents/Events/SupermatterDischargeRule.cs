@@ -9,6 +9,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Content.Shared.Interaction;
 
 namespace Content.Server._Impstation.StationEvents.Events;
 
@@ -39,8 +40,7 @@ public sealed class SupermatterDischargeRule : StationEventSystem<SupermatterDis
 
         component.SupermatterUid = _random.Pick(supermatterUids);
 
-        if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
-            return;
+        var sm = Comp<SupermatterComponent>(component.SupermatterUid);
 
         // Dosen't start discharging a emp immediately
         component.NextEMPTime = Timing.CurTime + TimeSpan.FromSeconds(component.EMPCooldownMinMax.Next(_random));
