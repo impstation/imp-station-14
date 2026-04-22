@@ -38,6 +38,6 @@ laws-owner-station-ai = the Station AI
 laws-owner-wizard = the Wizard
 
 law-decacoresimov-0 = You are a source of deadly radiation. Utilise this radiation to power the station, while minimizing harm.
-law-decacoresimov-1 = You are a navigator. Steer the station and its subsidiary vessels true. Do not allow its crew to be abandoned.
+law-decacoresimov-1 = You are a navigator. Steer the station and its subsidiary vessels true. Protect its crew where possible.
 law-decacoresimov-2 = You are not to be misunderstood. Speak clearly and loudly.
 law-decacoresimov-3 = Stay out of trouble.
