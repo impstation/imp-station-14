@@ -75,6 +75,82 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     [Dependency] protected readonly MetaDataSystem MetaDataSys = default!;
     [Dependency] protected readonly INetManager NetManager = default!;
 
+//imp edit start
+private static readonly ReagentId VomitReagent = new("Vomit");
+private static readonly ReagentId MucusReagent = new("Mucus");
+private static readonly ReagentId GermsReagent = new("Germs");
+private static readonly FixedPoint2 GermsMixCap = FixedPoint2.New(10);
+
+private bool HasContaminantBase(Solution solution)
+{
+    return solution.ContainsReagent(VomitReagent) || solution.ContainsReagent(MucusReagent);
+}
+
+private bool HasOtherReagentBesidesBases(Solution solution)
+{
+    foreach (var (reagent, _) in solution.Contents)
+    {
+        if (reagent == VomitReagent || reagent == MucusReagent || reagent == GermsReagent)
+            continue;
+
+        return true;
+    }
+
+    return false;
+}
+
+private void TryCreateGermsFromMixing(Solution solution, Solution addedSolution)
+{
+    if (addedSolution.Volume <= 0)
+        return;
+
+    if (!HasContaminantBase(solution))
+        return;
+
+    if (!HasOtherReagentBesidesBases(solution))
+        return;
+
+    var addedOnlyGerms = true;
+    foreach (var (reagent, _) in addedSolution.Contents)
+    {
+        if (reagent != GermsReagent)
+        {
+            addedOnlyGerms = false;
+            break;
+        }
+    }
+
+    if (addedOnlyGerms)
+        return;
+
+    // Cap Germs at 10u to prevent endless growth in large mixed puddles.
+    if (solution.TryGetReagentQuantity(GermsReagent, out var currentGerms) &&
+        currentGerms >= GermsMixCap)
+        return;
+
+    var germsToAdd = FixedPoint2.New(1);
+
+    if (solution.TryGetReagentQuantity(GermsReagent, out currentGerms))
+        germsToAdd = FixedPoint2.Min(germsToAdd, GermsMixCap - currentGerms);
+
+    if (germsToAdd > FixedPoint2.Zero)
+        solution.AddReagent(GermsReagent, germsToAdd);
+}
+
+    private static readonly ReagentId GermsReagent = new("Germs");
+    private const float GermBoilTemp = 373.15f;
+    private void SterilizeBoiledSolution(Solution solution)
+    {
+        if (solution.Temperature < GermBoilTemp)
+            return;
+
+        if (!solution.ContainsReagent(GermsReagent))
+            return;
+
+        solution.RemoveReagent(GermsReagent);
+    }
+//imp edit end
+
     public override void Initialize()
     {
         base.Initialize();
@@ -318,6 +394,8 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         var (uid, comp) = soln;
         var solution = comp.Solution;
 
+        SterilizeBoiledSolution(solution); //imp edit
+
         // Process reactions
         if (needsReactionsProcessing && solution.CanReact)
             ChemicalReactionSystem.FullyReactSolution(soln, mixerComponent);
@@ -465,6 +543,12 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             solution.AddReagent(proto, acceptedQuantity, temperature.Value, PrototypeManager);
         }
 
+        //imp edit start
+        //create 1u Germs when Vomit/Mucus touch other reagents
+        addedSolution.AddReagent(reagentQuantity.Reagent, acceptedQuantity);
+        TryCreateGermsFromMixing(solution, addedSolution);
+        //imp edit end
+
         UpdateChemicals(soln);
         return acceptedQuantity == reagentQuantity.Quantity;
     }
@@ -581,6 +665,9 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         // Currently this is quite inefficient.
         solution.AddSolution(source.SplitSolution(quantity), PrototypeManager);
 
+        //create 1u Germs when Vomit/Mucus touch other reagents
+        TryCreateGermsFromMixing(solution, mixed); //imp edit
+
         UpdateChemicals(soln);
         return true;
     }
@@ -630,6 +717,8 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         else
             solution.AddSolution(toAdd, PrototypeManager);
 
+        TryCreateGermsFromMixing(solution, actuallyAdded); //imp edit
+
         UpdateChemicals(soln);
         return quantity;
     }
@@ -650,6 +739,9 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             return false;
 
         solution.AddSolution(toAdd, PrototypeManager);
+
+        TryCreateGermsFromMixing(solution, toAdd); //imp edit
+
         UpdateChemicals(soln);
         return true;
     }

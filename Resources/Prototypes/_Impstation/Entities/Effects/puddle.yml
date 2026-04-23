@@ -10,3 +10,16 @@
         reagents:
         - ReagentId: Water
           Quantity: 40
+
+- type: entity
+  id: PuddleMucus
+  parent: PuddleTemporary
+  suffix: Mucus
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Mucus
+          Quantity: 10

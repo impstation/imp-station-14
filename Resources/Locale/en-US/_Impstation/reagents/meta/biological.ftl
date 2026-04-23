@@ -30,3 +30,9 @@ reagent-desc-estradiol = A fundamental bodily hormone, synthesized from cell mat
 
 reagent-name-bloodallulalo = methylated blood
 reagent-desc-bloodallulalo = An ancient alkylate form of blood. Known to rapidly evaporate if spilled.
+
+reagent-name-mucus = mucus
+reagent-desc-mucus = A slippery viscous fluid used as a lubricant by the body and is the immune system's first line of defence.
+
+reagent-name-germs = germs
+reagent-desc-germs = There are nasty little guys floating in it..
