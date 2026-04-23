@@ -158,8 +158,7 @@
   - type: ItemBorgModule
     hands:
     - item: WeaponTetherGunDecapoidCore
-    - hand: #no whitelist. its a real hand
-        emptyLabel: borg-slot-claw-empty
+    - item: DoorRemoteCustom
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: tcktck-tools-module }
   - type: Tag

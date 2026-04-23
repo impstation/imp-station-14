@@ -2,7 +2,7 @@
   parent: [ BaseControllable, BaseStructure ]
   id: DecapoidCore
   name: tck'ju'q'tp
-  description: The navigational core of the vessel. Dont bother trying to pronounce its actual name.
+  description: The navigational core of the vessel, exerting control of nearby systems. Don't bother trying to pronounce its actual name.
   components:
   - type: InputMover # needs this to pilot shuttles
   - type: CombatMode
