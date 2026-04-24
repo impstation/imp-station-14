@@ -154,3 +154,41 @@
         damage:
           types:
             Radiation: 0.2
+
+- type: reagent
+  id: Cetirizine
+  name: reagent-name-cetirizine
+  group: Medicine
+  desc: reagent-desc-cetirizine
+  physicalDesc: reagent-physical-desc-chalky
+  flavor: medicine
+  color: "#8fd6ff"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentCondition
+          reagent: Histamine
+          min: 1
+        reagent: Histamine
+        amount: -1.0
+      - !type:AdjustReagent
+        conditions:
+        - !type:ReagentCondition
+          reagent: Germs
+          min: 1
+        reagent: Germs
+        amount: -3.0
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -0.5
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentCondition
+          reagent: Histamine
+          min: 1
+        type: Local
+        messages: [ "generic-reagent-effect-soothing" ]
+        probability: 0.15

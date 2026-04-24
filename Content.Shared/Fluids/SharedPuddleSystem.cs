@@ -44,11 +44,15 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
     private ProtoId<ReagentPrototype>[] _standoutReagents = [];
 
+    // imp edit start
+    protected static readonly ReagentId GermsReagent = new("Germs");
+    protected static readonly ReagentId SpaceCleanerReagent = new("SpaceCleaner");
+    // imp edit end
+
     /// <summary>
     /// The lowest threshold to be considered for puddle sprite states as well as slipperiness of a puddle.
     /// </summary>
     public const float LowThreshold = 0.3f;
-
     public const float MediumThreshold = 0.6f;
 
     // Using local deletion queue instead of the standard queue so that we can easily "undelete" if a puddle
@@ -58,6 +62,23 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     private EntityQuery<StepTriggerComponent> _stepTriggerQuery;
     private EntityQuery<ReactiveComponent> _reactiveQuery;
     private EntityQuery<EvaporationComponent> _evaporationQuery;
+
+    // imp edit start
+    protected void ContaminateFloorSpill(Solution solution)
+    {
+        if (solution.Volume <= FixedPoint2.Zero)
+            return;
+
+        if (solution.ContainsReagent(SpaceCleanerReagent))
+            return;
+
+        if (solution.ContainsReagent(GermsReagent))
+            return;
+
+        solution.AddReagent(GermsReagent, FixedPoint2.New(1));
+    }
+    // imp edit end
+
 
     public override void Initialize()
     {
@@ -320,7 +341,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
     private void UpdateSlow(EntityUid uid, PuddleComponent component, Solution solution) // imp viscosity edits
     {
-        // imp start
+        // imp edit start
         var totalViscosity = 0f;
         var totalQuantity = 0f;
         var fullPuddleAmount = FixedPoint2.New(component.OverflowVolume.Float() * LowThreshold);
@@ -345,7 +366,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
             var speed = 1 - totalViscosity;
             _speedModContacts.ChangeSpeedModifiers(uid, speed, comp);
         }
-        // imp end
+        // imp edit end
         else
         {
             RemComp<SpeedModifierContactsComponent>(uid);

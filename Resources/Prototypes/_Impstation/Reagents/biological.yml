@@ -246,3 +246,51 @@
   products:
     Ash: 3
     Fresium: 2
+
+- type: reagent
+  id: Mucus
+  name: reagent-name-mucus
+  group: Biological
+  desc: reagent-desc-mucus
+  flavor: terrible
+  color: "#87ab08"
+  physicalDesc: reagent-physical-desc-slimy
+  recognizable: true
+  metabolisms:
+    Drink:
+      effects:
+        - !type:AdjustReagent
+          reagent: Germs
+          amount: 0.25
+  footstepSound:
+    collection: FootstepBlood
+    params:
+      volume: 6
+
+- type: reagent
+  id: Germs
+  name: reagent-name-germs
+  group: Biological
+  desc: reagent-desc-germs
+  color: "#00000000"
+  recognizable: false
+  metabolisms:
+    Food:
+      effects:
+        - !type:Emote
+          emote: Cough
+          showInChat: true
+          probability: 0.05
+        - !type:Sneeze
+          probability: 0.05
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+        - !type:Emote
+          emote: Cough
+          showInGuidebook: true
+          conditions:
+            - !type:BreathingCondition
+            - !type:InternalsCondition
+              inverted: true

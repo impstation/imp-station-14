@@ -241,6 +241,11 @@
       - !type:AdjustReagent
         reagent: Nutriment
         amount: 0.1
+      #imp edit start
+      - !type:AdjustReagent
+        reagent: Germs
+        amount: 0.25
+      #imp edit end
   footstepSound:
     collection: FootstepBlood
     params:

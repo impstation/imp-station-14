@@ -137,6 +137,7 @@ public sealed class VomitSystem : EntitySystem
 
             // Makes a vomit solution the size of 90% of the chemicals removed from the chemstream
             solution.AddReagent(new ReagentId(vomitPrototype, _bloodstream.GetEntityBloodData((uid, bloodStream))), vomitAmount); // imp edit, VomitPrototype -> vomitPrototype
+            solution.AddReagent(new ReagentId("Germs"), 0.5f); //imp edit
         }
 
         if (_puddle.TrySpillAt(uid, solution, out var puddle, false))

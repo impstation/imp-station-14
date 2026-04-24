@@ -521,6 +521,8 @@ public sealed partial class PuddleSystem : SharedPuddleSystem
             return false;
         }
 
+        ContaminateFloorSpill(solution); //imp edit
+
         // Get normalized co-ordinate for spill location and spill it in the centre
         // TODO: Does SnapGrid or something else already do this?
         var anchored = _map.GetAnchoredEntitiesEnumerator(gridId, mapGrid, tileRef.GridIndices);
