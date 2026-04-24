@@ -1,13 +1,31 @@
-using Content.Shared.Medical;
-using Content.shared._Impstation.Medical;
+﻿using Content.Shared.Chemistry.Reagent;
+using Robust.Shared.Audio;
+using Robust.Shared.Prototypes;
 
-namespace Content.Server._Impstation.Destructible.Thresholds.Behaviors;
+namespace Content.Shared._Impstation.Sneezing;
 
-[DataDefinition]
-public sealed partial class SneezeBehavior : IThresholdBehavior
+/// <summary>
+/// Marks entities that can sneeze and defines their sneeze/sniffle behavior.
+/// </summary>
+[RegisterComponent]
+public sealed partial class SneezingComponent : Component
 {
-    public void Execute(EntityUid uid, DestructibleSystem system, EntityUid? cause = null)
-    {
-        system.EntityManager.System<SneezeSystem>().Sneeze(uid);
-    }
+    [DataField]
+    public ProtoId<SoundCollectionPrototype> SneezeCollection = "UnisexSneezes";
+    [DataField]
+    public ProtoId<SoundCollectionPrototype> SneezeCollection = "MaleSneezes";
+    [DataField]
+    public ProtoId<SoundCollectionPrototype> SneezeCollection = "FemaleSneezes";
+
+    [DataField]
+    public ProtoId<SoundCollectionPrototype> CoughCollection = "MaleCough";
+
+    [DataField]
+    public ProtoId<ReagentPrototype> MucusPrototype = "Mucus";
+
+    [DataField]
+    public float MucusAmount = 1f;
+
+    [DataField]
+    public float SniffleChance = 0.3f;
 }
