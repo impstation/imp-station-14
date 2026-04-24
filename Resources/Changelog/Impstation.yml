@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: TheGrimbeeper
-  changes:
-  - message: Syndicate Shuttle Pilots and listening post guards have been woken up
-      (also mindless clones won't fall asleep)
-    type: Fix
-  id: 2257
-  time: '2025-09-14T14:04:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3420
-- author: Pinkbat5
-  changes:
-  - message: You can now print cold-toned lightbulbs at the nearest lathe.
-    type: Add
-  id: 2258
-  time: '2025-09-14T14:19:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3438
-- author: ATDoop
-  changes:
-  - message: Added a new recipe for syndicate ovens. It's actually so lit.
-    type: Add
-  id: 2259
-  time: '2025-09-14T14:22:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3437
 - author: DVDPlayerOfDiscordFame
   changes:
   - message: the OL-71 Laser Rifle now has its own beam graphics.
@@ -4143,3 +4121,25 @@
   id: 2756
   time: '2026-04-15T22:31:30.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4313
+- author: salamanderskies
+  changes:
+  - message: Schooner fixes!
+    type: Tweak
+  id: 2757
+  time: '2026-04-18T11:33:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4311
+- author: lobsterpaw
+  changes:
+  - message: Minor Oasis zookeeper updates
+    type: Tweak
+  id: 2758
+  time: '2026-04-18T11:33:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4301
+- author: DVD Player
+  changes:
+  - message: Blaster projectiles (red energy weapons) now correctly show their muzzle
+      flashes again.
+    type: Fix
+  id: 2759
+  time: '2026-04-18T11:32:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4308
