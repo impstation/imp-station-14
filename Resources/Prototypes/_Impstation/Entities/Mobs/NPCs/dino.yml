@@ -150,14 +150,12 @@
         proto: DinoLootSpawner
         keysIn:
         - stageTwo
-      - type: ExplosionOnTrigger #maintaining kips beautiful mind
-        maxTileIntensity: 0.01
+      - type: Explosive
+        explosionType: Default
+        maxIntensity: 0.01
         intensitySlope: 1
         totalIntensity: 0.01
-        canCreateVacuum: false
-        keysIn:
-        - stageTwo
-      - type: GibOnTrigger
+      - type: ExplodeOnTrigger #this is just as a joke honestly
         keysIn:
         - stageTwo
 
@@ -256,6 +254,16 @@
       - Door
       tags:
       - Wall
+  - type: TwoStageTrigger
+    triggerDelay: 10.45
+    components:
+      - type: SpawnOnTrigger
+        proto: DinoLootSpawner
+        keysIn:
+        - stageTwo
+      - type: GibOnTrigger
+        keysIn:
+        - stageTwo
 
 # Small Dinosaurs
 
