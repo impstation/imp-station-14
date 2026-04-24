@@ -239,6 +239,12 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public float AnomalySeverePenaltyChance = 250f;
 
+    /// <summary>
+    /// The chance for a anomaly to spawn while supermatter has reached the damage penalty threshold
+    /// </summary>
+    [DataField]
+    public float AnomalyDamagePenaltyChance = 250f;
+
     #endregion
 
     #region Timing
@@ -265,7 +271,7 @@ public sealed partial class SupermatterComponent : Component
     /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
     /// </summary>
     [DataField]
-    public float DelamTimer = 1f;
+    public float DelamTimer = 15f;
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
