@@ -222,13 +222,13 @@ public sealed partial class SupermatterComponent : Component
     /// The chance for a anomaly to spawn while supermatter is active
     /// </summary>
     [DataField]
-    public float AnomalyNaturalChance = 750f;
+    public float AnomalyNaturalChance = 6000f;
 
     /// <summary>
     /// The chance for a anomaly to spawn while supermatter is active and the power penalty threshold is exceeded
     /// </summary>
     [DataField]
-    public float AnomalyPenaltyChance = 375f;
+    public float AnomalyPenaltyChance = 500f;
 
     /// <summary>
     /// The chance for a anomaly to spawn while supermatter is active and the severe power penalty threshold is exceeded

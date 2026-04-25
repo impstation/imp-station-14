@@ -179,7 +179,8 @@ public sealed partial class SupermatterSystem
         // Adjust the gravity pull range and acceleration based on absorbed moles
         if (TryComp<GravityWellComponent>(uid, out var gravityWell))
         {
-            gravityWell.MaxRange = Math.Clamp(sm.GasStorage.TotalMoles / 25f, 0.5f, 10f);
+            // All maxed out at 500 absorbed moles, above that only occurance rate changes
+            gravityWell.MaxRange = Math.Clamp(sm.GasStorage.TotalMoles / 50f, 0.5f, 10f);
             gravityWell.BaseRadialAcceleration = Math.Clamp(sm.GasStorage.TotalMoles / 5f, 1f, 100f);
             gravityWell.BaseTangentialAcceleration = Math.Clamp(sm.GasStorage.TotalMoles / 10f, 0.1f, 50f);
         }
@@ -233,7 +234,8 @@ public sealed partial class SupermatterSystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        // Random anomaly chances: ~1/750 when active, ~1/375 if power penalty, ~1/150 if severe power penalty, ~1/150 if damage penalty
+        // Random anomaly chances: ~1/6000 when active, ~1/500 if power penalty, ~1/150 if severe power penalty, ~1/250 if damage penalty
+        // Note that this is run every atmos device update which is around 0.57 seconds
         if (!(sm.Damage > sm.DamagePenaltyPoint && _random.Prob(1 / sm.AnomalyDamagePenaltyChance)
             || sm.Power > _config.GetCVar(EECCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalySeverePenaltyChance)
             || sm.Power > _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPenaltyChance)
