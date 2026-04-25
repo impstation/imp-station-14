@@ -111,7 +111,7 @@ public sealed partial class SupermatterSystem
         sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
         var powerlossMoleScaling = sm.GasStorage.TotalMoles * (1f / 40f);
 
-        // Ranges from 0~1(1 - (0~1 * mol * (1 / 40)))
+        // Ranges from 0~1(1 - (0~1 * (1 / 40)))
         // We take the mol count, and scale it to be our inhibitor
         sm.PowerlossInhibitor =
             Math.Clamp(1 - sm.PowerlossDynamicScaling * powerlossMoleScaling, 0f, 1f);
