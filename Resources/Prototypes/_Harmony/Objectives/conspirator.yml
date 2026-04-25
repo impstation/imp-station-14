@@ -169,20 +169,6 @@
 
 # survive and get to evac objective
 - type: entity
-  parent: BaseConspiratorObjective # parent: [BaseConspiratorObjective, BaseLivingObjective]
-  id: EscapeConspiratorShuttleObjective
-  name: Escape to CentComm alive and unrestrained via the escape shuttle.
-  description: You don't want your illegal activities to be discovered by anyone, do you?
-  components:
-  # - type: Objective
-  #   issuer: conspirator-objective-issuer
-  #   difficulty: 0 # uses own system for assignment
-  # - type: RoleRequirement
-  #   roles:
-  #   - ConspiratorRole
-  - type: EscapeShuttleCondition
-
-- type: entity
   parent: BaseConspiratorObjective
   id: ConspiratorEvacObjective
   name: Escape to CentComm alive and unrestrained via the escape shuttle.
