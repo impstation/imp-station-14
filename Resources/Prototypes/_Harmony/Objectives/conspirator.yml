@@ -169,7 +169,7 @@
 
 # survive and get to evac objective
 - type: entity
-  parent: BaseConspiratorObjective
+  parent: [BaseConspiratorObjective, BaseLivingObjective]
   id: ConspiratorEvacObjective
   name: Escape to CentComm alive and unrestrained via the escape shuttle.
   description: You don't want your illegal activities to be discovered by anyone, do you?
