@@ -195,11 +195,14 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void SupermatterZap(EntityUid uid, SupermatterComponent sm)
     {
+        if (sm.Damage < sm.DamagePenaltyPoint || sm.Power < _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold))
+            return;
+
         var zapPower = 0;
         var zapCount = 0;
         var zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
 
-        if (_random.Prob(0.05f) && sm.Damage > sm.DamagePenaltyPoint)
+        if (_random.Prob(0.05f))
             zapCount += 1;
 
         if (sm.Power >= _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold))
@@ -347,8 +350,8 @@ public sealed partial class SupermatterSystem
 
         if (sm.GasStorage is { })
         {
-            // Mol count only starts affecting damage when it is above 1800
-            var moleDamage = Math.Max(sm.GasStorage.TotalMoles - _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold), 0f) / 80 * sm.DamageIncreaseMultiplier;
+            // Mol count only starts affecting damage when it is above 600
+            var moleDamage = Math.Max(sm.GasStorage.TotalMoles - _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold), 0f) / 50f * sm.DamageIncreaseMultiplier;
             totalDamage += moleDamage;
         }
 

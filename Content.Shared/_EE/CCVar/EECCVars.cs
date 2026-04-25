@@ -153,7 +153,7 @@ public sealed partial class EECCVars : CVars
     ///     Below this threshold, the supermatter can heal damage.
     /// </summary>
     public static readonly CVarDef<float> SupermatterMolePenaltyThreshold =
-        CVarDef.Create("supermatter.mole_penalty_threshold", 1800f, CVar.SERVER);
+        CVarDef.Create("supermatter.mole_penalty_threshold", 600f, CVar.SERVER);
 
     /// <summary>
     ///     Divisor on the amount of oxygen released during atmospheric reactions.
