@@ -35,7 +35,6 @@ public sealed partial class SupermatterComponent : Component
     public GasMixture? GasStorage;
 
     /// <summary>
-    /// Imp
     /// The supermatter's gas composition proportions
     /// </summary>
     [DataField]
@@ -75,7 +74,6 @@ public sealed partial class SupermatterComponent : Component
     // [DataField]
     // public EntProtoId KudzuSpawnPrototype = "SupermatterKudzu";
 
-    // Imp, changed to random anom spawning
     [DataField]
     public EntProtoId RandomAnomaly = "RandomAnomalySpawner";
 
@@ -230,13 +228,13 @@ public sealed partial class SupermatterComponent : Component
     /// The chance for a anomaly to spawn while supermatter is active and the power penalty threshold is exceeded
     /// </summary>
     [DataField]
-    public float AnomalyPenaltyChance = 500f;
+    public float AnomalyPenaltyChance = 375f;
 
     /// <summary>
     /// The chance for a anomaly to spawn while supermatter is active and the severe power penalty threshold is exceeded
     /// </summary>
     [DataField]
-    public float AnomalySeverePenaltyChance = 250f;
+    public float AnomalySeverePenaltyChance = 150f;
 
     /// <summary>
     /// The chance for a anomaly to spawn while supermatter has reached the damage penalty threshold

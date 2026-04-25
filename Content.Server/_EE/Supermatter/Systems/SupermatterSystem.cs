@@ -259,7 +259,13 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (!TryComp<GravityWellComponent>(ent, out var gravityWell))
             return;
 
-        var nextPulse = 0.5f * _random.NextFloat(1f, 30f);
+        var randomPulse = 0.5f * _random.NextFloat(1f, 30f);
+        var nextPulse = randomPulse;
+
+        // Weights nextPulse to be closer to 0.5 depending on amount of moles, otherwise randomPulse
+        if (ent.Comp.GasStorage is { })
+            nextPulse = Math.Clamp(randomPulse / (ent.Comp.GasStorage.TotalMoles / 150f), 0.5f, randomPulse);
+
         _gravityWell.SetPulsePeriod(ent, TimeSpan.FromSeconds(nextPulse), gravityWell);
 
         var audioParams = AudioParams.Default.WithMaxDistance(gravityWell.MaxRange);

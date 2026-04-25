@@ -107,11 +107,11 @@ public sealed partial class SupermatterSystem
         // Given infinite time, powerloss_dynamic_scaling = co2comp
         // Some value from 0-1
 
-        var co2powerloss = Math.Clamp(sm.GasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.0f, 0.02f);
+        var co2powerloss = Math.Clamp(sm.GasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
         sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
-        var powerlossMoleScaling = sm.GasStorage.TotalMoles * (1 / 40f);
+        var powerlossMoleScaling = sm.GasStorage.TotalMoles * (1f / 40f);
 
-        // Ranges from 0~1(1 - (0~1 * 0.1~(mol * (1 / 40))))
+        // Ranges from 0~1(1 - (0~1 * mol * (1 / 40)))
         // We take the mol count, and scale it to be our inhibitor
         sm.PowerlossInhibitor =
             Math.Clamp(1 - sm.PowerlossDynamicScaling * powerlossMoleScaling, 0f, 1f);
@@ -176,9 +176,13 @@ public sealed partial class SupermatterSystem
         sm.PowerLoss = Math.Min(powerReduction * sm.PowerlossInhibitor, sm.Power * 0.83f * sm.PowerlossInhibitor);
         sm.Power = Math.Max(sm.Power - sm.PowerLoss, 0f);
 
-        // Adjust the gravity pull range
+        // Adjust the gravity pull range and acceleration based on absorbed moles
         if (TryComp<GravityWellComponent>(uid, out var gravityWell))
-            gravityWell.MaxRange = Math.Clamp(sm.GasStorage.TotalMoles / 25f, 0.5f, 15f);
+        {
+            gravityWell.MaxRange = Math.Clamp(sm.GasStorage.TotalMoles / 25f, 0.5f, 10f);
+            gravityWell.BaseRadialAcceleration = Math.Clamp(sm.GasStorage.TotalMoles / 5f, 1f, 100f);
+            gravityWell.BaseTangentialAcceleration = Math.Clamp(sm.GasStorage.TotalMoles / 10f, 0.1f, 50f);
+        }
 
         // Log the first powering of the supermatter
         if (sm.Power > 0 && !sm.HasBeenPowered)
@@ -229,7 +233,7 @@ public sealed partial class SupermatterSystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        // Random anomaly chances: ~1/750 when active, ~1/500 if power penalty, ~1/250 if severe power penalty, ~1/250 if damage penalty
+        // Random anomaly chances: ~1/750 when active, ~1/375 if power penalty, ~1/150 if severe power penalty, ~1/150 if damage penalty
         if (!(sm.Damage > sm.DamagePenaltyPoint && _random.Prob(1 / sm.AnomalyDamagePenaltyChance)
             || sm.Power > _config.GetCVar(EECCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalySeverePenaltyChance)
             || sm.Power > _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPenaltyChance)
