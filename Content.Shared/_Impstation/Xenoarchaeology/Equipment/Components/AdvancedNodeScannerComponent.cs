@@ -38,12 +38,6 @@ public sealed partial class AdvancedNodeScannerComponent : Component
 
     #region Records
     /// <summary>
-    /// Do we announce unlocking session changes using advertise system?
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool AnnounceUnlockingChanges = true;
-
-    /// <summary>
     /// Currently monitored unlocking sessions
     /// </summary>
     [DataField, AutoNetworkedField]
