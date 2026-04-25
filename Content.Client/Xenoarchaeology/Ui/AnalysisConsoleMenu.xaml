@@ -81,24 +81,27 @@
                             StyleClasses="OpenBottom">
                     </Button>
                     <Control Name="BiasInternalDivider" MinHeight="2"/>
-                    <BoxContainer Name="BiasDeep" Orientation="Horizontal">
+                    <BoxContainer Name="BiasDeepDirectional" Orientation="Horizontal">
                         <Button Name="DeepLeftBiasButton"
                                 Text="{Loc 'analysis-console-bias-deep-left'}"
                                 ToolTip="{Loc 'analysis-console-bias-button-info-deep-left'}"
                                 HorizontalExpand="True"
-                                StyleClasses="OpenTopLeft">
-                        </Button>
-                        <Button Name="DeepRandomBiasButton"
-                                Text="{Loc 'analysis-console-bias-deep-random'}"
-                                ToolTip="{Loc 'analysis-console-bias-button-info-deep-random'}"
-                                HorizontalExpand="True"
-                                StyleClasses="OpenTopMiddle">
+                                StyleClasses="OpenRight">
                         </Button>
                         <Button Name="DeepRightBiasButton"
                                 Text="{Loc 'analysis-console-bias-deep-right'}"
                                 ToolTip="{Loc 'analysis-console-bias-button-info-deep-right'}"
                                 HorizontalExpand="True"
-                                StyleClasses="OpenTopRight">
+                                StyleClasses="OpenLeft">
+                        </Button>
+                    </BoxContainer>
+                    <Control Name="BiasDeepInternalDivider" MinHeight="1"/>
+                    <BoxContainer Name="BiasDeep" Orientation="Horizontal">
+                        <Button Name="DeepRandomBiasButton"
+                                Text="{Loc 'analysis-console-bias-deep-random'}"
+                                ToolTip="{Loc 'analysis-console-bias-button-info-deep-random'}"
+                                HorizontalExpand="True"
+                                StyleClasses="OpenTopMiddle">
                         </Button>
                     </BoxContainer>
                 </BoxContainer>

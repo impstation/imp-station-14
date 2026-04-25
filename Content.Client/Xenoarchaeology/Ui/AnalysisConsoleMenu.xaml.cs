@@ -277,13 +277,14 @@ public sealed partial class AnalysisConsoleMenu : FancyWindow
                 DeepLeftBiasButton.Visible = true;
                 DeepRightBiasButton.Visible = true;
                 BiasInternalDivider.Visible = true;
+                BiasDeepInternalDivider.Visible = true;
             }
             else
             {
                 DeepRandomBiasButton.Text = Loc.GetString("analysis-console-bias-deep");
                 DeepLeftBiasButton.Visible = false;
                 DeepRightBiasButton.Visible = false;
-                BiasInternalDivider.Visible = false;
+                BiasDeepInternalDivider.Visible = false;
             }
         }
         else
