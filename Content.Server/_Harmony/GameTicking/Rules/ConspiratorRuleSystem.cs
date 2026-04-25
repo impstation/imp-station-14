@@ -78,6 +78,7 @@ public sealed class ConspiratorRuleSystem : GameRuleSystem<ConspiratorRuleCompon
 
         if (ent.Comp.Objective is not null)
             _mind.TryAddObjective(mindId, mind, ent.Comp.Objective);
+            // _mind.TryAddObjective(mindId, mind, ent.Comp.Objective); // TODO: change this to the survive objective // TODO: delete this maybe?
     }
 
     private bool GetRandomObjectivePrototype(ConspiratorRuleComponent comp, [NotNullWhen(true)] out EntProtoId? objectiveProto)
