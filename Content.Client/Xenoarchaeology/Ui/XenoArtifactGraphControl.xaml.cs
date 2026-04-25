@@ -114,7 +114,12 @@ public sealed partial class XenoArtifactGraphControl : BoxContainer
 
         var cursor = (UserInterfaceManager.MousePositionScaled.Position * UIScale) - GlobalPixelPosition;
 
+        //IMP: get latest unlock session
         var latestUnlockSession = _artifactSystem.GetTriggeredNodesInLatestUnlockSession(artifact);
+
+        // Imp: Artifexium use causes a dark purple rectangle around the nodes - subtle indicator (I can't make anything else look acceptable)
+        if (latestUnlockSession.Count > 0 && latestUnlockSession.Contains((-1)))
+            handle.DrawRect(UIBox2.FromDimensions(0, 0, Size.X * UIScale, Size.Y * UIScale), Color.FromHex("#221C35FF"), false);
 
         foreach (var segment in segments)
         {
