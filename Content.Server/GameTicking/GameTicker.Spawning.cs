@@ -211,6 +211,11 @@ namespace Content.Server.GameTicking
                 }
 
                 character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
+
+                // imp edit start, just replace the character profile with a fully random one so we can keep the weights from the species prototypes
+                if (_randomizeCharactersRandomViableSpecies)
+                    character = HumanoidCharacterProfile.Random();
+                // imp edit end
             }
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)

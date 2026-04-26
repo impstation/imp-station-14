@@ -84,4 +84,10 @@ public sealed class ImpCCVars : CVars
     /// </summary>
     public static readonly CVarDef<bool> AntagPlaytimeBiasing =
         CVarDef.Create("antag.play_time_biasing", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     If true, random characters made with "ic.random_characters" can be non-roundstart species.
+    /// </summary>
+    public static readonly CVarDef<bool> ICRandomSpeciesRandomViable =
+        CVarDef.Create("ic.random_species_random_viable", true, CVar.SERVERONLY);
 }
