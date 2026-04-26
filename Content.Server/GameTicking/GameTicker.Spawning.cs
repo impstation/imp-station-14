@@ -214,7 +214,7 @@ namespace Content.Server.GameTicking
 
                 // imp edit start, just replace the character profile with a fully random one so we can keep the weights from the species prototypes
                 if (_randomizeCharactersRandomViableSpecies)
-                    character = HumanoidCharacterProfile.Random();
+                    character = HumanoidCharacterProfile.Random(false);
                 // imp edit end
             }
 
