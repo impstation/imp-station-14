@@ -107,41 +107,34 @@
     magState: power       # Someone tell me if there's a better way to do a power bar indicator
     steps: 7
     zeroVisible: false
-  # - type: Battery       # not sure if I want this to have a power cell or an internal battery, I'll figure that out later
-  #   maxCharge: 1050 # change these
-  #   startingCharge: 1050
+  - type: Battery
+    maxCharge: 1050 # change these
+    startingCharge: 0
   - type: HandheldLight
-    addPrefix: false
+    addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
   - type: LightBehaviour
     behaviours:
-      - !type:FadeBehaviour
-        id: radiating
-        maxDuration: 2.0
-        startValue: 3.0
-        endValue: 2.0
-        isLooped: true
-        reverseWhenFinished: true
-      - !type:PulseBehaviour
-        id: blinking
-        interpolate: Nearest
-        maxDuration: 1.0
-        startValue: 0.1
-        endValue: 2.0
-        isLooped: true
+    - !type:FadeBehaviour
+      id: radiating
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      startValue: 0.1
+      endValue: 2.0
+      isLooped: true
+  - type: ToggleableVisuals
+    spriteLayer: light
   - type: ItemTogglePointLight
-  - type: PowerCellSlot   # not sure if I want this to have a power cell or an internal battery, I'll figure that out later
-    cellSlotId: cell_slot
-  - type: ContainerContainer
-    containers:
-      cell_slot: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
   - type: PointLight
+    energy: 5
     color: "#ffeead" # hehe feed
     enabled: false
     radius: 4
@@ -174,3 +167,6 @@
   - type: EmbedPassiveDamage
   - type: ThrowingAngle
     angle: 225
+  - type: Tag
+    tags:
+    - Rechargeable
