@@ -277,6 +277,18 @@
         effectProto: StatusEffectSeeingRainbow
         time: 16
         type: Add
+    Poison: #imp
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Pleebnar ]
+        - !type:ReagentCondition
+          reagent: THC
+          min: 30
+        damage:
+          types:
+            Poison: 20.0
 
 - type: reagent
   id: Nicotine
