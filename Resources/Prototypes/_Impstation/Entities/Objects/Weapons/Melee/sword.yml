@@ -148,10 +148,15 @@
     netsync: false
   ## weapon
   - type: MeleeWeapon
+    attackRate: 1
+    angle: 90
+    range: 1.75
     damage:
       types:
         Slash: 15
         Piercing: 2
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
