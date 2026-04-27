@@ -122,6 +122,9 @@
       weight: 0.05
     - type: ImpReproductive
       sex: Male
+    - type: Grammar
+      attributes:
+        gender: male
 
 - type: entity
   name: space boar
