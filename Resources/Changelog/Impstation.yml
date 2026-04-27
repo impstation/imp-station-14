@@ -1,23 +1,4 @@
 ﻿Entries:
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: the OL-71 Laser Rifle now has its own beam graphics.
-    type: Add
-  id: 2260
-  time: '2025-09-14T14:24:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3403
-- author: mousesweater, CrocodileCarousel
-  changes:
-  - message: moths are no longer shrink-wrapped. you may now wear your poncho in peace.
-    type: Fix
-  - message: moths may now dye their neckfluff no matter their wingtype
-    type: Add
-  - message: mothwings have been turned white. please recolor your mothwings whenever
-      possible.
-    type: Remove
-  id: 2261
-  time: '2025-09-14T15:16:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3396
 - author: widgetbeck
   changes:
   - message: Fixed Decapoids being too easy to gib on meatspikes.
@@ -4143,3 +4124,18 @@
   id: 2759
   time: '2026-04-18T11:32:48.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4308
+- author: BubbaBean
+  changes:
+  - message: Ouroboros now always spawns 1 bee as originally intended. Bees.
+    type: Fix
+  id: 2760
+  time: '2026-04-27T06:29:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3926
+- author: sev7ves
+  changes:
+  - message: Black and white vision can be disabled by the trait specific vision filters
+      setting!
+    type: Tweak
+  id: 2761
+  time: '2026-04-27T06:48:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4274
