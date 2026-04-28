@@ -1,187 +1,4 @@
 ﻿Entries:
-- author: DinnerCalzone
-  changes:
-  - message: Station Specific and Dining Services departments are now properly hidden
-      from the crew monitoring console once again.
-    type: Fix
-  id: 2256
-  time: '2025-09-14T14:02:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3410
-- author: TheGrimbeeper
-  changes:
-  - message: Syndicate Shuttle Pilots and listening post guards have been woken up
-      (also mindless clones won't fall asleep)
-    type: Fix
-  id: 2257
-  time: '2025-09-14T14:04:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3420
-- author: Pinkbat5
-  changes:
-  - message: You can now print cold-toned lightbulbs at the nearest lathe.
-    type: Add
-  id: 2258
-  time: '2025-09-14T14:19:31.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3438
-- author: ATDoop
-  changes:
-  - message: Added a new recipe for syndicate ovens. It's actually so lit.
-    type: Add
-  id: 2259
-  time: '2025-09-14T14:22:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3437
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: the OL-71 Laser Rifle now has its own beam graphics.
-    type: Add
-  id: 2260
-  time: '2025-09-14T14:24:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3403
-- author: mousesweater, CrocodileCarousel
-  changes:
-  - message: moths are no longer shrink-wrapped. you may now wear your poncho in peace.
-    type: Fix
-  - message: moths may now dye their neckfluff no matter their wingtype
-    type: Add
-  - message: mothwings have been turned white. please recolor your mothwings whenever
-      possible.
-    type: Remove
-  id: 2261
-  time: '2025-09-14T15:16:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3396
-- author: widgetbeck
-  changes:
-  - message: Fixed Decapoids being too easy to gib on meatspikes.
-    type: Fix
-  id: 2262
-  time: '2025-09-15T00:45:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3455
-- author: DinnerCalzone
-  changes:
-  - message: The vault is now locked by a new Vault access, which all command jobs
-      have been given. It still needs to be unbolted by the captain, though.
-    type: Add
-  - message: The HoP has a new door remote which no longer has Captain access and
-      does not have Vault access.
-    type: Tweak
-  id: 2263
-  time: '2025-09-17T17:16:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3290
-- author: Pinkbat5
-  changes:
-  - message: Added one new awesome round-end audio clip!
-    type: Add
-  id: 2264
-  time: '2025-09-17T17:23:03.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3143
-- author: Pinkbat5
-  changes:
-  - message: Fixed most (but not all!) imp-exclusive accents and disabilities not
-      being inherited by paradox clones.
-    type: Fix
-  id: 2265
-  time: '2025-09-17T17:23:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3354
-- author: DinnerCalzone
-  changes:
-  - message: The service techfab can now be linked to material silos and will announce
-      on service comms when new recipes are available from unlocked research technologies.
-    type: Add
-  id: 2266
-  time: '2025-09-17T17:21:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3404
-- author: Mousetrinity
-  changes:
-  - message: for a measly sum, you may now import the banana deer from planet teo!
-      you can milk it.
-    type: Add
-  id: 2267
-  time: '2025-09-17T17:22:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3431
-- author: sowelipililimute
-  changes:
-  - message: Medical and Damage as a whole has been reworked. Check your guidebooks!
-      Good luck!
-    type: Add
-  id: 2268
-  time: '2025-09-18T02:53:32.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3463
-- author: sowelipililimute
-  changes:
-  - message: Peridaxon now exists, a chemical that can heal mild cases of heart damage
-      without requiring surgical intervention!
-    type: Add
-  - message: Cloneoxadone now exists, a stronger variant of Cryoxadone that requires
-      a colder body temperature to work, and thus, more pronounced stasis.
-    type: Add
-  - message: Cryoxadone now heals a minor amount of heart damage
-    type: Tweak
-  - message: The heart will now take half the damage from high heartrate
-    type: Tweak
-  - message: Health analyzers no longer incorrectly round brain and heart damage
-    type: Fix
-  - message: The heart stops from brain damage at the advertised 30% activity instead
-      of at higher levels
-    type: Fix
-  - message: Bone death no longer reports as internal fractures on the health analyzer
-    type: Fix
-  id: 2269
-  time: '2025-09-18T07:28:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3477
-- author: sowelipililimute
-  changes:
-  - message: Revenant can now siphon soul energy from critical people, and deals cold
-      damage from doingso
-    type: Fix
-  - message: Unidentified corpses no longer spawn alive
-    type: Fix
-  - message: Bottles return to their original 1x1 size
-    type: Tweak
-  - message: People can now become fully unconscious from large amounts of pain
-    type: Tweak
-  id: 2270
-  time: '2025-09-18T21:05:54.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3480
-- author: sowelipililimute
-  changes:
-  - message: Zombies no longer cause PVS reloads
-    type: Fix
-  id: 2271
-  time: '2025-09-18T23:57:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3482
-- author: sowelipililimute
-  changes:
-  - message: There is now a surgery UI that guides you through the steps to do a specific
-      operation!
-    type: Add
-  - message: Surgery should be more reliable now.
-    type: Fix
-  id: 2272
-  time: '2025-09-19T00:35:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3481
-- author: honeyed-lemons
-  changes:
-  - message: Changelings and Heretics now retain their antag roles when cloned.
-    type: Fix
-  - message: Eldritch beasts have received major buffs, so you actually have an incentive
-      to summon them!
-    type: Tweak
-  id: 2273
-  time: '2025-09-19T02:18:28.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3445
-- author: honeyed-lemons
-  changes:
-  - message: Xeno Medical has been refreshed! Now contains 99% more surgery
-    type: Tweak
-  id: 2274
-  time: '2025-09-19T02:32:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3483
-- author: honeyed-lemons
-  changes:
-  - message: Flesh heretics are now worse at sucking.
-    type: Tweak
-  id: 2275
-  time: '2025-09-19T02:52:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3479
 - author: sowelipililimute
   changes:
   - message: ChemMaster can now produce grey and smiley pills as advertised
@@ -4138,3 +3955,166 @@
   id: 2755
   time: '2026-04-11T14:10:44.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4306
+- author: msTheowo
+  changes:
+  - message: Added fun!
+    type: Add
+  - message: Removed fun!
+    type: Remove
+  - message: Changed fun!
+    type: Tweak
+  - message: Fixed fun!
+    type: Fix
+  id: 2756
+  time: '2026-04-15T22:31:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4313
+- author: salamanderskies
+  changes:
+  - message: Schooner fixes!
+    type: Tweak
+  id: 2757
+  time: '2026-04-18T11:33:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4311
+- author: lobsterpaw
+  changes:
+  - message: Minor Oasis zookeeper updates
+    type: Tweak
+  id: 2758
+  time: '2026-04-18T11:33:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4301
+- author: DVD Player
+  changes:
+  - message: Blaster projectiles (red energy weapons) now correctly show their muzzle
+      flashes again.
+    type: Fix
+  id: 2759
+  time: '2026-04-18T11:32:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4308
+- author: BubbaBean
+  changes:
+  - message: Ouroboros now always spawns 1 bee as originally intended. Bees.
+    type: Fix
+  id: 2760
+  time: '2026-04-27T06:29:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3926
+- author: sev7ves
+  changes:
+  - message: Black and white vision can be disabled by the trait specific vision filters
+      setting!
+    type: Tweak
+  id: 2761
+  time: '2026-04-27T06:48:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4274
+- author: msTheowo
+  changes:
+  - message: Store listings can have parents and be abstact. This means nothing for
+      you, the player. Fan asked me to do this
+    type: Tweak
+  id: 2762
+  time: '2026-04-28T01:58:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4233
+- author: DinnerCalzone
+  changes:
+  - message: Gray resistance to heat and cold damage has been reduced from 70% to
+      50%.
+    type: Tweak
+  - message: Grays no longer take damage from radiation. When exposed to an environmental
+      source of radiation, they will begin to slowly heal brute damage.
+    type: Add
+  - message: Grays can now safely breathe tritium.
+    type: Add
+  id: 2763
+  time: '2026-04-28T02:05:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4073
+- author: msTheowo
+  changes:
+  - message: Crates and lockers can be parcel wrapped.
+    type: Add
+  - message: Wrapped parcels have been resprited.
+    type: Tweak
+  id: 2764
+  time: '2026-04-28T02:04:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4246
+- author: sev7ves
+  changes:
+  - message: Pleebnars can now express their thoughts and opinions better!
+    type: Add
+  id: 2765
+  time: '2026-04-28T02:07:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3930
+- author: Simul-ad-Astra
+  changes:
+  - message: All Conspirators must now make it out alive and free.
+    type: Tweak
+  id: 2766
+  time: '2026-04-28T02:35:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4332
+- author: DVD Player
+  changes:
+  - message: Mr. President, two new Echion Guns have hit the uplink
+    type: Add
+  id: 2767
+  time: '2026-04-28T02:38:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4322
+- author: DisposableCrewmember42, jkwookee
+  changes:
+  - message: Singularity now nudges toward the station
+    type: Tweak
+  id: 2768
+  time: '2026-04-28T02:44:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4323
+- author: msTheowo
+  changes:
+  - message: Mimes can start with nothing in their belt slot, if they want.
+    type: Tweak
+  id: 2769
+  time: '2026-04-28T04:39:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4325
+- author: yesteryuri
+  changes:
+  - message: Dinosaurs that have devoured a person will no longer delete them on death
+    type: Fix
+  id: 2770
+  time: '2026-04-28T07:03:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4318
+- author: Spung22
+  changes:
+  - message: Intercoms and timers are now buildable and deconstructable without needing
+      to take apart the whole wall they're sat on.
+    type: Fix
+  - message: Broken station maps can now be taken apart and fixed rather then having
+      to beat them to a pulp.
+    type: Tweak
+  id: 2771
+  time: '2026-04-28T07:09:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4298
+- author: msTheowo
+  changes:
+  - message: The Spider Clan has redoubled their efforts to interfere with Nanotrasen
+      stations.
+    type: Tweak
+  id: 2772
+  time: '2026-04-28T07:11:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4331
+- author: msTheowo
+  changes:
+  - message: Syndicate bags have been resprited.
+    type: Tweak
+  id: 2773
+  time: '2026-04-28T08:22:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4330
+- author: ZekDelPon
+  changes:
+  - message: The Traitor Experimental C.H.I.M.P. Handcannon has gotten a bit more...
+      experimental? Radioactive. It's radioactive.
+    type: Tweak
+  id: 2774
+  time: '2026-04-28T08:23:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4319
+- author: msTheowo
+  changes:
+  - message: Operative and tacticool jumpsuits look a little bit nicer.
+    type: Tweak
+  id: 2775
+  time: '2026-04-28T08:33:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4328
