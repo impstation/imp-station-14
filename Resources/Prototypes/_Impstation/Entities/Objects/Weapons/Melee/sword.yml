@@ -96,8 +96,8 @@
       map: [ "enum.GunVisualLayers.MagUnshaded" ]
       shader: unshaded
   - type: Item
-    # sprite: _Impstation/Objects/Weapons/Melee/hos_nodachi.rsi
-    # state: base
+    sprite: _Impstation/Objects/Weapons/Melee/hos_nodachi.rsi
+    state: base
     size: Huge
     shape:
     - 0,0,9,0
@@ -108,6 +108,8 @@
     steps: 7
     zeroVisible: false
   - type: BatteryAmmoProvider # I'm kinda mad that this works
+    proto: FoodPieBananaCream
+    fireCost: 36 # this doesn't matter anyways. it's not a gun, it doesn't shoot.
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ItemSlots
@@ -142,10 +144,10 @@
     spriteLayer: light
   - type: ItemTogglePointLight
   - type: PointLight
-    energy: 5
-    color: "#ffeead" # hehe feed
+    energy: 10
+    color: "#dac37b" # hehe feed
     enabled: false
-    radius: 4
+    radius: 3
     netsync: false
   ## weapon
   - type: MeleeWeapon
