@@ -1,18 +1,4 @@
 ﻿Entries:
-- author: HAPPYNEWYEAR1999
-  changes:
-  - message: Minor Pathway changes, see PR for details
-    type: Tweak
-  id: 2277
-  time: '2025-09-19T08:44:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3485
-- author: sowelipililimute
-  changes:
-  - message: Characters now have special deathgasps for braincrit & hard paincrit
-    type: Add
-  id: 2278
-  time: '2025-09-20T00:19:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3487
 - author: sowelipililimute
   changes:
   - message: You can now implant items in people's chest cavities! Try not to put
@@ -4119,3 +4105,21 @@
   id: 2776
   time: '2026-04-28T10:03:19.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4314
+- author: VeeNomine
+  changes:
+  - message: Removed the unused handpan soundfont.
+    type: Remove
+  - message: Fixed the drum kit to play the actual percussion rather than random and
+      in
+    type: Fix
+  id: 2777
+  time: '2026-04-28T15:44:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4256
+- author: mousesweater
+  changes:
+  - message: nanotrasen doesn't pay me enough to repaint this many tiles, yet i work
+      anyways. enjoy more color adjustments!
+    type: Tweak
+  id: 2778
+  time: '2026-04-28T15:47:29.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4237
