@@ -1,72 +1,4 @@
 ﻿Entries:
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: the OL-71 Laser Rifle now has its own beam graphics.
-    type: Add
-  id: 2260
-  time: '2025-09-14T14:24:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3403
-- author: mousesweater, CrocodileCarousel
-  changes:
-  - message: moths are no longer shrink-wrapped. you may now wear your poncho in peace.
-    type: Fix
-  - message: moths may now dye their neckfluff no matter their wingtype
-    type: Add
-  - message: mothwings have been turned white. please recolor your mothwings whenever
-      possible.
-    type: Remove
-  id: 2261
-  time: '2025-09-14T15:16:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3396
-- author: widgetbeck
-  changes:
-  - message: Fixed Decapoids being too easy to gib on meatspikes.
-    type: Fix
-  id: 2262
-  time: '2025-09-15T00:45:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3455
-- author: DinnerCalzone
-  changes:
-  - message: The vault is now locked by a new Vault access, which all command jobs
-      have been given. It still needs to be unbolted by the captain, though.
-    type: Add
-  - message: The HoP has a new door remote which no longer has Captain access and
-      does not have Vault access.
-    type: Tweak
-  id: 2263
-  time: '2025-09-17T17:16:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3290
-- author: Pinkbat5
-  changes:
-  - message: Added one new awesome round-end audio clip!
-    type: Add
-  id: 2264
-  time: '2025-09-17T17:23:03.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3143
-- author: Pinkbat5
-  changes:
-  - message: Fixed most (but not all!) imp-exclusive accents and disabilities not
-      being inherited by paradox clones.
-    type: Fix
-  id: 2265
-  time: '2025-09-17T17:23:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3354
-- author: DinnerCalzone
-  changes:
-  - message: The service techfab can now be linked to material silos and will announce
-      on service comms when new recipes are available from unlocked research technologies.
-    type: Add
-  id: 2266
-  time: '2025-09-17T17:21:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3404
-- author: Mousetrinity
-  changes:
-  - message: for a measly sum, you may now import the banana deer from planet teo!
-      you can milk it.
-    type: Add
-  id: 2267
-  time: '2025-09-17T17:22:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3431
 - author: sowelipililimute
   changes:
   - message: Medical and Damage as a whole has been reworked. Check your guidebooks!
@@ -4143,3 +4075,69 @@
   id: 2759
   time: '2026-04-18T11:32:48.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4308
+- author: BubbaBean
+  changes:
+  - message: Ouroboros now always spawns 1 bee as originally intended. Bees.
+    type: Fix
+  id: 2760
+  time: '2026-04-27T06:29:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3926
+- author: sev7ves
+  changes:
+  - message: Black and white vision can be disabled by the trait specific vision filters
+      setting!
+    type: Tweak
+  id: 2761
+  time: '2026-04-27T06:48:42.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4274
+- author: msTheowo
+  changes:
+  - message: Store listings can have parents and be abstact. This means nothing for
+      you, the player. Fan asked me to do this
+    type: Tweak
+  id: 2762
+  time: '2026-04-28T01:58:34.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4233
+- author: DinnerCalzone
+  changes:
+  - message: Gray resistance to heat and cold damage has been reduced from 70% to
+      50%.
+    type: Tweak
+  - message: Grays no longer take damage from radiation. When exposed to an environmental
+      source of radiation, they will begin to slowly heal brute damage.
+    type: Add
+  - message: Grays can now safely breathe tritium.
+    type: Add
+  id: 2763
+  time: '2026-04-28T02:05:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4073
+- author: msTheowo
+  changes:
+  - message: Crates and lockers can be parcel wrapped.
+    type: Add
+  - message: Wrapped parcels have been resprited.
+    type: Tweak
+  id: 2764
+  time: '2026-04-28T02:04:20.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4246
+- author: sev7ves
+  changes:
+  - message: Pleebnars can now express their thoughts and opinions better!
+    type: Add
+  id: 2765
+  time: '2026-04-28T02:07:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3930
+- author: Simul-ad-Astra
+  changes:
+  - message: All Conspirators must now make it out alive and free.
+    type: Tweak
+  id: 2766
+  time: '2026-04-28T02:35:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4332
+- author: DVD Player
+  changes:
+  - message: Mr. President, two new Echion Guns have hit the uplink
+    type: Add
+  id: 2767
+  time: '2026-04-28T02:38:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4322
