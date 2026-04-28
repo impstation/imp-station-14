@@ -1181,9 +1181,6 @@
 - type: Tag
   id: RawMaterial # MaterialStorage whitelist for many machines and lathes. Storage whitelist: MaterialBag
 
-- type: Tag
-  id: Rechargeable # Things that should fit into rechargers but don't fit into the catagories of BatteryAmmoProvider, Stunbaton, or PowerCell
-
 # Give this to something that doesn't need any special recycler behavior and just needs deleting.
 - type: Tag
   id: Recyclable
