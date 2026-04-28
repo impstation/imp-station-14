@@ -313,28 +313,12 @@
 
 - type: entity
   parent: BaseGameRule
-  id: SupermatterLocalDelam
+  id: SupermatterSurge
   components:
   - type: StationEvent
     earliestStart: 30
     reoccurrenceDelay: 25
     weight: 1.5
     minimumPlayers: 30
-    duration: 30
-  - type: SupermatterLocalDelamRule
-
-- type: entity
-  parent: BaseGameRule
-  id: SupermatterSurge
-  components:
-  - type: StationEvent
     duration: 90
   - type: SupermatterSurgeRule
-
-- type: entity
-  parent: BaseGameRule
-  id: SupermatterDischarge
-  components:
-  - type: StationEvent
-    duration: 60
-  - type: SupermatterDischargeRule
