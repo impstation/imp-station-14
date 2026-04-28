@@ -165,3 +165,6 @@ uplink-muldoon-sniper-kit-desc = An upgrade kit that modifies the muldoon to all
 
 uplink-shock-dart-box-name = Shock Dart Box
 uplink-shock-dart-box-desc = A box of 4 tranquilizer darts that fit in the muldoon. Each dart contains 4 units of tazinide and will shock the target after injection.
+
+uplink-supermatter-scalpel-name = Supermatter Scalpel
+uplink-supermatter-scalpel-desc = One-time transport of a Dahir Insaat engineered scalpel, capable of shaving a sliver off the supermatter crystal.

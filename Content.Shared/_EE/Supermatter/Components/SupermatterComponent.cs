@@ -254,9 +254,22 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public float AnomalyPyroChance = 2500f;
 
+    /// <summary>
+    /// Whether the Supermatter Sliver has already been taken or not
+    /// </summary>
+    [DataField]
+    public bool SliverTaken;
+
     #endregion
 
     #region Timing
+
+    /// <summary>
+    /// Imp
+    /// Length of Supermatter Scalpel interaction
+    /// </summary>
+    [DataField]
+    public TimeSpan ScalpelTime = TimeSpan.FromSeconds(15);
 
     /// <summary>
     /// We yell if over 50 damage every YellTimer Seconds
@@ -573,7 +586,7 @@ public enum SupermatterVisuals : byte
 }
 
 [Serializable, NetSerializable]
-public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
+public sealed partial class SupermatterScalpelDoAfterEvent : SimpleDoAfterEvent
 {
 }
 
