@@ -1,0 +1,87 @@
+﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
+
+- type: listing
+  id: UplinkFreeTreatChunk
+  name: uplink-treatchunk-free-name
+  description: uplink-treatchunk-free-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Consumable/Food/Candy/treatchunk.rsi, state: treatchunk-wrapped }
+  productEntity: FoodTreatChunk
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: UplinkSpaceBlade
+  name: uplink-spaceblade-name
+  description: uplink-spaceblade-desc
+  icon: { sprite: /Textures/_NF/Objects/Fun/spaceblade.rsi, state: contraband }
+  productEntity: MysterySpaceBladeBoxSyndicate
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
+
+- type: listing
+  id: UplinkTreatChunkBag
+  name: uplink-treatchunk-bag-name
+  description: uplink-treatchunk-bag-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Consumable/Food/Candy/treatchunk_bag.rsi, state: treatchunk-bag }
+  productEntity: TreatChunkBag
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkPointless
+
+- type: listing
+  id: UplinkJuggernautCloak
+  name: uplink-juggernautcloak-name
+  description: uplink-juggernautcloak-desc
+  icon: { sprite: _Impstation/Clothing/Neck/Cloaks/juggernautcloak.rsi, state: icon }
+  productEntity: ClothingNeckCloakJuggernaut
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkPointless
+
+- type: listing
+  id: UplinkTreatChunkBig
+  name: uplink-treatchunk-big-name
+  description: uplink-treatchunk-big-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Consumable/Food/Candy/large_treatchunk_bag.rsi, state: large-treatchunk-bag }
+  productEntity: LargeTreatChunkBag
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkPointless
+  conditions: # surplus exclusive. same amount of hyperzine as an injector but in an infinitely shittier form. hehehehe
+  - !type:BuyerWhitelistCondition
+    makeHidden: true
+    whitelist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkMascotCindySuitBundle
+  name: uplink-mascot-cindy-suit-bundle-name
+  description: uplink-mascot-cindy-suit-bundle-desc
+  icon: { sprite: _Impstation/Clothing/OuterClothing/Hardsuits/cindysuit.rsi, state: full }
+  productEntity: ClothingBackpackDuffelSyndicateFilledMascotCindy
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkPointless
+  conditions:
+  - !type:StoreWhitelistCondition
+    makeHidden: true
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

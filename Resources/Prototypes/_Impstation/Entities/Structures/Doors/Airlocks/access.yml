@@ -293,6 +293,14 @@
     sprite: Structures/Doors/Airlocks/Standard/maint.rsi
 
 - type: entity
+  parent: AirlockZooLocked
+  id: AirlockMaintZooLocked
+  name: maintenance access
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/maint.rsi
+
+- type: entity
   parent: AirlockHospitalityDirectorLocked
   id: AirlockMaintHDLocked
   name: maintenance access
