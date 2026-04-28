@@ -39,11 +39,13 @@ public sealed partial class DoorRemoteComponent : Component
     /// </remarks>
     public bool IsStatusControlUpdateRequired;
 
+    // imp edit start
     /// <summary>
     /// Ignores the Line of sight check required to control doors if true.
     /// </summary>
     [DataField]
     public bool IgnoreViewCast;
+    // imp edit end
 }
 
 /// <summary>
