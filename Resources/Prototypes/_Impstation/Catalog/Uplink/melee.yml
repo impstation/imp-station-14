@@ -1,0 +1,15 @@
+﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
+
+- type: listing
+  id: UplinkBloodRedRoseBox
+  name: uplink-bloodredrosekit-name
+  description: uplink-bloodredrosekit-desc
+  icon: { sprite: /Textures/_Impstation/Objects/Storage/boxes.rsi, state: syndicaterosebox }
+  productEntity: BloodRedRoseBox
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 4
+  cost:
+    Telecrystal: 7
+  categories:
+  - UplinkMelee

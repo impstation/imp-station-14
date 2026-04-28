@@ -44,26 +44,41 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  - !type:BuyerWhitelistCondition
 
 - type: listing
+  parent: UplinkPoisonAuto-Injector
   id: UplinkNukiePoisonAuto-Injector
-  name: uplink-poison-injector-name
-  description: uplink-poison-injector-desc
-  productEntity: PoisonAutoInjector
-  discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 10
   cost:
     Telecrystal: 12
-  categories:
-  - UplinkChemicals
   conditions:
   - !type:StoreWhitelistCondition
     makeHidden: true
     whitelist:
       tags:
       - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle
+
+- type: listing
+  id: UplinkRomerolMicroInjector
+  name: uplink-romerol-traitor-name
+  description: uplink-romerol-traitor-desc
+  icon: { sprite: _Impstation/Objects/Specific/Medical/zombiepen_micro.rsi, state: icon }
+  productEntity: RomerolMicroInjector
+  cost:
+    Telecrystal: 20
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:BuyerObjectiveWhitelistCondition
+    makeHidden: true
+    whitelist:
+      components:
+      - DieCondition
   - !type:BuyerWhitelistCondition
     blacklist:
       components:

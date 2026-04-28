@@ -12,7 +12,7 @@
   cost:
     Telecrystal: 3
   categories:
-  - UplinkWeaponry
+  - UplinkFirearms # imp edit, UplinkWeaponry -> UplinkFirearms
 
 - type: listing
   id: UplinkRevolverPython
@@ -25,7 +25,7 @@
   cost:
     Telecrystal: 4 # Originally was 13 and then 8 TC but was not used due to high cost
   categories:
-  - UplinkWeaponry
+  - UplinkFirearms # imp edit, UplinkWeaponry -> UplinkFirearms
 
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
@@ -39,7 +39,7 @@
   cost:
     Telecrystal: 4
   categories:
-  - UplinkWeaponry
+  - UplinkFirearms # imp edit, UplinkWeaponry -> UplinkFirearms
 
 # Poor accuracy, slow to fire, cheap option
 - type: listing
@@ -50,7 +50,7 @@
   cost:
     Telecrystal: 1
   categories:
-  - UplinkWeaponry
+  - UplinkFirearms # imp edit, UplinkWeaponry -> UplinkFirearms
 
 - type: listing
   id: UplinkEsword
@@ -64,13 +64,13 @@
   cost:
     Telecrystal: 8
   categories:
-  - UplinkWeaponry
+  - UplinkMelee # imp edit, UplinkWeaponry -> UplinkMelee
 
 - type: listing
   id: UplinkEnergyDagger
   name: uplink-edagger-name
   description: uplink-edagger-desc
-  icon: { sprite: /Textures/Objects/Weapons/Melee/e_dagger.rsi, state: icon }
+  icon: { sprite: _Impstation/Objects/Weapons/Melee/e_dagger.rsi, state: icon } # imp edit
   productEntity: EnergyDaggerBox
   discountCategory: rareDiscounts
   discountDownTo:
@@ -78,7 +78,7 @@
   cost:
     Telecrystal: 2
   categories:
-  - UplinkWeaponry
+  - UplinkMelee # imp edit, UplinkWeaponry -> UplinkMelee
 
 # - type: listing #Imp - Replaced with the Taipan Bundle in the _Impstation Directory
 #   id: UplinkEnergyCrossbow
@@ -108,7 +108,7 @@
   cost:
     Telecrystal: 6
   categories:
-    - UplinkWeaponry
+  - UplinkMelee # imp edit, UplinkWeaponry -> UplinkMelee
 
 - type: listing
   id: UplinkGlovesNorthStar
@@ -121,7 +121,7 @@
   cost:
     Telecrystal: 8
   categories:
-  - UplinkWeaponry
+  - UplinkMelee # imp edit, UplinkWeaponry -> UplinkMelee
 
 - type: listing
   id: UplinkGlovesKnuckleDusters
@@ -135,7 +135,7 @@
   cost:
     Telecrystal: 6
   categories:
-  - UplinkWeaponry
+  - UplinkMelee # imp edit, UplinkWeaponry -> UplinkMelee
 
 - type: listing
   id: UplinkDisposableTurret
@@ -148,7 +148,7 @@
   cost:
     Telecrystal: 6
   categories:
-  - UplinkWeaponry
+  - UplinkAllies # imp edit, UplinkWeaponry -> UplinkAllies
   conditions:
     - !type:StoreWhitelistCondition
       makeHidden: true # imp add
@@ -168,7 +168,7 @@
   cost:
     Telecrystal: 8
   categories:
-  - UplinkWeaponry
+  - UplinkProtection # imp edit, UplinkWeaponry -> UplinkProtection
   conditions:
   - !type:StoreWhitelistCondition
     makeHidden: true # imp add
@@ -188,7 +188,7 @@
   cost:
     Telecrystal: 12
   categories:
-  - UplinkWeaponry
+  - UplinkFirearms # imp edit, UplinkWeaponry -> UplinkFirearms
 
 - type: listing
   id: UplinkHushpup
@@ -202,7 +202,7 @@
   cost:
     Telecrystal: 10
   categories:
-  - UplinkWeaponry
+  - UplinkFirearms # imp edit, UplinkWeaponry -> UplinkFirearms
 
 - type: listing
   id: UplinkC20RBundle
@@ -216,7 +216,7 @@
   cost:
     Telecrystal: 17
   categories:
-  - UplinkWeaponry
+  - UplinkFirearms # imp edit, UplinkWeaponry -> UplinkFirearms
 
 # - type: listing #imp #remove; Basilisk-11 at home
 #   id: UplinkEstocBundle
@@ -244,7 +244,7 @@
   cost:
     Telecrystal: 20
   categories:
-  - UplinkWeaponry
+  - UplinkFirearms # imp edit, UplinkWeaponry -> UplinkFirearms
 
 - type: listing
   id: UplinkGrenadeLauncherBundle
@@ -258,7 +258,7 @@
   cost:
     Telecrystal: 25
   categories:
-  - UplinkWeaponry
+  - UplinkFirearms # imp edit, UplinkWeaponry -> UplinkFirearms
 
 - type: listing
   id: UplinkL6SawBundle
@@ -272,7 +272,7 @@
   cost:
     Telecrystal: 30
   categories:
-  - UplinkWeaponry
+  - UplinkFirearms # imp edit, UplinkWeaponry -> UplinkFirearms
 
 # Explosives
 
@@ -428,7 +428,7 @@
   id: UplinkExplodingPen
   name: uplink-exploding-pen-name
   description: uplink-exploding-pen-desc
-  icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
+  icon: { sprite: _Impstation/Objects/Misc/Pens/black.rsi, state: icon } # imp edit
   productEntity: PenExplodingBox
   discountCategory: usualDiscounts
   discountDownTo:
@@ -654,7 +654,7 @@
   id: UplinkHypopen
   name: uplink-hypopen-name
   description: uplink-hypopen-desc
-  icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
+  icon: { sprite: _Impstation/Objects/Misc/Pens/black.rsi, state: icon } # imp edit
   productEntity: HypopenBox
   discountCategory: rareDiscounts
   discountDownTo:
@@ -946,7 +946,7 @@
   id: UplinkDecoyKit
   name: uplink-decoy-kit-name
   description: uplink-decoy-kit-desc
-  icon: { sprite: /Textures/Objects/Tools/Decoys/operative_decoy.rsi, state: folded }
+  icon: { sprite: _Impstation/Objects/Tools/Decoys/operative_decoy.rsi, state: folded } # imp edit
   productEntity: ClothingBackpackDuffelSyndicateDecoyKitFilled
   discountCategory: usualDiscounts
   discountDownTo:
@@ -977,17 +977,21 @@
       - NukeOpsUplink
 
 - type: listing
+  parent: UplinkSyndicateBombFake # imp add
   id: UplinkSyndicateBombFakeNukie
-  name: uplink-exploding-syndicate-bomb-fake-name
-  description: uplink-exploding-syndicate-bomb-fake-desc
-  productEntity: SyndicateBombFake
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 4
-  categories:
-  - UplinkDeception
+  # imp edit start
+  #name: uplink-exploding-syndicate-bomb-fake-name
+  #description: uplink-exploding-syndicate-bomb-fake-desc
+  #productEntity: SyndicateBombFake
+  #discountCategory: usualDiscounts
+  #discountDownTo:
+  #  Telecrystal: 1
+  #cost:
+  #  Telecrystal: 4
+  #categories:
+  #- UplinkDeception
+  restockTime: 0
+  # imp edit end
   conditions:
   - !type:StoreWhitelistCondition
     makeHidden: true # imp add
@@ -1156,7 +1160,6 @@
     Telecrystal: 14
   categories:
   - UplinkDisruption
-  - UplinkObjective # imp
   conditions:
   - !type:StoreWhitelistCondition
      makeHidden: true # imp add
@@ -1174,17 +1177,18 @@
       - DieCondition
 
 - type: listing
+  parent: UplinkAntimovCircuitBoard # imp add
   id: UplinkNukieAntimovCircuitBoard
-  name: uplink-antimov-law-name
-  description: uplink-antimov-law-desc
+  #name: uplink-antimov-law-name # imp add
+  #description: uplink-antimov-law-desc # imp add
   productEntity: AntimovCircuitBoard
-  discountCategory: rareDiscounts
+  #discountCategory: rareDiscounts # imp add
   discountDownTo:
     Telecrystal: 20
   cost:
     Telecrystal: 24
-  categories:
-  - UplinkDisruption
+  #categories: # imp add
+  #- UplinkDisruption # imp add
   conditions:
   - !type:StoreWhitelistCondition
     makeHidden: true # imp add
@@ -1204,7 +1208,7 @@
   cost:
     Telecrystal: 20
   categories:
-  - UplinkDisruption
+  - UplinkBundles # imp edit, UplinkDisruption -> UplinkBundles
   conditions:
   - !type:StoreWhitelistCondition
     makeHidden: true # imp add
@@ -1224,7 +1228,7 @@
   cost:
     Telecrystal: 40
   categories:
-  - UplinkDisruption
+  - UplinkBundles # imp edit, UplinkDisruption -> UplinkBundles
   conditions:
   - !type:StoreWhitelistCondition
     makeHidden: true # imp add
@@ -1244,7 +1248,7 @@
   cost:
     Telecrystal: 40
   categories:
-  - UplinkDisruption
+  - UplinkBundles # imp edit, UplinkDisruption -> UplinkBundles
   conditions:
     - !type:StoreWhitelistCondition
       makeHidden: true # imp add
@@ -1269,7 +1273,6 @@
     Telecrystal: 12
   categories:
     - UplinkDisruption
-    - UplinkObjective # imp
   conditions:
   - !type:BuyerWhitelistCondition
     blacklist:
@@ -1685,7 +1688,7 @@
   cost:
     Telecrystal: 2
   categories:
-  - UplinkWearables
+  - UplinkUtilityWear # imp edit, UplinkWearables -> UplinkUtilityWear
 
 - type: listing
   id: UplinkHolster
@@ -1695,7 +1698,7 @@
   cost:
     Telecrystal: 1
   categories:
-  - UplinkWearables
+  - UplinkUtilityWear # imp edit, UplinkWearables -> UplinkUtilityWear
 
 - type: listing
   id: UplinkChestRig
@@ -1705,7 +1708,7 @@
   cost:
     Telecrystal: 1
   categories:
-  - UplinkWearables
+  - UplinkUtilityWear # imp edit, UplinkWearables -> UplinkUtilityWear
 
 - type: listing
   id: UplinkChameleon
@@ -1719,7 +1722,7 @@
   cost:
     Telecrystal: 4
   categories:
-    - UplinkWearables
+  - UplinkUtilityWear # imp edit, UplinkWearables -> UplinkUtilityWear
 
 - type: listing
   id: UplinkClothingNoSlipsShoes
@@ -1732,7 +1735,7 @@
   cost:
     Telecrystal: 2
   categories:
-  - UplinkWearables
+  - UplinkUtilityWear # imp edit, UplinkWearables -> UplinkUtilityWear
 
 - type: listing
   id: UplinkClothingOuterVestWeb
@@ -1745,7 +1748,7 @@
   cost:
     Telecrystal: 3
   categories:
-  - UplinkWearables
+  - UplinkProtection # imp edit, UplinkWearables -> UplinkProtection
 
 - type: listing
   id: UplinkClothingOuterVestWebElite
@@ -1758,7 +1761,7 @@
   cost:
     Telecrystal: 5
   categories:
-  - UplinkWearables
+  - UplinkProtection # imp edit, UplinkWearables -> UplinkProtection
 
 - type: listing
   id: UplinkClothingShoesBootsMagSyndie
@@ -1771,7 +1774,7 @@
   cost:
     Telecrystal: 4
   categories:
-  - UplinkWearables
+  - UplinkUtilityWear # imp edit, UplinkWearables -> UplinkUtilityWear
 
 - type: listing
   id: UplinkEVASyndie
@@ -1785,7 +1788,7 @@
   cost:
     Telecrystal: 2
   categories:
-  - UplinkWearables
+  - UplinkUtilityWear # imp edit, UplinkWearables -> UplinkUtilityWear
 
 - type: listing
   id: UplinkHardsuitCarp
@@ -1799,13 +1802,13 @@
   cost:
     Telecrystal: 4
   categories:
-  - UplinkWearables
+  - UplinkProtection # imp edit, UplinkWearables -> UplinkProtection
 
 - type: listing
   id: UplinkHardsuitSyndie
   name: uplink-hardsuit-syndie-name
   description: uplink-hardsuit-syndie-desc
-  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
+  icon: { sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator.rsi, state: icon } # imp edit
   productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
   discountCategory: veryRareDiscounts
   discountDownTo:
@@ -1813,7 +1816,7 @@
   cost:
     Telecrystal: 8
   categories:
-  - UplinkWearables
+  - UplinkProtection # imp edit, UplinkWearables -> UplinkProtection
 
 - type: listing
   id: UplinkClothingOuterArmorRaid
@@ -1824,7 +1827,7 @@
   cost:
     Telecrystal: 8
   categories:
-  - UplinkWearables
+  - UplinkProtection # imp edit, UplinkWearables -> UplinkProtection
   conditions:
   - !type:StoreWhitelistCondition
     makeHidden: true # imp add
@@ -1836,12 +1839,12 @@
   id: UplinkHardsuitSyndieElite
   name: uplink-hardsuit-syndieelite-name
   description: uplink-hardsuit-syndieelite-desc
-  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
+  icon: { sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_elite.rsi, state: icon } # imp edit
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
     Telecrystal: 12
   categories:
-  - UplinkWearables
+  - UplinkProtection # imp edit, UplinkWearables -> UplinkProtection
 #  conditions:
 #  - !type:StoreWhitelistCondition
 #    whitelist:
@@ -1852,12 +1855,12 @@
   id: UplinkClothingOuterHardsuitJuggernaut
   name: uplink-clothing-outer-hardsuit-juggernaut-name
   description: uplink-clothing-outer-hardsuit-juggernaut-desc
-  icon: { sprite: /Textures/_Impstation/Structures/Storage/Crates/syndicate.rsi, state: icon } # imp
+  icon: { sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_juggernaut.rsi, state: icon } # imp
   productEntity: CrateCybersunJuggernautBundle
   cost:
     Telecrystal: 12
   categories:
-  - UplinkWearables
+  - UplinkProtection # imp edit, UplinkWearables -> UplinkProtection
 #  conditions:
 #  - !type:StoreWhitelistCondition
 #    whitelist:
@@ -1872,7 +1875,7 @@
   cost:
     Telecrystal: 2
   categories:
-    - UplinkWearables
+  - UplinkUtilityWear # imp edit, UplinkWearables -> UplinkUtilityWear
   conditions:
     - !type:StoreWhitelistCondition
       makeHidden: true # imp add
@@ -1888,7 +1891,7 @@
   cost:
     Telecrystal: 2
   categories:
-  - UplinkWearables
+  - UplinkUtilityWear # imp edit, UplinkWearables -> UplinkUtilityWear
 
 - type: listing
   id: UplinkBackpackSyndicate
@@ -1898,7 +1901,7 @@
   cost:
     Telecrystal: 2
   categories:
-    - UplinkWearables
+  - UplinkUtilityWear # imp edit, UplinkWearables -> UplinkUtilityWear
 
  # Pointless
 

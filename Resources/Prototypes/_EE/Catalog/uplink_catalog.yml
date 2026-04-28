@@ -9,7 +9,7 @@
   cost:
     Telecrystal: 3
   categories:
-  - UplinkWearables
+  - UplinkUtilityWear
   conditions:
   - !type:StoreWhitelistCondition
     makeHidden: true # imp add
@@ -18,17 +18,9 @@
       - NukeOpsUplink
 
 - type: listing # EE
+  parent: UplinkNightGoggles
   id: UplinkNightGogglesNukie
-  name: uplink-night-vision-name
-  description: uplink-night-vision-desc
   productEntity: ClothingEyesNightVisionGogglesNukie
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
     makeHidden: true # imp add
@@ -47,7 +39,7 @@
   cost:
     Telecrystal: 3
   categories:
-  - UplinkWearables
+  - UplinkUtilityWear
   conditions:
   - !type:StoreWhitelistCondition
     makeHidden: true # imp add
@@ -56,17 +48,9 @@
       - NukeOpsUplink
 
 - type: listing # EE
+  parent: UplinkThermalGoggles
   id: UplinkThermalGogglesNukie
-  name: uplink-thermal-vision-name
-  description: uplink-thermal-vision-desc
   productEntity: ClothingEyesThermalVisionGogglesNukie
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 1
-  cost:
-    Telecrystal: 3
-  categories:
-  - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
     makeHidden: true # imp add

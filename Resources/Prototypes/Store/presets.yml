@@ -15,8 +15,14 @@
     - UplinkAllies
     - UplinkWearables
     - UplinkJob
-    - UplinkObjective # imp
     - UplinkPointless
+    # imp edit start
+    - UplinkBundles
+    - UplinkFirearms
+    - UplinkMelee
+    - UplinkProtection
+    - UplinkUtilityWear
+    # imp edit end
     currencyWhitelist:
     - Telecrystal
     balance:

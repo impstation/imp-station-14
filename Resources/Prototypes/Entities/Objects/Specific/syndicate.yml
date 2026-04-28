@@ -56,13 +56,15 @@
   parent: [BaseItem, StorePresetUplink, Tier3Contraband]
   id: BaseUplinkRadio
   name: syndicate uplink
-  description: Suspiciously looking old radio...
+  description: Suspicious looking device... # imp edit
   suffix: Empty
   components:
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: _Impstation/Objects/Devices/uplink.rsi
     layers:
-    - state: old-radio
+    - state: icon
+    - state: icon_unshaded
+      shader: unshaded
   - type: Item
     sprite: Objects/Devices/communication.rsi
     heldPrefix: old-radio
@@ -128,3 +130,9 @@
     balance:
       Telecrystal: 99999
     passAllConditions: true # imp
+  - type: Sprite # imp add
+    sprite: _Impstation/Objects/Devices/uplink_commander.rsi
+    layers:
+    - state: icon
+    - state: icon_unshaded
+      shader: unshaded

@@ -16,6 +16,26 @@
 
 # Uplink
 - type: storeCategory
-  id: UplinkObjective
-  name: store-category-objective
-  priority: 10
+  id: UplinkBundles
+  name: store-category-bundles
+  priority: 0
+
+- type: storeCategory
+  id: UplinkFirearms
+  name: store-category-firearms
+  priority: 1
+
+- type: storeCategory
+  id: UplinkMelee
+  name: store-category-melee
+  priority: 3
+
+- type: storeCategory
+  id: UplinkProtection
+  name: store-category-protection
+  priority: 5
+
+- type: storeCategory
+  id: UplinkUtilityWear
+  name: store-category-utility-wear
+  priority: 6
