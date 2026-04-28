@@ -35,6 +35,13 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         UpdateANSLinkAppearance((uid, comp), comp.AnalyzerEntity is not null);
     }
 
+    /// <summary>
+    /// Updates the advanced node scanner's knowledge of the analyzer it is linking to,
+    /// the analyzer's knowledge of the advanced node scanner,
+    /// the artifact ON the analyzer pad's knowledge of the advanced node scanner
+    /// and turns on the "linked light".
+    /// The console is handled in the Analyzer's side of things
+    /// </summary>
     private void OnNewLink(Entity<AdvancedNodeScannerComponent> ent, ref NewLinkEvent args)
     {
         if (!TryComp<ArtifactAnalyzerComponent>(args.Sink, out var analyzer))
@@ -56,6 +63,13 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         Dirty(ent);
     }
 
+    /// <summary>
+    /// erases the advanced node scanner's knowledge of the analyzer it is unlinking from,
+    /// the analyzer's knowledge of the advanced node scanner,
+    /// the artifact ON the analyzer pad's knowledge of the advanced node scanner
+    /// and turns off the "linked light"
+    /// We also clear the analysis console's knowledge of advanced node scanner.
+    /// </summary>
     private void OnPortDisconnected(Entity<AdvancedNodeScannerComponent> ent, ref PortDisconnectedEvent args)
     {
         if (args.Port != ent.Comp.AdvancedNodeScannerLinkingPort || ent.Comp.AnalyzerEntity is not { } analyzerEntity)
@@ -233,6 +247,12 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
 
     }
 
+    /// <summary>
+    /// Get an advanced node scanner linked (indirectly) to analysis console.
+    /// </summary>
+    /// <param name="ent"> Analysis console</param>
+    /// <param name="advancedNodeScanner">output - the advanced node scanner</param>
+    /// <returns> Boolean - if an advanced node scanner was found linked to (powered) artifact analyzer linked to the (powered) console</returns>
     public bool TryGetAdvancedNodeScanner(Entity<AnalysisConsoleComponent> ent, [NotNullWhen(true)] out Entity<AdvancedNodeScannerComponent>? advancedNodeScanner)
     {
         advancedNodeScanner = null;
@@ -260,6 +280,13 @@ public abstract class SharedAdvancedNodeScannerSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    /// Gets the artifact currently being advanced node scanned
+    /// </summary>
+    /// <param name="ent">advanced node scanner</param>
+    /// <param name="artifact">output - the artifact</param>
+    /// <param name="requirePower">if we need power to be able to find the artifact. True by default</param>
+    /// <returns> Boolean - if an artifact was found on the artifact analyzer linked to the (powered?) advanced node scanner</returns>
     public bool TryGetArtifactFromAdvancedNodeScanner(Entity<AdvancedNodeScannerComponent> ent, [NotNullWhen(true)] out Entity<XenoArtifactComponent>? artifact, bool requirePower = true)
     {
         artifact = null;
