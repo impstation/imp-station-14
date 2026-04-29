@@ -7,7 +7,7 @@
   components:
   - type: NpcFactionMember
     factions:
-    - NanoTrasen
+    - PetsNT #listen. Nanotrasen faction makes it shoot syndies and this one doesnt
   - type: BatteryAmmoProvider
     proto: BulletEnergyTurretDisabler
     fireCost: 100

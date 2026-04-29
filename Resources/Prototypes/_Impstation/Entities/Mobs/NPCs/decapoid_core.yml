@@ -66,11 +66,6 @@
     doAfterDelay: 15
   - type: DamagedSiliconAccent
     enableChargeCorruption: false
-  - type: SurveillanceCameraMonitor
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: SurveillanceCamera
-    transmitFrequencyId: SurveillanceCamera
   - type: WirelessNetworkConnection
     range: 10000
   - type: WiresPanel
@@ -81,8 +76,6 @@
         requireInputValidation: false
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
-      enum.SurveillanceCameraMonitorUiKey.Key:
-        type: SurveillanceCameraMonitorBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
       enum.PdaUiKey.Key:
@@ -201,8 +194,6 @@
     uis:
       enum.RadarConsoleUiKey.Key:
         toggleAction: ActionAGhostShowRadar
-      enum.SurveillanceCameraMonitorUiKey.Key:
-        toggleAction: ActionDecapoidCoreCameraMonitor
       enum.CommunicationsConsoleUiKey.Key:
         toggleAction: ActionDecapoidCoreShowCommunications
   - type: ShowElectrocutionHUD
@@ -259,20 +250,6 @@
     mindRoles:
     - MindRoleGhostRoleSilicon
   - type: GhostTakeoverAvailable
-
-- type: entity
-  parent: BaseAGhostAction
-  id: ActionDecapoidCoreCameraMonitor
-  name: Wireless Camera Monitor
-  description: View all wireless cameras.
-  components:
-  - type: Action
-    icon: { sprite: Interface/Actions/actions_ai.rsi, state: camera_light }
-    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: camera_light }
-    keywords: [ "console", "interface" ]
-    priority: -6
-  - type: InstantAction
-    event: !type:ToggleIntrinsicUIEvent { key: enum.SurveillanceCameraMonitorUiKey.Key }
 
 - type: entity
   parent: BaseAGhostAction
