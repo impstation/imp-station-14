@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/08/2026 23:44:48
+  time: 04/29/2026 21:23:46
   entityCount: 629
 maps: []
 grids:
@@ -2329,7 +2329,7 @@ entities:
       pos: -0.5,7.5
       parent: 768
     - type: Door
-      secondsUntilStateChange: -419.65186
+      secondsUntilStateChange: -523.70966
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 219.7331156
@@ -3423,7 +3423,7 @@ entities:
       pos: -0.5,-4.5
       parent: 768
     - type: Door
-      secondsUntilStateChange: -12652.599
+      secondsUntilStateChange: -12756.656
       state: Opening
 - proto: PlasmaReinforcedWindowDirectional
   entities:
