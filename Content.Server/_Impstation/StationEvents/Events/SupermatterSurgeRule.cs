@@ -25,8 +25,12 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         var supermatterUids = new List<EntityUid>();
         var query = EntityQueryEnumerator<SupermatterComponent>();
 
-        while (query.MoveNext(out var supermatterUid, out _))
+        while (query.MoveNext(out var supermatterUid, out var sm))
         {
+            // Does not target inactive supermatters
+            if (sm.Status == SupermatterStatusType.Inactive)
+                continue;
+
             supermatterUids.Add(supermatterUid);
         }
 
