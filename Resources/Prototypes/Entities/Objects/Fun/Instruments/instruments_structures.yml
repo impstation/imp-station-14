@@ -57,7 +57,7 @@
 - type: entity
   name: tuba
   # parent: BasePlaceableInstrument
-  parent: BasePlaceableInstrumentRotatable # imp edit
+  parent: BasePlaceableInstrumentRotatable # imp edit, changed from BasePlaceableInstrument
   id: TubaInstrument
   description: The big daddy of the brass family. Standing next to its majesty makes you feel insecure.
   components:
