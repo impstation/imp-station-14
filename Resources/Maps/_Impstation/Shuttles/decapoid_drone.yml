@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/29/2026 05:42:03
-  entityCount: 45
+  time: 04/29/2026 09:34:34
+  entityCount: 49
 maps: []
 grids:
 - 1
@@ -113,12 +113,22 @@ entities:
   - uid: 7
     components:
     - type: Transform
-      pos: 0.5,0.5
+      pos: -0.5,-0.5
       parent: 1
   - uid: 8
     components:
     - type: Transform
       pos: -0.5,0.5
+      parent: 1
+  - uid: 48
+    components:
+    - type: Transform
+      pos: 0.5,-0.5
+      parent: 1
+  - uid: 49
+    components:
+    - type: Transform
+      pos: 1.5,-0.5
       parent: 1
 - proto: CableMV
   entities:
@@ -152,12 +162,24 @@ entities:
     - type: Transform
       pos: 1.5,1.5
       parent: 1
-- proto: GeneratorRTG
+- proto: ComputerShuttle
+  entities:
+  - uid: 46
+    components:
+    - type: Transform
+      pos: 0.5,0.5
+      parent: 1
+- proto: GeneratorWallmountAPU
   entities:
   - uid: 15
     components:
     - type: Transform
-      pos: 0.5,0.5
+      pos: -0.5,-0.5
+      parent: 1
+  - uid: 47
+    components:
+    - type: Transform
+      pos: 1.5,-0.5
       parent: 1
 - proto: Grille
   entities:
@@ -331,6 +353,9 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 0.5,0.5
       parent: 1
+    - type: SurveillanceCamera
+      nameSet: True
+      id: Navcore Interceptor
 - proto: WeaponTurretEnergyNanotrasen
   entities:
   - uid: 42
