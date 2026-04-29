@@ -151,7 +151,7 @@
     state: toms
 
 - type: entity
-  parent: [ BasePlaceableInstrumentRotatable, ConstructibleMachine, BaseStructureComputerTabletop ] # imp edit added tabletop parent
+  parent: [ BasePlaceableInstrumentRotatable, ConstructibleMachine ]
   suffix: Tabletop # imp
   id: DawInstrument
   name: digital audio workstation
@@ -173,7 +173,7 @@
     allowPercussion: true
     allowProgramChange: true
   - type: InteractionOutline
-  - type: Fixtures
+  - type: Fixtures # imp edit
     fixtures:
       fix1:
         shape:
