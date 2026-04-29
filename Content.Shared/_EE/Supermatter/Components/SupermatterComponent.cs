@@ -75,7 +75,7 @@ public sealed partial class SupermatterComponent : Component
     // public EntProtoId KudzuSpawnPrototype = "SupermatterKudzu";
 
     [DataField]
-    public EntProtoId RandomAnomaly = "RandomAnomalySpawner";
+    public EntProtoId AnomalyPrototype = "RandomAnomalySpawner";
 
     [DataField]
     public EntProtoId CollisionResultPrototype = "Ash";

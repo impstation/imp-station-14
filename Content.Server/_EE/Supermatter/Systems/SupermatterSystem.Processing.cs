@@ -260,7 +260,7 @@ public sealed partial class SupermatterSystem
             return;
 
         foreach (var tileref in tiles)
-            Spawn(sm.RandomAnomaly, _map.ToCenterCoordinates(tileref, grid));
+            Spawn(sm.AnomalyPrototype, _map.ToCenterCoordinates(tileref, grid));
     }
 
     /// <summary>
