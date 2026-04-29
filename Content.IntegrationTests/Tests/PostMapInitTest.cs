@@ -149,6 +149,7 @@ namespace Content.IntegrationTests.Tests
             "Schooner",
             "Submarine",
             "TrainImp",
+            "Trawler",
             "Union",
             "Xeno",
             "Pathway",
