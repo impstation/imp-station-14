@@ -11,12 +11,18 @@
   - GlossaryScience
   - GlossarySecurity
   - GlossaryService
+  - GlossaryAntag
   - GlossaryOOC
 
 - type: guideEntry
   id: GlossaryGeneral
   name: guide-entry-glossary-general
   text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossaryGeneral.xml"
+
+- type: guideEntry
+  id: GlossaryAntag
+  name: guide-entry-antagonists
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossaryAntag.xml"
 
 - type: guideEntry
   id: GlossaryCargo
