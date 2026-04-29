@@ -827,6 +827,10 @@
   - MimeSuspendersRed
   - MimeSuspendersBlack
   - FoamSabre # DeltaV - Add foam sabre to the mime's loadout.
+  # imp edit start
+  minLimit: 0
+  defaultSelected: 1
+  # imp edit end
 
 - type: loadoutGroup
   id: SurvivalMime
@@ -1399,6 +1403,7 @@
   - HeadofSecurityHeadDV # DeltaV
   - HeadofSecurityPatrolCap # imp
   - HeadofSecurityColonelCap # imp
+  - HeadofSecurityHelmet #imp
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
