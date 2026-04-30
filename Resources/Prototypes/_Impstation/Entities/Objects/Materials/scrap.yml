@@ -21,7 +21,7 @@
 - type: entity
   parent: BaseScrap
   id: PigIronCorpse
-  name: Worthless Pig Iron Artifact
+  name: worthless pig iron artifact
   description: Some ancient piece of scrap, even at its prime it mustn't have been much to behold.
   components:
   - type: Sprite
@@ -63,5 +63,3 @@
       - !type:SpillBehavior { }
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: StaticPrice
-    price: 1
