@@ -184,8 +184,10 @@ namespace Content.Server.GameTicking
             }
 
             string speciesId;
-            if (_randomizeCharacters)
+            if (_randomizeCharacters || character.TraitPreferences.Contains("RandomCharacter")) // imp edit, add `|| character.TraitPreferences.Contains("RandomCharacter")`
             {
+                var oldTraits = character.TraitPreferences; // imp addition
+
                 var weightId = _cfg.GetCVar(CCVars.ICRandomSpeciesWeights);
 
                 // If blank, choose a round start species.
@@ -211,6 +213,16 @@ namespace Content.Server.GameTicking
                 }
 
                 character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
+
+                // imp edit start, keep old traits when rolling because of the random character trait
+                if (!_randomizeCharacters)
+                {
+                    foreach (var trait in oldTraits)
+                    {
+                        character = character.WithTraitPreference(trait, _prototypeManager);
+                    }
+                }
+                // imp edit end
             }
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
