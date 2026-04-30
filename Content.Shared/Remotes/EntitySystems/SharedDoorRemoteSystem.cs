@@ -52,10 +52,11 @@ public abstract class SharedDoorRemoteSystem : EntitySystem
             || !TryComp<DoorComponent>(args.Target, out var doorComp) // If it isn't a door we don't use it
                                                                       // Only able to control doors if they are within your vision and within your max range.
                                                                       // Not affected by mobs or machines anymore.
-            || !_examine.InRangeUnOccluded(args.User,
+            || (!_examine.InRangeUnOccluded(args.User, //imp edit start - add option to skip check with IgnoreViewCast datafield
                 args.Target.Value,
                 SharedInteractionSystem.MaxRaycastRange,
-                null))
+                null)
+            && !entity.Comp.IgnoreViewCast)) //imp edit end
 
         {
             return;
