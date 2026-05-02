@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/02/2026 06:36:25
-  entityCount: 104
+  time: 05/02/2026 06:59:52
+  entityCount: 105
 maps: []
 grids:
 - 1
@@ -513,6 +513,16 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,3.5
       parent: 1
+- proto: HolopadCargoShuttle
+  entities:
+  - uid: 105
+    components:
+    - type: Transform
+      pos: -1.5,2.5
+      parent: 1
+    - type: AccessReader
+      accessListsOriginal:
+      - - Command
 - proto: LockableButtonCargo
   entities:
   - uid: 58
