@@ -166,4 +166,18 @@
     icon:
       sprite: Objects/Consumable/Food/snacks.rsi
       state: chips-trash
+
+# survive and get to evac objective
+- type: entity
+  parent: [BaseConspiratorObjective, BaseLivingObjective]
+  id: ConspiratorEvacObjective
+  name: Escape to CentComm alive and unrestrained via the escape shuttle.
+  description: The whole crew must make it out alive and free.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: EscapeShuttleCondition
+
 # imp end

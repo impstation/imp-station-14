@@ -144,3 +144,23 @@
   - type: Tag
     tags:
     - BorgModuleTckut
+
+- type: entity
+  id: BorgModuleDecapoidCore
+  parent: [ BaseBorgModule, BaseProviderBorgModule, DecapoidEmpireContraband ]
+  name: tck'ju'q'tp handling module
+  categories: [ DoNotMap ]
+  components:
+  - type: Sprite
+    layers:
+    - state: generic
+    - state: icon-grappling-gun
+  - type: ItemBorgModule
+    hands:
+    - item: WeaponTetherGunDecapoidCore
+    - item: DoorRemoteDecapoidCore
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: tcktck-tools-module }
+  - type: Tag
+    tags:
+      - BorgModuleTckTck
