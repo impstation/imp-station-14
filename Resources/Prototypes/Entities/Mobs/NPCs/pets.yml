@@ -676,13 +676,41 @@
     flavors:
     - meaty
     - sadness
-  - type: PleebnarGibbable #imp edit
+# imp edit start
+  - type: PleebnarGibbable
     mindshield: true
-  - type: Stamp #imp edit
+  - type: Stamp
     stampedName: stamp-component-stamped-name-hamlet
     stampedColor: "#1c1c1c"
     stampState: "paper_stamp-hamster"
     stampLargeIcon: "large_stamp-hamster"
+  - type: EntityTableContainerFill
+    containers:
+      stash: !type:GroupSelector
+        children:
+        - id: CapacitorStockPart
+        - id: MicroManipulatorStockPart
+        - id: Crowbar
+        - id: Wrench
+        - id: Screwdriver
+        - id: Wirecutter
+        - id: Welder
+        - id: Multitool
+        - id: CableApcStack1
+        - id: CableMVStack1
+        - id: CableHVStack1
+        - id: Pen
+        - id: PenCap
+        - id: Paper
+        - id: Flash
+          weight: 0.5
+        - id: BasePhoneInstrument
+          weight: 0.5
+        - id: Handcuffs
+          weight: 0.5
+        - id: AdminAssistantIDCard
+          weight: 0.01
+# imp edit end
 
 - type: entity
   parent: MobHamsterHamlet
