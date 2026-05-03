@@ -64,7 +64,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         _hunger.ModifyHunger(approacher, -component.HungerPerBirth);
         _hunger.ModifyHunger(approached, -partnerComp.HungerPerBirth);
 
-        _thirst.ModifyThirst(approached, -component.HungerPerBirth);
+        _thirst.ModifyThirst(approacher, -component.HungerPerBirth);
         _thirst.ModifyThirst(approached, -partnerComp.HungerPerBirth);
 
         _adminLog.Add(LogType.Action, $"{ToPrettyString(approacher)} (carrier) and {ToPrettyString(approached)} (partner) successfully bred.");
