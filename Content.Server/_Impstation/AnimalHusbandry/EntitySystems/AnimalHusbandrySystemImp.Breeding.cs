@@ -7,6 +7,7 @@ using Content.Shared.Nutrition.Components;
 
 using Content.Shared._Impstation.AnimalHusbandry.Components;
 using Content.Shared._Impstation.EntityTable.Conditions;
+using System.Linq;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 
@@ -45,9 +46,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         if (!CanYouBreed((approacher, component)) || !CanYouBreed((approached, partnerComp)))
             return false;
 
-        var partnerSettings = _prototype.Index(partnerComp.BreedSettings);
-
-        if (partnerSettings == null)
+        if (!_prototype.TryIndex(partnerComp.BreedSettings, out var partnerSettings))
             return false;
 
         // Ready up for birth
