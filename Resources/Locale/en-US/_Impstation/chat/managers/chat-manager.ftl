@@ -38,11 +38,6 @@ chat-speech-verb-name-anomalocarid-stutter = Anomalocarid Stuttering
 chat-speech-verb-anomalocarid-stutter-1 = rasps
 chat-speech-verb-anomalocarid-stutter-2 = gurgles
 
-chat-speech-verb-name-kodepiia = Kodepiia
-chat-speech-verb-kodepiia-1 = wheezes
-chat-speech-verb-kodepiia-2 = crackles
-chat-speech-verb-kodepiia-3 = hums
-
 chat-speech-verb-name-suppy = Suppy
 chat-speech-verb-suppy1 = rumbles
 chat-speech-verb-suppy2 = resonates
@@ -57,8 +52,3 @@ chat-speech-verb-anomalite-1 = twinkles
 chat-speech-verb-anomalite-2 = sparkles
 chat-speech-verb-anomalite-3 = glitters
 
-chat-speech-verb-name-allulalo = Allulalo
-chat-speech-verb-allulalo-1 = whistles
-chat-speech-verb-allulalo-2 = clicks
-chat-speech-verb-allulalo-3 = chitters
-chat-speech-verb-allulalo-4 = knocks

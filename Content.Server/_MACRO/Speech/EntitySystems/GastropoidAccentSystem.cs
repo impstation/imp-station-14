@@ -2,7 +2,7 @@ using System.Text.RegularExpressions;
 using Content.Server.Speech.Components;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._MACRO.Speech.EntitySystems;
 // hi guys. this is a copy of snalienaccentsystem for accentless use
 public sealed class GastropoidAccentSystem : EntitySystem
 {

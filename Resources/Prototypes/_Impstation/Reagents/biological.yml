@@ -30,30 +30,6 @@
 
 - type: reagent
   parent: Blood
-  id: BloodKodepiia
-  name: reagent-name-bloodkodepiia
-  group: Biological
-  desc: reagent-desc-bloodkodepiia
-  flavor: kodepiia
-  color: "#4f0000"
-
-- type: reaction
-  id: KodepiiaBloodBreakdown
-  source: true
-  requiredMixerCategories:
-  - Centrifuge
-  reactants:
-    BloodKodepiia:
-      amount: 20
-  products:
-    Ice: 11
-    Copper: 0.5
-    TableSalt: 2
-    Ammonia: 3
-    Fat: 4
-
-- type: reagent
-  parent: Blood
   id: AnomalocaridCopperBlood #mostly the same as normal copper blood but with a different color
   name: reagent-name-anomalocarid-blood
   group: Biological
@@ -103,40 +79,6 @@
       - !type:Jitter
         probability: 0.25
 
-- type: reagent # can't parent it to blood because anybody should be able to drink it, the flesh/organs are the toxic parts (fugu moment)
-  id: ShimmeringBlood
-  name: reagent-name-shimmering-blood
-  group: Biological
-  desc: reagent-desc-shimmering-blood
-  flavor: shimmeringblood
-  color: "#ff624a" # a slightly warmer color than the ichor extracted from dragon flesh
-  recognizable: true
-  physicalDesc: reagent-physical-desc-shimmering-blood
-  metabolisms:
-    Food:
-      effects:
-      - !type:SatiateHunger
-        factor: 1
-      - !type:SatiateThirst
-        factor: 1
-    Narcotic:
-      effects:
-      - !type:ModifyStatusEffect
-        effectProto: StatusEffectSeeingRainbow
-        type: Add
-        time: 5
-  plantMetabolism:
-    - !type:PlantAdjustToxins
-      amount: 2
-    - !type:PlantAdjustWeeds
-      amount: -2
-    - !type:PlantAdjustPests
-      amount: -2
-  footstepSound:
-    collection: FootstepBlood
-    params:
-      volume: 6
-
 - type: reaction
   id: SynthBloodBreakdown # synthblood under /_CD/Reagents/biological.yml
   source: true
@@ -150,37 +92,6 @@
     Lithium: 1
     Ethanol: 2
     SpaceLube: 1
-
-- type: reagent
-  id: BloodAllulalo
-  name: reagent-name-bloodallulalo
-  group: Biological
-  desc: reagent-desc-bloodallulalo
-  physicalDesc: reagent-physical-desc-thin
-  flavor: allulalo
-  color: "#c1c7d3"
-  evaporationSpeed: 0.3 #same as water
-  metabolisms: #have to redefine from basealcohol otherwise its slippery which is a hell of a can of worms for a species
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.06
-  reactiveEffects:
-    Flammable:
-      methods: [ Touch ]
-      effects:
-      - !type:Flammable
-  tileReactions:
-  - !type:FlammableTileReaction
-    temperatureMultiplier: 1.35
-  plantMetabolism:
-  - !type:PlantAdjustNutrition
-    amount: 0.25
-  - !type:PlantAdjustWater
-    amount: 0.7
 
 - type: reagent
   id: ReaperBlood

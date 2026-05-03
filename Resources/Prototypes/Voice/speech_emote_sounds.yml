@@ -316,15 +316,15 @@
         volume: 10
     DefaultDeathgasp:
       path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
+    # Macrocosm start
+    Hiss:
+      path: /Audio/_MACRO/Voice/Vox/voxhiss.ogg
+    # Macrocosm end
     # imp edit start
     Coo:
       collection: VoxCoo
       params:
         volume: -7
-    Hiss:
-      collection: VoxHiss
-      params:
-        volume: -5
     Caw:
       collection: KodepiiaCaws
     Whistle:
@@ -408,8 +408,8 @@
     DefaultDeathgasp:
       collection: DeathGasp
     # Macrocosm start
-    #Hiss:
-    #  path: /Audio/_MACRO/Voice/Arachnid/arachnid_hiss.ogg
+    Hiss:
+      path: /Audio/_MACRO/Voice/Arachnid/arachnid_hiss.ogg
     Sneeze:
       collection: UnisexSneezes #placeholder
     Cough:
