@@ -20,26 +20,18 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     /// <param name="approacher">The mob seeking to impregnate</param>
     /// <param name="approached">The mob that will be impregnated</param>
     /// <returns>True if the mob has successfully bred with the target</returns>
-    public bool TryBreedWithTarget(EntityUid approacher, EntityUid approached)
+    public bool TryBreedWithTarget(Entity<ImpReproductiveComponent?> approacher, Entity<ImpReproductiveComponent?> approached)
     {
-        // Realistically this should never return false but it's just here for the moment
-        if (!_entManager.TryGetComponent<ImpReproductiveComponent>(approacher, out var component))
+        var approacherProto = MetaData(approacher.Owner).EntityPrototype;
+
+        if (approacher == approached // Do not self-breed
+            || !Resolve(approacher.Owner, ref approacher.Comp) // Ensure approacher can reproduce
+            || !Resolve(approached.Owner, ref approached.Comp) // Ensure partner can reproduce
+            || approacherProto == null) // Ensure approacher has a prototype
             return false;
 
-        // Same with this one but i'm paranoid
-        if (!_entManager.TryGetComponent<ImpReproductiveComponent>(approached, out var partnerComp))
-            return false;
-
-        // Meta data of our approaching mob
-        if (!_entManager.TryGetComponent<MetaDataComponent>(approacher, out var meta))
-            return false;
-
-        if (meta.EntityPrototype == null)
-            return false;
-
-        // Just being 100% sure we aren't trying to self breed.
-        if (approacher == approached)
-            return false;
+        var component = approacher.Comp;
+        var partnerComp = approached.Comp;
 
         // one last check in case someone beat us to the cow or bred us on the way there
         // It's dumb but unless I make the system assign pairings this is the best i can think of for the moment
@@ -59,7 +51,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         // Picks which offspring to give birth to based on the mob we bred with
         var ctx = new EntityTableContext(new Dictionary<string, object>
         {
-            { ValidPartnerCondition.PartnerContextKey, meta.EntityPrototype.ID },
+            { ValidPartnerCondition.PartnerContextKey, approacherProto.ID },
         });
         partnerComp.MobToBirth = _entTable.GetSpawns(partnerSettings.PossibleInfants, ctx: ctx).ElementAt(0);
 
