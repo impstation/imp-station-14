@@ -75,33 +75,33 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     /// <returns>If the mob is eligible to breed</returns>
     public bool CanYouBreed(Entity<ImpReproductiveComponent?> entity)
     {
+        // Not a reproductive entity.
         if (!Resolve(entity.Owner, ref entity.Comp))
             return false;
 
+        // Already gestating.
         if (HasComp<GestatingComponent>(entity.Owner))
             return false;
 
-        // Making sure we're not trying to breed with an infant
-        if (_entManager.TryGetComponent<ImpInfantComponent>(entity, out var infant))
+        // Incapable of gestation.
+        if (!IsUnableToGestate(entity.Owner))
             return false;
 
-        // Player inhabited mobs cannot breed
-        if (_mind.TryGetMind(entity, out var mind, out var mindComp))
+        // Too hungry.
+        if (TryComp<HungerComponent>(entity, out var hunger)
+            && hunger.CurrentThreshold < entity.Comp.MinimumHungerThreshold)
             return false;
 
-        if (_entManager.TryGetComponent<HungerComponent>(entity, out var hunger) && hunger.CurrentThreshold < HungerThreshold.Okay)
+        // Too thirsty.
+        if (TryComp<ThirstComponent>(entity, out var thirst)
+            && thirst.CurrentThirstThreshold < entity.Comp.MinimumThirstThreshold)
             return false;
 
-        if (_entManager.TryGetComponent<ThirstComponent>(entity, out var thirst) && thirst.CurrentThirstThreshold < ThirstThreshold.Okay)
+        // Too injured.
+        if (TryComp<DamageableComponent>(entity, out var damage)
+            && damage.TotalDamage >= entity.Comp.MaxBreedDamage)
             return false;
 
-        // A mob needs to be Alive. Not dead or critical
-        if (_entManager.TryGetComponent<MobStateComponent>(entity, out var state) && state.CurrentState != Shared.Mobs.MobState.Alive)
-            return false;
-
-        // A mob can't be too damaged
-        if (_entManager.TryGetComponent<DamageableComponent>(entity, out var damage) && damage.TotalDamage >= entity.Comp.MaxBreedDamage)
-            return false;
         return true;
     }
 

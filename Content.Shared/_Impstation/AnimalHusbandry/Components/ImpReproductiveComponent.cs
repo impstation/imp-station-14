@@ -1,4 +1,5 @@
 using Content.Shared._Impstation.AnimalHusbandry.Prototypes;
+using Content.Shared.Nutrition.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -41,6 +42,18 @@ public sealed partial class ImpReproductiveComponent : Component
     /// </summary>
     [DataField("maxBreedDamage"), ViewVariables(VVAccess.ReadOnly)]
     public int MaxBreedDamage = 50;
+
+    /// <summary>
+    ///     Minimum hunger threshold needed to breed.
+    /// </summary>
+    [DataField]
+    public HungerThreshold MinimumHungerThreshold = HungerThreshold.Okay;
+
+    /// <summary>
+    ///     Minimum thirst threshold needed to breed.
+    /// </summary>
+    [DataField]
+    public ThirstThreshold MinimumThirstThreshold = ThirstThreshold.Okay;
 
     /// <summary>
     /// Animals will not breed with the same Gender unless they are Agender

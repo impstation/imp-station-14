@@ -35,22 +35,19 @@ public sealed partial class AnimalHusbandrySystemImp
     ///     Gets whether or not this entity is currently incapable of gestation.
     /// </summary>
     /// <remarks>
-    ///     If this is the case, then gestation should cease immediately.
+    ///     The entity does not have to be already gestating to be checked, as this also
+    ///     checks the reproductive viability of mobs that are about to breed.
     /// </remarks>
-    /// <param name="ent">The gestating entity.</param>
+    /// <param name="ent">The entity to check gestation capability.</param>
     /// <returns>Whether or not this entity is currently incapable of gestation</returns>
-    public bool IsUnableToGestate(Entity<GestatingComponent?> ent)
+    public bool IsUnableToGestate(EntityUid uid)
     {
-        // Not a gestating entity.
-        if (!Resolve(ent.Owner, ref ent.Comp))
-            return false;
-
         // Being deleted.
-        if (TerminatingOrDeleted(ent))
+        if (TerminatingOrDeleted(uid))
             return false;
 
         var ev = new IsUnableToGestateEvent();
-        RaiseLocalEvent(ent.Owner, ref ev);
+        RaiseLocalEvent(uid, ref ev);
 
         return ev.Handled;
     }
@@ -73,6 +70,15 @@ public sealed partial class AnimalHusbandrySystemImp
     {
         if (_mind.TryGetMind(ent.Owner, out var _, out var _, ent.Comp))
             args.Handled = true;
+    }
+
+    /// <summary>
+    ///     Prevents infant entities from gestating at all.
+    /// </summary>
+    /// <param name="ent">The infant entity.</param>
+    private void IsInfantUnableToGestate(Entity<ImpInfantComponent> ent, ref IsUnableToGestateEvent args)
+    {
+        args.Handled = true;
     }
 
     /// <summary>

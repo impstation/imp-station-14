@@ -40,6 +40,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<ImpInfantComponent, IsUnableToGestateEvent>(IsInfantUnableToGestate);
         SubscribeLocalEvent<MobStateComponent, IsUnableToGestateEvent>(IsMobStateUnableToGestate);
         SubscribeLocalEvent<MindContainerComponent, IsUnableToGestateEvent>(IsMindContainerUnableToGestate);
     }
@@ -68,7 +69,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
 
             // If the entity is unable to gestate for any reason,
             // then we end the gestation pre-emptively without producing anything.
-            if (IsUnableToGestate(gestatingEntity))
+            if (IsUnableToGestate(uid))
             {
                 EndGestation(gestatingEntity);
                 continue;
