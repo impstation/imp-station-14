@@ -40,9 +40,14 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     {
         base.Initialize();
 
+        // Note: If you're implementing these events for other components, ideally they should be subscribed to in their
+        // respective systems. These are here because they're upstream components and it would be a pain in the ass
+        // to do so in a namespace-friendly way
         SubscribeLocalEvent<ImpInfantComponent, IsUnableToGestateEvent>(IsInfantUnableToGestate);
         SubscribeLocalEvent<MobStateComponent, IsUnableToGestateEvent>(IsMobStateUnableToGestate);
         SubscribeLocalEvent<MindContainerComponent, IsUnableToGestateEvent>(IsMindContainerUnableToGestate);
+
+        SubscribeLocalEvent<MobStateComponent, InfantCanGrowEvent>(CanMobStateGrow);
     }
 
     /// <summary>
@@ -88,8 +93,8 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         var infantQuery = EntityQueryEnumerator<ImpInfantComponent>();
         while (infantQuery.MoveNext(out var uid, out var infant))
         {
-            // If the infant isn't alive (crit or dead), then it shouldn't be growing.
-            if (!IsAlive(uid))
+            // Account for situations in which the infant is unable to grow.
+            if (!CanGrow((uid, infant)))
                 continue;
 
             infant.CurrentGrowthTime += growthTime;
@@ -98,55 +103,6 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
             if (infant.CurrentGrowthTime >= infant.GrowthTime)
                 AdvanceStage((uid, infant));
         }
-    }
-
-    /// <summary>
-    /// Handles growing an infant by deleting the current mob and making a new one
-    /// This also transfers the previous components to the new mob
-    /// </summary>
-    /// <param name="infant">The infant that will be growing up</param>
-    /// <returns></returns>
-    private bool AdvanceStage(Entity<ImpInfantComponent> infant)
-    {
-        var newStage = SpawnOnTop(infant, infant.Comp.NextStage);
-
-        if (!_prototype.Resolve(infant.Comp.OffspringSettings, out var settings))
-            return false;
-
-        // If someone is in this thing, move them over as well
-        if (_mind.TryGetMind(infant, out var mind, out var mindComp))
-            _mind.TransferTo(mind, newStage);
-
-        // Make sure the relevant Data like damage carries over
-        _cloning.CloneComponents(infant, newStage, settings);
-
-        // If there is a ghost role attached to this mob, try to keep it
-        if (TryComp<GhostRoleComponent>(infant, out var ghostComp))
-            TryCopyComponent(infant, newStage, ref ghostComp, out var _);
-
-        // Pompeii Ash Baby.png
-        QueueDel(infant);
-
-        var isAdult = HasComp<ImpInfantComponent>(infant.Owner);
-
-        // So they don't immediately try to breed the second they grow up
-        if (isAdult)
-            RefreshSearchTime(newStage);
-
-        return isAdult;
-    }
-
-    /// <summary>
-    ///     Updates a reproductive entity's partner search time with a random duration.
-    /// </summary>
-    /// <param name="entity">The reproductive entity.</param>
-    public void RefreshSearchTime(Entity<ImpReproductiveComponent?> entity)
-    {
-        if (!Resolve(entity.Owner, ref entity.Comp))
-            return;
-
-        var newDuration = _random.Next(entity.Comp.MinSearchAttemptInterval, entity.Comp.MaxSearchAttemptInterval);
-        entity.Comp.NextSearch = _time.CurTime + newDuration;
     }
 
     /// <summary>
@@ -161,18 +117,5 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         var newMob = SpawnAtPosition(toSpawn, xform.Coordinates);
 
         return newMob;
-    }
-
-    /// <summary>
-    ///     Checks whether or not an entity is alive.
-    /// </summary>
-    /// <param name="entity">The entity to check.</param>
-    /// <returns>Whether or not the entity is alive or otherwise does not require health.</returns>
-    public bool IsAlive(Entity<MobStateComponent?> entity)
-    {
-        if (!Resolve(entity.Owner, ref entity.Comp))
-            return true;
-
-        return entity.Comp.CurrentState == Shared.Mobs.MobState.Alive;
     }
 }

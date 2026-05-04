@@ -50,3 +50,10 @@ public enum InfantType
     Immediate,
     Incubated
 };
+
+/// <summary>
+///     Whether or not this entity is currently capable of growing up.
+/// </summary>
+/// <param name="Cancelled">True if this entity cannot grow currently.</param>
+[ByRefEvent]
+public record struct InfantCanGrowEvent(bool Cancelled = false);

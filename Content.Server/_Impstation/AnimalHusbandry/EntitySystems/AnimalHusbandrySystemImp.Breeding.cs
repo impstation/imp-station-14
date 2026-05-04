@@ -106,6 +106,19 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     }
 
     /// <summary>
+    ///     Updates a reproductive entity's partner search time with a random duration.
+    /// </summary>
+    /// <param name="entity">The reproductive entity.</param>
+    public void RefreshSearchTime(Entity<ImpReproductiveComponent?> entity)
+    {
+        if (!Resolve(entity.Owner, ref entity.Comp))
+            return;
+
+        var newDuration = _random.Next(entity.Comp.MinSearchAttemptInterval, entity.Comp.MaxSearchAttemptInterval);
+        entity.Comp.NextSearch = _time.CurTime + newDuration;
+    }
+
+    /// <summary>
     ///     Gets whether or not a reproductive entity is ready to search for a new partner.
     /// </summary>
     /// <param name="entity">The reproductive entity.</param>

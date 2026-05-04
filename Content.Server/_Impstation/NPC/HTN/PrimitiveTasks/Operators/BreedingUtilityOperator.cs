@@ -131,13 +131,13 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
     {
         var settingsProto = _proto.Index(comp.BreedSettings);
 
-        if(settingsProto == null || settingsProto.CompatibleBreeds == null)
+        if (settingsProto == null || settingsProto.CompatibleBreeds == null)
             return false;
 
         if (settingsProto.CompatibleBreeds.Count == 0)
             return true;
 
-        foreach(var partner in settingsProto.CompatibleBreeds)
+        foreach (var partner in settingsProto.CompatibleBreeds)
         {
             if (partner == self) return true;
         }
@@ -231,17 +231,17 @@ public sealed partial class BreedingUtilityOperator : HTNOperator
         var owner = blackboard.GetValue<EntityUid>(NPCBlackboard.Owner);
 
         // If either of us have lost our breedability or just outright stopped existing
-        if (!_entManager.TryGetComponent<ImpReproductiveComponent>(owner, out var reproComp)
+        if (!_entManager.HasComponent<ImpReproductiveComponent>(owner)
             || !blackboard.TryGetValue<EntityUid>(Key, out var target, _entManager)
-            || !_entManager.TryGetComponent<ImpReproductiveComponent>(target, out var targetComp)
+            || !_entManager.HasComponent<ImpReproductiveComponent>(target)
             || target == EntityUid.Invalid)
         {
             return HTNOperatorStatus.Failed;
         }
 
         // Have we done our job? Or have we waited too long
-        if (targetComp.Pregnant
-            || reproComp.Pregnant)
+        if (_entManager.HasComponent<GestatingComponent>(owner)
+            || _entManager.HasComponent<GestatingComponent>(target))
         {
             return HTNOperatorStatus.Continuing;
         }
