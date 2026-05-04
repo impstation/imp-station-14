@@ -31,22 +31,6 @@
     - Sidearm
   - type: StaticPrice
     price: 100
-  - type: SolutionAmmoProvider
-    solutionId: chamber
-    proto: BulletPlasmaSpread
-    fireCost: 0.5
-  - type: Gun
-    clumsyProof: false
-    cameraRecoilScalar: 1
-    fireRate: 0.5
-    burstFireRate: 10
-    shotsPerBurst: 5
-    burstCooldown: 1.5
-    selectedMode: Burst
-    availableModes:
-    - Burst
-    soundGunshot:
-      path: /Audio/_Impstation/Weapons/Guns/Gunshots/glykon.ogg
 
 - type: entity
   name: Akurra
