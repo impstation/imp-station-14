@@ -3,7 +3,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Impstation.AnimalHusbandry.Components;
 
 /// <summary>
-///     An entity that will incubate its contents that have <see cref="IncubationComponent"/>.
+///     An entity that will incubate its contents that have <see cref="GestatingComponent"/>.
 /// </summary>
 [RegisterComponent]
 public sealed partial class EggIncubatorComponent : Component

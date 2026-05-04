@@ -1,0 +1,111 @@
+using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Components;
+
+namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
+
+public sealed partial class AnimalHusbandrySystemImp
+{
+    /// <summary>
+    ///     Gets whether or not this entity is currently gestating.
+    /// </summary>
+    /// <remarks>
+    ///     This can be prevented by certain circumstances, like an entity that requires an incubator to gestate.
+    /// </remarks>
+    /// <param name="ent">The gestating entity.</param>
+    /// <returns>Whether or not this entity is currently gestating.</returns>
+    public bool IsGestating(Entity<GestatingComponent?> ent)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return false;
+
+        if (TerminatingOrDeleted(ent))
+            return false;
+
+        var ev = new IsGestatingEvent();
+        RaiseLocalEvent(ent.Owner, ref ev);
+
+        return !ev.Cancelled;
+    }
+
+    /// <summary>
+    ///     Gets whether or not this entity is currently incapable of gestation.
+    /// </summary>
+    /// <remarks>
+    ///     If this is the case, then gestation should cease immediately.
+    /// </remarks>
+    /// <param name="ent">The gestating entity.</param>
+    /// <returns>Whether or not this entity is currently incapable of gestation</returns>
+    public bool IsUnableToGestate(Entity<GestatingComponent?> ent)
+    {
+        if (!Resolve(ent.Owner, ref ent.Comp))
+            return false;
+
+        if (TerminatingOrDeleted(ent))
+            return false;
+
+        var ev = new IsUnableToGestateEvent();
+        RaiseLocalEvent(ent.Owner, ref ev);
+
+        return ev.Handled;
+    }
+
+    /// <summary>
+    ///     Renders a mob unable to gestate if it is in dead or critical condition.
+    /// </summary>
+    /// <param name="ent">The mob state entity.</param>
+    private void IsMobStateUnableToGestate(Entity<MobStateComponent> ent, ref IsUnableToGestateEvent args)
+    {
+        if (ent.Comp.CurrentState != Shared.Mobs.MobState.Alive)
+            args.Handled = true;
+    }
+
+    /// <summary>
+    ///     Renders an entity unable to gestate if there is a player controlling it.
+    /// </summary>
+    /// <param name="ent">The mind container entity.</param>
+    private void IsMindContainerUnableToGestate(Entity<MindContainerComponent> ent, ref IsUnableToGestateEvent args)
+    {
+        if (_mind.TryGetMind(ent.Owner, out var _, out var _, ent.Comp))
+            args.Handled = true;
+    }
+
+    /// <summary>
+    /// Handles the actual birthing of the new NPC and sets how long until they grow up
+    /// </summary>
+    /// <param name="entity">The mob giving birth</param>
+    private void CompleteGestation(Entity<GestatingComponent> entity)
+    {
+        if (TryComp<InteractionPopupComponent>(entity, out var interactionPopup))
+            _audio.PlayPvs(interactionPopup.InteractSuccessSound, entity);
+
+        var offspring = SpawnNewMob(entity, entity.Comp.EntityToSpawn);
+        if (offspring == null)
+            return;
+
+        if (_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
+            infantComp.Parent = entity;
+
+        // Delete this entity on gestation complete if flagged for it - for example, an egg.
+        if (entity.Comp.DeleteSelfOnSpawn)
+            QueueDel(entity.Owner);
+
+        EndGestation(entity.AsNullable());
+    }
+
+    /// <summary>
+    ///     Stops an entity's gestation immediately.
+    /// </summary>
+    /// <remarks>
+    ///     This does not produce offspring, but it is called in <see cref="CompleteGestation"/>.
+    /// </remarks>
+    /// <param name="entity">The gestating entity.</param>
+    private void EndGestation(Entity<GestatingComponent?> entity)
+    {
+        if (!Resolve(entity.Owner, ref entity.Comp))
+            return;
+
+        RemCompDeferred(entity.Owner, entity.Comp);
+    }
+}

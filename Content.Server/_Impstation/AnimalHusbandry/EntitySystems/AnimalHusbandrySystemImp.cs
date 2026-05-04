@@ -4,6 +4,7 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Shared.Database;
 using Content.Shared.EntityTable;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.EntitySystems;
@@ -11,10 +12,10 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-
 using Content.Shared._Impstation.AnimalHusbandry.Components;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
+
 /// <summary>
 /// System that handles mob breeding, birthing and growing
 /// This system works alongside HTN
@@ -40,6 +41,9 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<MobStateComponent, IsUnableToGestateEvent>(IsMobStateUnableToGestate);
+        SubscribeLocalEvent<MindContainerComponent, IsUnableToGestateEvent>(IsMindContainerUnableToGestate);
     }
 
     /// <summary>
@@ -58,22 +62,25 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         var growthTime = _time.CurTime - _lastUpdated;
         _lastUpdated = _time.CurTime;
 
-        // Advance the gestation of all pregnant mobs.
-        var pregnantQuery = EntityQueryEnumerator<PregnantComponent>();
-        while (pregnantQuery.MoveNext(out var uid, out var pregnant))
+        // Advance the gestation of all gestating entities.
+        var gestatingQuery = EntityQueryEnumerator<GestatingComponent>();
+        while (gestatingQuery.MoveNext(out var uid, out var gestating))
         {
-            // If the mob is not healthy enough to carry offspring, or the mob is player-controlled,
-            // then we end the pregnancy pre-emptively without producing anything.
+            // If the entity is unable to gestate for any reason,
+            // then we end the gestation pre-emptively without producing anything.
             if (!IsAlive(uid) || _mind.TryGetMind(uid, out var _, out var _))
             {
-                EndPregnancy((uid, pregnant));
+                EndGestation((uid, gestating));
                 continue;
             }
 
-            // Otherwise, if the mob is ready, give birth.
-            // TODO: TimerTriggerComponent
-            if (_time.CurTime >= pregnant.EndTime)
-                GiveBirth((uid, pregnant));
+            // Otherwise, if this entity is capable of gestation, then we add progress to the gestation timer.
+            if (IsGestating((uid, gestating)))
+                gestating.CurrentGestationTime += growthTime;
+
+            // If the gestation progress timer surpasses the gestation time, complete gestation.
+            if (gestating.CurrentGestationTime > gestating.GestationTime)
+                CompleteGestation((uid, gestating));
         }
 
         // Advance the growth of all infants.
@@ -146,7 +153,6 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     public EntityUid? SpawnNewMob(EntityUid entity, EntProtoId toSpawn)
     {
         var xform = Transform(entity);
-
         var newMob = Spawn(toSpawn, xform.Coordinates);
 
         return newMob;

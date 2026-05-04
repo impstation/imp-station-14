@@ -1,10 +1,7 @@
 using Content.Shared._Impstation.AnimalHusbandry.Components;
-using Content.Shared.Interaction.Components;
 using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._Impstation.AnimalHusbandry.EntitySystems;
 
@@ -16,11 +13,6 @@ public sealed class IncubationSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerSystem = default!;
-    [Dependency] private readonly IGameTiming _time = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-
-    private TimeSpan _lastUpdated = TimeSpan.Zero;
-    private TimeSpan _updateRate = TimeSpan.FromSeconds(1.0f); // TODO: CVar
 
     public override void Initialize()
     {
@@ -30,38 +22,7 @@ public sealed class IncubationSystem : EntitySystem
         SubscribeLocalEvent<EggIncubatorComponent, PowerChangedEvent>(OnPowerChanged);
         SubscribeLocalEvent<EggIncubatorComponent, EntInsertedIntoContainerMessage>(OnIncubatorContentsInserted);
         SubscribeLocalEvent<EggIncubatorComponent, EntRemovedFromContainerMessage>(OnIncubatorContentsRemoved);
-    }
-
-    /// <summary>
-    /// Increases the incubation timer of all active incubating entities.
-    /// </summary>
-    /// <param name="frameTime">Time between frames</param>
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        // We only update incubation timers every [interval], for performance.
-        if (_time.CurTime < _lastUpdated + _updateRate)
-            return;
-
-        // Time elapsed since last update. May be slightly more than [interval], depending on frame time.
-        var incubationTime = _time.CurTime - _lastUpdated;
-        _lastUpdated = _time.CurTime;
-
-        var query = EntityQueryEnumerator<IncubationComponent>();
-        while (query.MoveNext(out var uid, out var incubation))
-        {
-            // Move on if this entity is not being incubated.
-            if (!IsBeingIncubated((uid, incubation)))
-                continue;
-
-            // Add incubation time to the incubator.
-            incubation.CurrentIncubationTime += incubationTime;
-
-            // Finish incubation if we're done incubating the egg.
-            if (incubation.CurrentIncubationTime >= incubation.IncubationTime)
-                FinishIncubation((uid, incubation));
-        }
+        SubscribeLocalEvent<IncubatableComponent, IsGestatingEvent>(IsIncubatableGestating);
     }
 
     /// <summary>
@@ -102,31 +63,13 @@ public sealed class IncubationSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Handles hatching our egg once the time has passed and creating the new mob.
+    ///     Prevents an incubatable entity from gestating if it is not being incubated.
     /// </summary>
-    /// <param name="entity">The incubator hatching our mob</param>
-    private void FinishIncubation(Entity<IncubationComponent> entity)
+    /// <param name="entity">The incubatable entity.</param>
+    private void IsIncubatableGestating(Entity<IncubatableComponent> entity, ref IsGestatingEvent args)
     {
-        var newMob = SpawnNewMob(entity, entity.Comp.IncubatedResult);
-
-        if (TryComp<InteractionPopupComponent>(newMob, out var interactionPopup))
-            Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates((EntityUid)newMob));
-
-        PredictedDel(entity.Owner);
-    }
-
-    /// <summary>
-    ///     Handles spawning a new mob for us
-    /// </summary>
-    /// <param name="entity">Entity calling the creation</param>
-    /// <param name="toSpawn">What entity will be spawned</param>
-    /// <returns>The ID of our new mob! Or nothing if for some reason it didn't spawn.</returns>
-    private EntityUid? SpawnNewMob(EntityUid entity, EntProtoId toSpawn)
-    {
-        var xform = Transform(entity);
-        var newMob = PredictedSpawnAtPosition(toSpawn, xform.Coordinates);
-
-        return newMob;
+        if (!IsBeingIncubated(entity))
+            args.Cancelled = true;
     }
 
     /// <summary>
@@ -187,16 +130,16 @@ public sealed class IncubationSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Gets whether or not an incubating entity is actively being incubated.
+    ///     Gets whether or not an entity is actively being incubated.
     /// </summary>
-    /// <param name="entity">The incubating entity.</param>
+    /// <param name="uid">An entity to check for incubation.</param>
     /// <returns>Whether or not the incubating entity is being incubated.</returns>
-    public bool IsBeingIncubated(Entity<IncubationComponent> entity)
+    public bool IsBeingIncubated(EntityUid uid)
     {
-        var xform = Transform(entity.Owner);
+        var xform = Transform(uid);
 
         // Is this entity inside an active incubator?
-        if (_container.TryGetOuterContainer(entity.Owner, xform, out var container)
+        if (_container.TryGetOuterContainer(uid, xform, out var container)
             && IncubatorCanIncubate(container.Owner))
             return true;
 

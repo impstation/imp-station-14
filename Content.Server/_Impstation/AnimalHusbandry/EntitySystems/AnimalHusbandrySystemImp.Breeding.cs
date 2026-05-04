@@ -30,12 +30,11 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
             || approacherProto == null) // Ensure approacher has a prototype
             return false;
 
-        var component = approacher.Comp;
         var partnerComp = approached.Comp;
 
         // one last check in case someone beat us to the cow or bred us on the way there
         // It's dumb but unless I make the system assign pairings this is the best i can think of for the moment
-        if (!CanYouBreed((approacher, component)) || !CanYouBreed((approached, partnerComp)))
+        if (!CanYouBreed(approacher) || !CanYouBreed(approached))
             return false;
 
         if (!_prototype.TryIndex(partnerComp.BreedSettings, out var partnerSettings))
@@ -47,20 +46,20 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
             { ValidPartnerCondition.PartnerContextKey, approacherProto.ID },
         });
 
-        // Apply pregnancy to the approached mob
-        var pregnant = EnsureComp<PregnantComponent>(approached.Owner);
-        pregnant.EndTime = _time.CurTime + partnerComp.PregnancyLength;
-        pregnant.EntityToSpawn = _entTable.GetSpawns(partnerSettings.PossibleInfants, ctx: ctx).First();
+        // Add gestation to the approached mob
+        var gestating = EnsureComp<GestatingComponent>(approached.Owner);
+        gestating.GestationTime = partnerComp.PregnancyLength;
+        gestating.EntityToSpawn = _entTable.GetSpawns(partnerSettings.PossibleInfants, ctx: ctx).First();
         partnerComp.PreviousPartner = approacher;
 
         if (TryComp<InteractionPopupComponent>(approached, out var interactionPopup))
             Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates(approached));
 
         // GET HUNGRY GET THIRSTY
-        _hunger.ModifyHunger(approacher, -component.HungerPerBirth);
+        _hunger.ModifyHunger(approacher, -approacher.Comp.HungerPerBirth);
         _hunger.ModifyHunger(approached, -partnerComp.HungerPerBirth);
 
-        _thirst.ModifyThirst(approacher, -component.HungerPerBirth);
+        _thirst.ModifyThirst(approacher, -approacher.Comp.HungerPerBirth);
         _thirst.ModifyThirst(approached, -partnerComp.HungerPerBirth);
 
         _adminLog.Add(LogType.Action, $"{ToPrettyString(approacher)} (carrier) and {ToPrettyString(approached)} (partner) successfully bred.");
@@ -74,9 +73,12 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     /// </summary>
     /// <param name="entity">The fella we're checking out. Or ourself</param>
     /// <returns>If the mob is eligible to breed</returns>
-    public bool CanYouBreed(Entity<ImpReproductiveComponent> entity)
+    public bool CanYouBreed(Entity<ImpReproductiveComponent?> entity)
     {
-        if (HasComp<PregnantComponent>(entity.Owner))
+        if (!Resolve(entity.Owner, ref entity.Comp))
+            return false;
+
+        if (HasComp<GestatingComponent>(entity.Owner))
             return false;
 
         // Making sure we're not trying to breed with an infant
@@ -113,43 +115,9 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         if (entity.Comp.NextSearch > _time.CurTime)
             return false;
 
-        if (!CanYouBreed(entity))
+        if (!CanYouBreed(entity.AsNullable()))
             return false;
 
         return true;
-    }
-
-    /// <summary>
-    /// Handles the actual birthing of the new NPC and sets how long until they grow up
-    /// </summary>
-    /// <param name="entity">The mob giving birth</param>
-    private void GiveBirth(Entity<PregnantComponent> entity)
-    {
-        if (TryComp<InteractionPopupComponent>(entity, out var interactionPopup))
-            _audio.PlayPvs(interactionPopup.InteractSuccessSound, entity);
-
-        var offspring = SpawnNewMob(entity, entity.Comp.EntityToSpawn);
-        if (offspring == null)
-            return;
-
-        if (_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
-            infantComp.Parent = entity;
-
-        EndPregnancy(entity.AsNullable());
-    }
-
-    /// <summary>
-    ///     Stops an entity's pregnancy immediately.
-    /// </summary>
-    /// <remarks>
-    ///     This does not produce offspring, but it is called in <see cref="GiveBirth"/>.
-    /// </remarks>
-    /// <param name="entity">The pregnant entity.</param>
-    private void EndPregnancy(Entity<PregnantComponent?> entity)
-    {
-        if (!Resolve(entity.Owner, ref entity.Comp))
-            return;
-
-        RemCompDeferred(entity.Owner, entity.Comp);
     }
 }
