@@ -19,8 +19,6 @@ public sealed class IncubationSystem : EntitySystem
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
-    bool _justSwapped = false;
-
     public override void Initialize()
     {
         base.Initialize();
