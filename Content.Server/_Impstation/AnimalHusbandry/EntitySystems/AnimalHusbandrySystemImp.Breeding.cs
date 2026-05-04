@@ -106,18 +106,12 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     }
 
     /// <summary>
-    /// Same as CanYouBreed except this one takes into account the animals search times
+    ///     Gets whether or not a reproductive entity is ready to search for a new partner.
     /// </summary>
-    /// <param name="entity">The mob checking if it's eligible to breed</param>
-    /// <returns>If the mob is eligible for breeding</returns>
-    public bool CanIBreed(Entity<ImpReproductiveComponent> entity)
+    /// <param name="entity">The reproductive entity.</param>
+    /// <returns>Whether or not a reproductive entity is ready to search for a new partner.</returns>
+    public bool ReadyToSearch(Entity<ImpReproductiveComponent> entity)
     {
-        if (entity.Comp.NextSearch > _time.CurTime)
-            return false;
-
-        if (!CanYouBreed(entity.AsNullable()))
-            return false;
-
-        return true;
+        return _time.CurTime >= entity.Comp.NextSearch;
     }
 }

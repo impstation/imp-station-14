@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.Preconditions;
 using Content.Shared.Nutrition.Components;
@@ -58,14 +53,15 @@ public sealed partial class BreedablePrecondition : HTNPrecondition
         if (!_entityManager.TryGetComponent<ImpReproductiveComponent>(owner, out var reproComp))
             return false;
 
+        var reproducer = (owner, reproComp);
+
         // Mobs should only search for a breedable mate if they are ready to breed
-        // NextSearch exists so that mobs do not spam the server with searches and pathfinding to look for an eligible mate
-        if (!_breedSystem.CanIBreed((owner, reproComp)))
+        if (!_breedSystem.ReadyToSearch(reproducer) || !_breedSystem.CanYouBreed(reproducer))
             return false;
 
         // Sets the amount of time until they try and find a new mate.
         // It's partly so all mobs aren't just in sync, but also so the server isn't spamming searches.
-        _husbandry.RefreshSearchTime(owner);
+        _husbandry.RefreshSearchTime(reproducer);
 
         return true;
     }
