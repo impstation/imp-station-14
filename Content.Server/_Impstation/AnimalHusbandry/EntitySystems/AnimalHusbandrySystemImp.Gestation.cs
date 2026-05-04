@@ -76,19 +76,17 @@ public sealed partial class AnimalHusbandrySystemImp
     }
 
     /// <summary>
-    /// Handles the actual birthing of the new NPC and sets how long until they grow up
+    ///     Completes gestation and spawns a new entity, cleaning up if needed.
     /// </summary>
-    /// <param name="entity">The mob giving birth</param>
+    /// <param name="entity">The gestating entity.</param>
     private void CompleteGestation(Entity<GestatingComponent> entity)
     {
         if (TryComp<InteractionPopupComponent>(entity, out var interactionPopup))
             _audio.PlayPvs(interactionPopup.InteractSuccessSound, entity);
 
-        var offspring = SpawnNewMob(entity, entity.Comp.EntityToSpawn);
-        if (offspring == null)
-            return;
+        var offspring = SpawnOnTop(entity, entity.Comp.EntityToSpawn);
 
-        if (_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
+        if (TryComp<ImpInfantComponent>(offspring, out var infantComp))
             infantComp.Parent = entity;
 
         // Delete this entity on gestation complete if flagged for it - for example, an egg.

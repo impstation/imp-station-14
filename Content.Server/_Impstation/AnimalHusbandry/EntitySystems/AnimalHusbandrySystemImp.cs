@@ -22,7 +22,6 @@ namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 public sealed partial class AnimalHusbandrySystemImp : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _time = default!;
@@ -108,12 +107,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     /// <returns></returns>
     private bool AdvanceStage(Entity<ImpInfantComponent> infant)
     {
-        bool isAdult = false;
-
-        var newStage = SpawnNewMob(infant, infant.Comp.NextStage);
-
-        if (newStage == null)
-            return false;
+        var newStage = SpawnOnTop(infant, infant.Comp.NextStage);
 
         if (!_prototype.Resolve(infant.Comp.OffspringSettings, out var settings))
             return false;
@@ -122,27 +116,36 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         if (_mind.TryGetMind(infant, out var mind, out var mindComp))
             _mind.TransferTo(mind, newStage);
 
-        isAdult = !_entManager.TryGetComponent<InfantComponent>(newStage, out var comp);
-
         // Make sure the relevant Data like damage carries over
-        _cloning.CloneComponents(infant, (EntityUid)newStage, settings);
+        _cloning.CloneComponents(infant, newStage, settings);
 
-        // If there is a ghost role attached to this mob, keep it
-        // We also make sure the new stage doesn't already come with one, otherwise the game crashes.
-        if (_entManager.TryGetComponent<GhostRoleComponent>(infant, out var ghostComp) &&
-            !_entManager.TryGetComponent<GhostRoleComponent>(newStage, out var newGhostcomp))
-        {
-            CopyComp(infant, (EntityUid)newStage, ghostComp);
-        }
+        // If there is a ghost role attached to this mob, try to keep it
+        if (TryComp<GhostRoleComponent>(infant, out var ghostComp))
+            TryCopyComponent(infant, newStage, ref ghostComp, out var _);
 
         // Pompeii Ash Baby.png
         QueueDel(infant);
 
+        var isAdult = HasComp<ImpInfantComponent>(infant.Owner);
+
         // So they don't immediately try to breed the second they grow up
-        if (isAdult && _entManager.TryGetComponent<ImpReproductiveComponent>(newStage, out var reproComp))
-            reproComp.NextSearch = _time.CurTime + _random.Next(reproComp.MinSearchAttemptInterval, reproComp.MaxSearchAttemptInterval);
+        if (isAdult)
+            RefreshSearchTime(newStage);
 
         return isAdult;
+    }
+
+    /// <summary>
+    ///     Updates a reproductive entity's partner search time with a random duration.
+    /// </summary>
+    /// <param name="entity">The reproductive entity.</param>
+    public void RefreshSearchTime(Entity<ImpReproductiveComponent?> entity)
+    {
+        if (!Resolve(entity.Owner, ref entity.Comp))
+            return;
+
+        var newDuration = _random.Next(entity.Comp.MinSearchAttemptInterval, entity.Comp.MaxSearchAttemptInterval);
+        entity.Comp.NextSearch = _time.CurTime + newDuration;
     }
 
     /// <summary>
@@ -151,10 +154,10 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     /// <param name="entity">Entity calling the creation</param>
     /// <param name="toSpawn">What entity will be spawned</param>
     /// <returns>The ID of our new mob! Or nothing if for some reason it didn't spawn.</returns>
-    public EntityUid? SpawnNewMob(EntityUid entity, EntProtoId toSpawn)
+    public EntityUid SpawnOnTop(EntityUid entity, EntProtoId toSpawn)
     {
         var xform = Transform(entity);
-        var newMob = Spawn(toSpawn, xform.Coordinates);
+        var newMob = SpawnAtPosition(toSpawn, xform.Coordinates);
 
         return newMob;
     }

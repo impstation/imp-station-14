@@ -1,9 +1,9 @@
 using Content.Shared._Impstation.AnimalHusbandry.Prototypes;
-using Content.Shared.EntityTable.EntitySelectors;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Impstation.AnimalHusbandry.Components;
+
 /// <summary>
 /// Component that keeps track of all our variables for an animals reproductive abilities.
 /// </summary>
