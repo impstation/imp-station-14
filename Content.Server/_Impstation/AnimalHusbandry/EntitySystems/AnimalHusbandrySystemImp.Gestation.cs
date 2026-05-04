@@ -1,4 +1,5 @@
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared.Database;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
@@ -94,6 +95,10 @@ public sealed partial class AnimalHusbandrySystemImp
 
         if (TryComp<ImpInfantComponent>(offspring, out var infantComp))
             infantComp.Parent = entity;
+
+        _adminLog.Add(LogType.Action,
+            $"{ToPrettyString(entity)} has given birth to {ToPrettyString(offspring)}!"
+            + $" DELETED: {entity.Comp.DeleteSelfOnSpawn}");
 
         // Delete this entity on gestation complete if flagged for it - for example, an egg.
         if (entity.Comp.DeleteSelfOnSpawn)

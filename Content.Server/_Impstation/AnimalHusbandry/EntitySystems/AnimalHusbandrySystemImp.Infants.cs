@@ -1,5 +1,6 @@
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared.Database;
 using Content.Shared.Mobs.Components;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
@@ -60,6 +61,9 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         // If there is a ghost role attached to this mob, try to keep it
         if (TryComp<GhostRoleComponent>(infant, out var ghostComp))
             TryCopyComponent(infant, newStage, ref ghostComp, out var _);
+
+        _adminLog.Add(LogType.Action,
+            $"{ToPrettyString(infant)} advanced to next growth stage: {ToPrettyString(newStage)}");
 
         // Pompeii Ash Baby.png
         QueueDel(infant);
