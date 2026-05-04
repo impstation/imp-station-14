@@ -13,25 +13,25 @@ public sealed partial class ImpInfantComponent : Component
     /// <summary>
     /// The information that carries over between growth stages
     /// </summary>
-    [DataField("offspringSettings")]
+    [DataField]
     public ProtoId<CloningSettingsPrototype> OffspringSettings = "BaseOffspringClone";
 
     /// <summary>
     /// Is this animal immediately born an NPC or do they start needing incubation
     /// </summary>
-    [DataField("infantType"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public InfantType InfantType = InfantType.Immediate;
 
     /// <summary>
     /// How long until the next growth stage
     /// </summary>
-    [DataField("growthTime"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan GrowthTime = TimeSpan.FromSeconds(180);
 
     /// <summary>
     /// Next Growth stage of the animal
     /// </summary>
-    [DataField("nextStage", required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField(required: true)]
     public EntProtoId NextStage;
 
     /// <summary>

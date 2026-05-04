@@ -15,32 +15,32 @@ public sealed partial class ImpReproductiveComponent : Component
     /// <summary>
     /// Minimum amount of time a mob will wait before looking for a partner
     /// </summary>
-    [DataField("minSearch"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("minSearch")]
     public TimeSpan MinSearchAttemptInterval = TimeSpan.FromSeconds(10);
 
     /// <summary>
     /// Maximum amount of time a mob will wait before looking for a partner
     /// </summary>
-    [DataField("maxSearch"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("maxSearch")]
     public TimeSpan MaxSearchAttemptInterval = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Amount of hunger expended per birth
     /// </summary>
-    [DataField("hungerPerBirth")]
+    [DataField]
     public int HungerPerBirth = 75;
 
     /// <summary>
     /// How long a mob will stay pregnant for
     /// </summary>
-    [DataField("pregnancyLength"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan PregnancyLength = TimeSpan.FromSeconds(120);
 
     /// <summary>
     /// Damage threshold a mob must hit in order to not be able to breed
     /// This is to prevent situations such as a mob close to crit looking to breed
     /// </summary>
-    [DataField("maxBreedDamage"), ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public int MaxBreedDamage = 50;
 
     /// <summary>
@@ -58,20 +58,27 @@ public sealed partial class ImpReproductiveComponent : Component
     /// <summary>
     /// Animals will not breed with the same Gender unless they are Agender
     /// </summary>
-    [DataField("sex"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("sex")]
     public AnimalGender Gender = AnimalGender.None;
 
     /// <summary>
     /// The settings used for things such as an animals compatible partners and
     /// the possible offspring that it can have.
     /// </summary>
-    [DataField("breedPrototype"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("breedPrototype")]
     public ProtoId<BreedSettingsPrototype>? BreedSettings;
 
+    /// <summary>
+    ///     The next time we should attempt to search for a partner.
+    /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan NextSearch = TimeSpan.Zero;
 
+    /// <summary>
+    ///     The last entity that this entity has reproduced with successfully.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid PreviousPartner;
 }
 
