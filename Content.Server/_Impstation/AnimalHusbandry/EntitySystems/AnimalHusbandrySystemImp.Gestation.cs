@@ -97,7 +97,7 @@ public sealed partial class AnimalHusbandrySystemImp
             infantComp.Parent = entity;
 
         _adminLog.Add(LogType.Action,
-            $"{ToPrettyString(entity)} has given birth to {ToPrettyString(offspring)}!"
+            $"{ToPrettyString(entity)} gave birth to {ToPrettyString(offspring)}!"
             + $" DELETED: {entity.Comp.DeleteSelfOnSpawn}");
 
         // Delete this entity on gestation complete if flagged for it - for example, an egg.
