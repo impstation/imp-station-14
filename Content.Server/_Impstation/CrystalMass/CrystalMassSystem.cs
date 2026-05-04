@@ -46,17 +46,15 @@ public sealed class CrystalMassSystem : EntitySystem
 
     private void OnStartup(Entity<CrystalMassComponent> ent, ref ComponentStartup args)
     {
+        var comp = ent.Comp;
+
         SetupCrystalMass(ent);
+
         // Actual ss13 times would be 0, 3 but they have a update delay, aksi this feels more right imo
         // 0 delay multiple times will cause it to spike out suddenly
         var delay = _random.Next(0, 4);
-        ent.Comp.NextSpread = _timing.CurTime + TimeSpan.FromSeconds(delay);
-
-        // Slightly longer than one tick
-        Timer.Spawn(TimeSpan.FromMilliseconds(17), () =>
-        {
-            ClearTileForCrystal(ent);
-        });
+        comp.NextSpread = _timing.CurTime + TimeSpan.FromSeconds(delay);
+        comp.DeletionTick = _timing.CurTime + TimeSpan.FromSeconds(0.5);
     }
 
     public override void Update(float frameTime)
@@ -64,25 +62,23 @@ public sealed class CrystalMassSystem : EntitySystem
         base.Update(frameTime);
 
         var curTime = _timing.CurTime;
-        var toSpread = new List<Entity<CrystalMassComponent>>();
         var query = EntityQueryEnumerator<CrystalMassComponent>();
 
-        while (query.MoveNext(out var ent, out var crystalMassComponent))
+        while (query.MoveNext(out var ent, out var crystal))
         {
-            if (!crystalMassComponent.Spreading)
-                continue;
-            if (crystalMassComponent.NextSpread > curTime)
+            if (crystal.DeletionTick > curTime)
+                ClearTileForCrystal((ent, crystal));
+
+            if (!crystal.Spreading)
                 continue;
 
-            toSpread.Add(new Entity<CrystalMassComponent>(ent, crystalMassComponent));
-        }
-
-        foreach (var ent in toSpread)
-        {
-            CrystalMassSpread(ent);
+            if (crystal.NextSpread > curTime)
+                continue;
 
             var delay = _random.Next(1, 5);
-            ent.Comp.NextSpread = _timing.CurTime + TimeSpan.FromSeconds(delay);
+            crystal.NextSpread = _timing.CurTime + TimeSpan.FromSeconds(delay);
+
+            CrystalMassSpread((ent, crystal));
         }
     }
 
@@ -183,14 +179,14 @@ public sealed class CrystalMassSystem : EntitySystem
 
         var currentTile = _mapSystem.TileIndicesFor(gridUid, mapGrid, xform.Coordinates);
 
-        // Needed cause crystal mass can't be found with Static Flag in GetEntitiesInTile for some reason
-        var anchoredEntities = _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, mapGrid, currentTile);
-        while (anchoredEntities.MoveNext(out var anchoredEnt))
-        {
-            if (anchoredEnt.Value == ent.Owner)
-                continue;
-            EntityManager.QueueDeleteEntity(anchoredEnt.Value);
-        }
+        // // Needed cause crystal mass can't be found with Static Flag in GetEntitiesInTile for some reason
+        // var anchoredEntities = _mapSystem.GetAnchoredEntitiesEnumerator(gridUid, mapGrid, currentTile);
+        // while (anchoredEntities.MoveNext(out var anchoredEnt))
+        // {
+        //     if (anchoredEnt.Value == ent.Owner)
+        //         continue;
+        //     EntityManager.QueueDeleteEntity(anchoredEnt.Value);
+        // }
 
         // TODO: Find why there are entities department signs/directions & signs that arn't getting destroyed
         foreach (var targetEnt in _lookup.GetEntitiesInTile(_mapSystem.GetTileRef(gridUid, mapGrid, currentTile), LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
@@ -203,10 +199,13 @@ public sealed class CrystalMassSystem : EntitySystem
             if (entTile.GridIndices != currentTile)
                 continue;
 
-            if (HasComp<SupermatterImmuneComponent>(targetEnt) || HasComp<GodmodeComponent>(targetEnt) || HasComp<GhostComponent>(targetEnt))
+            if (HasComp<SupermatterImmuneComponent>(targetEnt)
+                || HasComp<GodmodeComponent>(targetEnt)
+                || HasComp<GhostComponent>(targetEnt))
                 continue;
 
-            if (HasComp<MobStateComponent>(targetEnt) || HasComp<ItemComponent>(targetEnt))
+            if (HasComp<MobStateComponent>(targetEnt)
+                || HasComp<ItemComponent>(targetEnt))
                 _audio.PlayPvs(ent.Comp.DustSound, ent, AudioParams.Default.WithVolume(-2f));
 
             EntityManager.QueueDeleteEntity(targetEnt);
@@ -226,7 +225,8 @@ public sealed class CrystalMassSystem : EntitySystem
 
     private void OnStepTriggered(Entity<CrystalMassComponent> ent, ref StepTriggeredOnEvent args)
     {
-        if (HasComp<MobStateComponent>(args.Tripper) || HasComp<ItemComponent>(args.Tripper))
+        if (HasComp<MobStateComponent>(args.Tripper)
+            || HasComp<ItemComponent>(args.Tripper))
             _audio.PlayPvs(ent.Comp.DustSound, ent, AudioParams.Default.WithVolume(-2f));
 
         EntityManager.QueueDeleteEntity(args.Tripper);
@@ -234,7 +234,9 @@ public sealed class CrystalMassSystem : EntitySystem
 
     private void OnStepTriggerAttempt(Entity<CrystalMassComponent> ent, ref StepTriggerAttemptEvent args)
     {
-        if (HasComp<SupermatterImmuneComponent>(args.Tripper) || HasComp<GodmodeComponent>(args.Tripper) || HasComp<GhostComponent>(args.Tripper))
+        if (HasComp<SupermatterImmuneComponent>(args.Tripper)
+            || HasComp<GodmodeComponent>(args.Tripper)
+            || HasComp<GhostComponent>(args.Tripper))
         {
             args.Cancelled = true;
             return;

@@ -33,6 +33,12 @@ public sealed partial class CrystalMassComponent : Component
     public int SpriteVariants = 5;
 
     /// <summary>
+    /// Tick to trigger initial deletion, spaced to allow entities to register being on a tile
+    /// </summary>
+    [DataField]
+    public TimeSpan DeletionTick;
+
+    /// <summary>
     /// Next time to spread at
     /// </summary>
     [DataField]
