@@ -20,7 +20,7 @@ public sealed partial class EggIncubatorComponent : Component
     /// Egg we are currently incubating
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public IncubationComponent? CurrentlyIncubated;
+    public Entity<IncubationComponent>? CurrentlyIncubated;
 
     /// <summary>
     /// Used for tracking visuals

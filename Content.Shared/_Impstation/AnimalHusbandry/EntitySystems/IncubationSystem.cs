@@ -43,7 +43,8 @@ public sealed class IncubationSystem : EntitySystem
         while (query.MoveNext(out var uid, out var incuComp))
         {
             // Making sure we're incubating something
-            if (incuComp.CurrentlyIncubated == null || _entManager.Deleted(incuComp.CurrentlyIncubated.Owner))
+            if (incuComp.CurrentlyIncubated == null
+                || TerminatingOrDeleted(incuComp.CurrentlyIncubated.Value.Owner))
                 continue;
 
             CheckPowerchanged((uid, incuComp));
@@ -74,7 +75,7 @@ public sealed class IncubationSystem : EntitySystem
 
         _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Active);
         entity.Comp.Status = IncubatorStatus.Active;
-        entity.Comp.CurrentlyIncubated = incuComp;
+        entity.Comp.CurrentlyIncubated = (args.Used, incuComp);
         entity.Comp.FinishIncubation = incuComp.IncubationTime.Add(_time.CurTime);
     }
 
@@ -91,7 +92,7 @@ public sealed class IncubationSystem : EntitySystem
             return;
 
         // Prevents us totally wiping the incubator if you swapped a new egg in
-        if(_justSwapped)
+        if (_justSwapped)
         {
             _justSwapped = false;
             return;
@@ -99,7 +100,7 @@ public sealed class IncubationSystem : EntitySystem
 
         _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Inactive);
         entity.Comp.Status = IncubatorStatus.Inactive;
-        _containerSystem.RemoveEntity(entity, entity.Comp.CurrentlyIncubated.Owner);
+        _containerSystem.RemoveEntity(entity, entity.Comp.CurrentlyIncubated.Value.Owner);
         entity.Comp.CurrentlyIncubated = null;
         entity.Comp.FinishIncubation = TimeSpan.Zero;
     }
@@ -114,11 +115,11 @@ public sealed class IncubationSystem : EntitySystem
         if (!TryComp<ItemSlotsComponent>(entity, out var container))
             return;
 
-        if (entity.Comp.CurrentlyIncubated == null)
+        var incubated = entity.Comp.CurrentlyIncubated;
+        if (incubated == null)
             return;
 
-        var newMob = SpawnNewMob(entity, entity.Comp.CurrentlyIncubated.IncubatedResult);
-        var incubated = entity.Comp.CurrentlyIncubated.Owner;
+        var newMob = SpawnNewMob(entity, incubated.Value.Comp.IncubatedResult);
 
         _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Inactive);
         entity.Comp.Status = IncubatorStatus.Inactive;
@@ -126,8 +127,8 @@ public sealed class IncubationSystem : EntitySystem
         if (TryComp<InteractionPopupComponent>(newMob, out var interactionPopup))
             Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates((EntityUid)newMob));
 
-        _containerSystem.RemoveEntity(entity, incubated);
-        _entManager.PredictedDeleteEntity(incubated);
+        _containerSystem.RemoveEntity(entity, incubated.Value.Owner);
+        _entManager.PredictedDeleteEntity(incubated.Value.Owner);
     }
 
     /// <summary>
