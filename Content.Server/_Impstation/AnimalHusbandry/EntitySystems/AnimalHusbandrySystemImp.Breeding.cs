@@ -88,7 +88,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
             return false;
 
         // Incapable of gestation.
-        if (!IsUnableToGestate(entity.Owner))
+        if (IsUnableToGestate(entity.Owner))
             return false;
 
         // Too hungry.
