@@ -34,26 +34,33 @@ public sealed class IncubationSystem : EntitySystem
     }
 
     /// <summary>
-    /// Goes through and checks on each active incubator to see if it's time to hatch
+    /// Increases the incubation timer of all active egg incubators.
     /// </summary>
     /// <param name="frameTime">Time between frames</param>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        // Just run through and check on all the incubators
         var query = EntityQueryEnumerator<EggIncubatorComponent>();
         while (query.MoveNext(out var uid, out var incuComp))
         {
-            // Making sure we're incubating something
-            if (!IsCurrentlyIncubating((uid, incuComp)))
+            // We only increase the incubation timer every [interval], for performance.
+            if (_time.CurTime < incuComp.LastUpdateTime + incuComp.UpdateRate)
                 continue;
 
-            if (incuComp.Status != IncubatorStatus.Active)
-                incuComp.FinishIncubation = incuComp.FinishIncubation.Add(_time.FrameTime);
+            // Time elapsed since last update. May be slightly more/less than [interval], depending on frame time.
+            var incubationTime = _time.CurTime - incuComp.LastUpdateTime;
+            incuComp.LastUpdateTime = _time.CurTime;
 
-            // Hatch
-            if (incuComp.FinishIncubation <= _time.CurTime)
+            // Move on if we're not incubating anything, or this incubator is inactive.
+            if (!IsCurrentlyIncubating((uid, incuComp)) || incuComp.Status != IncubatorStatus.Active)
+                continue;
+
+            // Add incubation time to the incubator.
+            incuComp.CurrentIncubationTime += incubationTime;
+
+            // Finish incubation if we're done incubating the egg.
+            if (incuComp.CurrentIncubationTime >= incuComp.IncubationTime)
                 FinishIncubation((uid, incuComp));
         }
     }
@@ -93,9 +100,10 @@ public sealed class IncubationSystem : EntitySystem
         if (entity.Comp.CurrentlyIncubated != null)
             _justSwapped = true;
 
-        SetIncubatorStatus(entity, IncubatorStatus.Active);
+        UpdatePowerVisuals(entity);
         entity.Comp.CurrentlyIncubated = (args.Used, incuComp);
-        entity.Comp.FinishIncubation = incuComp.IncubationTime.Add(_time.CurTime);
+        entity.Comp.CurrentIncubationTime = TimeSpan.Zero;
+        entity.Comp.IncubationTime = _time.CurTime + incuComp.IncubationTime;
     }
 
     /// <summary>
@@ -117,10 +125,11 @@ public sealed class IncubationSystem : EntitySystem
             return;
         }
 
-        SetIncubatorStatus(entity, IncubatorStatus.Active);
+        SetIncubatorStatus(entity, IncubatorStatus.Inactive);
         _containerSystem.RemoveEntity(entity, entity.Comp.CurrentlyIncubated.Value.Owner);
         entity.Comp.CurrentlyIncubated = null;
-        entity.Comp.FinishIncubation = TimeSpan.Zero;
+        entity.Comp.CurrentIncubationTime = TimeSpan.Zero;
+        entity.Comp.IncubationTime = TimeSpan.Zero;
     }
 
     /// <summary>
