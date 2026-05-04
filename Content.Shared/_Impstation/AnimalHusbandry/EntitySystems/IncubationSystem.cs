@@ -44,7 +44,7 @@ public sealed class IncubationSystem : EntitySystem
             if (_time.CurTime < incubation.LastUpdateTime + incubation.UpdateRate)
                 continue;
 
-            // Time elapsed since last update. May be slightly more/less than [interval], depending on frame time.
+            // Time elapsed since last update. May be slightly more than [interval], depending on frame time.
             var incubationTime = _time.CurTime - incubation.LastUpdateTime;
             incubation.LastUpdateTime = _time.CurTime;
 
