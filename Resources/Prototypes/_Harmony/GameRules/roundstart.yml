@@ -14,6 +14,9 @@
   - type: GameRule
     minPlayers: 24 # minimum of 3 conspirators. imp edit, was 28
   - type: ConspiratorRule
+  - type: AntagObjectives # imp
+    objectives:
+    - ConspiratorEvacObjective
   - type: AntagSelection
     selectionTime: IntraPlayerSpawn
     definitions:

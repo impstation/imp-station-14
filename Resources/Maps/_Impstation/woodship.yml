@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 04/13/2026 10:50:12
-  entityCount: 10858
+  time: 04/29/2026 22:16:05
+  entityCount: 10865
 maps:
 - 1
 grids:
@@ -6270,11 +6270,8 @@ entities:
   - uid: 617
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 11.5,-0.5
       parent: 2
-    - type: AccessReader
-      accessListsOriginal: []
   - uid: 5618
     components:
     - type: Transform
@@ -9084,7 +9081,7 @@ entities:
   - uid: 3406
     components:
     - type: Transform
-      pos: 10.163446,-12.3716135
+      pos: 9.966216,-12.378184
       parent: 2
   - uid: 7904
     components:
@@ -15601,6 +15598,16 @@ entities:
     components:
     - type: Transform
       pos: -17.5,4.5
+      parent: 2
+  - uid: 10860
+    components:
+    - type: Transform
+      pos: 0.5,71.5
+      parent: 2
+  - uid: 10861
+    components:
+    - type: Transform
+      pos: 0.5,70.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -29473,7 +29480,7 @@ entities:
   - uid: 7038
     components:
     - type: Transform
-      pos: 16.524557,17.729853
+      pos: 16.70013,17.984884
       parent: 2
 - proto: ClothingEyesGlassesMeson
   entities:
@@ -31847,7 +31854,7 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconAIUpload
   entities:
-  - uid: 10631
+  - uid: 10865
     components:
     - type: Transform
       pos: 35.5,14.5
@@ -31910,10 +31917,10 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconBridge
   entities:
-  - uid: 5578
+  - uid: 5594
     components:
     - type: Transform
-      pos: 0.5,60.5
+      pos: 0.5,62.5
       parent: 2
 - proto: DefaultStationBeaconBrig
   entities:
@@ -31938,7 +31945,7 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconCERoom
   entities:
-  - uid: 794
+  - uid: 5590
     components:
     - type: Transform
       pos: 8.5,5.5
@@ -31952,10 +31959,10 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconChemistry
   entities:
-  - uid: 5585
+  - uid: 7002
     components:
     - type: Transform
-      pos: -20.5,16.5
+      pos: -19.5,17.5
       parent: 2
 - proto: DefaultStationBeaconClown
   entities:
@@ -31966,10 +31973,10 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconCMORoom
   entities:
-  - uid: 5580
+  - uid: 5583
     components:
     - type: Transform
-      pos: -23.5,15.5
+      pos: -24.5,16.5
       parent: 2
 - proto: DefaultStationBeaconCryosleep
   entities:
@@ -32029,10 +32036,10 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconGravGen
   entities:
-  - uid: 9211
+  - uid: 5580
     components:
     - type: Transform
-      pos: 13.5,12.5
+      pos: 13.5,13.5
       parent: 2
 - proto: DefaultStationBeaconHD
   entities:
@@ -32043,17 +32050,24 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconHOPOffice
   entities:
-  - uid: 5590
+  - uid: 9211
     components:
     - type: Transform
-      pos: 0.5,57.5
+      pos: 0.5,56.5
       parent: 2
 - proto: DefaultStationBeaconHOSRoom
   entities:
-  - uid: 8120
+  - uid: 5599
     components:
     - type: Transform
-      pos: 17.5,41.5
+      pos: 17.5,40.5
+      parent: 2
+- proto: DefaultStationBeaconJanitorsCloset
+  entities:
+  - uid: 10631
+    components:
+    - type: Transform
+      pos: 10.5,-7.5
       parent: 2
 - proto: DefaultStationBeaconKitchen
   entities:
@@ -32071,7 +32085,7 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconMailroomCourier
   entities:
-  - uid: 5583
+  - uid: 5578
     components:
     - type: Transform
       pos: -24.5,25.5
@@ -32092,10 +32106,10 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconMorgue
   entities:
-  - uid: 5404
+  - uid: 794
     components:
     - type: Transform
-      pos: 20.5,32.5
+      pos: 20.5,31.5
       parent: 2
 - proto: DefaultStationBeaconNews
   entities:
@@ -32106,7 +32120,7 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconQMRoom
   entities:
-  - uid: 5594
+  - uid: 8120
     components:
     - type: Transform
       pos: -20.5,25.5
@@ -32176,17 +32190,17 @@ entities:
       parent: 2
 - proto: DefaultStationBeaconTelecoms
   entities:
-  - uid: 5599
+  - uid: 5585
     components:
     - type: Transform
-      pos: -6.5,54.5
+      pos: -5.5,55.5
       parent: 2
 - proto: DefaultStationBeaconToolRoom
   entities:
-  - uid: 7002
+  - uid: 5404
     components:
     - type: Transform
-      pos: 15.5,17.5
+      pos: 15.5,19.5
       parent: 2
 - proto: DefaultStationBeaconVault
   entities:
@@ -54324,6 +54338,26 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -25.5,37.5
       parent: 2
+  - uid: 10853
+    components:
+    - type: Transform
+      pos: -15.5,7.5
+      parent: 2
+  - uid: 10862
+    components:
+    - type: Transform
+      pos: 10.5,-12.5
+      parent: 2
+  - uid: 10863
+    components:
+    - type: Transform
+      pos: 16.5,17.5
+      parent: 2
+  - uid: 10864
+    components:
+    - type: Transform
+      pos: 1.5,54.5
+      parent: 2
 - proto: PoweredDimSmallLight
   entities:
   - uid: 257
@@ -58360,13 +58394,13 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 9.53833,-12.435962
+      pos: 9.5463915,-12.485918
       parent: 2
   - uid: 3408
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 9.616469,-12.338305
+      pos: 9.5463915,-12.564057
       parent: 2
   - uid: 3409
     components:
@@ -63495,7 +63529,7 @@ entities:
   - uid: 3399
     components:
     - type: Transform
-      pos: -15.604082,7.6173472
+      pos: -12.489955,10.613393
       parent: 2
 - proto: ToyFigurineCyborgCorpsman
   entities:
