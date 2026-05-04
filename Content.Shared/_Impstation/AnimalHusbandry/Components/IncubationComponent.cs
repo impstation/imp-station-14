@@ -25,18 +25,6 @@ public sealed partial class IncubationComponent : Component
     public TimeSpan CurrentIncubationTime = TimeSpan.Zero;
 
     /// <summary>
-    /// How often this incubating entity will update its incubation time.
-    /// </summary>
-    [DataField]
-    public TimeSpan UpdateRate = TimeSpan.FromSeconds(1.0f);
-
-    /// <summary>
-    /// The next time this incubating entity will update.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public TimeSpan LastUpdateTime = TimeSpan.Zero;
-
-    /// <summary>
     /// What comes out when the incubation is done?
     /// </summary>
     [DataField]

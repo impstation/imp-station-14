@@ -19,6 +19,9 @@ public sealed class IncubationSystem : EntitySystem
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
+    private TimeSpan _lastUpdated = TimeSpan.Zero;
+    private TimeSpan _updateRate = TimeSpan.FromSeconds(1.0f); // TODO: CVar
+
     public override void Initialize()
     {
         base.Initialize();
@@ -37,17 +40,17 @@ public sealed class IncubationSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        // We only update incubation timers every [interval], for performance.
+        if (_time.CurTime < _lastUpdated + _updateRate)
+            return;
+
+        // Time elapsed since last update. May be slightly more than [interval], depending on frame time.
+        var incubationTime = _time.CurTime - _lastUpdated;
+        _lastUpdated = _time.CurTime;
+
         var query = EntityQueryEnumerator<IncubationComponent>();
         while (query.MoveNext(out var uid, out var incubation))
         {
-            // We only increase the incubation timer every [interval], for performance.
-            if (_time.CurTime < incubation.LastUpdateTime + incubation.UpdateRate)
-                continue;
-
-            // Time elapsed since last update. May be slightly more than [interval], depending on frame time.
-            var incubationTime = _time.CurTime - incubation.LastUpdateTime;
-            incubation.LastUpdateTime = _time.CurTime;
-
             // Move on if this entity is not being incubated.
             if (!IsBeingIncubated((uid, incubation)))
                 continue;
@@ -78,9 +81,6 @@ public sealed class IncubationSystem : EntitySystem
     private void OnPowerChanged(Entity<EggIncubatorComponent> entity, ref PowerChangedEvent args)
     {
         UpdateIncubatorVisuals(entity);
-
-        if (args.Powered)
-            UpdateIncubatorContents(entity);
     }
 
     /// <summary>
@@ -127,26 +127,6 @@ public sealed class IncubationSystem : EntitySystem
         var newMob = PredictedSpawnAtPosition(toSpawn, xform.Coordinates);
 
         return newMob;
-    }
-
-    /// <summary>
-    ///     Update the "last updated" time of all eggs inside this incubator.
-    /// </summary>
-    /// <remarks>
-    ///     We do this when the incubator is switched on/off, otherwise eggs will
-    ///     gain a lot of incubation time at once if the incubator is turned off then on.
-    /// </remarks>
-    /// <param name="entity">The egg incubator.</param>
-    private void UpdateIncubatorContents(Entity<EggIncubatorComponent> entity)
-    {
-        if (!_container.TryGetContainer(entity.Owner, entity.Comp.ContainerId, out var container))
-            return;
-
-        foreach (var egg in container.ContainedEntities)
-        {
-            if (TryComp<IncubationComponent>(egg, out var incubation))
-                incubation.LastUpdateTime = _time.CurTime;
-        }
     }
 
     /// <summary>
