@@ -142,7 +142,7 @@ public sealed class SpreaderSystem : EntitySystem
                 continue;
             }
 
-            if (!groupUpdates.TryGetValue(spreader.Id, out var updates) || updates < 1)
+            if ((!groupUpdates.TryGetValue(spreader.Id, out var updates) || updates < 1) && spreader.IndependentUpdate) // Imp, add && spreader.IndependentUpdate
                 continue;
 
             // Edge detection logic is to be handled

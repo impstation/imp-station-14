@@ -21,10 +21,10 @@ public sealed partial class CrystalMassComponent : Component
     };
 
     /// <summary>
-    /// If the crystal mass can spread.
+    /// Chance for it to spread
     /// </summary>
     [DataField]
-    public bool Spreading = true;
+    public float SpreadChance = 0.25f;
 
     /// <summary>
     /// Number of sprite variations for crystal mass

@@ -34,6 +34,9 @@
     - type: CrystalMassVisuals
     - type: Clickable
     - type: CrystalMass
+    - type: ActiveEdgeSpreader
+    - type: EdgeSpreader
+      id: CrystalMass
     - type: PointLight
       color: "#FBFF23"
     - type: StepTrigger
