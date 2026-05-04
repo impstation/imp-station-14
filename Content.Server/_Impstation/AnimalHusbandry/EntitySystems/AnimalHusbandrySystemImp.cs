@@ -1,7 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Cloning;
 using Content.Server.Ghost.Roles.Components;
-using Content.Shared.Database;
 using Content.Shared.EntityTable;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -66,21 +65,23 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         var gestatingQuery = EntityQueryEnumerator<GestatingComponent>();
         while (gestatingQuery.MoveNext(out var uid, out var gestating))
         {
+            var gestatingEntity = (uid, gestating);
+
             // If the entity is unable to gestate for any reason,
             // then we end the gestation pre-emptively without producing anything.
-            if (!IsAlive(uid) || _mind.TryGetMind(uid, out var _, out var _))
+            if (IsUnableToGestate(gestatingEntity))
             {
-                EndGestation((uid, gestating));
+                EndGestation(gestatingEntity);
                 continue;
             }
 
             // Otherwise, if this entity is capable of gestation, then we add progress to the gestation timer.
-            if (IsGestating((uid, gestating)))
+            if (IsGestating(gestatingEntity))
                 gestating.CurrentGestationTime += growthTime;
 
             // If the gestation progress timer surpasses the gestation time, complete gestation.
             if (gestating.CurrentGestationTime > gestating.GestationTime)
-                CompleteGestation((uid, gestating));
+                CompleteGestation(gestatingEntity);
         }
 
         // Advance the growth of all infants.

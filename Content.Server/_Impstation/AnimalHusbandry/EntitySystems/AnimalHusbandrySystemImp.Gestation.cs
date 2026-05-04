@@ -17,9 +17,11 @@ public sealed partial class AnimalHusbandrySystemImp
     /// <returns>Whether or not this entity is currently gestating.</returns>
     public bool IsGestating(Entity<GestatingComponent?> ent)
     {
+        // Not a gestating entity.
         if (!Resolve(ent.Owner, ref ent.Comp))
             return false;
 
+        // Being deleted.
         if (TerminatingOrDeleted(ent))
             return false;
 
@@ -39,9 +41,11 @@ public sealed partial class AnimalHusbandrySystemImp
     /// <returns>Whether or not this entity is currently incapable of gestation</returns>
     public bool IsUnableToGestate(Entity<GestatingComponent?> ent)
     {
+        // Not a gestating entity.
         if (!Resolve(ent.Owner, ref ent.Comp))
             return false;
 
+        // Being deleted.
         if (TerminatingOrDeleted(ent))
             return false;
 
