@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/03/2026 01:26:55
-  entityCount: 5577
+  time: 05/04/2026 11:55:36
+  entityCount: 5578
 maps:
 - 1
 grids:
@@ -13994,6 +13994,13 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 8.5,-14.5
       parent: 2
+    - type: AnalysisConsole
+      analyzerEntity: 1220
+    - type: DeviceLinkSource
+      linkedPorts:
+        1220:
+        - - ArtifactAnalyzerSender
+          - ArtifactAnalyzerReceiver
 - proto: ComputerBroken
   entities:
   - uid: 2101
@@ -29100,6 +29107,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 17.5,5.5
+      parent: 2
+- proto: RandomArtifactSpawner
+  entities:
+  - uid: 5578
+    components:
+    - type: Transform
+      pos: 11.5,-16.5
       parent: 2
 - proto: RandomMeat
   entities:
