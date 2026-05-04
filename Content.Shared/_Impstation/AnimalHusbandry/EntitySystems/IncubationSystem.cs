@@ -156,7 +156,7 @@ public sealed class IncubationSystem : EntitySystem
     /// <param name="powered">Optional, a provided "powered" status of the incubator.</param>
     private void UpdateIncubatorVisuals(Entity<EggIncubatorComponent> entity)
     {
-        var canIncubate = CanIncubate(entity.AsNullable());
+        var canIncubate = IncubatorCanIncubate(entity.AsNullable());
         var hasContents = IncubatorHasContents(entity.AsNullable());
 
         var status = canIncubate && hasContents
@@ -176,7 +176,7 @@ public sealed class IncubationSystem : EntitySystem
     /// </summary>
     /// <param name="entity">The egg incubator.</param>
     /// <returns>Whether or not the incubator is currently capable of incubating.</returns>
-    private bool CanIncubate(Entity<EggIncubatorComponent?> entity)
+    public bool IncubatorCanIncubate(Entity<EggIncubatorComponent?> entity)
     {
         if (!Resolve(entity.Owner, ref entity.Comp))
             return false;
@@ -218,7 +218,7 @@ public sealed class IncubationSystem : EntitySystem
 
         // Is this entity inside an active incubator?
         if (_container.TryGetOuterContainer(entity.Owner, xform, out var container)
-            && CanIncubate(container.Owner))
+            && IncubatorCanIncubate(container.Owner))
             return true;
 
         return false;
