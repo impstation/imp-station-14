@@ -14,7 +14,6 @@ namespace Content.Server._Impstation.NPC.HTN.Preconditions;
 /// </summary>
 public sealed partial class BreedablePrecondition : HTNPrecondition
 {
-    [Dependency] private readonly AnimalHusbandrySystemImp _husbandry = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -61,7 +60,7 @@ public sealed partial class BreedablePrecondition : HTNPrecondition
 
         // Sets the amount of time until they try and find a new mate.
         // It's partly so all mobs aren't just in sync, but also so the server isn't spamming searches.
-        _husbandry.RefreshSearchTime(reproducer);
+        _breedSystem.RefreshSearchTime(reproducer);
 
         return true;
     }
