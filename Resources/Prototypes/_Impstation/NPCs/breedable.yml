@@ -5,11 +5,8 @@
         - !type:HTNPrimitiveTask
           preconditions:
             - !type:BreedablePrecondition
-              minHungerState: Okay
-              minThirstState: Okay
           operator: !type:BreedingUtilityOperator
             proto: NearbyBreedables
-
         - !type:HTNPrimitiveTask
           operator: !type:MoveToOperator
             pathfindInPlanning: true
@@ -30,4 +27,6 @@
             - !type:TargetInRangePrecondition
               targetKey: Target
               rangeKey: MeleeRange
-          operator: !type:BreedOperator  
+            - !type:TargetBreedablePrecondition
+              targetKey: Target
+          operator: !type:BreedOperator
