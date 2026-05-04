@@ -12,7 +12,7 @@ public sealed partial class IncubationComponent : Component
     /// <summary>
     /// How long this egg incubates for
     /// </summary>
-    [DataField("incubationTime"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan IncubationTime = TimeSpan.FromSeconds(90);
 
     /// <summary>
@@ -21,7 +21,7 @@ public sealed partial class IncubationComponent : Component
     /// <remarks>
     /// Once this surpasses <see cref="IncubationTime"/>, the egg will hatch.
     /// </remarks>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan CurrentIncubationTime = TimeSpan.Zero;
 
     /// <summary>
@@ -33,12 +33,12 @@ public sealed partial class IncubationComponent : Component
     /// <summary>
     /// The next time this incubating entity will update.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan LastUpdateTime = TimeSpan.Zero;
 
     /// <summary>
     /// What comes out when the incubation is done?
     /// </summary>
-    [DataField("incubatedResult"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public EntProtoId IncubatedResult;
 }
