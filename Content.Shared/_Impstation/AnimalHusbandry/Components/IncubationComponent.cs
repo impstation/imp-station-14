@@ -15,6 +15,27 @@ public sealed partial class IncubationComponent : Component
     public TimeSpan IncubationTime = TimeSpan.FromSeconds(90);
 
     /// <summary>
+    /// The current incubation time that has elapsed.
+    /// </summary>
+    /// <remarks>
+    /// Once this surpasses <see cref="IncubationTime"/>, the egg will hatch.
+    /// </remarks>
+    [DataField]
+    public TimeSpan CurrentIncubationTime = TimeSpan.Zero;
+
+    /// <summary>
+    /// How often this incubating entity will update its incubation time.
+    /// </summary>
+    [DataField]
+    public TimeSpan UpdateRate = TimeSpan.FromSeconds(1.0f);
+
+    /// <summary>
+    /// The next time this incubating entity will update.
+    /// </summary>
+    [DataField]
+    public TimeSpan LastUpdateTime = TimeSpan.Zero;
+
+    /// <summary>
     /// What comes out when the incubation is done?
     /// </summary>
     [DataField("incubatedResult"), ViewVariables(VVAccess.ReadWrite)]
