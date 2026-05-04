@@ -37,7 +37,7 @@ public sealed partial class ImpInfantComponent : Component
     /// <summary>
     /// How long until we next grow up?
     /// </summary>
-    public TimeSpan GrowthTimeRemaining = TimeSpan.Zero;
+    public TimeSpan CurrentGrowthTime = TimeSpan.Zero;
 
     /// <summary>
     /// The parent this child should follow

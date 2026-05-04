@@ -34,7 +34,8 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     [Dependency] private readonly ThirstSystem _thirst = default!;
     [Dependency] private readonly EntityTableSystem _entTable = default!;
 
-    Dictionary<EntityUid, ImpReproductiveComponent> _mobsWaiting = new Dictionary<EntityUid, ImpReproductiveComponent>();
+    private TimeSpan _lastUpdated = TimeSpan.Zero;
+    private TimeSpan _updateRate = TimeSpan.FromSeconds(1.0f); // TODO: CVar
 
     public override void Initialize()
     {
@@ -42,70 +43,52 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     }
 
     /// <summary>
-    /// Here we do two things
-    /// 1. Loop through the pregnant mobs to see who needs to give birth
-    /// 2. Track the infant mobs to see who is ready to grow up
-    /// I've done this so it should be calling as minimally as possible.
-    /// If there's no infants and no-one is pregnant, this basically does nothing.
+    ///     Advance the gestation of all pregnant entities and the growth of all infant entities.
+    ///     This happens on an interval loop for performance reasons.
     /// </summary>
-    /// <param name="frameTime">Time between frames</param>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        // Runs through the list of pregnant mobs to see who is ready to give birth
-        // or whose birth should be cancelled
-        foreach (var reproComp in _mobsWaiting)
+        // We only update pregnancy and growth timers every [interval], for performance.
+        if (_time.CurTime < _lastUpdated + _updateRate)
+            return;
+
+        // Time elapsed since last update. May be slightly more than [interval], depending on frame time.
+        var growthTime = _time.CurTime - _lastUpdated;
+        _lastUpdated = _time.CurTime;
+
+        // Advance the gestation of all pregnant mobs.
+        var pregnantQuery = EntityQueryEnumerator<PregnantComponent>();
+        while (pregnantQuery.MoveNext(out var uid, out var pregnant))
         {
-            // In case the mob finds itself deleted or destroyed
-            if (_entManager.Deleted(reproComp.Key)
-                || !_entManager.TryGetComponent<MobStateComponent>(reproComp.Key, out var state))
+            // If the mob is not healthy enough to carry offspring, or the mob is player-controlled,
+            // then we end the pregnancy pre-emptively without producing anything.
+            if (!IsAlive(uid) || _mind.TryGetMind(uid, out var _, out var _))
             {
-                _mobsWaiting.Remove(reproComp.Key);
+                EndPregnancy((uid, pregnant));
                 continue;
             }
 
-            // If they die or become critical, the child is gone
-            // Same for if the animal becomes player controlled
-            if (state.CurrentState != Shared.Mobs.MobState.Alive ||
-                _mind.TryGetMind(reproComp.Key, out var mind, out var mindComp))
-            {
-                _mobsWaiting.Remove(reproComp.Key);
-                reproComp.Value.Pregnant = false;
-            }
-
-            // Is it time to give birth?
-            if (reproComp.Value.EndPregnancy <= _time.CurTime)
-            {
-                reproComp.Value.Pregnant = false;
-                Birth((reproComp.Key, reproComp.Value));
-                _mobsWaiting.Remove(reproComp.Key);
-                _adminLog.Add(LogType.Action, $"A mob has given birth!");
-            }
+            // Otherwise, if the mob is ready, give birth.
+            // TODO: TimerTriggerComponent
+            if (_time.CurTime >= pregnant.EndTime)
+                GiveBirth((uid, pregnant));
         }
 
-        // Grabs every single entity with this component and runs through them all
-        // to see who should grow up.
-        // Realistically there should never be THAT many infants, so this approach should be
-        // fine for performance.
-        var query = EntityQueryEnumerator<ImpInfantComponent>();
-        while (query.MoveNext(out var uid, out var infantComp))
+        // Advance the growth of all infants.
+        var infantQuery = EntityQueryEnumerator<ImpInfantComponent>();
+        while (infantQuery.MoveNext(out var uid, out var infant))
         {
-            if (_entManager.Deleted(uid)
-                || !_entManager.TryGetComponent<MobStateComponent>(uid, out var state))
+            // If the infant isn't alive (crit or dead), then it shouldn't be growing.
+            if (!IsAlive(uid))
                 continue;
 
-            // Doing this here for the purpose of if admins spawn in baby mobs.
-            // Prevents them from growing up instantly when placed.
-            if (infantComp.GrowthTimeRemaining == TimeSpan.Zero)
-                infantComp.GrowthTimeRemaining = _time.CurTime.Add(infantComp.GrowthTime);
+            infant.CurrentGrowthTime += growthTime;
 
-            // If the mob isn't alive we need to delay its growth
-            if (state.CurrentState != Shared.Mobs.MobState.Alive)
-                infantComp.GrowthTimeRemaining = infantComp.GrowthTimeRemaining.Add(_time.FrameTime);
-
-            if (infantComp.GrowthTimeRemaining <= _time.CurTime)
-                AdvanceStage((uid, infantComp));
+            // Advance if the infant is done growing.
+            if (infant.CurrentGrowthTime >= infant.GrowthTime)
+                AdvanceStage((uid, infant));
         }
     }
 
@@ -167,5 +150,18 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         var newMob = Spawn(toSpawn, xform.Coordinates);
 
         return newMob;
+    }
+
+    /// <summary>
+    ///     Checks whether or not an entity is alive.
+    /// </summary>
+    /// <param name="entity">The entity to check.</param>
+    /// <returns>Whether or not the entity is alive or otherwise does not require health.</returns>
+    public bool IsAlive(Entity<MobStateComponent?> entity)
+    {
+        if (!Resolve(entity.Owner, ref entity.Comp))
+            return true;
+
+        return entity.Comp.CurrentState == Shared.Mobs.MobState.Alive;
     }
 }

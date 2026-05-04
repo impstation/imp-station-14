@@ -55,18 +55,11 @@ public sealed partial class ImpReproductiveComponent : Component
     [DataField("breedPrototype"), ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<BreedSettingsPrototype>? BreedSettings;
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    public bool Pregnant = false;
-
-    public TimeSpan EndPregnancy = TimeSpan.Zero;
-
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan NextSearch = TimeSpan.Zero;
 
     public EntityUid PreviousPartner;
-
-    public EntProtoId MobToBirth;
 }
 
 public enum AnimalGender
