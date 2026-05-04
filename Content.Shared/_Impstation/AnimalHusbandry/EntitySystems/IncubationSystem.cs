@@ -189,6 +189,9 @@ public sealed class IncubationSystem : EntitySystem
     /// <summary>
     ///     Gets whether or not an egg incubator is currently holding anything.
     /// </summary>
+    /// <remarks>
+    ///     The contents may not necessarily be incubatable entities. It could hold a bunch of non-egg entities.
+    /// </remarks>
     /// <param name="entity">The egg incubator.</param>
     /// <returns>Whether or not an egg incubator is currently holding anything.</returns>
     public bool IncubatorHasContents(Entity<EggIncubatorComponent?> entity)
