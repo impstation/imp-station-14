@@ -153,7 +153,6 @@ public sealed class IncubationSystem : EntitySystem
     ///     Updates the visual status of an egg incubator based on its powered status.
     /// </summary>
     /// <param name="entity">The egg incubator to update.</param>
-    /// <param name="powered">Optional, a provided "powered" status of the incubator.</param>
     private void UpdateIncubatorVisuals(Entity<EggIncubatorComponent> entity)
     {
         var canIncubate = IncubatorCanIncubate(entity.AsNullable());
