@@ -15,7 +15,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     public bool CanGrow(Entity<ImpInfantComponent?> ent)
     {
         // Not an infant.
-        if (!Resolve(ent.Owner, ref ent.Comp))
+        if (!Resolve(ent.Owner, ref ent.Comp, logMissing: false))
             return false;
 
         // Being deleted.

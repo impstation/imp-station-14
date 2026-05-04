@@ -25,8 +25,8 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         var approacherProto = MetaData(approacher.Owner).EntityPrototype;
 
         if (approacher == approached // Do not self-breed
-            || !Resolve(approacher.Owner, ref approacher.Comp) // Ensure approacher can reproduce
-            || !Resolve(approached.Owner, ref approached.Comp) // Ensure partner can reproduce
+            || !Resolve(approacher.Owner, ref approacher.Comp, logMissing: false) // Ensure approacher can reproduce
+            || !Resolve(approached.Owner, ref approached.Comp, logMissing: false) // Ensure partner can reproduce
             || approacherProto == null) // Ensure approacher has a prototype
             return false;
 
@@ -80,7 +80,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     public bool CanYouBreed(Entity<ImpReproductiveComponent?> entity)
     {
         // Not a reproductive entity.
-        if (!Resolve(entity.Owner, ref entity.Comp))
+        if (!Resolve(entity.Owner, ref entity.Comp, logMissing: false))
             return false;
 
         // Already gestating.
@@ -115,7 +115,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     /// <param name="entity">The reproductive entity.</param>
     public void RefreshSearchTime(Entity<ImpReproductiveComponent?> entity)
     {
-        if (!Resolve(entity.Owner, ref entity.Comp))
+        if (!Resolve(entity.Owner, ref entity.Comp, logMissing: false))
             return;
 
         var newDuration = _random.Next(entity.Comp.MinSearchAttemptInterval, entity.Comp.MaxSearchAttemptInterval);

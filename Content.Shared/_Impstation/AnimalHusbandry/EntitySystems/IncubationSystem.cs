@@ -117,7 +117,7 @@ public sealed class IncubationSystem : EntitySystem
     public bool IncubatorHasContents(Entity<EggIncubatorComponent?> entity)
     {
         // Not an incubator.
-        if (!Resolve(entity.Owner, ref entity.Comp))
+        if (!Resolve(entity.Owner, ref entity.Comp, logMissing: false))
             return false;
 
         // Lacks an incubation container.

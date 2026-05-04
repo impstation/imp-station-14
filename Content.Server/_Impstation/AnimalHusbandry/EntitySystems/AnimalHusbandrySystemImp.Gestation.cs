@@ -116,7 +116,7 @@ public sealed partial class AnimalHusbandrySystemImp
     /// <param name="entity">The gestating entity.</param>
     private void EndGestation(Entity<GestatingComponent?> entity)
     {
-        if (!Resolve(entity.Owner, ref entity.Comp))
+        if (!Resolve(entity.Owner, ref entity.Comp, logMissing: false))
             return;
 
         RemCompDeferred(entity.Owner, entity.Comp);
