@@ -46,10 +46,14 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
             { ValidPartnerCondition.PartnerContextKey, approacherProto.ID },
         });
 
+        var spawns = _entTable.GetSpawns(partnerSettings.PossibleInfants, ctx: ctx);
+        if (spawns.Count == 0) // No valid offspring
+            return;
+
         // Add gestation to the approached mob
         var gestating = EnsureComp<GestatingComponent>(approached.Owner);
         gestating.GestationTime = partnerComp.PregnancyLength;
-        gestating.EntityToSpawn = _entTable.GetSpawns(partnerSettings.PossibleInfants, ctx: ctx).First();
+        gestating.EntityToSpawn = spawns.First();
         partnerComp.PreviousPartner = approacher;
 
         if (TryComp<InteractionPopupComponent>(approached, out var interactionPopup))
@@ -62,7 +66,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         _thirst.ModifyThirst(approacher, -approacher.Comp.HungerPerBirth);
         _thirst.ModifyThirst(approached, -partnerComp.HungerPerBirth);
 
-        _adminLog.Add(LogType.Action, $"{ToPrettyString(approacher)} (carrier) and {ToPrettyString(approached)} (partner) successfully bred.");
+        _adminLog.Add(LogType.Action, $"{ToPrettyString(approached)} (carrier) and {ToPrettyString(approacher)} (partner) successfully bred.");
         return true;
     }
 
