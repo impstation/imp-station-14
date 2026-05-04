@@ -3,7 +3,8 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Impstation.AnimalHusbandry.Components;
 
 /// <summary>
-/// Component used by the IncubationSystem to track what comes out, how long it takes to do so and other things
+///     An entity that can be incubated to produce another entity, such as a mob.
+///     For example: a chicken egg.
 /// </summary>
 [RegisterComponent]
 public sealed partial class IncubationComponent : Component
@@ -40,5 +41,4 @@ public sealed partial class IncubationComponent : Component
     /// </summary>
     [DataField("incubatedResult"), ViewVariables(VVAccess.ReadWrite)]
     public EntProtoId IncubatedResult;
-
 }
