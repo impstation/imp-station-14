@@ -77,24 +77,24 @@
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: artistic-module }
 
-- type: entity
-  id: BorgModuleBartender
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: bartender cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: service
-    - state: icon-beer
-  - type: ItemBorgModule
-    hands:
-    - item: Lighter
-    - item: DrinkShaker
-    - item: BarSpoon
-    - item: BorgIceBucket
-    - item: Pitcher
-  - type: BorgModuleIcon
-    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bartender-module }
+# - type: entity
+#  id: BorgModuleBartender
+#  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+#  name: bartender cyborg module
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: service
+#    - state: icon-beer
+#  - type: ItemBorgModule
+#    hands:
+#    - item: Lighter
+#    - item: DrinkShaker
+#    - item: BarSpoon
+#    - item: BorgIceBucket
+#    - item: Pitcher
+#  - type: BorgModuleIcon
+#    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bartender-module }
 
 - type: entity
   id: BorgModuleCourier
