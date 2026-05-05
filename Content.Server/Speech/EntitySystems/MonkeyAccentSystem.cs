@@ -4,7 +4,7 @@ using Content.Shared.Speech;
 using Robust.Shared.Random;
 
 namespace Content.Server.Speech.EntitySystems;
-
+[Obsolete("Replaced by AdvancedFullReplacementAccent")]
 public sealed class MonkeyAccentSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;

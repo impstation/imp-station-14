@@ -95,3 +95,33 @@
         - id: ClothingOuterHardsuitSyndieBlue
         - !type:NestedSelector
           tableId: SyndicateHardsuitExtrasEntityTable
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledAnanke
+  name: Ananke bundle
+  description: "A deadly liquid-ammo plasma shotgun, bundled with 4 canisters of its proprietary fuel."
+  suffix: Ananke bundle
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPlasmaAnanke
+        - id: EchionCanister
+          amount: 4
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledGlykon
+  name: Glykon bundle
+  description: "A sophisticated liquid-ammo plasma sniper, bundled with 4 canisters of its proprietary fuel."
+  suffix: Glykon bundle
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: WeaponPlasmaGlykon
+        - id: EchionCanister
+          amount: 4
