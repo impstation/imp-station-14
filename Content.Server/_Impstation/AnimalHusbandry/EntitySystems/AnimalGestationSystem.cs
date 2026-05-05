@@ -54,7 +54,7 @@ public sealed partial class AnimalGestationSystem : EntitySystem
 
         // Advance the gestation of all gestating entities.
         var gestatingQuery = EntityQueryEnumerator<GestatingComponent>();
-        var toDelete = new List<EntityUid>();
+        var finishedGestating = new List<Entity<GestatingComponent>>();
 
         while (gestatingQuery.MoveNext(out var uid, out var gestating))
         {
@@ -74,17 +74,13 @@ public sealed partial class AnimalGestationSystem : EntitySystem
 
             // If the gestation progress timer surpasses the gestation time, complete gestation.
             if (gestating.CurrentGestationTime > gestating.GestationTime)
-            {
-                CompleteGestation(gestatingEntity);
-                // Delete this entity on gestation complete if flagged for it - for example, an egg.
-                if (gestating.DeleteSelfOnSpawn)
-                    toDelete.Add(uid);
-            }
+                finishedGestating.Add((uid, gestating));
         }
 
-        // Clean up entities that need to be deleted
-        foreach (var uid in toDelete)
-            QueueDel(uid);
+        // This gets deferred until after the query, as otherwise, if a chicken spawns an egg (which also has
+        // GestatingComponent), it would modify the gestating entity collection during iteration.
+        foreach (var ent in finishedGestating)
+            CompleteGestation(ent);
     }
 
     /// <summary>
@@ -178,6 +174,9 @@ public sealed partial class AnimalGestationSystem : EntitySystem
         _adminLog.Add(LogType.Action,
             $"{ToPrettyString(entity)} gave birth to {ToPrettyString(offspring)}!"
             + $" DELETED: {entity.Comp.DeleteSelfOnSpawn}");
+
+        if (entity.Comp.DeleteSelfOnSpawn)
+            QueueDel(entity);
 
         EndGestation(entity.AsNullable());
     }
