@@ -100,10 +100,6 @@ public sealed partial class AnimalHusbandrySystemImp
             $"{ToPrettyString(entity)} gave birth to {ToPrettyString(offspring)}!"
             + $" DELETED: {entity.Comp.DeleteSelfOnSpawn}");
 
-        // Delete this entity on gestation complete if flagged for it - for example, an egg.
-        if (entity.Comp.DeleteSelfOnSpawn)
-            QueueDel(entity.Owner);
-
         EndGestation(entity.AsNullable());
     }
 

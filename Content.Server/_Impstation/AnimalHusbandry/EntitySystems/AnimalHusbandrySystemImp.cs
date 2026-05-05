@@ -1,11 +1,9 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Cloning;
-using Content.Server.Ghost.Roles.Components;
 using Content.Shared.EntityTable;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
@@ -68,6 +66,8 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
 
         // Advance the gestation of all gestating entities.
         var gestatingQuery = EntityQueryEnumerator<GestatingComponent>();
+        var toDelete = new List<EntityUid>();
+
         while (gestatingQuery.MoveNext(out var uid, out var gestating))
         {
             var gestatingEntity = (uid, gestating);
@@ -86,7 +86,12 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
 
             // If the gestation progress timer surpasses the gestation time, complete gestation.
             if (gestating.CurrentGestationTime > gestating.GestationTime)
+            {
                 CompleteGestation(gestatingEntity);
+                // Delete this entity on gestation complete if flagged for it - for example, an egg.
+                if (gestating.DeleteSelfOnSpawn)
+                    toDelete.Add(uid);
+            }
         }
 
         // Advance the growth of all infants.
@@ -103,6 +108,10 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
             if (infant.CurrentGrowthTime >= infant.GrowthTime)
                 AdvanceStage((uid, infant));
         }
+
+        // Clean up entities that need to be deleted
+        foreach (var uid in toDelete)
+            QueueDel(uid);
     }
 
     /// <summary>

@@ -2,7 +2,6 @@ using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.EntityTable;
 using Content.Shared.Interaction.Components;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition.Components;
 
 using Content.Shared._Impstation.AnimalHusbandry.Components;
