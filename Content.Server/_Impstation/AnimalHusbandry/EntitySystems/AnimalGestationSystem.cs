@@ -37,7 +37,7 @@ public sealed partial class AnimalGestationSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Advance the gestation of all pregnant entities and the growth of all infant entities.
+    ///     Advance the gestation of all pregnant entities.
     ///     This happens on an interval loop for performance reasons.
     /// </summary>
     public override void Update(float frameTime)

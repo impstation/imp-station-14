@@ -32,6 +32,10 @@ public sealed partial class AnimalInfantSystem : EntitySystem
         SubscribeLocalEvent<MobStateComponent, InfantCanGrowEvent>(CanMobStateGrow);
     }
 
+    /// <summary>
+    ///     Advance the growth of all infants.
+    ///     This happens on an interval loop for performance reasons.
+    /// </summary>
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
