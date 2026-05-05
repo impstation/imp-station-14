@@ -735,6 +735,8 @@
       borg_brain:
         - PositronicBrain
       borg_module:
+        - BorgModuleAnomaly
+        - BorgModuleArtifact
         - BorgModuleTool
         - BorgModuleFireExtinguisher
   - type: ItemSlots
@@ -814,6 +816,8 @@
       - BorgModuleChemical
       - BorgModuleTopicals
       - BorgModuleRescue
+  - type: SolutionScanner
+  - type: ShowHealthBars
   - type: ItemSlots
     slots:
       cell_slot:
