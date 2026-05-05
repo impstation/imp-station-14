@@ -226,11 +226,13 @@
 
   defaultModules:
   - BorgModuleMusique
-  - BorgModuleBartender # imp
+#  - BorgModuleBartender # imp depreciated
   - BorgModuleService
+  - BorgModuleChef # imp
+  - BorgModuleGardening # imp edited
   - BorgModuleClowning
-  - BorgModuleGardening
-  - BorgModuleHarvesting
+#  - BorgModuleGardening
+#  - BorgModuleHarvesting
   radioChannels:
   - Science
   - Service

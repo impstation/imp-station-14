@@ -13,6 +13,10 @@
   - type: SolutionTransfer
     canChangeTransferAmount: true
     maxTransferAmount: 10
+  - type: Tag
+    tags:
+    - DrinkCup
+    - FitsInDispenser # imp
   - type: StaticPrice
     price: 10
 
