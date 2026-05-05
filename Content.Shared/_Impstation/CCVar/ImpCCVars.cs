@@ -29,13 +29,6 @@ public sealed class ImpCCVars : CVars
     public static readonly CVarDef<bool> DisableAiStatic =
         CVarDef.Create("accessibility.disable_ai_static", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-    /// <summary>
-    /// The number of shared moods to give thaven by default.
-    /// </summary>
-    public static readonly CVarDef<uint> ThavenSharedMoodCount =
-        CVarDef.Create<uint>("thaven.shared_mood_count", 1, CVar.SERVERONLY);
-
-    /// <summary>
     /// If the player has the accessibility notifier turned on
     /// </summary>
     public static readonly CVarDef<bool> NotifierOn =

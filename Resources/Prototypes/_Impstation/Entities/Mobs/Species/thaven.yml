@@ -11,7 +11,8 @@
   - type: Icon
     sprite: _Impstation/Mobs/Species/Thaven/parts.rsi # Unlike dwarves elves are NOT made of slime
     state: full
-  - type: ThavenMoods
+  - type: StrangeMoods
+    mood: ThavenMoods
   - type: IonStormTarget
   - type: Sprite
     noRot: true

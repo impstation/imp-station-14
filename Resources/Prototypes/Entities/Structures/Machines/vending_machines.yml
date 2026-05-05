@@ -1,4 +1,4 @@
-﻿# base
+# base
 
 - type: entity
   id: VendingMachine
@@ -106,6 +106,9 @@
     price: 100
   - type: Appearance
   - type: WiresVisuals
+  - type: AcousticData # VDS
+    absorption: 20
+    reflectRay: true
 
 - type: entity
   id: VendingMachineWallmount
@@ -1884,7 +1887,7 @@
   - type: SpeakOnUIClosed
     pack: GenericVendGoodbyes
   - type: Sprite
-    sprite: Structures/Machines/VendingMachines/atmosdrobe.rsi
+    sprite: _Impstation/Structures/Machines/VendingMachines/atmosdrobe.rsi #imp
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
