@@ -69,7 +69,7 @@
 - type: entity
   id: HarpInstrument
   # parent: BasePlaceableInstrument
-  parent: BasePlaceableInstrumentRotatable # imp edit
+  parent: BasePlaceableInstrumentRotatable # imp edit, changed from BasePlaceableInstrument
   name: harp
   description: Plucking at the strings cuts your fingers, but at least the music is pretty.
   components:
