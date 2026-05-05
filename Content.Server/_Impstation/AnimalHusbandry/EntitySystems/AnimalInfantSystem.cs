@@ -1,12 +1,65 @@
+using Content.Server.Administration.Logs;
+using Content.Server.Cloning;
 using Content.Server.Ghost.Roles.Components;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
 using Content.Shared.Database;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 
-public sealed partial class AnimalHusbandrySystemImp : EntitySystem
+/// <summary>
+///     This system handles the growth and advancement of infant mobs.
+/// </summary>
+public sealed partial class AnimalInfantSystem : EntitySystem
 {
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly AnimalHusbandrySystemImp _animalHusbandry = default!;
+    [Dependency] private readonly CloningSystem _cloning = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IGameTiming _time = default!;
+
+    private TimeSpan _lastUpdated = TimeSpan.Zero;
+    private TimeSpan _updateRate = TimeSpan.FromSeconds(1.0f); // TODO: CVar
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<MobStateComponent, InfantCanGrowEvent>(CanMobStateGrow);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        // We only update pregnancy and growth timers every [interval], for performance.
+        if (_time.CurTime < _lastUpdated + _updateRate)
+            return;
+
+        // Time elapsed since last update. May be slightly more than [interval], depending on frame time.
+        var growthTime = _time.CurTime - _lastUpdated;
+        _lastUpdated = _time.CurTime;
+
+        // Advance the growth of all infants.
+        var infantQuery = EntityQueryEnumerator<ImpInfantComponent>();
+        while (infantQuery.MoveNext(out var uid, out var infant))
+        {
+            // Account for situations in which the infant is unable to grow.
+            if (!CanGrow((uid, infant)))
+                continue;
+
+            infant.CurrentGrowthTime += growthTime;
+
+            // Advance if the infant is done growing.
+            if (infant.CurrentGrowthTime >= infant.GrowthTime)
+                AdvanceStage((uid, infant));
+        }
+    }
+
     /// <summary>
     ///     Gets whether or not an infant is currently capable of growing.
     /// </summary>
@@ -46,7 +99,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     /// <returns></returns>
     private bool AdvanceStage(Entity<ImpInfantComponent> infant)
     {
-        var newStage = SpawnOnTop(infant, infant.Comp.NextStage);
+        var newStage = _animalHusbandry.SpawnOnTop(infant, infant.Comp.NextStage);
 
         if (!_prototype.Resolve(infant.Comp.OffspringSettings, out var settings))
             return false;
@@ -72,7 +125,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
 
         // So they don't immediately try to breed the second they grow up
         if (isAdult)
-            RefreshSearchTime(newStage);
+            _animalHusbandry.RefreshSearchTime(newStage);
 
         return isAdult;
     }

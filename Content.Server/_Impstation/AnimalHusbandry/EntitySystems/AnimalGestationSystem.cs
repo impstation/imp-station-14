@@ -1,13 +1,92 @@
+using Content.Server.Administration.Logs;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
 using Content.Shared.Database;
 using Content.Shared.Interaction.Components;
+using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 
-public sealed partial class AnimalHusbandrySystemImp
+/// <summary>
+///     This system handles the gestation of offspring for breedable animals, such as animal pregnancy and eggs.
+/// </summary>
+public sealed partial class AnimalGestationSystem : EntitySystem
 {
+    [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly AnimalHusbandrySystemImp _animalHusbandry = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly IGameTiming _time = default!;
+
+    private TimeSpan _lastUpdated = TimeSpan.Zero;
+    private TimeSpan _updateRate = TimeSpan.FromSeconds(1.0f); // TODO: CVar
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        // Note: If you're implementing these events for other components, ideally they should be subscribed to in their
+        // respective systems. These are here because they're upstream components and it would be a pain in the ass
+        // to do so in a namespace-friendly way
+        SubscribeLocalEvent<ImpInfantComponent, IsUnableToGestateEvent>(IsInfantUnableToGestate);
+        SubscribeLocalEvent<MobStateComponent, IsUnableToGestateEvent>(IsMobStateUnableToGestate);
+        SubscribeLocalEvent<MindContainerComponent, IsUnableToGestateEvent>(IsMindContainerUnableToGestate);
+    }
+
+    /// <summary>
+    ///     Advance the gestation of all pregnant entities and the growth of all infant entities.
+    ///     This happens on an interval loop for performance reasons.
+    /// </summary>
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        // We only update pregnancy and growth timers every [interval], for performance.
+        if (_time.CurTime < _lastUpdated + _updateRate)
+            return;
+
+        // Time elapsed since last update. May be slightly more than [interval], depending on frame time.
+        var growthTime = _time.CurTime - _lastUpdated;
+        _lastUpdated = _time.CurTime;
+
+        // Advance the gestation of all gestating entities.
+        var gestatingQuery = EntityQueryEnumerator<GestatingComponent>();
+        var toDelete = new List<EntityUid>();
+
+        while (gestatingQuery.MoveNext(out var uid, out var gestating))
+        {
+            var gestatingEntity = (uid, gestating);
+
+            // If the entity is unable to gestate for any reason,
+            // then we end the gestation pre-emptively without producing anything.
+            if (IsUnableToGestate(uid))
+            {
+                EndGestation(gestatingEntity);
+                continue;
+            }
+
+            // Otherwise, if this entity is capable of gestation, then we add progress to the gestation timer.
+            if (IsGestating(gestatingEntity))
+                gestating.CurrentGestationTime += growthTime;
+
+            // If the gestation progress timer surpasses the gestation time, complete gestation.
+            if (gestating.CurrentGestationTime > gestating.GestationTime)
+            {
+                CompleteGestation(gestatingEntity);
+                // Delete this entity on gestation complete if flagged for it - for example, an egg.
+                if (gestating.DeleteSelfOnSpawn)
+                    toDelete.Add(uid);
+            }
+        }
+
+        // Clean up entities that need to be deleted
+        foreach (var uid in toDelete)
+            QueueDel(uid);
+    }
+
     /// <summary>
     ///     Gets whether or not this entity is currently gestating.
     /// </summary>
@@ -91,7 +170,7 @@ public sealed partial class AnimalHusbandrySystemImp
         if (TryComp<InteractionPopupComponent>(entity, out var interactionPopup))
             _audio.PlayPvs(interactionPopup.InteractSuccessSound, entity);
 
-        var offspring = SpawnOnTop(entity, entity.Comp.EntityToSpawn);
+        var offspring = _animalHusbandry.SpawnOnTop(entity, entity.Comp.EntityToSpawn);
 
         if (TryComp<ImpInfantComponent>(offspring, out var infantComp))
             infantComp.Parent = entity;

@@ -1,117 +1,156 @@
 using Content.Server.Administration.Logs;
-using Content.Server.Cloning;
 using Content.Shared.EntityTable;
-using Content.Shared.Mind;
-using Content.Shared.Mind.Components;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition.EntitySystems;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Damage.Components;
+using Content.Shared.Database;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Nutrition.Components;
+using System.Linq;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared._Impstation.EntityTable.Conditions;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 
 /// <summary>
-/// System that handles mob breeding, birthing and growing
-/// This system works alongside HTN
+///     This system handles animal breading, used in conjunction with HTN.
 /// </summary>
 public sealed partial class AnimalHusbandrySystemImp : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly AnimalGestationSystem _gestation = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly ThirstSystem _thirst = default!;
     [Dependency] private readonly EntityTableSystem _entTable = default!;
 
-    private TimeSpan _lastUpdated = TimeSpan.Zero;
-    private TimeSpan _updateRate = TimeSpan.FromSeconds(1.0f); // TODO: CVar
-
     public override void Initialize()
     {
         base.Initialize();
-
-        // Note: If you're implementing these events for other components, ideally they should be subscribed to in their
-        // respective systems. These are here because they're upstream components and it would be a pain in the ass
-        // to do so in a namespace-friendly way
-        SubscribeLocalEvent<ImpInfantComponent, IsUnableToGestateEvent>(IsInfantUnableToGestate);
-        SubscribeLocalEvent<MobStateComponent, IsUnableToGestateEvent>(IsMobStateUnableToGestate);
-        SubscribeLocalEvent<MindContainerComponent, IsUnableToGestateEvent>(IsMindContainerUnableToGestate);
-
-        SubscribeLocalEvent<MobStateComponent, InfantCanGrowEvent>(CanMobStateGrow);
     }
 
     /// <summary>
-    ///     Advance the gestation of all pregnant entities and the growth of all infant entities.
-    ///     This happens on an interval loop for performance reasons.
+    /// Our function for handling the breeding action once all checks are finished and the
+    /// animal has approached its partner.
     /// </summary>
-    public override void Update(float frameTime)
+    /// <param name="approacher">The mob seeking to impregnate</param>
+    /// <param name="approached">The mob that will be impregnated</param>
+    /// <returns>True if the mob has successfully bred with the target</returns>
+    public bool TryBreedWithTarget(Entity<ImpReproductiveComponent?> approacher, Entity<ImpReproductiveComponent?> approached)
     {
-        base.Update(frameTime);
+        var approacherProto = MetaData(approacher.Owner).EntityPrototype;
 
-        // We only update pregnancy and growth timers every [interval], for performance.
-        if (_time.CurTime < _lastUpdated + _updateRate)
+        if (approacher == approached // Do not self-breed
+            || !Resolve(approacher.Owner, ref approacher.Comp, logMissing: false) // Ensure approacher can reproduce
+            || !Resolve(approached.Owner, ref approached.Comp, logMissing: false) // Ensure partner can reproduce
+            || approacherProto == null) // Ensure approacher has a prototype
+            return false;
+
+        var partnerComp = approached.Comp;
+
+        // one last check in case someone beat us to the cow or bred us on the way there
+        // It's dumb but unless I make the system assign pairings this is the best i can think of for the moment
+        if (!CanYouBreed(approacher) || !CanYouBreed(approached))
+            return false;
+
+        if (!_prototype.TryIndex(partnerComp.BreedSettings, out var partnerSettings))
+            return false;
+
+        // Picks which offspring to give birth to based on the mob we bred with
+        var ctx = new EntityTableContext(new Dictionary<string, object>
+        {
+            { ValidPartnerCondition.PartnerContextKey, approacherProto.ID },
+        });
+
+        var spawns = _entTable.GetSpawns(partnerSettings.PossibleInfants, ctx: ctx);
+        if (!spawns.Any()) // No valid offspring
+            return false;
+
+        // Add gestation to the approached mob
+        var gestating = EnsureComp<GestatingComponent>(approached.Owner);
+        gestating.GestationTime = partnerComp.PregnancyLength;
+        gestating.EntityToSpawn = spawns.First();
+        partnerComp.PreviousPartner = approacher;
+
+        if (TryComp<InteractionPopupComponent>(approached, out var interactionPopup))
+            Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates(approached));
+
+        // GET HUNGRY GET THIRSTY
+        _hunger.ModifyHunger(approacher, -approacher.Comp.HungerPerBirth);
+        _hunger.ModifyHunger(approached, -partnerComp.HungerPerBirth);
+
+        _thirst.ModifyThirst(approacher, -approacher.Comp.HungerPerBirth);
+        _thirst.ModifyThirst(approached, -partnerComp.HungerPerBirth);
+
+        _adminLog.Add(LogType.Action, $"{ToPrettyString(approached)} (carrier) and {ToPrettyString(approacher)} (partner) successfully bred.");
+        return true;
+    }
+
+    /// <summary>
+    /// Checking if a given entity meets the criteria for breeding
+    /// This isn't set in stone to remain and it largely in this class for the moment so multiple scripts
+    /// Can use it, whether it remains is yet to be discovered. Depends on if it needs to be.
+    /// </summary>
+    /// <param name="entity">The fella we're checking out. Or ourself</param>
+    /// <returns>If the mob is eligible to breed</returns>
+    public bool CanYouBreed(Entity<ImpReproductiveComponent?> entity)
+    {
+        // Not a reproductive entity.
+        if (!Resolve(entity.Owner, ref entity.Comp, logMissing: false))
+            return false;
+
+        // Already gestating.
+        if (HasComp<GestatingComponent>(entity.Owner))
+            return false;
+
+        // Incapable of gestation.
+        if (_gestation.IsUnableToGestate(entity.Owner))
+            return false;
+
+        // Too hungry.
+        if (TryComp<HungerComponent>(entity, out var hunger)
+            && hunger.CurrentThreshold < entity.Comp.MinimumHungerThreshold)
+            return false;
+
+        // Too thirsty.
+        if (TryComp<ThirstComponent>(entity, out var thirst)
+            && thirst.CurrentThirstThreshold < entity.Comp.MinimumThirstThreshold)
+            return false;
+
+        // Too injured.
+        if (TryComp<DamageableComponent>(entity, out var damage)
+            && damage.TotalDamage >= entity.Comp.MaxBreedDamage)
+            return false;
+
+        return true;
+    }
+
+    /// <summary>
+    ///     Updates a reproductive entity's partner search time with a random duration.
+    /// </summary>
+    /// <param name="entity">The reproductive entity.</param>
+    public void RefreshSearchTime(Entity<ImpReproductiveComponent?> entity)
+    {
+        if (!Resolve(entity.Owner, ref entity.Comp, logMissing: false))
             return;
 
-        // Time elapsed since last update. May be slightly more than [interval], depending on frame time.
-        var growthTime = _time.CurTime - _lastUpdated;
-        _lastUpdated = _time.CurTime;
+        var newDuration = _random.Next(entity.Comp.MinSearchAttemptInterval, entity.Comp.MaxSearchAttemptInterval);
+        entity.Comp.NextSearch = _time.CurTime + newDuration;
+    }
 
-        // Advance the gestation of all gestating entities.
-        var gestatingQuery = EntityQueryEnumerator<GestatingComponent>();
-        var toDelete = new List<EntityUid>();
-
-        while (gestatingQuery.MoveNext(out var uid, out var gestating))
-        {
-            var gestatingEntity = (uid, gestating);
-
-            // If the entity is unable to gestate for any reason,
-            // then we end the gestation pre-emptively without producing anything.
-            if (IsUnableToGestate(uid))
-            {
-                EndGestation(gestatingEntity);
-                continue;
-            }
-
-            // Otherwise, if this entity is capable of gestation, then we add progress to the gestation timer.
-            if (IsGestating(gestatingEntity))
-                gestating.CurrentGestationTime += growthTime;
-
-            // If the gestation progress timer surpasses the gestation time, complete gestation.
-            if (gestating.CurrentGestationTime > gestating.GestationTime)
-            {
-                CompleteGestation(gestatingEntity);
-                // Delete this entity on gestation complete if flagged for it - for example, an egg.
-                if (gestating.DeleteSelfOnSpawn)
-                    toDelete.Add(uid);
-            }
-        }
-
-        // Advance the growth of all infants.
-        var infantQuery = EntityQueryEnumerator<ImpInfantComponent>();
-        while (infantQuery.MoveNext(out var uid, out var infant))
-        {
-            // Account for situations in which the infant is unable to grow.
-            if (!CanGrow((uid, infant)))
-                continue;
-
-            infant.CurrentGrowthTime += growthTime;
-
-            // Advance if the infant is done growing.
-            if (infant.CurrentGrowthTime >= infant.GrowthTime)
-                AdvanceStage((uid, infant));
-        }
-
-        // Clean up entities that need to be deleted
-        foreach (var uid in toDelete)
-            QueueDel(uid);
+    /// <summary>
+    ///     Gets whether or not a reproductive entity is ready to search for a new partner.
+    /// </summary>
+    /// <param name="entity">The reproductive entity.</param>
+    /// <returns>Whether or not a reproductive entity is ready to search for a new partner.</returns>
+    public bool ReadyToSearch(Entity<ImpReproductiveComponent> entity)
+    {
+        return _time.CurTime >= entity.Comp.NextSearch;
     }
 
     /// <summary>
