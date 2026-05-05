@@ -422,3 +422,32 @@
       - FloorGreenPlastic
   - type: Stack
     stackType: FloorTileGreenPlastic
+
+- type: entity
+  name: imperial tile
+  parent: FloorTileItemBase
+  id: FloorTileItemDecapoid
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tiles/decapoid.rsi
+    state: decapoid
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorDecapoid
+  - type: Stack
+    stackType: FloorTileDecapoid
+- type: entity
+  name: imperial flourish tile
+  parent: FloorTileItemBase
+  id: FloorTileItemDecapoidFancy
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Tiles/decapoid.rsi
+    state: decapoid_fancy
+  - type: FloorTile
+    outputs:
+      - Plating
+      - FloorDecapoidFancy
+  - type: Stack
+    stackType: FloorTileDecapoidFancy
