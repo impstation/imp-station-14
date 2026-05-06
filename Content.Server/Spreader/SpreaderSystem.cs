@@ -159,7 +159,7 @@ public sealed class SpreaderSystem : EntitySystem
 
     private void Spread(EntityUid uid, TransformComponent xform, ProtoId<EdgeSpreaderPrototype> prototype, ref int updates)
     {
-        GetNeighbors(uid, xform, prototype, out var freeTiles, out _, out var neighbors, out var allNeighbors); // Imp, ouputted variable occupiedTiles, added allNeighbors
+        GetNeighbors(uid, xform, prototype, out var freeTiles, out _, out var neighbors, out var allNeighbors); // Imp, added allNeighbors
 
         var ev = new SpreadNeighborsEvent()
         {

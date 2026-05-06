@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using Content.Server.Chat.Systems;
 using Content.Server.Singularity.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared._EE.CCVar;
@@ -31,7 +30,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
-using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._EE.Supermatter.Systems;
 
