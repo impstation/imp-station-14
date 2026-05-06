@@ -142,7 +142,7 @@ public sealed class SpreaderSystem : EntitySystem
                 continue;
             }
 
-            if ((!groupUpdates.TryGetValue(spreader.Id, out var updates) || updates < 1) && spreader.IndependentUpdate) // Imp, add && spreader.IndependentUpdate
+            if (!groupUpdates.TryGetValue(spreader.Id, out var updates) || updates < 1)
                 continue;
 
             // Edge detection logic is to be handled
@@ -159,13 +159,14 @@ public sealed class SpreaderSystem : EntitySystem
 
     private void Spread(EntityUid uid, TransformComponent xform, ProtoId<EdgeSpreaderPrototype> prototype, ref int updates)
     {
-        GetNeighbors(uid, xform, prototype, out var freeTiles, out _, out var neighbors);
+        GetNeighbors(uid, xform, prototype, out var freeTiles, out _, out var neighbors, out var allNeighbors); // Imp, ouputted variable occupiedTiles, added allNeighbors
 
         var ev = new SpreadNeighborsEvent()
         {
             NeighborFreeTiles = freeTiles,
             Neighbors = neighbors,
             Updates = updates,
+            AllNeighbors = allNeighbors, // Imp
         };
 
         RaiseLocalEvent(uid, ref ev);
@@ -175,11 +176,16 @@ public sealed class SpreaderSystem : EntitySystem
     /// <summary>
     /// Gets the neighboring node data for the specified entity and the specified node group.
     /// </summary>
-    public void GetNeighbors(EntityUid uid, TransformComponent comp, ProtoId<EdgeSpreaderPrototype> prototype, out ValueList<(MapGridComponent, TileRef)> freeTiles, out ValueList<Vector2i> occupiedTiles, out ValueList<EntityUid> neighbors)
+    public void GetNeighbors(EntityUid uid, TransformComponent comp, ProtoId<EdgeSpreaderPrototype> prototype,
+        out ValueList<(MapGridComponent, TileRef)> freeTiles,
+        out ValueList<Vector2i> occupiedTiles,
+        out ValueList<EntityUid> neighbors,
+        out ValueList<(EntityUid, MapGridComponent, Vector2i)> allNeighbors) // Imp, added allNeighbors
     {
         freeTiles = [];
         occupiedTiles = [];
         neighbors = [];
+        allNeighbors = []; // Imp
         // TODO remove occupiedTiles -- its currently unused and just slows this method down.
         if (!_prototype.Resolve(prototype, out var spreaderPrototype))
             return;
@@ -240,6 +246,8 @@ public sealed class SpreaderSystem : EntitySystem
 
         foreach (var (neighborEnt, neighborGrid, neighborPos, ourAtmosDir, otherAtmosDir) in neighborTiles)
         {
+            allNeighbors.Add((neighborEnt, neighborGrid, neighborPos)); // Imp
+
             // This tile is blocked to that direction.
             if ((blockedAtmosDirs & ourAtmosDir) != 0x0)
                 continue;

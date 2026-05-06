@@ -2,21 +2,23 @@
   id: CrystalMass
   placement:
     mode: SnapgridCenter
+    snap:
+      - Wall
   name: crystal mass
   description: You see this massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
   components:
     - type: Appearance
     - type: Transform
+      anchored: true
     - type: Physics
-      bodyType: static
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
       state: crystal_cascade_1
-      layers:
-      - state: crystal_cascade_1
-        visible: false
-        shader: unshaded
-        map: [ "light" ]
+      # layers:
+      # - state: crystal_cascade_1
+        # visible: false
+        # shader: unshaded
+        # map: [ "light" ]
       drawdepth: FloorTiles
     - type: Fixtures
       fixtures:
@@ -30,15 +32,13 @@
           - ItemMask
           density: 500
           hard: false
-    - type: Airtight
     - type: CrystalMassVisuals
     - type: Clickable
     - type: CrystalMass
     - type: ActiveEdgeSpreader
     - type: EdgeSpreader
       id: CrystalMass
-    - type: PointLight
-      color: "#FBFF23"
+      PreventSpreadIntoSpace: false
     - type: StepTrigger
       requiredTriggeredSpeed: 0
       intersectRatio: 0.1

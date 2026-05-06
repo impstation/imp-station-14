@@ -11,11 +11,4 @@ public sealed partial class EdgeSpreaderComponent : Component
 {
     [DataField(required: true)]
     public ProtoId<EdgeSpreaderPrototype> Id;
-
-    /// <summary>
-    /// Imp
-    /// Allows independent updating of each spreader entity
-    /// </summary>
-    [DataField]
-    public bool IndependentUpdate = false;
 }

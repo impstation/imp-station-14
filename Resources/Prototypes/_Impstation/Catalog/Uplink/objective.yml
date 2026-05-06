@@ -4,7 +4,7 @@
   id: UplinkDestabilizingCrystal
   name: uplink-destabilizing-crystal-name
   description: uplink-destabilizing-crystal-desc
-  # icon: { sprite: sprite path, state: icon }
+  icon: { sprite: _Impstation/Objects/Misc/destabilizing_crystal.rsi, state: destabilizing_crystal }
   productEntity: DestabilizingCrystal
   cost:
     Telecrystal: 5

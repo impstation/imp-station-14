@@ -8,11 +8,9 @@ using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Spreader;
 using Content.Shared.StepTrigger.Systems;
-using System.Numerics;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -21,15 +19,18 @@ namespace Content.Server._Impstation.CrystalMass;
 
 public sealed class CrystalMassSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly TileSystem _tile = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedMapSystem _map = default!;
 
     private static readonly ProtoId<EdgeSpreaderPrototype> CrystalMassGroup = "CrystalMass";
+    private static readonly EntProtoId CrystalMassPrototype = "CrystalMass";
+    private static readonly EntProtoId CrystalBulbPrototype = "CrystalBulb";
+    private static readonly string CrystalMassPlating = "PlatingCrystalMass";
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -43,48 +44,61 @@ public sealed class CrystalMassSystem : EntitySystem
         SubscribeLocalEvent<CrystalMassComponent, StepTriggeredOnEvent>(OnStepTriggered);
     }
 
+    private void SetupCrystalMass(Entity<CrystalMassComponent> ent, ref ComponentStartup args)
+    {
+        if (ent.Comp.IsBulb)
+            return;
+
+        if (!TryComp<AppearanceComponent>(ent, out var appearance))
+            return;
+
+        _appearance.SetData(ent, CrystalMassVisuals.Variant, _robustRandom.Next(1, ent.Comp.SpriteVariants + 1), appearance);
+    }
+
     private void OnCrystalSpread(Entity<CrystalMassComponent> ent, ref SpreadNeighborsEvent args)
     {
-        var uid = ent.Owner;
+        var comp = ent.Comp;
 
-        if (!_robustRandom.Prob(ent.Comp.SpreadChance))
+        // Broken for some reason
+        // if (args.Neighbor.Count == 0)
+        // {
+        //     RemCompDeferred<ActiveEdgeSpreaderComponent>(ent);
+        //     return;
+        // }
+
+        if (!_robustRandom.Prob(comp.SpreadChance))
             return;
 
-        var prototype = MetaData(uid).EntityPrototype?.ID;
+        var prototype = CrystalMassPrototype;
+        if (_robustRandom.Prob(comp.BulbChance))
+            prototype = CrystalBulbPrototype;
 
-        if (prototype == null)
-        {
-            RemCompDeferred<ActiveEdgeSpreaderComponent>(uid);
-            return;
-        }
+        var neighbor = _robustRandom.Pick(args.AllNeighbors);
+        var neighborCoords = _map.GridTileToLocal(neighbor.GridUid, neighbor.Grid, neighbor.Position);
 
-        if (args.NeighborFreeTiles.Count == 0)
-            return;
+        var seed = _robustRandom.Next();
+        var random = new Random(seed);
+        var variant = _tile.PickVariant((ContentTileDefinition)_tileDefManager[CrystalMassPlating], random);
 
-        var neighbor = _robustRandom.Pick(args.NeighborFreeTiles);
-        var neighborUid = Spawn(prototype, _map.GridTileToLocal(neighbor.Tile.GridUid, neighbor.Grid, neighbor.Tile.GridIndices));
+        _map.SetTile(neighbor.GridUid, neighbor.Grid, neighborCoords, new Tile(_tileDefManager[CrystalMassPlating].TileId, 0, variant));
+
+        var neighborUid = Spawn(prototype, neighborCoords);
         DebugTools.Assert(HasComp<EdgeSpreaderComponent>(neighborUid));
         DebugTools.Assert(HasComp<ActiveEdgeSpreaderComponent>(neighborUid));
         DebugTools.Assert(Comp<EdgeSpreaderComponent>(neighborUid).Id == CrystalMassGroup);
 
-        ClearTile(ent, neighbor);
+        _audio.PlayPvs(ent.Comp.SpawningCrystalSound, ent, AudioParams.Default.WithVolume(20f));
+
+        ClearNeighborTile((neighborUid, Comp<CrystalMassComponent>(neighborUid)), neighbor.GridUid, neighbor.Position);
 
         args.Updates--;
         if (args.Updates <= 0)
             return;
     }
 
-
-    private void ClearTile(Entity<CrystalMassComponent> ent, (MapGridComponent Grid, TileRef Tile) neighbor)
+    private void ClearNeighborTile(Entity<CrystalMassComponent> ent, EntityUid gridUid, Vector2i neighborGridIndices)
     {
-        var comp = ent.Comp;
-
-        var worldPos = _transform.ToMapCoordinates(_map.GridTileToLocal(neighbor.Tile.GridUid, neighbor.Grid, neighbor.Tile.GridIndices)).Position;
-
-        var gridRot = _transform.GetWorldRotation(neighbor.Tile.GridUid);
-        var box = new Box2Rotated(Box2.CenteredAround(worldPos, Vector2.One), gridRot, worldPos);
-
-        foreach (var target in _lookup.GetEntitiesIntersecting(Transform(ent).MapID, box, LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries))
+        foreach (var target in _lookup.GetLocalEntitiesIntersecting(gridUid, neighborGridIndices, flags: LookupFlags.Uncontained))
         {
             if (target == ent.Owner)
                 continue;
@@ -96,21 +110,10 @@ public sealed class CrystalMassSystem : EntitySystem
 
             if (HasComp<MobStateComponent>(target)
                 || HasComp<ItemComponent>(target))
-                _audio.PlayPvs(comp.DustSound, ent, AudioParams.Default.WithVolume(-2f));
+                _audio.PlayPvs(ent.Comp.DustSound, ent, AudioParams.Default.WithVolume(-2f));
 
             EntityManager.QueueDeleteEntity(target);
         }
-    }
-
-    private void SetupCrystalMass(Entity<CrystalMassComponent> ent, ref ComponentStartup args)
-    {
-        if (!TryComp<AppearanceComponent>(ent, out var appearance))
-            return;
-
-        if (ent.Comp.IsBulb)
-            return;
-
-        _appearance.SetData(ent, CrystalMassVisuals.Variant, _robustRandom.Next(1, ent.Comp.SpriteVariants + 1), appearance);
     }
 
     private void OnStepTriggered(Entity<CrystalMassComponent> ent, ref StepTriggeredOnEvent args)
