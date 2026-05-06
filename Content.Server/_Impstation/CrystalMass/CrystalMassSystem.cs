@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.Spreader;
 using Content.Shared._EE.Supermatter.Components;
 using Content.Shared._Impstation.CrystalMass;
@@ -11,6 +12,7 @@ using Content.Shared.StepTrigger.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -23,6 +25,7 @@ public sealed class CrystalMassSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
@@ -59,12 +62,13 @@ public sealed class CrystalMassSystem : EntitySystem
     {
         var comp = ent.Comp;
 
-        // Broken for some reason
-        // if (args.Neighbor.Count == 0)
-        // {
-        //     RemCompDeferred<ActiveEdgeSpreaderComponent>(ent);
-        //     return;
-        // }
+        // Broken check
+        Logger.Info($"Neighbors: {args.Neighbors.Count}");
+        if (args.Neighbors.Count == 4)
+        {
+            RemCompDeferred<ActiveEdgeSpreaderComponent>(ent);
+            return;
+        }
 
         if (!_robustRandom.Prob(comp.SpreadChance))
             return;
@@ -76,24 +80,42 @@ public sealed class CrystalMassSystem : EntitySystem
         var neighbor = _robustRandom.Pick(args.AllNeighbors);
         var neighborCoords = _map.GridTileToLocal(neighbor.GridUid, neighbor.Grid, neighbor.Position);
 
-        var seed = _robustRandom.Next();
-        var random = new Random(seed);
-        var variant = _tile.PickVariant((ContentTileDefinition)_tileDefManager[CrystalMassPlating], random);
-
-        _map.SetTile(neighbor.GridUid, neighbor.Grid, neighborCoords, new Tile(_tileDefManager[CrystalMassPlating].TileId, 0, variant));
+        HandleTiles(neighbor.GridUid, neighbor.Grid, neighborCoords);
 
         var neighborUid = Spawn(prototype, neighborCoords);
         DebugTools.Assert(HasComp<EdgeSpreaderComponent>(neighborUid));
         DebugTools.Assert(HasComp<ActiveEdgeSpreaderComponent>(neighborUid));
         DebugTools.Assert(Comp<EdgeSpreaderComponent>(neighborUid).Id == CrystalMassGroup);
 
-        _audio.PlayPvs(ent.Comp.SpawningCrystalSound, ent, AudioParams.Default.WithVolume(20f));
+        _audio.PlayPvs(comp.SpawningCrystalSound, ent, AudioParams.Default.WithVolume(20f));
 
         ClearNeighborTile((neighborUid, Comp<CrystalMassComponent>(neighborUid)), neighbor.GridUid, neighbor.Position);
 
         args.Updates--;
         if (args.Updates <= 0)
             return;
+    }
+
+    private void HandleTiles(EntityUid gridUid, MapGridComponent grid, EntityCoordinates neighborCoords)
+    {
+        // Broken
+        // var worldVec = _transform.ToMapCoordinates(neighborCoords).Position;
+        // var gridRot = _transform.GetWorldRotation(gridUid);
+        // var box = new Box2Rotated(Box2.CenteredAround(worldVec, Vector2.One), gridRot, worldVec);
+
+        // foreach (var tileRef in _map.GetLocalTilesIntersecting(gridUid, grid, box))
+        // {
+        //     var tileGridUid = tileRef.GridUid;
+
+        //     if (TryComp<MapGridComponent>(tileGridUid, out var tileGrid))
+        //         _map.SetTile(tileGridUid, tileGrid, tileRef.GridIndices, Tile.Empty);
+        // }
+
+        var seed = _robustRandom.Next();
+        var random = new Random(seed);
+        var variant = _tile.PickVariant((ContentTileDefinition)_tileDefManager[CrystalMassPlating], random);
+
+        _map.SetTile(gridUid, grid, neighborCoords, new Tile(_tileDefManager[CrystalMassPlating].TileId, 0, variant));
     }
 
     private void ClearNeighborTile(Entity<CrystalMassComponent> ent, EntityUid gridUid, Vector2i neighborGridIndices)
