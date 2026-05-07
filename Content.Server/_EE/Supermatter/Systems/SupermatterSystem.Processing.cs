@@ -670,6 +670,8 @@ public sealed partial class SupermatterSystem
         var mapFilter = Filter.BroadcastMap(mapId);
         var message = Loc.GetString("supermatter-delam-player");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+        if (sm.PreferredDelamType == DelamType.Cascade)
+            message = Loc.GetString("supermatter-delam-cascade-player");
 
         // Send the reality distortion message to every player on the map
         _chatManager.ChatMessageToManyFiltered(mapFilter,
@@ -789,23 +791,35 @@ public sealed partial class SupermatterSystem
     private void HandleVision(EntityUid uid, SupermatterComponent sm)
     {
         var psyDiff = -0.007f;
+        var activeCascadeDelam = false;
         var lookup = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, 20f);
+
+        // If actively cascade delaminating then everyone is affected
+        if (sm.PreferredDelamType == DelamType.Cascade && sm.Damage > sm.DamageArchived)
+        {
+            _entityLookup.GetEntitiesOnMap(Transform(uid).MapID, lookup);
+            activeCascadeDelam = true;
+        }
 
         foreach (var mob in lookup)
         {
             // Not in line of sight, or is dead
-            if (!_examine.InRangeUnOccluded(uid, mob, sm.HallucinationRange) ||
+            if ((!_examine.InRangeUnOccluded(uid, mob, sm.HallucinationRange) ||
                 mob.Comp.CurrentState == MobState.Dead)
+                && !activeCascadeDelam)
                 continue;
 
             // Someone (generally a psychologist), when looking at the supermatter within hallucination range, makes it easier to manage.
-            if (HasComp<SupermatterSootherComponent>(mob))
+            if (HasComp<SupermatterSootherComponent>(mob) && !activeCascadeDelam)
                 psyDiff = 0.007f;
 
-            if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || // Immune to supermatter hallucinations
-                HasComp<SiliconLawBoundComponent>(mob) ||                // Silicons don't get supermatter hallucinations
-                HasComp<PermanentBlindnessComponent>(mob) ||             // Blind people don't get supermatter hallucinations
-                HasComp<TemporaryBlindnessComponent>(mob))               // Neither do blinded people
+            if (HasComp<SupermatterHallucinationImmuneComponent>(mob)) // Immune to supermatter hallucinations)
+                continue;
+
+            if ((HasComp<SiliconLawBoundComponent>(mob) ||             // Silicons don't get supermatter hallucinations
+                HasComp<PermanentBlindnessComponent>(mob) ||           // Blind people don't get supermatter hallucinations
+                HasComp<TemporaryBlindnessComponent>(mob)              // Neither do blinded people
+                ) && !activeCascadeDelam)
                 continue;
 
             // Everyone else gets hallucinations
@@ -818,7 +832,14 @@ public sealed partial class SupermatterSystem
 
             if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
             {
-                _popup.PopupEntity(Loc.GetString("supermatter-paracusia-player-message"), mob, mob, PopupType.LargeCaution);
+                var popup = "supermatter-paracusia-player-message";
+                if (activeCascadeDelam)
+                {
+                    var index = _random.Next(1, 6);
+                    popup = $"supermatter-cascade-player-message-{index}";
+                }
+
+                _popup.PopupEntity(Loc.GetString(popup), mob, mob, PopupType.LargeCaution);
                 _audio.PlayEntity(sm.GainParacusiaSound, mob, mob);
                 _audio.PlayEntity(sm.GiveParacusiaSound, mob, uid);
                 _paracusia.SetSounds(mob, paracusiaSounds, paracusia);

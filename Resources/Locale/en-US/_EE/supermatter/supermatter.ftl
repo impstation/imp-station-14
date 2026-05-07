@@ -18,6 +18,8 @@ supermatter-delam-cancel =
     Crystalline hyperstructure returning to safe operating parameters. Failsafe has been disengaged. Integrity: {$integrity}%.
 supermatter-delam-player =
     You feel reality distort for a moment...
+supermatter-delam-cascade-player =
+    Everything around you begins resonating with a powerful energy. This can't be good.
 supermatter-seconds-before-delam =
     Estimated time before delamination: {$seconds} seconds.
 supermatter-seconds-before-delam-countdown =
@@ -34,10 +36,6 @@ supermatter-threshold-mole =
 supermatter-threshold-cascade =
     DANGER: Hyperstucture oscillation frequency out of bounds.
 
-supermatter-announcement-cascade-begin =
-    Attention: Long range anomaly scans indicate abnormal quantities of harmonic flux originating from
-	a subject within {THE($station)}, a resonance collapse may occur.
-
 supermatter-tamper-begin =
     You begin carefully cutting a piece off the supermatter crystal...
 supermatter-tamper-end =
@@ -47,10 +45,14 @@ supermatter-announcement-cc-tamper =
     Engineering department, report to the supermatter engine immediately.
 
 supermatter-destabalize-start =
-
+    You begin carefully holding the crystal onto the supermatter, letting them melt into each.
 supermatter-destabalize-end =
-
-supermatter-integrity-too-low =
+    You feel the supermatter begin to pulsate, with the world shaking to its rhythm.
+supermatter-destabalize-integrity-low =
+    The supermatter rejects the crystal, unable to absorb it due to its failing integrity.
+supermatter-announcement-cascade-destabalize =
+    Attention: Long range anomaly scans indicate abnormal quantities of harmonic flux originating from
+	a subject within {THE($station)}, a resonance collapse may occur.
 
 supermatter-collide =
     {CAPITALIZE(THE($target))} slams into {THE($sm)}!
@@ -68,12 +70,13 @@ supermatter-collide-insert-unremoveable-user =
 supermatter-paracusia-player-message =
     You feel your head throb with otherworldly visions...
 
-supermatter-cascade-player-message =
-    "Space seems to be shifting around you...",
-    "You hear a high-pitched ringing sound.",
-    "You feel tingling going down your back.",
-    "Something feels very off.",
-    "A drowning sense of dread washes over you.",
-
-supermatter-cascade-delamination-player-message =
-    Everything around you is resonating with a powerful energy. This can't be good.
+supermatter-cascade-player-message-1 =
+    Space seems to be shifting around you...
+supermatter-cascade-player-message-2 =
+    You hear a high-pitched ringing sound.
+supermatter-cascade-player-message-3 =
+    You feel tingling going down your back.
+supermatter-cascade-player-message-4 =
+    Something feels very off.
+supermatter-cascade-player-message-5 =
+    A drowning sense of dread washes over you.

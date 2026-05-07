@@ -288,6 +288,12 @@ public sealed partial class SupermatterComponent : Component
     public float DelamTimer = 30f;
 
     /// <summary>
+    /// How long it takes in seconds for disrupting item actions to be used on the supermatter.
+    /// </summary>
+    [DataField]
+    public float DisruptionTime = 15f;
+
+    /// <summary>
     /// Last time a supermatter accent sound was triggered
     /// </summary>
     [DataField]

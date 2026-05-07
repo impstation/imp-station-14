@@ -14,7 +14,7 @@ emergancy-shuttle-cascade-idle =
     ERROR: Corruption detected in navigation protocols. Connection with Transponder #XCC-P5831-ES13 lost.
 	Backup exit route protocol decrypted. Calibrating route...
 emergancy-shuttle-cascade-call-unavailable =
-
+    Evacuation shuttle uplink cannot be located. Unable to reestablish connection.
 
 emergancy-shuttle-announcement-sender =
     Emergency Shuttle Uplink Alert

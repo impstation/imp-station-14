@@ -36,27 +36,40 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
     {
         base.Started(uid, comp, gameRule, args);
 
+        var station = _station.GetOwningStation(uid);
+
         SetAlertLevelDelta();
 
         _announcer.SendAnnouncementMessage(
-            _announcer.GetAnnouncementId("NukeArm"),
+            _announcer.GetAnnouncementId("commandReport"),
             "resonance-cascade-announcement-begin",
             Loc.GetString("resonance-cascade-announcement-sender"),
             Color.Cyan,
-            station: _station.GetOwningStation(uid)
+            station: station
         );
+
+        if (_roundEndSystem.IsRoundEndRequested())
+        {
+            _roundEndSystem.CancelRoundEndCountdown();
+            _announcer.SendAnnouncementMessage(
+                _announcer.GetAnnouncementId("shuttleRecalled"),
+                "emergancy-shuttle-cascade-enroute",
+                Loc.GetString("emergancy-shuttle-announcement-sender"),
+                Color.Cyan,
+                station: station
+            );
+        }
 
         var query = EntityQueryEnumerator<SupermatterComponent>();
         while (query.MoveNext(out var supermatterUid, out var sm))
         {
-            // Testing
-            // if (sm.PreferredDelamType == DelamType.Cascade && sm.DelamEndTime <= Timing.CurTime)
-            // {
-            // Two will not be fully delaminating at the exact same time... right?
-            SpawnCrystalMass(supermatterUid, comp);
-            EntityManager.QueueDeleteEntity(supermatterUid);
-            break;
-            // }
+            if (sm.PreferredDelamType == DelamType.Cascade && sm.DelamEndTime <= Timing.CurTime)
+            {
+                // Two will not be fully delamming at the exact same time... right?
+                SpawnCrystalMass(supermatterUid, comp);
+                EntityManager.QueueDeleteEntity(supermatterUid);
+                break;
+            }
         }
     }
 
@@ -65,7 +78,7 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
         if (Timing.CurTime > comp.TimeUntilEndRound / 2 && comp.Stage < ResonanceCascadeStage.Middle)
         {
             _announcer.SendAnnouncementMessage(
-                _announcer.GetAnnouncementId("NukeArm"),
+                _announcer.GetAnnouncementId("commandReport"),
                 "resonance-cascade-announcement-middle",
                 Loc.GetString("resonance-cascade-announcement-sender"),
                 Color.Cyan,
@@ -132,6 +145,6 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
             return;
         if (_alertLevelSystem.GetLevel(station.Value) == "delta") // Don't delta if already delta
             return;
-        _alertLevelSystem.SetLevel(station.Value, "delta", true, true, true);
+        _alertLevelSystem.SetLevel(station.Value, "delta", true, false, true);
     }
 }

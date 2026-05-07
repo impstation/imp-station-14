@@ -1,5 +1,6 @@
 using Content.Server._Impstation.StrangeMoods;
 using Content.Server.Administration.Logs;
+using Content.Server.Announcements.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;
@@ -12,6 +13,7 @@ using Content.Server.Ghost;
 using Content.Server.Lightning;
 using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
+using Content.Server.Station.Systems;
 using Content.Server.Silicons.Laws;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
@@ -36,7 +38,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
-using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -49,6 +50,7 @@ namespace Content.Server._EE.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem : EntitySystem
 {
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
@@ -65,6 +67,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly PointLightSystem _light = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
+    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StrangeMoodsSystem _moods = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -77,7 +80,6 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
 
     public override void Initialize()
     {
@@ -193,9 +195,15 @@ public sealed partial class SupermatterSystem : EntitySystem
         // Unhardcode timer
         if (HasComp<SupermatterDestabalizerComponent>(item))
         {
-            _popup.PopupClient(Loc.GetString("supermatter-destabalize-start"), uid, args.User);
+            if (GetIntegrity(sm) < 80)
+            {
+                _popup.PopupEntity(Loc.GetString("supermatter-integrity-too-low"), uid, args.User);
+                return;
+            }
 
-            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(30), new DestabilizingCrystalDoAfterEvent(), uid)
+            _popup.PopupEntity(Loc.GetString("supermatter-destabalize-start"), uid, args.User);
+
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, sm.DisruptionTime, new DestabilizingCrystalDoAfterEvent(), uid, used: item)
             {
                 BreakOnDamage = true,
                 BreakOnMove = true,
@@ -283,13 +291,15 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (GetIntegrity(sm) < 80)
-        {
-            _popup.PopupClient(Loc.GetString("supermatter-integrity-too-low"), uid, args.User);
-            return;
-        }
+        _announcer.SendAnnouncementMessage(
+            _announcer.GetAnnouncementId("shuttleRecalled"),
+            "supermatter-announcement-cascade-destabalize",
+            Loc.GetString("resonance-cascade-announcement-sender"),
+            Color.Cyan,
+            station: _station.GetOwningStation(uid)
+        );
 
-        _popup.PopupClient(Loc.GetString("supermatter-destabalize-end"), uid, args.User);
+        _popup.PopupEntity(Loc.GetString("supermatter-destabalize-integrity-low"), uid, args.User);
 
         sm.DestabilizingCrystal = true;
     }
