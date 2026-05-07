@@ -48,6 +48,8 @@ public sealed class CrystalMassSystem : EntitySystem
 
     private void SetupCrystalMass(Entity<CrystalMassComponent> ent, ref ComponentStartup args)
     {
+        ClearTile(ent);
+
         if (ent.Comp.IsBulb)
             return;
 
@@ -61,6 +63,7 @@ public sealed class CrystalMassSystem : EntitySystem
     {
         var comp = ent.Comp;
 
+        // Only occurs when surrounded by CrystalMass spreaders
         if (args.Neighbors.Count == 4)
         {
             RemCompDeferred<ActiveEdgeSpreaderComponent>(ent);
@@ -84,9 +87,8 @@ public sealed class CrystalMassSystem : EntitySystem
         DebugTools.Assert(HasComp<ActiveEdgeSpreaderComponent>(neighborUid));
         DebugTools.Assert(Comp<EdgeSpreaderComponent>(neighborUid).Id == CrystalMassGroup);
 
-        _audio.PlayPvs(comp.SpawningCrystalSound, ent, AudioParams.Default.WithVolume(20f));
-
-        ClearNeighborTile((neighborUid, Comp<CrystalMassComponent>(neighborUid)), neighbor.GridUid, neighbor.Position);
+        if (!_robustRandom.Prob(comp.SpawningAudioChance))
+            _audio.PlayPvs(comp.SpawningCrystalSound, ent, AudioParams.Default.WithVolume(60f));
 
         args.Updates--;
         if (args.Updates <= 0)
@@ -121,9 +123,17 @@ public sealed class CrystalMassSystem : EntitySystem
         _map.SetTile(neighborGridUid, neighborGrid, neighborPosition, new Tile(_tileDefManager[CrystalMassPlating].TileId, 0, variant));
     }
 
-    private void ClearNeighborTile(Entity<CrystalMassComponent> ent, EntityUid gridUid, Vector2i neighborGridIndices)
+    private void ClearTile(Entity<CrystalMassComponent> ent)
     {
-        foreach (var target in _lookup.GetLocalEntitiesIntersecting(gridUid, neighborGridIndices, flags: LookupFlags.Uncontained))
+        var xform = Transform(ent);
+        var gridUid = xform.GridUid;
+
+        if (!TryComp<MapGridComponent>(gridUid, out var grid))
+            return;
+
+        var tilePos = _map.LocalToTile(gridUid.Value, grid, xform.Coordinates);
+
+        foreach (var target in _lookup.GetLocalEntitiesIntersecting(gridUid.Value, tilePos, flags: LookupFlags.Uncontained))
         {
             if (target == ent.Owner)
                 continue;
@@ -135,6 +145,7 @@ public sealed class CrystalMassSystem : EntitySystem
 
             if (HasComp<MobStateComponent>(target)
                 || HasComp<ItemComponent>(target))
+                // Text for players could be added eventually
                 _audio.PlayPvs(ent.Comp.DustSound, ent, AudioParams.Default.WithVolume(-2f));
 
             EntityManager.QueueDeleteEntity(target);

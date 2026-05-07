@@ -16,6 +16,13 @@ public sealed partial class CrystalMassComponent : Component
     public float SpreadChance = 0.25f;
 
     /// <summary>
+    /// Chance for it to play spawning audio
+    /// </summary>
+    [DataField]
+    public float SpawningAudioChance = 0.2f;
+
+
+    /// <summary>
     /// Number of sprite variations for crystal mass
     /// </summary>
     public int SpriteVariants = 5;

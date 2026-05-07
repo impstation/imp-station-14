@@ -37,9 +37,3 @@
     entries:
     - id: MobSupermatterSpider
       prob: 0.05
-
-- type: entity
-  id: SupermatterCascadeDelamRule
-  parent: BaseGameRule
-  components:
-  - type: CascadeRule

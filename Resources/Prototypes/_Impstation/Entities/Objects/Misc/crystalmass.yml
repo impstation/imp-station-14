@@ -39,6 +39,8 @@
       intersectRatio: 0.1
       ignoreWeightless: true
       stepOn: true
+    - type: SinguloFood
+      energy: 200
 
 - type: entity
   id: CrystalBulb

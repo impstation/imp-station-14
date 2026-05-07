@@ -1,3 +1,4 @@
+using Content.Shared.Maps;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.GameTicking.Rules;
@@ -10,20 +11,29 @@ namespace Content.Server._Impstation.GameTicking.Rules;
 public sealed partial class CascadeRuleComponent : Component
 {
     /// <summary>
+    /// The current stage of the resonance cascade event
+    /// </summary>
+    [DataField]
+    public ResonanceCascadeStage Stage = ResonanceCascadeStage.Beginning;
+
+    /// <summary>
     /// Time until the round is ended in seconds
     /// </summary>
     [DataField]
-    public float TimeUntilEndRound = 120f;
+    public TimeSpan TimeUntilEndRound = TimeSpan.FromSeconds(180);
 
-    /// <summary>
-    /// Prototype that is spawned in
-    /// </summary>
     [DataField]
-    public EntProtoId CrystalMassSpawnPrototype = "CrystalMass";
+    public ProtoId<ContentTileDefinition> CrystalMassPlating = "PlatingCrystalMass";
+    [DataField]
+    public EntProtoId CrystalBulbPrototype = "CrystalBulb";
+    [DataField]
+    public EntProtoId SingularityPrototype = "Singularity";
+}
 
-    /// <summary>
-    /// Prototype that is spawned in
-    /// </summary>
-    [DataField]
-    public EntProtoId CrystalMassTileSpawnPrototype = "PlatingCrystalMass";
+[Serializable]
+public enum ResonanceCascadeStage : sbyte
+{
+    Beginning = 0,
+    Middle = 1,
+    End = 2,
 }

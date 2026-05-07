@@ -744,8 +744,6 @@ public sealed partial class SupermatterSystem
             case DelamType.Cascade:
                 var cascadeGamerule = _gameTicker.AddGameRule(sm.CascadeDelamGamerulePrototype);
                 _gameTicker.StartGameRule(cascadeGamerule);
-
-                _explosion.TriggerExplosive(uid);
                 break;
 
             case DelamType.Singulo:

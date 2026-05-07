@@ -17,13 +17,13 @@ namespace Content.Server._Impstation.GameTicking.Rules;
 /// </summary>
 public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
 {
+    [Dependency] private readonly IRobustRandom _robustRandom = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
 
     public override void Initialize()
     {
@@ -32,61 +32,85 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
         SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnShuttleCallAttempt);
     }
 
-    protected override void Started(EntityUid uid, CascadeRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+    protected override void Started(EntityUid uid, CascadeRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        base.Started(uid, component, gameRule, args);
+        base.Started(uid, comp, gameRule, args);
 
         SetAlertLevelDelta();
 
         _announcer.SendAnnouncementMessage(
             _announcer.GetAnnouncementId("NukeArm"),
-            "supermatter-component-announcement-resonance-cascade",
-            Loc.GetString("supermatter-component-cascade-announcement-sender"),
+            "resonance-cascade-announcement-begin",
+            Loc.GetString("resonance-cascade-announcement-sender"),
             Color.Cyan,
             station: _station.GetOwningStation(uid)
         );
 
-        SpawnCrystalMass(component);
+        var query = EntityQueryEnumerator<SupermatterComponent>();
+        while (query.MoveNext(out var supermatterUid, out var sm))
+        {
+            // Testing
+            // if (sm.PreferredDelamType == DelamType.Cascade && sm.DelamEndTime <= Timing.CurTime)
+            // {
+            // Two will not be fully delaminating at the exact same time... right?
+            SpawnCrystalMass(supermatterUid, comp);
+            EntityManager.QueueDeleteEntity(supermatterUid);
+            break;
+            // }
+        }
     }
 
-    protected override void ActiveTick(EntityUid uid, CascadeRuleComponent component, GameRuleComponent gameRule, float frameTime)
+    protected override void ActiveTick(EntityUid uid, CascadeRuleComponent comp, GameRuleComponent gameRule, float frameTime)
     {
-        if (component.TimeUntilEndRound > 0)
+        if (Timing.CurTime > comp.TimeUntilEndRound / 2 && comp.Stage < ResonanceCascadeStage.Middle)
         {
-            component.TimeUntilEndRound -= frameTime;
-            return;
+            _announcer.SendAnnouncementMessage(
+                _announcer.GetAnnouncementId("NukeArm"),
+                "resonance-cascade-announcement-middle",
+                Loc.GetString("resonance-cascade-announcement-sender"),
+                Color.Cyan,
+                station: _station.GetOwningStation(uid)
+            );
+
+            comp.Stage = ResonanceCascadeStage.Middle;
         }
 
-        _roundEndSystem.EndRound();
+        if (Timing.CurTime > comp.TimeUntilEndRound && comp.Stage < ResonanceCascadeStage.End)
+        {
+            _roundEndSystem.EndRound();
+
+            for (var i = 0; i < 3; i++)
+            {
+                if (TryFindRandomTile(out _, out _, out _, out var coords))
+                {
+                    Spawn(comp.SingularityPrototype, coords);
+                }
+            }
+
+            comp.Stage = ResonanceCascadeStage.End;
+        }
     }
 
-    // Shuttles called before the full delamination will still arrive, but delamination & round end should be faster than the shuttle arriving if called due to cascade
     private void OnShuttleCallAttempt(ref CommunicationConsoleCallShuttleAttemptEvent ev)
     {
         ev.Cancelled = true;
-        ev.Reason = Loc.GetString("resonance-cascade-shuttle-call-unavailable");
+        ev.Reason = Loc.GetString("emergancy-shuttle-cascade-call-unavailable");
     }
 
-    private void SpawnCrystalMass(CascadeRuleComponent component)
+    private void SpawnCrystalMass(EntityUid supermatterUid, CascadeRuleComponent comp)
     {
-        var cascadingSupermatterUid = new EntityUid();
-        var query = EntityQueryEnumerator<SupermatterComponent>();
-        while (query.MoveNext(out var supermatterUid, out var sm))
-            if (sm.PreferredDelamType == DelamType.Cascade && sm.DelamEndTime <= Timing.CurTime)
-                // Two will not be fully delaminating at the exact same time... right?
-                cascadingSupermatterUid = supermatterUid;
-
-        var xform = Transform(cascadingSupermatterUid);
-        var supermatterCoords = xform.Coordinates;
+        var xform = Transform(supermatterUid);
         var gridUid = xform.GridUid;
 
         if (!TryComp<MapGridComponent>(gridUid, out var mapGrid))
             return;
 
-        _map.SetTile(gridUid.Value, mapGrid, supermatterCoords, new Tile(_tileDefManager[component.CrystalMassTileSpawnPrototype].TileId, 0, (byte)_random.Next(0, 5)));
-        Spawn(component.CrystalMassSpawnPrototype, supermatterCoords);
+        var tile = new Tile(_tileDefManager[comp.CrystalMassPlating].TileId);
 
-        var randomSpawns = _random.Next(1, 4);
+        _map.SetTile(gridUid.Value, mapGrid, xform.Coordinates, tile);
+        Spawn(comp.CrystalBulbPrototype, xform.Coordinates);
+
+        var randomSpawns = _robustRandom.Next(1, 4);
 
         for (var i = 0; i < randomSpawns; i++)
         {
@@ -96,11 +120,8 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
                 if (targetGrid != gridUid)
                     return;
 
-                if (coords.X * coords.Y < supermatterCoords.X * supermatterCoords.Y + 20)
-                    continue;
-
-                _map.SetTile(gridUid.Value, mapGrid, coords, new Tile(_tileDefManager[component.CrystalMassTileSpawnPrototype].TileId, 0, (byte)_random.Next(0, 5)));
-                Spawn(component.CrystalMassSpawnPrototype, coords);
+                _map.SetTile(targetGrid, mapGrid, coords, tile);
+                Spawn(comp.CrystalBulbPrototype, coords);
             }
         }
     }
@@ -109,7 +130,7 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
     {
         if (!TryGetRandomStation(out var station))
             return;
-        if (_alertLevelSystem.GetLevel(station.Value) != "delta") // Don't delta if already delta
+        if (_alertLevelSystem.GetLevel(station.Value) == "delta") // Don't delta if already delta
             return;
         _alertLevelSystem.SetLevel(station.Value, "delta", true, true, true);
     }

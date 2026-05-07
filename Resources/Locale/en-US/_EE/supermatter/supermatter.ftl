@@ -31,6 +31,12 @@ supermatter-threshold-powerloss =
     DANGER: CHARGE INERTIA CHAIN REACTION IN PROGRESS.
 supermatter-threshold-mole =
     Warning: Critical coolant mass reached.
+supermatter-threshold-cascade =
+    DANGER: Hyperstucture oscillation frequency out of bounds.
+
+supermatter-announcement-cascade-begin =
+    Attention: Long range anomaly scans indicate abnormal quantities of harmonic flux originating from
+	a subject within {THE($station)}, a resonance collapse may occur.
 
 supermatter-tamper-begin =
     You begin carefully cutting a piece off the supermatter crystal...
@@ -45,16 +51,6 @@ supermatter-destabalize-start =
 supermatter-destabalize-end =
 
 supermatter-integrity-too-low =
-
-
-supermatter-announcement-announcement-cascade-begin =
-    Attention: Long range anomaly scans indicate abnormal quantities of harmonic flux originating from
-	a subject within {THE($station)}, a resonance collapse may occur.
-supermatter-component-announcement-resonance-cascade =
-    A Type-C resonance shift event has occurred in your sector. Scans indicate local oscillation flux affecting spatial and gravitational substructure.
-	Multiple resonance hotspots have formed. Please standby.
-supermatter-component-cascade-announcement-sender =
-    Nanotrasen Star Observation Association
 
 supermatter-collide =
     {CAPITALIZE(THE($target))} slams into {THE($sm)}!
@@ -78,3 +74,6 @@ supermatter-cascade-player-message =
     "You feel tingling going down your back.",
     "Something feels very off.",
     "A drowning sense of dread washes over you.",
+
+supermatter-cascade-delamination-player-message =
+    Everything around you is resonating with a powerful energy. This can't be good.
