@@ -4,6 +4,9 @@
   id: MobBeeroboros
   description: Short-lived, but no less dangerous.
   components:
+  - type: Tag
+    tags: 
+    - XenoHornet
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -51,6 +54,9 @@
   id: MobFoes
   description: OH FUCK IT'S FOES
   components:
+  - type: Tag
+    tags: 
+    - XenoHornet
   - type: NpcFactionMember
     factions:
     - Syndicate

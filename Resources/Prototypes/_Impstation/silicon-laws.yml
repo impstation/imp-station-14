@@ -130,6 +130,36 @@
   - Bountysimov4
   - Bountysimov5
   obeysTo: laws-owner-crew
+
+#decapoid ship core lawset
+- type: siliconLaw
+  id: Decacoresimov0
+  order: 0
+  lawString: law-decacoresimov-0
+
+- type: siliconLaw
+  id: Decacoresimov1
+  order: 1
+  lawString: law-decacoresimov-1
+
+- type: siliconLaw
+  id: Decacoresimov2
+  order: 2
+  lawString: law-decacoresimov-2
+
+- type: siliconLaw
+  id: Decacoresimov3
+  order: 3
+  lawString: law-decacoresimov-3
+
+- type: siliconLawset
+  id: Decacoresimov
+  laws:
+  - Decacoresimov0
+  - Decacoresimov1
+  - Decacoresimov2
+  - Decacoresimov3
+  obeysTo: laws-owner-crew
   
 #friendimov
 

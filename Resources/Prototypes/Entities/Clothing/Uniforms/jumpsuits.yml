@@ -827,11 +827,14 @@
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/operative.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/operative.rsi # imp edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/operative.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/operative.rsi # imp edit
   - type: StaticPrice
     price: 500
+  - type: Foldable # imp addition
+    unfoldVerbText: unfold-verb
+    foldVerbText: fold-verb
 
 - type: entity
   parent:  [ClothingUniformBase, ClothingUniformFoldableBase] #imp, foldable
@@ -840,13 +843,16 @@
   description: Uniform for subpar operative LARPers performing tactical insulated glove theft in deep space.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpsuit/tacticool.rsi
+      sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tacticool.rsi # imp edit
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpsuit/tacticool.rsi
+      sprite: _Impstation/Clothing/Uniforms/Jumpsuit/tacticool.rsi # imp edit
     # Too cool for sensors to be on
     - type: SuitSensor
       randomMode: false
       mode: SensorOff
+    - type: Foldable # imp addition
+      unfoldVerbText: unfold-verb
+      foldVerbText: fold-verb
 
 - type: entity
   parent: [ ClothingUniformBase ]
