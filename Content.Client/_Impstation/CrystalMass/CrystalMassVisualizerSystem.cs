@@ -14,6 +14,7 @@ public sealed class CrystalMassVisualsSystem : VisualizerSystem<CrystalMassVisua
         {
             var index = SpriteSystem.LayerMapReserve((uid, args.Sprite), $"{component.Layer}");
             SpriteSystem.LayerSetRsiState((uid, args.Sprite), index, $"crystal_cascade_{var}");
+            args.Sprite.LayerSetShader(index, "unshaded");
         }
     }
 }

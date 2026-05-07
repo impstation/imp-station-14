@@ -21,19 +21,18 @@ namespace Content.Server._Impstation.CrystalMass;
 
 public sealed class CrystalMassSystem : EntitySystem
 {
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
-    [Dependency] private readonly TileSystem _tile = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly TileSystem _tile = default!;
 
     private static readonly ProtoId<EdgeSpreaderPrototype> CrystalMassGroup = "CrystalMass";
-    private static readonly EntProtoId CrystalMassPrototype = "CrystalMass";
-    private static readonly EntProtoId CrystalBulbPrototype = "CrystalBulb";
-    private static readonly string CrystalMassPlating = "PlatingCrystalMass";
+    private static readonly ProtoId<ContentTileDefinition> CrystalMassPlating = "PlatingCrystalMass";
+
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -62,8 +61,6 @@ public sealed class CrystalMassSystem : EntitySystem
     {
         var comp = ent.Comp;
 
-        // Broken check
-        Logger.Info($"Neighbors: {args.Neighbors.Count}");
         if (args.Neighbors.Count == 4)
         {
             RemCompDeferred<ActiveEdgeSpreaderComponent>(ent);
@@ -73,14 +70,14 @@ public sealed class CrystalMassSystem : EntitySystem
         if (!_robustRandom.Prob(comp.SpreadChance))
             return;
 
-        var prototype = CrystalMassPrototype;
+        var prototype = comp.CrystalMassPrototype;
         if (_robustRandom.Prob(comp.BulbChance))
-            prototype = CrystalBulbPrototype;
+            prototype = comp.CrystalBulbPrototype;
 
         var neighbor = _robustRandom.Pick(args.AllNeighbors);
         var neighborCoords = _map.GridTileToLocal(neighbor.GridUid, neighbor.Grid, neighbor.Position);
 
-        HandleTiles(neighbor.GridUid, neighbor.Grid, neighborCoords);
+        HandleTiles(neighbor.GridUid, neighbor.Grid, neighbor.Position);
 
         var neighborUid = Spawn(prototype, neighborCoords);
         DebugTools.Assert(HasComp<EdgeSpreaderComponent>(neighborUid));
@@ -96,26 +93,32 @@ public sealed class CrystalMassSystem : EntitySystem
             return;
     }
 
-    private void HandleTiles(EntityUid gridUid, MapGridComponent grid, EntityCoordinates neighborCoords)
+    private void HandleTiles(EntityUid neighborGridUid, MapGridComponent neighborGrid, Vector2i neighborPosition)
     {
-        // Broken
-        // var worldVec = _transform.ToMapCoordinates(neighborCoords).Position;
-        // var gridRot = _transform.GetWorldRotation(gridUid);
-        // var box = new Box2Rotated(Box2.CenteredAround(worldVec, Vector2.One), gridRot, worldVec);
+        var mapID = Transform(neighborGridUid).MapID;
+        var worldPos = _map.GridTileToWorldPos(neighborGridUid, neighborGrid, neighborPosition);
+        var box = Box2.CenteredAround(worldPos, Vector2.One);
+        var circle = new Circle(worldPos, 0.5f);
 
-        // foreach (var tileRef in _map.GetLocalTilesIntersecting(gridUid, grid, box))
-        // {
-        //     var tileGridUid = tileRef.GridUid;
+        var grids = new List<Entity<MapGridComponent>>();
+        _mapManager.FindGridsIntersecting(mapID, box, ref grids);
 
-        //     if (TryComp<MapGridComponent>(tileGridUid, out var tileGrid))
-        //         _map.SetTile(tileGridUid, tileGrid, tileRef.GridIndices, Tile.Empty);
-        // }
+        // Locating every intersecting grid in the neighbor CrystalMass is about to spread to
+        foreach (var grid in grids)
+        {
+            if (grid.Owner == neighborGridUid)
+                continue;
+
+            // Locating every tile within those intsersecting grids that are within radius
+            foreach (var tile in _map.GetTilesIntersecting(grid.Owner, grid.Comp, circle))
+                _map.SetTile(grid.Owner, grid, tile.GridIndices, Tile.Empty);
+        }
 
         var seed = _robustRandom.Next();
         var random = new Random(seed);
         var variant = _tile.PickVariant((ContentTileDefinition)_tileDefManager[CrystalMassPlating], random);
 
-        _map.SetTile(gridUid, grid, neighborCoords, new Tile(_tileDefManager[CrystalMassPlating].TileId, 0, variant));
+        _map.SetTile(neighborGridUid, neighborGrid, neighborPosition, new Tile(_tileDefManager[CrystalMassPlating].TileId, 0, variant));
     }
 
     private void ClearNeighborTile(Entity<CrystalMassComponent> ent, EntityUid gridUid, Vector2i neighborGridIndices)

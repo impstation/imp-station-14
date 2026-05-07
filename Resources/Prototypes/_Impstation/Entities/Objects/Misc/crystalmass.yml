@@ -9,17 +9,11 @@
   components:
     - type: Appearance
     - type: Transform
-      noRot: true
       anchored: true
     - type: Physics
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
       state: crystal_cascade_1
-      # layers:
-      # - state: crystal_cascade_1
-        # visible: false
-        # shader: unshaded
-        # map: [ "light" ]
       drawdepth: FloorTiles
     - type: Fixtures
       fixtures:
@@ -55,10 +49,13 @@
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
       state: crystal_cascade_6
+      layers:
+      - state: crystal_cascade_6
+        shader: unshaded
       drawdepth: FloorTiles
     - type: CrystalMass
       isBulb: true
     - type: PointLight
-      radius: 5
-      energy: 1
+      radius: 10
+      energy: 2
       color: "#FBFF23"
