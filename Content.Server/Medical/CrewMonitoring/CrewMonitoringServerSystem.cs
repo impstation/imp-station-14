@@ -117,4 +117,26 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     {
         component.SensorStatus.Clear();
     }
+
+    /// <summary>
+    /// Adds or updates a sensor status entry by network address.
+    /// </summary>
+    public void SetSensorStatusByAddress(EntityUid uid, string address, SuitSensorStatus status, CrewMonitoringServerComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.SensorStatus[address] = status;
+    }
+
+    /// <summary>
+    /// Removes a sensor status entry by network address.
+    /// </summary>
+    public void RemoveSensorStatusByAddress(EntityUid uid, string address, CrewMonitoringServerComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.SensorStatus.Remove(address);
+    }
 }

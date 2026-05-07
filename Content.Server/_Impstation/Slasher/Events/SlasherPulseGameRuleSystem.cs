@@ -23,17 +23,13 @@ public abstract class SlasherPulseGameRuleSystem<T> : GameRuleSystem<T> where T 
     /// <returns>True when a Slasher station is resolved; otherwise false.</returns>
     protected bool TryGetPulseStation(out EntityUid? station)
     {
-        if (_slasherRule.TryGetActiveRule(out var rule))
+        if (_slasherRule.TryGetActiveRule(out var rule)
+            && rule.Comp.ActiveEffigy is { } effigy
+            && Exists(effigy)
+            && _station.GetOwningStation(effigy) is { } effigyStation)
         {
-            if (rule.Comp.ActiveEffigy is { } effigy && Exists(effigy))
-            {
-                var effigyStation = _station.GetOwningStation(effigy);
-                if (effigyStation != null)
-                {
-                    station = effigyStation;
-                    return true;
-                }
-            }
+            station = effigyStation;
+            return true;
         }
 
         var slashers = EntityQueryEnumerator<SlasherRoleComponent>();
@@ -49,5 +45,16 @@ public abstract class SlasherPulseGameRuleSystem<T> : GameRuleSystem<T> where T 
 
         station = null;
         return false;
+    }
+
+    /// <summary>
+    /// Checks whether an entity is owned by the resolved pulse station.
+    /// </summary>
+    protected bool IsOnPulseStation(EntityUid entity, EntityUid? station)
+    {
+        if (station == null)
+            return false;
+
+        return _station.GetOwningStation(entity) == station;
     }
 }

@@ -7,7 +7,6 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Revenant.Components;
-using Content.Shared.Station.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
@@ -23,7 +22,7 @@ public sealed class SlasherGameRuleRevenantSpookSystem : SlasherPulseGameRuleSys
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
     /// <summary>
-    /// Finds eligible witnesses on a random station and applies the configured haunt effects.
+    /// Finds eligible witnesses on the pulse station and applies the configured haunt effects.
     /// </summary>
     /// <param name="uid">Rule entity UID.</param>
     /// <param name="component">Rule configuration component.</param>
@@ -37,10 +36,10 @@ public sealed class SlasherGameRuleRevenantSpookSystem : SlasherPulseGameRuleSys
             return;
 
         var witnesses = new List<EntityUid>();
-        var mobQuery = EntityQueryEnumerator<MobStateComponent, HumanoidAppearanceComponent, TransformComponent>();
-        while (mobQuery.MoveNext(out var mobUid, out _, out _, out var xform))
+        var mobQuery = EntityQueryEnumerator<MobStateComponent, HumanoidAppearanceComponent>();
+        while (mobQuery.MoveNext(out var mobUid, out _, out _))
         {
-            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != chosenStation)
+            if (!IsOnPulseStation(mobUid, chosenStation))
                 continue;
 
             if (HasComp<RevenantComponent>(mobUid)

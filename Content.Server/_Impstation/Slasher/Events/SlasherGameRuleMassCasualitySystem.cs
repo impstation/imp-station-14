@@ -1,8 +1,6 @@
 using Content.Server.GameTicking.Rules;
 using Content.Server.DeviceNetwork.Systems;
 using Content.Server.Medical.CrewMonitoring;
-using Content.Server.Medical.SuitSensors;
-using Content.Shared.DeviceNetwork;
 using Content.Shared._Impstation.Slasher.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Medical.SuitSensor;
@@ -16,8 +14,7 @@ public sealed class SlasherGameRuleMassCasualitySystem : GameRuleSystem<SlasherG
 {
     private readonly List<PhantomInjection> _activeInjections = new();
 
-    [Dependency] private readonly DeviceNetworkSystem _deviceNetwork = default!;
-    [Dependency] private readonly SuitSensorSystem _suitSensors = default!;
+    [Dependency] private readonly CrewMonitoringServerSystem _crewMonitor = default!;
     [Dependency] private readonly SingletonDeviceNetServerSystem _singletonServers = default!;
 
     /// <summary>
@@ -34,6 +31,8 @@ public sealed class SlasherGameRuleMassCasualitySystem : GameRuleSystem<SlasherG
             var entry = _activeInjections[i];
             if (!Exists(entry.ServerUid) || now >= entry.ExpiresAt)
             {
+                _crewMonitor.RemoveSensorStatusByAddress(entry.ServerUid, entry.Address);
+
                 _activeInjections.RemoveAt(i);
                 continue;
             }
@@ -96,7 +95,9 @@ public sealed class SlasherGameRuleMassCasualitySystem : GameRuleSystem<SlasherG
                     break;
                 case PhantomStatus.Critical:
                     fake.IsAlive = true;
-                    fake.TotalDamage = threshold + 10;
+                    // Crew monitor UI uses rounded damage buckets and only shows the critical icon
+                    // at the highest bucket, so ensure this value crosses that threshold.
+                    fake.TotalDamage = threshold + Math.Max(25, threshold / 4);
                     fake.TotalDamageThreshold = threshold;
                     break;
                 default:
@@ -127,12 +128,19 @@ public sealed class SlasherGameRuleMassCasualitySystem : GameRuleSystem<SlasherG
     private List<EntityUid> GetActiveServers()
     {
         var servers = new List<EntityUid>();
+        var inactiveServers = new List<EntityUid>();
         var query = EntityQueryEnumerator<CrewMonitoringServerComponent>();
         while (query.MoveNext(out var uid, out _))
         {
             if (_singletonServers.IsActiveServer(uid))
                 servers.Add(uid);
+            else
+                inactiveServers.Add(uid);
         }
+
+        // Fallback so pulses can still apply when no monitor server has been activated yet.
+        if (servers.Count == 0)
+            return inactiveServers;
 
         return servers;
     }
@@ -174,8 +182,7 @@ public sealed class SlasherGameRuleMassCasualitySystem : GameRuleSystem<SlasherG
     private void InjectPhantom(EntityUid serverUid, string address, SuitSensorStatus status)
     {
         status.Timestamp = Timing.CurTime;
-        var payload = _suitSensors.SuitSensorToPacket(status);
-        _deviceNetwork.QueuePacket(serverUid, address, payload);
+        _crewMonitor.SetSensorStatusByAddress(serverUid, address, status);
     }
 
     /// <summary>

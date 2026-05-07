@@ -47,7 +47,7 @@ public sealed class LightLevelTeleportSystem : SharedLightLevelTeleportSystem
         }
 
         var riftUid = Spawn(ent.Comp.MarkerPrototype, destination);
-        var doAfterEvent = new SlasherDarkStepDoAfterEvent(EntityManager.GetNetCoordinates(destination), GetNetEntity(riftUid));
+        var doAfterEvent = new SlasherDarkStepDoAfterEvent(GetNetCoordinates(destination), GetNetEntity(riftUid));
 
         var doAfter = new DoAfterArgs(EntityManager,
             args.Performer,
@@ -87,7 +87,7 @@ public sealed class LightLevelTeleportSystem : SharedLightLevelTeleportSystem
             return;
         }
 
-        var destination = EntityManager.GetCoordinates(args.Destination);
+        var destination = GetCoordinates(args.Destination);
         if (!TryGetTeleportCoordinates(_xform.ToMapCoordinates(destination), out var validatedDestination))
         {
             CleanupDarkStepRift(args.Rift);

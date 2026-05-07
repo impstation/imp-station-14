@@ -29,10 +29,6 @@ public sealed partial class SpawnCrewCorpseComponent : Component
     [DataField]
     public bool DistinctCrewPerBatch { get; set; } = true;
 
-    /// <summary>Copy only the inner-clothing (jumpsuit) slot from the source crew member.</summary>
-    [DataField]
-    public bool CopyJumpsuitOnly { get; set; } = true;
-
     /// <summary>Display name assigned to every spawned corpse.</summary>
     [DataField]
     public string CorpseName { get; set; } = "unidentified corpse";

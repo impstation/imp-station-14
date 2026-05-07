@@ -19,5 +19,5 @@ public sealed partial class SlasherRoleComponent : Component
     public List<EntProtoId> Actions { get; set; } = new();
 
     /// <summary>Runtime tracking of spawned action entities for cleanup on removal.</summary>
-    public List<EntityUid> ActionEntities { get; set; } = new();
+    public List<EntityUid> ActionEntities { get; } = new();
 }

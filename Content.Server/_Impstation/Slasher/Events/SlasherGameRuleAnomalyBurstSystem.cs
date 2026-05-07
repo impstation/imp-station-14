@@ -30,7 +30,12 @@ public sealed class SlasherGameRuleAnomalyBurstSystem : SlasherPulseGameRuleSyst
         base.Started(uid, component, gameRule, args);
 
         var announcementId = _announcer.GetAnnouncementId("AnomalySpawn");
-        _announcer.SendAnnouncement(announcementId, Filter.Broadcast(), _announcer.GetEventLocaleString(announcementId), colorOverride: Color.Gold);
+        _announcer.SendAnnouncement(
+            announcementId,
+            Filter.Broadcast(),
+            "anomaly-spawn-event-announcement",
+            colorOverride: Color.FromHex("#18abf5"),
+            localeArgs: ("sighting", Loc.GetString($"anomaly-spawn-sighting-{RobustRandom.Next(1, 6)}")));
 
         if (!TryGetPulseStation(out var chosenStation) || chosenStation is not { } stationUid)
             return;

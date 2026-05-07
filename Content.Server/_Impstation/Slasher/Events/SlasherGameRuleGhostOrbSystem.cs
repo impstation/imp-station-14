@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Station.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 
@@ -30,10 +29,10 @@ public sealed class SlasherGameRuleGhostOrbSystem : SlasherPulseGameRuleSystem<S
             return;
 
         var vents = new List<EntityUid>();
-        var ventQuery = EntityQueryEnumerator<GasVentPumpComponent, TransformComponent>();
-        while (ventQuery.MoveNext(out var ventUid, out _, out var xform))
+        var ventQuery = EntityQueryEnumerator<GasVentPumpComponent>();
+        while (ventQuery.MoveNext(out var ventUid, out _))
         {
-            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != chosenStation)
+            if (!IsOnPulseStation(ventUid, chosenStation))
                 continue;
 
             vents.Add(ventUid);

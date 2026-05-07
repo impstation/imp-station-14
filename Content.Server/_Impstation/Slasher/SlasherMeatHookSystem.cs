@@ -100,6 +100,7 @@ public sealed class SlasherMeatHookSystem : EntitySystem
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<SlasherMeatHookComponent, EntInsertedIntoContainerMessage>(OnVictimHooked);
         SubscribeLocalEvent<SlasherMeatHookComponent, EntRemovedFromContainerMessage>(OnVictimUnhooked);
+        SubscribeLocalEvent<SlasherMeatHookComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<SlasherMeatHookComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<SlasherMeatHookComponent, SlasherHarvestSoulDoAfterEvent>(OnHarvestDoAfter);
         SubscribeLocalEvent<SlasherSoulFragmentComponent, GotUnequippedHandEvent>(OnSoulFragmentLeftHands);
@@ -178,7 +179,7 @@ public sealed class SlasherMeatHookSystem : EntitySystem
             && _charges.GetCurrentCharges((args.Action, charges)) == 1;
 
         var doAfterEvent = new SlasherPlaceMeathookDoAfterEvent(
-            EntityManager.GetNetCoordinates(spawnCoords),
+            GetNetCoordinates(spawnCoords),
             GetNetEntity(args.Action.Owner),
             removeOnUse);
 
@@ -205,15 +206,22 @@ public sealed class SlasherMeatHookSystem : EntitySystem
     private void OnPlaceMeathookDoAfter(Entity<SlasherRoleComponent> ent, ref SlasherPlaceMeathookDoAfterEvent args)
     {
         if (args.Cancelled)
+        {
+            RefundPlacementCharge(GetEntity(args.ActionEntity));
             return;
+        }
 
         if (!_rule.TryGetActiveRule(out var rule))
+        {
+            RefundPlacementCharge(GetEntity(args.ActionEntity));
             return;
+        }
 
-        var requestedCoords = EntityManager.GetCoordinates(args.TargetCoordinates);
+        var requestedCoords = GetCoordinates(args.TargetCoordinates);
         var mapCoords = _transform.ToMapCoordinates(requestedCoords);
         if (!TryGetPlacementCoordinates(mapCoords, out var spawnCoords, out var failure))
         {
+            RefundPlacementCharge(GetEntity(args.ActionEntity));
             PopupPlacementFailure(ent.Owner, failure, "slasher-meathook-place-invalid");
             return;
         }
@@ -223,6 +231,7 @@ public sealed class SlasherMeatHookSystem : EntitySystem
         if (!Transform(ent).Coordinates.TryDistance(EntityManager, spawnCoords, out var placementDistance)
             || placementDistance > hookConfig.PlacementRange)
         {
+            RefundPlacementCharge(GetEntity(args.ActionEntity));
             _popup.PopupEntity(Loc.GetString("slasher-place-invalid-too-far", (DistanceLocArg, hookConfig.PlacementRange)),
                 ent,
                 ent,
@@ -237,6 +246,7 @@ public sealed class SlasherMeatHookSystem : EntitySystem
             && Transform(effigy).Coordinates.TryDistance(EntityManager, spawnCoords, out var distance)
             && distance < minEffigyDistance)
         {
+            RefundPlacementCharge(GetEntity(args.ActionEntity));
             _popup.PopupEntity(Loc.GetString("slasher-meathook-place-too-close-effigy", (DistanceLocArg, minEffigyDistance)),
                 ent,
                 ent,
@@ -328,6 +338,16 @@ public sealed class SlasherMeatHookSystem : EntitySystem
         _appearance.SetData(ent, SlasherMeatHookVisuals.Status, SlasherMeatHookStatus.Empty);
         _pointLight.SetEnabled(ent, false);
         RemComp<SlasherMeatHookHealingComponent>(args.Entity);
+    }
+
+    private void OnExamined(Entity<SlasherMeatHookComponent> ent, ref ExaminedEvent args)
+    {
+        if (!HasComp<SlasherRoleComponent>(args.Examiner)
+            || !TryComp<SlasherMeatHookSpikeComponent>(ent, out var spike)
+            || spike.BodyContainer.ContainedEntity == null)
+            return;
+
+        args.PushMarkup(Loc.GetString("slasher-meathook-unhook-right-click"));
     }
 
     /// <summary>
@@ -463,6 +483,17 @@ public sealed class SlasherMeatHookSystem : EntitySystem
     private void OnHarvestedExamined(Entity<SharedSlasherSoulHarvestedComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("slasher-meathook-harvested-examine"));
+    }
+
+    private void RefundPlacementCharge(EntityUid actionEntity)
+    {
+        if (!TryComp<LimitedChargesComponent>(actionEntity, out var charges))
+            return;
+
+        if (_charges.GetCurrentCharges((actionEntity, charges)) >= charges.MaxCharges)
+            return;
+
+        _charges.AddCharges((actionEntity, charges), 1);
     }
 
     /// <summary>

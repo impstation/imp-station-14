@@ -39,6 +39,7 @@ slasher-meathook-harvest-dead = The dead have no soul left to harvest.
 slasher-meathook-harvest-invalid-target = You can only harvest from living victims or bodies that died in the last 3 minutes.
 slasher-meathook-harvest-no-victim = There is no hooked victim to harvest from.
 slasher-meathook-unhook-left-click = Use an empty hand to pull them off the hook.
+slasher-meathook-unhook-right-click = [color=gray]As a slasher, right-click the hook to unhook the victim.[/color]
 slasher-meathook-harvested-examine = [color=red]This person looks visibly drained and pale.[/color]
 slasher-meathook-hook-invalid-target = You can only hook critical victims or bodies that died in the last 3 minutes.
 slasher-soul-fragment-fades = The soul fragment slips from your grasp and dissolves into the aether.

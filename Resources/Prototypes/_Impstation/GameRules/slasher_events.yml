@@ -3,25 +3,6 @@
 
 - type: entity
   parent: BaseGameRule
-  id: SlasherBloodFoamPulse
-  components:
-  - type: GameRule
-    minPlayers: 0
-  - type: SlasherGameRuleBloodFoam
-    reagentQuantity: 50
-    spread: 8
-    foamTime: 15
-    ventProcChance: 0.1
-    bloodReagentWhitelist:
-    - Blood
-    - CopperBlood
-    - InsectBlood
-    - GrayBlood
-    - BloodKodepiia
-    - ShimmeringBlood
-
-- type: entity
-  parent: BaseGameRule
   id: SlasherPowerOutagePulse
   components:
   - type: GameRule
@@ -79,7 +60,6 @@
     corpsePrototype: SalvageHumanCorpse
     cloneAppearance: true
     distinctCrewPerBatch: true
-    copyJumpsuitOnly: true
     corpseName: unidentified corpse
 
 - type: entity
@@ -177,6 +157,5 @@
   - type: GameRule
     minPlayers: 0
   - type: SlasherGameRuleGhostBoo
-    maxTargets: 40
 
 

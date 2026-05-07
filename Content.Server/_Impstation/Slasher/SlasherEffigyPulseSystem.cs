@@ -49,7 +49,7 @@ public sealed class SlasherEffigyPulseSystem : EntitySystem
             return;
 
         // Ignore disabled entries so zero-weight pulses behave as fully unavailable.
-        var candidates = new List<(string Id, int Weight)>();
+        var candidates = new List<(EntProtoId Id, int Weight)>();
         foreach (var entry in weightsProto.Weights)
         {
             if (entry.Weight > 0)

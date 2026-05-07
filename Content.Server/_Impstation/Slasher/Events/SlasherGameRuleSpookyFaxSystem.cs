@@ -2,7 +2,6 @@ using Content.Server.Fax;
 using Content.Server.GameTicking.Rules;
 using Content.Shared.Fax.Components;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Station.Components;
 
 namespace Content.Server._Impstation.Slasher.Events;
 
@@ -14,7 +13,7 @@ public sealed class SlasherGameRuleSpookyFaxSystem : SlasherPulseGameRuleSystem<
     [Dependency] private readonly FaxSystem _fax = default!;
 
     /// <summary>
-    /// Selects target fax machines on a random station and delivers one randomized spooky printout.
+    /// Selects target fax machines on the pulse station and delivers one randomized spooky printout.
     /// </summary>
     /// <param name="uid">Rule entity UID.</param>
     /// <param name="component">Rule configuration component.</param>
@@ -30,15 +29,7 @@ public sealed class SlasherGameRuleSpookyFaxSystem : SlasherPulseGameRuleSystem<
         if (!TryGetPulseStation(out var chosenStation))
             return;
 
-        var stationFaxes = new List<EntityUid>();
-        var faxQuery = EntityQueryEnumerator<FaxMachineComponent, TransformComponent>();
-        while (faxQuery.MoveNext(out var faxUid, out _, out var xform))
-        {
-            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != chosenStation)
-                continue;
-
-            stationFaxes.Add(faxUid);
-        }
+        var stationFaxes = GetStationFaxes(chosenStation);
 
         if (stationFaxes.Count == 0)
             return;
@@ -47,8 +38,28 @@ public sealed class SlasherGameRuleSpookyFaxSystem : SlasherPulseGameRuleSystem<
         var messageBody = Loc.GetString(messageKey);
         var printout = new FaxPrintout(messageBody, component.PrintoutTitle);
 
-        var selected = new HashSet<EntityUid>();
+        var selected = SelectTargetFaxes(stationFaxes, component);
+        SendPrintouts(selected, printout);
+    }
 
+    private List<EntityUid> GetStationFaxes(EntityUid? chosenStation)
+    {
+        var stationFaxes = new List<EntityUid>();
+        var faxQuery = EntityQueryEnumerator<FaxMachineComponent>();
+        while (faxQuery.MoveNext(out var faxUid, out _))
+        {
+            if (!IsOnPulseStation(faxUid, chosenStation))
+                continue;
+
+            stationFaxes.Add(faxUid);
+        }
+
+        return stationFaxes;
+    }
+
+    private HashSet<EntityUid> SelectTargetFaxes(List<EntityUid> stationFaxes, SlasherGameRuleSpookyFaxComponent component)
+    {
+        var selected = new HashSet<EntityUid>();
         foreach (var faxUid in stationFaxes)
         {
             if (!TryComp<FaxMachineComponent>(faxUid, out var faxComp) || !faxComp.ReceiveNukeCodes)
@@ -68,13 +79,17 @@ public sealed class SlasherGameRuleSpookyFaxSystem : SlasherPulseGameRuleSystem<
         }
 
         RobustRandom.Shuffle(randomCandidates);
-
         var randomCount = RobustRandom.Next(component.MinRandomFaxes, component.MaxRandomFaxes + 1);
         randomCount = Math.Clamp(randomCount, 0, randomCandidates.Count);
 
         for (var i = 0; i < randomCount; i++)
             selected.Add(randomCandidates[i]);
 
+        return selected;
+    }
+
+    private void SendPrintouts(HashSet<EntityUid> selected, FaxPrintout printout)
+    {
         foreach (var faxUid in selected)
         {
             if (!TryComp<FaxMachineComponent>(faxUid, out var faxComp))

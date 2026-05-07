@@ -2,7 +2,6 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Light.EntitySystems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Light.Components;
-using Content.Shared.Station.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.Slasher.Events;
@@ -29,10 +28,10 @@ public sealed class SlasherGameRuleRedLightSystem : SlasherPulseGameRuleSystem<S
             return;
 
         var lights = new List<EntityUid>();
-        var query = AllEntityQuery<PoweredLightComponent, TransformComponent>();
-        while (query.MoveNext(out var lightUid, out _, out var xform))
+        var query = AllEntityQuery<PoweredLightComponent>();
+        while (query.MoveNext(out var lightUid, out _))
         {
-            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != chosenStation)
+            if (!IsOnPulseStation(lightUid, chosenStation))
                 continue;
 
             lights.Add(lightUid);
@@ -52,7 +51,7 @@ public sealed class SlasherGameRuleRedLightSystem : SlasherPulseGameRuleSystem<S
                 continue;
 
             var oldBulb = _poweredLight.GetBulb(light, lightComp);
-            if (oldBulb is { } old)
+            if (oldBulb != null)
                 _poweredLight.EjectBulb(light, null, lightComp);
 
             var newBulb = Spawn(component.BulbPrototype, Transform(light).Coordinates);

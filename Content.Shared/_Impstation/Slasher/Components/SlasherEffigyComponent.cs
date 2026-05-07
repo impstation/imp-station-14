@@ -144,7 +144,7 @@ public sealed partial class SlasherEffigyComponent : Component
     public ProtoId<PulseWeightsPrototype> PulseWeightsProto { get; set; } = "SlasherDefaultPulseWeights";
 
     /// <summary>Server-only: proto ID of the last triggered pulse effect; used to prevent immediate repeats.</summary>
-    public string? LastPulseEffect { get; set; }
+    public EntProtoId? LastPulseEffect { get; set; }
 }
 
 /// <summary>
@@ -174,7 +174,7 @@ public sealed partial class PulseWeightEntry
 {
     /// <summary>Proto ID of the pulse game rule to trigger.</summary>
     [DataField(required: true)]
-    public string ProtoId { get; set; } = string.Empty;
+    public EntProtoId ProtoId { get; set; } = string.Empty;
 
     /// <summary>Relative weight (higher = more likely). Set to 0 to disable this pulse.</summary>
     [DataField]
@@ -190,7 +190,7 @@ public sealed partial class PulseWeightEntry
     /// </summary>
     /// <param name="protoId">Parameter used by this method: protoId.</param>
     /// <param name="weight">Parameter used by this method: weight.</param>
-    public PulseWeightEntry(string protoId, int weight)
+    public PulseWeightEntry(EntProtoId protoId, int weight)
     {
         ProtoId = protoId;
         Weight = weight;

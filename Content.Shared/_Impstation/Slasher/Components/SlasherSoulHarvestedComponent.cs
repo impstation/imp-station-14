@@ -22,6 +22,6 @@ public sealed partial class SlasherSoulHarvestedComponent : Component
     /// <summary>
     /// Icon shown to slasher viewers while this lockout marker exists.
     /// </summary>
-    [DataField("statusIcon")]
+    [DataField]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "SlasherSoulHarvestedFaction";
 }

@@ -1,8 +1,6 @@
 - type: pulseWeights
   id: SlasherDefaultPulseWeights
   weights:
-    - protoId: SlasherBloodFoamPulse
-      weight: 20
     - protoId: SlasherPowerOutagePulse
       weight: 20
     - protoId: SlasherCorruptedAnnouncementPulse

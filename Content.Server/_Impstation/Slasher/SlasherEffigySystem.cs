@@ -328,7 +328,7 @@ public sealed class SlasherEffigySystem : EntitySystem
             return;
         }
 
-        var doAfterEvent = new SlasherPlaceEffigyDoAfterEvent(EntityManager.GetNetCoordinates(spawnCoords), GetNetEntity(ent.Owner));
+        var doAfterEvent = new SlasherPlaceEffigyDoAfterEvent(GetNetCoordinates(spawnCoords), GetNetEntity(ent.Owner));
         var doAfterArgs = new DoAfterArgs(EntityManager,
             args.Performer,
             ent.Comp.PlacementDoAfterDelay,
@@ -373,7 +373,7 @@ public sealed class SlasherEffigySystem : EntitySystem
             return;
         }
 
-        var requestedCoords = EntityManager.GetCoordinates(args.TargetCoordinates);
+        var requestedCoords = GetCoordinates(args.TargetCoordinates);
         var mapCoords = _transform.ToMapCoordinates(requestedCoords);
         if (!TryGetPlacementCoordinates(mapCoords, out var spawnCoords, out var failure))
         {
@@ -752,9 +752,10 @@ public sealed class SlasherEffigySystem : EntitySystem
 
         _audio.PlayPvs(ent.Comp.EffigyDestroyedSound, ent, AudioParams.Default);
 
-        // Notify nearby players
+        // Broadcast to the owning station so the destruction warning still lands even though the effigy is terminating.
+        var stationFilter = _station.GetInOwningStation(ent.Owner);
         _popup.PopupEntity(Loc.GetString("slasher-effigy-destroyed-others"), ent,
-            Filter.Pvs(ent, entityManager: EntityManager), true, PopupType.LargeCaution);
+            stationFilter, true, PopupType.LargeCaution);
 
         _sawmill.Info($"Slasher blood effigy was destroyed: {ToPrettyString(ent.Owner)}");
 

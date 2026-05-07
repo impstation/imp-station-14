@@ -1,27 +1,38 @@
 using System.Linq;
+using Content.Server.Body.Systems;
 using Content.Server.Cloning;
 using Content.Server.Humanoid;
+using Content.Shared.Body.Components;
+using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Cloning;
+using Content.Shared.Damage;
 using Content.Shared.Humanoid;
-using Content.Shared.Inventory;
 using Robust.Server.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._Impstation.SpawnCrewCorpses;
 
 /// <summary>
 /// Generic _Impstation helper for spawning fake crew corpses.
-/// Optionally copies appearance and jumpsuit from connected crew entities.
+/// Optionally copies appearance from connected crew entities.
 /// Requires a <see cref="SpawnCrewCorpseComponent"/> for configuration.
 /// </summary>
 public sealed class SpawnCrewCorpseSystem : EntitySystem
 {
+    private static readonly ProtoId<CloningSettingsPrototype> SpeciesCloneSettings = "ChangelingCloningSettings";
+
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
 
     /// <summary>
     /// Spawns corpses at random positions from <paramref name="candidateCoordinates"/>,
@@ -41,27 +52,34 @@ public sealed class SpawnCrewCorpseSystem : EntitySystem
         var count = _random.Next(settings.MinSpawnCount, settings.MaxSpawnCount + 1);
         count = Math.Clamp(count, 1, coords.Count);
 
-        var crewSources = BuildCrewSourcePool();
-        if (settings.DistinctCrewPerBatch)
-            _random.Shuffle(crewSources);
+        List<EntityUid>? crewSources = null;
+        if (settings.CloneAppearance)
+        {
+            crewSources = BuildCrewSourcePool();
+            if (settings.DistinctCrewPerBatch)
+                _random.Shuffle(crewSources);
+        }
 
         for (var i = 0; i < count; i++)
         {
             var corpse = Spawn(settings.CorpsePrototype, coords[i]);
             _metaData.SetEntityName(corpse, settings.CorpseName);
 
-            if (settings.CloneAppearance && crewSources.Count > 0)
+            if (settings.CloneAppearance && crewSources is { Count: > 0 })
             {
                 var source = settings.DistinctCrewPerBatch
                     ? crewSources[i % crewSources.Count]
                     : _random.Pick(crewSources);
 
                 _humanoid.CloneAppearance(source, corpse);
+                // Clone species-dependent body components to keep visual/examine state in sync.
+                _cloning.CloneComponents(source, corpse, SpeciesCloneSettings);
+                CopyBloodReferenceSolution(source, corpse);
+                // CloneAppearance updates humanoid visuals, but damage overlays cache thresholds/layers.
+                // Force one recompute so species-specific damage sprites match the copied appearance.
+                _appearance.SetData(corpse, DamageVisualizerKeys.ForceUpdate, true);
                 // Re-apply name after CloneAppearance since it may copy the source name
                 _metaData.SetEntityName(corpse, settings.CorpseName);
-
-                if (settings.CopyJumpsuitOnly)
-                    CopyJumpsuit(source, corpse);
             }
 
             spawned.Add(corpse);
@@ -90,11 +108,16 @@ public sealed class SpawnCrewCorpseSystem : EntitySystem
         return sources;
     }
 
-    private void CopyJumpsuit(EntityUid source, EntityUid corpse)
+    private void CopyBloodReferenceSolution(EntityUid source, EntityUid corpse)
     {
-        if (!TryComp<InventoryComponent>(source, out var sourceInv) || !TryComp<InventoryComponent>(corpse, out var corpseInv))
+        if (!HasComp<BloodstreamComponent>(source)
+            || !HasComp<BloodstreamComponent>(corpse))
             return;
 
-        _cloning.CopyEquipment((source, sourceInv), (corpse, corpseInv), SlotFlags.INNERCLOTHING);
+        Entity<SolutionComponent>? sourceBlood = null;
+        if (!_solutionContainer.ResolveSolution(source, BloodstreamComponent.DefaultBloodSolutionName, ref sourceBlood, out var sourceBloodSolution))
+            return;
+
+        _bloodstream.ChangeBloodReagents(corpse, sourceBloodSolution.Clone());
     }
 }

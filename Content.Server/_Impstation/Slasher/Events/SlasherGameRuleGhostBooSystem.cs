@@ -2,7 +2,6 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Ghost;
 using Content.Server.Ghost.Components;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Station.Components;
 using Content.Shared.Light.Components;
 
 namespace Content.Server._Impstation.Slasher.Events;
@@ -15,7 +14,7 @@ public sealed class SlasherGameRuleGhostBooSystem : SlasherPulseGameRuleSystem<S
     [Dependency] private readonly GhostSystem _ghost = default!;
 
     /// <summary>
-    /// Collects eligible station targets and runs ghost boo effects up to the configured cap.
+    /// Collects eligible station targets and runs ghost boo effects on all of them.
     /// </summary>
     /// <param name="uid">Rule entity UID.</param>
     /// <param name="component">Rule configuration component.</param>
@@ -30,19 +29,19 @@ public sealed class SlasherGameRuleGhostBooSystem : SlasherPulseGameRuleSystem<S
 
         var candidates = new HashSet<EntityUid>();
 
-        var lightQuery = EntityQueryEnumerator<PoweredLightComponent, TransformComponent>();
-        while (lightQuery.MoveNext(out var lightUid, out _, out var xform))
+        var lightQuery = EntityQueryEnumerator<PoweredLightComponent>();
+        while (lightQuery.MoveNext(out var lightUid, out _))
         {
-            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != chosenStation)
+            if (!IsOnPulseStation(lightUid, chosenStation))
                 continue;
 
             candidates.Add(lightUid);
         }
 
-        var speakerQuery = EntityQueryEnumerator<SpookySpeakerComponent, TransformComponent>();
-        while (speakerQuery.MoveNext(out var speakerUid, out _, out var xform))
+        var speakerQuery = EntityQueryEnumerator<SpookySpeakerComponent>();
+        while (speakerQuery.MoveNext(out var speakerUid, out _))
         {
-            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != chosenStation)
+            if (!IsOnPulseStation(speakerUid, chosenStation))
                 continue;
 
             candidates.Add(speakerUid);
@@ -54,10 +53,9 @@ public sealed class SlasherGameRuleGhostBooSystem : SlasherPulseGameRuleSystem<S
         var shuffled = new List<EntityUid>(candidates);
         RobustRandom.Shuffle(shuffled);
 
-        var targetCount = Math.Clamp(component.MaxTargets, 1, shuffled.Count);
-        for (var i = 0; i < targetCount; i++)
+        foreach (var target in shuffled)
         {
-            _ghost.DoGhostBooEvent(shuffled[i]);
+            _ghost.DoGhostBooEvent(target);
         }
     }
 }

@@ -3,7 +3,6 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Announcements.Systems;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Station.Components;
 using Robust.Shared.Player;
 
 namespace Content.Server._Impstation.Slasher.Events;
@@ -47,10 +46,10 @@ public sealed class SlasherGameRulePowerOutageSystem : SlasherPulseGameRuleSyste
     private void BeginOutage(EntityUid station, SlasherGameRulePowerOutageComponent component)
     {
         // Kill every enabled APC on the station after the warning delay.
-        var query = AllEntityQuery<ApcComponent, TransformComponent>();
-        while (query.MoveNext(out var apcUid, out var apc, out var xform))
+        var query = AllEntityQuery<ApcComponent>();
+        while (query.MoveNext(out var apcUid, out var apc))
         {
-            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station != station)
+            if (!IsOnPulseStation(apcUid, station))
                 continue;
 
             if (!apc.MainBreakerEnabled)
