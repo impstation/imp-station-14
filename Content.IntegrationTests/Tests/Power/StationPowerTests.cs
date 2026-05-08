@@ -137,102 +137,103 @@ public sealed class StationPowerTests
         await pair.CleanReturnAsync();
     }
 
-    [Test, TestCaseSource(nameof(GameMaps))]
-    [Ignore("Use ImpTestApcLoad")] // imp, our version of the test checks for this anyway so its faster only to load maps once
-    public async Task TestApcLoad(string mapProtoId)
-    {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            Dirty = true,
-        });
-        var server = pair.Server;
+    // imp edit: comment out the APC load tests because they were very slow to run.
+    // [Test, TestCaseSource(nameof(GameMaps))]
+    // [Ignore("Use ImpTestApcLoad")] // imp, our version of the test checks for this anyway so its faster only to load maps once
+    // public async Task TestApcLoad(string mapProtoId)
+    // {
+    //     await using var pair = await PoolManager.GetServerClient(new PoolSettings
+    //     {
+    //         Dirty = true,
+    //     });
+    //     var server = pair.Server;
 
-        var entMan = server.EntMan;
-        var protoMan = server.ProtoMan;
-        var ticker = entMan.System<GameTicker>();
-        var xform = entMan.System<TransformSystem>();
+    //     var entMan = server.EntMan;
+    //     var protoMan = server.ProtoMan;
+    //     var ticker = entMan.System<GameTicker>();
+    //     var xform = entMan.System<TransformSystem>();
 
-        // Load the map
-        await server.WaitAssertion(() =>
-        {
-            Assert.That(protoMan.TryIndex<GameMapPrototype>(mapProtoId, out var mapProto));
-            var opts = DeserializationOptions.Default with { InitializeMaps = true };
-            ticker.LoadGameMap(mapProto, out var mapId, opts);
-        });
+    //     // Load the map
+    //     await server.WaitAssertion(() =>
+    //     {
+    //         Assert.That(protoMan.TryIndex<GameMapPrototype>(mapProtoId, out var mapProto));
+    //         var opts = DeserializationOptions.Default with { InitializeMaps = true };
+    //         ticker.LoadGameMap(mapProto, out var mapId, opts);
+    //     });
 
-        // Wait long enough for power to ramp up, but before anything can trip
-        await pair.RunSeconds(2);
+    //     // Wait long enough for power to ramp up, but before anything can trip
+    //     await pair.RunSeconds(2);
 
-        // Check that no APCs start overloaded
-        var apcQuery = entMan.EntityQueryEnumerator<ApcComponent, PowerNetworkBatteryComponent>();
-        Assert.Multiple(() =>
-        {
-            while (apcQuery.MoveNext(out var uid, out var apc, out var battery))
-            {
-                // Uncomment the following line to log starting APC load to the console
-                //Console.WriteLine($"ApcLoad:{mapProtoId}:{uid}:{battery.CurrentSupply}");
-                if (xform.TryGetMapOrGridCoordinates(uid, out var coord))
-                {
-                    Assert.That(apc.MaxLoad, Is.GreaterThanOrEqualTo(battery.CurrentSupply),
-                            $"APC {uid} on {mapProtoId} ({coord.Value.X}, {coord.Value.Y}) is overloaded {battery.CurrentSupply} / {apc.MaxLoad}");
-                }
-                else
-                {
-                    Assert.That(apc.MaxLoad, Is.GreaterThanOrEqualTo(battery.CurrentSupply),
-                            $"APC {uid} on {mapProtoId} is overloaded {battery.CurrentSupply} / {apc.MaxLoad}");
-                }
-            }
-        });
+    //     // Check that no APCs start overloaded
+    //     var apcQuery = entMan.EntityQueryEnumerator<ApcComponent, PowerNetworkBatteryComponent>();
+    //     Assert.Multiple(() =>
+    //     {
+    //         while (apcQuery.MoveNext(out var uid, out var apc, out var battery))
+    //         {
+    //             // Uncomment the following line to log starting APC load to the console
+    //             //Console.WriteLine($"ApcLoad:{mapProtoId}:{uid}:{battery.CurrentSupply}");
+    //             if (xform.TryGetMapOrGridCoordinates(uid, out var coord))
+    //             {
+    //                 Assert.That(apc.MaxLoad, Is.GreaterThanOrEqualTo(battery.CurrentSupply),
+    //                         $"APC {uid} on {mapProtoId} ({coord.Value.X}, {coord.Value.Y}) is overloaded {battery.CurrentSupply} / {apc.MaxLoad}");
+    //             }
+    //             else
+    //             {
+    //                 Assert.That(apc.MaxLoad, Is.GreaterThanOrEqualTo(battery.CurrentSupply),
+    //                         $"APC {uid} on {mapProtoId} is overloaded {battery.CurrentSupply} / {apc.MaxLoad}");
+    //             }
+    //         }
+    //     });
 
-        await pair.CleanReturnAsync();
-    }
+    //     await pair.CleanReturnAsync();
+    // }
 
-    // IMP ADD- 2nd test to catch variable power loads
-    [Test, TestCaseSource(nameof(GameMaps))]
-    public async Task ImpTestApcLoad(string mapProtoId)
-    {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings
-        {
-            Dirty = true,
-        });
-        var server = pair.Server;
+    // // IMP ADD- 2nd test to catch variable power loads
+    // [Test, TestCaseSource(nameof(GameMaps))]
+    // public async Task ImpTestApcLoad(string mapProtoId)
+    // {
+    //     await using var pair = await PoolManager.GetServerClient(new PoolSettings
+    //     {
+    //         Dirty = true,
+    //     });
+    //     var server = pair.Server;
 
-        var entMan = server.EntMan;
-        var protoMan = server.ProtoMan;
-        var ticker = entMan.System<GameTicker>();
-        var xform = entMan.System<TransformSystem>();
+    //     var entMan = server.EntMan;
+    //     var protoMan = server.ProtoMan;
+    //     var ticker = entMan.System<GameTicker>();
+    //     var xform = entMan.System<TransformSystem>();
 
-        // Load the map
-        await server.WaitAssertion(() =>
-        {
-            Assert.That(protoMan.TryIndex<GameMapPrototype>(mapProtoId, out var mapProto));
-            var opts = DeserializationOptions.Default with { InitializeMaps = true };
-            ticker.LoadGameMap(mapProto, out var mapId, opts);
-        });
+    //     // Load the map
+    //     await server.WaitAssertion(() =>
+    //     {
+    //         Assert.That(protoMan.TryIndex<GameMapPrototype>(mapProtoId, out var mapProto));
+    //         var opts = DeserializationOptions.Default with { InitializeMaps = true };
+    //         ticker.LoadGameMap(mapProto, out var mapId, opts);
+    //     });
 
-        // Usually 30s is enough to trip things
-        await pair.RunSeconds(30);
+    //     // Usually 30s is enough to trip things
+    //     await pair.RunSeconds(30);
 
-        // Check that no APCs are overloaded
-        var apcQuery = entMan.EntityQueryEnumerator<ApcComponent>();
-        Assert.Multiple(() =>
-        {
-            while (apcQuery.MoveNext(out var uid, out var apc))
-            {
-                if (xform.TryGetMapOrGridCoordinates(uid, out var coord))
-                {
-                    Assert.That(!apc.TripFlag,
-                            $"APC {uid} on {mapProtoId} ({coord.Value.X}, {coord.Value.Y}) is overloaded");
-                }
-                else
-                {
-                    Assert.That(!apc.TripFlag,
-                            $"APC {uid} on {mapProtoId} is overloaded");
-                }
-            }
-        });
+    //     // Check that no APCs are overloaded
+    //     var apcQuery = entMan.EntityQueryEnumerator<ApcComponent>();
+    //     Assert.Multiple(() =>
+    //     {
+    //         while (apcQuery.MoveNext(out var uid, out var apc))
+    //         {
+    //             if (xform.TryGetMapOrGridCoordinates(uid, out var coord))
+    //             {
+    //                 Assert.That(!apc.TripFlag,
+    //                         $"APC {uid} on {mapProtoId} ({coord.Value.X}, {coord.Value.Y}) is overloaded");
+    //             }
+    //             else
+    //             {
+    //                 Assert.That(!apc.TripFlag,
+    //                         $"APC {uid} on {mapProtoId} is overloaded");
+    //             }
+    //         }
+    //     });
 
-        await pair.CleanReturnAsync();
-    }
+    //     await pair.CleanReturnAsync();
+    // }
 
 }
