@@ -128,6 +128,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     public void OnSupermatterUpdated(EntityUid uid, SupermatterComponent sm, AtmosDeviceUpdateEvent args)
     {
         ProcessAtmos(uid, sm, args.dt);
+        sm.PreferredDelamType = ChooseDelamType(uid, sm);
         HandleDamage(uid, sm);
 
         if (sm.Damage >= sm.DamageDelaminationPoint || sm.Delamming)
@@ -195,7 +196,10 @@ public sealed partial class SupermatterSystem : EntitySystem
         // Unhardcode timer
         if (HasComp<SupermatterDestabalizerComponent>(item))
         {
-            if (GetIntegrity(sm) < 80)
+            if (sm.DestabilizingCrystal)
+                return;
+
+            if (sm.Damage > sm.DamageDelaminationPoint * 0.2)
             {
                 _popup.PopupEntity(Loc.GetString("supermatter-integrity-too-low"), uid, args.User);
                 return;
@@ -203,7 +207,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
             _popup.PopupEntity(Loc.GetString("supermatter-destabalize-start"), uid, args.User);
 
-            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, sm.DisruptionTime, new DestabilizingCrystalDoAfterEvent(), uid, used: item)
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, sm.DisruptionTime, new DestabilizingCrystalDoAfterEvent(), uid)
             {
                 BreakOnDamage = true,
                 BreakOnMove = true,
@@ -291,15 +295,17 @@ public sealed partial class SupermatterSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        _announcer.SendAnnouncementMessage(
-            _announcer.GetAnnouncementId("shuttleRecalled"),
-            "supermatter-announcement-cascade-destabalize",
+        _announcer.SendAnnouncement(
+            _announcer.GetAnnouncementId("commandReport"),
+            Filter.Broadcast(),
+            Loc.GetString("supermatter-announcement-cascade-destabalize"),
             Loc.GetString("resonance-cascade-announcement-sender"),
-            Color.Cyan,
-            station: _station.GetOwningStation(uid)
+            colorOverride: Color.Cyan
         );
 
         _popup.PopupEntity(Loc.GetString("supermatter-destabalize-integrity-low"), uid, args.User);
+
+        QueueDel(args.Args.Used);
 
         sm.DestabilizingCrystal = true;
     }

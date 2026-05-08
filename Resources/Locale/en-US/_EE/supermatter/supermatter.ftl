@@ -45,14 +45,14 @@ supermatter-announcement-cc-tamper =
     Engineering department, report to the supermatter engine immediately.
 
 supermatter-destabalize-start =
-    You begin carefully holding the crystal onto the supermatter, letting them melt into each.
+    You begin carefully holding the crystal onto the supermatter...
 supermatter-destabalize-end =
     You feel the supermatter begin to pulsate, with the world shaking to its rhythm.
 supermatter-destabalize-integrity-low =
     The supermatter rejects the crystal, unable to absorb it due to its failing integrity.
 supermatter-announcement-cascade-destabalize =
     Attention: Long range anomaly scans indicate abnormal quantities of harmonic flux originating from
-	a subject within {THE($station)}, a resonance collapse may occur.
+	a subject within the station, a resonance collapse may occur.
 
 supermatter-collide =
     {CAPITALIZE(THE($target))} slams into {THE($sm)}!

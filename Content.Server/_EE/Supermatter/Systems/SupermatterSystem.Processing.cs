@@ -648,8 +648,6 @@ public sealed partial class SupermatterSystem
     {
         var xform = Transform(uid);
 
-        sm.PreferredDelamType = ChooseDelamType(uid, sm);
-
         if (!sm.Delamming)
         {
             sm.Delamming = true;
@@ -792,7 +790,7 @@ public sealed partial class SupermatterSystem
     {
         var psyDiff = -0.007f;
         var activeCascadeDelam = false;
-        var lookup = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, 20f);
+        var lookup = new HashSet<Entity<MobStateComponent>>();
 
         // If actively cascade delaminating then everyone is affected
         if (sm.PreferredDelamType == DelamType.Cascade && sm.Damage > sm.DamageArchived)
@@ -800,6 +798,8 @@ public sealed partial class SupermatterSystem
             _entityLookup.GetEntitiesOnMap(Transform(uid).MapID, lookup);
             activeCascadeDelam = true;
         }
+        else
+            _entityLookup.GetEntitiesInRange(Transform(uid).Coordinates, 20f, lookup);
 
         foreach (var mob in lookup)
         {
@@ -830,16 +830,15 @@ public sealed partial class SupermatterSystem
             var paracusiaMaxTime = 300f;
             var paracusiaDistance = 7f;
 
+            if (activeCascadeDelam && _random.Prob(1 / sm.CascadeMessageChance))
+            {
+                var index = _random.Next(1, 6);
+                _popup.PopupEntity(Loc.GetString($"supermatter-cascade-player-message-{index}"), mob, mob, PopupType.LargeCaution);
+            }
+
             if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
             {
-                var popup = "supermatter-paracusia-player-message";
-                if (activeCascadeDelam)
-                {
-                    var index = _random.Next(1, 6);
-                    popup = $"supermatter-cascade-player-message-{index}";
-                }
-
-                _popup.PopupEntity(Loc.GetString(popup), mob, mob, PopupType.LargeCaution);
+                _popup.PopupEntity(Loc.GetString("supermatter-paracusia-player-message"), mob, mob, PopupType.LargeCaution);
                 _audio.PlayEntity(sm.GainParacusiaSound, mob, mob);
                 _audio.PlayEntity(sm.GiveParacusiaSound, mob, uid);
                 _paracusia.SetSounds(mob, paracusiaSounds, paracusia);

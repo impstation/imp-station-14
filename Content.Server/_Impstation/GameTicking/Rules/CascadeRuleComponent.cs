@@ -20,7 +20,13 @@ public sealed partial class CascadeRuleComponent : Component
     /// Time until the round is ended in seconds
     /// </summary>
     [DataField]
-    public TimeSpan TimeUntilEndRound = TimeSpan.FromSeconds(180);
+    public TimeSpan DurationToRoundEnd = TimeSpan.FromSeconds(240);
+
+    /// <summary>
+    /// Time until the round including curTime
+    /// </summary>
+    [DataField]
+    public TimeSpan TimeUntilEndRound;
 
     [DataField]
     public ProtoId<ContentTileDefinition> CrystalMassPlating = "PlatingCrystalMass";

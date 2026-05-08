@@ -259,6 +259,12 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public float AnomalyPyroChance = 2500f;
 
+    /// <summary>
+    /// The chance for a player to recieve danger text while the supermatter is cascading
+    /// </summary>
+    [DataField]
+    public float CascadeMessageChance = 120f;
+
     #endregion
 
     #region Timing

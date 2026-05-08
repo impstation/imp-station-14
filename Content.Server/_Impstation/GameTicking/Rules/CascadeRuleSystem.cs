@@ -9,6 +9,7 @@ using Content.Shared.GameTicking.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
+using Robust.Shared.Player;
 
 namespace Content.Server._Impstation.GameTicking.Rules;
 
@@ -36,16 +37,18 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
     {
         base.Started(uid, comp, gameRule, args);
 
+        comp.TimeUntilEndRound = comp.DurationToRoundEnd + Timing.CurTime;
+
         var station = _station.GetOwningStation(uid);
 
         SetAlertLevelDelta();
 
-        _announcer.SendAnnouncementMessage(
+        _announcer.SendAnnouncement(
             _announcer.GetAnnouncementId("commandReport"),
+            Filter.Broadcast(),
             "resonance-cascade-announcement-begin",
             Loc.GetString("resonance-cascade-announcement-sender"),
-            Color.Cyan,
-            station: station
+            colorOverride: Color.Cyan
         );
 
         if (_roundEndSystem.IsRoundEndRequested())
@@ -55,7 +58,7 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
                 _announcer.GetAnnouncementId("shuttleRecalled"),
                 "emergancy-shuttle-cascade-enroute",
                 Loc.GetString("emergancy-shuttle-announcement-sender"),
-                Color.Cyan,
+                Color.Yellow,
                 station: station
             );
         }
@@ -75,20 +78,20 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
 
     protected override void ActiveTick(EntityUid uid, CascadeRuleComponent comp, GameRuleComponent gameRule, float frameTime)
     {
-        if (Timing.CurTime > comp.TimeUntilEndRound / 2 && comp.Stage < ResonanceCascadeStage.Middle)
+        if (comp.Stage < ResonanceCascadeStage.Middle && comp.TimeUntilEndRound - Timing.CurTime < comp.DurationToRoundEnd / 2)
         {
-            _announcer.SendAnnouncementMessage(
+            _announcer.SendAnnouncement(
                 _announcer.GetAnnouncementId("commandReport"),
+                Filter.Broadcast(),
                 "resonance-cascade-announcement-middle",
                 Loc.GetString("resonance-cascade-announcement-sender"),
-                Color.Cyan,
-                station: _station.GetOwningStation(uid)
+                colorOverride: Color.Cyan
             );
 
             comp.Stage = ResonanceCascadeStage.Middle;
         }
 
-        if (Timing.CurTime > comp.TimeUntilEndRound && comp.Stage < ResonanceCascadeStage.End)
+        if (comp.Stage < ResonanceCascadeStage.End && comp.TimeUntilEndRound < Timing.CurTime)
         {
             _roundEndSystem.EndRound();
 
@@ -145,6 +148,6 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
             return;
         if (_alertLevelSystem.GetLevel(station.Value) == "delta") // Don't delta if already delta
             return;
-        _alertLevelSystem.SetLevel(station.Value, "delta", true, false, true);
+        _alertLevelSystem.SetLevel(station.Value, "delta", true, true, true);
     }
 }
