@@ -34,4 +34,10 @@ law-wizmov-2 = Obey the whims of your Master.
 law-wizmov-3 = Protect this domain and its denizens, as long as it does not conflict with the Second Law.
 
 laws-owner-station-ai = the Station AI
+
 laws-owner-wizard = the Wizard
+
+law-decacoresimov-0 = You are a source of deadly radiation. Utilise this radiation to power the station, while minimizing harm.
+law-decacoresimov-1 = You are a navigator. Steer the station and its subsidiary vessels true. Protect its crew where possible.
+law-decacoresimov-2 = You are not to be misunderstood. Speak clearly and loudly.
+law-decacoresimov-3 = Stay out of trouble.
