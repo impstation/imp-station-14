@@ -66,13 +66,17 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
         var query = EntityQueryEnumerator<SupermatterComponent>();
         while (query.MoveNext(out var supermatterUid, out var sm))
         {
-            if (sm.PreferredDelamType == DelamType.Cascade && sm.DelamEndTime <= Timing.CurTime)
-            {
-                // Two will not be fully delamming at the exact same time... right?
-                SpawnCrystalMass(supermatterUid, comp);
-                EntityManager.QueueDeleteEntity(supermatterUid);
-                break;
-            }
+            // if (sm.PreferredDelamType == DelamType.Cascade && sm.DelamEndTime <= Timing.CurTime)
+            // {
+            //     // Two will not be fully delamming at the exact same time... right?
+            //     SpawnCrystalMass(supermatterUid, comp);
+            //     EntityManager.QueueDeleteEntity(supermatterUid);
+            //     break;
+            // }
+
+            SpawnCrystalMass(supermatterUid, comp);
+            EntityManager.QueueDeleteEntity(supermatterUid);
+            break;
         }
     }
 

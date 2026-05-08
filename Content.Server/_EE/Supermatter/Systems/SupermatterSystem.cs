@@ -305,7 +305,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("supermatter-destabalize-integrity-low"), uid, args.User);
 
-        QueueDel(args.Args.Used);
+        EntityManager.QueueDeleteEntity(args.Used);
 
         sm.DestabilizingCrystal = true;
     }
