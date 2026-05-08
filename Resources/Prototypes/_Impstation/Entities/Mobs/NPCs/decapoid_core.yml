@@ -1,0 +1,290 @@
+- type: entity
+  parent: [ BaseControllable, BaseStructure ]
+  id: DecapoidCore
+  name: tck'ju'q'tp
+  description: The navigational core of the vessel, exerting control of nearby systems. Don't bother trying to pronounce its actual name.
+  components:
+  - type: InputMover # needs this to pilot shuttles
+  - type: CombatMode
+  - type: Appearance
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: _Impstation/Mobs/Silicon/Bots/decacore.rsi
+    layers:
+    - state: icon
+    - state: radiation
+      shader: unshaded
+    - state: lights
+      map: ["enum.BorgVisualLayers.Light"]
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 3
+    color: "#ff0043"
+    netsync: false
+  - type: Anchorable
+    flags:
+    - Anchorable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ExplodeBehavior
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MachineFrameDestroyed:
+            min: 1
+            max: 1
+      - !type:SpawnGasBehavior
+        gasMixture:
+          volume: 1000
+          moles:
+            CarbonDioxide: 340.5701689 # carbon dioxide
+          temperature: 373.15
+  - type: Repairable
+    doAfterDelay: 15
+  - type: DamagedSiliconAccent
+    enableChargeCorruption: false
+  - type: SurveillanceCameraSpeaker
+  - type: SurveillanceCameraMonitor
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCamera
+    transmitFrequencyId: SurveillanceCamera
+  - type: WirelessNetworkConnection
+    range: 10000
+  - type: WiresPanel
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+        requireInputValidation: false
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
+      enum.SurveillanceCameraMonitorUiKey.Key:
+        type: SurveillanceCameraMonitorBoundUserInterface
+      enum.CommunicationsConsoleUiKey.Key:
+        type: CommunicationsConsoleBoundUserInterface
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+  - type: StaticPrice
+    price: 800
+  - type: WarpPoint
+    location: Navigation Core
+    follow: true
+  - type: VoiceOverride
+    nameOverride: Navigation Core
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Tcktck
+  - type: Vocal
+    sounds:
+      Unsexed: TckTck
+  - type: UnblockableSpeech
+  - type: ReplacementAccent
+    accent: silicon
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Engineering
+    - Supply
+    - Command
+    - Binary
+    - Common
+  - type: ActiveRadio
+    channels:
+    - Engineering
+    - Supply
+    - Command
+    - Binary
+    - Common
+  - type: Tag
+    tags:
+    - SiliconEmotes
+    - CanPilot
+    - Structure
+    - EmagImmune
+  - type: GuideHelp
+    guides:
+    - Robotics
+  - type: Inventory
+    templateId: borg
+  - type: Hands
+    showInHands: false
+    disableExplosionRecursion: true
+    canBeStripped: false
+  - type: BorgChassis
+    canOpenSelfUi: false
+    maxModules: 1
+    hasMindState: lights
+    noMindState: icon
+    moduleWhitelist:
+      tags:
+      - BorgModuleTckTck
+  - type: ContainerFill
+    containers:
+      borg_module:
+      - BorgModuleDecapoidCore
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot { }
+      borg_module: !type:Container { }
+      program-container: !type:Container
+      Cartridge-Slot: !type:ContainerSlot
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+  - type: Puller
+    needsHands: true
+  - type: Eye
+    drawFov: false
+  # - type: StationAiOverlay # removed until is no longer buggy
+  - type: IgnoreUIRange
+  - type: ComplexInteraction
+  - type: MindContainer
+  - type: SiliconLawBound
+  - type: Actions
+  - type: ActionGrant
+    actions:
+    - ActionViewLaws
+    - ActionOpenCartridges
+  - type: SiliconLawProvider
+    laws: Decacoresimov # custom laws here
+  - type: Stripping
+  - type: Access
+    enabled: true
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+  - type: Lock
+    locked: true
+    breakOnAccessBreaker: false
+    unlockOnClick: false
+  - type: LockedWiresPanel
+  - type: LockingWhitelist
+    blacklist:
+      components:
+      - BorgChassis
+      - RoboticsConsole
+  - type: AccessReader
+    access: [[ "CentralCommand" ]]
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowRadar
+      enum.SurveillanceCameraMonitorUiKey.Key:
+        toggleAction: ActionDecapoidCoreCameraMonitor
+      enum.CommunicationsConsoleUiKey.Key:
+        toggleAction: ActionDecapoidCoreShowCommunications
+  - type: ShowElectrocutionHUD
+  - type: RadarConsole
+  - type: CommunicationsConsole
+    title: comms-console-announcement-title-decacore
+    color: "#ff4f4f"
+    delay: 60
+    initialDelay: 0
+    global: true
+  - type: InteractionPopup
+    interactSuccessString: petting-success-decapoid-silicon
+    interactFailureString: petting-failure-decapoid-silicon
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Label
+    currentLabel: station-core-name-decapoid
+  - type: RadiationSource
+    intensity: 3.8
+    slope: 0.6
+  - type: Pda
+    idSlot:
+      locked: true
+    penSlot:
+      locked: true
+    paiSlot:
+      locked: true
+  - type: Ringer
+  - type: NanoChatCard
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - NewsReaderCartridge
+    - NanoChatCartridge
+    cartridgeSlot:
+      locked: true
+      priority: -1
+      name: device-pda-slot-component-slot-name-cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - Cartridge
+  - type: PdaBorderColor
+    borderColor: "#d2c29d"
+    accentVColor: "#286cd2"
+  - type: ContentEye
+    maxZoom: 1.5,1.5
+  - type: GhostRole
+    name: Navigation Core
+    description: Maintain astrologistic excellence. Bother engineers for fun.
+    makeSentient: true
+    rules: ghost-role-information-silicon-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: BaseAGhostAction
+  id: ActionDecapoidCoreCameraMonitor
+  name: Wireless Camera Monitor
+  description: View all wireless cameras.
+  components:
+  - type: Action
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: camera_light }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: camera_light }
+    keywords: [ "console", "interface" ]
+    priority: -6
+  - type: InstantAction
+    event: !type:ToggleIntrinsicUIEvent { key: enum.SurveillanceCameraMonitorUiKey.Key }
+
+- type: entity
+  parent: BaseAGhostAction
+  id: ActionDecapoidCoreShowCommunications
+  name: Communications Interface
+  description: View a Communications Interface.
+  components:
+  - type: Action
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: comms_console }
+    keywords: [ "AI", "console", "interface" ]
+    priority: -4
+  - type: InstantAction
+    event: !type:ToggleIntrinsicUIEvent { key: enum.CommunicationsConsoleUiKey.Key }

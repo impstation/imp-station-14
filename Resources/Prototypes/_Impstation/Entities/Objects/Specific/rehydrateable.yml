@@ -162,3 +162,36 @@
   - type: Rehydratable
     possibleSpawns:
     - MobKoboldSanitized
+
+# discount dan's water bottle cube
+
+- type: entity
+  parent: RehydratableItem
+  id: DanWaterBottleCube
+  name: water bottle cube
+  description: Just add water! Wait hold on...
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: cube
+  - type: SolutionContainerManager
+    solutions:
+      cube:
+        maxVol: 45 # 15 extra room for added water
+        reagents: 
+        - ReagentId: Water
+          Quantity: 15
+        - ReagentId: Cornoil #plastic grinds into oil and phosphorus, but dan uses corn oil
+          Quantity: 7.5
+        - ReagentId: Phosphorus 
+          Quantity: 7.5
+  - type: Edible
+    solution: cube
+  - type: FlavorProfile
+    flavors:
+    - chewy
+    - plastic
+  - type: Rehydratable
+    catalystMinimum: 30.0 #15 units already in the cube
+    possibleSpawns:
+    - DrinkWaterBottleDiscountDanFull
