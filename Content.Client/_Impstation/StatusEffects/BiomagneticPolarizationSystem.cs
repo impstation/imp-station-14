@@ -2,7 +2,6 @@ using System.Numerics;
 using Content.Client.Audio;
 using Content.Shared._Impstation.StatusEffectNew;
 using Content.Shared.Audio;
-using Content.Shared.EntityEffects.Effects;
 using Content.Shared.StatusEffectNew.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
