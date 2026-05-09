@@ -36,10 +36,9 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     public bool Polarization;
     /// <summary>
     /// This should probably never be changed.
-    /// Heh.
     /// </summary>
     [DataField]
-    public float NorthChance = 0.49999f;
+    public float NorthChance = 0.5f;
 
     [DataField]
     public Color NorthColor = Color.Red;
