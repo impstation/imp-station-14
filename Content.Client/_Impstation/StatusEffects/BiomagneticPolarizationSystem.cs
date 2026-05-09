@@ -7,6 +7,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
+using SixLabors.ImageSharp.ColorSpaces;
 
 namespace Content.Client._Impstation.StatusEffects;
 
@@ -116,7 +117,9 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         _sprite.LayerSetOffset((ent, sprite), layer, offset);
 
         var color = comp.Polarization ? comp.NorthColor : comp.SouthColor;
-        var transparency = Math.Clamp(comp.CurrentStrength / 40f, 0.2f, 0.4f); // Magic numbers go!!
+        // var transparency = Math.Clamp(comp.CurrentStrength / 40f, 0.2f, 0.4f);
+
+        var transparency = Math.Clamp(comp.CurrentStrength / 40f, 0.4f, 0.6f);
 
         _sprite.LayerSetColor((ent, sprite), layer, color.WithAlpha(transparency));
     }
