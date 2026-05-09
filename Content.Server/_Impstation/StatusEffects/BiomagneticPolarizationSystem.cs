@@ -133,7 +133,8 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
             Dirty(ent, comp);
 
             // set the light proportional to the strength
-            _lights.SetEnergy(ent, comp.CurrentStrength * comp.StrLightMult, lightComp);
+            var lightStrength = 25f + (float)Math.Log(1f + comp.CurrentStrength) * comp.StrLightMult;
+            _lights.SetEnergy(ent, lightStrength, lightComp);
         }
 
         // to avoid modifying the list while it's enumerating, we remove status effects from expired ents after the query.

@@ -80,10 +80,10 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     public float RealDecayRate = 0.0f;
 
     /// <summary>
-    /// Multiplier applied to CurrentStrength before applying to the pointlight strength.
+    /// Multiplier applied to natural log of CurrentStrength + 1 before applying to the pointlight strength.
     /// </summary>
     [DataField]
-    public float StrLightMult = 5.0f;
+    public float StrLightMult = 40f;
     /// <summary>
     /// Multiplier applied to throw strength when two same-polarity entities collide.
     /// </summary>

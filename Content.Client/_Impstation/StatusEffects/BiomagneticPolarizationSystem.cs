@@ -117,9 +117,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         _sprite.LayerSetOffset((ent, sprite), layer, offset);
 
         var color = comp.Polarization ? comp.NorthColor : comp.SouthColor;
-        // var transparency = Math.Clamp(comp.CurrentStrength / 40f, 0.2f, 0.4f);
-
-        var transparency = Math.Clamp(comp.CurrentStrength / 40f, 0.4f, 0.6f);
+        var transparency = (float)Math.Clamp(0.15f + Math.Log(1 + comp.CurrentStrength) / 7.5f, 0.4f, 0.6f);
 
         _sprite.LayerSetColor((ent, sprite), layer, color.WithAlpha(transparency));
     }
