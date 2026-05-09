@@ -26,8 +26,8 @@ using Content.Shared.Chat;
 using Content.Shared.IoC;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
-using Content.Client._DV.NanoChat;
-using Content.Client._Impstation.Notifier; // DeltaV: NanoChat
+using Content.Client._DV.NanoChat; // DeltaV: NanoChat
+using Content.Client._Impstation.Notifier; // IMP
 
 namespace Content.Client.IoC
 {
