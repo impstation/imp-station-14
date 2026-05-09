@@ -263,10 +263,10 @@
   components:
   - type: StationEvent
     weight: 1
-    duration: 150
-    maxDuration: 300
+    duration: 45
+    maxDuration: 75
     reoccurrenceDelay: 30
-  - type: GlobalStatusEffectRule
+  - type: DelayedGlobalStatusEffectRule
     statusEffect: "StatusEffectBiomagneticPolarization"
     announcement: "station-event-biomagnetic-polarization-announcement"
 

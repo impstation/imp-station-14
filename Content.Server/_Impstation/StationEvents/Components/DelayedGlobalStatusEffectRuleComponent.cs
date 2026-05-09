@@ -3,8 +3,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.StationEvents.Components;
 
-[RegisterComponent, Access(typeof(GlobalStatusEffectRule))]
-public sealed partial class GlobalStatusEffectRuleComponent : Component
+[RegisterComponent, Access(typeof(DelayedGlobalStatusEffectRule))]
+public sealed partial class DelayedGlobalStatusEffectRuleComponent : Component
 {
     [DataField(required: true)]
     public EntProtoId StatusEffect;

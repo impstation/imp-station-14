@@ -1,3 +1,4 @@
+using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Explosion;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
@@ -69,9 +70,7 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     public float CapEffectChance = 0.5f;
 
     [DataField]
-    public float MinDecayRate = 0.01f;
-    [DataField]
-    public float MaxDecayRate = 0.05f;
+    public (float, float) MinMaxDecayRate = (0.025f, 0.075f);
     /// <summary>
     /// The current actual decay rate, once determined randomly.
     /// Keep in mind when setting decay rate settings that they're subtracted once per second,
@@ -99,7 +98,7 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     [DataField]
     public float LightningRange = 5f;
     [DataField]
-    public (int, int) LightningArcsMinMax = (1, 3);
+    public MinMax LightningArcsMinMax = new(1, 3);
     [DataField]
     public float LightningCapMult = 2f;
 
