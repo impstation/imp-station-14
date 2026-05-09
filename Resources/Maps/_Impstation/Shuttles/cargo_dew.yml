@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/09/2026 14:03:05
-  entityCount: 150
+  time: 05/09/2026 14:47:25
+  entityCount: 151
 maps: []
 grids:
 - 1
@@ -442,19 +442,18 @@ entities:
       parent: 1
 - proto: ChairPilotSeat
   entities:
-  - uid: 80
+  - uid: 151
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 4.5,9.5
+      rot: 3.141592653589793 rad
+      pos: 4.5,8.5
       parent: 1
 - proto: ComputerShuttleCargo
   entities:
-  - uid: 72
+  - uid: 80
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 5.5,9.5
+      pos: 4.5,9.5
       parent: 1
 - proto: ConveyorBelt
   entities:
@@ -892,6 +891,11 @@ entities:
       parent: 1
 - proto: Table
   entities:
+  - uid: 72
+    components:
+    - type: Transform
+      pos: 5.5,9.5
+      parent: 1
   - uid: 92
     components:
     - type: Transform
@@ -929,11 +933,71 @@ entities:
     - type: Transform
       pos: 1.5,4.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        47:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        48:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        50:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        49:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
   - uid: 83
     components:
     - type: Transform
       pos: 1.5,7.5
       parent: 1
+    - type: DeviceLinkSource
+      linkedPorts:
+        46:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        45:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        44:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
+        43:
+        - - Left
+          - Reverse
+        - - Right
+          - Forward
+        - - Middle
+          - Off
 - proto: WallMining
   entities:
   - uid: 6

@@ -11,9 +11,9 @@
         - type: StationNameSetup
           mapNameTemplate:  'Monarch'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/_Impstation/Shuttles/chrysalis.yml
+          emergencyShuttlePath: /Maps/_Impstation/Shuttles/emergency_chrysalis.yml
         - type: StationCargoShuttle
-          path: /Maps/_Impstation/Shuttles/dew.yml
+          path: /Maps/_Impstation/Shuttles/cargo_dew.yml
         - type: StationJobs
           availableJobs:
             # command
