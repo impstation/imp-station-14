@@ -1,0 +1,20 @@
+- type: entity
+  name: p'qk'jt
+  description: non-slip matting designed to take foot traffic from shell-spikes. It seems to self-heal when punctured, somehow.
+  parent: FloorTileItemBase
+  id: FloorDecaCarpetItem
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Furniture/Carpets/decapoid_carpet.rsi
+    state: item
+  - type: Item
+    heldPrefix: carpet-red
+  - type: FloorTile
+    outputs:
+      - Plating
+  - type: Stack
+    stackType: FloorDecaCarpet
+  - type: SpawnAfterInteract #Nuke after convert to FloorTile
+    prototype: DecaCarpet
+    doAfter: 0.5
+    removeOnInteract: true

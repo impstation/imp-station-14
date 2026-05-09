@@ -27,6 +27,13 @@
     species:
     - Gastropoid
 
+- type: loadoutEffectGroup
+  id: Discount
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Anomalocarid
+
 # Pre-equipped species gear
 # Full tank for aquatics as part of any Survival loadout
 - type: loadout
@@ -157,6 +164,15 @@
     back:
     - BoxSurvivalAquatic
 
+- type: loadout
+  id: EmergencyDiscount
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalDiscount
+
 # Clown
 - type: loadout
   id: EmergencyMeatClown
@@ -184,6 +200,15 @@
   storage:
     back:
     - BoxHugAquatic
+
+- type: loadout
+  id: EmergencyDiscountClown
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxHugDiscount
 
 # Mime
 - type: loadout
@@ -213,6 +238,15 @@
     back:
     - BoxMimeAquatic
 
+- type: loadout
+  id: EmergencyDiscountMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxMimeDiscount
+
 # Engineering / Extended
 - type: loadout
   id: EmergencyMeatExtended
@@ -240,6 +274,15 @@
   storage:
     back:
     - BoxSurvivalEngineeringAquatic
+
+- type: loadout
+  id: EmergencyDiscountExtended
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalEngineeringDiscount
 
 # Command
 - type: loadout
@@ -287,6 +330,15 @@
     back:
     - BoxSurvivalCommandAquatic
 
+- type: loadout
+  id: EmergencyDiscountCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalCommandDiscount
+
 # Medical
 - type: loadout
   id: EmergencyMeatMedical
@@ -314,6 +366,15 @@
   storage:
     back:
     - BoxSurvivalMedicalAquatic
+
+- type: loadout
+  id: EmergencyDiscountMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalMedicalDiscount
 
 # Medsec, idk if this is _wizden but theres a chance they also just didnt have brigmed and vox at the same time
 - type: loadout
@@ -351,6 +412,15 @@
   storage:
     back:
     - BoxSurvivalSecurityAquatic
+
+- type: loadout
+  id: EmergencyDiscountSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalSecurityDiscount
 
 # Brigmedic
 - type: loadout
@@ -398,6 +468,15 @@
     back:
     - BoxSurvivalBrigmedicAquatic
 
+- type: loadout
+  id: EmergencyDiscountBrigmedic
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalBrigmedicDiscount
+
 # Syndicate
 
 - type: loadout
@@ -426,6 +505,15 @@
   storage:
     back:
     - BoxSurvivalSyndicateAquatic
+
+- type: loadout
+  id: EmergencyDiscountSyndicate
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalSyndicateDiscount
 
 # Chief Engineer
 - type: loadout
@@ -473,6 +561,15 @@
     back:
     - BoxSurvivalEngineeringCommandAquatic
 
+- type: loadout
+  id: EmergencyDiscountExtendedCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalEngineeringCommandDiscount
+
 # Head of Security
 - type: loadout
   id: EmergencyOxygenSecurityCommand
@@ -519,6 +616,15 @@
     back:
     - BoxSurvivalSecurityCommandAquatic
 
+- type: loadout
+  id: EmergencyDiscountSecurityCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  storage:
+    back:
+    - BoxSurvivalSecurityCommandDiscount
+
 # stupid things i have to do bc i cant have kode classified as oxygenbreather. ungu city now too
 
 - type: loadout
@@ -534,6 +640,14 @@
   effects:
   - !type:GroupLoadoutEffect
     proto: Cow
+  equipment:
+    suitstorage: OxygenTankFilled
+
+- type: loadout
+  id: LoadoutSpeciesEVADiscount
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
   equipment:
     suitstorage: OxygenTankFilled    
 
@@ -552,3 +666,11 @@
     proto: Cow
   equipment:
     pocket1: DoubleEmergencyOxygenTankFilled    
+
+- type: loadout
+  id: LoadoutSpeciesPocketDoubleOxygenDiscount
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Discount
+  equipment:
+    pocket1: DoubleEmergencyOxygenTankFilled   
