@@ -50,7 +50,7 @@ public sealed class ServerNotifierManager : IServerNotifierManager, IPostInjectI
             await _db.SavePlayerNotifierSettingsAsync(userId, message.Notifier);
 
 
-        // send it back to confirm to client that consent was updated
+        // send it back to the client to update notifier locally after updated on the server
         _netManager.ServerSendMessage(message, message.MsgChannel);
     }
     /// <summary>

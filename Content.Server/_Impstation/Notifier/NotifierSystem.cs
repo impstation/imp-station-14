@@ -27,7 +27,7 @@ public sealed class NotifierSystem : SharedNotifierSystem
         var text = notifier?.Freetext ?? string.Empty;
 
         if (text == string.Empty)
-            text = Loc.GetString("");
+            text = "";
 
         return text;
     }

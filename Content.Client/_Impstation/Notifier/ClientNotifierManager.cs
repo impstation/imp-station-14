@@ -19,7 +19,7 @@ public sealed class ClientNotifierManager : IClientNotifierManager
     public void Initialize()
     {
         _sawmill = _logManager.GetSawmill("clientnotifier");
-        _netManager.RegisterNetMessage<MsgUpdateNotifier>(HandleUpdateNotifier);
+        _netManager.RegisterNetMessage<MsgUpdateNotifier>(ClientHandleUpdateNotifier);
 
     }
 
@@ -48,7 +48,11 @@ public sealed class ClientNotifierManager : IClientNotifierManager
         return _notifier;
     }
 
-    private void HandleUpdateNotifier(MsgUpdateNotifier message)
+    /// <summary>
+    /// After the server has updated the database, we update it locally.
+    /// </summary>
+    /// <param name="message"></param>
+    private void ClientHandleUpdateNotifier(MsgUpdateNotifier message)
     {
         _notifier = message.Notifier;
 
