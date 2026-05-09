@@ -122,17 +122,15 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
                 comp.Capped = true;
 
                 _ambientSound.SetAmbience(ent, true, ambientComp);
-
-                Dirty(ent, comp);
             }
             else if (comp.Capped && comp.CurrentStrength < capRangeMin)
             {
                 comp.Capped = false;
 
                 _ambientSound.SetAmbience(ent, false, ambientComp);
-
-                Dirty(ent, comp);
             }
+
+            Dirty(ent, comp);
 
             // set the light proportional to the strength
             _lights.SetEnergy(ent, comp.CurrentStrength * comp.StrLightMult, lightComp);

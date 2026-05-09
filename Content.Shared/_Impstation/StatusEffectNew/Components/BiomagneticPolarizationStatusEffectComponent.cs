@@ -36,9 +36,10 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     public bool Polarization;
     /// <summary>
     /// This should probably never be changed.
+    /// Heh.
     /// </summary>
     [DataField]
-    public float NorthChance = 0.5f;
+    public float NorthChance = 0.49999f;
 
     [DataField]
     public Color NorthColor = Color.Red;
@@ -48,7 +49,7 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// <summary>
     /// Current magnetism strength. Determines the strength of the effects of collisions.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float CurrentStrength = 10f;
     /// <summary>
     /// Cap above which strength values are clamped.
