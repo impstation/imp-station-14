@@ -13,7 +13,7 @@ public sealed partial class CrystalMassComponent : Component
     /// Chance for it to spread
     /// </summary>
     [DataField]
-    public float SpreadChance = 0.25f;
+    public float SpreadChance = 0.5f;
 
     /// <summary>
     /// Chance for it to play spawning audio

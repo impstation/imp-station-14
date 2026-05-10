@@ -193,21 +193,26 @@ public sealed partial class SupermatterSystem : EntitySystem
         var item = args.Used;
         var othersFilter = Filter.Pvs(uid).RemovePlayerByAttachedEntity(target);
 
-        // Unhardcode timer
+        if (args.Handled ||
+            HasComp<GhostComponent>(target) ||
+            HasComp<GodmodeComponent>(item))
+            return;
+
         if (HasComp<SupermatterDestabalizerComponent>(item))
         {
             if (sm.DestabilizingCrystal)
                 return;
 
+            // Prevent if integrity is below 80%
             if (sm.Damage > sm.DamageDelaminationPoint * 0.2)
             {
-                _popup.PopupEntity(Loc.GetString("supermatter-integrity-too-low"), uid, args.User);
+                _popup.PopupEntity(Loc.GetString("supermatter-destabalize-integrity-low"), uid, args.User);
                 return;
             }
 
             _popup.PopupEntity(Loc.GetString("supermatter-destabalize-start"), uid, args.User);
 
-            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, sm.DisruptionTime, new DestabilizingCrystalDoAfterEvent(), uid)
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, sm.DisruptionTime, new DestabilizingCrystalDoAfterEvent(), uid, null, item)
             {
                 BreakOnDamage = true,
                 BreakOnMove = true,
@@ -217,12 +222,10 @@ public sealed partial class SupermatterSystem : EntitySystem
             return;
         }
 
-        if (args.Handled ||
-            HasComp<GhostComponent>(target) ||
-            HasComp<SupermatterImmuneComponent>(item) ||
-            HasComp<GodmodeComponent>(item))
+        if (HasComp<SupermatterImmuneComponent>(item))
             return;
 
+        // TODO: supermatter scalpel
         if (HasComp<UnremoveableComponent>(item))
         {
             if (!sm.HasBeenPowered)
@@ -298,16 +301,16 @@ public sealed partial class SupermatterSystem : EntitySystem
         _announcer.SendAnnouncement(
             _announcer.GetAnnouncementId("commandReport"),
             Filter.Broadcast(),
-            Loc.GetString("supermatter-announcement-cascade-destabalize"),
+            "supermatter-announcement-cascade-destabalize",
             Loc.GetString("resonance-cascade-announcement-sender"),
             colorOverride: Color.Cyan
         );
 
-        _popup.PopupEntity(Loc.GetString("supermatter-destabalize-integrity-low"), uid, args.User);
-
+        _popup.PopupEntity(Loc.GetString("supermatter-destabalize-end"), uid, args.User);
         EntityManager.QueueDeleteEntity(args.Used);
 
         sm.DestabilizingCrystal = true;
+        args.Repeat = false;
     }
 
     private void OnGravPulse(Entity<SupermatterComponent> ent, ref GravPulseEvent args)

@@ -73,10 +73,7 @@ public sealed class CrystalMassSystem : EntitySystem
         if (!_robustRandom.Prob(comp.SpreadChance))
             return;
 
-        var prototype = comp.CrystalMassPrototype;
-        if (_robustRandom.Prob(comp.BulbChance))
-            prototype = comp.CrystalBulbPrototype;
-
+        var prototype = _robustRandom.Prob(comp.BulbChance) ? comp.CrystalBulbPrototype : comp.CrystalMassPrototype;
         var neighbor = _robustRandom.Pick(args.AllNeighbors);
         var neighborCoords = _map.GridTileToLocal(neighbor.GridUid, neighbor.Grid, neighbor.Position);
 

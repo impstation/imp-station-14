@@ -158,7 +158,7 @@ uplink-taipan-name = Taipan bundle
 uplink-taipan-desc = One "Taipan" Echion crossbow, bundled with a canister of its proprietary liquid ammo.
 
 uplink-destabilizing-crystal-name = Destabilizing Crystal
-uplink-destabilizing-crystal-desc = desc here NOW
+uplink-destabilizing-crystal-desc = A crystal that can be used to destabilize the supermatter to cause a resonance cascade. Carefully apply this on a stable supermatter crystal and start the delamination. Prevent anyone from stopping you.
 
 uplink-romerol-traitor-name = Romerol Micro-Injector
 uplink-romerol-traitor-desc = One romerol micro-injector for causing a zombie outbreak.

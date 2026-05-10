@@ -1,3 +1,4 @@
+using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Maps;
 using Robust.Shared.Prototypes;
 
@@ -20,13 +21,25 @@ public sealed partial class CascadeRuleComponent : Component
     /// Time until the round is ended in seconds
     /// </summary>
     [DataField]
-    public TimeSpan DurationToRoundEnd = TimeSpan.FromSeconds(240);
+    public TimeSpan DurationToRoundEnd = TimeSpan.FromSeconds(180);
 
     /// <summary>
     /// Time until the round including curTime
     /// </summary>
     [DataField]
     public TimeSpan TimeUntilEndRound;
+
+    /// <summary>
+    /// Amount of singularities to spawn once the round ends
+    /// </summary>
+    [DataField]
+    public MinMax MinMaxSinglarity = new(1, 3);
+
+    /// <summary>
+    /// Amount of crystal mass to spawn throughout the station
+    /// </summary>
+    [DataField]
+    public MinMax MinMaxCrystalMassSpawn = new(2, 4);
 
     [DataField]
     public ProtoId<ContentTileDefinition> CrystalMassPlating = "PlatingCrystalMass";

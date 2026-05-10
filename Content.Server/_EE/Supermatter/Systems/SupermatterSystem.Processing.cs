@@ -571,6 +571,12 @@ public sealed partial class SupermatterSystem
                 message = Loc.GetString("supermatter-threshold-mole");
                 SendSupermatterAnnouncement(uid, sm, message, global);
             }
+
+            if (sm.PreferredDelamType == DelamType.Cascade)
+            {
+                message = Loc.GetString("supermatter-threshold-cascade");
+                SendSupermatterAnnouncement(uid, sm, message, global);
+            }
         }
     }
 
@@ -666,10 +672,8 @@ public sealed partial class SupermatterSystem
 
         var mapId = Transform(uid).MapID;
         var mapFilter = Filter.BroadcastMap(mapId);
-        var message = Loc.GetString("supermatter-delam-player");
+        var message = Loc.GetString(sm.PreferredDelamType == DelamType.Cascade ? "supermatter-delam-cascade-player" : "supermatter-delam-player");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
-        if (sm.PreferredDelamType == DelamType.Cascade)
-            message = Loc.GetString("supermatter-delam-cascade-player");
 
         // Send the reality distortion message to every player on the map
         _chatManager.ChatMessageToManyFiltered(mapFilter,

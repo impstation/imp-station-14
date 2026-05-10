@@ -297,7 +297,7 @@ public sealed partial class SupermatterComponent : Component
     /// How long it takes in seconds for disrupting item actions to be used on the supermatter.
     /// </summary>
     [DataField]
-    public float DisruptionTime = 15f;
+    public TimeSpan DisruptionTime = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
