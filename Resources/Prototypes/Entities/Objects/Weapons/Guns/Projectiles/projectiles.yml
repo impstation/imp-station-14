@@ -770,7 +770,8 @@
     impactEffect: BulletImpactEffectKinetic
     damage:
       types:
-        Heat: 20
+        Heat: 5 # imp edit from 20
+        Radiation: 15 # imp add - this doesn't RR on a single charge, but it does make it more dangerous
 
 - type: entity
   parent: AnomalousParticleDelta
