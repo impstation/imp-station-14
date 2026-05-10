@@ -1,99 +1,4 @@
 ﻿Entries:
-- author: HAPPYNEWYEAR1999
-  changes:
-  - message: Minor Pathway changes, see PR for details
-    type: Tweak
-  id: 2277
-  time: '2025-09-19T08:44:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3485
-- author: sowelipililimute
-  changes:
-  - message: Characters now have special deathgasps for braincrit & hard paincrit
-    type: Add
-  id: 2278
-  time: '2025-09-20T00:19:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3487
-- author: sowelipililimute
-  changes:
-  - message: You can now implant items in people's chest cavities! Try not to put
-      bombs in there, that's illegal.
-    type: Add
-  - message: You can now ghost from your body during hardcrits.
-    type: Add
-  - message: Medical cyborgs can do surgery now.
-    type: Add
-  - message: All surgery tools now have lathe recipes.
-    type: Add
-  - message: Epinephrine no longer is guaranteed to restart the heart.
-    type: Tweak
-  - message: Nicotine has less of an impact on your heartrate.
-    type: Tweak
-  - message: Medical cyborgs' IV bag slot works as advertised now.
-    type: Fix
-  id: 2279
-  time: '2025-09-20T02:28:47.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3489
-- author: SixValentine
-  changes:
-  - message: reHash social experiment (Testing only not in rotation)
-    type: Add
-  id: 2280
-  time: '2025-09-22T12:23:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3464
-- author: FlippenPage
-  changes:
-  - message: fixed derelict syndieborgs having a blue typing indicator
-    type: Fix
-  id: 2281
-  time: '2025-09-22T12:28:04.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3498
-- author: sowelipililimute
-  changes:
-  - message: Zombie infection mechanics have been overhauled! Chemistry lab exploded?
-      Try bloodletting like leeches are in style!
-    type: Add
-  - message: Currently metabolizing and recently metabolized medical reagents are
-      now indicated in the health analyzer
-    type: Add
-  - message: Patients with stopped hearts now have an examine message cueing others
-      in that they need CPR
-    type: Add
-  - message: The defibrillator will now announce if the patient's condition may cause
-      the heart to stop after defibrillation
-    type: Add
-  id: 2282
-  time: '2025-09-23T01:53:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3494
-- author: Banditoz
-  changes:
-  - message: You can now move while scanning somebody with the health analyzer.
-    type: Tweak
-  id: 2283
-  time: '2025-09-23T08:25:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3497
-- author: Kandiyaki
-  changes:
-  - message: heretics can now sacrifice critical-condition (gasping) bodies.
-    type: Tweak
-  id: 2284
-  time: '2025-09-23T08:33:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3488
-- author: msTheowo
-  changes:
-  - message: Colo cups, make them at the service techfab!
-    type: Add
-  - message: Grape juice now comes in Colo cups.
-    type: Tweak
-  id: 2285
-  time: '2025-09-23T16:14:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3471
-- author: widgetbeck
-  changes:
-  - message: Mindless Clones no longer use oldmed.
-    type: Fix
-  id: 2286
-  time: '2025-09-23T16:16:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3491
 - author: AvianMaiden
   changes:
   - message: Foam Force Astro Aces are no longer made with genuine shotgun parts but
@@ -4119,3 +4024,82 @@
   id: 2776
   time: '2026-04-28T10:03:19.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4314
+- author: VeeNomine
+  changes:
+  - message: Removed the unused handpan soundfont.
+    type: Remove
+  - message: Fixed the drum kit to play the actual percussion rather than random and
+      in
+    type: Fix
+  id: 2777
+  time: '2026-04-28T15:44:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4256
+- author: mousesweater
+  changes:
+  - message: nanotrasen doesn't pay me enough to repaint this many tiles, yet i work
+      anyways. enjoy more color adjustments!
+    type: Tweak
+  id: 2778
+  time: '2026-04-28T15:47:29.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4237
+- author: msTheowo
+  changes:
+  - message: Fixed the Adder being crazy broken.
+    type: Fix
+  id: 2779
+  time: '2026-04-28T17:59:48.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4334
+- author: ThatKidConnor
+  changes:
+  - message: Added the Head Of Security's Helmet for the HOS who wants to FIGHT for
+      JUSTICE. Available for selection in their loadout!
+    type: Add
+  id: 2780
+  time: '2026-04-28T19:08:53.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4252
+- author: sev7ves
+  changes:
+  - message: Removed gaskets.
+    type: Remove
+  id: 2781
+  time: '2026-04-28T19:28:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4264
+- author: Simul-ad-Astra
+  changes:
+  - message: NT's Branding & Marketing Division has designed a new bomber jacket for
+      the warden!
+    type: Add
+  id: 2782
+  time: '2026-04-30T00:32:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4302
+- author: portfiend
+  changes:
+  - message: Chocolate chips, cotton salad, spaghetti and meatballs, (spawned) slices
+      of coconut / coconest / vanilla cake, and a few other things should no longer
+      produce puddles when created.
+    type: Fix
+  id: 2783
+  time: '2026-04-30T23:00:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4202
+- author: salamanderskies
+  changes:
+  - message: Schooner fixes (see PR for details).
+    type: Fix
+  id: 2784
+  time: '2026-05-02T10:33:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4338
+- author: portfiend
+  changes:
+  - message: 'Hey I didn''t touch the loot tables at all but just so our contributors
+      know: per-department and per-job mail real'
+    type: Add
+  id: 2785
+  time: '2026-05-04T12:42:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4221
+- author: Soup4Food
+  changes:
+  - message: please work
+    type: Tweak
+  id: 2786
+  time: '2026-05-08T23:14:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4358
