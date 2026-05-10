@@ -42,3 +42,6 @@ tiles-reaper-square-heart = heart reaper tile
 tiles-reaper-square-logo = sealed reaper tile
 tiles-reaper-square-memorial = memorial reaper tile
 tiles-reaper-square-serrated = serrated reaper tile
+
+tiles-decapoid-floor = imperial tile (narrow)
+tiles-decapoid-floor-fancy = imperial tile (flourish)
