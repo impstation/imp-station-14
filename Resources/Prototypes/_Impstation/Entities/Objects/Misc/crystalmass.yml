@@ -33,7 +33,6 @@
     - type: ActiveEdgeSpreader
     - type: EdgeSpreader
       id: CrystalMass
-      PreventSpreadIntoSpace: false
     - type: StepTrigger
       requiredTriggeredSpeed: 0
       intersectRatio: 0.1
