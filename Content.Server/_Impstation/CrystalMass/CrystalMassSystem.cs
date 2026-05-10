@@ -9,24 +9,29 @@ using Content.Shared.Maps;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Spreader;
 using Content.Shared.StepTrigger.Systems;
+using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Impstation.CrystalMass;
 
 public sealed class CrystalMassSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly SharedPointLightSystem _lights = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TileSystem _tile = default!;
 
@@ -46,9 +51,34 @@ public sealed class CrystalMassSystem : EntitySystem
         SubscribeLocalEvent<CrystalMassComponent, StepTriggeredOnEvent>(OnStepTriggered);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<CrystalMassComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            // Requires a delay so that entities can register being on the tile for ClearTile
+            if (!comp.ClearedTile && comp.ClearTime < _timing.CurTime)
+            {
+                ClearTile((uid, comp));
+
+                // Delay adding pointlight for when multiple are on one tile deleting each other so that it isn't jarring
+                if (comp.IsBulb)
+                {
+                    EnsureComp<PointLightComponent>(uid);
+                    _lights.SetRadius(uid, comp.BulbRadius);
+                    _lights.SetEnergy(uid, comp.BulbEnergy);
+                    _lights.SetColor(uid, comp.BulbColor);
+                }
+                comp.ClearedTile = true;
+            }
+        }
+    }
+
     private void SetupCrystalMass(Entity<CrystalMassComponent> ent, ref ComponentStartup args)
     {
-        ClearTile(ent);
+        ent.Comp.ClearTime = _timing.CurTime + ent.Comp.ClearTileDelay;
 
         if (ent.Comp.IsBulb)
             return;
@@ -85,7 +115,7 @@ public sealed class CrystalMassSystem : EntitySystem
         DebugTools.Assert(Comp<EdgeSpreaderComponent>(neighborUid).Id == CrystalMassGroup);
 
         if (!_robustRandom.Prob(comp.SpawningAudioChance))
-            _audio.PlayPvs(comp.SpawningCrystalSound, ent, AudioParams.Default.WithVolume(60f));
+            _audio.PlayStatic(comp.SpawningCrystalSound, Filter.Pvs(neighborUid), neighborCoords, true, AudioParams.Default.WithVolume(60f));
 
         args.Updates--;
         if (args.Updates <= 0)
@@ -140,10 +170,17 @@ public sealed class CrystalMassSystem : EntitySystem
                 || HasComp<GhostComponent>(target))
                 continue;
 
+            // Prevent multiple crystal mass entities on one tile from queuing everyones downfall
+            if (HasComp<CrystalMassComponent>(target))
+                RemComp<CrystalMassComponent>(target);
+
+            // Text for players could be added eventually
             if (HasComp<MobStateComponent>(target)
                 || HasComp<ItemComponent>(target))
-                // Text for players could be added eventually
-                _audio.PlayPvs(ent.Comp.DustSound, ent, AudioParams.Default.WithVolume(-2f));
+            {
+                var targetXform = Transform(target);
+                _audio.PlayStatic(ent.Comp.DustSound, Filter.Pvs(target), targetXform.Coordinates, true, AudioParams.Default.WithVolume(-2f));
+            }
 
             EntityManager.QueueDeleteEntity(target);
         }
@@ -153,7 +190,10 @@ public sealed class CrystalMassSystem : EntitySystem
     {
         if (HasComp<MobStateComponent>(args.Tripper)
             || HasComp<ItemComponent>(args.Tripper))
-            _audio.PlayPvs(ent.Comp.DustSound, ent, AudioParams.Default.WithVolume(-2f));
+        {
+            var xform = Transform(args.Tripper);
+            _audio.PlayStatic(ent.Comp.DustSound, Filter.Pvs(args.Tripper), xform.Coordinates, true, AudioParams.Default.WithVolume(-2f));
+        }
 
         EntityManager.QueueDeleteEntity(args.Tripper);
     }
