@@ -23,6 +23,7 @@
     sprite: _Impstation/Structures/Power/Generation/Supermatter/supermatter_shard.rsi
     drawdepth: Mobs
     snapCardinals: true
+    noRot: true
     layers:
     - state: supermatter-shard
       map: [ "enum.SupermatterVisuals.Crystal" ]
@@ -68,6 +69,7 @@
     anchored: false
     noRot: true
   - type: Pullable
-    prevFixedRotation: True
+    prevFixedRotation: true
+    pullableCollsion: true
   - type: Physics
     bodyType: Dynamic

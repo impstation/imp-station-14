@@ -567,7 +567,8 @@ public sealed class PullingSystem : EntitySystem
             var joint = _joints.CreateDistanceJoint(pullableUid, pullerUid,
                     pullablePhysics.LocalCenter, pullerPhysics.LocalCenter,
                     id: pullableComp.PullJointId);
-            joint.CollideConnected = false;
+            if (!pullableComp.PullableCollsion) // Imp
+                joint.CollideConnected = false;
             // This maximum has to be there because if the object is constrained too closely, the clamping goes backwards and asserts.
             // Internally, the joint length has been set to the distance between the pivots.
             // Add an additional 15cm (pretty arbitrary) to the maximum length for the hard limit.

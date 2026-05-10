@@ -782,6 +782,9 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void HandleVision(EntityUid uid, SupermatterComponent sm)
     {
+        if (_container.IsEntityInContainer(uid))
+            return;
+
         var psyDiff = -0.007f;
         var lookup = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, 20f);
 
