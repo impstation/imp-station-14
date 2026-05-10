@@ -5,6 +5,9 @@
   description: The navigational core of the vessel, exerting control of nearby systems. Don't bother trying to pronounce its actual name.
   components:
   - type: InputMover # needs this to pilot shuttles
+  - type: MobState #this is required so it cannot return to body from ghost
+    allowedStates:
+    - Alive
   - type: CombatMode
   - type: Appearance
   - type: Damageable
@@ -43,7 +46,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 400 #its chunky
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -156,7 +159,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMicroreactor
   - type: Puller
-    needsHands: true
+    needsHands: false
   - type: Eye
     drawFov: false
   # - type: StationAiOverlay # removed until is no longer buggy
@@ -242,6 +245,7 @@
     accentVColor: "#286cd2"
   - type: ContentEye
     maxZoom: 1.5,1.5
+  - type: ZombieImmune
   - type: GhostRole
     name: Navigation Core
     description: Maintain astrologistic excellence. Bother engineers for fun.
