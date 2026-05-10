@@ -44,7 +44,7 @@ public sealed partial class CascadeRuleComponent : Component
     [DataField]
     public ProtoId<ContentTileDefinition> CrystalMassPlating = "PlatingCrystalMass";
     [DataField]
-    public EntProtoId CrystalBulbPrototype = "CrystalBulb";
+    public EntProtoId CrystalBulbPrototype = "CrystalBulbSpreader";
     [DataField]
     public EntProtoId SingularityPrototype = "Singularity";
 }

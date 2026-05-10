@@ -1,5 +1,6 @@
 - type: entity
   id: CrystalMass
+  abstract: true
   placement:
     mode: SnapgridCenter
     snap:
@@ -11,10 +12,6 @@
     - type: Transform
       anchored: true
     - type: Physics
-    - type: Sprite
-      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
-      state: crystal_cascade_1
-      drawdepth: FloorTiles
     - type: Fixtures
       fixtures:
         fix1:
@@ -27,24 +24,86 @@
           - ItemMask
           density: 500
           hard: false
-    - type: CrystalMassVisuals
     - type: Clickable
+    - type: CrystalMassVisuals
     - type: CrystalMass
-    - type: ActiveEdgeSpreader
-    - type: EdgeSpreader
-      id: CrystalMass
+      startupAppearance: false
     - type: StepTrigger
       requiredTriggeredSpeed: 0
       intersectRatio: 0.1
       ignoreWeightless: true
       stepOn: true
-    - type: SinguloFood
-      energy: 200
+
+- type: entity
+  id: CrystalMassOne
+  suffix: 1, Not Spreader
+  parent: CrystalMass
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_1
+      layers:
+      - state: crystal_cascade_1
+        shader: unshaded
+      drawdepth: FloorTiles
+
+- type: entity
+  id: CrystalMassTwo
+  suffix: 2, Not Spreader
+  parent: CrystalMass
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_2
+      layers:
+      - state: crystal_cascade_2
+        shader: unshaded
+      drawdepth: FloorTiles
+
+- type: entity
+  id: CrystalMassThree
+  suffix: 3, Not Spreader
+  parent: CrystalMass
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_3
+      layers:
+      - state: crystal_cascade_3
+        shader: unshaded
+      drawdepth: FloorTiles
+
+- type: entity
+  id: CrystalMassFour
+  suffix: 4, Not Spreader
+  parent: CrystalMass
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_4
+      layers:
+      - state: crystal_cascade_4
+        shader: unshaded
+      drawdepth: FloorTiles
+
+- type: entity
+  id: CrystalMassFive
+  suffix: 5, Not Spreader
+  parent: CrystalMass
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_5
+      layers:
+      - state: crystal_cascade_5
+        shader: unshaded
+      drawdepth: FloorTiles
 
 - type: entity
   id: CrystalBulb
   name: crystal bulb
   description: You see this bright and massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
+  suffix: 6, Not Spreader
   parent: CrystalMass
   components:
     - type: Sprite
@@ -54,5 +113,41 @@
       - state: crystal_cascade_6
         shader: unshaded
       drawdepth: FloorTiles
+    - type: PointLight
+      radius: 10
+      energy: 2
+      color: "#FBFF23"
+
+- type: entity
+  id: CrystalMassSpreader
+  suffix: DO NOT MAP, SPREADER
+  parent: CrystalMass
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_1
+      drawdepth: FloorTiles
     - type: CrystalMass
+      startupAppearance: true
+    - type: ActiveEdgeSpreader
+    - type: EdgeSpreader
+      id: CrystalMass
+    - type: SinguloFood
+      energy: 200
+
+- type: entity
+  id: CrystalBulbSpreader
+  name: crystal bulb
+  description: You see this bright and massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
+  parent: CrystalMassSpreader
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Misc/crystal_mass.rsi
+      state: crystal_cascade_6
+      layers:
+      - state: crystal_cascade_6
+        shader: unshaded
+      drawdepth: FloorTiles
+    - type: CrystalMass
+      startupAppearance: false
       isBulb: true

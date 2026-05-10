@@ -80,7 +80,7 @@ public sealed class CrystalMassSystem : EntitySystem
     {
         ent.Comp.ClearTime = _timing.CurTime + ent.Comp.ClearTileDelay;
 
-        if (ent.Comp.IsBulb)
+        if (!ent.Comp.StartupAppearance)
             return;
 
         if (!TryComp<AppearanceComponent>(ent, out var appearance))

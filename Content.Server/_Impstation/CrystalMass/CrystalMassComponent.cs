@@ -18,7 +18,7 @@ public sealed partial class CrystalMassComponent : Component
     /// <summary>
     /// The time to clear the crystal mass tile on
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public TimeSpan ClearTime;
 
     /// <summary>
@@ -51,6 +51,12 @@ public sealed partial class CrystalMassComponent : Component
     public float BulbChance = 0.1667f;
 
     /// <summary>
+    /// If the crystal mass should set its appearance on startup
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool StartupAppearance = true;
+
+    /// <summary>
     /// If the crystal mass is a bulb
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
@@ -79,7 +85,7 @@ public sealed partial class CrystalMassComponent : Component
     [DataField]
     public SoundSpecifier SpawningCrystalSound = new SoundPathSpecifier("/Audio/_Impstation/Supermatter/cracking_crystal.ogg");
     [DataField]
-    public EntProtoId CrystalMassPrototype = "CrystalMass";
+    public EntProtoId CrystalMassPrototype = "CrystalMassSpreader";
     [DataField]
-    public EntProtoId CrystalBulbPrototype = "CrystalBulb";
+    public EntProtoId CrystalBulbPrototype = "CrystalBulbSpreader";
 }
