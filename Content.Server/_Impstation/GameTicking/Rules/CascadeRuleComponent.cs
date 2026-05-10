@@ -33,7 +33,7 @@ public sealed partial class CascadeRuleComponent : Component
     /// Amount of singularities to spawn once the round ends
     /// </summary>
     [DataField]
-    public MinMax MinMaxSinglarity = new(1, 3);
+    public MinMax MinMaxSinglarity = new(2, 4);
 
     /// <summary>
     /// Amount of crystal mass to spawn throughout the station
@@ -43,8 +43,10 @@ public sealed partial class CascadeRuleComponent : Component
 
     [DataField]
     public ProtoId<ContentTileDefinition> CrystalMassPlating = "PlatingCrystalMass";
+
     [DataField]
     public EntProtoId CrystalBulbPrototype = "CrystalBulbSpreader";
+
     [DataField]
     public EntProtoId SingularityPrototype = "Singularity";
 }
