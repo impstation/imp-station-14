@@ -53,31 +53,31 @@ public sealed partial class SupermatterSystem
         if (!(sm.GasStorage.TotalMoles > 0f))
             return;
 
-        sm.GasComposition = sm.GasStorage.Clone();
+        var gasComposition = sm.GasStorage.Clone();
 
         // Let's get the proportions of the gases in the mix for scaling stuff later
         // They range between 0 and 1
         foreach (var gasId in Enum.GetValues<Gas>())
         {
             var proportion = sm.GasStorage.GetMoles(gasId) / sm.GasStorage.TotalMoles;
-            sm.GasComposition.SetMoles(gasId, Math.Clamp(proportion, 0, 1));
+            gasComposition.SetMoles(gasId, Math.Clamp(proportion, 0, 1));
         }
 
         // No less then zero, and no greater then one, we use this to do explosions and heat to power transfer.
-        var powerRatio = SupermatterGasData.GetPowerMixRatios(sm.GasComposition);
+        var powerRatio = SupermatterGasData.GetPowerMixRatios(gasComposition);
 
         // Affects plasma, o2 and heat output.
-        sm.GasHeatModifier = SupermatterGasData.GetHeatPenalties(sm.GasComposition);
-        var transmissionBonus = SupermatterGasData.GetTransmitModifiers(sm.GasComposition);
+        sm.GasHeatModifier = SupermatterGasData.GetHeatPenalties(gasComposition);
+        var transmissionBonus = SupermatterGasData.GetTransmitModifiers(gasComposition);
 
-        var h2OBonus = 1 - sm.GasComposition.GetMoles(Gas.WaterVapor) * 0.25f;
+        var h2OBonus = 1 - gasComposition.GetMoles(Gas.WaterVapor) * 0.25f;
 
         powerRatio = Math.Clamp(powerRatio, 0, 1);
         sm.HeatModifier = Math.Max(sm.GasHeatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
 
         // Miasma is really just microscopic particulate. It gets consumed like anything else that touches the crystal.
-        var ammoniaProportion = sm.GasComposition.GetMoles(Gas.Ammonia);
+        var ammoniaProportion = gasComposition.GetMoles(Gas.Ammonia);
 
         if (ammoniaProportion > 0)
         {
@@ -97,7 +97,7 @@ public sealed partial class SupermatterSystem
         }
 
         // Affects the damage heat does to the crystal
-        var heatResistance = SupermatterGasData.GetHeatResistances(sm.GasComposition);
+        var heatResistance = SupermatterGasData.GetHeatResistances(gasComposition);
         sm.DynamicHeatResistance = Math.Max(heatResistance, 1);
 
         // More moles of gases are harder to heat than fewer, so let's scale heat damage around them
@@ -107,7 +107,7 @@ public sealed partial class SupermatterSystem
         // Given infinite time, powerloss_dynamic_scaling = co2comp
         // Some value from 0-1
 
-        var co2powerloss = Math.Clamp(sm.GasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
+        var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
         sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
         var powerlossMoleScaling = sm.GasStorage.TotalMoles * (1f / 40f);
 

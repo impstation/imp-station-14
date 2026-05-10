@@ -34,12 +34,6 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public GasMixture? GasStorage;
 
-    /// <summary>
-    /// The supermatter's gas composition proportions
-    /// </summary>
-    [DataField]
-    public GasMixture? GasComposition;
-
     [DataField]
     public Color LightColorNormal = Color.FromHex("#ffe000");
 
