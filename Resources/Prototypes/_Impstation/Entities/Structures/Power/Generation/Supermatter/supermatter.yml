@@ -67,6 +67,7 @@
     - SupermatterDelaminating
   - type: Transform
     anchored: false
+    noRot: true
   - type: Pullable
     prevFixedRotation: true
     pullableCollsion: true
