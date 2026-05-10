@@ -566,7 +566,7 @@ public sealed partial class SupermatterSystem
                 }
             }
 
-            if (sm.GasStorage != null && sm.GasStorage.TotalMoles >= _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold))
+            if (sm.GasStorage is { } && sm.GasStorage.TotalMoles >= _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold))
             {
                 message = Loc.GetString("supermatter-threshold-mole");
                 SendSupermatterAnnouncement(uid, sm, message, global);
