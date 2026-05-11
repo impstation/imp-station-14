@@ -35,7 +35,7 @@ public sealed partial class RCDComponent : Component
     public ProtoId<RCDPrototype> ProtoId { get; set; } = "Invalid";
 
     /// <summary>
-    /// Funky
+    /// Funky.
     /// A cached copy of currently selected RCD prototype
     /// </summary>
     /// <remarks>
@@ -45,14 +45,14 @@ public sealed partial class RCDComponent : Component
     public RCDPrototype CachedPrototype { get; set; } = default!;
 
     /// <summary>
-    /// Funky
+    /// Funky.
     /// Indicates if a mirrored version of the construction prototype should be used (if available)
     /// </summary>
     [AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
     public bool UseMirrorPrototype = false;
 
     /// <summary>
-    /// Funky
+    /// Funky.
     /// Indicates whether this is an RCD or an RPD
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -84,7 +84,7 @@ public sealed partial class RCDComponent : Component
     public Transform ConstructionTransform { get; private set; }
 
     /// <summary>
-    /// Funky
+    /// Funky.
     /// Stores player rotation
     /// This is a workaround to the fact eye rotation is not currently networked and required for pipe layering
     /// Sent only when needed
@@ -93,7 +93,7 @@ public sealed partial class RCDComponent : Component
     public float? LastKnownEyeRotation { get; set; } = null;
 
     /// <summary>
-    /// Funky
+    /// Funky.
     /// Current pipe layer / build mode for RPD
     /// </summary>
     [DataField, AutoNetworkedField]
