@@ -21,7 +21,7 @@ public record struct SpreadNeighborsEvent
     public int Updates;
 
     /// <summary>
-    /// Imp
+    /// Imp.
     /// Values for all possible neighboring tiles, including empty space.
     /// </summary>
     public ValueList<(EntityUid GridUid, MapGridComponent Grid, Vector2i Position)> AllNeighbors;

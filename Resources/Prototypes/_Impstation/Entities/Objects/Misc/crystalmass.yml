@@ -35,9 +35,9 @@
       stepOn: true
 
 - type: entity
+  parent: CrystalMass
   id: CrystalMassOne
   suffix: 1, Not Spreader
-  parent: CrystalMass
   components:
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
@@ -48,9 +48,9 @@
       drawdepth: FloorTiles
 
 - type: entity
+  parent: CrystalMass
   id: CrystalMassTwo
   suffix: 2, Not Spreader
-  parent: CrystalMass
   components:
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
@@ -61,9 +61,9 @@
       drawdepth: FloorTiles
 
 - type: entity
+  parent: CrystalMass
   id: CrystalMassThree
   suffix: 3, Not Spreader
-  parent: CrystalMass
   components:
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
@@ -74,9 +74,9 @@
       drawdepth: FloorTiles
 
 - type: entity
+  parent: CrystalMass
   id: CrystalMassFour
   suffix: 4, Not Spreader
-  parent: CrystalMass
   components:
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
@@ -87,9 +87,9 @@
       drawdepth: FloorTiles
 
 - type: entity
+  parent: CrystalMass
   id: CrystalMassFive
   suffix: 5, Not Spreader
-  parent: CrystalMass
   components:
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
@@ -100,11 +100,11 @@
       drawdepth: FloorTiles
 
 - type: entity
+  parent: CrystalMass
   id: CrystalBulb
   name: crystal bulb
   description: You see this bright and massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
   suffix: 6, Not Spreader
-  parent: CrystalMass
   components:
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
@@ -119,9 +119,9 @@
       color: "#FBFF23"
 
 - type: entity
+  parent: CrystalMass
   id: CrystalMassSpreader
   suffix: DO NOT MAP, SPREADER
-  parent: CrystalMass
   components:
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
@@ -136,10 +136,10 @@
       energy: 200
 
 - type: entity
+  parent: CrystalMassSpreader
   id: CrystalBulbSpreader
   name: crystal bulb
   description: You see this bright and massive crystal mass looming towards you, cracking and screeching at every seemingly random movement.
-  parent: CrystalMassSpreader
   components:
     - type: Sprite
       sprite: _Impstation/Objects/Misc/crystal_mass.rsi
