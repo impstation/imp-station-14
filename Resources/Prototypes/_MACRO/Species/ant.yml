@@ -1,0 +1,20 @@
+﻿- type: species
+  id: Ant
+  name: species-name-ant
+  roundStart: false
+  #randomViable: false
+  prototype: MobAnt
+  dollPrototype: AppearanceAnt
+  skinColoration: Hues
+  maleFirstNames: NamesAntFirst
+  femaleFirstNames: NamesAntFirst
+  lastNames: NamesAntLast
+  sexes:
+  - Male
+  - Female
+  - Unsexed
+
+# Developer Notes
+#
+# Ants are literally just ants. They die incredibly easily but can go under airlocks. They're not intended to be roundstart species,
+# instead they are intended to be very rarely found as ghost roles.

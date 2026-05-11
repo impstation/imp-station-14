@@ -1,8 +1,19 @@
-﻿# TODO IMP: THIS FILE IS MARKED FOR DEATH ONCE WE PROPERLY MERGE IT FROM MACROCOSM
+﻿- type: markingsGroup
+  parent: Undergarments
+  id: Ant
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 1
+      required: true
+      default: [ AntAntennae1 ]
+    enum.HumanoidVisualLayers.Chest:
+      limit: 1
+      required: false
+
 - type: entity
   parent: BaseSpeciesAppearance
   id: AppearanceAnt
-  categories: [ HideSpawnMenu ] #imp
   name: ant appearance
   components:
   - type: Inventory
@@ -12,95 +23,91 @@
       jumpsuit:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: jumpsuit
       head:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: head
       eyes:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: eyes
       ears:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: ears
       mask:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: mask
       neck:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: neck
       outerClothing:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: outerClothing
       gloves:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: hands
       shoes:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: feet
       belt:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: belt
       back:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: back
       suitstorage:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: suitstorage
       id:
         sizeMaps:
           32:
-            sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+            sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
             state: id
-  #IMP EDIT START: TO BE REWORKED BY VISUAL NUBODY
-  - type: EntityTableContainerFill
-    containers:
-      body_organs: !type:AllSelector
-        children:
-        - id: OrganAntTorso
-        - id: OrganAntHead
-        - id: OrganAntArmLeft
-        - id: OrganAntArmRight
-        - id: OrganAntHandRight
-        - id: OrganAntHandLeft
-        - id: OrganAntLegLeft
-        - id: OrganAntLegRight
-        - id: OrganAntFootLeft
-        - id: OrganAntFootRight
-        - id: OrganAntBrain
-        - id: OrganAntEyes
-        - id: OrganAntTongue
-        - id: OrganAntAppendix
-        - id: OrganAntEars
-        - id: OrganAntLungs
-        - id: OrganAntHeart
-        - id: OrganAntStomach
-        - id: OrganAntLiver
-        - id: OrganAntKidneys
-  - type: HumanoidAppearance
-  # IMP EDIT END
+  - type: InitialBody
+    organs:
+      Torso: OrganAntTorso
+      Head: OrganAntHead
+      ArmLeft: OrganAntArmLeft
+      ArmRight: OrganAntArmRight
+      HandRight: OrganAntHandRight
+      HandLeft: OrganAntHandLeft
+      LegLeft: OrganAntLegLeft
+      LegRight: OrganAntLegRight
+      FootLeft: OrganAntFootLeft
+      FootRight: OrganAntFootRight
+      Brain: OrganAntBrain
+      Eyes: OrganAntEyes
+      Tongue: OrganAntTongue
+      Appendix: OrganAntAppendix
+      Ears: OrganAntEars
+      Lungs: OrganAntLungs
+      Heart: OrganAntHeart
+      Stomach: OrganAntStomach
+      Liver: OrganAntLiver
+      Kidneys: OrganAntKidneys
+  - type: HumanoidProfile
     species: Ant
 
 - type: entity
@@ -111,7 +118,7 @@
   name: Urist McAnt
   components:
   - type: Icon
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
+    sprite: _MACRO/Mobs/Species/Ant/parts.rsi
     state: full
   - type: Butcherable
     butcheringType: Spike
@@ -164,7 +171,7 @@
   - type: DamageVisuals
     damageOverlayGroups:
       Brute:
-        sprite: _Impstation/Mobs/Effects/apid_brute_damage.rsi #imp edit, waiting on proper macro merge to migrate files
+        sprite: _MACRO/Mobs/Effects/apid_brute_damage.rsi
         color: "#808A51"
   - type: Bloodstream
     bloodReferenceSolution:
@@ -175,14 +182,14 @@
     speechBubbleOffset: -0.35
     speechVerb: Arachnid
     speechSounds: Arachnid
-    allowedEmotes: [ 'GoblinThroatSinging', 'Chitter' ] # had to remove GoblinThroatSinging for macrocosm #imp edit, readded GoblinThroatSinging
+    allowedEmotes: [ 'Chitter' ] # had to remove GoblinThroatSinging for macrocosm
   - type: TooShortForUI
     blacklist:
       components:
-      - TooShortForUIBlacklist
+      - TooShortForUiBlacklist
     whitelist:
       components:
-      - TooShortForUIWhitelist
+      - TooShortForUiWhitelist
   - type: MeleeWeapon
     attackRate: 1
     soundHit:
@@ -194,12 +201,12 @@
         Blunt: 0.1 # they can carry heavy objects but can't throw a punch
   - type: Item
     size: Tiny
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/ants_held.rsi #imp edit, waiting on proper macro merge to migrate files
+    sprite: _MACRO/Mobs/Species/Ant/ants_held.rsi
     inhandVisuals:
       left:
-      - state: inhand_left
+      - state: inhand-left
       right:
-      - state: inhand_right
+      - state: inhand-right
   - type: FlavorProfile
     flavors:
     - ants
@@ -218,24 +225,20 @@
     - DoorBumpOpener
     - AnomalyHost
     - CanPilot
-    - RecyclerGibbable
   - type: Hands
     leftHandDisplacement:
       sizeMaps:
         32:
-          sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
           state: inhand_left
     rightHandDisplacement:
       sizeMaps:
         32:
-          sprite: _Impstation/Mobs/Species/Visitors/Ants/displacement.rsi #imp edit, waiting on proper macro merge to migrate files
+          sprite: _MACRO/Mobs/Species/Ant/displacement.rsi
           state: inhand_right
-  # imp edit start
-  - type: StrongAsFuckAnt
-  # imp edit end
 
 - type: entity
-  parent: OrganBaseOrganic
+  parent: OrganBase
   id: OrganAnt
   abstract: true
   suffix: Ant
@@ -250,18 +253,16 @@
     scale: 0.3, 0.3
     color: "#221e1c"
 
-# IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-#- type: entity
-#  id: OrganAntVisual
-#  abstract: true
-#  components:
-#  - type: VisualOrgan
-#    data:
-#      sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-#  - type: VisualOrganMarkings
-#    markingData:
-#      group: Ant
-# IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+- type: entity
+  id: OrganAntVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _MACRO/Mobs/Species/Ant/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Ant
 
 - type: entity
   parent: OrganAnt
@@ -269,15 +270,13 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #- type: VisualOrgan
-  #  data:
-  #    sprite: _Impstation/Mobs/Species/Visitors/Ants/parts.rsi #imp edit, waiting on proper macro merge to migrate files
-  #- type: VisualOrganMarkings
-  #  markingData:
-  #    group: Ant
-  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+    sprite: _MACRO/Mobs/Species/Ant/parts.rsi
+  - type: VisualOrgan
+    data:
+      sprite: _MACRO/Mobs/Species/Ant/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Ant
 
 - type: entity
   parent: [ OrganBaseTorso, OrganAntExternal ]
@@ -286,13 +285,11 @@
 - type: entity
   parent: [ OrganBaseHead, OrganAntExternal ]
   id: OrganAntHead
-  # IMP EDIT START: TO BE ENABLED BY VISUAL NUBODY
-  #components:
-  #- type: VisualOrganMarkings
-  #  hideableLayers:
-  #  - enum.HumanoidVisualLayers.Hair
-  #  - enum.HumanoidVisualLayers.Snout
-  # IMP EDIT END: TO BE ENABLED BY VISUAL NUBODY
+  components:
+  - type: VisualOrganMarkings
+    hideableLayers:
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
 
 - type: entity
   parent: [ OrganBaseArmLeft, OrganAntExternal ]
@@ -331,7 +328,7 @@
   id: OrganAntBrain
 
 - type: entity
-  parent: [ OrganBaseEyes, OrganAntInternal ] #imp edit, OrganAntVisual parent removed until visual nubody
+  parent: [ OrganAntVisual, OrganBaseEyes, OrganAntInternal ]
   id: OrganAntEyes
 
 - type: entity
@@ -357,13 +354,6 @@
 - type: entity
   parent: [ OrganBaseStomach, OrganAntInternal, OrganHumanMetabolizer ]
   id: OrganAntStomach
-  components:
-  - type: SolutionContainerManager #imp edit, needs fixing when solutions refactor is merged. something scary is happening here.
-    solutions:
-      stomach:
-          maxVol: 50
-      food:
-        maxVol: 15
 
 - type: entity
   parent: [ OrganBaseLiver, OrganAntInternal, OrganHumanMetabolizer ]

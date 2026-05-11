@@ -1,0 +1,53 @@
+﻿# HeadTop
+
+- type: marking
+  id: AntAntennae1
+  bodyPart: HeadTop
+  groupWhitelist: [Ant]
+  #followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Ant/headtop.rsi
+    state: antennae_1
+
+- type: marking
+  id: AntAntennae2
+  bodyPart: HeadTop
+  groupWhitelist: [Ant]
+  #followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Ant/headtop.rsi
+    state: antennae_2
+
+- type: marking
+  id: AntAntennae3
+  bodyPart: HeadTop
+  groupWhitelist: [Ant]
+  #followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Ant/headtop.rsi
+    state: antennae_3
+
+- type: marking
+  id: AntAntennae4
+  bodyPart: HeadTop
+  groupWhitelist: [Ant]
+  #followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Ant/headtop.rsi
+    state: antennae_4
+
+# Chest
+
+- type: marking
+  id: AntAbdomen
+  bodyPart: Chest
+  groupWhitelist: [Ant]
+  #followSkinColor: true
+  forcedColoring: true
+  sprites:
+  - sprite: _MACRO/Mobs/Customization/Ant/chest.rsi
+    state: abdomen
