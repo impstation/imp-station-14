@@ -40,7 +40,6 @@ construction-graph-tag-bowl = bowl
 construction-graph-tag-chopsticks = chopsticks
 construction-graph-tag-crystal = a crystal shard
 construction-graph-tag-gas-tank = any gas tank
-construction-graph-tag-gasket = a gasket
 construction-graph-tag-glowstick = a glowstick
 construction-graph-tag-hemp-sack = a sack made from hemp cloth
 construction-graph-tag-light-tube = light tube

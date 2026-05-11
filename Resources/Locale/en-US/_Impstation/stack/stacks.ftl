@@ -15,6 +15,8 @@ stack-shoveled-astro-snow-floor = shoveled astro-snow floor
 stack-shoveled-astro-cave-floor = shoveled astro-cave floor
 stack-dark-techmaint-floor = dark techmaint floor
 stack-cardboard-floor-tile = cardboard floor tile
+stack-decapoid-tile = imperial tile
+stack-decapoid-fancy-tile = imperial flourish tile
 
 # medical
 stack-simple-suture = simple suture
