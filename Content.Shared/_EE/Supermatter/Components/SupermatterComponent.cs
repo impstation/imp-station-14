@@ -23,7 +23,7 @@ public sealed partial class SupermatterComponent : Component
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
 
     /// <summary>
-    /// Imp
+    /// Imp.
     /// The current supermatter event thats occuring
     /// </summary>
     [DataField]
@@ -572,6 +572,7 @@ public enum SupermatterCrystalState : byte
     GlowDelam
 }
 
+// Imp start
 [Serializable, NetSerializable]
 public enum SupermatterEvent : byte
 {
@@ -579,6 +580,7 @@ public enum SupermatterEvent : byte
     Surging = 1,
     Discharging = 2, // TODO: future supermatter event causing singularity delamination conditions
 }
+// Imp end
 
 [Serializable, NetSerializable]
 public enum SupermatterVisuals : byte
