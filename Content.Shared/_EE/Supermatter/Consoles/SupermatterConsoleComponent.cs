@@ -89,7 +89,7 @@ public struct SupermatterConsoleEntry(NetEntity entity, string entityName, Super
     public SupermatterStatusType EntityStatus = status;
 
     /// <summary>
-    /// Imp
+    /// Imp.
     /// Whether the supermatter is a shard
     /// </summary>
     public bool IsShard = isShard;

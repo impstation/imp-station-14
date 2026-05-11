@@ -782,7 +782,7 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void HandleVision(EntityUid uid, SupermatterComponent sm)
     {
-        if (_container.IsEntityInContainer(uid))
+        if (_container.IsEntityInContainer(uid)) // Imp
             return;
 
         var psyDiff = -0.007f;

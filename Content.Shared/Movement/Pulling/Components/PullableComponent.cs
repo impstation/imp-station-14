@@ -43,7 +43,7 @@ public sealed partial class PullableComponent : Component
     public ProtoId<AlertPrototype> PulledAlert = "Pulled";
 
     /// <summary>
-    /// Imp
+    /// Imp.
     /// If the pullable entity can be collided with.
     /// </summary>
     [Access(typeof(Systems.PullingSystem), Other = AccessPermissions.ReadExecute)]

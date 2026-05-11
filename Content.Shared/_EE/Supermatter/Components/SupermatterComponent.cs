@@ -17,7 +17,7 @@ public sealed partial class SupermatterComponent : Component
     #region Base
 
     /// <summary>
-    /// Imp
+    /// Imp.
     /// Used for knowing if the supermatter is a shard
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
@@ -190,7 +190,7 @@ public sealed partial class SupermatterComponent : Component
     public float PowerlossDynamicScaling;
 
     /// <summary>
-    /// Imp
+    /// Imp.
     /// Radiation multiplier for the supermatter, affects base rads as well
     /// </summary>
     [DataField]
