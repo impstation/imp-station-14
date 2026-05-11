@@ -1,11 +1,13 @@
 using Content.Server.Administration.Logs;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
+using Content.Shared._Impstation.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
@@ -18,11 +20,12 @@ public sealed partial class AnimalGestationSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly AnimalHusbandrySystemImp _animalHusbandry = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IGameTiming _time = default!;
 
     private TimeSpan _lastUpdated = TimeSpan.Zero;
-    private TimeSpan _updateRate = TimeSpan.FromSeconds(1.0f); // TODO: CVar
+    public TimeSpan UpdateRate = TimeSpan.FromSeconds(1.0f);
 
     public override void Initialize()
     {
@@ -34,6 +37,11 @@ public sealed partial class AnimalGestationSystem : EntitySystem
         SubscribeLocalEvent<ImpInfantComponent, IsUnableToGestateEvent>(IsInfantUnableToGestate);
         SubscribeLocalEvent<MobStateComponent, IsUnableToGestateEvent>(IsMobStateUnableToGestate);
         SubscribeLocalEvent<MindContainerComponent, IsUnableToGestateEvent>(IsMindContainerUnableToGestate);
+
+        Subs.CVar(_config,
+            ImpCCVars.AnimalHusbandryUpdateInterval,
+            value => UpdateRate = TimeSpan.FromSeconds(value),
+            invokeImmediately: true);
     }
 
     /// <summary>
@@ -45,7 +53,7 @@ public sealed partial class AnimalGestationSystem : EntitySystem
         base.Update(frameTime);
 
         // We only update pregnancy and growth timers every [interval], for performance.
-        if (_time.CurTime < _lastUpdated + _updateRate)
+        if (_time.CurTime < _lastUpdated + UpdateRate)
             return;
 
         // Time elapsed since last update. May be slightly more than [interval], depending on frame time.

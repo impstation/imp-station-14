@@ -11,6 +11,8 @@ using Content.Shared.Nutrition.Components;
 using System.Linq;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
 using Content.Shared._Impstation.EntityTable.Conditions;
+using Content.Shared._Impstation.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 
@@ -20,18 +22,51 @@ namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
 public sealed partial class AnimalHusbandrySystemImp : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly EntityTableSystem _entTable = default!;
     [Dependency] private readonly AnimalGestationSystem _gestation = default!;
+    [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ThirstSystem _thirst = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly ThirstSystem _thirst = default!;
-    [Dependency] private readonly EntityTableSystem _entTable = default!;
+
+    public int MaxBreedableAnimalsCount = 5;
+    public float BreedableLimitRange = 10.0f;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        Subs.CVar(_config,
+            ImpCCVars.MaxBreedableAnimalsCount,
+            value =>
+            {
+                if (value < 0)
+                {
+                    MaxBreedableAnimalsCount = -1;
+                    return;
+                }
+
+                MaxBreedableAnimalsCount = value;
+            },
+            invokeImmediately: true);
+
+        Subs.CVar(_config,
+            ImpCCVars.BreedableLimitRange,
+            value =>
+            {
+                if (value < 0.0f)
+                {
+                    BreedableLimitRange = -1.0f;
+                    return;
+                }
+
+                BreedableLimitRange = value;
+            },
+            invokeImmediately: true);
     }
 
     /// <summary>
@@ -112,6 +147,10 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         if (_gestation.IsUnableToGestate(entity.Owner))
             return false;
 
+        // Too many breedable animals in the area.
+        if (AtBreedableCapacity(entity.Owner))
+            return false;
+
         // Too hungry.
         if (TryComp<HungerComponent>(entity, out var hunger)
             && hunger.CurrentThreshold < entity.Comp.MinimumHungerThreshold)
@@ -128,6 +167,42 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
             return false;
 
         return true;
+    }
+
+    /// <summary>
+    ///     Check if a given entity has too many breedable animals in its range to facilitate breeding.
+    /// </summary>
+    /// <param name="uid">The entity to check for breedable animals in range.</param>
+    /// <returns>Whether or not there are too many breedable animals in the area to keep breeding.</returns>
+    public bool AtBreedableCapacity(EntityUid uid)
+    {
+        // Limit is 0 - that means we're always at capacity.
+        if (MaxBreedableAnimalsCount == 0)
+            return true;
+
+        // Limit is -1 - that means there is no limit.
+        if (MaxBreedableAnimalsCount == -1)
+            return false;
+
+        // Range is -1 - that means we just check all entities, not just ones in a specific range.
+        if (BreedableLimitRange == -1)
+        {
+            var query = EntityQuery<ImpReproductiveComponent>();
+            if (query.Count() >= MaxBreedableAnimalsCount)
+                return true;
+
+            return false;
+        }
+
+        // Otherwise - get entities in range and check if we have too many for this range.
+        var xform = Transform(uid);
+        var partners = new HashSet<Entity<ImpReproductiveComponent>>();
+        _entityLookup.GetEntitiesInRange(xform.Coordinates, BreedableLimitRange, partners);
+
+        if (partners.Count >= MaxBreedableAnimalsCount)
+            return true;
+
+        return false;
     }
 
     /// <summary>
