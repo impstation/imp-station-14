@@ -312,7 +312,7 @@
       - MindRoleButler
 
 - type: entity
-  parent: BaseGameRule
+  parent: BaseStationEventLongDelay
   id: SupermatterSurge
   components:
   - type: StationEvent
@@ -320,5 +320,5 @@
     reoccurrenceDelay: 25
     weight: 1.5
     minimumPlayers: 30
-    duration: 90
+    duration: 60
   - type: SupermatterSurgeRule

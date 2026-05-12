@@ -1,6 +1,5 @@
 using Content.Server._Impstation.StationEvents.Components;
 using Content.Server.Announcements.Systems;
-using Content.Server.GameTicking;
 using Content.Server.Lightning;
 using Content.Server.StationEvents.Events;
 using Content.Shared._EE.Supermatter.Components;
@@ -16,12 +15,9 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
     [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
 
     protected override void Added(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
-        base.Added(uid, component, gameRule, args);
-
         var supermatterUids = new List<EntityUid>();
         var query = EntityQueryEnumerator<SupermatterComponent>();
 
@@ -35,16 +31,11 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         }
 
         if (supermatterUids.Count == 0)
-        {
-            _ticker.EndGameRule(uid, gameRule);
             return;
-        }
+
+        base.Added(uid, component, gameRule, args);
 
         component.SupermatterUid = _random.Pick(supermatterUids);
-        // When the supermatter surge starts can be randomized if desired similar to how NextLightningTime is done
-        component.SurgeStartTime = Timing.CurTime + component.SurgeStartLength;
-        // Dosen't start explodings stuff immediately
-        component.NextLightningTime = component.SurgeStartTime + TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(_random));
 
         _announcer.SendAnnouncement(
             _announcer.GetAnnouncementId(args.RuleId),
@@ -56,9 +47,6 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
 
     protected override void ActiveTick(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
-        if (Timing.CurTime < component.SurgeStartTime)
-            return;
-
         if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
             return;
 
