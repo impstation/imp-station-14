@@ -10,6 +10,9 @@ public sealed partial class RandomEntitySpreadRuleComponent : Component
     [DataField(required: true)]
     public EntProtoId SpawnedEntity;
 
+    [DataField]
+    public EntProtoId? SpawnEffect = null;
+
     [DataField(required: true)]
     public MinMax MinMaxEntities;
 

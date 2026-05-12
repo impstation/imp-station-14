@@ -322,6 +322,7 @@
     reoccurrenceDelay: 30
   - type: RandomEntitySpreadRule
     spawnedEntity: "LandmineOrDudSpawner25"
+    spawnEffect: "EffectDesynchronizerExit"
     minMaxEntities:
       min: 4
       max: 8

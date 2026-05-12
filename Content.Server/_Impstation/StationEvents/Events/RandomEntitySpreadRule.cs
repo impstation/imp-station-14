@@ -57,6 +57,7 @@ public sealed class RandomEntitySpreadRule : StationEventSystem<RandomEntitySpre
                 continue;
             }
 
+            Spawn(component.SpawnEffect, coords);
             Spawn(component.SpawnedEntity, coords);
         }
     }
