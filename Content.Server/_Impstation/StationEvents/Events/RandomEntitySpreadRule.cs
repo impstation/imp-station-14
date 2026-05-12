@@ -3,9 +3,7 @@ using Content.Server.Announcements.Systems;
 using Content.Server.StationEvents.Events;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Maps;
-using Content.Shared.Mobs.Components;
 using Robust.Server.GameObjects;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -51,27 +49,16 @@ public sealed class RandomEntitySpreadRule : StationEventSystem<RandomEntitySpre
 
             var tile = _mapSystem.GetTileRef(grid, map, coords);
 
-            if (DyanmicMobOnTile(tile))
+            // Ignore tiles with mobs or machines
+            var entities = _lookup.GetEntitiesInTile(tile, LookupFlags.Dynamic | LookupFlags.Static);
+            if (entities.Count != 0)
             {
-                i++;
+                i--;
                 continue;
             }
 
             Spawn(component.SpawnEffect, coords);
             Spawn(component.SpawnedEntity, coords);
         }
-    }
-
-    private bool DyanmicMobOnTile(TileRef tile)
-    {
-        foreach (var entity in _lookup.GetEntitiesInTile(tile, LookupFlags.Approximate | LookupFlags.Dynamic))
-        {
-            if (!HasComp<MobStateComponent>(entity))
-                continue;
-
-            return true;
-        }
-
-        return false;
     }
 }
