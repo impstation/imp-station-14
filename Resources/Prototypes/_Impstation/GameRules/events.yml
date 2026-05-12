@@ -316,7 +316,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 1.5
+    weight: 3
     duration: 1
     minimumPlayers: 25
     reoccurrenceDelay: 20
