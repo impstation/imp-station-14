@@ -78,6 +78,9 @@ public sealed class IncubationSystem : EntitySystem
     /// <param name="entity">The egg incubator to update.</param>
     private void UpdateIncubatorVisuals(Entity<EggIncubatorComponent> entity)
     {
+        if (!TryComp<AppearanceComponent>(entity.Owner, out var appearance))
+            return;
+
         var canIncubate = IncubatorCanIncubate(entity.AsNullable());
         var hasContents = IncubatorHasContents(entity.AsNullable());
 
@@ -86,7 +89,7 @@ public sealed class IncubationSystem : EntitySystem
             : IncubatorStatus.Inactive;
 
         // Don't update the visuals if it's identical, anyway.
-        if (_appearance.TryGetData(entity.Owner, IncubatorVisualizerLayers.Status, out var currentStatus)
+        if (_appearance.TryGetData(entity.Owner, IncubatorVisualizerLayers.Status, out var currentStatus, appearance)
             && status.Equals(currentStatus))
             return;
 
