@@ -202,10 +202,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         var partners = new HashSet<Entity<ImpReproductiveComponent>>();
         _entityLookup.GetEntitiesInRange(xform.Coordinates, BreedableLimitRange, partners);
 
-        if (partners.Count >= MaxBreedableAnimalsCount)
-            return true;
-
-        return false;
+        return partners.Count >= MaxBreedableAnimalsCount;
     }
 
     /// <summary>
