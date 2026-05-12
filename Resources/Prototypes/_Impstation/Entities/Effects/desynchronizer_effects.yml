@@ -3,9 +3,9 @@
   id: EffectDesynchronizerEnter
   categories: [ HideSpawnMenu ]
   components:
-  - type: EmitSoundOnSpawn
   - type: TimedDespawn
     lifetime: 3
+  - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Magic/ethereal_enter.ogg
 
