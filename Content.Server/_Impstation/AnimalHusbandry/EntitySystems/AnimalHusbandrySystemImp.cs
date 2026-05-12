@@ -184,15 +184,18 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
         if (MaxBreedableAnimalsCount == -1)
             return false;
 
-        // Range is -1 - that means we just check all entities, not just ones in a specific range.
-        if (BreedableLimitRange == -1)
-        {
-            var query = EntityQuery<ImpReproductiveComponent>();
-            if (query.Count() >= MaxBreedableAnimalsCount)
-                return true;
+        var query = EntityQuery<ImpReproductiveComponent>();
+        var breedableCount = query.Count();
 
+        // If there are less total breedable animals than the maximum, then it's not possible for
+        // us to be at the limit anyway. This can save us a costly "in range" check.
+        if (breedableCount < MaxBreedableAnimalsCount)
             return false;
-        }
+
+        // Range is -1 - infinite range, just check the total breedable entity count.
+        // We've already checked if it's less, and it's not. Which means we're already at capacity.
+        if (BreedableLimitRange == -1)
+            return true;
 
         // Otherwise - get entities in range and check if we have too many for this range.
         var xform = Transform(uid);
