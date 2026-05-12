@@ -95,18 +95,20 @@ namespace Content.Server.Spawners.EntitySystems
         private void Spawn(EntityUid uid, RandomSpawnerComponent component)
         {
             var prototypes = component.Prototypes; // Imp, added prototypes var
+            var rareSpawn = false; // Imp, added to try and reduce upstream changes
 
             if (component.RarePrototypes.Count > 0 && (component.RareChance == 1.0f || _robustRandom.Prob(component.RareChance)))
             {
                 prototypes = component.RarePrototypes; // Imp, removed direct spawning on coords
+                rareSpawn = true; // Imp
                 // Spawn(_robustRandom.Pick(component.RarePrototypes), Transform(uid).Coordinates);
-                return;
+                // return;
             }
 
-            if (component.Chance != 1.0f && !_robustRandom.Prob(component.Chance))
+            if (!rareSpawn && component.Chance != 1.0f && !_robustRandom.Prob(component.Chance)) // Imp, added !rareSpawn
                 return;
 
-            if (component.Prototypes.Count == 0)
+            if (!rareSpawn && component.Prototypes.Count == 0) // Imp, added !rareSpawn
             {
                 Log.Warning($"Prototype list in RandomSpawnerComponent is empty! Entity: {ToPrettyString(uid)}");
                 return;
