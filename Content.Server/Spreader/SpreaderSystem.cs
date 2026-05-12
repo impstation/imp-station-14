@@ -176,10 +176,7 @@ public sealed class SpreaderSystem : EntitySystem
     /// <summary>
     /// Gets the neighboring node data for the specified entity and the specified node group.
     /// </summary>
-    public void GetNeighbors(EntityUid uid, TransformComponent comp, ProtoId<EdgeSpreaderPrototype> prototype,
-        out ValueList<(MapGridComponent, TileRef)> freeTiles,
-        out ValueList<Vector2i> occupiedTiles,
-        out ValueList<EntityUid> neighbors,
+    public void GetNeighbors(EntityUid uid, TransformComponent comp, ProtoId<EdgeSpreaderPrototype> prototype, out ValueList<(MapGridComponent, TileRef)> freeTiles, out ValueList<Vector2i> occupiedTiles, out ValueList<EntityUid> neighbors,
         out ValueList<(EntityUid, MapGridComponent, Vector2i)> allNeighbors) // Imp, added allNeighbors
     {
         freeTiles = [];

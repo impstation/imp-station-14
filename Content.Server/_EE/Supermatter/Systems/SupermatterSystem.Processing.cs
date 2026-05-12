@@ -808,22 +808,22 @@ public sealed partial class SupermatterSystem
         foreach (var mob in lookup)
         {
             // Not in line of sight, or is dead
-            if ((!_examine.InRangeUnOccluded(uid, mob, sm.HallucinationRange) ||
-                mob.Comp.CurrentState == MobState.Dead)
-                && !activeCascadeDelam)
+            if (!activeCascadeDelam &&
+                (!_examine.InRangeUnOccluded(uid, mob, sm.HallucinationRange) ||
+                mob.Comp.CurrentState == MobState.Dead))
                 continue;
 
             // Someone (generally a psychologist), when looking at the supermatter within hallucination range, makes it easier to manage.
-            if (HasComp<SupermatterSootherComponent>(mob) && !activeCascadeDelam)
+            if (!activeCascadeDelam && HasComp<SupermatterSootherComponent>(mob))
                 psyDiff = 0.007f;
 
             if (HasComp<SupermatterHallucinationImmuneComponent>(mob)) // Immune to supermatter hallucinations)
                 continue;
 
-            if ((HasComp<SiliconLawBoundComponent>(mob) ||             // Silicons don't get supermatter hallucinations
+            if (!activeCascadeDelam &&
+                (HasComp<SiliconLawBoundComponent>(mob) ||             // Silicons don't get supermatter hallucinations
                 HasComp<PermanentBlindnessComponent>(mob) ||           // Blind people don't get supermatter hallucinations
-                HasComp<TemporaryBlindnessComponent>(mob)              // Neither do blinded people
-                ) && !activeCascadeDelam)
+                HasComp<TemporaryBlindnessComponent>(mob)))              // Neither do blinded people
                 continue;
 
             // Everyone else gets hallucinations
