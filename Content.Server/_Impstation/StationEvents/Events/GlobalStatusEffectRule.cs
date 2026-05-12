@@ -11,15 +11,15 @@ using Robust.Shared.Random;
 namespace Content.Server._Impstation.StationEvents.Events;
 
 /// <summary>
-/// When the event ends, applies a given status effect to every humanoid on the station for a random duration between max and min per-entity.
+/// Applies a given status effect to every humanoid on the station for a random duration between max and min per-entity.
 /// </summary>
-public sealed class DelayedGlobalStatusEffectRule : StationEventSystem<DelayedGlobalStatusEffectRuleComponent>
+public sealed class GlobalStatusEffectRule : StationEventSystem<GlobalStatusEffectRuleComponent>
 {
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
 
-    protected override void Added(EntityUid uid, DelayedGlobalStatusEffectRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    protected override void Added(EntityUid uid, GlobalStatusEffectRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
 
@@ -33,9 +33,9 @@ public sealed class DelayedGlobalStatusEffectRule : StationEventSystem<DelayedGl
             colorOverride: Color.Gold);
     }
 
-    protected override void Ended(EntityUid uid, DelayedGlobalStatusEffectRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    protected override void Started(EntityUid uid, GlobalStatusEffectRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        base.Ended(uid, component, gameRule, args);
+        base.Started(uid, component, gameRule, args);
 
         var query = EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent>();
         while (query.MoveNext(out var ent, out var mindComp, out _))
