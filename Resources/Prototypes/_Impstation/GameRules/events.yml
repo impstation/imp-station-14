@@ -321,7 +321,7 @@
     minimumPlayers: 25
     reoccurrenceDelay: 30
   - type: RandomEntitySpreadRule
-    spawnedEntity: "LandmineSpawner25"
+    spawnedEntity: "LandmineOrDudSpawner25"
     minMaxEntities:
       min: 4
       max: 8

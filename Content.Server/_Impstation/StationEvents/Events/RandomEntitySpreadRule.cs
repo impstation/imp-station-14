@@ -24,9 +24,6 @@ public sealed class RandomEntitySpreadRule : StationEventSystem<RandomEntitySpre
 
     protected override void Added(EntityUid uid, RandomEntitySpreadRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
-        if (!TryGetRandomStation(out var station))
-            return;
-
         base.Added(uid, component, gameRule, args);
 
         if (component.Announcement == null)
@@ -47,7 +44,7 @@ public sealed class RandomEntitySpreadRule : StationEventSystem<RandomEntitySpre
         for (var i = 0; i < total; i++)
         {
             if (!TryFindRandomTile(out _, out _, out var grid, out var coords))
-                return;
+                continue;
 
             if (!TryComp<MapGridComponent>(grid, out var map))
                 return;
