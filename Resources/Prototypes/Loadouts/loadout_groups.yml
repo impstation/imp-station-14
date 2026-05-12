@@ -132,6 +132,7 @@
   - EmergencyMeat # imp
   - EmergencyWheat # imp
   - EmergencyAquatic # imp
+  - EmergencyDiscount # imp
   - EmergencyNitrogen
   - EmergencyOxygen
   - LoadoutSpeciesAquaticFullTank # Imp
@@ -146,6 +147,7 @@
   - LoadoutSpeciesAquaticFullTank # Imp
   - LoadoutSpeciesEVAKodepiia # imp
   - LoadoutSpeciesEVAUngu # imp
+  - LoadoutSpeciesEVADiscount # imp
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
 
@@ -166,6 +168,7 @@
   - LoadoutSpeciesPocketDoubleOxygen
   - LoadoutSpeciesPocketDoubleOxygenKodepiia # imp
   - LoadoutSpeciesPocketDoubleOxygenUngu # imp
+  - LoadoutSpeciesPocketDoubleOxygenDiscount # imp
 
 # Command
 - type: loadoutGroup
@@ -761,6 +764,7 @@
   - EmergencyMeatClown # imp
   - EmergencyWheatClown # imp
   - EmergencyAquaticClown # imp
+  - EmergencyDiscountClown # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -823,6 +827,10 @@
   - MimeSuspendersRed
   - MimeSuspendersBlack
   - FoamSabre # DeltaV - Add foam sabre to the mime's loadout.
+  # imp edit start
+  minLimit: 0
+  defaultSelected: 1
+  # imp edit end
 
 - type: loadoutGroup
   id: SurvivalMime
@@ -837,6 +845,7 @@
   - EmergencyMeatMime # imp
   - EmergencyWheatMime # imp
   - EmergencyAquaticMime # imp
+  - EmergencyDiscountMime # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup
@@ -1226,6 +1235,7 @@
   - EmergencyMeatExtended # imp
   - EmergencyWheatExtended # imp
   - EmergencyAquaticExtended # imp
+  - EmergencyDiscountExtended # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Science
@@ -1393,6 +1403,7 @@
   - HeadofSecurityHeadDV # DeltaV
   - HeadofSecurityPatrolCap # imp
   - HeadofSecurityColonelCap # imp
+  - HeadofSecurityHelmet #imp
 
 - type: loadoutGroup
   id: HeadofSecurityJumpsuit
@@ -1468,6 +1479,7 @@
   - WardenCoat
   - WardenArmoredWinterCoat
   - WardenWinterCoatUnarmored # imp
+  - WardenBomberJacket # imp
 
 - type: loadoutGroup
   id: WardenJobTrinkets
@@ -1627,6 +1639,7 @@
   - EmergencyMeatSecurity # imp
   - EmergencyWheatSecurity # imp
   - EmergencyAquaticSecurity # imp
+  - EmergencyDiscountSecurity # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Medical
@@ -1902,6 +1915,7 @@
   - EmergencyMeatMedical # imp
   - EmergencyWheatMedical # imp
   - EmergencyAquaticMedical # imp
+  - EmergencyDiscountMedical # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 # Wildcards
@@ -1948,6 +1962,7 @@
   - EmergencyMeatSyndicate # imp
   - EmergencyWheatSyndicate # imp
   - EmergencyAquaticSyndicate # imp
+  - EmergencyDiscountSyndicate # imp
   - LoadoutSpeciesAquaticFullTank # Imp
 
 - type: loadoutGroup

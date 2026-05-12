@@ -1,0 +1,70 @@
+﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
+
+- type: listing
+  id: UplinkMixedRejects
+  name: uplink-mixed-rejects-name
+  description: uplink-mixed-rejects-desc
+  productEntity: CigPackMixedRejects
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkChemicals
+
+- type: listing
+  id: UplinkMixedRejectsCarton
+  name: uplink-mixed-rejects-carton-name
+  description: uplink-mixed-rejects-carton-desc
+  productEntity: CigCartonMixedRejects
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkChemicals
+
+- type: listing
+  id: UplinkPoisonAuto-Injector
+  name: uplink-poison-injector-name
+  description: uplink-poison-injector-desc
+  productEntity: PoisonAutoInjector
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 6
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    makeHidden: true
+    blacklist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+
+- type: listing
+  id: UplinkNukiePoisonAuto-Injector
+  name: uplink-poison-injector-name
+  description: uplink-poison-injector-desc
+  productEntity: PoisonAutoInjector
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:StoreWhitelistCondition
+    makeHidden: true
+    whitelist:
+      tags:
+      - NukeOpsUplink
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

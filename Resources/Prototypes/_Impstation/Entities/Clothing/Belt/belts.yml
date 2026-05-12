@@ -284,3 +284,20 @@
           - Wrench
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltDart
+  name: dart belt
+  description: A belt with slots designed to fit darts for tranquilizer guns.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Belt/dart_belt.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Belt/dart_belt.rsi
+  - type: Storage
+    grid:
+    - 0,0,3,3
+    whitelist:
+      tags:
+        - Dart
