@@ -32,12 +32,4 @@ public sealed partial class ArmableComponent : Component
     /// </summary>
     [DataField]
     public LocId? ExamineTextNotArmed ="armable-examine-not-armed";
-
-    /// <summary>
-    /// Imp.
-    /// Whether or not to show the armed examine text always
-    /// </summary>
-    [DataField]
-    public bool AlwaysShowArmed = false;
-
 }
