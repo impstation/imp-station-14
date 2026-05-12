@@ -177,7 +177,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     public bool AtBreedableCapacity(EntityUid uid)
     {
         // Limit is 0 or 1 - that means we're always at capacity.
-        if (MaxBreedableAnimalsCount == 0 || MaxBreedableAnimalsCount == 1)
+        if (MaxBreedableAnimalsCount == 0)
             return true;
 
         // Limit is -1 - that means there is no limit.
