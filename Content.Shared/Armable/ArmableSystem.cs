@@ -37,7 +37,7 @@ public sealed class ArmableSystem : EntitySystem
         else
         {
             if (!string.IsNullOrEmpty(comp.ExamineTextNotArmed))
-                args.PushMarkup(Loc.GetString(comp.ExamineTextNotArmed, ("name", uid)));
+                args.PushMarkup(Loc.GetString(comp.ExamineTextNotArmed,("name", uid)));
         }
     }
 
