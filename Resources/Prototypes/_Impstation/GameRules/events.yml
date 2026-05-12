@@ -320,10 +320,10 @@
     duration: 1
     minimumPlayers: 25
     reoccurrenceDelay: 20
-  - type: RandomEntitySpreadRule
-    spawnedEntity: "LandmineOrDudSpawner25"
+  - type: RandomEntitySpawnRule
+    spawnedEntity: "LandmineOrDudSpawner50"
     spawnEffect: "EffectDesynchronizerExit"
     minMaxEntities:
-      min: 12
-      max: 16
+      min: 8
+      max: 12
     announcement: "station-event-explosive-mine-resurgence-announcement"

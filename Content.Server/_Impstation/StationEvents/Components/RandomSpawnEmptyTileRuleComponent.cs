@@ -4,8 +4,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.StationEvents.Components;
 
-[RegisterComponent, Access(typeof(RandomEntitySpreadRule))]
-public sealed partial class RandomEntitySpreadRuleComponent : Component
+[RegisterComponent, Access(typeof(RandomSpawnEmptyTileRule))]
+public sealed partial class RandomSpawnEmptyTileRuleComponent : Component
 {
     [DataField(required: true)]
     public EntProtoId SpawnedEntity;

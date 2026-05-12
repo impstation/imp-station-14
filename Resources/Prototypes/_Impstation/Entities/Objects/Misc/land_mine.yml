@@ -1,11 +1,8 @@
 - type: entity
-  parent: BaseLandMine
+  parent: LandMineExplosive
   name: explosive mine
-  id: ObfuscatedLandMine
+  id: LandMineObfuscated
   suffix: Not Explosive
   components:
-  - type: ItemToggle
-    activated: true
-    onActivate: false
-  - type: Armable
-    alwaysShowArmed: true
+  - type: Explosive
+    totalIntensity: 0

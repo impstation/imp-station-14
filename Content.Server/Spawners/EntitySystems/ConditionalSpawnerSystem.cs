@@ -94,9 +94,12 @@ namespace Content.Server.Spawners.EntitySystems
 
         private void Spawn(EntityUid uid, RandomSpawnerComponent component)
         {
+            var prototypes = component.Prototypes; // Imp, added prototypes var
+
             if (component.RarePrototypes.Count > 0 && (component.RareChance == 1.0f || _robustRandom.Prob(component.RareChance)))
             {
-                Spawn(_robustRandom.Pick(component.RarePrototypes), Transform(uid).Coordinates);
+                prototypes = component.RarePrototypes; // Imp, removed direct spawning on coords
+                // Spawn(_robustRandom.Pick(component.RarePrototypes), Transform(uid).Coordinates);
                 return;
             }
 
@@ -118,7 +121,7 @@ namespace Content.Server.Spawners.EntitySystems
 
             var coordinates = Transform(uid).Coordinates.Offset(new Vector2(xOffset, yOffset));
 
-            Spawn(_robustRandom.Pick(component.Prototypes), coordinates);
+            Spawn(_robustRandom.Pick(prototypes), coordinates); // Imp, switched to prototypes instead of direct component to give offset to rare prototype
         }
 
         private void Spawn(Entity<EntityTableSpawnerComponent> ent)
