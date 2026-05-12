@@ -262,8 +262,8 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 1
-    reoccurrenceDelay: 30
+    weight: 2
+    reoccurrenceDelay: 25
   - type: GlobalStatusEffectRule
     statusEffect: "StatusEffectBiomagneticPolarization"
     announcement: "station-event-biomagnetic-polarization-announcement"
