@@ -320,7 +320,7 @@
     duration: 1
     minimumPlayers: 25
     reoccurrenceDelay: 20
-  - type: RandomEntitySpawnRule
+  - type: RandomSpawnEmptyTileRule
     spawnedEntity: "LandmineOrDudSpawner50"
     spawnEffect: "EffectDesynchronizerExit"
     minMaxEntities:
