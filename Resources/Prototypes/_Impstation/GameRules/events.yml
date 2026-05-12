@@ -312,7 +312,7 @@
       - MindRoleButler
 
 - type: entity
-  id: ExplosiveMines
+  id: ExplosiveMineResurgence
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
@@ -325,4 +325,4 @@
     minMaxEntities:
       min: 4
       max: 8
-    announcement: "station-event-explosive-mines-announcement"
+    announcement: "station-event-explosive-mine-resurgence-announcement"
