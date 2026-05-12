@@ -84,4 +84,29 @@ public sealed class ImpCCVars : CVars
     /// </summary>
     public static readonly CVarDef<bool> AntagPlaytimeBiasing =
         CVarDef.Create("antag.play_time_biasing", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     The interval in seconds in which animal husbandry-related systems will update, for performance reasons.
+    /// </summary>
+    public static readonly CVarDef<float> AnimalHusbandryUpdateInterval =
+        CVarDef.Create("husbandry.update_rate", 1.0f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     The maximum amount of breedable animals that can exist in <see cref="BreedableLimitRange"/>.
+    ///     If there are too many breedable animals in this range, then breeding in that area will pause.
+    /// </summary>
+    /// <remarks>
+    ///     If this is set to `-1`, then there is no breedable animal limit.
+    /// </remarks>
+    public static readonly CVarDef<int> MaxBreedableAnimalsCount =
+        CVarDef.Create("husbandry.max_breedable_animals", 5, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     The range that <see cref="MaxBreedableAnimalsCount"/> will use to check against the limit.
+    /// </summary>
+    /// <remarks>
+    ///     If this is set to `-1`, then there is no range limit.
+    /// </remarks>
+    public static readonly CVarDef<float> BreedableLimitRange =
+        CVarDef.Create("husbandry.breed_limit_range", 10.0f, CVar.SERVERONLY);
 }

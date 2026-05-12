@@ -1,120 +1,73 @@
-using System.Linq;
 using Content.Server.Administration.Logs;
-using Content.Shared.Damage.Components;
-using Content.Server.Cloning;
-using Content.Server.Ghost.Roles.Components;
-using Content.Shared.Database;
 using Content.Shared.EntityTable;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Mind;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Nutrition.AnimalHusbandry;
-using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-
+using Content.Shared.Damage.Components;
+using Content.Shared.Database;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Nutrition.Components;
+using System.Linq;
 using Content.Shared._Impstation.AnimalHusbandry.Components;
 using Content.Shared._Impstation.EntityTable.Conditions;
+using Content.Shared._Impstation.CCVar;
+using Robust.Shared.Configuration;
 
 namespace Content.Server._Impstation.AnimalHusbandry.EntitySystems;
+
 /// <summary>
-/// System that handles mob breeding, birthing and growing
-/// This system works alongside HTN
+///     This system handles animal breading, used in conjunction with HTN.
 /// </summary>
-public sealed class AnimalHusbandrySystemImp : EntitySystem
+public sealed partial class AnimalHusbandrySystemImp : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
-    [Dependency] private readonly IEntityManager _entManager = default!;
+    [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly EntityTableSystem _entTable = default!;
+    [Dependency] private readonly AnimalGestationSystem _gestation = default!;
+    [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly ThirstSystem _thirst = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly CloningSystem _cloning = default!;
-    [Dependency] private readonly HungerSystem _hunger = default!;
-    [Dependency] private readonly ThirstSystem _thirst = default!;
-    [Dependency] private readonly EntityTableSystem _entTable = default!;
 
-    Dictionary<EntityUid, ImpReproductiveComponent> _mobsWaiting = new Dictionary<EntityUid, ImpReproductiveComponent>();
+    public int MaxBreedableAnimalsCount = 5;
+    public float BreedableLimitRange = 10.0f;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        Subs.CVar(_config,
+            ImpCCVars.MaxBreedableAnimalsCount,
+            value =>
+            {
+                if (value < 0)
+                {
+                    MaxBreedableAnimalsCount = -1;
+                    return;
+                }
+
+                MaxBreedableAnimalsCount = value;
+            },
+            invokeImmediately: true);
+
+        Subs.CVar(_config,
+            ImpCCVars.BreedableLimitRange,
+            value =>
+            {
+                if (value < 0.0f)
+                {
+                    BreedableLimitRange = -1.0f;
+                    return;
+                }
+
+                BreedableLimitRange = value;
+            },
+            invokeImmediately: true);
     }
-
-    /// <summary>
-    /// Here we do two things
-    /// 1. Loop through the pregnant mobs to see who needs to give birth
-    /// 2. Track the infant mobs to see who is ready to grow up
-    /// I've done this so it should be calling as minimally as possible.
-    /// If there's no infants and no-one is pregnant, this basically does nothing.
-    /// </summary>
-    /// <param name="frameTime">Time between frames</param>
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        // Runs through the list of pregnant mobs to see who is ready to give birth
-        // or whose birth should be cancelled
-        foreach (var reproComp in _mobsWaiting)
-        {
-            // In case the mob finds itself deleted or destroyed
-            if (_entManager.Deleted(reproComp.Key)
-                || !_entManager.TryGetComponent<MobStateComponent>(reproComp.Key, out var state))
-            {
-                _mobsWaiting.Remove(reproComp.Key);
-                continue;
-            }
-
-            // If they die or become critical, the child is gone
-            // Same for if the animal becomes player controlled
-            if (state.CurrentState != Shared.Mobs.MobState.Alive ||
-                _mind.TryGetMind(reproComp.Key, out var mind, out var mindComp))
-            {
-                _mobsWaiting.Remove(reproComp.Key);
-                reproComp.Value.Pregnant = false;
-            }
-
-            // Is it time to give birth?
-            if (reproComp.Value.EndPregnancy <= _time.CurTime)
-            {
-                reproComp.Value.Pregnant = false;
-                Birth((reproComp.Key, reproComp.Value));
-                _mobsWaiting.Remove(reproComp.Key);
-                _adminLog.Add(LogType.Action, $"A mob has given birth!");
-            }
-        }
-
-        // Grabs every single entity with this component and runs through them all
-        // to see who should grow up.
-        // Realistically there should never be THAT many infants, so this approach should be
-        // fine for performance.
-        var query = EntityQueryEnumerator<ImpInfantComponent>();
-        while (query.MoveNext(out var uid, out var infantComp))
-        {
-            if (_entManager.Deleted(uid)
-                || !_entManager.TryGetComponent<MobStateComponent>(uid, out var state))
-                continue;
-
-            // Doing this here for the purpose of if admins spawn in baby mobs.
-            // Prevents them from growing up instantly when placed.
-            if (infantComp.GrowthTimeRemaining == TimeSpan.Zero)
-                infantComp.GrowthTimeRemaining = _time.CurTime.Add(infantComp.GrowthTime);
-
-            // If the mob isn't alive we need to delay its growth
-            if (state.CurrentState != Shared.Mobs.MobState.Alive)
-                infantComp.GrowthTimeRemaining = infantComp.GrowthTimeRemaining.Add(_time.FrameTime);
-
-            if (infantComp.GrowthTimeRemaining <= _time.CurTime)
-                AdvanceStage((uid, infantComp));
-        }
-    }
-
-    #region BIRTHING
 
     /// <summary>
     /// Our function for handling the breeding action once all checks are finished and the
@@ -123,64 +76,53 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     /// <param name="approacher">The mob seeking to impregnate</param>
     /// <param name="approached">The mob that will be impregnated</param>
     /// <returns>True if the mob has successfully bred with the target</returns>
-    public bool TryBreedWithTarget(EntityUid approacher, EntityUid approached)
+    public bool TryBreedWithTarget(Entity<ImpReproductiveComponent?> approacher, Entity<ImpReproductiveComponent?> approached)
     {
-        // Realistically this should never return false but it's just here for the moment
-        if (!_entManager.TryGetComponent<ImpReproductiveComponent>(approacher, out var component))
+        var approacherProto = MetaData(approacher.Owner).EntityPrototype;
+
+        if (approacher == approached // Do not self-breed
+            || !Resolve(approacher.Owner, ref approacher.Comp, logMissing: false) // Ensure approacher can reproduce
+            || !Resolve(approached.Owner, ref approached.Comp, logMissing: false) // Ensure partner can reproduce
+            || approacherProto == null) // Ensure approacher has a prototype
             return false;
 
-        // Same with this one but i'm paranoid
-        if (!_entManager.TryGetComponent<ImpReproductiveComponent>(approached, out var partnerComp))
-            return false;
-
-        // Meta data of our approaching mob
-        if (!_entManager.TryGetComponent<MetaDataComponent>(approacher, out var meta))
-            return false;
-
-        if (meta.EntityPrototype == null)
-            return false;
-
-        // Just being 100% sure we aren't trying to self breed.
-        if (approacher == approached)
-            return false;
+        var partnerComp = approached.Comp;
 
         // one last check in case someone beat us to the cow or bred us on the way there
         // It's dumb but unless I make the system assign pairings this is the best i can think of for the moment
-        if (!CanYouBreed((approacher, component)) || !CanYouBreed((approached, partnerComp)))
+        if (!CanYouBreed(approacher) || !CanYouBreed(approached))
             return false;
 
-        var partnerSettings = _prototype.Index(partnerComp.BreedSettings);
-
-        if (partnerSettings == null)
+        if (!_prototype.TryIndex(partnerComp.BreedSettings, out var partnerSettings))
             return false;
-
-        // Ready up for birth
-        partnerComp.Pregnant = true;
-        partnerComp.EndPregnancy = _time.CurTime.Add(partnerComp.PregnancyLength);
-
-        // Add them to our list of pregnant NPCs to be tracked
-        _mobsWaiting.Add(approached, partnerComp);
 
         // Picks which offspring to give birth to based on the mob we bred with
         var ctx = new EntityTableContext(new Dictionary<string, object>
         {
-            { ValidPartnerCondition.PartnerContextKey, meta.EntityPrototype.ID },
+            { ValidPartnerCondition.PartnerContextKey, approacherProto.ID },
         });
-        partnerComp.MobToBirth = _entTable.GetSpawns(partnerSettings.PossibleInfants, ctx: ctx).ElementAt(0);
+
+        var spawns = _entTable.GetSpawns(partnerSettings.PossibleInfants, ctx: ctx);
+        if (!spawns.Any()) // No valid offspring
+            return false;
+
+        // Add gestation to the approached mob
+        var gestating = EnsureComp<GestatingComponent>(approached.Owner);
+        gestating.GestationTime = partnerComp.PregnancyLength;
+        gestating.EntityToSpawn = spawns.First();
+        partnerComp.PreviousPartner = approacher;
 
         if (TryComp<InteractionPopupComponent>(approached, out var interactionPopup))
             Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates(approached));
 
-        partnerComp.PreviousPartner = approacher;
-
         // GET HUNGRY GET THIRSTY
-        _hunger.ModifyHunger(approacher, -component.HungerPerBirth);
+        _hunger.ModifyHunger(approacher, -approacher.Comp.HungerPerBirth);
         _hunger.ModifyHunger(approached, -partnerComp.HungerPerBirth);
 
-        _thirst.ModifyThirst(approached, -component.HungerPerBirth);
+        _thirst.ModifyThirst(approacher, -approacher.Comp.HungerPerBirth);
         _thirst.ModifyThirst(approached, -partnerComp.HungerPerBirth);
 
-        _adminLog.Add(LogType.Action, $"{ToPrettyString(approacher)} (carrier) and {ToPrettyString(approached)} (partner) successfully bred.");
+        _adminLog.Add(LogType.Action, $"{ToPrettyString(approached)} (carrier) and {ToPrettyString(approacher)} (partner) successfully bred.");
         return true;
     }
 
@@ -191,124 +133,100 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     /// </summary>
     /// <param name="entity">The fella we're checking out. Or ourself</param>
     /// <returns>If the mob is eligible to breed</returns>
-    public bool CanYouBreed(Entity<ImpReproductiveComponent> entity)
+    public bool CanYouBreed(Entity<ImpReproductiveComponent?> entity)
     {
-        if (entity.Comp.Pregnant)
+        // Not a reproductive entity.
+        if (!Resolve(entity.Owner, ref entity.Comp, logMissing: false))
             return false;
 
-        // Making sure we're not trying to breed with an infant
-        if (_entManager.TryGetComponent<ImpInfantComponent>(entity, out var infant))
+        // Already gestating.
+        if (HasComp<GestatingComponent>(entity.Owner))
             return false;
 
-        // Player inhabited mobs cannot breed
-        if (_mind.TryGetMind(entity, out var mind, out var mindComp))
+        // Incapable of gestation.
+        if (_gestation.IsUnableToGestate(entity.Owner))
             return false;
 
-        if (_entManager.TryGetComponent<HungerComponent>(entity, out var hunger) && hunger.CurrentThreshold < HungerThreshold.Okay)
+        // Too many breedable animals in the area.
+        if (AtBreedableCapacity(entity.Owner))
             return false;
 
-        if (_entManager.TryGetComponent<ThirstComponent>(entity, out var thirst) && thirst.CurrentThirstThreshold < ThirstThreshold.Okay)
+        // Too hungry.
+        if (TryComp<HungerComponent>(entity, out var hunger)
+            && hunger.CurrentThreshold < entity.Comp.MinimumHungerThreshold)
             return false;
 
-        // A mob needs to be Alive. Not dead or critical
-        if (_entManager.TryGetComponent<MobStateComponent>(entity, out var state) && state.CurrentState != Shared.Mobs.MobState.Alive)
+        // Too thirsty.
+        if (TryComp<ThirstComponent>(entity, out var thirst)
+            && thirst.CurrentThirstThreshold < entity.Comp.MinimumThirstThreshold)
             return false;
 
-        // A mob can't be too damaged
-        if (_entManager.TryGetComponent<DamageableComponent>(entity, out var damage) && damage.TotalDamage >= entity.Comp.MaxBreedDamage)
-            return false;
-        return true;
-    }
-
-    /// <summary>
-    /// Same as CanYouBreed except this one takes into account the animals search times
-    /// </summary>
-    /// <param name="entity">The mob checking if it's eligible to breed</param>
-    /// <returns>If the mob is eligible for breeding</returns>
-    public bool CanIBreed(Entity<ImpReproductiveComponent> entity)
-    {
-        if (entity.Comp.NextSearch > _time.CurTime)
-            return false;
-
-        if (!CanYouBreed(entity))
+        // Too injured.
+        if (TryComp<DamageableComponent>(entity, out var damage)
+            && damage.TotalDamage >= entity.Comp.MaxBreedDamage)
             return false;
 
         return true;
     }
 
     /// <summary>
-    /// Handles the actual birthing of the new NPC and sets how long until they grow up
+    ///     Check if a given entity has too many breedable animals in its range to facilitate breeding.
     /// </summary>
-    /// <param name="entity">The mob giving birth</param>
-    private void Birth(Entity<ImpReproductiveComponent> entity)
+    /// <param name="uid">The entity to check for breedable animals in range.</param>
+    /// <returns>Whether or not there are too many breedable animals in the area to keep breeding.</returns>
+    public bool AtBreedableCapacity(EntityUid uid)
     {
-        if (TryComp<InteractionPopupComponent>(entity, out var interactionPopup))
-            _audio.PlayPvs(interactionPopup.InteractSuccessSound, entity);
+        // Limit is 0 - that means we're always at capacity.
+        if (MaxBreedableAnimalsCount == 0)
+            return true;
 
-        var offspring = SpawnNewMob(entity, entity.Comp.MobToBirth);
+        // Limit is -1 - that means there is no limit.
+        if (MaxBreedableAnimalsCount == -1)
+            return false;
 
-        if (offspring == null)
+        var query = EntityQuery<ImpReproductiveComponent>();
+        var breedableCount = query.Count();
+
+        // If there are less total breedable animals than the maximum, then it's not possible for
+        // us to be at the limit anyway. This can save us a costly "in range" check.
+        if (breedableCount < MaxBreedableAnimalsCount)
+            return false;
+
+        // Range is -1 - infinite range, just check the total breedable entity count.
+        // We've already checked if it's less, and it's not. Which means we're already at capacity.
+        if (BreedableLimitRange == -1)
+            return true;
+
+        // Otherwise - get entities in range and check if we have too many for this range.
+        var xform = Transform(uid);
+        var partners = new HashSet<Entity<ImpReproductiveComponent>>();
+        _entityLookup.GetEntitiesInRange(xform.Coordinates, BreedableLimitRange, partners);
+
+        return partners.Count >= MaxBreedableAnimalsCount;
+    }
+
+    /// <summary>
+    ///     Updates a reproductive entity's partner search time with a random duration.
+    /// </summary>
+    /// <param name="entity">The reproductive entity.</param>
+    public void RefreshSearchTime(Entity<ImpReproductiveComponent?> entity)
+    {
+        if (!Resolve(entity.Owner, ref entity.Comp, logMissing: false))
             return;
 
-        if (_entManager.TryGetComponent<ImpInfantComponent>(offspring, out var infantComp))
-        {
-            infantComp.GrowthTimeRemaining = _time.CurTime.Add(infantComp.GrowthTime);
-            infantComp.Parent = entity;
-        }
+        var newDuration = _random.Next(entity.Comp.MinSearchAttemptInterval, entity.Comp.MaxSearchAttemptInterval);
+        entity.Comp.NextSearch = _time.CurTime + newDuration;
     }
-
-    #endregion
-
-    #region INFANTS
 
     /// <summary>
-    /// Handles growing an infant by deleting the current mob and making a new one
-    /// This also transfers the previous components to the new mob
+    ///     Gets whether or not a reproductive entity is ready to search for a new partner.
     /// </summary>
-    /// <param name="infant">The infant that will be growing up</param>
-    /// <returns></returns>
-    private bool AdvanceStage(Entity<ImpInfantComponent> infant)
+    /// <param name="entity">The reproductive entity.</param>
+    /// <returns>Whether or not a reproductive entity is ready to search for a new partner.</returns>
+    public bool ReadyToSearch(Entity<ImpReproductiveComponent> entity)
     {
-        bool isAdult = false;
-
-        var newStage = SpawnNewMob(infant, infant.Comp.NextStage);
-
-        if (newStage == null)
-            return false;
-
-        if (!_prototype.Resolve(infant.Comp.OffspringSettings, out var settings))
-            return false;
-
-        // If someone is in this thing, move them over as well
-        if (_mind.TryGetMind(infant, out var mind, out var mindComp))
-            _mind.TransferTo(mind, newStage);
-
-        isAdult = !_entManager.TryGetComponent<InfantComponent>(newStage, out var comp);
-
-        // Make sure the relevant Data like damage carries over
-        _cloning.CloneComponents(infant, (EntityUid)newStage, settings);
-
-        // If there is a ghost role attached to this mob, keep it
-        // We also make sure the new stage doesn't already come with one, otherwise the game crashes.
-        if (_entManager.TryGetComponent<GhostRoleComponent>(infant, out var ghostComp) &&
-            !_entManager.TryGetComponent<GhostRoleComponent>(newStage, out var newGhostcomp))
-        {
-            CopyComp(infant, (EntityUid)newStage, ghostComp);
-        }
-
-        // Pompeii Ash Baby.png
-        QueueDel(infant);
-
-        // So they don't immediately try to breed the second they grow up
-        if (isAdult && _entManager.TryGetComponent<ImpReproductiveComponent>(newStage, out var reproComp))
-            reproComp.NextSearch = _time.CurTime + _random.Next(reproComp.MinSearchAttemptInterval, reproComp.MaxSearchAttemptInterval);
-
-        return isAdult;
+        return _time.CurTime >= entity.Comp.NextSearch;
     }
-
-    #endregion
-
-    #region UNIVERSAL
 
     /// <summary>
     /// Handles spawning a new mob for us
@@ -316,14 +234,11 @@ public sealed class AnimalHusbandrySystemImp : EntitySystem
     /// <param name="entity">Entity calling the creation</param>
     /// <param name="toSpawn">What entity will be spawned</param>
     /// <returns>The ID of our new mob! Or nothing if for some reason it didn't spawn.</returns>
-    public EntityUid? SpawnNewMob(EntityUid entity, EntProtoId toSpawn)
+    public EntityUid SpawnOnTop(EntityUid entity, EntProtoId toSpawn)
     {
         var xform = Transform(entity);
-
-        var newMob = Spawn(toSpawn, xform.Coordinates);
+        var newMob = SpawnAtPosition(toSpawn, xform.Coordinates);
 
         return newMob;
     }
-
-    #endregion
 }

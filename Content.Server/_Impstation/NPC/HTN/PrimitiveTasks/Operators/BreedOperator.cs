@@ -17,8 +17,6 @@ namespace Content.Server._Impstation.NPC.HTN.PrimitiveTasks.Operators;
 /// </summary>
 public sealed partial class BreedOperator : HTNOperator
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-
     private AnimalHusbandrySystemImp _breedSystem = default!;
 
     [DataField("targetKey")]

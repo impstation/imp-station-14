@@ -1,33 +1,37 @@
 - type: entity
+  abstract: true
   parent: FoodEggBase
-  id: HenEgg
-  name: Hen Egg
+  id: BaseGestatingEgg
+  name: egg
   description: An egg!
+  components:
+  - type: Tag
+    tags:
+    - Egg
+    - Meat
+    - Incubated
+  - type: Gestating
+    deleteSelfOnSpawn: true
+  - type: Incubatable
+
+- type: entity
+  parent: BaseGestatingEgg
+  id: HenEgg
+  name: hen egg
   components:
   - type: Sprite
     state: henEgg
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/eggs.rsi
-  - type: Tag
-    tags:
-    - Egg
-    - Meat
-    - Incubated
-  - type: Incubation
-    incubatedResult: MobHenChick  
+  - type: Gestating
+    entityToSpawn: MobHenChick
 
 - type: entity
-  parent: FoodEggBase
+  parent: BaseGestatingEgg
   id: RoosterEgg
-  name: Rooster Egg
-  description: An egg!
+  name: rooster egg
   components:
   - type: Sprite
     state: roosterEgg
     sprite: _Impstation/Objects/Consumable/Food/Ingredients/eggs.rsi
-  - type: Tag
-    tags:
-    - Egg
-    - Meat
-    - Incubated
-  - type: Incubation
-    incubatedResult: MobRoosterChick  
+  - type: Gestating
+    entityToSpawn: MobRoosterChick

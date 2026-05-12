@@ -13,31 +13,31 @@ public sealed partial class ImpInfantComponent : Component
     /// <summary>
     /// The information that carries over between growth stages
     /// </summary>
-    [DataField("offspringSettings")]
+    [DataField]
     public ProtoId<CloningSettingsPrototype> OffspringSettings = "BaseOffspringClone";
 
     /// <summary>
     /// Is this animal immediately born an NPC or do they start needing incubation
     /// </summary>
-    [DataField("infantType"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public InfantType InfantType = InfantType.Immediate;
 
     /// <summary>
     /// How long until the next growth stage
     /// </summary>
-    [DataField("growthTime"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public TimeSpan GrowthTime = TimeSpan.FromSeconds(180);
 
     /// <summary>
     /// Next Growth stage of the animal
     /// </summary>
-    [DataField("nextStage", required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField(required: true)]
     public EntProtoId NextStage;
 
     /// <summary>
     /// How long until we next grow up?
     /// </summary>
-    public TimeSpan GrowthTimeRemaining = TimeSpan.Zero;
+    public TimeSpan CurrentGrowthTime = TimeSpan.Zero;
 
     /// <summary>
     /// The parent this child should follow
@@ -50,3 +50,10 @@ public enum InfantType
     Immediate,
     Incubated
 };
+
+/// <summary>
+///     Whether or not this entity is currently capable of growing up.
+/// </summary>
+/// <param name="Cancelled">True if this entity cannot grow currently.</param>
+[ByRefEvent]
+public record struct InfantCanGrowEvent(bool Cancelled = false);

@@ -1,13 +1,13 @@
 - type: entity
   id: MachineIncubator
   parent: [ BaseMachinePowered, SmallConstructibleMachine ]
-  name: Incubator
+  name: incubator
   description: Clearly the egg came first.
   components:
   - type: EggIncubator
   - type: Construction
     graph: incubatorGraph
-    node: IncubatorNode  
+    node: IncubatorNode
   - type: Fixtures
     fixtures:
       fix1:
@@ -64,7 +64,7 @@
 - type: entity
   id: MachineIncubatorFrame
   name: incubator frame
-  description: Wood in the shape of an incubator
+  description: Wood in the shape of an incubator.
   suffix: Unfinished
   placement:
     mode: SnapgridCenter

@@ -1,7 +1,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobBull
-  name: Bull Spawner
+  name: bull spawner
   components:
   - type: Sprite
     layers:
@@ -15,13 +15,13 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobHen
-  name: Hen Spawner
+  name: hen spawner
   components:
   - type: Sprite
     layers:
     - state: green
     - state: chicken-0
-      sprite: Mobs/Animals/chicken.rsi 
+      sprite: Mobs/Animals/chicken.rsi
   - type: ConditionalSpawner
     prototypes:
     - MobChicken
@@ -29,7 +29,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobRooster
-  name: Rooster Spawner
+  name: rooster spawner
   components:
   - type: Sprite
     layers:
@@ -43,7 +43,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobPig
-  name: Pig Spawner
+  name: pig spawner
   components:
   - type: Sprite
     layers:
@@ -57,7 +57,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobDomesticBoar
-  name: Domestic Boar Spawner
+  name: domestic boar spawner
   components:
   - type: Sprite
     layers:
@@ -71,7 +71,7 @@
 - type: entity
   parent: MarkerBase
   id: SpawnMobBuck
-  name: Buck Spawner
+  name: buck spawner
   components:
   - type: Sprite
     layers:

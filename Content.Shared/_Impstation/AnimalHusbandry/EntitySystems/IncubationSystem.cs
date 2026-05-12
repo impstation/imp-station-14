@@ -1,167 +1,148 @@
 using Content.Shared._Impstation.AnimalHusbandry.Components;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Interaction;
-using Content.Shared.Interaction.Components;
+using Content.Shared.Power;
 using Content.Shared.Power.EntitySystems;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._Impstation.AnimalHusbandry.EntitySystems;
+
 /// <summary>
 /// Handles the system for incubating eggs or whatever else you want incubatable.
 /// </summary>
 public sealed class IncubationSystem : EntitySystem
 {
-    [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
-
-    bool _justSwapped = false;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EggIncubatorComponent, InteractUsingEvent>(OnAfterInteract);
-        SubscribeLocalEvent<EggIncubatorComponent, EntRemovedFromContainerMessage>(OnEntityRemoved);
+        SubscribeLocalEvent<EggIncubatorComponent, ComponentStartup>(OnEggIncubatorStartup);
+        SubscribeLocalEvent<EggIncubatorComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<EggIncubatorComponent, EntInsertedIntoContainerMessage>(OnIncubatorContentsInserted);
+        SubscribeLocalEvent<EggIncubatorComponent, EntRemovedFromContainerMessage>(OnIncubatorContentsRemoved);
+        SubscribeLocalEvent<IncubatableComponent, IsGestatingEvent>(IsIncubatableGestating);
     }
 
     /// <summary>
-    /// Goes through and checks on each active incubator to see if it's time to hatch
+    ///     Update the visuals of an egg incubator on startup.
     /// </summary>
-    /// <param name="frameTime">Time between frames</param>
-    public override void Update(float frameTime)
+    /// <param name="entity">The egg incubator.</param>
+    private void OnEggIncubatorStartup(Entity<EggIncubatorComponent> entity, ref ComponentStartup args)
     {
-        base.Update(frameTime);
-
-        // Just run through and check on all the incubators
-        var query = EntityQueryEnumerator<EggIncubatorComponent>();
-        while (query.MoveNext(out var uid, out var incuComp))
-        {
-            // Making sure we're incubating something
-            if (incuComp.CurrentlyIncubated == null || _entManager.Deleted(incuComp.CurrentlyIncubated.Owner))
-                continue;
-
-            CheckPowerchanged((uid, incuComp));
-
-            if (incuComp.Status != IncubatorStatus.Active)
-                incuComp.FinishIncubation = incuComp.FinishIncubation.Add(_time.FrameTime);
-
-            // Hatch
-            if (incuComp.FinishIncubation <= _time.CurTime)
-                FinishIncubation((uid, incuComp));
-        }
+        UpdateIncubatorVisuals(entity);
     }
 
     /// <summary>
-    /// Called whenever someone tries to place something into the Incubator
-    /// If it's valid, we'll store it and begin the hatch timer
+    ///     Update the visuals of an egg incubator if its power status changes,
+    ///     and updates the "last updated time" of the eggs in the incubator.
     /// </summary>
-    /// <param name="entity">The Incubator being touched</param>
-    /// <param name="args">Our arguments for the event</param>
-    private void OnAfterInteract(Entity<EggIncubatorComponent> entity, ref InteractUsingEvent args)
+    /// <param name="entity">The egg incubator.</param>
+    private void OnPowerChanged(Entity<EggIncubatorComponent> entity, ref PowerChangedEvent args)
     {
-        // If it can't be incubated, cancel
-        if (!_entManager.TryGetComponent<IncubationComponent>(args.Used, out var incuComp))
+        UpdateIncubatorVisuals(entity);
+    }
+
+    /// <summary>
+    ///     Update the visuals of an egg incubator if an entity is added to its contents.
+    /// </summary>
+    /// <param name="entity">The egg incubator.</param>
+    private void OnIncubatorContentsInserted(Entity<EggIncubatorComponent> entity, ref EntInsertedIntoContainerMessage args)
+    {
+        UpdateIncubatorVisuals(entity);
+    }
+
+    /// <summary>
+    ///     Update the visuals of an egg incubator if an entity is removed from its contents.
+    /// </summary>
+    /// <param name="entity">The egg incubator.</param>
+    private void OnIncubatorContentsRemoved(Entity<EggIncubatorComponent> entity, ref EntRemovedFromContainerMessage args)
+    {
+        UpdateIncubatorVisuals(entity);
+    }
+
+    /// <summary>
+    ///     Prevents an incubatable entity from gestating if it is not being incubated.
+    /// </summary>
+    /// <param name="entity">The incubatable entity.</param>
+    private void IsIncubatableGestating(Entity<IncubatableComponent> entity, ref IsGestatingEvent args)
+    {
+        if (!IsBeingIncubated(entity))
+            args.Cancelled = true;
+    }
+
+    /// <summary>
+    ///     Updates the visual status of an egg incubator based on its powered status.
+    /// </summary>
+    /// <param name="entity">The egg incubator to update.</param>
+    private void UpdateIncubatorVisuals(Entity<EggIncubatorComponent> entity)
+    {
+        var canIncubate = IncubatorCanIncubate(entity.AsNullable());
+        var hasContents = IncubatorHasContents(entity.AsNullable());
+
+        var status = canIncubate && hasContents
+            ? IncubatorStatus.Active
+            : IncubatorStatus.Inactive;
+
+        // Don't update the visuals if it's identical, anyway.
+        if (_appearance.TryGetData(entity.Owner, IncubatorVisualizerLayers.Status, out var currentStatus)
+            && status.Equals(currentStatus))
             return;
 
-        if (entity.Comp.CurrentlyIncubated != null)
-            _justSwapped = true;
-
-        _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Active);
-        entity.Comp.Status = IncubatorStatus.Active;
-        entity.Comp.CurrentlyIncubated = incuComp;
-        entity.Comp.FinishIncubation = incuComp.IncubationTime.Add(_time.CurTime);
+        _appearance.SetData(entity.Owner, IncubatorVisualizerLayers.Status, status);
     }
 
     /// <summary>
-    /// Handles updating our incubator whenever the egg is removed
-    /// This wipes the reference to the egg so the incubator isn't still trying to incubate even after it's gone
+    ///     Gets whether or not an egg incubator is currently capable of incubating.
     /// </summary>
-    /// <param name="entity">The incubator we're removing from</param>
-    /// <param name="args">Our arguments for the event</param>
-    private void OnEntityRemoved(Entity<EggIncubatorComponent> entity, ref EntRemovedFromContainerMessage args)
+    /// <param name="entity">The egg incubator.</param>
+    /// <returns>Whether or not the incubator is currently capable of incubating.</returns>
+    public bool IncubatorCanIncubate(Entity<EggIncubatorComponent?> entity)
     {
-        // We weren't even incubating so just ignore whatever is going on
-        if (entity.Comp.CurrentlyIncubated == null)
-            return;
+        if (!Resolve(entity.Owner, ref entity.Comp))
+            return false;
 
-        // Prevents us totally wiping the incubator if you swapped a new egg in
-        if(_justSwapped)
-        {
-            _justSwapped = false;
-            return;
-        }
-
-        _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Inactive);
-        entity.Comp.Status = IncubatorStatus.Inactive;
-        _containerSystem.RemoveEntity(entity, entity.Comp.CurrentlyIncubated.Owner);
-        entity.Comp.CurrentlyIncubated = null;
-        entity.Comp.FinishIncubation = TimeSpan.Zero;
+        return _powerSystem.IsPowered(entity.Owner);
     }
 
     /// <summary>
-    /// Handles hatching our egg once the time has passed and creating the new mob.
+    ///     Gets whether or not an egg incubator is currently holding anything.
     /// </summary>
-    /// <param name="entity">The incubator hatching our mob</param>
-    private void FinishIncubation(Entity<EggIncubatorComponent> entity)
+    /// <remarks>
+    ///     The contents may not necessarily be incubatable entities. It could hold a bunch of non-egg entities.
+    /// </remarks>
+    /// <param name="entity">The egg incubator.</param>
+    /// <returns>Whether or not an egg incubator is currently holding anything.</returns>
+    public bool IncubatorHasContents(Entity<EggIncubatorComponent?> entity)
     {
-        // Making sure we have a container. Should also never be false without admin shenanigans.
-        if (!TryComp<ItemSlotsComponent>(entity, out var container))
-            return;
+        // Not an incubator.
+        if (!Resolve(entity.Owner, ref entity.Comp, logMissing: false))
+            return false;
 
-        if (entity.Comp.CurrentlyIncubated == null)
-            return;
+        // Lacks an incubation container.
+        if (!_container.TryGetContainer(entity.Owner, entity.Comp.ContainerId, out var container))
+            return false;
 
-        var newMob = SpawnNewMob(entity, entity.Comp.CurrentlyIncubated.IncubatedResult);
-        var incubated = entity.Comp.CurrentlyIncubated.Owner;
-
-        _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Inactive);
-        entity.Comp.Status = IncubatorStatus.Inactive;
-
-        if (TryComp<InteractionPopupComponent>(newMob, out var interactionPopup))
-            Spawn(interactionPopup.InteractSuccessSpawn, _transform.GetMapCoordinates((EntityUid)newMob));
-
-        _containerSystem.RemoveEntity(entity, incubated);
-        _entManager.PredictedDeleteEntity(incubated);
+        // For shits and giggles, I'm gonna say "yes" if the incubation container contains anything -
+        // even if it's not an egg. Because how would it know, anyway?
+        return container.Count > 0;
     }
 
     /// <summary>
-    /// Handles spawning a new mob for us
+    ///     Gets whether or not an entity is actively being incubated.
     /// </summary>
-    /// <param name="entity">Entity calling the creation</param>
-    /// <param name="toSpawn">What entity will be spawned</param>
-    /// <returns>The ID of our new mob! Or nothing if for some reason it didn't spawn.</returns>
-    private EntityUid? SpawnNewMob(EntityUid entity, EntProtoId toSpawn)
+    /// <param name="uid">An entity to check for incubation.</param>
+    /// <returns>Whether or not the incubating entity is being incubated.</returns>
+    public bool IsBeingIncubated(EntityUid uid)
     {
-        var xform = Transform(entity);
+        var xform = Transform(uid);
 
-        var newMob = PredictedSpawnAtPosition(toSpawn, xform.Coordinates);
+        // Is this entity inside an active incubator?
+        if (_container.TryGetOuterContainer(uid, xform, out var container)
+            && IncubatorCanIncubate(container.Owner))
+            return true;
 
-        return newMob;
-    }
-
-    /// <summary>
-    /// Check if we're still powered and based on our activity, update the Incubators Status and visuals as needed
-    /// </summary>
-    /// <param name="entity">The incubator we're checking in on</param>
-    private void CheckPowerchanged(Entity<EggIncubatorComponent> entity)
-    {
-        var powered = _powerSystem.IsPowered(entity.Owner);
-
-        if (powered && entity.Comp.Status == IncubatorStatus.Inactive)
-        {
-            _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Active);
-            entity.Comp.Status = IncubatorStatus.Active;
-        }
-        else if (!powered && entity.Comp.Status == IncubatorStatus.Active)
-        {
-            _appearance.SetData(entity, IncubatorVisualizerLayers.Status, IncubatorStatus.Inactive);
-            entity.Comp.Status = IncubatorStatus.Inactive;
-        }
+        return false;
     }
 }
