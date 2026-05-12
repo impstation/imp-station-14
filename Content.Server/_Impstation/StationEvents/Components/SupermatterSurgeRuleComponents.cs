@@ -49,5 +49,5 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// Amount of explosive lightning strikes
     /// </summary>
     [DataField]
-    public int ZapCount = 2;
+    public int ZapCount = 1;
 }
