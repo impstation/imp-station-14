@@ -176,7 +176,7 @@ public sealed partial class AnimalHusbandrySystemImp : EntitySystem
     /// <returns>Whether or not there are too many breedable animals in the area to keep breeding.</returns>
     public bool AtBreedableCapacity(EntityUid uid)
     {
-        // Limit is 0 or 1 - that means we're always at capacity.
+        // Limit is 0 - that means we're always at capacity.
         if (MaxBreedableAnimalsCount == 0)
             return true;
 
