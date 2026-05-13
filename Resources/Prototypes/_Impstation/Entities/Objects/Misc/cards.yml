@@ -1431,10 +1431,11 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TriggerOnLand
-  - type: DeleteOnTrigger
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Magic/staff_change.ogg"
+    positional: true
+  - type: DeleteOnTrigger
 
 - type: entity
   parent: CardBaseTippyTrump
