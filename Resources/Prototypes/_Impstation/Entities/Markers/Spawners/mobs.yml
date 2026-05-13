@@ -270,3 +270,18 @@
     - MobCockroachJonnyNetworkConfig
     - MobCockroachJonnyPulser
     - MobCockroachJonnyWelder
+
+- type: entity
+  name: tck'ju'q'tp spawner
+  suffix: Decapoid Core
+  id: BorgSpawnerDecapoidCore
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - sprite: _Impstation/Mobs/Silicon/Bots/decacore.rsi
+          state: icon
+    - type: ConditionalSpawner
+      prototypes:
+        - DecapoidCore

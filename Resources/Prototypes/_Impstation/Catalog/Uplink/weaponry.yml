@@ -129,6 +129,20 @@
   - UplinkWeaponry
 
 - type: listing
+  id: uplinkGlykonBundle
+  name: uplink-glykon-name
+  description: uplink-glykon-desc
+  icon: { sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/glykon.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledGlykon
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 12
+  cost:
+    Telecrystal: 17
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: uplinkNemesisBR
   name: uplink-nemesis-br-name
   description: uplink-nemesis-br-desc
@@ -139,6 +153,20 @@
     Telecrystal: 13
   cost:
     Telecrystal: 18
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: uplinkAnankeBundle
+  name: uplink-ananke-name
+  description: uplink-ananke-desc
+  icon: { sprite: _Impstation/Objects/Weapons/Guns/FuelGuns/ananke.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledAnanke
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 17
+  cost:
+    Telecrystal: 20
   categories:
   - UplinkWeaponry
 

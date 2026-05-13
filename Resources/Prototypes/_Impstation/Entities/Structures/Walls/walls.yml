@@ -306,3 +306,95 @@
         state: full
       - sprite: Markers/cross.rsi
       - state: green
+
+- type: entity
+  parent: BaseWall
+  id: WallDecapoid
+  name: imperial wall
+  description: Keeps the ice out and the water in.
+  components:
+  - type: StaticPrice
+    price: 330
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/decawall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/decawall.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: walls
+    base: deca
+  - type: Appearance
+  - type: RadiationBlocker
+    resistance: 10
+  - type: Construction
+    graph: WallDecapoid
+    node: start
+
+- type: entity
+  parent: WallDiagonalBase
+  id: WallDecapoidDiagonal
+  name: imperial wall
+  description: Keeps the ice out and the water in.
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Impstation/Structures/Walls/decawall_diagonal.rsi
+    state: state0
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/decawall_diagonal.rsi
+    state: state0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: RadiationBlocker
+    resistance: 10
+  - type: Construction
+    graph: WallDecapoidDiagonal
+    node: start
+
