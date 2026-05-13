@@ -1432,6 +1432,9 @@
   components:
   - type: TriggerOnLand
   - type: DeleteOnTrigger
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Magic/staff_change.ogg"
 
 - type: entity
   parent: CardBaseTippyTrump
