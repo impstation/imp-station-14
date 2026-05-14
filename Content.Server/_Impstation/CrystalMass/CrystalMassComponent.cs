@@ -83,8 +83,6 @@ public sealed partial class CrystalMassComponent : Component
     [DataField]
     public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_EE/Supermatter/supermatter.ogg");
     [DataField]
-    public SoundSpecifier SpawningCrystalSound = new SoundPathSpecifier("/Audio/_Impstation/Supermatter/cracking_crystal.ogg");
-    [DataField]
     public EntProtoId CrystalMassPrototype = "CrystalMassSpreader";
     [DataField]
     public EntProtoId CrystalBulbPrototype = "CrystalBulbSpreader";

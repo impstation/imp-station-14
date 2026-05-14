@@ -113,6 +113,9 @@
       - state: crystal_cascade_6
         shader: unshaded
       drawdepth: FloorTiles
+    - type: CrystalMass
+      startupAppearance: false
+      isBulb: true
     - type: PointLight
       radius: 10
       energy: 2
@@ -134,6 +137,10 @@
       id: CrystalMass
     - type: SinguloFood
       energy: 200
+    - type: EmitSoundOnSpawn
+      sound:
+        path: /Audio/_Impstation/Supermatter/cracking_crystal.ogg
+      positional: true
 
 - type: entity
   parent: CrystalMassSpreader

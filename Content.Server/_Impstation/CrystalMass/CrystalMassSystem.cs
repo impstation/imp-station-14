@@ -114,9 +114,6 @@ public sealed class CrystalMassSystem : EntitySystem
         DebugTools.Assert(HasComp<ActiveEdgeSpreaderComponent>(neighborUid));
         DebugTools.Assert(Comp<EdgeSpreaderComponent>(neighborUid).Id == CrystalMassGroup);
 
-        if (!_robustRandom.Prob(comp.SpawningAudioChance))
-            _audio.PlayStatic(comp.SpawningCrystalSound, Filter.Pvs(neighborUid), neighborCoords, true, AudioParams.Default.WithVolume(60f));
-
         args.Updates--;
         if (args.Updates <= 0)
             return;
