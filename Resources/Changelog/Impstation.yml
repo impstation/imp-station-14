@@ -1,51 +1,4 @@
 ﻿Entries:
-- author: sowelipililimute
-  changes:
-  - message: Zombie infection mechanics have been overhauled! Chemistry lab exploded?
-      Try bloodletting like leeches are in style!
-    type: Add
-  - message: Currently metabolizing and recently metabolized medical reagents are
-      now indicated in the health analyzer
-    type: Add
-  - message: Patients with stopped hearts now have an examine message cueing others
-      in that they need CPR
-    type: Add
-  - message: The defibrillator will now announce if the patient's condition may cause
-      the heart to stop after defibrillation
-    type: Add
-  id: 2282
-  time: '2025-09-23T01:53:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3494
-- author: Banditoz
-  changes:
-  - message: You can now move while scanning somebody with the health analyzer.
-    type: Tweak
-  id: 2283
-  time: '2025-09-23T08:25:19.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3497
-- author: Kandiyaki
-  changes:
-  - message: heretics can now sacrifice critical-condition (gasping) bodies.
-    type: Tweak
-  id: 2284
-  time: '2025-09-23T08:33:05.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3488
-- author: msTheowo
-  changes:
-  - message: Colo cups, make them at the service techfab!
-    type: Add
-  - message: Grape juice now comes in Colo cups.
-    type: Tweak
-  id: 2285
-  time: '2025-09-23T16:14:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3471
-- author: widgetbeck
-  changes:
-  - message: Mindless Clones no longer use oldmed.
-    type: Fix
-  id: 2286
-  time: '2025-09-23T16:16:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3491
 - author: AvianMaiden
   changes:
   - message: Foam Force Astro Aces are no longer made with genuine shotgun parts but
@@ -4111,3 +4064,42 @@
   id: 2781
   time: '2026-04-28T19:28:18.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4264
+- author: Simul-ad-Astra
+  changes:
+  - message: NT's Branding & Marketing Division has designed a new bomber jacket for
+      the warden!
+    type: Add
+  id: 2782
+  time: '2026-04-30T00:32:05.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4302
+- author: portfiend
+  changes:
+  - message: Chocolate chips, cotton salad, spaghetti and meatballs, (spawned) slices
+      of coconut / coconest / vanilla cake, and a few other things should no longer
+      produce puddles when created.
+    type: Fix
+  id: 2783
+  time: '2026-04-30T23:00:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4202
+- author: salamanderskies
+  changes:
+  - message: Schooner fixes (see PR for details).
+    type: Fix
+  id: 2784
+  time: '2026-05-02T10:33:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4338
+- author: portfiend
+  changes:
+  - message: 'Hey I didn''t touch the loot tables at all but just so our contributors
+      know: per-department and per-job mail real'
+    type: Add
+  id: 2785
+  time: '2026-05-04T12:42:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4221
+- author: Soup4Food
+  changes:
+  - message: please work
+    type: Tweak
+  id: 2786
+  time: '2026-05-08T23:14:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4358
