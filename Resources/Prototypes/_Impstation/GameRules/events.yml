@@ -317,11 +317,10 @@
   components:
   - type: StationEvent
     weight: 3
-    duration: 1
     minimumPlayers: 25
     reoccurrenceDelay: 20
   - type: RandomSpawnEmptyTileRule
-    spawnedEntity: "LandmineOrDudSpawner50"
+    spawnedEntity: "LandmineOrDudRareGibSpawner"
     spawnEffect: "EffectDesynchronizerExit"
     minMaxEntities:
       min: 8

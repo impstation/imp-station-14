@@ -5,3 +5,11 @@
   components:
   - type: Explosive
     totalIntensity: 0
+
+- type: entity
+  parent: LandMineNonExplosive
+  id: LandMineGibbing
+  suffix: Gib
+  components:
+  - type: GibOnTrigger
+    targetUser: true

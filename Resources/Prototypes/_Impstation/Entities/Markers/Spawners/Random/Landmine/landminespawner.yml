@@ -118,3 +118,16 @@
     rareChance: 0.50
     prototypes:
     - LandMineExplosive
+
+- type: entity
+  parent: BaseLandmineSpawner
+  id: LandmineOrDudRareGibSpawner
+  name: Landmine or Dud Spawner 50% (0.5% for Gibbing Landmine)
+  components:
+  - type: RandomSpawner
+    rarePrototypes:
+    - LandMineGibbing
+    rareChance: 0.005
+    prototypes:
+    - LandMineExplosive
+    - LandMineNonExplosive
