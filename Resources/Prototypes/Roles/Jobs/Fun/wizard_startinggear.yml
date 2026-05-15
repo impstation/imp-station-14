@@ -5,7 +5,7 @@
     jumpsuit: ClothingUniformJumpsuitColorDarkBlue
     head: ClothingHeadHatWizard
     back: ClothingBackpack # Wizard backpack?
-    outerClothing: ClothingOuterWizard
+    outerClothing: ClothingOuterWizardarmored # imp edit, changed to armored
     shoes: ClothingShoesWizard
     id: WizardPDA
     ears: ClothingHeadsetAltWizard
@@ -18,8 +18,8 @@
   parent: WizardBlueGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorRed
-    head: ClothingHeadHatRedwizard
-    outerClothing: ClothingOuterWizardRed
+    head: ClothingHeadHatRedwizard 
+    outerClothing: ClothingOuterWizardRedarmored # imp edit, changed to armored
 
 - type: startingGear
   id: WizardVioletGear
@@ -27,7 +27,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorPurple
     head: ClothingHeadHatVioletwizard
-    outerClothing: ClothingOuterWizardViolet
+    outerClothing: ClothingOuterWizardVioletarmored # imp edit, changed to armored
 
 - type: chameleonOutfit
   id: WizardChameleonOutfit

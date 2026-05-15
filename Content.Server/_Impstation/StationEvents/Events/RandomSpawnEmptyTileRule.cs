@@ -34,6 +34,7 @@ public sealed class RandomSpawnEmptyTileRule : StationEventSystem<RandomSpawnEmp
     {
         base.Started(uid, component, gameRule, args);
 
+        var attempt = 0;
         var total = component.MinMaxEntities.Next(_random);
         for (var i = 0; i < total; i++)
         {
@@ -42,8 +43,9 @@ public sealed class RandomSpawnEmptyTileRule : StationEventSystem<RandomSpawnEmp
 
             // Ignore tiles with mobs or machines
             var entities = _lookup.GetLocalEntitiesIntersecting(grid, tileIndices, flags: LookupFlags.Dynamic | LookupFlags.Static);
-            if (entities.Count != 0)
+            if (entities.Count != 0 && attempt < 100) // If it fails that much just let it spawn
             {
+                attempt++;
                 i--;
                 continue;
             }

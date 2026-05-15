@@ -1611,7 +1611,8 @@
     speechSounds: Monkey
     speechVerb: Monkey
     allowedEmotes: ['Scream', 'Laugh'] #imp
-  - type: MonkeyAccent
+  - type: AdvancedFullReplacementAccent # imp
+    accent: monkey
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible
@@ -1660,7 +1661,8 @@
     speechSounds: Monkey
     speechVerb: Monkey
     allowedEmotes: ['Scream', 'Laugh'] #imp
-  - type: MonkeyAccent
+  - type: AdvancedFullReplacementAccent # imp
+    accent: monkey
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -1707,6 +1709,11 @@
   suffix: NukeOps
   components:
   - type: NukeOperative
+  - type: RandomMetadata # imp
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateMonkey
+    nameFormat: name-format-nukie-generic
 
 - type: entity
   name: kobold
@@ -3656,6 +3663,11 @@
   - type: ActiveRadio
     channels:
     - Syndicate
+  - type: RandomMetadata
+    nameSegments:
+    - NamesSyndicatePrefix
+    - NamesSyndicateCat
+    nameFormat: name-format-nukie-generic
   # imp edit end
 
 - type: entity
@@ -4051,6 +4063,20 @@
   - type: VentCrawler
     enterDelay: 1
   - type: AlwaysRevolutionaryConvertible
+  - type: SecretStash 
+    secretStashName: secret-stash-hamster
+    blacklist:
+      tags:
+      - QuantumSpinInverter # grinder problems
+    tryInsertItemSound: /Audio/Effects/Fluids/blood2.ogg
+    tryRemoveItemSound: /Audio/Effects/Fluids/blood1.ogg
+  - type: ToolOpenable
+    openToolQualityNeeded: Slicing
+    closeToolQualityNeeded: Welding
+    name: secret-stash-hamster
+  - type: ContainerContainer
+    containers:
+      stash: !type:ContainerSlot {}
   # imp edit end
 
 - type: entity

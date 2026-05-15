@@ -41,11 +41,11 @@ Exceptions to this are simple tools like Rider's single-line completion feature.
 
 1. Clone this repo:
 ```shell
-git clone https://github.com/space-wizards/space-station-14.git
+git clone https://github.com/impstation/imp-station-14.git
 ```
 2. Go to the project folder and run `RUN_THIS.py` to initialize the submodules and load the engine:
 ```shell
-cd space-station-14
+cd imp-station-14
 python RUN_THIS.py
 ```
 3. Compile the solution:
