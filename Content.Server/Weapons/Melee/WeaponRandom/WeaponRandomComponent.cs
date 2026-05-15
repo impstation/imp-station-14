@@ -17,7 +17,7 @@ internal sealed partial class WeaponRandomComponent : Component
     /// Chance for the damage bonus to occur (1 = 100%).
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float RandomDamageChance = 0.00001f;
+    public float RandomDamageChance = 0.00025f; // Imp, increased chance for damage
 
     /// <summary>
     /// Sound effect to play when the damage bonus occurs.

@@ -27,3 +27,9 @@
     damage: 5
   - type: Execution
     doAfterDuration: 3.0
+  # Imp start
+  - type: WeaponRandom
+    damageBonus:
+      types:
+        Piercing: 150
+  # Imp end
