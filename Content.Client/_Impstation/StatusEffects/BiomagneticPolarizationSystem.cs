@@ -102,9 +102,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         if (!_sprite.LayerMapTryGet((ent, sprite), BiomagneticPolarizationSignKey.Key, out var layer, false))
             return;
 
-        var comp = ent.Comp;
-
-        var scale = 8f + MathF.Log(1f + comp.CurrentStrength);
+        var scale = 8f + MathF.Log(1f + ent.Comp.CurrentStrength);
         var scaling = new Vector2(scale, scale);
 
         _sprite.LayerSetScale((ent, sprite), layer, scaling);
@@ -115,8 +113,8 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
 
         _sprite.LayerSetOffset((ent, sprite), layer, offset);
 
-        var color = comp.Polarization ? comp.NorthColor : comp.SouthColor;
-        var transparency = (float)Math.Min(0.15f + Math.Log(1 + comp.CurrentStrength) / 7.5f, 0.6f);
+        var color = ent.Comp.Polarization ? ent.Comp.NorthColor : ent.Comp.SouthColor;
+        var transparency = (float)Math.Min(0.15f + Math.Log(1 + ent.Comp.CurrentStrength) / 7.5f, 0.6f);
 
         _sprite.LayerSetColor((ent, sprite), layer, color.WithAlpha(transparency));
     }
