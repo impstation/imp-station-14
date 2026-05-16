@@ -115,7 +115,7 @@ public sealed class CrystalMassSystem : EntitySystem
         DebugTools.Assert(Comp<EdgeSpreaderComponent>(neighborUid).Id == CrystalMassGroup);
 
         if (!_robustRandom.Prob(comp.SpawningAudioChance))
-            _audio.PlayStatic(comp.SpawningCrystalSound, Filter.Pvs(neighborUid), neighborCoords, true, AudioParams.Default.WithVolume(60f));
+            _audio.PlayPvs(comp.SpawningCrystalSound, neighborCoords, AudioParams.Default.WithVolume(120f));
 
         args.Updates--;
         if (args.Updates <= 0)
@@ -179,7 +179,7 @@ public sealed class CrystalMassSystem : EntitySystem
                 || HasComp<ItemComponent>(target))
             {
                 var targetXform = Transform(target);
-                _audio.PlayStatic(ent.Comp.DustSound, Filter.Pvs(target), targetXform.Coordinates, true, AudioParams.Default.WithVolume(-2f));
+                _audio.PlayPvs(ent.Comp.DustSound, targetXform.Coordinates, AudioParams.Default.WithVolume(-2f));
             }
 
             EntityManager.QueueDeleteEntity(target);
@@ -192,7 +192,7 @@ public sealed class CrystalMassSystem : EntitySystem
             || HasComp<ItemComponent>(args.Tripper))
         {
             var xform = Transform(args.Tripper);
-            _audio.PlayStatic(ent.Comp.DustSound, Filter.Pvs(args.Tripper), xform.Coordinates, true, AudioParams.Default.WithVolume(-2f));
+            _audio.PlayPvs(ent.Comp.DustSound, xform.Coordinates, AudioParams.Default.WithVolume(-2f));
         }
 
         EntityManager.QueueDeleteEntity(args.Tripper);
