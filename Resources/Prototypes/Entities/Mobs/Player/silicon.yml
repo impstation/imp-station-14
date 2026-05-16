@@ -816,8 +816,8 @@
       - BorgModuleChemical
       - BorgModuleTopicals
       - BorgModuleRescue
-  - type: SolutionScanner
-  - type: ShowHealthBars
+  - type: SolutionScanner # imp edit
+  - type: ShowHealthBars # imp edit
   - type: ItemSlots
     slots:
       cell_slot:
