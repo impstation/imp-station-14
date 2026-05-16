@@ -735,8 +735,8 @@
       borg_brain:
         - PositronicBrain
       borg_module:
-        - BorgModuleAnomaly
-        - BorgModuleArtifact
+        - BorgModuleAnomaly # imp edit
+        - BorgModuleArtifact # imp edit
         - BorgModuleTool
         - BorgModuleFireExtinguisher
   - type: ItemSlots
