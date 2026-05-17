@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/17/2026 02:00:23
-  entityCount: 5896
+  time: 05/17/2026 02:21:16
+  entityCount: 5895
 maps:
 - 1
 grids:
@@ -34250,11 +34250,6 @@ entities:
       - - Security
 - proto: VendingMachineSeeds
   entities:
-  - uid: 3205
-    components:
-    - type: Transform
-      pos: 2.5,23.5
-      parent: 2
   - uid: 5582
     components:
     - type: Transform
