@@ -583,9 +583,11 @@
     state: shaker-empty
   - type: RefillableSolution
     solution: food
-  - type: Tag # imp
+  # imp start
+  - type: Tag
     tags:
     - Shaker
+  # imp end
 
 - type: entity
   parent: BaseFoodShaker
