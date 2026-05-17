@@ -129,7 +129,7 @@
 - type: entity
   id: BorgModuleDecapoidCore
   parent: [ BaseBorgModule, BaseProviderBorgModule, DecapoidEmpireContraband ]
-  name: tck'ju'q'tp handling module
+  name: tck'ju'q'tp operations module
   categories: [ DoNotMap ]
   components:
   - type: Sprite
@@ -140,6 +140,8 @@
     hands:
     - item: WeaponTetherGunDecapoidCore
     - item: DoorRemoteDecapoidCore
+    - item: CameraHandheldBorg
+    - item: RadioHandheld
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: tcktck-tools-module }
   - type: Tag
