@@ -101,8 +101,8 @@ public abstract partial class SharedStationAiSystem
         _adminLogger.Add(LogType.Action, $"{args.User} set electrified status on {ent} to [{args.Electrified}] using the Station AI radial.");
         _electrify.SetElectrified((ent, component), args.Electrified);
         var soundToPlay = component.Enabled
-            ? component.AirlockElectrifyEnabled
-            : component.AirlockElectrifyDisabled;
+            ? component.AirlockElectrifyDisabled
+            : component.AirlockElectrifyEnabled;
         _audio.PlayLocal(soundToPlay, ent, args.User);
     }
 }

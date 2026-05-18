@@ -4,7 +4,6 @@ using Content.Server.Humanoid;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
-using Content.Shared.Gibbing;
 using Content.Shared._Impstation.Heretic; // imp edit
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
@@ -22,7 +21,6 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
@@ -87,6 +85,6 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
-            _gibbing.Gib(ent);
+            _body.GibBody(ent);
     }
 }

@@ -65,3 +65,4 @@ public abstract class SharedReagentGrinderSystem : EntitySystem
         return ent.Comp.JuiceSolution is not null;
     }
 }
+

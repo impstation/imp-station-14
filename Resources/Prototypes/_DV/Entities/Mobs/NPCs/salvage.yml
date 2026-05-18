@@ -1,6 +1,6 @@
 - type: entity
   name: syndicate guard
-  parent: BaseMobMindlessClone # this is so it doesnt say it's catatonic :)
+  parent: BaseMobHuman
   id: MobRadioGuard
   description: "Product of Cybersun Cloning technology, this Syndicate puppet-guard is tasked with protecting the outpost. They will throw their life away to defend their objective."
   components:
@@ -13,6 +13,8 @@
       thresholds:
         0: Alive
         100: Dead #Tweak for "Acidify on Crit"
+    - type: MindContainer
+      showExamineInfo: False
     - type: Loadout
       prototypes:
         - RadioGuardGear

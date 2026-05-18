@@ -1,15 +1,21 @@
 - type: entity
-  id: BaseKodepiiaOrgan
-  parent: BaseHumanOrgan
+  id: BaseKodepiiaOrganUnGibbable
+  parent: BaseHumanOrganUnGibbable
   abstract: true
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Kodepiia/organs.rsi
 
+- type: entity
+  id: BaseKodepiiaOrgan
+  parent: BaseKodepiiaOrganUnGibbable
+  abstract: true
+  components:
+  - type: Gibbable
 
 - type: entity
   id: OrganKodepiiaBrain
-  parent: BaseKodepiiaOrgan
+  parent: BaseKodepiiaOrganUnGibbable
   name: bille áu sac
   description: "Allegedly still functioning."
   components:

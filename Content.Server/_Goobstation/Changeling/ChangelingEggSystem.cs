@@ -1,6 +1,5 @@
 using Content.Server.Body.Systems;
 using Content.Shared._Goobstation.Changeling;
-using Content.Shared.Gibbing;
 using Content.Shared.Mind;
 using Robust.Shared.Timing;
 
@@ -11,7 +10,6 @@ public sealed partial class GoobChangelingEggSystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     public override void Update(float frameTime)
     {
@@ -48,6 +46,6 @@ public sealed partial class GoobChangelingEggSystem : EntitySystem
 
         EntityManager.AddComponent(newUid, comp.lingStore);
 
-        _gibbing.Gib(uid);
+        _bodySystem.GibBody(uid);
     }
 }

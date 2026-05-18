@@ -17,9 +17,9 @@ namespace Content.Server.Maps;
 /// </summary>
 public sealed class MapMigrationSystem : EntitySystem
 {
-#if DEBUG
+#pragma warning disable CS0414
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
-#endif
+#pragma warning restore CS0414
     [Dependency] private readonly IResourceManager _resMan = default!;
 
     private static readonly string[] MigrationFiles = { "/migration.yml", "/migration_imp.yml" }; // Imp: use array of migration files

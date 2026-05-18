@@ -400,52 +400,110 @@
     deactivateSound: null
 
 - type: entity
-  parent: MarkerBase
-  id: ReagentSlimeSpawner
   name: Reagent Slime Spawner
+  id: ReagentSlimeSpawner
+  parent: MarkerBase
   components:
-  - type: Sprite
-    layers:
-      - state: red
-      - sprite: Mobs/Aliens/elemental.rsi
-        state: alive
-  - type: EntityTableSpawner
-    table: !type:GroupSelector
-      children:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Mobs/Aliens/elemental.rsi
+          state: alive
+    - type: SpawnEntrySpawner #IMP: Change to spawner that uses more complex probabilities
+      spawns:
       - id: ReagentSlime
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeBeer
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimePax
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeNocturine
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeTHC
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeBicaridine
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeToxin
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeNapalm
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeOmnizine
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeMuteToxin
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeNorepinephricAcid
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeEphedrine
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeRobustHarvest
-      # imp edit start, more reagent slimes
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeTestosterone
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeEstradiol
-      - id: ReagentSlimePhlogiston
-      - id: ReagentSlimeLicoxide
-      - id: ReagentSlimeMindbreakerToxin
-      - id: ReagentSlimeDesoxyephedrine
-      - id: ReagentSlimeLexorin
-      - id: ReagentSlimeHorsepussy
-      - id: ReagentSlimeCogChamp
-      - id: ReagentSlimeDrGibb
-      - id: ReagentSlimeBrosochloricBros
-      - id: ReagentSlimeJuiceThatMakesYouWeh
-      - id: ReagentSlimeChlorineTrifluoride
-      - id: ReagentSlimeHonk
-      - id: ReagentSlimeIpecac
-      - id: ReagentSlimeJuiceThatMakesYouUngh
-      - id: ReagentSlimeCoffee
+        prob: 1
+        orGroup: ReagentSlimes
       - id: ReagentSlimeRomerol
-        weight: 0.5
-      # imp edit end
+        prob: 0.5
+        orGroup: ReagentSlimes
+      - id: ReagentSlimePhlogiston
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeLicoxide
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeMindbreakerToxin
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeDesoxyephedrine
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeLexorin
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeHorsepussy
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeCogChamp
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeDrGibb
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeBrosochloricBros
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeJuiceThatMakesYouWeh
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeChlorineTrifluoride
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeHonk
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeIpecac
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeJuiceThatMakesYouUngh
+        prob: 1
+        orGroup: ReagentSlimes
+      - id: ReagentSlimeCoffee
+        prob: 1
+        orGroup: ReagentSlimes
 
 - type: entity
   id: ReagentSlimeBeer

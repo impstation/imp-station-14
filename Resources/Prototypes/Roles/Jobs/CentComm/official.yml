@@ -1,10 +1,10 @@
 - type: job
   id: CentralCommandOfficial
-  name: job-name-centcommoff
-  description: job-description-centcommoff
+  name: job-name-centcomoff
+  description: job-description-centcomoff
   playTimeTracker: JobCentralCommandOfficial
   setPreference: false
-  startingGear: CentcommGear
+  startingGear: CentcomGear
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-hos
   canBeAntag: false
@@ -20,7 +20,7 @@
     time: 6h
 
 - type: startingGear
-  id: CentcommGear
+  id: CentcomGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomOfficial
     shoes: ClothingShoesBootsCombatFilled

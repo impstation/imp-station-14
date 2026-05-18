@@ -26,7 +26,7 @@
     tags:
     - Chapel
   - type: MindContainer
-  - type: MindExaminable
+    showExamineInfo: true
   - type: NpcFactionMember
     factions:
     - PetsNT
@@ -87,7 +87,7 @@
     tags:
     - Chapel
   - type: MindContainer
-  - type: MindExaminable
+    showExamineInfo: true
   - type: Familiar
   - type: Vocal
     sounds:

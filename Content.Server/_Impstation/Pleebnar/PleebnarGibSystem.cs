@@ -4,7 +4,6 @@ using Content.Shared._Impstation.Pleebnar;
 using Content.Shared._Impstation.Pleebnar.Components;
 using Content.Shared.Body.Components;
 using Content.Shared.DoAfter;
-using Content.Shared.Gibbing;
 using Content.Shared.Popups;
 
 namespace Content.Server._Impstation.Pleebnar;
@@ -16,7 +15,6 @@ public sealed class PleebnarGibSystem : SharedPleebnarGibSystem
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
     //init function
     public override void Initialize()
     {
@@ -58,13 +56,13 @@ public sealed class PleebnarGibSystem : SharedPleebnarGibSystem
         {
             if (gibbable != null && gibbable.Mindshield)//if it is protected gib the user instead
             {
-                _gibbing.Gib(ent);
+                _body.GibBody(ent, true);
                 return;
             }
         }
 
 
-        _gibbing.Gib((EntityUid)args.Target);
+        _body.GibBody((EntityUid)args.Target,true);
     }
 
 }

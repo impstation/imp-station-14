@@ -58,11 +58,11 @@ namespace Content.Shared.Construction
             }
         }
 
-        public bool TryGetMachineBoardMaterialCost(Entity<MachineBoardComponent> entity, out Dictionary<string, int> materials, int coefficient = 1)
+        public Dictionary<string, int> GetMachineBoardMaterialCost(Entity<MachineBoardComponent> entity, int coefficient = 1)
         {
             var (_, comp) = entity;
 
-            materials = new Dictionary<string, int>();
+            var materials = new Dictionary<string, int>();
 
             foreach (var (stackId, amount) in comp.StackRequirements)
             {
@@ -89,14 +89,9 @@ namespace Content.Shared.Construction
                         materials[mat] += matAmount * amount * coefficient;
                     }
                 }
-                else
-                {
-                    // The item has no material cost, so we cannot get the full cost.
-                    return false;
-                }
             }
 
-            var genericPartInfo = comp.ComponentRequirements.Values.Concat(comp.TagRequirements.Values);
+            var genericPartInfo = comp.ComponentRequirements.Values.Concat(comp.ComponentRequirements.Values);
             foreach (var info in genericPartInfo)
             {
                 var amount = info.Amount;
@@ -123,15 +118,9 @@ namespace Content.Shared.Construction
                         materials[mat] += matAmount * amount * coefficient;
                     }
                 }
-                else
-                {
-                    // The item has no material cost, so we cannot get the full cost.
-                    return false;
-                }
             }
 
-            // We were able to construct all elements of the recipe.
-            return true;
+            return materials;
         }
     }
 }

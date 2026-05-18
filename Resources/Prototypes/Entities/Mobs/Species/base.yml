@@ -172,7 +172,7 @@
   - type: Crawler
   - type: Dna
   - type: MindContainer
-  - type: MindExaminable
+    showExamineInfo: true
   - type: CanEnterCryostorage
   - type: InteractionPopup
     successChance: 1

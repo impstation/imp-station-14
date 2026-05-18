@@ -112,7 +112,6 @@
   wires:
   - !type:PowerWireAction
   - !type:AiVisionWireAction
-  - !type:CameraMapVisibilityWireAction
 
 - type: wireLayout
   id: CryoPod

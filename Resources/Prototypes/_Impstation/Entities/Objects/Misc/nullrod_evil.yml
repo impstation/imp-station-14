@@ -40,7 +40,7 @@
         map: [ "enum.SolutionContainerLayers.Fill" ]
         visible: false
   - type: ReactionMixer
-    mixerType: None
+    mixOnInteract: false
     reactionTypes:
     - GildgrailEvil
     - Shake

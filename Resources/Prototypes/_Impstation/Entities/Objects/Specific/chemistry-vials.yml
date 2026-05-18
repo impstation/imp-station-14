@@ -1,7 +1,7 @@
 - type: entity
   id: SubjuzineChemistryVial
   name: subjuzine vial
-  parent: ChemistryEmptyVial
+  parent: BaseChemistryEmptyVial
   components:
     - type: SolutionContainerManager
       solutions:

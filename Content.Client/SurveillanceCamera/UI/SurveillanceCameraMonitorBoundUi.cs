@@ -34,17 +34,11 @@ public sealed class SurveillanceCameraMonitorBoundUserInterface : BoundUserInter
         _window.SubnetRefresh += OnSubnetRefresh;
         _window.CameraSwitchTimer += OnCameraSwitchTimer;
         _window.CameraDisconnect += OnCameraDisconnect;
-
-        var xform = EntMan.GetComponent<TransformComponent>(Owner);
-        var gridUid = xform.GridUid ?? xform.MapUid;
-
-        if (gridUid is not null)
-            _window?.SetMap(gridUid.Value);
     }
 
-    private void OnCameraSelected(string address, string? subnet)
+    private void OnCameraSelected(string address)
     {
-        SendMessage(new SurveillanceCameraMonitorSwitchMessage(address, subnet));
+        SendMessage(new SurveillanceCameraMonitorSwitchMessage(address));
     }
 
     private void OnSubnetRequest(string subnet)
