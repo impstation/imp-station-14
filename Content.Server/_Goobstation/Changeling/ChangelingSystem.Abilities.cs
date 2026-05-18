@@ -3,6 +3,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.Gibbing;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Store;
@@ -35,6 +36,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     [Dependency] private readonly SharedRottingSystem _rotting = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // imp
 
     public void SubscribeAbilities()
@@ -551,7 +553,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
 
         PlayMeatySound(uid, comp);
 
-        _bodySystem.GibBody(uid);
+        _gibbing.Gib(uid);
     }
 
     #endregion
