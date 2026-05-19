@@ -16,6 +16,8 @@ public sealed class HungerThirstTest : InteractionTest
     private readonly EntProtoId _food = "FoodCakeVanillaSlice";
     protected override string PlayerPrototype => "MobHuman";
 
+    private const int MaximumIngestTimes = 5; // IMP: It should not take this many bites to eat the test food.
+
     /// <summary>
     /// Tests that hunger and thirst values decrease over time (low means hungrier and thirstier).
     /// Tests that hunger and thirst values increase when eating/drinking (high means less hungry and thirsty).
@@ -55,20 +57,8 @@ public sealed class HungerThirstTest : InteractionTest
         // Now we spawn food in the Urist's hand
         await PlaceInHands(_food);
 
-        // We eat the food in hand
-        await UseInHand();
-
-        // IMP START: we removed eating doafter auto-looping so you have to eat it more to actually delete it. sorry
-        var fullyEaten = false;
-        while (fullyEaten == false)
-        {
-            await AwaitDoAfters();
-            await UseInHand();
-
-            if (HandSys.GetActiveItem((SPlayer, Hands)) != null)
-                fullyEaten = true;
-        }
-        // IMP END
+        // IMP: we removed eating doafter auto-looping so you have to eat it more to actually delete it. sorry
+        await IngestFully();
 
         // To see a change in hunger, we need to wait at least 30 seconds
         await RunSeconds(30);
@@ -106,4 +96,26 @@ public sealed class HungerThirstTest : InteractionTest
         var glass = HandSys.GetActiveItem((SPlayer, Hands));
         Assert.That(glass, Is.Not.Null, "Glass got deleted after drinking from it");
     }
+
+    // IMP start: Loop to fully consume the food item, because we have disabled auto-looping ingestion
+    private async Task IngestFully()
+    {
+        var bites = 0;
+        while (bites < MaximumIngestTimes)
+        {
+            if (HandSys.GetActiveItem((SPlayer, Hands)) == null)
+            {
+                Assert.That(bites, Is.GreaterThan(0), $"Entity took {bites} bites to finish: {_food}");
+                return;
+            }
+
+            bites++;
+            Assert.That(bites, Is.LessThanOrEqualTo(MaximumIngestTimes),
+                $"Entity took too many bites to finish: {_food} (count: {bites})");
+
+            await UseInHand();
+            await AwaitDoAfters();
+        }
+    }
+    // IMP end
 }
