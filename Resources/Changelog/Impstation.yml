@@ -1,51 +1,4 @@
 ﻿Entries:
-- author: TheGrimbeeper
-  changes:
-  - message: Xenoarch - tweak expression trigger range
-    type: Tweak
-  - message: Xenoarch - fix a missing hint
-    type: Fix
-  - message: Xenoarch - fix artifacts not going through their own portals
-    type: Fix
-  - message: Xenoarch - fix teleporting artifacts not saying goodbye to the artifact
-      analyzer
-    type: Fix
-  - message: Xenoarch - fix natural artifacts ignoring artifexium
-    type: Fix
-  id: 2296
-  time: '2025-09-27T11:48:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3415
-- author: 12rabbits
-  changes:
-  - message: The courier module now has a hand for picking up paper and mail.
-    type: Add
-  - message: Cargo cyborgs now start with a tools module like all other cyborgs.
-    type: Tweak
-  id: 2297
-  time: '2025-09-28T10:31:20.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3517
-- author: entings
-  changes:
-  - message: 'Alert: Wild boar have been found infesting the station''s ventilation
-      systems.'
-    type: Add
-  id: 2298
-  time: '2025-09-28T22:46:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3478
-- author: honeyed-lemons
-  changes:
-  - message: Heretics can now make ghouls again.. Huzzah!
-    type: Fix
-  id: 2299
-  time: '2025-09-28T22:47:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3519
-- author: hivehum
-  changes:
-  - message: Poly's name is spelled correctly.
-    type: Fix
-  id: 2300
-  time: '2025-09-29T00:53:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3521
 - author: DVDPlayerOfDiscordFame
   changes:
   - message: A number of weapon sprites have been changed. See the PR for specifics.
@@ -4104,3 +4057,56 @@
   id: 2795
   time: '2026-05-17T02:57:15.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4371
+- author: VeeNomine
+  changes:
+  - message: Added chef module.
+    type: Add
+  - message: Removed the now depreciated bartending module. Please use the service
+      module that upstream gave us.
+    type: Remove
+  - message: Consolidated the harvest and gardening modules.
+    type: Tweak
+  id: 2796
+  time: '2026-05-17T05:22:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4349
+- author: DinnerCalzone
+  changes:
+  - message: A new upstream merge has happened, but we're not completely up to date
+      yet. Check changelog for details.
+    type: Add
+  - message: The price of frezon has been halved to match the buff to its production
+      rate.
+    type: Tweak
+  - message: Tile stacking isn't real yet. Sorry.
+    type: Remove
+  id: 2797
+  time: '2026-05-17T03:51:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4258
+- author: VeeNomine
+  changes:
+  - message: Added magboots to derelict mining borg
+    type: Add
+  - message: Added solution and health scanning to derelict medical borg
+    type: Add
+  - message: Changed the derelict generic borg to the derelict science borg
+    type: Tweak
+  id: 2798
+  time: '2026-05-17T05:26:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4350
+- author: msTheowo
+  changes:
+  - message: Syndicate uplinks have received a new coat of paint.
+    type: Tweak
+  id: 2799
+  time: '2026-05-17T05:43:07.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4362
+- author: kipdotnet
+  changes:
+  - message: Trawler has been updated for playtesting again!
+    type: Tweak
+  - message: Fixed the "mutters" emote being whitelisted wrong. it should now be for
+      silicons only as it was intended to be.
+    type: Fix
+  id: 2800
+  time: '2026-05-18T10:43:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4378
