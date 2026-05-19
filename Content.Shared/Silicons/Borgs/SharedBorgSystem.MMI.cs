@@ -53,23 +53,8 @@ public abstract partial class SharedBorgSystem
         if (HasComp<UnborgableComponent>(brain)) // imp add
             return;
 
-
-        //IMP EDIT: keep the pronouns of the brain inserted
-        var grammar = EnsureComp<GrammarComponent>(ent);
-        if (TryComp<GrammarComponent>(brain, out var formerSelf))
-        {
-            _grammar.SetGender((ent, grammar), formerSelf.Gender);
-            //man-machine interface is not a proper noun, so i'm not setting proper here
-        }
-        //END IMP EDIT
-
-        if (_mind.TryGetMind(brain, out var mindId, out var mindComp))
-        {
-            _mind.TransferTo(mindId, ent.Owner, true, mind: mindComp);
-
-            if (!_roles.MindHasRole<SiliconBrainRoleComponent>(mindId))
-                _roles.MindAddRole(mindId, SiliconBrainRole, silent: true);
-        }
+        var successEvent = new MMIInsertionSuccessEvent(ent, brain);
+        RaiseLocalEvent(ent, successEvent);
 
         _appearance.SetData(ent.Owner, MMIVisuals.BrainPresent, true);
     }
@@ -126,5 +111,16 @@ public abstract partial class SharedBorgSystem
             }
         }
         EntityManager.PredictedQueueDeleteEntity(brain);
+    }
+}
+
+// imp add
+public sealed class MMIInsertionSuccessEvent : CancellableEntityEventArgs
+{
+    public EntityUid BrainInserted;
+
+    public MMIInsertionSuccessEvent(Entity<MMIComponent> mmi, EntityUid brainInserted)
+    {
+        BrainInserted = brainInserted;
     }
 }
