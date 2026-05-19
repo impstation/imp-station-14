@@ -120,6 +120,13 @@
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container
+  # Imp start
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 150
+    damageChance: 0.001
+  # Imp end
 
 - type: entity
   parent: RevolverCapGun
