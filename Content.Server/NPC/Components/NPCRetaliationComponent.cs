@@ -21,4 +21,11 @@ public sealed partial class NPCRetaliationComponent : Component
     /// todo: this needs to support timeoffsetserializer at some point
     [DataField("attackMemories")]
     public Dictionary<EntityUid, TimeSpan> AttackMemories = new();
+
+    /// <summary>
+    /// Imp.
+    /// Whether the NPC should be able to aggro from any interaction with it.
+    /// </summary>
+    [DataField]
+    public bool AnyInteraction = false;
 }
