@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: [ BaseItem, BaseXenoArtifactItem ]
+  parent: NaturalXenoArtifactItem
   id: EvilSkullArtifactItem
   name: evil skull
   suffix: Hummingbird thief objective
@@ -17,7 +17,6 @@
       map: [ "enum.ArtifactsVisualLayers.ActivationEffect" ]
       visible: false
   - type: Item
-    size: Normal
     sprite: _Impstation/Objects/Specific/Xenoarchaeology/skull_artifact.rsi
   - type: RandomArtifactSprite
     maxSprite: 1
@@ -52,8 +51,6 @@
     radius: 1.3
   - type: StealTarget
     stealGroup: EvilSkullArtifactItem
-  - type: Physics
-    bodyType: KinematicController
 
 - type: entity
   parent: [BaseReticulatedXenoArtifact, BaseXenoArtifactItem]

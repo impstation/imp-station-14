@@ -1,0 +1,57 @@
+﻿- type: entity
+  parent: [BaseWrappedParcel, BaseStructureDynamic]
+  id: WrappedParcelCrate
+  name: wrapped crate
+  description: A crate wrapped up in paper.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Impstation/Objects/Misc/ParcelWrap/wrapped_parcel.rsi
+    layers:
+    - state: crate
+    - state: paper
+      sprite: Structures/Storage/Crates/labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+      offset: 0.0, -0.0625
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 50
+        mask:
+        - CrateMask #this is so they can go under plastic flaps
+        layer:
+        - MachineLayer
+  - type: AcousticData # VDS
+    absorption: 10
+
+- type: entity
+  parent: [BaseWrappedParcel, BaseStructureDynamic]
+  id: WrappedParcelLocker
+  name: wrapped locker
+  description: A locker wrapped up in paper.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Impstation/Objects/Misc/ParcelWrap/wrapped_parcel.rsi
+    layers:
+    - state: locker
+    - state: paper
+      visible: false
+      sprite: Structures/Storage/closet_labels.rsi
+      map: [ "enum.PaperLabelVisuals.Layer" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        density: 75
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: AcousticData # VDS
+    absorption: 15

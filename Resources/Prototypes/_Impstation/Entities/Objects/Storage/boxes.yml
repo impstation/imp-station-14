@@ -1,0 +1,24 @@
+﻿- type: entity
+  parent: BoxBase
+  id: BoxInvisible
+  name: invisible box
+  description: Unfortunately not large enough to trap the mime.
+  components:
+  - type: Sprite
+    state: box
+  - type: StaticPrice
+    price: 0
+  - type: Stealth
+    useAltShader: true
+    lastVisibility: -1
+  - type: TimedDespawn
+    lifetime: 50
+  - type: EmptyContainerOnTimedDespawn
+    containerId: storagebase
+  - type: Storage
+    storageInsertSound: null
+    storageOpenSound: null
+  - type: EmitSoundOnCollide
+    sound: null
+  - type: EmitSoundOnLand
+    sound: null
