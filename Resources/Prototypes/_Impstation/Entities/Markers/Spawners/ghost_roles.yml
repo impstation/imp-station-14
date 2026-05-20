@@ -91,3 +91,23 @@
       state: green
     - sprite: Mobs/Aliens/paradox_clone.rsi
       state: preview
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointJuniorLoneNukeOperative
+  components:
+  - type: GhostRole
+    name: ghost-role-information-loneop-junior-name
+    description: ghost-role-information-loneop-junior-description
+    rules: ghost-role-information-loneop-junior-rules
+    mindRoles:
+    - MindRoleJuniorLoneOperative
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+    - state: green
+    - sprite: Structures/Wallmounts/signs.rsi
+      state: radiation
+  - type: GhostRoleRandomHumanoidSpawner
+    settings: SyndicateJuniorLoneOperative
