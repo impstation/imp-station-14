@@ -11,10 +11,10 @@
 
 - type: antag
   id: NukeopsLoneJunior
-  name: ghost-role-information-loneop-name
+  name: ghost-role-information-loneop-junior-name
   antagonist: true
   playTimeTracker: AntagJuniorLoneOperative
-  objective: ghost-role-information-loneop-description
+  objective: ghost-role-information-loneop-junior-description
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 5h

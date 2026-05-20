@@ -13,21 +13,3 @@
 - type: randomHumanoidSettings
   id: Naked
   parent: EventHumanoid
-
-- type: randomHumanoidSettings
-  parent: SyndicateAgent
-  id: SyndicateJuniorLoneOperative
-  components:
-  - type: Loadout
-    prototypes: [ SyndicateJuniorLoneOperativeGear ]
-    roleLoadout: [ RoleSurvivalNukie ]
-  - type: NukeOperative
-  - type: RandomMetadata
-    nameSegments:
-    - NamesSyndicatePrefixJunior
-    - NamesSyndicatePrefix
-    - NamesSyndicateJunior
-    nameFormat: name-format-nukie-junior
-  - type: NpcFactionMember
-    factions:
-    - Syndicate
