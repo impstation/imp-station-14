@@ -24116,28 +24116,6 @@ entities:
     - type: Transform
       pos: -40.50334,-38.27384
       parent: 2
-- proto: BorgModuleBartender
-  entities:
-  - uid: 1555
-    components:
-    - type: Transform
-      pos: 35.514076,57.575523
-      parent: 2
-  - uid: 1562
-    components:
-    - type: Transform
-      pos: 22.579641,66.59777
-      parent: 2
-  - uid: 33132
-    components:
-    - type: Transform
-      pos: 48.433525,46.53673
-      parent: 2
-  - uid: 33243
-    components:
-    - type: Transform
-      pos: 48.51378,51.07691
-      parent: 2
 - proto: BorgModuleCable
   entities:
   - uid: 1556

@@ -1,6 +1,6 @@
 - type: entity
   name: Foam Force Astro Ace
-  parent: BaseWeaponInternalRifle
+  parent: [ BaseWeaponInternalRifle, BaseToyGun ]
   id: WeaponRifleFoam
   description: A premium foam rifle of the highest quality. Its plastic feels rugged, and its mechanisms sturdy. The body crackles when you squeeze too tightly.
   components:

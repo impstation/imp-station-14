@@ -1,8 +1,8 @@
 - type: entity
   id: WindowDecapoid
   name: imperial window
-  parent: [BaseDeltaPressureReinforcedGlass, WindowRCDResistant]
-  description: gaze upon our domain, q'trp'j.
+  parent: [BaseDeltaPressureReinforcedGlass, Window]
+  description: Gaze upon our domain, q'trp'j. Weld to deconstruct.
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -57,3 +57,7 @@
     node: start
   - type: RadiationBlocker
     resistance: 10
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 6
+    fx: EffectRCDDeconstruct6

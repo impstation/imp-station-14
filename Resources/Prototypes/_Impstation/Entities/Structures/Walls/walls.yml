@@ -311,7 +311,7 @@
   parent: BaseWall
   id: WallDecapoid
   name: imperial wall
-  description: Keeps the ice out and the water in.
+  description: Keeps the ice out and the water in. Weld to deconstruct.
   components:
   - type: StaticPrice
     price: 330
@@ -353,12 +353,16 @@
   - type: Construction
     graph: WallDecapoid
     node: start
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 6
+    fx: EffectRCDDeconstruct6
 
 - type: entity
   parent: WallDiagonalBase
   id: WallDecapoidDiagonal
   name: imperial wall
-  description: Keeps the ice out and the water in.
+  description: Keeps the ice out and the water in. Weld to deconstruct.
   components:
   - type: Sprite
     drawdepth: Walls
@@ -397,4 +401,8 @@
   - type: Construction
     graph: WallDecapoidDiagonal
     node: start
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 6
+    fx: EffectRCDDeconstruct6
 

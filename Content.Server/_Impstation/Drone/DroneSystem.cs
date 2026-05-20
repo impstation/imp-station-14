@@ -9,6 +9,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
+using Content.Shared.Gibbing;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind.Components;
@@ -31,6 +32,7 @@ namespace Content.Server._Impstation.Drone
     {
         [Dependency] private readonly AlertsSystem _alerts = default!;
         [Dependency] private readonly BodySystem _bodySystem = default!;
+        [Dependency] private readonly GibbingSystem _gibbing = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
@@ -118,8 +120,7 @@ namespace Content.Server._Impstation.Drone
                 if (TryComp<InnateToolComponent>(uid, out var innate))
                     _innateToolSystem.Cleanup(uid, innate);
 
-                if (TryComp<BodyComponent>(uid, out var body))
-                    _bodySystem.GibBody(uid, body: body);
+                _gibbing.Gib(uid);
                 QueueDel(uid);
             }
         }

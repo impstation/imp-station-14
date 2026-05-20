@@ -11,6 +11,7 @@ using Content.Shared.Bed.Cryostorage;
 using Content.Shared.Body.Systems;
 using Content.Shared.Cloning;
 using Content.Shared.Examine;
+using Content.Shared.Gibbing;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Heretic;
@@ -58,6 +59,7 @@ public sealed class HellWorldSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedJointSystem _jointSystem = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml");
     private readonly ProtoId<CloningSettingsPrototype> _cloneSettings = "HellClone";
@@ -107,7 +109,7 @@ public sealed class HellWorldSystem : EntitySystem
 
         //gib clone to get matching organs.
         if (clone != null)
-            _body.GibBody(clone.Value, true);
+            _gibbing.Gib(clone.Value);
 
         //teleport the body to a midround antag spawn spot so it's not just tossed into space
         TeleportToHereticSpawnPoint(uid);
@@ -143,7 +145,7 @@ public sealed class HellWorldSystem : EntitySystem
         var mindComp = Comp<MindComponent>(inHell.Mind.Value);
         mindComp.PreventGhosting = true;
 
-        //make clone 
+        //make clone
         _cloning.TryCloning(uid, _xform.GetMapCoordinates(newSpawn.Uid), _cloneSettings, out var clone); //RIP SacrifialWhiteBoy variable name
 
         if (TryComp<BlindableComponent>(clone, out _))

@@ -11,7 +11,6 @@ construction-graph-tag-captains-eyepatch = the captain's eyepatch
 construction-graph-tag-captains-visor = the captain's visor
 
 # bureaucracy
-construction-graph-tag-paper = a sheet of paper
 construction-graph-tag-pen = pen
 
 # structures
