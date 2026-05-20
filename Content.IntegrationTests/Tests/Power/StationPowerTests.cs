@@ -53,6 +53,7 @@ public sealed class StationPowerTests
         "ElkridgeImp",
         "GateImp",
         "Hummingbird",
+        "Jellyfish",
         "Lilboat",
         "MarathonImp",
         "OasisImp",

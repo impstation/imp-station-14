@@ -1,50 +1,4 @@
 ﻿Entries:
-- author: hivehum
-  changes:
-  - message: Poly's name is spelled correctly.
-    type: Fix
-  id: 2300
-  time: '2025-09-29T00:53:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3521
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: A number of weapon sprites have been changed. See the PR for specifics.
-    type: Tweak
-  id: 2301
-  time: '2025-10-01T22:03:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3525
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: Hydra's rate of fire and pellet spread reverted
-    type: Tweak
-  id: 2302
-  time: '2025-10-02T19:59:59.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3527
-- author: Tox3ct
-  changes:
-  - message: Recent Nanotrasen antibiotic manufacturing has been proven less effective
-      in treating parasitic pathogens. Ambuzol now requires Phalanximine as a replacement
-      to Dylovene.
-    type: Tweak
-  id: 2303
-  time: '2025-10-03T01:34:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3513
-- author: msTheowo
-  changes:
-  - message: Strong prescription lenses will definitely always spawn now. If they're
-      not in your eyes, in your glasses, or in your hands, they're on the floor!
-    type: Fix
-  id: 2304
-  time: '2025-10-03T20:28:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3505
-- author: starlighthowls
-  changes:
-  - message: Ungu are now starting to be employed in the IMP sector, please give them
-      a warm welcome! :8)
-    type: Add
-  id: 2305
-  time: '2025-10-03T20:32:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3405
 - author: ultramario1998
   changes:
   - message: Bluespace lockers' destinations are now randomized.
@@ -4107,3 +4061,51 @@
   id: 2799
   time: '2026-05-17T05:43:07.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4362
+- author: kipdotnet
+  changes:
+  - message: Trawler has been updated for playtesting again!
+    type: Tweak
+  - message: Fixed the "mutters" emote being whitelisted wrong. it should now be for
+      silicons only as it was intended to be.
+    type: Fix
+  id: 2800
+  time: '2026-05-18T10:43:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4378
+- author: whythelettuce
+  changes:
+  - message: Grammar/Punctuation fixes for Pleebnar Visions.
+    type: Tweak
+  id: 2801
+  time: '2026-05-19T07:31:11.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4377
+- author: mkanke, Tea
+  changes:
+  - message: Folding chair can now be wielded for extra damage. Go live out your WWE
+      dreams!
+    type: Tweak
+  id: 2802
+  time: '2026-05-19T07:59:30.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4372
+- author: kipdotnet
+  changes:
+  - message: Trawler is now in rotation for minpop.
+    type: Add
+  id: 2803
+  time: '2026-05-20T05:50:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4382
+- author: whythelettuce
+  changes:
+  - message: 'Added new lowpop station for playtesting: Jellyfish!'
+    type: Add
+  id: 2804
+  time: '2026-05-20T06:38:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4368
+- author: DinnerCalzone
+  changes:
+  - message: Marathon, Plasma, and Train now have a lawvend mapped in their AI core.
+    type: Add
+  - message: Plasma now has one Service Attendant slot enabled on it.
+    type: Add
+  id: 2805
+  time: '2026-05-20T08:21:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4381
