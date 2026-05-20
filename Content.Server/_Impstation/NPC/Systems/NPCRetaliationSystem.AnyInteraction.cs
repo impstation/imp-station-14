@@ -8,7 +8,7 @@ using Content.Shared.Pointing;
 namespace Content.Server.NPC.Systems;
 
 /// <summary>
-///     Handles NPC which become aggressive after being attacked.
+///     Handles NPC which become aggressive after being interacted with.
 /// </summary>
 public sealed partial class NPCRetaliationSystem
 {
