@@ -7,6 +7,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Network;
+using Content.Shared.Storage.Components; // imp
 
 namespace Content.Shared.ParcelWrap.Systems;
 
@@ -46,6 +47,16 @@ public sealed partial class ParcelWrappingSystem : EntitySystem
     /// <returns>True if <paramref name="wrapper"/> can be used to wrap <paramref name="target"/>, false otherwise.</returns>
     public bool IsWrappable(Entity<ParcelWrapComponent> wrapper, EntityUid target)
     {
+        // imp edit start, make sure that if the targeted entity has EntityStorageComponent, it's closed
+        if (TryComp<EntityStorageComponent>(target, out var entityStorage))
+        {
+            if (entityStorage.Open)
+            {
+                return false;
+            }
+        }
+        // imp edit end
+
         return
             // Wrapping cannot wrap itself
             wrapper.Owner != target &&

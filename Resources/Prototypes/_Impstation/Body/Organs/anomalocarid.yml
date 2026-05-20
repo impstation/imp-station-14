@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseAnomalocaridOrganUnGibbable
+  id: BaseAnomalocaridOrgan
   parent: BaseItem
   abstract: true
   components:
@@ -29,15 +29,8 @@
     - Organ
 
 - type: entity
-  id: BaseAnomalocaridOrgan
-  parent: BaseAnomalocaridOrganUnGibbable
-  abstract: true
-  components:
-  - type: Gibbable
-
-- type: entity
   id: OrganAnomalocaridBrain
-  parent: BaseAnomalocaridOrganUnGibbable
+  parent: BaseAnomalocaridOrgan
   name: brain
   description: "This is where cubes get rotated."
   components:
@@ -324,7 +317,7 @@
   - type: Ensnaring #think fast chucklenuts!
     freeTime: 2.0
     breakoutTime: 1.5
-    walkSpeed: 0.8 
+    walkSpeed: 0.8
     sprintSpeed: 0.5
     staminaDamage: 0
     canThrowTrigger: true

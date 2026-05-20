@@ -252,3 +252,48 @@
     - type: MeleeThrowOnHit
       distance: 6
       speed: 6
+
+# decapoid ship core tether gun - differs from standard in no battery use, no melee, and longer range.
+
+- type: entity
+  name: navcore tether gun
+  parent:
+  - BaseItem
+  id: WeaponTetherGunDecapoidCore
+  description: Stay out of trouble.
+  suffix: DO NOT MAP
+  categories: [ DoNotMap ]
+  components:
+    - type: Item
+      size: Normal
+    - type: TetherGun
+      frequency: 5
+      dampingRatio: 4
+      maxDistance: 15
+      massLimit: 150 #so it can move dead decapoids
+    - type: ItemToggle
+      onUse: false
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Launchers/tether_gun.rsi
+      layers:
+        - state: base
+        - state: base-unshaded
+          map: [ "unshaded" ]
+          shader: unshaded
+          visible: false
+    - type: ToggleableVisuals
+      spriteLayer: unshaded
+      inhandVisuals:
+        left:
+          - state: inhand-left-unshaded
+            shader: unshaded
+        right:
+          - state: inhand-right-unshaded
+            shader: unshaded
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.TetherVisualsStatus.Key:
+          unshaded:
+            True: { visible: true }
+            False: { visible: false }
