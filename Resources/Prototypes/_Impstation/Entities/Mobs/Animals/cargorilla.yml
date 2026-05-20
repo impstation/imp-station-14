@@ -60,7 +60,8 @@
     speechSounds: Gorilla
     speechVerb: Monkey
     allowedEmotes: ['Scream', 'Laugh', "BeatingChest"]
-  - type: MonkeyAccent
+  - type: AdvancedFullReplacementAccent
+    accent: monkey
   - type: Tag
     tags:
     - DoorBumpOpener
