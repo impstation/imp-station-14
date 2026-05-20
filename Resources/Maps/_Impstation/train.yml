@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/20/2026 01:48:16
-  entityCount: 20053
+  time: 05/20/2026 02:39:38
+  entityCount: 20054
 maps:
 - 1
 grids:
@@ -102480,6 +102480,15 @@ entities:
     - type: DeviceLinkSink
       invokeCounter: 2
     - type: ActiveSignalTimer
+    - type: Fixtures
+      fixtures: {}
+- proto: SignAnchor
+  entities:
+  - uid: 17265
+    components:
+    - type: Transform
+      pos: 19.5,-262.5
+      parent: 2
     - type: Fixtures
       fixtures: {}
 - proto: SignAnomaly
