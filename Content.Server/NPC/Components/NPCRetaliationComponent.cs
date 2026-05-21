@@ -24,8 +24,8 @@ public sealed partial class NPCRetaliationComponent : Component
 
     /// <summary>
     /// Imp.
-    /// Whether the NPC should be able to aggro from any interaction with it.
+    /// Whether the NPC should aggro from any interaction with it.
     /// </summary>
     [DataField]
-    public bool AnyInteraction = false;
+    public bool AnyInteraction;
 }
