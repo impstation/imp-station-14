@@ -1,21 +1,4 @@
 ﻿Entries:
-- author: ultramario1998
-  changes:
-  - message: Bluespace lockers' destinations are now randomized.
-    type: Tweak
-  id: 2306
-  time: '2025-10-03T20:31:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3254
-- author: honeyed-lemons
-  changes:
-  - message: Visitor ghost roles can now appear as non-standard species. Please watch
-      for visiting Ungu.
-    type: Tweak
-  - message: His spores have spread.
-    type: Tweak
-  id: 2307
-  time: '2025-10-04T06:05:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3522
 - author: JustASpaceNugget
   changes:
   - message: CMO GETS A NEW TOY!! A MedChem HUD to the CMO locker.
@@ -4109,3 +4092,17 @@
   id: 2805
   time: '2026-05-20T08:21:23.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4381
+- author: starlighthowls
+  changes:
+  - message: Monarch is back for playtesting!
+    type: Add
+  id: 2806
+  time: '2026-05-21T11:29:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4361
+- author: mqole
+  changes:
+  - message: Removed liquid oxygen, nitrogen, and CO2 cargo orders.
+    type: Remove
+  id: 2807
+  time: '2026-05-21T11:45:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4384
