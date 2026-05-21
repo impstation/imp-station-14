@@ -42,8 +42,8 @@ public sealed class AltAccessSystem : EntitySystem
     {
         var (uid, comp) = ent;
 
-        //if (_actionBlockerSystem.CanInteract(args.User, uid) && _actionBlockerSystem.CanComplexInteract(args.User))
-            //return;
+        if (_actionBlockerSystem.CanInteract(args.User, uid) && _actionBlockerSystem.CanComplexInteract(args.User))
+            return;
 
         if (_inventorySystem.InSlotWithFlags(uid, comp.SlotFlags))
         {
