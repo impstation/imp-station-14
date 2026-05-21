@@ -23,8 +23,6 @@ public abstract partial class SharedBorgSystem
     [Dependency] private readonly SharedPuddleSystem _puddle = default!; // imp
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // imp
 
-    private static readonly EntProtoId SiliconBrainRole = "MindRoleSiliconBrain";
-
     public void InitializeMMI()
     {
         SubscribeLocalEvent<MMIComponent, ComponentInit>(OnMMIInit);

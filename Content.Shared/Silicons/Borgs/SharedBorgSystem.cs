@@ -255,8 +255,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
             // imp addition: check for accepted contract on attempted MMI insertion
             if (TryComp<MMIComponent>(used, out var mmiComp) && !mmiComp.AllowBorging)
             {
-                _popup.PopupEntity(Loc.GetString(mmiComp.FailPopup), used, args.User, PopupType.MediumCaution);
-                args.Handled = true;
+                _popup.PopupPredicted(Loc.GetString(mmiComp.FailPopup), used, null);
                 return;
             }
 
