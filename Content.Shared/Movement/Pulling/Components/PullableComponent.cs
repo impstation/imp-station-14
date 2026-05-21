@@ -48,7 +48,7 @@ public sealed partial class PullableComponent : Component
     /// </summary>
     [Access(typeof(Systems.PullingSystem), Other = AccessPermissions.ReadExecute)]
     [AutoNetworkedField, DataField]
-    public bool PullableCollsion = false;
+    public bool PullableCollsion;
 
 }
 
