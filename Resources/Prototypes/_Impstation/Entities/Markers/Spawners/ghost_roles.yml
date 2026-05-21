@@ -94,7 +94,7 @@
 
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
-  parent: BaseAntagSpawner
+  parent: SpawnPointLoneNukeOperative
   id: SpawnPointJuniorLoneNukeOperative
   components:
   - type: GhostRole
@@ -103,9 +103,3 @@
     rules: ghost-role-information-loneop-junior-rules
     mindRoles:
     - MindRoleJuniorLoneOperative
-  - type: Sprite
-    sprite: Markers/jobs.rsi
-    layers:
-    - state: green
-    - sprite: Structures/Wallmounts/signs.rsi
-      state: radiation

@@ -313,24 +313,20 @@
 
 # junior nuclear operative
 - type: entity
-  parent: BaseGameRule
+  parent: BaseNukeopsRule
   id: JuniorLoneOperativeSpawn
   components:
-  - type: RandomMetadata
-    nameSegments:
-    - NamesOperationPrefix
-    - NamesOperationSuffix
-    nameFormat: name-format-nuclear-operation
   - type: StationEvent
     weight: 2
     reoccurrenceDelay: 10
     minimumPlayers: 20
     earliestStart: 35
-    duration: null
+    duration: null # JuniorLoneOperativeSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end screen (not always "Neutral outcome!") and... ending the game if the station is nuked.
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: SpaceSpawnRule
-  - type: AntagRandomHumanoidRule
+  - type: AntagLoadProfileRule
+    randomProfile: true
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointJuniorLoneNukeOperative
