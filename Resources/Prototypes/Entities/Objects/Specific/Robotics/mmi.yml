@@ -38,7 +38,8 @@
   - type: TypingIndicator
     proto: robot
   - type: Speech
-    speechSounds: Pai
+    speechVerb: Robotic # imp edit
+    speechSounds: Borg # imp edit
   - type: ItemSlots
   - type: ContainerContainer
     containers:
@@ -52,6 +53,20 @@
     whitelist:
       components:
       - SecretStash
+  - type: StatusEffects # imp addition
+    allowed:
+    - Flashed
+  - type: Vocal # imp addition
+    sounds:
+      Unsexed: UnisexSilicon
+    wilhelmProbability: 0
+  - type: Tag # imp addition
+    tags:
+    - SiliconEmotes
+    - ImmobileEmoter
+  - type: ActionGrant # imp addition
+    actions:
+    - ActionAllowBorgingToggle
 
 - type: entity
   parent: MMI
@@ -137,5 +152,5 @@
       whitelist:
         components:
         - SecretStash
-    - type: StealTarget #imp
+    - type: StealTarget # imp
       stealGroup: PositronicBrains

@@ -114,7 +114,7 @@
       cell_slot:
         name: power-cell-slot-component-slot-name-default
   - type: Body
-    thermalVisibility: false # EE edit
+    thermalVisibility: false
   - type: StatusEffects
     allowed:
     - Flashed
@@ -203,8 +203,6 @@
     radius: 4
     netsync: false
   - type: Pullable
-  - type: Puller
-    needsHands: false
   - type: StandingState
   - type: Tag
     tags:

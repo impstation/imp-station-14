@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "artistic bartender and bureaucracy by iaada(github), tcktck modules by kipdotnet (github), mining module by LazyRiverfolk, disabler module by TuttlePants",
+    "copyright": "artistic bartender and bureaucracy by iaada(github), tcktck modules by kipdotnet (github), mining module by LazyRiverfolk, disabler module by TuttlePants, state-laws-accepted taken from vgstation at commit https://github.com/vgstation-coders/vgstation13/commit/cdbcb1e858b11f083994a7a269ed67ef5b452ce9 and modified by formlessnameless(github).",
     "size": {
         "x": 32,
         "y": 32
@@ -36,6 +36,9 @@
         },
         {
             "name": "chef-module"
+        },
+        {
+            "name": "state-laws-accepted"
         }
     ]
 }

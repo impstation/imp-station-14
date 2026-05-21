@@ -27,3 +27,17 @@
     useDelay: 0.5
   - type: InstantAction
     event: !type:AltAccessPdaScreenEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionAllowBorgingToggle
+  name: Accept Cyborg Contract
+  description: Toggle acceptance of the standard Nanotrasen borgification contract for disembodied employees.
+  components:
+  - type: Action
+    icon: { sprite: Interface/Actions/actions_borg.rsi, state: state-laws }
+    iconOn: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: state-laws-accepted }
+    itemIconStyle: NoItem
+    useDelay: 1
+  - type: InstantAction
+    event: !type:ToggleBorgContractEvent

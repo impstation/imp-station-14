@@ -1,10 +1,12 @@
+using Content.Shared.Actions;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Chemistry.Components; // imp unborgable
-using Content.Shared.Chemistry.EntitySystems; // imp unborgable
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Construction.Steps; // imp unborgable
 using Content.Shared.Containers.ItemSlots; // imp unborgable
 using Content.Shared.Fluids; // imp unborgable
 using Content.Shared.Popups; // imp unborgable
@@ -33,6 +35,7 @@ public abstract partial class SharedBorgSystem
         SubscribeLocalEvent<MMIComponent, EntRemovedFromContainerMessage>(OnMMILinkedRemoved);
 
         SubscribeLocalEvent<MMIComponent, ItemSlotInsertAttemptEvent>(OnMMIAttemptInsert); // imp
+        SubscribeLocalEvent<MMIComponent, ToggleBorgContractEvent>(OnContractToggle); // imp
     }
 
     private void OnMMIInit(Entity<MMIComponent> ent, ref ComponentInit args)
@@ -52,6 +55,7 @@ public abstract partial class SharedBorgSystem
 
         if (HasComp<UnborgableComponent>(brain)) // imp add
             return;
+
         // imp add: raise event on brain insertion
         var successEvent = new MMIInsertionSuccessEvent(ent, brain);
         RaiseLocalEvent(ent, successEvent);
@@ -112,7 +116,22 @@ public abstract partial class SharedBorgSystem
         }
         EntityManager.PredictedQueueDeleteEntity(brain);
     }
+
+    // imp add
+    private void OnContractToggle(Entity<MMIComponent> ent, ref ToggleBorgContractEvent args)
+    {
+        var (uid, comp) = ent;
+        comp.AllowBorging = !comp.AllowBorging;
+        args.Toggle = true;
+        args.Handled = true;
+        Dirty(uid, comp);
+    }
 }
+
+// imp add
+public sealed partial class ToggleBorgContractEvent : InstantActionEvent
+{
+};
 
 // imp add
 public sealed class MMIInsertionSuccessEvent : CancellableEntityEventArgs

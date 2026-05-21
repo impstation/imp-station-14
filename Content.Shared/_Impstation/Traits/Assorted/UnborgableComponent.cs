@@ -13,7 +13,7 @@ public sealed partial class UnborgableComponent : Component
     ///     Popup to display when the brain is deleted.
     /// </summary>
     [DataField]
-    public LocId FailPopup = "borg-mmi-fail-popup";
+    public LocId FailPopup = "borg-mmi-fail-unborgable-popup";
 
     /// <summary>
     ///     Sound that plays when the brain is deleted.
