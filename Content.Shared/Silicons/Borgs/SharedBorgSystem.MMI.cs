@@ -52,7 +52,7 @@ public abstract partial class SharedBorgSystem
 
         if (HasComp<UnborgableComponent>(brain)) // imp add
             return;
-
+        // imp add: raise event on brain insertion
         var successEvent = new MMIInsertionSuccessEvent(ent, brain);
         RaiseLocalEvent(ent, successEvent);
 

@@ -137,7 +137,10 @@
     onUse: false
     onActivate: false
     predictable: false
-  - type: AltPdaAccess # imp
+  - type: AltAccess # imp
+    altAccessAction: ActionAccessPDA
+    slotFlags:
+    - IDCARD
 
 - type: entity
   parent: BasePDA

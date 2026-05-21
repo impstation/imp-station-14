@@ -2,7 +2,6 @@ using Content.Server.EUI;
 using Content.Shared.Eui;
 using Content.Shared.Mind;
 using Content.Shared.Roles.Components;
-using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared._Impstation.Ghost;
 using Content.Shared.Roles;
 using Robust.Shared.GameObjects.Components.Localization;
@@ -14,7 +13,6 @@ public sealed class ReturnToBrainEui : BaseEui
 {
     private readonly EntityManager _entityManager;
     private readonly GrammarSystem _grammar;
-    private readonly SharedAppearanceSystem _appearance;
     private readonly SharedMindSystem _mind;
     private readonly SharedRoleSystem _roles;
 
@@ -23,9 +21,8 @@ public sealed class ReturnToBrainEui : BaseEui
 
     private static readonly EntProtoId SiliconBrainRole = "MindRoleSiliconBrain";
 
-    public ReturnToBrainEui(EntityUid mmi,EntityUid brain, SharedAppearanceSystem appearanceSystem, EntityManager entityManager, GrammarSystem grammarSystem, SharedMindSystem mindSystem, SharedRoleSystem roleSystem)
+    public ReturnToBrainEui(EntityUid mmi,EntityUid brain, EntityManager entityManager, GrammarSystem grammarSystem, SharedMindSystem mindSystem, SharedRoleSystem roleSystem)
     {
-        _appearance = appearanceSystem;
         _entityManager = entityManager;
         _grammar = grammarSystem;
         _mind = mindSystem;
@@ -58,8 +55,6 @@ public sealed class ReturnToBrainEui : BaseEui
             if (!_roles.MindHasRole<SiliconBrainRoleComponent>(mindId))
                 _roles.MindAddRole(mindId, SiliconBrainRole, silent: true);
         }
-
-        _appearance.SetData(_mmiEnt, MMIVisuals.BrainPresent, true);
 
         Close();
     }

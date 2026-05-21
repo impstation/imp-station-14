@@ -31,8 +31,8 @@
         layer:
         - MobLayer
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed: 4.5
+    baseWalkSpeed: 1
+    baseSprintSpeed: 2.5
     baseFriction: 0.125
     frictionNoInput: 0.125
   - type: Sprite
@@ -72,11 +72,6 @@
         type: BorgBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
-      enum.BorgSwitchableTypeUiKey.SelectBorgType:
-        type: BorgSelectTypeUserInterface
-      enum.RingerUiKey.Key:
-        type: RingerBoundUserInterface
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: Inventory

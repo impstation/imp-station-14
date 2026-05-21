@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._Impstation.Interaction; // imp: alternate access
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -44,6 +45,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+
 
 namespace Content.Shared.Interaction
 {
@@ -197,8 +199,14 @@ namespace Content.Shared.Interaction
                 return;
             }
 
+
             if (aUiComp.RequiresComplex && !_actionBlockerSystem.CanComplexInteract(ev.Actor))
-                ev.Cancel();
+            {
+                TryComp<AltAccessComponent>(ev.Target, out var altAccess); // Imp edit: alternate access
+                if(altAccess == null)
+                    ev.Cancel();
+            }
+
         }
 
         private bool UiRangeCheck(Entity<TransformComponent?> user, Entity<TransformComponent?> target, float range)
