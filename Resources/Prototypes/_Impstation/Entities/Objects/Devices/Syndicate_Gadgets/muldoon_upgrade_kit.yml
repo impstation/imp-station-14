@@ -1,0 +1,14 @@
+- type: entity
+  name: Muldoon sniper conversion kit
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: WeaponSniperMuldoonUpgradeKit
+  description: An upgrade kit that modifies the muldoon to allow both darts and .60 anti-material rounds to fit and fire inside.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: abductor_mod
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - WeaponSniperMuldoonUpgradeKit
