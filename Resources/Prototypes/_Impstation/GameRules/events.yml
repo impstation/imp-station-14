@@ -319,10 +319,11 @@
     weight: 3
     minimumPlayers: 25
     reoccurrenceDelay: 20
-  - type: RandomSpawnEmptyTileRule
-    spawnedEntity: "LandmineOrDudRareGibSpawner"
-    spawnEffect: "EffectDesynchronizerExit"
+  - type: RandomSpawnRule
+    prototype: LandmineOrDudRareGibSpawner
+    spawnEffect: EffectDesynchronizerExit
     minMaxEntities:
       min: 8
       max: 10
-    announcement: "station-event-explosive-mine-resurgence-announcement"
+    emptyTilesOnly: true
+    announcement: station-event-explosive-mine-resurgence-announcement
