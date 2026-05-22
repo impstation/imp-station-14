@@ -38,4 +38,11 @@ public sealed partial class ActiveIgniteOnBuckleComponent : Component
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField, AutoNetworkedField]
     public TimeSpan NextIgniteTime = TimeSpan.Zero;
+
+    /// <summary>
+    /// Imp.
+    /// The source that the target is buckled to.
+    /// </summary>
+    [DataField]
+    public EntityUid Strap;
 }
