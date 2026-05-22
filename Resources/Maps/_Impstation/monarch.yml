@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/22/2026 12:28:37
-  entityCount: 13642
+  time: 05/22/2026 22:05:19
+  entityCount: 13641
 maps:
 - 1
 grids:
@@ -2924,18 +2924,6 @@ entities:
     - type: ContainedSolution
       containerName: beaker
       container: 4007
-- proto: ActionHarpyPlayMidi
-  entities:
-  - uid: 7618
-    mapInit: true
-    paused: true
-    components:
-    - type: Transform
-      parent: 2326
-    - type: Action
-      originalIconColor: '#FFFFFFFF'
-      container: 2326
-      attachedEntity: 2326
 - proto: ActionToggleBlock
   entities:
   - uid: 6828
@@ -4564,7 +4552,7 @@ entities:
       pos: 12.5,-0.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -293890.4
+      secondsUntilStateChange: -294078.62
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -5218,7 +5206,7 @@ entities:
       pos: -9.5,11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -285322.47
+      secondsUntilStateChange: -285510.7
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -7767,6 +7755,13 @@ entities:
     components:
     - type: Transform
       pos: 15.444512,90.42303
+      parent: 2
+- proto: BigmouthCarp
+  entities:
+  - uid: 2326
+    components:
+    - type: Transform
+      pos: -21.5,46.5
       parent: 2
 - proto: BigRedButton
   entities:
@@ -63521,54 +63516,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: PosterLegitCarpMount
-  entities:
-  - uid: 2326
-    components:
-    - type: MetaData
-      name: Big Mouth Carp
-    - type: Transform
-      pos: -21.5,46.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-    - type: GhostRole
-      mindRoles:
-      - MindRoleGhostRoleNeutral
-      rules: >-
-        All normal rules apply unless an administrator tells you otherwise.
-
-
-        You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
-      description: A stuffed carp containing a transmitter that picks up distant space radio shows.
-      name: Big Mouth Carp
-    - type: GhostTakeoverAvailable
-    - type: MindContainer
-    - type: InputMover
-    - type: MobMover
-    - type: MovementSpeedModifier
-    - type: Speech
-      suffixSpeechVerbs:
-        chat-speech-verb-suffix-exclamation-strong: DefaultExclamationStrong
-        chat-speech-verb-suffix-exclamation: DefaultExclamation
-        chat-speech-verb-suffix-question: DefaultQuestion
-        chat-speech-verb-suffix-stutter: DefaultStutter
-        chat-speech-verb-suffix-mumble: DefaultMumble
-      allowedEmotes: []
-    - type: Emoting
-    - type: Examiner
-    - type: Jukebox
-    - type: HarpySinger
-      midiAction: 7618
-    - type: ActionsContainer
-    - type: ContainerContainer
-      containers:
-        actions: !type:Container
-          ents:
-          - 7618
-    - type: Actions
-      actions:
-      - 7618
 - proto: PosterLegitCleanliness
   entities:
   - uid: 3401
