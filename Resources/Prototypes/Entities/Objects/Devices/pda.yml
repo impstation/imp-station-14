@@ -102,7 +102,7 @@
       enum.PdaUiKey.Key:
         type: PdaBoundUserInterface
       enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
+        type: UplinkBoundUserInterface # imp edit, was StoreBoundUserInterface
       enum.RingerUiKey.Key:
         type: RingerBoundUserInterface
       enum.InstrumentUiKey.Key:
@@ -1100,6 +1100,8 @@
   components:
   - type: Pda
     id: AtmosIDCard
+  - type: Sprite #imp
+    sprite: _Impstation/Objects/Devices/atmos_pda.rsi #imp
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -1107,7 +1109,7 @@
        pda-atmos
   - type: PdaBorderColor
     borderColor: "#949137"
-    accentVColor: "#447987"
+    accentVColor: "#488B8F" #imp
   - type: Icon
     state: pda-atmos
 
@@ -1587,6 +1589,22 @@
     state: pda-seniorcourier
 
 - type: entity
+  parent: [ BaseHighlyIllegalContraband, BasePDA ]
+  id: NinjaPDA
+  name: ninja PDA
+  description: You stealthy bastard, you!
+  components:
+  - type: Pda
+    id: NinjaIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-ninja
+  - type: Icon
+    state: pda-ninja
+
+- type: entity
   parent: [ BaseMajorContraband, SyndiPDA ]
   id: PiratePDA
   name: pirate PDA
@@ -1623,7 +1641,7 @@
       enum.PdaUiKey.Key:
         type: PdaBoundUserInterface
       enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
+        type: UplinkBoundUserInterface # imp edit, was StoreBoundUserInterface
       enum.RingerUiKey.Key:
         type: RingerBoundUserInterface
       enum.InstrumentUiKey.Key:
