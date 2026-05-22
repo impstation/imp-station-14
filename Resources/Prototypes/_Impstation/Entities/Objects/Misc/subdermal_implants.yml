@@ -42,17 +42,18 @@
   - type: SubdermalImplant
     permanent: true
     implantComponents: #they need to be implanted when you spawn the remote for it to function correctly
+    - type: TriggerOnSignal
     - type: DeviceLinkSink
       preventManualLinking: true
-    - type: TriggerOnSignal
     - type: AutoLinkReceiver
       channel: Butler
       acrossGrids: true
     - type: GibOnTrigger
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
   - type: AutoLinkReceiver
     channel: Butler
     acrossGrids: true
-  - type: TriggerOnSignal
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
