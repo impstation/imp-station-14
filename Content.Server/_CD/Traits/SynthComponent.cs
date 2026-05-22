@@ -1,3 +1,4 @@
+using Content.Shared.Chemistry.Components;
 namespace Content.Server._CD.Traits;
 
 /// <summary>
@@ -11,4 +12,10 @@ public sealed partial class SynthComponent : Component
     /// </summary>
     [DataField]
     public float AlertChance = 0.3f;
+
+    /// <summary>
+    /// VDS - The reagent that replaces the synth's blood
+    /// </summary>
+    [DataField]
+    public Solution SynthBloodReagent = new([new("SynthBlood", 300)]);
 }
