@@ -37,7 +37,7 @@ public sealed class ButlerConditionSystem : EntitySystem
     }
 
     /// <summary>
-    /// Finds the exploding butler target and spawns a care package at their location.
+    /// Finds the exploding butler target and spawns a care package at their location alongside removing autolinking.
     /// </summary>
     private void OnAfterAssign(Entity<ButlerConditionComponent> ent, ref ObjectiveAfterAssignEvent args)
     {
