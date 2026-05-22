@@ -14,8 +14,8 @@
       right:
       - state: inhand-right
   - type: DeviceLinkSource
-    range: 10000
+    range: 100000
   - type: AutoLinkTransmitter
     channel: Butler
   - type: WirelessNetworkConnection
-    range: 10000
+    range: 100000
