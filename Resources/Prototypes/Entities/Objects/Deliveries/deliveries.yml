@@ -54,7 +54,7 @@
       tableId: DeliveryModifierTable
 
 - type: entity
-  parent: BaseDelivery
+  parent: [BaseDelivery, DepartmentalPackages] # imp - add DepartmentalPackages
   id: PackageDelivery
   name: package
   components:
@@ -94,20 +94,22 @@
   - type: Delivery
     baseSpesoReward: 1000
     baseSpesoPenalty: 250 # So low due to dept economy splitting all the earnings, but not splitting the penalty.
+    baseTable: !type:NestedSelector # IMP - dept mail
+      tableId: PackageDeliveryRewards
   - type: Speech
     speechVerb: Robotic
   - type: SimpleToolUsage
     doAfter: 6
-  - type: EntityTableContainerFill
-    containers:
-      delivery: !type:NestedSelector
-        tableId: PackageDeliveryRewards
+  # - type: EntityTableContainerFill # IMP - commented out for departmental mail implementation
+  #   containers:
+  #     delivery: !type:NestedSelector
+  #       tableId: PackageDeliveryRewards
   - type: Tag
     tags:
       - PackageDelivery
 
 - type: entity
-  parent: BaseDelivery
+  parent: [BaseDelivery, DepartmentalLetters] # IMP - add DepartmentalLetters
   id: LetterDelivery
   name: letter
   components:
@@ -146,12 +148,14 @@
   - type: Delivery
     baseSpesoReward: 500
     baseSpesoPenalty: 125 # So low due to dept economy splitting all the earnings, but not splitting the penalty.
+    baseTable: !type:NestedSelector # IMP - dept mail
+      tableId: LetterDeliveryRewards
   - type: Speech
     speechVerb: Robotic
-  - type: EntityTableContainerFill
-    containers:
-      delivery: !type:NestedSelector
-        tableId: LetterDeliveryRewards
+  # - type: EntityTableContainerFill # IMP - commented out for departmental mail implementation
+  #   containers:
+  #     delivery: !type:NestedSelector
+  #       tableId: LetterDeliveryRewards
 
 
 # Modifier Tables

@@ -147,3 +147,15 @@
   name: stack-green-plastic
   spawn: FloorTileItemGreenPlastic
   maxCount: 30
+
+- type: stack
+  id: FloorTileDecapoid
+  name: stack-apid-hex-tile
+  spawn: FloorTileItemDecapoid
+  maxCount: 30
+
+- type: stack
+  id: FloorTileDecapoidFancy
+  name: stack-apid-hex-tile
+  spawn: FloorTileItemDecapoidFancy
+  maxCount: 30
