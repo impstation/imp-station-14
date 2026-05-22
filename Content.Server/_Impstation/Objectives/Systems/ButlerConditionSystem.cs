@@ -57,6 +57,12 @@ public sealed class ButlerConditionSystem : EntitySystem
         var coords = _transform.GetMapCoordinates(mindBody);
         var package = Spawn(ent.Comp.Package, coords);
 
+        if (!TryComp<StorageComponent>(package, out var storage))
+            return;
+
+        foreach (var (item, _) in storage.StoredItems)
+            RemCompDeferred<AutoLinkTransmitterComponent>(item);
+
         if (args.Mind.CurrentEntity is { })
             RemCompDeferred<AutoLinkReceiverComponent>(args.Mind.CurrentEntity.Value);
 
