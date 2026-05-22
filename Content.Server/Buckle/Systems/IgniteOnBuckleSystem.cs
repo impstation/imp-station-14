@@ -58,7 +58,7 @@ public sealed class IgniteOnBuckleSystem : EntitySystem
             igniteComponent.NextIgniteTime += TimeSpan.FromSeconds(igniteComponent.IgniteTime);
             Dirty(uid, igniteComponent);
 
-            if (TryComp<FlammableComponent>(igniteComponent.Strap, out var flammable) && !flammable.OnFire) // Imp, check if strap is a flammable object and is on fire
+            if (TryComp<FlammableComponent>(igniteComponent.Strap, out var sourceFlammableComponent) && !sourceFlammableComponent.OnFire) // Imp, check if strap is a flammable object and is on fire
                 continue;
 
             if (flammableComponent.FireStacks > igniteComponent.MaxFireStacks)
