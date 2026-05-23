@@ -120,7 +120,6 @@
     containers:
       cell_slot: !type:ContainerSlot {}
   - type: HandheldLight
-    addPrefix: true
     blinkingBehaviourId: blinking
     radiatingBehaviourId: radiating
   - type: LightBehaviour
@@ -150,21 +149,17 @@
     netsync: false
   ## weapon
   - type: MeleeWeapon
-    attackRate: 0.75
-    angle: 90
+    attackRate: 0.70
+    angle: 105
     range: 1.75
+    swingLeft: true
     damage:
       types:
-        Slash: 15
-        Piercing: 2
+        Slash: 25
+        Piercing: 5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
-  - type: IncreaseDamageOnWield
-    damage:
-      types:
-        Slash: 10
-        Piercing: 3
   - type: DisarmMalus
   - type: DamageOtherOnHit
     staminaCost: 5
