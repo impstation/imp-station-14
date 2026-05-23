@@ -4,6 +4,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Content.Shared.Damage; // imp
 
 namespace Content.Shared.Materials;
 
@@ -137,6 +138,12 @@ public sealed partial class MaterialReclaimerComponent : Component
     /// </remarks>
     [DataField, AutoNetworkedField]
     public int ItemsProcessed;
+
+    /// <summary>
+    /// Imp addition, the damage inflicted to mobs that don't gib.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier Damage = new();
 }
 
 [NetSerializable, Serializable]
