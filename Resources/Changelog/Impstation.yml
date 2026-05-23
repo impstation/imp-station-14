@@ -1,46 +1,4 @@
 ﻿Entries:
-- author: Tox3ct
-  changes:
-  - message: Recent Nanotrasen antibiotic manufacturing has been proven less effective
-      in treating parasitic pathogens. Ambuzol now requires Phalanximine as a replacement
-      to Dylovene.
-    type: Tweak
-  id: 2303
-  time: '2025-10-03T01:34:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3513
-- author: msTheowo
-  changes:
-  - message: Strong prescription lenses will definitely always spawn now. If they're
-      not in your eyes, in your glasses, or in your hands, they're on the floor!
-    type: Fix
-  id: 2304
-  time: '2025-10-03T20:28:27.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3505
-- author: starlighthowls
-  changes:
-  - message: Ungu are now starting to be employed in the IMP sector, please give them
-      a warm welcome! :8)
-    type: Add
-  id: 2305
-  time: '2025-10-03T20:32:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3405
-- author: ultramario1998
-  changes:
-  - message: Bluespace lockers' destinations are now randomized.
-    type: Tweak
-  id: 2306
-  time: '2025-10-03T20:31:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3254
-- author: honeyed-lemons
-  changes:
-  - message: Visitor ghost roles can now appear as non-standard species. Please watch
-      for visiting Ungu.
-    type: Tweak
-  - message: His spores have spread.
-    type: Tweak
-  id: 2307
-  time: '2025-10-04T06:05:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3522
 - author: JustASpaceNugget
   changes:
   - message: CMO GETS A NEW TOY!! A MedChem HUD to the CMO locker.
@@ -4111,3 +4069,40 @@
   id: 2802
   time: '2026-05-19T07:59:30.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4372
+- author: kipdotnet
+  changes:
+  - message: Trawler is now in rotation for minpop.
+    type: Add
+  id: 2803
+  time: '2026-05-20T05:50:01.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4382
+- author: whythelettuce
+  changes:
+  - message: 'Added new lowpop station for playtesting: Jellyfish!'
+    type: Add
+  id: 2804
+  time: '2026-05-20T06:38:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4368
+- author: DinnerCalzone
+  changes:
+  - message: Marathon, Plasma, and Train now have a lawvend mapped in their AI core.
+    type: Add
+  - message: Plasma now has one Service Attendant slot enabled on it.
+    type: Add
+  id: 2805
+  time: '2026-05-20T08:21:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4381
+- author: starlighthowls
+  changes:
+  - message: Monarch is back for playtesting!
+    type: Add
+  id: 2806
+  time: '2026-05-21T11:29:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4361
+- author: mqole
+  changes:
+  - message: Removed liquid oxygen, nitrogen, and CO2 cargo orders.
+    type: Remove
+  id: 2807
+  time: '2026-05-21T11:45:18.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4384

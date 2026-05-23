@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 03/10/2026 01:19:08
-  entityCount: 25390
+  time: 05/20/2026 01:14:05
+  entityCount: 25388
 maps:
 - 1
 grids:
@@ -51139,16 +51139,6 @@ entities:
     - type: Transform
       pos: 113.5,-38.5
       parent: 2
-  - uid: 7714
-    components:
-    - type: Transform
-      pos: 73.5,27.5
-      parent: 2
-  - uid: 7715
-    components:
-    - type: Transform
-      pos: 73.5,28.5
-      parent: 2
   - uid: 7716
     components:
     - type: Transform
@@ -51188,16 +51178,6 @@ entities:
     components:
     - type: Transform
       pos: 73.5,26.5
-      parent: 2
-  - uid: 7724
-    components:
-    - type: Transform
-      pos: 74.5,28.5
-      parent: 2
-  - uid: 7725
-    components:
-    - type: Transform
-      pos: 74.5,27.5
       parent: 2
   - uid: 7726
     components:
@@ -131534,6 +131514,13 @@ entities:
       parent: 2
 - proto: Screen
   entities:
+  - uid: 7725
+    components:
+    - type: Transform
+      pos: 29.5,-12.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 9679
     components:
     - type: Transform
@@ -131636,13 +131623,6 @@ entities:
     components:
     - type: Transform
       pos: 38.5,-0.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 19028
-    components:
-    - type: Transform
-      pos: 29.5,-10.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -134368,6 +134348,15 @@ entities:
           - Forward
         - - Off
           - Off
+    - type: Fixtures
+      fixtures: {}
+- proto: SignAnchor
+  entities:
+  - uid: 7724
+    components:
+    - type: Transform
+      pos: 29.5,-9.5
+      parent: 2
     - type: Fixtures
       fixtures: {}
 - proto: SignAnomaly
@@ -139429,6 +139418,13 @@ entities:
       parent: 2
 - proto: StationMap
   entities:
+  - uid: 7715
+    components:
+    - type: Transform
+      pos: 29.5,-10.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 18267
     components:
     - type: Transform
@@ -139440,13 +139436,6 @@ entities:
     components:
     - type: Transform
       pos: 52.5,-36.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 19999
-    components:
-    - type: Transform
-      pos: 29.5,-9.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -163293,6 +163282,7 @@ entities:
       deviceLists:
       - 18695
       - 18693
+      - 7714
   - uid: 24038
     components:
     - type: Transform
@@ -163302,6 +163292,7 @@ entities:
       deviceLists:
       - 18695
       - 18693
+      - 7714
   - uid: 24039
     components:
     - type: Transform
@@ -163311,6 +163302,7 @@ entities:
       deviceLists:
       - 18695
       - 18693
+      - 7714
   - uid: 24040
     components:
     - type: Transform
@@ -163320,14 +163312,31 @@ entities:
       deviceLists:
       - 18695
       - 18693
+      - 7714
 - proto: WeaponEnergyTurretAIControlPanel
   entities:
+  - uid: 7714
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 56.5,-22.5
+      parent: 2
+    - type: DeviceList
+      devices:
+      - 24039
+      - 24040
+      - 24038
+      - 24037
   - uid: 18515
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 56.5,-19.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - StationAi
+      - - ResearchDirector
     - type: DeviceList
       devices:
       - 24018
@@ -163361,6 +163370,10 @@ entities:
       rot: 3.141592653589793 rad
       pos: 52.5,-16.5
       parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - StationAi
+      - - ResearchDirector
     - type: DeviceList
       devices:
       - 24018
@@ -164070,7 +164083,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -224289.28
+      secondsUntilStateChange: -224606.42
       state: Opening
     - type: Airlock
       autoClose: False
