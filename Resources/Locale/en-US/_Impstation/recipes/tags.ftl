@@ -11,7 +11,6 @@ construction-graph-tag-captains-eyepatch = the captain's eyepatch
 construction-graph-tag-captains-visor = the captain's visor
 
 # bureaucracy
-construction-graph-tag-paper = a sheet of paper
 construction-graph-tag-pen = pen
 
 # structures
@@ -40,7 +39,6 @@ construction-graph-tag-bowl = bowl
 construction-graph-tag-chopsticks = chopsticks
 construction-graph-tag-crystal = a crystal shard
 construction-graph-tag-gas-tank = any gas tank
-construction-graph-tag-gasket = a gasket
 construction-graph-tag-glowstick = a glowstick
 construction-graph-tag-hemp-sack = a sack made from hemp cloth
 construction-graph-tag-light-tube = light tube
