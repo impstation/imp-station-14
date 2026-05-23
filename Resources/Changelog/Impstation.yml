@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: JustASpaceNugget
-  changes:
-  - message: CMO GETS A NEW TOY!! A MedChem HUD to the CMO locker.
-    type: Add
-  - message: 1 MedChem HUD to hacked Medvends.
-    type: Add
-  - message: The MedChem HUD is now a steal objective for traitors.
-    type: Add
-  id: 2308
-  time: '2025-10-04T19:59:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3428
-- author: Squamatic
-  changes:
-  - message: Cluster has been updated and re-rotated!
-    type: Add
-  id: 2309
-  time: '2025-10-05T10:02:07.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3524
 - author: mqole
   changes:
   - message: Decapoids have learned how to carry, too!
@@ -4106,3 +4088,23 @@
   id: 2807
   time: '2026-05-21T11:45:18.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4384
+- author: kipdotnet
+  changes:
+  - message: The Navigation Core on Trawler no longer gains the ability to move at
+      full speed after being teleported.
+    type: Tweak
+  - message: Trawler now has a unique evac shuttle that the Navigation Core can holocall
+      to hang out on the ride home.
+    type: Tweak
+  id: 2808
+  time: '2026-05-23T13:03:35.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4396
+- author: starlighthowls
+  changes:
+  - message: Monarch added to map rotation.
+    type: Add
+  - message: Dolphin's max pop has been lowered to 20.
+    type: Tweak
+  id: 2809
+  time: '2026-05-23T13:48:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4393
