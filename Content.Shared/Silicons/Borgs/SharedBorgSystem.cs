@@ -27,6 +27,7 @@ using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Wires;
 using Content.Shared.Whitelist;
+using Content.Shared.Xenoborgs.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
@@ -252,8 +253,8 @@ public abstract partial class SharedBorgSystem : EntitySystem
             if (!HasComp<SiliconLawBoundComponent>(chassis) && HasComp<BorgBrainComponent>(used) && !HasComp<MMIComponent>(used))
                 return;
 
-            // imp addition: check for accepted contract on attempted MMI insertion
-            if (TryComp<MMIComponent>(used, out var mmiComp) && !mmiComp.AllowBorging)
+            // imp addition: check for accepted contract on attempted MMI insertion unless being xeno'd
+            if (TryComp<MMIComponent>(used, out var mmiComp) && !mmiComp.AllowBorging && !HasComp<XenoborgComponent>(chassis))
             {
                 _popup.PopupPredicted(Loc.GetString(mmiComp.FailPopup), used, null);
                 return;
