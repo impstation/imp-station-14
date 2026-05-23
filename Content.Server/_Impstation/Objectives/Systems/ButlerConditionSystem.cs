@@ -73,7 +73,7 @@ public sealed class ButlerConditionSystem : EntitySystem
             RemCompDeferred<AutoLinkReceiverComponent>(implant);
 
         if (!_inventory.TryGetSlotEntity(mindBody, Slot, out var backpack) ||
-            !_storage.Insert(backpack.Value, package, out _)) //bag is full, put in hand
+            !_storage.Insert(backpack.Value, package, out _)) // bag is full, put in hand
         {
             _hands.TryPickup(mindBody, package);
             return;
