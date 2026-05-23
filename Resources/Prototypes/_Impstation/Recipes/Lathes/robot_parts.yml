@@ -1,0 +1,17 @@
+# Brain enclosure body
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: BrainEnclosureEndoskeleton
+  result: BrainEnclosureEndoskeleton
+  materials:
+    Steel: 1000
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: BrainBallTop
+  result: BrainBallTop
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: BrainBallBot
+  result: BrainBallBot

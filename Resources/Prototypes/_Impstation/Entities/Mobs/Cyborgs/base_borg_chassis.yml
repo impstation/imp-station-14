@@ -2,7 +2,7 @@
 - type: entity
   parent: [BaseMob, StripableInventoryBase]
   id: BaseBrainEnclosure
-  name: brain enclosure
+  name: osi enclosure
   description: An enclosure that allows for the disembodied to gain a little more autonomy. Can't do much more than move and talk.
   save: false
   abstract: true
@@ -36,7 +36,7 @@
     baseFriction: 0.125
     frictionNoInput: 0.125
   - type: Sprite
-    sprite: Mobs/Silicon/chassis.rsi
+    sprite: _Impstation/Mobs/Silicon/chassis.rsi
   - type: RotationVisuals
     horizontalRotation: 90
   - type: MobState
@@ -47,8 +47,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
-      200: Dead
+      75: Critical
+      150: Dead
     stateAlertDict:
       Alive: BorgHealth
       Critical: BorgCrit
@@ -87,7 +87,7 @@
       - BorgChassis
       - RoboticsConsole
   - type: WiresPanel
-    openingTool: Prying
+    openingTool: Screwing
   - type: ActivatableUIRequiresPanel
   - type: NameIdentifier
     group: Silicon
@@ -132,12 +132,6 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepBorg
-  - type: Construction
-    graph: Cyborg
-    node: cyborg
-    containers:
-    - part-container
-    - cell_slot
   - type: Lock
     locked: true
     unlockOnClick: false
@@ -152,7 +146,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 75
+        damage: 50
       behaviors:
       - !type:PlaySoundBehavior
         sound:

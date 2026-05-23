@@ -53,18 +53,18 @@
     whitelist:
       components:
       - SecretStash
-  - type: StatusEffects # imp addition
+  - type: StatusEffects # imp addition: let the brains get flashed
     allowed:
     - Flashed
-  - type: Vocal # imp addition
+  - type: Vocal # imp addition: let the brains scream
     sounds:
       Unsexed: UnisexSilicon
     wilhelmProbability: 0
-  - type: Tag # imp addition
+  - type: Tag # imp addition: let the brains emote
     tags:
     - SiliconEmotes
     - ImmobileEmoter
-  - type: ActionGrant # imp addition
+  - type: ActionGrant # imp addition: borg consent action
     actions:
     - ActionAllowBorgingToggle
 

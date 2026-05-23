@@ -1,0 +1,22 @@
+- type: constructionGraph
+  id: BrainEnclosure
+  start: start
+  graph:
+  - node: start
+    entity: BrainEnclosureEndoskeleton
+    edges:
+    - to: osiball
+      steps:
+      - assemblyId: generic
+        guideString: borg-construction-guide-string
+
+      - material: Cable
+        amount: 1
+        doAfter: 1
+        store: part-container
+
+      - tool: Screwing
+        doAfter: 0.5
+
+  - node: osiball
+    entity: BrainEnclosure
