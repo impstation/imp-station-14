@@ -6,6 +6,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Content.Shared.Heretic.Prototypes; // imp
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array; // imp
 
 namespace Content.Shared.Store;
 
@@ -281,8 +282,28 @@ public partial class ListingData : IEquatable<ListingData>
 /// </summary>
 [Prototype]
 [DataDefinition]
-public sealed partial class ListingPrototype : ListingData, IPrototype
+public sealed partial class ListingPrototype : ListingData, IPrototype, IInheritingPrototype // imp edit, add IInheritingPrototype
 {
+    // imp edit start, add support for parents and abstract
+    /// <summary>
+    ///     The collection of parents for this prototype. Parents' data is applied to the child in order of
+    ///     specification in the array.
+    /// </summary>
+    ///  <inheritdoc />
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<ListingPrototype>))]
+    public string[]? Parents { get; private set; }
+
+    /// <summary>
+    ///     Whether this prototype is "abstract". This behaves ike an abstract class, abstract prototypes are never
+    ///     indexable and do not show up when enumerating prototypes, as they're just a source of data to inherit
+    ///     from.
+    /// </summary>
+    ///  <inheritdoc />
+    [NeverPushInheritance]
+    [AbstractDataField]
+    public bool Abstract { get; private set; }
+    // imp edit end
+
     /// <summary> Setter/getter for item cost from prototype. </summary>
     [DataField]
     public IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Cost
