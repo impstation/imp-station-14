@@ -194,6 +194,9 @@ ghost-role-information-rock-desc = A powerfull stone monster, you must protect y
 
 ghost-role-information-magic-monkey-name = Magic monkey
 ghost-role-information-magic-monkey-desc = A wizards Apprentice.
+                                          
+ghost-role-information-carp-radio-name = Big mouth carp
+ghost-role-information-carp-radio-desc = A stuffed carp containing a transmitter that picks up distant space radio shows.
 
 ghost-role-information-loneop-junior-name = Junior Lone Operative
 ghost-role-information-loneop-junior-description = You are a barely-equipped trainee nuclear operative sent to test the station's defenses. Try to destroy the station.
