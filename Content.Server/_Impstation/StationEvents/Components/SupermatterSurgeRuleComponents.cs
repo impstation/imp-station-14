@@ -12,7 +12,7 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// <summary>
     /// The entity uid of the supermatter selected
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public EntityUid SupermatterUid;
 
     /// <summary>
@@ -30,7 +30,7 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// <summary>
     /// Time tracker for next explosive lightning strike
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextLightningTime;
 
     /// <summary>
