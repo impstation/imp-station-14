@@ -82,9 +82,9 @@
   #   angle: 300
 
 - type: entity
-  parent: [BaseSword, BaseGrandTheftContraband]
+  parent: [BaseSword, BaseSecurityCommandContraband]
   id: SwordHoSNodachi
-  name: Head of Security Nodachi
+  name: Head of Security's Nodachi
   description: Placeholder.
   components:
   - type: Sprite
@@ -100,6 +100,9 @@
     size: Huge
     shape:
     - 0,0,9,0
+  - type: Tag
+    tags:
+    - HosNodachi
   ## flashlight and battery
   - type: Appearance
   - type: MagazineVisuals # it seems a little weird to use MagazineVisuals on something that doesn't have a magazine but if it works it works.

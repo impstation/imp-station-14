@@ -301,3 +301,45 @@
     whitelist:
       tags:
         - Dart
+
+- type: entity
+  parent: [ClothingBeltBase, ClothingSlotBase, BaseSecurityCommandContraband]
+  id: ClothingBeltSheathHosNodachi
+  name: Head of Security's Nodachi Scabbard
+  description: Placeholder.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Melee/hos_nodachi_sheath.rsi
+    state: base
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Melee/hos_nodachi_sheath.rsi
+    state: base
+    slots:
+    - Back
+    - suitStorage
+  - type: ItemSlots
+    slots:
+      Nodachi:
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/Items/sheath.ogg
+        ejectSound: /Audio/Items/unsheath.ogg
+        whitelist:
+          tags:
+          - HosNodachi
+      Shell:
+        whitelist:
+          tags:
+          - ShellShotgun
+  - type: Appearance
+  - type: ItemMapper
+    mapLayers:
+      sword:
+        whitelist:
+          tags:
+          - HosNodachi
+      shell:
+        whitelist:
+          tags:
+          - ShellShotgun
+
