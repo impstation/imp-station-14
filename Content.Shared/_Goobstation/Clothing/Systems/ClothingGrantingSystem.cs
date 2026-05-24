@@ -23,7 +23,7 @@ public sealed class ClothingGrantingSystem : EntitySystem
         SubscribeLocalEvent<ClothingGrantTagComponent, GotUnequippedEvent>(OnTagUnequip);
     }
 
-    private void OnCompEquip(EntityUid uid, Content.Shared._Goobstation.Clothing.Components.ClothingGrantComponentComponent component, GotEquippedEvent args)
+    private void OnCompEquip(EntityUid uid, ClothingGrantComponentComponent component, GotEquippedEvent args)
     {
         if (!TryComp<ClothingComponent>(uid, out var clothing)) return;
 
@@ -53,7 +53,7 @@ public sealed class ClothingGrantingSystem : EntitySystem
         }
     }
 
-    private void OnCompUnequip(EntityUid uid, Content.Shared._Goobstation.Clothing.Components.ClothingGrantComponentComponent component, GotUnequippedEvent args)
+    private void OnCompUnequip(EntityUid uid, ClothingGrantComponentComponent component, GotUnequippedEvent args)
     {
         // Goobstation
         //if (!component.IsActive) return;
@@ -75,7 +75,7 @@ public sealed class ClothingGrantingSystem : EntitySystem
     }
 
 
-    private void OnTagEquip(EntityUid uid, Content.Shared._Goobstation.Clothing.Components.ClothingGrantTagComponent component, GotEquippedEvent args)
+    private void OnTagEquip(EntityUid uid, ClothingGrantTagComponent component, GotEquippedEvent args)
     {
         if (!TryComp<ClothingComponent>(uid, out var clothing))
             return;
@@ -89,7 +89,7 @@ public sealed class ClothingGrantingSystem : EntitySystem
         component.IsActive = true;
     }
 
-    private void OnTagUnequip(EntityUid uid, Content.Shared._Goobstation.Clothing.Components.ClothingGrantTagComponent component, GotUnequippedEvent args)
+    private void OnTagUnequip(EntityUid uid, ClothingGrantTagComponent component, GotUnequippedEvent args)
     {
         if (!component.IsActive)
             return;
