@@ -2,8 +2,8 @@
   id: Reef
   mapName: 'Reef Station'
   mapPath: /Maps/_Impstation/reef.yml
-  minPlayers: 35
-  maxPlayers: 64
+  minPlayers: 20
+  maxPlayers: 60
   stations:
     Reef:
       stationProto: StandardNanotrasenStation
@@ -12,7 +12,7 @@
           mapNameTemplate: '{0} Reef Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: '-NT-RCH'
+            prefixCreator: 'NT-RCH-'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency.yml
         - type: StationSpecificMeteor
