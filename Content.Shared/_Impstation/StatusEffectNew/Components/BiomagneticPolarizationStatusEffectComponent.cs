@@ -18,6 +18,7 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// </summary>
     [DataField]
     public TimeSpan UpdateTime = TimeSpan.FromSeconds(1);
+    [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextUpdate = TimeSpan.Zero;
 
     /// <summary>
@@ -25,6 +26,7 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// </summary>
     [DataField]
     public TimeSpan TriggerCooldown = TimeSpan.FromSeconds(3);
+    [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan CooldownEnd = TimeSpan.Zero;
 
     /// <summary>
