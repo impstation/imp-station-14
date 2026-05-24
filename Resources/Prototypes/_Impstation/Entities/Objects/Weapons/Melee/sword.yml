@@ -146,7 +146,7 @@
   - type: ItemTogglePointLight
   - type: PointLight
     energy: 10
-    color: "#dac37b" # hehe feed
+    color: "#dac37b"
     enabled: false
     radius: 3
     netsync: false
@@ -158,8 +158,7 @@
     swingLeft: true
     damage:
       types:
-        Slash: 25
-        Piercing: 5
+        Slash: 30
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Wieldable
