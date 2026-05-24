@@ -30,7 +30,7 @@ public sealed partial class SupermatterSurgeRuleComponent : Component
     /// <summary>
     /// Time tracker for next explosive lightning strike
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextLightningTime;
 
     /// <summary>
