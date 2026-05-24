@@ -108,6 +108,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             args.AddLine(text);
         }
 
+        args.AddLine(Loc.GetString("nukeops-operation-name", ("name", uid))); // imp addition, show operation name on the roundend screen
+
         args.AddLine(Loc.GetString("nukeops-list-start"));
 
         var antags = _antag.GetAntagIdentifiers(uid);

@@ -1,0 +1,23 @@
+- type: entity
+  parent: [ PosterBase, DawInstrument ]
+  id: BigmouthCarp
+  name: "Wall-mounted Radio Carp"
+  description: Looks like there's a speaker in it's mouth...
+  components:
+  - type: Sprite
+    layers:
+    - state: poster42_legit
+    - state: poster42_legit
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: false
+    name: ghost-role-information-carp-radio-name
+    description: ghost-role-information-carp-radio-desc
+  - type: Hands
+  - type: ComplexInteraction
+  - type: Examiner
+  - type: StaticPrice
+    price: 800

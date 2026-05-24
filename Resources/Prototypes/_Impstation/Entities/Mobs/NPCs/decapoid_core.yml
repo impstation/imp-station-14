@@ -5,6 +5,9 @@
   description: The navigational core of the vessel, exerting control of nearby systems. Don't bother trying to pronounce its actual name.
   components:
   - type: InputMover # needs this to pilot shuttles
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 0
+    baseSprintSpeed : 0
   - type: MobState #this is required so it cannot return to body from ghost
     allowedStates:
     - Alive
@@ -204,9 +207,9 @@
   - type: CommunicationsConsole
     title: comms-console-announcement-title-decacore
     color: "#ff4f4f"
-    delay: 60
+    delay: 10 #im allowing this provisionally. do not make me take it away
     initialDelay: 0
-    global: true
+    global: true #lol
   - type: InteractionPopup
     interactSuccessString: petting-success-decapoid-silicon
     interactFailureString: petting-failure-decapoid-silicon
