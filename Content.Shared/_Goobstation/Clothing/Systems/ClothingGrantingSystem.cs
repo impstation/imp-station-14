@@ -2,7 +2,7 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
 using Robust.Shared.Serialization.Manager;
-using Content.Shared._Goobstation.Clothing.Components;
+using Content.Shared._Goobstation.Clothing.Components; // Imp
 
 namespace Content.Shared._Goobstation.Clothing.Systems;
 
