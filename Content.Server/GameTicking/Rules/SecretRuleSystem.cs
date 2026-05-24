@@ -107,10 +107,10 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
             unreadied++;
         }
 
-        // divide it by two because not all unreadied players will actually join the round
-        unreadied /= 2;
+        // divide it by four because not all unreadied players will actually join the round
+        unreadied /= 4;
 
-        // add it to players. half of the unreadied amount will count for game preset rolling
+        // add it to players. a quarter of the unreadied amount will count for game preset rolling
         players += unreadied;
         // imp edit end
 
