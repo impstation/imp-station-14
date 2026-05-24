@@ -50,7 +50,11 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
             return;
 
-        sm.Event = SupermatterEvent.Surging;
+        if (sm.Event != SupermatterEvent.Surging)
+        {
+            sm.Event = SupermatterEvent.Surging;
+            component.NextLightningTime = Timing.CurTime + TimeSpan.FromSeconds(component.LightningCooldownMinMax.Next(_random));
+        }
 
         // Power & heat modifer changes every tick so isn't always used by the supermatter, but creates a good visual on the console
         sm.Power = component.PowerMinMax.Next(_random);
