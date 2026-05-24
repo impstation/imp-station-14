@@ -116,7 +116,7 @@
 - type: entity
   id: CrateEngineeringSupermatterSecure
   parent: [ CrateEngineeringSecure, BaseEngineeringContraband ]
-  description: A specialized crate immune to the supermatter.
+  description: A specialized crate that is immune to the supermatter, capable of holding a supermatter shard.
   components:
   - type: Icon
     sprite: _Impstation/Structures/Storage/Crates/supermatter.rsi
