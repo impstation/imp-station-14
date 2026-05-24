@@ -19,8 +19,8 @@ public sealed class ClothingGrantingSystem : EntitySystem
         SubscribeLocalEvent<Content.Shared._Goobstation.Clothing.Components.ClothingGrantComponentComponent, GotEquippedEvent>(OnCompEquip);
         SubscribeLocalEvent<Content.Shared._Goobstation.Clothing.Components.ClothingGrantComponentComponent, GotUnequippedEvent>(OnCompUnequip);
 
-        SubscribeLocalEvent<Content.Shared._Goobstation.Clothing.Components.ClothingGrantTagComponent, GotEquippedEvent>(OnTagEquip);
-        SubscribeLocalEvent<Content.Shared._Goobstation.Clothing.Components.ClothingGrantTagComponent, GotUnequippedEvent>(OnTagUnequip);
+        SubscribeLocalEvent<ClothingGrantTagComponent, GotEquippedEvent>(OnTagEquip);
+        SubscribeLocalEvent<ClothingGrantTagComponent, GotUnequippedEvent>(OnTagUnequip);
     }
 
     private void OnCompEquip(EntityUid uid, Content.Shared._Goobstation.Clothing.Components.ClothingGrantComponentComponent component, GotEquippedEvent args)
