@@ -18,8 +18,8 @@
   - Trinkets
   - ChiefMedicalOfficerJobTrinkets
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathToolMedical > GroupSpeciesBreathToolCommand
-  - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobMedicalDoctor
@@ -38,7 +38,7 @@
   - Trinkets
   - MedicalDoctorJobTrinkets
   - GroupSpeciesBreathToolMedical
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -51,7 +51,7 @@
   - Trinkets
   - MedicalInternJobTrinkets
   - GroupSpeciesBreathToolMedical
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarness # imp reorder
 
 - type: roleLoadout
@@ -72,7 +72,7 @@
   - Trinkets
   - ChemistJobTrinkets
   - GroupSpeciesBreathToolMedical
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -92,5 +92,5 @@
   - Trinkets
   - ParamedicJobTrinkets
   - GroupSpeciesBreathToolMedical
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear

@@ -34,27 +34,6 @@
     - popping
 
 - type: emote
-  id: Hiss
-  name: chat-emote-name-hiss
-  category: Vocal
-  available: false
-  icon: _Impstation/Interface/Emotes/hiss.png
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    tags:
-    - SiliconEmotes
-  chatMessages: ["chat-emote-msg-hiss"]
-  chatTriggers:
-    - hiss
-    - hiss.
-    - hiss!
-    - hisses
-    - hisses.
-    - hisses!
-
-- type: emote
   id: Wuhey
   name: chat-emote-name-wuhey
   category: Vocal
@@ -155,27 +134,6 @@
   - beats her chest
   - beats its chest
   - beats their chest
-
-# Kodepiia
-
-- type: emote
-  id: Boom
-  name: chat-emote-name-boom
-  category: Vocal
-  icon: _Impstation/Interface/Emotes/boom.png
-  available: false
-  whitelist:
-    components:
-    - Vocal
-  blacklist:
-    tags:
-    - SiliconEmotes
-  chatMessages: ["chat-emote-msg-boom"]
-  chatTriggers:
-  - boom
-  - booms
-  - booming
-  - boomed
 
 #Sirval
 

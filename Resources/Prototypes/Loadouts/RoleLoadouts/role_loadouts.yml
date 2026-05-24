@@ -36,8 +36,8 @@
   - Trinkets
   - CaptainJobTrinkets
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
-  - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp, Assign GroupTankHarness to jobs without outer clothing and GroupTankHarnessWithOuterwear to jobs with
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobHeadOfPersonnel
@@ -54,8 +54,8 @@
   - Trinkets
   - HoPJobTrinkets
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
-  - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 # Silicons
 - type: roleLoadout
@@ -84,7 +84,7 @@
   - Trinkets
   - PassengerJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -103,7 +103,7 @@
   - Trinkets
   - BartenderJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -119,7 +119,7 @@
   - Trinkets
   - ServiceWorkerJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobChef
@@ -137,7 +137,7 @@
   - Trinkets
   - ChefJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -152,7 +152,7 @@
   - Trinkets
   - LibrarianJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarness # imp reorder
 
 - type: roleLoadout
@@ -170,7 +170,7 @@
   - LawyerJobTrinkets
   - LawyerBriefcase # imp
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarness # imp reorder
 
 - type: roleLoadout
@@ -191,7 +191,7 @@
   - ChaplainJobTrinkets
   - ChaplainBible #imp reorder
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -210,7 +210,7 @@
   - Trinkets
   - JanitorJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -229,7 +229,7 @@
   - Trinkets
   - BotanistJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -247,7 +247,7 @@
   - SurvivalClown
   - Trinkets
   - ClownJobTrinkets
-  - GroupBreathToolDecapoidInventoryClown # imp special
+  - GroupBreathToolDecapoidInventoryClown # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -266,7 +266,7 @@
   - SurvivalMime
   - Trinkets
   - MimeJobTrinkets
-  - GroupBreathToolDecapoidInventoryMime # imp special
+  - GroupBreathToolDecapoidInventoryMime # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -286,7 +286,7 @@
   - MusicianJobTrinkets
   - Instruments
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 # Cargo
@@ -303,10 +303,10 @@
   - QuartermasterBackpack #imp CargoTechnicianBackpack > QuartermasterBackpack
   - SurvivalCommand # imp Survival > SurvivalCommand
   - Trinkets
-  - QuartermasterJobTrinkets
+  - QuartermasterJobTrinkets # imp
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
-  - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobCargoTechnician
@@ -325,7 +325,7 @@
   - Trinkets
   - CargoTechnicianJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -343,7 +343,7 @@
   - Trinkets
   - SalvageSpecialistJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 # Engineering
@@ -359,10 +359,10 @@
   - ChiefEngineerBackpack #imp StationEngineerBackpack > ChiefEngineerBackpack
   - SurvivalExtendedCommand #imp SurvivalExtended > SurvivalExtendedCommand
   - Trinkets
-  - ChiefEngineerJobTrinkets
+  - ChiefEngineerJobTrinkets # imp
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
-  - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobTechnicalAssistant
@@ -373,7 +373,7 @@
   - Trinkets
   - TechnicalAssistantJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarness # imp reorder
 
 - type: roleLoadout
@@ -391,7 +391,7 @@
   - Trinkets
   - StationEngineerJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -409,7 +409,7 @@
   - Trinkets
   - AtmosphericTechnicianJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 # Science
@@ -429,8 +429,8 @@
   - Trinkets
   - ResearchDirectorJobTrinkets
   - GroupSpeciesBreathToolCommand # imp GroupSpeciesBreathTool > GroupSpeciesBreathToolCommand
-  - GroupBreathToolDecapoid # imp special
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: JobScientist
@@ -449,7 +449,7 @@
   - Trinkets
   - ScientistJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 - type: roleLoadout
@@ -462,7 +462,7 @@
   - Trinkets
   - ResearchAssistantJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarness # imp reorder
 
 # Security
@@ -483,7 +483,7 @@
   - Trinkets
   - HeadofSecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessCommandWithOuterwear # imp GroupTankHarness > GroupTankHarnessCommandWithOuterwear
   - SecurityCommandFirearm # imp
   - SecurityCommandAmmo # imp
@@ -505,7 +505,7 @@
   - Trinkets
   - WardenJobTrinkets
   - GroupSpeciesBreathToolSecurity
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
   - SecurityCommandFirearm # imp
   - SecurityCommandAmmo # imp
@@ -527,7 +527,7 @@
   - Trinkets
   - SecurityJobTrinkets
   - GroupSpeciesBreathToolSecurity
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
   - SecurityOfficerFirearm # imp
   - SecurityOfficerAmmo # imp
@@ -547,7 +547,7 @@
   - Trinkets
   - DetectiveJobTrinkets
   - GroupSpeciesBreathToolSecurity
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
   - DetectiveFirearm # imp
   - DetectiveAmmo # imp
@@ -561,7 +561,7 @@
   - Trinkets
   - SecurityCadetJobTrinkets
   - GroupSpeciesBreathToolSecurity
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarness # imp. wtf does upstream hate cadets
 
 # Wildcards
@@ -578,7 +578,7 @@
   - Trinkets
   - ReporterJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarness # imp reorder
 
 - type: roleLoadout
@@ -596,7 +596,7 @@
   - Trinkets
   - PsychologistJobTrinkets
   - GroupSpeciesBreathTool
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
   - GroupTankHarnessWithOuterwear # imp GroupTankHarness > GroupTankHarnessWithOuterwear
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
@@ -609,7 +609,7 @@
   groups:
   - GroupSpeciesBreathTool
   - GroupTankHarness
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 # gives vox a nitrogen breathing tank
 # other species get nothing
@@ -624,14 +624,14 @@
   - Survival
   - GroupSpeciesBreathTool
   - GroupTankHarness
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: RoleSurvivalClown
   groups:
   - SurvivalClown
   - GroupTankHarness
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: RoleSurvivalExtended
@@ -639,7 +639,7 @@
   - SurvivalExtended
   - GroupSpeciesBreathTool
   - GroupTankHarness
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: RoleSurvivalMedical
@@ -647,7 +647,7 @@
   - SurvivalMedical
   - GroupSpeciesBreathToolMedical
   - GroupTankHarness
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: RoleSurvivalSecurity
@@ -655,7 +655,7 @@
   - SurvivalSecurity
   - GroupSpeciesBreathToolSecurity
   - GroupTankHarness
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: RoleSurvivalSyndicate
@@ -663,13 +663,13 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupTankHarness
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: RoleSurvivalMilitaryDouble
   groups:
   - SurvivalMilitaryDouble
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: RoleSurvivalNukie
@@ -677,17 +677,17 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupPocketTankDouble
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: RoleSurvivalEVA
   groups:
   - GroupEVATank
   - SurvivalExtended
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid
 
 - type: roleLoadout
   id: RoleSurvivalSpaceNinja
   groups:
   - GroupEVATank
-  - GroupBreathToolDecapoid # imp special
+  - GroupBreathToolDecapoid # MACRO: Decapoid

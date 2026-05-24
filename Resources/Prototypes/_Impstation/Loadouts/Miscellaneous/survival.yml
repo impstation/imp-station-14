@@ -1,31 +1,4 @@
 # Species
-- type: loadoutEffectGroup
-  id: Aquatic
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Decapoid
-
-- type: loadoutEffectGroup
-  id: Carnivorous
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Kodepiia
-    
-- type: loadoutEffectGroup
-  id: Cow
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Ungu    
-
-- type: loadoutEffectGroup
-  id: EffectSpeciesSnail
-  effects:
-  - !type:SpeciesLoadoutEffect
-    species:
-    - Gastropoid
 
 - type: loadoutEffectGroup
   id: Discount
@@ -33,16 +6,6 @@
   - !type:SpeciesLoadoutEffect
     species:
     - Anomalocarid
-
-# Pre-equipped species gear
-# Full tank for aquatics as part of any Survival loadout
-- type: loadout
-  id: LoadoutSpeciesAquaticFullTank
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  equipment:
-    suitstorage: DecapoidVaporTankFilled
 
 # Full tank for vox in command roles as an alternative to the below section in case people don't like non-vox spawning with tanks
 # Remove LoadoutSpeciesOxygenCommand and LoadoutSpeciesNitrogenCommand from SurvivalCommand, SurvivalExtendedCommand, and SurvivalSecurityCommand in loadout_groups.yml if you wanna make that change
@@ -82,15 +45,6 @@
     back:
     - ClothingOuterVestTankCommand
 
-# Breath Tool On Face
-- type: loadout
-  id: LoadoutDecapoidBreathTool
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  equipment:
-    mask: DecapoidBreathingApparatus
-
 - type: loadout
   id: LoadoutSpeciesBreathToolCommand
   effects:
@@ -99,70 +53,7 @@
   equipment:
     mask: ClothingMaskBreathCommand
 
-# Breath tool in inventory
-- type: loadout
-  id: LoadoutDecapoidBreathToolInventory
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - DecapoidBreathingApparatus
-
-- type: loadout
-  id: LoadoutDecapoidBreathToolInventoryClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - DecapoidBreathingApparatusClown
-
-- type: loadout
-  id: LoadoutDecapoidBreathToolInventoryMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - DecapoidBreathingApparatusMime
-
 # Basic
-- type: loadout
-  id: EmergencyMeat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  storage:
-    back:
-    - BoxSurvivalKodepiia
-    
-- type: loadout
-  id: EmergencyWheat
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  storage:
-    back:
-    - BoxSurvivalUngu   
-
-- type: loadout
-  id: EmergencyOxygenSnail
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: EffectSpeciesSnail
-  storage:
-    lhand:
-    - BoxSurvival
-
-- type: loadout
-  id: EmergencyAquatic
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - BoxSurvivalAquatic
 
 - type: loadout
   id: EmergencyDiscount
@@ -175,33 +66,6 @@
 
 # Clown
 - type: loadout
-  id: EmergencyMeatClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  storage:
-    back:
-    - BoxHugKodepiia
-    
-- type: loadout
-  id: EmergencyWheatClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  storage:
-    back:
-    - BoxHugUngu  
-
-- type: loadout
-  id: EmergencyAquaticClown
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - BoxHugAquatic
-
-- type: loadout
   id: EmergencyDiscountClown
   effects:
   - !type:GroupLoadoutEffect
@@ -210,34 +74,7 @@
     back:
     - BoxHugDiscount
 
-# Mime
-- type: loadout
-  id: EmergencyMeatMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  storage:
-    back:
-    - BoxMimeKodepiia
-    
-- type: loadout
-  id: EmergencyWheatMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  storage:
-    back:
-    - BoxMimeUngu    
-
-- type: loadout
-  id: EmergencyAquaticMime
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - BoxMimeAquatic
-
+# Mime  
 - type: loadout
   id: EmergencyDiscountMime
   effects:
@@ -247,34 +84,7 @@
     back:
     - BoxMimeDiscount
 
-# Engineering / Extended
-- type: loadout
-  id: EmergencyMeatExtended
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  storage:
-    back:
-    - BoxSurvivalEngineeringKodepiia
-    
-- type: loadout
-  id: EmergencyWheatExtended
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  storage:
-    back:
-    - BoxSurvivalEngineeringUngu   
-
-- type: loadout
-  id: EmergencyAquaticExtended
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - BoxSurvivalEngineeringAquatic
-
+# Engineering / Extended 
 - type: loadout
   id: EmergencyDiscountExtended
   effects:
@@ -304,33 +114,6 @@
     - BoxSurvivalNitrogenCommand
 
 - type: loadout
-  id: EmergencyMeatCommand
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  storage:
-    back:
-    - BoxSurvivalCommandKodepiia
-    
-- type: loadout
-  id: EmergencyWheatCommand
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  storage:
-    back:
-    - BoxSurvivalCommandUngu 
-
-- type: loadout
-  id: EmergencyAquaticCommand
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - BoxSurvivalCommandAquatic
-
-- type: loadout
   id: EmergencyDiscountCommand
   effects:
   - !type:GroupLoadoutEffect
@@ -340,33 +123,6 @@
     - BoxSurvivalCommandDiscount
 
 # Medical
-- type: loadout
-  id: EmergencyMeatMedical
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  storage:
-    back:
-    - BoxSurvivalMedicalKodepiia
-    
-- type: loadout
-  id: EmergencyWheatMedical
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  storage:
-    back:
-    - BoxSurvivalMedicalUngu  
-
-- type: loadout
-  id: EmergencyAquaticMedical
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - BoxSurvivalMedicalAquatic
-
 - type: loadout
   id: EmergencyDiscountMedical
   effects:
@@ -386,33 +142,6 @@
     mask: ClothingMaskBreathMedicalSecurity
 
 # Security
-- type: loadout
-  id: EmergencyMeatSecurity
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  storage:
-    back:
-    - BoxSurvivalSecurityKodepiia
-    
-- type: loadout
-  id: EmergencyWheatSecurity
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  storage:
-    back:
-    - BoxSurvivalSecurityUngu
-
-- type: loadout
-  id: EmergencyAquaticSecurity
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - BoxSurvivalSecurityAquatic
-
 - type: loadout
   id: EmergencyDiscountSecurity
   effects:
@@ -442,33 +171,6 @@
     - BoxSurvivalBrigmedicNitrogen
 
 - type: loadout
-  id: EmergencyMeatBrigmedic
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  storage:
-    back:
-    - BoxSurvivalBrigmedicKodepiia
-    
-- type: loadout
-  id: EmergencyWheatBrigmedic
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  storage:
-    back:
-    - BoxSurvivalBrigmedicUngu  
-
-- type: loadout
-  id: EmergencyAquaticBrigmedic
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - BoxSurvivalBrigmedicAquatic
-
-- type: loadout
   id: EmergencyDiscountBrigmedic
   effects:
   - !type:GroupLoadoutEffect
@@ -478,33 +180,6 @@
     - BoxSurvivalBrigmedicDiscount
 
 # Syndicate
-
-- type: loadout
-  id: EmergencyMeatSyndicate
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  storage:
-    back:
-    - BoxSurvivalSyndicateKodepiia
-    
-- type: loadout
-  id: EmergencyWheatSyndicate
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  storage:
-    back:
-    - BoxSurvivalSyndicateUngu 
-
-- type: loadout
-  id: EmergencyAquaticSyndicate
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - BoxSurvivalSyndicateAquatic
 
 - type: loadout
   id: EmergencyDiscountSyndicate
@@ -535,33 +210,6 @@
     - BoxSurvivalEngineeringNitrogenCommand
 
 - type: loadout
-  id: EmergencyMeatExtendedCommand
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  storage:
-    back:
-    - BoxSurvivalEngineeringCommandKodepiia
-    
-- type: loadout
-  id: EmergencyWheatExtendedCommand
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  storage:
-    back:
-    - BoxSurvivalEngineeringCommandUngu 
-
-- type: loadout
-  id: EmergencyAquaticExtendedCommand
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - BoxSurvivalEngineeringCommandAquatic
-
-- type: loadout
   id: EmergencyDiscountExtendedCommand
   effects:
   - !type:GroupLoadoutEffect
@@ -590,33 +238,6 @@
     - BoxSurvivalSecurityNitrogenCommand
 
 - type: loadout
-  id: EmergencyMeatSecurityCommand
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  storage:
-    back:
-    - BoxSurvivalSecurityCommandKodepiia
-    
-- type: loadout
-  id: EmergencyWheatSecurityCommand
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  storage:
-    back:
-    - BoxSurvivalSecurityCommandUngu 
-
-- type: loadout
-  id: EmergencyAquaticSecurityCommand
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Aquatic
-  storage:
-    back:
-    - BoxSurvivalSecurityCommandAquatic
-
-- type: loadout
   id: EmergencyDiscountSecurityCommand
   effects:
   - !type:GroupLoadoutEffect
@@ -628,44 +249,12 @@
 # stupid things i have to do bc i cant have kode classified as oxygenbreather. ungu city now too
 
 - type: loadout
-  id: LoadoutSpeciesEVAKodepiia
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  equipment:
-    suitstorage: OxygenTankFilled
-    
-- type: loadout
-  id: LoadoutSpeciesEVAUngu
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  equipment:
-    suitstorage: OxygenTankFilled
-
-- type: loadout
   id: LoadoutSpeciesEVADiscount
   effects:
   - !type:GroupLoadoutEffect
     proto: Discount
   equipment:
-    suitstorage: OxygenTankFilled    
-
-- type: loadout
-  id: LoadoutSpeciesPocketDoubleOxygenKodepiia
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Carnivorous
-  equipment:
-    pocket1: DoubleEmergencyOxygenTankFilled
-    
-- type: loadout
-  id: LoadoutSpeciesPocketDoubleOxygenUngu
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Cow
-  equipment:
-    pocket1: DoubleEmergencyOxygenTankFilled    
+    suitstorage: OxygenTankFilled        
 
 - type: loadout
   id: LoadoutSpeciesPocketDoubleOxygenDiscount
