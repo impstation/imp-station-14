@@ -1356,11 +1356,11 @@
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.8
-  - type: MeleeThrowOnHit 
+  - type: MeleeThrowOnHit
     unanchorOnHit: Unanchorable
     speed: 6.5
     distance: 5.5
-  - type: EmoteOnHit
+  - type: TargetEmoteOnMelee
     emote: Flip
   - type: Speech
     speechSounds: Gorilla

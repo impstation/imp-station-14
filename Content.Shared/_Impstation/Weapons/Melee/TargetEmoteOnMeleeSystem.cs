@@ -1,38 +1,36 @@
 using Content.Shared.Chat;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Stunnable;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared._Impstation.Weapons.Melee.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.Weapons.Melee;
 
-public sealed class EmoteOnHitSystem : EntitySystem
+public sealed class TargetEmoteOnMeleeSystem : EntitySystem
 {
     [Dependency] private readonly SharedChatSystem _chatSystem = default!;
     [Dependency] private readonly UseDelaySystem _delay = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<EmoteOnHitComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<TargetEmoteOnMeleeComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
     /// <summary>
     /// Tries to add an emote to a living targetted entity when hit.
     /// </summary>
-    private void OnMeleeHit(Entity<EmoteOnHitComponent> hitter, ref MeleeHitEvent args)
+    private void OnMeleeHit(Entity<TargetEmoteOnMeleeComponent> hitter, ref MeleeHitEvent args)
     {
         // todo: add handling for randomized list emotes (maybe)
         // todo: add handling for chat printed emotes
 
-        if (!args.IsHit)
+        if (hitter.Comp.Emote == null)
             return;
 
-        if (_delay.IsDelayed(hitter.Owner))
-            return;
-
-        if (args.HitEntities.Count == 0)
+        if (!_protoMan.HasIndex(hitter.Comp.Emote))
             return;
 
         foreach (var hitEnt in args.HitEntities)
