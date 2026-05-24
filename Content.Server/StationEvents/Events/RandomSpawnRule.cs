@@ -3,7 +3,6 @@ using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 // Imp start
 using Content.Server.Announcements.Systems;
-using Content.Shared.Coordinates;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 // Imp end
@@ -46,21 +45,20 @@ public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponen
             if (!TryFindRandomTile(out var tileIndices, out _, out var grid, out var coords))
                 continue;
 
-            if (comp.EmptyTilesOnly)
+            if (comp.EmptyTilesOnly
+                && _lookup.GetLocalEntitiesIntersecting(grid, tileIndices, flags: LookupFlags.Dynamic | LookupFlags.Static).Count != 0
+                && attempt < 100) // If it fails that much just let it spawn
             {
-                // Ignore tiles with mobs or machines
-                var entities = _lookup.GetLocalEntitiesIntersecting(grid, tileIndices, flags: LookupFlags.Dynamic | LookupFlags.Static);
-                if (entities.Count != 0 && attempt < 100) // If it fails that much just let it spawn
-                {
-                    attempt++;
-                    i--;
-                    continue;
-                }
+                attempt++;
+                i--;
+                continue;
             }
             // Imp end
+
             Sawmill.Info($"Spawning {comp.Prototype} at {coords}");
             Spawn(comp.Prototype, coords);
-            Spawn(comp.SpawnEffect, coords); // Imp, added effects
+            // Imp TODO: make effects follow the entity moving
+            Spawn(comp.SpawnEffect, coords); // Imp, added effects that do not follow the entity around
         }
     }
 }
