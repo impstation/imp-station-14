@@ -41,15 +41,6 @@ public sealed partial class PullableComponent : Component
 
     [DataField]
     public ProtoId<AlertPrototype> PulledAlert = "Pulled";
-
-    /// <summary>
-    /// Imp.
-    /// If the pullable entity can be collided with.
-    /// </summary>
-    [Access(typeof(Systems.PullingSystem), Other = AccessPermissions.ReadExecute)]
-    [AutoNetworkedField, DataField]
-    public bool PullableCollsion;
-
 }
 
 public sealed partial class StopBeingPulledAlertEvent : BaseAlertEvent;

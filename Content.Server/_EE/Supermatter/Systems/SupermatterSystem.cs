@@ -41,6 +41,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using Content.Shared.Mobs; // Imp
 
 namespace Content.Server._EE.Supermatter.Systems;
 
@@ -140,6 +141,8 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnCollideEvent(EntityUid uid, SupermatterComponent sm, ref StartCollideEvent args)
     {
+        if (sm.IsShard && TryComp<MobStateComponent>(args.OtherEntity, out var mobState) && mobState.CurrentState == MobState.Alive) // Imp
+            return;
         TryCollision(uid, sm, args.OtherEntity, args.OtherBody);
     }
 
@@ -150,6 +153,9 @@ public sealed partial class SupermatterSystem : EntitySystem
 
     private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)
     {
+        if (sm.IsShard) // Imp
+            return;
+
         var target = args.User;
 
         if (HasComp<SupermatterImmuneComponent>(target) || HasComp<GodmodeComponent>(target))
@@ -193,6 +199,9 @@ public sealed partial class SupermatterSystem : EntitySystem
         // TODO: supermatter scalpel
         if (HasComp<UnremoveableComponent>(item))
         {
+            if (sm.IsShard) // Imp
+                return;
+
             if (!sm.HasBeenPowered)
                 LogFirstPower(uid, sm, target);
 

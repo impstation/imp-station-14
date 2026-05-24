@@ -30,6 +30,20 @@
     - state: supermatter-shard-psy
       map: [ "enum.SupermatterVisuals.Psy" ]
       color: "#ffffff00"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.4"
+        mask:
+          - Impassable
+          - HighImpassable
+          - MidImpassable
+          - LowImpassable
+        layer:
+          - MidImpassable
+          - BulletImpassable
   - type: SupermatterVisuals
     crystal:
       Normal: { state: supermatter-shard }
@@ -70,6 +84,5 @@
     noRot: true
   - type: Pullable
     prevFixedRotation: true
-    pullableCollsion: true
   - type: Physics
     bodyType: Dynamic
