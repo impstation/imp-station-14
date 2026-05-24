@@ -57,19 +57,15 @@ public sealed class ButlerConditionSystem : EntitySystem
         var coords = _transform.GetMapCoordinates(mindBody);
         var package = Spawn(ent.Comp.Package, coords);
 
-        if (!TryComp<StorageComponent>(package, out var storage))
-            return;
-
-        foreach (var (item, _) in storage.StoredItems)
+        foreach (var (item, _) in Comp<StorageComponent>(package).StoredItems)
             RemCompDeferred<AutoLinkTransmitterComponent>(item);
 
-        if (args.Mind.CurrentEntity is { })
-            RemCompDeferred<AutoLinkReceiverComponent>(args.Mind.CurrentEntity.Value);
-
-        if (!TryComp<ImplantedComponent>(args.Mind.CurrentEntity, out var implanted))
+        if (args.Mind.CurrentEntity is not { } butler)
             return;
 
-        foreach (var implant in implanted.ImplantContainer.ContainedEntities)
+        RemCompDeferred<AutoLinkReceiverComponent>(butler);
+
+        foreach (var implant in Comp<ImplantedComponent>(butler).ImplantContainer.ContainedEntities)
             RemCompDeferred<AutoLinkReceiverComponent>(implant);
 
         if (!_inventory.TryGetSlotEntity(mindBody, Slot, out var backpack) ||
