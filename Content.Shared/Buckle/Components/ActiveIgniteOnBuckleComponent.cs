@@ -43,6 +43,6 @@ public sealed partial class ActiveIgniteOnBuckleComponent : Component
     /// Imp.
     /// The source that the target is buckled to.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public EntityUid Strap;
 }
