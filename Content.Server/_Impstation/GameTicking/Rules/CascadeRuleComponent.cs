@@ -14,19 +14,19 @@ public sealed partial class CascadeRuleComponent : Component
     /// <summary>
     /// The current stage of the resonance cascade event
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ResonanceCascadeStage Stage = ResonanceCascadeStage.Beginning;
 
     /// <summary>
     /// Time until the round is ended in seconds
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan DurationToRoundEnd = TimeSpan.FromSeconds(180);
 
     /// <summary>
     /// Time until the round including curTime
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan TimeUntilEndRound;
 
     /// <summary>

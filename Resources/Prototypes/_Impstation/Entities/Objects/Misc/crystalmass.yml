@@ -27,6 +27,7 @@
     - type: Clickable
     - type: CrystalMassVisuals
     - type: CrystalMass
+      clearedTile: true
       startupAppearance: false
     - type: StepTrigger
       requiredTriggeredSpeed: 0
@@ -113,6 +114,10 @@
       - state: crystal_cascade_6
         shader: unshaded
       drawdepth: FloorTiles
+    - type: CrystalMass
+      clearedTile: true
+      startupAppearance: false
+      isBulb: true
     - type: PointLight
       radius: 10
       energy: 2
