@@ -1,22 +1,4 @@
 ﻿Entries:
-- author: mqole
-  changes:
-  - message: Decapoids have learned how to carry, too!
-    type: Add
-  - message: You can now carry someone you're pulling.
-    type: Add
-  - message: Escaping the grasp of someone who's carrying you is much faster.
-    type: Tweak
-  id: 2310
-  time: '2025-10-06T11:18:00.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3312
-- author: starlighthowls
-  changes:
-  - message: Ungu are now roundstart!
-    type: Add
-  id: 2311
-  time: '2025-10-07T04:18:18.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3530
 - author: sev7ves
   changes:
   - message: Adjusted ungu fixture
@@ -4108,3 +4090,17 @@
   id: 2809
   time: '2026-05-23T13:48:50.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4393
+- author: jkwookee
+  changes:
+  - message: Double kill objectives on the same person are fixed.
+    type: Fix
+  id: 2810
+  time: '2026-05-24T00:58:06.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4395
+- author: msTheowo
+  changes:
+  - message: The Nuclear Operation name will show up on the summary screen.
+    type: Add
+  id: 2811
+  time: '2026-05-24T01:51:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4388
