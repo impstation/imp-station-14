@@ -34,6 +34,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     [Dependency] private readonly TagSystem _tagSystem = default!; // imp
 
     public const string ActiveReclaimerContainerId = "active-material-reclaimer-container";
+    private static string _gibbableTag = "RecyclerGibbable"; // imp
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -218,7 +219,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
                component.Enabled &&
                !component.Broken &&
                HasComp<BodyComponent>(victim) &&
-               (_emag.CheckFlag(uid, EmagType.Interaction) || _tagSystem.HasTag(victim, "RecyclerGibbable")); // imp edit, mobs are gibbable if they have the tag
+               (_emag.CheckFlag(uid, EmagType.Interaction) || _tagSystem.HasTag(victim, _gibbableTag)); // imp edit, mobs are gibbable if they have the tag
     }
 
     /// <summary>
