@@ -25,9 +25,6 @@ public sealed class TargetEmoteOnMeleeSystem : EntitySystem
     /// </summary>
     private void OnMeleeHit(Entity<TargetEmoteOnMeleeComponent> hitter, ref MeleeHitEvent args)
     {
-        // todo: add handling for randomized list emotes (maybe)
-        // todo: add handling for chat printed emotes
-
         if (!args.HitEntities.Any())
             return;
 
@@ -42,8 +39,17 @@ public sealed class TargetEmoteOnMeleeSystem : EntitySystem
 
         foreach (var hitEnt in args.HitEntities)
         {
-            if (TryComp<MobStateComponent>(hitEnt, out var stateComp)
-            && stateComp.CurrentState == MobState.Alive)
+            if (!TryComp<MobStateComponent>(hitEnt, out var stateComp))
+                continue;
+
+            if (stateComp.CurrentState != MobState.Alive)
+                continue;
+
+            if (hitter.Comp.PrintChat == true)
+            {
+                _chatSystem.TryEmoteWithChat(hitEnt, hitter.Comp.Emote);
+            }
+            else
             {
                 _chatSystem.TryEmoteWithoutChat(hitEnt, hitter.Comp.Emote);
             }
