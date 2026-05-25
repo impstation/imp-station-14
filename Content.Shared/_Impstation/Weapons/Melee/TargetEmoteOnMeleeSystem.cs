@@ -34,7 +34,11 @@ public sealed class TargetEmoteOnMeleeSystem : EntitySystem
         if (hitter.Comp.Emote == null)
             return;
 
-        DebugTools.Assert(_protoMan.HasIndex(hitter.Comp.Emote), "Prototype not found. Did you make a typo?");
+        if (!_protoMan.HasIndex(hitter.Comp.Emote))
+        {
+            DebugTools.Assert("Prototype not found. Did you make a typo?");
+            return;
+        }
 
         foreach (var hitEnt in args.HitEntities)
         {
