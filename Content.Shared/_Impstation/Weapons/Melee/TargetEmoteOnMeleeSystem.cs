@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Shared.Chat;
-using Content.Shared.Chat.Prototypes;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Weapons.Melee.Events;
@@ -39,13 +38,10 @@ public sealed class TargetEmoteOnMeleeSystem : EntitySystem
 
         foreach (var hitEnt in args.HitEntities)
         {
-            if (!TryComp<MobStateComponent>(hitEnt, out var stateComp))
+            if (!TryComp<MobStateComponent>(hitEnt, out var stateComp) || stateComp.CurrentState != MobState.Alive)
                 continue;
 
-            if (stateComp.CurrentState != MobState.Alive)
-                continue;
-
-            if (hitter.Comp.PrintChat == true)
+            if (hitter.Comp.PrintChat)
             {
                 _chatSystem.TryEmoteWithChat(hitEnt, hitter.Comp.Emote);
             }

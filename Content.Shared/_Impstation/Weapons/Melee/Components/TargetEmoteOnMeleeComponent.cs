@@ -14,5 +14,5 @@ public sealed partial class TargetEmoteOnMeleeComponent : Component
     public ProtoId<EmotePrototype>? Emote;
 
     [DataField]
-    public bool PrintChat = false;
+    public bool PrintChat;
 }
