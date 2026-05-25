@@ -232,9 +232,6 @@
   parent: [BaseBrainEnclosure, BaseBrainEnclosureTransponder]
   abstract: true
   components:
-  - type: RandomMetadata
-    nameSegments:
-    - NamesBorg
   - type: NpcFactionMember
     factions:
     - NanoTrasen
