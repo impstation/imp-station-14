@@ -1,3 +1,5 @@
+using Content.Shared.Maps;
+using Content.Shared.Spreader;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -10,24 +12,7 @@ namespace Content.Server._Impstation.CrystalMass;
 public sealed partial class CrystalMassComponent : Component
 {
     /// <summary>
-    /// If the crystal mass has cleared its tile of entities
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public bool ClearedTile = false;
-
-    /// <summary>
-    /// The time to clear the crystal mass tile on
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan ClearTime;
-
-    /// <summary>
-    /// Delay until the tile is cleared
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public TimeSpan ClearTileDelay = TimeSpan.FromSeconds(0.025f);
-    /// <summary>
-    /// Chance for it to spread
+    /// Chance for it to not spread
     /// </summary>
     [DataField]
     public float SpreadChance = 0.5f;
@@ -38,6 +23,17 @@ public sealed partial class CrystalMassComponent : Component
     [DataField]
     public float SpawningAudioChance = 0.2f;
 
+    /// <summary>
+    /// Chance for a secondary entity to spawn instead when spread
+    /// </summary>
+    [DataField]
+    public float SecondaryChance;
+
+    /// <summary>
+    /// If the crystal mass should set its appearance on startup
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool StartupAppearance;
 
     /// <summary>
     /// Number of sprite variations for crystal mass
@@ -45,48 +41,12 @@ public sealed partial class CrystalMassComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public int SpriteVariants = 5;
 
-    /// <summary>
-    /// Chance for a bulb to spawn when spread
-    /// </summary>
-    [DataField]
-    public float BulbChance = 0.1667f;
-
-    /// <summary>
-    /// If the crystal mass should set its appearance on startup
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public bool StartupAppearance = true;
-
-    /// <summary>
-    /// If the crystal mass is a bulb
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public bool IsBulb = false;
-
-    /// <summary>
-    /// Crystal bulb pointlight radius after clearing tile
-    /// </summary>
-    [DataField]
-    public float BulbRadius = 10f;
-
-    /// <summary>
-    /// Crystal bulb pointlight energy after clearing tile
-    /// </summary>
-    [DataField]
-    public float BulbEnergy = 2f;
-
-    /// <summary>
-    /// Crystal bulb pointlight color after clearing tile
-    /// </summary>
-    [DataField]
-    public Color BulbColor = Color.FromHex("#FBFF23");
-
     [DataField]
     public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_EE/Supermatter/supermatter.ogg");
     [DataField]
     public SoundSpecifier SpawningCrystalSound = new SoundPathSpecifier("/Audio/_Impstation/Supermatter/cracking_crystal.ogg");
     [DataField]
-    public EntProtoId CrystalMassPrototype = "CrystalMassSpreader";
+    public EntProtoId SecondarySpawnPrototype = "CrystalBulbSpreader";
     [DataField]
-    public EntProtoId CrystalBulbPrototype = "CrystalBulbSpreader";
+    public ProtoId<ContentTileDefinition> MassPlating = "PlatingCrystalMass";
 }

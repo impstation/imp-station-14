@@ -18,16 +18,14 @@
           shape:
             !type:PhysShapeAabb
             bounds: "-0.5,-0.5,0.5,0.5"
-          layer:
-          - WallLayer
           mask:
           - ItemMask
-          density: 500
+          layer:
+          - WallLayer
           hard: false
     - type: Clickable
     - type: CrystalMassVisuals
     - type: CrystalMass
-      clearedTile: true
       startupAppearance: false
     - type: StepTrigger
       requiredTriggeredSpeed: 0
@@ -114,10 +112,6 @@
       - state: crystal_cascade_6
         shader: unshaded
       drawdepth: FloorTiles
-    - type: CrystalMass
-      clearedTile: true
-      startupAppearance: false
-      isBulb: true
     - type: PointLight
       radius: 10
       energy: 2
@@ -133,7 +127,9 @@
       state: crystal_cascade_1
       drawdepth: FloorTiles
     - type: CrystalMass
+      secondaryChance: 0.1667
       startupAppearance: true
+    - type: ActiveTileClearCrystalMass
     - type: ActiveEdgeSpreader
     - type: EdgeSpreader
       id: CrystalMass
@@ -154,5 +150,8 @@
         shader: unshaded
       drawdepth: FloorTiles
     - type: CrystalMass
+      secondaryChance: 0.8333
+      secondarySpawnPrototype: CrystalMassSpreader
       startupAppearance: false
-      isBulb: true
+    - type: ActiveTileClearCrystalMass
+      isLight: true

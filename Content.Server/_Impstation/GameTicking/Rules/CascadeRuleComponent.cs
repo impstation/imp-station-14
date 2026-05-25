@@ -15,7 +15,7 @@ public sealed partial class CascadeRuleComponent : Component
     /// The current stage of the resonance cascade event
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ResonanceCascadeStage Stage = ResonanceCascadeStage.Beginning;
+    public ResonanceCascadeStage Stage;
 
     /// <summary>
     /// Time until the round is ended in seconds

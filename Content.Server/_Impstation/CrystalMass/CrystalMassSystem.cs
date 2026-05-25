@@ -14,17 +14,14 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Impstation.CrystalMass;
 
 public sealed class CrystalMassSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ITileDefinitionManager _tileDefManager = default!;
@@ -36,8 +33,6 @@ public sealed class CrystalMassSystem : EntitySystem
     [Dependency] private readonly TileSystem _tile = default!;
 
     private static readonly ProtoId<EdgeSpreaderPrototype> CrystalMassGroup = "CrystalMass";
-    private static readonly ProtoId<ContentTileDefinition> CrystalMassPlating = "PlatingCrystalMass";
-
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -55,31 +50,27 @@ public sealed class CrystalMassSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<CrystalMassComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<ActiveTileClearCrystalMassComponent, CrystalMassComponent>();
+        while (query.MoveNext(out var uid, out var activeTileClear, out var crystal))
         {
             // Requires a delay so that entities can register being on the tile for ClearTile
-            if (!comp.ClearedTile && comp.ClearTime < _timing.CurTime)
-            {
-                ClearTile((uid, comp));
+            ClearTile((uid, crystal));
 
-                // Delay adding pointlight for when multiple are on one tile deleting each other so that it isn't jarring
-                if (comp.IsBulb)
-                {
-                    EnsureComp<PointLightComponent>(uid);
-                    _lights.SetRadius(uid, comp.BulbRadius);
-                    _lights.SetEnergy(uid, comp.BulbEnergy);
-                    _lights.SetColor(uid, comp.BulbColor);
-                }
-                comp.ClearedTile = true;
+            // Delay adding pointlight for when multiple are on one tile deleting each other so that it isn't jarring
+            if (activeTileClear.IsLight)
+            {
+                EnsureComp<PointLightComponent>(uid);
+                _lights.SetRadius(uid, activeTileClear.LightRadius);
+                _lights.SetEnergy(uid, activeTileClear.LightEnergy);
+                _lights.SetColor(uid, activeTileClear.LightColor);
             }
+
+            RemCompDeferred<ActiveTileClearCrystalMassComponent>(uid);
         }
     }
 
     private void SetupCrystalMass(Entity<CrystalMassComponent> ent, ref ComponentStartup args)
     {
-        ent.Comp.ClearTime = _timing.CurTime + ent.Comp.ClearTileDelay;
-
         if (!ent.Comp.StartupAppearance)
             return;
 
@@ -91,8 +82,6 @@ public sealed class CrystalMassSystem : EntitySystem
 
     private void OnCrystalSpread(Entity<CrystalMassComponent> ent, ref SpreadNeighborsEvent args)
     {
-        var comp = ent.Comp;
-
         // Only occurs when surrounded by CrystalMass spreaders
         if (args.Neighbors.Count == 4)
         {
@@ -100,29 +89,38 @@ public sealed class CrystalMassSystem : EntitySystem
             return;
         }
 
-        if (!_robustRandom.Prob(comp.SpreadChance))
+        if (!_robustRandom.Prob(ent.Comp.SpreadChance))
             return;
 
-        var prototype = _robustRandom.Prob(comp.BulbChance) ? comp.CrystalBulbPrototype : comp.CrystalMassPrototype;
+        var prototype = MetaData(ent).EntityPrototype?.ID;
+
+        if (prototype == null)
+        {
+            RemCompDeferred<ActiveEdgeSpreaderComponent>(ent);
+            return;
+        }
+
+        if (_robustRandom.Prob(ent.Comp.SecondaryChance))
+            prototype = ent.Comp.SecondarySpawnPrototype;
+
         var neighbor = _robustRandom.Pick(args.AllNeighbors);
         var neighborCoords = _map.GridTileToLocal(neighbor.GridUid, neighbor.Grid, neighbor.Position);
 
-        HandleTiles(neighbor.GridUid, neighbor.Grid, neighbor.Position);
+        HandleTiles(neighbor.GridUid, neighbor.Grid, neighbor.Position, ent.Comp.MassPlating);
 
         var neighborUid = Spawn(prototype, neighborCoords);
         DebugTools.Assert(HasComp<EdgeSpreaderComponent>(neighborUid));
         DebugTools.Assert(HasComp<ActiveEdgeSpreaderComponent>(neighborUid));
         DebugTools.Assert(Comp<EdgeSpreaderComponent>(neighborUid).Id == CrystalMassGroup);
 
-        if (!_robustRandom.Prob(comp.SpawningAudioChance))
-            _audio.PlayPvs(comp.SpawningCrystalSound, neighborCoords, AudioParams.Default.WithVolume(120f));
+        // This is being evil for some reason and not working
+        // if (_robustRandom.Prob(ent.Comp.SpawningAudioChance))
+        //     _audio.PlayPvs(ent.Comp.SpawningCrystalSound, Transform(neighborUid).Coordinates);
 
         args.Updates--;
-        if (args.Updates <= 0)
-            return;
     }
 
-    private void HandleTiles(EntityUid neighborGridUid, MapGridComponent neighborGrid, Vector2i neighborPosition)
+    private void HandleTiles(EntityUid neighborGridUid, MapGridComponent neighborGrid, Vector2i neighborPosition, ProtoId<ContentTileDefinition> neighborTileReplacement)
     {
         var mapID = Transform(neighborGridUid).MapID;
         var worldPos = _map.GridTileToWorldPos(neighborGridUid, neighborGrid, neighborPosition);
@@ -145,9 +143,9 @@ public sealed class CrystalMassSystem : EntitySystem
 
         var seed = _robustRandom.Next();
         var random = new Random(seed);
-        var variant = _tile.PickVariant((ContentTileDefinition)_tileDefManager[CrystalMassPlating], random);
+        var variant = _tile.PickVariant((ContentTileDefinition)_tileDefManager[neighborTileReplacement], random);
 
-        _map.SetTile(neighborGridUid, neighborGrid, neighborPosition, new Tile(_tileDefManager[CrystalMassPlating].TileId, 0, variant));
+        _map.SetTile(neighborGridUid, neighborGrid, neighborPosition, new Tile(_tileDefManager[neighborTileReplacement].TileId, 0, variant));
     }
 
     private void ClearTile(Entity<CrystalMassComponent> ent)
