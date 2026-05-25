@@ -34,32 +34,16 @@
     shape:
     - 0,0,4,4 # 5x5
     heldPrefix: metal
-  - type: SolutionContainerManager
-    solutions:
-      beaker:
-        maxVol: 10
-        reagents:
-        - ReagentId: Vodka
-          Quantity: 4.5
-        - ReagentId: WeldingFuel
-          Quantity: 4.5
-        - ReagentId: Protein
-          Quantity: 1
   - type: MultiHandedItem
   - type: PhysicalComposition
     materialComposition:
       RawIron: 500
       Plastic: 500
-  - type: Spillable
-    solution: beaker
-  - type: DrainableSolution
-    solution: beaker
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 150
       behaviors:
-      - !type:SpillBehavior { }
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
