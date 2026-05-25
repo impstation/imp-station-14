@@ -64,6 +64,7 @@ public abstract partial class SharedBorgSystem
     private void OnMMIMindAdded(Entity<MMIComponent> ent, ref MindAddedMessage args)
     {
         _appearance.SetData(ent.Owner, MMIVisuals.HasMind, true);
+        _mind.MakeSentient(ent, false); // imp add: properly allow emoting
     }
 
     private void OnMMIMindRemoved(Entity<MMIComponent> ent, ref MindRemovedMessage args)
