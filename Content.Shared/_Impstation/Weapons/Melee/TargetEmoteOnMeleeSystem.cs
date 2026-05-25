@@ -1,17 +1,18 @@
+using System.Linq;
 using Content.Shared.Chat;
+using Content.Shared.Chat.Prototypes;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared._Impstation.Weapons.Melee.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Impstation.Weapons.Melee;
 
 public sealed class TargetEmoteOnMeleeSystem : EntitySystem
 {
     [Dependency] private readonly SharedChatSystem _chatSystem = default!;
-    [Dependency] private readonly UseDelaySystem _delay = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
     public override void Initialize()
@@ -27,11 +28,13 @@ public sealed class TargetEmoteOnMeleeSystem : EntitySystem
         // todo: add handling for randomized list emotes (maybe)
         // todo: add handling for chat printed emotes
 
+        if (!args.HitEntities.Any())
+            return;
+
         if (hitter.Comp.Emote == null)
             return;
 
-        if (!_protoMan.HasIndex(hitter.Comp.Emote))
-            return;
+        DebugTools.Assert(_protoMan.HasIndex(hitter.Comp.Emote), "Prototype not found. Did you make a typo?");
 
         foreach (var hitEnt in args.HitEntities)
         {
