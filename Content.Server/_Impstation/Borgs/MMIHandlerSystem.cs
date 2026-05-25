@@ -1,6 +1,8 @@
-﻿using Content.Server._Impstation.Ghost;
+﻿using Content.Server.Ghost;
+using Content.Server._Impstation.Ghost;
 using Content.Server.EUI;
 using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Borgs;
@@ -16,6 +18,7 @@ public sealed class MMIHandlerSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly EuiManager _euiManager = default!;
+    [Dependency] private readonly GhostSystem _ghost = default!;
     [Dependency] private readonly GrammarSystem _grammar = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
@@ -27,6 +30,8 @@ public sealed class MMIHandlerSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MMIComponent, MMIInsertionSuccessEvent>(OnSuccessfulInsertion);
+        SubscribeLocalEvent<BorgBrainComponent, BorgBrainHibernationEvent>(OnHibernationAttempt);
+
     }
 
     private void OnSuccessfulInsertion(EntityUid uid, MMIComponent component, MMIInsertionSuccessEvent args)
@@ -64,5 +69,16 @@ public sealed class MMIHandlerSystem : EntitySystem
             _appearance.SetData(mmi, MMIVisuals.BrainPresent, true);
 
         }
+    }
+
+    private void OnHibernationAttempt(EntityUid brain, BorgBrainComponent comp, ref BorgBrainHibernationEvent args)
+    {
+        if (HasComp<VisitingMindComponent>(brain))
+            return;
+
+        if (!_mind.TryGetMind(brain, out var mindId, out var mind) || mind.IsVisitingEntity)
+            return;
+
+        _ghost.OnGhostAttempt(mindId, false, mind: mind);
     }
 }

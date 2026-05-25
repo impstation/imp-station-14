@@ -41,3 +41,18 @@
     useDelay: 1
   - type: InstantAction
     event: !type:ToggleBorgContractEvent
+
+- type: entity
+  parent: BaseMentalAction
+  id: ActionDisconnect
+  name: Hibernate
+  description: "Log off! WARNING: THIS CANNOT BE UNDONE."
+  components:
+  - type: Action
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: hibernate }
+    itemIconStyle: NoItem
+    useDelay: 1
+  - type: ConfirmableAction
+    popup: borg-hibernation-confirm-popup
+  - type: InstantAction
+    event: !type:BorgBrainHibernationEvent

@@ -64,8 +64,9 @@
     tags:
     - SiliconEmotes
     - ImmobileEmoter
-  - type: ActionGrant # imp addition: borg consent action
+  - type: ActionGrant # imp addition: borg consent action, hibernation action
     actions:
+    - ActionDisconnect
     - ActionAllowBorgingToggle
 
 - type: entity
@@ -154,3 +155,6 @@
         - SecretStash
     - type: StealTarget # imp
       stealGroup: PositronicBrains
+    - type: ActionGrant # imp addition: hibernation action
+      actions:
+      - ActionDisconnect
