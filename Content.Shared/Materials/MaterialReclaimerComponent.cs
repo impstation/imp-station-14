@@ -5,6 +5,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Shared.Damage; // imp
+using Robust.Shared.Prototypes; // imp
 
 namespace Content.Shared.Materials;
 
@@ -144,6 +145,18 @@ public sealed partial class MaterialReclaimerComponent : Component
     /// </summary>
     [DataField]
     public DamageSpecifier Damage = new();
+
+    /// <summary>
+    /// Imp addition, the status effect to apply to damaged mobs.
+    /// </summary>
+    [DataField]
+    public EntProtoId StatusEffect = "StatusEffectRecyclerImmune";
+
+    /// <summary>
+    /// Imp addition, the duration of the applied status effect.
+    /// </summary>
+    [DataField]
+    public TimeSpan StatusEffectDuration = TimeSpan.FromSeconds(1);
 }
 
 [NetSerializable, Serializable]
