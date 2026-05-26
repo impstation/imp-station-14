@@ -47,3 +47,19 @@
   - type: Construction
     graph: ImpSeat
     node: chairCardboard
+
+- type: entity
+  name: invisible chair
+  description: The mime needs to sit down and shut up.
+  id: ChairMime
+  parent: SeatBase
+  components:
+  - type: Sprite
+    state: chair
+  - type: Stealth
+    useAltShader: true
+    lastVisibility: -1
+  - type: TriggerOnUnstrapped
+  - type: DeleteOnTrigger
+  - type: StaticPrice
+    price: 0

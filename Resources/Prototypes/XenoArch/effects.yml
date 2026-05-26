@@ -274,12 +274,12 @@
       weight: 10.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [4, 5]
+        depths: [3, 4, 5]
     - id: XenoArtifactBoom
-      weight: 10.0 # imp edit
+      weight: 7.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [3, 4, 5]
+        depths: [4, 5]
     - id: XenoArtifactEffectCreationGasPlasma
       weight: 10.0 # imp edit
       conditions:
@@ -623,6 +623,7 @@
       soundHit:
         path: /Audio/Weapons/bladeslice.ogg
     - type: Sharp
+    - type: CombatMode # imp: let the artifacts bite you
 
 - type: entity
   id: XenoArtifactGenerateEnergy

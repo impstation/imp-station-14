@@ -1,0 +1,39 @@
+﻿- type: latheRecipe
+  abstract: true
+  id: BaseHandyFlags
+  completetime: 2
+  materials:
+    Cloth: 100
+
+# Baseball Uniforms & Hats
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitBaseballNT
+  result: ClothingUniformJumpsuitBaseballNT
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitBaseballSyndicate
+  result: ClothingUniformJumpsuitBaseballSyndicate
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatNanoballsoft
+  result: ClothingHeadHatNanoballsoft
+
+- type: latheRecipe
+  parent: BaseHatRecipe
+  id: ClothingHeadHatSyndieballsoft
+  result: ClothingHeadHatSyndieballsoft
+
+# Handyflags
+- type: latheRecipe
+  parent: BaseHandyFlags
+  id: NTHandyFlag
+  result: NTHandyFlag
+
+- type: latheRecipe
+  parent: BaseHandyFlags
+  id: SyndieHandyFlag
+  result: SyndieHandyFlag

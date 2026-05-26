@@ -60,6 +60,10 @@ public sealed partial class CheckMagicItemEvent : HandledEntityEventArgs, IInven
 // basic
 public sealed partial class EventHereticOpenStore : InstantActionEvent { }
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
+public sealed partial class HereticReturnFromHellEvent : EntityEventArgs { }
+public sealed partial class HereticSendToHellEvent : EntityEventArgs { }
+public sealed partial class HereticBeforeHellEvent : EntityEventArgs { }
+
 
 // for mobs
 public sealed partial class EventHereticMansusLink : EntityTargetActionEvent { }

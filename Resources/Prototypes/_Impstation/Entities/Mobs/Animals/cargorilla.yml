@@ -1,12 +1,10 @@
 - type: entity
   name: cargorilla
-  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase ]
+  parent: [ MobGorilla, StripableInventoryBase ]
   id: BaseMobCargorilla
   abstract: true
   description: A well trained gorilla working in Cargo, try not to piss it off.
   components:
-  - type: Puller
-    needsHands: false
   - type: GhostTakeoverAvailable
   - type: GhostRole
     makeSentient: true
@@ -31,7 +29,6 @@
       state: standing
       visible: false
       offset: 0, 0.51 # gotta be weirdly specific here
-  - type: Physics
   - type: InventorySlots
   - type: Strippable
   - type: UserInterface
@@ -41,12 +38,6 @@
     templateId: cargorilla
   - type: Loadout
     prototypes: [ MobCargorillaGear ]
-  - type: Grammar
-    attributes:
-      proper: true
-      gender: male
-  - type: BodyEmotes
-    soundsId: GorillaBody
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-cargorilla
@@ -56,51 +47,9 @@
       path: /Audio/_Impstation/Animals/Gorilla_Laugh.ogg
     interactFailureSound:
       path: /Audio/_Impstation/Animals/Gorilla_Chuff.ogg
-  - type: Speech
-    speechSounds: Gorilla
-    speechVerb: Monkey
-    allowedEmotes: ['Scream', 'Laugh', "BeatingChest"]
-  - type: MonkeyAccent
   - type: Tag
     tags:
     - DoorBumpOpener
-    - VimPilot
-  - type: Emoting
-  - type: Vocal
-    sounds:
-      Male: Gorilla
-      Female: Gorilla
-      Unsexed: Gorilla
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.48
-        density: 200
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: crawling
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: GoobAbsorbable # lotta meat on a gorilla
-    biomassRestored: 0.8
-  - type: Butcherable
-    spawned:
-    - id: FoodMeat
-      amount: 4
-  - type: Bloodstream
-    bloodReferenceSolution:
-      reagents:
-      - ReagentId: Blood
-        Quantity: 300
     # modified punch damage
   - type: MeleeWeapon
     soundHit:
@@ -110,14 +59,6 @@
         Blunt: 12
         Structural: 8
     animation: WeaponArcFist
-  - type: NPCRetaliation
-  - type: FactionException
-  - type: NpcFactionMember
-    factions:
-    - Passive
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
 
 - type: entity
   parent: BaseMobCargorilla
