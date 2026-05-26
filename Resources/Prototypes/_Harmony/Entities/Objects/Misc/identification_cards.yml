@@ -9,10 +9,10 @@
     layers:
     - state: gold
     - state: stripe_top
-      color: &color-centcomm-top "#134975"
+      color: &color-centcomm-top "#00a85b" #imp edit, greened
     - state: stripe_bottom
-      color: &color-centcomm-bottom "#0d304d"
-    - sprite: &icon-rsi Interface/Misc/job_icons.rsi
+      color: &color-centcomm-bottom "#006c2e" #imp edit, greened
+    - sprite: &imp-icon-rsi Interface/Misc/job_icons.rsi #imp
       offset: &icon-offset -0.09375, 0.0625 #3 pixels left, 2 pixels up
       state: ERTLeader
   - type: PresetIdCard
