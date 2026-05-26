@@ -1,0 +1,40 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-4.0",
+    "copyright": "Taken from source",
+    "source": "https://github.com/tgstation/tgstation/blob/ceff716c7bef4dfc7236f99c144f6986d81832c5/icons/obj/storage/wrapping.dmi",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "parcel-huge",
+            "directions": 1
+        },
+        {
+            "name": "parcel-large",
+            "directions": 1
+        },
+        {
+            "name": "parcel-medium",
+            "directions": 1
+        },
+        {
+            "name": "parcel-small",
+            "directions": 1
+        },
+        {
+            "name": "parcel-tiny",
+            "directions": 1
+        },
+        {
+            "name": "locker",
+            "directions": 1
+        },
+        {
+            "name": "crate",
+            "directions": 1
+        }
+    ]
+}

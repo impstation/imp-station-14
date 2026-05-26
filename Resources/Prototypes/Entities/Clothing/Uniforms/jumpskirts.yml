@@ -517,32 +517,38 @@
     sprite: Clothing/Uniforms/Jumpskirt/hosformaldress.rsi
 
 - type: entity
-  parent: [UnsensoredClothingUniformSkirtBase, Tier1Contraband]
+  parent: [UnsensoredClothingUniformSkirtBase, ClothingUniformFoldableBase, Tier1Contraband] #imp, foldable, contraband
   id: ClothingUniformJumpskirtOperative
   name: operative jumpskirt
   description: Uniform for elite syndicate operatives performing tactical operations in deep space.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/operative_s.rsi # imp edit
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpskirt/operative_s.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/operative_s.rsi # imp edit
   - type: StaticPrice
     price: 500
+  - type: Foldable # imp addition
+    unfoldVerbText: unfold-verb
+    foldVerbText: fold-verb
 
 - type: entity
-  parent: ClothingUniformSkirtBase
+  parent: [ClothingUniformSkirtBase, ClothingUniformFoldableBase] #imp, foldable
   id: ClothingUniformJumpskirtTacticool
   name: tacticool jumpskirt
   description: Uniform for subpar operative LARPers performing tactical insulated glove theft in deep space.
   components:
     - type: Sprite
-      sprite: Clothing/Uniforms/Jumpskirt/tacticool_s.rsi
+      sprite: _Impstation/Clothing/Uniforms/Jumpskirt/tacticool_s.rsi # imp edit
     - type: Clothing
-      sprite: Clothing/Uniforms/Jumpskirt/tacticool_s.rsi
+      sprite: _Impstation/Clothing/Uniforms/Jumpskirt/tacticool_s.rsi # imp edit
     # Too cool for sensors to be on
     - type: SuitSensor
       randomMode: false
       mode: SensorOff
+    - type: Foldable # imp addition
+      unfoldVerbText: unfold-verb
+      foldVerbText: fold-verb
 
 - type: entity
   parent: ClothingUniformSkirtBase
@@ -554,7 +560,7 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/atmosf.rsi #imp
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/atmosf.rsi #imp
- 
+
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtJanimaid
