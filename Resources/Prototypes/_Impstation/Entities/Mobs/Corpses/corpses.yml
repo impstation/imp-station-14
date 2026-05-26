@@ -4,18 +4,16 @@
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
-    - type: TriggerOnSpawn
-      keyOut: spawned
-    - type: DamageOnTrigger
-      keysIn: 
-      - spawned
+    - type: Damageable
       damage:
         types:
-          Bloodloss: 37
-          Asphyxiation: 77
-          Slash: 46
-          Blunt: 65
+          Bloodloss: 77
+          Asphyxiation: 63
+          Slash: 85
+          Blunt: 59
           Radiation: 75
+    - type: Inventory
+      templateId: corpse
     - type: Rotting
       totalRotTime: 1200
 
