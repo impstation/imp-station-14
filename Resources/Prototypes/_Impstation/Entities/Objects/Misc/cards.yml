@@ -1085,6 +1085,36 @@
   - type: RandomPaperContent
     dataset: TippyTrumpRules
 
+#- type: entity
+#  id: TippyTrumpRarityCommon
+#  components:
+#  - type: StaticPrice
+#    price:
+
+#- type: entity
+#  id: TippyTrumpRarityUnCommon
+#  components:
+#  - type: StaticPrice
+#    price:
+
+#- type: entity
+#  id: TippyTrumpRarityRare
+#  components:
+#  - type: StaticPrice
+#    price:
+
+#- type: entity
+#  id: TippyTrumpRaritySuperRare
+#  components:
+#  - type: StaticPrice
+#    price:
+
+#- type: entity
+#  id: TippyTrumpRarityLegendary
+#  components:
+#  - type: StaticPrice
+#    price:
+
 - type: entity
   parent: [ BoxCardboard, BaseBagOpenClose ]
   id: CardBoxTippyTrump
@@ -1187,6 +1217,12 @@
         - id: OrbBeeTippyTrumpcardSyndicate
           weight: 0.51
         - id: DragonTippyTrumpcardSyndicate
+          weight: 0.03
+        - id: AuguryTippyTrumpcardSyndicate
+          weight: 0.03
+        - id: OmenTippyTrumpcardSyndicate
+          weight: 0.51
+        - id: TerrelliTippyTrumpcardSyndicate
           weight: 0.03
 
 - type: entity
@@ -1385,6 +1421,20 @@
           weight: 0.03
         - id: GondalTippyTrumpcard
           weight: 0.03
+        - id: AuguryTippyTrumpcard
+          weight: 0.03
+        - id: OmenTippyTrumpcard
+          weight: 0.51
+        - id: MonarchTippyTrumpcard
+          weight: 0.51
+        - id: TerrelliTippyTrumpcard
+          weight: 0.03
+        - id: CubeTippyTrumpcard
+          weight: 0.15
+        - id: EeepletTippyTrumpcard
+          weight: 0.15
+        - id: YumYumTippyTrumpcard
+          weight: 0.01
 
 
 - type: entity
@@ -1507,6 +1557,17 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_eeep
+
+- type: entity
+  parent: CardBaseTippyTrump
+  id: EeepletTippyTrumpcard
+  suffix: Eeeplet
+  components:
+  - type: Card
+    name: Eeeplet card. Robustness - 5, Validity - 3, Whimsy 7
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_eeeplet
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -2096,8 +2157,19 @@
   - type: Card
     name: Ore Crab card. Robustness - 4, Validity - 3, Whimsy 1
   - type: Sprite
-    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
-    state: tt_crab # to do, add randomsprite with all the crabs
+    layers:
+      - state: tt_crab
+        map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: RandomSprite
+    available:
+      - enum.DamageStateVisualLayers.Base:
+          tt_crab: ""
+          tt_crab2: ""
+          tt_crab3: ""
+          tt_crab4: ""
+          tt_crab5: ""
+          tt_crab6: ""
+          tt_crab7: ""
 
 - type: entity
   parent: CardBaseTippyTrump
@@ -2533,3 +2605,82 @@
           tt_canom: ""
           tt_ranom: ""
           tt_sanom: ""
+
+- type: entity
+  parent: CardBaseTippyTrump
+  id: AuguryTippyTrumpcard
+  suffix: Augury
+  components:
+  - type: Card
+    name: Augury card. Robustness - 10, Validity - 7, Whimsy 3
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_augury
+
+- type: entity
+  parent: [ AuguryTippyTrumpcard, CardBaseTippyTrumpSyndicate ]
+  id: AuguryTippyTrumpcardSyndicate
+  suffix: Augury, Syndicate
+  components:
+  - type: SpawnOnTrigger
+    proto: MobAugury
+
+- type: entity
+  parent: CardBaseTippyTrump
+  id: OmenTippyTrumpcard
+  suffix: Bad omen
+  components:
+  - type: Card
+    name: Bad omen card. Robustness - 3, Validity - 5, Whimsy 4
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_omen
+
+- type: entity
+  parent: [ OmenTippyTrumpcard, CardBaseTippyTrumpSyndicate ]
+  id: OmenTippyTrumpcardSyndicate
+  suffix: Bad omen, Syndicate
+  components:
+  - type: SpawnOnTrigger
+    proto: MobBadOmen
+
+- type: entity
+  parent: CardBaseTippyTrump
+  id: MonarchTippyTrumpcard
+  suffix: Monarch ray
+  components:
+  - type: Card
+    name: Monarch ray card. Robustness - 5, Validity - 6, Whimsy 2
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_monarch
+
+- type: entity
+  parent: CardBaseTippyTrump
+  id: TerrelliTippyTrumpcard
+  suffix: Terrelli fish
+  components:
+  - type: Card
+    name: Terrelli fish card. Robustness - 7, Validity - 5, Whimsy 7
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_terrelli
+
+- type: entity
+  parent: [ TerrelliTippyTrumpcard, CardBaseTippyTrumpSyndicate ]
+  id: TerrelliTippyTrumpcardSyndicate
+  suffix: Terrelli, Syndicate
+  components:
+  - type: SpawnOnTrigger
+    proto: MobFeindfish
+
+- type: entity
+  parent: CardBaseTippyTrump
+  id: CubeTippyTrumpcard
+  suffix: Tck'ju'q'tp
+  components:
+  - type: Card
+    name: Tck'ju'q'tp card. Robustness - 7, Validity - 5, Whimsy 7
+  - type: Sprite
+    sprite: _EstacaoPirata/Objects/Misc/cards.rsi
+    state: tt_cube
