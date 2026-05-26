@@ -95,11 +95,11 @@
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: SpawnPointLoneNukeOperative
-  id: SpawnPointJuniorLoneNukeOperative
+  id: SpawnPointSyndicateInstigator
   components:
   - type: GhostRole
-    name: ghost-role-information-loneop-junior-name
-    description: ghost-role-information-loneop-junior-description
-    rules: ghost-role-information-loneop-junior-rules
+    name: ghost-role-information-syndicate-instigator-name
+    description: ghost-role-information-syndicate-instigator-description
+    rules: ghost-role-information-syndicate-instigator-rules
     mindRoles:
-    - MindRoleJuniorLoneOperative
+    - MindRoleSyndicateInstigator

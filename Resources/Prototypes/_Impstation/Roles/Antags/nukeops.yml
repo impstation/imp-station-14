@@ -10,18 +10,18 @@
   guides: [ NuclearOperatives ]
 
 - type: antag
-  id: NukeopsLoneJunior
-  name: ghost-role-information-loneop-junior-name
+  id: SyndicateInstigator
+  name: ghost-role-information-syndicate-instigator-name
   antagonist: true
-  playTimeTracker: AntagJuniorLoneOperative
-  objective: ghost-role-information-loneop-junior-description
+  playTimeTracker: AntagSyndicateInstigator
+  objective: ghost-role-information-syndicate-instigator-description
   requirements:
   - !type:OverallPlaytimeRequirement
     time: 5h
   guides: [ NuclearOperatives ]
 
 - type: startingGear
-  id: SyndicateJuniorLoneOperativeGear
+  id: SyndicateInstigatorGear
   parent: SyndicateOperativeClothing
   equipment:
     back: ClothingBackpackSatchelSyndicate

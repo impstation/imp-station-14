@@ -62,12 +62,12 @@
     roleType: Familiar
   - type: ButlerRole
 
-# Junior Lone Operative
+# Syndicate Instigator
 - type: entity
   parent: MindRoleNukeops
-  id: MindRoleJuniorLoneOperative
-  name: Junior Lone Operative Role
+  id: MindRoleSyndicateInstigator
+  name: Syndicate Instigator Role
   components:
   - type: MindRole
     roleType: SoloAntagonist
-    antagPrototype: NukeopsLoneJunior #imp
+    antagPrototype: SyndicateInstigator #imp

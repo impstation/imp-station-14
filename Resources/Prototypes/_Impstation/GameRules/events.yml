@@ -311,17 +311,17 @@
       mindRoles:
       - MindRoleButler
 
-# junior nuclear operative
+# syndicate instigator
 - type: entity
   parent: BaseNukeopsRule
-  id: JuniorLoneOperativeSpawn
+  id: SyndicateInstigatorSpawn
   components:
   - type: StationEvent
     weight: 2
     reoccurrenceDelay: 10
     minimumPlayers: 20
     earliestStart: 35
-    duration: null # JuniorLoneOperativeSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end screen (not always "Neutral outcome!") and... ending the game if the station is nuked.
+    duration: null # SyndicateInstigatorSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end screen (not always "Neutral outcome!") and... ending the game if the station is nuked.
   - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: SpaceSpawnRule
@@ -329,11 +329,11 @@
     randomProfile: true
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointJuniorLoneNukeOperative
+    - spawnerPrototype: SpawnPointSyndicateInstigator
       min: 1
       max: 1
       pickPlayer: false
-      startingGear: SyndicateJuniorLoneOperativeGear
+      startingGear: SyndicateInstigatorGear
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -348,4 +348,4 @@
         factions:
         - Syndicate
       mindRoles:
-      - MindRoleJuniorLoneOperative
+      - MindRoleSyndicateInstigator
