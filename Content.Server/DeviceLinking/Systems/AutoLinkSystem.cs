@@ -27,7 +27,7 @@ public sealed class AutoLinkSystem : EntitySystem
 
             var rxXform = Transform(receiverUid);
 
-            if (rxXform.GridUid != xform.GridUid)
+            if (!receiver.AcrossGrids && rxXform.GridUid != xform.GridUid) // Imp, added !receiver.AcrossGrids
                 continue;
 
             _deviceLinkSystem.LinkDefaults(null, uid, receiverUid);
