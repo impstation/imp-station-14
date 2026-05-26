@@ -32,13 +32,24 @@ public sealed partial class TriggerSystem
         if (args.Key != null && !ent.Comp.KeysIn.Contains(args.Key))
             return;
 
+        if (ent.Comp.MaxTriggers != null && ent.Comp.MaxTriggers <= 0) // Imp - Adds the trigger limit
+            return;
+
         var target = ent.Comp.TargetUser ? args.User : ent.Owner;
 
         if (target == null)
             return;
 
         var xform = Transform(target.Value);
-        SpawnTriggerHelper((target.Value, xform), ent.Comp.Proto, ent.Comp.UseMapCoords, ent.Comp.Predicted);
+        SpawnTriggerHelper((target.Value, xform), ent.Comp.Proto, ent.Comp.UseMapCoords, ent.Comp.Predicted); // Imp - Edited for trigger limit
+
+        if (ent.Comp.MaxTriggers != null)
+        {
+            ent.Comp.MaxTriggers--;
+            Dirty(ent);
+            if (ent.Comp.MaxTriggers <= 0)
+                RemCompDeferred<SpawnOnTriggerComponent>(ent); // Imp - End of edit
+        }
     }
 
     private void HandleSpawnTableOnTrigger(Entity<SpawnEntityTableOnTriggerComponent> ent, ref TriggerEvent args)
