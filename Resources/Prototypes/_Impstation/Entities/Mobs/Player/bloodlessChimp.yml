@@ -1,0 +1,242 @@
+- type: entity
+  name: monkey
+  id: MobBloodlessChimp
+  suffix: Bloodless
+  parent:
+  - MobAtmosStandard
+  - BaseSimpleMob
+  - StripableInventoryBase
+  description: It looks pale, is it sick?
+  components:
+  - type: CombatMode
+    canDisarm: true
+  - type: Inventory
+    templateId: bloodlessChimp
+    speciesId: monkey
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Monkey/displacement.rsi
+            state: jumpsuit
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Animals/Monkey/displacement.rsi
+            state: outerClothing
+  - type: Deathgasp
+    prototype: MonkeyDeathgasp
+  - type: Cuffable
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+      fearRadius:
+        shape:
+          !type:PhysShapeCircle
+          radius: 5
+        density: 80
+        hard: false
+        mask:
+        - GhostImpassable
+        layer:
+        - GhostImpassable
+  - type: Stripping
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: monkey
+      sprite: _Impstation/Mobs/Animals/BloodlessChimp.rsi
+    - map: [ "jumpsuit" ]
+    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "ears" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+  - type: Hands
+  - type: ComplexInteraction
+  - type: GenericVisualizer
+    visuals:
+      enum.CreamPiedVisuals.Creamed:
+        clownedon:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Body
+    prototype: Primate
+    requiredLegs: 1 # TODO: More than 1 leg
+  - type: CreamPied
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Monkey_burning
+  - type: InteractionPopup
+    successChance: 0.7 #imp
+    interactSuccessString: petting-success-monkey
+    interactFailureString: petting-failure-monkey
+    interactSuccessSpawn: EffectHearts
+    interactSuccessSound:
+      path: /Audio/Animals/ferret_happy.ogg
+    interactFailureSound:
+      path: /Audio/Items/wirecutter.ogg
+  - type: MeleeWeapon
+    soundHit:
+      collection: AlienClaw
+    angle: 30
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Blunt: 5
+        Slash: 10
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Puller
+    needsHands: false
+  - type: CanHostGuardian
+  - type: IdExaminable
+  - type: Tag
+    tags:
+    - VimPilot
+    - DoorBumpOpener
+    - CanPilot #imp edit
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPie
+    - reagents: [ AntiChimpSalve ]
+      methods: [ Touch ]
+      effects:
+      - !type:PausePassiveDamage
+        pauseTime: 60
+      - !type:HealthChange
+        scaling: true
+        ignoreResistances: false
+        damage:
+          types:
+            Radiation: 0.2
+            Caustic: 0.2
+            Cellular: 0.1
+  - type: Crawler
+  - type: StatusIcon
+  - type: Blindable
+  - type: Carriable #DeltaV
+  - type: GoobAbsorbable
+    biomassRestored: 0.4
+  - type: VentCrawler
+    enterDelay: 3
+  - type: CanWieldOneHanded
+  - type: NameIdentifier
+    group: Monkey
+  - type: Speech
+    speechSounds: Monkey
+    speechVerb: Monkey
+    allowedEmotes: ['Scream', 'Laugh']
+  - type: AlwaysRevolutionaryConvertible
+  - type: Vocal
+    sounds:
+      Male: Monkey
+      Female: Monkey
+      Unsexed: Monkey
+  - type: Emoting
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: StatusEffects
+    allowed:
+    - Electrocution
+    - TemporaryBlindness
+    - Pacified
+    - Flashed
+    - RadiationProtection
+    - Adrenaline
+  - type: MobPrice
+    price: 150
+  - type: FloatingVisuals
+  - type: PassiveDamage # passive regen. meant to be really hard to kill without the salve.
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+    damage:
+      groups:
+        Brute: -15
+        Burn: -15
+    interval: 0.5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: ThermalInvisibility
+  - type: ThermalRegulator
+    metabolismHeat: 800
+    radiatedHeat: 100
+    implicitHeatRegulation: 100
+    sweatHeatRegulation: 2000
+    shiveringHeatRegulation: 2000
+    normalBodyTemperature: 290.15
+    thermalRegulationTemperatureThreshold: 1
+  - type: MindContainer
+    showExamineInfo: true
+  - type: SSDIndicator
+  - type: GhostRole
+    name: ghost-role-information-bloodless-chimp-name
+    description: ghost-role-information-bloodless-chimp-description
+    rules: ghost-role-information-bloodless-chimp-rules
+    mindRoles:
+    - MindRoleBloodlessChimp
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: NightVision
+    isActive: true
+    toggleAction: null
+    color: "#50595C"
+    activateSound: null
+    deactivateSound: null
+  - type: Loadout
+    prototypes:
+      - StartingGearBloodlessChimpPinpointer
+  - type: DropItemOnDamage
+    itemToDrop: TrashBakedBananaPeel
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+    requiredTypes:
+      types:
+        Slash: 5
+  - type: FearRadius
+    cooldown: 5
+    warnings:
+    - fear-radius-warning-bloodless-chimp-1
+    - fear-radius-warning-bloodless-chimp-2
+    - fear-radius-warning-bloodless-chimp-3
+    - fear-radius-warning-bloodless-chimp-4
+    - fear-radius-warning-bloodless-chimp-5
+

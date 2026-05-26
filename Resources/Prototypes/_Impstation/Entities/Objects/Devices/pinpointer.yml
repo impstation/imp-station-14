@@ -56,3 +56,32 @@
   id: StartingGearAnomalitePinpointer
   equipment:
     pocket1: PinpointerAnomalite
+
+- type: entity
+  parent: PinpointerBase
+  name: Instincts
+  description: You have an instinctual knowledge of the location of your core.
+  suffix: Station, Unremoveable
+  id: PinpointerChimp
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/pinpointer.rsi
+    layers:
+    - state: pinpointer-dragon
+      map: ["enum.PinpointerLayers.Base"]
+    - state: pinonnull
+      map: ["enum.PinpointerLayers.Screen"]
+      shader: unshaded
+      visible: false
+  - type: Icon
+    sprite: _Impstation/Objects/Devices/pinpointer.rsi
+    state: pinpointer-dragon
+  - type: Pinpointer
+    targetName: your target
+    activateImmediately: true
+  - type: Unremoveable
+
+- type: startingGear
+  id: StartingGearBloodlessChimpPinpointer
+  equipment:
+    pocket1: PinpointerChimp
