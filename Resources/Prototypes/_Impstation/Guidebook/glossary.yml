@@ -1,0 +1,65 @@
+- type: guideEntry
+  id: Glossary
+  name: guide-entry-glossary
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/Glossary.xml"
+  children:
+  - GlossaryGeneral
+  - GlossaryCargo
+  - GlossaryCommand
+  - GlossaryEngineering
+  - GlossaryMedical
+  - GlossaryScience
+  - GlossarySecurity
+  - GlossaryService
+  - GlossaryAntag
+  - GlossaryOOC
+
+- type: guideEntry
+  id: GlossaryGeneral
+  name: guide-entry-glossary-general
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossaryGeneral.xml"
+
+- type: guideEntry
+  id: GlossaryAntag
+  name: guide-entry-antagonists
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossaryAntag.xml"
+
+- type: guideEntry
+  id: GlossaryCargo
+  name: guide-entry-cargo
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossaryCargo.xml"
+
+- type: guideEntry
+  id: GlossaryCommand
+  name: guide-entry-command
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossaryCommand.xml"
+
+- type: guideEntry
+  id: GlossaryEngineering
+  name: guide-entry-engineering
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossaryEngineering.xml"
+
+- type: guideEntry
+  id: GlossaryMedical
+  name: guide-entry-medical
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossaryMedical.xml"
+
+- type: guideEntry
+  id: GlossaryScience
+  name: guide-entry-science
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossaryScience.xml"
+
+- type: guideEntry
+  id: GlossarySecurity
+  name: guide-entry-security
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossarySecurity.xml"
+
+- type: guideEntry
+  id: GlossaryService
+  name: guide-entry-service
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossaryService.xml"
+
+- type: guideEntry
+  id: GlossaryOOC
+  name: guide-entry-glossary-ooc
+  text: "/ServerInfo/_Impstation/Guidebook/Glossary/GlossaryOOC.xml"

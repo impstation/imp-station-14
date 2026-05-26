@@ -28,3 +28,6 @@ guide-entry-cooking-mixtures = Cooking Mixtures
 
 guide-entry-xenoarchaeologyreticulated = Reticulated artifacts
 guide-entry-xenoarchaeologynatural = Natural artifacts
+
+guide-entry-glossary-general = General
+guide-entry-glossary-ooc = OOC
