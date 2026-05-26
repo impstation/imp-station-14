@@ -97,6 +97,8 @@
     list:
     - 0
     - 0
+    - 0
+    - 0
     - 0.5
     - 0.5
     - 0.5
@@ -104,12 +106,9 @@
     - 1.5
     - 2
     - 2.5
-    - 2.5
     - 3
-    - 3.5
-    - 4
   - type: Fiber
-    fiberMaterial: fibers-insulative
+    fiberMaterial: fibers-insulative-frayed
   - type: DamageOnShootProtection
     damageProtection:
       flatReductions:
