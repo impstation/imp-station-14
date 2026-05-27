@@ -72,9 +72,6 @@
   id: CartridgeBazooka
 
 - type: Tag
-  id: CartridgeLPistol
-
-- type: Tag
   id: CartridgeMime
 
 - type: Tag
@@ -141,6 +138,9 @@
   id: Crystal # BountyCrystal
 
 ## D ##
+- type: Tag
+  id: DamageVariable
+
 - type: Tag
   id: Dart
 

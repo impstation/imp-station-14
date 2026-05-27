@@ -1,9 +1,11 @@
-# .30 rifle deals 25 pierce per shot (CartridgeLightRifle)
+# .30 Tactical (CartridgeLightRifle) should deal 25 pierce per shot on average (+15).
+# Base Sniper Weapons do not have the GunDamage component by default, due to a wide variety of ammo types in this category and .60AM dealing a fixed damage.
+
 - type: entity
   name: K2903 Star Rifle
   parent: [ BaseWeaponSniper, BaseGunWieldable, Tier3Contraband ]
   id: WeaponSniperStarService
-  description: A modified bolt-action rifle for when 5 rounds isn't good enough. Although closer in appearance and function to a Kardashev-Mosin, it somehow has more in common with the Sturm-96. Uses .30 rifle ammo.
+  description: A modified bolt-action rifle for when 5 rounds isn't good enough. Although closer in appearance and function to a Kardashev-Mosin, it somehow has more in common with the Sturm-96. Uses .30 tactical ammo.
   components:
   - type: Gun
     selectedMode: SemiAuto
@@ -11,6 +13,14 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/mosin.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 16 #26 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Snipers/star_service.rsi
   - type: GunRequiresWield
@@ -51,7 +61,7 @@
   name: Kardashev-Mosin
   parent: [BaseWeaponSniper, BaseGunWieldable, Tier3Contraband]
   id: WeaponSniperMosin
-  description: A weapon for hunting, or endless trench warfare, featuring a bayonet for going over the top. Uses .30 rifle ammo.
+  description: A weapon for hunting, or endless trench warfare, featuring a bayonet for going over the top. Uses .30 tactical ammo.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
@@ -117,3 +127,11 @@
   - type: Gun
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/mosin.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 18 #28 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
