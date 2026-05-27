@@ -16,6 +16,9 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
     [Dependency] private readonly LightningSystem _lightning = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
+    /// <summary>
+    /// Finding a active supermatter for the event and sending an announcement before the event starts.
+    /// </summary>
     protected override void Added(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         var supermatterUids = new List<EntityUid>();
@@ -45,6 +48,9 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         );
     }
 
+    /// <summary>
+    /// Adjusts the supermatters power and heat modifier to a specified random value alongside timing the explosive lightning.
+    /// </summary>
     protected override void ActiveTick(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
         if (!TryComp<SupermatterComponent>(component.SupermatterUid, out var sm))
@@ -71,6 +77,9 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
         }
     }
 
+    /// <summary>
+    /// Removes the supermatter surge event from the supermatter.
+    /// </summary>
     protected override void Ended(EntityUid uid, SupermatterSurgeRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
     {
         base.Ended(uid, component, gameRule, args);
