@@ -81,7 +81,6 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
         var maximumDistance = minimumDistance + 100f;
 
         var center = playableArea.Center;
-        var offsetFromCenter = new Vector2(center.X + (RobustRandom.NextFloat() * 2f - 1f) * 200f, center.Y + (RobustRandom.NextFloat() * 2f - 1f) * 200f); //imp add - make meteors target a random point within a 400x400 box from the center of the station.
 
         var meteorsToSpawn = component.MeteorsPerWave.Next(RobustRandom);
         for (var i = 0; i < meteorsToSpawn; i++)
@@ -109,7 +108,7 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
                 : angle - Math.PI / 2;
             var subOffset = subOffsetAngle.RotateVec(new Vector2( (playableArea.TopRight - playableArea.Center).Length() / 3 * RobustRandom.NextFloat(), 0));
 
-            var spawnPosition = new MapCoordinates(offsetFromCenter + offset + subOffset, mapId); //imp edit - change offset to offsetFromCenter so meteors target a random point within a 400x400 box from the center of the station, instead of always targeting the center.
+            var spawnPosition = new MapCoordinates(center + offset + subOffset, mapId);
             var meteor = Spawn(spawnProto, spawnPosition);
             var physics = Comp<PhysicsComponent>(meteor);
             _physics.ApplyLinearImpulse(meteor, -offset.Normalized() * component.MeteorVelocity * physics.Mass, body: physics);
