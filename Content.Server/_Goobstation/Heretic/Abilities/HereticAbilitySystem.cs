@@ -10,6 +10,7 @@ using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.Damage.Systems;
@@ -21,14 +22,15 @@ using Content.Shared.Interaction;
 using Content.Shared.Medical;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
+using Content.Shared.StatusEffect;
 using Content.Shared.Store.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared._Starlight.CollectiveMind;
+using Robust.Shared.Random;
 
 namespace Content.Server.Heretic.Abilities;
 
