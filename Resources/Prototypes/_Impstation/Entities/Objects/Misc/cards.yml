@@ -1085,35 +1085,40 @@
   - type: RandomPaperContent
     dataset: TippyTrumpRules
 
-#- type: entity
-#  id: TippyTrumpRarityCommon
-#  components:
-#  - type: StaticPrice
-#    price:
+- type: entity
+  id: TippyTrumpRarityCommon #1
+  abstract: true
+  components:
+  - type: StaticPrice
+    price: 5
 
-#- type: entity
-#  id: TippyTrumpRarityUnCommon
-#  components:
-#  - type: StaticPrice
-#    price:
+- type: entity
+  id: TippyTrumpRarityUnCommon #0.
+  abstract: true
+  components:
+  - type: StaticPrice
+    price: 50
 
-#- type: entity
-#  id: TippyTrumpRarityRare
-#  components:
-#  - type: StaticPrice
-#    price:
+- type: entity
+  id: TippyTrumpRarityRare #0.18
+  abstract: true
+  components:
+  - type: StaticPrice
+    price: 500
 
-#- type: entity
-#  id: TippyTrumpRaritySuperRare
-#  components:
-#  - type: StaticPrice
-#    price:
+- type: entity
+  id: TippyTrumpRaritySuperRare #0.04
+  abstract: true
+  components:
+  - type: StaticPrice
+    price: 1000
 
-#- type: entity
-#  id: TippyTrumpRarityLegendary
-#  components:
-#  - type: StaticPrice
-#    price:
+- type: entity
+  id: TippyTrumpRarityLegendary #0.02
+  abstract: true
+  components:
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   parent: [ BoxCardboard, BaseBagOpenClose ]
@@ -1165,7 +1170,7 @@
     containers:
       storagebase: !type:GroupSelector
         rolls: 5
-        children:
+        children: # leaving the sysndie cards on the old system while theyre being tested
         - id: TarantulaTippyTrumpcardSyndicate
           weight: 0.82
         - id: SpaceTickTippyTrumpcardSyndicate
@@ -1208,7 +1213,7 @@
           weight: 0.15
         - id: BasiliskTippyTrumpcardSyndicate
           weight: 0.15
-        - id: GolaithTippyTrumpcardSyndicate
+        - id: GoliathTippyTrumpcardSyndicate
           weight: 0.15
         - id: HivelordTippyTrumpcardSyndicate
           weight: 0.15
@@ -1270,169 +1275,169 @@
         rolls: 5
         children:
         - id: AnomaliteTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: PipiTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: TarantulaTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: SlurvaTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: KisserTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: SmileTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: TropicoTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: BingusTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: IanTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: GlockroachTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: LepidodentTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: MoproachTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: MothroachTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: MouseTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: ShrimpTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: McGriffTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: GriffyTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: FinfinTippyTrumpcard
-          weight: 0.51
+          weight: 0.04
         - id: HamletTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: LuggageTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: PleebnarTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: SnailTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: ApidTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: ServalTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: OppaTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: BananaDeerTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: CancerMouseTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: WizTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: BoarTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: SlimeTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: TckutTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: TcktckTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: DolbyTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: SpaceTickTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: BabyKodeTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: CrabTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: KillerTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: RenaultTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: GollyladTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: HonkBotTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: PunTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: CarpTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: SnakeTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: ClownSpiderTippyTrumpcard
-          weight: 0.03
+          weight: 0.04
         - id: SEOFTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: FOESTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: SORBTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: BROSTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: WillowTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: BombadilidiidaeTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: SpaceKangarooTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: WatcherTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: SpaceBearTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: SpaceSnakeTippyTrumpcard
-          weight: 0.03
+          weight: 0.04
         - id: LaserlessRaptorTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: LaserRaptorTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: ShivaTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: RevenantTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: RounyTippyTrumpcard
-          weight: 0.03
+          weight: 0.04
         - id: GrenadePenguinTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: SMSpiderTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: BasiliskTippyTrumpcard
-          weight: 0.51
-        - id: GolaithTippyTrumpcard
-          weight: 0.03
+          weight: 0.62
+        - id: GoliathTippyTrumpcard
+          weight: 0.04
         - id: HivelordTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: ForkliftTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: GorillaTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: RatLilTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: RatKingTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: GrotesequeTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: BehonkerTippyTrumpcard
-          weight: 0.03
+          weight: 0.2
         - id: OrbBeeTippyTrumpcard
-          weight: 0.82
+          weight: 1
         - id: RepliTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: EeepTippyTrumpcard
-          weight: 0.03
+          weight: 0.02
         - id: DragonTippyTrumpcard
-          weight: 0.03
+          weight: 0.02
         - id: VrexTippyTrumpcard
-          weight: 0.03
+          weight: 0.02
         - id: GondalTippyTrumpcard
-          weight: 0.03
+          weight: 0.02
         - id: AuguryTippyTrumpcard
-          weight: 0.03
+          weight: 0.02
         - id: OmenTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: MonarchTippyTrumpcard
-          weight: 0.51
+          weight: 0.62
         - id: TerrelliTippyTrumpcard
-          weight: 0.03
+          weight: 0.02
         - id: CubeTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: EeepletTippyTrumpcard
-          weight: 0.15
+          weight: 0.18
         - id: YumYumTippyTrumpcard
           weight: 0.01
 
@@ -1497,14 +1502,17 @@
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: yumyum
+  - type: StaticPrice # to do, make announceOnSale or something
+    price: 10000
+
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityLegendary ]
   id: GondalTippyTrumpcard
   suffix: Gondal
   components:
   - type: Card
-    name: Gondal card. Robustness - 8, Validity - 1, Whimsy 9
+    name: Legendary Gondal card. Robustness - 8, Validity - 1, Whimsy 9
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_gondal
@@ -1518,23 +1526,23 @@
     proto: ImmovableRodGondal
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityLegendary ]
   id: VrexTippyTrumpcard
   suffix: V-Rex
   components:
   - type: Card
-    name: V-Rex card. Robustness - 9, Validity - 7, Whimsy 6
+    name: Legendary V-Rex card. Robustness - 9, Validity - 7, Whimsy 6
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_vrex
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityLegendary ]
   id: DragonTippyTrumpcard
   suffix: Dragon
   components:
   - type: Card
-    name: Dragon card. Robustness - 8, Validity - 9, Whimsy 3
+    name: Legendary Dragon card. Robustness - 8, Validity - 9, Whimsy 3
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_dragon
@@ -1548,45 +1556,45 @@
     proto: MobDragonDungeon
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityLegendary ]
   id: EeepTippyTrumpcard
   suffix: Eeep
   components:
   - type: Card
-    name: Eeep card. Robustness - 5, Validity - 10, Whimsy 4
+    name: Legendary Eeep card. Robustness - 5, Validity - 10, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_eeep
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: EeepletTippyTrumpcard
   suffix: Eeeplet
   components:
   - type: Card
-    name: Eeeplet card. Robustness - 5, Validity - 3, Whimsy 7
+    name: Rare Eeeplet card. Robustness - 5, Validity - 3, Whimsy 7
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_eeeplet
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: RepliTippyTrumpcard
   suffix: Replicator
   components:
   - type: Card
-    name: Replicator card. Robustness - 7, Validity - 5, Whimsy 3
+    name: Rare Replicator card. Robustness - 7, Validity - 5, Whimsy 3
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
-    state: tt_eeep
+    state: tt_repli
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: OrbBeeTippyTrumpcard
   suffix: Beeroboros
   components:
   - type: Card
-    name: Beeroboros card. Robustness - 1, Validity - 3, Whimsy 1
+    name: Common Beeroboros card. Robustness - 1, Validity - 3, Whimsy 1
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_orbbees
@@ -1600,12 +1608,12 @@
     proto: MobBeeroboros
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityLegendary ]
   id: BehonkerTippyTrumpcard
   suffix: Behonker
   components:
   - type: Card
-    name: Behonker card. Robustness - 7, Validity - 8, Whimsy 8
+    name: Legendary Behonker card. Robustness - 7, Validity - 8, Whimsy 8
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_behonker
@@ -1619,67 +1627,67 @@
     proto: SpawnMobBehonker
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: GrotesequeTippyTrumpcard
   suffix: Groteseque
   components:
   - type: Card
-    name: Groteseque card. Robustness - 7, Validity - 5, Whimsy 3
+    name: Rare Groteseque card. Robustness - 7, Validity - 5, Whimsy 3
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rock
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: RatKingTippyTrumpcard
   suffix: Rat King
   components:
   - type: Card
-    name: Rat King card. Robustness - 4, Validity - 8, Whimsy 4
+    name: Rare Rat King card. Robustness - 4, Validity - 8, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rking
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: RatLilTippyTrumpcard
   suffix: Rat Servant
   components:
   - type: Card
-    name: Rat Servant card. Robustness - 2, Validity - 6, Whimsy 1
+    name: Common Rat Servant card. Robustness - 2, Validity - 6, Whimsy 1
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rs
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: GorillaTippyTrumpcard
   suffix: Gorilla
   components:
   - type: Card
-    name: Gorilla card. Robustness - 6, Validity - 2, Whimsy 5
+    name: UnCommon Gorilla card. Robustness - 6, Validity - 2, Whimsy 5
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_gorilla
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: ForkliftTippyTrumpcard
   suffix: Forklift
   components:
   - type: Card
-    name: Forklift card. Robustness - 7, Validity - 3, Whimsy 2
+    name: UnCommon Forklift card. Robustness - 7, Validity - 3, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_forklift
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: HivelordTippyTrumpcard
   suffix: Hivelord
   components:
   - type: Card
-    name: Hivelord card. Robustness - 5, Validity - 6, Whimsy 2
+    name: UnCommon Hivelord card. Robustness - 5, Validity - 6, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_hivelord
@@ -1693,31 +1701,31 @@
     proto: MobHivelord
 
 - type: entity
-  parent: CardBaseTippyTrump
-  id: GolaithTippyTrumpcard
-  suffix: Golaith
+  parent: [ CardBaseTippyTrump, TippyTrumpRaritySuperRare ]
+  id: GoliathTippyTrumpcard
+  suffix: Goliath
   components:
   - type: Card
-    name: Golaith card. Robustness - 8, Validity - 6, Whimsy 4
+    name: Super Rare Goliath card. Robustness - 8, Validity - 6, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_golaith
 
 - type: entity
-  parent: [ GolaithTippyTrumpcard, CardBaseTippyTrumpSyndicate ]
-  id: GolaithTippyTrumpcardSyndicate
-  suffix: Golaith, Syndicate
+  parent: [ GoliathTippyTrumpcard, CardBaseTippyTrumpSyndicate ]
+  id: GoliathTippyTrumpcardSyndicate
+  suffix: Goliath, Syndicate
   components:
   - type: SpawnOnTrigger
     proto: MobGoliath
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: BasiliskTippyTrumpcard
   suffix: Basilisk
   components:
   - type: Card
-    name: Basilisk card. Robustness - 6, Validity - 5, Whimsy 3
+    name: UnCommon Basilisk card. Robustness - 6, Validity - 5, Whimsy 3
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_basilisk
@@ -1731,23 +1739,23 @@
     proto: MobBasilisk
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: SMSpiderTippyTrumpcard
   suffix: SM Spider
   components:
   - type: Card
-    name: Supermatter spider card. Robustness - 10, Validity - 2, Whimsy 4
+    name: Rare Supermatter spider card. Robustness - 10, Validity - 2, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_smspider
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: GrenadePenguinTippyTrumpcard
   suffix: Grenade Penguin
   components:
   - type: Card
-    name: Grenade Penguin card. Robustness - 5, Validity - 5, Whimsy 6
+    name: Rare Grenade Penguin card. Robustness - 5, Validity - 5, Whimsy 6
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_penguin
@@ -1761,12 +1769,12 @@
     proto: MobGrenadePenguin
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRaritySuperRare ]
   id: RounyTippyTrumpcard
   suffix: Rouny
   components:
   - type: Card
-    name: Rouny card. Robustness - 7, Validity - 7, Whimsy 7
+    name: Super Rare Rouny card. Robustness - 7, Validity - 7, Whimsy 7
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rouny
@@ -1780,34 +1788,34 @@
     proto: MobXenoRouny
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: RevenantTippyTrumpcard
   suffix: Revenant
   components:
   - type: Card
-    name: Revenant card. Robustness - 4, Validity - 7, Whimsy 6
+    name: Rare Revenant card. Robustness - 4, Validity - 7, Whimsy 6
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rev
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: ShivaTippyTrumpcard
   suffix: Shiva
   components:
   - type: Card
-    name: Shiva card. Robustness - 6, Validity - 4, Whimsy 3
+    name: UnCommon Shiva card. Robustness - 6, Validity - 4, Whimsy 3
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_shiva
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: LaserRaptorTippyTrumpcard
   suffix: Laser Raptor
   components:
   - type: Card
-    name: Laser Raptor. Robustness - 6, Validity - 5, Whimsy 5
+    name: Rare Laser Raptor. Robustness - 6, Validity - 5, Whimsy 5
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_lr
@@ -1821,12 +1829,12 @@
     proto: MobLaserRaptor
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: LaserlessRaptorTippyTrumpcard
   suffix: Laser-less laser Raptor
   components:
   - type: Card
-    name: Laser-less laser Raptor card. Robustness - 1, Validity - 5, Whimsy 7
+    name:  UnCommon Laser-less laser Raptor card. Robustness - 1, Validity - 5, Whimsy 7
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_llr
@@ -1840,12 +1848,12 @@
     proto: MobRaptor
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRaritySuperRare ]
   id: SpaceSnakeTippyTrumpcard
   suffix: Space Snake
   components:
   - type: Card
-    name: Space Snake card. Robustness - 6, Validity - 8, Whimsy 4
+    name: Super Rare Space Snake card. Robustness - 6, Validity - 8, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_ssnake
@@ -1859,12 +1867,12 @@
     proto: MobCobraSpace
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: SpaceBearTippyTrumpcard
   suffix: Space Bear
   components:
   - type: Card
-    name: Space Bear card. Robustness - 6, Validity - 6, Whimsy 2
+    name: UnCommon Space Bear card. Robustness - 6, Validity - 6, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_sbear
@@ -1878,12 +1886,12 @@
     proto: MobBearSpace
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: WatcherTippyTrumpcard
   suffix: Watcher
   components:
   - type: Card
-    name: Watcher card. Robustness - 4, Validity - 5, Whimsy 4
+    name: UnCommon Watcher card. Robustness - 4, Validity - 5, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_watcher
@@ -1897,12 +1905,12 @@
     proto: MobWatcherMagmawing
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: SpaceKangarooTippyTrumpcard
   suffix: Space Kangaroo
   components:
   - type: Card
-    name: Kangaroo card. Robustness - 6, Validity - 6, Whimsy 3
+    name: Rare Kangaroo card. Robustness - 6, Validity - 6, Whimsy 3
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_sroo
@@ -1916,12 +1924,12 @@
     proto: MobKangarooSpace
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: BombadilidiidaeTippyTrumpcard
   suffix: Bombadilidiidae
   components:
   - type: Card
-    name: Bombadilidiidae card. Robustness - 5, Validity - 5, Whimsy 6
+    name: Rare Bombadilidiidae card. Robustness - 5, Validity - 5, Whimsy 6
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_bomb
@@ -1935,23 +1943,23 @@
     proto: MobBombadillo
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: WillowTippyTrumpcard
   suffix: Willow
   components:
   - type: Card
-    name: Willow card. Robustness - 6, Validity - 4, Whimsy 5
+    name: Rare Willow card. Robustness - 6, Validity - 4, Whimsy 5
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_roo
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: BROSTippyTrumpcard
   suffix: BROS
   components:
   - type: Card
-    name: BROS card. Robustness - 1, Validity - 3, Whimsy 5
+    name: Common BROS card. Robustness - 1, Validity - 3, Whimsy 5
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_bros
@@ -1965,12 +1973,12 @@
     proto: MobBros
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: SORBTippyTrumpcard
   suffix: SORB
   components:
   - type: Card
-    name: SORB card. Robustness - 5, Validity - 3, Whimsy 1
+    name: Common SORB card. Robustness - 5, Validity - 3, Whimsy 1
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_sorb
@@ -1984,12 +1992,12 @@
     proto: MobSorb
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: FOESTippyTrumpcard
   suffix: FOES
   components:
   - type: Card
-    name: FOES card. Robustness - 2, Validity - 4, Whimsy 6
+    name: UnCommon FOES card. Robustness - 2, Validity - 4, Whimsy 6
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_foes
@@ -2003,12 +2011,12 @@
     proto: MobFoes
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: SEOFTippyTrumpcard
   suffix: SEOF
   components:
   - type: Card
-    name: SEOF card. Robustness - 6, Validity - 4, Whimsy 2
+    name: UnCommon SEOF card. Robustness - 6, Validity - 4, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_seof
@@ -2022,12 +2030,12 @@
     proto: MobSeof
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRaritySuperRare ]
   id: ClownSpiderTippyTrumpcard
   suffix: Clown Spider
   components:
   - type: Card
-    name: Clown Spider card. Robustness - 7, Validity - 6, Whimsy 6
+    name: Super Rare Clown Spider card. Robustness - 7, Validity - 6, Whimsy 6
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_cspider
@@ -2041,12 +2049,12 @@
     proto: MobClownSpider
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: SnakeTippyTrumpcard
   suffix: Snake
   components:
   - type: Card
-    name: Snake card. Robustness - 7, Validity - 7, Whimsy 1
+    name: Rare Snake card. Robustness - 7, Validity - 7, Whimsy 1
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_snake
@@ -2060,12 +2068,12 @@
     proto: MobPurpleSnake
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: CarpTippyTrumpcard
   suffix: Carp
   components:
   - type: Card
-    name: Space Carp card. Robustness - 4, Validity - 5, Whimsy 1
+    name: Common Space Carp card. Robustness - 4, Validity - 5, Whimsy 1
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_carp
@@ -2079,23 +2087,23 @@
     proto: MobCarp
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: PunTippyTrumpcard
   suffix: Punpun
   components:
   - type: Card
-    name: Punpun card. Robustness - 5, Validity - 4, Whimsy 3
+    name: UnCommon Punpun card. Robustness - 5, Validity - 4, Whimsy 3
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_pun
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: HonkBotTippyTrumpcard
   suffix: HonkBot
   components:
   - type: Card
-    name: HonkBot card. Robustness - 2, Validity - 7, Whimsy 8
+    name: Rare HonkBot card. Robustness - 2, Validity - 7, Whimsy 8
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_honkbot
@@ -2109,34 +2117,34 @@
     proto: MobHonkBot
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: GollyladTippyTrumpcard
   suffix: Gollylad
   components:
   - type: Card
-    name: Gollylad card. Robustness - 4, Validity - 3, Whimsy 10
+    name: Rare Gollylad card. Robustness - 4, Validity - 3, Whimsy 10
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_golly
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: RenaultTippyTrumpcard
   suffix: Renault
   components:
   - type: Card
-    name: Renault card. Robustness - 3, Validity - 6, Whimsy 2
+    name: UnCommon Renault card. Robustness - 3, Validity - 6, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_ren
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: KillerTippyTrumpcard
   suffix: Tomato Killer
   components:
   - type: Card
-    name: Tomato Killer card. Robustness - 4, Validity - 4, Whimsy 4
+    name: UnCommon Tomato Killer card. Robustness - 4, Validity - 4, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_killer
@@ -2150,12 +2158,12 @@
     proto: MobTomatoKiller
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: CrabTippyTrumpcard
   suffix: Ore Crab
   components:
   - type: Card
-    name: Ore Crab card. Robustness - 4, Validity - 3, Whimsy 1
+    name: Common Ore Crab card. Robustness - 4, Validity - 3, Whimsy 1
   - type: Sprite
     layers:
       - state: tt_crab
@@ -2172,23 +2180,23 @@
           tt_crab7: ""
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: BabyKodeTippyTrumpcard
   suffix: Baby Kode
   components:
   - type: Card
-    name: Baby Kode card. Robustness - 5, Validity - 3, Whimsy 3
+    name: UnCommon Baby Kode card. Robustness - 5, Validity - 3, Whimsy 3
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_babykode
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: SpaceTickTippyTrumpcard
   suffix: Tick
   components:
   - type: Card
-    name: Space Tick card. Robustness - 4, Validity - 6, Whimsy 2
+    name: UnCommon Space Tick card. Robustness - 4, Validity - 6, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_tick
@@ -2202,45 +2210,45 @@
     proto: MobTickSalvage
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: DolbyTippyTrumpcard
   suffix: Dolby
   components:
   - type: Card
-    name: Dolby card. Robustness - 9, Validity - 1, Whimsy 7
+    name: Rare Dolby card. Robustness - 9, Validity - 1, Whimsy 7
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_dolby
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: TcktckTippyTrumpcard
   suffix: Tck'tck
   components:
   - type: Card
-    name: tck'tck card. Robustness - 4, Validity - 3, Whimsy 6
+    name: UnCommon Tck'tck card. Robustness - 4, Validity - 3, Whimsy 6
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_tck
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: TckutTippyTrumpcard
   suffix: Tck'ut
   components:
   - type: Card
-    name: Tck'uk card. Robustness - 4, Validity - 4, Whimsy 6
+    name: UnCommon Tck'uk card. Robustness - 4, Validity - 4, Whimsy 6
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_tckut
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: SlimeTippyTrumpcard
   suffix: Vent Slime
   components:
   - type: Card
-    name: Slime card. Robustness - 6, Validity - 6, Whimsy 1
+    name: UnCommon Slime card. Robustness - 6, Validity - 6, Whimsy 1
   - type: Sprite
     layers:
       - state: tt_gslime
@@ -2253,56 +2261,56 @@
           tt_yslime: ""
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: BoarTippyTrumpcard
   suffix: Boar
   components:
   - type: Card
-    name: Wild Boar card. Robustness - 6, Validity - 4, Whimsy 4
+    name: UnCommon Wild Boar card. Robustness - 6, Validity - 4, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_boar
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: WizTippyTrumpcard
   suffix: WizSpores
   components:
   - type: Card
-    name: Wiz spores card. Robustness - 2, Validity - 4, Whimsy 7
+    name: UnCommon Wiz spores card. Robustness - 2, Validity - 4, Whimsy 7
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_wizspore
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: CancerMouseTippyTrumpcard
   suffix: Cancer Mouse
   components:
   - type: Card
-    name: Radioactive Mouse card. Robustness - 5, Validity - 6, Whimsy 5
+    name: Rare Radioactive Mouse card. Robustness - 5, Validity - 6, Whimsy 5
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_cmouse
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: BananaDeerTippyTrumpcard
   suffix: Banana Deer
   components:
   - type: Card
-    name: Banana Deer card. Robustness - 3, Validity - 1, Whimsy 5
+    name: Common Banana Deer card. Robustness - 3, Validity - 1, Whimsy 5
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_deer
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: OppaTippyTrumpcard
   suffix: Oppa
   components:
   - type: Card
-    name: Oppa card. Robustness - 2, Validity - 6, Whimsy 6
+    name: Common Oppa card. Robustness - 2, Validity - 6, Whimsy 6
   - type: Sprite
     layers:
       - state: tt_loppa
@@ -2314,34 +2322,34 @@
           tt_doppa: ""
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: ServalTippyTrumpcard
   suffix: Serval
   components:
   - type: Card
-    name: Serval card. Robustness - 3, Validity - 3, Whimsy 4
+    name: Common Serval card. Robustness - 3, Validity - 3, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_serval
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: ApidTippyTrumpcard
   suffix: Apid
   components:
   - type: Card
-    name: Apid card. Robustness - 3, Validity - 3, Whimsy 5
+    name: UnCommon Apid card. Robustness - 3, Validity - 3, Whimsy 5
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_apid
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: SnailTippyTrumpcard
   suffix: Snail
   components:
   - type: Card
-    name: Snail card. Robustness - 2, Validity - 2, Whimsy 1
+    name: Common Snail card. Robustness - 2, Validity - 2, Whimsy 1
   - type: Sprite
     layers:
       - state: tt_snail
@@ -2353,210 +2361,210 @@
           tt_bsnail: ""
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: PleebnarTippyTrumpcard
   suffix: Pleebnar
   components:
   - type: Card
-    name: Pleebnar card. Robustness - 1, Validity - 1, Whimsy 9
+    name: UnCommon Pleebnar card. Robustness - 1, Validity - 1, Whimsy 9
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_pleeb
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: LuggageTippyTrumpcard
   suffix: Luggage
   components:
   - type: Card
-    name: Luggage card. Robustness - 6, Validity - 2, Whimsy 6
+    name: UnCommon Luggage card. Robustness - 6, Validity - 2, Whimsy 6
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_box
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: HamletTippyTrumpcard
   suffix: Hamlet
   components:
   - type: Card
-    name: Hamlet card. Robustness - 2, Validity - 9, Whimsy 3
+    name: Common Hamlet card. Robustness - 2, Validity - 9, Whimsy 3
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_hamlet
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRaritySuperRare ]
   id: FinfinTippyTrumpcard
   suffix: Finfin
   components:
   - type: Card
-    name: Finfin card. Robustness - 4, Validity - 2, Whimsy 8
+    name: Super Rare Finfin card. Robustness - 5, Validity - 1, Whimsy 10
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_finfin
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: GriffyTippyTrumpcard
   suffix: Griffy
   components:
   - type: Card
-    name: Griffy card. Robustness - 4, Validity - 6, Whimsy 5
+    name: Rare Griffy card. Robustness - 4, Validity - 6, Whimsy 5
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_griffy
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: McGriffTippyTrumpcard
   suffix: McGriff
   components:
   - type: Card
-    name: McGriff card. Robustness - 3, Validity - 1, Whimsy 2
+    name: Common McGriff card. Robustness - 3, Validity - 1, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_mcgriff
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: ShrimpTippyTrumpcard
   suffix: Weird Shrimp
   components:
   - type: Card
-    name: Weird Shrimp card. Robustness - 2, Validity - 2, Whimsy 5
+    name: UnCommon Weird Shrimp card. Robustness - 2, Validity - 2, Whimsy 5
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_shrimp
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: MouseTippyTrumpcard
   suffix: Mouse
   components:
   - type: Card
-    name: Mouse card. Robustness - 1, Validity - 5, Whimsy 5
+    name: Common Mouse card. Robustness - 1, Validity - 4, Whimsy 5
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_mouse
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: MothroachTippyTrumpcard
   suffix: Mothroach
   components:
   - type: Card
-    name: Mothroach card. Robustness - 2, Validity - 2, Whimsy 2
+    name: Common Mothroach card. Robustness - 2, Validity - 2, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_moth
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: MoproachTippyTrumpcard
   suffix: Moproach
   components:
   - type: Card
-    name: Moproach card. Robustness - 3, Validity - 2, Whimsy 6
+    name: UnCommon Moproach card. Robustness - 3, Validity - 2, Whimsy 6
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_mop
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: LepidodentTippyTrumpcard
   suffix: Lepidodent
   components:
   - type: Card
-    name: Lepidodent card. Robustness - 1, Validity - 2, Whimsy 4
+    name: Common Lepidodent card. Robustness - 1, Validity - 2, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_lepidodent
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: GlockroachTippyTrumpcard
   suffix: Glockroach
   components:
   - type: Card
-    name: Glockroach card. Robustness - 5, Validity - 5, Whimsy 7
+    name: Rare Glockroach card. Robustness - 5, Validity - 5, Whimsy 7
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_glock
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: IanTippyTrumpcard
   suffix: Ian
   components:
   - type: Card
-    name: Ian card. Robustness - 1, Validity - 7, Whimsy 2
+    name: Common Ian card. Robustness - 1, Validity - 7, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_ian
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: BingusTippyTrumpcard
   suffix: Bingus
   components:
   - type: Card
-    name: Bingus card. Robustness - 2, Validity - 1, Whimsy 5
+    name: Common Bingus card. Robustness - 2, Validity - 1, Whimsy 5
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_ncat
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: TropicoTippyTrumpcard
   suffix: Tropico
   components:
   - type: Card
-    name: Tropico card. Robustness - 4, Validity - 1, Whimsy 2
+    name: Common Tropico card. Robustness - 4, Validity - 1, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_top
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: SmileTippyTrumpcard
   suffix: Smile
   components:
   - type: Card
-    name: Smile card. Robustness - 3, Validity - 1, Whimsy 3
+    name: Common Smile card. Robustness - 3, Validity - 1, Whimsy 3
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_smile
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: KisserTippyTrumpcard
   suffix: Kisser Tomato
   components:
   - type: Card
-    name: Kisser Tomato card. Robustness - 3, Validity - 3, Whimsy 4
+    name: Common Kisser Tomato card. Robustness - 3, Validity - 3, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_kisser
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: SlurvaTippyTrumpcard
   suffix: Slurva
   components:
   - type: Card
-    name: Slurva card. Robustness - 2, Validity - 2, Whimsy 7
+    name: UnCommon Slurva card. Robustness - 2, Validity - 2, Whimsy 7
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_slurva
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: TarantulaTippyTrumpcard
   suffix: Spider
   components:
   - type: Card
-    name: Tarantula card. Robustness - 5, Validity - 6, Whimsy 2
+    name: UnCommon Tarantula card. Robustness - 5, Validity - 6, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_rancho
@@ -2570,23 +2578,23 @@
     proto: MobGiantSpider
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityCommon ]
   id: PipiTippyTrumpcard
   suffix: Pipi
   components:
   - type: Card
-    name: Pipi card. Robustness - 1, Validity - 1, Whimsy 6
+    name: Common Pipi card. Robustness - 1, Validity - 1, Whimsy 6
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_pipi
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: AnomaliteTippyTrumpcard
   suffix: Anomalite
   components:
   - type: Card
-    name: Anomalite card. Robustness - 3, Validity - 2, Whimsy 7
+    name: UnCommon Anomalite card. Robustness - 3, Validity - 2, Whimsy 7
   - type: Sprite
     layers:
       - state: tt_banom
@@ -2607,12 +2615,12 @@
           tt_sanom: ""
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityLegendary ]
   id: AuguryTippyTrumpcard
   suffix: Augury
   components:
   - type: Card
-    name: Augury card. Robustness - 10, Validity - 7, Whimsy 3
+    name: Legendary Augury card. Robustness - 10, Validity - 7, Whimsy 3
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_augury
@@ -2626,12 +2634,12 @@
     proto: MobAugury
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: OmenTippyTrumpcard
   suffix: Bad omen
   components:
   - type: Card
-    name: Bad omen card. Robustness - 3, Validity - 5, Whimsy 4
+    name: UnCommon Bad omen card. Robustness - 3, Validity - 5, Whimsy 4
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_omen
@@ -2645,23 +2653,23 @@
     proto: MobBadOmen
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityUnCommon ]
   id: MonarchTippyTrumpcard
   suffix: Monarch ray
   components:
   - type: Card
-    name: Monarch ray card. Robustness - 5, Validity - 6, Whimsy 2
+    name: UnCommon Monarch ray card. Robustness - 5, Validity - 6, Whimsy 2
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_monarch
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityLegendary ]
   id: TerrelliTippyTrumpcard
   suffix: Terrelli fish
   components:
   - type: Card
-    name: Terrelli fish card. Robustness - 7, Validity - 5, Whimsy 7
+    name: Legendary Terrelli fish card. Robustness - 7, Validity - 5, Whimsy 7
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_terrelli
@@ -2675,12 +2683,12 @@
     proto: MobFeindfish
 
 - type: entity
-  parent: CardBaseTippyTrump
+  parent: [ CardBaseTippyTrump, TippyTrumpRarityRare ]
   id: CubeTippyTrumpcard
   suffix: Tck'ju'q'tp
   components:
   - type: Card
-    name: Tck'ju'q'tp card. Robustness - 7, Validity - 5, Whimsy 7
+    name: Rare Tck'ju'q'tp card. Robustness - 7, Validity - 5, Whimsy 7
   - type: Sprite
     sprite: _EstacaoPirata/Objects/Misc/cards.rsi
     state: tt_cube
