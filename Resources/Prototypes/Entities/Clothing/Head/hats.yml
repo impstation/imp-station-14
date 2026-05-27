@@ -355,9 +355,9 @@
   description: A brown fedora.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/brownfedora.rsi
+    sprite: _Impstation/Clothing/Head/Hats/fedorabrown.rsi #imp edit: Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hats/brownfedora.rsi
+    sprite: _Impstation/Clothing/Head/Hats/fedorabrown.rsi #imp edit: Resprite
   - type: Tag
     tags:
     - PetWearable
@@ -374,9 +374,9 @@
   description: A grey fedora.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hats/greyfedora.rsi
+    sprite: _Impstation/Clothing/Head/Hats/fedoragrey.rsi #imp edit: Resprite
   - type: Clothing
-    sprite: Clothing/Head/Hats/greyfedora.rsi
+    sprite: _Impstation/Clothing/Head/Hats/fedoragrey.rsi #imp edit: Resprite
   - type: Tag
     tags:
     - PetWearable

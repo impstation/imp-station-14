@@ -182,9 +182,9 @@
   description: When you need to arrest the clown at twelve o'clock and boogie board at one.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/miamivice.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/detectivemiami.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/miamivice.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/detectivemiami.rsi
 
 - type: entity
   parent: [ClothingUniformBase]
@@ -636,3 +636,14 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/porter_shorts.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/porter_shorts.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDetTurtle
+  name: detective's turtleneck
+  description: A comfortable and tight-fitting turtleneck for those with the resolve to reach the position of detective.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/detectivesweater.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/detectivesweater.rsi
