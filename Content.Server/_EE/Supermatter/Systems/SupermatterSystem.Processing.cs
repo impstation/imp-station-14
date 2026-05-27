@@ -460,7 +460,7 @@ public sealed partial class SupermatterSystem
                 _ => "supermatter-delam-explosion"
             };
 
-            sb.AppendLine(Loc.GetString(loc));
+            sb.AppendLine(Loc.GetString(loc, ("typeUpper", sm.IsShard ? "SHARD" : "CRYSTAL"), ("type", sm.IsShard ? "shard" : "crystal"))); // Imp, added type
             sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer)));
 
             message = sb.ToString();
@@ -549,10 +549,10 @@ public sealed partial class SupermatterSystem
         // Announce damage and any dangerous thresholds
         if (sm.Damage >= sm.DamageWarningThreshold)
         {
-            message = Loc.GetString("supermatter-warning", ("integrity", integrity));
+            message = Loc.GetString("supermatter-warning", ("integrity", integrity), ("type", sm.IsShard ? "shard" : "crystal")); // Imp, added type
             if (sm.Damage >= sm.DamageEmergencyThreshold)
             {
-                message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
+                message = Loc.GetString("supermatter-emergency", ("integrity", integrity), ("type", sm.IsShard ? "shard" : "crystal")); // Imp, added type
                 global = true;
             }
 
