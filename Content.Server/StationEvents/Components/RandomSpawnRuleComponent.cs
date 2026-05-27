@@ -18,15 +18,31 @@ public sealed partial class RandomSpawnRuleComponent : Component
     [DataField("prototype", required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
     public string Prototype = string.Empty;
 
+    /// <summary>
+    /// Imp.
+    /// Spawn effect to be spawned on the same tile as the entity spawned. Does not follow the entity.
+    /// </summary>
     [DataField]
-    public EntProtoId? SpawnEffect; // Imp
+    public EntProtoId? SpawnEffect;
 
+    /// <summary>
+    /// Imp.
+    /// Variation in the amount of entities to spawn.
+    /// </summary>
     [DataField]
-    public MinMax MinMaxEntities = new(1, 1); // Imp
+    public MinMax MinMaxEntities = new(1, 1);
 
+    /// <summary>
+    /// Imp.
+    /// Whether to spawn entities on tiles without dynamic or static entities.
+    /// </summary>
     [DataField]
-    public bool EmptyTilesOnly; // Imp
+    public bool EmptyTilesOnly;
 
+    /// <summary>
+    /// Imp.
+    /// Announcement to be played when a station event with this rule is added.
+    /// </summary>
     [DataField]
-    public LocId? Announcement; // Imp
+    public LocId? Announcement;
 }

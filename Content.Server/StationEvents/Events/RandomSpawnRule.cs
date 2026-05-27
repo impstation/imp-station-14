@@ -16,8 +16,10 @@ public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponen
     [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
-    // Remove this when announcement system allows for specified announcements instead of deriving them from the event name
-    // Or when the EE announcer system is refactored to support delays
+    /// <summary>
+    /// Imp summary.
+    /// Announcement sent in system since EE announcement system dosen't support delays or specifying the announcement through yaml.
+    /// </summary>
     protected override void Added(EntityUid uid, RandomSpawnRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
@@ -33,6 +35,11 @@ public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponen
     }
     // Imp end
 
+    /// <summary>
+    /// Imp summary.
+    /// Finds a random tile on the station and spawns a entity and its effect if specified.
+    /// Conditionally checks for if the tile has another dynamic or static entity on it before spawning.
+    /// </summary>
     protected override void Started(EntityUid uid, RandomSpawnRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, comp, gameRule, args);
