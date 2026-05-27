@@ -26,7 +26,7 @@ public sealed class SupermatterSurgeRule : StationEventSystem<SupermatterSurgeRu
 
         while (query.MoveNext(out var supermatterUid, out var sm))
         {
-            // Does not target inactive supermatters
+            // Does not target shards or inactive supermatters
             if (sm.IsShard || !sm.HasBeenPowered)
                 continue;
 
