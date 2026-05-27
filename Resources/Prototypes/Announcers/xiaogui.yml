@@ -1,0 +1,107 @@
+- type: announcer
+  id: XiaoGui
+  basePath: /Audio/_Impstation/Announcements/XiaoGui
+  baseAudioParams:
+    volume: -7
+  announcements:
+  # Communications
+  - id: commandReport # Station goal, Central Command messages, etc
+    path: comms/command_report.ogg
+    # 各位同志好纳米星际刚发来了个通报请仔细看一下谢谢
+  - id: nukeDisarm # The nuke has been disarmed
+    path: comms/nuke_disarm.ogg
+    # 核弹倒计时已被取消谢谢您的配合
+  - id: welcome # The shift has started
+    path: comms/welcome.ogg
+    # 各位同志好欢迎来到纳米星际太空站请各位积极向上努力工作谢谢
+  # Alert levels
+  - id: alertAmber # It's Dino Wars
+    path: alerts/amber.ogg
+    # 我们现在是褐色警报请大家当心恐龙冷静疏散xx
+  - id: alertBlue # Something is amiss
+    path: alerts/blue.ogg
+    # 我们现在是蓝色警报请大家保持警惕配合治安人员谢谢
+  - id: alertEpsilon # The station has been terminated, good luck survivors!
+    path: alerts/epsilon.ogg
+  - id: alertGamma # There is a massive immediate threat to the station, listen to Central Command
+    path: alerts/gamma.ogg
+  - id: alertGreen # Everything is fine
+    path: alerts/green.ogg
+  - id: alertPink # Please don't form a union
+    path: alerts/pink.ogg
+  - id: alertRed # Generic many things are bad, listen to Security
+    path: alerts/red.ogg
+  - id: alertViolet # Viral infection or misc medical emergencies, listen to Medical
+    path: alerts/violet.ogg
+  - id: alertYellow # The station is being largely damaged, listen to Engineering
+    path: alerts/yellow.ogg
+
+  # Events
+  ## Wizard's Den
+  ### Events
+  - id: anomalySpawn # An anomaly has spawned in a random place
+    path: events/anomaly.ogg
+  - id: bluespaceArtifact # An artifact has spawned in a random place
+    path: events/bluespace_artifact.ogg
+  - id: bluespaceLocker # Two random lockers now share inventories
+    path: events/bluespace_locker.ogg
+  - id: breakerFlip # A few random APCs have been disabled, ask Engineering to fix them
+    path: events/breaker_flip.ogg
+  - id: bureaucraticError # Random jobs have been added, removed, or made infinite
+    path: events/bureaucratic_error.ogg
+  - id: carpRift # A dragon's carp rift is active
+    path: events/carp_rift.ogg
+  - id: clericalError # Random crew are removed from the manifest
+    path: events/clerical_error.ogg
+  - id: gasLeak # A random gas is coming out of a random vent
+    path: events/gas_leak.ogg
+  - id: gasLeakComplete # Gas has stopped coming out of a vent
+    path: events/gas_leak-complete.ogg
+  - id: immovableRodSpawn # The station is moving into an immovable rod, don't die or something, ask Engineering for help repairing it
+    path: events/immovable_rod_spawn.ogg
+  - id: meteorSwarm # Meteors are flying at the station, stay away from windows
+    path: events/meteors.ogg
+  - id: powerGridCheck # The station's power is offline for some moments
+    path: events/power_grid_check.ogg
+  - id: powerGridCheckComplete # The station's power is online again
+    path: events/power_grid_check-complete.ogg
+  - id: solarFlare # A solar flare is nearby, may mess with comms and electronics
+    path: events/solar_flare.ogg
+  - id: solarFlareComplete # The solar flare has passed
+    path: events/solar_flare-complete.ogg
+  - id: ventClog # A random reagent is coming out of a scrubber
+    path: events/vent_clog.ogg
+  - id: mouseMigration # Several mice have appeared in a random place
+    path: events/vent_critters.ogg
+  - id: cockroachMigration # Several cockroaches have appeared in a random place
+    path: events/vent_critters.ogg
+  - id: slimesSpawn # Some simple slimes are appearing in vents
+    path: events/vent_critters.ogg
+  - id: spiderSpawn # Some simple spiders are appearing in vents
+    path: events/vent_critters.ogg
+  - id: trashAnimalMigration # Trash-eating critters are appearing in vents
+    path: events/vent_critters.ogg
+  - id: snailMigration # Adorable little snails are appearing in vents
+    path: events/vent_critters.ogg
+  - id: snailMigrationLowPop # Adorable little snails are appearing in vents
+    path: events/vent_critters.ogg
+  - id: brosSpawn # BROS are appearing in vents. UNGH
+    path: events/vent_critters.ogg
+
+  # Shuttle
+  - id: shuttleAlmostLaunching # The shuttle will leave to FTL in 10 seconds
+    path: shuttle/almost_launching.ogg
+  - id: shuttleCalled # The shuttle is on its way
+    path: shuttle/called.ogg
+  - id: shuttleDock # The shuttle has arrived at the station
+    path: shuttle/dock.ogg
+  - id: shuttleGoodLuck # The shuttle could not find its way to the station, good luck crew
+    path: shuttle/good_luck.ogg
+  - id: shuttleNearby # The shuttle couldn't dock, it's at a specified location
+    path: shuttle/nearby.ogg
+  - id: shuttleRecalled # The shuttle is going back to Central Command
+    path: shuttle/recalled.ogg
+
+  # Fallback # REQUIRED
+  - id: fallback # Any announcement sent without a valid announcement on this announcer will use this
+    path: fallback.ogg
