@@ -15,8 +15,7 @@
   abstract: true
   categories: [ HideSpawnMenu ]
   components:
-  - type: MindContainer
-    showExamineInfo: true
+  - type: MindExaminable
   - type: Sprite
     noRot: true
     drawdepth: Mobs

@@ -109,7 +109,7 @@
     shakeSound: /Audio/Effects/waterswirl.ogg
   - type: DnaSubstanceTrace
   - type: ReactionMixer
-    mixOnInteract: false
+    mixerType: None
     reactionTypes:
     - Gildgrail #mix changed to make half holy water and half aquam divinos
     - Shake
