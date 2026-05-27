@@ -275,10 +275,7 @@
   id: ButlerSpawn
   components:
   - type: StationEvent
-    startAnnouncement: false
     weight: 1.5
-    maxOccurrences: 1 #autolink on signaller will break with multiple butlers
-    duration: null
   - type: AntagLoadProfileRule
   - type: AntagObjectives
     objectives:
@@ -298,18 +295,24 @@
       - type: AutoImplant
         implants:
         - ButlerBombImplant
-      - type: TriggerOnMobstateChange
-        mobState:
-        - Dead
-      - type: GibOnTrigger
-        targetUser: true
-        deleteItems: false
       - type: UnableToWield
       - type: NpcFactionMember
         factions:
         - Passive
       mindRoles:
       - MindRoleButler
+
+- type: entity
+  parent: BaseStationEventLongDelay
+  id: SupermatterSurge
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    reoccurrenceDelay: 25
+    weight: 1.5
+    minimumPlayers: 30
+    duration: 60
+  - type: SupermatterSurgeRule
 
 - type: entity
   id: ExplosiveMineResurgence
