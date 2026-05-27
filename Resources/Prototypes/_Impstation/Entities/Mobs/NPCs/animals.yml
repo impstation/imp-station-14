@@ -168,10 +168,17 @@
       size: Tiny
     - type: Sprite
       drawdepth: Mobs
+      sprite: _Impstation/Mobs/Animals/Bros/bros.rsi
       layers:
-      - map: ["enum.DamageStateVisualLayers.Base"]
-        state: bros
-        sprite: _Impstation/Mobs/Animals/bros.rsi
+      - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+        state: icon
+    - type: SpriteMovement
+      movementLayers:
+        movement:
+          state: moving
+      noMovementLayers:
+        movement:
+          state: icon
     - type: Butcherable
       spawned:
         - id: FoodLingzhi
@@ -198,9 +205,9 @@
     - type: DamageStateVisuals
       states:
         Alive:
-          Base: bros
+          Base: icon
         Dead:
-          Base: bros-dead
+          Base: dead
     - type: MobThresholds
       thresholds:
         0: Alive
@@ -275,17 +282,7 @@
   description: SORB S'TI KCUF HO
   components:
     - type: Sprite
-      drawdepth: Mobs
-      layers:
-      - map: ["enum.DamageStateVisualLayers.Base"]
-        state: sorb
-        sprite: _Impstation/Mobs/Animals/bros.rsi
-    - type: DamageStateVisuals
-      states:
-        Alive:
-          Base: sorb
-        Dead:
-          Base: sorb-dead
+      sprite: _Impstation/Mobs/Animals/Bros/sorb.rsi
 
 # used for BROS polymorph from juice that makes you UNGH so players don't get one-shot and die for real
 - type: entity
