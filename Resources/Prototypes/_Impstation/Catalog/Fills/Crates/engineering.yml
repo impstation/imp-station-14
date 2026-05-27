@@ -12,6 +12,17 @@
         amount: 2
 
 - type: entity
+  parent: CrateEngineeringSecure
+  id: CrateRPD
+  name: RPD crate
+  description: A crate containing a single rapid piping device.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage:
+        id: RPD
+
+- type: entity
   id: CrateEngineeringSupermatterShard
   parent: CrateEngineeringSupermatterSecure
   name: supermatter shard crate
