@@ -5,4 +5,4 @@ announcer-TikTok-name=Automated
 announcer-VoxFem-name=Automated
 announcer-Sinister-name=Sinister
 announcer-MesaVox-name=VOX
-announcer-XiaoGui-name=Xiǎoguǐ PA
+announcer-XiaoGui-name=XiaoGui PA
