@@ -21,16 +21,14 @@ using Content.Shared.Interaction;
 using Content.Shared.Medical;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Popups;
-using Content.Shared.Radio.Components;
-using Content.Shared.StatusEffect;
 using Content.Shared.Store.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
+using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared._Starlight.CollectiveMind;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -64,6 +62,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
+    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -169,8 +168,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        if (TryComp<ActiveRadioComponent>(args.Target, out var radio)
-        && radio.Channels.Contains("Mansus"))
+        if (TryComp<HereticMansusLinkComponent>(args.Target, out var _))
         {
             _popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
             return;
@@ -193,11 +191,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         var target = args.Args.Target.Value;
 
-        EnsureComp<IntrinsicRadioReceiverComponent>(target);
-        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(target);
-        var radio = EnsureComp<ActiveRadioComponent>(target);
-        radio.Channels = ["Mansus"];
-        transmitter.Channels = ["Mansus"];
+        EnsureComp<CollectiveMindComponent>(target, out var mind);
+        EnsureComp<HereticMansusLinkComponent>(target);
+        _collectiveMind.UpdateCollectiveMind(target, mind);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));

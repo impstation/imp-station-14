@@ -275,10 +275,7 @@
   id: ButlerSpawn
   components:
   - type: StationEvent
-    startAnnouncement: false
     weight: 1.5
-    maxOccurrences: 1 #autolink on signaller will break with multiple butlers
-    duration: null
   - type: AntagLoadProfileRule
   - type: AntagObjectives
     objectives:
@@ -298,12 +295,6 @@
       - type: AutoImplant
         implants:
         - ButlerBombImplant
-      - type: TriggerOnMobstateChange
-        mobState:
-        - Dead
-      - type: GibOnTrigger
-        targetUser: true
-        deleteItems: false
       - type: UnableToWield
       - type: NpcFactionMember
         factions:
