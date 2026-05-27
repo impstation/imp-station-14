@@ -1,9 +1,9 @@
 # Magazines compatible with the Lecter and the Valkyrie.
 - type: entity
   id: BaseMagazineRifle
-  name: "magazine (.20 rifle)"
+  name: "rifle magazine (.20 assault)"
   parent: [ BaseItem, BaseSecurityContraband ]
-  description: A 25-round .20 rifle magazine.
+  description: A 25-round .20 assault magazine.
   abstract: true
   components:
   - type: Tag
@@ -35,9 +35,9 @@
 
 - type: entity
   id: MagazineRifle
-  name: "magazine (.20 rifle)"
+  name: "rifle magazine (.20 assault)"
   parent: BaseMagazineRifle
-  description: A 25-round .20 rifle magazine, marked as live-fire ammo.
+  description: A 25-round .20 assault magazine, marked as live-fire ammo.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifle
@@ -60,10 +60,10 @@
 
 - type: entity
   id: MagazineRifleEmpty
-  name: "magazine (.20 rifle any)"
+  name: "rifle magazine (.20 assault any)"
   suffix: empty
   parent: MagazineRifle
-  description: A 25-round .20 rifle magazine with no apparent markings.
+  description: A 25-round .20 assault magazine with no apparent markings.
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -82,9 +82,9 @@
 
 - type: entity
   id: MagazineRifleIncendiary
-  name: "magazine (.20 rifle incendiary)"
+  name: "rifle magazine (.20 assault incendiary)"
   parent: MagazineRifle
-  description: A 25-round .20 rifle magazine, marked as incendiary ammo.
+  description: A 25-round .20 assault magazine, marked as incendiary ammo.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleIncendiary
@@ -107,9 +107,9 @@
 
 - type: entity
   id: MagazineRiflePractice
-  name: "magazine (.20 rifle practice)"
+  name: "rifle magazine (.20 assault practice)"
   parent: BaseMagazineRifle
-  description: A 25-round .20 rifle magazine, marked as practice ammo.
+  description: A 25-round .20 assault magazine, marked as practice ammo.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRiflePractice
@@ -132,9 +132,9 @@
 
 - type: entity
   id: MagazineRifleUranium
-  name: "magazine (.20 rifle uranium)"
+  name: "rifle magazine (.20 assault uranium)"
   parent: BaseMagazineRifle
-  description: A 25-round .20 rifle magazine, marked as uranium ammo.
+  description: A 25-round .20 assault magazine, marked as uranium ammo.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeRifleUranium

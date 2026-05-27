@@ -7,13 +7,20 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Timing;
+// Imp Start
+using Content.Shared.Interaction;
+using Content.Shared.Movement.Pulling.Events;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Hands;
+using Content.Shared.Pointing;
+// Imp end
 
 namespace Content.Server.NPC.Systems;
 
 /// <summary>
 ///     Handles NPC which become aggressive after being attacked.
 /// </summary>
-public sealed class NPCRetaliationSystem : EntitySystem
+public sealed partial class NPCRetaliationSystem : EntitySystem // Imp, made partial
 {
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -23,6 +30,14 @@ public sealed class NPCRetaliationSystem : EntitySystem
     {
         SubscribeLocalEvent<NPCRetaliationComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<NPCRetaliationComponent, DisarmedEvent>(OnDisarmed);
+
+        // Imp start
+        SubscribeLocalEvent<NPCRetaliationComponent, PullStartedMessage>(OnPull);
+        SubscribeLocalEvent<NPCRetaliationComponent, AttackedEvent>(OnAttack);
+        SubscribeLocalEvent<NPCRetaliationComponent, GotEquippedHandEvent>(OnPickup);
+        SubscribeLocalEvent<NPCRetaliationComponent, AfterGotPointedAtEvent>(OnPointedAt);
+        SubscribeLocalEvent<NPCRetaliationComponent, ActivateInWorldEvent>(OnAfterInteract); //TODO: comment out once item support exists
+        // Imp end
     }
 
     private void OnDamageChanged(Entity<NPCRetaliationComponent> ent, ref DamageChangedEvent args)

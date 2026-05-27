@@ -75,8 +75,9 @@
       baseDecayRate: 0.3
     - type: Thirst
       baseDecayRate: 0.04 # previously 0.05 but getting too thirsty makes them slow
-    - type: YoungKodepiiaRetaliation
+    - type: NPCRetaliation
       attackMemoryLength: 15
+      anyInteraction: true
     - type: GoobAbsorbable
       biomassRestored: 0.8
     - type: MobThresholds
@@ -473,7 +474,8 @@
   - type: NoSlip
   - type: GoobAbsorbable
     biomassRestored: 0.6
-  - type: YoungKodepiiaRetaliation
+  - type: NPCRetaliation
+    anyInteraction: true
   - type: Tag
     tags:
     - DoorBumpOpener
