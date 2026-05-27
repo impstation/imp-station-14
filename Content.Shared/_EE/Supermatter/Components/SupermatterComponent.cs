@@ -24,10 +24,24 @@ public sealed partial class SupermatterComponent : Component
     public bool IsShard;
 
     /// <summary>
-    /// The current status of the singularity, used for alert sounds and the monitoring console
+    /// Imp.
+    /// Used for knowing if the supermatter is a shard
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool IsShard;
+
+    /// <summary>
+    /// The current status of the supermatter, used for alert sounds and the monitoring console
     /// </summary>
     [DataField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
+
+    /// <summary>
+    /// Imp.
+    /// The current supermatter event thats occuring
+    /// </summary>
+    [DataField]
+    public SupermatterEvent Event = SupermatterEvent.None;
 
     /// <summary>
     /// The supermatter's external gas mixture on the tile
@@ -578,6 +592,16 @@ public enum SupermatterCrystalState : byte
     GlowEmergency,
     GlowDelam
 }
+
+// Imp start
+[Serializable, NetSerializable]
+public enum SupermatterEvent : byte
+{
+    None = 0,
+    Surging = 1,
+    Discharging = 2, // TODO: future supermatter event causing singularity delamination conditions
+}
+// Imp end
 
 [Serializable, NetSerializable]
 public enum SupermatterVisuals : byte

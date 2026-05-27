@@ -301,3 +301,15 @@
         - Passive
       mindRoles:
       - MindRoleButler
+
+- type: entity
+  parent: BaseStationEventLongDelay
+  id: SupermatterSurge
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    reoccurrenceDelay: 25
+    weight: 1.5
+    minimumPlayers: 30
+    duration: 60
+  - type: SupermatterSurgeRule

@@ -114,7 +114,7 @@
     position: Stand
     buckleOffset: "0, 0.4"
     buckleDoafterTime: 5
-  #- type: IgniteOnBuckle #imp edit, TODO: should be handled by Flammable from parent, but collision wonkiness prevents ignition on buckle, needs to be updated
+  - type: IgniteOnBuckle
   - type: Construction
     graph: Bonfire
     node: bonfireStake
