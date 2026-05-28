@@ -285,3 +285,17 @@
     - type: ConditionalSpawner
       prototypes:
         - DecapoidCore
+
+- type: entity
+  name: Slurgle Spawner
+  id: SpawnMobSlurgle
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: slurgle
+      sprite: _Impstation/Mobs/Aliens/slurgle.rsi
+  - type: ConditionalSpawner
+    prototypes:
+    - MobSlurgle
