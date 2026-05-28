@@ -1,4 +1,7 @@
-# .60 anti-materiel deals 75 pierce and 226 structural per shot (CartridgeAntiMaterial)
+# .60 anti-materiel (CartridgeAntiMaterial) deals 75 pierce and 226 structural per shot.
+# Base Revolver Weapons have a default GunDamage bonus of +25 Piercing.
+# GunDamage Component should be set to 0 for weapons in this category if you do not want them to deal extra damage than 75 pierce.
+
 - type: entity
   name: Anaconda
   parent: [BaseWeaponRevolver, Tier3Contraband]
@@ -32,6 +35,14 @@
     angleDecay: 4
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/anaconda.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 0 #.60 anti-materiel does a fixed amount of damage
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: RevolverAmmoProvider
     whitelist:
       tags:
