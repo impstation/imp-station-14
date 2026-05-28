@@ -26,6 +26,14 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 9 #19 pierce for .20 Assault
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
@@ -108,6 +116,17 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 9 #19 pierce for .20 Assault
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
+  - type: ChamberMagazineAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/sf_rifle_cock.ogg
   - type: BallisticAmmoProvider
     whitelist:
       tags:

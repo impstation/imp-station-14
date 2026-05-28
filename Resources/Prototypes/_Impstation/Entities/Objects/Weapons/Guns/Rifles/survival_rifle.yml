@@ -17,6 +17,14 @@
     fireRate: 4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 6 #16 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -77,12 +85,20 @@
   name: survival rifle dual-caliber
   parent: WeaponRifleSurvivalPistol
   id: WeaponRifleSurvivalRifle
-  description: A robust improvised rifle for surviving harsh environments. Accepts both .20 rifle and .35 auto ammo in either pistol or rifle magazines.
+  description: A robust improvised rifle for surviving harsh environments. Accepts both .20 assault and .35 auto ammo in either pistol or rifle magazines.
   components:
   - type: Gun
     fireRate: 4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/ltrifle.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 7 #17 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -113,6 +129,14 @@
     fireRate: 4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/smg.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 6 #16 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: ItemSlots
     slots:
       gun_magazine:

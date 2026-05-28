@@ -30,6 +30,14 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 25 #35 pierce for .45 magnum
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: UseDelay
     delay: 0.66
   - type: ContainerContainer

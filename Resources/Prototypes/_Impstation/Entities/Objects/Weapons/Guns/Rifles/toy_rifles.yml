@@ -1,3 +1,6 @@
+# Be sure to include a GunDamage component of 0 Piercing if you do not wish for this weapon to deal piercing at all.
+# Or do, if the intent is Violence
+
 - type: entity
   name: Foam Force Astro Ace
   parent: [ BaseWeaponInternalRifle, BaseToyGun ]
@@ -37,6 +40,14 @@
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
     clumsyProof: true
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 0 #it's a TOY goddammit
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: PacifismAllowedGun
   - type: MeleeWeapon
     range: 0.8

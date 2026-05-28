@@ -1,72 +1,4 @@
 ﻿Entries:
-- author: Entings, Squamatic
-  changes:
-  - message: TLC updates to Arachnids and Moths!
-    type: Add
-  - message: The kitchens have switched to using non-arachnid-safe onions and coffee.
-      Sorry, guys.
-    type: Fix
-  - message: Spiders can eat webs off the damn ground again.
-    type: Fix
-  id: 2328
-  time: '2025-10-15T03:48:42.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3539
-- author: TheGrimbeeper
-  changes:
-  - message: Both Natural and Reticulated artifacts ask for "Expressiveness"
-    type: Tweak
-  - message: Gas triggers are less common.
-    type: Tweak
-  id: 2329
-  time: '2025-10-15T03:49:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3563
-- author: Kandiyaki
-  changes:
-  - message: the Heretics gamemode can now roll at lower populations, complete with
-      lighter greentext requirements.
-    type: Tweak
-  id: 2330
-  time: '2025-10-15T23:53:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3567
-- author: starlighthowls
-  changes:
-  - message: Dolphin got cursed, dont worry about it.
-    type: Tweak
-  id: 2331
-  time: '2025-10-19T08:04:50.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3582
-- author: DinnerCalzone, mqole
-  changes:
-  - message: It's Upmerge, putting us up to date with Wizden as of their October 12th
-      publish. See changelog for full details.
-    type: Add
-  - message: Vox characters with the 'Twinned' tail marking may need to double-check
-      their settings to use the correct marking.
-    type: Tweak
-  - message: Some ingredient boxes have had their contents altered.
-    type: Tweak
-  - message: Vulpkanin aren't real.
-    type: Remove
-  id: 2332
-  time: '2025-10-19T07:33:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3558
-- author: VeeNomine
-  changes:
-  - message: Added the Drum Kit, Hammond Organ, and Hammered Dulcimer, which are all
-      purchasable at cargo for 1500 each.
-    type: Add
-  - message: Decreased the theremin's volume.
-    type: Tweak
-  id: 2333
-  time: '2025-10-19T09:50:13.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3577
-- author: entings
-  changes:
-  - message: Arachnids can breathe normally again. Probably.
-    type: Fix
-  id: 2334
-  time: '2025-10-19T09:49:41.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3571
 - author: entings
   changes:
   - message: Boar are slightly less ludicrous, and also slightly smarter.
@@ -4114,3 +4046,64 @@
   id: 2827
   time: '2026-05-27T00:59:20.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4373
+- author: jkwookee
+  changes:
+  - message: Bonfire with stake now works.
+    type: Fix
+  id: 2828
+  time: '2026-05-27T08:17:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4391
+- author: jkwookee
+  changes:
+  - message: Toy manufacturers have had several defects in their toys, which may cause
+      unintended consequences.
+    type: Tweak
+  id: 2829
+  time: '2026-05-27T08:19:16.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4370
+- author: Soup4Food
+  changes:
+  - message: Make meteors target other points than the center of the station
+    type: Tweak
+  id: 2830
+  time: '2026-05-27T08:29:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4320
+- author: msTheowo
+  changes:
+  - message: You no longer go critical in Deathmatch mode.
+    type: Tweak
+  id: 2831
+  time: '2026-05-27T08:40:29.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4317
+- author: DVD Player
+  changes:
+  - message: .22 Auto is Kill, but the guns that used it are still there. They use
+      .35 Auto now.
+    type: Remove
+  - message: A number of guns have received balanced (and damage!) adjustments-- click
+      the PR for details
+    type: Tweak
+  - message: A couple ammo calibres and magazines have received name changes for clarity
+      and some style.
+    type: Tweak
+  id: 2832
+  time: '2026-05-27T08:41:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4291
+- author: jkwookee
+  changes:
+  - message: Sudden increases in the power & danger levels of Supermatters have been
+      reported throughout NT sectors.
+    type: Add
+  id: 2833
+  time: '2026-05-27T08:54:31.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4268
+- author: TheGrimbeeper, MattFright
+  changes:
+  - message: New device to empower your artifact research! Build the Advanced Node
+      Scanner today for ultimate control of your artifact analysis journey! Now bundled
+      with the artifact crusher research. (See PR or guidebook for details). Sprite
+      by MattFright.
+    type: Add
+  id: 2834
+  time: '2026-05-27T09:11:19.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/3651
