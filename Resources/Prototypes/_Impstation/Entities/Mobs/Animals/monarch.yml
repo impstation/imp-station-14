@@ -1,0 +1,85 @@
+- type: entity
+  parent: [ SimpleSpaceMobBase ]
+  id: MobMonarchGrub
+  name: monarch grub
+  description: The parasitic spawn of a Monarch ray.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Aliens/monarch.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: grub
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: grub_eyes
+      shader: unshaded
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 20
+  - type: Appearance
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.10
+        density: 10
+        mask:
+        - FlyingMobMask # todo replace w mouse stuff
+        layer:
+        - FlyingMobLayer
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 80
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PuddlePlasma:
+            min: 1
+            max: 1
+  - type: MovementAlwaysTouching
+  - type: MovementIgnoreGravity
+    weightless: true
+  - type: Physics
+    bodyStatus: InAir
+  - type: CanMoveInAir
+  - type: NoSlip
+  - type: HTN
+    rootTask:
+      task: MonarchGrubCompound
+  - type: NpcFactionMember
+    factions:
+      - Monarchs
+  - type: FireVisuals
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Mouse_burning
+  - type: Edible
+  - type: GoobAbsorbable
+    biomassRestored: 0.1
+  - type: FlavorProfile
+    flavors:
+    - sour
+    - slimy
+  - type: Item
+    size: Tiny
+    heldPrefix: 0
+  - type: CanEscapeInventory
+  - type: Clothing
+    quickEquip: true
+    sprite: _Impstation/Mobs/Aliens/monarch.rsi
+    clothingVisuals:
+      head:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: grub_equipped-HELMET
+#      head-ungu:
+#      - state: 0-equipped-HELMET-ungu
+#      head-allulalo:
+#      - state: 0-equipped-HELMET-allulalo
+    equippedPrefix: 0
+    slots:
+    - HEAD
