@@ -16,9 +16,11 @@ using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Random; // imp rdnr
 using Content.Shared._Impstation.Traits; // imp rdnr
-using Content.Shared.Whitelist; // imp multitool defib
+using Content.Shared.Whitelist; // Imp RDNR
+using Content.Shared.Random.Helpers; // Imp RDNR
+using Robust.Shared.Random; // imp rdnr
+using Robust.Shared.Timing; // imp multitool defib
 
 namespace Content.Shared.Medical;
 
@@ -42,7 +44,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!; // imp rdnr
+    [Dependency] private readonly IGameTiming _timing = default!; // Imp, RDNR
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // imp multitool defib
 
     private readonly HashSet<EntityUid> _interacters = new();
@@ -223,7 +225,11 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
         // imp edit start, rdnr
         else if (TryComp<RandomUnrevivableComponent>(target, out var rdnr))
         {
-            if (rdnr.Chance < _random.NextDouble())
+            // TODO: Replace with RandomPredicted once the engine PR is merged
+            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
+            var rand = new System.Random(seed);
+
+            if (!rand.Prob(rdnr.Chance))
             {
                 if (ent.Comp.ShowMessages)
                     _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-unrevivable"), InGameICChatType.Speak, true);
@@ -236,6 +242,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
             {
                 failedRevive = AttemptRevive((target, targetMobState), user, ent.Comp);
                 rdnr.Chance -= 0.1f;
+                Dirty(target, rdnr);
             }
         }
         else
