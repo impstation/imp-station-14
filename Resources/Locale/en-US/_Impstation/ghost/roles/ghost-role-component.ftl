@@ -197,3 +197,6 @@ ghost-role-information-magic-monkey-desc = A wizards Apprentice.
 
 ghost-role-information-carp-radio-name = Big mouth carp
 ghost-role-information-carp-radio-desc = A stuffed carp containing a transmitter that picks up distant space radio shows.
+
+ghost-role-information-broser-name = broser
+ghost-role-information-broser-description = Bro. It's Morbin Time.
