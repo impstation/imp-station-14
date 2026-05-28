@@ -233,7 +233,6 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
             {
                 if (ent.Comp.ShowMessages)
                     _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-unrevivable"), InGameICChatType.Speak, true);
-                rdnr.Chance = 0f;
                 var addDnr = EnsureComp<UnrevivableComponent>(target);
                 addDnr.Cloneable = true;
                 RemComp<RandomUnrevivableComponent>(target);
