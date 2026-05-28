@@ -1,0 +1,23 @@
+﻿- type: entity
+  id: LinkedCaptainIDCardSpawner
+  name: linked captain id card spawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Misc/id_cards.rsi
+      state: stripe_top
+      color: "#1b67a5"
+    - sprite: Objects/Misc/id_cards.rsi
+      state: stripe_bottom
+      color: "#0e4069"
+    - sprite: Objects/Misc/id_cards.rsi
+      state: gold
+    - sprite: Objects/Misc/id_cards.rsi
+      state: gold
+    - sprite: Interface/Misc/job_icons.rsi
+      offset: -0.09375, 0.0625
+      state: Captain
+  - type: LinkedSpawner
+    prototype: CaptainIDCard
