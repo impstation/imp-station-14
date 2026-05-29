@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseSimpleMob
+  parent: SimpleSpaceMobBase
   id: MobSlurgle
   name: slurgle
   description: Looks like this one likes you.
@@ -15,7 +15,7 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       state: slurgle
   - type: Body
-    prototype: Lepidodent # so it eats everything
+    prototype: Mouse
   - type: NoSlip
   - type: Examiner
   - type: MobMover
@@ -66,7 +66,7 @@
       Peckish: 100
       Starving: 50
       Dead: 0
-    baseDecayRate: 0.5
+    baseDecayRate: 0.3
   - type: HTN
     rootTask:
       task: SlurgleCompound
@@ -79,4 +79,28 @@
       components:
       - HumanoidAppearance
   - type: Pullable
-  - type: Godmode # you cant just kill them
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CyanFoodColoring # is it worth it.....
+        Quantity: 150
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2001: Dead  # you can kill them if you Really have to
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: Pops
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PuddleCyan:
+            min: 1
+            max: 1
