@@ -58,16 +58,13 @@ public sealed class HereticKnowledgeBoundUserInterface(EntityUid owner, Enum uiK
     {
         base.UpdateState(state);
 
-        switch (state)
-        {
-            case StoreUpdateState msg:
-                _listings = msg.Listings;
+        if (state is not StoreUpdateState msg)
+            return;
 
-                _menu?.UpdateBalance(msg.Balance);
+        _listings = msg.Listings;
+        _menu?.UpdateBalance(msg.Balance);
 
-                UpdateListingsWithSearchFilter();
-                break;
-        }
+        UpdateListingsWithSearchFilter();
     }
 
     /// <summary>

@@ -150,19 +150,20 @@ public sealed partial class HereticMenu : FancyWindow
         var text = string.Empty;
 
         if (listing.Cost.Count < 1)
-            text = Loc.GetString("store-currency-free");
-        else
         {
-            foreach (var (type, amount) in listing.Cost)
-            {
-                var currency = _prototypeManager.Index(type);
+            text = Loc.GetString("store-currency-free");
+            return text.TrimEnd();
+        }
 
-                text += Loc.GetString(
-                    "store-ui-price-display",
-                    ("amount", amount),
-                    ("currency", Loc.GetString(currency.DisplayName, ("amount", amount)))
-                );
-            }
+        foreach (var (type, amount) in listing.Cost)
+        {
+            var currency = _prototypeManager.Index(type);
+
+            text += Loc.GetString(
+                "store-ui-price-display",
+                ("amount", amount),
+                ("currency", Loc.GetString(currency.DisplayName, ("amount", amount)))
+            );
         }
 
         return text.TrimEnd();
