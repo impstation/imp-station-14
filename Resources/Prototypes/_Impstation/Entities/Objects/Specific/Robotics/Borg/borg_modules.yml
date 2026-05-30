@@ -77,6 +77,7 @@
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: artistic-module }
 
+#Cargo Borg Modules
 - type: entity
   id: BorgModuleCourier
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
@@ -100,6 +101,18 @@
           tags:
           - Document
           - Paper
+    - hand:
+        emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
+        emptyLabel: borg-slot-construction-empty
+        whitelist:
+          tags:
+          - ConstructionMaterial
+    - hand:
+        emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
+        emptyLabel: borg-slot-construction-empty
+        whitelist:
+          tags:
+          - CargoBorgBox
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }
 
