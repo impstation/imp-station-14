@@ -1,5 +1,6 @@
 ﻿using Content.Server._Impstation.Spawners.Components;
 using Content.Shared.Coordinates;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -36,13 +37,21 @@ public sealed class LinkedSpawnerSystem : EntitySystem
     {
         foreach (var prototype in _cache.Keys)
         {
-            // pick a random spawner from the list
-            var randomSpawner = _random.Pick(_cache[prototype]);
+            // make a dictionary to store each spawner and a weight
+            var randomDict = new Dictionary<Entity<LinkedSpawnerComponent>, float>();
+
+            foreach (var possibleSpawner in _cache[prototype])
+            {
+                randomDict.Add(possibleSpawner, possibleSpawner.Comp.Weight);
+            }
+
+            // pick a random spawner from the dictionary based on weights
+            var randomSpawner = _random.Pick(randomDict);
 
             // spawn the entity at the chosen spawner
             SpawnAtPosition(randomSpawner.Comp.Prototype, randomSpawner.Owner.ToCoordinates());
 
-            // delete every spawner in the list
+            // delete every spawner for this prototype in the cache
             foreach (var spawner in _cache[prototype])
             {
                 QueueDel(spawner);

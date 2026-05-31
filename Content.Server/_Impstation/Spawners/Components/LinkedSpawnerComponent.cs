@@ -13,4 +13,10 @@ public sealed partial class LinkedSpawnerComponent : Component
     /// </summary>
     [DataField(required: true)]
     public EntProtoId Prototype;
+
+    /// <summary>
+    /// Weight that this spawner will be selected.
+    /// </summary>
+    [DataField]
+    public float Weight = 1;
 }
