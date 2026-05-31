@@ -11,8 +11,9 @@
         Blunt: 0.95
         Slash: 0.95
   - type: Slippery
-    paralyzeTime: 5.0
-    launchForwardsMultiplier: 2.0
+    slipData:
+      knockDownTime: 3
+      launchForwardsMultiplier: 2.0
   - type: StepTrigger
     intersectRatio: 0.2
   - type: CollisionWake
