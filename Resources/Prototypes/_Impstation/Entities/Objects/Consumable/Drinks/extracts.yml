@@ -2,7 +2,7 @@
   parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
   id: ExtractBottleEmpty
   name: extract bottle
-  desc: A small bottle for holding extracts
+  description: A small bottle for holding extracts
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Drinks/extractbottle.rsi
@@ -22,7 +22,7 @@
   parent: ExtractBottleEmpty
   id: ExtractBottleVanilla
   name: vanilla extract bottle
-  desc: A small bottle of vanilla extract.
+  description: A small bottle of vanilla extract.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Consumable/Drinks/extractbottle.rsi
@@ -31,7 +31,7 @@
       map: [ "enum.OpenableVisuals.Layer" ]
     - state: fill-6
       map: [ "enum.SolutionContainerLayers.Fill" ]
-    - state: vanilla
+    - state: vanilla_label
   - type: SolutionContainerManager
     solutions:
       drink:
