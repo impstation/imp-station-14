@@ -108,13 +108,22 @@
           tags:
           - ConstructionMaterial
     - hand:
-        emptyRepresentative: BorgModuleConstructionMaterialPlaceholder
-        emptyLabel: borg-slot-construction-empty
+        emptyRepresentative: CourierCratePlaceholder
+        emptyLabel: borg-slot-cargo-borg-box
         whitelist:
           tags:
           - CargoBorgBox
+    - item: RCDRecharingCargoBorgCrate
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: courier-module }
+
+- type: entity
+  id: CourierCratePlaceholder
+  parent: BaseItem
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Storage/Crates/courier.rsi
+    state: placeholder
 
 #Tckut modules
 - type: entity

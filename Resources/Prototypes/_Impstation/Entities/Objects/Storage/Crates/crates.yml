@@ -16,7 +16,7 @@
   parent: CrateBaseWeldable
   id: CargoBorgCrate
   name: cargo borg crate
-  description: A crate made for cargo borgs. While it looks secure, at closure glance, it seems anything but.
+  description: A crate made for cargo borgs.
   components:
   - type: Icon
     sprite: _Impstation/Structures/Storage/Crates/courier.rsi # imp
@@ -44,12 +44,18 @@
       offset: 0, 0.65625 #this is 21 pixels up, adjust open sprites or offsets of children as needed
     # imp edit end
   - type: Item
-    whitelist:
-      components:
-      - SiliconLawBound
     size: Large
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,5,3
+    size: Large
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   - type: AccessReader
-    access: [["Command"], ["Security"]]
+    access: [["Command"], ["Security"], ["Cargo"], ["Salvage"]]
   - type: Lock
   - type: LockVisuals
   - type: Reflect
@@ -66,3 +72,6 @@
       types:
         Blunt: 16
     staminaCost: 45
+  - type: Tag
+    tags:
+    - CargoBorgBox
