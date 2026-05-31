@@ -16,21 +16,6 @@
     - Engineering
 
 - type: listing
-  id: uplinkd4DiceSharp
-  name: uplink-d4-sharp-name
-  description: uplink-d4-sharp-desc
-  productEntity: d4DiceSharp
-  cost:
-    Telecrystal: 1
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    makeHidden: true
-    whitelist:
-    - Librarian
-
-- type: listing
   id: UplinkNetworkConfiguratorWithTrigger
   name: uplink-network-configurator-with-trigger-name
   description: uplink-network-configurator-with-trigger-desc
@@ -59,6 +44,21 @@
     makeHidden: true
     whitelist:
     - Janitor
+
+- type: listing
+  id: uplinkdDiceBagd4DiceSharp
+  name: uplink-d4-sharp-name
+  description: uplink-d4-sharp-desc
+  productEntity: DiceBagd4DiceSharp
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Librarian
 
 - type: listing
   id: UplinkHandLabelerRadioJammer
@@ -231,6 +231,21 @@
     makeHidden: true
     whitelist:
     - Chef
+
+- type: listing
+  id: uplinkClothingEyesGlassesChemicalSyndi
+  name: uplink-chem-goggles-flash-immune-name
+  description: uplink-chem-goggles-flash-immune-desc
+  productEntity: ClothingEyesGlassesChemicalSyndi
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Medical
 
 - type: listing
   id: uplinkMopSheathFilled

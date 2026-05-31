@@ -90,6 +90,19 @@
       types:
         Piercing: 5
 
+- type: entity
+  parent: DiceBag
+  suffix: Syndi Sharp Dice
+  id: DiceBagd4DiceSharp
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: d4DiceSharp
+        - id: d4DiceSharp
+        - id: d4DiceSharp
+
 #mime
 
 - type: entity

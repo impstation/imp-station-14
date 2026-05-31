@@ -199,8 +199,8 @@ uplink-food-pepper-shaker-lead-desc = Add a little spice to the crews life for w
 uplink-pitcher-napalm-name = Pitcher Full of Napalm
 uplink-pitcher-napalm-desc = Nothing quite like waking up to the smell of napalm in the morning. A pitcher full of 50 units of Napalm.
 
-uplink-d4-sharp-name = Extra Sharp D4
-uplink-d4-sharp-desc = Anyone who steps on this is going to roll a natural one and on the floor rolling in pain.
+uplink-d4-sharp-name = Bag of Extra Sharp D4's
+uplink-d4-sharp-desc = Anyone who steps on this is going to roll a natural one and fall on the floor rolling in pain.
 
 uplink-emergency-medipen-mute-name = Mute Toxin Auto Injector
 uplink-emergency-medipen-mute-desc = An auto injector disguised as an emergency medipen filled with 15 units of mute toxin.
@@ -225,3 +225,6 @@ uplink-hand-labeler-radio-jammer-desc = A radio jammer hidden inside an hand lab
 
 uplink-lead-chemistry-vial-name = Lead Vial
 uplink-lead-chemistry-vial-desc = A small vial containing 15 units of lead.
+
+uplink-chem-goggles-flash-immune-name = Flash Protection Chem Goggles
+uplink-chem-goggles-flash-immune-desc = Keep your eyes safe from bright lights while you cook your products.
