@@ -49,5 +49,5 @@ reagent-desc-ants = Literally just ants.
 reagent-name-lifting-concentrate = lifting concentrate
 reagent-desc-lifting-concentrate = A pure concentrate extracted from the native flora of Teo. Contact with the substance can result in the laws of gravity being defied.
 
-reagent-name-gamers = gamers delight
+reagent-name-gamers = gamer's delight
 reagent-desc-gamers = Pow block fire flower sippin' on this shit for hours.
