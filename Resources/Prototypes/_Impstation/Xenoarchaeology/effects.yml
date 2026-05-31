@@ -1,5 +1,5 @@
 ﻿- type: entityTable
-  id: XenoArtifactEffectsNaturalOnlyTable
+  id: XenoArtifactEffectsNaturalOnlyTable #30 total weight
   table: !type:GroupSelector
     children:
     - id: XenoArtifactStorage
@@ -12,11 +12,6 @@
       conditions:
       - !type:XenoArchDepthCondition
         depths: [1, 2, 3]
-    - id: XenoArtifactBed
-      weight: 10.0
-      conditions:
-      - !type:XenoArchDepthCondition
-        depths: [ 1, 2, 3 ]
     - id: XenoArtifactEffectUniversalIntercom
       weight: 10.0
       conditions:
@@ -24,7 +19,7 @@
         depths: [ 2, 3, 4 ]
 
 - type: entityTable
-  id: XenoArtifactEffectsNaturalHandheldOnlyTable
+  id: XenoArtifactEffectsNaturalHandheldOnlyTable #20 total weight
   table: !type:GroupSelector
     children:
     - id: XenoArtifactBecomeRandomInstrument

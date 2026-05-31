@@ -1356,6 +1356,30 @@
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.8
+  - type: MeleeThrowOnHit
+    unanchorOnHit: Unanchorable
+    speed: 6.5
+    distance: 5.5
+  - type: TargetEmoteOnMelee
+    emote: Flip
+  - type: Speech
+    speechSounds: Gorilla
+    speechVerb: Monkey
+    allowedEmotes: ['Scream', 'Laugh', "BeatingChest"]
+  - type: BodyEmotes
+    soundsId: GorillaBody
+  - type: AdvancedFullReplacementAccent
+    accent: monkey
+  - type: Emoting
+  - type: Vocal
+    sounds:
+      Male: Gorilla
+      Female: Gorilla
+      Unsexed: Gorilla
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
   # imp edit end
 
 - type: entity
