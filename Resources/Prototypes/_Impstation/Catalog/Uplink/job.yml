@@ -46,10 +46,10 @@
     - Engineering
 
 - type: listing
-  id: uplinkWetFloorSignSlippery
-  name: uplink-slippery-wet-floor-sign-name
-  description: uplink-slippery-wet-floor-sign-desc
-  productEntity: WetFloorSignSlippery
+  id: uplinkTrashBagSlippery
+  name: uplink-slippery-trash-bag-name
+  description: uplink-slippery-trash-bag-desc
+  productEntity: TrashBagSlippery
   cost:
     Telecrystal: 1
   categories:
@@ -61,10 +61,10 @@
     - Janitor
 
 - type: listing
-  id: UplinkAppraisalToolRadioJammer
-  name: uplink-apprasial-tool-radio-jammer-name
-  description: uplink-apprasial-tool-radio-jammer-desc
-  productEntity: AppraisalToolRadioJammer
+  id: UplinkHandLabelerRadioJammer
+  name: uplink-hand-labeler-radio-jammer-name
+  description: uplink-hand-labeler-radio-jammer-desc
+  productEntity: HandLabelerRadioJammer
   cost:
     Telecrystal: 2
   categories:
@@ -233,6 +233,24 @@
     - Chef
 
 - type: listing
+  id: uplinkMopSheathFilled
+  name: uplink-mop-sword-name
+  description: uplink-mop-sword-desc
+  productEntity: MopSheathFilled
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Janitor
+
+- type: listing
   id: UplinkUtilityKnifeSyndi
   name: uplink-utility-knife-syndi-name
   description: uplink-utility-knife-syndi-desc
@@ -306,24 +324,6 @@
     blacklist:
       components:
       - SurplusBundle
-
-- type: listing
-  id: uplinkMopSheathFilled
-  name: uplink-mop-sword-name
-  description: uplink-mop-sword-desc
-  productEntity: MopSheathFilled
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 3
-  cost:
-    Telecrystal: 6
-  categories:
-  - UplinkJob
-  conditions:
-  - !type:BuyerJobCondition
-    makeHidden: true
-    whitelist:
-    - Janitor
 
 - type: listing
   id: uplinkNullrodUpgrade

@@ -184,8 +184,8 @@ uplink-janitor-insul-desc = Keep your hands both clean AND safe with these insul
 uplink-cleanade-lube-name = Disguised Lube Grenade
 uplink-cleanade-lube-desc = A lube grenade disguised as a cleanade. Keep it for yourself or give it out to the unsuspecting public.
 
-uplink-slippery-wet-floor-sign-name = Lubed Wet Floor Sign
-uplink-slippery-wet-floor-sign-desc = A VERY slippery wet floor sign.
+uplink-slippery-trash-bag-name = Lubed Trash Bag
+uplink-slippery-trash-bag-desc = A trash bag coated in a slippery coating to help you make a getaway.
 
 uplink-mop-sword-name = Sword Mop
 uplink-mop-sword-desc = All anyone else will see is a normal working mop until the time comes and you reveal your hidden blade.
@@ -220,11 +220,8 @@ uplink-network-configurator-with-trigger-desc = It may look and work like a regu
 uplink-utility-knife-syndi-name = Chemical Utility Knife
 uplink-utility-knife-syndi-desc = A utility knife with special grooves that can hold up to 10 units of chemicals.
 
-uplink-apprasial-tool-radio-jammer-name = Disguised Radio Jammer
-uplink-apprasial-tool-radio-jammer-desc = A radio jammer hidden inside an apprasial tool. You can both jam their comms and price check the corpse!
+uplink-hand-labeler-radio-jammer-name = Disguised Radio Jammer
+uplink-hand-labeler-radio-jammer-desc = A radio jammer hidden inside an hand labeler. You can both jam their comms and label the corpse!
 
 uplink-lead-chemistry-vial-name = Lead Vial
 uplink-lead-chemistry-vial-desc = A small vial containing 15 units of lead.
-
-uplink-clothing-head-faceshield-flash-protection-name = Flash Protection Faceshield
-uplink-clothing-head-faceshield-flash-protection-desc = A medical faceshield with a special flash reflective coating. Neither blood nor the bright lights will stop your work.

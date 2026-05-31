@@ -19,12 +19,13 @@
   - type: SolutionTransfer
 
 - type: entity
-  parent: AppraisalTool
+  parent: HandLabeler
   suffix: Syndi
-  id: AppraisalToolRadioJammer
-  name: appraisal tool
-  description: A beancounter's best friend, with a quantum connection to the galactic market and the ability to appraise even the toughest items. It will also tell you if a crate contains a completed bounty.
+  id: HandLabelerRadioJammer
   components:
+  - type: ActivatableUI
+    key: enum.HandLabelerUiKey.Key
+    inHandsOnly: true
   - type: RadioJammer
     settings:
     - wattage: 1

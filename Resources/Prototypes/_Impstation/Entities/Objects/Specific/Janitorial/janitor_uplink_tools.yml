@@ -1,25 +1,16 @@
 - type: entity
-  name: wet floor sign
-  id: WetFloorSignSlippery
-  parent: WetFloorSign
-  description: Caution! Wet Floor!
+  parent: TrashBag
+  id: TrashBagSlippery
   suffix: Slippery
   components:
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
   - type: Slippery
     slipData:
-      knockDownTime: 3
+      knockdownTime: 3
       launchForwardsMultiplier: 2.0
   - type: StepTrigger
     intersectRatio: 0.2
   - type: CollisionWake
     enabled: false
-  - type: Physics
-    bodyType: Dynamic
   - type: Fixtures
     fixtures:
       slips:
@@ -36,13 +27,6 @@
         density: 5
         mask:
         - ItemMask
-  - type: PhysicalComposition
-    materialComposition:
-      Plastic: 50
-  - type: Tag
-    tags:
-    - WetFloorSign
-    - WhitelistChameleon
 
 - type: entity
   parent: BaseItem
