@@ -44,11 +44,11 @@
       offset: 0, 0.65625 #this is 21 pixels up, adjust open sprites or offsets of children as needed
     # imp edit end
   - type: Item
+    size: Large
   - type: Storage
     maxItemSize: Large
     grid:
     - 0,0,5,3
-    size: Large
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:
