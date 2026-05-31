@@ -691,3 +691,19 @@
       amount: 3
   products:
     FunnyLiftingDrink: 6
+
+- type: reaction
+  id: GamersDelight
+  requiredMixerCategories:
+    - Shake
+  reactants:
+    BrosochloricBros:
+      amount: 1
+    DoctorsDelight:
+      amount: 1
+    Cream:
+      amount: 1
+    SpaceLube:
+      amount: 1
+  products:
+    GamersDelight: 4
