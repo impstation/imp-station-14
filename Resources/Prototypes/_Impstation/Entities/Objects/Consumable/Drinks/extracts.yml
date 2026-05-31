@@ -1,0 +1,41 @@
+- type: entity
+  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  id: ExtractBottleEmpty
+  name: extract bottle
+  desc: A small bottle for holding extracts
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Drinks/extractbottle.rsi
+    layers:
+    - state: icon_empty
+      map: [ "enum.OpenableVisuals.Layer" ]
+    - state: fill-6
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 15
+
+- type: entity
+  parent: ExtractBottleEmpty
+  id: ExtractBottleVanilla
+  name: vanilla extract bottle
+  desc: A small bottle of vanilla extract.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Drinks/extractbottle.rsi
+    layers:
+    - state: icon_empty
+      map: [ "enum.OpenableVisuals.Layer" ]
+    - state: fill-6
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+    - state: vanilla
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 15
+        reagents:
+        - ReagentId: VanillaExtract
+          Quantity: 15
