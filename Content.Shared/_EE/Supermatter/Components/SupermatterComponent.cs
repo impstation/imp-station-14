@@ -1,3 +1,4 @@
+using Content.Shared._Impstation.StrangeMoods;
 using Content.Shared.Atmos;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DoAfter;
@@ -16,10 +17,23 @@ public sealed partial class SupermatterComponent : Component
     #region Base
 
     /// <summary>
-    /// The current status of the singularity, used for alert sounds and the monitoring console
+    /// The current status of the supermatter, used for alert sounds and the monitoring console
     /// </summary>
     [DataField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
+
+    /// <summary>
+    /// Imp.
+    /// The current supermatter event thats occuring
+    /// </summary>
+    [DataField]
+    public SupermatterEvent Event = SupermatterEvent.None;
+
+    /// <summary>
+    /// The supermatter's external gas mixture on the tile
+    /// </summary>
+    [DataField]
+    public GasMixture? GasMixture;
 
     /// <summary>
     /// The supermatter's internal gas storage
@@ -78,6 +92,9 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public EntProtoId DelamGamerulePrototype = "SupermatterDelamEventScheduler";
+
+    [DataField]
+    public HashSet<ProtoId<SharedMoodPrototype>> SharedMoodScrambleTargets = ["Thaven"];
 
     #endregion
 
@@ -157,7 +174,7 @@ public sealed partial class SupermatterComponent : Component
     /// The percentage of the gas on the supermatter's tile that is absorbed each atmos tick.
     /// </summary>
     [DataField]
-    public float GasEfficiency = 0.05f;
+    public float GasEfficiency = 0.15f;
 
     /// <summary>
     /// Uses <see cref="PowerlossDynamicScaling"/> and <see cref="GasStorage"/> to lessen the effects of our powerloss functions
@@ -554,6 +571,16 @@ public enum SupermatterCrystalState : byte
     GlowEmergency,
     GlowDelam
 }
+
+// Imp start
+[Serializable, NetSerializable]
+public enum SupermatterEvent : byte
+{
+    None = 0,
+    Surging = 1,
+    Discharging = 2, // TODO: future supermatter event causing singularity delamination conditions
+}
+// Imp end
 
 [Serializable, NetSerializable]
 public enum SupermatterVisuals : byte

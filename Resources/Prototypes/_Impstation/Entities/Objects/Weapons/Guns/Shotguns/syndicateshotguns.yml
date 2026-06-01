@@ -1,4 +1,5 @@
 # .50 shotgun damages vary wildly across its many types; the standard pellet ammo deals a total of 60 pierce and 150 structural (ShellShotgun)
+# Shotgun base weapons do not have the GunDamage component by default-- shotgun projectile damage is currently fixed.
 # these are shotguns available to Syndicate Agents and Nuclear Operatives.
 - type: entity
   name: Hydra
@@ -41,3 +42,30 @@
   - type: MeleeThrowOnHit
     distance: 0.8
     speed: 5
+
+- type: entity
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSyndicateContraband]
+  id: WeaponShotgunHushpup
+  name: Hypnalis
+  description: An advanced compact shotgun, fitted with an experimental muffler. Great for those with a strict moral code. Uses .50 shotgun shells.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/hypnalis.rsi
+  - type: Clothing
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/hypnalis.rsi
+  - type: Item
+    sprite: _Impstation/Objects/Weapons/Guns/Shotguns/hypnalis.rsi
+    shape:
+    - 0,0,3,0 # smaller than BaseShotgun by 1 tile
+  - type: BallisticAmmoProvider
+    capacity: 4
+  - type: GunRequiresWield
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/hushpup.ogg
+      params:
+        volume: -3
+        rolloffFactor: 1.3
+    fireRate: 2
+  - type: GunSpreadModifier
+    spread: 1.2

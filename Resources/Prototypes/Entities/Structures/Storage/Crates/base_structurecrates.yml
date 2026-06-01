@@ -94,6 +94,11 @@
     containers:
       - entity_storage
   - type: RequireProjectileTarget
+  - type: AcousticData # VDS
+    absorption: 10
+  - type: ParcelWrapOverride # imp
+    parcelPrototype: WrappedParcelCrate
+    wrapDelay: 2.0
 
 - type: entity
   parent: CrateGeneric

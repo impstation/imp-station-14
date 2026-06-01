@@ -107,6 +107,42 @@
     possibleSpawns:
     - MobBananaDeer
 
+- type: entity
+  parent: RehydratableAnimalCube
+  id: GooseCube
+  name: goose cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobGoose
+
+- type: entity
+  parent: RehydratableAnimalCube
+  id: GorillaCube
+  name: gorilla cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobGorilla
+
+- type: entity
+  parent: RehydratableAnimalCube
+  id: ParrotCube
+  name: parrot cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobParrot
+
+- type: entity
+  parent: RehydratableAnimalCube
+  id: RaptorCube
+  name: raptor cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobRaptor
+
 # zombie infection-less here
 
 - type: entity
@@ -126,3 +162,36 @@
   - type: Rehydratable
     possibleSpawns:
     - MobKoboldSanitized
+
+# discount dan's water bottle cube
+
+- type: entity
+  parent: RehydratableItem
+  id: DanWaterBottleCube
+  name: water bottle cube
+  description: Just add water! Wait hold on...
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/monkeycube.rsi
+    state: cube
+  - type: SolutionContainerManager
+    solutions:
+      cube:
+        maxVol: 45 # 15 extra room for added water
+        reagents: 
+        - ReagentId: Water
+          Quantity: 15
+        - ReagentId: Cornoil #plastic grinds into oil and phosphorus, but dan uses corn oil
+          Quantity: 7.5
+        - ReagentId: Phosphorus 
+          Quantity: 7.5
+  - type: Edible
+    solution: cube
+  - type: FlavorProfile
+    flavors:
+    - chewy
+    - plastic
+  - type: Rehydratable
+    catalystMinimum: 30.0 #15 units already in the cube
+    possibleSpawns:
+    - DrinkWaterBottleDiscountDanFull

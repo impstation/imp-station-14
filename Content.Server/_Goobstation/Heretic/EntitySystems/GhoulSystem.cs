@@ -1,12 +1,11 @@
-using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Humanoid;
-using Content.Server.Temperature.Components;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
-using Content.Shared.Heretic;
+using Content.Shared.Gibbing;
+using Content.Shared._Impstation.Heretic; // imp edit
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -23,6 +22,7 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
@@ -48,8 +48,22 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
         if (!TryComp<MobThresholdsComponent>(ent, out var th))
             return;
 
-        _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth, MobState.Dead, th);
-        _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth / 1.25f, MobState.Critical, th);
+        // imp edit start
+        _threshold.TryGetDeadThreshold(ent, out var deadThr);
+        if (deadThr == null)
+        // fallback for if an entity has no dead threshold. Somehow.
+        {
+            _threshold.SetMobStateThreshold(ent, ent.Comp.FallbackHealth, MobState.Dead, th);
+            _threshold.SetMobStateThreshold(ent, ent.Comp.FallbackHealth / 1.25f, MobState.Critical, th);
+        }
+        else
+        {
+            if (deadThr > ent.Comp.MaxHealth)
+                deadThr = ent.Comp.MaxHealth;
+            _threshold.SetMobStateThreshold(ent, (Shared.FixedPoint.FixedPoint2)(deadThr / ent.Comp.HealthDivisor), MobState.Dead, th);
+            _threshold.SetMobStateThreshold(ent, (Shared.FixedPoint.FixedPoint2)(deadThr / ent.Comp.HealthDivisor) / 1.25f, MobState.Critical, th);
+        }
+        // imp edit end
     }
 
     public override void Initialize()
@@ -73,6 +87,6 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
     private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
-            _body.GibBody(ent);
+            _gibbing.Gib(ent);
     }
 }

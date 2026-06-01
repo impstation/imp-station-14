@@ -10,7 +10,7 @@ namespace Content.Shared.Bed.Components
         /// <summary>
         /// Damage to apply to entities that are strapped to this entity.
         /// </summary>
-        [DataField(required: true)]
+        [DataField(required: true), AutoNetworkedField] //IMP: AutoNetworkedField - fixes client nullreference with XAEApplyComponentsSystem
         public DamageSpecifier Damage = default!;
 
         /// <summary>
