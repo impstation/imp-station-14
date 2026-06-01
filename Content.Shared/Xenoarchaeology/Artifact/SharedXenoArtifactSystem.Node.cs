@@ -522,11 +522,11 @@ public abstract partial class SharedXenoArtifactSystem
                 switch (Comp<AnalysisConsoleComponent>(biasComp.Provider).BiasDirection)
                 {
                     case BiasDirection.Shallow:
-                        if (successorNodes.Count > 0)
+                        if (predecessorNodes.Count > 0)
                             directNodes = predecessorNodes;
                         break;
                     default:
-                        if (predecessorNodes.Count > 0)
+                        if (successorNodes.Count > 0)
                             directNodes = successorNodes;
                         break;
                 }
