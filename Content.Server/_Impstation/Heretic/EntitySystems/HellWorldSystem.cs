@@ -111,8 +111,7 @@ public sealed class HellWorldSystem : EntitySystem
         if (clone != null)
             _gibbing.Gib(clone.Value);
 
-        //teleport the body to a midround antag spawn spot so it's not just tossed into space
-        TeleportToHereticSpawnPoint(uid);
+        //set original body to put the mind back in later
         uid.Comp.OriginalBody = uid;
         uid.Comp.ExitHellTime = _timing.CurTime + uid.Comp.HellDuration;
         //make sure the victim has a mind
@@ -230,7 +229,6 @@ public sealed class HellWorldSystem : EntitySystem
         EnsureComp<NoSacrificeComponent>(uid);
         EnsureComp<HellVictimComponent>(uid, out var victim);
         victim.Effect = GenerateHellTrait();
-        _rejuvenate.PerformRejuvenate(uid);
     }
 
     private HereticSacrificeEffectPrototype GenerateHellTrait()
@@ -238,27 +236,6 @@ public sealed class HellWorldSystem : EntitySystem
         //get a random effect from the list
         var allEffects = _prototypeManager.EnumeratePrototypes<HereticSacrificeEffectPrototype>().ToList();
         return _random.Pick(allEffects);
-    }
-
-    /// <summary>
-    /// teleports the sacrifice victim to one of the pre-mapped "safe points"
-    /// </summary>
-    public void TeleportToHereticSpawnPoint(EntityUid uid)
-    {
-        //clear physics joints so the heretic isn't teleported with the victim
-        _jointSystem.ClearJoints(uid);
-
-        //get all possible spawn points, choose one, then get the place
-        var spawnPoints = EntityManager.GetAllComponents(typeof(MidRoundAntagSpawnLocationComponent)).ToImmutableList();
-        if (spawnPoints.Count == 0)
-        {
-            //fallback to cryo, incase someone forgot to map points
-            spawnPoints = EntityManager.GetAllComponents(typeof(CryostorageComponent)).ToImmutableList();
-        }
-        var newSpawn = _random.Pick(spawnPoints);
-        var spawnTgt = Transform(newSpawn.Uid).Coordinates;
-
-        _xform.SetCoordinates(uid, spawnTgt);
     }
 
     /// <summary>
