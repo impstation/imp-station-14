@@ -1,35 +1,4 @@
 ﻿Entries:
-- author: SixValentine
-  changes:
-  - message: ReHash Edits
-    type: Tweak
-  id: 2344
-  time: '2025-10-22T10:53:10.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3601
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: the energy magnum, now the Type-25 energy magnum, has received a new
-      coat of paint!
-    type: Tweak
-  id: 2345
-  time: '2025-10-22T11:09:09.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3600
-- author: VeeNomine
-  changes:
-  - message: Tck'Tck is no longer permanently slowed when anchoring.
-    type: Fix
-  - message: Tck'Tck is now able to properly supply power to the station.
-    type: Fix
-  id: 2346
-  time: '2025-10-24T08:48:02.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3610
-- author: mousesweater
-  changes:
-  - message: engineering hardsuits and salvage hardsuits now look correct on reptilians!
-    type: Fix
-  id: 2347
-  time: '2025-10-24T08:49:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3605
 - author: yesteryuri
   changes:
   - message: Lights fit in trash bags again
@@ -4091,3 +4060,39 @@
   id: 2843
   time: '2026-06-01T05:08:54.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4359
+- author: RCOI, hivehum
+  changes:
+  - message: XiaoGui announcer has a less jarring chime, and correctly calls out vent
+      creatures.
+    type: Fix
+  id: 2844
+  time: '2026-06-01T17:06:37.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4435
+- author: msTheowo
+  changes:
+  - message: Snakeskin boots are valuable again (they're noslips once more).
+    type: Tweak
+  id: 2845
+  time: '2026-06-01T17:20:10.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4438
+- author: honeyed-lemons
+  changes:
+  - message: The brig on Box is harder to escape from!
+    type: Tweak
+  - message: Xeno has way more intercoms now!
+    type: Tweak
+  id: 2846
+  time: '2026-06-01T17:24:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4430
+- author: msTheowo
+  changes:
+  - message: The blood-red phone is now individually purchasable from traitor uplinks
+      for 1 TC.
+    type: Add
+  - message: The lobbying bundle no longer contains a blood-red phone.
+    type: Remove
+  - message: The lobbying bundle's price has been decreased by 1 TC.
+    type: Tweak
+  id: 2847
+  time: '2026-06-01T17:55:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4437
