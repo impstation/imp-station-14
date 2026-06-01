@@ -176,4 +176,4 @@ uplink-glykon-name = Glykon bundle
 uplink-glykon-desc = Beautiful, elegant, and deadly. The Glykon bundled with 4 canisters of its proprietary liquid ammo.
 
 uplink-phone-syndicate-name = Blood-Red Phone
-uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command.
+uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command. Only one may be purchased.
