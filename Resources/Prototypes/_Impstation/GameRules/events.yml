@@ -258,17 +258,16 @@
 
 # biomagnetic polarization
 - type: entity
-  id: BiomagneticPolarizationRule
-  parent: BaseGameRule
+  id: BiomagneticPolarization
+  parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 1
-    duration: 150
-    maxDuration: 300
-    reoccurrenceDelay: 30
+    weight: 3
+    reoccurrenceDelay: 25
+    minimumPlayers: 20
   - type: GlobalStatusEffectRule
-    statusEffect: "StatusEffectBiomagneticPolarization"
-    announcement: "station-event-biomagnetic-polarization-announcement"
+    statusEffect: StatusEffectBiomagneticPolarization
+    announcement: station-event-biomagnetic-polarization-announcement
 
 - type: entity
   parent: BaseMidRoundAntag

@@ -35,13 +35,21 @@ public sealed class AnalysisConsoleBoundUserInterface(EntityUid owner, Enum uiKe
             SendMessage(new AnalysisConsoleExtractButtonPressedMessage());
         };
         // imp edit start, keb buttons
-        _consoleMenu.OnUpBiasButtonPressed += () =>
+        _consoleMenu.OnShallowBiasButtonPressed += () =>
         {
-            SendMessage(new AnalysisConsoleUpBiasButtonPressedMessage());
+            SendMessage(new AnalysisConsoleShallowBiasButtonPressedMessage());
         };
-        _consoleMenu.OnDownBiasButtonPressed += () =>
+        _consoleMenu.OnDeepRandomBiasButtonPressed += () =>
         {
-            SendMessage(new AnalysisConsoleDownBiasButtonPressedMessage());
+            SendMessage(new AnalysisConsoleDeepRandomBiasButtonPressedMessage());
+        };
+        _consoleMenu.OnDeepLeftBiasButtonPressed += () =>
+        {
+            SendMessage(new AnalysisConsoleDeepLeftBiasButtonPressedMessage());
+        };
+        _consoleMenu.OnDeepRightBiasButtonPressed += () =>
+        {
+            SendMessage(new AnalysisConsoleDeepRightBiasButtonPressedMessage());
         };
         // imp edit end
     }
