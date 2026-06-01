@@ -169,7 +169,7 @@
   description: A large duffel bag for holding various traitor goods.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/syndicate.rsi
+    sprite: _Impstation/Clothing/Back/Duffels/syndicate.rsi # imp edit
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Storage
@@ -201,12 +201,12 @@
   id: ClothingBackpackDuffelSyndicateAmmo
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/syndicate.rsi
-    state: icon-ammo
-  - type: Item
-    heldPrefix: ammo
-  - type: Clothing
-    equippedPrefix: ammo
+    sprite: _Impstation/Clothing/Back/Duffels/syndicate_ammo.rsi # imp edit
+    # state: icon-ammo # imp
+  #- type: Item # imp
+    #heldPrefix: ammo # imp
+  #- type: Clothing # imp
+    #equippedPrefix: ammo # imp
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmo
@@ -221,12 +221,12 @@
   id: ClothingBackpackDuffelSyndicateMedical
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/syndicate.rsi
-    state: icon-med
-  - type: Item
-    heldPrefix: med
-  - type: Clothing
-    equippedPrefix: med
+    sprite: _Impstation/Clothing/Back/Duffels/syndicate_med.rsi # imp edit
+    # state: icon-med # imp
+  #- type: Item # imp
+    #heldPrefix: med # imp
+  #- type: Clothing # imp
+    #equippedPrefix: med # imp
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedical

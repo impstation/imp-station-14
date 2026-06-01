@@ -227,35 +227,6 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxLPistol
-  result: MagazineBoxLPistol
-  materials:
-    Steel: 1000
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxLPistolIncendiary
-  result: MagazineBoxLPistolIncendiary
-  materials:
-    Plastic: 1000
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxLPistolPractice
-  result: MagazineBoxLPistolPractice
-  materials:
-    Steel: 500
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxLPistolUranium
-  result: MagazineBoxLPistolUranium
-  materials:
-    Plastic: 500
-    Uranium: 1000
-
-- type: latheRecipe
-  parent: BaseAmmoRecipe
   id: MagazineBoxPistolStun
   result: MagazineBoxPistolStun
   materials:

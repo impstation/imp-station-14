@@ -10,7 +10,7 @@
     allowPercussion: false
     handheld: false
     bank: 110 #imp
-    program: 5 #imp
+    program: 4 #imp
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
@@ -220,6 +220,8 @@
   - type: Construction
     graph: PotatoAI
     node: potatoai
+
+# PAI Actions
 
 - type: entity
   parent: ActionIntrinsicStore

@@ -91,3 +91,63 @@
       reagents:
       - ReagentId: ShimmeringBlood
         Quantity: 150
+
+- type: entity
+  name: terrelli fiend-fish
+  parent: MobShark
+  id: MobFiendfish
+  description: Also known as the friend-fish.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Aliens/bigfish.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: eyes
+      shader: unshaded
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 1.20
+        density: 400
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      1800: Dead
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Butcherable
+    spawned:
+      - id: FoodMeatFish
+        amount: 6
+  - type: MeleeWeapon
+    range: 2
+    damage:
+      types:
+        Blunt: 20
+        Slash: 8
+        Structural: 400
+
+- type: entity
+  name: terrelli friend-fish
+  parent: MobFiendfish
+  id: MobFriendfish
+  description: Also known as the fiend-fish.
+  components:
+  - type: HTN
+    rootTask:
+      task: NiceCarpCompound
+    blackboard:
+      NavSmash: !type:Bool
+        true
