@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/01/2026 14:55:53
-  entityCount: 208
+  time: 06/01/2026 15:47:21
+  entityCount: 205
 maps: []
 grids:
 - 1
@@ -948,26 +948,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 9.370262,5.5463977
       parent: 1
-- proto: ShuttleWindow
-  entities:
-  - uid: 52
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -0.5,8.5
-      parent: 1
-  - uid: 53
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.5,8.5
-      parent: 1
-  - uid: 54
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 1.5,8.5
-      parent: 1
 - proto: SignalButtonDirectional
   entities:
   - uid: 102
@@ -1443,22 +1423,19 @@ entities:
       parent: 1
 - proto: WindowDecapoid
   entities:
-  - uid: 206
+  - uid: 52
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 1.5,8.5
-      parent: 1
-  - uid: 207
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 0.5,8.5
       parent: 1
-  - uid: 208
+  - uid: 53
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -0.5,8.5
+      parent: 1
+  - uid: 54
+    components:
+    - type: Transform
+      pos: 1.5,8.5
       parent: 1
 ...
