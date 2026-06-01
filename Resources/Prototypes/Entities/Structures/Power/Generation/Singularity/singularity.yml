@@ -110,3 +110,11 @@
             state: singularity_6
             scale: .9,.9
   - type: SupermatterImmune # imp
+    # DeltaV start, add comp
+  - type: ChasingWalk
+    minSpeed: 1
+    maxSpeed: 1.875
+    impulseInterval: 5
+    chasingComponent:
+    - type: Cable # Other comps like Destructible and Transform are also assigned to Entities the singulo can't eat
+    # DeltaV end

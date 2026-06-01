@@ -1,9 +1,11 @@
-# .30 rifle deals 25 pierce per shot (CartridgeLightRifle)
+# .30 Tactical (CartridgeLightRifle) should deal 25 pierce per shot on average (+15).
+# Base Rifle Weapons have a default GunDamage bonus of +9 Piercing.
+
 - type: entity
   name: Daito
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleDaito
-  description: A military precision rifle for the efficient combatant. Uses .30 rifle ammo.
+  description: A military precision rifle for the efficient combatant. Uses .30 tactical ammo.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Rifles/daito.rsi
@@ -24,6 +26,14 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/_Impstation/Weapons/Guns/Gunshots/daito.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 15 #25 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
@@ -60,7 +70,7 @@
   name: AKMS
   parent: [BaseWeaponRifle, BaseSecurityContraband]
   id: WeaponRifleAk
-  description: An iconic weapon of war. Simple and effective; favored by revolutionaries everywhere. Uses .30 rifle ammo.
+  description: An iconic weapon of war. Simple and effective; favored by revolutionaries everywhere. Uses .30 tactical ammo.
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Rifles/ak.rsi
@@ -74,9 +84,17 @@
     maxAngle: 42
     angleIncrease: 3
     angleDecay: 18
-    fireRate: 3.75
+    fireRate: 4
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/rifle2.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 13 #23 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: ChamberMagazineAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/ltrifle_cock.ogg

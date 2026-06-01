@@ -26,6 +26,7 @@
     #- id: SpiderClownSpawn
     #- id: SpiderSpawn
     - id: VentClog
+    - id: ButlerSpawn # imp
     - id: GoblinKnightEvent # imp
     - id: HereticBooksSpawnSmall #imp
     - id: BiomagneticPolarization # imp
@@ -257,7 +258,7 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 1 #imp
+    weight: 6
     duration: null
     earliestStart: 30
     reoccurrenceDelay: 20

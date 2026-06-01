@@ -25,8 +25,8 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: _Impstation/Mobs/Animals/bros.rsi
-          state: bros
+        - sprite: _Impstation/Mobs/Animals/Bros/bros.rsi
+          state: icon
         - state: timed
     - type: Timer
     - type: ClusterSpawner
