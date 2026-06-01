@@ -21,3 +21,16 @@
     Telecrystal: 1
   categories:
   - UplinkDeception
+
+- type: listing
+  id: UplinkPhoneSyndicate
+  name: uplink-phone-syndicate-name
+  description: uplink-phone-syndicate-desc
+  productEntity: PhoneInstrumentSyndicate
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 0
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkDeception
