@@ -17,6 +17,10 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
 
     private MenuButton? NotifierButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.NotifierButton;
 
+    /// <summary>
+    /// When we enter the game, make sure the window can actually get opened.
+    /// </summary>
+    /// <param name="state"></param>
     public void OnStateEntered(GameplayState state)
     {
         EnsureWindow();
@@ -25,6 +29,10 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
             InputCmdHandler.FromDelegate(_ => ToggleWindow()));
     }
 
+    /// <summary>
+    /// Dispose of it when we're done.
+    /// </summary>
+    /// <param name="state"></param>
     public void OnStateExited(GameplayState state)
     {
         if (_window != null)
@@ -33,6 +41,10 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
             _window = null;
         }
     }
+
+    /// <summary>
+    /// Remove the event from the button
+    /// </summary>
     public void UnloadButton()
     {
         if (NotifierButton == null)
@@ -43,6 +55,9 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
         NotifierButton.OnPressed -= NotifierButtonPressed;
     }
 
+    /// <summary>
+    /// Add the event to the button
+    /// </summary>
     public void LoadButton()
     {
         if (NotifierButton == null)
@@ -53,12 +68,18 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
         NotifierButton.OnPressed += NotifierButtonPressed;
     }
 
+    /// <summary>
+    /// Toggle the window when the button is pressed.
+    /// </summary>
+    /// <param name="args"></param>
     private void NotifierButtonPressed(BaseButton.ButtonEventArgs args)
     {
         ToggleWindow();
     }
 
-
+    /// <summary>
+    /// Ensure the window actually exists
+    /// </summary>
     private void EnsureWindow()
     {
         if (_window is { Disposed: false })
@@ -76,6 +97,9 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
         };
     }
 
+    /// <summary>
+    /// Open or close the window.
+    /// </summary>
     private void ToggleWindow()
     {
         if (_window is null)

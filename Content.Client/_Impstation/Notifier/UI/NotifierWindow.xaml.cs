@@ -20,21 +20,25 @@ public sealed partial class NotifierWindow : FancyWindow
 
     private string? SavedChangesText;
     private string? UnsavedChangesText;
+
     public NotifierWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
+        //Init the save button.
         SaveNotifierSettings.OnPressed += _ =>
         {
             SaveNotifierSettings.Disabled = true;
             _notifierManager.UpdateNotifier(GetSettings());
         };
 
+        //make it so we run UpdateUi when we receive data from the ui.
         _notifierManager.OnServerDataLoaded += UpdateUi;
         if (_notifierManager.HasLoaded)
             UpdateUi();
 
+        //Text input setup
         var maxLength =  _configManager.GetCVar(ImpCCVars.NotifierFreetextMaxLength);
         var length = Rope.Collapse(NotifierFreetext.TextRope).Length;
         CharacterLimit.Text = Loc.GetString("notifier-window-char-limit", ("length", length), ("maxLength", maxLength));
@@ -46,12 +50,17 @@ public sealed partial class NotifierWindow : FancyWindow
 
     protected override void Dispose(bool disposing)
     {
+        // get rid of the window
         base.Dispose(disposing);
-
+        // make it so we ignore the server
         if (disposing)
             _notifierManager.OnServerDataLoaded -= UpdateUi;
     }
 
+    /// <summary>
+    /// Get the players current settings.
+    /// </summary>
+    /// <returns></returns>
     private PlayerNotifierSettings GetSettings()
     {
         var text = Rope.Collapse(NotifierFreetext.TextRope);
@@ -60,12 +69,16 @@ public sealed partial class NotifierWindow : FancyWindow
         return new(text, toggled);
     }
 
+    /// <summary>
+    /// Checks if there are changes, and if valid tell the user to save.
+    /// </summary>
     private void UnsavedChanges()
     {
         // Validate freetext length
         var maxLength =  _configManager.GetCVar(ImpCCVars.NotifierFreetextMaxLength);
         var length = Rope.Collapse(NotifierFreetext.TextRope).Length;
 
+        // if invalid warn user and return.
         if (length > maxLength)
         {
             SaveNotifierSettings.Disabled = true;
@@ -83,6 +96,9 @@ public sealed partial class NotifierWindow : FancyWindow
         SaveNotifierSettings.Disabled = false;
     }
 
+    /// <summary>
+    /// Update the ui to most current information.
+    /// </summary>
     public void UpdateUi()
     {
         var notifier = _notifierManager.GetNotifier();
