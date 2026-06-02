@@ -43,7 +43,7 @@
 - type: entity
   parent: [ClothingOuterCoatDetective, ClothingOuterStorageFoldableBase]
   id: ClothingOuterCoatFieldJacket
-  name: field jacket
+  name: detective's field jacket
   description: A green jacket with loose cuffs. The white lettering on the back marks the wearer as Nanotrasen security.
   components:
   - type: Sprite
@@ -57,7 +57,7 @@
 - type: entity
   parent: [ClothingOuterCoatFieldJacket, ClothingOuterStorageFoldableBaseOpened]
   id: ClothingOuterCoatFieldJacket
-  name: field jacket
+  name: detective's field jacket
 
 - type: entity
   parent: ClothingOuterStorageBase

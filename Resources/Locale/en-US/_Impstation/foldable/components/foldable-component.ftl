@@ -11,6 +11,3 @@ untuck-verb-clothing-mask = Untuck the wig
 
 fold-verb-clothing-collar = Pull up collar
 unfold-verb-clothing-collar = Roll down collar
-
-tilt-verb-clothing-hat = Tilt hat down
-untilt-verb-clothing-hat = Tilt hat up

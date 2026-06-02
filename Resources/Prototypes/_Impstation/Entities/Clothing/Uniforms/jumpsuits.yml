@@ -167,7 +167,7 @@
 - type: entity
   parent: [ClothingUniformBase]
   id: ClothingUniformDetectiveSuit
-  name: detective suit
+  name: detective's suit
   description: Now excuse me, if I may just have a moment of your time...
   components:
   - type: Sprite
@@ -178,7 +178,7 @@
 - type: entity
   parent: [ClothingUniformBase]
   id: ClothingUniformMiamiVice
-  name: miami vice suit
+  name: miami suit
   description: When you need to arrest the clown at twelve o'clock and boogie board at one.
   components:
   - type: Sprite
