@@ -5,6 +5,12 @@
   description: The navigational core of the vessel, exerting control of nearby systems. Don't bother trying to pronounce its actual name.
   components:
   - type: InputMover # needs this to pilot shuttles
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 0
+    baseSprintSpeed : 0
+  - type: MobState #this is required so it cannot return to body from ghost
+    allowedStates:
+    - Alive
   - type: CombatMode
   - type: Appearance
   - type: Damageable
@@ -43,7 +49,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 200
+        damage: 400 #its chunky
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -66,12 +72,6 @@
     doAfterDelay: 15
   - type: DamagedSiliconAccent
     enableChargeCorruption: false
-  - type: SurveillanceCameraSpeaker
-  - type: SurveillanceCameraMonitor
-  - type: DeviceNetwork
-    deviceNetId: Wireless
-    receiveFrequencyId: SurveillanceCamera
-    transmitFrequencyId: SurveillanceCamera
   - type: WirelessNetworkConnection
     range: 10000
   - type: WiresPanel
@@ -82,8 +82,6 @@
         requireInputValidation: false
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
-      enum.SurveillanceCameraMonitorUiKey.Key:
-        type: SurveillanceCameraMonitorBoundUserInterface
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
       enum.PdaUiKey.Key:
@@ -164,7 +162,7 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMicroreactor
   - type: Puller
-    needsHands: true
+    needsHands: false
   - type: Eye
     drawFov: false
   # - type: StationAiOverlay # removed until is no longer buggy
@@ -202,8 +200,6 @@
     uis:
       enum.RadarConsoleUiKey.Key:
         toggleAction: ActionAGhostShowRadar
-      enum.SurveillanceCameraMonitorUiKey.Key:
-        toggleAction: ActionDecapoidCoreCameraMonitor
       enum.CommunicationsConsoleUiKey.Key:
         toggleAction: ActionDecapoidCoreShowCommunications
   - type: ShowElectrocutionHUD
@@ -211,9 +207,9 @@
   - type: CommunicationsConsole
     title: comms-console-announcement-title-decacore
     color: "#ff4f4f"
-    delay: 60
+    delay: 10 #im allowing this provisionally. do not make me take it away
     initialDelay: 0
-    global: true
+    global: true #lol
   - type: InteractionPopup
     interactSuccessString: petting-success-decapoid-silicon
     interactFailureString: petting-failure-decapoid-silicon
@@ -252,6 +248,7 @@
     accentVColor: "#286cd2"
   - type: ContentEye
     maxZoom: 1.5,1.5
+  - type: ZombieImmune
   - type: GhostRole
     name: Navigation Core
     description: Maintain astrologistic excellence. Bother engineers for fun.
@@ -260,20 +257,6 @@
     mindRoles:
     - MindRoleGhostRoleSilicon
   - type: GhostTakeoverAvailable
-
-- type: entity
-  parent: BaseAGhostAction
-  id: ActionDecapoidCoreCameraMonitor
-  name: Wireless Camera Monitor
-  description: View all wireless cameras.
-  components:
-  - type: Action
-    icon: { sprite: Interface/Actions/actions_ai.rsi, state: camera_light }
-    iconOn: { sprite: Interface/Actions/actions_ai.rsi, state: camera_light }
-    keywords: [ "console", "interface" ]
-    priority: -6
-  - type: InstantAction
-    event: !type:ToggleIntrinsicUIEvent { key: enum.SurveillanceCameraMonitorUiKey.Key }
 
 - type: entity
   parent: BaseAGhostAction
