@@ -287,9 +287,9 @@
         - DecapoidCore
 
 - type: entity
-  name: Slurgle Spawner
-  id: SpawnMobSlurgle
   parent: MarkerBase
+  id: SpawnMobSlurgle
+  name: Slurgle Spawner
   components:
   - type: Sprite
     layers:
