@@ -188,6 +188,9 @@
       stealGroup: Teg
     - type: Climbable #imp
 
+    # IMP ADD START
+    - type: WiresPanel
+
 - # Spawned by the client-side circulator examine code to indicate the inlet/outlet direction.
   type: entity
   id: TegCirculatorArrow
