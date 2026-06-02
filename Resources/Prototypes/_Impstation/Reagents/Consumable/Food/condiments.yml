@@ -123,9 +123,7 @@
         - !type:ReagentCondition #Only satiates when eaten with nutriment
           reagent: Nutriment
           min: 0.1
-        # imp edit start
         - !type:MetabolizerTypeCondition
           type: [ Kodepiia ]
           inverted: true
-        # imp edit end
         factor: 1

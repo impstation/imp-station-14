@@ -1,7 +1,7 @@
 - type: entity
-  parent: [DrinkVisualsAllFilled, DrinkBottleGlassBaseFull]
+  parent: [ DrinkVisualsAllFilled, DrinkBaseMaterialGlass, DrinkBase, DrinkBaseOpenable ]
   id: ExtractBottleEmpty
-  name: extract bottle
+  name: empty extract bottle
   description: A small bottle for holding extracts
   components:
   - type: Sprite
@@ -17,10 +17,52 @@
     solutions:
       drink:
         maxVol: 15
+  - type: Item
+    size: Tiny
+  - type: Openable
+    sound:
+      collection: bottleOpenSounds
+    closeable: true
+    closeSound:
+      collection: bottleCloseSounds
+  - type: Tool
+    qualities:
+    - Rolling
+    speedModifier: 0.1 # Its so tiny, have fun waiting
+  - type: TrashOnSolutionEmpty
+    solution: drink
+  - type: Tag
+    tags:
+    - DrinkBottle
+  - type: Destructible
+    thresholds:
+    - trigger: # Overkill threshold
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior { }
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: ExtractBottleEmpty
   id: ExtractBottleVanilla
+  Suffix: Vanilla
   name: vanilla extract bottle
   description: A small bottle of vanilla extract.
   components:
