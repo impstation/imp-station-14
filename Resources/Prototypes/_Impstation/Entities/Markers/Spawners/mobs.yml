@@ -296,6 +296,6 @@
     - state: green
     - state: slurgle
       sprite: _Impstation/Mobs/Aliens/slurgle.rsi
-  - type: ConditionalSpawner
-    prototypes:
-    - MobSlurgle
+  - type: EntityTableSpawner
+    table:
+      id: MobSlurgle
