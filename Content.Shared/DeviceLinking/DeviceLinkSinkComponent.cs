@@ -46,4 +46,11 @@ public sealed partial class DeviceLinkSinkComponent : Component
     /// </summary>
     [DataField]
     public int InvokeLimit = 10;
+
+    /// <summary>
+    /// Imp.
+    /// Prevents linking manually.
+    /// </summary>
+    [DataField]
+    public bool PreventManualLinking;
 }

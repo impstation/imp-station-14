@@ -92,6 +92,7 @@
   - type: GuideHelp
     guides:
     - Pumps
+  - type: DeviceRestrictOverlap # Funky RPD
 
 - type: entity
   parent: GasBinaryBase
@@ -166,6 +167,7 @@
     - type: GuideHelp
       guides:
       - Pumps
+    - type: DeviceRestrictOverlap # Funky RPD
     # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
@@ -233,6 +235,7 @@
   - type: GuideHelp
     guides:
     - PressureRegulator
+  - type: DeviceRestrictOverlap # Funky RPD
 
 - type: entity
   parent: GasBinaryBase
@@ -275,6 +278,7 @@
     - type: GuideHelp
       guides:
       - PassiveGate
+    - type: DeviceRestrictOverlap # Funky RPD
     # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
@@ -342,6 +346,7 @@
     - type: GuideHelp
       guides:
       - ManualValve
+    - type: DeviceRestrictOverlap # Funky RPD
     #imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
@@ -420,6 +425,7 @@
   - type: GuideHelp
     guides:
     - SignalValve
+  - type: DeviceRestrictOverlap # Funky RPD
   # imp edit start
   - type: VentCrawTube
     containerId: VentCrawTube
@@ -465,6 +471,7 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    - type: DeviceRestrictOverlap # Funky RPD
     # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
@@ -536,6 +543,7 @@
     - type: GuideHelp
       guides:
       - AirVent
+    - type: DeviceRestrictOverlap # Funky RPD
     # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
