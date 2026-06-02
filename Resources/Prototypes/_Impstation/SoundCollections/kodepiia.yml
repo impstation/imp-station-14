@@ -1,7 +1,10 @@
 ﻿- type: soundCollection
   id: KodepiiaScreams
   files:
+  - /Audio/_Impstation/Allulalo/allulalo_scream.ogg #QB
   - /Audio/_Impstation/Animals/bros_hurt.ogg
+  - /Audio/_Impstation/Animals/pleebnar_scream.ogg #QB
+  - /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_scream.ogg #QB
   - /Audio/_Impstation/Voice/Decapoid/decapoid_scream.ogg
   - /Audio/_Impstation/Voice/Gray/gray_scream.ogg
   - /Audio/_Impstation/Voice/Silicon/silicon_scream.ogg
@@ -18,12 +21,15 @@
   - /Audio/_Impstation/Voice/Slime/s_malescream_6.ogg
   - /Audio/_Impstation/Voice/Slime/s_wilhelm_scream.ogg
   - /Audio/_Impstation/Voice/Gastropoid/snail_scream.ogg
+  - /Audio/_Impstation/Voice/Ungu/ungu_scream.ogg #QB
+  - /Audio/_Impstation/Voice/Vulpkanin/awoo.ogg #QB
   - /Audio/_NF/Voice/Goblin/goblin_scream_1.ogg
   - /Audio/_NF/Voice/Goblin/goblin_scream_2.ogg
   - /Audio/_NF/Voice/Goblin/goblin_scream_3.ogg
   - /Audio/_NF/Voice/Goblin/goblin_scream_4.ogg
   - /Audio/Animals/monkey_scream.ogg
   - /Audio/Animals/space_dragon_roar.ogg
+  - /Audio/Animals/wawa_protest.ogg #QB
   - /Audio/Voice/Arachnid/arachnid_scream.ogg
   - /Audio/Voice/Diona/diona_scream.ogg
   - /Audio/Voice/Human/femalescream_1.ogg
@@ -41,10 +47,12 @@
   - /Audio/Voice/Reptilian/reptilian_scream.ogg
   - /Audio/Voice/Skeleton/skeleton_scream.ogg
   - /Audio/Voice/Vox/shriek1.ogg
+  - /Audio/Voice/Xenoborg/xenoborg_scream.ogg #QB
 
 - type: soundCollection
   id: KodepiiaLaugh
   files:
+  - /Audio/_Impstation/Allulalo/allulalo_laugh.ogg #QB
   - /Audio/_Impstation/Animals/Gorilla_Laugh.ogg
   - /Audio/_Impstation/Animals/spooky_horse.ogg
   - /Audio/_Impstation/Voice/Decapoid/decapoid_laugh.ogg
@@ -53,6 +61,7 @@
   - /Audio/_Impstation/Voice/Slime/s_manlaugh2.ogg
   - /Audio/_Impstation/Voice/Slime/s_womanlaugh.ogg
   - /Audio/_Impstation/Voice/Gastropoid/snail_laugh.ogg
+  - /Audio/_Impstation/Voice/Ungu/ungu_laugh.ogg #QB
   - /Audio/_NF/Voice/Goblin/goblin_cackle_1.ogg
   - /Audio/_NF/Voice/Goblin/goblin_cackle_2.ogg
   - /Audio/_NF/Voice/Goblin/goblin_cackle_3.ogg
@@ -60,6 +69,7 @@
   - /Audio/_NF/Voice/Goblin/goblin_cackle_5.ogg
   - /Audio/Animals/ferret_happy.ogg
   - /Audio/Animals/lizard_happy.ogg
+  - /Audio/Animals/wawa_mock.ogg #QB
   - /Audio/Voice/Arachnid/arachnid_laugh.ogg
   - /Audio/Voice/Cluwne/cluwnelaugh1.ogg
   - /Audio/Voice/Cluwne/cluwnelaugh2.ogg
@@ -73,6 +83,7 @@
   - /Audio/Voice/Moth/moth_laugh.ogg
   - /Audio/Voice/Silicon/syndieborg_laugh.ogg
   - /Audio/Voice/Vox/vox_laugh.ogg
+  - /Audio/Voice/Xenoborg/xenoborg_laugh_3.ogg #QB
 
 - type: soundCollection
   id: KodepiiaSigh
@@ -89,6 +100,8 @@
 - type: soundCollection
   id: KodepiiaCry
   files:
+  - /Audio/_Impstation/Allulalo/allulalo_cry.ogg #QB
+  - /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_cry.ogg #QB
   - /Audio/_Impstation/Voice/Decapoid/decapoid_cry.ogg
   - /Audio/_Impstation/Voice/Slime/s_cry_female_1.ogg
   - /Audio/_Impstation/Voice/Slime/s_cry_female_2.ogg
@@ -99,6 +112,7 @@
   - /Audio/_Impstation/Voice/Slime/s_cry_male_3.ogg
   - /Audio/_Impstation/Voice/Slime/s_cry_male_4.ogg
   - /Audio/_Impstation/Voice/Gastropoid/snail_cry.ogg
+  - /Audio/_Impstation/Voice/Ungu/ungu_cry.ogg #QB
   - /Audio/_NF/Voice/Goblin/goblin_cry_1.ogg
   - /Audio/_NF/Voice/Goblin/goblin_cry_2.ogg
   - /Audio/Voice/Human/cry_female_1.ogg
@@ -113,6 +127,7 @@
 - type: soundCollection
   id: KodepiiaHisses
   files:
+  - /Audio/_Impstation/Anomalocarids/pressure_release.ogg #QB
   - /Audio/_Impstation/Effects/gon.ogg
   - /Audio/_Impstation/Voice/Reptilian/reptilian_hiss1.ogg
   - /Audio/_Impstation/Voice/Vox/voxhiss.ogg
@@ -148,6 +163,7 @@
   - /Audio/Machines/double_ring.ogg
   - /Audio/Machines/warning_buzzer.ogg
   - /Audio/Effects/kaching.ogg
+  - /Audio/Weapons/boxingbell.ogg #QB
 
 - type: soundCollection
   id: KodepiiaHonks
@@ -156,14 +172,19 @@
   - /Audio/Animals/goose_honk.ogg
   - /Audio/Items/bikehorn.ogg
   - /Audio/Items/brokenbikehorn.ogg
+  - /Audio/Voice/Xenoborg/xenoborg_bikehorn.ogg #QB
 
 - type: soundCollection
   id: KodepiiaPews
   files:
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/adder.ogg #QB
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/akurra.ogg #QB
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/antiquedisabler.ogg #QB
   - /Audio/_Impstation/Weapons/Guns/Gunshots/autodisabler.ogg
   - /Audio/_Impstation/Weapons/Guns/Gunshots/goldlaser.ogg
   - /Audio/_Impstation/Weapons/Guns/Gunshots/stunlauncher.ogg
   - /Audio/_Impstation/Weapons/Guns/Gunshots/stunprojector.ogg
+  - /Audio/_Impstation/Weapons/Guns/Gunshots/xenolaser.ogg #QB
   - /Audio/_Impstation/Weapons/pvc.ogg
   - /Audio/Effects/Arcade/player_attack.ogg
   - /Audio/Effects/Arcade/player_charge.ogg
@@ -189,6 +210,7 @@
   - /Audio/_Impstation/Weapons/Guns/Gunshots/light-pistol2.ogg
   - /Audio/_Impstation/Weapons/Guns/Gunshots/nemesis.ogg
   - /Audio/_Impstation/Weapons/Guns/Gunshots/zipper.ogg
+  - /Audio/Effects/balloon-pop.ogg #QB
   - /Audio/Items/snap.ogg
   - /Audio/Machines/blastdoor.ogg
   - /Audio/Machines/machine_vend.ogg
@@ -215,6 +237,7 @@
   - /Audio/Effects/RingtoneNotes/fsharp.ogg
   - /Audio/Effects/RingtoneNotes/g.ogg
   - /Audio/Effects/RingtoneNotes/gsharp.ogg
+  - /Audio/Effects/Shuttle/radar_ping.ogg #QB
   - /Audio/Items/beep.ogg
   - /Audio/Items/Defib/defib_ready.ogg
   - /Audio/Items/Defib/defib_safety_off.ogg
@@ -229,7 +252,9 @@
   - /Audio/Machines/high_tech_confirm.ogg
   - /Audio/Machines/microwave_done_beep.ogg
   - /Audio/Machines/scan_finish.ogg
+  - /Audio/Machines/sonar-ping.ogg #QB
   - /Audio/Machines/vending_jingle.ogg
+  - /Audio/Voice/Xenoborg/xenoborg_twobeep.ogg #QB
   - /Audio/Weapons/Guns/EmptyAlarm/lmg_empty_alarm.ogg
   - /Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg
 
@@ -253,9 +278,11 @@
   files:
   - /Audio/_DV/Items/TapeRecorder/play.ogg
   - /Audio/_Impstation/Items/Decapoid/claw_cutting.ogg
+  - /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_clicks.ogg #QB
   - /Audio/_Impstation/Weapons/Guns/Cock/basic_cock.ogg
   - /Audio/_Impstation/Weapons/Guns/Cock/shotgun_cock.ogg
   - /Audio/_Impstation/Weapons/Guns/Empty/dry_fire.ogg
+  - /Audio/Items/Stamp/automatic_stamp.ogg #QB
   - /Audio/Items/deconstruct.ogg
   - /Audio/Items/flashlight_off.ogg
   - /Audio/Items/flashlight_on.ogg
@@ -271,10 +298,14 @@
   - /Audio/Machines/machine_switch.ogg
   - /Audio/Machines/screwdriverclose.ogg
   - /Audio/Machines/screwdriveropen.ogg
+  - /Audio/Weapons/Guns/MagIn/hpistol_magin.ogg #QB
+  - /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg #QB
 
 - type: soundCollection
   id: KodepiiaChitter
   files:
+  - /Audio/_Impstation/Misc/replicator_sfx1.ogg #QB
+  - /Audio/_Impstation/Misc/replicator_sfx2.ogg #QB
   - /Audio/_Impstation/Voice/Vox/voxchitter1.ogg
   - /Audio/_Impstation/Voice/Vox/voxchitter2.ogg
   - /Audio/Voice/Moth/moth_chitter.ogg
@@ -365,6 +396,7 @@
   - /Audio/_Impstation/Voice/Slime/s_female_yawn_1.ogg
   - /Audio/_Impstation/Voice/Slime/s_male_yawn_1.ogg
   - /Audio/_Impstation/Voice/Gastropoid/snail_yawn.ogg
+  - /Audio/_Impstation/Voice/Ungu/ungu_yawn.ogg #QB
   - /Audio/Voice/Human/female_yawn_1.ogg
   - /Audio/Voice/Human/male_yawn_1.ogg
 
@@ -373,6 +405,7 @@
   files:
   - /Audio/_Impstation/Voice/Slime/s_female_sneeze_1.ogg
   - /Audio/_Impstation/Voice/Slime/s_male_sneeze_1.ogg
+  - /Audio/_Impstation/Weapons/Guns/Toys/guncoconut.ogg #QB
   - /Audio/Voice/Human/female_sneeze_1.ogg
   - /Audio/Voice/Human/male_sneeze_1.ogg
 
@@ -389,6 +422,7 @@
 - type: soundCollection
   id: KodepiiaWhistles
   files:
+  - /Audio/_Impstation/Allulalo/allulalo_deathgasp.ogg #QB
   - /Audio/_Impstation/Voice/Slime/slimewhistle.ogg
   - /Audio/Items/Whistle/whistle_1.ogg
   - /Audio/Items/Whistle/whistle_2.ogg

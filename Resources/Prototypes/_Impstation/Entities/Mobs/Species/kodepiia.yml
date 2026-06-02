@@ -116,7 +116,7 @@
     - Tail
   - type: Thirst
   - type: Hunger
-    baseDecayRate: 0.15 # 10x default. 6 minutes to hungry and 15.5 minutes to starving
+    baseDecayRate: 0.08 #QB. 5x default. About 7 minutes to hungry and 24.5 minutes to starving. Imp had this at 0.15 which is 10x default, 6 minutes to hungry and 15.5 minutes to starving.
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:

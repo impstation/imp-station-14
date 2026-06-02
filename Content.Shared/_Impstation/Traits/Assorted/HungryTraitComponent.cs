@@ -23,7 +23,8 @@ public sealed partial class HungryTraitComponent : Component
 
     /// <summary>
     /// The rate of hunger applied on component startup.
+    /// QB Edit: 0.15f to 0.08f, mirroring changes to kodepiia metabolism.
     /// </summary>
     [DataField]
-    public float HungryRate = 0.15f;
+    public float HungryRate = 0.08f;
 }
