@@ -90,3 +90,22 @@
       stackRequirements:
         Manipulator: 1
         Glass: 1
+
+- type: entity
+  id: AdvancedNodeScannerMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: advanced node scanner machine board
+  description: A machine printed circuit board for an Advanced Node Scanner.
+  components:
+  - type: Sprite
+    state: science
+  - type: MachineBoard
+    prototype: MachineAdvancedNodeScanner
+    stackRequirements:
+      Manipulator: 1 # imp 1>3
+      Capacitor: 2 # imp
+      Cable: 2
+    componentRequirements:
+      NodeScanner:
+        amount: 1
+        defaultPrototype: NodeScanner

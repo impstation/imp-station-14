@@ -209,12 +209,6 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
-  - type: ActiveRadio
-    channels:
-    - Mansus
-  - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Mansus
+  - type: HereticMansusLink
   - type: Examiner
   - type: Pullable

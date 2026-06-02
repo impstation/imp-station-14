@@ -31,6 +31,7 @@
     #TriggerResurrection: 1 # imp addition
     TriggerExpression: 1
     TriggerStun: 1
+    TriggerNat20: 0.05 #Low chance because it could be real annoying
     TriggerDrinkCaffeine: 0.05
     TriggerDrinkClassicMartini: 0.05
     TriggerDrinkBudgetInsuls: 0.05
@@ -311,6 +312,7 @@
     - GrayBlood
     - SynthBlood
     - AnomalocaridCopperBlood
+    - BloodAllulalo
   targetDepths: [ 1, 2, 3, 4 ] # imp edit
 
 - type: xenoArchTrigger

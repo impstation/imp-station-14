@@ -6,10 +6,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 5h
+      time: 10h # imp edit double the secoff requirements
+    - !type:RoleTimeRequirement
+      role: JobDetective
+      time: 1h # imp add mirror of HOS requirements
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 10h
+      time: 30h # imp edit triple the security role requirement, to make sure wardens have a lot of security experience
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"

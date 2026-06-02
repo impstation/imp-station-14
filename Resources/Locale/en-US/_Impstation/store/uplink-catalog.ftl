@@ -1,6 +1,9 @@
 uplink-animal-friends-kit-name = Animal Friends Kit
 uplink-animal-friends-kit-desc = A box containing 4 doses of subjuzine, an alteration of cognizine that forces the injected creature to your will. Also contains an empty syringe and two mice to use it on.
 
+uplink-syndietrumps-name = TippyTrumps mystery pack
+uplink-syndietrumps-desc = Contains five random cards that summon the creature depicted when thrown.
+
 uplink-kissertomato-fake-name = Syndicate Trained Kisser Tomato Seeds
 uplink-kissertomato-fake-desc = Kill 'em with kisses.
 
@@ -171,3 +174,6 @@ uplink-ananke-desc = Brutal and unapolagetic-- the Ananke plasma shotgun, bundle
 
 uplink-glykon-name = Glykon bundle
 uplink-glykon-desc = Beautiful, elegant, and deadly. The Glykon bundled with 4 canisters of its proprietary liquid ammo.
+
+uplink-phone-syndicate-name = Blood-Red Phone
+uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command. Only one may be purchased.

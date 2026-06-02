@@ -380,6 +380,14 @@ public abstract partial class SharedMoverController : VirtualController
                     _audio.PlayPredicted(sound, uid, uid, audioParams);
                 }
             }
+
+            var duringMovementEvent = new DuringMovementEvent(true); //IMP
+            RaiseLocalEvent(uid, ref duringMovementEvent); //IMP
+        }
+        else
+        {
+            var duringMovementEvent = new DuringMovementEvent(false); //IMP
+            RaiseLocalEvent(uid, ref duringMovementEvent); //IMP
         }
     }
 

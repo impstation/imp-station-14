@@ -1,7 +1,7 @@
 # Magazines compatible with the Basilisk-11.
 - type: entity
   id: BaseMagazineCaselessRifle
-  name: "magazine (.25 caseless)"
+  name: "Basilisk-11 magazine (.25 caseless)"
   description: A 24-round .25 caseless standard magazine.
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
@@ -33,7 +33,7 @@
 
 - type: entity
   id: MagazineBR
-  name: "magazine (.25 caseless)"
+  name: "Basilisk-11 magazine (.25 caseless)"
   description: A 24-round .25 caseless battle rifle magazine, marked as live-fire ammo.
   parent: BaseMagazineCaselessRifle
   components:
@@ -57,7 +57,7 @@
 
 - type: entity
   id: MagazineBREmpty
-  name: "magazine (.25 caseless any)"
+  name: "Basilisk-11 magazine (.25 caseless any)"
   description: A 24-round .25 caseless battle rifle magazine, with no apparent markings.
   parent: MagazineBR
   components:

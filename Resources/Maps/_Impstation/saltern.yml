@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 03/23/2026 16:16:36
-  entityCount: 14801
+  time: 05/29/2026 22:23:11
+  entityCount: 14804
 maps:
 - 658
 grids:
@@ -10193,7 +10193,7 @@ entities:
   - uid: 434
     components:
     - type: Transform
-      pos: 26.00829,25.643261
+      pos: 26.568132,25.640133
       parent: 31
 - proto: BoxFolderBlack
   entities:
@@ -37133,6 +37133,12 @@ entities:
       parent: 31
 - proto: ComputerTabletopRadar
   entities:
+  - uid: 979
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 28.5,22.5
+      parent: 31
   - uid: 4236
     components:
     - type: Transform
@@ -65475,7 +65481,7 @@ entities:
   - uid: 428
     components:
     - type: Transform
-      pos: 26.594337,25.662792
+      pos: 28.49783,21.924639
       parent: 31
     - type: PluralName
       overrideName: rolls of gauze
@@ -69433,7 +69439,8 @@ entities:
   - uid: 429
     components:
     - type: Transform
-      pos: 26.633408,25.545605
+      rot: -1.5707963267948966 rad
+      pos: 28.546474,21.510912
       parent: 31
   - uid: 2721
     components:
@@ -69447,7 +69454,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: -6.615404,-28.415546
       parent: 31
-- proto: HandheldHealthAnalyzerUnpowered
+- proto: HandheldHealthAnalyzer
   entities:
   - uid: 10030
     components:
@@ -71857,11 +71864,6 @@ entities:
     - type: Transform
       pos: 53.5,6.5
       parent: 31
-  - uid: 959
-    components:
-    - type: Transform
-      pos: 28.5,20.5
-      parent: 31
   - uid: 1297
     components:
     - type: Transform
@@ -71881,6 +71883,11 @@ entities:
     components:
     - type: Transform
       pos: 38.5,9.5
+      parent: 31
+  - uid: 4141
+    components:
+    - type: Transform
+      pos: 28.5,19.5
       parent: 31
   - uid: 7055
     components:
@@ -72017,6 +72024,11 @@ entities:
     - type: Transform
       pos: 37.5,9.5
       parent: 31
+  - uid: 959
+    components:
+    - type: Transform
+      pos: 28.5,20.5
+      parent: 31
   - uid: 1130
     components:
     - type: Transform
@@ -72041,11 +72053,6 @@ entities:
     components:
     - type: Transform
       pos: 6.5,7.5
-      parent: 31
-  - uid: 4141
-    components:
-    - type: Transform
-      pos: 28.5,21.5
       parent: 31
   - uid: 5770
     components:
@@ -76034,12 +76041,14 @@ entities:
   - uid: 2275
     components:
     - type: Transform
-      pos: 25.637127,25.62373
+      rot: -1.5707963267948966 rad
+      pos: 25.835556,25.415707
       parent: 31
   - uid: 2609
     components:
     - type: Transform
-      pos: 25.305035,25.526073
+      rot: -1.5707963267948966 rad
+      pos: 25.601181,25.708729
       parent: 31
   - uid: 3888
     components:
@@ -84760,6 +84769,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -4.5,33.5
       parent: 31
+  - uid: 14803
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 28.5,22.5
+      parent: 31
+  - uid: 14804
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 28.5,21.5
+      parent: 31
 - proto: TableReinforcedGlass
   entities:
   - uid: 1479
@@ -86088,10 +86109,10 @@ entities:
       parent: 31
 - proto: VendingMachineSalvDrobe
   entities:
-  - uid: 979
+  - uid: 14802
     components:
     - type: Transform
-      pos: 28.5,19.5
+      pos: 24.5,21.5
       parent: 31
 - proto: VendingMachineSciDrobe
   entities:

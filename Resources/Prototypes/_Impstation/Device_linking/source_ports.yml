@@ -1,0 +1,5 @@
+- type: sourcePort
+  id: AdvancedNodeScannerSender
+  name: signal-port-name-advanced-node-scanner-sender
+  description: signal-port-description-advanced-node-scanner-sender
+  defaultLinks: [ ArtifactAnalyzerReceiver ]

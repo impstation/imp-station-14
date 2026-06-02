@@ -1,4 +1,5 @@
 # .50 shotgun damages vary wildly across its many types; the standard pellet ammo deals a total of 60 pierce and 150 structural (ShellShotgun)
+# Shotgun base weapons do not have the GunDamage component by default-- shotgun projectile damage is currently fixed.
 # these are shotguns available to Nanotrasen security either through the armory, or through cargo purchase.
 - type: entity
   name: Mule's Leg

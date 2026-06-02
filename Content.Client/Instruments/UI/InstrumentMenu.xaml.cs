@@ -201,6 +201,10 @@ namespace Content.Client.Instruments.UI
             if (localEntity == Entity)
                 return true;
 
+            // IMP: allow ghost playing
+            if (instrument.AllowSpectatorPlaying)
+                return true;
+
             var container = _entManager.System<SharedContainerSystem>();
             // If we're a handheld instrument, we might be in a container. Get it just in case.
             container.TryGetContainingContainer((Entity, null, null), out var conMan);

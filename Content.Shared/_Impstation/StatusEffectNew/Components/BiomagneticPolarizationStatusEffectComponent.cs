@@ -1,3 +1,4 @@
+using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Explosion;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
@@ -17,6 +18,7 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// </summary>
     [DataField]
     public TimeSpan UpdateTime = TimeSpan.FromSeconds(1);
+    [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextUpdate = TimeSpan.Zero;
 
     /// <summary>
@@ -24,6 +26,7 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// </summary>
     [DataField]
     public TimeSpan TriggerCooldown = TimeSpan.FromSeconds(3);
+    [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan CooldownEnd = TimeSpan.Zero;
 
     /// <summary>
@@ -47,7 +50,7 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// <summary>
     /// Current magnetism strength. Determines the strength of the effects of collisions.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float CurrentStrength = 10f;
     /// <summary>
     /// Cap above which strength values are clamped.
@@ -69,9 +72,7 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     public float CapEffectChance = 0.5f;
 
     [DataField]
-    public float MinDecayRate = 0.01f;
-    [DataField]
-    public float MaxDecayRate = 0.05f;
+    public (float, float) MinMaxDecayRate = (0.025f, 0.075f);
     /// <summary>
     /// The current actual decay rate, once determined randomly.
     /// Keep in mind when setting decay rate settings that they're subtracted once per second,
@@ -81,10 +82,10 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     public float RealDecayRate = 0.0f;
 
     /// <summary>
-    /// Multiplier applied to CurrentStrength before applying to the pointlight strength.
+    /// Multiplier applied to natural log of CurrentStrength + 1 before applying to the pointlight strength.
     /// </summary>
     [DataField]
-    public float StrLightMult = 5.0f;
+    public float StrLightMult = 40f;
     /// <summary>
     /// Multiplier applied to throw strength when two same-polarity entities collide.
     /// </summary>
@@ -99,7 +100,7 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     [DataField]
     public float LightningRange = 5f;
     [DataField]
-    public (int, int) LightningArcsMinMax = (1, 3);
+    public MinMax LightningArcsMinMax = new(1, 3);
     [DataField]
     public float LightningCapMult = 2f;
 
