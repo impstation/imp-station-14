@@ -122,20 +122,19 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
                 comp.Capped = true;
 
                 _ambientSound.SetAmbience(ent, true, ambientComp);
-
-                Dirty(ent, comp);
             }
             else if (comp.Capped && comp.CurrentStrength < capRangeMin)
             {
                 comp.Capped = false;
 
                 _ambientSound.SetAmbience(ent, false, ambientComp);
-
-                Dirty(ent, comp);
             }
 
+            Dirty(ent, comp);
+
             // set the light proportional to the strength
-            _lights.SetEnergy(ent, comp.CurrentStrength * comp.StrLightMult, lightComp);
+            var lightStrength = 25f + (float)Math.Log(1f + comp.CurrentStrength) * comp.StrLightMult;
+            _lights.SetEnergy(ent, lightStrength, lightComp);
         }
 
         // to avoid modifying the list while it's enumerating, we remove status effects from expired ents after the query.
@@ -160,7 +159,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         _lights.SetColor(ent, tgtColor, pointLight);
 
         // Set the randomized decay rate
-        comp.RealDecayRate = _random.NextFloat(comp.MinDecayRate, comp.MaxDecayRate);
+        comp.RealDecayRate = _random.NextFloat(comp.MinMaxDecayRate.Item1, comp.MinMaxDecayRate.Item2);
 
         var physicsQuery = GetEntityQuery<PhysicsComponent>();
 
@@ -207,17 +206,16 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
 
             var coords = _xform.GetMapCoordinates(statusOwner);
 
-            var (arcsMin, arcsMax) = comp.LightningArcsMinMax;
+            var arcs = comp.LightningArcsMinMax.Next(_random);
             if (!strCapInvolved)
             {
-                var arcs = _random.Next(arcsMin, arcsMax);
                 _lightning.ShootRandomLightnings(statusOwner, comp.LightningRange, arcs, comp.LightningPrototype);
 
                 _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.CurrentStrength * comp.ExplosionStrengthMult, _explosionSlope, _maxTileIntensity, statusOwner);
             }
             else
             {
-                var arcs = _random.Next(arcsMin, arcsMax) * (int)comp.LightningCapMult;
+                arcs *= (int)comp.LightningCapMult;
                 _lightning.ShootRandomLightnings(statusOwner, comp.LightningRange * comp.LightningCapMult, arcs, comp.LightningPrototype);
                 _explosion.QueueExplosion(coords, comp.ExplosionPrototype, comp.StrengthCap * comp.CapExplosionMult, _capExplosionSlope, _maxTileIntensity, statusOwner);
 
