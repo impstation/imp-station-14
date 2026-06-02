@@ -12,8 +12,8 @@
           Quantity: 40
 
 - type: entity
-  id: PuddleCyan
   parent: PuddleTemporary
+  id: PuddleCyan
   suffix: Cyan food coloring
   components:
   - type: SolutionContainerManager
