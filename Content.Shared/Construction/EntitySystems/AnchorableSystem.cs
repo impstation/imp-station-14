@@ -84,7 +84,7 @@ public sealed partial class AnchorableSystem : EntitySystem
         // Log unanchor attempt (server only)
         _adminLogger.Add(LogType.Anchor, LogImpact.Low, $"{ToPrettyString(userUid):user} is trying to unanchor {ToPrettyString(uid):entity} from {transform.Coordinates:targetlocation}");
 
-        _tool.UseTool(usingUid, userUid, uid, anchorable.Delay, usingTool.Qualities, new TryUnanchorCompletedEvent());
+        _tool.UseTool(usingUid, userUid, uid, anchorable.Delay + anchorable.AdditionalDelay, usingTool.Qualities, new TryUnanchorCompletedEvent()); // imp: Add AdditionalDelay
     }
 
     private void OnInteractUsing(EntityUid uid, AnchorableComponent anchorable, InteractUsingEvent args)
@@ -116,6 +116,8 @@ public sealed partial class AnchorableSystem : EntitySystem
 
     private void OnUnanchorComplete(EntityUid uid, AnchorableComponent component, TryUnanchorCompletedEvent args)
     {
+        component.AdditionalDelay = 0f; // imp: Reset additional delay even if it's cancelled
+
         if (args.Cancelled || args.Used is not { } used)
             return;
 
@@ -136,6 +138,8 @@ public sealed partial class AnchorableSystem : EntitySystem
 
     private void OnAnchorComplete(EntityUid uid, AnchorableComponent component, TryAnchorCompletedEvent args)
     {
+        component.AdditionalDelay = 0f; // imp: Reset additional delay even if it's cancelled
+
         if (args.Cancelled || args.Used is not { } used)
             return;
 
@@ -248,7 +252,7 @@ public sealed partial class AnchorableSystem : EntitySystem
             return;
         }
 
-        _tool.UseTool(usingUid, userUid, uid, anchorable.Delay, usingTool.Qualities, new TryAnchorCompletedEvent());
+        _tool.UseTool(usingUid, userUid, uid, anchorable.Delay + anchorable.AdditionalDelay, usingTool.Qualities, new TryAnchorCompletedEvent()); // imp: Add AdditionalDelay
     }
 
     private bool Valid(
@@ -280,7 +284,7 @@ public sealed partial class AnchorableSystem : EntitySystem
         else
             RaiseLocalEvent(uid, (UnanchorAttemptEvent)attempt);
 
-        anchorable.Delay += attempt.Delay;
+        anchorable.AdditionalDelay += attempt.Delay; // imp: Add to AdditionalDelay instead of base Delay
 
         return !attempt.Cancelled;
     }
