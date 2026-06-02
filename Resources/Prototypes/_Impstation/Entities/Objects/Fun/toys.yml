@@ -1015,8 +1015,10 @@
   description: OH FUCK IT'S BR- Oh nevermind it's just a plushie.
   components:
   - type: Sprite
-    sprite:  _Impstation/Mobs/Animals/bros.rsi
-    state: bros
+    sprite: _Impstation/Mobs/Animals/Bros/bros.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Mobs/Animals/Bros/bros.rsi
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1059,8 +1061,10 @@
   description: .eihsulp a tsuj s'ti dnimreven hO -RB S'TI KCUF HO
   components:
   - type: Sprite
-    sprite:  _Impstation/Mobs/Animals/bros.rsi
-    state: sorb
+    sprite: _Impstation/Mobs/Animals/Bros/sorb.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Mobs/Animals/Bros/sorb.rsi
   - type: SolutionContainerManager
     solutions:
       food:
