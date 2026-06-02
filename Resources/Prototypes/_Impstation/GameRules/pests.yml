@@ -203,8 +203,8 @@
       prob: 0.05
 
 - type: entity
-  id: SlurgleMigration
   parent: BaseStationEventShortDelay
+  id: SlurgleMigration
   components:
   - type: StationEvent
     earliestStart: 10
