@@ -68,6 +68,9 @@ flavor-complex-supermixerpsych = like a psychiatric appointment
 
 flavor-complex-moonrise = like sweet nostalgia
 flavor-complex-funny-lifting-drink = like you've drank nothing
+flavor-complex-cream-soda = like creamy vanilla
+flavor-complex-cream-soda-orange = like creamy oranges
+flavor-complex-cream-soda-berry = like creamy mixed berries
 
 flavor-complex-poormansfrezon = like a good time
 flavor-complex-doublegreen = bitter and nauseating
