@@ -30,7 +30,7 @@ public sealed class ImpCCVars : CVars
         CVarDef.Create("accessibility.disable_ai_static", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
     /// </summary>
-    /// Replaces the AI static camera effect with a plain black gradient.
+    /// Makes the Biomagnetic Polarization status effect polarity show as a large symbol ontop of the entity.
     /// </summary>
     public static readonly CVarDef<bool> EnableBiomagneticPolarizationSymbols =
         CVarDef.Create("accessibility.enable_biomagnetic_polarization_symbols", false, CVar.CLIENTONLY | CVar.ARCHIVE);
