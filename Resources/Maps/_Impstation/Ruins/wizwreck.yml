@@ -1,16 +1,16 @@
 meta:
   format: 7
-  category: Map
+  category: Grid
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/02/2026 20:38:37
-  entityCount: 630
-maps:
-- 178
+  time: 06/02/2026 23:00:06
+  entityCount: 629
+maps: []
 grids:
 - 768
-orphans: []
+orphans:
+- 768
 nullspace: []
 tilemap:
   0: Space
@@ -34,22 +34,12 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 178
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: GridTree
-    - type: Broadphase
-    - type: OccluderTree
   - uid: 768
     components:
     - type: MetaData
     - type: Transform
       pos: 0.3842575,0.4217209
-      parent: 178
+      parent: invalid
     - type: MapGrid
       chunks:
         -1,-1:
@@ -2339,7 +2329,7 @@ entities:
       pos: -0.5,7.5
       parent: 768
     - type: Door
-      secondsUntilStateChange: -553.1244
+      secondsUntilStateChange: -561.61816
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 219.7331156
@@ -3433,7 +3423,7 @@ entities:
       pos: -0.5,-4.5
       parent: 768
     - type: Door
-      secondsUntilStateChange: -12786.071
+      secondsUntilStateChange: -12794.565
       state: Opening
 - proto: PlasmaReinforcedWindowDirectional
   entities:
