@@ -132,3 +132,9 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpsuitMusicianMarchingBand
   result: ClothingUniformJumpsuitMusicianMarchingBand
+
+# Conductor
+- type: latheRecipe
+  parent: BaseCommandHatRecipe
+  id: ClothingHeadHatConductor
+  result: ClothingHeadHatConductor
