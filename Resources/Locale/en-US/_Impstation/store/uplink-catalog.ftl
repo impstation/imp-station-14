@@ -228,3 +228,6 @@ uplink-lead-chemistry-vial-desc = A small vial containing 15 units of lead.
 
 uplink-chem-goggles-flash-immune-name = Flash Protection Chem Goggles
 uplink-chem-goggles-flash-immune-desc = Keep your eyes safe from bright lights while you cook your products.
+
+uplink-phone-syndicate-name = Blood-Red Phone
+uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command. Only one may be purchased.
