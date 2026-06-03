@@ -315,13 +315,13 @@
 
 - type: entity
   parent: BasePlushie
-  id: PlushieImp
-  name: imp plushie
+  id: PlushieImpOld
+  name: vintage imp plushie
   description: Huh? Who's this stoner?
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
-    state: plushie_imp
+    state: plushie_impold
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
@@ -1275,3 +1275,62 @@
     sound:
       path: /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_scream.ogg
   - type: MultiHandedItem
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieImp
+  name: imp plushie
+  description: Hey, it's this stoner!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_imp
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: Edible
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
+        - ReagentId: THC
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - imp
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    inhandVisuals:
+      left:
+      - state: plushie_imp-inhand-left
+      right:
+      - state: plushie_imp-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    equippedPrefix: imp
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: imp-equipped-HELMET
+        offset: "0, 0.06"
