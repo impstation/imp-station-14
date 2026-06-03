@@ -29,6 +29,12 @@ public sealed class ImpCCVars : CVars
     public static readonly CVarDef<bool> DisableAiStatic =
         CVarDef.Create("accessibility.disable_ai_static", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// </summary>
+    /// Replaces the AI static camera effect with a plain black gradient.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableBiomagneticPolarizationSymbols =
+        CVarDef.Create("accessibility.enable_biomagnetic_polarization_symbols", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /// If the player has the accessibility notifier turned on
     /// </summary>
     public static readonly CVarDef<bool> NotifierOn =

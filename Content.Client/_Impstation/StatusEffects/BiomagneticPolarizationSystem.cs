@@ -1,10 +1,13 @@
 using System.Numerics;
 using Content.Client.Audio;
+using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.StatusEffectNew;
 using Content.Shared.Audio;
 using Content.Shared.StatusEffectNew.Components;
+using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 
@@ -13,6 +16,7 @@ namespace Content.Client._Impstation.StatusEffects;
 public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizationSystem
 {
     [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
+    [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     private const string SpriteRSIPath = "/Textures/Effects/text.rsi";
     private const int PixelWidthUntilSprite = 1; // Pixel difference from the right of the png to the actual sprite
@@ -99,24 +103,35 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
 
-        if (!_sprite.LayerMapTryGet((ent, sprite), BiomagneticPolarizationSignKey.Key, out var layer, false))
+        if (!_sprite.TryGetLayer((ent, sprite), BiomagneticPolarizationSignKey.Key, out var layer, false))
             return;
+
+        if (!_configManager.GetCVar(ImpCCVars.EnableBiomagneticPolarizationSymbols)
+            || TryComp<StatusEffectComponent>(ent, out var statusEffect)
+            && TryComp<StealthComponent>(statusEffect.AppliedTo, out var stealth)
+            && stealth.Enabled)
+        {
+            _sprite.LayerSetVisible(layer, false);
+            return;
+        }
+        else
+            _sprite.LayerSetVisible(layer, true);
 
         var scale = 8f + MathF.Log(1f + ent.Comp.CurrentStrength);
         var scaling = new Vector2(scale, scale);
 
-        _sprite.LayerSetScale((ent, sprite), layer, scaling);
+        _sprite.LayerSetScale(layer, scaling);
 
         var widthUntilSprite = 1f / EyeManager.PixelsPerMeter * PixelWidthUntilSprite;
         var heightUntilSprite = 1f / EyeManager.PixelsPerMeter * PixelHeightUntilSprite;
         var offset = new Vector2(scaling.X * widthUntilSprite / 2f, -(scaling.Y * heightUntilSprite / 2f));
 
-        _sprite.LayerSetOffset((ent, sprite), layer, offset);
+        _sprite.LayerSetOffset(layer, offset);
 
         var color = ent.Comp.Polarization ? ent.Comp.NorthColor : ent.Comp.SouthColor;
         var transparency = (float)Math.Min(0.15f + Math.Log(1 + ent.Comp.CurrentStrength) / 7.5f, 0.6f);
 
-        _sprite.LayerSetColor((ent, sprite), layer, color.WithAlpha(transparency));
+        _sprite.LayerSetColor(layer, color.WithAlpha(transparency));
     }
 
     private void RemoveSign(Entity<BiomagneticPolarizationStatusEffectComponent> ent)
