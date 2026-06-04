@@ -178,9 +178,7 @@
   - !type:BuyerDepartmentCondition
     makeHidden: true
     whitelist:
-    - MedicalDoctor
-    - Chemist
-    - Paramedic
+    - Medical
 
 - type: listing
   id: uplinkHotsauces
@@ -244,12 +242,10 @@
   categories:
   - UplinkJob
   conditions:
-  - !type:BuyerJobCondition
+  - !type:BuyerDepartmentCondition
     makeHidden: true
     whitelist:
-    - MedicalDoctor
-    - Chemist
-    - Paramedic
+    - Medical
 
 - type: listing
   id: uplinkMopSheathFilled
