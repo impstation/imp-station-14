@@ -29,7 +29,7 @@
     - id: ButlerSpawn # imp
     - id: GoblinKnightEvent # imp
     - id: HereticBooksSpawnSmall #imp
-    - id: BiomagneticPolarizationRule # imp
+    - id: BiomagneticPolarization # imp
     - id: SynthStorm # CD: Unique event for synths
 
 - type: entityTable
@@ -258,7 +258,7 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 6
+    weight: 3 #imp
     duration: null
     earliestStart: 30
     reoccurrenceDelay: 20

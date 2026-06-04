@@ -76,12 +76,15 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
 
         var mapId = Transform(grid).MapID;
         var playableArea = _physics.GetWorldAABB(grid);
-
-        var minimumDistance = (playableArea.TopRight - playableArea.Center).Length() + 50f;
-        var maximumDistance = minimumDistance + 100f;
-
         var center = playableArea.Center;
-        var offsetFromCenter = new Vector2(center.X + (RobustRandom.NextFloat() * 2f - 1f) * 200f, center.Y + (RobustRandom.NextFloat() * 2f - 1f) * 200f); //imp add - make meteors target a random point within a 400x400 box from the center of the station.
+        var playableRadius = (playableArea.TopRight - center).Length();
+        var subOffsetRange = playableRadius / 3f; //imp edit
+
+        // Keep the shifted impact line while ensuring the standard spawn ring stays outside the grid bounds. //imp edit
+        var minimumDistance = playableRadius + component.StrikeOffsetRadius + subOffsetRange + component.SpawnPadding; //imp edit
+        var maximumDistance = minimumDistance + 100f; //imp edit
+
+        var strikeOffset = RandomPointInCircle(component.StrikeOffsetRadius); // imp edit
 
         var meteorsToSpawn = component.MeteorsPerWave.Next(RobustRandom);
         for (var i = 0; i < meteorsToSpawn; i++)
@@ -107,9 +110,13 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
             var subOffsetAngle = RobustRandom.Prob(0.5f)
                 ? angle + Math.PI / 2
                 : angle - Math.PI / 2;
-            var subOffset = subOffsetAngle.RotateVec(new Vector2( (playableArea.TopRight - playableArea.Center).Length() / 3 * RobustRandom.NextFloat(), 0));
+            var subOffset = subOffsetAngle.RotateVec(new Vector2(subOffsetRange * RobustRandom.NextFloat(), 0));
 
-            var spawnPosition = new MapCoordinates(offsetFromCenter + offset + subOffset, mapId); //imp edit - change offset to offsetFromCenter so meteors target a random point within a 400x400 box from the center of the station, instead of always targeting the center.
+            var spawnCoordinates = center + strikeOffset + offset + subOffset; //imp edit
+            if (RobustRandom.Prob(component.InteriorSpawnChance)) //imp edit
+                spawnCoordinates = center + RandomPointInCircle(component.InteriorSpawnRadius); //imp edit
+
+            var spawnPosition = new MapCoordinates(spawnCoordinates, mapId);
             var meteor = Spawn(spawnProto, spawnPosition);
             var physics = Comp<PhysicsComponent>(meteor);
             _physics.ApplyLinearImpulse(meteor, -offset.Normalized() * component.MeteorVelocity * physics.Mass, body: physics);
@@ -120,5 +127,13 @@ public sealed class MeteorSwarmSystem : GameRuleSystem<MeteorSwarmComponent>
         {
             ForceEndSelf(uid, gameRule);
         }
+    }
+
+    // imp addition
+    private Vector2 RandomPointInCircle(float radius)
+    {
+        var angle = RobustRandom.NextFloat() * 2f * MathF.PI;
+        var distance = radius * MathF.Sqrt(RobustRandom.NextFloat());
+        return new Vector2(MathF.Cos(angle), MathF.Sin(angle)) * distance;
     }
 }
