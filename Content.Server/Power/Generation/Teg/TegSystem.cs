@@ -20,6 +20,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
 using Robust.Shared.Configuration;
 using Content.Shared.CCVar; // imp
+using Content.Shared.Wires; // imp
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -50,7 +51,7 @@ namespace Content.Server.Power.Generation.Teg;
 /// <seealso cref="TegCirculatorComponent"/>
 /// <seealso cref="TegNodeGroup"/>
 /// <seealso cref="TegSensorData"/>
-public sealed class TegSystem : EntitySystem
+public sealed partial class TegSystem : EntitySystem
 {
     /// <summary>
     /// Node name for the TEG part connection nodes (<see cref="TegNodeGroup"/>).
@@ -92,6 +93,8 @@ public sealed class TegSystem : EntitySystem
 
         SubscribeLocalEvent<TegGeneratorComponent, ExaminedEvent>(GeneratorExamined);
         SubscribeLocalEvent<TegCirculatorComponent, ExaminedEvent>(CirculatorExamined); // imp add
+
+        SubscribeLocalEvent<TegCirculatorComponent, PanelChangedEvent>(OnPanelChanged); // imp add for TegSystem.Hazards
 
         _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
     }
