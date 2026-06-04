@@ -11,8 +11,12 @@ public sealed class ReturnToBrainMenu : DefaultWindow
     public readonly Button DenyButton;
     public readonly Button AcceptButton;
 
-    public ReturnToBrainMenu()
+    public ReturnToBrainMenu(bool isXeno = false)
     {
+        if (isXeno)
+        {
+
+        }
         Title = Loc.GetString("ghost-return-to-brain-title");
 
         ContentsContainer.AddChild(new BoxContainer
@@ -27,7 +31,8 @@ public sealed class ReturnToBrainMenu : DefaultWindow
                     {
                         (new Label()
                         {
-                            Text = Loc.GetString("ghost-return-to-brain-text")
+
+                            Text = Loc.GetString("ghost-return-to-brain-text"),
                         }),
                         new BoxContainer
                         {

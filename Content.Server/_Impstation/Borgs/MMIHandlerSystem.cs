@@ -1,5 +1,6 @@
 ﻿using Content.Server.Ghost;
 using Content.Server._Impstation.Ghost;
+using Content.Server.Construction;
 using Content.Server.EUI;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -30,6 +31,7 @@ public sealed class MMIHandlerSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MMIComponent, MMIInsertionSuccessEvent>(OnSuccessfulInsertion);
+        SubscribeLocalEvent<MMIComponent, ConstructionChangeEntityEvent>(OnDeconversion);
         SubscribeLocalEvent<BorgBrainComponent, BorgBrainHibernationEvent>(OnHibernationAttempt);
 
     }
@@ -39,40 +41,21 @@ public sealed class MMIHandlerSystem : EntitySystem
         var mmi = uid;
         var brain = args.BrainInserted;
 
-        if (_mind.TryGetMind(brain, out _, out var mind) &&
-            _player.TryGetSessionById(mind.UserId, out var playerSession))
-        {
-            if (mind.CurrentEntity != brain)
-            {
-                var session = playerSession;
+        TransferToMMI(brain, mmi);
+    }
 
-                // notify them they're being revived.
-                _euiManager.OpenEui(new ReturnToBrainEui(uid, brain, _entityManager, _grammar, _mind, _roles), session);
-            }
-            else
-            {
-                var grammar = _entityManager.EnsureComponent<GrammarComponent>(mmi);
-                if (_entityManager.TryGetComponent<GrammarComponent>(brain, out var formerSelf))
-                {
-                    _grammar.SetGender((mmi, grammar), formerSelf.Gender);
-                }
+    private void OnDeconversion(EntityUid uid, MMIComponent component, ConstructionChangeEntityEvent args)
+    {
+        var xenoBrain = args.Old;
+        var newBrain = args.New;
 
-                if (_mind.TryGetMind(brain, out var mindId, out var mindComp))
-                {
-                    _mind.TransferTo(mindId, mmi, true, mind: mindComp);
+        TransferToMMI(xenoBrain, newBrain);
 
-                    if (!_roles.MindHasRole<SiliconBrainRoleComponent>(mindId))
-                        _roles.MindAddRole(mindId, SiliconBrainRole, silent: true);
-                }
-            }
-
-            _appearance.SetData(mmi, MMIVisuals.BrainPresent, true);
-
-        }
     }
 
     private void OnHibernationAttempt(EntityUid brain, BorgBrainComponent comp, ref BorgBrainHibernationEvent args)
     {
+
         if (HasComp<VisitingMindComponent>(brain))
             return;
 
@@ -80,5 +63,39 @@ public sealed class MMIHandlerSystem : EntitySystem
             return;
 
         _ghost.OnGhostAttempt(mindId, false, mind: mind);
+    }
+
+    private void TransferToMMI(EntityUid oldBrain, EntityUid newBrain)
+    {
+        if (_mind.TryGetMind(oldBrain, out _, out var mind) &&
+            _player.TryGetSessionById(mind.UserId, out var playerSession))
+        {
+            if (mind.CurrentEntity != oldBrain)
+            {
+                var session = playerSession;
+
+                // notify them they're being revived.
+                _euiManager.OpenEui(new ReturnToBrainEui(newBrain, oldBrain, _entityManager, _grammar, _mind, _roles),
+                    session);
+            }
+            else
+            {
+                var grammar = _entityManager.EnsureComponent<GrammarComponent>(newBrain);
+                if (_entityManager.TryGetComponent<GrammarComponent>(oldBrain, out var formerSelf))
+                {
+                    _grammar.SetGender((newBrain, grammar), formerSelf.Gender);
+                }
+
+                if (_mind.TryGetMind(oldBrain, out var mindId, out var mindComp))
+                {
+                    _mind.TransferTo(mindId, newBrain, true, mind: mindComp);
+
+                    if (!_roles.MindHasRole<SiliconBrainRoleComponent>(mindId))
+                        _roles.MindAddRole(mindId, SiliconBrainRole, silent: true);
+                }
+            }
+
+            _appearance.SetData(newBrain, MMIVisuals.BrainPresent, true);
+        }
     }
 }

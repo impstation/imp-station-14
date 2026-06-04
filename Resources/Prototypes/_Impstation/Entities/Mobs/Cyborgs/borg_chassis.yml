@@ -17,6 +17,9 @@
     maxModules: 0
     hasMindState: osi_ball_e
     noMindState: osi_ball_e_r
+    whitelist:
+    tags:
+    -
   - type: BorgTransponder
     sprite:
       sprite: _Impstation/Mobs/Silicon/chassis.rsi

@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: BaseMMI # imp, keeping this entity Mostly The Same because it has to be merged with upstream
   id: MMI
   name: organic-synthetic interface #imp, renamed from man-machine interface
   description: A machine able to facilitate communication between a biological brain and electronics, enabling crew to continue to provide value after work-related incidents. A first step towards a cyborg. # imp edit for clarity
@@ -53,20 +53,8 @@
     whitelist:
       components:
       - SecretStash
-  - type: StatusEffects # imp addition: let the brains get flashed
-    allowed:
-    - Flashed
-  - type: Vocal # imp addition: let the brains scream
-    sounds:
-      Unsexed: UnisexSilicon
-    wilhelmProbability: 0
-  - type: Tag # imp addition: let the brains emote
-    tags:
-    - SiliconEmotes
-    - ImmobileEmoter
-  - type: ActionGrant # imp addition: borg consent action, hibernation action
+  - type: ActionGrant # imp addition: borg consent action
     actions:
-    - ActionDisconnect
     - ActionAllowBorgingToggle
 
 - type: entity
@@ -81,6 +69,9 @@
       whitelist:
         components:
         - Brain
+  - type: Construction # imp addition: allow deconversion of xeno brains
+    graph: XenoBrainDeconvert
+    node: normalOsi
 
 - type: entity
   parent: BaseItem

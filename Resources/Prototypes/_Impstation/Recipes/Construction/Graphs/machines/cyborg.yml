@@ -20,3 +20,20 @@
 
   - node: osiball
     entity: BrainEnclosure
+
+- type: constructionGraph
+  id: XenoBrainDeconvert
+  start: start
+  graph:
+  - node: start
+    entity: XenoMMIFilled
+    edges:
+    - to: normalOsi
+      steps:
+      - tool: Pulsing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+
+  - node: normalOsi
+    entity: MMIFilled
