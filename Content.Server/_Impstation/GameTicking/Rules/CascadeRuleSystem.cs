@@ -37,28 +37,10 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
     {
         base.Started(uid, comp, gameRule, args);
 
+        comp.TimeUntilInitialAnnouncements = comp.DurationForInitialAnnouncements + Timing.CurTime;
         comp.TimeUntilEndRound = comp.DurationToRoundEnd + Timing.CurTime;
 
         SetAlertLevelDelta();
-
-        _announcer.SendAnnouncement(
-            _announcer.GetAnnouncementId(CommandAnnouncementId),
-            Filter.Broadcast(),
-            "resonance-cascade-announcement-begin",
-            Loc.GetString("resonance-cascade-announcement-sender"),
-            colorOverride: Color.Cyan
-        );
-
-        if (_roundEndSystem.IsRoundEndRequested())
-        {
-            _roundEndSystem.CancelRoundEndCountdown(uid, true);
-            _announcer.SendAnnouncementMessage(
-                _announcer.GetAnnouncementId(ShuttlennouncementId),
-                "emergancy-shuttle-cascade-enroute",
-                Loc.GetString("emergancy-shuttle-announcement-sender"),
-                Color.Yellow
-            );
-        }
 
         var tile = new Tile(_tileDefManager[comp.CrystalMassPlating].TileId);
         var query = EntityQueryEnumerator<SupermatterComponent>();
@@ -79,7 +61,39 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
 
     protected override void ActiveTick(EntityUid uid, CascadeRuleComponent comp, GameRuleComponent gameRule, float frameTime)
     {
-        if (comp.Stage < ResonanceCascadeStage.Middle && comp.TimeUntilEndRound - Timing.CurTime < comp.DurationToRoundEnd / 2)
+        if (comp.Stage < ResonanceCascadeStage.BeginningNTAnnouncement
+            && comp.TimeUntilInitialAnnouncements - Timing.CurTime < comp.DurationForInitialAnnouncements / 2)
+        {
+            _announcer.SendAnnouncement(
+                _announcer.GetAnnouncementId(CommandAnnouncementId),
+                Filter.Broadcast(),
+                "resonance-cascade-announcement-begin",
+                Loc.GetString("resonance-cascade-announcement-sender"),
+                colorOverride: Color.Cyan
+            );
+
+            comp.Stage = ResonanceCascadeStage.BeginningNTAnnouncement;
+        }
+
+        if (comp.Stage < ResonanceCascadeStage.BeginningEvacCancel
+            && comp.TimeUntilInitialAnnouncements < Timing.CurTime)
+        {
+            if (_roundEndSystem.IsRoundEndRequested())
+            {
+                _roundEndSystem.CancelRoundEndCountdown(uid, true);
+                _announcer.SendAnnouncementMessage(
+                    _announcer.GetAnnouncementId(ShuttlennouncementId),
+                    "emergancy-shuttle-cascade-enroute",
+                    Loc.GetString("emergancy-shuttle-announcement-sender"),
+                    Color.Yellow
+                );
+            }
+
+            comp.Stage = ResonanceCascadeStage.BeginningEvacCancel;
+        }
+
+        if (comp.Stage < ResonanceCascadeStage.MiddleNTAnnouncement
+            && comp.TimeUntilEndRound - Timing.CurTime < comp.DurationToRoundEnd / 2)
         {
             _announcer.SendAnnouncement(
                 _announcer.GetAnnouncementId(CommandAnnouncementId),
@@ -89,10 +103,11 @@ public sealed class CascadeRuleSystem : GameRuleSystem<CascadeRuleComponent>
                 colorOverride: Color.Cyan
             );
 
-            comp.Stage = ResonanceCascadeStage.Middle;
+            comp.Stage = ResonanceCascadeStage.MiddleNTAnnouncement;
         }
 
-        if (comp.Stage < ResonanceCascadeStage.End && comp.TimeUntilEndRound < Timing.CurTime)
+        if (comp.Stage < ResonanceCascadeStage.End
+            && comp.TimeUntilEndRound < Timing.CurTime)
         {
             _roundEndSystem.EndRound();
 

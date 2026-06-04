@@ -18,13 +18,25 @@ public sealed partial class CascadeRuleComponent : Component
     public ResonanceCascadeStage Stage;
 
     /// <summary>
+    /// Time until the initial announcements are triggered
+    /// </summary>
+    [DataField]
+    public TimeSpan DurationForInitialAnnouncements = TimeSpan.FromSeconds(10);
+
+    /// <summary>
+    /// Time until the initial announcements are triggered
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TimeSpan TimeUntilInitialAnnouncements;
+
+    /// <summary>
     /// Time until the round is ended in seconds
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public TimeSpan DurationToRoundEnd = TimeSpan.FromSeconds(180);
 
     /// <summary>
-    /// Time until the round including curTime
+    /// Time until the round ends
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan TimeUntilEndRound;
@@ -55,6 +67,8 @@ public sealed partial class CascadeRuleComponent : Component
 public enum ResonanceCascadeStage : sbyte
 {
     Beginning = 0,
-    Middle = 1,
-    End = 2,
+    BeginningNTAnnouncement = 1,
+    BeginningEvacCancel = 2,
+    MiddleNTAnnouncement = 3,
+    End = 4,
 }
