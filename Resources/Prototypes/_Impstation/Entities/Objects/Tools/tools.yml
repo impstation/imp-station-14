@@ -311,13 +311,3 @@
   - type: Tag
     tags:
     - RollingPin
-
-- type: entity
-  parent: BaseItem
-  id: KeyCardRing
-  name: Key Card Ring
-  description: The HDs keycard ring, can open any door in the station! ...If you can find the right one.
-  components:
-  - type: Sprite
-    sprite: Objects/Tools/rolling_pin.rsi
-    state: icon
