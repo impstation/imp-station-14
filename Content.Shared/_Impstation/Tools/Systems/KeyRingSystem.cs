@@ -6,6 +6,7 @@ using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
+using Content.Shared.Audio;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
@@ -13,6 +14,7 @@ using Content.Shared.Doors.Systems;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Lock;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
@@ -22,15 +24,15 @@ namespace Content.Shared.Tools.Systems;
 
 public sealed partial class KeyRingSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private SharedDoorSystem _doorSystem = default!;
     [Dependency] private AccessReaderSystem _accessReaderSystem = default!;
     [Dependency] private LockSystem _lockSystem = default!;
     [Dependency] private SharedDoAfterSystem _doAfter = default!;
     [Dependency] private ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private IGameTiming _timing = default!;
-
     [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedAmbientSoundSystem _ambient = default!;
 
     [Serializable, NetSerializable]
     public sealed partial class KeyRingDoorDoAfterEvent : SimpleDoAfterEvent;
@@ -87,13 +89,15 @@ public sealed partial class KeyRingSystem : EntitySystem
 
         _doAfter.TryStartDoAfter(doargs);
         args.Handled = true;
+        StartJingle(ent);
+
     }
 
     private void KeyCardDoorDoAfter(Entity<KeyRingComponent> ent, ref KeyRingDoorDoAfterEvent args)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
-
+        StopJingle(ent);
         if (args.Target == null||args.Cancelled)//if the target somehow dissapears or the action was cancelled then return
         {
             return;
@@ -130,7 +134,7 @@ public sealed partial class KeyRingSystem : EntitySystem
     {
         if (!_timing.IsFirstTimePredicted)
             return;
-
+        StopJingle(ent);
         if (args.Target == null||args.Cancelled)//if the target somehow dissapears or the action was cancelled then return
         {
             return;
@@ -152,5 +156,26 @@ public sealed partial class KeyRingSystem : EntitySystem
         _adminLogger.Add(LogType.Action,
                             LogImpact.Medium,
                             $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} locked: {lockComponent.Locked}");
+    }
+
+    public void StartJingle(Entity<KeyRingComponent> ent)
+    {
+        if (TryComp<AmbientSoundComponent>(ent.Owner, out var curSound))
+        {
+            _ambient.SetAmbience(ent.Owner, true, curSound);
+            return;
+        }
+
+        var sound = new AmbientSoundComponent();
+        AddComp(ent.Owner, sound);
+        _ambient.SetAmbience(ent.Owner, true, sound);
+        _ambient.SetSound(ent, ent.Comp.SoundJingle, sound);
+
+    }
+    public void StopJingle(Entity<KeyRingComponent> ent)
+    {
+        if (!TryComp<AmbientSoundComponent>(ent.Owner, out var sound)) return;
+        _ambient.SetAmbience(ent.Owner, false, sound);
+
     }
 }
