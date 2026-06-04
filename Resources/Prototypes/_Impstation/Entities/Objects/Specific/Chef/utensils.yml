@@ -1,0 +1,21 @@
+- type: entity
+  name: large measuring cup
+  parent: LargeBeaker
+  description: Used to contain a large amount of ingredients.
+  id: LargeMeasuringCup
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chef/measuring_cup_large.rsi
+    layers:
+    - state: measuringcuplarge
+    - state: measuringcuplarge1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Specific/Chef/measuring_cup_large.rsi
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: measuringcup
+    inHandsMaxFillLevels: 4
+    inHandsFillBaseName: -fill-
