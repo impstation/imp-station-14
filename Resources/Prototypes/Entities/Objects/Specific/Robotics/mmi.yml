@@ -56,6 +56,11 @@
   - type: ActionGrant # imp addition: borg consent action
     actions:
     - ActionAllowBorgingToggle
+  - type: Tag # imp addition: tags
+    tags:
+    - SiliconEmotes
+    - ImmobileEmoter
+    - BorgBrainNT
 
 - type: entity
   parent: MMI
@@ -129,6 +134,8 @@
     - type: Tag
       tags:
       - CannotSuicide
+      - BorgBrainNT # Imp
+      - BorgBrainXeno # Imp
     - type: GenericVisualizer
       visuals:
         enum.ToggleableGhostRoleVisuals.Status:

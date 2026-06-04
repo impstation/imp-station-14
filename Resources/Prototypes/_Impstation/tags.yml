@@ -32,6 +32,12 @@
   id: BoarFriend #lets boar choose the tagged entity as a target for NPCImprintingOnSpawnBehavior
 
 - type: Tag
+  id: BorgBrainNT # Designates borg brain as allowed in NT chassis
+
+- type: Tag
+  id: BorgBrainXeno # Designates borg brain as allowed in Xeno chassis
+
+- type: Tag
   id: BorgModuleTckut
 
 - type: Tag

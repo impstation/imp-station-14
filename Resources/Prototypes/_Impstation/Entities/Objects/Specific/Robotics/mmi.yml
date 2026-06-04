@@ -84,6 +84,18 @@
       visible: false
     - state: mmi_off
       map: ["enum.MMIVisualLayers.Base"]
+  - type: MMI
+    allowBorging: true
+    brainSlot:
+      name: positronic-brain-slot-component-slot-name-brain
+      whitelist:
+        components:
+        - Brain
+  - type: Tag
+    tags:
+    - SiliconEmotes
+    - ImmobileEmoter
+    - BorgBrainXeno
 
 - type: entity
   parent: XenoMMI
