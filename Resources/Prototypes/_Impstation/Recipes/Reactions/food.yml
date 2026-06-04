@@ -128,3 +128,47 @@
       amount: 1
   products:
     BlackFoodColoring: 8
+
+- type: reaction
+  id: CreateRiceFlour
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Rice:
+      amount: 1
+  products:
+    RiceFlour: 1
+
+- type: reaction
+  id: CreateMochiPaste
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    RiceFlour:
+      amount: 15
+    Water:
+      amount: 5
+    Sugar:
+      amount: 5
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: FoodMochiPaste
+
+- type: reaction
+  id: CreateMitarashiSyrup
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    Sake:
+      amount: 1
+    Soysauce:
+      amount: 1
+    Water:
+      amount: 5
+    Sugar:
+      amount: 5
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: MitarashiSyrup

@@ -619,8 +619,8 @@
   time: 5
   group: Breads
   solids:
-    FoodBreadBun: 1 
-  recipeType: Assembler 
+    FoodBreadBun: 1
+  recipeType: Assembler
 
 - type: microwaveMealRecipe
   id: RecipePomgo
@@ -635,7 +635,7 @@
      MaterialPom1: 3
      FoodKebabSkewer: 1
   recipeType: Oven
-  
+
 - type: microwaveMealRecipe
   id: RecipeCheeseSqueaks
   name: cheese squeaks recipe
@@ -650,7 +650,7 @@
      MaterialPom1: 3
      FoodStringCheeseStrand: 1
   recipeType: Microwave
-  
+
 - type: microwaveMealRecipe
   id: RecipePuffPuff
   name: puff-puff recipe
@@ -665,7 +665,7 @@
   solids:
      MaterialPom1: 3
   recipeType: Microwave
-  
+
 - type: microwaveMealRecipe
   id: RecipePompette
   name: pompette recipe
@@ -680,4 +680,38 @@
      MaterialPom1: 3
      FoodTomato: 3
   recipeType: Oven
-  
+
+- type: microwaveMealRecipe
+  id: RecipeDaifuku
+  name: daifuku recipe
+  result: FoodDaifuku
+  time: 5
+  solids:
+    FoodBerries: 3
+    FoodMochiSlice: 3
+  recipeType: Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeMDango
+  name: mitarashi dango recipe
+  result: FoodMDango
+  time: 5
+  reagents:
+    MitarashiSyrup: 12
+  solids:
+    FoodKebabSkewer: 1
+    FoodMochiSlice: 3
+  recipeType: Microwave
+
+- type: microwaveMealRecipe
+  id: RecipeHDango
+  name: hanami dango recipe
+  result: FoodHDango
+  time: 5
+  reagents:
+    PinkFoodColoring: 1
+    GreenFoodColoring: 1
+  solids:
+    FoodKebabSkewer: 1
+    FoodMochiSlice: 3
+  recipeType: Microwave
