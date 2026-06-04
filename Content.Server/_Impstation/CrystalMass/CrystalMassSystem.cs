@@ -10,7 +10,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Spreader;
 using Content.Shared.StepTrigger.Systems;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -51,18 +50,18 @@ public sealed class CrystalMassSystem : EntitySystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<ActiveTileClearCrystalMassComponent, CrystalMassComponent>();
-        while (query.MoveNext(out var uid, out var activeTileClear, out var crystal))
+        while (query.MoveNext(out var uid, out _, out var crystal))
         {
             // Requires a delay so that entities can register being on the tile for ClearTile
             ClearTile((uid, crystal));
 
             // Delay adding pointlight for when multiple are on one tile deleting each other so that it isn't jarring
-            if (activeTileClear.IsLight)
+            if (crystal.IsLight)
             {
                 EnsureComp<PointLightComponent>(uid);
-                _lights.SetRadius(uid, activeTileClear.LightRadius);
-                _lights.SetEnergy(uid, activeTileClear.LightEnergy);
-                _lights.SetColor(uid, activeTileClear.LightColor);
+                _lights.SetRadius(uid, crystal.LightRadius);
+                _lights.SetEnergy(uid, crystal.LightEnergy);
+                _lights.SetColor(uid, crystal.LightColor);
             }
 
             RemCompDeferred<ActiveTileClearCrystalMassComponent>(uid);
@@ -89,7 +88,7 @@ public sealed class CrystalMassSystem : EntitySystem
             return;
         }
 
-        if (!_robustRandom.Prob(ent.Comp.SpreadChance))
+        if (_robustRandom.Prob(ent.Comp.SpreadChance))
             return;
 
         var prototype = MetaData(ent).EntityPrototype?.ID;
@@ -106,24 +105,23 @@ public sealed class CrystalMassSystem : EntitySystem
         var neighbor = _robustRandom.Pick(args.AllNeighbors);
         var neighborCoords = _map.GridTileToLocal(neighbor.GridUid, neighbor.Grid, neighbor.Position);
 
-        HandleTiles(neighbor.GridUid, neighbor.Grid, neighbor.Position, ent.Comp.MassPlating);
+        HandleTiles((neighbor.GridUid, neighbor.Grid), neighbor.Position, ent.Comp.MassPlating);
 
         var neighborUid = Spawn(prototype, neighborCoords);
         DebugTools.Assert(HasComp<EdgeSpreaderComponent>(neighborUid));
         DebugTools.Assert(HasComp<ActiveEdgeSpreaderComponent>(neighborUid));
         DebugTools.Assert(Comp<EdgeSpreaderComponent>(neighborUid).Id == CrystalMassGroup);
 
-        // This is being evil for some reason and not working
-        // if (_robustRandom.Prob(ent.Comp.SpawningAudioChance))
-        //     _audio.PlayPvs(ent.Comp.SpawningCrystalSound, Transform(neighborUid).Coordinates);
+        if (_robustRandom.Prob(ent.Comp.SpawningAudioChance))
+            _audio.PlayPvs(ent.Comp.SpawningCrystalSound, Transform(ent).Coordinates);
 
         args.Updates--;
     }
 
-    private void HandleTiles(EntityUid neighborGridUid, MapGridComponent neighborGrid, Vector2i neighborPosition, ProtoId<ContentTileDefinition> neighborTileReplacement)
+    private void HandleTiles(Entity<MapGridComponent> neighborGrid, Vector2i neighborPosition, ProtoId<ContentTileDefinition> neighborTileReplacement)
     {
-        var mapID = Transform(neighborGridUid).MapID;
-        var worldPos = _map.GridTileToWorldPos(neighborGridUid, neighborGrid, neighborPosition);
+        var mapID = Transform(neighborGrid).MapID;
+        var worldPos = _map.GridTileToWorldPos(neighborGrid, neighborGrid, neighborPosition);
         var box = Box2.CenteredAround(worldPos, Vector2.One);
         var circle = new Circle(worldPos, 0.5f);
 
@@ -133,7 +131,7 @@ public sealed class CrystalMassSystem : EntitySystem
         // Locating every intersecting grid in the neighbor CrystalMass is about to spread to
         foreach (var grid in grids)
         {
-            if (grid.Owner == neighborGridUid)
+            if (grid.Owner == neighborGrid.Owner)
                 continue;
 
             // Locating every tile within those intsersecting grids that are within radius
@@ -145,7 +143,7 @@ public sealed class CrystalMassSystem : EntitySystem
         var random = new Random(seed);
         var variant = _tile.PickVariant((ContentTileDefinition)_tileDefManager[neighborTileReplacement], random);
 
-        _map.SetTile(neighborGridUid, neighborGrid, neighborPosition, new Tile(_tileDefManager[neighborTileReplacement].TileId, 0, variant));
+        _map.SetTile(neighborGrid, neighborPosition, new Tile(_tileDefManager[neighborTileReplacement].TileId, 0, variant));
     }
 
     private void ClearTile(Entity<CrystalMassComponent> ent)
@@ -169,16 +167,12 @@ public sealed class CrystalMassSystem : EntitySystem
                 continue;
 
             // Prevent multiple crystal mass entities on one tile from queuing everyones downfall
-            if (HasComp<CrystalMassComponent>(target))
-                RemComp<CrystalMassComponent>(target);
+            RemComp<CrystalMassComponent>(target);
 
-            // Text for players could be added eventually
+            // Popup text for nearby players could be added eventually
             if (HasComp<MobStateComponent>(target)
                 || HasComp<ItemComponent>(target))
-            {
-                var targetXform = Transform(target);
-                _audio.PlayPvs(ent.Comp.DustSound, targetXform.Coordinates, AudioParams.Default.WithVolume(-2f));
-            }
+                _audio.PlayPvs(ent.Comp.DustSound, Transform(target).Coordinates);
 
             EntityManager.QueueDeleteEntity(target);
         }
@@ -188,10 +182,7 @@ public sealed class CrystalMassSystem : EntitySystem
     {
         if (HasComp<MobStateComponent>(args.Tripper)
             || HasComp<ItemComponent>(args.Tripper))
-        {
-            var xform = Transform(args.Tripper);
-            _audio.PlayPvs(ent.Comp.DustSound, xform.Coordinates, AudioParams.Default.WithVolume(-2f));
-        }
+            _audio.PlayPvs(ent.Comp.DustSound, Transform(args.Tripper).Coordinates);
 
         EntityManager.QueueDeleteEntity(args.Tripper);
     }
