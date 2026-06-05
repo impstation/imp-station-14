@@ -94,7 +94,7 @@ public sealed partial class TegSystem : EntitySystem
         SubscribeLocalEvent<TegGeneratorComponent, ExaminedEvent>(GeneratorExamined);
         SubscribeLocalEvent<TegCirculatorComponent, ExaminedEvent>(CirculatorExamined); // imp add
 
-        SubscribeLocalEvent<TegCirculatorComponent, PanelChangedEvent>(OnPanelChanged); // imp add for TegSystem.Hazards
+        // SubscribeLocalEvent<TegCirculatorComponent, PanelChangedEvent>(OnPanelChanged); // imp add for TegSystem.Hazards
 
         _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
     }
@@ -148,6 +148,11 @@ public sealed partial class TegSystem : EntitySystem
 
         var (inletA, outletA) = GetPipes(circA);
         var (inletB, outletB) = GetPipes(circB);
+
+        // IMP ADD: Process gas spilling out instead of power generation if either circulator is open
+        if (CirculatorOpen(circA, ref args) || CirculatorOpen(circB, ref args))
+            return;
+        //Maybe need to UpdateAppearance?
 
         var (airA, δpA) = GetCirculatorAirTransfer(inletA.Air, outletA.Air);
         var (airB, δpB) = GetCirculatorAirTransfer(inletB.Air, outletB.Air);

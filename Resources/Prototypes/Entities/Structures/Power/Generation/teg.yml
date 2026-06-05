@@ -190,6 +190,8 @@
 
     # IMP ADD START
     - type: WiresPanel
+    - type: GasPassiveVent
+      inlet: "inlet"
 
 - # Spawned by the client-side circulator examine code to indicate the inlet/outlet direction.
   type: entity
