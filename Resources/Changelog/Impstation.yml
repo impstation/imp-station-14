@@ -1,14 +1,4 @@
 ﻿Entries:
-- author: eviltori
-  changes:
-  - message: security roles can now pick their glasses in the loadout.
-    type: Tweak
-  - message: added a wicked security visor that you can now select in your security
-      loadout.
-    type: Add
-  id: 2354
-  time: '2025-10-26T00:50:08.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3613
 - author: DVDPlayerOfDiscordFame
   changes:
   - message: Grenades might look a little different
@@ -4094,3 +4084,10 @@
   id: 2853
   time: '2026-06-05T00:41:55.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4446
+- author: mothrii
+  changes:
+  - message: glow in the dark stars are craftable now!
+    type: Fix
+  id: 2854
+  time: '2026-06-05T13:14:00.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4450
