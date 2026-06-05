@@ -587,3 +587,7 @@
     - id: BasicDecalDirtMonospaceVariationPass
       prob: 0.50
       orGroup: monospaceDecals
+    # Imp start
+    - id: GhostMediumVariationPass
+      prob: 1
+    # Imp end
