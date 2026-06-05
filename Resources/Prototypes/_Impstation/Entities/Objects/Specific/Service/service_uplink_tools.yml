@@ -1,7 +1,7 @@
 #botany
 
 - type: entity
-  parent: BaseUplinkRadio
+  parent: BaseUplinkRadioNoncontra
   id: HiddenUplinkRadioBotany
   name: plant analyzer
   description: A handheld device that allows you to scan seeds and plants to get detailed information about their genes.
@@ -41,7 +41,7 @@
       drink:
         reagents:
         - ReagentId: Napalm
-          Quantity: 50
+          Quantity: 60
         maxVol: 60
 
 #librarian
@@ -99,6 +99,9 @@
     containers:
       storagebase: !type:AllSelector
         children:
+        - id: d4DiceSharp
+        - id: d4DiceSharp
+        - id: d4DiceSharp
         - id: d4DiceSharp
         - id: d4DiceSharp
         - id: d4DiceSharp
