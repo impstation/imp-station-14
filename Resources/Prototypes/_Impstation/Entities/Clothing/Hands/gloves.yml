@@ -23,6 +23,8 @@
   id: ClothingHandsGlovesSpaceNinjaWeak
   suffix: weak stun
   components:
+  - type: Tag
+    tags: [] # ignore WhitelistChameleon and Clothmade for dupe
   - type: NinjaGloves
     abilities:
     - components:
@@ -51,7 +53,7 @@
       - type: CriminalRecordsHacker
 
 - type: entity
-  parent: [ClothingHandsBase]
+  parent: [ClothingHandsInedibleBase]
   id: ClothingHandsAngelGloves
   name: angelic gloves
   description: Sily smooth! They seem more fit for a highschooler's magical alter ego than an angel, but...
@@ -64,12 +66,9 @@
     fiberMaterial: fibers-web
     fiberColor: fibers-white
   - type: FingerprintMask
-  - type: Tag
-    tags:
-    - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingHandsBase]
+  parent: [ClothingHandsInedibleBase]
   id: ClothingHandsMusicianSingerGloves
   name: lounge singer's gloves
   description: A pair of fancy silk opera gloves in dark purple.

@@ -49,7 +49,7 @@
 # Ponchos
 
 - type: latheRecipe
-  parent: BaseCommandCoatRecipe
+  parent: BaseCoatRecipe #imp edit from command
   id: ClothingNeckCWPArctic
   result: ClothingNeckCWPArctic
   completetime: 4
@@ -204,8 +204,6 @@
 # Utility
 
 - type: latheRecipe
+  parent: BaseBeltRecipe #imp edit
   id: ClothingBeltPaperwork
   result: ClothingBeltPaperwork
-  materials:
-    Cloth: 200
-    Durathread: 100

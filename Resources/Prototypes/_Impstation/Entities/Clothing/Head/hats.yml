@@ -45,6 +45,7 @@
     sprite: Clothing/Head/Hats/web_hat.rsi
   - type: Tag
     tags:
+    - WhitelistChameleon
     - HamsterWearable
   - type: Butcherable
     butcheringType: Knife
@@ -80,6 +81,7 @@
   - type: Tag
     tags:
     - HamsterWearable
+    - WhitelistChameleon
   - type: Butcherable
     butcheringType: Knife
     spawned:
@@ -170,6 +172,8 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
+  - type: Tag
+    tags: [] # ignore WhitelistChameleon for dupe
 
 - type: entity
   parent: BaseToggleAction
@@ -381,9 +385,7 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Head/Hats/impishhorns.rsi
   - type: Tag
-    tags:
-    - ClothMade
-    - WhitelistChameleon
+    tags: []
 
 - type: entity
   parent: ClothingHeadBase

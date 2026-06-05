@@ -27,6 +27,8 @@
     sprite: _Impstation/Clothing/Neck/Mantles/hdmantle.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Neck/Mantles/hdmantle.rsi
+  - type: StealTarget
+    stealGroup: HeadCloak
 
 - type: entity
   parent: ClothingNeckBase

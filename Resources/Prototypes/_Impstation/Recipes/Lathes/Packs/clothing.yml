@@ -1,26 +1,90 @@
+# if you add a new pack, make it a parent to the corresponding area in upstream's Recipes/Lathes/Packs/clothing.yml
+# or for non uniforms (loadout clothes) directly to the clothing printer in _Impstation\Entities\Structures\Machines\lathe.yml
+# new recipes located in _imp Lathes\Recipes\clothing.yml, sorry there's 5 files named that
+
 # Static
 
 - type: latheRecipePack
   id: ClothingCargoImp
   recipes:
+  # Courier
   - ClothingHeadHatCouriersoft
   - ClothingUniformJumpskirtCourier
-  - ClothingUniformJumpskirtSalvageSpecialist
   - ClothingUniformJumpsuitCourier
+  # CT
+  - ClothingBeltCargoSenior
+  - ClothingHeadHatCargosoft
+  - ClothingOuterCoatBomberCargo
+  - ClothingUniformJumpsuitCargoSenior
+  - ClothingUniformJumpsuitCargoLong
+  # Salv
+  - ClothingBeltSalvageWebbing
+  - ClothingNeckCloakDriller
+  - ClothingOuterRainCape
+  - ClothingUniformJumpskirtSalvageSpecialist
+
+- type: latheRecipePack
+  id: ClothingCivilianImp
+  recipes:
+  - ClothingHeadHatKippahBlueAndGold
+  - ClothingHeadHatKippahSimple
+  - ClothingHeadHatKippahWhiteAndBlue
+  - ClothingNeckCloakPassenger
+  - ClothingOuterCoatBomberBlack
+  - ClothingOuterCoatBomberWhite
+  - ClothingOuterCoatPufferDark
+  - ClothingOuterCoatPufferRed
+  - ClothingOuterCoatPufferBlue
+  - ClothingOuterCoatPufferSilver
+  - ClothingOuterCoatPufferPink
+  - ClothingOuterBlackPoncho
+  - ClothingOuterWhitePoncho
+  - ClothingUniformColorRainbow
+  - ClothingUniformJumpskirtColorRainbow
+  - ClothingUniformJumpsuitNanotrasen
 
 - type: latheRecipePack
   id: ClothingCommandImp
   recipes:
+  # captain
+  - ClothingBeltSheath
   - ClothingHeadHatBeretCaptain
+  - ClothingHeadHatCaptaincrushercap
+  - ClothingHeadHatCaptainTricorne
+  - ClothingNeckCloakCap
+  - ClothingNeckCloakCaptainAdmiral
+  - ClothingNeckCloakCaptaingreatcoat
+  - ClothingNeckCloakCapFormal
+  - ClothingNeckMantleCap
+  - ClothingUniformJumpsuitCaptaineveningattire
+  # ce
+  - ClothingBeltChiefEngineer
+  - ClothingNeckCloakCe
+  - ClothingNeckMantleCE
+  - ClothingUniformJumpsuitCEForeman
+  # cmo
+  - ClothingHeadHatCMOClip
+  - ClothingCloakCmo
+  - ClothingNeckCloakCmosGreatcloak
+  - ClothingNeckMantleCMO
+  - ClothingOuterApronCMO
+  - ClothingOuterCoatCMO
+  - ClothingOuterCoatLabCmo
   - ClothingUniformJumpskirtCMOCasual
   - ClothingUniformJumpsuitCMOCasual
   - ClothingUniformJumpskirtCMOFormal
   - ClothingUniformJumpsuitCMOFormal
   - ClothingUniformJumpsuitCMOScrubs
-
-- type: latheRecipePack
-  id: ClothingServiceImp
-  recipes:
+  # hd
+  - ClothingBeltHospitalityDirector
+  - ClothingHeadHatHDsoft
+  - ClothingHeadBandHD
+  - ClothingHeadHatBellhopHD
+  - ClothingHeadHatBeretHD
+  - ClothingNeckMantleHD
+  - ClothingNeckCloakHd
+  - ClothingOuterApronHD
+  - ClothingOuterVestHD
   - ClothingUniformJumpsuitHD
   - ClothingUniformJumpskirtHD
   - ClothingUniformJumpsuitHDTurtle
@@ -30,15 +94,247 @@
   - ClothingUniformJumpsuitHospitalityDirectorBartender
   - ClothingUniformJumpskirtHospitalityDirectorBartender
   - ClothingUniformJumpsuitHospitalityDirectorBotany
-  - ClothingHeadHatHDsoft
-  - ClothingHeadBandHD
-  - ClothingHeadHatBeretHD
+  - ClothingUniformSpaceJumpsuitHospitalityDirectorProprietor # and the award for longest id goes to
+  # hop
+  - ClothingNeckCloakHop
+  - ClothingNeckMantleHOP
+  - ClothingUniformJumpskirtHopPowerSuit
+  - ClothingUniformJumpsuitBoatswain
+  # hos
+  - ClothingBeltHolsterHOS
+  - ClothingHeadHatHOSColonelCap
+  - ClothingHeadHatHoshatDV
+  - ClothingHeadHatHOSsoft
+  - ClothingNeckCloakHos
+  - ClothingNeckCloakHosgreatcoat
+  - ClothingNeckMantleHOS
+  - ClothingUniformJumpskirtHoSColonel
+  - ClothingUniformJumpskirtHoSPro
+  - ClothingUniformJumpsuitHoSColonel
+  - ClothingUniformJumpsuitHoSPro
+  # rd
+  - ClothingNeckCloakMystagogue
+  - ClothingNeckCloakRd
+  - ClothingNeckMantleRD
+  - ClothingOuterCoatRD
+  # qm
+  - ClothingNeckCloakQm
+  - ClothingNeckCloakQmgreatcoat
+  - ClothingNeckMantleQM
+  - ClothingOuterCoatQmHuge
+
+- type: latheRecipePack
+  id: ClothingEngineeringImp
+  recipes:
+  # atmos
+  - ClothingUniformAtmosFlightSkirt
+  - ClothingUniformAtmosFlightSuit
+  - ClothingUniformJumpskirtAtmos
+  - ClothingUniformJumpsuitAtmos
+  - ClothingUniformJumpsuitAtmosCasual
+  # engineer
+  - ClothingOuterCoatBomberEngineer
+  - ClothingUniformJumpsuitEngineeringHazard
+  - ClothingUniformSpaceJumpsuitEngineer
+
+- type: latheRecipePack
+  id: ClothingMedicalImp
+  recipes:
+  # Chemist
+  - ClothingNeckTieChem
+  - ClothingOuterApronChemist
+  - ClothingUniformSpaceJumpsuitChemist
+  # Medical Doctor
+  - ClothingBeltMedical
+  - ClothingHeadHatSurgcapBlue
+  - ClothingHeadHatSurgcapGreen
+  - ClothingHeadHatSurgcapPurple
+  - ClothingHeadMirror
+  - ClothingHeadNurseHat
+  - ClothingOuterApronNurse
+  - ClothingOuterCoatLab
+  - ClothingOuterCoatLabChem
+  - ClothingOuterCoatLabGene
+  - ClothingOuterCoatLabSeniorPhysician
+  - ClothingOuterCoatLabViro
+  - ClothingUniformJumpskirtGenetics
+  - ClothingUniformJumpskirtNurse
+  - ClothingUniformJumpskirtVirology
+  - ClothingUniformJumpsuitGenetics
+  - ClothingUniformJumpsuitVirology
+  - ClothingUniformSpaceJumpsuitMedical
+  - UniformScrubsColorBlue
+  - UniformScrubsColorGreen
+  - UniformScrubsColorPurple
+  # Paramedic
+  - ClothingBeltMedicalEMT
+  - ClothingHeadHatParamedicSirenCapEmpty
+  - ClothingOuterCoatParamedicWB
+  # Psychologist
+  - ClothingOuterCoatHyenhSweater
+  - ClothingUniformJumpskirtPsychologist
+  - ClothingUniformJumpsuitPsychologist
+
+- type: latheRecipePack
+  id: ClothingScienceImp
+  recipes:
+  - ClothingHeadHatCorpsoft
+  - ClothingOuterCoatLabSeniorResearcher
+  - ClothingOuterCoatRnd
+  - ClothingOuterCoatRobo
+  - ClothingUniformJumpskirtRoboticist
+  - ClothingUniformJumpsuitRoboticist
+  - ClothingUniformSpaceJumpsuitScientist
+
+- type: latheRecipePack
+  id: ClothingSecurityImp
+  recipes:
+  # brigmedic
+  - ClothingOuterCoatBomberBrigmed
+  - ClothingHeadHatBrigmedicsoft
+  # detective
+  - ClothingBeltHolster
+  - ClothingHeadDeerstalker
+  - ClothingOuterCoatDetective
+  - ClothingOuterCoatDetectiveLoadoutGrey
+  - ClothingUniformDetectiveSuit
+  - ClothingUniformDetectiveSuitSkirt
+  - ClothingUniformJumpskirtDetectiveGrey
+  - ClothingUniformJumpskirtDetTurtle
+  - ClothingUniformJumpsuitDetectiveGrey
+  - ClothingUniformJumpsuitDetTurtle
+  - ClothingUniformMiamiVice
+  - ClothingUniformMiamiViceSkirt
+  # security officer
+  - ClothingBeltSecurity
+  - ClothingBeltSecurityWebbing
+  - ClothingHeadHatSecurityTrooper
+  - ClothingUniformSecurityTrooper
+  - ClothingUniformSpaceJumpsuitSecurity
+  # warden
+  - ClothingUniformJumpskirtWardenTurtle
+  - ClothingUniformJumpsuitWardenTurtle
+
+- type: latheRecipePack
+  id: ClothingServiceImp
+  recipes:
+  # bartender
+  - ClothingBeltBandolier
+  - ClothingOuterApronBar
+  - ClothingOuterApronCuteBar
+  - ClothingUniformJumpsuitBartenderPurple
+  - ClothingUniformNightclubSuit
+  - ClothingUniformNightclubSuitSkirt
+  - ClothingUniformSeniorBartender
+  - ClothingUniformSeniorBartenderSkirt
+  # botanist
+  - ClothingBeltPlant
+  - ClothingNeckMantleLily
+  - ClothingOuterApronBotanist
+  - ClothingUniformOveralls
+  # boxer
+  - UniformShortsRed
+  - UniformShortsRedWithTop
+  # chaplain
+  - ClothingBeltChaplainDragon
+  - ClothingHeadHatDruid
+  - ClothingHeadHatMoon
+  - ClothingHeadHatSun
+  - ClothingHeadHatTidal
+  - ClothingHeadHatVeil
+  - ClothingNeckStoleChaplain
+  - ClothingNeckClayshaper
+  - ClothingNeckChaplainDragon
+  - ClothingNeckDruid
+  - ClothingNeckDruidMantle
+  - ClothingNeckSun
+  - ClothingNeckTidal
+  - ClothingOuterMoon
+  - ClothingOuterSilent
+  - ClothingUniformSkirtClayshaper
+  - ClothingUniformSkirtDruid
+  - ClothingUniformFuneralSuit
+  - ClothingUniformFuneralSuitSkirt
+  - ClothingUniformJumpsuitMonasticRobeDark
+  - ClothingUniformJumpsuitMonasticRobeLight
+  - ClothingUniformSkirtMoon
+  - ClothingUniformSun
+  - ClothingUniformTech
+  - ClothingUniformSkirtTidal
+  # chef 
+  - ClothingBeltChef
+  - ClothingHeadHatChef
+  - ClothingNeckHeadChef
+  - ClothingOuterApronChef
+  - ClothingOuterApronCuteChef
+  - ClothingOuterJacketChef
+  - ClothingUniformHeadChef
+  - ClothingUniformHeadChefSkirt
+  - ClothingUniformSpaceJumpsuitChef
+  # clown
+  - ClothingHeadHatCircusClown
+  - ClothingHeadHatJester
+  - ClothingHeadHatJesterAlt
+  - ClothingNeckRuffle
+  - ClothingOuterApronClown
+  - ClothingOuterClownPriest
+  - ClothingOuterCoatJokester
+  - ClothingUniformCircusClown
+  - ClothingUniformJokester
+  - ClothingUniformJumpsuitJester
+  - ClothingUniformJumpsuitJesterAlt
+  # janitor
+  - ClothingBeltJanitor
+  # lawyer
+  - ClothingUniformBrownSuit
+  - ClothingUniformBrownSuitSkirt
+  - ClothingUniformCreamSuit
+  - ClothingUniformCreamSuitSkirt
+  - ClothingUniformJumpskirtLawyerBlue
+  - ClothingUniformJumpsuitLawyerBlue
+  - ClothingUniformJumpskirtLawyerGood
+  - ClothingUniformJumpsuitLawyerGood
+  - ClothingUniformJumpskirtLawyerPurple
+  - ClothingUniformJumpsuitLawyerPurple
+  - ClothingUniformJumpskirtLawyerRed
+  - ClothingUniformJumpsuitLawyerRed
+  # librarian
+  - ClothingUniformJumpskirtCurator
+  - ClothingUniformJumpskirtSpaceDress
+  - ClothingUniformJumpsuitCurator
+  # mime
+  - ClothingBeltFoamSheath
+  - ClothingBeltSuspendersBlack
+  - ClothingBeltSuspendersRed
+  - ClothingHeadHatBeret
+  - ClothingHeadHatBeretFrench
+  - ClothingHeadHatMimeBowler
+  - ClothingNeckScarfAscot
+  - ClothingNeckScarfStripedZebra
+  - ClothingUniformJumpskirtMimeCropped
+  - ClothingUniformJumpskirtMimeNouveau
+  - ClothingUniformJumpsuitMimeCropped
+  - ClothingUniformJumpsuitMimeNouveau
+  # musician
+  - ClothingHeadHatMusicianShako
+  - ClothingUniformJumpsuitMusicianMarchingBand
+  - ClothingUniformMrSpaceWide
+  - ClothingUniformMrSpaceWideSkirt
+  # reporter
+  - ClothingUniformJumpsuitReporter
+  - ClothingUniformJumpsuitJournalist
+  # zookeeper
+  - ClothingHeadHatBucketHat
+  - ClothingHeadSafari
+  - ClothingUniformJumpsuitSafari
 
 - type: latheRecipePack
   id: WinterCoatsImp
   recipes:
   - ClothingOuterWinterBrigmedic
   - ClothingOuterWinterCourier
+  - ClothingOuterWinterHD
+  - ClothingOuterWinterZookeeper
 
 - type: latheRecipePack
   id: PrideFlags
@@ -52,18 +348,49 @@
   - ClothingNeckCloakGay
   - ClothingNeckCloakIntersex
   - ClothingNeckCloakLesbian
+  - ClothingNeckCloakNanotrasen # :)
   - ClothingNeckCloakPan
   - ClothingNeckCloakTrans
+  - ClothingNeckScarfStripedAce
+  - ClothingNeckScarfStripedAro
+  - ClothingNeckScarfStripedAroace
+  - ClothingNeckScarfStripedBiSexual
+  - ClothingNeckScarfStripedGay
+  - ClothingNeckScarfStripedInter
+  - ClothingNeckScarfStripedLesbian
+  - ClothingNeckScarfStripedLesbianLong
+  - ClothingNeckScarfStripedPan
+  - ClothingNeckScarfStripedNonBinary
+  - ClothingNeckScarfStripedRainbow
+  - ClothingNeckScarfStripedTrans
+
+- type: latheRecipePack
+  id: BeltsImp
+  recipes:
+  - ClothingBeltPlushie
+  - ClothingBeltUtility
+  - ClothingBeltUtilityBlack
+
+- type: latheRecipePack
+  id: ScarvesImp
+  recipes:
+  - ClothingNeckScarfStripedLimeGreen
+  - ClothingNeckScarfWrappedBlack
+  - ClothingNeckScarfWrappedWhite
 
 # Dynamic
-
-# - type: latheRecipePack
-#   id: ImpClothesDynamic
-#   recipes:
 
 # Emagged
 
 - type: latheRecipePack
   id: ImpClothesEmagged
   recipes:
+  - ClothingHeadHatCentcommIntern
+  - ClothingNeckCloakCentcom
+  - ClothingNeckCloakFugitiveCloak
+  - ClothingNeckCloakKaijuCloak
   - ClothingNeckCloakStraight
+  - ClothingNeckScarfStripedCentcom
+  - ClothingNeckScarfStripedSyndieGreen
+  - ClothingNeckScarfStripedSyndieRed
+  - ClothingBeltSyndieHolster

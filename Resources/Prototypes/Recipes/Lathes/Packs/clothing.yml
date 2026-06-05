@@ -48,6 +48,8 @@
   - ClothingUniformJumpsuitCommandGeneric
 
 - type: latheRecipePack
+  parent:
+  - ClothingEngineeringImp # imp
   id: ClothingEngineering
   recipes:
   - ClothingHeadHatBeretEngineering
@@ -63,6 +65,7 @@
 - type: latheRecipePack
   parent:
   - ClothingMedicalDeltaV # DeltaV
+  - ClothingMedicalImp # imp
   id: ClothingMedical
   recipes:
   - ClothingUniformJumpsuitChemistry
@@ -84,6 +87,7 @@
 - type: latheRecipePack
   parent:
   - ClothingEpistemics # DeltaV
+  - ClothingScienceImp # imp
   id: ClothingScience
   recipes:
   - ClothingHeadHatBeretRND
@@ -97,6 +101,7 @@
 - type: latheRecipePack
   parent:
   - ClothingSecurityDeltaV # DeltaV
+  - ClothingSecurityImp # imp
   id: ClothingSecurity
   recipes:
   - ClothingUniformJumpsuitDetective
@@ -151,8 +156,6 @@
   - ClothingUniformJumpsuitMime
   - ClothingUniformJumpskirtMime
   - ClothingUniformJumpsuitMusician
-  - ClothingUniformJumpsuitMusicianMarchingBand # imp
-  - ClothingHeadHatMusicianShako # imp
 
 - type: latheRecipePack
   parent:
@@ -197,6 +200,8 @@
   - ClothingNeckTieSci
 
 - type: latheRecipePack
+  parent:
+  - ScarvesImp # imp
   id: Scarves
   recipes:
   - ClothingNeckScarfStripedGreen
