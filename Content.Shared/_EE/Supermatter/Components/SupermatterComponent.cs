@@ -17,10 +17,17 @@ public sealed partial class SupermatterComponent : Component
     #region Base
 
     /// <summary>
-    /// The current status of the singularity, used for alert sounds and the monitoring console
+    /// The current status of the supermatter, used for alert sounds and the monitoring console
     /// </summary>
     [DataField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
+
+    /// <summary>
+    /// Imp.
+    /// The current supermatter event thats occuring
+    /// </summary>
+    [DataField]
+    public SupermatterEvent Event = SupermatterEvent.None;
 
     /// <summary>
     /// The supermatter's external gas mixture on the tile
@@ -587,6 +594,16 @@ public enum SupermatterCrystalState : byte
     GlowEmergency,
     GlowDelam
 }
+
+// Imp start
+[Serializable, NetSerializable]
+public enum SupermatterEvent : byte
+{
+    None = 0,
+    Surging = 1,
+    Discharging = 2, // TODO: future supermatter event causing singularity delamination conditions
+}
+// Imp end
 
 [Serializable, NetSerializable]
 public enum SupermatterVisuals : byte
