@@ -223,45 +223,67 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                     InGameICChatType.Speak, true);
         }
         // imp edit start, rdnr
-        else if (TryComp<RandomUnrevivableComponent>(target, out var rdnr))
-        {
-            // TODO: Replace with RandomPredicted once the engine PR is merged
-            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
-            var rand = new System.Random(seed);
-
-            if (!rand.Prob(rdnr.Chance))
-            {
-                if (ent.Comp.ShowMessages)
-                    _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-unrevivable"), InGameICChatType.Speak, true);
-                var addDnr = EnsureComp<UnrevivableComponent>(target);
-                addDnr.Cloneable = true;
-                RemComp<RandomUnrevivableComponent>(target);
-            }
-            else
-            {
-                failedRevive = !TryRevive((target, targetMobState), user, ent.Comp);
-                rdnr.Chance -= 0.1f;
-                Dirty(target, rdnr);
-            }
-        }
         else
-            failedRevive = !TryRevive((target, targetMobState), user, ent.Comp);
-
-        // Imp Only show return-to-body / no-mind messaging when a revive actually succeeded.
-        if (!failedRevive)
         {
-            if (_mind.TryGetMind(target, out var mindUid, out var mindComp) &&
-                _player.TryGetSessionById(mindComp.UserId, out var playerSession))
+            if (_mobState.IsDead(target, targetMobState))
+                _damageable.TryChangeDamage(target, ent.Comp.ZapHeal, true, origin: user);
+
+            // Imp A successful defib requires post-zap damage to be below the target's dead threshold.
+            // This preserves species-specific revive limits (e.g. human/ungu use different crit thresholds).
+            if (TryComp<MobThresholdsComponent>(target, out var targetThresholds) &&
+                TryComp<DamageableComponent>(target, out var targetDamageable) &&
+                _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var deadThreshold, targetThresholds) &&
+                targetDamageable.TotalDamage < deadThreshold)
             {
-                // notify them they're being revived.
-                if (mindComp.CurrentEntity != target)
-                    OpenReturnToBodyEui((mindUid, mindComp), playerSession);
-            }
-            else
-            {
-                if (ent.Comp.ShowMessages) //imp add if
-                    _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-no-mind"),
-                        InGameICChatType.Speak, true);
+                if (TryComp<RandomUnrevivableComponent>(target, out var rdnr))
+                {
+                    // TODO: Replace with RandomPredicted once the engine PR is merged
+                    var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
+                    var rand = new System.Random(seed);
+
+                    if (!rand.Prob(rdnr.Chance))
+                    {
+                        if (ent.Comp.ShowMessages)
+                            _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-unrevivable"), InGameICChatType.Speak, true);
+                        var addDnr = EnsureComp<UnrevivableComponent>(target);
+                        addDnr.Cloneable = true;
+                        RemComp<RandomUnrevivableComponent>(target);
+                    }
+                    else
+                    {
+                        failedRevive = false;
+                        rdnr.Chance -= 0.1f;
+                        Dirty(target, rdnr);
+                    }
+                }
+                else
+                    failedRevive = false;
+
+                if (!failedRevive)
+                {
+                    // imp allowskipcrit start
+                    if (ent.Comp.AllowSkipCrit &&
+                        _mobThreshold.TryGetThresholdForState(target, MobState.Critical, out var critThreshold, targetThresholds) &&
+                        targetDamageable.TotalDamage < critThreshold)
+                        _mobState.ChangeMobState(target, MobState.Alive, targetMobState, user);
+                    else //imp end
+                        _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user);
+
+                    // Imp Only show return-to-body / no-mind messaging when a revive actually succeeded.
+                    if (_mind.TryGetMind(target, out var mindUid, out var mindComp) &&
+                        _player.TryGetSessionById(mindComp.UserId, out var playerSession))
+                    {
+                        // notify them they're being revived.
+                        if (mindComp.CurrentEntity != target)
+                            OpenReturnToBodyEui((mindUid, mindComp), playerSession);
+                    }
+                    else
+                    {
+                        if (ent.Comp.ShowMessages) //imp add if
+                            _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-no-mind"),
+                                InGameICChatType.Speak, true);
+                    }
+                }
             }
         }
         // imp edit end, rdnr
@@ -277,41 +299,6 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
 
         var ev = new TargetDefibrillatedEvent(user, (ent.Owner, ent.Comp));
         RaiseLocalEvent(target, ref ev);
-    }
-
-    /// <summary>
-    /// Imp.
-    /// Attempts to revive the target.
-    /// Upstream code segment that was made into its own method due to being needed for RDNR.
-    /// </summary>
-    private bool TryRevive(Entity<MobStateComponent> target, EntityUid user, DefibrillatorComponent defib)
-    {
-        if (_mobState.IsDead(target, target.Comp))
-            _damageable.TryChangeDamage(target.Owner, defib.ZapHeal, true, origin: user);
-
-        // Imp A successful defib requires post-zap damage to be below the target's dead threshold.
-        // This preserves species-specific revive limits (e.g. human/ungu use different crit thresholds).
-        if (TryComp<MobThresholdsComponent>(target, out var targetThresholds) &&
-            TryComp<DamageableComponent>(target, out var targetDamageable) &&
-            _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var deadThreshold, targetThresholds) &&
-            targetDamageable.TotalDamage < deadThreshold)
-        {
-            // imp allowskipcrit start
-            if (defib.AllowSkipCrit &&
-                _mobThreshold.TryGetThresholdForState(target, MobState.Critical, out var critThreshold, targetThresholds) &&
-                targetDamageable.TotalDamage < critThreshold)
-            {
-                _mobState.ChangeMobState(target, MobState.Alive, target.Comp, user);
-                return true;
-            }
-            else //imp end
-            {
-                _mobState.ChangeMobState(target, MobState.Critical, target.Comp, user);
-                return true; // Imp, return instead of setting a var
-            }
-        }
-
-        return false; // Imp, added return if failed to revive
     }
 
     // TODO: SharedEuiManager so that we can just directly open the eui from shared.
