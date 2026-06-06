@@ -222,7 +222,6 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                 _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString(unrevivable.ReasonMessage),
                     InGameICChatType.Speak, true);
         }
-        // imp edit start, rdnr
         else
         {
             if (_mobState.IsDead(target, targetMobState))
@@ -235,6 +234,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                 _mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var deadThreshold, targetThresholds) &&
                 targetDamageable.TotalDamage < deadThreshold)
             {
+                // imp edit start, rdnr
                 if (TryComp<RandomUnrevivableComponent>(target, out var rdnr))
                 {
                     // TODO: Replace with RandomPredicted once the engine PR is merged
@@ -257,19 +257,25 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                     }
                 }
                 else
+                // imp edit end, rdnr
+                {
+                    /* Imp, move mobstate logic to be handled elsewhere
+                    _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user);
+                    */
                     failedRevive = false;
+                }
 
-                if (!failedRevive)
+                if (!failedRevive) // imp edit, move handling of after revival logic into a if statement, as RDNR could roll
                 {
                     // imp allowskipcrit start
                     if (ent.Comp.AllowSkipCrit &&
                         _mobThreshold.TryGetThresholdForState(target, MobState.Critical, out var critThreshold, targetThresholds) &&
                         targetDamageable.TotalDamage < critThreshold)
                         _mobState.ChangeMobState(target, MobState.Alive, targetMobState, user);
-                    else //imp end
+                    else
                         _mobState.ChangeMobState(target, MobState.Critical, targetMobState, user);
+                    // imp end
 
-                    // Imp Only show return-to-body / no-mind messaging when a revive actually succeeded.
                     if (_mind.TryGetMind(target, out var mindUid, out var mindComp) &&
                         _player.TryGetSessionById(mindComp.UserId, out var playerSession))
                     {
@@ -286,7 +292,6 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                 }
             }
         }
-        // imp edit end, rdnr
 
         var sound = failedRevive
             ? ent.Comp.FailureSound
