@@ -239,13 +239,13 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
             }
             else
             {
-                failedRevive = AttemptRevive((target, targetMobState), user, ent.Comp);
+                failedRevive = !TryRevive((target, targetMobState), user, ent.Comp);
                 rdnr.Chance -= 0.1f;
                 Dirty(target, rdnr);
             }
         }
         else
-            failedRevive = AttemptRevive((target, targetMobState), user, ent.Comp);
+            failedRevive = !TryRevive((target, targetMobState), user, ent.Comp);
 
         // Imp Only show return-to-body / no-mind messaging when a revive actually succeeded.
         if (!failedRevive)
@@ -284,7 +284,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
     /// Attempts to revive the target.
     /// Upstream code segment that was made into its own method due to being needed for RDNR.
     /// </summary>
-    private bool AttemptRevive(Entity<MobStateComponent> target, EntityUid user, DefibrillatorComponent defib)
+    private bool TryRevive(Entity<MobStateComponent> target, EntityUid user, DefibrillatorComponent defib)
     {
         if (_mobState.IsDead(target, target.Comp))
             _damageable.TryChangeDamage(target.Owner, defib.ZapHeal, true, origin: user);
@@ -302,16 +302,16 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                 targetDamageable.TotalDamage < critThreshold)
             {
                 _mobState.ChangeMobState(target, MobState.Alive, target.Comp, user);
-                return false;
+                return true;
             }
             else //imp end
             {
                 _mobState.ChangeMobState(target, MobState.Critical, target.Comp, user);
-                return false; // Imp, return instead of setting a var
+                return true; // Imp, return instead of setting a var
             }
         }
 
-        return true; // Imp, return true if failed to revive
+        return false; // Imp, added return if failed to revive
     }
 
     // TODO: SharedEuiManager so that we can just directly open the eui from shared.
