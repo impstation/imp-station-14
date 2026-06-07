@@ -143,3 +143,55 @@
       amount: 3
   products:
     VanillaSyrup: 5
+
+# frostings
+
+- type: reaction
+  id: VanillaFrosting
+  requiredMixerCategories:
+  - Whisk
+  reactants:
+    VanillaExtract:
+      amount: 2
+    Sugar:
+      amount: 5
+    Milk:
+      amount: 5
+  products:
+    BlackFoodColoring: 5 #placeholder
+
+- type: reaction
+  id: SpacemansFrosting
+  requiredMixerCategories:
+  - Whisk
+  reactants:
+    PolypyryliumOligomers:
+      amount: 10
+    Sugar:
+      amount: 5
+    Milk:
+      amount: 5
+  products:
+    BlackFoodColoring: 5 #placeholder
+
+- type: reaction
+  id: CreateCakeBatterChocolate
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  requiredMixerCategories:
+  - Whisk
+  reactants:
+    Flour:
+      amount: 15
+    Egg:
+      amount: 12
+    Sugar:
+      amount: 5
+    Milk:
+      amount: 5
+    CocoaPowder:
+      amount: 5
+  effects:
+  - !type:SpawnEntity
+    entity: FoodCakeBatterChocolate

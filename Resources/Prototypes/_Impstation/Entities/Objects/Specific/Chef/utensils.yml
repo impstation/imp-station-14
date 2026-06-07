@@ -27,8 +27,8 @@
   description: A whisk for beating ingredients into submission.
   components:
     - type: Sprite
-      sprite: _Impstation/Objects/Specific/Chef/measuring_cup_large.rsi
-      state: measuringcuplarge
+      sprite: _Impstation/Objects/Specific/Chef/whisk.rsi
+      state: icon
     - type: Item
     - type: MeleeWeapon
       wideAnimationRotation: 180
@@ -38,7 +38,7 @@
           Blunt: 2
     - type: ReactionMixer
       mixMessage: "default-mixing-success"
-      timeToMix: 0.5
+      timeToMix: 5
       reactionTypes:
         - Whisk
     - type: Tag

@@ -93,6 +93,8 @@
   impact: Low
   quantized: true
   conserveEnergy: false
+  requiredMixerCategories: #Imp
+  - Whisk
   reactants:
     Flour:
       amount: 15
@@ -102,6 +104,8 @@
       amount: 5
     Milk:
       amount: 5
+    VanillaExtract: #Imp
+      amount: 1
   effects:
     - !type:SpawnEntity
       entity: FoodCakeBatter

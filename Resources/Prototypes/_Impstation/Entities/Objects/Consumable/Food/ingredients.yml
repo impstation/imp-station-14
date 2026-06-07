@@ -140,3 +140,19 @@
   - type: FoodSequenceElement
     entries:
       CottonBurger: StringCheese
+
+- type: entity
+  parent: FoodBakingBase
+  id: FoodCakeBatterChocolate
+  name: chocolate cake batter
+  description: Cook it to get a chocolate cake.
+  components:
+  - type: Item
+    size: Normal
+  - type: FlavorProfile
+    flavors:
+    - sweetdough
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
+    state: alphacakebatter
+    color: "#ba672e"

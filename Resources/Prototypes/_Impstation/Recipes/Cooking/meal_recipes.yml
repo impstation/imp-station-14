@@ -681,3 +681,12 @@
      FoodTomato: 3
   recipeType: Oven
 
+- type: microwaveMealRecipe
+  id: RecipeCakeChocolate
+  name: chocolate cake recipe
+  result: FoodCakeChocolate
+  time: 15
+  group: Cake
+  solids:
+    FoodCakeBatterChocolate: 1
+  recipeType: Oven # Frontier
