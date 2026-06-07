@@ -149,7 +149,7 @@
 - type: reaction
   id: VanillaFrosting
   requiredMixerCategories:
-  - Whisk
+  - Stir
   reactants:
     VanillaExtract:
       amount: 2
@@ -163,7 +163,7 @@
 - type: reaction
   id: SpacemansFrosting
   requiredMixerCategories:
-  - Whisk
+  - Stir
   reactants:
     PolypyryliumOligomers:
       amount: 10
@@ -180,7 +180,7 @@
   quantized: true
   conserveEnergy: false
   requiredMixerCategories:
-  - Whisk
+  - Stir
   reactants:
     Flour:
       amount: 15
