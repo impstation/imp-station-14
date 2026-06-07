@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 06/05/2026 12:52:20
-  entityCount: 21337
+  time: 06/07/2026 03:48:30
+  entityCount: 21341
 maps:
 - 1
 grids:
@@ -7521,7 +7521,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: BecomesStation
-      id: WhaleFall
+      id: Whalefall
     - type: ImplicitRoof
     - type: ExplosionAirtightGrid
   - uid: 5
@@ -10274,7 +10274,7 @@ entities:
       pos: 3.5,9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -294276.5
+      secondsUntilStateChange: -294479.94
       state: Opening
   - uid: 336
     components:
@@ -37924,11 +37924,6 @@ entities:
     - type: Transform
       pos: 29.5,90.5
       parent: 2
-  - uid: 5448
-    components:
-    - type: Transform
-      pos: 28.5,90.5
-      parent: 2
   - uid: 5449
     components:
     - type: Transform
@@ -38284,11 +38279,6 @@ entities:
     - type: Transform
       pos: 33.5,103.5
       parent: 2
-  - uid: 5520
-    components:
-    - type: Transform
-      pos: 34.5,103.5
-      parent: 2
   - uid: 5521
     components:
     - type: Transform
@@ -38430,11 +38420,6 @@ entities:
     components:
     - type: Transform
       pos: 47.5,-31.5
-      parent: 2
-  - uid: 5549
-    components:
-    - type: Transform
-      pos: 44.5,14.5
       parent: 2
   - uid: 5550
     components:
@@ -44795,6 +44780,21 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 2.5,95.5
+      parent: 2
+  - uid: 8366
+    components:
+    - type: Transform
+      pos: 6.5,13.5
+      parent: 2
+  - uid: 8488
+    components:
+    - type: Transform
+      pos: 7.5,13.5
+      parent: 2
+  - uid: 21338
+    components:
+    - type: Transform
+      pos: 8.5,13.5
       parent: 2
 - proto: CarpetSBlue
   entities:
@@ -53525,23 +53525,6 @@ entities:
     - type: Transform
       pos: 28.523245,26.967932
       parent: 2
-- proto: ClothingBeltUtilityEngineering
-  entities:
-  - uid: 8359
-    components:
-    - type: Transform
-      pos: 34.603443,-44.14586
-      parent: 2
-  - uid: 8360
-    components:
-    - type: Transform
-      pos: 34.63758,-44.161037
-      parent: 2
-  - uid: 8361
-    components:
-    - type: Transform
-      pos: 34.653206,-44.09725
-      parent: 2
 - proto: ClothingBeltUtilityFilled
   entities:
   - uid: 3
@@ -53597,21 +53580,6 @@ entities:
     components:
     - type: Transform
       pos: 25.397257,-30.15939
-      parent: 2
-  - uid: 8364
-    components:
-    - type: Transform
-      pos: 11.544817,-45.24648
-      parent: 2
-  - uid: 8365
-    components:
-    - type: Transform
-      pos: 11.544817,-45.37148
-      parent: 2
-  - uid: 8366
-    components:
-    - type: Transform
-      pos: 11.560442,-45.574604
       parent: 2
 - proto: ClothingEyesGlassesCheapSunglasses
   entities:
@@ -54136,7 +54104,7 @@ entities:
   - uid: 8489
     components:
     - type: Transform
-      parent: 8488
+      parent: 8360
     - type: Physics
       canCollide: False
   - uid: 8496
@@ -54620,7 +54588,7 @@ entities:
   - uid: 8490
     components:
     - type: Transform
-      parent: 8488
+      parent: 8360
     - type: Physics
       canCollide: False
 - proto: ClothingOuterGhostSheet
@@ -54978,7 +54946,7 @@ entities:
   - uid: 8491
     components:
     - type: Transform
-      parent: 8488
+      parent: 8360
     - type: Physics
       canCollide: False
 - proto: ClothingShoesFlippers
@@ -55137,7 +55105,7 @@ entities:
   - uid: 8492
     components:
     - type: Transform
-      parent: 8488
+      parent: 8360
     - type: Physics
       canCollide: False
 - proto: ClothingUniformJumpskirtBlueElegantDress
@@ -55350,7 +55318,7 @@ entities:
   - uid: 8493
     components:
     - type: Transform
-      parent: 8488
+      parent: 8360
     - type: Physics
       canCollide: False
   - uid: 8510
@@ -55509,7 +55477,7 @@ entities:
   - uid: 8494
     components:
     - type: Transform
-      parent: 8488
+      parent: 8360
     - type: Physics
       canCollide: False
 - proto: ClothingUniformJumpsuitDetectiveGrey
@@ -55589,7 +55557,7 @@ entities:
   - uid: 8495
     components:
     - type: Transform
-      parent: 8488
+      parent: 8360
     - type: Physics
       canCollide: False
 - proto: ClothingUniformJumpsuitNanotrasen
@@ -57424,7 +57392,7 @@ entities:
       pos: 17.5,110.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -52724.777
+      secondsUntilStateChange: -52928.207
       state: Closing
   - uid: 8899
     components:
@@ -65163,6 +65131,47 @@ entities:
           - 1365
           - 1364
           - 1363
+  - uid: 8360
+    components:
+    - type: Transform
+      pos: 61.5,62.5
+      parent: 2
+    - type: Storage
+      storedItems:
+        8494:
+          position: 0,0
+          _rotation: South
+        8493:
+          position: 2,0
+          _rotation: South
+        8490:
+          position: 4,0
+          _rotation: South
+        8489:
+          position: 6,0
+          _rotation: South
+        8495:
+          position: 0,2
+          _rotation: South
+        8492:
+          position: 2,2
+          _rotation: South
+        8491:
+          position: 4,2
+          _rotation: South
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents:
+          - 8494
+          - 8493
+          - 8490
+          - 8489
+          - 8495
+          - 8492
+          - 8491
   - uid: 8399
     components:
     - type: Transform
@@ -65643,47 +65652,6 @@ entities:
       parent: 2
 - proto: DresserFilled
   entities:
-  - uid: 8488
-    components:
-    - type: Transform
-      pos: 61.5,62.5
-      parent: 2
-    - type: Storage
-      storedItems:
-        8492:
-          position: 0,0
-          _rotation: South
-        8493:
-          position: 2,0
-          _rotation: South
-        8494:
-          position: 4,0
-          _rotation: South
-        8495:
-          position: 0,2
-          _rotation: South
-        8490:
-          position: 2,2
-          _rotation: South
-        8491:
-          position: 4,2
-          _rotation: South
-        8489:
-          position: 6,0
-          _rotation: North
-    - type: ContainerContainer
-      containers:
-        storagebase: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 8492
-          - 8493
-          - 8494
-          - 8495
-          - 8490
-          - 8491
-          - 8489
   - uid: 10191
     components:
     - type: Transform
@@ -65801,7 +65769,7 @@ entities:
     - type: Openable
       opened: True
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.49554107
+      sprayFizzinessThresholdRoll: 0.80141276
     - type: Tag
       tags:
       - DrinkCan
@@ -65860,7 +65828,7 @@ entities:
     - type: Openable
       opened: True
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.3797758
+      sprayFizzinessThresholdRoll: 0.15416792
     - type: Tag
       tags:
       - DrinkCan
@@ -66009,7 +65977,7 @@ entities:
     - type: Openable
       opened: True
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.7321854
+      sprayFizzinessThresholdRoll: 0.18116857
     - type: Tag
       tags:
       - DrinkCan
@@ -66112,7 +66080,7 @@ entities:
     - type: Openable
       opened: True
     - type: PressurizedSolution
-      sprayFizzinessThresholdRoll: 0.5738577
+      sprayFizzinessThresholdRoll: 0.544366
     - type: Tag
       tags:
       - DrinkCan
@@ -67043,6 +67011,16 @@ entities:
     - type: Transform
       pos: 58.00029,-28.670013
       parent: 2
+  - uid: 21339
+    components:
+    - type: Transform
+      pos: 6.2862844,13.816025
+      parent: 2
+  - uid: 21340
+    components:
+    - type: Transform
+      pos: 6.601285,13.68116
+      parent: 2
 - proto: FireBombEmpty
   entities:
   - uid: 10389
@@ -67050,6 +67028,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 57.31279,-28.795013
+      parent: 2
+  - uid: 21341
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 8.5812845,13.786055
       parent: 2
 - proto: FireExtinguisher
   entities:
@@ -67525,7 +67509,7 @@ entities:
       pos: 15.5,-26.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -687777
+      secondsUntilStateChange: -687980.44
       state: Closing
     - type: DeviceNetwork
       deviceLists:
@@ -97280,6 +97264,11 @@ entities:
       parent: 2
 - proto: OreBag
   entities:
+  - uid: 8359
+    components:
+    - type: Transform
+      pos: 11.597143,-45.39856
+      parent: 2
   - uid: 14170
     components:
     - type: Transform
@@ -98228,7 +98217,7 @@ entities:
         stampedColor: '#006600FF'
         stampedName: stamp-component-stamped-name-centcom
       content: >
-        test rules ?? (feel free to play w these) 
+        test rules ?? (feel free to play w these)
 
 
         - players put money into a pool split between the winners before match start
@@ -98473,7 +98462,7 @@ entities:
         prize rows cost
 
 
-        1: 50,000 
+        1: 50,000
 
         2: 150,000
 
@@ -98952,7 +98941,7 @@ entities:
       pos: 61.5,91.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -115469.09
+      secondsUntilStateChange: -115672.52
       state: Opening
   - uid: 14414
     components:
@@ -118008,6 +117997,13 @@ entities:
     - type: Transform
       pos: 36.5,15.5
       parent: 2
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 8361
+    components:
+    - type: Transform
+      pos: 4.5,-0.5
+      parent: 2
 - proto: SpawnPointLawyer
   entities:
   - uid: 17302
@@ -118083,6 +118079,18 @@ entities:
     components:
     - type: Transform
       pos: 62.5,57.5
+      parent: 2
+- proto: SpawnPointPassenger
+  entities:
+  - uid: 8364
+    components:
+    - type: Transform
+      pos: 3.5,-1.5
+      parent: 2
+  - uid: 8365
+    components:
+    - type: Transform
+      pos: 3.5,0.5
       parent: 2
 - proto: SpawnPointPsychologist
   entities:
@@ -140354,7 +140362,7 @@ entities:
       pos: 19.5,1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -477408.3
+      secondsUntilStateChange: -477611.75
       state: Opening
   - uid: 21154
     components:
