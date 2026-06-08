@@ -10,7 +10,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._Impstation.StatusEffectNew;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BiomagneticPolarizationStatusEffectComponent : Component
 {
     /// <summary>
@@ -52,8 +52,6 @@ public sealed partial class BiomagneticPolarizationStatusEffectComponent : Compo
     /// </summary>
     [DataField, AutoNetworkedField]
     public float CurrentStrength = 10f;
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public float LastStrength;
     /// <summary>
     /// Cap above which strength values are clamped.
     /// </summary>

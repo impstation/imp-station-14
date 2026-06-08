@@ -8,7 +8,6 @@ using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
-using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 
@@ -27,35 +26,40 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BiomagneticPolarizationStatusEffectComponent, ComponentHandleState>(OnHandleState);
         SubscribeLocalEvent<BiomagneticPolarizationStatusEffectComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<BiomagneticPolarizationStatusEffectComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<BiomagneticPolarizationStatusEffectComponent, ComponentShutdown>(OnShutdown);
     }
 
-    private void OnHandleState(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref ComponentHandleState args)
+    public override void Update(float frameTime)
     {
-        AdjustSign((ent, ent.Comp));
-
-        // skip all the sprite shit if capped status hasn't changed since last frame, so we're only doing it once.
-        if (ent.Comp.Capped == ent.Comp.LastCapped)
-            return;
-
-        var ambientComp = EnsureComp<AmbientSoundComponent>(ent);
-
-        if (ent.Comp.Capped)
+        var query = EntityQueryEnumerator<BiomagneticPolarizationStatusEffectComponent>();
+        while (query.MoveNext(out var ent, out var comp))
         {
-            SetCappedSprite(ent, true);
-            _ambientSound.SetAmbience(ent, true, ambientComp);
+            AdjustSign((ent, comp));
+
+            // skip all the sprite shit if capped status hasn't changed since last frame, so we're only doing it once.
+            if (comp.Capped == comp.LastCapped)
+                continue;
+
+            var ambientComp = EnsureComp<AmbientSoundComponent>(ent);
+
+            if (comp.Capped)
+            {
+                SetCappedSprite((ent, comp), true);
+                _ambientSound.SetAmbience(ent, true, ambientComp);
+            }
+            else
+            {
+                SetCappedSprite((ent, comp), false);
+                _ambientSound.SetAmbience(ent, false, ambientComp);
+            }
         }
-        else
-        {
-            SetCappedSprite(ent, false);
-            _ambientSound.SetAmbience(ent, false, ambientComp);
-        }
+
+        base.Update(frameTime);
     }
 
-    private void OnInit(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref ComponentInit args)
+    public void OnInit(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref ComponentInit args)
     {
         if (!TryComp<StatusEffectComponent>(ent, out var statusEffect))
             return;
@@ -68,7 +72,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         ent.Comp.StatusOwner = entPhys;
     }
 
-    private void OnShutdown(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref ComponentShutdown args)
+    public void OnShutdown(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref ComponentShutdown args)
     {
         SetCappedSprite(ent, false);
         RemoveSign(ent);
@@ -141,7 +145,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         _sprite.RemoveLayer((ent, sprite), layer);
     }
 
-    private void SetCappedSprite(Entity<BiomagneticPolarizationStatusEffectComponent> ent, bool setting)
+    public void SetCappedSprite(Entity<BiomagneticPolarizationStatusEffectComponent> ent, bool setting)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
