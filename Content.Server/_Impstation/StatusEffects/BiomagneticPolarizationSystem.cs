@@ -112,6 +112,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
                 _expiredEffectEnts.Add(statusOwner);
                 continue;
             }
+            DirtyField(ent, comp, nameof(comp.CurrentStrength));
 
             var ambientComp = EnsureComp<AmbientSoundComponent>(ent);
 
@@ -120,17 +121,19 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
             if (!comp.Capped && comp.CurrentStrength >= capRangeMin)
             {
                 comp.Capped = true;
+                DirtyField(ent, comp, nameof(comp.Capped));
+                DirtyField(ent, comp, nameof(comp.LastCapped));
 
                 _ambientSound.SetAmbience(ent, true, ambientComp);
             }
             else if (comp.Capped && comp.CurrentStrength < capRangeMin)
             {
                 comp.Capped = false;
+                DirtyField(ent, comp, nameof(comp.Capped));
+                DirtyField(ent, comp, nameof(comp.LastCapped));
 
                 _ambientSound.SetAmbience(ent, false, ambientComp);
             }
-
-            Dirty(ent, comp);
 
             // set the light proportional to the strength
             var lightStrength = 25f + (float)Math.Log(1f + comp.CurrentStrength) * comp.StrLightMult;
@@ -167,7 +170,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
             return;
 
         comp.StatusOwner = (args.Target, physComp);
-        Dirty(ent, ent.Comp);
+        DirtyField(ent, comp, nameof(comp.Polarization));
     }
 
     private void OnDamageModified(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref StatusEffectRelayedEvent<DamageModifyEvent> args)
