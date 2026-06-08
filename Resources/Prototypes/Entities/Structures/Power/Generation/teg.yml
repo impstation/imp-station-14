@@ -190,8 +190,23 @@
 
     # IMP ADD START
     - type: WiresPanel
+    # - type: WiresVisuals # TODO: Implement open circulator sprite
     - type: GasPassiveVent
       inlet: "inlet"
+    - type: SolutionContainerManager
+      solutions:
+        lube:
+          maxVol: 250
+    # - type: Spillable
+    #   solution: lube
+    - type: RefillableSolution
+      solution: lube
+      refillTime: 2
+      maxRefill: 10
+    - type: ExaminableSolution
+      solution: lube
+    - type: DrawableSolution
+      solution: lube
 
 - # Spawned by the client-side circulator examine code to indicate the inlet/outlet direction.
   type: entity

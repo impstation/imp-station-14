@@ -150,7 +150,7 @@ public sealed partial class TegSystem : EntitySystem
         var (inletB, outletB) = GetPipes(circB);
 
         // IMP ADD: Process gas spilling out instead of power generation if either circulator is open
-        if (CirculatorOpen(circA, ref args) || CirculatorOpen(circB, ref args))
+        if (UpdateOpenCirculator(circA, ref args) || UpdateOpenCirculator(circB, ref args))
             return;
         //Maybe need to UpdateAppearance?
 
