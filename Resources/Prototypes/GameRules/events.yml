@@ -66,6 +66,7 @@
     - id: OppaSpawnLight #imp
     - id: OppaSpawnNight #imp
     - id: SyndicateInfiltratorSpawn # imp
+    - id: SyndicateInstigatorSpawn # imp
     - !type:NestedSelector # imp
       tableId: TouristShuttleEvents
 
@@ -259,7 +260,7 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 6
+    weight: 3 #imp
     duration: null
     earliestStart: 30
     reoccurrenceDelay: 20
