@@ -102,7 +102,7 @@ public sealed partial class KeyRingSystem : EntitySystem
     {
         if (!_timing.IsFirstTimePredicted)
             return;
-        if (args.Target == null||args.Cancelled)//if the target somehow dissapears or the action was cancelled then return
+        if (args.Target == null || args.Cancelled)//if the target somehow dissapears or the action was cancelled then return
         {
             _audio.Stop(ent.Comp.KeyringAudioStream);
             return;
@@ -134,7 +134,7 @@ public sealed partial class KeyRingSystem : EntitySystem
 
         ent.Comp.UseDelay = TimeSpan.FromSeconds(_random.NextDouble(ent.Comp.MinUseTime,ent.Comp.MaxUseTime));
         _audio.Stop(ent.Comp.KeyringAudioStream);
-        _audio.PlayPredicted(ent.Comp.SuccessAudio,ent,args.User);
+        _audio.PlayPredicted(ent.Comp.SuccessAudio, args.Target.Value, args.User);
         Dirty(ent);
     }
 
@@ -142,7 +142,7 @@ public sealed partial class KeyRingSystem : EntitySystem
     {
         if (!_timing.IsFirstTimePredicted)
             return;
-        if (args.Target == null||args.Cancelled)//if the target somehow dissapears or the action was cancelled then return
+        if (args.Target == null || args.Cancelled)//if the target somehow dissapears or the action was cancelled then return
         {
             _audio.Stop(ent.Comp.KeyringAudioStream);
             return;
@@ -165,7 +165,7 @@ public sealed partial class KeyRingSystem : EntitySystem
                             LogImpact.Medium,
                             $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} locked: {lockComponent.Locked}");
         _audio.Stop(ent.Comp.KeyringAudioStream);
-        _audio.PlayPredicted(ent.Comp.SuccessAudio,ent,args.User);
+        _audio.PlayPredicted(ent.Comp.SuccessAudio, args.Target.Value, args.User);
         ent.Comp.UseDelay = TimeSpan.FromSeconds(_random.NextDouble(ent.Comp.MinUseTime,ent.Comp.MaxUseTime));
         Dirty(ent);
     }
