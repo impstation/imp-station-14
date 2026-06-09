@@ -1,4 +1,5 @@
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
+using Content.Server.Power.Generation.Teg;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Binary.Components;
 using Content.Shared.Guidebook;
@@ -6,10 +7,11 @@ using Content.Shared.Guidebook;
 namespace Content.Server.Atmos.Piping.Unary.Components
 {
     [RegisterComponent]
-    [Access(typeof(GasOutletInjectorSystem))]
+    [Access(typeof(GasOutletInjectorSystem), typeof(TegSystem))] // IMP ADD: access to TegSystem
     public sealed partial class GasOutletInjectorComponent : Component
     {
 
+        [DataField] // IMP ADD: make accessible in YAML
         [ViewVariables(VVAccess.ReadWrite)]
         public bool Enabled = true;
 
