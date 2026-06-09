@@ -475,7 +475,7 @@ marking-HumanHairJed = Pleasant
 
 marking-HumanHairJedPonytail = Pleasant (Tied)
 
-marking-HumanHairWaves = Waves
+marking-HumanHairWaterfall = Waterfall
 
 # HeadSide
 
