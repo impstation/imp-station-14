@@ -200,6 +200,12 @@
       solutions:
         lube:
           maxVol: 250
+    - type: ReagentEfficiency
+      solution: lube
+      modifiers:
+        SpaceLube: 1.2
+        SpaceGlue: 0.01
+        WeldingFuel: 0.8
     # The following components are added in-code in TegSystem.Lubrication
     # - type: RefillableSolution
     #   solution: lube
