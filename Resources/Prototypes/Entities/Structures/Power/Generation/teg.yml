@@ -201,8 +201,6 @@
         lube:
           maxVol: 250
     # The following components are added in-code in TegSystem.Lubrication
-    # - type: Spillable
-    #   solution: lube
     # - type: RefillableSolution
     #   solution: lube
     #   refillTime: 2
