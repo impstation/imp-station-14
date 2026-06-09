@@ -7,7 +7,8 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
+    - state: centcom
+      sprite: &imp-card-rsi _Impstation/Objects/Misc/id_cards.rsi #imp
     - state: stripe_top
       color: &color-centcomm-top "#00a85b" #imp edit, greened
     - state: stripe_bottom
@@ -19,6 +20,8 @@
     job: ERPLeader
   - type: Item
     heldPrefix: gold
+  - type: NanoChatCard # DeltaV
+    listNumber: false
 
 - type: entity
   parent: IDCardStandard
@@ -28,11 +31,12 @@
   components:
   - type: Sprite
     layers:
-    - state: gold
+    - state: centcom
+      sprite: *imp-card-rsi
     - state: stripe_top
-      color: *color-centcomm-top
+      color: *color-centcomm-top #imp edit, greened
     - state: stripe_bottom
-      color: *color-centcomm-bottom
+      color: *color-centcomm-bottom #imp edit, greened
     - sprite: *icon-rsi
       offset: *icon-offset
       state: Clown
@@ -40,3 +44,5 @@
     job: ERPClown
   - type: Item
     heldPrefix: gold
+  - type: NanoChatCard # DeltaV
+    listNumber: false
