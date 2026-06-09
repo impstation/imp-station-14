@@ -45,8 +45,64 @@
     - type: Tag
       tags:
         - Metal
-    # imp edits #
+        - ChefBeltItem
     - type: DamageOtherOnHit
     - type: ThrowingAngle
       angle: 180
-  # end imp edits #
+
+- type: entity
+  name: tiny measuring spoon
+  parent: DrinkBase
+  description: Used to contain a tiny amount of ingredients.
+  id: TinyMeasuringSpoon
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Chef/measuring_spoon_red.rsi
+      layers:
+      - state: red
+      - state: red1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+    - type: Item
+      size: Tiny
+      sprite: _Impstation/Objects/Specific/Chef/measuring_spoon_red.rsi
+    - type: SolutionContainerVisuals
+      maxFillLevels: 1
+      fillBaseName: red
+    - type: Edible
+      edible: Drink
+      solution: beaker
+      destroyOnEmpty: false
+      utensil: None
+    - type: Appearance
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 1
+    - type: Tag
+      tags:
+      - ChefBeltItem
+
+- type: entity
+  name: small measuring spoon
+  parent: TinyMeasuringSpoon
+  description: Used to contain a small amount of ingredients.
+  id: SmallMeasuringSpoon
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chef/measuring_spoon_blue.rsi
+    layers:
+    - state: blue
+    - state: blue1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    size: Tiny
+    sprite: _Impstation/Objects/Specific/Chef/measuring_spoon_blue.rsi
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: blue
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 3
