@@ -86,8 +86,6 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
                 continue;
             }
 
-            comp.LastCapped = comp.Capped;
-
             if (comp.CooldownEnd > curTime || comp.StatusOwner is not { } physTuple)
                 continue;
 
@@ -250,7 +248,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         {
             var staticProviderOnTile = false;
             entities.Clear();
-            entities = _lookup.GetEntitiesInTile(tile, LookupFlags.Dynamic | LookupFlags.Static | LookupFlags.Sundries);
+            entities = _lookup.GetEntitiesInTile(tile, LookupFlags.Uncontained);
             foreach (var entOnTile in entities)
             {
                 if (_whitelist.IsWhitelistPass(ent.Comp.StaticElectricityProviders, entOnTile))

@@ -21,42 +21,35 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
     private const string SpriteRSIPath = "/Textures/Effects/text.rsi";
     private const int PixelWidthUntilSprite = 1; // Pixel difference from the right of the png to the actual sprite
     private const int PixelHeightUntilSprite = 1; // Pixel difference from the top of the png to the actual sprite
+    private const float WidthUntilSprite = 1f / EyeManager.PixelsPerMeter * PixelWidthUntilSprite;
+    private const float HeightUntilSprite = 1f / EyeManager.PixelsPerMeter * PixelHeightUntilSprite;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BiomagneticPolarizationStatusEffectComponent, AfterAutoHandleStateEvent>(OnHandleState);
         SubscribeLocalEvent<BiomagneticPolarizationStatusEffectComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<BiomagneticPolarizationStatusEffectComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<BiomagneticPolarizationStatusEffectComponent, ComponentShutdown>(OnShutdown);
     }
 
-    public override void Update(float frameTime)
+    private void OnHandleState(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        var query = EntityQueryEnumerator<BiomagneticPolarizationStatusEffectComponent>();
-        while (query.MoveNext(out var ent, out var comp))
+        AdjustSign(ent);
+
+        var ambientComp = EnsureComp<AmbientSoundComponent>(ent);
+
+        if (ent.Comp.Capped)
         {
-            AdjustSign((ent, comp));
-
-            // skip all the sprite shit if capped status hasn't changed since last frame, so we're only doing it once.
-            if (comp.Capped == comp.LastCapped)
-                continue;
-
-            var ambientComp = EnsureComp<AmbientSoundComponent>(ent);
-
-            if (comp.Capped)
-            {
-                SetCappedSprite((ent, comp), true);
-                _ambientSound.SetAmbience(ent, true, ambientComp);
-            }
-            else
-            {
-                SetCappedSprite((ent, comp), false);
-                _ambientSound.SetAmbience(ent, false, ambientComp);
-            }
+            SetCappedSprite(ent, true);
+            _ambientSound.SetAmbience(ent, true, ambientComp);
         }
-
-        base.Update(frameTime);
+        else
+        {
+            SetCappedSprite(ent, false);
+            _ambientSound.SetAmbience(ent, false, ambientComp);
+        }
     }
 
     public void OnInit(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref ComponentInit args)
@@ -117,19 +110,18 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         else
             _sprite.LayerSetVisible(layer, true);
 
-        var scale = 8f + MathF.Log(1f + ent.Comp.CurrentStrength);
+        var logStrength = MathF.Log(1f + ent.Comp.CurrentStrength);
+        var scale = 8f + logStrength;
         var scaling = new Vector2(scale, scale);
 
         _sprite.LayerSetScale(layer, scaling);
 
-        var widthUntilSprite = 1f / EyeManager.PixelsPerMeter * PixelWidthUntilSprite;
-        var heightUntilSprite = 1f / EyeManager.PixelsPerMeter * PixelHeightUntilSprite;
-        var offset = new Vector2(scaling.X * widthUntilSprite / 2f, -(scaling.Y * heightUntilSprite / 2f));
+        var offset = new Vector2(scaling.X * WidthUntilSprite / 2f, -(scaling.Y * HeightUntilSprite / 2f));
 
         _sprite.LayerSetOffset(layer, offset);
 
         var color = ent.Comp.Polarization ? ent.Comp.NorthColor : ent.Comp.SouthColor;
-        var transparency = (float)Math.Min(0.15f + Math.Log(1 + ent.Comp.CurrentStrength) / 7.5f, 0.6f);
+        var transparency = (float)Math.Min(0.15f + logStrength / 7.5f, 0.6f);
 
         _sprite.LayerSetColor(layer, color.WithAlpha(transparency));
     }
