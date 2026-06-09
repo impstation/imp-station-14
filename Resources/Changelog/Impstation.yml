@@ -1,41 +1,4 @@
 ﻿Entries:
-- author: soup4food
-  changes:
-  - message: All syndicate duffle bag bundles can now have their name and description
-      obscured by using soap on them, much like implanters.,
-    type: Tweak
-  id: 2357
-  time: '2025-10-26T03:04:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3568
-- author: starlighthowls
-  changes:
-  - message: Migrating Electric sheep have been drawn in by the stations power.
-    type: Add
-  id: 2358
-  time: '2025-10-26T03:15:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3595
-- author: starlighthowls
-  changes:
-  - message: Those Eeep were rabid sorry here's some normal ones.
-    type: Tweak
-  id: 2359
-  time: '2025-10-26T06:30:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3620
-- author: 12rabbits
-  changes:
-  - message: Fixed the ready manifest displaying jobs as having negative players readied,
-      and other inaccuracies.
-    type: Fix
-  id: 2360
-  time: '2025-10-26T08:09:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3623
-- author: mqole
-  changes:
-  - message: Banished ghost hair.
-    type: Fix
-  id: 2361
-  time: '2025-10-27T05:54:44.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3627
 - author: kipdotnet
   changes:
   - message: Banana has been un-reverted.
@@ -4092,3 +4055,44 @@
   id: 2856
   time: '2026-06-07T10:27:23.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4453
+- author: ComedyIdiot
+  changes:
+  - message: the conspiracy to keep rounds from starting has been dismantled
+    type: Fix
+  id: 2857
+  time: '2026-06-08T09:15:26.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4454
+- author: mqole
+  changes:
+  - message: Added a new rule to the Security & Command rules.
+    type: Add
+  - message: Modified RP rules 4 and 5 to clarify some intent about how crew members
+      can choose to engage with antagonists. A little selfsec is okay UNDER CERTAIN
+      CONDITIONS!!!!!!
+    type: Tweak
+  id: 2858
+  time: '2026-06-08T23:06:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4015
+- author: sev7ves
+  changes:
+  - message: The accessibility issue notifier has been redone. You gotta write yours
+      again in the new menu! it can be found in the escape menu or the menu bar in
+      game!
+    type: Tweak
+  id: 2859
+  time: '2026-06-08T23:09:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4023
+- author: jkwookee
+  changes:
+  - message: Resonance Cascade delamination added.
+    type: Add
+  id: 2860
+  time: '2026-06-08T23:45:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4220
+- author: msTheowo
+  changes:
+  - message: Added Syndicate Instigators.
+    type: Add
+  id: 2861
+  time: '2026-06-09T00:03:08.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4386
