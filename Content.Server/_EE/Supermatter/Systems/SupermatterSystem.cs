@@ -206,7 +206,7 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (HasComp<SupermatterDestabalizerComponent>(item))
         {
-            if (sm.DestabilizingCrystal)
+            if (sm.DestabilizingCrystal || sm.IsShard)
                 return;
 
             // Prevent if integrity is below 80%
