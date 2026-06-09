@@ -386,6 +386,7 @@
     noMovementLayers:
       movement:
         state: miner_derelict
+  - type: Magboots # imp edit
   - type: BorgChassis
     maxModules: 6 # One less module slot than the regular module to reflect this being a "broken" cyborg.
     moduleWhitelist:

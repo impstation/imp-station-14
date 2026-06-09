@@ -17,10 +17,17 @@ public sealed partial class SupermatterComponent : Component
     #region Base
 
     /// <summary>
-    /// The current status of the singularity, used for alert sounds and the monitoring console
+    /// The current status of the supermatter, used for alert sounds and the monitoring console
     /// </summary>
     [DataField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
+
+    /// <summary>
+    /// Imp.
+    /// The current supermatter event thats occuring
+    /// </summary>
+    [DataField]
+    public SupermatterEvent Event = SupermatterEvent.None;
 
     /// <summary>
     /// The supermatter's external gas mixture on the tile
@@ -33,6 +40,12 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public GasMixture? GasStorage;
+
+    /// <summary>
+    /// The supermatter's gas composition proportions
+    /// </summary>
+    [DataField]
+    public GasMixture? GasComposition;
 
     [DataField]
     public Color LightColorNormal = Color.FromHex("#ffe000");
@@ -64,10 +77,6 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public EntProtoId TeslaSpawnPrototype = "TeslaEnergyBall";
 
-    // one day...
-    // [DataField]
-    // public EntProtoId KudzuSpawnPrototype = "SupermatterKudzu";
-
     [DataField]
     public EntProtoId AnomalyPrototype = "RandomAnomalySpawner";
 
@@ -79,6 +88,9 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public EntProtoId DelamGamerulePrototype = "SupermatterDelamEventScheduler";
+
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public EntProtoId CascadeDelamGamerulePrototype = "SupermatterCascadeDelamRule";
 
     [DataField]
     public HashSet<ProtoId<SharedMoodPrototype>> SharedMoodScrambleTargets = ["Thaven"];
@@ -236,6 +248,12 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public float AnomalySeverePenaltyChance = 150f;
 
+    /// <summary>
+    /// The chance for a player to recieve danger text while the supermatter is cascading
+    /// </summary>
+    [DataField]
+    public float CascadeMessageChance = 120f;
+
     #endregion
 
     #region Timing
@@ -263,6 +281,12 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float DelamTimer = 30f;
+
+    /// <summary>
+    /// How long it takes in seconds for disrupting item actions to be used on the supermatter.
+    /// </summary>
+    [DataField]
+    public TimeSpan DisruptionTime = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
@@ -355,6 +379,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public DelamType PreferredDelamType = DelamType.Explosion;
+
+    /// <summary>
+    /// If a destabalizing crystal is attatched to the SM.
+    /// </summary>
+    [DataField]
+    public bool DestabilizingCrystal;
 
     #endregion
 
@@ -547,6 +577,16 @@ public enum SupermatterCrystalState : byte
     GlowDelam
 }
 
+// Imp start
+[Serializable, NetSerializable]
+public enum SupermatterEvent : byte
+{
+    None = 0,
+    Surging = 1,
+    Discharging = 2, // TODO: future supermatter event causing singularity delamination conditions
+}
+// Imp end
+
 [Serializable, NetSerializable]
 public enum SupermatterVisuals : byte
 {
@@ -556,6 +596,11 @@ public enum SupermatterVisuals : byte
 
 [Serializable, NetSerializable]
 public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed partial class DestabilizingCrystalDoAfterEvent : SimpleDoAfterEvent
 {
 }
 

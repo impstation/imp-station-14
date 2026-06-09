@@ -192,8 +192,11 @@
   category: Vocal
   icon: _Impstation/Interface/Emotes/vocal.png
   whitelist:
+    requireAll: true
     components:
     - Vocal
+    tags:
+    - SiliconEmotes
   chatMessages: ["mutters"]
   chatTriggers:
   - mutter

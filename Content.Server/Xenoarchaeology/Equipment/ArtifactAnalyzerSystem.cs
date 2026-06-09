@@ -21,8 +21,10 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         base.Initialize();
 
         SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleExtractButtonPressedMessage>(OnExtractButtonPressed);
-        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleUpBiasButtonPressedMessage>(OnUpBiasButtonPressed); // imp edit
-        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleDownBiasButtonPressedMessage>(OnDownBiasButtonPressed); // imp edit
+        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleShallowBiasButtonPressedMessage>(OnShallowBiasButtonPressed); // imp edit
+        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleDeepRandomBiasButtonPressedMessage>(OnDeepRandomBiasButtonPressed); // imp edit
+        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleDeepLeftBiasButtonPressedMessage>(OnDeepLeftBiasButtonPressed); // imp edit
+        SubscribeLocalEvent<AnalysisConsoleComponent, AnalysisConsoleDeepRightBiasButtonPressedMessage>(OnDeepRightBiasButtonPressed); // imp edit
     }
 
     private void OnExtractButtonPressed(Entity<AnalysisConsoleComponent> ent, ref AnalysisConsoleExtractButtonPressedMessage args)
@@ -45,25 +47,46 @@ public sealed class ArtifactAnalyzerSystem : SharedArtifactAnalyzerSystem
         if (sumResearch <= 0)
             return;
 
+        //Imp edit start: advanced node scanner's point mult.
+        if (ent.Comp.AdvancedNodeScanner is { } advancedNodeScanner &&
+            TryComp<AdvancedNodeScannerComponent>(advancedNodeScanner, out var advancedNodeScannerComponent))
+            sumResearch = (int)Math.Round(sumResearch * advancedNodeScannerComponent.PointMultiplier);
+        //Imp edit end
+
         _research.ModifyServerPoints(server.Value, sumResearch, serverComponent);
         _audio.PlayPvs(ent.Comp.ExtractSound, artifact.Value);
         _popup.PopupEntity(Loc.GetString("analyzer-artifact-extract-popup"), artifact.Value, PopupType.Large);
     }
 
     // imp edit start
-    private void OnUpBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
-        ref AnalysisConsoleUpBiasButtonPressedMessage args)
+    private void OnShallowBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
+        ref AnalysisConsoleShallowBiasButtonPressedMessage args)
     {
-        ent.Comp.BiasDirection = BiasDirection.Up;
+        ent.Comp.BiasDirection = BiasDirection.Shallow;
         Dirty(ent);
     }
 
-    private void OnDownBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
-        ref AnalysisConsoleDownBiasButtonPressedMessage args)
+    private void OnDeepRandomBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
+        ref AnalysisConsoleDeepRandomBiasButtonPressedMessage args)
     {
-        ent.Comp.BiasDirection = BiasDirection.Down;
+        ent.Comp.BiasDirection = BiasDirection.DeepRandom;
         Dirty(ent);
     }
+
+    private void OnDeepLeftBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
+        ref AnalysisConsoleDeepLeftBiasButtonPressedMessage args)
+    {
+        ent.Comp.BiasDirection = BiasDirection.DeepLeft;
+        Dirty(ent);
+    }
+
+    private void OnDeepRightBiasButtonPressed(Entity<AnalysisConsoleComponent> ent,
+        ref AnalysisConsoleDeepRightBiasButtonPressedMessage args)
+    {
+        ent.Comp.BiasDirection = BiasDirection.DeepRight;
+        Dirty(ent);
+    }
+
     // imp edit end
 }
 

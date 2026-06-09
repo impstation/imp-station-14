@@ -78,25 +78,6 @@
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: artistic-module }
 
 - type: entity
-  id: BorgModuleBartender
-  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
-  name: bartender cyborg module
-  components:
-  - type: Sprite
-    layers:
-    - state: service
-    - state: icon-beer
-  - type: ItemBorgModule
-    hands:
-    - item: Lighter
-    - item: DrinkShaker
-    - item: BarSpoon
-    - item: BorgIceBucket
-    - item: Pitcher
-  - type: BorgModuleIcon
-    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: bartender-module }
-
-- type: entity
   id: BorgModuleCourier
   parent: [ BaseBorgModuleCargo, BaseProviderBorgModule ]
   name: courier cyborg module
@@ -148,7 +129,7 @@
 - type: entity
   id: BorgModuleDecapoidCore
   parent: [ BaseBorgModule, BaseProviderBorgModule, DecapoidEmpireContraband ]
-  name: tck'ju'q'tp handling module
+  name: tck'ju'q'tp operations module
   categories: [ DoNotMap ]
   components:
   - type: Sprite
@@ -159,8 +140,63 @@
     hands:
     - item: WeaponTetherGunDecapoidCore
     - item: DoorRemoteDecapoidCore
+    - item: CameraHandheldBorg
+    - item: RadioHandheld
   - type: BorgModuleIcon
     icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: tcktck-tools-module }
   - type: Tag
     tags:
       - BorgModuleTckTck
+
+# service modules
+- type: entity
+  id: BorgModuleChef
+  parent: [ BaseBorgModuleService, BaseProviderBorgModule ]
+  name: chef cyborg module
+  components:
+  - type: Sprite
+    layers:
+    - state: service
+    - state: icon-pen
+  - type: ItemBorgModule
+    hands:
+    - item: BorgRollingPin
+    - item: BorgButchCleaver
+    - hand:
+        emptyLabel: borg-slot-ingredients-empty
+        emptyRepresentative: FoodCabbage
+        whitelist:
+          components:
+          - Produce
+          - Edible
+          - SliceableFood
+          tags:
+          - Meat
+          - Cutlet
+          - Cooked
+          - Raw
+          - KodeEdible
+          - ClothMade
+          - ClothFood
+          - Ingredient
+          - Packet
+          - Shaker
+          - MonkeyCube
+    - hand:
+        emptyLabel: borg-slot-dinnerware-empty
+        emptyRepresentative: FoodBowlBig
+        whitelist:
+          tags:
+          - Dinnerware
+          components:
+          - FitsInDispenser
+          - Utensil
+        blacklist:
+          tags:
+          - Knife
+          - KitchenKnife
+          - Cleaver
+          - CombatKnife
+          - Shiv
+  - type: BorgModuleIcon
+    icon: { sprite: _Impstation/Interface/Actions/actions_borg.rsi, state: chef-module }
