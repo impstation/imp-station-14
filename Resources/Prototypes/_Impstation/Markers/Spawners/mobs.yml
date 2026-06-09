@@ -66,3 +66,29 @@
   - type: ConditionalSpawner
     prototypes:
     - MobPenguinOswald
+
+- type: entity
+  name: Friend-fish Spawner
+  id: SpawnMobFriendfish
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobFriendfish
+
+- type: entity
+  name: Fiend-fish Spawner
+  id: SpawnMobFiendfish
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+      - MobFiendfish

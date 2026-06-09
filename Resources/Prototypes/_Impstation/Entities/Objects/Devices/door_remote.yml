@@ -21,3 +21,14 @@
     - Quartermaster
     - ResearchDirector
     - HospitalityDirector
+
+- type: entity
+  parent: [DoorRemoteCustom]
+  id: DoorRemoteDecapoidCore
+  name: core door remote
+  suffix: DO NOT MAP
+  description: A gadget which can open and bolt doors remotely. This advanced variant does not have built-in access, instead inheriting the ID access of the user.
+  components:
+  - type: DoorRemote
+    includeUserAccess: true
+    ignoreViewCast: true
