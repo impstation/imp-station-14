@@ -22,9 +22,19 @@ public sealed partial class KeyRingComponent : Component
     public double MaxUseTime = 30;
 
     [DataField]
-    public EntityUid? JingleStream;
+    public EntityUid? KeyringAudioStream;
 
-    public SoundSpecifier SoundJingle = new SoundPathSpecifier("/Audio/_Impstation/Items/keysjingle.ogg")
+    [DataField]
+    public SoundSpecifier SuccessAudio = new SoundPathSpecifier("/Audio/_Impstation/Items/keyring_success.ogg")
+    {
+        Params = new AudioParams
+        {
+            Volume = 1f
+        }
+    };
+
+    [DataField]
+    public SoundSpecifier AttemptAudio = new SoundPathSpecifier("/Audio/_Impstation/Items/keyring_attempt.ogg")
     {
         Params = new AudioParams
         {

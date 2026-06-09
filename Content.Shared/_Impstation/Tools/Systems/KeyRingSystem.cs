@@ -32,7 +32,6 @@ public sealed partial class KeyRingSystem : EntitySystem
     [Dependency] private IGameTiming _timing = default!;
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private SharedAmbientSoundSystem _ambient = default!;
 
     [Serializable, NetSerializable]
     public sealed partial class KeyRingDoorDoAfterEvent : SimpleDoAfterEvent;
@@ -89,7 +88,13 @@ public sealed partial class KeyRingSystem : EntitySystem
 
         _doAfter.TryStartDoAfter(doargs);
         args.Handled = true;
-        StartJingle(ent);
+
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        _audio.Stop(ent.Comp.KeyringAudioStream);
+        ent.Comp.KeyringAudioStream = _audio.PlayPredicted(ent.Comp.AttemptAudio,ent,args.User)?.Entity;
+
 
     }
 
@@ -97,9 +102,9 @@ public sealed partial class KeyRingSystem : EntitySystem
     {
         if (!_timing.IsFirstTimePredicted)
             return;
-        StopJingle(ent);
         if (args.Target == null||args.Cancelled)//if the target somehow dissapears or the action was cancelled then return
         {
+            _audio.Stop(ent.Comp.KeyringAudioStream);
             return;
         }
 
@@ -121,12 +126,15 @@ public sealed partial class KeyRingSystem : EntitySystem
             }
         }
 
-        if (_doorSystem.TryToggleDoor(args.Target.Value, doorComp, user: args.User, predicted: true)){
+        if (_doorSystem.TryToggleDoor(args.Target.Value, doorComp, user: args.User, predicted: true)) {
             _adminLogger.Add(LogType.Action,
                             LogImpact.Medium,
                             $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)}: {doorComp.State}");
         }
+
         ent.Comp.UseDelay = TimeSpan.FromSeconds(_random.NextDouble(ent.Comp.MinUseTime,ent.Comp.MaxUseTime));
+        _audio.Stop(ent.Comp.KeyringAudioStream);
+        _audio.PlayPredicted(ent.Comp.SuccessAudio,ent,args.User);
         Dirty(ent);
     }
 
@@ -134,9 +142,9 @@ public sealed partial class KeyRingSystem : EntitySystem
     {
         if (!_timing.IsFirstTimePredicted)
             return;
-        StopJingle(ent);
         if (args.Target == null||args.Cancelled)//if the target somehow dissapears or the action was cancelled then return
         {
+            _audio.Stop(ent.Comp.KeyringAudioStream);
             return;
         }
         if (!TryComp<LockComponent>(args.Target.Value, out var lockComponent)||!_accessReaderSystem.GetMainAccessReader(args.Target.Value, out var accessReader))
@@ -156,26 +164,10 @@ public sealed partial class KeyRingSystem : EntitySystem
         _adminLogger.Add(LogType.Action,
                             LogImpact.Medium,
                             $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} locked: {lockComponent.Locked}");
+        _audio.Stop(ent.Comp.KeyringAudioStream);
+        _audio.PlayPredicted(ent.Comp.SuccessAudio,ent,args.User);
+        ent.Comp.UseDelay = TimeSpan.FromSeconds(_random.NextDouble(ent.Comp.MinUseTime,ent.Comp.MaxUseTime));
+        Dirty(ent);
     }
 
-    public void StartJingle(Entity<KeyRingComponent> ent)
-    {
-        if (TryComp<AmbientSoundComponent>(ent.Owner, out var curSound))
-        {
-            _ambient.SetAmbience(ent.Owner, true, curSound);
-            return;
-        }
-
-        var sound = new AmbientSoundComponent();
-        AddComp(ent.Owner, sound);
-        _ambient.SetAmbience(ent.Owner, true, sound);
-        _ambient.SetSound(ent, ent.Comp.SoundJingle, sound);
-
-    }
-    public void StopJingle(Entity<KeyRingComponent> ent)
-    {
-        if (!TryComp<AmbientSoundComponent>(ent.Owner, out var sound)) return;
-        _ambient.SetAmbience(ent.Owner, false, sound);
-
-    }
 }
