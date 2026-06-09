@@ -8,6 +8,19 @@
   components:
   - type: Pda
     id: ERPLeaderIDCard
+  # Imp Change Start -> Looks like ERT, Is Clown
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-ert
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#447987"
+    accentVColor: "#447987"
+  - type: Icon
+    state: pda-ert
+  # Imp Change End
 
 - type: entity
   parent: ClownPDA
@@ -18,3 +31,16 @@
   components:
   - type: Pda
     id: ERPClownIDCard
+  # Imp Change Start -> Looks like ERT, Is Clown
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-ert
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+    accentHColor: "#447987"
+    accentVColor: "#447987"
+  - type: Icon
+    state: pda-ert
+  # Imp Change End
