@@ -1,6 +1,7 @@
 using Content.Server.Atmos.Piping.Components;
 using Content.Shared.Wires;
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
+using Content.Server.Atmos.Piping.Unary.Components;
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -9,31 +10,14 @@ public sealed partial class TegSystem
     [Dependency] private readonly GasPassiveVentSystem _passiveVentSystem = default!;
 
     /// <summary>
-    /// Forwards the <see cref="AtmosDeviceUpdateEvent"> to the circulator if its panel is open.
-    /// Causes the passive vent connected to the inlet to spill out.
+    /// Changes the state of the air injector given a bool.
     /// </summary>
-    /// <returns>True if the circulator's WirePanel is open. False otherwise.</returns>
-    private bool UpdateOpenCirculator(EntityUid uid, ref AtmosDeviceUpdateEvent args)
+    /// <param name="state">true for enabled, false for disabled</param>
+    private void ChangeInjectorState(EntityUid uid, bool state)
     {
-        // Expel inlet contents if open
-        // Log.Debug($"{uid} atmos update");
+        if (!TryComp<GasOutletInjectorComponent>(uid, out var injector))
+            return;
 
-        // Check if panel is open
-        if (!(TryComp(uid, out WiresPanelComponent? panel) && panel.Open))
-            return false;
-
-        // Expel contents via passive vent component.
-        // Forward the AtmosDeviceUpdateEvent to the circulator.
-        // The passive vent component will receive and process the event.
-        RaiseLocalEvent(uid, ref args);
-        return true;
-
-        // Expel contents via passive vent system logic
-        // GasMixture? environment = _atmosphere.GetContainingMixture(uid, args.Grid, args.Map, true, true);
-        // var (inlet, _) = GetPipes(uid);
-
-        // if (environment != null)
-        //     _passiveVentSystem.VentFromPipeNode(inlet, environment);
-        // return true;
+        injector.Enabled = state;
     }
 }

@@ -59,6 +59,7 @@
     - type: Rotatable
 
     # Note that only the TEG center is an AtmosDevice.
+    # IMP: ^ No longer true with rework. Circulators also recieve AtmosDeviceUpdateEvents solely for their internal air injectors. Other processing still handled by generator.
     # It fires processing on behalf of its connected circulators.
     - type: AtmosDevice
     - type: TegGenerator
@@ -191,8 +192,10 @@
     # IMP ADD START
     - type: WiresPanel
     # - type: WiresVisuals # TODO: Implement open circulator sprite
+    - type: AtmosDevice # To allow GasOutletInjector to receive updates
     - type: GasOutletInjector
       inlet: "inlet"
+      enabled: false
     - type: SolutionContainerManager
       solutions:
         lube:
@@ -208,6 +211,8 @@
     #   solution: lube
     # - type: DrawableSolution
     #   solution: lube
+
+    # IMP ADD END
 
 - # Spawned by the client-side circulator examine code to indicate the inlet/outlet direction.
   type: entity

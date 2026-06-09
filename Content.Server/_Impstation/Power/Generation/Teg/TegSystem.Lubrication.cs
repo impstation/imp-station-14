@@ -24,19 +24,20 @@ public sealed partial class TegSystem
     /// <summary>
     ///     Called when the WiresPanel component changes with the PanelChangedEvent.
     ///     Used for updating access to internal parts of a circulator like the lubricant (solution).
+    ///     Also enables and disables the internal air injector.
     /// </summary>
     private void OnPanelChanged(EntityUid uid, TegCirculatorComponent comp, PanelChangedEvent args)
     {
-        //If opened, add passive vent
         if (args.Open)
         {
             AddSolutionAccessibility(uid);
+            ChangeInjectorState(uid, true);
         }
 
-        //If closed, remove passive vent
         else
         {
             RemoveSolutionAccessibility(uid);
+            ChangeInjectorState(uid, false);
         }
     }
 
