@@ -38,7 +38,7 @@ public sealed partial class KeyRingComponent : Component
     {
         Params = new AudioParams
         {
-            Volume = 1f,
+            Volume = 2f,
             Variation = 0.15f
         }
     };
