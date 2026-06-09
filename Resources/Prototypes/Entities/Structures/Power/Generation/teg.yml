@@ -191,12 +191,13 @@
     # IMP ADD START
     - type: WiresPanel
     # - type: WiresVisuals # TODO: Implement open circulator sprite
-    - type: GasPassiveVent
+    - type: GasOutletInjector
       inlet: "inlet"
     - type: SolutionContainerManager
       solutions:
         lube:
           maxVol: 250
+    # The following components are added in-code in TegSystem.Lubrication
     # - type: Spillable
     #   solution: lube
     # - type: RefillableSolution
