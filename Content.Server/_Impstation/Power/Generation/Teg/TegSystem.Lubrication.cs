@@ -44,15 +44,15 @@ public sealed partial class TegSystem
     private void AddSolutionAccessibility(EntityUid uid)
     {
         // RefillableSolutionComponent
-        var refill = AddComp<RefillableSolutionComponent>(uid);
+        var refill = EnsureComp<RefillableSolutionComponent>(uid);
         refill.Solution = SolutionName;
         refill.RefillTime = TimeSpan.FromSeconds(RefillTimeSeconds);
         refill.MaxRefill = MaxRefillAttemptAmount;
 
-        var examine = AddComp<ExaminableSolutionComponent>(uid);
+        var examine = EnsureComp<ExaminableSolutionComponent>(uid);
         examine.Solution = SolutionName;
 
-        var draw = AddComp<DrawableSolutionComponent>(uid);
+        var draw = EnsureComp<DrawableSolutionComponent>(uid);
         draw.Solution = SolutionName;
     }
 
