@@ -312,3 +312,41 @@
     minimumPlayers: 30
     duration: 60
   - type: SupermatterSurgeRule
+
+- type: entity
+  parent: BaseNukeopsRule
+  id: SyndicateInstigatorSpawn
+  components:
+  - type: StationEvent
+    weight: 2
+    reoccurrenceDelay: 10
+    minimumPlayers: 20
+    earliestStart: 35
+    duration: null # SyndicateInstigatorSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end screen (not always "Neutral outcome!") and... ending the game if the station is nuked.
+  - type: NukeopsRule
+    roundEndBehavior: Nothing
+  - type: SpaceSpawnRule
+  - type: AntagLoadProfileRule
+    randomProfile: true
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointSyndicateInstigator
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SyndicateInstigatorGear
+      roleLoadout:
+      - RoleSurvivalNukie
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSyndicatePrefixJunior
+        - NamesSyndicatePrefix
+        - NamesSyndicateJunior
+        nameFormat: name-format-nukie-junior
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleSyndicateInstigator
