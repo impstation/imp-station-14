@@ -7,17 +7,17 @@ namespace Content.Server.Power.Generation.Teg;
 public sealed partial class TegSystem
 {
     /// <summary>
-    ///
+    /// Name of the circulators' solution container.
     /// </summary>
     private const string SolutionName = "lube";
 
     /// <summary>
-    ///
+    /// The amount of time it takes to apply lubrication to the circulators.
     /// </summary>
     private const float RefillTimeSeconds = 2f;
 
     /// <summary>
-    ///
+    /// The maximum amount of lubrication that can be applied to the circulator in a single action.
     /// </summary>
     private const float MaxRefillAttemptAmount = 10f;
 
