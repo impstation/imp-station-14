@@ -1,3 +1,4 @@
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 
@@ -39,4 +40,9 @@ public sealed partial class ReagentEfficiencyComponent : Component
     /// The Efficiency calculated the last time <see cref="ReagentEfficiencySystem.ApplyEfficiency"/> was called.
     /// </summary>
     public float PreviousEfficiency = 0f;
+
+    /// <summary>
+    /// Solution component cache.
+    /// </summary>
+    public Entity<SolutionComponent>? SolutionCache = null;
 }
