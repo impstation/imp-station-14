@@ -52,7 +52,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         }
     }
 
-    public void OnInit(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref ComponentInit args)
+    private void OnInit(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref ComponentInit args)
     {
         if (!TryComp<StatusEffectComponent>(ent, out var statusEffect))
             return;
@@ -65,7 +65,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         ent.Comp.StatusOwner = entPhys;
     }
 
-    public void OnShutdown(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref ComponentShutdown args)
+    private void OnShutdown(Entity<BiomagneticPolarizationStatusEffectComponent> ent, ref ComponentShutdown args)
     {
         SetCappedSprite(ent, false);
         RemoveSign(ent);
@@ -137,7 +137,7 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         _sprite.RemoveLayer((ent, sprite), layer);
     }
 
-    public void SetCappedSprite(Entity<BiomagneticPolarizationStatusEffectComponent> ent, bool setting)
+    private void SetCappedSprite(Entity<BiomagneticPolarizationStatusEffectComponent> ent, bool setting)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
             return;
