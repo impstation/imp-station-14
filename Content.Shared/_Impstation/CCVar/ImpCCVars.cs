@@ -35,11 +35,6 @@ public sealed class ImpCCVars : CVars
     public static readonly CVarDef<bool> EnableBiomagneticPolarizationSymbols =
         CVarDef.Create("accessibility.enable_biomagnetic_polarization_symbols", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
-    /// If the player has the accessibility notifier turned on
-    /// </summary>
-    public static readonly CVarDef<bool> NotifierOn =
-        CVarDef.Create("accessibility.notifier_on", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "if the notifier system is active");
-
     /// <summary>
     /// The number of shared moods to give thaven by default.
     /// </summary>
