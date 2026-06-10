@@ -20,7 +20,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
 using Robust.Shared.Configuration;
 using Content.Shared.CCVar; // imp
-using Content.Server._Impstation.ReagentEfficiency; // imp
 using Content.Shared.Wires; //imp
 
 namespace Content.Server.Power.Generation.Teg;
@@ -81,7 +80,6 @@ public sealed partial class TegSystem : EntitySystem
     [Dependency] private readonly PointLightSystem _pointLight = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
     [Dependency] private readonly IConfigurationManager _config = default!; // imp
-    [Dependency] private readonly ReagentEfficiencySystem _reagentEfficiency = default!; //imp
 
     private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
 
@@ -159,8 +157,10 @@ public sealed partial class TegSystem : EntitySystem
         var cB = _atmosphere.GetHeatCapacity(airB, true);
 
         //IMP ADD: Calculate efficiency boost from lubrication
-        var efficiencyA = _reagentEfficiency.ApplyEfficiency(circA, args.dt);
-        var efficiencyB = _reagentEfficiency.ApplyEfficiency(circB, args.dt);
+        var efficiencyA = CirculatorEfficiency(circA, args.dt, δpA);
+        var efficiencyB = CirculatorEfficiency(circB, args.dt, δpB);
+
+        Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
 
         // Shift ramp position based on demand and generation from previous tick.
         var curRamp = component.RampPosition;

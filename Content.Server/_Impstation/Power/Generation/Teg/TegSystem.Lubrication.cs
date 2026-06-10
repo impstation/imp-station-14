@@ -1,3 +1,4 @@
+using Content.Server._Impstation.ReagentEfficiency; // imp
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Wires;
@@ -20,6 +21,8 @@ public sealed partial class TegSystem
     /// The maximum amount of lubrication that can be applied to the circulator in a single action.
     /// </summary>
     private const float MaxRefillAttemptAmount = 10f;
+
+    [Dependency] private readonly ReagentEfficiencySystem _reagentEfficiency = default!; //imp
 
     /// <summary>
     ///     Called when the WiresPanel component changes with the PanelChangedEvent.
@@ -61,5 +64,21 @@ public sealed partial class TegSystem
         RemComp<RefillableSolutionComponent>(uid);
         RemComp<ExaminableSolutionComponent>(uid);
         RemComp<DrawableSolutionComponent>(uid);
+    }
+
+    /// <summary>
+    /// Calculates the efficiency of each circulator using their lubricant solutions.
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="dt"></param>
+    /// <param name="δp"></param>
+    /// <returns></returns>
+    private float CirculatorEfficiency(EntityUid uid, float dt, float δp)
+    {
+        Log.Debug($"dp = {δp}");
+        //TODO: find proper dp scaling
+        var consumptionModifier = 0.1f * δp;
+
+        return _reagentEfficiency.ApplyEfficiency(uid, dt, consumptionModifier);
     }
 }

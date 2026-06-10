@@ -19,10 +19,17 @@ public sealed partial class ReagentEfficiencyComponent : Component
     public string Solution = string.Empty;
 
     /// <summary>
+    /// Fill level at which consumption and efficiency throttling stops.
+    /// When the solution volume is below this value, the amount of reagent consumed and efficiency decreases linearly to 0.
+    /// </summary>
+    [DataField]
+    public float ThrottlingThreshold = 0.2f; //TODO: clamp to above 0
+
+    /// <summary>
     /// How many units of reagent are consumed per second.
     /// </summary>
     [DataField]
-    public float Consumption = 1f;
+    public float Consumption = 1f; //TODO: clamp to above 0
 
     /// <summary>
     /// Reagents and how lubricating they are. Higher values mean higher efficiency.
@@ -34,7 +41,7 @@ public sealed partial class ReagentEfficiencyComponent : Component
     /// <summary>
     /// The default lubrication power for reagents not specified in the Modifiers list.
     /// </summary>
-    public float DefaultModifier = 0.3f;
+    public float DefaultModifier = 0.1f;
 
     /// <summary>
     /// The Efficiency calculated the last time <see cref="ReagentEfficiencySystem.ApplyEfficiency"/> was called.
@@ -42,7 +49,7 @@ public sealed partial class ReagentEfficiencyComponent : Component
     public float PreviousEfficiency = 0f;
 
     /// <summary>
-    /// Solution component cache.
+    /// Solution component cache for ResolveSolution.
     /// </summary>
     public Entity<SolutionComponent>? SolutionCache = null;
 }
