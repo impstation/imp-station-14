@@ -238,6 +238,7 @@
   - type: MovementSpeedModifier # They're so fast they go nyoom
     baseWalkSpeed: 3
     baseSprintSpeed: 5
+  - type: UnableToWield
 
 - type: entity
   parent: OrganBase
