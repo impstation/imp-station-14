@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: kipdotnet
-  changes:
-  - message: Banana has been un-reverted.
-    type: Fix
-  id: 2362
-  time: '2025-10-27T06:05:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3628
 - author: Squamatic
   changes:
   - message: W-wait, you called the red phone for a CBURN team? Don't you know that
@@ -4096,3 +4089,12 @@
   id: 2861
   time: '2026-06-09T00:03:08.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4386
+- author: msTheowo
+  changes:
+  - message: The recycler will eat small animals, don't throw Hamlet down disposals.
+    type: Add
+  - message: The recycler does damage to mobs even when it's not emagged.
+    type: Add
+  id: 2862
+  time: '2026-06-11T07:37:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4397
