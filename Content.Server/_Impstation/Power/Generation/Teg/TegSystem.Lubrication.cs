@@ -52,9 +52,6 @@ public sealed partial class TegSystem
         refill.RefillTime = TimeSpan.FromSeconds(RefillTimeSeconds);
         refill.MaxRefill = MaxRefillAttemptAmount;
 
-        var examine = EnsureComp<ExaminableSolutionComponent>(uid);
-        examine.Solution = SolutionName;
-
         var draw = EnsureComp<DrawableSolutionComponent>(uid);
         draw.Solution = SolutionName;
     }
@@ -62,7 +59,6 @@ public sealed partial class TegSystem
     private void RemoveSolutionAccessibility(EntityUid uid)
     {
         RemComp<RefillableSolutionComponent>(uid);
-        RemComp<ExaminableSolutionComponent>(uid);
         RemComp<DrawableSolutionComponent>(uid);
     }
 
