@@ -29,7 +29,7 @@ public sealed partial class ReagentEfficiencyComponent : Component
     /// How many units of reagent are consumed per second.
     /// </summary>
     [DataField]
-    public float Consumption = 1f; //TODO: clamp to above 0
+    public float Consumption = 0.1f; //TODO: clamp to above 0
 
     /// <summary>
     /// Reagents and how lubricating they are. Higher values mean higher efficiency.
@@ -49,7 +49,7 @@ public sealed partial class ReagentEfficiencyComponent : Component
     public float PreviousEfficiency = 0f;
 
     /// <summary>
-    /// Solution component cache for ResolveSolution.
+    /// Solution component cache for <see cref="SharedSolutionContainerSystem.ResolveSolution"/>.
     /// </summary>
     public Entity<SolutionComponent>? SolutionCache = null;
 }
