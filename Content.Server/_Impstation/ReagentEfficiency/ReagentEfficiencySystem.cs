@@ -49,7 +49,7 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         var efficiency = 0f;
         foreach (var reagent in consumedSolution.Contents)
         {
-            efficiency += ent.Comp.Modifiers[reagent.Reagent.Prototype] * (float)(reagent.Quantity); // .Float() or cast to float?
+            efficiency += ent.Comp.Modifiers[reagent.Reagent.Prototype] * (float)(reagent.Quantity);
         }
         efficiency /= (float)(consumedSolution.Volume);
 
