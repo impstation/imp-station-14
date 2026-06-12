@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Linq;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
@@ -24,7 +25,7 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp))
             return 0f;
 
-        if (consumptionMultiplier == 0f)
+        if (consumptionMultiplier <= 0f)
             return 0f;
 
         // Cacheable version of TryGetSolution
@@ -38,7 +39,7 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         // Find throttling amount
         var throttleThresholdVolume = solution.MaxVolume * ent.Comp.ThrottlingThreshold;
         var throttle = throttleThresholdVolume != 0f && solution.Volume < throttleThresholdVolume ? (float)(solution.Volume / throttleThresholdVolume) : 1f; // TODO: less jank and magic numbers
-        // Scale amount removed by dt and modifier
+        // Scale amount removed by dt and multiplier
         var consumedSolution = _solution.SplitSolution(ent.Comp.SolutionCache.Value, ent.Comp.Consumption * dt * throttle * consumptionMultiplier);
 
         // Find the total modifier of all the reagents removed
@@ -49,9 +50,11 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         var efficiency = 0f;
         foreach (var reagent in consumedSolution.Contents)
         {
-            efficiency += ent.Comp.Modifiers[reagent.Reagent.Prototype] * (float)(reagent.Quantity);
+            efficiency += ent.Comp.Modifiers.TryGetValue(reagent.Reagent.Prototype, out var reagentEfficiency) ?
+                reagentEfficiency * (float)reagent.Quantity :
+                ent.Comp.DefaultModifier * (float)reagent.Quantity;
         }
-        efficiency /= (float)(consumedSolution.Volume);
+        efficiency /= (float)consumedSolution.Volume;
 
         //Apply throttling
         efficiency *= throttle;

@@ -77,7 +77,7 @@ public sealed partial class TegSystem
     {
         Log.Debug($"dp = {δp}");
         //TODO: find proper dp scaling
-        var consumptionModifier = 0.1f * δp;
+        var consumptionModifier = δp > 0f ? 0.1f * δp : 0f;
 
         return _reagentEfficiency.ApplyEfficiency(uid, dt, consumptionModifier);
     }
