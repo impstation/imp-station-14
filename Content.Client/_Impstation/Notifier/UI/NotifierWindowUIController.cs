@@ -1,4 +1,6 @@
 using Content.Client.Gameplay;
+using Content.Client.Lobby;
+using Content.Client.Lobby.UI;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.MenuBar.Widgets;
 using Content.Shared.Input;
@@ -10,23 +12,39 @@ using Robust.Shared.Input.Binding;
 
 namespace Content.Client._Impstation.Notifier.UI;
 [UsedImplicitly]
-public sealed class NotifierWindowUIController :UIController, IOnStateChanged<GameplayState>
+public sealed class NotifierWindowUIController : UIController, IOnSystemChanged<NotifierSystem>, IOnStateChanged<GameplayState>, IOnStateChanged<LobbyState>
 {
     [Dependency] private readonly IInputManager _input = default!;
     private NotifierWindow? _window;
 
     private MenuButton? NotifierButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.NotifierButton;
+    private Button? LobbyNotifierButton => (UIManager.ActiveScreen as LobbyGui)?.NotifierButton;
 
+    public void OnSystemLoaded(NotifierSystem system)
+    {
+        EnsureWindow();
+        _input.SetInputCommand(ContentKeyFunctions.OpenNotifierWindow,
+            InputCmdHandler.FromDelegate(_ => ToggleWindow()));
+    }
+
+    public void OnSystemUnloaded(NotifierSystem system)
+    {
+        if (_window != null)
+        {
+            _window.Dispose();
+            _window = null;
+        }
+    }
     /// <summary>
     /// When we enter the game, make sure the window can actually get opened.
     /// </summary>
     /// <param name="state"></param>
     public void OnStateEntered(GameplayState state)
     {
-        EnsureWindow();
-
-        _input.SetInputCommand(ContentKeyFunctions.OpenNotifierWindow,
-            InputCmdHandler.FromDelegate(_ => ToggleWindow()));
+        if (NotifierButton == null)
+            return;
+        NotifierButton.OnPressed -= NotifierButtonPressed;
+        NotifierButton.OnPressed += NotifierButtonPressed;
     }
 
     /// <summary>
@@ -35,11 +53,9 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
     /// <param name="state"></param>
     public void OnStateExited(GameplayState state)
     {
-        if (_window != null)
-        {
-            _window.Dispose();
-            _window = null;
-        }
+        if (NotifierButton == null)
+            return;
+        NotifierButton.OnPressed -= NotifierButtonPressed;
     }
 
     /// <summary>
@@ -48,11 +64,12 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
     public void UnloadButton()
     {
         if (NotifierButton == null)
-        {
             return;
-        }
-
         NotifierButton.OnPressed -= NotifierButtonPressed;
+
+        if (LobbyNotifierButton == null)
+            return;
+        LobbyNotifierButton.OnPressed -= NotifierButtonPressed;
     }
 
     /// <summary>
@@ -61,11 +78,12 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
     public void LoadButton()
     {
         if (NotifierButton == null)
-        {
             return;
-        }
-
         NotifierButton.OnPressed += NotifierButtonPressed;
+
+        if (LobbyNotifierButton == null)
+            return;
+        LobbyNotifierButton.OnPressed += NotifierButtonPressed;
     }
 
     /// <summary>
@@ -86,15 +104,14 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
             return;
 
         _window = UIManager.CreateWindow<NotifierWindow>();
-        _window.OnOpen += () => {
-            if (NotifierButton is not null)
-                NotifierButton.Pressed = true;
+        _window.OnOpen += () =>{
+            SetNotifierPressed(true);
         };
-        _window.OnClose += () => {
-            if (NotifierButton is not null)
-                NotifierButton.Pressed = false;
+        _window.OnClose += () =>{
+            SetNotifierPressed(false);
             _window.UpdateUi();
         };
+        SetNotifierPressed(_window.IsOpen);
     }
 
     /// <summary>
@@ -113,6 +130,33 @@ public sealed class NotifierWindowUIController :UIController, IOnStateChanged<Ga
         else
         {
             _window.Close();
+        }
+    }
+
+    public void OnStateEntered(LobbyState state)
+    {
+        if (LobbyNotifierButton == null)
+            return;
+
+        LobbyNotifierButton.OnPressed += NotifierButtonPressed;
+    }
+
+    public void OnStateExited(LobbyState state)
+    {
+        if (LobbyNotifierButton != null)
+            LobbyNotifierButton.OnPressed -= NotifierButtonPressed;
+    }
+
+    private void SetNotifierPressed(bool pressed)
+    {
+        if (NotifierButton != null)
+        {
+            NotifierButton.Pressed = pressed;
+        }
+
+        if (LobbyNotifierButton != null)
+        {
+            LobbyNotifierButton.Pressed = pressed;
         }
     }
 }
