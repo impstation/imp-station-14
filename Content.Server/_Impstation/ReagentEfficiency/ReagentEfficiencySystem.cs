@@ -15,16 +15,16 @@ public sealed class ReagentEfficiencySystem : EntitySystem
     /// Updates <see cref="ReagentEfficiencyComponent.PreviousEfficiency"/> to match the return value of this function.
     /// </summary>
     /// <param name="dt">Time in seconds that has passed since the previous update.</param>
-    /// <param name="consumptionModifier">
+    /// <param name="consumptionMultiplier">
     ///     Multiplier for how much reagent will be consumed. Does not affect the value returned or written to PreviousEfficiency except for 0f, which returns 0f.
     /// </param>
     /// <returns>Machine efficiency as a float. Under 1.0 means substandard efficiency, over 1.0 means more efficient than normal.</returns>
-    public float ApplyEfficiency(Entity<ReagentEfficiencyComponent?> ent, float dt, float consumptionModifier)
+    public float ApplyEfficiency(Entity<ReagentEfficiencyComponent?> ent, float dt, float consumptionMultiplier)
     {
         if (!Resolve(ent, ref ent.Comp))
             return 0f;
 
-        if (consumptionModifier == 0f)
+        if (consumptionMultiplier == 0f)
             return 0f;
 
         // Cacheable version of TryGetSolution
@@ -38,8 +38,8 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         // Find throttling amount
         var throttleThresholdVolume = solution.MaxVolume * ent.Comp.ThrottlingThreshold;
         var throttle = throttleThresholdVolume != 0f && solution.Volume < throttleThresholdVolume ? (float)(solution.Volume / throttleThresholdVolume) : 1f; // TODO: less jank and magic numbers
-        // Scale amount removed by dt as well
-        var consumedSolution = _solution.SplitSolution(ent.Comp.SolutionCache.Value, ent.Comp.Consumption * dt * throttle);
+        // Scale amount removed by dt and modifier
+        var consumedSolution = _solution.SplitSolution(ent.Comp.SolutionCache.Value, ent.Comp.Consumption * dt * throttle * consumptionMultiplier);
 
         // Find the total modifier of all the reagents removed
         // Weighted average:
