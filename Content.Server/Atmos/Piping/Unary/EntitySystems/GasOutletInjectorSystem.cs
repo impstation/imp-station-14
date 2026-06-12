@@ -76,5 +76,16 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
 
             _atmosphereSystem.Merge(environment, removed);
         }
+
+        //IMP ADD START
+        /// <summary>
+        /// Changes the Enabled field of the component to the state argument and updates visuals accordingly.
+        /// </summary>
+        public void SetEnabled(EntityUid uid, GasOutletInjectorComponent injector, bool state)
+        {
+            injector.Enabled = state;
+            UpdateAppearance(uid, injector);
+        }
+        // IMP ADD END
     }
 }

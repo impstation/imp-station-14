@@ -7,7 +7,7 @@ namespace Content.Server.Power.Generation.Teg;
 
 public sealed partial class TegSystem
 {
-    [Dependency] private readonly GasPassiveVentSystem _passiveVentSystem = default!;
+    [Dependency] private readonly GasOutletInjectorSystem _gasInjectorSystem = default!;
 
     /// <summary>
     /// Changes the state of the air injector given a bool.
@@ -18,6 +18,6 @@ public sealed partial class TegSystem
         if (!TryComp<GasOutletInjectorComponent>(uid, out var injector))
             return;
 
-        injector.Enabled = state;
+        _gasInjectorSystem.SetEnabled(uid, injector, state);
     }
 }

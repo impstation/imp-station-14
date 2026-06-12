@@ -2,12 +2,11 @@ using Content.Server.Atmos.Piping.Unary.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Piping.Binary.Components;
 using Content.Shared.Guidebook;
-using Content.Server.Power.Generation.Teg; // IMP ADD: access for TegSystem
 
 namespace Content.Server.Atmos.Piping.Unary.Components
 {
     [RegisterComponent]
-    [Access(typeof(GasOutletInjectorSystem), typeof(TegSystem))] // IMP ADD: access for TegSystem
+    [Access(typeof(GasOutletInjectorSystem))]
     public sealed partial class GasOutletInjectorComponent : Component
     {
 
