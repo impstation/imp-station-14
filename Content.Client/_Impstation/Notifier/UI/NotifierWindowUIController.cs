@@ -20,6 +20,10 @@ public sealed class NotifierWindowUIController : UIController, IOnSystemChanged<
     private MenuButton? NotifierButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.NotifierButton;
     private Button? LobbyNotifierButton => (UIManager.ActiveScreen as LobbyGui)?.NotifierButton;
 
+    /// <summary>
+    /// When the notifier exists, set up the window and input command
+    /// </summary>
+    /// <param name="system"></param>
     public void OnSystemLoaded(NotifierSystem system)
     {
         EnsureWindow();
@@ -35,12 +39,33 @@ public sealed class NotifierWindowUIController : UIController, IOnSystemChanged<
             _window = null;
         }
     }
+
     /// <summary>
-    /// When we enter the game, make sure the window can actually get opened.
+    /// Activate the button in lobby
+    /// </summary>
+    /// <param name="state"></param>
+    public void OnStateEntered(LobbyState state)
+    {
+        EnsureWindow();
+        if (LobbyNotifierButton == null)
+            return;
+
+        LobbyNotifierButton.OnPressed += NotifierButtonPressed;
+    }
+
+    public void OnStateExited(LobbyState state)
+    {
+        if (LobbyNotifierButton != null)
+            LobbyNotifierButton.OnPressed -= NotifierButtonPressed;
+    }
+
+    /// <summary>
+    /// When we enter the game, make sure the buttons work.
     /// </summary>
     /// <param name="state"></param>
     public void OnStateEntered(GameplayState state)
     {
+        EnsureWindow();
         if (NotifierButton == null)
             return;
         NotifierButton.OnPressed -= NotifierButtonPressed;
@@ -96,7 +121,7 @@ public sealed class NotifierWindowUIController : UIController, IOnSystemChanged<
     }
 
     /// <summary>
-    /// Ensure the window actually exists
+    /// Ensure the window actually exists and works with the buttons
     /// </summary>
     private void EnsureWindow()
     {
@@ -131,20 +156,6 @@ public sealed class NotifierWindowUIController : UIController, IOnSystemChanged<
         {
             _window.Close();
         }
-    }
-
-    public void OnStateEntered(LobbyState state)
-    {
-        if (LobbyNotifierButton == null)
-            return;
-
-        LobbyNotifierButton.OnPressed += NotifierButtonPressed;
-    }
-
-    public void OnStateExited(LobbyState state)
-    {
-        if (LobbyNotifierButton != null)
-            LobbyNotifierButton.OnPressed -= NotifierButtonPressed;
     }
 
     private void SetNotifierPressed(bool pressed)
