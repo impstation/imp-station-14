@@ -51,7 +51,7 @@ namespace Content.Server.Power.Generation.Teg;
 /// <seealso cref="TegCirculatorComponent"/>
 /// <seealso cref="TegNodeGroup"/>
 /// <seealso cref="TegSensorData"/>
-public sealed partial class TegSystem : EntitySystem
+public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class for .Hazards and .Lubrication
 {
     /// <summary>
     /// Node name for the TEG part connection nodes (<see cref="TegNodeGroup"/>).
