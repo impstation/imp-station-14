@@ -1,6 +1,7 @@
-using Content.Server._Impstation.ReagentEfficiency; // imp
+using Content.Server._Impstation.ReagentEfficiency;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Wires;
 
 namespace Content.Server.Power.Generation.Teg;
@@ -22,7 +23,8 @@ public sealed partial class TegSystem
     /// </summary>
     private const float MaxRefillAttemptAmount = 10f;
 
-    [Dependency] private readonly ReagentEfficiencySystem _reagentEfficiency = default!; //imp
+    [Dependency] private readonly ReagentEfficiencySystem _reagentEfficiency = default!;
+    [Dependency] private readonly OpenableSystem _openable = default!;
 
     /// <summary>
     ///     Called when the WiresPanel component changes with the PanelChangedEvent.
@@ -33,13 +35,15 @@ public sealed partial class TegSystem
     {
         if (args.Open)
         {
-            AddSolutionAccessibility(uid);
+            // AddSolutionAccessibility(uid);
+            _openable.TryOpen(uid);
             ChangeInjectorState(uid, true);
         }
 
         else
         {
-            RemoveSolutionAccessibility(uid);
+            // RemoveSolutionAccessibility(uid);
+            _openable.TryClose(uid);
             ChangeInjectorState(uid, false);
         }
     }

@@ -206,13 +206,17 @@
         SpaceLube: 1.2
         SpaceGlue: 0.01
         WeldingFuel: 0.6
-    # The following components are added in-code in TegSystem.Lubrication
-    # - type: RefillableSolution
-    #   solution: lube
-    #   refillTime: 2
-    #   maxRefill: 10
-    # - type: DrawableSolution
-    #   solution: lube
+    - type: Openable
+      opened: false
+      openableByHand: false
+      openOnActivate: false
+      closeable: true
+    - type: RefillableSolution
+      solution: lube
+      refillTime: 2
+      maxRefill: 10
+    - type: DrawableSolution
+      solution: lube
     - type: ExaminableSolution
       solution: lube
       locVolume: "lube-gauge-examinable-solution-on-examine-volume"
