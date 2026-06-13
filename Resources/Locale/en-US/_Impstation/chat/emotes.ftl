@@ -10,6 +10,7 @@ chat-emote-name-blink = Blink
 chat-emote-name-boom = Boom!
 chat-emote-name-multichirp = Multichirp
 chat-emote-name-beatingchest = Beat Chest
+chat-emote-name-wave = Wave At
 
 # Message
 chat-emote-msg-bubble = bubbles.
@@ -23,3 +24,4 @@ chat-emote-msg-boom = booms.
 chat-emote-msg-beatingchest = beats {POSS-ADJ($entity)} chest.
 chat-emote-msg-multichirp = lets out a chorus of chirps!
 chat-emote-msg-moo = moos!
+chat-emote-msg-wave = waves at target.
