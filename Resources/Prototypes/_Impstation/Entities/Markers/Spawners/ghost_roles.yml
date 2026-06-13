@@ -91,3 +91,26 @@
       state: green
     - sprite: Mobs/Aliens/paradox_clone.rsi
       state: preview
+
+- type: entity
+  categories: Spawner
+  parent: BaseAntagSpawner
+  id: SpawnPointGhostHound
+  name: hound of whimsy spawn point
+  components:
+  - type: GhostRole
+    name: ghost-role-information-hound-name
+    description: ghost-role-information-hound-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleHound
+    raffle:
+      settings: default
+  - type: GhostRoleMobSpawner
+    prototype: MobHound
+  - type: Sprite
+    layers:
+    - sprite: Markers/jobs.rsi
+      state: green
+    - sprite: _Impstation\Clothing\Head\Hats\circusclownhat.rsi
+      state: preview

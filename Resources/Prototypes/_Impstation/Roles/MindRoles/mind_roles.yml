@@ -61,3 +61,14 @@
     antagPrototype: Butler
     roleType: Familiar
   - type: ButlerRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleHound
+  name: Hound Of Whimsy Role
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: Hound
+    roleType: FreeAgent
+  - type: HoundRole

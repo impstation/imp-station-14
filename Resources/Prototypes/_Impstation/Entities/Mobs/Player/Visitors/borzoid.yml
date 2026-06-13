@@ -1,0 +1,40 @@
+- type: entity
+  save: false
+  name: Urist McWoouu
+  parent: BaseMobBorzoid
+  id: MobBorzoid
+
+- type: entity
+  name: The Hound Of Whimsy
+  parent: MobBorzoid
+  id: MobWhimsy
+  components:
+  - type: AntagObjectives
+    objectives:
+    - WhimsyRandomObjective
+  - type: InteractionPopup
+    successChance: 0.7
+    interactSuccessString: petting-success-borzoid
+    interactFailureString: petting-failure-borzoid
+    interactSuccessSound:
+      path: /Audio/_Impstation/Misc/whimsy.ogg
+    interactFailureSound:
+      path: /Audio/_Impstation/Misc/aura.ogg
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBells
+      params:
+        volume: -2
+  - type: AutoImplant
+    implants:
+    - SadTromboneImplant
+    - FreedomImplanter
+  - type: NpcFactionMember
+    factions:
+    - Passive
+  - type: GhostRole
+    name: ghost-role-information-hound-name
+    description: ghost-role-information-hound-description
+    rules: ghost-role-information-freeagent-rules
+    mindRoles:
+    - MindRoleHound
