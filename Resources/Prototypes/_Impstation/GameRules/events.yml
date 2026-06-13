@@ -326,7 +326,7 @@
     gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/hound.yml
     
 - type: entity
-parent: BaseNukeopsRule
+  parent: BaseNukeopsRule
   id: SyndicateInstigatorSpawn
   components:
   - type: StationEvent
