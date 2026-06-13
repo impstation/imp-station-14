@@ -9,11 +9,10 @@ namespace Content.Shared.Chat;
 /// An event raised just before an emote is performed, providing systems with an opportunity to cancel the emote's performance.
 /// </summary>
 [ByRefEvent]
-public sealed class BeforeEmoteEvent(EntityUid source, EmotePrototype emote, EntityUid? target = null)
+public sealed class BeforeEmoteEvent(EntityUid source, EmotePrototype emote)
     : CancellableEntityEventArgs, IInventoryRelayEvent
 {
     public readonly EntityUid Source = source;
-    public readonly EntityUid? Target = target;
     public readonly EmotePrototype Emote = emote;
 
     /// <summary>
@@ -45,9 +44,11 @@ public record struct EmoteEvent(EmotePrototype Emote)
 /// <summary>
 /// Sent by the client when requesting the server to play a specific emote selected from the emote radial menu.
 /// </summary>
+// begin imp edit - added emote target parameter 
 [Serializable, NetSerializable]
-public sealed class PlayEmoteMessage(ProtoId<EmotePrototype> protoId, EntityUid? target = null) : EntityEventArgs
+public sealed class PlayEmoteMessage(ProtoId<EmotePrototype> protoId, NetEntity? target = null) : EntityEventArgs 
 {
     public readonly ProtoId<EmotePrototype> ProtoId = protoId;
-    public readonly EntityUid? Target = target;
+    public readonly NetEntity? Target = target;
 }
+//end imp edit

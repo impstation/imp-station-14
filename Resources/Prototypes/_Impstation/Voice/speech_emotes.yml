@@ -82,10 +82,31 @@
   id: WaveTargeted
   name: chat-emote-name-wave
   category: Targeted
-  icon: _Impstation/Interface/Emotes/blink.png
+  icon: _Impstation/Interface/Emotes/wave.png
   chatMessages: ["chat-emote-msg-wave"]
+  targeted: true
   chatTriggers: #idk why but it breaks when i remove this
     - waves at
+
+- type: emote
+  id: LookTargeted
+  name: chat-emote-name-look
+  category: Targeted
+  icon: _Impstation/Interface/Emotes/look.png
+  chatMessages: ["chat-emote-msg-look"]
+  targeted: true
+  chatTriggers: #idk why but it breaks when i remove this
+    - looks at
+
+- type: emote
+  id: BlowKissTargeted
+  name: chat-emote-name-blow-kiss
+  category: Targeted
+  icon: _Impstation/Interface/Emotes/blowkiss.png
+  chatMessages: ["chat-emote-msg-blow-kiss"]
+  targeted: true
+  chatTriggers: #idk why but it breaks when i remove this
+    - blows a kiss at
 
 - type: emote
   id: Jumps
