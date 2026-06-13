@@ -79,6 +79,15 @@
     - blinked
 
 - type: emote
+  id: WaveTargeted
+  name: chat-emote-name-wave
+  category: Targeted
+  icon: _Impstation/Interface/Emotes/blink.png
+  chatMessages: ["chat-emote-msg-wave"]
+  chatTriggers: #idk why but it breaks when i remove this
+    - waves at
+
+- type: emote
   id: Jumps
   name: chat-emote-name-jumps
   category: General
