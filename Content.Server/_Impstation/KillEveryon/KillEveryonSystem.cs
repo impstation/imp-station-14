@@ -24,6 +24,6 @@ public sealed partial class KillEveryonSystem : EntitySystem
     {
         if (!_mind.TryGetMind(args.Player, out var mindId, out var mind))
             return;
-        _mind.TryAddObjective(mindId, mind, "KillEveryonObjective");
+        _mind.TryAddObjective(mindId, mind, ent.Comp.Obj);
     }
 }
