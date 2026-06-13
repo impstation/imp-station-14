@@ -14,20 +14,22 @@
     ClothingUniformJumpsuitLawyerGood: 1
     ClothingUniformJumpskirtLawyerGood: 1
     ClothingShoesBootsLaceup: 2
-    ClothingHeadsetService: 2
-    ClothingNeckLawyerbadge: 2
-    BriefcaseBrown: 2
+    ClothingHeadsetGrey: 2 #imp, not service
+    ClothingNeckLawyerbadge: 1 #imp, 2 > 1
+    ClothingNeckProsecutorbadge: 1 #imp
+    ClothingNeckDefenseAttorneyBadge: 1 #imp
+    BriefcaseBrown: 1 #imp, 2 > 1
+    BriefcaseBlack: 1 #imp
     BookSpaceLaw: 3
     LuxuryPen: 2
     HandLabeler: 2
   contrabandInventory:
     ClothingOuterRobesJudge: 1
     ClothingHeadHatPwig: 1
-    ClothingUniformCybersunAttorney: 1
-    CybersunBriefcase: 1
-    ClothingOuterCybersunOvercoat: 1
+    ClothingUniformCybersunAttorney: 1 #imp
+    CybersunBriefcase: 1 #imp
+    ClothingOuterCybersunOvercoat: 1 #imp
     # "Legally" obtained currency
     SpaceCash100: 2
     ToyFigurineLawyer: 1
-  emaggedInventory:
-    CyberPen: 1
+    BriefcaseSteel: 1 # imp

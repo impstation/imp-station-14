@@ -1,0 +1,37 @@
+
+## support for savior clones
+- type: entity
+  parent: [BaseParadoxCloneObjective, BaseSurviveObjective]
+  id: ParadoxCloneLivingAltObjective
+  name: Keep yourself alive.
+  description: When the shift's over, so is your time in this reality. Don't die (or get too attached) before then.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - KillPersonCondition
+      - EscapeShuttleCondition
+
+- type: entity
+  parent: [BaseParadoxCloneObjective, BaseKeepAliveObjective]
+  id: ParadoxCloneSaveObjective
+  name: Resolve the paradox.
+  description: You need your original alive to resolve the paradox. Do whatever's necessary to make that happen.
+  components:
+  - type: PickSpecificPerson
+  - type: KeepAliveCondition
+  - type: Objective
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: void_phase # seems as good a "paradox"-y sprite as any
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - KillPersonCondition
+      - EscapeShuttleCondition
+  - type: TargetObjective
+    title: objective-condition-save-head-paradox-title # save <name>, <job>

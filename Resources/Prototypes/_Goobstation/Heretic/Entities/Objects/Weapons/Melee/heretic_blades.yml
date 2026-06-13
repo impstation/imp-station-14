@@ -6,6 +6,11 @@
   components:
   - type: HereticBlade
   - type: Sharp
+  - type: Execution
+    doAfterDuration: 4.0
+  - type: Tool
+    qualities:
+      - Slicing
   - type: Sprite
     sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
     state: icon

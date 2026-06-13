@@ -18,18 +18,20 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageModifierSet: Web
+    # damageContainer: Inorganic # imp
+    damageModifierSet: Web #imp
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 5 # best removed with fire or slashing
+        damage: 5 # imp
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Construction
+  - type: Construction # imp
     graph: WebStructures
     node: cobweb1
+
 
 - type: entity
   id: Cobweb2
@@ -41,41 +43,6 @@
   - type: Icon
     sprite: Structures/Decoration/cobweb.rsi
     state: cobweb2
-  - type: Construction
+  - type: Construction # imp
     graph: WebStructures
     node: cobweb2
-
-- type: entity
-  id: WebWallDecor
-  name: web wall decor
-  description: Should somebody remove that?
-  components:
-  - type: Fixtures
-  - type: Transform
-    anchored: true
-  - type: Clickable
-  - type: Appearance
-  - type: Rotatable
-  - type: WallMount
-    arc: 360
-  - type: Sprite
-    sprite: Objects/Misc/spiderweb.rsi
-    layers:
-      - state: spider_web_decor
-    drawdepth: WallMountedItems
-  - type: Construction
-    graph: WebStructures
-    node: walldecor
-  - type: Physics
-    bodyType: Static
-    canCollide: false
-  - type: Damageable
-    damageModifierSet: Web
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 5
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]

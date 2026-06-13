@@ -1,0 +1,29 @@
+﻿analysis-console-info-natural-locked = [font="Monospace" size=11]Activated:[/font]
+analysis-console-info-natural-locked-value = [font="Monospace" size=11][color={ $state ->
+    [0] red]False
+    *[1] lime]True
+}[/color][/font]
+
+analysis-console-info-natural-current = [font="Monospace" size=11]Current Node:[/font]
+analysis-console-info-natural-current-value = [font="Monospace" size=11][color={ $state ->
+    [0] red]False
+    *[1] lime]True
+}[/color][/font]
+
+analysis-console-bias-shallow = Up
+analysis-console-bias-deep-random = Random Down
+analysis-console-bias-deep = Down
+analysis-console-bias-deep-left = Left Down
+analysis-console-bias-deep-right = Right Down
+analysis-console-bias-button-info-shallow = Sets the bias an artifact has in moving between its nodes. Up heads toward zero depth.
+analysis-console-bias-button-info-deep-random = Sets the bias an artifact has in moving between its nodes. Down heads toward ever-greater depths. Selecting randomly between nodes, weighted to locked nodes.
+analysis-console-bias-button-info-deep-left = Sets the bias an artifact has in moving between its nodes. Down Left heads toward ever-greater depths. Selects the leftmost node.
+analysis-console-bias-button-info-deep-right = Sets the bias an artifact has in moving between its nodes. Down Right heads toward ever-greater depths. Selects the rightmost node.
+
+analysis-console-unlock-time-text = Unlocking ends in {$seconds ->
+                                      [one] {$seconds} second
+                                      *[other] {$seconds} seconds
+}
+analysis-console-advanced-node-scanner-multiplier-bonus = [font="Monospace" size=11][color=orange]A.N.S x{$multiplier} bonus (+{$bonus})[/color][/font]
+
+analyzer-artifact-extract-failed-popup = Cannot extract points: Research Server not connected or out of power.

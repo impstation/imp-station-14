@@ -4,6 +4,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Content.Shared.Damage; // imp
+using Robust.Shared.Prototypes; // imp
 
 namespace Content.Shared.Materials;
 
@@ -70,6 +72,20 @@ public sealed partial class MaterialReclaimerComponent : Component
     public string? SolutionContainerId;
 
     /// <summary>
+    /// Can this reclaimer reclaim materials?
+    /// They will be spawned as material stacks.
+    /// </summary>
+    [DataField]
+    public bool ReclaimMaterials = true;
+
+    /// <summary>
+    /// Can this reclaimer reclaim solutions?
+    /// The reclaimed reagents will be stored in a buffer or spilled on the ground if that is full.
+    /// </summary>
+    [DataField]
+    public bool ReclaimSolutions = true;
+
+    /// <summary>
     /// If the reclaimer should attempt to reclaim all solutions or just drainable ones
     /// Difference between Recycler and Industrial Reagent Grinder
     /// </summary>
@@ -123,6 +139,24 @@ public sealed partial class MaterialReclaimerComponent : Component
     /// </remarks>
     [DataField, AutoNetworkedField]
     public int ItemsProcessed;
+
+    /// <summary>
+    /// Imp addition, the damage inflicted to mobs that don't gib.
+    /// </summary>
+    [DataField]
+    public DamageSpecifier Damage = new();
+
+    /// <summary>
+    /// Imp addition, the status effect to apply to damaged mobs.
+    /// </summary>
+    [DataField]
+    public EntProtoId StatusEffect = "StatusEffectRecyclerImmune";
+
+    /// <summary>
+    /// Imp addition, the duration of the applied status effect.
+    /// </summary>
+    [DataField]
+    public TimeSpan StatusEffectDuration = TimeSpan.FromSeconds(1);
 }
 
 [NetSerializable, Serializable]

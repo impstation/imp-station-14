@@ -30,7 +30,7 @@ public sealed partial class CCVars
         CVarDef.Create("tips.in_game_frequency", 60f * 60);
 
     public static readonly CVarDef<string> LoginTipsDataset =
-        CVarDef.Create("tips.login_dataset", "LoginTips");
+        CVarDef.Create("tips.login_dataset", "LoginTips"); // imp: use our tip proto
 
     /// <summary>
     ///     The chance for Tippy to replace a normal tip message.

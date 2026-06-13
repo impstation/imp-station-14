@@ -1,0 +1,24 @@
+- type: construction
+  id: CardTaco
+  graph: CardTaco
+  startNode: start
+  targetNode: cardtaco
+  category: construction-category-food
+  objectType: Item
+
+- type: construction
+  id: yarnnoodles
+  graph: YarnNoodles
+  startNode: start
+  targetNode: noodles
+  category: construction-category-food
+  objectType: Item
+
+- type: construction
+  id: fabricscrapsalad
+  graph: FabricScrapSalad
+  startNode: start
+  targetNode: salad
+  category: construction-category-food
+  objectType: Item
+  

@@ -1,19 +1,21 @@
 [game]
 hostname = "[EN][MRP] Impstation"
 desc = "Unofficial server for fans of RTVS featuring custom content. Come and see him."
-soft_max_players = 80
+soft_max_players = 100
 # seconds
+# default 120
+round_restart_time = 150
 # default 150
-lobbyduration = 300
+lobbyduration = 600
 
 [server]
 # TODO
 # rules_file = "ImpstationRuleset"
-uptime_restart_minutes = 240
+uptime_restart_minutes = 480
 
 [chat]
 # Message Of The Day
-# motd = "Be sure to fill out the Impstation rules survey, found in the impstation #status channel in the Discord server! Your feedback is appreciated!!"
+# motd = ""
 
 [ic]
 flavor_text = true
@@ -29,11 +31,12 @@ restricted_names = false
 rate_limit_count = 20
 
 [infolinks]
-discord = "https://discord.gg/TGNz3cEkag"
+discord = "https://discord.gg/erthpinball"
 github = "https://github.com/impstation/imp-station-14"
 website = "https://impstation.gay"
 # wiki = ""
 bug_report = "https://github.com/impstation/imp-station-14/issues"
+appeal = "https://impstation.gay/banappeal"
 
 [looc]
 # people abused the privilege, so off it goes
@@ -50,3 +53,8 @@ role_time = 10
 [tips]
 # this doesn't actually propagate to the client right now
 login_dataset = "LoginTips"
+
+[whitelist]
+enabled = false
+# we do have a whitelist in place, but as of 15 august 2025 the server is open again
+# whitelist cutoff date: ~0:00CT 28 april 2025

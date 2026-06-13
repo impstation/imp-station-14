@@ -1,0 +1,27 @@
+- type: entity
+  id: CrystalPurple
+  parent: CrystalBase
+  suffix: purple
+  components:
+    - type: Sprite
+      color: "#a838e9"
+    - type: PointLight
+      radius: 3
+      energy: 3
+      color: "#a838e9"
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 20
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+            - !type:PlaySoundBehavior
+              sound:
+                collection: GlassBreak
+            - !type:SpawnEntitiesBehavior
+              spawn:
+                ShardCrystalPurple:
+                  min: 1
+                  max: 1

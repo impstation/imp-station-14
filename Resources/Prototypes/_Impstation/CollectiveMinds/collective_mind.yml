@@ -1,10 +1,18 @@
 - type: collectiveMind
   id: Mycorrhizal
-  name: collective-mind-dionas
+  name: collective-mind-diona
   keycode: 'm'
-  color: "#3C720D"
+  color: "#4f9810"
   requiredTags:
-  - DionaMinded
+  - DionaHivemind
+
+- type: collectiveMind
+  id: MansusLink
+  name: collective-mind-mansuslink
+  keycode: 'l'
+  color: "#39a83d"
+  requiredComponents:
+  - HereticMansusLink
 
 - type: collectiveMind
   id: Changeling
@@ -12,4 +20,4 @@
   keycode: 'h'
   color: "#e36b00"
   requiredComponents:
-  - Hivemind
+  - GoobHivemind

@@ -1,4 +1,4 @@
-﻿- type: reaction
+- type: reaction
   id: Coffee
   minTemp: 353 # ~80 deg C
   requiredMixerCategories:
@@ -20,7 +20,84 @@
       amount: 1
     Sugar:
       amount: 1
-    Blackpepper:
+    Everyspice:
       amount: 1
   products:
     PumpkinSpiceLatte: 6
+
+- type: reaction
+  id: GinAndSonic
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    GinTonic:
+      amount: 1
+    Desoxyephedrine:
+      amount: 1
+  products:
+    GinAndSonic: 2
+
+- type: reaction
+  id: PineappleBlast
+  reactants:
+    JuicePineapple:
+      amount: 2
+    Moonshine:
+      amount: 2
+    Napalm:
+      amount: 1
+  products:
+    PineappleBlast: 5
+
+- type: reaction
+  id: TorpedoJuice
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    JuicePineapple:
+      amount: 2
+    Ethanol:
+      amount: 2
+    Thermite:
+      amount: 1
+  products:
+    TorpedoJuice: 5
+
+- type: reaction
+  id: BeesKnees
+  reactants:
+    JuiceLemon:
+      amount: 1
+    BuzzochloricBees:
+      amount: 2
+    Gin:
+      amount: 1
+    Mead:
+      amount: 1
+  products:
+    BeesKnees: 5
+
+- type: reaction
+  id: HoneyIcedTea
+  reactants:
+    Honey:
+      amount: 1
+    IcedTea:
+      amount: 1
+  products:
+    HoneyIcedTea: 2
+
+- type: reaction
+  id: WassailMulledAle
+  minTemp: 350
+  reactants:
+    Ale:
+      amount: 1
+    Sugar:
+      amount: 1
+    JuiceApple:
+      amount: 1
+    Everyspice:
+      amount: 1
+  products:
+    WassailMulledAle : 4

@@ -6,3 +6,26 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Back/Duffels/commandveteran.rsi
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicate
+  id: ClothingBackpackDuffelDeadlyDan
+  name: Deadly Dan's duffel bag
+  description: An extra-large duffel bag for holding premium traitor goods at a bargain price.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Back/Duffels/deadlydan.rsi
+  - type: Storage
+    grid:
+    - 0,0,8,5
+  - type: ClothingSpeedModifier
+    walkModifier: .8
+    sprintModifier: 0.75
+
+- type: entity
+  parent: ClothingBackpackDuffelDeadlyDan
+  id: ClothingBackpackDuffelDeadlyBundle
+  abstract: true
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag

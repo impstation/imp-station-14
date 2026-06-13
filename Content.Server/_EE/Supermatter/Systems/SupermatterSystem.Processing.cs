@@ -1,18 +1,21 @@
 using System.Linq;
 using System.Numerics;
 using System.Text;
-using Content.Server.Chat.Systems;
 using Content.Server.Singularity.Components;
+using Content.Server.StationEvents.Events;
 using Content.Shared._EE.CCVar;
 using Content.Shared._EE.Supermatter.Components;
+using Content.Shared._Impstation.StrangeMoods;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Chat;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Light.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
+using Content.Shared.Popups;
 using Content.Shared.Radiation.Components;
 using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Speech;
@@ -27,7 +30,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
-using Vector4 = Robust.Shared.Maths.Vector4;
 
 namespace Content.Server._EE.Supermatter.Systems;
 
@@ -43,50 +45,54 @@ public sealed partial class SupermatterSystem
         if (mix is not { })
             return;
 
-        // Divide the gas efficiency by the grace modifier if the supermatter is unpowered
-        var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(EECCVars.SupermatterGasEfficiencyGraceModifier));
+        // Variable mix was copied as to not interfere with other calculations when gasReleased is merged
+        sm.GasMixture = mix.Clone();
 
-        sm.GasStorage = mix.Remove(gasEfficiency * mix.TotalMoles);
-        var moles = sm.GasStorage.TotalMoles;
+        sm.GasStorage = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
 
-        if (!(moles > 0f))
+        if (!(sm.GasStorage.TotalMoles > 0f))
             return;
 
-        var gasComposition = sm.GasStorage.Clone();
+        sm.GasComposition = sm.GasStorage.Clone();
+
+        if (!(sm.GasComposition.TotalMoles > 0f))
+            return;
 
         // Let's get the proportions of the gases in the mix for scaling stuff later
         // They range between 0 and 1
         foreach (var gasId in Enum.GetValues<Gas>())
         {
-            var proportion = sm.GasStorage.GetMoles(gasId) / moles;
-            gasComposition.SetMoles(gasId, Math.Clamp(proportion, 0, 1));
+            var proportion = sm.GasStorage.GetMoles(gasId) / sm.GasStorage.TotalMoles;
+            sm.GasComposition.SetMoles(gasId, Math.Clamp(proportion, 0, 1));
         }
 
         // No less then zero, and no greater then one, we use this to do explosions and heat to power transfer.
-        var powerRatio = SupermatterGasData.GetPowerMixRatios(gasComposition);
+        var powerRatio = SupermatterGasData.GetPowerMixRatios(sm.GasComposition);
 
         // Affects plasma, o2 and heat output.
-        sm.GasHeatModifier = SupermatterGasData.GetHeatPenalties(gasComposition);
-        var transmissionBonus = SupermatterGasData.GetTransmitModifiers(gasComposition);
+        sm.GasHeatModifier = SupermatterGasData.GetHeatPenalties(sm.GasComposition);
+        var transmissionBonus = SupermatterGasData.GetTransmitModifiers(sm.GasComposition);
 
-        var h2OBonus = 1 - gasComposition.GetMoles(Gas.WaterVapor) * 0.25f;
+        var h2OBonus = 1 - sm.GasComposition.GetMoles(Gas.WaterVapor) * 0.25f;
 
         powerRatio = Math.Clamp(powerRatio, 0, 1);
-        sm.HeatModifier = Math.Max(sm.GasHeatModifier, 0.5f);
         transmissionBonus *= h2OBonus;
 
+        if (sm.Event == SupermatterEvent.None) // Imp change, if surging then dosen't calculate heat modifier and uses the currently set one
+            sm.HeatModifier = Math.Max(sm.GasHeatModifier, 0.5f);
+
         // Miasma is really just microscopic particulate. It gets consumed like anything else that touches the crystal.
-        var ammoniaProportion = gasComposition.GetMoles(Gas.Ammonia);
+        var ammoniaProportion = sm.GasComposition.GetMoles(Gas.Ammonia);
 
         if (ammoniaProportion > 0)
         {
-            var ammoniaPartialPressure = mix.Pressure * ammoniaProportion;
+            var ammoniaPartialPressure = sm.GasMixture.Pressure * ammoniaProportion;
             var consumedMiasma = Math.Clamp((ammoniaPartialPressure - _config.GetCVar(EECCVars.SupermatterAmmoniaConsumptionPressure)) /
                 (ammoniaPartialPressure + _config.GetCVar(EECCVars.SupermatterAmmoniaPressureScaling)) *
                 (1 + powerRatio * _config.GetCVar(EECCVars.SupermatterAmmoniaGasMixScaling)),
                 0f, 1f);
 
-            consumedMiasma *= ammoniaProportion * moles;
+            consumedMiasma *= ammoniaProportion * sm.GasStorage.TotalMoles;
 
             if (consumedMiasma > 0)
             {
@@ -96,19 +102,19 @@ public sealed partial class SupermatterSystem
         }
 
         // Affects the damage heat does to the crystal
-        var heatResistance = SupermatterGasData.GetHeatResistances(gasComposition);
+        var heatResistance = SupermatterGasData.GetHeatResistances(sm.GasComposition);
         sm.DynamicHeatResistance = Math.Max(heatResistance, 1);
 
         // More moles of gases are harder to heat than fewer, so let's scale heat damage around them
-        sm.MoleHeatPenaltyThreshold = (float)Math.Max(moles / _config.GetCVar(EECCVars.SupermatterMoleHeatPenalty), 0.25);
+        sm.MoleHeatPenaltyThreshold = (float)Math.Max(sm.GasStorage.TotalMoles / _config.GetCVar(EECCVars.SupermatterMoleHeatPenalty), 0.25);
 
         // Ramps up or down in increments of 0.02 up to the proportion of CO2
         // Given infinite time, powerloss_dynamic_scaling = co2comp
         // Some value from 0-1
-        if (moles > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleThreshold) &&
-            gasComposition.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionGasThreshold))
+        if (sm.GasStorage.TotalMoles > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleThreshold) && // if there are more than 20 mols,
+            sm.GasComposition.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionGasThreshold)) // and more than 20% co2
         {
-            var co2powerloss = Math.Clamp(gasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
+            var co2powerloss = Math.Clamp(sm.GasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
             sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
         }
         else
@@ -117,7 +123,7 @@ public sealed partial class SupermatterSystem
         // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 500))))
         // We take the mol count, and scale it to be our inhibitor
         sm.PowerlossInhibitor = Math.Clamp(
-            1 - sm.PowerlossDynamicScaling * Math.Clamp(moles / _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleBoostThreshold), 1f, 1.5f),
+            1 - sm.PowerlossDynamicScaling * Math.Clamp(sm.GasStorage.TotalMoles / _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleBoostThreshold), 1f, 1.5f),
             0f, 1f);
 
         if (sm.MatterPower != 0)
@@ -133,8 +139,9 @@ public sealed partial class SupermatterSystem
         // Based on gas mix, makes the power more based on heat or less effected by heat
         var tempFactor = powerRatio > 0.8 ? 50f : 30f;
 
-        // If there is more frezon and N2 than anything else, we receive no power increase from heat
-        sm.Power = Math.Max(sm.GasStorage.Temperature * tempFactor / Atmospherics.T0C * powerRatio + sm.Power, 0);
+        if (sm.Event != SupermatterEvent.Surging) // Imp change, if surging then it dosen't calculate power, instead using the currently set one
+            // If there is more frezon and N2 than anything else, we receive no power increase from heat
+            sm.Power = Math.Max(sm.GasStorage.Temperature * tempFactor / Atmospherics.T0C * powerRatio + sm.Power, 0);
 
         // Irradiate stuff
         if (TryComp<RadiationSourceComponent>(uid, out var rad))
@@ -178,7 +185,9 @@ public sealed partial class SupermatterSystem
         // After this point power is lowered
         // This wraps around to the begining of the function
         sm.PowerLoss = Math.Min(powerReduction * sm.PowerlossInhibitor, sm.Power * 0.83f * sm.PowerlossInhibitor);
-        sm.Power = Math.Max(sm.Power - sm.PowerLoss, 0f);
+
+        if (sm.Event != SupermatterEvent.Surging) // Imp change, if surging dosen't decay power so that lightning can appear
+            sm.Power = Math.Max(sm.Power - sm.PowerLoss, 0f);
 
         // Adjust the gravity pull range
         if (TryComp<GravityWellComponent>(uid, out var gravityWell))
@@ -186,7 +195,7 @@ public sealed partial class SupermatterSystem
 
         // Log the first powering of the supermatter
         if (sm.Power > 0 && !sm.HasBeenPowered)
-            LogFirstPower(uid, sm, mix);
+            LogFirstPower(uid, sm, sm.GasMixture);
     }
 
     /// <summary>
@@ -217,7 +226,7 @@ public sealed partial class SupermatterSystem
         }
 
         if (zapCount >= 1)
-            _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], hitCoordsChance: sm.ZapHitCoordinatesChance);
+            _lightning.ShootRandomLightnings(uid, zapRange, zapCount, sm.LightningPrototypes[zapPower], hitCoordsChance: sm.ZapHitCoordinatesChance, canExplode: false);
     }
 
     /// <summary>
@@ -336,42 +345,40 @@ public sealed partial class SupermatterSystem
 
         sm.DamageArchived = sm.Damage;
 
-        var mix = _atmosphere.GetContainingMixture(uid, true, true);
-
         // We're in space or there is no gas to process
-        if (!xform.GridUid.HasValue || mix is not { } || mix.TotalMoles == 0f)
+        if (!xform.GridUid.HasValue || sm.GasMixture is not { } || MathHelper.CloseTo(sm.GasMixture.TotalMoles, 0f, 0.0005f)) //#IMP change from == 0f to MathHelper.CloseTo(sm.GasMixture.TotalMoles, 0f, 0.0005f)
         {
             sm.Damage += Math.Max(sm.Power / 1000 * sm.DamageIncreaseMultiplier, 0.1f);
             return;
         }
-
-        // Absorbed gas from surrounding area
-        var gasEfficiency = sm.GasEfficiency / (sm.Power > 0 ? 1 : _config.GetCVar(EECCVars.SupermatterGasEfficiencyGraceModifier));
-        var absorbedGas = mix.Remove(gasEfficiency * mix.TotalMoles);
-        var moles = absorbedGas.TotalMoles;
 
         var totalDamage = 0f;
 
         var tempThreshold = Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold);
 
         // Temperature start to have a positive effect on damage after 350
-        var tempDamage = Math.Max(Math.Clamp(moles / 200f, .5f, 1f) * absorbedGas.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
+        if (sm.GasMixture is { } && sm.GasStorage is { })
+        {
+            var tempDamage = Math.Max(Math.Clamp(sm.GasStorage.TotalMoles / 200f, .5f, 1f) * sm.GasMixture.Temperature - tempThreshold * sm.DynamicHeatResistance, 0f) *
             sm.MoleHeatPenaltyThreshold / 150f * sm.DamageIncreaseMultiplier;
-        totalDamage += tempDamage;
-
+            totalDamage += tempDamage;
+        }
         // Power only starts affecting damage when it is above 5000
         var powerDamage = Math.Max(sm.Power - _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold), 0f) / 500f * sm.DamageIncreaseMultiplier;
         totalDamage += powerDamage;
 
-        // Mol count only starts affecting damage when it is above 1800
-        var moleDamage = Math.Max(moles - _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold), 0f) / 80 * sm.DamageIncreaseMultiplier;
-        totalDamage += moleDamage;
+        if (sm.GasStorage is { })
+        {
+            // Mol count only starts affecting damage when it is above 1800
+            var moleDamage = Math.Max(sm.GasStorage.TotalMoles - _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold), 0f) / 80 * sm.DamageIncreaseMultiplier;
+            totalDamage += moleDamage;
+        }
 
         // Healing damage
-        if (moles < _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold))
+        if (sm.GasMixture is { } && sm.GasStorage is { } && sm.GasStorage.TotalMoles < _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold))
         {
             // Only has a net positive effect when the temp is below 313.15, heals up to 2 damage. Psychologists increase this temp min by up to 45
-            sm.HeatHealing = Math.Min(absorbedGas.Temperature - (tempThreshold + 45f * sm.PsyCoefficient), 0f) / 150f;
+            sm.HeatHealing = Math.Min(sm.GasMixture.Temperature - (tempThreshold + 45f * sm.PsyCoefficient), 0f) / 150f;
             totalDamage += sm.HeatHealing;
         }
         else
@@ -564,9 +571,15 @@ public sealed partial class SupermatterSystem
                 }
             }
 
-            if (sm.GasStorage != null && sm.GasStorage.TotalMoles >= _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold))
+            if (sm.GasStorage is { } && sm.GasStorage.TotalMoles >= _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold))
             {
                 message = Loc.GetString("supermatter-threshold-mole");
+                SendSupermatterAnnouncement(uid, sm, message, global);
+            }
+
+            if (sm.PreferredDelamType == DelamType.Cascade)
+            {
+                message = Loc.GetString("supermatter-threshold-cascade");
                 SendSupermatterAnnouncement(uid, sm, message, global);
             }
         }
@@ -616,23 +629,25 @@ public sealed partial class SupermatterSystem
         if (_config.GetCVar(EECCVars.SupermatterDoForceDelam))
             return _config.GetCVar(EECCVars.SupermatterForcedDelamType);
 
-        var mix = _atmosphere.GetContainingMixture(uid, true, true);
+        if (sm.DestabilizingCrystal)
+            return DelamType.Cascade;
 
-        if (mix is { })
+        if (sm.GasComposition is { } && sm.GasStorage is { })
         {
-            var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
-            var moles = absorbedGas.TotalMoles;
+            if (sm.GasComposition.GetMoles(Gas.Frezon) >= 0.4 && sm.GasComposition.GetMoles(Gas.Tritium) >= 0.4 && sm.GasStorage.TotalMoles >= 240)
+                return DelamType.Cascade;
+        }
 
+        if (sm.GasStorage is { })
+        {
             if (_config.GetCVar(EECCVars.SupermatterDoSingulooseDelam)
-                && moles >= _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold) * _config.GetCVar(EECCVars.SupermatterSingulooseMolesModifier))
+                && sm.GasStorage.TotalMoles >= _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold) * _config.GetCVar(EECCVars.SupermatterSingulooseMolesModifier))
                 return DelamType.Singulo;
         }
 
         if (_config.GetCVar(EECCVars.SupermatterDoTeslooseDelam)
             && sm.Power >= _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) * _config.GetCVar(EECCVars.SupermatterTesloosePowerModifier))
             return DelamType.Tesla;
-
-        //TODO: Add resonance cascade when there's crazy conditions or a destabilizing crystal
 
         return DelamType.Explosion;
     }
@@ -643,8 +658,6 @@ public sealed partial class SupermatterSystem
     private void HandleDelamination(EntityUid uid, SupermatterComponent sm)
     {
         var xform = Transform(uid);
-
-        sm.PreferredDelamType = ChooseDelamType(uid, sm);
 
         if (!sm.Delamming)
         {
@@ -664,7 +677,7 @@ public sealed partial class SupermatterSystem
 
         var mapId = Transform(uid).MapID;
         var mapFilter = Filter.BroadcastMap(mapId);
-        var message = Loc.GetString("supermatter-delam-player");
+        var message = Loc.GetString(sm.PreferredDelamType == DelamType.Cascade ? "supermatter-delam-cascade-player" : "supermatter-delam-player");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
 
         // Send the reality distortion message to every player on the map
@@ -680,37 +693,66 @@ public sealed partial class SupermatterSystem
         // Play the reality distortion sound for every player on the map
         _audio.PlayGlobal(sm.DistortSound, mapFilter, true);
 
-        // Add hallucinations to every mob on the map, except those in EntityStorage (lockers, etc)
-        // TODO: change this from paracusia to actual hallucinations whenever those are real
+        // Give effects to every mob on the map, except those in EntityStorage (lockers, etc)
         var mobLookup = new HashSet<Entity<MobStateComponent>>();
         _entityLookup.GetEntitiesOnMap<MobStateComponent>(mapId, mobLookup);
         mobLookup.RemoveWhere(x => HasComp<InsideEntityStorageComponent>(x));
 
-        // These values match the paracusia disability, since we can't double up on paracusia
-        var paracusiaSounds = new SoundCollectionSpecifier("Paracusia");
-        var paracusiaMinTime = 0.1f;
-        var paracusiaMaxTime = 300f;
-        var paracusiaDistance = 7f;
+        // Scramble the given shared moods
+        foreach (var mood in sm.SharedMoodScrambleTargets)
+        {
+            _moods.NewSharedMoods(mood);
+        }
+
+        // Flickers all powered lights on the map
+        var lightLookup = new HashSet<Entity<PoweredLightComponent>>();
+        _entityLookup.GetEntitiesOnMap<PoweredLightComponent>(mapId, lightLookup);
+        foreach (var light in lightLookup)
+        {
+            if (!_random.Prob(sm.LightFlickerChance))
+                continue;
+            _ghost.DoGhostBooEvent(light);
+        }
+
+        // Add post-delamination event scheduler
+        var gamerule = _gameTicker.AddGameRule(sm.DelamGamerulePrototype);
+        _gameTicker.StartGameRule(gamerule);
+
+        var effects = _proto.Index(sm.DelamEffectsPrototype).Components;
 
         foreach (var mob in mobLookup)
         {
-            // Ignore silicons
-            if (HasComp<SiliconLawBoundComponent>(uid))
-                continue;
-
-            if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
+            // Scramble moods that follow the given shared moods
+            if (TryComp<StrangeMoodsComponent>(mob, out var moods) &&
+                moods.SharedMood is { UniqueId: not null } sharedMood &&
+                sm.SharedMoodScrambleTargets.Contains(sharedMood.UniqueId))
             {
-                _paracusia.SetSounds(mob, paracusiaSounds, paracusia);
-                _paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
-                _paracusia.SetDistance(mob, paracusiaDistance, paracusia);
+                _moods.RefreshMoods((mob, moods));
             }
+
+            // Scramble laws for silicons, then ignore other effects
+            if (TryComp<SiliconLawBoundComponent>(mob, out var law))
+            {
+                var target = EnsureComp<IonStormTargetComponent>(mob); // they hit the fucking ai
+                var oldChance = target.Chance;
+                target.Chance = 1f;
+                var ev = new IonStormEvent();
+                RaiseLocalEvent(mob, ref ev);
+                target.Chance = oldChance; // hacky fucking code. whatever. don't look at me
+
+                continue;
+            }
+
+            // Add effects to all mobs
+            // TODO: change paracusia to actual hallucinations whenever those are real
+            EntityManager.AddComponents(mob, effects, false);
         }
 
         switch (sm.PreferredDelamType)
         {
             case DelamType.Cascade:
-                // one day...
-                // Spawn(sm.KudzuSpawnPrototype, xform.Coordinates);
+                var cascadeGamerule = _gameTicker.AddGameRule(sm.CascadeDelamGamerulePrototype);
+                _gameTicker.StartGameRule(cascadeGamerule);
                 break;
 
             case DelamType.Singulo:
@@ -756,23 +798,37 @@ public sealed partial class SupermatterSystem
     private void HandleVision(EntityUid uid, SupermatterComponent sm)
     {
         var psyDiff = -0.007f;
-        var lookup = _entityLookup.GetEntitiesInRange<MobStateComponent>(Transform(uid).Coordinates, 20f);
+        var activeCascadeDelam = false;
+        var lookup = new HashSet<Entity<MobStateComponent>>();
+
+        // If actively cascade delaminating then everyone is affected
+        if (sm.PreferredDelamType == DelamType.Cascade && sm.Damage > sm.DamageArchived)
+        {
+            _entityLookup.GetEntitiesOnMap(Transform(uid).MapID, lookup);
+            activeCascadeDelam = true;
+        }
+        else
+            _entityLookup.GetEntitiesInRange(Transform(uid).Coordinates, 20f, lookup);
 
         foreach (var mob in lookup)
         {
             // Not in line of sight, or is dead
-            if (!_examine.InRangeUnOccluded(uid, mob, 20f) ||
-                mob.Comp.CurrentState == MobState.Dead)
+            if (!activeCascadeDelam &&
+                (!_examine.InRangeUnOccluded(uid, mob, sm.HallucinationRange) ||
+                mob.Comp.CurrentState == MobState.Dead))
                 continue;
 
             // Someone (generally a psychologist), when looking at the supermatter within hallucination range, makes it easier to manage.
-            if (HasComp<SupermatterSootherComponent>(mob))
+            if (!activeCascadeDelam && HasComp<SupermatterSootherComponent>(mob))
                 psyDiff = 0.007f;
 
-            if (HasComp<SupermatterHallucinationImmuneComponent>(mob) || // Immune to supermatter hallucinations
-                HasComp<SiliconLawBoundComponent>(mob) ||                // Silicons don't get supermatter hallucinations
-                HasComp<PermanentBlindnessComponent>(mob) ||             // Blind people don't get supermatter hallucinations
-                HasComp<TemporaryBlindnessComponent>(mob))               // Neither do blinded people
+            if (HasComp<SupermatterHallucinationImmuneComponent>(mob)) // Immune to supermatter hallucinations)
+                continue;
+
+            if (!activeCascadeDelam &&
+                (HasComp<SiliconLawBoundComponent>(mob) ||             // Silicons don't get supermatter hallucinations
+                HasComp<PermanentBlindnessComponent>(mob) ||           // Blind people don't get supermatter hallucinations
+                HasComp<TemporaryBlindnessComponent>(mob)))              // Neither do blinded people
                 continue;
 
             // Everyone else gets hallucinations
@@ -783,8 +839,17 @@ public sealed partial class SupermatterSystem
             var paracusiaMaxTime = 300f;
             var paracusiaDistance = 7f;
 
+            if (activeCascadeDelam && _random.Prob(1 / sm.CascadeMessageChance))
+            {
+                var index = _random.Next(1, 6);
+                _popup.PopupEntity(Loc.GetString($"supermatter-cascade-player-message-{index}"), mob, mob, PopupType.LargeCaution);
+            }
+
             if (!EnsureComp<ParacusiaComponent>(mob, out var paracusia))
             {
+                _popup.PopupEntity(Loc.GetString("supermatter-paracusia-player-message"), mob, mob, PopupType.LargeCaution);
+                _audio.PlayEntity(sm.GainParacusiaSound, mob, mob);
+                _audio.PlayEntity(sm.GiveParacusiaSound, mob, uid);
                 _paracusia.SetSounds(mob, paracusiaSounds, paracusia);
                 _paracusia.SetTime(mob, paracusiaMinTime, paracusiaMaxTime, paracusia);
                 _paracusia.SetDistance(mob, paracusiaDistance, paracusia);

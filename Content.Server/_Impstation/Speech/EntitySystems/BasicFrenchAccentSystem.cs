@@ -1,7 +1,9 @@
-using Content.Server.Speech.Components;
 using System.Text.RegularExpressions;
+using Content.Server._Impstation.Speech.Components;
+using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 /// <summary>
 /// System that gives the speaker a faux-French accent.
@@ -21,9 +23,9 @@ public sealed class BasicFrenchAccentSystem : EntitySystem
         SubscribeLocalEvent<BasicFrenchAccentComponent, AccentGetEvent>(OnAccentGet);
     }
 
-    public string Accentuate(string message, BasicFrenchAccentComponent component)
+    private void OnAccentGet(Entity<BasicFrenchAccentComponent> entity, ref AccentGetEvent args)
     {
-        var msg = message;
+        var msg = args.Message;
 
         msg = _replacement.ApplyReplacements(msg, "basicfrench");
 
@@ -36,11 +38,6 @@ public sealed class BasicFrenchAccentSystem : EntitySystem
         // spaces out ! ? : and ;.
         msg = RegexSpacePunctuation.Replace(msg, " $&");
 
-        return msg;
-    }
-
-    private void OnAccentGet(EntityUid uid, BasicFrenchAccentComponent component, AccentGetEvent args)
-    {
-        args.Message = Accentuate(args.Message, component);
+        args.Message = msg;
     }
 }

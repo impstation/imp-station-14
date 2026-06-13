@@ -7,7 +7,7 @@
   objective: roles-antag-nuclear-operative-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
+    time: 5h
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -19,10 +19,10 @@
   objective: roles-antag-nuclear-operative-agent-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 18000 # 5h
+    time: 5h
   - !type:RoleTimeRequirement
     role: JobChemist
-    time: 10800 # 3h
+    time: 3h
   guides: [ NuclearOperatives ]
 
 - type: antag
@@ -33,20 +33,16 @@
   setPreference: true
   objective: roles-antag-nuclear-operative-commander-objective
   requirements:
-  - !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 27000 # 7.5 hours
-  - !type:DepartmentTimeRequirement
-      department: Medical
-      time: 27000 # 7.5 hours
-  - !type:DepartmentTimeRequirement
-      department: Security
-      time: 27000 # 7.5 hours
-  - !type:DepartmentTimeRequirement
-      department: Command
-      time: 27000 # 7.5 hours
-  # this is half the requirements to unlock captain, and should be enough for a nuke ops commander to have a basic, broad understanding of the game
-  # should be changed to nukie playtime when thats tracked (wyci)
+  # imp edit start, added general nukie requirment
+  #- !type:OverallPlaytimeRequirement
+  #  time: 5h
+  #- !type:DepartmentTimeRequirement
+  #  department: Security
+  #  time: 5h
+  - !type:AntagGroupTimeRequirement
+    antagGroup: Nukies
+    time: 4h
+  # imp edit end
   guides: [ NuclearOperatives ]
 
 - type: startingGear
@@ -60,7 +56,7 @@
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterHardsuitSyndie
     shoes: ClothingShoesBootsCombatFilled
-    id: SyndiPDA
+    id: SyndiOperativePDA
     pocket2: PlushieCarp
     belt: ClothingBeltMilitaryWebbing
   storage:
@@ -76,18 +72,40 @@
   equipment:
     pocket2: BaseUplinkRadio40TC
 
+- type: chameleonOutfit
+  id: NukeopsOutfit
+  name: roles-antag-nuclear-operative-name
+  startingGear: SyndicateOperativeGearFullNoUplink
+  icon: "JobIconSyndicateOperative"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndie
+    neck: ClothingNeckScarfStripedSyndieRed
+
 #Nuclear Operative Commander Gear
 - type: startingGear
   id: SyndicateCommanderGearFull
   parent: SyndicateOperativeGearFull
   equipment:
+    id: SyndiCommanderPDA
     neck: SyndicateWhistle
     outerClothing: ClothingOuterHardsuitSyndieCommander
   storage:
     back:
+    - DeathAcidifierImplanter
+    - WeaponPistolViper
+    - PinpointerSyndicateNuclear
     - NukieSpectralLocator # Imp special!!
   inhand:
   - NukeOpsDeclarationOfWar
+
+- type: chameleonOutfit
+  id: NukeopsCommanderOutfit
+  name: roles-antag-nuclear-operative-commander-name
+  startingGear: SyndicateCommanderGearFull
+  icon: "JobIconSyndicateCommander"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieCommander
+    neck: ClothingNeckScarfStripedSyndieGreen
 
 #Nuclear Operative Medic Gear
 - type: startingGear
@@ -97,7 +115,7 @@
     eyes: ClothingEyesHudSyndicateAgent
     outerClothing: ClothingOuterHardsuitSyndieMedic
     shoes: ClothingShoesBootsMagSyndie
-    id: SyndiAgentPDA
+    id: SyndiCorpsmanPDA
     belt: ClothingBeltMilitaryWebbingMedFilled
   storage:
     back:
@@ -111,6 +129,15 @@
     - CombatMedipen
     - DeathAcidifierImplanter
 
+- type: chameleonOutfit
+  id: NukeopsMedicOutfit
+  name: roles-antag-nuclear-operative-agent-name
+  startingGear: SyndicateOperativeMedicFull
+  icon: "JobIconSyndicateCorpsman"
+  equipment:
+    head: ClothingHeadHelmetHardsuitSyndieMedic
+    neck: ClothingNeckScarfStripedLightBlue
+
 #Lone Operative Gear
 - type: startingGear
   id: SyndicateLoneOperativeGearFull
@@ -123,6 +150,4 @@
     - PinpointerSyndicateNuclear
     - DeathAcidifierImplanter
     - NukieSpectralLocator # Imp special!!
-    - DeathAcidifierImplanter
-    - WeaponPistolViper
 

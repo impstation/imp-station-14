@@ -1,0 +1,16 @@
+- type: alert
+  id: InternalPressure
+  icons:
+  - sprite: /Textures/_Impstation/Interface/Alerts/internal_pressure.rsi
+    state: pressure-1
+  - sprite: /Textures/_Impstation/Interface/Alerts/internal_pressure.rsi
+    state: pressure-2
+  - sprite: /Textures/_Impstation/Interface/Alerts/internal_pressure.rsi
+    state: pressure-3
+  - sprite: /Textures/_Impstation/Interface/Alerts/internal_pressure.rsi
+    state: pressure-4
+  - sprite: /Textures/_Impstation/Interface/Alerts/internal_pressure.rsi
+    state: pressure-5
+  maxSeverity: 5
+  name: alerts-internal-pressure-name
+  description: alerts-internal-pressure-desc

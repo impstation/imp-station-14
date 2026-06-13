@@ -1,0 +1,17 @@
+﻿advertisement-deadly-1 = Deadly Dan, he's the man!
+advertisement-deadly-2 = Better than nothing!
+advertisement-deadly-3 = Good to the last shot!
+advertisement-deadly-4 = Fires so fast you don't need to aim!
+advertisement-deadly-5 = Don't listen to those eggheads at the ATF, buy now!
+advertisement-deadly-6 = Don't bring a knife to a gun fight!
+advertisement-deadly-7 = Cheap and fully automatic!
+advertisement-deadly-8 = Why pay more?
+advertisement-deadly-9 = Safety feature? The point is to be Deadly!
+thankyou-deadly-1 = Thanks for usi-*BZZT
+thankyou-deadly-2 = Remember: no refunds!
+thankyou-deadly-3 = Don't let Security catch you!
+thankyou-deadly-4 = Careful when you holster that!
+thankyou-deadly-5 = Please don't sue us!
+thankyou-deadly-6 = Despite our legal department's best efforts, that is NOT a toy!
+thankyou-deadly-7 = Yeah, good luck with that.
+thankyou-deadly-8 = Enjoy your, uh... "gun".

@@ -1,0 +1,31 @@
+- type: construction
+  id: AutomationFilterLabel
+  graph: AutomationFilter
+  startNode: start
+  targetNode: label
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: AutomationFilterName
+  graph: AutomationFilter
+  startNode: start
+  targetNode: name
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: AutomationFilterStack
+  graph: AutomationFilter
+  startNode: start
+  targetNode: stack
+  category: construction-category-misc
+  objectType: Item
+
+- type: construction
+  id: AutomationFilterCombined
+  graph: AutomationFilter
+  startNode: start
+  targetNode: label
+  category: construction-category-misc
+  objectType: Item

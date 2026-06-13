@@ -7,7 +7,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCaptain
     shoes: ClothingShoesBootsLaceup
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesSunglasses # imp
     gloves: ClothingHandsGlovesCaptain
     head: ClothingHeadHatCaptain
     neck: ClothingNeckCloakCap
@@ -23,7 +23,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitCapFormal
     shoes: ClothingShoesLeather # imp
-    eyes: ClothingEyesGlassesSunglasses
+    eyes: ClothingEyesGlassesSunglasses # imp
     gloves: ClothingHandsGlovesCaptain
     head: ClothingHeadHatCapcap
     neck: ClothingNeckMantleCap
@@ -194,7 +194,7 @@
     neck: ClothingNeckCloakQmgreatcoat # imp
     id: QuartermasterPDA # imp
     back: ClothingBackpackCargo
-    ears: ClothingHeadsetRD
+    ears: ClothingHeadsetQM
     outerClothing: ClothingOuterWinterQM
     pocket1: WeaponDisabler
     pocket2: AppraisalTool
@@ -557,7 +557,7 @@
 - type: startingGear
   id: VisitorChemistAlt
   equipment:
-    jumpsuit: ClothingUniformSpaceJumpsuitChemist
+    jumpsuit: ClothingUniformSpaceJumpsuitChemist #imp
     shoes: ClothingShoesColorOrange
     gloves: ClothingHandsGlovesNitrile # imp
     head: ClothingHeadHatBeretSeniorPhysician # imp
@@ -741,7 +741,7 @@
 - type: startingGear
   id: VisitorParamedic
   equipment:
-    jumpsuit: ClothingUniformJumpsuitParamedicNT
+    jumpsuit: ClothingUniformJumpsuitParamedic
     shoes: ClothingShoesSwat
     gloves: ClothingHandsGlovesLatex
     head: ClothingHeadHatParamedicsoft
@@ -968,6 +968,7 @@
     ears: ClothingHeadsetService
   inhand:
   - HydroponicsToolScythe
+
 
 - type: startingGear
   id: VisitorBotanistAlt
@@ -1241,7 +1242,7 @@
     pocket1: BookSun
     pocket2: BookRandomStory
   inhand:
-  - BoxFolderClipboard
+  - BoxFolderClipboardThreePapers
 
 - type: startingGear
   id: VisitorMusicianFancyAltA
@@ -1483,6 +1484,9 @@
     ears: ClothingHeadsetService
     pocket1: CrayonMime
     pocket2: RubberStampMime
+  storage: # imp
+    back:
+    - MimeRoutineBook
 
 - type: startingGear
   id: VisitorMimeAlt
@@ -1501,6 +1505,9 @@
     pocket2: RubberStampMime
   inhand:
   - FoodBurgerMime
+  storage: # imp
+    back:
+    - MimeRoutineBook
 
 - type: startingGear
   id: VisitorReporter
@@ -1512,6 +1519,7 @@
     ears: ClothingHeadsetService
     pocket1: MicrophoneInstrument
     pocket2: TapeRecorderFilled # imp
+    belt: BoxFolderClipboardThreePapers #imp
 
 - type: startingGear
   id: VisitorReporterAlt
@@ -1523,6 +1531,7 @@
     ears: ClothingHeadsetService
     pocket1: MicrophoneInstrument
     pocket2: TapeRecorderFilled # imp
+    belt: BoxFolderClipboardThreePapers #imp
 
 - type: startingGear
   id: VisitorServiceWorker
@@ -1553,27 +1562,59 @@
   id: VisitorZookeeper
   equipment:
     jumpsuit: ClothingUniformJumpsuitSafari
-    shoes: ClothingShoesBootsSalvage
+    shoes: ClothingShoesLeatherBoots # imp
     head: ClothingHeadSafari
     id: ZookeeperPDA # imp
-    belt: ClothingBeltUtility
+    belt: ClothingBeltDart # imp
     back: ClothingBackpackDuffel
     ears: ClothingHeadsetService
     pocket1: WeaponFlareGun
     pocket2: PillCanisterDylovene
+  storage: # imp edit start
+    back:
+    - WeaponRifleTranq
+    belt:
+    - TranqDart
+    - TranqDart
+    - IrwizineDart
+    - IrwizineDart
+    - TranqDart
+    - TranqDart
+    - IrwizineDart
+    - IrwizineDart
+    - TranqDart
+    - TranqDart
+    - IrwizineDart
+    - IrwizineDart #imp edit end
 
 - type: startingGear
   id: VisitorZookeeperAlt
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSafari
-    shoes: ClothingShoesBootsWork
-    head: ClothingHeadSafari
+    jumpsuit: ClothingUniformAnimalControlSuit # imp
+    shoes: ClothingShoesLeatherBoots # imp
+#   head: ClothingHeadSafari # imp removed
     id: ZookeeperPDA # imp
-    belt: ClothingBeltStorageWaistbag
-    back: WeaponShotgunDoubleBarreledRubber
+    belt: ClothingBeltDart # imp
+    back: ClothingBackpackSatchel #imp
     ears: ClothingHeadsetService
     pocket1: WeaponFlareGun
     pocket2: PillCanisterDylovene
+  storage: # imp edit start
+    back:
+    - WeaponRifleTranq
+    belt:
+    - TranqDart
+    - TranqDart
+    - IrwizineDart
+    - IrwizineDart
+    - TranqDart
+    - TranqDart
+    - IrwizineDart
+    - IrwizineDart
+    - TranqDart
+    - TranqDart
+    - IrwizineDart
+    - IrwizineDart # imp edit end
 
 # Misc
 

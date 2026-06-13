@@ -7,6 +7,7 @@
   - type: Foldable
     canFoldInsideContainer: true
   - type: FoldableClothing
+    foldedEquippedPrefix: "" # folding the bandana will toggles the mask, which adds the toggled prefix. This overrides that prefix.
     foldedSlots:
     - HEAD
     unfoldedSlots:
@@ -14,6 +15,7 @@
     foldedHideLayers: []
     unfoldedHideLayers:
     - Snout
+    - SnoutCover # imp
   - type: Mask
     disableOnFolded: true
   - type: IngestionBlocker
@@ -30,9 +32,11 @@
     tags:
     - Bandana
     - ClothMade
+    - Recyclable
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
     hideOnToggle: true
 
 - type: entity
@@ -71,6 +75,7 @@
     tags:
     - WhitelistChameleon
     - ClothMade
+    - Recyclable
 
 - type: entity
   parent: ClothingMaskBandanaBase

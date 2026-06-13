@@ -45,8 +45,8 @@
 - type: entity
   parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitRepomen
-  name: cybersun repomen's hardsuit helmet
-  description: Now you could run, you could hide, you could try to.
+  name: Cybersun repoman's hardsuit helmet
+  description: Now, you could run, you could hide. You could try to.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Head/Helmets/repomansuithelmet.rsi
@@ -54,6 +54,69 @@
     sprite: _Impstation/Clothing/Head/Helmets/repomansuithelmet.rsi
   - type: PointLight
     color: "#d1c906"
+
+#Makeshift Hardsuit Helmet
+- type: entity
+  parent: [ BaseMajorContraband, ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetProspector
+  name: makeshift hardsuit helmet
+  description: A helmet cobbled together with cloth, insulation, and metal that barely meets low-pressure safety standards. It'll do.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Prospectors/prospector-hardsuit-helmet.rsi
+    layers:
+    - state: icon
+    - state: icon-unshaded
+      shader: unshaded
+    - state: light-overlay
+      visible: false
+      shader: unshaded
+      map: [ "light" ]
+  - type: HandheldLight
+    addPrefix: false
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: equipped-head-light
+        shader: unshaded
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: equipped-head
+      - state: equipped-head-unshaded
+        shader: unshaded
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: PointLight
+    color: green
+
+#Desperado Helmet
+- type: entity
+  parent: [ BaseMajorContraband, ClothingHeadHelmetHardsuitSyndieCommander ]
+  id: ClothingHeadHelmetDesperado
+  name: desperado hardsuit helmet
+  description: An impressively sturdy and impressively Space-Texan hardsuit helmet.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Prospectors/desperado-hardsuit-helmet.rsi
+  - type: PointLight
+    color: green
+  - type: ToggleableVisuals
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+  - type: Clothing
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
 
 # Dinosaur Commander hardsuit
 - type: entity
@@ -68,3 +131,15 @@
     sprite: _Impstation/Clothing/Head/Hardsuits/dinosuit.rsi
   - type: FactionClothing
     faction: Dino
+
+# Hemolymph-blue Hardsuit
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSyndie
+  id: ClothingHeadHelmetHardsuitSyndieBlue
+  name: hemolymph-blue hardsuit helmet
+  description: A heavily armored helmet designed for work in special oper- Why is it blue?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator_blue.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator_blue.rsi

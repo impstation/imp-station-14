@@ -4,8 +4,8 @@ using Content.Shared.Station.Components;
 using Content.Shared.Storage;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
-using Content.Server.Announcements.Systems;
-using Robust.Shared.Player;
+using Content.Server.Announcements.Systems; // ee announce
+using Robust.Shared.Player; // ee announce
 
 namespace Content.Server.StationEvents.Events;
 
@@ -16,30 +16,33 @@ public sealed class VentCrittersRule : StationEventSystem<VentCrittersRuleCompon
      * USE THE PROTOTYPE.
      */
 
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
+    // imp add start
     protected override void Added(EntityUid uid, VentCrittersRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
 
-        if (!TryGetRandomStation(out var station) || !component.Announce) //IMP: added component.Announce
+        if (!TryGetRandomStation(out var station) || !component.Announce)
             return;
 
         _announcer.SendAnnouncement(
             _announcer.GetAnnouncementId(args.RuleId),
             Filter.Broadcast(),
             "station-event-vent-creatures-announcement",
-            null,
-            Color.Gold
+            colorOverride: Color.Gold
         );
     }
+    // imp add end
 
     protected override void Started(EntityUid uid, VentCrittersRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
 
         if (!TryGetRandomStation(out var station))
+        {
             return;
+        }
 
         var locations = EntityQueryEnumerator<VentCritterSpawnLocationComponent, TransformComponent>();
         var validLocations = new List<EntityCoordinates>();

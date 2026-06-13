@@ -11,7 +11,7 @@
   components:
   - type: StationEvent
     startAnnouncement: false
-    weight: 4
+    weight: 8
     minimumPlayers: 20
     maxOccurrences: 1
     duration: null
@@ -38,8 +38,9 @@
       components:
       - type: RandomMetadata
         nameSegments:
-        - FakeHumanFirst
-        - FakeHumanLast
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+        nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember
@@ -54,7 +55,7 @@
   components:
   - type: StationEvent
     startAnnouncement: false # Impstation no announcement
-    weight: 4
+    weight: 8
     minimumPlayers: 20
     maxOccurrences: 1
     duration: null
@@ -82,8 +83,9 @@
       components:
       - type: RandomMetadata
         nameSegments:
-        - FakeHumanFirst
-        - FakeHumanLast
+        - NamesFakeHumanFirst
+        - NamesFakeHumanLast
+        nameFormat: name-format-standard
       - type: RandomHumanoidAppearance
         randomizeName: false
       - type: NpcFactionMember

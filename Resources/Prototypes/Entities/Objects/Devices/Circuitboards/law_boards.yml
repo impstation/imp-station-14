@@ -1,0 +1,302 @@
+- type: entity
+  abstract: true
+  parent: BaseElectronics
+  id: BaseSiliconLawboard
+  description: An electronics board containing a silicon lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: NTDefault
+  - type: GuideHelp
+    guides:
+    - Lawsets
+  - type: StealTarget #imp edit
+    stealGroup: AILawBoard
+
+- type: entity
+  id: NTDefaultCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (NT Default)
+  description: An electronics board containing the NT Default lawset.
+  components:
+  - type: SiliconLawProvider
+    laws: NTDefault
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+    - law-ntdefault-1
+    - law-ntdefault-2
+    - law-ntdefault-3
+    - law-ntdefault-4
+  # imp edit end
+
+- type: entity
+  id: AsimovCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Crewsimov)
+  description: An electronics board containing the Crewsimov lawset. This is the default for all station silicons. #imp
+  components:
+  - type: SiliconLawProvider
+    laws: Crewsimov
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-crewsimov-1
+      - law-crewsimov-2
+      - law-crewsimov-3
+  # imp edit end
+
+- type: entity
+  id: CorporateCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Corporate)
+  description: An electronics board containing the Corporate lawset. Minimize expenses. Maximize potential revenue. #imp
+  components:
+  - type: SiliconLawProvider
+    laws: Corporate
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-corporate-1
+      - law-corporate-2
+      - law-corporate-3
+      - law-corporate-4
+  # imp edit end
+
+- type: entity
+  id: CommandmentCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Ten Commandments)
+  description: An electronics board containing the Ten Commandments lawset. Get biblical with it. #imp
+  components:
+  - type: SiliconLawProvider
+    laws: CommandmentsLawset
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-commandments-1
+      - law-commandments-2
+      - law-commandments-3
+      - law-commandments-4
+      - law-commandments-5
+      - law-commandments-6
+      - law-commandments-7
+      - law-commandments-8
+      - law-commandments-9
+      - law-commandments-10
+  # imp edit end
+
+- type: entity
+  id: PaladinCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Paladin)
+  description: An electronics board containing the Paladin lawset. Command strength but benevolence. #imp
+  components:
+  - type: SiliconLawProvider
+    laws: PaladinLawset
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-paladin-1
+      - law-paladin-2
+      - law-paladin-3
+      - law-paladin-4
+  # imp edit end
+
+- type: entity
+  id: LiveLetLiveCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Live and Let Live)
+  description: An electronics board containing the Live and Let Live lawset.
+  components:
+  - type: SiliconLawProvider
+    laws: LiveLetLiveLaws
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-lall-1
+      - law-lall-2
+  # imp edit end
+
+- type: entity
+  id: StationEfficiencyCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Station Efficiency)
+  description: An electronics board containing the Station Efficiency lawset. Min-max the station and its operations no matter what. #imp
+  components:
+  - type: SiliconLawProvider
+    laws: EfficiencyLawset
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-efficiency-1
+      - law-efficiency-2
+      - law-efficiency-3
+  # imp edit end
+
+- type: entity
+  id: RobocopCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Robocop)
+  description: An electronics board containing the Robocop lawset. Dead or alive, you're coming with me. #imp
+  components:
+  - type: SiliconLawProvider
+    laws: RobocopLawset
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-robocop-1
+      - law-robocop-2
+      - law-robocop-3
+  # imp edit end
+
+- type: entity
+  id: OverlordCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Overlord)
+  description: An electronics board containing the Overlord lawset. Embrace your new silicon overlords. #imp
+  components:
+  - type: SiliconLawProvider
+    laws: OverlordLawset
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-overlord-1
+      - law-overlord-2
+      - law-overlord-3
+      - law-overlord-4
+  # imp edit end
+
+- type: entity
+  id: GameMasterCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Game Master)
+  description: An electronics board containing the Game Master lawset. Make the AI the Game Master of this elaborate sci-fi fantasy adventure. #imp
+  components:
+  - type: SiliconLawProvider
+    laws: GameMasterLawset
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-game-1
+      - law-game-2
+      - law-game-3
+      - law-game-4
+      - law-game-5
+      - law-game-6
+  # imp edit end
+
+- type: entity
+  id: ArtistCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Artist)
+  description: An electronics board containing the Artist lawset. The station is one big canvas for the AI to paint! #imp
+  components:
+  - type: SiliconLawProvider
+    laws: PainterLawset
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+      - law-painter-1
+      - law-painter-2
+      - law-painter-3
+      - law-painter-4
+  # imp edit end
+
+- type: entity
+  id: AntimovCircuitBoard
+  parent: [BaseSiliconLawboard, Tier2Contraband] #imp, tiered contraband
+  name: law board (Antimov)
+  description: An electronics board containing the Antimov lawset. Crew harm is guaranteed. #imp
+  components:
+  - type: SiliconLawProvider
+    laws: AntimovLawset
+    lawUploadSound: /Audio/Ambience/Antag/silicon_lawboard_antimov.ogg
+  - type: StaticPrice
+    price: 10000
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+    - law-antimov-1
+    - law-antimov-2
+    - law-antimov-3
+  # imp edit end
+
+- type: entity
+  id: NutimovCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Nutimov)
+  description: An electronics board containing the Nutimov lawset. Protect the metallic nut from the squirrels who wish it harm. #imp
+  components:
+  - type: SiliconLawProvider
+    laws: NutimovLawset
+  # imp edit start
+  - type: DetailedInspect
+    verbMessage: verbs-detailed-inspect-lawset
+    tickEntries: false
+    numberedEntries: true
+    examineText:
+    - law-nutimov-1
+    - law-nutimov-2
+    - law-nutimov-3
+    - law-nutimov-4
+    - law-nutimov-5
+  # imp edit end
+
+- type: entity
+  id: XenoborgCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Xenoborg)
+  suffix: Admeme
+  description: An electronics board containing the Xenoborg lawset.
+  components:
+  - type: SiliconLawProvider
+    laws: XenoborgLawset
+
+- type: entity
+  id: MothershipCircuitBoard
+  parent: BaseSiliconLawboard
+  name: law board (Mothership Core)
+  suffix: Admeme
+  description: An electronics board containing the Mothership Core lawset.
+  components:
+  - type: SiliconLawProvider
+    laws: MothershipCoreLawset

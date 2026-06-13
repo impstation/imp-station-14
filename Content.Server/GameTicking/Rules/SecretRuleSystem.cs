@@ -12,6 +12,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
+using Content.Shared.GameTicking; // imp
+using Robust.Server.Player; // imp
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -21,10 +23,10 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly IComponentFactory _compFact = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
+    [Dependency] private readonly GameTicker _ticker = default!; // imp
+    [Dependency] private readonly IPlayerManager _playerManager = default!; // imp
 
-    // Dictionary that contains the minimum round number for certain preset
+    // IMP - Dictionary that contains the minimum round number for certain preset
     // prototypes to be allowed to roll again
     private static Dictionary<ProtoId<GamePresetPrototype>, int> _nextRoundAllowed = new();
 
@@ -33,7 +35,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     public override void Initialize()
     {
         base.Initialize();
-        _ruleCompName = _compFact.GetComponentName(typeof(GameRuleComponent));
+        _ruleCompName = Factory.GetComponentName<GameRuleComponent>();
     }
 
     protected override void Added(EntityUid uid, SecretRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
@@ -51,11 +53,13 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
         Log.Info($"Selected {preset.ID} as the secret preset.");
         _adminLogger.Add(LogType.EventStarted, $"Selected {preset.ID} as the secret preset.");
 
+        // imp preset cooldown start
         if (preset.Cooldown > 0)
         {
             _nextRoundAllowed[preset.ID] = _ticker.RoundId + preset.Cooldown + 1;
             Log.Info($"{preset.ID} is now on cooldown until {_nextRoundAllowed[preset.ID]}");
         }
+        // imp end
 
         foreach (var rule in preset.Rules)
         {
@@ -87,6 +91,28 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
     {
         var options = _prototypeManager.Index(weights).Weights.ShallowClone();
         var players = GameTicker.ReadyPlayerCount();
+
+        // imp edit start
+        var unreadied = 0;
+
+        // get every UNREADIED player
+        foreach (var (userId, status) in GameTicker.PlayerGameStatuses)
+        {
+            if (status != PlayerGameStatus.NotReadyToPlay)
+                continue;
+
+            if (!_playerManager.TryGetSessionById(userId, out _))
+                continue;
+
+            unreadied++;
+        }
+
+        // divide it by four because not all unreadied players will actually join the round
+        unreadied /= 4;
+
+        // add it to players. a quarter of the unreadied amount will count for game preset rolling
+        players += unreadied;
+        // imp edit end
 
         GamePresetPrototype? selectedPreset = null;
         var sum = options.Values.Sum();
@@ -177,6 +203,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
             if (ruleComp.MinPlayers > players && ruleComp.CancelPresetOnTooFewPlayers)
                 return false;
 
+            // imp start
             if (ruleComp.MaxPlayers < players && ruleComp.CancelPresetOnTooManyPlayers)
                 return false;
         }
@@ -186,6 +213,7 @@ public sealed class SecretRuleSystem : GameRuleSystem<SecretRuleComponent>
             Log.Info($"Skipping preset {selected.ID} (Not available until round {_nextRoundAllowed[selected.ID]}");
             return false;
         }
+        // imp end
 
         return true;
     }

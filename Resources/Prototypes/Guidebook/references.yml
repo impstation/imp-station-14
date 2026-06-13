@@ -8,6 +8,8 @@
   - Drinks
   - FoodRecipes
   - Writing
+  - Lawsets
+  - MedicalRecipes # Frontier
 
 - type: guideEntry
   id: Drinks
@@ -22,6 +24,7 @@
   filterEnabled: True
   children:
   - CookingTechniques # imp
+  - CookingMixtures # imp
   - PizzaRecipes
   - SavoryRecipes
   - BreadRecipes
@@ -133,4 +136,8 @@
   name: guide-entry-writing
   text: "/ServerInfo/Guidebook/Writing.xml"
 
-
+- type: guideEntry
+  id: Lawsets
+  name: guide-entry-lawsets
+  text: "/ServerInfo/Guidebook/ReferenceTables/Lawsets.xml"
+  filterEnabled: True

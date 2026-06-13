@@ -84,6 +84,6 @@ public sealed partial class StoreSystem
         if (IsOnStartingMap(component.StoreEntity.Value, storeComp) && _timing.CurTime < endTime)
             return;
 
-        DisableRefund(ent, component.StoreEntity.Value, storeComp);
+        DisableRefund(ent, component.StoreEntity.Value, storeComp); // imp ent
     }
 }

@@ -50,6 +50,17 @@
     interfaces:
       enum.TapeRecorderUIKey.Key:
         type: TapeRecorderBoundUserInterface
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: BasicDevice
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: DeviceLinkSink
+    ports:
+    - Pause
+    - Record
+    - Playback
+    - Rewind
 
 - type: entity
   parent: TapeRecorder
@@ -65,7 +76,7 @@
   parent: BaseItem
   id: CassetteTape
   name: cassette tape
-  description: A magnetic tape that can hold up to two minutes of content on either side.
+  description: A magnetic tape that can hold up to five minutes of content on either side. # imp
   components:
   - type: Sprite
     sprite: _DV/Objects/Devices/cassette_tapes.rsi
@@ -73,13 +84,13 @@
     - state: tape_greyscale
       map: [ "enum.DamageStateVisualLayers.Base" ]
     - state: tape_ribbonoverlay
-      map: [ "enum.ToggleVisuals.Layer" ]
+      map: [ "enum.ToggleableVisuals.Layer" ]
       visible: false
   - type: Item
     size: Tiny
   - type: Damageable
   - type: TapeCassette
-    maxCapacity: 180
+    maxCapacity: 300 # imp
     repairWhitelist:
       tags:
       - Screwdriver
@@ -88,8 +99,8 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
           True: { visible: true }
           False: { visible: false }
   - type: RandomSprite

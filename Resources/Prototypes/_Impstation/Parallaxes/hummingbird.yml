@@ -25,7 +25,7 @@
         !type:GeneratedParallaxTextureSource
         id: "hq_wizard_stars_dim_faster"
         configPath: "/Prototypes/Parallaxes/parallax_config_stars_dim-2.toml"
-      slowness: 0.984352   
+      slowness: 0.984352
     - texture:
         !type:ImageParallaxTextureSource
         path: "/Textures/Parallaxes/core_planet.png"
@@ -37,5 +37,5 @@
         !type:GeneratedParallaxTextureSource
         id: ""
         configPath: "/Prototypes/Parallaxes/parallax_config.toml"
-        slowness: 0.875
+      slowness: 0.875
   layersLQUseHQ: false

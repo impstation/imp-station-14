@@ -28,8 +28,8 @@ alert-level-gamma-announcement = Central Command has ordered the Gamma security 
 alert-level-gamma-instructions = All civilians are to immediately seek their nearest head for transportation to a secure location.
 
 alert-level-delta = Delta
-alert-level-delta-announcement = The station is currently under threat of imminent destruction. Crewmembers are advised to listen to heads of staff for more information.
-alert-level-delta-instructions = Crewmembers are advised to listen to heads of staff for more information.
+alert-level-delta-announcement = The station is currently under threat of imminent destruction. If unintentional, crewmembers are advised to prevent this at any cost. Failure to comply will be met with termination of all contracts.
+alert-level-delta-instructions = If unintentional, crewmembers are advised to prevent this at any cost. Failure to comply will be met with termination of all contracts.
 
 alert-level-epsilon = Epsilon
 alert-level-epsilon-announcement = Central Command has ordered the Epsilon security level on the station. Consider all contracts terminated.

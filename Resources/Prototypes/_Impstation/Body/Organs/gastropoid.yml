@@ -19,3 +19,11 @@
   - type: Metabolizer
     maxReagents: 5
     metabolizerTypes: [Snail]
+
+- type: entity
+  id: OrganGastropoidHeart
+  parent: OrganHumanHeart
+  name: snail heart
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Snail]

@@ -1,0 +1,99 @@
+- type: entity
+  parent: BaseComputer
+  id: ComputerReaperTeleporter
+  name: teleportation console
+  description: A recovered mortal artifact hastily reconfigured to teleport Reapers.
+  categories: [ DoNotMap ]
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _Impstation/Structures/Machines/computer_old.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computer_old.rsi
+    - map: ["computerLayerKeyboard"]
+      state: keyboard
+      sprite: _Impstation/Structures/Machines/computer_old.rsi
+    - map: ["computerLayerScreen"]
+      state: reaper
+    offset: "0.0,0.1"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ComputerVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true, shader: unshaded }
+          False: { visible: false }
+  - type: ActivatableUI
+    key: enum.TeleportLocationUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.TeleportLocationUiKey.Key:
+        type: TeleportLocationsBoundUserInterface
+  - type: PointLight
+    radius: 2.4 #imp
+    energy: 1.6
+    color: "#ffffff"
+  - type: TeleportLocations
+    name: teleportation-console-window-title
+    teleportEffect: WizardSmoke
+    closeAfterTeleport: true
+  - type: UseDelay
+    delay: 1
+    delays:
+      TeleportDelay: !type:UseDelayInfo
+        length: 300
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 10000
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: monitorBroken
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
+- type: entity
+  parent: [ BaseComputerShuttle, BaseCommandContraband ]
+  id: ComputerShuttleGenericDrone
+  name: drone shuttle console # admin tricks rename this to something specific if you want
+  description: Used to pilot the drone shuttle. #ditto
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+    - map: ["computerLayerScreen"]
+      state: eris_control
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+      sprite: _Impstation/Structures/Machines/computers.rsi # imp
+  - type: DroneConsole
+    components:
+      - type: GenericDroneShuttle
+  - type: RadarConsole
+    maxRange: 256
+  - type: PointLight
+    radius: 1.5
+    energy: 4.0
+    color: "#3150ff"
+  #- type: Computer #no circuitboard since this is exclusively for mapping
+  #  board: CargoShuttleConsoleCircuitboard
+
+# kill this for personal economy okay?
+- type: entity
+  parent: ComputerBroken
+  id: ComputerFundingAllocationBroken
+  name: broken funding allocation computer
+  description: Terminal for controlling the distribution of funds and pay to departments. What happened to it?

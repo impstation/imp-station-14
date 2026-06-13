@@ -20,7 +20,6 @@
     - type: Icon
       sprite: Structures/Web/windowweave.rsi
       state: icon
-      deconstructionTarget: start
     - type: Physics
       bodyType: Static
     - type: Damageable
@@ -44,3 +43,4 @@
     - type: Construction
       graph: WebStructures
       node: window
+      deconstructionTarget: start

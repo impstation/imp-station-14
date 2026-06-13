@@ -1,7 +1,9 @@
 using System.Linq;
+using Content.Shared.Atmos;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Temperature.Components;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Temperature.Systems;
@@ -9,10 +11,12 @@ namespace Content.Shared.Temperature.Systems;
 /// <summary>
 /// This handles predicting temperature based speedup.
 /// </summary>
-public sealed class SharedTemperatureSystem : EntitySystem
+public abstract class SharedTemperatureSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+
+    protected EntityQuery<TemperatureComponent> TemperatureQuery;
 
     /// <summary>
     /// Band-aid for unpredicted atmos. Delays the application for a short period so that laggy clients can get the replicated temperature.
@@ -26,32 +30,11 @@ public sealed class SharedTemperatureSystem : EntitySystem
         SubscribeLocalEvent<TemperatureSpeedComponent, OnTemperatureChangeEvent>(OnTemperatureChanged);
         SubscribeLocalEvent<TemperatureSpeedComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
 
-        // IMP EDIT BEGIN | This allows us to easily make things immune.
-        SubscribeLocalEvent<TemperatureImmunityComponent, ComponentInit>(OnTemperatureImmuneInit);
-        SubscribeLocalEvent<TemperatureImmunityComponent, ComponentRemove>(OnTemperatureImmuneRemove);
-        // IMP EDIT END
-    }
-    // IMP EDIT BEGIN
-    private void OnTemperatureImmuneInit(EntityUid uid, TemperatureImmunityComponent temperatureImmunity, ComponentInit args)
-    {
-        if (TryComp<TemperatureSpeedComponent>(uid, out var comp)) comp.HasImmunity = true;
+        TemperatureQuery = GetEntityQuery<TemperatureComponent>();
     }
 
-    private void OnTemperatureImmuneRemove(EntityUid uid, TemperatureImmunityComponent temperatureImmunity, ComponentRemove args)
-    {
-        if (TryComp<TemperatureSpeedComponent>(uid, out var comp)) comp.HasImmunity = false;
-    }
-    // IMP EDIT END
     private void OnTemperatureChanged(Entity<TemperatureSpeedComponent> ent, ref OnTemperatureChangeEvent args)
     {
-        // IMP EDIT BEGIN
-        if (ent.Comp.HasImmunity)
-        {
-            ent.Comp.CurrentSpeedModifier = null;
-            Dirty(ent);
-            return;
-        }
-        // IMP EDIT END
         foreach (var (threshold, modifier) in ent.Comp.Thresholds)
         {
             if (args.CurrentTemperature < threshold && args.LastTemperature > threshold ||
@@ -99,5 +82,20 @@ public sealed class SharedTemperatureSystem : EntitySystem
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid, movement);
             Dirty(uid, temp);
         }
+    }
+
+    public virtual void ChangeHeat(EntityUid uid, float heatAmount, bool ignoreHeatResistance = false, TemperatureComponent? temperature = null)
+    {
+
+    }
+
+    public float GetHeatCapacity(EntityUid uid, TemperatureComponent? comp = null, PhysicsComponent? physics = null)
+    {
+        if (!TemperatureQuery.Resolve(uid, ref comp) || !Resolve(uid, ref physics, false) || physics.FixturesMass <= 0)
+        {
+            return Atmospherics.MinimumHeatCapacity;
+        }
+
+        return comp.SpecificHeat * physics.FixturesMass;
     }
 }

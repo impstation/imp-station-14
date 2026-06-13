@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Server.Administration.Commands;
+using Content.Server.Clothing.Systems;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.KillTracking;
 using Content.Server.Mind;
@@ -13,6 +13,8 @@ using Content.Shared.Storage;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
+using Content.Shared.Mobs; // imp
+using Content.Shared.Mobs.Systems; // imp
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -23,11 +25,13 @@ public sealed class DeathMatchRuleSystem : GameRuleSystem<DeathMatchRuleComponen
 {
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly OutfitSystem _outfitSystem = default!;
     [Dependency] private readonly PointSystem _point = default!;
     [Dependency] private readonly RespawnRuleSystem _respawn = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!; //imp
 
     public override void Initialize()
     {
@@ -54,12 +58,25 @@ public sealed class DeathMatchRuleSystem : GameRuleSystem<DeathMatchRuleComponen
             DebugTools.AssertNotNull(mobMaybe);
             var mob = mobMaybe!.Value;
 
+            // imp edit start, set the death threshold to the critical threshold
+            if (dm.InstantDeath)
+                _mobThresholdSystem.SetMobStateThreshold(mob, _mobThresholdSystem.GetThresholdForState(mob, MobState.Critical), MobState.Dead);
+            // imp edit end
+
             _mind.TransferTo(newMind, mob);
-            SetOutfitCommand.SetOutfit(mob, dm.Gear, EntityManager);
+            _outfitSystem.SetOutfit(mob, dm.Gear);
             EnsureComp<KillTrackerComponent>(mob);
             _respawn.AddToTracker(ev.Player.UserId, (uid, tracker));
 
             _point.EnsurePlayer(ev.Player.UserId, uid, point);
+
+            // imp edit start, make the Dead state count as the kill state instead of Critical, for instant deathmatch death
+            if (dm.InstantDeath)
+            {
+                if (TryComp<KillTrackerComponent>(mob, out var killTrackerComponent))
+                    killTrackerComponent.KillState = MobState.Dead;
+            }
+            // imp edit end
 
             ev.Handled = true;
             break;
@@ -128,5 +145,6 @@ public sealed class DeathMatchRuleSystem : GameRuleSystem<DeathMatchRuleComponen
         }
         args.AddLine(Loc.GetString("point-scoreboard-header"));
         args.AddLine(new FormattedMessage(point.Scoreboard).ToMarkup());
+        args.AddLine("");
     }
 }

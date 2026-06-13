@@ -1,0 +1,24 @@
+﻿- type: construction
+  id: PenHolder
+  graph: PenHolder
+  startNode: start
+  targetNode: penholder
+  category: construction-category-storage
+  objectType: Item
+
+- type: construction
+  id: PaperBin
+  graph: PaperBin
+  startNode: start
+  targetNode: paperbin
+  category: construction-category-storage
+  objectType: Structure
+
+#TODO: re-implement once sprite layering is fixed for construction ghosts so it doesn't crash the game
+#- type: construction
+#  id: GlassBoxSmall
+#  graph: GlassBoxSmall
+#  startNode: start
+#  targetNode: smallglassBox
+#  category: construction-category-storage
+#  objectType: Structure

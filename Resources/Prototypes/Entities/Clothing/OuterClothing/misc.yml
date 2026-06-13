@@ -8,6 +8,10 @@
     sprite: Clothing/OuterClothing/Misc/apron.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/apron.rsi
+  - type: Tag
+    tags:
+    - Apron
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -20,6 +24,10 @@
     sprite: Clothing/OuterClothing/Misc/apronbar.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/apronbar.rsi
+  - type: Tag
+    tags:
+    - Apron
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -32,6 +40,10 @@
     sprite: Clothing/OuterClothing/Misc/apronbotanist.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/apronbotanist.rsi
+  - type: Tag
+    tags:
+    - Apron
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -44,6 +56,10 @@
     sprite: Clothing/OuterClothing/Misc/apronchef.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/apronchef.rsi
+  - type: Tag
+    tags:
+    - Apron
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -188,35 +204,45 @@
   parent: ClothingOuterWizardBase
   id: ClothingOuterWizardViolet
   name: violet wizard robes
-  description: A bizarre gem-encrusted violet robe that radiates magical energies.
+  description: A bizarre gem-encrusted violet robe that radiates magical energies, some of the gems seem to have blemishes. # imp edit, everything after the last comma
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Misc/violetwizard.rsi # imp edit
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Misc/violetwizard.rsi # imp edit
+  - type: Tag
+    tags:
+    - CorgiWearable
+   #- WhitelistChameleon #imp edit
 
 - type: entity
   parent: ClothingOuterWizardBase
   id: ClothingOuterWizard
   name: wizard robes
-  description: A bizarre gem-encrusted blue robe that radiates magical energies.
+  description: A bizarre gem-encrusted blue robe that radiates magical energies, some of the gems seem to have imperfections. # imp edit, everything after the last comma
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Misc/wizard.rsi # imp edit
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Misc/wizard.rsi # imp edit
-
+  - type: Tag
+    tags:
+    - CorgiWearable
+   #- WhitelistChameleon #imp edit
 - type: entity
   parent: ClothingOuterWizardBase
   id: ClothingOuterWizardRed
   name: red wizard robes
-  description: Strange-looking, red, hat-wear that most certainly belongs to a real magic user.
+  description: Strange-looking, red, hat-wear that most certainly belongs to a real magic user, the gems lining the hem seem to be slightly discolored. # imp edit, everything after the last comma
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Misc/redwizard.rsi # imp edit
   - type: Clothing
     sprite: _Impstation/Clothing/OuterClothing/Misc/redwizard.rsi # imp edit
-
+  - type: Tag
+    tags:
+    - CorgiWearable
+   #- WhitelistChameleon #imp edit
 - type: entity
   parent: ClothingOuterBase
   id: ClothingOuterSkub
@@ -264,6 +290,12 @@
     graph: GhostSheet
     node: ghost_sheet
   - type: IdentityBlocker
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
+    - HeadSide
+    - HeadTop
+    - Head
 
 - type: entity
   parent: ClothingOuterBase
@@ -309,6 +341,11 @@
         color: "#670a09"
       - state: equipped-OUTERCLOTHING-lines
         color: "#000000"
+      outerClothing-anomalocarid: # imp
+      - state: equipped-OUTERCLOTHING-anomalocarid
+        color: "#670a09"
+      - state: equipped-OUTERCLOTHING-lines-anomalocarid
+        color: "#000000"
   - type: TemperatureProtection
     coolingCoefficient: 0.3
 
@@ -345,6 +382,11 @@
         color: "#3232a6"
       - state: equipped-OUTERCLOTHING-lines
         color: "#000000"
+      outerClothing-anomalocarid: # imp
+      - state: equipped-OUTERCLOTHING-anomalocarid
+        color: "#3232a6"
+      - state: equipped-OUTERCLOTHING-lines-anomalocarid
+        color: "#000000"
   - type: TemperatureProtection
     coolingCoefficient: 0.3
 
@@ -380,6 +422,11 @@
       - state: equipped-OUTERCLOTHING
         color: "#164d0f"
       - state: equipped-OUTERCLOTHING-lines
+        color: "#000000"
+      outerClothing-anomalocarid: # imp
+      - state: equipped-OUTERCLOTHING-anomalocarid
+        color: "#164d0f"
+      - state: equipped-OUTERCLOTHING-lines-anomalocarid
         color: "#000000"
   - type: TemperatureProtection
     coolingCoefficient: 0.3

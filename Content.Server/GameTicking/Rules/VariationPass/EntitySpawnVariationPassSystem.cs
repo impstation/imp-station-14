@@ -1,7 +1,7 @@
-﻿using System.Linq;
-using Content.Server.GameTicking.Rules.VariationPass.Components;
+﻿using Content.Server.GameTicking.Rules.VariationPass.Components;
 using Content.Shared.Storage;
 using Robust.Shared.Random;
+using System.Linq; // imp
 
 namespace Content.Server.GameTicking.Rules.VariationPass;
 
@@ -12,7 +12,7 @@ public sealed class EntitySpawnVariationPassSystem : VariationPassSystem<EntityS
 
     protected override void ApplyVariation(Entity<EntitySpawnVariationPassComponent> ent, ref StationVariationPassEvent args)
     {
-        var totalTiles = Stations.GetTileCount(args.Station);
+        var totalTiles = Stations.GetTileCount(args.Station.AsNullable());
 
         var dirtyMod = Random.NextGaussian(ent.Comp.TilesPerEntityAverage, ent.Comp.TilesPerEntityStdDev);
         var trashTiles = Math.Max((int) (totalTiles * (1 / dirtyMod)), 0);

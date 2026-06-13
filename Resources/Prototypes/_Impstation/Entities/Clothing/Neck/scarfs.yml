@@ -1,4 +1,12 @@
 - type: entity
+  id: BaseObviousScarf
+  abstract: true
+  components:
+  - type: WearerGetsExamineText
+    examineText: obvious-desc-colors
+    thing: obvious-thing-scarf
+
+- type: entity
   parent: ClothingScarfBase
   id: ClothingNeckScarfStripedLimeGreen
   name: striped lime-green scarf
@@ -30,3 +38,15 @@
     sprite: _Impstation/Clothing/Neck/Scarfs/wrappedscarfwhite.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Neck/Scarfs/wrappedscarfwhite.rsi
+
+- type: entity
+  parent: ClothingScarfBase
+  id: ClothingNeckScarfAscot
+  name: ascot
+  description: A stylish alternative to the neck tie.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Neck/Scarfs/ascot.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Neck/Scarfs/ascot.rsi
+

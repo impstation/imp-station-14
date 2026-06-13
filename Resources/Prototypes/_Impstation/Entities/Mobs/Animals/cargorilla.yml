@@ -1,11 +1,10 @@
 - type: entity
   name: cargorilla
-  parent: [ SimpleMobBase, MobCombat, StripableInventoryBase ]
-  id: MobCargorilla
+  parent: [ MobGorilla, StripableInventoryBase ]
+  id: BaseMobCargorilla
+  abstract: true
   description: A well trained gorilla working in Cargo, try not to piss it off.
   components:
-  - type: Puller
-    needsHands: false
   - type: GhostTakeoverAvailable
   - type: GhostRole
     makeSentient: true
@@ -14,13 +13,22 @@
     name: ghost-role-information-cargorilla-name
     description: ghost-role-information-cargorilla-description
     rules: ghost-role-information-nonantagonist-rules
+  - type: CombatModeSprint
+    doImpactDamage: true
+    beginCombatMessage: "cargorilla-begin-combat-popup"
+  - type: CombatModeVisuals
+    hideBaseLayer: true
   - type: Sprite
+    sprite: _Impstation/Mobs/Animals/cargorilla.rsi
+    granularLayersRendering: true
     drawdepth: Mobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
       state: crawling
-      sprite: _Impstation/Mobs/Animals/cargorilla.rsi
-  - type: Physics
+    - map: ["enum.CombatModeVisualsVisuals.Combat"]
+      state: standing
+      visible: false
+      offset: 0, 0.51 # gotta be weirdly specific here
   - type: InventorySlots
   - type: Strippable
   - type: UserInterface
@@ -30,14 +38,6 @@
     templateId: cargorilla
   - type: Loadout
     prototypes: [ MobCargorillaGear ]
-  - type: RandomMetadata
-    nameSegments: [CargorillaNames]
-  - type: Grammar
-    attributes:
-      proper: true
-      gender: male
-  - type: BodyEmotes
-    soundsId: Gorilla
   - type: InteractionPopup
     successChance: 0.7
     interactSuccessString: petting-success-cargorilla
@@ -47,47 +47,9 @@
       path: /Audio/_Impstation/Animals/Gorilla_Laugh.ogg
     interactFailureSound:
       path: /Audio/_Impstation/Animals/Gorilla_Chuff.ogg
-  - type: Speech
-    speechSounds: Gorilla
-    speechVerb: Monkey
-    allowedEmotes: ['Scream', 'Laugh']
-  - type: MonkeyAccent
   - type: Tag
     tags:
     - DoorBumpOpener
-  - type: Emoting
-  - type: Vocal
-    sounds:
-      Male: Gorilla
-      Female: Gorilla
-      Unsexed: Gorilla
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.48
-        density: 200
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: crawling
-      Critical:
-        Base: dead
-      Dead:
-        Base: dead
-  - type: Absorbable # lotta meat on a gorilla
-    biomassRestored: 0.8
-  - type: Butcherable
-    spawned:
-    - id: FoodMeat
-      amount: 4
-  - type: Bloodstream
-    bloodMaxVolume: 300
     # modified punch damage
   - type: MeleeWeapon
     soundHit:
@@ -97,11 +59,15 @@
         Blunt: 12
         Structural: 8
     animation: WeaponArcFist
-  - type: NPCRetaliation
-  - type: FactionException
-  - type: NpcFactionMember
-    factions:
-    - Passive
-  - type: HTN
-    rootTask:
-      task: SimpleHostileCompound
+
+- type: entity
+  parent: BaseMobCargorilla
+  id: MobCargorilla
+  components:
+  - type: RandomMetadata
+    nameSegments: [CargorillaNames]
+
+- type: entity
+  parent: BaseMobCargorilla
+  id: MobCargorillaStationPet
+  name: Forklift

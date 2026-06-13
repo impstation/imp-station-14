@@ -1,51 +1,81 @@
+using Content.Server._Goobstation.Heretic.Components;
 using Content.Server.Chat.Systems;
-using Content.Server.EntityEffects.Effects.StatusEffects;
+using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Components;
+using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
-using Content.Shared.Damage;
+using Content.Shared._Impstation.Heretic.Components;
+using Content.Shared.Chat;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
-using Content.Shared.Explosion.Components;
 using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Systems;
+using Content.Shared.NPC.Prototypes;
+using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Temperature.Components;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
+using StatusEffectsSystem = Content.Shared.StatusEffectNew.StatusEffectsSystem;
+using Content.Shared._Impstation.Heretic; // imp edit
 
 namespace Content.Server.Heretic.EntitySystems;
 
+/// <summary>
+///     Handles mansus grasp stuff - summoning & desummoning, rune drawing, special effects
+/// </summary>
 public sealed partial class MansusGraspSystem : EntitySystem
 {
-    [Dependency] private readonly StaminaSystem _stamina = default!;
+
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly RatvarianLanguageSystem _language = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly MinionSystem _minion = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementModStatus = default!;
 
-    public void ApplyGraspEffect(EntityUid performer, EntityUid target, string path)
+
+
+    private readonly ProtoId<NpcFactionPrototype> _hereticFaction = "Heretic";
+    public static readonly EntProtoId FlashSlowdown = "FlashSlowdownStatusEffect";
+
+
+    /// <summary>
+    /// Applies mansus grasp effect. huge switch case for each path
+    /// </summary>
+    public void ApplyGraspEffect(EntityUid performer, EntityUid target, HereticComponent heretic)
     {
+        var path = heretic.MainPath;
         switch (path)
         {
             case "Ash":
                 var timeSpan = TimeSpan.FromSeconds(5f);
-                _statusEffect.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect, timeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
+                _statusEffect.TryAddStatusEffectDuration(target, TemporaryBlindnessSystem.BlindingStatusEffect.Id, timeSpan);
                 break;
 
             case "Blade":
@@ -65,10 +95,20 @@ public sealed partial class MansusGraspSystem : EntitySystem
                 break;
 
             case "Flesh":
-                if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == Shared.Mobs.MobState.Dead)
+                if (TryComp<MobStateComponent>(target, out var mobState)
+                    && mobState.CurrentState == Shared.Mobs.MobState.Dead
+                    && !TryComp<HellVictimComponent>(target, out _))
                 {
-                    var ghoul = EnsureComp<GhoulComponent>(target);
-                    ghoul.BoundHeretic = performer;
+                    var popupOthers = Loc.GetString("heretic-flesh-revive-notif");
+                    _popup.PopupEntity(popupOthers, target, PopupType.LargeCaution);
+                    var dargs = new DoAfterArgs(EntityManager, performer, 5f, new FleshGraspDoAfterEvent(target), performer)
+                    {
+                        BreakOnDamage = true,
+                        BreakOnHandChange = true,
+                        BreakOnMove = true,
+                    };
+                    _doAfter.TryStartDoAfter(dargs);
+
                 }
                 break;
 
@@ -77,13 +117,20 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     break;
                 // hopefully damage only walls and cyborgs
                 if (HasComp<BorgChassisComponent>(target) || !HasComp<StatusEffectsComponent>(target))
-                    _damage.SetAllDamage(target, dmg, 50f);
+                    _damage.SetAllDamage((target, dmg), 50f);
                 break;
 
             case "Void":
                 if (TryComp<TemperatureComponent>(target, out var temp))
                     _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 20f, temp);
-                _statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(8), false);
+                _statusEffect.TryAddStatusEffectDuration(target, "Muted", TimeSpan.FromSeconds(8));
+                break;
+
+            case "Hunt":
+                if (TryComp<CartridgeAmmoComponent>(target, out var ammo))
+                    _gun.RefillCartridge(target, ammo);
+                if (heretic.Power >= 4) //hunt doesn't have a traditional "Mark" so its second grasp upgrade goes here
+                    _movementModStatus.TryAddMovementSpeedModDuration(target, FlashSlowdown, TimeSpan.FromSeconds(8), 0.75f);
                 break;
 
             default:
@@ -99,9 +146,32 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
+        SubscribeLocalEvent<HereticComponent, FleshGraspDoAfterEvent>(OnFleshGraspDoAfter);
         SubscribeLocalEvent<MansusGraspComponent, UseInHandEvent>(OnUseInHand);
     }
 
+    /// <summary>
+    /// Returns whether the user has a mansus grasp in either hand
+    /// </summary>
+    public bool MansusGraspActive(EntityUid heretic)
+    {
+        foreach (var hand in _hands.EnumerateHands(heretic))
+        {
+            if (!_hands.TryGetHeldItem(heretic, hand, out var heldEntity) ||
+                !TryComp<MetaDataComponent>(heldEntity, out var metadata))
+                continue;
+
+            if (metadata.EntityPrototype?.ID == "TouchSpellMansus")
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Applies the base grasp effects, then goes to ApplyGraspEffect for path specific upgrades
+    /// </summary>
     private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
     {
         if (args.Handled || !args.CanReach)
@@ -116,9 +186,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
             return;
         }
 
-        var target = (EntityUid) args.Target;
+        var target = (EntityUid)args.Target;
 
-        if ((TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.Path))
+        if (TryComp<HereticComponent>(args.Target, out var heretic) && heretic.MainPath == ent.Comp.Path)
             return;
 
         args.Handled = true;
@@ -133,22 +203,24 @@ public sealed partial class MansusGraspSystem : EntitySystem
         }
 
         // upgraded grasp
-        if (hereticComp.CurrentPath != null)
+        if (hereticComp.MainPath != null)
         {
-            if (hereticComp.PathStage >= 2)
-                ApplyGraspEffect(args.User, target, hereticComp.CurrentPath!);
+            if (hereticComp.Power >= 2)
+                ApplyGraspEffect(args.User, target, hereticComp);
 
-            if (hereticComp.PathStage >= 4 && HasComp<StatusEffectsComponent>(target))
+            if (hereticComp.Power >= 4 && HasComp<StatusEffectsComponent>(target) && hereticComp.MainPath != "Hunt")
             {
                 var markComp = EnsureComp<HereticCombatMarkComponent>(target);
-                markComp.Path = hereticComp.CurrentPath;
+                markComp.Path = hereticComp.MainPath;
             }
         }
 
-        hereticComp.MansusGraspActive = false;
         QueueDel(ent);
     }
 
+    /// <summary>
+    /// Removes the mansus grasp if you use it in your hand
+    /// </summary>
     private void OnUseInHand(EntityUid uid, MansusGraspComponent component, UseInHandEvent args)
     {
         if (args.Handled)
@@ -161,31 +233,40 @@ public sealed partial class MansusGraspSystem : EntitySystem
         }
 
         args.Handled = true;
-        hereticComp.MansusGraspActive = false;
         QueueDel(uid);
     }
 
+    /// <summary>
+    /// Handle events relating to clicking the rune with different items
+    /// </summary>
     private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
     {
         var tags = ent.Comp.Tags;
 
+        if(!TryComp<HandsComponent>(args.User, out var userHands))
+        {
+            return;
+        }
+
         if (!args.CanReach
         || !args.ClickLocation.IsValid(EntityManager)
         || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
-        || !heretic.MansusGraspActive // no grasp - not special
+        || !MansusGraspActive(args.User) && !(userHands.Count <= 1) // no grasp or no extra hand to make a grasp
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
-        || (!tags.Contains("Write") && !tags.Contains("DecapoidClaw"))) // not a writing implement or decapoid claw
+        || (!tags.Contains("Write") && !tags.Contains("DecapoidClaw")) // not a writing implement or decapoid claw
+        || args.Target != null && HasComp<ItemComponent>(args.Target)) //don't allow clicking items (otherwise the circle gets stuck to them)
             return;
 
-        // remove our rune if clicked
+        // if clicking rune with a pen, with grasp active: remove it
         if (args.Target != null && HasComp<HereticRitualRuneComponent>(args.Target))
         {
             // todo: add more fluff
             QueueDel(args.Target);
+            args.Handled = true;
             return;
         }
 
-        // spawn our rune
+        // if clicking ground with a pen with grasp active: spawn rune
         var rune = Spawn("HereticRuneRitualDrawAnimation", args.ClickLocation);
         var dargs = new DoAfterArgs(EntityManager, args.User, 14f, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
         {
@@ -196,6 +277,10 @@ public sealed partial class MansusGraspSystem : EntitySystem
         };
         _doAfter.TryStartDoAfter(dargs);
     }
+
+    /// <summary>
+    /// Replace the animation of the rune being drawn with the actual functional rune
+    /// </summary>
     private void OnRitualRuneDoAfter(Entity<HereticComponent> ent, ref DrawRitualRuneDoAfterEvent ev)
     {
         // delete the animation rune regardless
@@ -203,5 +288,22 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         if (!ev.Cancelled)
             Spawn("HereticRuneRitual", ev.Coords);
+    }
+
+    /// <summary>
+    /// Special flesh grasp behavior - popups and do-after
+    /// </summary
+    private void OnFleshGraspDoAfter(Entity<HereticComponent> ent, ref FleshGraspDoAfterEvent ev)
+    {
+        if (!ev.Cancelled)
+        {
+            var minion = EnsureComp<MinionComponent>(ev.Target);
+            EnsureComp<GhoulComponent>(ev.Target);
+            minion.BoundOwner = ent;
+            minion.FactionsToAdd.Add(_hereticFaction);
+            _minion.ConvertEntityToMinion((ev.Target, minion), true, true, true);
+            var popupOthers = Loc.GetString("heretic-flesh-revive-finish");
+            _popup.PopupEntity(popupOthers, ev.Target, PopupType.LargeCaution);
+        }
     }
 }

@@ -1,9 +1,10 @@
-using System.Linq;
 using Content.Shared.Audio.Jukebox;
 using Robust.Client.Audio;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Prototypes;
+using System.Linq; // imp
+using Content.Shared.Emag.Systems; //imp
 
 namespace Content.Client.Audio.Jukebox;
 
@@ -44,6 +45,13 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
         _menu.OnSongSelected += SelectSong;
 
+        // Frontier: Shuffle & Repeat
+        _menu.OnModeChanged += playbackMode =>
+        {
+            SendMessage(new JukeboxSetPlaybackModeMessage(playbackMode));
+        };
+        // End Frontier: Shuffle & Repeat
+
         _menu.SetTime += SetTime;
         PopulateMusic();
         Reload();
@@ -59,7 +67,7 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
         _menu.SetAudioStream(jukebox.AudioStream);
 
-        if (_protoManager.TryIndex(jukebox.SelectedSongId, out var songProto))
+        if (_protoManager.Resolve(jukebox.SelectedSongId, out var songProto))
         {
             var length = EntMan.System<AudioSystem>().GetAudioLength(songProto.Path.Path.ToString());
             _menu.SetSelectedSong(songProto.Name, (float) length.TotalSeconds);
@@ -72,7 +80,16 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
     public void PopulateMusic()
     {
-        _menu?.Populate(_protoManager.EnumeratePrototypes<JukeboxPrototype>().OrderBy(x => x.Name).ToList()); //imp edit - order the list alphabetically
+        // _menu?.Populate(_protoManager.EnumeratePrototypes<JukeboxPrototype>());
+
+        //imp edit -- support emagging the jukebox
+        var emagSystem = EntMan.System<EmagSystem>();
+        var songList = _protoManager.EnumeratePrototypes<JukeboxPrototype>().Where(x => !x.EmagOnly).ToList();
+        var emagSongList = _protoManager.EnumeratePrototypes<JukeboxPrototype>().Where(x => x.EmagOnly).ToList();
+
+        if (emagSystem.CheckFlag(Owner, EmagType.Interaction)) // if the jukebox this is attached to is emagged...
+            songList.AddRange(emagSongList);
+        _menu?.Populate(songList.OrderBy(x => x.Name));
     }
 
     public void SelectSong(ProtoId<JukeboxPrototype> songid)
@@ -98,5 +115,13 @@ public sealed class JukeboxBoundUserInterface : BoundUserInterface
 
         SendMessage(new JukeboxSetTimeMessage(sentTime));
     }
+
+    // Frontier: Shuffle & Repeat
+    protected override void UpdateState(BoundUserInterfaceState state)
+    {
+        base.UpdateState(state);
+        _menu?.UpdateState(state);
+    }
+    // End Frontier
 }
 

@@ -1,7 +1,8 @@
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
+using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed class StiltedSpeechSystem : EntitySystem
 {
@@ -15,7 +16,7 @@ public sealed class StiltedSpeechSystem : EntitySystem
         SubscribeLocalEvent<StiltedSpeechComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, StiltedSpeechComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<StiltedSpeechComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

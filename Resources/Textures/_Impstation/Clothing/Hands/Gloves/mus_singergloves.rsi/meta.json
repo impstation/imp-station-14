@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by normalgirl2171 for impstation. Icon heavily traced from a sprite drawn by Ubaser (https://github.com/space-wizards/space-station-14/pull/22668).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-HAND",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HAND-gastropoid",
+      "directions": 4
+    },
+    {
+      "name": "equipped-HAND-vox",
+      "directions": 4
+    }
+  ]
+}

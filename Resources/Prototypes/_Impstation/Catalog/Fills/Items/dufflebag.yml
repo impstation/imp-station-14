@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingBackpackDuffelMedical
+  id: ClothingBackpackDuffelRecruiterInterdyne
+  suffix: Interdyne, Uniform
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskInterdyneChemistry
+        - id: ClothingEyesGlassesChemicalInterdyne
+        - id: ClothingOuterApronChemist
+        - id: ClothingUniformJumpsuitChemShirt
+        - id: ClothingHandsGlovesChemist
+        - id: ClothingShoesEnclosedChem
+        - id: ClothingNeckTieChem
+        - id: SyndieHandyFlag

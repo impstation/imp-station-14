@@ -32,6 +32,8 @@
   - Chapel
   - Hydroponics
   - Atmospherics
+  - GenpopEnter
+  - GenpopLeave
   #imp edit start
   - Clown
   - Courier
@@ -41,4 +43,11 @@
   - Mime
   - Musician
   - Reporter
+  - Vault
+  - Zoo
   #imp edit end
+
+- type: accessGroup
+  id: General
+  tags:
+  - Maintenance

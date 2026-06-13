@@ -6,3 +6,68 @@
   - type: MindRole
     roleType: FreeAgent
   - type: GhostRoleMarkerRole
+
+# Bounty Hunter
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBountyHunter
+  name: Bounty Hunter Role
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: BountyHunter
+    roleType: FreeAgent
+  - type: BountyHunterRole
+
+# Syndicate Infiltrator
+- type: entity
+  parent: MindRoleTraitor
+  id: MindRoleInfiltrator
+  components:
+  - type: MindRole
+    subtype: role-subtype-traitor
+
+# Tourist
+- type: entity
+  parent: BaseMindRole
+  id: MindRoleTourist
+  name: Tourist Role
+  components:
+  - type: MindRole
+    antag: true
+    antagPrototype: Tourist
+    roleType: FreeAgent
+  - type: TouristRole
+
+# V-Rex
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindroleVRex
+  name: V-Rex Role
+  components:
+  - type: MindRole
+    antagPrototype: VRex
+    roleType: TeamAntagonist
+    exclusiveAntag: true
+
+# Butler
+- type: entity
+  parent: BaseMindRole
+  id: MindRoleButler
+  name: Butler Role
+  components:
+  - type: MindRole
+    antag: true #well actually
+    antagPrototype: Butler
+    roleType: Familiar
+  - type: ButlerRole
+
+# Syndicate Instigator
+- type: entity
+  parent: MindRoleNukeops
+  id: MindRoleSyndicateInstigator
+  name: Syndicate Instigator Role
+  components:
+  - type: MindRole
+    roleType: SoloAntagonist
+    antagPrototype: SyndicateInstigator #imp

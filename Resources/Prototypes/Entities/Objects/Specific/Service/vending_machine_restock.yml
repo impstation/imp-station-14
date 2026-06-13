@@ -44,9 +44,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: DamageOtherOnHit # imp
-    damage:
-      types:
-        Blunt: 11
     staminaCost: 15
 
 - type: entity
@@ -142,6 +139,7 @@
     - WinterDrobeInventory
     - CuraDrobeInventory
     - CourierDrobeInventory # imp
+    - PrideDrobeInventory # imp
   - type: Sprite
     layers:
     - state: base
@@ -153,7 +151,7 @@
   parent: BaseVendingMachineRestock
   id: VendingMachineRestockCostumes
   name: AutoDrobe restock box
-  description: A panoply of NanoTrasen employees are prancing about a colorful theater in a tragicomedy. You can join them too! Load this into your nearest AutoDrobe vending machine.
+  description: A panoply of Nanotrasen employees are prancing about a colorful theater in a tragicomedy. You can join them too! Load this into your nearest AutoDrobe vending machine. # imp edit; lower-case t in Nanotrasen
   components:
   - type: VendingMachineRestock
     canRestock:
@@ -288,6 +286,8 @@
     canRestock:
     - NanoMedInventory
     - NanoMedPlusInventory
+    - NanoMedCivilianInventory
+    - NanoMedCivilianWallInventory
   - type: Sprite
     layers:
     - state: base
@@ -343,6 +343,7 @@
     - SpaceUpInventory
     - SodaInventory
     - DrGibbInventory
+    - SmiteInventory
   - type: Sprite
     layers:
     - state: base

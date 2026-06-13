@@ -39,6 +39,7 @@ nano-chat-confirm = Confirm
 
 # LogProbe additions
 log-probe-scan-nanochat = Scanned {$card}'s NanoChat logs
+log-probe-scan-nanochat-empty-pda = {$pda} doesn't contain an ID card!
 log-probe-header-access = Access Log Scanner
 log-probe-header-nanochat = NanoChat Log Scanner
 log-probe-label-message = Message
@@ -46,18 +47,3 @@ log-probe-card-number = Card: {$number}
 log-probe-recipients = {$count} Recipients
 log-probe-recipient-list = Known Recipients:
 log-probe-message-format = {$sender} → {$recipient}: {$content}
-
-## StockTrading
-
-# General
-stock-trading-program-name = StockTrading
-stock-trading-title = Intergalactic Stock Market
-stock-trading-balance = Balance: {$balance} credits
-stock-trading-no-entries = No entries
-stock-trading-owned-shares = Owned: {$shares}
-stock-trading-buy-button = Buy
-stock-trading-sell-button = Sell
-stock-trading-amount-placeholder = Amount
-stock-trading-price-history = Price History
-stock-trading-access-denied = Access denied
-stock-trading-transaction-failed = Transaction failed

@@ -66,15 +66,21 @@
     - SingularityEngine
     - SingularityTeslaEngine
     - Power
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
     location: singularity
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Sprite
     sprite: Structures/Power/Generation/Singularity/singularity_1.rsi
-    shader: unshaded
     layers:
     - map: [ "VisualLevel" ]
       state: singularity_1
+      shader: unshaded
   - type: GenericVisualizer
     visuals:
       enum.SingularityAppearanceKeys.Singularity:
@@ -104,3 +110,12 @@
             state: singularity_6
             scale: .9,.9
   - type: SupermatterImmune # imp
+    # DeltaV start, add comp
+  - type: ChasingWalk
+    minSpeed: 1
+    maxSpeed: 1.875
+    impulseInterval: 5
+    chasingComponent:
+    - type: CrystalMass # Imp, added CrystalMass
+    - type: Cable # Other comps like Destructible and Transform are also assigned to Entities the singulo can't eat
+    # DeltaV end

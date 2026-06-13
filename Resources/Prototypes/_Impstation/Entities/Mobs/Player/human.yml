@@ -1,0 +1,13 @@
+# Syndicate Infiltrator
+- type: entity
+  parent: MobHumanSyndicateAgentBase
+  id: MobHumanSyndicateInfiltrator
+  name: syndicate infiltrator
+  components:
+  - type: AutoTraitor
+    profile: TraitorInfiltrator
+  - type: Loadout
+    prototypes: [SyndicateInfiltratorGear]
+    roleLoadout: [ RoleSurvivalSyndicate ]
+  - type: EmitSoundOnSpawn # dumb fix for the clang sound not playing on spawn but only matters if youre spawning this prototype from the entity panel
+    sound: /Audio/Effects/clang.ogg

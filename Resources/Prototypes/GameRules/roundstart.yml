@@ -24,6 +24,10 @@
       prob: 0.5
     - id: SubWizard
       prob: 0.05
+    - id: Xenoborgs
+      prob: 0.05
+    - id: Conspirators # imp edit
+      prob: 0.05
 
 - type: entity
   parent: BaseGameRule
@@ -33,6 +37,43 @@
     rules:
     - id: Thief
       prob: 0.5
+    - id: Xenoborgs
+      prob: 0.05
+    - id: Conspirators # imp edit
+      prob: 0.05
+
+- type: entity
+  parent: BaseGameRule
+  id: SubGamemodesRuleNoXenoborg
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: Thief
+      prob: 0.5
+    - id: SubWizard
+      prob: 0.05
+    - id: Conspirators # imp edit
+      prob: 0.05
+
+- type: entity
+  parent: BaseGameRule
+  id: SubGamemodesRuleNoWizardNoXenoborg
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: Thief
+      prob: 0.5
+    - id: Conspirators # imp edit
+      prob: 0.05
+
+- type: entity
+  parent: BaseGameRule
+  id: DummyNonAntagChance
+  components:
+  - type: SubGamemodes
+    rules:
+    - id: DummyNonAntag
+      prob: 0.3
 
 - type: entity
   id: DeathMatch31
@@ -88,6 +129,7 @@
     nameSegments:
     - NamesOperationPrefix
     - NamesOperationSuffix
+    nameFormat: name-format-nuclear-operation
   - type: NukeopsRule
   - type: RuleGrids
   - type: AntagSelection
@@ -120,8 +162,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-commander
         - NamesSyndicateElite
+        nameFormat: name-format-nukie-commander
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -137,8 +179,8 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-agent
-        - NamesSyndicateNormal
+        - NamesSyndicateAlternative # imp, was NamesSyndicateNormal
+        nameFormat: name-format-nukie-agent
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -156,13 +198,15 @@
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
-        - nukeops-role-operator
         - NamesSyndicateNormal
+        nameFormat: name-format-nukie-operator
       - type: NpcFactionMember
         factions:
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+  - type: DynamicRuleCost
+    cost: 200
 
 - type: entity
   abstract: true
@@ -178,6 +222,8 @@
     maxDifficulty: 5
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
+  - type: DynamicRuleCost
+    cost: 100
 
 - type: entity
   parent: BaseTraitorRule
@@ -197,7 +243,7 @@
       blacklist:
         components:
         - AntagImmune
-      lateJoinAdditional: true
+      lateJoinAdditional: false
       mindRoles:
       - MindRoleTraitor
 
@@ -214,6 +260,51 @@
     - prefRoles: [ Traitor ]
       mindRoles:
       - MindRoleTraitorReinforcement
+
+# imp edit, disable until upstream changelings are roundstart
+#- type: entity
+#  id: Changeling
+#  parent: BaseGameRule
+#  components:
+#  - type: GameRule
+#    minPlayers: 25
+#  - type: AntagSelection
+#    agentName: changeling-round-end-agent-name
+#    selectionTime: IntraPlayerSpawn
+#    definitions:
+#    - prefRoles: [ Changeling ]
+#      max: 3
+#      playerRatio: 15
+#      briefing:
+#        text: changeling-role-greeting
+#        color: Red
+#        sound: /Audio/Ambience/Antag/changeling_start.ogg
+#      components:
+#      - type: ChangelingDevour
+#      - type: ChangelingIdentity
+#      - type: ChangelingTransform
+#      - type: ActionGrant
+#        actions:
+#        - ActionChangelingStore
+      # TODO: Make it so the changeling gamerule changeling can inherit from the changeling store preset somehow
+#      - type: Store
+#        name: store-preset-name-changeling
+#        categories:
+#        - ChangelingAbilities
+#        currencyWhitelist:
+#        - ChangelingDNA
+#        balance:
+#          ChangelingDNA: 50
+#      - type: UserInterface
+#        interfaces:
+#          enum.StoreUiKey.Key:
+#            type: StoreBoundUserInterface
+#            requireInputValidation: false
+#      mindRoles:
+#      - MindRoleChangeling
+#  - type: AntagObjectives
+#    objectives:
+#    - ChangelingSurviveObjective
 
 - type: entity
   id: Revolutionary
@@ -238,6 +329,8 @@
       - type: HeadRevolutionary
       mindRoles:
       - MindRoleHeadRevolutionary
+  - type: DynamicRuleCost
+    cost: 200
 
 - type: entity
   id: Sandbox
@@ -260,8 +353,15 @@
     objectives:
     - WizardSurviveObjective
     - WizardDemonstrateObjective
+  - type: AntagRandomObjectives #imp
+    sets:
+    - groups: WizardPridefulGroups
+      maxPicks: 1
+    - groups: WizardChaosGroups
+      maxPicks: 1
+    maxDifficulty: 2
   - type: LoadMapRule
-    gridPath: /Maps/Shuttles/wizard.yml
+    mapPath: /Maps/_Impstation/Nonstations/wizardsden.yml #imp
   - type: RuleGrids
   - type: AntagSelection
   - type: AntagLoadProfileRule
@@ -298,8 +398,11 @@
         nameSegments:
         - NamesWizardFirst
         - NamesWizardLast
+        nameFormat: name-format-wizard
       mindRoles:
       - MindRoleWizard
+  - type: DynamicRuleCost
+    cost: 150
 
 - type: entity
   id: Zombie
@@ -327,8 +430,8 @@
         sound: "/Audio/Ambience/Antag/zombie_start.ogg"
       components:
       - type: PendingZombie
-        minInitialInfectedGrace: 300
-        maxInitialInfectedGrace: 600
+        minInitialInfectedGrace: 300 #imp
+        maxInitialInfectedGrace: 600 #imp
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
@@ -336,38 +439,64 @@
       - MindRoleInitialInfected
       factionsAdd: # IMP: Initial infected should be ignored by zombies.
         - InitialInfectedIgnore
+  - type: DynamicRuleCost
+    cost: 200
+
+# This rule makes the chosen players unable to get other antag rules, as a way to prevent metagaming job rolls.
+# Put this before antags assigned to station jobs, but after non-job antags (NukeOps/Wiz).
+- type: entity
+  id: DummyNonAntag
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 5
+  - type: AntagSelection
+    selectionTime: IntraPlayerSpawn # Pre-selection before jobs; assignment doesn't really matter though, we only care about the pre-selection to block other antags.
+    removeUponFailedSpawn: false
+    definitions:
+    - prefRoles: [ InitialInfected, Traitor, Thief, HeadRev ]
+      max: 2
+      playerRatio: 30
 
 # event schedulers
 
 - type: entityTable
-  id: BasicGameRulesTable
-  table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
+  id: BasicGameRulesTable # imp: changed from AllSelector to GroupSelector
+  table: !type:GroupSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
       - !type:NestedSelector
         tableId: BasicCalmEventsTable
+        weight: 30
       - !type:NestedSelector
-        tableId: BasicAntagEventsTable
+        tableId: GreaterAntagEventsTable #imp
+        weight: 7
+      - !type:NestedSelector
+        tableId: LesserAntagEventsTable #imp
+        weight: 15
       - !type:NestedSelector
         tableId: CargoGiftsTable
+        weight: 16
       - !type:NestedSelector
         tableId: CalmPestEventsTable
+        weight: 17
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
+        weight: 15
 
 - type: entityTable
-  id: SleeperlessGameRulesTable
+  id: DynamicGameRulesTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
-      - !type:NestedSelector
-        tableId: BasicCalmEventsTable
-      - !type:NestedSelector
-        tableId: SleeperlessAntagEventsTable
-      - !type:NestedSelector
-        tableId: CargoGiftsTable
-      - !type:NestedSelector
-        tableId: CalmPestEventsTable
-      - !type:NestedSelector
-        tableId: SpicyPestEventsTable
+    - !type:NestedSelector
+      tableId: BasicCalmEventsTable
+    - !type:NestedSelector
+      tableId: LesserAntagEventsTable
+    - !type:NestedSelector
+      tableId: CargoGiftsTable
+    - !type:NestedSelector
+      tableId: CalmPestEventsTable
+    - !type:NestedSelector
+      tableId: SpicyPestEventsTable
 
 - type: entityTable
   id: SpaceTrafficControlTable
@@ -389,12 +518,12 @@
       tableId: BasicGameRulesTable
 
 - type: entity
-  id: SleeperlessStationEventScheduler
+  id: DynamicStationEventScheduler # this isn't the dynamic mode, but rather the station event scheduler used for dynamic
   parent: BaseGameRule
   components:
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
-      tableId: SleeperlessGameRulesTable
+      tableId: DynamicGameRulesTable
 
 - type: entity
   id: RampingStationEventScheduler
@@ -439,9 +568,22 @@
     - id: BasicTrashVariationPass
     - id: SolidWallRustingVariationPass
     - id: ReinforcedWallRustingVariationPass
+    - id: CutWireVariationPass
     - id: BasicPuddleMessVariationPass
       prob: 0.99
       orGroup: puddleMess
     - id: BloodbathPuddleMessVariationPass
       prob: 0.01
       orGroup: puddleMess
+    - id: SmugglerStashVariationPass
+      prob: 0.90
+    - id: SolarPanelDamageVariationPass
+    - id: SolarPanelEmptyVariationPass
+    - id: BasicDecalDirtVariationPass
+    - id: BasicDecalGraffitiVariationPass
+    - id: BasicDecalBurnsVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals
+    - id: BasicDecalDirtMonospaceVariationPass
+      prob: 0.50
+      orGroup: monospaceDecals

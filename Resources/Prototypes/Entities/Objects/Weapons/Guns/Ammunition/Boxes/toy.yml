@@ -1,8 +1,8 @@
 - type: entity
   abstract: true
   parent: BaseItem
-  id: BoxDonkSoftBase
-  name: foamdart box
+  id: BoxDonkSoftBaseWizden #imp - see the _Impstation directory for the version we use
+  name: toy ammunition box
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
@@ -15,10 +15,11 @@
 
 # Boxes
 - type: entity
+  abstract: true # imp
   parent: BoxDonkSoftBase
-  id: BoxDonkSoftBox
-  name: box of foam darts
-  description: A box made for 40 of only the finest. #imp
+  id: BoxDonkSoftBoxWizden #imp - see the _Impstation directory for the version we use
+  name: foam dart box
+  description: A cardboard box of foam darts.
   components:
   - type: BallisticAmmoProvider
     whitelist:
@@ -33,10 +34,11 @@
       - state: shelltoy
 
 - type: entity
+  abstract: true # imp
   parent: BaseMagazineBoxMagnum
-  id: BoxCartridgeCap
+  id: BoxCartridgeCapWizden #imp - see the _Impstation directory for the version we use
   name: cap gun cartridge box
-  description: A box made for 20 pew pew shots. #imp
+  description: A cardboard box of cap gun cartridges.
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeCap

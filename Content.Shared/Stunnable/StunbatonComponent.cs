@@ -18,7 +18,7 @@ public sealed partial class StunbatonComponent : Component
 
     // Impstation
     /// <summary>
-    /// Should this stun when turned off, instead of when on?
+    ///     Should this stun when turned off, instead of when on?
     /// </summary>
     [DataField]
     public bool Inverted = false;

@@ -1,0 +1,15 @@
+- type: entity
+  id: ApidCareCaseFilled
+  name: apid care case
+  parent: ApidCareCase
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: SteelLunchboxApidFilled
+        - id: Multitool
+        - id: Napkin
+        - id: ApidSeatFlatpack
+        - id: FloorTileItemAstroGrassStackFour

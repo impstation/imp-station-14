@@ -14,6 +14,7 @@
   - type: Tag
     tags:
     - Ingot
+    - ConstructionMaterial
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
@@ -25,11 +26,15 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: NonMobStatusIcon #imp edit. for the salvohud
+  - type: PluralName # imp
+    oneOf: plural-name-a
 
 - type: entity
   parent: IngotBase
   id: IngotGold
   name: gold bar
+  description: Invulnerable to the passage of time. All that glitters... # imp
   suffix: Full
   components:
   - type: Material
@@ -59,6 +64,8 @@
         reagents:
         - ReagentId: Gold
           Quantity: 10
+  - type: PluralName # imp
+    nameSomeOf: gold bars
 
 - type: entity
   parent: IngotGold
@@ -75,6 +82,7 @@
   parent: IngotBase
   id: IngotSilver
   name: silver bar
+  description: Apparently useful for killing monsters. # imp
   suffix: Full
   components:
   - type: Material
@@ -104,6 +112,9 @@
         reagents:
         - ReagentId: Silver
           Quantity: 10
+  - type: PluralName # imp
+    nameSomeOf: silver bars
+
 
 - type: entity
   parent: IngotSilver

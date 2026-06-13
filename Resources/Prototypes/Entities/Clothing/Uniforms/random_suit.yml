@@ -36,14 +36,15 @@
   id: ClothingRandomSpawner
   name: random colorful costume
   components:
-  - type: RandomSpawner
+  - type: EntityTableSpawner
+    table: !type:GroupSelector
+      children:
+      - id: ClothingUniformRandomArmless
+      - id: ClothingUniformRandomStandard
+      - id: ClothingUniformRandomBra
+      - id: ClothingUniformRandomShorts
+      - id: ClothingUniformRandomShirt
     offset: 0
-    prototypes:
-    - ClothingUniformRandomArmless
-    - ClothingUniformRandomStandard
-    - ClothingUniformRandomBra
-    - ClothingUniformRandomShorts
-    - ClothingUniformRandomShirt
 
 - type: entity
   parent: ClothingUniformRandom
@@ -145,6 +146,8 @@
           base_leg_short: Sixteen
           base_leg_skirt: Sixteen
           base_leg_skirt_long: Sixteen
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: ClothingUniformRandom

@@ -96,6 +96,9 @@ namespace Content.Shared.Atmos
         public const float OxygenMolesFreezer = MolesCellFreezer * OxygenStandard;
         public const float NitrogenMolesFreezer = MolesCellFreezer * NitrogenStandard;
 
+        public const float OxygenMolesGasMiner = MolesCellGasMiner * OxygenStandard;
+        public const float NitrogenMolesGasMiner = MolesCellGasMiner * NitrogenStandard;
+
         #endregion
 
         /// <summary>
@@ -177,6 +180,7 @@ namespace Content.Shared.Atmos
         };
 
         #region Excited Groups
+
         /// <summary>
         ///     Number of full atmos updates ticks before an excited group breaks down (averages gas contents across turfs)
         /// </summary>
@@ -236,6 +240,7 @@ namespace Content.Shared.Atmos
 
         public const float TritiumBurnOxyFactor = 100f;
         public const float TritiumBurnTritFactor = 10f;
+        public const float TritiumBurnFuelRatio = 2f;
 
         public const float FrezonCoolLowerTemperature = 23.15f;
 
@@ -263,7 +268,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     1 mol of Tritium is required per X mol of oxygen.
         /// </summary>
-        public const float FrezonProductionTritRatio = 25.0f;
+        public const float FrezonProductionTritRatio = 50.0f;
 
         /// <summary>
         ///     1 / X of the tritium is converted into Frezon each tick
@@ -316,7 +321,6 @@ namespace Content.Shared.Atmos
         ///     (The pressure threshold is so low that it doesn't make sense to do any calculations,
         ///     so it just applies this flat value).
         /// </summary>
-        // Original value is 4, buff back when we have proper ways for players to deal with breaches.
         public const int LowPressureDamage = 4;
 
         public const float WindowHeatTransferCoefficient = 0.1f;

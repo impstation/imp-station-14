@@ -1,0 +1,30 @@
+# the legend itself
+- type: entity
+  id: MethadoneChemistryBottle
+  name: methadone bottle
+  parent: BaseChemistryBottleFilled
+  components:
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 100
+          reagents:
+            - ReagentId: Methadone
+              Quantity: 100
+
+- type: entity
+  parent: MiniSyringe
+  id: MiniSyringeAdmeme
+  suffix: admeme
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 100
+  - type: SolutionInjectWhileEmbedded
+    transferAmount: 100
+    solution: injector
+    updateInterval: 2
+  - type: SolutionInjectOnEmbed
+    transferAmount: 2
+    solution: injector

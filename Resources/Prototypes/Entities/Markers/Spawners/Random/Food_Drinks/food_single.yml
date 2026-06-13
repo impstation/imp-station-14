@@ -49,6 +49,11 @@
       - FoodBakedChevreChaud
       - FoodBakedNugget
       - FoodTacoShell
+      # imp below
+      - FoodBreadAvocadoToast
+      - FoodMeatGlazedHamSlice
+      - FoodPickle
+      - FoodMothPizzaCottonSlice
     chance: 0.8
     offset: 0.0
     #rare
@@ -67,4 +72,5 @@
       - FoodBurgerCrazySpawner # imp - selects one of ten crazy burgers
       - FoodPizzaArnoldSlice
       - FoodPizzaUraniumSlice
+      - FoodPizzaWorldpeasSlice
     rareChance: 0.05

@@ -133,7 +133,6 @@
     - Belt
   - type: LimitedCharges
     maxCharges: 20
-    charges: 20
   - type: AutoRecharge
     rechargeDuration: 10
   - type: RCD
@@ -145,3 +144,170 @@
     - ClothingHeadHatCone
     - PowerCellSmall
     - Decalamp
+
+- type: entity
+  parent: RCDRechargingTckTck
+  id: RCDRefreshments
+  name: refreshments RCD
+  description: The pinnacle of Decapoid technology, an RCD that makes snacks.
+  suffix: AutoRecharge
+  components:
+  - type: RCD
+    availablePrototypes:
+    - RCDHotCoffee
+    - RCDJuiceOrangeCarton
+    - RCDZombieSlushieGlass
+    - RCDBakedCookieSugar
+    - RCDCakeCottonSlice
+    - RCDMeatMeatball
+    - RCDCBlanketShock
+  - type: LimitedCharges
+    maxCharges: 16
+  - type: AutoRecharge
+    rechargeDuration: 30
+
+- type: entity
+  id: RPDEmpty
+  parent: RPD
+  suffix: Empty
+  components:
+  - type: LimitedCharges
+    lastCharges: -1
+
+- type: entity
+  id: RPDRecharging
+  parent: RPD
+  name: experimental RPD
+  description: Cyborg-mounted Rapid Piping Device which creates compressed matter on the fly using an internal fabricator.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 30
+  - type: AutoRecharge
+    rechargeDuration: 10
+
+- type: entity
+  id: RPDExperimental
+  parent: RPD
+  suffix: Admeme
+  name: experimental RPD
+  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
+  components:
+  - type: AutoRecharge
+    rechargeDuration: 1
+
+- type: entity
+  parent: Crayon
+  id: CrayonChalkInfinite
+  name: infinity chalk
+  suffix: Infinite
+  description: Not for doodles.
+  components:
+  - type: Crayon
+    color: White
+    infinite: true
+  - type: Sprite
+    state: white
+  - type: Tag
+    tags:
+    - Write
+    - Crayon
+    - CrayonWhite
+
+- type: entity
+  parent: BorgHoloBellProjector
+  id: HoloprojectorSafety
+  name: safety projector
+  description: Creates a visual indicator of an unsafe area.
+  components:
+  - type: HolosignProjector
+    signProto: HolosignSafety
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMicroreactor
+        disableEject: true
+  - type: Sprite
+    sprite: Objects/Devices/Holoprojectors/security.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - HolofanProjector
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  name: ticket cannon
+  parent: BaseWeaponBattery
+  id: TicketCannon
+  description: May the mighty hand of the Empire strike fierce the fool who violated code.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Launchers/tckut_ticket_dispenser.rsi
+    layers:
+    - state: icon
+  - type: Gun
+    fireRate: 4
+    soundGunshot:
+      path: /Audio/Effects/pop.ogg
+    soundEmpty:
+      path: /Audio/Items/hiss.ogg
+    clumsyProof: true
+  - type: BatteryAmmoProvider
+    proto: CodeViolation
+    fireCost: 20
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: BatterySelfRecharger
+    autoRechargeRate: 2
+  - type: Item
+    size: Tiny
+
+- type: entity
+  parent: BaseItem
+  name: borg's safety cleaver
+  id: BorgButchCleaver
+  description: A huge blade used for chopping up food. Unfortunately this doesn't include crew.
+  components:
+  - type: Tag
+    tags:
+    - Knife
+    - Cleaver
+  - type: Sharp
+  - type: Utensil
+    types:
+    - Knife
+  - type: Tool
+    qualities:
+    - Slicing
+    useSound:
+      path: /Audio/Items/Culinary/chop.ogg
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/cleaver.rsi
+    state: butch
+  - type: Item
+    size: Normal
+    sprite: Objects/Weapons/Melee/cleaver.rsi
+  - type: GuideHelp
+    guides:
+    - Chef
+    - FoodRecipes
+
+- type: entity
+  parent: BaseItem
+  id: BorgRollingPin
+  name: borg's rolling pin
+  description: A tool used to shape and flatten dough.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/rolling_pin.rsi
+    state: icon
+  - type: Item
+  - type: Tool
+    qualities:
+    - Rolling
+  - type: Tag
+    tags:
+    - RollingPin

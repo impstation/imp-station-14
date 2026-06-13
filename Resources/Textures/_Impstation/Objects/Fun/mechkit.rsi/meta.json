@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Sprites by toasterblast for impstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+      {
+          "name": "basesprue"
+      },
+      {
+          "name": "basespruecut"
+      },
+      {
+          "name": "accentsprue"
+      },
+      {
+          "name": "accentspruecut"
+      },
+      {
+          "name": "visorsprue"
+      },
+      {
+          "name": "visorspruecut"
+      },
+      {
+          "name": "stand"
+      },
+      {
+          "name": "box"
+      },
+      {
+          "name": "inhand-left-sprue",
+          "directions": 4
+      },
+      {
+          "name": "inhand-right-sprue",
+          "directions": 4
+      },
+      {
+          "name": "inhand-left-box",
+          "directions": 4
+      },
+      {
+          "name": "inhand-right-box",
+          "directions": 4
+      }
+  ]
+}

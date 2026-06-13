@@ -1,0 +1,55 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BoxDonkSoftBase
+  name: foamdart box
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    capacity: 30
+  - type: Sprite
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+- type: entity
+  parent: BoxDonkSoftBase
+  id: BoxDonkSoftBox
+  name: box of foam darts
+  description: A box made for 40 of only the finest.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+        - BulletFoam
+    capacity: 40
+    proto: BulletFoam
+  - type: Sprite
+    sprite: _Wizden/Objects/Storage/boxes.rsi
+    layers:
+      - state: boxwidetoy
+      - state: shelltoy
+
+- type: entity
+  parent: BaseMagazineBoxMagnum
+  id: BoxCartridgeCap
+  name: cap gun cartridge box
+  description: A box made for 20 pew pew shots.
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeMagnum
+        - CartridgeCap
+    proto: CartridgeCap
+    capacity: 20
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/magnum.rsi
+    layers:
+      - state: capbase
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-1
+        map: ["enum.GunVisualLayers.Mag"]
+      - state: cap

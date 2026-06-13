@@ -4,11 +4,11 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Changeling;
+namespace Content.Shared._Goobstation.Changeling;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
-public sealed partial class ChangelingComponent : Component
+public sealed partial class GoobChangelingComponent : Component
 {
     #region Prototypes
 
@@ -32,7 +32,7 @@ public sealed partial class ChangelingComponent : Component
         "ActionAbsorbDNA",
         "ActionStingExtractDNA",
         "ActionChangelingTransformCycle",
-        "ActionChangelingTransform",
+        "ActionChangelingTransformGoob",
         "ActionEnterStasis",
         "ActionExitStasis"
     };
@@ -42,7 +42,7 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "GoobHivemindFaction";
 
     #endregion
 

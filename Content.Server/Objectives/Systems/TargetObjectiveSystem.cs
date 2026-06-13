@@ -41,6 +41,7 @@ public sealed class TargetObjectiveSystem : EntitySystem
         comp.Target = target;
     }
 
+    // imp add svs
     /// <summary>
     /// Sets the Target field for the title and other components to use, and adds the target to a list to prevent reuse for other targets for the same mind.
     /// </summary>

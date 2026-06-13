@@ -6,23 +6,21 @@
   physicalDesc: reagent-physical-desc-syrupy
   flavor: bitter
   color: "#1b8b3d"
-  contraband: Minor
+  contrabandSeverity: Minor
   metabolisms:
     Narcotic:
       effects:
-      - !type:AdjustReagent
+      - !type:AdjustReagent #TODO: this should probably just be a really long status effect instead of recursively adding ForeverWeed to the system
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: ForeverWeed
           max: 5
         reagent: ForeverWeed
         amount: 1
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectSeeingRainbow
         type: Add
         time: 1
-        refresh: false
       - !type:PopupMessage
         type: Local
         messages:
@@ -39,3 +37,27 @@
           - "foreverweed-effect-centcomm"
           - "foreverweed-effect-centcomm-paranoia"
         probability: 0.01
+
+- type: reagent
+  id: Methadone
+  name: reagent-name-methadone
+  group: Narcotic
+  desc: reagent-desc-methadone
+  physicalDesc: reagent-physical-desc-clear
+  flavor: bitter
+  color: "#E9EDF5"
+  metabolisms: # since there's no heroin, i've just made it a worse version of tricordrazine. feel free to fix this.
+    Narcotic:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:TotalDamageCondition
+          max: 40
+        damage:
+          groups:
+            Brute: -0.75
+          types:
+            Poison: -0.3
+            Heat: -0.25
+            Shock: -0.25
+            Cold: -0.25

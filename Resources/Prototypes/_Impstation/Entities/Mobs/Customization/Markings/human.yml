@@ -1,0 +1,78 @@
+﻿# Chest
+
+# Head
+
+# Snout
+
+# Eyes
+
+- type: marking
+  id: HumanLEyeGlow
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Human ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_l
+  shader: unshaded
+
+- type: marking
+  id: HumanREyeGlow
+  bodyPart: Eyes
+  markingCategory: Head
+  speciesRestriction: [ Human ]
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: Mobs/Customization/tattoos.rsi
+    state: tattoo_eye_r
+  shader: unshaded
+
+
+# RArm
+
+# LArm
+
+# RLeg
+
+# LLeg
+
+# UndergarmentBottom
+
+# UndergarmentTop
+
+# LFoot
+
+# RFoot
+
+# LHand
+
+# RHand
+
+# FacialHair
+
+# Hair
+
+# HeadSide
+
+# HeadTop
+
+- type: marking
+  id: PrettyFly
+  bodyPart: HeadTop
+  markingCategory: Head
+  speciesRestriction: [ Human ]
+  forcedColoring: true
+  sprites:
+  - sprite: _Impstation/Mobs/Customization/Human/headtop.rsi
+    state: fly
+
+# RArmExtension

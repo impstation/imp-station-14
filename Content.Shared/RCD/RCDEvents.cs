@@ -4,28 +4,44 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.RCD;
 
 [Serializable, NetSerializable]
-public sealed class RCDSystemMessage : BoundUserInterfaceMessage
+public sealed class RCDSystemMessage(ProtoId<RCDPrototype> protoId) : BoundUserInterfaceMessage
 {
-    public ProtoId<RCDPrototype> ProtoId;
+    public ProtoId<RCDPrototype> ProtoId = protoId;
+}
 
-    public RCDSystemMessage(ProtoId<RCDPrototype> protoId)
+[Serializable, NetSerializable]
+public sealed class RCDConstructionGhostRotationEvent(NetEntity netEntity, Direction direction) : EntityEventArgs
+{
+    public readonly NetEntity NetEntity = netEntity;
+    public readonly Direction Direction = direction;
+}
+
+// Funky RPD Start
+[Serializable, NetSerializable]
+public sealed class RCDConstructionGhostFlipEvent : EntityEventArgs
+{
+    public readonly NetEntity NetEntity;
+    public readonly bool UseMirrorPrototype;
+    public RCDConstructionGhostFlipEvent(NetEntity netEntity, bool useMirrorPrototype)
     {
-        ProtoId = protoId;
+        NetEntity = netEntity;
+        UseMirrorPrototype = useMirrorPrototype;
     }
 }
 
 [Serializable, NetSerializable]
-public sealed class RCDConstructionGhostRotationEvent : EntityEventArgs
+public sealed class RPDEyeRotationEvent : EntityEventArgs
 {
     public readonly NetEntity NetEntity;
-    public readonly Direction Direction;
+    public float? EyeRotation;
 
-    public RCDConstructionGhostRotationEvent(NetEntity netEntity, Direction direction)
+    public RPDEyeRotationEvent(NetEntity netEntity, float? eyeRotation)
     {
         NetEntity = netEntity;
-        Direction = direction;
+        EyeRotation = eyeRotation;
     }
 }
+// Funky RPD End
 
 [Serializable, NetSerializable]
 public enum RcdUiKey : byte

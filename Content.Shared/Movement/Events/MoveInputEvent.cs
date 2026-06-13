@@ -11,16 +11,16 @@ public readonly struct MoveInputEvent
 {
     public readonly Entity<InputMoverComponent> Entity;
     public readonly MoveButtons OldMovement;
-    public readonly Direction Dir;
-    public readonly bool State;
+    public readonly Direction Dir; // imp add
+    public readonly bool State; // imp add
 
     public bool HasDirectionalMovement => (Entity.Comp.HeldMoveButtons & MoveButtons.AnyDirection) != MoveButtons.None;
 
-    public MoveInputEvent(Entity<InputMoverComponent> entity, MoveButtons oldMovement, Direction dir, bool state)
+    public MoveInputEvent(Entity<InputMoverComponent> entity, MoveButtons oldMovement, Direction dir, bool state) // imp add dir, state
     {
         Entity = entity;
         OldMovement = oldMovement;
-        Dir = dir;
-        State = state;
+        Dir = dir; // imp
+        State = state; // imp
     }
 }

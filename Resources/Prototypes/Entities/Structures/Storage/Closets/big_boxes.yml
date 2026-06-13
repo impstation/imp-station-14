@@ -23,7 +23,7 @@
           hard: true
     - type: Pullable
     - type: CardboardBox
-      effectSound: /Audio/Effects/chime.ogg
+      quiet: true # Imp change, removes the chime sound
     - type: InputMover
     - type: EntityStorage
       isCollidableWhenOpen: false
@@ -55,6 +55,7 @@
       node: basebigbox
       containers:
         - entity_storage
+    - type: GravityAffected
 
 - type: entity
   id: StealthBox

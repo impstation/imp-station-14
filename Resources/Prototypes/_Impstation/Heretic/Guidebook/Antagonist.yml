@@ -1,0 +1,60 @@
+- type: guideEntry
+  id: Heretics
+  name: guide-entry-heretics
+  text: "/ServerInfo/_Impstation/Guidebook/Antagonist/Heretics.xml"
+  children:
+  - HereticsKnowledge
+  - HereticsSpells
+  - HereticsRituals
+  - HereticsPaths
+  - HereticsSide
+
+- type: guideEntry
+  id: HereticsPaths
+  name: guide-entry-heretics-paths
+  text: "/ServerInfo/_Impstation/Guidebook/Antagonist/HereticsPaths.xml"
+  children:
+    - HereticsFlesh
+    - HereticsAsh
+    - HereticsVoid
+    - HereticsHunt
+
+- type: guideEntry
+  id: HereticsKnowledge
+  name: guide-entry-heretics-knowledge
+  text: "/ServerInfo/_Impstation/Guidebook/Antagonist/HereticsKnowledge.xml"
+
+- type: guideEntry
+  id: HereticsSpells
+  name: guide-entry-heretics-spells
+  text: "/ServerInfo/_Impstation/Guidebook/Antagonist/HereticsSpells.xml"
+
+- type: guideEntry
+  id: HereticsRituals
+  name: guide-entry-heretics-rituals
+  text: "/ServerInfo/_Impstation/Guidebook/Antagonist/HereticsRituals.xml"
+
+- type: guideEntry
+  id: HereticsFlesh
+  name: guide-entry-heretics-flesh
+  text: "/ServerInfo/_Impstation/Guidebook/Antagonist/HereticsFlesh.xml"
+
+- type: guideEntry
+  id: HereticsAsh
+  name: guide-entry-heretics-ash
+  text: "/ServerInfo/_Impstation/Guidebook/Antagonist/HereticsAsh.xml"
+
+- type: guideEntry
+  id: HereticsVoid
+  name: guide-entry-heretics-void
+  text: "/ServerInfo/_Impstation/Guidebook/Antagonist/HereticsVoid.xml"
+
+- type: guideEntry
+  id: HereticsHunt
+  name: guide-entry-heretics-hunt
+  text: "/ServerInfo/_Impstation/Guidebook/Antagonist/HereticsHunt.xml"
+
+- type: guideEntry
+  id: HereticsSide
+  name: guide-entry-heretics-side
+  text: "/ServerInfo/_Impstation/Guidebook/Antagonist/HereticsSide.xml"

@@ -71,8 +71,8 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, Tier3Contraband]
   id: ClothingOuterHardsuitRepomen
-  name: cybersun repoman's hardsuit
-  description: A daunting hardsuit used by the infamous Cybersun Repomen. Its design allows for better maneuverability with insulation from hazardous environments.
+  name: Cybersun repoman's hardsuit
+  description: A daunting hardsuit used by the infamous Cybersun repomen. Its design allows for better maneuverability with insulation from hazardous environments. And for ripping still-beating hearts from chests.
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/OuterClothing/Hardsuits/repoman.rsi
@@ -95,6 +95,53 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitRepomen
+
+#Makeshift Hardsuit
+- type: entity
+  parent: [ BaseMajorContraband, ClothingOuterHardsuitBase]
+  id: ClothingOuterProspector
+  name: makeshift hardsuit
+  description: A heap of plating and insulation thrown together that just barely constitutes a hardsuit - but if it's good enough for space, it's good enough for you.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Prospectors/prospector-hardsuit.rsi
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Impstation/Prospectors/prospector-hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.7
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Radiation: 0.8
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetProspector
+
+#Desperado Hardsuit
+- type: entity
+  parent: [ BaseMajorContraband, ClothingOuterHardsuitSyndieCommander ]
+  id: ClothingOuterDesperado
+  name: desperado hardsuit
+  description: An incredibly tough hardsuit woven together with Goliath plating and some helpfully reclaimed NT equipment. Makes you respectable, both as a person and as a threat.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Prospectors/desperado-hardsuit.rsi
+  - type: Clothing
+    sprite: _Impstation/Prospectors/desperado-hardsuit.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetDesperado
 
 # Dinosaur Commander Hardsuit
 - type: entity
@@ -142,3 +189,17 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+# Hemolymph-blue Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitSyndieBlue
+  name: hemolymph-blue hardsuit
+  description: A heavily armored hardsuit designed for work in special oper- Why is it blue?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator_blue.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator_blue.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieBlue

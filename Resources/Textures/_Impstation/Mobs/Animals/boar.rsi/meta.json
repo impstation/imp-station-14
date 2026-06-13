@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Entings (github)",
+  "states": [
+    {
+      "name": "boar",
+      "directions": 4
+
+    },
+    {
+      "name": "boar_dead"
+    },
+    {
+      "name": "boar_moving",
+      "directions": 4,
+      "delays": [
+	    [
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ],
+	    [
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ],
+		[
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ],
+	    [
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ]
+	  ]
+    },
+    {
+      "name": "eyes",
+      "directions": 4
+    },
+    {
+      "name": "spaceboar",
+      "directions": 4
+
+    },
+    {
+      "name": "spaceboar_dead"
+    },
+    {
+      "name": "spaceboar_moving",
+      "directions": 4,
+      "delays": [
+	    [
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ],
+	    [
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ],
+		[
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ],
+	    [
+	      0.2,
+		  0.2,
+		  0.2,
+		  0.2
+	    ]
+	  ]
+    }
+  ]
+}

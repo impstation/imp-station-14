@@ -1,0 +1,11 @@
+# SPDX-FileCopyrightText: 2025 Will-Oliver-Br <164823659+Will-Oliver-Br@users.noreply.github.com>
+# SPDX-FileCopyrightText: 2025 sleepyyapril <123355664+sleepyyapril@users.noreply.github.com>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later AND MIT
+
+- type: stack
+  id: SheetPrinter
+  name: stack-paper #imp
+  icon: {sprite: Objects/Misc/bureaucracy.rsi, state: paper}
+  spawn: SheetPrinter1
+  maxCount: 1

@@ -1,0 +1,14 @@
+- type: constructionGraph
+  id: CardTaco
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: cardtaco
+      steps:
+      - material: Cardboard
+        amount: 1
+        doAfter: 4
+  - node: cardtaco
+    entity: FoodTacoCardboard
+    

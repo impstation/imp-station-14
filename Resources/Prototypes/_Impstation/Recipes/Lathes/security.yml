@@ -72,7 +72,7 @@
 
 - type: latheRecipe
   id: PowerCellBlaster
-  result: PowerCellBlaster
+  result: PowerCellBlasterPrinted
   categories:
   - Ammo
   completetime: 6
@@ -81,6 +81,30 @@
     Glass: 300
     Plastic: 100
     Gold: 10
+
+- type: latheRecipe
+  id: PowerCellBlasterMilitary
+  result: PowerCellBlasterMilitaryPrinted
+  categories:
+  - Ammo
+  completetime: 6
+  materials:
+    Steel: 300
+    Glass: 300
+    Plastic: 100
+    Gold: 25
+
+- type: latheRecipe
+  id: PowerCellStarflare
+  result: PowerCellStarflarePrinted
+  categories:
+  - Ammo
+  completetime: 6
+  materials:
+    Steel: 400
+    Glass: 300
+    Plastic: 200
+    Gold: 50
 
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe
@@ -121,33 +145,93 @@
     Plastic: 150
 
 - type: latheRecipe
-  parent: BaseAmmoRecipe
-  id: MagazineBoxLPistol
-  result: MagazineBoxLPistol
+  parent: BaseEmptyAmmoRecipe
+  id: MagazinePistolFreelancerEmpty
+  result: MagazinePistolFreelancerEmpty
   materials:
-    Steel: 1000
+    Steel: 25
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxLPistolIncendiary
-  result: MagazineBoxLPistolIncendiary
+  id: MagazinePistolFreelancer
+  result: MagazinePistolFreelancer
   materials:
-    Plastic: 1000
+    Steel: 120
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxLPistolPractice
-  result: MagazineBoxLPistolPractice
+  id: MagazinePistolFreelancerStun
+  result: MagazinePistolFreelancerStun
   materials:
-    Steel: 500
+    Steel: 60
+    Plastic: 60
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazinePistolP2Empty
+  result: MagazinePistolP2Empty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazinePistolP2ExtendedEmpty
+  result: MagazinePistolP2ExtendedEmpty
+  materials:
+    Steel: 30
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazinePistolP2Extended
+  result: MagazinePistolP2Extended
+  materials:
+    Steel: 234
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: MagazineBoxLPistolUranium
-  result: MagazineBoxLPistolUranium
+  id: MagazinePistolP2
+  result: MagazinePistolP2
   materials:
-    Plastic: 500
-    Uranium: 1000
+    Steel: 145
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolP2Practice
+  result: MagazinePistolP2Practice
+  materials:
+    Steel: 85
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolP2Uranium
+  result: MagazinePistolP2Uranium
+  materials:
+    Steel: 25
+    Plastic: 65
+    Uranium: 120
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolP2Incendiary
+  result: MagazinePistolP2Incendiary
+  materials:
+    Steel: 25
+    Plastic: 120
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineAmmoPouch
+  result: AmmoPouchEmpty
+  materials:
+    Cloth: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxPistolStun
+  result: MagazineBoxPistolStun
+  materials:
+    Steel: 300
+    Plastic: 300
 
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe
@@ -179,3 +263,88 @@
   materials:
     Steel: 25
     Plastic: 540
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: SpeedLoaderMagnumStun
+  result: SpeedLoaderMagnumStun
+  materials:
+    Steel: 150
+    Plastic: 40
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: SpeedLoaderSturm
+  result: SpeedLoaderSturm
+  materials:
+    Steel: 240
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: SpeedLoaderSturmEmpty
+  result: SpeedLoaderSturmEmpty
+  materials:
+    Steel: 50
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxMagnumStun
+  result: MagazineBoxMagnumStun
+  materials:
+    Steel: 160
+    Plastic: 80
+
+- type: latheRecipe
+  id: BriefcaseSteelRecipe
+  result: BriefcaseSteel
+  completetime: 4
+  materials:
+    Steel: 500
+    Plasma: 200
+    Cloth: 100
+    Plastic: 100
+
+- type: latheRecipe
+  parent: BaseWeaponRecipe
+  id: WeaponRifleTranq
+  result: WeaponRifleTranq
+  materials:
+    Steel: 1000
+    Glass: 500
+    Plastic: 500
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BoxIrwizineDart
+  result: BoxIrwizineDart
+  materials:
+    Steel: 200
+    Glass: 200
+    Plasma: 200
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: BoxTranqDart
+  result: BoxTranqDart
+  materials:
+    Steel: 200
+    Glass: 200
+    Plasma: 250
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeLong
+  id: WeaponDisablerCarbine
+  result: WeaponDisablerCarbine
+  materials:
+    Steel: 750
+    Glass: 300
+    Plastic: 750
+    Gold: 200
+
+- type: latheRecipe
+  parent: BaseWeaponRecipeMelee
+  id: SecurityGlaive
+  result: SecurityGlaive
+  materials:
+    Steel: 800
+    Plastic: 500

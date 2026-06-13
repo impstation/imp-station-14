@@ -1,4 +1,4 @@
-﻿# Generic borg
+# Generic borg
 - type: borgType
   id: generic
 
@@ -10,10 +10,13 @@
   moduleWhitelist:
     tags:
     - BorgModuleGeneric
+    - BorgModuleScience #until sciborgs are added
 
   defaultModules:
   - BorgModuleTool
-
+  - BorgModuleInflatable
+  - BorgModuleArtifact
+  - BorgModuleAnomaly
   radioChannels:
   - Science
 
@@ -64,6 +67,10 @@
   petSuccessString: petting-success-engineer-cyborg
   petFailureString: petting-failure-engineer-cyborg
 
+  # Impstation - Borg PDAs
+  pdaBorderColor: "#bf803a"
+  pdaAccentVerticalColor: "#ffd187"
+
 
 # Salvage borg
 - type: borgType
@@ -80,15 +87,16 @@
     - BorgModuleCargo
 
   defaultModules:
-  - BorgModuleGrapplingGun
-  - BorgModuleBasicMining # imp
-  - BorgModuleAppraisal
+  - BorgModuleTool
+  - BorgModuleMining
+  - BorgModuleTraversal
+  # - BorgModuleAppraisal # imp
 
   radioChannels:
   - Supply
   - Science
 
-  addComponents:
+  addComponents: # imp
   - type: Magboots
 
   # Visual
@@ -102,6 +110,10 @@
   # Pet
   petSuccessString: petting-success-salvage-cyborg
   petFailureString: petting-failure-salvage-cyborg
+
+  # Impstation - Borg PDAs
+  pdaBorderColor: "#af9366"
+  pdaAccentVerticalColor: "#8900c9"
 
 
 # Janitor borg
@@ -119,15 +131,15 @@
     - BorgModuleJanitor
 
   defaultModules:
-  - BorgModuleLightReplacer
   - BorgModuleCleaning
+  - BorgModuleCustodial
 
   radioChannels:
   - Science
   - Service
 
   # Visual
-  inventoryTemplateId: borgShort
+  inventoryTemplateId: borgJanitor # imp
   spriteBodyState: janitor
   spriteBodyMovementState: janitor_moving
   spriteHasMindState: janitor_e
@@ -137,6 +149,9 @@
   # Pet
   petSuccessString: petting-success-janitor-cyborg
   petFailureString: petting-failure-janitor-cyborg
+
+  # Impstation - Borg PDAs
+  pdaBorderColor: "#5D2D56"
 
 
 # Medical borg
@@ -154,7 +169,9 @@
     - BorgModuleMedical
 
   defaultModules:
-  - BorgModuleTreatment
+  - BorgModuleChemical
+  - BorgModuleTopicals
+  - BorgModuleRescue
 
   radioChannels:
   - Science
@@ -168,6 +185,9 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+  - type: FabricateCandy # Borg Candy - DeltaV
+    actions:
+    - ActionFabricateGumball
 
   # Visual
   inventoryTemplateId: borgDutch
@@ -184,6 +204,10 @@
   # Sounds
   footstepCollection:
     collection: FootstepHoverBorg
+
+  # Impstation - Borg PDAs
+  pdaBorderColor: "#d7d7d0"
+  pdaAccentVerticalColor: "#447987"
 
 
 # Service borg
@@ -202,16 +226,17 @@
 
   defaultModules:
   - BorgModuleMusique
-  - BorgModuleBartender # imp
-  - BorgModulePaper # imp
+  - BorgModuleService
+  - BorgModuleChef # imp
   - BorgModuleClowning
-
+  - BorgModuleGardening # imp edited
+#  - BorgModuleHarvesting # imp
   radioChannels:
   - Science
   - Service
 
   # Visual
-  inventoryTemplateId: borgTall
+  inventoryTemplateId: borgHumanoid # imp
   spriteBodyState: service
   spriteHasMindState: service_e
   spriteNoMindState: service_e_r
@@ -220,3 +245,7 @@
   # Pet
   petSuccessString: petting-success-service-cyborg
   petFailureString: petting-failure-service-cyborg
+
+  # Impstation - Borg PDAs
+  pdaBorderColor: "#717059"
+  pdaAccentVerticalColor: "#00cc35"

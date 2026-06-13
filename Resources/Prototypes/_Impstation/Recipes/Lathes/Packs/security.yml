@@ -3,17 +3,33 @@
 - type: latheRecipePack
   id: SecurityPracticeStaticImp
   recipes:
-  - MagazineBoxLPistolPractice
   - MagazineLPistolPractice
 
 - type: latheRecipePack
   id: SecurityAmmoStaticImp
   recipes:
-  - MagazineBoxLPistol
+  - MagazineAmmoPouch
+  - MagazineBoxPistolStun
   - MagazineDMR
   - MagazineDMREmpty
   - MagazineLPistol
   - MagazineLPistolEmpty
+  - SpeedLoaderMagnumStun
+  - SpeedLoaderSturm
+  - SpeedLoaderSturmEmpty
+  - MagazineBoxMagnumStun
+  - MagazinePistolFreelancerEmpty
+  - MagazinePistolFreelancer
+  - MagazinePistolFreelancerStun
+  - MagazinePistolP2Empty
+  - MagazinePistolP2
+  - PowerCellBlaster
+  - PowerCellStarflare
+
+- type: latheRecipePack
+  id: SteelBriefcaseImp
+  recipes:
+  - BriefcaseSteelRecipe
 
 # Dynamic
 
@@ -22,17 +38,20 @@
   recipes:
   - PRIbarPlusConversionKit
   - ClothingEyesNightVisionSecurityGoggles
+  - PortableSensorArray
 
 - type: latheRecipePack
   id: SecurityAmmoImp
   recipes:
-  - MagazineBoxLPistolIncendiary
-  - MagazineBoxLPistolUranium
   - MagazineDMRIncendiary
   - MagazineDMRUranium
   - MagazineLPistolIncendiary
   - MagazineLPistolUranium
-  - PowerCellBlaster
+  - MagazinePistolP2Extended
+  - MagazinePistolP2ExtendedEmpty
+  - MagazinePistolP2Incendiary
+  - MagazinePistolP2Uranium
+  - PowerCellBlasterMilitary
 
 - type: latheRecipePack
   id: SecurityWeaponsImp
@@ -48,3 +67,13 @@
   recipes:
   - WeaponShotgunEnforcerBeanbag
   - WeaponShotgunKammererBeanbag
+  - WeaponRifleTranq
+  - BoxTranqDart
+  - BoxIrwizineDart
+  - WeaponDisablerCarbine
+
+# Emagged
+
+# - type: latheRecipePack
+#   id: ImpSecEmagged
+#   recipes:

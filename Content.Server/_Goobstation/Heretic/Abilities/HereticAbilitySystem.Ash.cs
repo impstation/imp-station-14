@@ -1,48 +1,61 @@
-using Content.Server.Atmos.Components;
-using Content.Shared.Heretic;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs;
-using Content.Shared.Damage;
-using Content.Shared.Atmos;
+using Content.Server._Goobstation.Heretic.Components;
+using Content.Server._Impstation.Heretic.Components;
+using Content.Server._Impstation.Heretic.EntitySystems;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.Atmos;
+using Content.Shared.Atmos.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Heretic;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
-using Content.Server.EntityEffects.EffectConditions;
-using Content.Server.Temperature.Components;
-using Content.Shared.Speech.Muting;
-using Content.Server.Temperature.Systems;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
     [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly BlazingDashSystem _blazingDash = default!;
     public SoundSpecifier JauntExitSound = new SoundPathSpecifier("/Audio/Magic/fireball.ogg");
     public const float RebirthRange = 3f;
 
     private void SubscribeAsh()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
-        SubscribeLocalEvent<GhoulComponent, EventHereticAshenShift>(OnJauntGhoul);
+        SubscribeLocalEvent<InnateHereticMagicComponent, EventHereticAshenShift>(OnJauntGhoul);
         SubscribeLocalEvent<HereticComponent, PolymorphRevertEvent>(OnJauntEnd);
 
         SubscribeLocalEvent<HereticComponent, EventHereticVolcanoBlast>(OnVolcano);
+        SubscribeLocalEvent<HereticComponent, EventHereticBlazingDash>(OnBlazingDash);
         SubscribeLocalEvent<HereticComponent, EventHereticNightwatcherRebirth>(OnNWRebirth);
         SubscribeLocalEvent<HereticComponent, EventHereticFlames>(OnFlames);
         SubscribeLocalEvent<HereticComponent, EventHereticCascade>(OnCascade);
     }
 
+    //keeping this in for when i eventually make it possible to turn the shitpig into the Ashen Pig
     private void OnJaunt(Entity<HereticComponent> ent, ref EventHereticAshenShift args)
     {
         if (TryUseAbility(ent, args) && TryDoJaunt(ent))
             args.Handled = true;
     }
-    private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
+
+    //So things with innate magical abilities can jaunt around
+    private void OnJauntGhoul(Entity<InnateHereticMagicComponent> ent, ref EventHereticAshenShift args)
     {
         if (TryUseAbility(ent, args) && TryDoJaunt(ent))
             args.Handled = true;
     }
+
+    private void OnBlazingDash(Entity<HereticComponent> ent, ref EventHereticBlazingDash args)
+    {
+        if (!TryUseAbility(ent, args))
+            return;
+
+        _blazingDash.TryDoDash(ent, ref args);
+    }
+
     private bool TryDoJaunt(EntityUid ent)
     {
         Spawn("PolymorphAshJauntAnimation", Transform(ent).Coordinates);
@@ -55,15 +68,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         Spawn("PolymorphAshJauntEndAnimation", Transform(ent).Coordinates);
 
-        if (TryComp<FlammableComponent>(ent, out var flam))
-        {
-            //don't really need this bc of the direct temp change but it looks sick as fuck
-            _flammable.AdjustFireStacks(ent, 1, flam, true);
-        }
-        if (TryComp<TemperatureComponent>(ent, out var temp))
-        {
-            _temperature.ForceChangeTemperature(ent, temp.CurrentTemperature + 10f, temp);
-        }
         // play a distinct sound, audible thru walls, so you can track where that slippery fuck went
         _audio.PlayPvs(JauntExitSound, ent, AudioParams.Default
             .WithVolume(-2f)
@@ -79,14 +83,16 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         var ignoredTargets = new List<EntityUid>();
 
-        // all ghouls are immune to heretic shittery
-        foreach (var e in EntityQuery<GhoulComponent>())
-            ignoredTargets.Add(e.Owner);
+        // all minions are immune to heretic shittery
+        var minionQuery = EntityQueryEnumerator<MinionComponent>();
+        while (minionQuery.MoveNext(out var uid, out _))
+            ignoredTargets.Add(uid);
 
         // all heretics with the same path are also immune
-        foreach (var e in EntityQuery<HereticComponent>())
-            if (e.CurrentPath == ent.Comp.CurrentPath)
-                ignoredTargets.Add(e.Owner);
+        var pathQuery = EntityQueryEnumerator<HereticComponent>();
+        while (pathQuery.MoveNext(out var uid, out var comp))
+            if (comp.MainPath == ent.Comp.MainPath)
+                ignoredTargets.Add(uid);
 
         if (!_splitball.Spawn(ent, ignoredTargets))
             return;
@@ -105,8 +111,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         foreach (var look in lookup)
         {
-            if ((TryComp<HereticComponent>(look, out var th) && th.CurrentPath == ent.Comp.CurrentPath)
-            || HasComp<GhoulComponent>(look))
+            if ((TryComp<HereticComponent>(look, out var th) && th.MainPath == ent.Comp.MainPath)
+            || HasComp<MinionComponent>(look))
                 continue;
 
             if (TryComp<FlammableComponent>(look, out var flam))
@@ -120,7 +126,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                         dmgdict[key] = -10f;
 
                     var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
-                    _dmg.TryChangeDamage(ent, dmgspec, true, false, dmgc);
+                    _dmg.TryChangeDamage((ent, dmgc), dmgspec, true, false);
                 }
 
                 if (!flam.OnFire)
@@ -153,7 +159,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         // yeah. it just generates a ton of plasma which just burns.
         // lame, but we don't have anything fire related atm, so, it works.
-        var tilepos = _xform.GetGridOrMapTilePosition(ent, Transform(ent));
+        var tilepos = _transform.GetGridOrMapTilePosition(ent, Transform(ent));
         var enumerator = _atmos.GetAdjacentTileMixtures(Transform(ent).GridUid!.Value, tilepos, false, false);
         while (enumerator.MoveNext(out var mix))
         {

@@ -1,0 +1,408 @@
+- type: entity
+  parent: BaseWall
+  id: WallMiningInterior
+  name: mining wall
+  suffix: Interior
+  components:
+  - type: StaticPrice
+    price: 295
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/mininginterior.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/mininginterior.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: walls
+    base: mining
+  - type: Construction
+    graph: Girder
+    node: miningInteriorWall
+  - type: RandomIconSmooth
+    randomStates:
+    - mining
+    - miningB
+  - type: Appearance
+
+- type: entity
+  parent: BaseWall
+  id: WallTech
+  name: tech wall
+  components:
+  - type: StaticPrice
+    price: 330
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/techwall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/techwall.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: walls
+    base: techwall
+  - type: Construction
+    graph: Girder
+    node: techWall
+  - type: Appearance
+
+- type: entity
+  parent: WallTech
+  id: WallTechUnshaded
+  name: tech wall
+  suffix: Lit
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/techwall.rsi
+    drawdepth: BelowFloor
+    layers:
+      - state: techwallunshaded
+        shader: unshaded
+  - type: IconSmooth
+    key: walls
+    base: techwallunshaded
+  - type: Construction
+    graph: Girder
+    node: techWallUnshaded
+
+- type: entity
+  parent: WallShuttleDiagonal
+  description: Technical!
+  id: WallTechDiagonal
+  name: tech wall
+  suffix: diagonal
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Construction
+    graph: Girder
+    node: diagonalTechWall
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Impstation/Structures/Walls/techwall_diagonal.rsi
+    state: state0
+  - type: IconSmooth
+    mode: Diagonal
+    key: walls
+    base: state
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/techwall_diagonal.rsi
+    state: state0
+  - type: StaticPrice
+    price: 295
+
+- type: entity
+  parent: BaseWall
+  id: WallSteelWood
+  name: steel wood wall
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/steelwoodwall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/steelwoodwall.rsi
+  - type: IconSmooth
+    key: walls
+    base: steelwoodwall
+  - type: Construction
+    graph: Girder
+    node: steelWoodWall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:ChangeConstructionNodeBehavior
+        node: wall
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Appearance
+
+- type: entity
+  parent: BaseWall
+  id: WallReinforcedSteelWood
+  name: reinforced steel wood wall
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/reinforcedsteelwoodwall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/reinforcedsteelwoodwall.rsi
+  - type: IconSmooth
+    key: walls
+    base: reinforcedsteelwoodwall
+  - type: Construction
+    graph: Girder
+    node: reinforcedSteelWoodWall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WoodDestroyHeavy
+      - !type:ChangeConstructionNodeBehavior
+        node: reinforcedWall
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: ReinforcedWallReplacementMarker
+  - type: StaticPrice
+    price: 250
+  - type: RadiationBlocker
+    resistance: 5
+  - type: Appearance
+
+- type: entity
+  parent: BaseWall
+  id: WallReaper
+  name: souled wall
+  description: Keeps the souls in and the mortals out.
+  components:
+  - type: StaticPrice
+    price: 330
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/reaperwall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/reaperwall.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: walls
+    base: reaper
+  - type: Appearance
+
+- type: entity
+  parent: WallInvisible
+  id: WallInvisibleBlockade
+  name: invisible wall
+  suffix: Blockade
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+
+- type: entity
+  parent: MarkerBase
+  id: WallInvisiblePermanent #use this in special, non-station, non-wreck or debris maps only please!!
+  name: invisible wall
+  suffix: Permanent
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - GlassLayer
+  - type: Airtight
+  - type: Sprite #invisible in game but visible while mapping
+    layers:
+      - sprite: Structures/Walls/solid.rsi
+        state: full
+      - sprite: Markers/cross.rsi
+      - state: green
+
+- type: entity
+  parent: BaseWall
+  id: WallDecapoid
+  name: imperial wall
+  description: Keeps the ice out and the water in. Weld to deconstruct.
+  components:
+  - type: StaticPrice
+    price: 330
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Impstation/Structures/Walls/decawall.rsi
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/decawall.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: IconSmooth
+    key: walls
+    base: deca
+  - type: Appearance
+  - type: RadiationBlocker
+    resistance: 10
+  - type: Construction
+    graph: WallDecapoid
+    node: start
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 6
+    fx: EffectRCDDeconstruct6
+
+- type: entity
+  parent: WallDiagonalBase
+  id: WallDecapoidDiagonal
+  name: imperial wall
+  description: Keeps the ice out and the water in. Weld to deconstruct.
+  components:
+  - type: Sprite
+    drawdepth: Walls
+    sprite: _Impstation/Structures/Walls/decawall_diagonal.rsi
+    state: state0
+  - type: Icon
+    sprite: _Impstation/Structures/Walls/decawall_diagonal.rsi
+    state: state0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: RadiationBlocker
+    resistance: 10
+  - type: Construction
+    graph: WallDecapoidDiagonal
+    node: start
+  - type: RCDDeconstructable
+    cost: 6
+    delay: 6
+    fx: EffectRCDDeconstruct6
+

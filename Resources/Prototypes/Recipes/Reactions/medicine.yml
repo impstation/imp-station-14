@@ -208,9 +208,8 @@
 
 - type: reaction
   id: Ambuzol
-  preserveDNA: true
   reactants:
-    Dylovene:
+    Phalanximine: #imp, originally dylovene
       amount: 1
     Ammonia:
       amount: 1
@@ -380,82 +379,6 @@
       amount: 1
   products:
     Cognizine: 1
-
-- type: reaction
-  id: Subjuzine
-  reactants:
-    Cognizine:
-      amount: 1
-    Vestine:
-      amount: 1
-  products:
-    Subjuzine: 2
-
-- type: reaction
-  id: Subjuzine-Activation-Blood
-  preserveDNA: true
-  reactants:
-    Subjuzine:
-      amount: 4
-    Blood:
-      amount: 1
-  products:
-    ActivatedSubjuzine: 5
-
-- type: reaction
-  id: Subjuzine-Activation-Slime
-  preserveDNA: true
-  reactants:
-    Subjuzine:
-      amount: 4
-    Slime:
-      amount: 1
-  products:
-    ActivatedSubjuzine: 5
-
-- type: reaction
-  id: Subjuzine-Activation-Insect
-  preserveDNA: true
-  reactants:
-    Subjuzine:
-      amount: 4
-    InsectBlood:
-      amount: 1
-  products:
-    ActivatedSubjuzine: 5
-
-- type: reaction
-  id: Subjuzine-Activation-Sap
-  preserveDNA: true
-  reactants:
-    Subjuzine:
-      amount: 4
-    Sap:
-      amount: 1
-  products:
-    ActivatedSubjuzine: 5
-
-- type: reaction
-  id: Subjuzine-Activation-BlueBlood
-  preserveDNA: true
-  reactants:
-    Subjuzine:
-      amount: 4
-    CopperBlood:
-      amount: 1
-  products:
-    ActivatedSubjuzine: 5
-
-- type: reaction
-  id: Subjuzine-Activation-Anaerobic
-  preserveDNA: true
-  reactants:
-    Subjuzine:
-      amount: 4
-    AmmoniaBlood:
-      amount: 1
-  products:
-    ActivatedSubjuzine: 5
 
 - type: reaction
   id: Sigynate
@@ -648,6 +571,19 @@
     Opporozidone: 3
 
 - type: reaction
+  id: Arcryox
+  minTemp: 370
+  reactants:
+    Lithium:
+      amount: 1
+    Tricordrazine:
+      amount: 1
+    Cryoxadone:
+      amount: 1
+  products:
+    Arcryox: 3
+
+- type: reaction
   id: Necrosol
   impact: Medium
   minTemp: 370
@@ -666,10 +602,10 @@
   impact: Medium
   reactants:
     Cryoxadone:
-      amount: 1
-    Aloe:
       amount: 2
-    Sigynate:
+    Aloe:
+      amount: 1
+    Leporazine:
       amount: 2
   products:
       Aloxadone: 4
@@ -741,12 +677,25 @@
     Haloperidol: 5
 
 - type: reaction
-  id: Caramexinin
-  minTemp: 370
+  id: Warfarin
   reactants:
-    Stellibinin:
+    SulfuricAcid:
       amount: 1
-    Sugar:
+    Nitrogen:
+      amount: 1
+    Sodium:
       amount: 1
   products:
-    Caramexinin: 2
+    Warfarin: 2
+
+- type: reaction
+  id: Hemorrhinol
+  reactants:
+    Warfarin:
+      amount: 2
+    Razorium:
+      amount: 2
+    Plasma:
+      amount: 1
+  products:
+    Hemorrhinol: 2

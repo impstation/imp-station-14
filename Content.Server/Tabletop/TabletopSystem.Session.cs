@@ -3,6 +3,7 @@ using Content.Server.Tabletop.Components;
 using Content.Shared.Tabletop.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Shared.Database; //imp
 
 namespace Content.Server.Tabletop
 {
@@ -32,9 +33,13 @@ namespace Content.Server.Tabletop
             tabletop.Setup.SetupTabletop(session, EntityManager);
 
             Log.Info($"Created tabletop session number {tabletop} at position {session.Position}.");
+            _adminLog.Add(LogType.Action, LogImpact.Medium, //imp. added logging.
+                $"New tabletop session {ToPrettyString(tabletop.Owner)} created at Pos:{$"{session.Position}"}.");
 
             return session;
         }
+
+        // imp start
 
         /// <summary>
         ///     Cleans up a tabletop game session, deleting every entity in it.
@@ -42,7 +47,7 @@ namespace Content.Server.Tabletop
         /// <param name="uid">The UID of the tabletop game entity.</param>
         public void CleanupSession(EntityUid uid)
         {
-            if (!EntityManager.TryGetComponent(uid, out TabletopGameComponent? tabletop))
+            if (!TryComp(uid, out TabletopGameComponent? tabletop))
                 return;
 
             if (tabletop.Session is not { } session)
@@ -55,10 +60,38 @@ namespace Content.Server.Tabletop
 
             foreach (var euid in session.Entities)
             {
-                EntityManager.QueueDeleteEntity(euid);
+                QueueDel(euid);
             }
 
             tabletop.Session = null;
+        }
+
+        // imp end
+
+        /// <summary>
+        ///     Lightly cleans a tabletop session, and resets the game board.
+        /// </summary>
+        /// <param name="uid">The UID of the tabletop game entity.</param>
+        public void ResetSession(EntityUid uid)
+        {
+            if (!TryComp(uid, out TabletopGameComponent? tabletop))
+                return;
+
+            if (tabletop.Session is not { } session)
+                return;
+
+            foreach (var euid in session.Entities)
+            {
+                if (euid == uid)
+                    continue;
+                else
+                    QueueDel(euid);
+            }
+
+            session.Entities.Clear();
+            tabletop.Setup.SetupTabletop(session, EntityManager);
+            _adminLog.Add(LogType.Action, LogImpact.Medium,
+                $"Tabletop session {ToPrettyString(tabletop.Owner)} was reset at Pos:{$"{session.Position}"}.");
         }
 
         /// <summary>
@@ -68,7 +101,7 @@ namespace Content.Server.Tabletop
         /// <param name="uid">The UID of the tabletop game entity.</param>
         public void OpenSessionFor(ICommonSession player, EntityUid uid)
         {
-            if (!EntityManager.TryGetComponent(uid, out TabletopGameComponent? tabletop) || player.AttachedEntity is not {Valid: true} attachedEntity)
+            if (!TryComp(uid, out TabletopGameComponent? tabletop) || player.AttachedEntity is not {Valid: true} attachedEntity)
                 return;
 
             // Make sure we have a session, and add the player to it if not added already.
@@ -77,7 +110,7 @@ namespace Content.Server.Tabletop
             if (session.Players.ContainsKey(player))
                 return;
 
-            if(EntityManager.TryGetComponent(attachedEntity, out TabletopGamerComponent? gamer))
+            if(TryComp(attachedEntity, out TabletopGamerComponent? gamer))
                 CloseSessionFor(player, gamer.Tabletop, false);
 
             // Set the entity as an absolute GAMER.
@@ -100,26 +133,26 @@ namespace Content.Server.Tabletop
         /// <param name="removeGamerComponent">Whether to remove the <see cref="TabletopGamerComponent"/> from the player's attached entity.</param>
         public void CloseSessionFor(ICommonSession player, EntityUid uid, bool removeGamerComponent = true)
         {
-            if (!EntityManager.TryGetComponent(uid, out TabletopGameComponent? tabletop) || tabletop.Session is not { } session)
+            if (!TryComp(uid, out TabletopGameComponent? tabletop) || tabletop.Session is not { } session)
                 return;
 
             if (!session.Players.TryGetValue(player, out var data))
                 return;
 
-            if(removeGamerComponent && player.AttachedEntity is {} attachedEntity && EntityManager.TryGetComponent(attachedEntity, out TabletopGamerComponent? gamer))
+            if(removeGamerComponent && player.AttachedEntity is {} attachedEntity && TryComp(attachedEntity, out TabletopGamerComponent? gamer))
             {
                 // We invalidate this to prevent an infinite feedback from removing the component.
                 gamer.Tabletop = EntityUid.Invalid;
 
                 // You stop being a gamer.......
-                EntityManager.RemoveComponent<TabletopGamerComponent>(attachedEntity);
+                RemComp<TabletopGamerComponent>(attachedEntity);
             }
 
             session.Players.Remove(player);
             session.Entities.Remove(data.Camera);
 
             // Deleting the view subscriber automatically cleans up subscriptions, no need to do anything else.
-            EntityManager.QueueDeleteEntity(data.Camera);
+            QueueDel(data.Camera);
         }
 
         /// <summary>

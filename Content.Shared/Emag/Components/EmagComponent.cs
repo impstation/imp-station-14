@@ -1,11 +1,11 @@
 using Content.Shared.Emag.Systems;
 using Content.Shared.Tag;
-using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization;
+using Content.Shared.Whitelist; // imp
 
 namespace Content.Shared.Emag.Components;
 

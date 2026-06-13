@@ -1,34 +1,19 @@
 - type: reagent
   id: Subjuzine
-  name: reagent-name-inert-subjuzine
-  desc: reagent-desc-inert-subjuzine
-  group: Medicine
-  physicalDesc: reagent-physical-desc-enigmatic
-  flavor: magical
-  color: "#a50ed8"
-  contraband: Tier2Contraband
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:MakeSentient
-        conditions:
-        - !type:ReagentThreshold
-
-- type: reagent
-  id: ActivatedSubjuzine
   name: reagent-name-subjuzine
   desc: reagent-desc-subjuzine
   group: Medicine
   physicalDesc: reagent-physical-desc-enigmatic
   flavor: magical
   color: "#911d06"
-  contraband: Tier2Contraband
+  contrabandSeverity: Tier2Contraband
   metabolisms:
     Medicine:
       effects:
       - !type:MakeSyndient
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
+          reagent: Subjuzine
           min: 5
 
 - type: reagent
@@ -59,7 +44,6 @@
   flavor: sour
   color: "#64ffe6"
   physicalDesc: reagent-physical-desc-enigmatic
-  slippery: false
   metabolisms:
     # Bad omnizine that also gives you cancer
     Medicine:
@@ -74,7 +58,7 @@
             Airloss: -2
             Toxin: -2
             Genetic: 2
-      - !type:ModifyBleedAmount
+      - !type:ModifyBleed
         amount: -1
 
 - type: reagent
@@ -99,7 +83,7 @@
             Cold: -0.2
       - !type:AdjustReagent
         conditions:
-        - !type:ReagentThreshold
+        - !type:ReagentCondition
           reagent: AquaAvari
           min: 1
         reagent: AquaAvari
@@ -108,7 +92,21 @@
     Extinguish:
       methods: [ Touch ]
       effects:
-      - !type:ExtinguishReaction
+      - !type:Extinguish
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaling: true
+        ignoreResistances: false
+        damage:
+          types:
+            Holy: 0.5
+            Blunt: -0.1
+#            Poison: -0.2
+            Heat: -0.1
+            Shock: -0.1
+            Cold: -0.1
   tileReactions:
   - !type:ExtinguishTileReaction { }
 
@@ -126,9 +124,36 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:Temperature
+        - !type:TemperatureCondition
           max: 213.0
         damage:
           groups:
             Brute: -4
 
+- type: reagent
+  id: ClarifiedPhalanximine
+  name: reagent-name-clarified-phalanximine
+  group: Medicine
+  desc: reagent-desc-clarified-phalanximine
+  physicalDesc: reagent-physical-desc-acrid
+  flavor: medicine
+  color: "#8C803B"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: -0.3
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentCondition
+          reagent: ClarifiedPhalanximine
+          min: 16
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity
+          inverted: true
+        damage:
+          types:
+            Radiation: 0.2

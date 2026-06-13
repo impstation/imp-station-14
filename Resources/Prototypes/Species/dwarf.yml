@@ -2,6 +2,7 @@
   id: Dwarf
   name: species-name-dwarf
   roundStart: true
+  randomViable: true # imp
   prototype: MobDwarf
   sprites: MobHumanSprites
   markingLimits: MobHumanMarkingLimits
@@ -16,4 +17,6 @@
   - Male
   - Female
   - Unsexed
-
+  youngAge: 60 # imp
+  oldAge: 100 # imp
+  ancientAge: 200 # imp

@@ -1,0 +1,93 @@
+- type: entity
+  name: xeno hornet
+  parent: [ MobBee, MobCombat ]
+  id: MobBeeroboros
+  description: Short-lived, but no less dangerous.
+  components:
+  - type: Tag
+    tags:
+    - XenoHornet
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: 0
+      sprite: _Impstation/Mobs/Animals/beeroboros.rsi
+  - type: TimedDespawn
+    lifetime: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      5: Dead
+  - type: Stamina
+    baseCritThreshold: 5
+  - type: PointLight
+    radius: 1.5
+    color: "#d63b28"
+    energy: 10.0
+  - type: CombatMode
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 5
+        Heat: 3
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: InsectBlood
+        Quantity: 1
+  - type: ZombieImmune
+
+- type: entity
+  name: FOES
+  parent: MobBros
+  id: MobFoes
+  description: OH FUCK IT'S FOES
+  components:
+  - type: Tag
+    tags:
+    - XenoHornet
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: MeleeWeapon
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 1
+        Heat: 1
+  - type: Sprite
+    sprite: _Impstation/Mobs/Animals/Bros/foes.rsi
+  - type: TimedDespawn
+    lifetime: 5
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      5: Dead
+  - type: Stamina
+    baseCritThreshold: 5
+    animationThreshold: 1
+  - type: PointLight
+    radius: 1.5
+    color: "#d63b28"
+    energy: 10.0
+
+- type: entity
+  name: SEOF
+  parent: MobFoes
+  id: MobSeof
+  description: SEOF S'TI KCUF HO
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Animals/Bros/seof.rsi

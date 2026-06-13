@@ -27,7 +27,7 @@ public sealed class GasMinerSystem : SharedGasMinerSystem
         var oldState = miner.MinerState;
         float toSpawn;
 
-        if (!GetValidEnvironment(ent, out var environment) || !(Transform(ent).Anchored || miner.MineWhileUnanchored))
+        if (!GetValidEnvironment(ent, out var environment) || !(Transform(ent).Anchored || miner.MineWhileUnanchored)) // imp minewhenunanchored
         {
             miner.MinerState = GasMinerState.Disabled;
         }

@@ -16,10 +16,10 @@
     - HamsterWearable
     - WhitelistChameleon
     - GasMask # goob edit
-    - Mask
+    - Mask #imp edit
   - type: HideLayerClothing
-    slots:
-    - Snout
+    layers:
+      Snout: Mask
     hideOnToggle: true
 
 - type: entity
@@ -46,7 +46,7 @@
       - SecurityBreathMask
 
 - type: entity
-  parent: [ClothingMaskGas, Tier2Contraband]
+  parent: [ClothingMaskGas, Tier2Contraband] #imp edit, tiered contraband
   id: ClothingMaskGasSyndicate
   name: syndicate gas mask
   description: A close-fitting tactical mask that can be connected to an air supply.
@@ -84,6 +84,9 @@
     modifiers:
       coefficients:
         Heat: 0.80
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
 
 - type: entity
   parent: [ClothingMaskGasAtmos, BaseCommandContraband]
@@ -110,6 +113,9 @@
     sprite: Clothing/Mask/gascentcom.rsi
   - type: BreathMask
   - type: IngestionBlocker
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
 
 - type: entity
   parent: [ClothingMaskGas, BaseCargoContraband]
@@ -118,9 +124,9 @@
   description: A military-grade gas mask that can be connected to an air supply.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/gasexplorer.rsi
+    sprite: _Impstation/Clothing/Mask/gasexplorer.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/gasexplorer.rsi
+    sprite: _Impstation/Clothing/Mask/gasexplorer.rsi #imp
   - type: Armor
     modifiers:
       coefficients:
@@ -148,6 +154,10 @@
     - PetWearable
     - WhitelistChameleon
     - BreathMask # goob edit
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 50
+      Plastic: 50
 
 - type: entity
   parent: ClothingMaskBreathMedical
@@ -199,13 +209,17 @@
       Plastic: 100
   - type: StaticPrice
     price: 30 # increases in price after decomposed into raw materials
+  - type: HideLayerClothing #imp PUT YOUR FUCKING NOSE AWAY.
+    layers:
+      Snout: Mask
+    hideOnToggle: true
 
 - type: entity
   parent: ClothingMaskBase
   id: ClothingMaskClownBase
   abstract: true
   name: clown wig and mask
-  description: A true prankster's facial attire. A clown is incomplete without his wig and mask.
+  description: A true prankster's facial attire. A clown is incomplete without a wig and mask. #imp
   components:
   - type: Sprite
     sprite: Clothing/Mask/clown.rsi
@@ -221,22 +235,44 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
+  - type: StealTarget #imp
+    stealGroup: ClownMask
 
 - type: entity
-  parent: ClothingMaskClownBase
+  parent: ClothingMaskClownChameleonBasic #imp
   id: ClothingMaskClown
+  #description: A clown mask featuring a foldable wig; a true prankster's attire. #imp, use parent's description
   components:
-  - type: Tag
-    tags:
-    - ClownMask
-    - HamsterWearable
-    - WhitelistChameleon
+  # imp edit, use chameleon system instead of folding for options
+  #- type: Appearance
+  #- type: Foldable
+  #  canFoldInsideContainer: true
+  #- type: FoldableClothing
+  #  foldedEquippedPrefix: opened
+  #  foldedHeldPrefix: opened
+  #- type: Sprite
+  #  sprite: Clothing/Mask/clown.rsi
+  #  layers:
+  #  - state: icon
+  #    map: [ "unfoldedLayer" ]
+  #  - state: icon-opened
+  #    map: [ "foldedLayer" ]
+  #    visible: false
+  #- type: Tag #imp
+  #  tags:
+  #  - ClownMask
+  #  - HamsterWearable
+  #  - WhitelistChameleon
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
+  - type: ChameleonClothing #imp
+    default: ClothingMaskClown
 
 - type: entity
-  parent: ClothingMaskClown
+  parent: ClothingMaskClownBase #imp
   id: ClothingMaskClownBanana
   name: banana clown wig and mask
   components:
@@ -247,120 +283,43 @@
   - type: Construction
     graph: BananaClownMask
     node: mask
+  - type: Tag
+    tags:
+    - ClownMask
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout
 
 - type: entity
-  parent: [ClothingMaskClown, BaseSecurityContraband]
+  parent: ClothingMaskClownChameleonSecurity #imp edit
   id: ClothingMaskClownSecurity
   name: security clown wig and mask
-  description: A debatably oxymoronic but protective mask and wig.
+  #description: A debatably oxymoronic but protective mask and wig. #imp edit, use parent description
   components:
-  - type: Sprite
-    sprite: Clothing/Mask/clown_security.rsi
-  - type: Clothing
-    sprite: Clothing/Mask/clown_security.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
-
-# admeme only
-- type: entity
-  parent: [ClothingMaskClown, BaseCommandContraband]
-  id: ClothingMaskClownCaptain
-  name: authority clown wig and mask
-  description: A mask and wig for when the captain shows their true colors.
-  components:
-  - type: Sprite
-    sprite: Clothing/Mask/clown_captain.rsi
-  - type: Clothing
-    sprite: Clothing/Mask/clown_captain.rsi
-  - type: Armor
-    modifiers:
-      coefficients:
-        Blunt: 0.95
-        Slash: 0.95
-        Piercing: 0.95
-        Heat: 0.95
-
-- type: entity
-  parent: ClothingMaskClown
-  id: ClothingMaskClownCargo
-  name: strong clown wig and mask
-  description: A powerful mask and wig for the clown that can drag a crate with one hand.
-  components:
-  - type: Sprite
-    sprite: Clothing/Mask/clown_cargo.rsi
-  - type: Clothing
-    sprite: Clothing/Mask/clown_cargo.rsi
-
-- type: entity
-  parent: ClothingMaskClown
-  id: ClothingMaskClownChaplain
-  name: holy clown wig and mask
-  description: A mask and wig symbolizing clown asceticism.
-  components:
-  - type: Sprite
-    sprite: Clothing/Mask/clown_chaplain.rsi
-  - type: Clothing
-    sprite: Clothing/Mask/clown_chaplain.rsi
-
-- type: entity
-  parent: ClothingMaskClown
-  id: ClothingMaskClownEngineer
-  name: practical clown wig and mask
-  description: A problem solver's mask and wig.
-  components:
-  - type: Sprite
-    sprite: Clothing/Mask/clown_engineer.rsi
-  - type: Clothing
-    sprite: Clothing/Mask/clown_engineer.rsi
-
-- type: entity
-  parent: ClothingMaskClown
-  id: ClothingMaskClownMedical
-  name: helpful clown wig and mask
-  description: Copyright infringing mask and wig.
-  components:
-  - type: Sprite
-    sprite: Clothing/Mask/clown_medical.rsi
-  - type: Clothing
-    sprite: Clothing/Mask/clown_medical.rsi
-
-- type: entity
-  parent: ClothingMaskClown
-  id: ClothingMaskClownRobotics
-  name: cyber clown wig and mask
-  description: Mask and wig of choice for the clown that doesn't need to be taught how to use a computer.
-  components:
-  - type: Sprite
-    sprite: Clothing/Mask/clown_robotics.rsi
-  - type: Clothing
-    sprite: Clothing/Mask/clown_robotics.rsi
-
-- type: entity
-  parent: ClothingMaskClown
-  id: ClothingMaskClownScience
-  name: genius clown wig and mask
-  description: Only the smartest clowns get to wear this mask and wig.
-  components:
-  - type: Sprite
-    sprite: Clothing/Mask/clown_science.rsi
-  - type: Clothing
-    sprite: Clothing/Mask/clown_science.rsi
-
-- type: entity
-  parent: ClothingMaskClown
-  id: ClothingMaskClownService
-  name: giving clown wig and mask
-  description: Mask and wig for the clown with the willpower not to steal.
-  components:
-  - type: Sprite
-    sprite: Clothing/Mask/clown_service.rsi
-  - type: Clothing
-    sprite: Clothing/Mask/clown_service.rsi
+  # imp edit, components moved to ClothingMaskClownChameleonSecurity
+  #- type: Sprite
+  #  sprite: Clothing/Mask/clown_security.rsi
+  #- type: Clothing
+  #  sprite: Clothing/Mask/clown_security.rsi
+  #- type: Armor
+  #  modifiers:
+  #    coefficients:
+  #      Blunt: 0.95
+  #      Slash: 0.95
+  #      Piercing: 0.95
+  #      Heat: 0.95
+  #- type: Tag
+  #  tags:
+  #  - ClownMask
+  #  - HamsterWearable
+  #  - WhitelistChameleon
+  #- type: HideLayerClothing
+  #  slots:
+  #  - Snout
+  - type: ChameleonClothing #imp edit
+    default: ClothingMaskClownSecurity
 
 - type: entity
   parent: ClothingMaskBase
@@ -377,6 +336,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -385,9 +345,9 @@
   description: The traditional mime's mask. It has an eerie facial posture.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/mime.rsi
+    sprite: _Impstation/Clothing/Mask/mime.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/mime.rsi
+    sprite: _Impstation/Clothing/Mask/mime.rsi #imp
   - type: BreathMask
   - type: IdentityBlocker
   - type: Tag
@@ -397,6 +357,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -416,6 +377,11 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 25
+  - type: StaticPrice
+    price: 5
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
 
 - type: entity
   parent: ClothingMaskBase
@@ -434,6 +400,9 @@
   - type: IngestionBlocker
   - type: AddAccentClothing
     accent: MumbleAccent
+  - type: EmoteBlocker
+    blocksCategories:
+    - Vocal
   - type: Construction
     graph: Muzzle
     node: muzzle
@@ -460,6 +429,8 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - Eyes #imp edit for anomalocarids, doesn't effect other species at the moment
+    - SnoutCover # imp
     hideOnToggle: true
 
 - type: entity
@@ -480,7 +451,7 @@
 - type: entity
   parent: [ ClothingMaskGas, BaseSecurityContraband ]
   id: ClothingMaskGasSwat
-  name: swat gas mask
+  name: SWAT gas mask #imp capitalizing SWAT
   description: A elite issue Security gas mask.
   components:
   - type: Sprite
@@ -494,6 +465,9 @@
     slots:
     - Hair
     - Snout
+    - HeadTop
+    - HeadSide
+    - SnoutCover # imp
     hideOnToggle: true
   - type: Armor
     modifiers:
@@ -538,6 +512,7 @@
     slots:
     - Hair
     - Snout
+    - SnoutCover # imp
     hideOnToggle: true
   - type: FlashImmunity
   - type: EyeProtection
@@ -559,6 +534,11 @@
     sprite: Clothing/Mask/squadron.rsi
   - type: Clothing
     sprite: Clothing/Mask/squadron.rsi
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
   - type: Armor
     modifiers:
       coefficients:
@@ -585,6 +565,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
   - type: IdentityBlocker
 
 - type: entity
@@ -602,6 +583,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -618,6 +600,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -634,6 +617,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -650,6 +634,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -666,6 +651,7 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
   parent: ClothingMaskBase
@@ -682,9 +668,10 @@
   - type: HideLayerClothing
     slots:
     - Snout
+    - SnoutCover # imp
 
 - type: entity
-  parent: ClothingMaskPullableBase
+  parent: ClothingMaskPullableBase #imp edit
   id: ClothingMaskNeckGaiter
   name: neck gaiter
   description: Stylish neck gaiter for your neck, can protect from the cosmic wind?...
@@ -727,9 +714,9 @@
   description: Those ruddy cheeks just want to be rubbed.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/blushingmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_blushing.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/blushingmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_blushing.rsi #imp
 
 - type: entity
   parent: ClothingMaskMime
@@ -738,9 +725,9 @@
   description: Many people think this is what a real mime mask looks like.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/sadmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_sad.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/sadmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_sad.rsi #imp
 
 - type: entity
   parent: ClothingMaskMime
@@ -749,9 +736,27 @@
   description: Looks like it would scream if it wasn't a mask.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/scaredmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_scared.rsi #imp
   - type: Clothing
-    sprite: Clothing/Mask/scaredmime.rsi
+    sprite: _Impstation/Clothing/Mask/mime_scared.rsi #imp
+
+- type: entity
+  parent: [ClothingMaskMime, BaseSecurityContraband]
+  id: ClothingMaskMimeSecurity
+  name: security mime mask
+  description: You have the right to remain silent.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Mask/mime_security.rsi #imp
+  - type: Clothing
+    sprite: _Impstation/Clothing/Mask/mime_security.rsi #imp
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
 
 - type: entity
   parent: ClothingMaskBase
@@ -784,6 +789,9 @@
   - type: EyeProtection
   - type: BreathMask
   - type: IdentityBlocker
+  - type: HideLayerClothing # imp
+    slots:
+    - SnoutCover
 
 - type: entity
   parent: ClothingMaskGas
@@ -807,3 +815,16 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+
+# Entity tables
+- type: entityTable
+  id: AnimalMaskTable
+  table: !type:GroupSelector
+    children:
+    - id: ClothingMaskFox
+    - id: ClothingMaskBat
+    - id: ClothingMaskBear
+    - id: ClothingMaskBee
+    - id: ClothingMaskRaven
+    - id: ClothingMaskRat
+    - id: ClothingMaskJackal

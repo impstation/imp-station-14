@@ -65,10 +65,12 @@
     speedModifierThresholds:
       25: 0.5
   - type: Stamina
-    critThreshold: 200
+    baseCritThreshold: 200
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
-    bloodMaxVolume: 650
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 650
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -79,7 +81,6 @@
       groups:
         Brute: 6
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: running
@@ -106,9 +107,10 @@
   - type: TypingIndicator
     proto: alien
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: Tag
     tags:
       - CannotSuicide
@@ -137,7 +139,7 @@
       0: Alive
       100: Dead
   - type: Stamina
-    critThreshold: 300
+    baseCritThreshold: 300
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
@@ -394,6 +396,7 @@
   - type: NpcFactionMember
     factions:
     - Xeno
+    - SimpleHostile
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
@@ -426,6 +429,8 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+  - type: GoobAbsorbable # imp edit
+    biomassRestored: 0.2
 
 - type: entity
   name: space adder
@@ -458,8 +463,8 @@
 # Mob mapped to Xeno Station that can not be ghostrole / pry
 
 - type: entity
-  name: Lone Praetorian
-  description: The last of its kind.
+  name: '"Dale"'
+  description: A praetorian left over from the station's initial security sweep. Has a pair of bloodied dog tags engraved with the name "Pvt. Dale" stuck in its maw.
   parent: SimpleSpaceMobBase
   id: MobXenoLonePraetorianNoGhost
   components:
@@ -489,14 +494,13 @@
   - type: Hands
   - type: ComplexInteraction
   - type: MobState
-    allowedStates:
-    - Alive
-    - Dead
   - type: Stamina
-    critThreshold: 200
+    baseCritThreshold: 200
   - type: Bloodstream
-    bloodReagent: FluorosulfuricAcid
-    bloodMaxVolume: 300
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FluorosulfuricAcid
+        Quantity: 300
   - type: MeleeWeapon
     altDisarm: false
     angle: 0
@@ -505,9 +509,8 @@
     animation: WeaponArcBite
     damage:
      groups:
-       Brute: 4
+       Brute: 5
   - type: DamageStateVisuals
-    rotate: true
     states:
       Alive:
         Base: running
@@ -524,9 +527,10 @@
   - type: TypingIndicator
     proto: alien
   - type: Temperature
+    currentTemperature: 310.15
+  - type: TemperatureDamage
     heatDamageThreshold: 360
     coldDamageThreshold: -150
-    currentTemperature: 310.15
   - type: NoSlip
   - type: Perishable #Ummmm the acid kills a lot of the bacteria or something
     molsPerSecondPerUnitMass: 0.0005
@@ -542,7 +546,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      200: Dead
+      -1: Critical
+      250: Dead
   - type: SlowOnDamage
     speedModifierThresholds:
       120: 0.7

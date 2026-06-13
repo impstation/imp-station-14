@@ -28,3 +28,24 @@
     energy: 2.5
     softness: 0.9
     color: "#9E00FF"
+
+- type: entity
+  id: PoweredColdSmallLight
+  suffix: Cold
+  parent: PoweredSmallLightEmpty
+  components:
+  - type: Sprite
+    state: base
+  - type: PointLight
+    enabled: true
+    radius: 6
+    energy: 1
+    softness: 3
+    color: "#b1d4ed"
+  - type: PoweredLight
+    hasLampOnSpawn: ColdLightBulb
+  - type: DamageOnInteract
+    damage:
+      types:
+        Cold: 2 # its funny
+    popupText: powered-light-component-freeze-hand

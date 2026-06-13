@@ -5,22 +5,11 @@
   id: BaseMobGray
   abstract: true
   components:
-  - type: Absorbable
   - type: Hunger
   - type: Thirst
   - type: Icon
     sprite: _Impstation/Mobs/Species/Gray/parts.rsi
     state: full
-  - type: Respirator
-    damage:
-      types:
-        Asphyxiation: 2
-    damageRecovery:
-      types:
-        Asphyxiation: -1.0
-  - type: Sprite
-    noRot: true
-    drawdepth: Mobs
   - type: Body
     prototype: Gray
     requiredLegs: 2
@@ -35,8 +24,8 @@
         shape:
           !type:PhysShapeCircle
           radius: 0.35
-        # they r smaller
-        density: 120
+        # they r smaller #they r smaller (2)
+        density: 100
         restitution: 0.0
         mask:
         - MobMask
@@ -57,7 +46,10 @@
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#00ff04"
   - type: Bloodstream
-    bloodReagent: Radium
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GrayBlood
+        Quantity: 300
   - type: Inventory
     speciesId: gray
     templateId: gray
@@ -121,6 +113,33 @@
     hideLayersOnEquip:
     - Hair
     - Snout
+  - type: HomunculusType
+    homunculusType: HomunculusGray
+    recipe:
+      SynthFlesh: 20
+      Saline: 20
+  - type: IrradiatedDamage
+    #8% of rads is converted to healing per type
+    #1 full stack of uranium sheets in your inventory is just under .3 rads, resulting in 1.44 healing per type per minute, .04 more healing than from PassiveDamage component
+    damageCoefficients:
+      Blunt: -0.08
+      Slash: -0.08
+      Piercing: -0.08
+    #capped at 10.2 healing per minute per type, which is reached at 2 rads per second
+    #essentially a full duffel bag of uranium sheets, being near a couple uranium crabs, or being near the supermatter without protection
+    damageLimits:
+      Blunt: -0.17
+      Slash: -0.17
+      Piercing: -0.17
+    allowedTypesByState: #does not allow for healing when dead. a little messy looking, but allows for the most flexibility
+      Alive:
+      - Blunt
+      - Slash
+      - Piercing
+      Critical:
+      - Blunt
+      - Slash
+      - Piercing
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -133,6 +152,7 @@
     prototype: Gray
   - type: Inventory
     templateId: gray
+    speciesId: gray
     displacements:
       jumpsuit:
         sizeMaps:

@@ -42,6 +42,8 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+  - type: AcousticData # VDS
+    absorption: 15
 
 - type: entity
   abstract: true
@@ -53,6 +55,7 @@
   - type: ExtensionCableReceiver
   - type: LightningTarget
     priority: 1
+  - type: TooShortForUIBlacklist #imp
 
 - type: entity
   abstract: true

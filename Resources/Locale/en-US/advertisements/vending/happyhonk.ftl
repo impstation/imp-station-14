@@ -3,6 +3,7 @@ advertisement-happyhonk-2 = Clowns deserve a hug, if you see one be sure to show
 advertisement-happyhonk-3 = If you find the Golden Honker then pray to the gods, you are one lucky person.
 advertisement-happyhonk-4 = Happy Honk: it's a meal, it's a deal, it's got a plastic toy that will make you squeal.
 advertisement-happyhonk-5 = What's black and white and red all over? The mime and she died from blunt head trauma.
+# imp edit entry 6
 advertisement-happyhonk-6 = Happy Honk Meals are sure to make you honk!
 advertisement-happyhonk-7 = Happy Honk is not responsible for the quality of the food placed within our Happy Honk meal boxes.
 advertisement-happyhonk-8 = Why not ask for our limited edition Mime Happy Honk Meal?

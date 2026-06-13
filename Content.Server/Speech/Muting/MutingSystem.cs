@@ -1,29 +1,31 @@
-using Content.Server.Abilities.Mime;
-using Content.Server.Chat.Systems;
 using Content.Server.Popups;
-using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared.Abilities.Mime;
+using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Puppet;
 using Content.Shared.Speech;
 using Content.Shared.Speech.Muting;
+using Content.Shared.Mind; // imp
 
 namespace Content.Server.Speech.Muting
 {
     public sealed class MutingSystem : EntitySystem
     {
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly SharedMindSystem _mind = default!; // imp
+
         public override void Initialize()
         {
             base.Initialize();
             SubscribeLocalEvent<MutedComponent, SpeakAttemptEvent>(OnSpeakAttempt);
-            SubscribeLocalEvent<MutedComponent, EmoteEvent>(OnEmote, before: new[] { typeof(VocalSystem) });
+            SubscribeLocalEvent<MutedComponent, EmoteEvent>(OnEmote, before: new[] { typeof(VocalSystem), typeof(MumbleAccentSystem) });
             SubscribeLocalEvent<MutedComponent, ScreamActionEvent>(OnScreamAction, before: new[] { typeof(VocalSystem) });
         }
 
         private void OnEmote(EntityUid uid, MutedComponent component, ref EmoteEvent args)
         {
-            // imp change
+            // imp change, add muted emotes
             if (args.Handled || !component.MutedEmotes)
                 return;
 
@@ -34,11 +36,13 @@ namespace Content.Server.Speech.Muting
 
         private void OnScreamAction(EntityUid uid, MutedComponent component, ScreamActionEvent args)
         {
-            // imp change
+            // imp change, add muted emotes
             if (args.Handled || !component.MutedScream)
                 return;
 
-            if (HasComp<MimePowersComponent>(uid))
+            var mind = _mind.GetMind(uid); // imp
+
+            if (HasComp<MimePowersComponent>(mind)) // imp edit, uid -> mind
                 _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, uid);
 
             else
@@ -49,13 +53,15 @@ namespace Content.Server.Speech.Muting
 
         private void OnSpeakAttempt(EntityUid uid, MutedComponent component, SpeakAttemptEvent args)
         {
-            // imp change
+            // imp change, add muted speech
             if (!component.MutedSpeech)
                 return;
 
             // TODO something better than this.
 
-            if (HasComp<MimePowersComponent>(uid))
+            var mind = _mind.GetMind(uid); // imp
+
+            if (HasComp<MimePowersComponent>(mind)) // imp edit, uid -> mind
                 _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, uid);
             else if (HasComp<VentriloquistPuppetComponent>(uid))
                 _popupSystem.PopupEntity(Loc.GetString("ventriloquist-puppet-cant-speak"), uid, uid);

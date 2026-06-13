@@ -1,7 +1,9 @@
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
+using Content.Server.Speech.EntitySystems;
+using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed class RelentlessPositivitySystem : EntitySystem
 {
@@ -15,7 +17,7 @@ public sealed class RelentlessPositivitySystem : EntitySystem
         SubscribeLocalEvent<RelentlessPositivityComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, RelentlessPositivityComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<RelentlessPositivityComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

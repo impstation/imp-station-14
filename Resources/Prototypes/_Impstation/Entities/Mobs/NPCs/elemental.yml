@@ -1,0 +1,359 @@
+- type: entity
+  id: ReagentSlimeTestosterone
+  parent: ReagentSlime
+  suffix: Testosterone
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Testosterone
+        Quantity: 100
+  - type: PointLight
+    color: "#267ef0"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#267ef0"
+
+- type: entity
+  id: ReagentSlimeEstradiol
+  parent: ReagentSlime
+  suffix: Estradiol
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Estradiol
+        Quantity: 100
+  - type: PointLight
+    color: "pink"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "pink"
+
+- type: entity
+  id: ReagentSlimeRomerol
+  parent: ReagentSlime
+  suffix: Romerol
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Romerol
+        Quantity: 100
+  - type: PointLight
+    color: "#7e916e"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#7e916e"
+
+- type: entity
+  id: ReagentSlimePhlogiston
+  parent: ReagentSlime
+  suffix: Phlogiston
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Phlogiston
+        Quantity: 100
+  - type: PointLight
+    color: "#D4872A"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#D4872A"
+
+- type: entity
+  id: ReagentSlimeLicoxide
+  parent: ReagentSlime
+  suffix: Licoxide
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Licoxide
+        Quantity: 100
+  - type: PointLight
+    color: "#FDD023"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#FDD023"
+
+- type: entity
+  id: ReagentSlimeMindbreakerToxin
+  parent: ReagentSlime
+  suffix: MindbreakerToxin
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: MindbreakerToxin
+        Quantity: 100
+  - type: PointLight
+    color: "#77b58e"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#77b58e"
+
+- type: entity
+  id: ReagentSlimeDesoxyephedrine
+  parent: ReagentSlime
+  suffix: Desoxyephedrine
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Desoxyephedrine
+        Quantity: 100
+  - type: PointLight
+    color: "#FAFAFA"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#FAFAFA"
+
+- type: entity
+  id: ReagentSlimeCogChamp
+  parent: ReagentSlime
+  suffix: CogChamp
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CogChamp
+        Quantity: 100
+  - type: PointLight
+    color: "#B5A642"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#B5A642"
+
+- type: entity
+  id: ReagentSlimeLexorin
+  parent: ReagentSlime
+  suffix: Lexorin
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Lexorin
+        Quantity: 100
+  - type: PointLight
+    color: "#6b0007"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#6b0007"
+
+- type: entity
+  id: ReagentSlimeHorsepussy
+  parent: ReagentSlime
+  suffix: TheeHorsepussy
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: TheeHorsepussy
+        Quantity: 100
+  - type: PointLight
+    color: "#7BD18C"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#7BD18C"
+
+- type: entity
+  id: ReagentSlimeIpecac
+  parent: ReagentSlime
+  suffix: Ipecac
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Ipecac
+        Quantity: 100
+  - type: PointLight
+    color: "#422912"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#422912"
+
+- type: entity
+  id: ReagentSlimeHonk
+  parent: ReagentSlime
+  suffix: Honk
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Honk
+        Quantity: 100
+  - type: PointLight
+    color: "#F2E9D2"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#F2E9D2"
+
+- type: entity
+  id: ReagentSlimeChlorineTrifluoride
+  parent: ReagentSlime
+  suffix: Chlorine Trifluoride
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ChlorineTrifluoride
+        Quantity: 100
+  - type: PointLight
+    color: "#FFC8C8"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#FFC8C8"
+
+- type: entity
+  id: ReagentSlimeJuiceThatMakesYouWeh
+  parent: ReagentSlime
+  suffix: JuiceThatMakesYouWeh
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 100
+  - type: PointLight
+    color: "#59b23a"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#59b23a"
+
+- type: entity
+  id: ReagentSlimeBrosochloricBros
+  parent: ReagentSlime
+  suffix: BrosochloricBros
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BrosochloricBros
+        Quantity: 100
+  - type: PointLight
+    color: "#47181A"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#47181A"
+
+- type: entity
+  id: ReagentSlimeDrGibb
+  parent: ReagentSlime
+  suffix: DrGibb
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: DrGibb
+        Quantity: 100
+  - type: PointLight
+    color: "#102000"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#102000"
+
+- type: entity
+  id: ReagentSlimeJuiceThatMakesYouUngh
+  parent: ReagentSlime
+  suffix: JuiceThatMakesYouUngh
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouUngh
+        Quantity: 100
+  - type: PointLight
+    color: "#8F3134"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#8F3134"
+
+- type: entity
+  id: ReagentSlimeCoffee
+  parent: ReagentSlime
+  suffix: Coffee
+  components:
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Coffee
+        Quantity: 100
+  - type: PointLight
+    color: "#664300"
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: Mobs/Aliens/elemental.rsi
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+        color: "#664300"

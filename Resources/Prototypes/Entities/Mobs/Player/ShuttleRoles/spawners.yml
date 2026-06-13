@@ -23,6 +23,8 @@
     - RandomHumanoidVisitorHOS
     - RandomHumanoidVisitorQM
     - RandomHumanoidVisitorRD
+    - RandomHumanoidVisitorAdminAssistant # imp
+    - RandomHumanoidVisitorHospitalityDirector # imp
 
 - type: entity
   name: visiting captain spawner
@@ -530,6 +532,7 @@
     - RandomHumanoidVisitorZookeeper
     rarePrototypes:
     - RandomHumanoidVisitorHOP
+    - RandomHumanoidVisitorHospitalityDirector
     rareChance: 0.03
 
 - type: entity
@@ -743,7 +746,7 @@
     - RandomHumanoidVisitorReporter
 
 - type: entity
-  name: visiting service worker spawner
+  name: visiting service attendant spawner # imp edit
   id: VisitorServiceWorkerSpawner
   parent: MarkerBase
   components:
