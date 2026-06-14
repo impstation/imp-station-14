@@ -1,7 +1,7 @@
 ﻿{
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "minor, giant bear, jumbo gray, plushie hop, and plushie captain by crocodilecarousel (github). finfin, yarn noodles, fabric scrap salad, odds, iba, ungu, eeepy by starlighthowls. gray plushie by tox. bug, dolls, snail, decapoid, dwarf, goblin, gollylad, thaven, thavenweird, and anomalocarid plushies by Doop. imp plush by mqole, kodepiia plush by UndertaleSex.",
+    "copyright": "minor, giant bear, jumbo gray, plushie hop, and plushie captain by crocodilecarousel (github). finfin, yarn noodles, fabric scrap salad, odds, iba, ungu, eeepy by starlighthowls. gray plushie by tox. bug, dolls, snail, decapoid, dwarf, goblin, gollylad, thaven, thavenweird, and anomalocarid plushies by Doop. imp plush by mqole, kodepiia plush by UndertaleSex, new imp plush by starlighthowls.",
     "size": {
         "x": 32,
         "y": 32
@@ -175,7 +175,7 @@
             "name": "plushie_hop"
         },
         {
-            "name": "plushie_imp"
+            "name": "plushie_impold"
         },
         {
             "name": "plushie_kodepiia1"
@@ -257,6 +257,29 @@
         },
         {
             "name": "plushie_anomalocarid-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "plushie_imp"
+        },
+        {
+            "name": "plushie_imp-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "plushie_imp-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "imp-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "imp-equipped-HELMET-allulalo",
+            "directions": 4
+        },
+        {
+            "name": "imp-equipped-HELMET-ungu",
             "directions": 4
         }
     ]
