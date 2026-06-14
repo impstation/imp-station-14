@@ -156,3 +156,38 @@
     sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
     state: alphacakebatter
     color: "#ba672e"
+
+- type: entity
+  parent: EdibleBase
+  id: FoodFrostingVanilla
+  name: vanilla frosting
+  description: The most classic of all frostings.
+  components:
+  - type: Item
+    size: Normal
+  - type: FlavorProfile
+    flavors:
+    - vanilla
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
+    state: alphacakebatter
+    color: "#ba672e"
+  - type: Tag
+    tags:
+    - VanillaFrosting
+
+- type: entity
+  parent: FoodFrostingVanilla
+  id: FoodFrostingSpaceman
+  name: spacemans trumpet frosting
+  description: For when you need a REALLY purple cake.
+  components:
+  - type: Item
+    size: Normal
+  - type: FlavorProfile
+    flavors:
+    - sweet
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
+    state: alphacakebatter
+    color: "#ba672e"

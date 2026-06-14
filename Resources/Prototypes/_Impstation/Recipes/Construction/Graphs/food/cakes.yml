@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: Cakes
+  start: start
+  graph:
+
+  - node: start
+    entity: FoodCakePlain
+    edges:
+    - to: vanillaCake
+      steps:
+      - tag: VanillaFrosting
+        amount: 1
+        doAfter: 1
+
+  - node: vanillaCake
+    entity: FoodCakeVanilla
