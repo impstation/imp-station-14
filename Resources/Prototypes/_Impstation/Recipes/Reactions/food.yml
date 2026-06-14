@@ -152,14 +152,13 @@
     Sugar:
       amount: 5
   effects:
-    - !type:CreateEntityReactionEffect
+    - !type:SpawnEntity
       entity: FoodMochiPaste
 
 - type: reaction
   id: CreateMitarashiSyrup
-  impact: Low
-  quantized: true
-  conserveEnergy: false
+  requiredMixerCategories:
+  - Stir
   reactants:
     Sake:
       amount: 1
@@ -167,8 +166,5 @@
       amount: 1
     Water:
       amount: 5
-    Sugar:
-      amount: 5
-  effects:
-    - !type:CreateEntityReactionEffect
-      entity: MitarashiSyrup
+  products:
+    MitarashiSyrup: 7

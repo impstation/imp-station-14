@@ -2,29 +2,115 @@
   name: mochi paste
   parent: FoodBakingBase
   id: FoodMochiPaste
-  description: mochi, ready to shape!
+  description: ready to shape!
   components:
   - type: FlavorProfile
     flavors:
       - rice
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food
-    state: mochi
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: paste
   - type: SliceableFood
     count: 3
     slice: FoodMochiSlice
 
 - type: entity
-  name: mochi slice
+  name: mochi
   parent: FoodBakingBase
   id: FoodMochiSlice
-  description: A slice of mochi. Can be used to make Daifuku or Dango.
+  description: A little ball of mochi.
   components:
   - type: FlavorProfile
     flavors:
       - rice
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food
-    state: mochi-slice
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: slice
+  - type: Tag
+    tags:
+    - FoodSnack
+    - UnguFood
+    - ReptilianFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
 
+- type: entity
+  name: berry daifuku
+  parent: FoodMealBase
+  id: FoodDaifuku
+  description: A little ball of mochi stuffed with a sweet filling.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - UnguFood
+    - ReptilianFood
+  - type: Item
+    size: Tiny
+    shape:
+    - 0,0,0,0
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: daifuku
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: JuiceBerry
+          Quantity: 2
 
+- type: entity
+  name: mitarashi dango
+  parent: FoodMealBase
+  id: FoodMDango
+  description: Sweet, skewered, glazed mochi.
+  components:
+  - type: Tag
+    tags:
+    - FoodSnack
+    - UnguFood
+    - ReptilianFood
+  - type: Edible
+    trash:
+    - FoodKebabSkewer
+  - type: Item
+    size: Tiny
+    shape:
+    - 0,0,0,0
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: mdango
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
+        - ReagentId: Soysauce
+          Quantity: 2
+
+- type: entity
+  name: hanami dango
+  parent: FoodMDango
+  id: FoodHDango
+  description: Sweet, skewered mochi.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: hdango
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 3
