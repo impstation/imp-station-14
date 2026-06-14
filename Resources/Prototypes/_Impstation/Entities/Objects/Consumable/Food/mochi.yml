@@ -15,6 +15,23 @@
     slice: FoodMochiSlice
 
 - type: entity
+  name: moth-chi paste
+  parent: FoodBakingBase
+  id: FoodMoth-chiPaste
+  description: ready to shape!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+      - cotton
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: mothchi-paste
+  - type: SliceableFood
+    count: 3
+    slice: FoodMoth-chiSlice
+
+- type: entity
   name: mochi
   parent: FoodBakingBase
   id: FoodMochiSlice
@@ -37,7 +54,33 @@
         maxVol: 8
         reagents:
         - ReagentId: Sugar
-          Quantity: 3
+          Quantity: 5
+
+- type: entity
+  name: moth-chi
+  parent: FoodBakingBase
+  id: FoodMoth-chiSlice
+  description: A little ball of moth-chi.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+      - cotton
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/mochi.rsi
+    state: mothchi-slice
+  - type: Tag
+    tags:
+    - FoodSnack
+    - ClothMade
+    - ClothFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 5
 
 - type: entity
   name: berry daifuku

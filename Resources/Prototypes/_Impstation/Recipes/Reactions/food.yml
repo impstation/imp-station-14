@@ -156,6 +156,24 @@
       entity: FoodMochiPaste
 
 - type: reaction
+  id: CreateMoth-chiPaste
+  impact: Low
+  quantized: true
+  conserveEnergy: false
+  reactants:
+    RiceFlour:
+      amount: 5
+    Water:
+      amount: 5
+    Sugar:
+      amount: 5
+    Fiber:
+      amount: 5
+  effects:
+    - !type:SpawnEntity
+      entity: FoodMoth-chiPaste
+
+- type: reaction
   id: CreateMitarashiSyrup
   requiredMixerCategories:
   - Stir
