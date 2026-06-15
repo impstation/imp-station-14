@@ -35,8 +35,8 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
     private readonly Color _colorTurquoise = Color.FromHex("#00fff7");
 
     // Imp, Supermatter Icons
-    private readonly string _supermatter = "/Textures/_EE/Interface/Supermatter/supermatter.png";
-    private readonly string _supermatterShard = "/Textures/_Impstation/Interface/Supermatter/supermatter-shard.png";
+    private const string Supermatter = "/Textures/_EE/Interface/Supermatter/supermatter.png";
+    private const string SupermatterShard = "/Textures/_Impstation/Interface/Supermatter/supermatter-shard.png";
 
     // Arrow icons
     private readonly string _arrowUp = "/Textures/_EE/Interface/Supermatter/arrow_up.png";
@@ -142,7 +142,7 @@ public sealed partial class SupermatterEntryContainer : BoxContainer
         #endregion
 
         // Imp, set sprite for supermatter
-        SupermatterSprite.TexturePath = entry.IsShard ? _supermatterShard : _supermatter;
+        SupermatterSprite.TexturePath = entry.IsShard ? SupermatterShard : Supermatter;
 
         // Load values and set base labels
         _radiationBase = _config.GetCVar(EECCVars.SupermatterRadsBase);
