@@ -64,9 +64,6 @@
   id: CartridgeBazooka
 
 - type: Tag
-  id: CartridgeLPistol
-
-- type: Tag
   id: CartridgeMime
 
 - type: Tag
@@ -131,6 +128,9 @@
 
 - type: Tag
   id: Crystal # BountyCrystal
+
+- type: Tag
+  id: DamageVariable
 
 - type: Tag
   id: Dart
@@ -368,6 +368,9 @@
 
 - type: Tag
   id: PyrottonBoll
+
+- type: Tag
+  id: RecyclerGibbable
 
 - type: Tag
   id: RegenerativeMesh

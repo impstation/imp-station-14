@@ -8,7 +8,7 @@
     tags:
       - CartridgePistol
   - type: CartridgeAmmo
-    proto: BulletPistol
+    proto: BulletStandard
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
@@ -24,7 +24,7 @@
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
-    proto: BulletPistol
+    proto: BulletStandard
 
 - type: entity
   id: CartridgePistolPractice
@@ -33,7 +33,7 @@
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
-    proto: BulletPistolPractice
+    proto: BulletStandardPractice
   -  type: Sprite
      layers:
        - state: base
@@ -49,7 +49,7 @@
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
-    proto: BulletPistolIncendiary
+    proto: BulletStandardIncendiary
   - type: Sprite
     layers:
       - state: base
@@ -65,7 +65,7 @@
   parent: BaseCartridgePistol
   components:
   - type: CartridgeAmmo
-    proto: BulletPistolUranium
+    proto: BulletStandardUranium
   - type: Sprite
     layers:
       - state: base
@@ -88,7 +88,7 @@
       - state: base-spent
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
-    proto: BulletPistol
+    proto: BulletStandard
     spent: true
   - type: Tag
     tags:
@@ -117,3 +117,20 @@
         color: "#4477bc"
   - type: Appearance
   - type: SpentAmmoVisuals
+
+- type: entity
+  id: CartridgePistolAP
+  name: cartridge (.35 auto APDSFS)
+  description: Gunner, sabot, infantry!
+  parent: BaseCartridgePistol
+  components:
+  - type: CartridgeAmmo
+    proto: BulletStandardZipAP
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#662598"
