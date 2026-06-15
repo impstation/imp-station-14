@@ -11,6 +11,26 @@
       - tag: VanillaFrosting
         amount: 1
         doAfter: 1
+    - to: spacemanCake
+      steps:
+      - tag: SpacemanFrosting
+        amount: 1
+        doAfter: 1
 
   - node: vanillaCake
     entity: FoodCakeVanilla
+
+  - node: spacemanCake
+    entity: FoodCakeSpaceman
+
+  - node: cotton
+    entity: FoodCakeCottonUnfrosted
+    edges:
+    - to: cottonCake
+      steps:
+      - material: Cotton
+        amount: 5
+        doAfter: 1
+
+  - node: cottonCake
+    entity: FoodCakeCotton

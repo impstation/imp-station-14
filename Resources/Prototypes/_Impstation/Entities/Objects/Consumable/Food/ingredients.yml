@@ -158,6 +158,22 @@
     color: "#ba672e"
 
 - type: entity
+  parent: FoodBakingBase
+  id: FoodCakeBatterCotton
+  name: cotton cake batter
+  description: Cook it to get a cotton cake.
+  components:
+  - type: Item
+    size: Normal
+  - type: FlavorProfile
+    flavors:
+    - sweetdough
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
+    state: alphacakebatter
+    color: "#ffbfbf"
+
+- type: entity
   parent: EdibleBase
   id: FoodFrostingVanilla
   name: vanilla frosting
@@ -169,9 +185,18 @@
     flavors:
     - vanilla
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
-    state: alphacakebatter
-    color: "#ba672e"
+    layers:
+    - map:
+      sprite: _Impstation/Objects/Consumable/Food/Ingredients/frosting.rsi
+      state: frosting
+      color: "#fdf9e8"
+    - map:
+      sprite: _Impstation/Objects/Consumable/Food/Ingredients/frosting.rsi
+      state: tie
+      color: "#aa9ae8"
+    - map:
+      sprite: _Impstation/Objects/Consumable/Food/Ingredients/frosting.rsi
+      state: nozzle
   - type: Tag
     tags:
     - VanillaFrosting
@@ -188,6 +213,19 @@
     flavors:
     - sweet
   - type: Sprite
-    sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
-    state: alphacakebatter
-    color: "#ba672e"
+    layers:
+    - map:
+      sprite: _Impstation/Objects/Consumable/Food/Ingredients/frosting.rsi
+      state: frosting
+      color: "#bb45bd"
+    - map:
+      sprite: _Impstation/Objects/Consumable/Food/Ingredients/frosting.rsi
+      state: tie
+      color: "#e2b27e"
+    - map:
+      sprite: _Impstation/Objects/Consumable/Food/Ingredients/frosting.rsi
+      state: nozzle
+  - type: Tag
+    tags:
+    - SpacemanFrosting
+

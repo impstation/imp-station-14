@@ -689,4 +689,14 @@
   group: Cake
   solids:
     FoodCakeBatterChocolate: 1
-  recipeType: Oven # Frontier
+  recipeType: Oven
+
+- type: microwaveMealRecipe
+  id: RecipeCakeCottonUnfrosted
+  name: cotton cake recipe
+  result: FoodCakeCottonUnfrosted
+  time: 15
+  group: Cake
+  solids:
+    FoodCakeBatterCotton: 1
+  recipeType: Oven
