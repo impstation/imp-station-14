@@ -36,7 +36,7 @@ namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
-    // keeping track of all systems in a single file 
+    // keeping track of all systems in a single file
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly HandsSystem _hands = default!;

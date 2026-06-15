@@ -81,7 +81,6 @@ public sealed partial class AristocratSystem : EntitySystem
         }
     }
 
-
     private void SpawnTiles(Entity<AristocratComponent> ent)
     {
         var xform = Transform(ent);
@@ -90,7 +89,6 @@ public sealed partial class AristocratSystem : EntitySystem
             return;
 
         var worldPos = _transform.GetWorldPosition(ent);
-        var pos = xform.Coordinates.Position;
         var tilerefs = _map.GetTilesIntersecting(
                 xform.GridUid.Value,
                 grid,
@@ -100,17 +98,11 @@ public sealed partial class AristocratSystem : EntitySystem
         if (tilerefs.Count == 0)
             return;
 
-        var tiles = new List<TileRef>();
+        var replacePrototype = _prot.Index<ContentTileDefinition>(ent.Comp.IceTilePrototype);
         foreach (var tile in tilerefs)
         {
             if (_rand.Prob(.45f))
-                tiles.Add(tile);
-        }
-
-        foreach (var tileref in tiles)
-        {
-            var tile = _prot.Index<ContentTileDefinition>(ent.Comp.IceTilePrototype);
-            _tile.ReplaceTile(tileref, tile);
+                _tile.ReplaceTile(tile, replacePrototype);
         }
     }
 }

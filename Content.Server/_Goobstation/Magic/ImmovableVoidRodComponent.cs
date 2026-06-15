@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 
@@ -24,12 +25,12 @@ public sealed partial class ImmovableVoidRodComponent : Component
     /// The type of damage to do to entities colliding with the rod.
     /// </summary>
     [DataField]
-    public ProtoId<DamageTypePrototype> DamageType = "Cold";
+    public DamageSpecifier CollideDamage = new()
+    {
+        DamageDict = new()
+        {
+            {"Cold", 12.5},
+        }
+    };
 
-    /// <summary>
-    /// Amount of damage done when rod collides with an entity, default 12.5.
-    /// Assuming no resist, this puts the target in range to be crit by void blade in 5 hits
-    /// </summary>
-    [DataField]
-    public float DamageAmount = 12.5f;
 }

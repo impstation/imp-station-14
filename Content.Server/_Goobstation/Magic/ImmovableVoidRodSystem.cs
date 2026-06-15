@@ -56,10 +56,9 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
             return;
 
         _stun.TryAddParalyzeDuration(args.OtherEntity, TimeSpan.FromSeconds(2.5f));
-        DamageSpecifier dmg = new (_prot.Index(ent.Comp.DamageType), ent.Comp.DamageAmount);
 
         TryComp<TagComponent>(args.OtherEntity, out var tag);
-        _damageable.TryChangeDamage(args.OtherEntity, dmg, out var damage, origin: args.OurEntity);
+        _damageable.TryChangeDamage(args.OtherEntity, ent.Comp.CollideDamage, origin: args.OurEntity);
 
         var tags = tag?.Tags ?? new();
 
