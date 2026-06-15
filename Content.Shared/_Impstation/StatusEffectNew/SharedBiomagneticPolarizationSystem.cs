@@ -15,11 +15,6 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
 
     public static readonly EntProtoId BiomagEffectID = "StatusEffectBiomagneticPolarization";
 
-    public override void Initialize()
-    {
-        base.Initialize();
-    }
-
     /// <summary>
     /// Returns (TRUE, FALSE) if collision occurs between two entities of opposite polarity.
     /// Returns (FALSE, TRUE) if collision occurs between two entities of the same polarity.
