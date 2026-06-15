@@ -284,7 +284,7 @@ public sealed partial class AnchorableSystem : EntitySystem
         else
             RaiseLocalEvent(uid, (UnanchorAttemptEvent)attempt);
 
-        anchorable.AdditionalDelay += attempt.Delay; // imp: Add to AdditionalDelay instead of base Delay
+        anchorable.AdditionalDelay = attempt.Delay; // imp: Use AdditionalDelay instead of adding to base Delay
 
         return !attempt.Cancelled;
     }
