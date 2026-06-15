@@ -18,11 +18,11 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
     [Dependency] private readonly AmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
-    private const string SpriteRSIPath = "/Textures/Effects/text.rsi";
-    private const int PixelWidthUntilSprite = 1; // Pixel difference from the right of the png to the actual sprite
-    private const int PixelHeightUntilSprite = 1; // Pixel difference from the top of the png to the actual sprite
-    private const float WidthUntilSprite = 1f / EyeManager.PixelsPerMeter * PixelWidthUntilSprite;
-    private const float HeightUntilSprite = 1f / EyeManager.PixelsPerMeter * PixelHeightUntilSprite;
+    private static readonly ResPath SpriteRSIPath = new("/Textures/Effects/text.rsi");
+    private static readonly SpriteSpecifier.Rsi Plus = new(SpriteRSIPath, "plus");
+    private static readonly SpriteSpecifier.Rsi Dash = new(SpriteRSIPath, "dash");
+    private const float WidthUntilSprite = 1f / EyeManager.PixelsPerMeter * 1f; // 1f multiplication is the pixel difference from the right of the png to the actual sprite
+    private const float HeightUntilSprite = 1f / EyeManager.PixelsPerMeter * 1f; // 1f multiplication is the pixel difference from the top of the png to the actual sprite
 
     public override void Initialize()
     {
@@ -84,9 +84,8 @@ public sealed class BiomagneticPolarizationSystem : SharedBiomagneticPolarizatio
         if (_sprite.LayerMapTryGet((ent, sprite), BiomagneticPolarizationSignKey.Key, out var _, false))
             return;
 
-        var sign = ent.Comp.Polarization ? "plus" : "dash";
-        var signSprite = new SpriteSpecifier.Rsi(new ResPath(SpriteRSIPath), sign);
-        var layer = _sprite.AddLayer((ent, sprite), signSprite);
+        var sign = ent.Comp.Polarization ? Plus : Dash;
+        var layer = _sprite.AddLayer((ent, sprite), sign);
 
         _sprite.LayerMapSet((ent, sprite), BiomagneticPolarizationSignKey.Key, layer);
     }
