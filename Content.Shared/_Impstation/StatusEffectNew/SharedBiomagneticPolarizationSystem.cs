@@ -13,7 +13,7 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
 
-    private readonly EntProtoId _effectID = "StatusEffectBiomagneticPolarization";
+    public static readonly EntProtoId BiomagEffectID = "StatusEffectBiomagneticPolarization";
 
     public override void Initialize()
     {
@@ -53,7 +53,7 @@ public abstract class SharedBiomagneticPolarizationSystem : EntitySystem
 
             var other = contact.OtherEnt(ent.Owner);
 
-            if (!_statusEffect.TryGetStatusEffect(other, _effectID, out var otherEffectEnt)
+            if (!_statusEffect.TryGetStatusEffect(other, BiomagEffectID, out var otherEffectEnt)
                 || !HasComp<PhysicsComponent>(other)
                 || !TryComp<BiomagneticPolarizationStatusEffectComponent>(otherEffectEnt, out var otherBiomagComp))
                 continue;
