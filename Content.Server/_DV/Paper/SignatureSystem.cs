@@ -1,4 +1,4 @@
-using Content.Server.Crayon;
+using Content.Shared.Crayon;
 using Content.Shared.DV.Paper;
 using Content.Shared.DV.Traits;
 using Content.Shared.Paper;
@@ -32,7 +32,7 @@ public sealed class SignatureSystem : SharedSignatureSystem
         var paperComp = args.Paper.Comp;
         var signatureComp = ent.Comp;
 
-        var signatureName = DetermineEntitySignature(signer);
+        var signatureName = DetermineEntitySignature(signer, pen);
         var signatureColor = signatureComp.Color;
         var signatureFont = "Default"; // Noto Sans as fallback
 

@@ -8,3 +8,28 @@
     sprite: _Impstation/Clothing/Shoes/Misc/flipflopsblack.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Shoes/Misc/flipflopsblack.rsi
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesAngelSandals
+  name: angel sandals
+  description: Too holy to walk on these tiles!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Misc/angelsandals.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Misc/angelsandals.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: [ClothingShoesBaseButcherable, BaseCentcommContraband]
+  id: ClothingShoesImpishShoes
+  name: impish shoes
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Shoes/Misc/impishshoes.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Shoes/Misc/impishshoes.rsi

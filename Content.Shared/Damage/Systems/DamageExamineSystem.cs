@@ -6,7 +6,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using Content.Shared.Ghost;
+using Content.Shared.Ghost; // imp
 
 namespace Content.Shared.Damage.Systems;
 

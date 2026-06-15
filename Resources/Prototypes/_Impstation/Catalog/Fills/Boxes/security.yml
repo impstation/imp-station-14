@@ -8,11 +8,13 @@
   - type: Storage
     grid:
     - 0,0,2,0
-  - type: StorageFill
-    contents:
-    - id: BatonToken5
-    - id: DisablerToken5
-    - id: UtilityToken5
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BatonToken5
+        - id: DisablerToken5
+        - id: UtilityToken5
   - type: Sprite
     layers:
     - state: box_security

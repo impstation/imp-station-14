@@ -25,10 +25,6 @@
       Ammonia: stationAmmonia
       NitrousOxide: stationNO
       Frezon: danger
-  - type: Tag
-    tags:
-      - AirSensor
-      - ForceFixRotations
   - type: GuideHelp
     guides:
     - DeviceMonitoringAndControl
@@ -47,6 +43,13 @@
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Metallic
+  # Funky RPD Start
+  - type: RCDDeconstructable
+    cost: 2 # Imp
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
+  # Funky RPD End
   - type: Destructible
     thresholds:
     - trigger:
@@ -90,6 +93,10 @@
         enum.PowerDeviceVisualLayers.Powered:
           True: { state: gsensor1 }
           False: { state: gsensor0 }
+  - type: Tag
+    tags:
+    - AirSensor
+    - ForceFixRotations
 
 - type: entity
   parent: BaseItem

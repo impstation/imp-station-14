@@ -2,7 +2,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Radio;
 
-[Prototype("radioChannel")]
+[Prototype]
 public sealed partial class RadioChannelPrototype : IPrototype
 {
     /// <summary>
@@ -35,4 +35,19 @@ public sealed partial class RadioChannelPrototype : IPrototype
     /// </summary>
     [DataField("longRange"), ViewVariables]
     public bool LongRange = false;
+
+    /// <summary>
+    ///     ImpStation original. If a channel is readOnly, then headsets cannot send messages through it.
+    ///     Intercomms still can.
+    /// </summary>
+    [DataField]
+    public bool IntercomOnly = false;
+
+    // Frontier: radio channel frequencies
+    /// <summary>
+    /// If true, the frequency of the message being sent will be appended to the chat message
+    /// </summary>
+    [DataField, ViewVariables]
+    public bool ShowFrequency = false;
+    // End Frontier
 }

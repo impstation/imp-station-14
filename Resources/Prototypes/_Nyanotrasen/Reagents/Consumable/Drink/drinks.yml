@@ -1,0 +1,19 @@
+- type: reagent
+  id: AtomicPunch
+  name: reagent-name-atomicpunch
+  parent: BaseDrink
+  desc: reagent-desc-atomicpunch
+  physicalDesc: reagent-physical-desc-volatile
+  flavor: atomicpunch
+  color: "#d04949"
+  metamorphicSprite:
+    sprite: _Nyanotrasen/Objects/Consumable/Drinks/atomicpunch.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustReagent
+        reagent: Radium
+        amount: 0.01

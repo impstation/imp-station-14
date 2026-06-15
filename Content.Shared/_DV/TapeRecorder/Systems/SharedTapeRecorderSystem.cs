@@ -1,16 +1,13 @@
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
 using Content.Shared._DV.TapeRecorder.Components;
-using Content.Shared.Destructible;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Labels.Components;
-using Content.Shared.Popups;
-using Content.Shared.Tag;
 using Content.Shared.Toggleable;
 using Content.Shared.UserInterface;
 using Content.Shared.Whitelist;
+using Content.Shared.DeviceLinking.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
@@ -18,20 +15,20 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
+using Content.Shared.Damage.Systems;
 
 namespace Content.Shared._DV.TapeRecorder.Systems;
 
 public abstract class SharedTapeRecorderSystem : EntitySystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly SharedAudioSystem Audio = default!;
 
     protected const string SlotName = "cassette_tape";
 
@@ -45,6 +42,7 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
         SubscribeLocalEvent<TapeRecorderComponent, ExaminedEvent>(OnRecorderExamined);
         SubscribeLocalEvent<TapeRecorderComponent, ChangeModeTapeRecorderMessage>(OnChangeModeMessage);
         SubscribeLocalEvent<TapeRecorderComponent, AfterActivatableUIOpenEvent>(OnUIOpened);
+        SubscribeLocalEvent<TapeRecorderComponent, SignalReceivedEvent>(OnSignalReceived);
 
         SubscribeLocalEvent<TapeCassetteComponent, ExaminedEvent>(OnTapeExamined);
         SubscribeLocalEvent<TapeCassetteComponent, DamageChangedEvent>(OnDamagedChanged);
@@ -120,7 +118,7 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
         tape.Comp.Buffer.Clear();
 
         //Update the tape's current time
-        tape.Comp.CurrentPosition = (float) Math.Min(currentTime, tape.Comp.MaxCapacity.TotalSeconds);
+        tape.Comp.CurrentPosition = (float)Math.Min(currentTime, tape.Comp.MaxCapacity.TotalSeconds);
 
         //If we have reached the end of the tape - stop
         return tape.Comp.CurrentPosition < tape.Comp.MaxCapacity.TotalSeconds;
@@ -144,7 +142,7 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
         ReplayMessagesInSegment(ent, tape.Comp, tape.Comp.CurrentPosition, currentTime);
 
         //Update the tape's position
-        tape.Comp.CurrentPosition = (float) Math.Min(currentTime, tape.Comp.MaxCapacity.TotalSeconds);
+        tape.Comp.CurrentPosition = (float)Math.Min(currentTime, tape.Comp.MaxCapacity.TotalSeconds);
 
         //Stop when we reach the end of the tape
         return tape.Comp.CurrentPosition < tape.Comp.MaxCapacity.TotalSeconds;
@@ -210,7 +208,7 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
         if (HasComp<FitsInTapeRecorderComponent>(ent))
             return;
 
-        _appearance.SetData(ent, ToggleVisuals.Toggled, false);
+        _appearance.SetData(ent, ToggleableVisuals.Enabled, false);
         AddComp<FitsInTapeRecorderComponent>(ent);
         args.Handled = true;
     }
@@ -223,7 +221,7 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
         if (args.DamageDelta == null || args.DamageDelta.GetTotal() < 5)
             return;
 
-        _appearance.SetData(ent, ToggleVisuals.Toggled, true);
+        _appearance.SetData(ent, ToggleableVisuals.Enabled, true);
 
         RemComp<FitsInTapeRecorderComponent>(ent);
         CorruptRandomEntry(ent);
@@ -363,7 +361,7 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
 
     protected bool TryGetTapeCassette(EntityUid ent, [NotNullWhen(true)] out Entity<TapeCassetteComponent> tape)
     {
-        if (_slots.GetItemOrNull(ent, SlotName) is not {} cassette)
+        if (_slots.GetItemOrNull(ent, SlotName) is not { } cassette)
         {
             tape = default!;
             return false;
@@ -396,7 +394,7 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
         {
             hasData = tape.Comp.RecordedData.Count > 0;
             currentTime = tape.Comp.CurrentPosition;
-            maxTime = (float) tape.Comp.MaxCapacity.TotalSeconds;
+            maxTime = (float)tape.Comp.MaxCapacity.TotalSeconds;
 
             if (TryComp<LabelComponent>(tape, out var labelComp))
                 if (labelComp.CurrentLabel != null)
@@ -412,6 +410,26 @@ public abstract class SharedTapeRecorderSystem : EntitySystem
             cooldown);
 
         _ui.SetUiState(uid, TapeRecorderUIKey.Key, state);
+    }
+
+    private void OnSignalReceived(Entity<TapeRecorderComponent> ent, ref SignalReceivedEvent args)
+    {
+        if (args.Port == ent.Comp.PausePort)
+        {
+            SetMode(ent, TapeRecorderMode.Stopped);
+        }
+        else if (args.Port == ent.Comp.RecordPort)
+        {
+            SetMode(ent, TapeRecorderMode.Recording);
+        }
+        else if (args.Port == ent.Comp.PlaybackPort)
+        {
+            SetMode(ent, TapeRecorderMode.Playing);
+        }
+        else if (args.Port == ent.Comp.RewindPort)
+        {
+            SetMode(ent, TapeRecorderMode.Rewinding);
+        }
     }
 }
 

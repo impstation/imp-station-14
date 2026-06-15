@@ -37,7 +37,8 @@ accent-pirate-replaced-11 = hey
 accent-pirate-replacement-11 = oye
 
 accent-pirate-replaced-12 = money
-accent-pirate-replacement-12 = dubloons
+# imp edit
+accent-pirate-replacement-12 = doubloons
 
 accent-pirate-replaced-13 = cash
 accent-pirate-replacement-13 = doubloons
@@ -52,7 +53,7 @@ accent-pirate-replaced-16 = treasure
 accent-pirate-replacement-16 = booty
 
 accent-pirate-replaced-17 = attention
-accent-pirate-replacement-17 = avast
+accent-pirate-replacement-17 = attention #imp
 
 accent-pirate-replaced-18 = stupid
 accent-pirate-replacement-18 = parrot-brained

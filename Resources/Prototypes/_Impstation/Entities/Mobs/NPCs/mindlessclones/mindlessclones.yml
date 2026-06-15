@@ -7,8 +7,6 @@
   categories: [ DoNotMap ]
   components:
   - type: MindlessClone
-  - type: MindContainer
-    showExamineInfo: false # have to make sure they're not all catatonic
   - type: ActiveListener
     range: 6
   - type: ParrotSpeech
@@ -26,7 +24,7 @@
   id: MobMindlessClone
   parent: BaseMindlessClone
   name: mindless clone
-  suffix: Passive 
+  suffix: Passive
   categories: [ DoNotMap ]
   components:
   - type: MindlessClone
@@ -44,7 +42,7 @@
   id: MobMindlessCloneHostile
   parent: BaseMindlessClone
   name: mindless clone
-  suffix: Hostile 
+  suffix: Hostile
   categories: [ DoNotMap ]
   components:
   - type: MindlessClone
@@ -63,7 +61,8 @@
   name: mindless clone
   suffix: Mind-swap
   categories: [ DoNotMap ]
-  components: 
+  components:
+  - type: MindExaminable
   - type: MindlessClone
     speakOnSpawn: true
     phrasesToPick: MindlessCloneSinister
@@ -128,3 +127,4 @@
   - Speech
   - TypingIndicator # not sure why this doesn't work. Think it has something to do with BeforeShowTypingIndicatorEvent
   - Bloodstream
+  - InjectableSolution

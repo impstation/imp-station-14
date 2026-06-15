@@ -12,12 +12,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 0
     # add every path here because you shouldn't be able to buy more starter knowledge
     blacklist:
     - Ash
     - Blade
     - Flesh
+    - Hunt
     - Lock
     - Rust
     - Void

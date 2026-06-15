@@ -45,7 +45,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
         if (!Mind.TryGetMind(user, out var mindId, out var mind))
             return;
 
-        foreach (var entry in mind.MindRoles)
+        foreach (var entry in mind.MindRoleContainer.ContainedEntities)
         {
             if (HasComp<RecruiterRoleComponent>(entry))
             {
@@ -117,7 +117,7 @@ public abstract class SharedRecruiterPenSystem : EntitySystem
             return false; // mindless nt drone...
 
         var (uid, comp) = ent;
-        if (_whitelist.IsBlacklistPass(comp.Blacklist, user) || _whitelist.IsBlacklistPass(comp.MindBlacklist, mind))
+        if (_whitelist.IsWhitelistPass(comp.Blacklist, user) || _whitelist.IsWhitelistPass(comp.MindBlacklist, mind))
         {
             Popup.PopupPredicted(Loc.GetString($"recruiter-pen-{action}-forbidden", ("pen", uid)), user, user);
             return true;

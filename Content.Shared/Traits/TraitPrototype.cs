@@ -1,6 +1,9 @@
-using Content.Shared.Tag;
+using Content.Shared.Roles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
+using Content.Shared._Impstation.Traits; // Imp - Subcategories
+using Content.Shared.Humanoid.Prototypes; // DeltaV - Trait species hiding
+using Content.Shared.Tag; // imp traits
 
 namespace Content.Shared.Traits;
 
@@ -40,9 +43,17 @@ public sealed partial class TraitPrototype : IPrototype
 
     /// <summary>
     /// The components that get added to the player, when they pick this trait.
+    /// NOTE: When implementing a new trait, it's preferable to add it as a status effect instead if possible.
     /// </summary>
     [DataField]
-    public ComponentRegistry Components { get; private set; } = default!;
+    [Obsolete("Use JobSpecial instead.")]
+    public ComponentRegistry Components { get; private set; } = new();
+
+    /// <summary>
+    /// Special effects applied to the player who takes this Trait.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public List<JobSpecial> Specials { get; private set; } = new();
 
     /// <summary>
     /// Gear that is given to the player, when they pick this trait.
@@ -62,9 +73,22 @@ public sealed partial class TraitPrototype : IPrototype
     [DataField]
     public ProtoId<TraitCategoryPrototype>? Category;
 
+    // imp
     /// <summary>
     /// The organ that this trait should be assigned to instead of the body.
     /// </summary>
     [DataField]
     public ProtoId<TagPrototype>? Organ;
+
+    /// <summary>
+    /// DeltaV - Hides traits from specific species
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<SpeciesPrototype>> ExcludedSpecies = [];
+
+    /// <summary>
+    /// Imp - Traits with the same subcategory cannot be taken in tandem for free points (e.g. blindness and colorblindness)
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<TraitSubcategoryPrototype>> Subcategories = [];
 }

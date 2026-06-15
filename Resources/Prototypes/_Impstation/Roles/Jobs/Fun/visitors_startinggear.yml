@@ -85,6 +85,60 @@
   inhand:
   - WeaponSubMachineGunWt550
 
+- type: startingGear
+  id: VisitorAdminAssistant
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitAdminAssistant
+    shoes: ClothingShoesBootsLaceup
+    id: AdminAssistantPDA
+    belt: BoxFolderClipboard
+    back: ClothingBackpackCommandveteran
+    ears: ClothingHeadsetAdminAssistant
+    eyes: ClothingEyesHudCommand
+    pocket1: BoxFolderBlue
+    pocket2: DrinkHotCoffee
+
+- type: startingGear
+  id: VisitorAdminAssistantAlt
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtAdminAssistant
+    shoes: ClothingShoesBootsLaceup
+    id: AdminAssistantPDA
+    belt: BoxFolderClipboard
+    back: ClothingBackpackCommandveteran
+    ears: ClothingHeadsetAdminAssistant
+    eyes: ClothingEyesHudCommand
+    pocket1: NanotrasenFlippo
+    pocket2: CigPackNewport
+
+- type: startingGear
+  id: VisitorHospitalityDirector
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHD
+    shoes: ClothingShoesLeather
+    head: ClothingHeadHatBellhopHD
+    neck: ClothingNeckCloakHd
+    id: HDPDA
+    belt: ClothingBeltJanitorFilled
+    back: ClothingBackpackCommandveteran
+    ears: ClothingHeadsetHD
+    pocket1: TowelColorGreen
+    pocket2: CleanerGrenade
+
+- type: startingGear
+  id: VisitorHospitalityDirectorAlt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitHDTurtle
+    shoes: ClothingShoesLeather
+    head: ClothingHeadHatBeretHD
+    neck: ClothingNeckMantleHD
+    id: HDPDA
+    belt: ClothingBeltPlantFilled
+    back: ClothingBackpackCommandveteran
+    ears: ClothingHeadsetHD
+    pocket1: ChemistryBottleUnstableMutagen
+    pocket2: CannabisSeeds
+
 # Security
 
 - type: startingGear

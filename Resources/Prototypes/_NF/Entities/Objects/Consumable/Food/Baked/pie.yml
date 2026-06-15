@@ -1,0 +1,133 @@
+# imp all reagent inventories rebalanced
+
+- type: entity
+  name: pear and cheese tart
+  parent: FoodPieBase
+  id: FoodTartPearCheese
+  description: The most sublime pair.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - cheesy
+      - pear
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/pie.rsi
+    layers:
+    - state: tin
+    - state: pearandcheese
+  - type: SliceableFood
+    slice: FoodTartPearCheeseSlice
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 50
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 38
+        - ReagentId: Vitamin
+          Quantity: 5
+
+- type: entity
+  name: slice of pear and cheese tart
+  parent: FoodPieSliceBase
+  id: FoodTartPearCheeseSlice
+  description: A sweet and savory slice of pear and cheese tart.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - cheesy
+      - pear
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/pie.rsi
+    layers:
+    - state: pearandcheese-slice
+    - state: alpha-slice-filling
+      color: "#bf6000"
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+    - Slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 9.5
+        - ReagentId: Vitamin
+          Quantity: 1.25
+
+- type: entity
+  name: honey apple streusel pie
+  parent: FoodPieBase
+  id: FoodPieAppleHoney
+  description: A pie full of honey-laced apples baked under a crumbly oat streusel topping.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - honey
+      - apple
+      - oats
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/pie.rsi
+    layers:
+    - state: tin
+    - state: applecrisp
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 55
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 39
+        - ReagentId: Vitamin
+          Quantity: 9
+        - ReagentId: Sugar
+          Quantity: 2
+  - type: SliceableFood
+    slice: FoodPieAppleHoneySlice
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+
+- type: entity
+  name: slice of honey apple crumble pie
+  parent: FoodPieSliceBase
+  id: FoodPieAppleHoneySlice
+  description: A slice of honey-laced apples baked under a crumbly oat streusel topping.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - honey
+      - apple
+      - oats
+  - type: Sprite
+    sprite: _NF/Objects/Consumable/Food/Baked/pie.rsi
+    layers:
+    - state: applecrisp-slice
+    - state: alpha-slice-filling
+      color: "#e09b3a"
+  - type: Tag
+    tags:
+    - Fruit
+    - Pie
+    - Slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 2.25
+        - ReagentId: Sugar
+          Quantity: 0.5

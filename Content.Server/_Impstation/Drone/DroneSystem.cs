@@ -1,51 +1,49 @@
-using Content.Server.Body.Systems;
 using Content.Server._Impstation.Drone.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
 using Content.Server.Tools.Innate;
-using Content.Server.PowerCell;
-using Content.Shared.Alert;
-using Content.Shared.UserInterface;
-using Content.Shared.Body.Components;
 using Content.Shared._Impstation.Drone;
+using Content.Shared.Alert;
+using Content.Shared.Body.Components;
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
+using Content.Shared.Gibbing;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Item.ItemToggle;
-using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Tag;
-using Content.Shared.Throwing;
-using Content.Shared.Whitelist;
+using Content.Shared.Power.EntitySystems;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
-using Robust.Shared.Timing;
+using Content.Shared.Throwing;
+using Content.Shared.UserInterface;
+using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Drone
 {
     public sealed class DroneSystem : SharedDroneSystem
     {
+        [Dependency] private readonly AlertsSystem _alerts = default!;
         [Dependency] private readonly BodySystem _bodySystem = default!;
-        [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly TagSystem _tagSystem = default!;
+        [Dependency] private readonly GibbingSystem _gibbing = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
+        [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly InnateToolSystem _innateToolSystem = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-        [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly PowerCellSystem _powerCell = default!;
-        [Dependency] private readonly SharedMindSystem _mind = default!;
-        [Dependency] private readonly ItemToggleSystem _toggle = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly SharedBatterySystem _battery = default!;
+        [Dependency] private readonly SharedTransformSystem _transform = default!;
         [Dependency] private readonly UserInterfaceSystem _ui = default!;
-        [Dependency] private readonly AlertsSystem _alerts = default!;
 
         public override void Initialize()
         {
@@ -66,7 +64,7 @@ namespace Content.Server._Impstation.Drone
         // imp. for the battery system
         private void OnMapInit(Entity<DroneComponent> ent, ref MapInitEvent args)
         {
-            UpdateBatteryAlert((ent.Owner, ent.Comp));
+            UpdateBatteryAlert(ent);
 
             if (!TryComp<MindContainerComponent>(ent.Owner, out var mind) || !mind.HasMind)
                 _powerCell.SetDrawEnabled(ent.Owner, false);
@@ -75,34 +73,21 @@ namespace Content.Server._Impstation.Drone
         // Imp. this replaces OnInteractionAttempt from the upstream version of DroneSystem.
         private void OnUseAttempt(EntityUid uid, DroneComponent component, UseAttemptEvent args)
         {
-            if (args.Used != null && NonDronesInRange(uid, component))
+            if (_whitelist.IsWhitelistPass(component.Whitelist, args.Used) && NonDronesInRange(uid, component)) /// tag whitelist. sends proximity warning popup if the item isn't whitelisted. Doesn't prevent actions. Takes precedent over blacklist.
             {
-                if (_whitelist.IsWhitelistPass(component.Whitelist, args.Used)) /// tag whitelist. sends proximity warning popup if the item isn't whitelisted. Doesn't prevent actions. Takes precedent over blacklist.
-				{
-                    if (_gameTiming.CurTime >= component.NextProximityAlert)
-                    {
-                        _popupSystem.PopupEntity(Loc.GetString("drone-too-close", ("being", component.NearestEnt)), uid, uid);
-                        component.NextProximityAlert = _gameTiming.CurTime + component.ProximityDelay;
-                    }
-                }
-
-                else if (_whitelist.IsBlacklistPass(component.Blacklist, args.Used)) // imp special. blacklist. this one *does* prevent actions. it would probably be best if this read from the component or something.
+                if (_gameTiming.CurTime >= component.NextProximityAlert)
                 {
-                    args.Cancel();
-                    if (_gameTiming.CurTime >= component.NextProximityAlert)
-                    {
-                        _popupSystem.PopupEntity(Loc.GetString("drone-cant-use-nearby", ("being", component.NearestEnt)), uid, uid);
-                        component.NextProximityAlert = _gameTiming.CurTime + component.ProximityDelay;
-                    }
+                    _popupSystem.PopupEntity(Loc.GetString("drone-too-close", ("being", component.NearestEnt)), uid, uid);
+                    component.NextProximityAlert = _gameTiming.CurTime + component.ProximityDelay;
                 }
             }
 
-            else if (args.Used != null && _whitelist.IsWhitelistFail(component.Whitelist, args.Used) && _whitelist.IsBlacklistPass(component.Blacklist, args.Used)) // prevent actions when no one is nearby only if the whitelist fails AND the blacklist passes.
+            else if (_whitelist.IsWhitelistPass(component.Blacklist, args.Used)) // imp special. blacklist. this one *does* prevent actions. it would probably be best if this read from the component or something.
             {
                 args.Cancel();
                 if (_gameTiming.CurTime >= component.NextProximityAlert)
                 {
-                    _popupSystem.PopupEntity(Loc.GetString("drone-cant-use"), uid, uid);
+                    _popupSystem.PopupEntity(Loc.GetString("drone-cant-use-nearby", ("being", component.NearestEnt)), uid, uid);
                     component.NextProximityAlert = _gameTiming.CurTime + component.ProximityDelay;
                 }
             }
@@ -110,7 +95,7 @@ namespace Content.Server._Impstation.Drone
 
         private void OnActivateUIAttempt(EntityUid uid, DroneComponent component, UserOpenActivatableUIAttemptEvent args)
         {
-            if (_whitelist.IsBlacklistPass(component.Blacklist, args.Target))
+            if (_whitelist.IsWhitelistPass(component.Blacklist, args.Target))
             {
                 args.Cancel();
             }
@@ -135,8 +120,7 @@ namespace Content.Server._Impstation.Drone
                 if (TryComp<InnateToolComponent>(uid, out var innate))
                     _innateToolSystem.Cleanup(uid, innate);
 
-                if (TryComp<BodyComponent>(uid, out var body))
-                    _bodySystem.GibBody(uid, body: body);
+                _gibbing.Gib(uid);
                 QueueDel(uid);
             }
         }
@@ -203,23 +187,26 @@ namespace Content.Server._Impstation.Drone
             if (_powerCell.TryGetBatteryFromSlot(uid, out var battery))
             {
                 hasBattery = true;
-                chargePercent = battery.CurrentCharge / battery.MaxCharge;
+                chargePercent = _battery.GetCharge(battery.Value.AsNullable()) / battery.Value.Comp.MaxCharge;
             }
 
             var state = new DroneBuiState(chargePercent, hasBattery);
             _ui.SetUiState(uid, DroneUiKey.Key, state);
         }
 
-        private void UpdateBatteryAlert(Entity<DroneComponent> ent, PowerCellSlotComponent? slotComponent = null)
+        private void UpdateBatteryAlert(Entity<DroneComponent> ent)
         {
-            if (!_powerCell.TryGetBatteryFromSlot(ent, out var battery, slotComponent))
+            if (!TryComp<PowerCellSlotComponent>(ent, out var slotComponent))
+                return;
+
+            if (!_powerCell.TryGetBatteryFromSlot((ent, slotComponent), out var battery))
             {
-                _alerts.ClearAlert(ent, ent.Comp.BatteryAlert);
-                _alerts.ShowAlert(ent, ent.Comp.NoBatteryAlert);
+                _alerts.ClearAlert(ent.Owner, ent.Comp.BatteryAlert);
+                _alerts.ShowAlert(ent.Owner, ent.Comp.NoBatteryAlert);
                 return;
             }
 
-            var chargePercent = (short)MathF.Round(battery.CurrentCharge / battery.MaxCharge * 10f);
+            var chargePercent = (short)MathF.Round(_battery.GetCharge(battery.Value.AsNullable()) / battery.Value.Comp.MaxCharge * 10f);
 
             if (chargePercent == 5 && chargePercent < ent.Comp.LastChargePercent)
             {
@@ -241,21 +228,21 @@ namespace Content.Server._Impstation.Drone
 
             // we make sure 0 only shows if they have absolutely no battery.
             // also account for floating point imprecision
-            if (chargePercent == 0 && _powerCell.HasDrawCharge(ent, cell: slotComponent))
+            if (chargePercent == 0 && _powerCell.HasDrawCharge(ent.Owner))
             {
                 chargePercent = 1;
             }
 
             ent.Comp.LastChargePercent = chargePercent;
 
-            _alerts.ClearAlert(ent, ent.Comp.NoBatteryAlert);
-            _alerts.ShowAlert(ent, ent.Comp.BatteryAlert, chargePercent);
+            _alerts.ClearAlert(ent.Owner, ent.Comp.NoBatteryAlert);
+            _alerts.ShowAlert(ent.Owner, ent.Comp.BatteryAlert, chargePercent);
         }
 
         private bool NonDronesInRange(EntityUid uid, DroneComponent component)
         {
             var xform = Comp<TransformComponent>(uid);
-            foreach (var entity in _lookup.GetEntitiesInRange(xform.MapPosition, component.InteractionBlockRange))
+            foreach (var entity in _lookup.GetEntitiesInRange(_transform.GetMapCoordinates(xform), component.InteractionBlockRange))
             {
                 // Return true if the entity is/was controlled by a player and is not a drone or ghost.
                 if (HasComp<MindContainerComponent>(entity) && !HasComp<DroneComponent>(entity) && !HasComp<GhostComponent>(entity))

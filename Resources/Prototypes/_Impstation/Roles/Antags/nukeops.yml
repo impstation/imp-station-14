@@ -1,0 +1,42 @@
+- type: antag
+  id: NukeopsLone
+  name: ghost-role-information-loneop-name
+  antagonist: true
+  playTimeTracker: AntagLoneOperative
+  objective: ghost-role-information-loneop-description
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 5h
+  guides: [ NuclearOperatives ]
+
+- type: antag
+  id: SyndicateInstigator
+  name: ghost-role-information-syndicate-instigator-name
+  antagonist: true
+  playTimeTracker: AntagSyndicateInstigator
+  objective: ghost-role-information-syndicate-instigator-description
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 5h
+  guides: [ NuclearOperatives ]
+
+- type: startingGear
+  id: SyndicateInstigatorGear
+  parent: SyndicateOperativeClothing
+  equipment:
+    back: ClothingBackpackSatchelSyndicate
+    head: ClothingHeadHelmetSyndicate
+    eyes: ClothingEyesHudSyndicate
+    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingHandsGlovesCombatBudget
+    outerClothing: ClothingOuterEVASuitSyndicate
+    id: SyndiOperativePDA
+    belt: JetpackMiniFilled
+    pocket2: PinpointerSyndicateNuclear
+  storage:
+    back:
+    - WeaponPistolViper
+    - EnergyDaggerLoud
+    - BaseUplinkRadio5TC
+    - NukeCodePaperStation
+    - DeathAcidifierImplanter

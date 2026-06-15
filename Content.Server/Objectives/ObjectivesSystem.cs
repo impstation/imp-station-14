@@ -12,14 +12,14 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Text;
 using Content.Server.Objectives.Commands;
-using Content.Shared.Humanoid; //imp addition
 using Content.Shared.CCVar;
 using Content.Shared.Prototypes;
-using Content.Shared.Roles; //imp addition
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
+using Content.Shared.Humanoid; //imp addition
+using Content.Shared.Roles.Components; //imp addition
 
 namespace Content.Server.Objectives;
 
@@ -111,12 +111,8 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             result.AppendLine(Loc.GetString("objectives-round-end-result", ("count", total), ("agent", agent)));
             if (agent == Loc.GetString("traitor-round-end-agent-name"))
             {
-                result.AppendLine(Loc.GetString("objectives-round-end-result-in-custody",
-                    ("count", total),
-                    ("custody", totalInCustody),
-                    ("agent", agent)));
+                result.AppendLine(Loc.GetString("objectives-round-end-result-in-custody", ("count", total), ("custody", totalInCustody), ("agent", agent)));
             }
-
             // next add all the players with its own prepended text
             foreach (var (prepend, minds) in summary)
             {
@@ -142,15 +138,17 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             if (!TryComp<MindComponent>(mindId, out var mind))
                 continue;
 
+            // Imp Edit traitor flavor end screen
+            if (mind.ObjectiveIssuer is { } issuer)
+                agent = Loc.GetString($"traitor-{issuer}-roundend");
+
             var title = GetTitle((mindId, mind), name);
             var custody = IsInCustody(mindId, mind) ? Loc.GetString("objectives-in-custody") : string.Empty;
 
             var objectives = mind.Objectives;
             if (objectives.Count == 0)
             {
-                agentSummaries.Add((
-                    Loc.GetString("objectives-no-objectives", ("custody", custody), ("title", title), ("agent", agent)),
-                    0f, 0));
+                agentSummaries.Add((Loc.GetString("objectives-no-objectives", ("custody", custody), ("title", title), ("agent", agent)), 0f, 0));
                 continue;
             }
 
@@ -162,10 +160,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             var completedObjectives = 0;
             var totalObjectives = 0;
             var agentSummary = new StringBuilder();
-            agentSummary.AppendLine(Loc.GetString("objectives-with-objectives",
-                ("custody", custody),
-                ("title", title),
-                ("agent", agent)));
+            agentSummary.AppendLine(Loc.GetString("objectives-with-objectives", ("custody", custody), ("title", title), ("agent", agent)));
 
             foreach (var objectiveGroup in objectives.GroupBy(o => Comp<ObjectiveComponent>(o).LocIssuer))
             {
@@ -196,19 +191,34 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                         agentSummary.AppendLine(Loc.GetString(
                             "objectives-objective-success",
                             ("objective", objectiveTitle),
-                            ("markupColor", "green")
+                            ("progress", progress)
                         ));
                         completedObjectives++;
                         if (!info.Value.Trivial) //imp edit
                             completedNonTrivial++;
+                    }
+                    else if (progress <= 0.99f && progress >= 0.5f)
+                    {
+                        agentSummary.AppendLine(Loc.GetString(
+                            "objectives-objective-partial-success",
+                            ("objective", objectiveTitle),
+                            ("progress", progress)
+                        ));
+                    }
+                    else if (progress < 0.5f && progress > 0f)
+                    {
+                        agentSummary.AppendLine(Loc.GetString(
+                            "objectives-objective-partial-failure",
+                            ("objective", objectiveTitle),
+                            ("progress", progress)
+                        ));
                     }
                     else
                     {
                         agentSummary.AppendLine(Loc.GetString(
                             "objectives-objective-fail",
                             ("objective", objectiveTitle),
-                            ("progress", (int)(progress * 100)),
-                            ("markupColor", "red")
+                            ("progress", (int)(progress * 100)) // imp edit
                         ));
                     }
                 }
@@ -230,7 +240,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             }
 
             var nonTrivialSuccessRate = totalNontrivial > 0 ? (float)completedNonTrivial / totalNontrivial : 0f;
-            foreach (var mindRole in mind.MindRoles)
+            foreach (var mindRole in mind.MindRoleContainer.ContainedEntities)
             {
                 if (!TryComp<MindRoleComponent>(mindRole, out var roleComp)) //sanity checking
                     continue;
@@ -328,7 +338,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         }
 
         var sortedAgents = agentSummaries.OrderByDescending(x => x.successRate)
-            .ThenByDescending(x => x.completedObjectives);
+                                       .ThenByDescending(x => x.completedObjectives);
 
         foreach (var (summary, _, _) in sortedAgents)
         {
@@ -336,15 +346,11 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         }
     }
 
-    public EntityUid? GetRandomObjective(EntityUid mindId,
-        MindComponent mind,
-        ProtoId<WeightedRandomPrototype> objectiveGroupProto,
-        float maxDifficulty)
+    public EntityUid? GetRandomObjective(EntityUid mindId, MindComponent mind, ProtoId<WeightedRandomPrototype> objectiveGroupProto, float maxDifficulty)
     {
         if (!_prototypeManager.TryIndex(objectiveGroupProto, out var groupsProto))
         {
-            Log.Error(
-                $"Tried to get a random objective, but can't index WeightedRandomPrototype {objectiveGroupProto}");
+            Log.Error($"Tried to get a random objective, but can't index WeightedRandomPrototype {objectiveGroupProto}");
             return null;
         }
 
@@ -362,8 +368,10 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             var objectives = group.Weights.ShallowClone();
             while (_random.TryPickAndTake(objectives, out var objectiveProto))
             {
-                if (TryCreateObjective((mindId, mind), objectiveProto, out var objective)
-                    && Comp<ObjectiveComponent>(objective.Value).Difficulty <= maxDifficulty)
+                if (!_prototypeManager.Index(objectiveProto).TryGetComponent<ObjectiveComponent>(out var objectiveComp, EntityManager.ComponentFactory))
+                    continue;
+
+                if (objectiveComp.Difficulty <= maxDifficulty && TryCreateObjective((mindId, mind), objectiveProto, out var objective))
                     return objective;
             }
         }
@@ -384,14 +392,12 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
         EntityUid? originalEntity = GetEntity(mind.OriginalOwnedEntity);
         if (originalEntity.HasValue && originalEntity != mind.OwnedEntity)
         {
-            originalEntityInCustody = TryComp<CuffableComponent>(originalEntity, out var origCuffed) &&
-                                      origCuffed.CuffedHandCount > 0
-                                      && _emergencyShuttle.IsTargetEscaping(originalEntity.Value);
+            originalEntityInCustody = TryComp<CuffableComponent>(originalEntity, out var origCuffed) && origCuffed.CuffedHandCount > 0
+                   && _emergencyShuttle.IsTargetEscaping(originalEntity.Value);
         }
 
-        return originalEntityInCustody || (TryComp<CuffableComponent>(mind.OwnedEntity, out var cuffed) &&
-                                           cuffed.CuffedHandCount > 0
-                                           && _emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value));
+        return originalEntityInCustody || (TryComp<CuffableComponent>(mind.OwnedEntity, out var cuffed) && cuffed.CuffedHandCount > 0
+               && _emergencyShuttle.IsTargetEscaping(mind.OwnedEntity.Value));
     }
 
     /// <summary>

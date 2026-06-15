@@ -1,7 +1,5 @@
-using Content.Shared._DV.NanoChat;
 using Content.Shared.Access.Components;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Audio;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.Database;
@@ -10,9 +8,10 @@ using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Paper;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Text;
+using Content.Shared._DV.NanoChat; // dv
+using Content.Shared.PDA; // imp
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
@@ -20,11 +19,10 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem // DeltaV - M
 {
     [Dependency] private readonly CartridgeLoaderSystem _cartridge = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedLabelSystem _label = default!;
+    [Dependency] private readonly LabelSystem _label = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PaperSystem _paper = default!;
@@ -57,12 +55,29 @@ public sealed partial class LogProbeCartridgeSystem : EntitySystem // DeltaV - M
             return;
         }
         // DeltaV end
+        // IMP ADD- more nanochat card scanning
+        else if (TryComp<PdaComponent>(target, out var pda))
+        {
+            if (pda.ContainedId is { } pdaId
+                && TryComp<NanoChatCardComponent>(pdaId, out var pdaNanoChatCard))
+            {
+                ScanNanoChatCard(ent, args, pdaId, pdaNanoChatCard);
+            }
+            else
+            {
+                _popup.PopupCursor(Loc.GetString("log-probe-scan-nanochat-empty-pda", ("pda", target)), args.InteractEvent.User);
+            }
+
+            args.InteractEvent.Handled = true;
+            return;
+        }
+        // imp end
 
         if (!TryComp(target, out AccessReaderComponent? accessReaderComponent))
             return;
 
         //Play scanning sound with slightly randomized pitch
-        _audio.PlayEntity(ent.Comp.SoundScan, args.InteractEvent.User, target, AudioHelpers.WithVariation(0.25f, _random));
+        _audio.PlayEntity(ent.Comp.SoundScan, args.InteractEvent.User, target);
         _popup.PopupCursor(Loc.GetString("log-probe-scan", ("device", target)), args.InteractEvent.User);
 
         ent.Comp.EntityName = Name(target);

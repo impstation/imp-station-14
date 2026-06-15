@@ -41,6 +41,8 @@ namespace Content.Client.Stylesheets
 
     }
     // STLYE SHEETS WERE A MISTAKE. KILL ALL OF THIS WITH FIRE
+    [Obsolete("Please use the new sheetlet system to define styles, and remove all references to this class as it may be deleted in the future")]
+    // i did :)
     public sealed class StyleNano : StyleBase
     {
         public const string StyleClassBorderedWindowPanel = "BorderedWindowPanel";
@@ -48,7 +50,6 @@ namespace Content.Client.Stylesheets
         public const string StyleClassHandSlotHighlight = "HandSlotHighlight";
         public const string StyleClassChatPanel = "ChatPanel";
         public const string StyleClassChatSubPanel = "ChatSubPanel";
-        public const string StyleClassTransparentBorderedWindowPanel = "TransparentBorderedWindowPanel";
         public const string StyleClassHotbarPanel = "HotbarPanel";
         public const string StyleClassTooltipPanel = "tooltipBox";
         public const string StyleClassTooltipAlertTitle = "tooltipAlertTitle";
@@ -66,6 +67,11 @@ namespace Content.Client.Stylesheets
         public const string StyleClassChatChannelSelectorButton = "chatSelectorOptionButton";
         public const string StyleClassChatFilterOptionButton = "chatFilterOptionButton";
         public const string StyleClassStorageButton = "storageButton";
+        public const string StyleClassInset = "Inset";
+
+        public const string StyleClassConsoleHeading = "ConsoleHeading";
+        public const string StyleClassConsoleSubHeading = "ConsoleSubHeading";
+        public const string StyleClassConsoleText = "ConsoleText";
 
         public const string StyleClassSliderRed = "Red";
         public const string StyleClassSliderGreen = "Green";
@@ -98,7 +104,6 @@ namespace Content.Client.Stylesheets
 
         public static readonly Color ButtonColorDefault = Color.FromHex("#464966");
         public static readonly Color ButtonColorDefaultRed = Color.FromHex("#D43B3B");
-        public static readonly Color ButtonColorDefaultPurpleAndCool = Color.FromHex("#58296B"); // Imp
         public static readonly Color ButtonColorHovered = Color.FromHex("#575b7f");
         public static readonly Color ButtonColorHoveredRed = Color.FromHex("#DF6B6B");
         public static readonly Color ButtonColorPressed = Color.FromHex("#3e6c45");
@@ -150,16 +155,57 @@ namespace Content.Client.Stylesheets
         //Buttons
         public const string StyleClassCrossButtonRed = "CrossButtonRed";
         public const string StyleClassButtonColorRed = "ButtonColorRed";
-        public const string StyleClassButtonColorPurpleAndCool = "ButtonColorPurpleAndCool"; // Imp
         public const string StyleClassButtonColorGreen = "ButtonColorGreen";
 
         public static readonly Color ChatBackgroundColor = Color.FromHex("#25252ADD");
 
-        //Bwoink
+        // DeltaV - AAC button variables
+        public static readonly string CommandButtonClass = "CommandButton";
+        public static readonly string EngineeringButtonClass = "EngineeringButton";
+        public static readonly string EpistemicsButtonClass = "EpistemicsButton";
+        public static readonly string JusticeButtonClass = "JusticeButton";
+        public static readonly string LogisticsButtonClass = "LogisticsButton";
+        public static readonly string MedicalButtonClass = "MedicalButton";
+        public static readonly string SecurityButtonClass = "SecurityButton";
+        public static readonly string ServiceButtonClass = "ServiceButton";
+
+        // DeltaV - AAC button colors
+        public static readonly Color CommandButtonColorDefault = Color.FromHex("#404A58");
+        public static readonly Color CommandColorHovered = Color.FromHex("#4F587B");
+        public static readonly Color EngineeringButtonColorDefault = Color.FromHex("#77684B");
+        public static readonly Color EngineeringColorHovered = Color.FromHex("#776D71");
+        public static readonly Color EpistemicsButtonColorDefault = Color.FromHex("#6F5973");
+        public static readonly Color EpistemicsColorHovered = Color.FromHex("#71638E");
+        public static readonly Color LogisticsButtonColorDefault = Color.FromHex("#61503A");
+        public static readonly Color LogisticsColorHovered = Color.FromHex("#675C64");
+        public static readonly Color JusticeButtonColorDefault = Color.FromHex("#4F3D4C");
+        public static readonly Color JusticeColorHovered = Color.FromHex("#5C4B5A");
+        public static readonly Color MedicalButtonColorDefault = Color.FromHex("#49687D");
+        public static readonly Color MedicalColorHovered = Color.FromHex("#556E95");
+        public static readonly Color SecurityButtonColorDefault = Color.FromHex("#724449");
+        public static readonly Color SecurityColorHovered = Color.FromHex("#745370");
+        public static readonly Color ServiceButtonColorDefault = Color.FromHex("#607952");
+        public static readonly Color ServiceColorHovered = Color.FromHex("#667A76");
+        // End DeltaV
+
+		//Bwoink
         public const string StyleClassPinButtonPinned = "pinButtonPinned";
         public const string StyleClassPinButtonUnpinned = "pinButtonUnpinned";
 
-        //Manifest
+        // i'm not sure what the missing symbols were referencing, and this is getting obseleted anyway so:
+        public const string ButtonOpenRight = "OpenRight";
+        public const string ButtonOpenLeft = "OpenLeft";
+        public const string ButtonOpenBoth = "OpenBoth";
+        public const string ButtonSquare = "OpenBoth";
+        public const string ButtonCaution = "negative";
+        public const string StyleClassLabelHeading = "LabelHeading";
+        public const string StyleClassLabelSubText = "LabelSubText";
+        public const string StyleClassRedTopButton = "negative";
+        public const string ClassHighDivider = "HighDivider";
+        public const string ClassLowDivider = "LowDivider";
+        public const string ClassAngleRect = "AngleRect";
+
+        // imp Manifest
         public const string StyleClassCrewManifestGender = "CrewManifestGender";
 
 
@@ -184,6 +230,7 @@ namespace Content.Client.Stylesheets
             var notoSansBold18 = resCache.NotoStack(variation: "Bold", size: 18);
             var notoSansBold20 = resCache.NotoStack(variation: "Bold", size: 20);
             var notoSansMono = resCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 12);
+
             var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
             var windowHeader = new StyleBoxTexture
             {
@@ -235,13 +282,6 @@ namespace Content.Client.Stylesheets
                 Texture = handSlotHighlightTex,
             };
             handSlotHighlight.SetPatchMargin(StyleBox.Margin.All, 2);
-
-            var borderedTransparentWindowBackgroundTex = resCache.GetTexture("/Textures/Interface/Nano/transparent_window_background_bordered.png");
-            var borderedTransparentWindowBackground = new StyleBoxTexture
-            {
-                Texture = borderedTransparentWindowBackgroundTex,
-            };
-            borderedTransparentWindowBackground.SetPatchMargin(StyleBox.Margin.All, 2);
 
             var hotbarBackground = new StyleBoxTexture
             {
@@ -349,6 +389,16 @@ namespace Content.Client.Stylesheets
             chatFilterButton.SetPatchMargin(StyleBox.Margin.All, 5);
             chatFilterButton.SetPadding(StyleBox.Margin.All, 2);
 
+            var outputPanelScrollDownButtonTex = resCache.GetTexture("/Textures/Interface/Nano/rounded_button_half_bordered.svg.96dpi.png");
+            var outputPanelScrollDownButton = new StyleBoxTexture
+            {
+                Texture = outputPanelScrollDownButtonTex,
+            };
+            outputPanelScrollDownButton.SetPatchMargin(StyleBox.Margin.All, 5);
+            outputPanelScrollDownButton.SetPadding(StyleBox.Margin.All, 2);
+            outputPanelScrollDownButton.SetPadding(StyleBox.Margin.Top, 0);
+            outputPanelScrollDownButton.SetPadding(StyleBox.Margin.Bottom, 0);
+
             var smallButtonTex = resCache.GetTexture("/Textures/Interface/Nano/button_small.svg.96dpi.png");
             var smallButtonBase = new StyleBoxTexture
             {
@@ -450,10 +500,8 @@ namespace Content.Client.Stylesheets
             itemListItemBackgroundTransparent.SetContentMarginOverride(StyleBox.Margin.Vertical, 2);
             itemListItemBackgroundTransparent.SetContentMarginOverride(StyleBox.Margin.Horizontal, 4);
 
-            var squareTex = resCache.GetTexture("/Textures/Interface/Nano/square.png");
-            var listContainerButton = new StyleBoxTexture
+            var listContainerButton = new StyleBoxFlat
             {
-                Texture = squareTex,
                 ContentMarginLeftOverride = 10
             };
 
@@ -576,12 +624,6 @@ namespace Content.Client.Stylesheets
                     {
                         new StyleProperty(PanelContainer.StylePropertyPanel, borderedWindowBackground),
                     }),
-                new StyleRule(
-                    new SelectorElement(null, new[] {StyleClassTransparentBorderedWindowPanel}, null, null),
-                    new[]
-                    {
-                        new StyleProperty(PanelContainer.StylePropertyPanel, borderedTransparentWindowBackground),
-                    }),
                 // inventory slot background
                 new StyleRule(
                     new SelectorElement(null, new[] {StyleClassInventorySlotBackground}, null, null),
@@ -674,23 +716,6 @@ namespace Content.Client.Stylesheets
 
                 Element<ContainerButton>().Class(ContainerButton.StyleClassButton).Class(ButtonCaution)
                     .Pseudo(ContainerButton.StylePseudoClassDisabled)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionDisabled),
-
-                // Colors for confirm buttons confirm states.
-                Element<ConfirmButton>()
-                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassNormal)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionDefault),
-
-                Element<ConfirmButton>()
-                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassHover)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionHovered),
-
-                Element<ConfirmButton>()
-                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassPressed)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionPressed),
-
-                Element<ConfirmButton>()
-                    .Pseudo(ConfirmButton.ConfirmPrefix + ContainerButton.StylePseudoClassDisabled)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorCautionDisabled),
 
                 new StyleRule(new SelectorChild(
@@ -1020,11 +1045,11 @@ namespace Content.Client.Stylesheets
                 }),
 
                 // small number for the entity counter in the entity menu
-                new StyleRule(new SelectorElement(typeof(Label), new[] {ContextMenuElement.StyleClassEntityMenuIconLabel}, null, null), new[]
-                {
-                    new StyleProperty("font", notoSans10),
-                    new StyleProperty(Label.StylePropertyAlignMode, Label.AlignMode.Right),
-                }),
+                // new StyleRule(new SelectorElement(typeof(Label), new[] {ContextMenuElement.StyleClassEntityMenuIconLabel}, null, null), new[]
+                // {
+                //     new StyleProperty("font", notoSans10),
+                //     new StyleProperty(Label.StylePropertyAlignMode, Label.AlignMode.Right),
+                // }),
 
                 // hotbar slot
                 new StyleRule(new SelectorElement(typeof(RichTextLabel), new[] {StyleClassHotbarSlotNumber}, null, null), new[]
@@ -1196,13 +1221,6 @@ namespace Content.Client.Stylesheets
                     }),
 
                 new StyleRule(
-                    new SelectorElement(typeof(MenuButton), new[] {MenuButton.StyleClassRedTopButton}, null, new[] {Button.StylePseudoClassNormal}),
-                    new[]
-                    {
-                        new StyleProperty(Button.StylePropertyModulateSelf, ButtonColorDefaultRed),
-                    }),
-
-                new StyleRule(
                     new SelectorElement(typeof(MenuButton), null, null, new[] {Button.StylePseudoClassNormal}),
                     new[]
                     {
@@ -1221,20 +1239,6 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(Button.StylePropertyModulateSelf, ButtonColorHovered),
-                    }),
-
-                new StyleRule(
-                    new SelectorElement(typeof(MenuButton), new[] {MenuButton.StyleClassRedTopButton}, null, new[] {Button.StylePseudoClassHover}),
-                    new[]
-                    {
-                        new StyleProperty(Button.StylePropertyModulateSelf, ButtonColorHoveredRed),
-                    }),
-
-                new StyleRule(
-                    new SelectorElement(typeof(Label), new[] {MenuButton.StyleClassLabelTopButton}, null, null),
-                    new[]
-                    {
-                        new StyleProperty(Label.StylePropertyFont, notoSansDisplayBold14),
                     }),
 
                 // NanoHeading
@@ -1267,7 +1271,7 @@ namespace Content.Client.Stylesheets
                     .Prop("font", notoSansItalic10)
                     .Prop("font-color", ItemStatusNotHeldColor),
 
-                Element<RichTextLabel>()
+                Element<RichTextLabel>() // imp add
                     .Class(StyleClassCrewManifestGender)
                     .Prop("font", notoSansItalic10)
                     .Prop("font-style", "italic"),
@@ -1317,6 +1321,7 @@ namespace Content.Client.Stylesheets
                 {
                     new StyleProperty(Button.StylePropertyStyleBox, chatChannelButton),
                 }),
+
                 // chat filter button
                 new StyleRule(new SelectorElement(typeof(ContainerButton), new[] {StyleClassChatFilterOptionButton}, null, null), new[]
                 {
@@ -1338,6 +1343,11 @@ namespace Content.Client.Stylesheets
                 {
                     new StyleProperty(Control.StylePropertyModulateSelf, ButtonColorDisabled),
                 }),
+
+                // output panel scroll button
+                Element<Button>()
+                    .Class(OutputPanel.StyleClassOutputPanelScrollDownButton)
+                    .Prop(Button.StylePropertyStyleBox, outputPanelScrollDownButton),
 
                 // OptionButton
                 new StyleRule(new SelectorElement(typeof(OptionButton), null, null, null), new[]
@@ -1466,6 +1476,7 @@ namespace Content.Client.Stylesheets
 
                 Element<TextureButton>().Class("CrossButtonRed").Pseudo(TextureButton.StylePseudoClassHover)
                     .Prop(Control.StylePropertyModulateSelf, Color.FromHex("#753131")),
+
                 // ---
 
                 // Profile Editor
@@ -1501,20 +1512,11 @@ namespace Content.Client.Stylesheets
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorHoveredRed),
                 // ---
 
-                // Imp
-                Element<Button>().Class("ButtonColorPurpleAndCool")
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorDefaultPurpleAndCool),
-
-                Element<Button>().Class("ButtonColorPurpleAndCool").Pseudo(ContainerButton.StylePseudoClassNormal)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorDefaultPurpleAndCool),
-
-                Element<Button>().Class("ButtonColorPurpleAndCool").Pseudo(ContainerButton.StylePseudoClassHover)
-                    .Prop(Control.StylePropertyModulateSelf, ButtonColorDefaultPurpleAndCool),
-
                 // Green Button ---
                 Element<Button>().Class("ButtonColorGreen")
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDefault),
 
+                // imp add start
                 // Accept button (merge with green button?) ---
                 Element<Button>().Class("ButtonAccept")
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDefault),
@@ -1527,6 +1529,7 @@ namespace Content.Client.Stylesheets
 
                 Element<Button>().Class("ButtonAccept").Pseudo(ContainerButton.StylePseudoClassDisabled)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDisabled),
+                // imp add end
 
                 Element<Button>().Class("ButtonColorGreen").Pseudo(ContainerButton.StylePseudoClassNormal)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDefault),
@@ -1675,24 +1678,95 @@ namespace Content.Client.Stylesheets
                         BackgroundColor = FancyTreeSelectedRowColor,
                     }),
 
-                // Silicon law edit ui
+                // DeltaV - AAC button styles
+                Element<ContainerButton>()
+                    .Class(CommandButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, CommandButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(CommandButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, CommandColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(EngineeringButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, EngineeringButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(EngineeringButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, EngineeringColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(EpistemicsButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, EpistemicsButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(EpistemicsButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, EpistemicsColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(LogisticsButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, LogisticsButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(LogisticsButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, LogisticsColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(MedicalButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, MedicalButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(MedicalButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, MedicalColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(SecurityButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, SecurityButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(SecurityButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, SecurityColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(ServiceButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, ServiceButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(ServiceButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, ServiceColorHovered),
+
+                Element<ContainerButton>()
+                    .Class(JusticeButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassNormal)
+                    .Prop(Control.StylePropertyModulateSelf, JusticeButtonColorDefault),
+
+                Element<ContainerButton>()
+                    .Class(JusticeButtonClass)
+                    .Pseudo(ContainerButton.StylePseudoClassHover)
+                    .Prop(Control.StylePropertyModulateSelf, JusticeColorHovered),
+                // End DeltaV
+
+				// Silicon law edit ui
                 Element<Label>().Class(SiliconLawContainer.StyleClassSiliconLawPositionLabel)
                     .Prop(Label.StylePropertyFontColor, NanoGold),
-                // Pinned button style
-                new StyleRule(
-                    new SelectorElement(typeof(TextureButton), new[] { StyleClassPinButtonPinned }, null, null),
-                    new[]
-                    {
-                        new StyleProperty(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/Bwoink/pinned.png"))
-                    }),
 
-                // Unpinned button style
-                new StyleRule(
-                    new SelectorElement(typeof(TextureButton), new[] { StyleClassPinButtonUnpinned }, null, null),
-                    new[]
-                    {
-                        new StyleProperty(TextureButton.StylePropertyTexture, resCache.GetTexture("/Textures/Interface/Bwoink/un_pinned.png"))
-                    })
+                Element<PanelContainer>()
+                    .Class(StyleClassInset)
+                    .Prop(PanelContainer.StylePropertyPanel, insetBack),
             }).ToList());
         }
     }

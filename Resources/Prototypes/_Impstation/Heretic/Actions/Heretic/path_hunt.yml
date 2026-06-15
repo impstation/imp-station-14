@@ -1,0 +1,47 @@
+##hunt path actions
+- type: entity
+  parent: BaseAction
+  id: ActionHereticWatchtower
+  name: Watchtower Striving
+  description: Place down a Watchtower, which will redirect bullets towards your foes or other Watchtowers.
+  components:
+  - type: Action
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Heretic/abilities_heretic.rsi
+      state: watchtower_striving
+  - type: InstantAction
+    event: !type:EventHereticPlaceWatchtower
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-place-watchtower
+
+- type: entity
+  parent: BaseAction
+  id: ActionHereticSerpentsFocus
+  name: Serpent's Focus
+  description: Focus your senses, which will allow you to see prey through walls - but block out all other vision.
+  components:
+  - type: Action
+    useDelay: 5
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Heretic/abilities_heretic.rsi
+      state: serpents_focus
+  - type: InstantAction
+    event: !type:EventHereticSerpentFocus
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-serpents-focus
+
+- type: entity
+  parent: BaseAction
+  id: ActionToggleSkaptodonCloak
+  name: Skaptodon Cloak
+  description: Toggle your Skaptodon Cloak's invisibility.
+  components:
+  - type: Action
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:ToggleActionEvent

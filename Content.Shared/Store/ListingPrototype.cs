@@ -1,11 +1,12 @@
 using System.Linq;
 using Content.Shared.FixedPoint;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Store.Components;
 using Content.Shared.StoreDiscount.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Heretic.Prototypes; // imp
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array; // imp
 
 namespace Content.Shared.Store;
 
@@ -28,7 +29,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.Description,
         other.Conditions,
         other.Icon,
-        other.Buyable,
+        other.Buyable, // imp add
         other.Priority,
         other.ProductEntity,
         other.ProductAction,
@@ -42,8 +43,9 @@ public partial class ListingData : IEquatable<ListingData>
         other.OriginalCost,
         other.RestockTime,
         other.DiscountDownTo,
-        other.ProductHereticKnowledge,
-        other.DisableRefund
+        other.ProductHereticKnowledge, // imp add
+        other.DisableRefund,
+        other.ApplyToMob
     )
     {
 
@@ -55,7 +57,7 @@ public partial class ListingData : IEquatable<ListingData>
         string? description,
         List<ListingCondition>? conditions,
         SpriteSpecifier? icon,
-        bool buyable,
+        bool buyable, // imp
         int priority,
         EntProtoId? productEntity,
         EntProtoId? productAction,
@@ -69,8 +71,9 @@ public partial class ListingData : IEquatable<ListingData>
         IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> originalCost,
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
-        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge,
-        bool disableRefund
+        ProtoId<HereticKnowledgePrototype>? productHereticKnowledge, // imp
+        bool disableRefund,
+        bool applyToMob
     )
     {
         Name = name;
@@ -78,7 +81,7 @@ public partial class ListingData : IEquatable<ListingData>
         Description = description;
         Conditions = conditions?.ToList();
         Icon = icon;
-        Buyable = buyable;
+        Buyable = buyable; // imp
         Priority = priority;
         ProductEntity = productEntity;
         ProductAction = productAction;
@@ -92,8 +95,9 @@ public partial class ListingData : IEquatable<ListingData>
         OriginalCost = originalCost;
         RestockTime = restockTime;
         DiscountDownTo = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(dataDiscountDownTo);
-        ProductHereticKnowledge = productHereticKnowledge;
+        ProductHereticKnowledge = productHereticKnowledge; // imp
         DisableRefund = disableRefund;
+        ApplyToMob = applyToMob;
     }
 
     [ViewVariables]
@@ -145,11 +149,18 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public SpriteSpecifier? Icon;
 
+    // imp
     /// <summary>
     /// Labels a listing as available to purchase
     /// </summary>
     [DataField]
     public bool Buyable = true;
+
+    /// <summary>
+    /// Imp addition, if this listing should be hidden from the store when it's unbuyable.
+    /// </summary>
+    [DataField]
+    public bool HiddenWhenUnbuyable;
 
     /// <summary>
     /// The priority for what order the listings will show up in on the menu.
@@ -223,6 +234,12 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public bool DisableRefund = false;
 
+    /// <summary>
+    /// Whether or not to apply the store listing to the player mob rather than the player mind.
+    /// </summary>
+    [DataField]
+    public bool ApplyToMob = false;
+
     public bool Equals(ListingData? listing)
     {
         if (listing == null)
@@ -235,7 +252,9 @@ public partial class ListingData : IEquatable<ListingData>
             ProductEntity != listing.ProductEntity ||
             ProductAction != listing.ProductAction ||
             ProductEvent?.GetType() != listing.ProductEvent?.GetType() ||
-            RestockTime != listing.RestockTime)
+            RestockTime != listing.RestockTime ||
+            DisableRefund != listing.DisableRefund ||
+            ApplyToMob != listing.ApplyToMob)
             return false;
 
         if (Icon != null && !Icon.Equals(listing.Icon))
@@ -255,16 +274,36 @@ public partial class ListingData : IEquatable<ListingData>
 
         return true;
     }
+
 }
 
 /// <summary>
 ///     Defines a set item listing that is available in a store
 /// </summary>
-[Prototype("listing")]
-[Serializable, NetSerializable]
+[Prototype]
 [DataDefinition]
-public sealed partial class ListingPrototype : ListingData, IPrototype
+public sealed partial class ListingPrototype : ListingData, IPrototype, IInheritingPrototype // imp edit, add IInheritingPrototype
 {
+    // imp edit start, add support for parents and abstract
+    /// <summary>
+    ///     The collection of parents for this prototype. Parents' data is applied to the child in order of
+    ///     specification in the array.
+    /// </summary>
+    ///  <inheritdoc />
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<ListingPrototype>))]
+    public string[]? Parents { get; private set; }
+
+    /// <summary>
+    ///     Whether this prototype is "abstract". This behaves ike an abstract class, abstract prototypes are never
+    ///     indexable and do not show up when enumerating prototypes, as they're just a source of data to inherit
+    ///     from.
+    /// </summary>
+    ///  <inheritdoc />
+    [NeverPushInheritance]
+    [AbstractDataField]
+    public bool Abstract { get; private set; }
+    // imp edit end
+
     /// <summary> Setter/getter for item cost from prototype. </summary>
     [DataField]
     public IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Cost
@@ -303,7 +342,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.Description,
             listingData.Conditions,
             listingData.Icon,
-            listingData.Buyable,
+            listingData.Buyable, // imp
             listingData.Priority,
             listingData.ProductEntity,
             listingData.ProductAction,
@@ -317,8 +356,9 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.OriginalCost,
             listingData.RestockTime,
             listingData.DiscountDownTo,
-            listingData.ProductHereticKnowledge,
-            listingData.DisableRefund
+            listingData.ProductHereticKnowledge, // imp
+            listingData.DisableRefund,
+            listingData.ApplyToMob
         )
     {
     }
@@ -443,8 +483,8 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
 ///     Defines set of rules for category of discounts -
 ///     how <see cref="StoreDiscountComponent"/> will be filled by respective system.
 /// </summary>
-[Prototype("discountCategory")]
-[DataDefinition, Serializable, NetSerializable]
+[Prototype]
+[DataDefinition]
 public sealed partial class DiscountCategoryPrototype : IPrototype
 {
     [ViewVariables]

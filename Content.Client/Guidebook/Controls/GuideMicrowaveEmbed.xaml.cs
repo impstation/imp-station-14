@@ -12,6 +12,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
+using Robust.Client.GameObjects; // Frontier
 
 namespace Content.Client.Guidebook.Controls;
 
@@ -19,12 +20,15 @@ namespace Content.Client.Guidebook.Controls;
 /// Control for embedding a microwave recipe into a guidebook.
 /// </summary>
 [UsedImplicitly, GenerateTypedNameReferences]
-public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, ISearchableControl
+public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, ISearchableControl, IPrototypeRepresentationControl
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
+    private readonly SpriteSystem _sprite = default!; // Frontier
 
-    private ISawmill _sawmill = default!;
+    private readonly ISawmill _sawmill = default!;
+
+    public IPrototype? RepresentedPrototype { get; private set; }
 
     public GuideMicrowaveEmbed()
     {
@@ -32,7 +36,8 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
         IoCManager.InjectDependencies(this);
         MouseFilter = MouseFilterMode.Stop;
 
-        _sawmill = _logManager.GetSawmill("guidemicrowaveembed");
+        _sawmill = _logManager.GetSawmill("guidemicrowaveembed"); // Frontier
+        _sprite = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<SpriteSystem>(); // Frontier
     }
 
     public GuideMicrowaveEmbed(string recipe) : this()
@@ -80,6 +85,8 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
     {
         var entity = _prototype.Index<EntityPrototype>(recipe.Result);
 
+        RepresentedPrototype = entity;
+
         IconContainer.AddChild(new GuideEntityEmbed(recipe.Result, false, false));
         ResultName.SetMarkup(entity.Name);
         ResultDescription.SetMarkup(entity.Description);
@@ -99,8 +106,9 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
             solidNameMsg.AddMarkupOrThrow(Loc.GetString("guidebook-microwave-solid-name-display", ("ingredient", ingredient.Name)));
             solidNameMsg.Pop();
 
-            var solidNameLabel = new RichTextLabel();
+            var solidNameLabel = new GuidebookRichPrototypeLink();
             solidNameLabel.SetMessage(solidNameMsg);
+            solidNameLabel.LinkedPrototype = ingredient;
 
             IngredientsGrid.AddChild(solidNameLabel);
 
@@ -129,9 +137,10 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
             liquidColorMsg.AddMarkupOrThrow(Loc.GetString("guidebook-microwave-reagent-color-display", ("color", reagent.SubstanceColor)));
             liquidColorMsg.Pop();
 
-            var liquidColorLabel = new RichTextLabel();
+            var liquidColorLabel = new GuidebookRichPrototypeLink();
             liquidColorLabel.SetMessage(liquidColorMsg);
             liquidColorLabel.HorizontalAlignment = Control.HAlignment.Center;
+            liquidColorLabel.LinkedPrototype = reagent;
 
             IngredientsGrid.AddChild(liquidColorLabel);
 
@@ -167,12 +176,52 @@ public sealed partial class GuideMicrowaveEmbed : PanelContainer, IDocumentTag, 
 
     private void GenerateCookTime(FoodRecipePrototype recipe)
     {
+        // Frontier: multiple processing methods per recipe
+        List<string> processingTypes = new();
+        var recipeType = (MicrowaveRecipeType)recipe.RecipeType;
+        if (recipeType.HasFlag(MicrowaveRecipeType.Microwave))
+        {
+            if (recipe.SecretRecipe)
+                AppendMachineTexture("/Textures/Structures/Machines/microwave_syndie.rsi", "mw");
+            else
+                AppendMachineTexture("/Textures/Structures/Machines/microwave.rsi", "mw");
+            processingTypes.Add(Loc.GetString("guidebook-food-processing-type-microwave"));
+        }
+        if (recipeType.HasFlag(MicrowaveRecipeType.Oven))
+        {
+            if (recipe.SecretRecipe)
+                AppendMachineTexture("/Textures/_NF/Structures/Machines/oven_syndie.rsi", "composite_off");
+            else
+                AppendMachineTexture("/Textures/_NF/Structures/Machines/oven.rsi", "composite_off");
+            processingTypes.Add(Loc.GetString("guidebook-food-processing-type-oven"));
+        }
+        if (recipeType.HasFlag(MicrowaveRecipeType.Assembler))
+        {
+            AppendMachineTexture("/Textures/_NF/Structures/Machines/assembler.rsi", "assembler");
+            processingTypes.Add(Loc.GetString("guidebook-food-processing-type-assembler"));
+        }
+        if (recipeType.HasFlag(MicrowaveRecipeType.MedicalAssembler))
+        {
+            AppendMachineTexture("/Textures/_NF/Structures/Machines/medical_assembler.rsi", "mediwave-base");
+            processingTypes.Add(Loc.GetString("guidebook-food-processing-type-medical-assembler"));
+        }
+        var processingTypeString = string.Join('/', processingTypes);
         var msg = new FormattedMessage();
-        msg.AddMarkupOrThrow(Loc.GetString("guidebook-microwave-cook-time", ("time", recipe.CookTime)));
+        msg.AddMarkupOrThrow(Loc.GetString("guidebook-food-processing-cooking", ("processingTypes", processingTypeString), ("time", recipe.CookTime)));
         msg.Pop();
+        // End Frontier: multiple processing methods per recipe
 
         CookTimeLabel.SetMessage(msg);
     }
+
+    // Frontier: convenience function to add a machine to the recipe
+    private void AppendMachineTexture(string path, string state)
+    {
+        var machineTexture = new TextureRect();
+        machineTexture.Texture = _sprite.Frame0(new SpriteSpecifier.Rsi(new ResPath(path), state));
+        Machines.AddChild(machineTexture);
+    }
+    // End Frontier
 
     private void GenerateControl(FoodRecipePrototype recipe)
     {

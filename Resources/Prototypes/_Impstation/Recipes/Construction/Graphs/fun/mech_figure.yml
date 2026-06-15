@@ -1,0 +1,443 @@
+- type: constructionGraph
+  id: mech_kit_ripley #this intentionally doesn't show up in the construction menu
+  start: start
+  graph:
+  - node: start #this is just to let you use a tool on the item, this step should never actually come up in practice
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToyRipleySprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToyRipleySprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToyRipley
+
+
+- type: constructionGraph
+  id: mech_kit_fireripley
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToyFireRipleySprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToyFireRipleySprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToyFireRipley
+
+- type: constructionGraph
+  id: mech_kit_deathripley
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToyDeathRipleySprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToyDeathRipleySprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToyDeathRipley
+
+
+- type: constructionGraph
+  id: mech_kit_gygax
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToyGygaxSprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToyGygaxSprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToyGygax
+
+
+- type: constructionGraph
+  id: mech_kit_durand
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToyDurandSprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToyDurandSprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToyDurand
+
+
+- type: constructionGraph
+  id: mech_kit_honk
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToyHonkSprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToyHonkSprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToyHonk
+
+
+- type: constructionGraph
+  id: mech_kit_marauder
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToyMarauderSprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToyMarauderSprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToyMarauder
+
+
+- type: constructionGraph
+  id: mech_kit_seraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToySeraphSprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToySeraphSprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToySeraph
+
+
+- type: constructionGraph
+  id: mech_kit_mauler
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToyMaulerSprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToyMaulerSprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToyMauler
+
+
+- type: constructionGraph
+  id: mech_kit_odysseus
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToyOdysseusSprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToyOdysseusSprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToyOdysseus
+
+
+- type: constructionGraph
+  id: mech_kit_phazon
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToyPhazonSprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToyPhazonSprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToyPhazon
+
+
+- type: constructionGraph
+  id: mech_kit_reticence
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: sprues
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 2
+      - material: Steel
+        amount: 5
+        doAfter: 1
+
+  - node: sprues
+    entity: ToyReticenceSprue
+    edges:
+    - to: pieces
+      steps:
+      - tool: Cutting
+        doAfter: 5
+
+  - node: pieces
+    entity: ToyReticenceSprueCut
+    edges:
+    - to: mech
+      steps:
+      - tool: Slicing
+        doAfter: 5
+      - tool: Anchoring
+        doAfter: 5
+
+  - node: mech
+    entity: ToyReticence
+
+

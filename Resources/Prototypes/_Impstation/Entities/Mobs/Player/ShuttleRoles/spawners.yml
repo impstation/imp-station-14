@@ -39,3 +39,92 @@
   - type: RandomSpawner
     prototypes:
     - RandomHumanoidVisitorRoboticist
+
+- type: entity
+  name: visiting admin assistant spawner
+  id: VisitorAdminAssistantSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidVisitorAdminAssistant
+
+- type: entity
+  name: visiting hospitality director spawner
+  id: VisitorHospitalityDirectorSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidVisitorHospitalityDirector
+
+- type: entity
+  name: visiting librarian spawner
+  id: VisitorLibrarianSpawnerCryptid
+  parent: MarkerBase
+  suffix: heretic chance
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidVisitorLibrarianCryptid
+
+#this is here to facilitate the random spawners for the shuttles, so that the RandomAntagChance component can be used
+- type: entity 
+  name: visiting paramedic spawner
+  id: VisitorParamedicSpawnerFlatline
+  parent: MarkerBase
+  suffix: tag
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner_medical
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidVisitorParamedicFlatline
+
+#this is here to facilitate the random spawners for the shuttles, so that the RandomAntagChance component can be used
+- type: entity
+  name: visiting chaplain spawner
+  id: VisitorChaplainSpawnerEternal
+  parent: MarkerBase
+  suffix: tag
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidVisitorChaplainEternal
+
+- type: entity
+  name: party gray spawner
+  id: VisitorPartyGraySpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _Impstation/Objects/Consumable/Drinks/Metamorphic/uapglass.rsi
+        state: icon
+  - type: RandomSpawner
+    prototypes:
+    - MobGrayParty

@@ -49,6 +49,11 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  - type: AutomationSlots # Goobstation
+    slots:
+    - !type:AutomatedMaterialStorage
+      input: AutomationSlotMaterials
+      output: null
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -107,11 +112,12 @@
   - type: Machine
     board: AutolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist:
+    whitelist: &StandardMaterialWhitelist
       tags:
         - Sheet
         - RawMaterial
         - Ingot
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -122,6 +128,8 @@
     - PartsStatic
     - AtmosStatic
     - CablesStatic
+    - PaperworkStatic
+    - TowelsStatic
     - CargoStatic
     - MaterialsStatic
     - BasicChemistryStatic
@@ -137,6 +145,7 @@
   - type: EmagLatheRecipes
     emagStaticPacks:
     - SecurityAmmoStatic
+    - SyndicateAmmoStatic
     - ImpAutoEmagged # imp
   - type: BlueprintReceiver
     whitelist:
@@ -184,11 +193,8 @@
   - type: Machine
     board: ProtolatheMachineCircuitboard
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
   - type: Lathe
     idleState: icon
     runningState: building
@@ -199,6 +205,7 @@
     - SurgeryStatic
     - ImpProtoStatic # Imp
     - ReportingStatic # DeltaV
+    - SteelBriefcaseImp # Imp
     dynamicPacks:
     - AdvancedTools
     - ScienceEquipment
@@ -213,7 +220,6 @@
     - Janitor
     - Instruments
     - Equipment
-    - FauxTiles
     - ImpProtoDynamic # Imp
     - NFService # Frontier
   - type: EmagLatheRecipes
@@ -264,7 +270,6 @@
     - CargoBoardsStatic
     - MedicalBoardsStatic
     - EngineeringBoardsStatic
-    - CircuitFloorsStatic
     - ImpCircuitStatic # Imp
     dynamicPacks:
     - EngineeringBoards
@@ -276,15 +281,15 @@
     - MechBoards
     - ShuttleBoards
     - ImpCircuitDynamic # imp
+    - UpgradeKits # Goobstation
   - type: EmagLatheRecipes
+    emagStaticPacks: # imp
+    - ImpCircuitEmagged
     emagDynamicPacks:
     - SecurityBoards
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
   - type: RequireProjectileTarget
 
 - type: entity
@@ -328,11 +333,8 @@
     - MechParts
     - MechEquipment
   - type: MaterialStorage
-    whitelist:
-      tags:
-      - Sheet
-      - RawMaterial
-      - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
   - type: GuideHelp
     guides:
     - Robotics
@@ -400,26 +402,31 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    unlitIdleState: unlit
-    unlitRunningState: unlit-building
+    unlitIdleState: unlit #imp
+    unlitRunningState: unlit-building #imp
     staticPacks:
     - SecurityEquipmentStatic
     - SecurityPracticeStatic
     - SecurityAmmoStatic
     - SecurityWeaponsStatic
+    - SteelBriefcaseImp # Imp
     dynamicPacks:
+    - SalvageSecurityBoards
+    - SalvageSecurityWeapons
     - SecurityEquipment
     - SecurityBoards
     - SecurityExplosives
     - SecurityAmmo
     - SecurityWeapons
     - SecurityDisablers
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - SyndicateAmmoStatic
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Security]
 
 - type: entity
   id: AmmoTechFab
@@ -445,16 +452,16 @@
     - type: Lathe
       idleState: icon
       runningState: icon
-      unlitIdleState: unlit
-      unlitRunningState: unlit-building
+      unlitIdleState: unlit #imp
+      unlitRunningState: unlit-building #imp
       staticPacks:
       - SecurityAmmoStatic
+    - type: EmagLatheRecipes
+      emagStaticPacks:
+      - SyndicateAmmoStatic
     - type: MaterialStorage
-      whitelist:
-        tags:
-          - Sheet
-          - RawMaterial
-          - Ingot
+      whitelist: *StandardMaterialWhitelist
+    - type: OreSiloClient
 
 - type: entity
   id: MedicalTechFab
@@ -478,8 +485,8 @@
   - type: Lathe
     idleState: icon
     runningState: icon
-    unlitIdleState: unlit
-    unlitRunningState: unlit-building
+    unlitIdleState: unlit #imp
+    unlitRunningState: unlit-building #imp
     staticPacks:
     - TopicalsStatic
     - ChemistryStatic
@@ -488,7 +495,6 @@
     - MedicalClothingStatic
     - EmptyMedkitsStatic
     - SurgeryStatic
-    - ImpMedStatic # Imp
     dynamicPacks:
     - Chemistry
     - ImpMedDynamic # Imp
@@ -496,6 +502,9 @@
     board: MedicalTechFabCircuitboard
   - type: StealTarget
     stealGroup: MedicalTechFabCircuitboard
+  - type: OreSiloClient
+  - type: LatheAnnouncing
+    channels: [Medical]
 
 - type: entity
   parent: BaseLathe
@@ -518,6 +527,7 @@
     idleState: icon
     runningState: building
     staticPacks:
+    - TowelsStatic
     - ClothingCivilian
     - ClothingCargo
     - ClothingCommand
@@ -534,17 +544,16 @@
     - PrideFlags # imp
     - BeltsDeltaV # DeltaV
     - ClothingJustice # DeltaV
+    - ClothingBaseballNanotrasen # den
   - type: EmagLatheRecipes
     emagStaticPacks:
     - ClothingCentComm
     - ClothingSyndie
     - ImpClothesEmagged # Imp
+    - ClothingBaseballSyndicate # den
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - RawMaterial
-        - Ingot
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient
 
 - type: entity
   id: Biogenerator
@@ -588,6 +597,10 @@
     staticPacks:
     - BioGenIngredientsStatic
     - BioGenMaterialsStatic
+  - type: EmagLatheRecipes
+    emagStaticPacks:
+    - BioGenEmagStatic
+    - HostileCubesStatic
 
 - type: entity
   parent: BaseLathe
@@ -621,6 +634,13 @@
       staticPacks:
       - OreSmelting
       - RGlassSmelting
+    - type: MaterialStorageMagnetPickup # Imp This allows the ore processor to have a magnet that also inserts the ore
+      range: 0.30 # Imp The range of the magnet effect
+    - type: PlaceableSurface # Imp This is required for the magnet pickup to work, this component allows a dumpable surface
+    - type: PointLight # Imp This adds a red light glow around the basic ore processor to thematically show the temperature of the flame.
+      radius: 2.5
+      energy: 5
+      color: "#ff5a00"
 
 - type: entity
   parent: OreProcessor
@@ -639,6 +659,13 @@
     - OreSmelting
     - RGlassSmelting
     - AdvancedSmelting
+  - type: MaterialStorageMagnetPickup # Imp This allows the ore processor to have a magnet that also inserts the ore
+    range: 0.30 # Imp The range of the magnet effect
+  - type: PlaceableSurface # Imp This is required for the magnet pickup to work, this component allows a dumpable surface
+  - type: PointLight # Imp This adds a blue light glow around the industrial ore processor to thematically show the temperature of an even hotter flame.
+    radius: 2.5
+    energy: 5
+    color: "#5ad6ff"
 
 - type: entity
   parent: BaseLathe
@@ -664,6 +691,7 @@
       tags:
       - Raw
       - Wooden
+      - Boll
   - type: Lathe
     idleState: base_machine
     runningState: base_machine_processing
@@ -696,12 +724,16 @@
     idleState: icon
     runningState: building
     staticPacks:
-    - FloorTilesStatic
+    - FloorDarkTilesStatic
+    - FloorSteelTilesStatic
+    - FloorWhiteTilesStatic
+    - FloorMaintsTilesStatic
+    - FloorWoodTilesStatic
+    - FloorConcreteTilesStatic
+    - CircuitFloorsStatic
+    - FloorMarbleTilesStatic
+    dynamicPacks:
+    - FauxTiles
   - type: MaterialStorage
-    whitelist:
-      tags:
-        - Sheet
-        - Metal
-        - Wooden
-        - RawMaterial
-        - Plastic
+    whitelist: *StandardMaterialWhitelist
+  - type: OreSiloClient

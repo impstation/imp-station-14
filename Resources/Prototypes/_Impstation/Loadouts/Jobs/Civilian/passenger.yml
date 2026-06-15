@@ -1,13 +1,4 @@
-# The Next Generation
-- type: loadout
-  id: GraytiderSpaceJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: GreyTider
-  equipment:
-    jumpsuit: ClothingUniformSpaceJumpsuitGrayTider
-
-# Passenger Cloak Loadout Effect
+# Loadout Timer
 - type: loadoutEffectGroup
   id: UltimateGodGrey
   effects:
@@ -15,7 +6,7 @@
     requirement:
       !type:RoleTimeRequirement
       role: JobPassenger
-      time: 360000 # 100 hours, ~67 rounds. Only a true passenger main will have access to the greycloak.
+      time: 100h # ~67 rounds. Only a true passenger main will have access to the greycloak.
 
 # Neck
 - type: loadout
@@ -51,3 +42,12 @@
   id: BomberWhite
   equipment:
     outerClothing: ClothingOuterCoatBomberWhite
+
+# Jumpsuit
+- type: loadout
+  id: GraytiderSpaceJumpsuit
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: GreyTider
+  equipment:
+    jumpsuit: ClothingUniformSpaceJumpsuitGrayTider

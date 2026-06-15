@@ -12,12 +12,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 0
     # add every path here because you shouldn't be able to buy more starter knowledge
     blacklist:
     - Ash
     - Blade
     - Flesh
+    - Hunt
     - Lock
     - Rust
     - Void
@@ -36,7 +36,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 1
     whitelist:
     - Flesh
 
@@ -55,7 +54,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 2
 
 - type: listing
   id: HereticFleshPath4
@@ -71,7 +69,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 3
     whitelist:
     - Flesh
 
@@ -79,7 +76,7 @@
   id: HereticFleshPath5
   name: knowledge-path-flesh-s5-name
   description: knowledge-path-flesh-s5-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: flesh_surgery }
+  icon: { sprite: _Impstation/Heretic/abilities_heretic.rsi, state: flesh_surgery }
   productHereticKnowledge: KnittingOfFlesh
   cost:
     KnowledgePoint: 1
@@ -89,7 +86,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 4
     whitelist:
     - Flesh
 
@@ -108,7 +104,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 5
 
 - type: listing
   id: HereticFleshPath7
@@ -124,7 +119,6 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 6
     whitelist:
     - Flesh
 
@@ -143,13 +137,12 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 7
 
 - type: listing
   id: HereticFleshPath9
   name: knowledge-path-flesh-s9-name
   description: knowledge-path-flesh-s9-desc
-  icon: { sprite: _Goobstation/Heretic/abilities_heretic.rsi, state: final_hymn }
+  icon: { sprite: _Impstation/Heretic/abilities_heretic.rsi, state: reality_uncoil }
   productHereticKnowledge: AscensionFlesh
   cost:
     KnowledgePoint: 2
@@ -159,6 +152,5 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 8
     whitelist:
     - Flesh

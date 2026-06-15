@@ -1,0 +1,165 @@
+- type: entity
+  parent: BaseItem
+  id: BaseMagazineBoxShotgun
+  abstract: true
+  name: shell box (.50 shotgun)
+  description: A box made for 16 .50 shotgun shells.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/shotgun.rsi
+  - type: Item
+    size: Normal
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+      - ShellShotgun
+    capacity: 16
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxShotgun
+  id: BoxBeanbag
+  name: shell box (.50 stun slug)
+  description: A box made for 16 .50 shotgun shells, labeled as stun slugs.
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunBeanbag
+  - type: MagazineVisuals
+    magState: mag-alt
+    steps: 5
+    zeroVisible: false
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-alt-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: beanbag
+
+- type: entity
+  name: shell box (.50 buckshot)
+  description: A box made for 16 .50 shotgun shells, labeled as buckshot.
+  parent: BaseMagazineBoxShotgun
+  id: BoxLethalshot
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgun
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: lethal
+
+- type: entity
+  name: shell box (.50 slug)
+  description: A box made for 16 .50 shotgun shells, labeled as slugs.
+  parent: BaseMagazineBoxShotgun
+  id: BoxShotgunSlug
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunSlug
+  - type: MagazineVisuals
+    magState: mag-alt
+    steps: 5
+    zeroVisible: false
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-alt-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: slug
+
+- type: entity
+  name: shell box (.50 flare)
+  description: A box made for 16 .50 shotgun shells, labeled as flares.
+  parent: BaseMagazineBoxShotgun
+  id: BoxShotgunFlare
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunFlare
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: flare
+
+- type: entity
+  name: shell box (.50 incendiary)
+  description: A box made for 16 .50 shotgun shells, labeled as incendiary pellets.
+  parent: BaseMagazineBoxShotgun
+  id: BoxShotgunIncendiary
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunIncendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+
+- type: entity
+  name: shell box (.50 uranium)
+  description: A box made for 16 .50 shotgun shells, labeled as uranium pellets.
+  parent: BaseMagazineBoxShotgun
+  id: BoxShotgunUranium
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunUranium
+  - type: MagazineVisuals
+    magState: mag-alt
+    steps: 5
+    zeroVisible: false
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-alt-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: uranium
+
+- type: entity
+  name: shell box (.50 practice)
+  description: A box made for 16 .50 shotgun shells, labeled as practice ammo.
+  parent: BaseMagazineBoxShotgun
+  id: BoxShotgunPractice
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellShotgunPractice
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: practice
+
+- type: entity
+  name: shell box (.50 tranquilizer)
+  description: A box made for 16 .50 shotgun shells, labeled as tranquilizer darts.
+  parent: BaseMagazineBoxShotgun
+  id: BoxShellTranquilizer
+  components:
+  - type: BallisticAmmoProvider
+    proto: ShellTranquilizer
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: tranquilizer

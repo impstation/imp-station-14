@@ -12,12 +12,29 @@
   recipeUnlocks:
   - FullAutoConversionKit
   - HyperBurstConversionKit
+  - MagazinePistolP2Extended
+  - MagazinePistolP2ExtendedEmpty
+  - PowerCellBlasterMilitary
+  
+- type: technology
+  id: TranqDartResearch
+  name: research-technology-tranquilizer
+  icon:
+    sprite: _Impstation/Objects/Weapons/Guns/Snipers/tranqrifle.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 1
+  cost: 6000
+  recipeUnlocks:
+  - WeaponRifleTranq
+  - BoxTranqDart
+  - BoxIrwizineDart
 
 - type: technology
   id: AdvancedMunitions
   name: research-technology-advanced-munitions
   icon:
-    sprite: Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Boxes/pistol.rsi
     state: incendiarydisplay
   discipline: Arsenal
   tier: 1
@@ -28,11 +45,11 @@
   - MagazineRifleIncendiary
   - MagazinePistolIncendiary
   - MagazinePistolSubMachineGunIncendiary
+  - MagazinePistolP2Incendiary
   - MagazineLightRifleIncendiary
   - MagazineLPistolIncendiary
   - SpeedLoaderMagnumIncendiary
   - MagazineShotgunIncendiary
-  - MagazineBoxLPistolIncendiary
   - MagazineBoxPistolIncendiary
   - MagazineBoxMagnumIncendiary
   - MagazineBoxLightRifleIncendiary
@@ -40,11 +57,11 @@
   - MagazineRifleUranium
   - MagazineLPistolUranium
   - MagazinePistolUranium
+  - MagazinePistolP2Uranium
   - MagazineDMRUranium
   - MagazinePistolSubMachineGunUranium
   - MagazineLightRifleUranium
   - SpeedLoaderMagnumUranium
-  - MagazineBoxLPistolUranium
   - MagazineBoxPistolUranium
   - MagazineBoxMagnumUranium
   - MagazineBoxLightRifleUranium

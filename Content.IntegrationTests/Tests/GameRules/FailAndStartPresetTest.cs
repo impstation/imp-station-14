@@ -56,7 +56,6 @@ public sealed class FailAndStartPresetTest
     ///     Test that a nuke ops gamemode can start after failing to start once.
     /// </summary>
     [Test]
-    [Ignore("Broken due to engine issue relating to RemCompDeferred. Note: This test will only fail occasionally.")]
     public async Task FailAndStartTest()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -86,7 +85,7 @@ public sealed class FailAndStartPresetTest
         Assert.That(ticker.PlayerGameStatuses[client.User!.Value], Is.EqualTo(PlayerGameStatus.NotReadyToPlay));
 
         // Try to start nukeops without readying up
-        await pair.WaitCommand("setgamepreset TestPresetTenPlayers");
+        await pair.WaitCommand("setgamepreset TestPresetTenPlayers 9999");
         await pair.WaitCommand("startround");
         await pair.RunTicksSync(10);
 
@@ -100,7 +99,7 @@ public sealed class FailAndStartPresetTest
         // Ready up and start nukeops
         await pair.WaitClientCommand("toggleready True");
         Assert.That(ticker.PlayerGameStatuses[client.User!.Value], Is.EqualTo(PlayerGameStatus.ReadyToPlay));
-        await pair.WaitCommand("setgamepreset TestPreset");
+        await pair.WaitCommand("setgamepreset TestPreset 9999");
         await pair.WaitCommand("startround");
         await pair.RunTicksSync(10);
 
@@ -141,11 +140,13 @@ public sealed class TestRuleSystem : EntitySystem
         while (query.MoveNext(out _, out _, out var gameRule))
         {
             var minPlayers = gameRule.MinPlayers;
+            // imp edit start: lowpop limiter
             var maxPlayers = gameRule.MaxPlayers;
             if (!gameRule.CancelPresetOnTooFewPlayers && !gameRule.CancelPresetOnTooManyPlayers)
                 continue;
             if (args.Players.Length >= minPlayers && args.Players.Length <= maxPlayers)
                 continue;
+            // imp edit end
 
             args.Cancel();
         }

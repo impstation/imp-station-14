@@ -2,5 +2,8 @@
   id: Dragon
   name: roles-antag-dragon-name
   antagonist: true
+  requirements:
+  - !type:OverallPlaytimeRequirement # Imp
+    time: 1h
   playTimeTracker: AntagDragon # imp
   objective: roles-antag-dragon-objective

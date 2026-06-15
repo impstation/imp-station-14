@@ -1,6 +1,7 @@
 ## Static
 
 - type: latheRecipePack
+  parent: ImpTopicalsStatic #imp edit
   id: TopicalsStatic
   recipes:
   - Brutepack
@@ -15,11 +16,15 @@
   - Syringe
   - PillCanister
   - HandLabeler
+  - ChemistryEmptyVial
+  - ChemistryEmptyVialSmall
   - ConicalFlask #Imp
   - LargeConicalFlask #Imp
+  - ChemSampleTube #Imp
+  - Dropper
 
 - type: latheRecipePack
-  parent: BasicChemistryStatic
+  parent: [ BasicChemistryStatic, ImpChemistryStatic ] #imp edit
   id: ChemistryStatic
   recipes:
   - Jug
@@ -37,6 +42,7 @@
   - Hemostat
 
 - type: latheRecipePack
+  parent: ImpMedStatic #imp edit
   id: MedicalStatic
   recipes:
   - Implanter
@@ -45,6 +51,9 @@
   - DiseaseSwab
   - BodyBag
   - WhiteCane
+  - OffsetCane
+  - OffsetCaneWood
+  - JetInjector
 
 - type: latheRecipePack
   id: RollerBedsStatic
@@ -68,6 +77,7 @@
   - MedkitBurn
   - MedkitToxin
   - MedkitO2
+  - MedkitN2 #imp
   - MedkitBrute
   - MedkitAdvanced
   - MedkitRadiation
@@ -94,6 +104,9 @@
   - SyringeCryostasis
   - BluespaceBeaker
   - SyringeBluespace
+  - LauncherSyringe
+  - MiniSyringe
+  - AdvancedJetInjector
 
 - type: latheRecipePack
   id: MedicalBoards

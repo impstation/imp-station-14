@@ -1,46 +1,51 @@
-using Content.Shared.Examine;
-using Content.Shared.Ghost.Roles.Components;
-using Content.Shared.Heretic;
+using Content.Shared._Impstation.Heretic; // imp edit
 using Content.Shared.Humanoid;
-using Content.Shared.Interaction.Events;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Nutrition.AnimalHusbandry;
-using Content.Shared.Nutrition.Components;
-using Content.Shared.Zombies;
+using Content.Shared.StatusIcon.Components;
 using Robust.Client.GameObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Robust.Shared.Prototypes;
+namespace Content.Client._Goobstation.Heretic.EntitySystems;
 
-namespace Content.Client.Heretic.EntitySystems
+/// <summary>
+/// Handles clientside ghoul changes - the sprite overlay and the icon
+/// </summary>
+public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
 {
-    public sealed partial class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
+
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+
+    public override void Initialize()
     {
-        public override void Initialize()
+        base.Initialize();
+        SubscribeLocalEvent<GhoulComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<GhoulComponent, GetStatusIconsEvent>(GetGhoulIcon);
+
+    }
+
+    /// <summary>
+    /// Define the ghoul's sprite color overlay and apply it unless they don't have human appearance
+    /// </summary>
+    public void OnStartup(EntityUid uid, GhoulComponent component, ComponentStartup args)
+    {
+        var ghoulColor = Color.FromHex("#505050");
+
+        if (HasComp<HumanoidAppearanceComponent>(uid))
+            return;
+
+        if (!TryComp<SpriteComponent>(uid, out var sprite))
+            return;
+
+        foreach (var layer in sprite.AllLayers)
         {
-            base.Initialize();
-
-            SubscribeLocalEvent<GhoulComponent, ComponentStartup>(OnStartup);
-
+            layer.Color = ghoulColor;
         }
+    }
 
-
-        public void OnStartup(EntityUid uid, GhoulComponent component, ComponentStartup args) {
-            var ghoulcolor = Color.FromHex("#505050");
-
-            if (!HasComp<HumanoidAppearanceComponent>(uid))
-            {
-                if (!TryComp<SpriteComponent>(uid, out var sprite))
-                    return;
-
-                for (var i = 0; i < sprite.AllLayers.Count(); i++)
-                {
-                    sprite.LayerSetColor(i, ghoulcolor);
-                }
-            }
-        }
+    /// <summary>
+    /// Add the icon that tells heretics this entity is a ghoul
+    /// </summary>
+    private void GetGhoulIcon(Entity<GhoulComponent> ent, ref GetStatusIconsEvent args)
+    {
+        var iconPrototype = _prototype.Index(ent.Comp.StatusIcon);
+        args.StatusIcons.Add(iconPrototype);
     }
 }

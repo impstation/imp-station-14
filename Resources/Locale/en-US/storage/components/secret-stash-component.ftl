@@ -23,4 +23,6 @@ comp-secret-stash-verb-open = Open
 secret-stash-plant = plant
 secret-stash-toilet = toilet cistern
 secret-stash-plushie = plushie
-secret-stash-book = book
+secret-stash-cake = cake
+secret-stash-hamster = hamster
+# imp edit added hamster

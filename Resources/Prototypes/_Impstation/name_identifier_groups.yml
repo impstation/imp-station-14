@@ -1,0 +1,23 @@
+- type: nameIdentifierGroup
+  id: ApidCryopod
+  format: name-identifier-format-apid-cryopod
+  maxValue: 9999
+
+- type: nameIdentifierGroup
+  id: Drone
+  format: name-identifier-format-drone
+  fullName: true
+  minValue: 10000
+  maxValue: 99999
+
+- type: nameIdentifierGroup
+  id: Anomaly
+  format: name-identifier-format-anomaly
+  minValue: 0
+  maxValue: 99
+
+- type: nameIdentifierGroup
+  id: Artifact
+  format: name-identifier-format-artifact
+  minValue: 0
+  maxValue: 99

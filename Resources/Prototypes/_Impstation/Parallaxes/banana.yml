@@ -1,0 +1,20 @@
+- type: parallax
+  id: BananaSky
+  layers:
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Parallaxes/land.png"
+      slowness: 0.98
+      scale: 1,1
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Parallaxes/noise.png"
+      slowness: 0.95
+      scale: "2, 2"
+      scrolling: "0.1, -0.05"
+    - texture:
+        !type:ImageParallaxTextureSource
+        path: "/Textures/Parallaxes/Asteroids.png"
+      slowness: 0.967046875
+      scale: "1, 1"
+      scrolling: "0.05, -0.1"

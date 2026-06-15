@@ -1,6 +1,6 @@
+using Content.Shared.Cloning;
 using Content.Shared.Dataset;
 using Robust.Shared.Prototypes;
-using Content.Shared.Cloning;
 
 namespace Content.Server._Impstation.MindlessClone;
 /// <summary>
@@ -63,5 +63,5 @@ public sealed partial class MindlessCloneComponent : Component
 
     public TimeSpan? NextSayTime = null;
 
-    public string NextPhrase;
+    public string NextPhrase = "Error! Couldn't find phrase! Something is wrong!";
 }

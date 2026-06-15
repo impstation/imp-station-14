@@ -1,0 +1,32 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "drawn by LandsharkRAWR for Impstation",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "pressure-1"
+        },
+        {
+            "name": "pressure-2"
+        },
+        {
+            "name": "pressure-3"
+        },
+        {
+            "name": "pressure-4"
+        },
+        {
+            "name": "pressure-5",
+            "delays": [
+                [
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}

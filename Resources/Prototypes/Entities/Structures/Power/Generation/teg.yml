@@ -62,6 +62,8 @@
     # It fires processing on behalf of its connected circulators.
     - type: AtmosDevice
     - type: TegGenerator
+      thermalEfficiency: 0.1
+      powerFactor: 1.75
 
     - type: DeviceNetwork
       deviceNetId: AtmosDevices
@@ -102,6 +104,7 @@
       - Power
     - type: StealTarget
       stealGroup: Teg
+    - type: Climbable #imp
 
 - type: entity
   id: TegCirculator
@@ -150,7 +153,6 @@
     # tags
     - type: Tag
       tags:
-        - Pipe
         - Unstackable
 
     # basic interactions
@@ -184,6 +186,7 @@
     - type: TegCirculator
     - type: StealTarget
       stealGroup: Teg
+    - type: Climbable #imp
 
 - # Spawned by the client-side circulator examine code to indicate the inlet/outlet direction.
   type: entity

@@ -4,8 +4,8 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorBlack
-  name: black shoes
-  description: Stylish black shoes.
+  name: black sneakers # imp edit
+  description: Stylish black sneakers. # imp edit
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
@@ -35,7 +35,7 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorWhite
-  name: white shoes
+  name: white sneakers # imp edit
   description: Don't take them off at your office Christmas party.
   components:
   - type: Sprite
@@ -64,14 +64,14 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorBlue
-  name: blue shoes
-  description: Stylish blue shoes.
+  name: blue sneakers # imp edit
+  description: Stylish blue sneakers. # imp edit
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
     layers:
     - state: icon
-      color: "#0089EF"    
+      color: "#0089EF"
     - state: soles-icon
   - type: Item
     inhandVisuals:
@@ -95,14 +95,14 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorBrown
-  name: brown shoes
-  description: A pair of brown shoes.
+  name: brown sneakers # imp edit
+  description: A pair of brown sneakers. # imp edit
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
     layers:
     - state: icon
-      color: "#723A02"    
+      color: "#723A02"
     - state: soles-icon
   - type: Item
     inhandVisuals:
@@ -126,14 +126,14 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorGreen
-  name: green shoes
-  description: Stylish green shoes.
+  name: green sneakers # imp edit
+  description: Stylish green sneakers. # imp edit
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
     layers:
     - state: icon
-      color: "#5ABF2F"    
+      color: "#5ABF2F"
     - state: soles-icon
   - type: Item
     inhandVisuals:
@@ -157,14 +157,14 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorOrange
-  name: orange shoes
-  description: Stylish orange shoes.
+  name: orange sneakers # imp edit
+  description: Stylish orange sneakers. # imp edit
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
     layers:
     - state: icon
-      color: "#EF8100"    
+      color: "#EF8100"
     - state: soles-icon
   - type: Item
     inhandVisuals:
@@ -188,14 +188,14 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorRed
-  name: red shoes
-  description: Stylish red shoes.
+  name: red sneakers
+  description: Stylish red sneakers. # imp edit
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
     layers:
     - state: icon
-      color: "#940000"    
+      color: "#940000"
     - state: soles-icon
   - type: Item
     inhandVisuals:
@@ -219,14 +219,14 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorYellow
-  name: yellow shoes
-  description: Stylish yellow shoes.
+  name: yellow sneakers # imp edit
+  description: Stylish yellow sneakers. # imp edit
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
     layers:
     - state: icon
-      color: "#EBE216"    
+      color: "#EBE216"
     - state: soles-icon
   - type: Item
     inhandVisuals:
@@ -250,14 +250,14 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorPurple
-  name: purple shoes
-  description: Stylish purple shoes.
+  name: purple sneakers # imp edit
+  description: Stylish purple sneakers. # imp edit
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
     layers:
     - state: icon
-      color: "#9C0DE1"    
+      color: "#9C0DE1"
     - state: soles-icon
   - type: Item
     inhandVisuals:
@@ -281,15 +281,15 @@
 - type: entity
   parent: ClothingShoesBaseButcherable
   id: ClothingShoesColorWeb
-  name: web shoes
-  description: Sleek, silky shoes. They pick up a lot of dust...
+  name: web sneakers # imp edit
+  description: Sleek, silky sneakers. They pick up a lot of dust... # imp edit
   components:
   - type: Sprite
     sprite: Clothing/Shoes/color.rsi
     layers:
     - state: WEB-icon
   - type: Item
-    inhandVisuals: 
+    inhandVisuals:
       left:
       - state: inhand-left
         color: "#ebebeb"

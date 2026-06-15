@@ -1,0 +1,29 @@
+- type: guideEntry
+  id: Xenoarchaeology
+  name: guide-entry-xenoarchaeology
+  text: "/ServerInfo/_Impstation/Guidebook/Science/Xenoarchaeology.xml"
+  children:
+    - AnalysisConsoleImp
+    - XenoarchaeologyReticulated
+    - XenoarchaeologyNatural
+    - AdvancedNodeScanner
+
+- type: guideEntry
+  id: XenoarchaeologyReticulated
+  name: guide-entry-xenoarchaeologyreticulated
+  text: "/ServerInfo/_Impstation/Guidebook/Science/XenoarchaeologyReticulated.xml"
+
+- type: guideEntry
+  id: XenoarchaeologyNatural
+  name: guide-entry-xenoarchaeologynatural
+  text: "/ServerInfo/_Impstation/Guidebook/Science/XenoarchaeologyNatural.xml"
+
+- type: guideEntry
+  id: AnalysisConsoleImp
+  name: guide-entry-analysisconsole
+  text: "/ServerInfo/_Impstation/Guidebook/Science/AnalysisConsole.xml"
+
+- type: guideEntry
+  id: AdvancedNodeScanner
+  name: guide-entry-advancednodescanner
+  text: "/ServerInfo/_Impstation/Guidebook/Science/AdvancedNodeScanner.xml"

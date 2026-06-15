@@ -13,10 +13,22 @@ public sealed partial class StunOnContactComponent : Component
     public string FixtureId = "fix";
 
     /// <summary>
-    /// The duration of the stun. Edited 5 -> 3.5 for impstation
+    /// The duration of the stun.
     /// </summary>
     [DataField]
-    public TimeSpan Duration = TimeSpan.FromSeconds(3.5); 
+    public TimeSpan Duration = TimeSpan.FromSeconds(3.5); // imp, was 5
+
+    /// <summary>
+    /// Should the stun applied refresh?
+    /// </summary>
+    [DataField]
+    public bool Refresh = true;
+
+    /// <summary>
+    /// Should the stunned entity try to stand up when knockdown ends?
+    /// </summary>
+    [DataField]
+    public bool AutoStand = true;
 
     [DataField]
     public EntityWhitelist Blacklist = new();

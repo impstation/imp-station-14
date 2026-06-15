@@ -265,6 +265,8 @@
     spawned:
     - id: ClothingUniformRandomSimpleShorts
       amount: 1
+  - type: PluralName
+    oneOf: plural-name-pair-1
 
 # Just the shorts
 - type: entity
@@ -294,6 +296,8 @@
           decor_leg_simple_belt: SimpleBeltbuckle
         leg:
           base_leg_simple_shorts: SimpleBottom
+  - type: PluralName # imp
+    oneOf: plural-name-pair-1
 
 - type: entity
   parent: [ClothingUniformRandom]

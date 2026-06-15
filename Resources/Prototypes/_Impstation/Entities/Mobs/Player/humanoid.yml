@@ -1,0 +1,15 @@
+# for the purposes of testing random marking weights, probably remove this file before merging this branch?
+
+- type: entity
+  id: RandomHumanoid
+  name: random humanoid
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - type: RandomHumanoidSpawner
+      settings: Naked
+
+- type: randomHumanoidSettings
+  id: Naked
+  parent: EventHumanoid

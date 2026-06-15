@@ -1,0 +1,20 @@
+- type: stack
+  id: HempCloth
+  name: stack-hemp-cloth
+  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: hemp_cloth }
+  spawn: MaterialHempCloth1
+  maxCount: 30
+
+- type: stack
+  id: Hemp
+  name: stack-hemp
+  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: hemp }
+  spawn: MaterialHemp1
+  maxCount: 30
+
+- type: stack
+  id: Pompoms
+  name: stack-pompoms
+  icon: { sprite: /Textures/_Impstation/Materials/poms.rsi, state: pompile }
+  spawn: MaterialPom1
+  maxCount: 30

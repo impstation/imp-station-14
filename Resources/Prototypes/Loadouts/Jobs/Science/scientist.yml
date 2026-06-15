@@ -6,7 +6,7 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Science
-      time: 108000 #30 hrs, ~20 rounds #imp
+      time: 30h # imp, was 60
 
 # Head
 - type: startingGear
@@ -58,11 +58,6 @@
   id: RoboticistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtRoboticist
-
-- type: loadout
-  id: ScientistJumpsuitFormal
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitScientistFormal
 
 - type: loadout
   id: SeniorResearcherJumpsuit
@@ -147,21 +142,11 @@
   equipment:
     shoes: ClothingShoesBootsWinterSci
 
-- type: loadout
-  id: RoboticistWinterBoots
-  equipment:
-    shoes: ClothingShoesBootsWinterRobo
-
 # ID
 - type: loadout
   id: ScientistPDA
   equipment:
     id: SciencePDA
-
-- type: loadout
-  id: RoboticistPDA
-  equipment:
-    id: RoboticsPDA
 
 - type: loadout
   id: SeniorResearcherPDA

@@ -25,14 +25,13 @@
         name: Mail
         startingItem: null
         whitelist:
-          tags:
-          - Book
-          - Document
-          - Mail
           components:
-          - Mail
+          - Delivery
           - Paper
-          - HyperlinkBook
+          - Envelope
+          tags:
+          - Document
+          - Paper
         insertOnInteract: true
         priority: 3
       food_slot:
@@ -42,19 +41,9 @@
         startingItem: null
         whitelist:
           components:
-          - Food
+          - Edible
         insertOnInteract: true
         priority: 2
-      cash_slot:
-        insertVerbText: Put in Cash
-        ejectVerbText: Take out Cash
-        name: Cash
-        startingItem: null
-        whitelist:
-          components:
-          - Currency
-        insertOnInteract: true
-        priority: 1
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
@@ -69,31 +58,22 @@
         showEnts: False
         occludes: true
         ent: null
-      cash_slot: !type:ContainerSlot
-        showEnts: False
-        occludes: true
-        ent: null
   - type: Appearance
   - type: ItemMapper
     mapLayers:
       icon-food:
         whitelist:
           components:
-          - Food
-      icon-cash:
-        whitelist:
-          components:
-          - Currency
+          - Edible
       icon-mail:
         whitelist:
-          tags:
-          - Book
-          - Document
-          - Mail
           components:
-          - Mail
+          - Delivery
           - Paper
-          - HyperlinkBook
+          - Envelope
+          tags:
+          - Document
+          - Paper
     sprite: _NF/Objects/Misc/mail_capsule.rsi
   - type: Dumpable
   - type: Damageable
@@ -130,10 +110,12 @@
   - type: Storage
     grid:
     - 0,0,4,3
-  - type: StorageFill
-    contents:
-      - id: MailCapsulePrimed
-        amount: 10
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: MailCapsulePrimed
+          amount: 10
   - type: Sprite
     layers:
       - state: box

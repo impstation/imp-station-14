@@ -1,0 +1,71 @@
+- type: entity
+  parent: MaterialBase
+  id: MaterialPom
+  name: pompoms
+  description: A pile of small, fluffy pompoms. What did you have to do to obtain these?
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: Pompoms
+    baseLayer: base
+    layerStates:
+    - pompile
+    - pompile_2
+    - pompile_3
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      Cloth: 100
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fiber
+        Quantity: 3
+  - type: Sprite
+    state: pompile_3
+    sprite: _Impstation/Materials/poms.rsi
+    layers:
+    - state: pompile_3
+      map: ["base"]
+  - type: Appearance
+  - type: Edible
+    requiresSpecialDigestion: true
+  - type: FlavorProfile
+    flavors:
+    - soft
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Fiber
+          Quantity: 3
+  - type: Tag
+    tags:
+      - ClothMade
+      - RawMaterial
+      - ConstructionMaterial
+  - type: Item
+    heldPrefix: pompom
+  - type: PluralName 
+    oneOf: plural-name-hand-1
+    
+- type: entity
+  parent: MaterialPom
+  id: MaterialPom10
+  suffix: 10
+  components:
+  - type: Sprite
+    state: pompile
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MaterialPom
+  id: MaterialPom1
+  suffix: Single
+  components:
+  - type: Sprite
+    state: pompile
+  - type: Stack
+    count: 1

@@ -31,7 +31,7 @@
   description: A large duffel bag made of fire resistant fibers. Smells like plasma.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/atmospherics.rsi
+    sprite: _Impstation/Clothing/Back/Duffels/atmospherics.rsi #imp
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -49,7 +49,7 @@
   description: A large duffel bag for holding extra captainly goods.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/captain.rsi
+    sprite: _Impstation/Clothing/Back/Duffels/captain.rsi #imp
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -62,6 +62,12 @@
   - type: Storage
     storageOpenSound:
       collection: BikeHorn
+      params:
+        variation: 0.125
+    storageInsertSound:
+      collection: FootstepClown
+      params:
+        variation: 0.125
 
 - type: entity
   parent: [ClothingBackpackDuffel, BaseSecurityContraband]
@@ -79,7 +85,7 @@
   description: A large duffel bag for holding extra medical related goods.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/brigmedic.rsi
+    sprite: _Impstation/Clothing/Back/Duffels/brigmedic.rsi #imp
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -115,11 +121,10 @@
   description: A large duffel bag for holding... mime... stuff.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/mime.rsi
-    storageOpenSound:
-      collection: null
-    storageInsertSound:
-      collection: null
+    sprite: _Impstation/Clothing/Back/Duffels/mime.rsi #imp
+  - type: Storage
+    storageOpenSound: null
+    storageInsertSound: null
 
 - type: entity
   parent: ClothingBackpackDuffel
@@ -158,22 +163,34 @@
       sprite: Clothing/Back/Duffels/salvage.rsi
 
 - type: entity
-  parent: [ClothingBackpackDuffel, Tier1Contraband]
+  parent: [ClothingBackpackDuffel, Tier1Contraband] # imp t1 contra
   id: ClothingBackpackDuffelSyndicate
   name: syndicate duffel bag
   description: A large duffel bag for holding various traitor goods.
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/syndicate.rsi
+    sprite: _Impstation/Clothing/Back/Duffels/syndicate.rsi # imp edit
   - type: ExplosionResistance
     damageCoefficient: 0.1
   - type: Storage
     grid:
     - 0,0,8,4
+  - type: CleanableInfo # imp add
+    cleanedName: "syndicate duffel bag"
+    cleanedDescription: "A large duffel bag for holding various traitor goods."
+  - type: Forensics # imp add
 
 - type: entity
-  parent: ClothingBackpackDuffelSyndicate
+  parent: [ ClothingBackpackDuffelSyndicate, BaseSyndicateContraband ]
   id: ClothingBackpackDuffelSyndicateBundle
+  abstract: true
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: ClothingBackpackDuffelBundle
   abstract: true
   components:
   - type: Tag
@@ -182,15 +199,14 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateAmmo
-  name: syndicate duffel bag
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/syndicate.rsi
-    state: icon-ammo
-  - type: Item
-    heldPrefix: ammo
-  - type: Clothing
-    equippedPrefix: ammo
+    sprite: _Impstation/Clothing/Back/Duffels/syndicate_ammo.rsi # imp edit
+    # state: icon-ammo # imp
+  #- type: Item # imp
+    #heldPrefix: ammo # imp
+  #- type: Clothing # imp
+    #equippedPrefix: ammo # imp
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateAmmo
@@ -203,15 +219,14 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateMedical
-  name: syndicate duffel bag
   components:
   - type: Sprite
-    sprite: Clothing/Back/Duffels/syndicate.rsi
-    state: icon-med
-  - type: Item
-    heldPrefix: med
-  - type: Clothing
-    equippedPrefix: med
+    sprite: _Impstation/Clothing/Back/Duffels/syndicate_med.rsi # imp edit
+    # state: icon-med # imp
+  #- type: Item # imp
+    #heldPrefix: med # imp
+  #- type: Clothing # imp
+    #equippedPrefix: med # imp
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedical

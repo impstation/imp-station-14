@@ -18,8 +18,10 @@
   - type: ReplacementAccent
     accent: xeno
   - type: Bloodstream
-    bloodReagent: FerrochromicAcid
-    bloodMaxVolume: 75 #we don't want the map to become pools of blood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: FerrochromicAcid
+        Quantity: 75 #we don't want the map to become pools of blood
     bloodlossDamage:
       types:
         Bloodloss:
@@ -91,6 +93,8 @@
     damage:
       types:
         Blunt: 3
+  - type: GoobAbsorbable # imp edit
+    biomassRestored: 0.1
 
 - type: entity
   parent: BaseMobArgocyte

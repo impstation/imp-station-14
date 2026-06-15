@@ -20,23 +20,35 @@
     Brutoxidone: 1
 
 - type: reaction
-  id: Subjuzine-Activation-Radium #imp, so greys can use it
-  preserveDNA: true
+  id: ClarifiedPhalanximine
+  minTemp: 300
+  requiredMixerCategories:
+    - Stir
   reactants:
-    Subjuzine:
-      amount: 4
-    Radium:
+    Phalanximine:
+      amount: 1
+    BloodKodepiia:
       amount: 1
   products:
-    ActivatedSubjuzine: 5
+    ClarifiedPhalanximine: 1
 
 - type: reaction
-  id: Subjuzine-Activation-ShimmeringBlood #imp, so thaven can use it
-  preserveDNA: true
+  id: Caramexinin
+  minTemp: 370
   reactants:
-    Subjuzine:
-      amount: 4
-    ShimmeringBlood:
+    Stellibinin:
+      amount: 1
+    Sugar:
       amount: 1
   products:
-    ActivatedSubjuzine: 5
+    Caramexinin: 2
+
+- type: reaction
+  id: Subjuzine
+  reactants:
+    Cognizine:
+      amount: 1
+    Vestine:
+      amount: 1
+  products:
+    Subjuzine: 2

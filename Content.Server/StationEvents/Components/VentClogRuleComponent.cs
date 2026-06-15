@@ -1,7 +1,7 @@
 ﻿using Content.Server.StationEvents.Events;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.StationEvents.Components;
 
@@ -12,17 +12,18 @@ public sealed partial class VentClogRuleComponent : Component
     /// Somewhat safe chemicals to put in foam that probably won't instantly kill you.
     /// There is a small chance of using any reagent, ignoring this.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<ReagentPrototype>))]
-    public IReadOnlyList<string> SafeishVentChemicals = new[]
+    [DataField]
+    public IReadOnlyList<ProtoId<ReagentPrototype>> SafeishVentChemicals = new ProtoId<ReagentPrototype>[]
     {
         "Water", "Blood", "Slime", "SpaceDrugs", "SpaceCleaner", "Nutriment", "Sugar", "SpaceLube", "Ephedrine", "Ale", "Beer", "SpaceGlue"
     };
 
+    // Imp addition
     /// <summary>
     /// Blacklist for chemicals that should never be available from vent clog.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<ReagentPrototype>))]
-    public IReadOnlyList<string> BlacklistedVentChemicals = new[]
+    [DataField]
+    public IReadOnlyList<ProtoId<ReagentPrototype>> BlacklistedVentChemicals = new ProtoId<ReagentPrototype>[]
     {
         "Holium", "PhilosophersJuice"
     };
@@ -54,8 +55,8 @@ public sealed partial class VentClogRuleComponent : Component
     /// <summary>
     /// Reagents that gets the weak numbers used instead of regular ones.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdListSerializer<ReagentPrototype>))]
-    public IReadOnlyList<string> WeakReagents = new[]
+    [DataField]
+    public IReadOnlyList<ProtoId<ReagentPrototype>> WeakReagents = new ProtoId<ReagentPrototype>[]
     {
         "SpaceLube", "SpaceGlue"
     };

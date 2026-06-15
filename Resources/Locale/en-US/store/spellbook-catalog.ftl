@@ -1,12 +1,15 @@
 # Spells
 spellbook-fireball-name = Fireball
-spellbook-fireball-desc = Get most crew exploding with rage when they see this fireball heading toward them! Upgradeable.
+spellbook-fireball-desc = Get most crew exploding with rage when they see this fireball heading toward them! Upgradeable. Requires a wizard hat and robe to cast.
 
 spellbook-blink-name = Blink
 spellbook-blink-desc = Don't blink or you'll miss yourself teleporting away.
 
 spellbook-voidapplause-name = Void Applause
 spellbook-voidapplause-desc = Swap places with the target, doesn't it make you want to do the boogie?
+
+spellbook-knock-name = Knock
+spellbook-knock-desc = Opens all airlocks, crates and lockers nearby.
 
 spellbook-force-wall-name = Force Wall
 spellbook-force-wall-desc = Make three walls of pure force that you can pass through, but others can't.
@@ -18,7 +21,7 @@ spellbook-smoke-name = Smoke
 spellbook-smoke-desc = Summons a cloud of smoke, it's pretty obvious.
 
 spellbook-polymorph-spider-name = Spider Polymorph
-spellbook-polymorph-spider-desc = Transforms you into a spider, man!
+spellbook-polymorph-spider-desc = Transforms you into a tiny spider!
 
 spellbook-polymorph-rod-name = Rod Polymorph
 spellbook-polymorph-rod-desc = Change into an Immovable Rod with limited movement.
@@ -30,7 +33,7 @@ spellbook-ethereal-jaunt-name = Ethereal Jaunt
 spellbook-ethereal-jaunt-description = Slip into the ethereal plane to slip away from your enemies!
 
 spellbook-mind-swap-name = Mind Swap
-spellbook-mind-swap-description = Exchange bodies with another person!
+spellbook-mind-swap-description = Exchange bodies with another person! Requires a wizard hat and robe to cast.
 
 spellbook-animate-name = Animate
 spellbook-animate-description = Bring an inanimate object to life!
@@ -42,7 +45,7 @@ spellbook-cluwne-name = Cluwne's Curse
 spellbook-cluwne-desc = For when you really hate someone and Smite isn't enough. Requires Wizard Robe & Hat.
 
 spellbook-slip-name = Slippery Slope
-spellbook-slip-desc = Learn the ancient ways of the Janitor and curse your target to be slippery. Requires Wizard Robe & Hat.
+spellbook-slip-desc = Learn the ancient ways of the Janitor and curse your target to be slippery.
 
 spellbook-item-recall-name = Item Recall
 spellbook-item-recall-description = Mark a held item and summon it back at any time with just a snap of your fingers!
@@ -80,7 +83,7 @@ spellbook-event-summon-magic-description = Places a random magical item in front
 
 # Upgrades
 spellbook-upgrade-fireball-name = Upgrade Fireball
-spellbook-upgrade-fireball-description = Upgrades Fireball to a maximum of level 3!
+spellbook-upgrade-fireball-description = Reduces Fireball's cooldown by ten seconds!
 
 spellbook-upgrade-jaunt-name = Upgrade Ethereal Jaunt
-spellbook-upgrade-jaunt-description = Upgrades Jaunt to a maximum of level 3!
+spellbook-upgrade-jaunt-description = Reduces Jaunt's cooldown by ten seconds!

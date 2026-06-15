@@ -50,6 +50,7 @@
         Structural: 20
     soundHit:
       collection: MetalThud
+    canWideSwing: false #imp
   - type: Puller
     needsHands: false
   - type: InputMover
@@ -64,6 +65,7 @@
   - type: Pullable
   - type: Physics
     bodyType: KinematicController
+  - type: GravityAffected
   - type: Clickable
   - type: WiresPanel
   - type: Fixtures

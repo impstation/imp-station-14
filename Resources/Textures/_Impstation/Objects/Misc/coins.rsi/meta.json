@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by DVDPlayerOfDiscordFame (Github) for Impstation",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "coin_silver"
+    },
+    {
+      "name": "coin_gold"
+    },
+    {
+      "name": "coin_iron"
+    },
+    {
+      "name": "coin_diamond"
+    },
+    {
+      "name": "coin_adamantine"
+    },
+	{ 
+	  "name": "sparkle-1",
+      "delays": [
+        [
+          0.15,
+          0.15,
+		  0.15,
+		  0.15,
+		  3.00
+        ]
+      ]
+    },
+	{ 
+	  "name": "sparkle-2",
+      "delays": [
+        [
+          0.15,
+          0.15,
+		  0.15,
+		  0.15,
+          0.15,
+          0.15,
+		  0.15,
+		  0.15,
+		  3.00
+        ]
+      ]
+    }
+  ]
+}

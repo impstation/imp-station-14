@@ -9,6 +9,7 @@ using Content.Shared.Ghost;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Input;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Pointing;
 using Content.Shared.Popups;
@@ -16,6 +17,7 @@ using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
+using Robust.Shared.Containers;
 using Robust.Shared.Enums;
 using Robust.Shared.GameStates;
 using Robust.Shared.Input.Binding;
@@ -23,6 +25,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
+using Content.Server._Impstation.Pointing; // imp
+using Content.Shared.Hands.EntitySystems; // imp
 
 namespace Content.Server.Pointing.EntitySystems
 {
@@ -36,6 +40,7 @@ namespace Content.Server.Pointing.EntitySystems
         [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly RotateToFaceSystem _rotateToFaceSystem = default!;
+        [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly SharedMindSystem _minds = default!;
@@ -43,6 +48,7 @@ namespace Content.Server.Pointing.EntitySystems
         [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
         [Dependency] private readonly ExamineSystemShared _examine = default!;
+        [Dependency] private readonly SharedHandsSystem _hands = default!; // imp
 
         private TimeSpan _pointDelay = TimeSpan.FromSeconds(0.5f);
 
@@ -53,6 +59,9 @@ namespace Content.Server.Pointing.EntitySystems
         private readonly Dictionary<ICommonSession, TimeSpan> _pointers = new();
 
         private const float PointingRange = 15f;
+        private const string PointVerbSelf = "point"; // imp
+        private const string PointVerbOther = "points"; // imp
+        private const string PointingArrow = "PointingArrow"; // imp
 
         private void GetCompState(Entity<PointingArrowComponent> entity, ref ComponentGetState args)
         {
@@ -157,7 +166,20 @@ namespace Content.Server.Pointing.EntitySystems
             var mapCoordsPointed = _transform.ToMapCoordinates(coordsPointed);
             _rotateToFaceSystem.TryFaceCoordinates(player, mapCoordsPointed.Position);
 
-            var arrow = EntityManager.SpawnEntity("PointingArrow", coordsPointed);
+            // imp edit start: modular verbs & arrow
+            var verbSelf = PointVerbSelf;
+            var verbOther = PointVerbOther;
+            var pointArrow = PointingArrow;
+            var heldItem = _hands.GetHeldItem(player, _hands.GetActiveHand(player));
+            if (TryComp<PointingModifierComponent>(heldItem, out var pointMod))
+            {
+                verbSelf = Loc.GetString(pointMod.TextSelf);
+                verbOther = Loc.GetString(pointMod.TextOther);
+                pointArrow = pointMod.PointingArrow;
+            }
+
+            var arrow = Spawn(pointArrow, coordsPointed);
+            // imp end
 
             if (TryComp<PointingArrowComponent>(arrow, out var pointing))
             {
@@ -178,7 +200,7 @@ namespace Content.Server.Pointing.EntitySystems
             var layer = (int) VisibilityFlags.Normal;
             if (TryComp(player, out VisibilityComponent? playerVisibility))
             {
-                var arrowVisibility = EntityManager.EnsureComponent<VisibilityComponent>(arrow);
+                var arrowVisibility = EnsureComp<VisibilityComponent>(arrow);
                 layer = playerVisibility.Layer;
                 _visibilitySystem.SetLayer((arrow, arrowVisibility), (ushort) layer);
             }
@@ -208,15 +230,66 @@ namespace Content.Server.Pointing.EntitySystems
             {
                 var pointedName = Identity.Entity(pointed, EntityManager);
 
-                selfMessage = player == pointed
-                    ? Loc.GetString("pointing-system-point-at-self")
-                    : Loc.GetString("pointing-system-point-at-other", ("other", pointedName));
+                EntityUid? containingInventory = null;
+                // Search up through the target's containing containers until we find an inventory
+                var inventoryQuery = GetEntityQuery<InventoryComponent>();
+                foreach (var container in _container.GetContainingContainers(pointed))
+                {
+                    if (inventoryQuery.HasComp(container.Owner))
+                    {
+                        // We want the innermost inventory, since that's the "owner" of the item
+                        containingInventory = container.Owner;
+                        break;
+                    }
+                }
 
-                viewerMessage = player == pointed
-                    ? Loc.GetString("pointing-system-point-at-self-others", ("otherName", playerName), ("other", playerName))
-                    : Loc.GetString("pointing-system-point-at-other-others", ("otherName", playerName), ("other", pointedName));
+                var pointingAtSelf = player == pointed;
 
-                viewerPointedAtMessage = Loc.GetString("pointing-system-point-at-you-other", ("otherName", playerName));
+                // Are we in a mob's inventory?
+                if (containingInventory != null)
+                {
+                    var item = pointed;
+                    var itemName = Identity.Entity(item, EntityManager);
+
+                    // Target the pointing at the item's holder
+                    pointed = containingInventory.Value;
+                    pointedName = Identity.Entity(pointed, EntityManager);
+                    var pointingAtOwnItem = player == pointed;
+
+                    if (pointingAtOwnItem)
+                    {
+                        // You point at your item
+                        selfMessage = Loc.GetString("imp-pointing-system-point-in-own-inventory-self", ("item", itemName), ("verb", verbSelf)); // imp locale & verb
+                        // Urist McPointer points at his item
+                        viewerMessage = Loc.GetString("imp-pointing-system-point-in-own-inventory-others", ("item", itemName), ("pointer", playerName), ("verb", verbOther)); // imp locale & verb
+                    }
+                    else
+                    {
+                        // You point at Urist McHands' item
+                        selfMessage = Loc.GetString("imp-pointing-system-point-in-other-inventory-self", ("item", itemName), ("wearer", pointedName), ("verb", verbSelf)); // imp locale & verb
+                        // Urist McPointer points at Urist McWearer's item
+                        viewerMessage = Loc.GetString("imp-pointing-system-point-in-other-inventory-others", ("item", itemName), ("pointer", playerName), ("wearer", pointedName), ("verb", verbOther)); // imp locale & verb
+                        // Urist McPointer points at your item
+                        viewerPointedAtMessage = Loc.GetString("imp-pointing-system-point-in-other-inventory-target", ("item", itemName), ("pointer", playerName), ("verb", verbOther)); // imp locale & verb
+                    }
+                }
+                else
+                {
+                    selfMessage = pointingAtSelf
+                        // You point at yourself
+                        ? Loc.GetString("imp-pointing-system-point-at-self", ("verb", verbSelf)) // imp locale & verb
+                        // You point at Urist McTarget
+                        : Loc.GetString("imp-pointing-system-point-at-other", ("other", pointedName), ("verb", verbSelf)); // imp locale & verb
+
+                    viewerMessage = pointingAtSelf
+                        // Urist McPointer points at himself
+                        ? Loc.GetString("imp-pointing-system-point-at-self-others", ("otherName", playerName), ("other", playerName), ("verb", verbOther)) // imp locale & verb
+                        // Urist McPointer points at Urist McTarget
+                        : Loc.GetString("imp-pointing-system-point-at-other-others", ("otherName", playerName), ("other", pointedName), ("verb", verbOther)); // imp locale & verb
+
+                    // Urist McPointer points at you
+                    viewerPointedAtMessage = Loc.GetString("imp-pointing-system-point-at-you-other", ("otherName", playerName), ("verb", verbOther)); // imp locale & verb
+                }
 
                 var ev = new AfterPointedAtEvent(pointed);
                 RaiseLocalEvent(player, ref ev);
@@ -235,16 +308,18 @@ namespace Content.Server.Pointing.EntitySystems
                     position = $"EntId={gridUid} {_map.WorldToTile(gridUid, grid, mapCoordsPointed.Position)}";
                     tileRef = _map.GetTileRef(gridUid, grid, _map.WorldToTile(gridUid, grid, mapCoordsPointed.Position));
 
-                    var arrowEvent = new AfterPointedArrowEvent(arrow); //IMP: Arrow event to detect things near the pointing, used for rat kings
+                    //IMP: Arrow event to detect things near the pointing, used for rat kings
+                    var arrowEvent = new AfterPointedArrowEvent(arrow);
                     RaiseLocalEvent(player, ref arrowEvent);
+                    // imp end
                 }
 
                 var tileDef = _tileDefinitionManager[tileRef?.Tile.TypeId ?? 0];
 
                 var name = Loc.GetString(tileDef.Name);
-                selfMessage = Loc.GetString("pointing-system-point-at-tile", ("tileName", name));
+                selfMessage = Loc.GetString("imp-pointing-system-point-at-tile", ("tileName", name), ("verb", verbSelf)); // imp locale & verb
 
-                viewerMessage = Loc.GetString("pointing-system-other-point-at-tile", ("otherName", playerName), ("tileName", name));
+                viewerMessage = Loc.GetString("imp-pointing-system-other-point-at-tile", ("otherName", playerName), ("tileName", name), ("verb", verbOther)); // imp locale & verb
 
                 _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(player):user} pointed at {name} {(position == null ? mapCoordsPointed : position)}");
             }

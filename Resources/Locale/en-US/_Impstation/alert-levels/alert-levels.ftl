@@ -30,6 +30,6 @@ alert-level-puce = Puce
 alert-level-puce-announcement = A food recall has been initiated, and your station is affected.
 alert-level-puce-instructions = Don't eat the burgers in the cafeteria...
 
-alert-level-octarine = Octarine
-alert-level-octarine-announcement = A cataclysmic bluespace event threatens to envelop realspace. Security has been authorized to use lethal weapons. Crewmembers are advised to listen to heads of staff for more information. Failure to adhere will be met with lethal force.
-alert-level-octarine-instructions = THE END IS THE END IS THE END IS
+alert-level-ice = Ice
+alert-level-ice-announcement = A cataclysmic Christmas event is occuring. Shelter in place. Do NOT interact with Her.
+alert-level-ice-instructions = All she wants is you...

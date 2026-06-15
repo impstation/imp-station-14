@@ -1,3 +1,4 @@
+using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Tabletop.Components;
 using Content.Shared.CCVar;
@@ -12,20 +13,25 @@ using JetBrains.Annotations;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
-using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Server.Administration.Logs; //imp
+using Content.Shared.Database; //imp
+using Content.Shared.Whitelist; //imp
 
 namespace Content.Server.Tabletop
 {
     [UsedImplicitly]
     public sealed partial class TabletopSystem : SharedTabletopSystem
     {
-        [Dependency] private readonly IMapManager _mapManager = default!;
+        [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly EyeSystem _eye = default!;
+        [Dependency] private readonly HandsSystem _hands = default!;
         [Dependency] private readonly ViewSubscriberSystem _viewSubscriberSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly IAdminLogManager _adminLog = default!; //imp
+        [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; //imp
 
         public override void Initialize()
         {
@@ -79,27 +85,43 @@ namespace Content.Server.Tabletop
             if (!_cfg.GetCVar(CCVars.GameTabletopPlace))
                 return;
 
-            if (!EntityManager.TryGetComponent(args.User, out HandsComponent? hands))
+            if (!TryComp(args.User, out HandsComponent? hands))
                 return;
 
             if (component.Session is not { } session)
                 return;
 
-            if (hands.ActiveHand == null)
+            if (!_hands.TryGetActiveItem((args.User, hands), out var handEnt)) //imp. fixed item hand bug
                 return;
-
-            if (hands.ActiveHand.HeldEntity == null)
-                return;
-
-            var handEnt = hands.ActiveHand.HeldEntity.Value;
 
             if (!TryComp<ItemComponent>(handEnt, out var item))
                 return;
 
-            var meta = MetaData(handEnt);
+            // imp start
+
+            if (session.Entities.Count >= component.EntMax)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("tabletop-error-max-ents"), uid, args.User);
+                _adminLog.Add(LogType.Action, LogImpact.Low,
+                    $"{ToPrettyString(args.User):player} attempted to create a new miniature on game board {ToPrettyString(uid)} and failed!");
+                return;
+            }
+
+            if (_whitelist.IsWhitelistPass(component.Blacklist, handEnt.Value))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("tabletop-error-blacklisted"), uid, args.User);
+                return;
+            }
+
+            // imp end
+
+            var meta = MetaData(handEnt.Value);
             var protoId = meta.EntityPrototype?.ID;
 
             var hologram = Spawn(protoId, session.Position.Offset(-1, 0));
+            _adminLog.Add(LogType.Action, LogImpact.Low, //imp. added logging.
+                $"{ToPrettyString(args.User):player} created a new miniature of {ToPrettyString(hologram)} on game board: {ToPrettyString(uid)}");
+
 
             // Make sure the entity can be dragged and can be removed, move it into the board game world and add it to the Entities hashmap
             EnsureComp<TabletopDraggableComponent>(hologram);
@@ -125,24 +147,36 @@ namespace Content.Server.Tabletop
         }
 
         /// <summary>
-        /// Add a verb that allows the player to start playing a tabletop game.
+        /// Add verbs that allow the player to start playing a tabletop game, and reset the board. (Imp. changed the comment.)
         /// </summary>
         private void AddPlayGameVerb(EntityUid uid, TabletopGameComponent component, GetVerbsEvent<ActivationVerb> args)
         {
             if (!args.CanAccess || !args.CanInteract)
                 return;
 
-            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+            if (!TryComp(args.User, out ActorComponent? actor))
                 return;
 
             var playVerb = new ActivationVerb()
             {
                 Text = Loc.GetString("tabletop-verb-play-game"),
-                Icon = new SpriteSpecifier.Texture(new ("/Textures/Interface/VerbIcons/die.svg.192dpi.png")),
-                Act = () => OpenSessionFor(actor.PlayerSession, uid)
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/die.svg.192dpi.png")), //imp. fixed formatting.
+                Act = () => OpenSessionFor(actor.PlayerSession, uid),
+                Priority = 2 //imp. added priority
             };
 
+            // imp start
+            var resetVerb = new ActivationVerb()
+            {
+                Text = Loc.GetString("tabletop-verb-reset-game"),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/refresh.svg.192dpi.png")),
+                Act = () => ResetSession(uid),
+                Priority = 1
+            };
+            // imp end
+
             args.Verbs.Add(playVerb);
+            args.Verbs.Add(resetVerb); //imp
         }
 
         private void OnTabletopActivate(EntityUid uid, TabletopGameComponent component, ActivateInWorldEvent args)
@@ -151,7 +185,7 @@ namespace Content.Server.Tabletop
                 return;
 
             // Check that a player is attached to the entity.
-            if (!EntityManager.TryGetComponent(args.User, out ActorComponent? actor))
+            if (!TryComp(args.User, out ActorComponent? actor))
                 return;
 
             OpenSessionFor(actor.PlayerSession, uid);
@@ -175,7 +209,7 @@ namespace Content.Server.Tabletop
 
         private void OnGamerShutdown(EntityUid uid, TabletopGamerComponent component, ComponentShutdown args)
         {
-            if (!EntityManager.TryGetComponent(uid, out ActorComponent? actor))
+            if (!TryComp(uid, out ActorComponent? actor))
                 return;
 
             if(component.Tabletop.IsValid())
@@ -194,7 +228,7 @@ namespace Content.Server.Tabletop
 
                 if (!TryComp(uid, out ActorComponent? actor))
                 {
-                    EntityManager.RemoveComponent<TabletopGamerComponent>(uid);
+                    RemComp<TabletopGamerComponent>(uid);
                     return;
                 }
 

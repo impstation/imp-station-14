@@ -78,6 +78,7 @@
         clownedon: # Not 'creampied' bc I can already see Skyrat complaining about conflicts.
           True: {visible: true}
           False: {visible: false}
+  - type: SolutionContainerManager
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
   - type: RotationVisuals
@@ -120,12 +121,9 @@
     - reagents: [Water, SpaceCleaner]
       methods: [Touch]
       effects:
-      - !type:WashCreamPieReaction
+      - !type:WashCreamPie
   - type: StatusEffects
     allowed:
-    - Stun
-    - KnockedDown
-    - SlowedDown
     - Stutter
     - SeeingRainbows
     - Electrocution
@@ -134,13 +132,11 @@
     - RatvarianLanguage
     - PressureImmunity
     - Muted
-    - ForcedSleep
     - TemporaryBlindness
     - Pacified
     - StaminaModifier
     - Flashed
     - RadiationProtection
-    - Drowsiness
     - Adrenaline
     - Feminized # DeltaV - Hormone system
     - Masculinized # DeltaV - Hormone system
@@ -175,10 +171,9 @@
         Blunt: 5
   - type: SleepEmitSound
   - type: SSDIndicator
+    doNotSleep: true
   - type: StandingState
   - type: Dna
-  - type: MindContainer
-    showExamineInfo: true
   - type: CanEnterCryostorage
   - type: InteractionPopup
     successChance: 1
@@ -199,9 +194,6 @@
         type: StrippableBoundUserInterface
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
-      enum.ThavenMoodsUiKey.Key: # impstation edit
-        type: ThavenMoodsBoundUserInterface
-        requireInputValidation: false
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -221,7 +213,6 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  - type: LayingDown # WD EDIT
   - type: Barotrauma
     damage:
       types:
@@ -239,17 +230,18 @@
   - type: Fingerprint
   - type: Blindable
   # Other
-  - type: Temperature
+  - type: TemperatureDamage
     heatDamageThreshold: 325
     coldDamageThreshold: 260
-    currentTemperature: 310.15
-    specificHeat: 42
     coldDamage:
       types:
         Cold: 0.1 #per second, scales with temperature & other constants
     heatDamage:
       types:
         Heat: 1.5 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
   - type: TemperatureSpeed
     thresholds:
       293: 0.8

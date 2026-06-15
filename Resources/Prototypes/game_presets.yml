@@ -5,14 +5,13 @@
   name: survival-title
   showInVote: false # secret
   description: survival-description
-  cooldown: 2
+  cooldown: 2 # imp edit
   rules:
     - MeteorSwarmScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
-    - MidpopLimiter
 
 - type: gamePreset
   id: KesslerSyndrome
@@ -23,13 +22,12 @@
   name: kessler-syndrome-title
   showInVote: false # secret
   description: kessler-syndrome-description
-  cooldown: 1
+  cooldown: 1 # imp edit
   rules:
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
-    - MidpopLimiter
 
 - type: gamePreset
   id: AllAtOnce
@@ -43,7 +41,10 @@
     - Traitor
     - Revolutionary
     - Zombie
-    - Changeling
+    - Changeling # imp edit
+    - Heretic # imp edit
+    - Wizard
+    - Xenoborgs
     - KesslerSyndromeScheduler
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
@@ -60,12 +61,14 @@
   description: aller-at-once-description
   showInVote: false #Please god dont do this
   rules:
-    - CosmicCult
     - Nukeops
     - Traitor
     - Revolutionary
     - Zombie
-    - Changeling
+    - Changeling # imp edit
+    - Heretic # imp edit
+    - Wizard
+    - Xenoborgs
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
@@ -102,6 +105,23 @@
   - BasicRoundstartVariation
 
 - type: gamePreset
+  id: Dynamic
+  alias:
+  - dynamic
+  - multiantag
+  - director
+  name: dynamic-title
+  showInVote: false # admin-only for now until we fix some bugs
+  description: dynamic-description
+  rules:
+  - DynamicRule
+  - DummyNonAntag
+  - DynamicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
   id: Secret
   alias:
     - secret
@@ -111,30 +131,6 @@
   description: secret-description
   rules:
     - Secret
-
-- type: gamePreset
-  id: SecretExtended #For Admin Use: Runs Extended but shows "Secret" in lobby.
-  alias:
-    - secretextended
-  name: secret-title
-  showInVote: false #Admin Use
-  description: secret-description
-  rules:
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-
-- type: gamePreset
-  id: SecretGreenshift #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
-  alias:
-  - secretgreenshift
-  name: secret-title
-  showInVote: false #Admin Use
-  description: secret-description
-  rules:
-  - SpaceTrafficControlFriendlyEventScheduler
-  - BasicRoundstartVariation
 
 - type: gamePreset
   id: Sandbox
@@ -156,71 +152,13 @@
   description: traitor-description
   showInVote: false
   rules:
-    - Traitor
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - MidpopLimiter
-
-- type: gamePreset
-  id: SpyVsSpy
-  alias:
-    - svs
-    - theship
-  name: spy-vs-spy-title
-  description: spy-vs-spy-description
-  showInVote: false
-  cooldown: 2
-  rules:
-    - SpyVsSpy
-    - SleeperlessStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - MidpopLimiter
-
-- type: gamePreset
-  id: SpyVsSpy3TC
-  name: spy-vs-spy-title
-  description: spy-vs-spy-description
-  showInVote: false
-  cooldown: 2
-  rules:
-    - SpyVsSpy3TC
-    - SleeperlessStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-
-- type: gamePreset
-  id: SecretSpyVsSpy #For Admin Use: Runs SpyVsSpy but shows "Secret" in lobby.
-  alias:
-    - secretsvs
-  name: secret-title
-  description: secret-description
-  showInVote: false #Admin Use
-  rules:
-    - SpyVsSpy
-    - SleeperlessStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-
-- type: gamePreset
-  id: SecretSpyVsSpy3TC #For Admin Use: Runs SpyVsSpy3TC but shows "Secret" in lobby.
-  alias:
-    - secretsvs
-  name: secret-title
-  description: secret-description
-  showInVote: false #Admin Use
-  rules:
-    - SpyVsSpy3TC
-    - SleeperlessStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
+  - DummyNonAntagChance
+  - Traitor
+  - SubGamemodesRuleNoWizard
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
 
 - type: gamePreset
   id: Deathmatch
@@ -231,7 +169,7 @@
   description: death-match-description
   maxPlayers: 15
   showInVote: true
-  supportedMaps: DeathMatchMapPool
+  supportedMaps: DeathMatchMapPoolImp #imp edit, use our map pool prototype
   rules:
     - DeathMatch31
 
@@ -242,15 +180,15 @@
   name: nukeops-title
   description: nukeops-description
   showInVote: false
-  cooldown: 1
+  cooldown: 1 # imp edit
   rules:
-    - Nukeops
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - MidpopLimiter
+  - Nukeops
+  - DummyNonAntagChance
+  - SubGamemodesRuleNoWizard
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
 
 - type: gamePreset
   id: Revolutionary
@@ -262,13 +200,13 @@
   description: rev-description
   showInVote: false
   rules:
-    - Revolutionary
-    - SubGamemodesRule
-    - BasicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - BasicRoundstartVariation
-    - MidpopLimiter
+  - DummyNonAntagChance
+  - Revolutionary
+  - SubGamemodesRuleNoWizard
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
 
 - type: gamePreset
   id: Wizard
@@ -279,7 +217,24 @@
   showInVote: false
   rules:
   - Wizard
+  - DummyNonAntagChance
   - SubGamemodesRuleNoWizard #No Dual Wizards at the start, midround is fine
+  - BasicStationEventScheduler
+  - MeteorSwarmScheduler
+  - SpaceTrafficControlEventScheduler
+  - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Xenoborgs
+  alias:
+    - xenoborgs
+  name: xenoborgs-title
+  description: xenoborgs-description
+  showInVote: false
+  rules:
+  - Xenoborgs
+  - DummyNonAntagChance
+  - SubGamemodesRuleNoWizardNoXenoborg # no two motherships
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
@@ -296,14 +251,13 @@
   name: zombie-title
   description: zombie-description
   showInVote: false
-  cooldown: 1
+  cooldown: 1 # imp edit
   rules:
   - Zombie
   - BasicStationEventScheduler
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
-  - MidpopLimiter
 
 - type: gamePreset
   id: Zombieteors
@@ -314,11 +268,10 @@
   name: zombieteors-title
   description: zombieteors-description
   showInVote: false
-  cooldown: 1
+  cooldown: 1 # imp edit
   rules:
   - Zombie
   - BasicStationEventScheduler
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
-  - MidpopLimiter

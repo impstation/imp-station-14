@@ -1,0 +1,66 @@
+<Document>
+  # Mixtures
+
+  Making various doughs, cheese, and more is as simple as knowing what ingredients to mix in a container! No appliances required.
+
+  Most recipes don't need very precise ratios, so if you mess up, just add more.
+  
+  Measurements here will be written in [color=cyan]units[/color]. One egg typically has 6 units inside it but may vary depending on the source.
+
+  <Box>
+    <GuideEntityEmbed Entity="SinkWide" Caption=""/>
+    <GuideEntityEmbed Entity="LargeBeaker" Caption=""/>
+    <GuideEntityEmbed Entity="ReagentContainerFlour" Caption=""/>
+  </Box>
+
+  ## Baking
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodDough" Caption=""/>
+    <GuideEntityEmbed Entity="FoodDoughPie" Caption=""/>
+    <GuideEntityEmbed Entity="FoodCakeBatter" Caption=""/>
+  </Box>
+
+  - Dough: 15 Flour and 10 water
+  - Cornmeal Dough: 15 Cornmeal, 10 milk, and 6 egg
+  - Cotton Dough: 10 Fiber, 5 flour, and 10 water
+  - Tortilla Dough: 15 Cornmeal and 10 water
+  - Pie Dough: 15 Flour, 12 egg, and 5 table salt
+  - Cake Batter: 15 Flour, 12 egg, 5 sugar, and 5 milk
+  - Cake Batter (vegan): 15 Flour, 15 soy milk, and 5 sugar
+
+  ## Catalysts
+
+  Some recipes have an ingredient that is only necessary to react with the rest and won't be used up in the process.
+  This is often called a [color=#009900]catalyst[/color]! The most common catalyst in cooking is Universal Enzyme.
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodCondimentBottleEnzyme" Caption=""/>
+    <GuideEntityEmbed Entity="FoodShakerSalt" Caption=""/>
+  </Box>
+
+  ## Cheese
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodCheese" Caption=""/>
+    <GuideEntityEmbed Entity="FoodChevre" Caption=""/>
+    <GuideEntityEmbed Entity="FoodStringCheese" Caption=""/>
+  </Box>
+
+  - Cheese Wheel: 40 Milk and [color=#009900]universal enzyme[/color]
+  - Chèvre Log: 10 Goat milk and [color=#009900]universal enzyme[/color]
+  - Ball of String Cheese: 30 Milk, 10 fiber, and [color=#009900]universal enzyme[/color]
+
+  ## Other
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodButter" Caption=""/>
+    <GuideEntityEmbed Entity="FoodTofu" Caption=""/>
+    <GuideEntityEmbed Entity="FoodMeatMeatball" Caption=""/>
+  </Box>
+
+  - Butter: 15 Milk and [color=#009900]table salt[/color]
+  - Tofu: 30 Soy milk and [color=#009900]universal enzyme[/color]
+  - Meatball: 5 Uncooked animal proteins, 5 flour, and 6 egg
+
+</Document>

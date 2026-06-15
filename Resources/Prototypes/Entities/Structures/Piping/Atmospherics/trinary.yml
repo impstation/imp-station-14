@@ -26,6 +26,7 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: South
+  - type: DeviceRestrictOverlap # Funky RPD
 
 - type: entity
   parent: GasTrinaryBase
@@ -35,6 +36,9 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects #imp
       sprite: Structures/Piping/Atmospherics/gasfilter.rsi
@@ -88,6 +92,9 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: SubFloorHide
+    visibleLayers:
+    - enum.SubfloorLayers.FirstLayer
   - type: Sprite
     drawdepth: FloorObjects #imp
     sprite: Structures/Piping/Atmospherics/gasfilter.rsi
@@ -135,6 +142,9 @@
   placement:
     mode: SnapgridCenter
   components:
+    - type: SubFloorHide
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: Sprite
       drawdepth: FloorObjects #imp
       sprite: Structures/Piping/Atmospherics/gasmixer.rsi
@@ -242,6 +252,8 @@
     - type: SubFloorHide
       blockInteractions: false
       blockAmbience: false
+      visibleLayers:
+      - enum.SubfloorLayers.FirstLayer
     - type: NodeContainer
       nodes:
         inlet:
@@ -290,6 +302,7 @@
       - PneumaticValve
       - Pumps
       - Valves
+    - type: DeviceRestrictOverlap # Funky RPD
     - type: VentCrawTube
       containerId: VentCrawTube
     - type: VentCrawJunction

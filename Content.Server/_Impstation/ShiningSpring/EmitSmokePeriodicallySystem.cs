@@ -19,6 +19,7 @@ public sealed class EmitSmokePeriodicallySystem : EntitySystem
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SpreaderSystem _spreader = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     public override void Update(float frameTime)
     {
@@ -40,7 +41,7 @@ public sealed class EmitSmokePeriodicallySystem : EntitySystem
                 return;
             }
 
-            if (_spreader.RequiresFloorToSpread(comp.SmokePrototype.ToString()) && tileRef.Tile.IsSpace())
+            if (_spreader.RequiresFloorToSpread(comp.SmokePrototype.ToString()) && _turf.IsSpace(tileRef))
                 return;
 
             var coords = _mapSystem.MapToGrid(gridUid, mapCoords);

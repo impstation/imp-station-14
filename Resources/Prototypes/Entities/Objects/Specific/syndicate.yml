@@ -22,6 +22,10 @@
   - type: Currency
     price:
       Telecrystal: 1
+  - type: PluralName # imp
+    oneOf: plural-name-a
+    someOf: plural-name-hand-1
+    nameSomeOf: telecrystals
 
 - type: entity
   parent: Telecrystal
@@ -52,20 +56,24 @@
   parent: [BaseItem, StorePresetUplink, Tier3Contraband]
   id: BaseUplinkRadio
   name: syndicate uplink
-  description: Suspiciously looking old radio...
+  description: Suspicious looking device... # imp edit
   suffix: Empty
   components:
   - type: Sprite
-    sprite: Objects/Devices/communication.rsi
+    sprite: _Impstation/Objects/Devices/uplink.rsi # imp edit
     layers:
-    - state: old-radio
+    - state: icon_base # imp edit
+    # imp edit start
+    - state: icon_unshaded
+      shader: unshaded
+    # imp edit end
   - type: Item
     sprite: Objects/Devices/communication.rsi
     heldPrefix: old-radio
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
+        type: UplinkBoundUserInterface # imp edit, was StoreBoundUserInterface
   - type: ActivatableUI
     key: enum.StoreUiKey.Key
   - type: Store
@@ -123,3 +131,10 @@
   - type: Store
     balance:
       Telecrystal: 99999
+    passAllConditions: true # imp
+  - type: Sprite # imp add
+    sprite: _Impstation/Objects/Devices/uplink_commander.rsi
+    layers:
+    - state: icon_base
+    - state: icon_unshaded
+      shader: unshaded

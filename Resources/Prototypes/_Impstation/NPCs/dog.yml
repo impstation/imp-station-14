@@ -1,0 +1,21 @@
+- type: htnCompound
+  id: DogCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: DogInnateRangedCombatCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+
+- type: htnCompound
+  id: DogInnateRangedCombatCompound # this one is a copy of InnateRangedCombatCompound that checks if they are not in a container first
+  branches:
+    - preconditions:
+        - !type:InContainerPrecondition # am i NOT in a container, if yes proceed
+          isInContainer: false
+        - !type:GunAmmoPrecondition # do i have ammo, if minimum 0.001 proceed
+          minPercent: 0.001
+      tasks:
+        - !type:HTNCompoundTask # bark!
+          task: GunCombatCompound

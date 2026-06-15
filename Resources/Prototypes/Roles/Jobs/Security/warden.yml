@@ -6,7 +6,13 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 36000 #10 hrs
+      time: 10h # imp edit double the secoff requirements
+    - !type:RoleTimeRequirement
+      role: JobDetective
+      time: 1h # imp add mirror of HOS requirements
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 30h # imp edit triple the security role requirement, to make sure wardens have a lot of security experience
   weight: 5
   startingGear: WardenGear
   icon: "JobIconWarden"
@@ -17,10 +23,11 @@
   - Brig
   - Armory
   - Maintenance
-  #- Service imp edit
   - External
   - Detective
   - Cryogenics
+  - GenpopEnter
+  - GenpopLeave
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -28,11 +35,25 @@
 - type: startingGear
   id: WardenGear
   equipment:
-    eyes: ClothingEyesGlassesSecurity
+    # eyes: ClothingEyesGlassesSecurity imp loadouts
     ears: ClothingHeadsetWarden
-    pocket1: WeaponPistolMk58
+    # pocket1: WeaponPistolMk58 imp loadouts
   storage:
     back:
     - Flash
-    - MagazinePistol
+    # - MagazinePistol imp loadouts
 
+
+- type: chameleonOutfit
+  id: WardenChameleonOutfit
+  job: Warden
+  hasMindShield: true
+  equipment:
+    head: ClothingHeadHatWarden
+    mask: ClothingMaskGasSecurity
+    outerClothing: ClothingOuterCoatWarden
+    jumpsuit: ClothingUniformJumpsuitWarden
+    neck: Dinkystar
+    belt: ClothingBeltSecurity
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesBootsJack

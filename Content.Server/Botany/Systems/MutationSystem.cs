@@ -9,13 +9,16 @@ namespace Content.Server.Botany;
 
 public sealed class MutationSystem : EntitySystem
 {
+    private static ProtoId<RandomPlantMutationListPrototype> RandomPlantMutations = "RandomPlantMutations";
+
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly SharedEntityEffectsSystem _entityEffects = default!;
     private RandomPlantMutationListPrototype _randomMutations = default!;
 
     public override void Initialize()
     {
-        _randomMutations = _prototypeManager.Index<RandomPlantMutationListPrototype>("RandomPlantMutations");
+        _randomMutations = _prototypeManager.Index(RandomPlantMutations);
     }
 
     /// <summary>
@@ -30,10 +33,8 @@ public sealed class MutationSystem : EntitySystem
             if (Random(Math.Min(mutation.BaseOdds * severity, 1.0f)))
             {
                 if (mutation.AppliesToPlant)
-                {
-                    var args = new EntityEffectBaseArgs(plantHolder, EntityManager);
-                    mutation.Effect.Effect(args);
-                }
+                    _entityEffects.TryApplyEffect(plantHolder, mutation.Effect);
+
                 // Stat adjustments do not persist by being an attached effect, they just change the stat.
                 if (mutation.Persists && !seed.Mutations.Any(m => m.Name == mutation.Name))
                     seed.Mutations.Add(mutation);
@@ -87,6 +88,12 @@ public sealed class MutationSystem : EntitySystem
 
         CrossGasses(ref result.ExudeGasses, a.ExudeGasses);
         CrossGasses(ref result.ConsumeGasses, a.ConsumeGasses);
+
+        // Frontier: ensure clip/swab/seed safety propagates
+        result.PreventClipping |= a.PreventClipping;
+        result.PreventSwabbing |= a.PreventSwabbing;
+        result.PermanentlySeedless |= a.PermanentlySeedless;
+        // End Frontier
 
         // LINQ Explanation
         // For the list of mutation effects on both plants, use a 50% chance to pick each one.

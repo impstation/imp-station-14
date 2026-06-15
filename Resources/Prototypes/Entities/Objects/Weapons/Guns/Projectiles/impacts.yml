@@ -1,5 +1,5 @@
 - type: entity
-  id: BulletImpactEffect
+  id: BulletImpactEffectWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
@@ -17,7 +17,7 @@
       - HideContextMenu
 
 - type: entity
-  id: BulletImpactEffectDisabler
+  id: BulletImpactEffectDisablerWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
     - type: TimedDespawn
@@ -35,7 +35,7 @@
         - HideContextMenu
 
 - type: entity
-  id: BulletImpactEffectOrangeDisabler
+  id: BulletImpactEffectOrangeDisablerWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
@@ -54,7 +54,7 @@
     - HideContextMenu
 
 - type: entity
-  id: BulletImpactEffectKinetic
+  id: BulletImpactEffectKineticWizden #imp - see the _Impstation directory for the version we use
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn

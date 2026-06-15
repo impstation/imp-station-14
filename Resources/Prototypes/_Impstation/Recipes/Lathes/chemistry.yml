@@ -3,11 +3,19 @@
   result: ConicalFlask
   completetime: 2
   materials:
-    Glass: 100
+    Glass: 200
 
 - type: latheRecipe
   id: LargeConicalFlask
   result: LargeConicalFlask
   completetime: 2
   materials:
+    Glass: 400
+
+- type: latheRecipe
+  id: ChemSampleTube
+  result: ChemSampleTube
+  completetime: 2
+  materials:
     Glass: 200
+    Plastic: 100

@@ -4,18 +4,23 @@ using Content.Shared.UserInterface;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
 using static Content.Shared.Paper.PaperComponent;
-using Content.Shared._Impstation.Illiterate;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Content.Shared._Impstation.Illiterate; // imp
 
 namespace Content.Shared.Paper;
 
 public sealed class PaperSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -23,6 +28,11 @@ public sealed class PaperSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+
+    private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
+    private static readonly ProtoId<TagPrototype> WriteTag = "Write";
+
+    private EntityQuery<PaperComponent> _paperQuery;
 
     public override void Initialize()
     {
@@ -33,9 +43,14 @@ public sealed class PaperSystem : EntitySystem
         SubscribeLocalEvent<PaperComponent, BeforeActivatableUIOpenEvent>(BeforeUIOpen);
         SubscribeLocalEvent<PaperComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<PaperComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<PaperComponent, InteractHandEvent>(OnInteractHand); // imp edit
         SubscribeLocalEvent<PaperComponent, PaperInputTextMessage>(OnInputTextMessage);
 
+        SubscribeLocalEvent<RandomPaperContentComponent, MapInitEvent>(OnRandomPaperContentMapInit);
+
         SubscribeLocalEvent<ActivateOnPaperOpenedComponent, PaperWriteEvent>(OnPaperWrite);
+
+        _paperQuery = GetEntityQuery<PaperComponent>();
     }
 
     private void OnMapInit(Entity<PaperComponent> entity, ref MapInitEvent args)
@@ -101,21 +116,26 @@ public sealed class PaperSystem : EntitySystem
     private void OnInteractUsing(Entity<PaperComponent> entity, ref InteractUsingEvent args)
     {
         // only allow editing if there are no stamps or when using a cyberpen
-        var editable = entity.Comp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, "WriteIgnoreStamps");
-        if (_tagSystem.HasTag(args.Used, "Write"))
+        var editable = entity.Comp.StampedBy.Count == 0 || _tagSystem.HasTag(args.Used, WriteIgnoreStampsTag);
+        if (_tagSystem.HasTag(args.Used, WriteTag))
         {
             if (editable)
             {
                 if (entity.Comp.EditingDisabled)
                 {
                     var paperEditingDisabledMessage = Loc.GetString("paper-tamper-proof-modified-message");
-                    _popupSystem.PopupEntity(paperEditingDisabledMessage, entity, args.User);
+                    _popupSystem.PopupClient(paperEditingDisabledMessage, entity, args.User);
 
                     args.Handled = true;
                     return;
                 }
 
-                var ev = TryComp<IlliterateComponent>(args.User, out var illiterate) ? new PaperWriteAttemptEvent(entity.Owner, illiterate.FailMsg, true) : new PaperWriteAttemptEvent(entity.Owner); // imp
+                var ev =
+                // imp start: illiterate check
+                    TryComp<IlliterateComponent>(args.User, out var illiterate)
+                    ? new PaperWriteAttemptEvent(entity.Owner, illiterate.FailMsg, true)
+                // end imp
+                    : new PaperWriteAttemptEvent(entity.Owner);
                 RaiseLocalEvent(args.User, ref ev);
                 if (ev.Cancelled)
                 {
@@ -155,12 +175,36 @@ public sealed class PaperSystem : EntitySystem
                     ("stamp", args.Used));
             _popupSystem.PopupClient(stampPaperSelfMessage, args.User, args.User);
 
+            _audio.PlayPredicted(stampComp?.Sound, entity, args.User); // Imp edit
+
+            UpdateUserInterface(entity);
+        }
+    }
+    //imp edit start
+    /// <summary>
+    ///     Handles entities with a stamp component being able to stamp papers with their hands.
+    /// </summary>
+    private void OnInteractHand(Entity<PaperComponent> entity, ref InteractHandEvent args)
+    {
+        if (TryComp<StampComponent>(args.User, out var stampComp)
+        && TryStamp(entity, GetStampInfo(stampComp), stampComp.StampState))
+        {
+            // successfully stamped, play popup
+            var stampPaperOtherMessage = Loc.GetString("paper-component-action-stamp-paper-other-isstamp",
+                    ("user", args.User),
+                    ("target", args.Target));
+
+            _popupSystem.PopupEntity(stampPaperOtherMessage, args.User, Filter.PvsExcept(args.User, entityManager: EntityManager), true);
+            var stampPaperSelfMessage = Loc.GetString("paper-component-action-stamp-paper-self-isstamp",
+                    ("target", args.Target));
+            _popupSystem.PopupClient(stampPaperSelfMessage, args.User, args.User);
+
             _audio.PlayPredicted(stampComp.Sound, entity, args.User);
 
             UpdateUserInterface(entity);
         }
     }
-
+    //imp edit end
     private static StampDisplayInfo GetStampInfo(StampComponent stamp)
     {
         return new StampDisplayInfo
@@ -182,8 +226,10 @@ public sealed class PaperSystem : EntitySystem
         {
             SetContent(entity, args.Text);
 
+            var paperStatus = string.IsNullOrWhiteSpace(args.Text) ? PaperStatus.Blank : PaperStatus.Written;
+
             if (TryComp<AppearanceComponent>(entity, out var appearance))
-                _appearance.SetData(entity, PaperVisuals.Status, PaperStatus.Written, appearance);
+                _appearance.SetData(entity, PaperVisuals.Status, paperStatus, appearance);
 
             if (TryComp(entity, out MetaDataComponent? meta))
                 _metaSystem.SetEntityDescription(entity, "", meta);
@@ -197,6 +243,30 @@ public sealed class PaperSystem : EntitySystem
 
         entity.Comp.Mode = PaperAction.Read;
         UpdateUserInterface(entity);
+    }
+
+    private void OnRandomPaperContentMapInit(Entity<RandomPaperContentComponent> ent, ref MapInitEvent args)
+    {
+        if (!_paperQuery.TryComp(ent, out var paperComp))
+        {
+            Log.Warning($"{ToPrettyString(ent)} has a {nameof(RandomPaperContentComponent)} but no {nameof(PaperComponent)}!");
+            RemCompDeferred(ent, ent.Comp);
+            return;
+        }
+        var dataset = _protoMan.Index(ent.Comp.Dataset);
+        // Intentionally not using the Pick overload that directly takes a LocalizedDataset,
+        // because we want to get multiple attributes from the same pick.
+        var pick = _random.Pick(dataset.Values);
+
+        // Name
+        _metaSystem.SetEntityName(ent, Loc.GetString(pick));
+        // Description
+        _metaSystem.SetEntityDescription(ent, Loc.GetString($"{pick}.desc"));
+        // Content
+        SetContent((ent, paperComp), Loc.GetString($"{pick}.content"));
+
+        // Our work here is done
+        RemCompDeferred(ent, ent.Comp);
     }
 
     private void OnPaperWrite(Entity<ActivateOnPaperOpenedComponent> entity, ref PaperWriteEvent args)
@@ -224,6 +294,32 @@ public sealed class PaperSystem : EntitySystem
         return true;
     }
 
+    /// <summary>
+    ///     Copy any stamp information from one piece of paper to another.
+    /// </summary>
+    public void CopyStamps(Entity<PaperComponent?> source, Entity<PaperComponent?> target)
+    {
+        if (!Resolve(source, ref source.Comp) || !Resolve(target, ref target.Comp))
+            return;
+
+        target.Comp.StampedBy = new List<StampDisplayInfo>(source.Comp.StampedBy);
+        target.Comp.StampState = source.Comp.StampState;
+        Dirty(target);
+
+        if (TryComp<AppearanceComponent>(target, out var appearance))
+        {
+            // delete any stamps if the stamp state is null
+            _appearance.SetData(target, PaperVisuals.Stamp, target.Comp.StampState ?? "", appearance);
+        }
+    }
+
+    public void SetContent(EntityUid entity, string content)
+    {
+        if (!TryComp<PaperComponent>(entity, out var paper))
+            return;
+        SetContent((entity, paper), content);
+    }
+
     public void SetContent(Entity<PaperComponent> entity, string content)
     {
         entity.Comp.Content = content;
@@ -240,7 +336,7 @@ public sealed class PaperSystem : EntitySystem
         _appearance.SetData(entity, PaperVisuals.Status, status, appearance);
     }
 
-    public void UpdateUserInterface(Entity<PaperComponent> entity)
+    public void UpdateUserInterface(Entity<PaperComponent> entity) // imp public, used in dv signaturesystem
     {
         _uiSystem.SetUiState(entity.Owner, PaperUiKey.Key, new PaperBoundUserInterfaceState(entity.Comp.Content, entity.Comp.StampedBy, entity.Comp.Mode));
     }

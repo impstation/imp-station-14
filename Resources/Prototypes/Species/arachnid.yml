@@ -2,6 +2,7 @@
   id: Arachnid
   name: species-name-arachnid
   roundStart: true
+  randomViable: true # imp
   prototype: MobArachnid
   sprites: MobArachnidSprites
   defaultSkinTone: "#385878"
@@ -19,8 +20,11 @@
 - type: speciesBaseSprites
   id: MobArachnidSprites
   sprites:
+    TailBehind: MobHumanoidAnyMarking # floof
+    TailOversuit: MobHumanoidAnyMarking # floof
     Head: MobArachnidHead
     Snout: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking # imp, arachnid hair arachnid hair!
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobArachnidTorso
@@ -52,7 +56,7 @@
       required: true
       defaultMarkings: [ ArachnidEyesDefault ]
     Hair:
-      points: 0
+      points: 1
       required: false
     FacialHair:
       points: 0
@@ -75,7 +79,7 @@
       points: 1
       required: false
     Chest:
-      points: 4
+      points: 4 # imp
       required: false
     Legs:
       points: 8 #impspecial

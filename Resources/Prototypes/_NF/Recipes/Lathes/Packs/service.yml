@@ -1,4 +1,36 @@
-﻿- type: latheRecipePack
+- type: latheRecipePack
+  id: NFServiceStorage
+  recipes:
+  - NFBoxMREEmpty
+  - NFHappyHonkEmpty
+  - NFHappyHonkMimeEmpty
+  - NFFoodBoxPizza
+  - NFFoodBoxDonutEmpty
+  - NFFoodBoxNuggetEmpty
+  - NFFoodContainerEggEmpty
+  - NFFoodBoxSushi
+
+- type: latheRecipePack
+  id: NFServiceStatic
+  recipes:
+  - FoodCondimentSqueezeBottleClear
+  - NapkinDrum
+  - Napkin
+  - FoodFrozenPopsicleTrash
+  - DrinkWaterCup
+
+- type: latheRecipePack
   id: NFService
   recipes:
   - PlantAnalyzer
+
+- type: latheRecipePack
+  id: NFServiceBoardsStatic
+  recipes:
+  - CondimentDispenserCircuitboard
+
+- type: latheRecipePack
+  id: NFServiceBoards
+  recipes:
+  - KitchenAssemblerMachineCircuitboard
+  - ElectricRangeMachineCircuitboard

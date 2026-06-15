@@ -1,9 +1,11 @@
+using Content.Shared.Dataset;
+using Content.Shared.Humanoid.Markings;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.Humanoid.Prototypes;
 
-[Prototype("species")]
+[Prototype]
 public sealed partial class SpeciesPrototype : IPrototype
 {
     /// <summary>
@@ -32,6 +34,21 @@ public sealed partial class SpeciesPrototype : IPrototype
     [DataField(required: true)]
     public bool RoundStart { get; private set; } = false;
 
+    // Imp start
+    /// <summary>
+    /// Whether or not the species is available for randomization.
+    /// </summary>
+    [DataField]
+    public bool RandomViable { get; private set; }
+
+    /// <summary>
+    /// When a random species is picked, verify random float is lower than this number
+    /// if not, don't pick the species
+    /// </summary>
+    [DataField]
+    public float RandomChance { get; private set; } = 1f;
+    // Imp end
+
     // The below two are to avoid fetching information about the species from the entity
     // prototype.
 
@@ -42,7 +59,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     // sprite accessories.
 
     [DataField("sprites")]
-    public string SpriteSet { get; private set; } = default!;
+    public ProtoId<HumanoidSpeciesBaseSpritesPrototype> SpriteSet { get; private set; } = default!;
 
     /// <summary>
     ///     Default skin tone for this species. This applies for non-human skin tones.
@@ -61,7 +78,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     ///     The limit of body markings that you can place on this species.
     /// </summary>
     [DataField("markingLimits")]
-    public string MarkingPoints { get; private set; } = default!;
+    public ProtoId<MarkingPointsPrototype> MarkingPoints { get; private set; } = default!;
 
     /// <summary>
     ///     Humanoid species variant used by this entity.
@@ -79,19 +96,19 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// Method of skin coloration used by the species.
     /// </summary>
     [DataField(required: true)]
-    public HumanoidSkinColor SkinColoration { get; private set; }
+    public ProtoId<SkinColorationPrototype> SkinColoration { get; private set; }
 
     [DataField]
-    public string MaleFirstNames { get; private set; } = "NamesFirstMale";
+    public ProtoId<LocalizedDatasetPrototype> MaleFirstNames { get; private set; } = "NamesFirstMale";
 
     [DataField]
-    public string FemaleFirstNames { get; private set; } = "NamesFirstFemale";
+    public ProtoId<LocalizedDatasetPrototype> FemaleFirstNames { get; private set; } = "NamesFirstFemale";
 
     [DataField]
-    public string MiddleNames { get; private set; } = "NamesMiddle"; // Imp addition
+    public ProtoId<LocalizedDatasetPrototype> MiddleNames { get; private set; } = "NamesMiddle"; // Imp addition
 
     [DataField]
-    public string LastNames { get; private set; } = "NamesLast";
+    public ProtoId<LocalizedDatasetPrototype> LastNames { get; private set; } = "NamesLast";
 
     [DataField]
     public SpeciesNaming Naming { get; private set; } = SpeciesNaming.FirstLast;
@@ -120,6 +137,12 @@ public sealed partial class SpeciesPrototype : IPrototype
     public int OldAge = 70;
 
     /// <summary>
+    ///     Imp change: Characters older than this appear ancient.
+    /// </summary>
+    [DataField]
+    public int AncientAge = 100;
+
+    /// <summary>
     ///     Characters cannot be older than this. Only used for restrictions...
     ///     although imagine if ghosts could age people WYCI...
     ///     imp edit. we're brave. this will only matter when newmed drops, anyway
@@ -133,6 +156,6 @@ public enum SpeciesNaming : byte
     First,
     FirstLast,
     FirstDashFirst,
-    FirstMiddleLast,
+    FirstMiddleLast, // imp add
     TheFirstofLast,
 }

@@ -26,8 +26,9 @@
   children:
   - YourFirstCharacter
   - Species
+  - Records # DeltaV - CD records page goes here
 
 - type: guideEntry
   id: YourFirstCharacter
   name: guide-entry-yourfirstcharacter
-  text: "/ServerInfo/Guidebook/NewPlayer/YourFirstCharacter.xml"
+  text: "/ServerInfo/_Impstation/Guidebook/NewPlayer/YourFirstCharacter.xml" # imp

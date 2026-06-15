@@ -15,7 +15,6 @@ namespace Content.Server.Power.EntitySystems
     public sealed class PowerReceiverSystem : SharedPowerReceiverSystem
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
-
         private EntityQuery<ApcPowerReceiverComponent> _recQuery;
         private EntityQuery<ApcPowerProviderComponent> _provQuery;
 
@@ -160,11 +159,6 @@ namespace Content.Server.Power.EntitySystems
         public bool IsPowered(EntityUid uid, ApcPowerReceiverComponent? receiver = null)
         {
             return !_recQuery.Resolve(uid, ref receiver, false) || receiver.Powered;
-        }
-
-        public void SetLoad(ApcPowerReceiverComponent comp, float load)
-        {
-            comp.Load = load;
         }
 
         public override bool ResolveApc(EntityUid entity, [NotNullWhen(true)] ref SharedApcPowerReceiverComponent? component)

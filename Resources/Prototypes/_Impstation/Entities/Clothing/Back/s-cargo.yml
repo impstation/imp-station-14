@@ -16,7 +16,7 @@
     walkModifier: 1
     sprintModifier: 0.85
   - type: HeldSpeedModifier
-  
+
 - type: entity
   parent: ClothingBackpackSCargoDuffelPurple
   id: ClothingBackpackSCargoDuffelCyan
@@ -25,7 +25,7 @@
   components:
   - type: Sprite
     sprite: _Impstation/Clothing/Back/Duffels/scargo_cyan.rsi
-    
+
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingBackpackSCargoN2Satchel
@@ -54,6 +54,8 @@
   - type: Explosive
     explosionType: Default
     maxIntensity: 20
-  - type: StorageFill
-    contents:
-      - id: ClothingMaskBreathSCargo
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: ClothingMaskBreathSCargo

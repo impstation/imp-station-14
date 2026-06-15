@@ -1,15 +1,17 @@
+using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Objectives.Components;
+using Content.Server.Objectives.Systems;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 
-namespace Content.Server.Objectives.Systems;
+namespace Content.Server._Goobstation.Objectives.Systems;
 
 /// <summary>
 ///     Handles escaping on the shuttle while being another person detection.
 /// </summary>
-public sealed class ImpersonateConditionSystem : EntitySystem
+public sealed class GoobImpersonateConditionSystem : EntitySystem
 {
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
@@ -19,15 +21,15 @@ public sealed class ImpersonateConditionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ImpersonateConditionComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
-        SubscribeLocalEvent<ImpersonateConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
+        SubscribeLocalEvent<GoobImpersonateConditionComponent, ObjectiveAfterAssignEvent>(OnAfterAssign);
+        SubscribeLocalEvent<GoobImpersonateConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<ImpersonateConditionComponent>();
+        var query = EntityQueryEnumerator<GoobImpersonateConditionComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if (comp.Name == null || comp.MindId == null)
@@ -44,7 +46,7 @@ public sealed class ImpersonateConditionSystem : EntitySystem
         }
     }
 
-    private void OnAfterAssign(EntityUid uid, ImpersonateConditionComponent comp, ref ObjectiveAfterAssignEvent args)
+    private void OnAfterAssign(EntityUid uid, GoobImpersonateConditionComponent comp, ref ObjectiveAfterAssignEvent args)
     {
         if (!_target.GetTarget(uid, out var target))
             return;
@@ -57,12 +59,12 @@ public sealed class ImpersonateConditionSystem : EntitySystem
     }
 
     // copypasta from escape shittle objective. eh.
-    private void OnGetProgress(EntityUid uid, ImpersonateConditionComponent comp, ref ObjectiveGetProgressEvent args)
+    private void OnGetProgress(EntityUid uid, GoobImpersonateConditionComponent comp, ref ObjectiveGetProgressEvent args)
     {
         args.Progress = GetProgress(args.Mind, comp);
     }
 
-    public float GetProgress(MindComponent mind, ImpersonateConditionComponent comp)
+    public float GetProgress(MindComponent mind, GoobImpersonateConditionComponent comp)
     {
         // not escaping alive if you're deleted/dead
         if (mind.OwnedEntity == null || _mind.IsCharacterDeadIc(mind))

@@ -1,0 +1,43 @@
+# Magazines compatible with the WT550.
+- type: entity
+  id: MagazinePistolSubMachineGunTopMounted
+  name: WT550 magazine (.35 auto top-mounted)
+  parent: [ BaseItem, BaseSecurityContraband ]
+  description: A 30-round .35 auto top-mounted SMG magazine, marked as live-fire ammo.
+  components:
+  - type: Item
+    storedRotation: 90
+  - type: Tag
+    tags:
+      - MagazinePistolSubMachineGunTopMounted
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    proto: CartridgePistol
+    whitelist:
+      tags:
+      - CartridgePistol
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag_top_mounted.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-1
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: false
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+
+- type: entity
+  id: MagazinePistolSubMachineGunTopMountedEmpty
+  name: WT550 magazine (.35 auto top-mounted any)
+  parent: MagazinePistolSubMachineGunTopMounted
+  description: A 35-round .35 auto top-mounted SMG magazine with no apparent markings.
+  components:
+  - type: BallisticAmmoProvider
+    proto: null

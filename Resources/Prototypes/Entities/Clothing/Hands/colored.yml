@@ -354,10 +354,8 @@
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#535353"
       right:
       - state: inhand-right
-        color: "#535353"
   - type: Clothing
     sprite: Clothing/Hands/Gloves/Color/black.rsi
   - type: Butcherable
@@ -385,9 +383,20 @@
     spawned:
     - id: ClothingHandsGlovesFingerlessInsulated
   - type: Insulated
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Shock: 10
   - type: Fiber
     fiberMaterial: fibers-insulative
     fiberColor: fibers-yellow
+  - type: Tag
+    tags:
+      - Insuls # imp
+      - WhitelistChameleon
+      - ClothMade
+  - type: StealTarget #imp
+    stealGroup: InsulatedGloves
 
 # Budget Insulated Gloves
 - type: entity
@@ -412,9 +421,15 @@
       - 3
       - 3.5
       - 4
+  - type: DamageOnShootProtection #imp
+    damageProtection:
+      flatReductions:
+        Shock: 5
   - type: Fiber
     fiberMaterial: fibers-insulative-frayed
     fiberColor: fibers-yellow
+  - type: StealTarget #imp
+    stealGroup: BudgetInsuls
 
 # Conductive Insulated Gloves
 - type: entity
@@ -424,3 +439,5 @@
   components:
   - type: Insulated
     coefficient: 5 # zap em good
+  - type: StealTarget #imp - tourists wouldn't know the difference
+    stealGroup: InsulatedGloves

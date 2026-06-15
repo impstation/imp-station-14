@@ -20,22 +20,20 @@
   # begin imp edit, service split
   #- Bartender
   #- Botanist
-  #- Boxer
   #- Chaplain
   #- Chef
   #- Clown
   #- Janitor
-  #- HeadOfPersonnel
-  #- Lawyer
+  - Lawyer
   #- Librarian
   #- Mime
   #- Musician
+  - Passenger
   #- Reporter
   #- Visitor
-  #- Zookeeper
   #- ServiceWorker
-  # end imp edit, a department of one
-  - Passenger
+  # end imp edit, a department of TWO, available on xbox 360 and playstation 3 march 6, 2008
+  - Assistant # imp, non-roundstart
 
 - type: department
   id: CentralCommand
@@ -52,6 +50,8 @@
   - ERTSecurity
   - ERTEngineer
   - DeathSquad
+  - CentcommIntern # imp
+  - CentcommInternLeader # imp
   editorHidden: true
   weight: 120
 
@@ -78,7 +78,6 @@
   - ERTEngineer
   - DeathSquad
   - HospitalityDirector #Imp
-  - AdministrativeAssistant # Delta V
   primary: false
   weight: 100
 
@@ -146,9 +145,8 @@
   color: "#9FED58"
   weight: 10
   roles:
-  - Boxer
   - Reporter
-  - Zookeeper
   - Psychologist
   primary: false
   manifestHidden: true #imp edit
+  editorHidden: true #imp edit

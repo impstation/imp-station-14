@@ -12,12 +12,16 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._Impstation.Tools.Components; // imp
+using Content.Shared.Whitelist; // imp
 
 namespace Content.Shared.Tools.Systems;
 
 public abstract partial class SharedToolSystem : EntitySystem
 {
+    [Dependency] private   readonly IGameTiming _timing = default!;
     [Dependency] private   readonly IMapManager _mapManager = default!;
     [Dependency] private   readonly IPrototypeManager _protoMan = default!;
     [Dependency] protected readonly ISharedAdminLogManager AdminLogger = default!;
@@ -32,6 +36,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     [Dependency] private   readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private   readonly TileSystem _tiles = default!;
     [Dependency] private   readonly TurfSystem _turfs = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // imp
 
     public const string CutQuality = "Cutting";
     public const string PulseQuality = "Pulsing";
@@ -41,6 +46,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         InitializeMultipleTool();
         InitializeTile();
         InitializeWelder();
+        InitializeSolutionRefuel(); // imp
         SubscribeLocalEvent<ToolComponent, ToolDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<ToolComponent, ExaminedEvent>(OnExamine);
     }
@@ -115,7 +121,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         EntityUid user,
         EntityUid? target,
         float doAfterDelay,
-        IEnumerable<string> toolQualitiesNeeded,
+        [ForbidLiteral] IEnumerable<string> toolQualitiesNeeded,
         DoAfterEvent doAfterEv,
         float fuel = 0,
         ToolComponent? toolComponent = null)
@@ -153,7 +159,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         EntityUid user,
         EntityUid? target,
         TimeSpan delay,
-        IEnumerable<string> toolQualitiesNeeded,
+        [ForbidLiteral] IEnumerable<string> toolQualitiesNeeded,
         DoAfterEvent doAfterEv,
         out DoAfterId? id,
         float fuel = 0,
@@ -167,7 +173,17 @@ public abstract partial class SharedToolSystem : EntitySystem
             return false;
 
         var toolEvent = new ToolDoAfterEvent(fuel, doAfterEv, GetNetEntity(target));
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, delay / toolComponent.SpeedModifier, toolEvent, tool, target: target, used: tool)
+
+        // imp edit start, if a tool has CowTool and the user has CowToolProficiency, use speed modifier from CowToolComponent
+        // else, use speed modifier from ToolComponent, as normal
+        TimeSpan doAfterDuration; //delay parameter moved to its own variable from DoAfterArgs call below to allow it to be set to different durations
+        if (TryComp<CowToolComponent>(tool, out var cowToolComponent) && TryComp<CowToolProficiencyComponent>(user, out _))
+            doAfterDuration = delay / cowToolComponent.ProficiencySpeedModifier;
+        else
+            doAfterDuration = delay / toolComponent.SpeedModifier;
+        // imp edit end
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, doAfterDuration, toolEvent, tool, target: target, used: tool) // imp edit, doAfterDuration was previously delay / toolComponent.SpeedModifier
         {
             BreakOnDamage = true,
             BreakOnMove = true,
@@ -200,7 +216,7 @@ public abstract partial class SharedToolSystem : EntitySystem
         EntityUid user,
         EntityUid? target,
         float doAfterDelay,
-        string toolQualityNeeded,
+        [ForbidLiteral] string toolQualityNeeded,
         DoAfterEvent doAfterEv,
         float fuel = 0,
         ToolComponent? toolComponent = null)
@@ -219,7 +235,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     /// <summary>
     ///     Whether a tool entity has the specified quality or not.
     /// </summary>
-    public bool HasQuality(EntityUid uid, string quality, ToolComponent? tool = null)
+    public bool HasQuality(EntityUid uid, [ForbidLiteral] string quality, ToolComponent? tool = null)
     {
         return Resolve(uid, ref tool, false) && tool.Qualities.Contains(quality);
     }
@@ -228,7 +244,7 @@ public abstract partial class SharedToolSystem : EntitySystem
     ///     Whether a tool entity has all specified qualities or not.
     /// </summary>
     [PublicAPI]
-    public bool HasAllQualities(EntityUid uid, IEnumerable<string> qualities, ToolComponent? tool = null)
+    public bool HasAllQualities(EntityUid uid, [ForbidLiteral] IEnumerable<string> qualities, ToolComponent? tool = null)
     {
         return Resolve(uid, ref tool, false) && tool.Qualities.ContainsAll(qualities);
     }
@@ -261,6 +277,13 @@ public abstract partial class SharedToolSystem : EntitySystem
         }
 
         return !beforeAttempt.Cancelled;
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        UpdateWelders();
     }
 
     #region DoAfterEvents

@@ -9,9 +9,7 @@ using Content.Shared.GameTicking.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Server.Announcements.Systems;
-using Robust.Shared.Player;
-using Content.Server.Station.Components;
+using Content.Server.Announcements.Systems; // ee announce
 
 namespace Content.Server.StationEvents.Events;
 
@@ -25,8 +23,7 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
     [Dependency] protected readonly ChatSystem ChatSystem = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly StationSystem StationSystem = default!;
-    [Dependency] protected readonly GameTicker GameTicker = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // ee announce
 
     protected ISawmill Sawmill = default!;
 
@@ -46,6 +43,25 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
             return;
 
         AdminLogManager.Add(LogType.EventAnnounced, $"Event added / announced: {ToPrettyString(uid)}");
+
+        // imp remove, ee handles this now
+        /* // we don't want to send to players who aren't in game (i.e. in the lobby)
+        Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
+
+        if (stationEvent.StartAnnouncement != null)
+            ChatSystem.DispatchFilteredAnnouncement(allPlayersInGame, Loc.GetString(stationEvent.StartAnnouncement), playSound: false, colorOverride: stationEvent.StartAnnouncementColor);
+
+        Audio.PlayGlobal(stationEvent.StartAudio, allPlayersInGame, true); */
+
+        if (stationEvent.StartAnnouncement) // ee announce, imp moved to added
+        {
+            _announcer.SendAnnouncement(
+                _announcer.GetAnnouncementId(args.RuleId),
+                Filter.Broadcast(),
+                _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId)),
+                colorOverride: Color.Gold
+            );
+        }
     }
 
     /// <inheritdoc/>
@@ -57,16 +73,6 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
             return;
 
         AdminLogManager.Add(LogType.EventStarted, LogImpact.High, $"Event started: {ToPrettyString(uid)}");
-
-        if (stationEvent.StartAnnouncement)
-        {
-            _announcer.SendAnnouncement(
-                _announcer.GetAnnouncementId(args.RuleId),
-                Filter.Broadcast(),
-                _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId)),
-                colorOverride: Color.Gold
-            );
-        }
 
         if (stationEvent.Duration != null)
         {
@@ -91,13 +97,13 @@ public abstract class StationEventSystem<T> : GameRuleSystem<T> where T : ICompo
         // we don't want to send to players who aren't in game (i.e. in the lobby)
         Filter allPlayersInGame = Filter.Empty().AddWhere(GameTicker.UserHasJoinedGame);
 
-        if (stationEvent.EndAnnouncement)
+        if (stationEvent.EndAnnouncement) // ee announce
         {
-                _announcer.SendAnnouncement(
-                _announcer.GetAnnouncementId(args.RuleId, true),
-                Filter.Broadcast(),
-                _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId, true)),
-                colorOverride: Color.Gold);
+            _announcer.SendAnnouncement(
+            _announcer.GetAnnouncementId(args.RuleId, true),
+            Filter.Broadcast(),
+            _announcer.GetEventLocaleString(_announcer.GetAnnouncementId(args.RuleId, true)),
+            colorOverride: Color.Gold);
         }
     }
 

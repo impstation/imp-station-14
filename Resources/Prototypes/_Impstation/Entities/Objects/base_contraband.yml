@@ -1,11 +1,20 @@
 - type: entity
+  id: BaseServiceContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedDepartments: [ Service ]
+
+- type: entity
   id: BaseRestrictedLawyerContraband
   parent: BaseRestrictedContraband
   abstract: true
   components:
   - type: Contraband
+    allowedDepartments: [ Security ]
     allowedJobs: [ Lawyer ]
-    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HospitalityDirector ]
+#    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HospitalityDirector ]
 
 # For non-sanctioned decapoid tech
 - type: entity
@@ -46,3 +55,13 @@
   components:
   - type: Contraband
     severity: TierXContraband
+
+# Zookeeper Contraband: Dart Guns and the like
+- type: entity
+  id: BaseRestrictedZookeeperContraband
+  parent: BaseRestrictedContraband
+  abstract: true
+  components:
+  - type: Contraband
+    allowedJobs: [ Zookeeper ]
+    implicitlyAllowedJobs: [ Captain, HeadOfPersonnel, HospitalityDirector ]

@@ -8,3 +8,10 @@
   equipment:
     jumpsuit: ClothingUniformBrownSuitSkirt #imp
 
+- type: loadout
+  id: LibrarianSpaceDress
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: JamjarTimer
+  equipment:
+    jumpsuit: ClothingUniformJumpskirtSpaceDress # imp

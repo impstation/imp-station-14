@@ -4,14 +4,23 @@ using Content.Shared.Weather;
 using Robust.Client.Graphics;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Configuration; // imp
+using Content.Shared._Impstation.CCVar; // imp
 
 namespace Content.Client.Overlays;
 
 public sealed partial class StencilOverlay
 {
+    [Dependency] private readonly IConfigurationManager _configManager = default!; // imp
+
     private List<Entity<MapGridComponent>> _grids = new();
 
-    private void DrawWeather(in OverlayDrawArgs args, WeatherPrototype weatherProto, float alpha, Matrix3x2 invMatrix)
+    private void DrawWeather(
+        in OverlayDrawArgs args,
+        CachedResources res,
+        WeatherPrototype weatherProto,
+        float alpha,
+        Matrix3x2 invMatrix)
     {
         var worldHandle = args.WorldHandle;
         var mapId = args.MapId;
@@ -19,10 +28,13 @@ public sealed partial class StencilOverlay
         var worldBounds = args.WorldBounds;
         var position = args.Viewport.Eye?.Position.Position ?? Vector2.Zero;
 
+        if (_configManager.GetCVar(ImpCCVars.DisableWeather)) //imp
+            return;
+
         // Cut out the irrelevant bits via stencil
         // This is why we don't just use parallax; we might want specific tiles to get drawn over
         // particularly for planet maps or stations.
-        worldHandle.RenderInRenderTarget(_blep!, () =>
+        worldHandle.RenderInRenderTarget(res.Blep!, () =>
         {
             var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
             _grids.Clear();
@@ -55,13 +67,13 @@ public sealed partial class StencilOverlay
         }, Color.Transparent);
 
         worldHandle.SetTransform(Matrix3x2.Identity);
-        worldHandle.UseShader(_protoManager.Index<ShaderPrototype>("StencilMask").Instance());
-        worldHandle.DrawTextureRect(_blep!.Texture, worldBounds);
+        worldHandle.UseShader(_protoManager.Index(StencilMask).Instance());
+        worldHandle.DrawTextureRect(res.Blep!.Texture, worldBounds);
         var curTime = _timing.RealTime;
         var sprite = _sprite.GetFrame(weatherProto.Sprite, curTime);
 
         // Draw the rain
-        worldHandle.UseShader(_protoManager.Index<ShaderPrototype>("StencilDraw").Instance());
+        worldHandle.UseShader(_protoManager.Index(StencilDraw).Instance());
         _parallax.DrawParallax(worldHandle, worldAABB, sprite, curTime, position, Vector2.Zero, modulate: (weatherProto.Color ?? Color.White).WithAlpha(alpha));
 
         worldHandle.SetTransform(Matrix3x2.Identity);

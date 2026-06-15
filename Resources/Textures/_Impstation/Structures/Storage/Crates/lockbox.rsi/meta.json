@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by DinnerCalzone (github) for Impstation, based on sprites taken from /tg/station at https://github.com/tgstation/tgstation/pull/85491.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-engineering"
+    },
+    {
+      "name": "icon-medical"
+    },
+    {
+      "name": "icon-science"
+    },
+    {
+      "name": "icon-security"
+    },
+    {
+      "name": "icon-service"
+    },
+    {
+      "name": "base"
+    },
+    {
+      "name": "closed"
+    },
+    {
+      "name": "overlay"
+    },
+    {
+      "name": "overlay-closed"
+    },
+    {
+      "name": "overlay-open"
+    },
+    {
+      "name": "open"
+    },
+    {
+      "name": "welded"
+    },
+    {
+      "name": "locked"
+    },
+    {
+      "name": "unlocked"
+    },
+    {
+      "name": "sparking",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

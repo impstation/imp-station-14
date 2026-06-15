@@ -7,3 +7,14 @@
   id: CameraBoardsImp
   recipes:
   - CameraHandheld
+
+- type: latheRecipePack
+  id: ScienceEquipmentImp
+  recipes:
+  - PortableSensorArray
+
+- type: latheRecipePack
+  id: FauxTilesImp
+  recipes:
+  - FauxTileShoveledAstroSnow
+  - FauxTileAstroCave

@@ -140,15 +140,12 @@
       emergencyLightColor: PaleVioletRed
       forceEnableEmergencyLights: true
       shuttleTime: 600
-    octarine:
-      announcement: alert-level-octarine-announcement
+    ice:
+      announcement: alert-level-ice-announcement
       selectable: false
-      sound:
-        path: /Audio/_Impstation/Misc/octarine.ogg # i think this is deprecated bc of random announcers
-        params:
-          volume: -3
+      sound: /Audio/Misc/redalert.ogg
       disableSelection: true
-      color: CadetBlue
-      emergencyLightColor: CadetBlue
+      color: LightBlue
+      emergencyLightColor: LightBlue
       forceEnableEmergencyLights: true
-      shuttleTime: 1200
+      shuttleTime: 600

@@ -11,10 +11,10 @@ public sealed partial class MeteorSwarmComponent : Component
     [DataField, AutoPausedField]
     public TimeSpan NextWaveTime;
 
-    [DataField("startAnnouncement")]
+    [DataField("startAnnouncement")] // ee announce
     public bool StartAnnouncement;
 
-    [DataField("endAnnouncement")]
+    [DataField("endAnnouncement")] // ee announce
     public bool EndAnnouncement;
 
     /// <summary>
@@ -26,12 +26,40 @@ public sealed partial class MeteorSwarmComponent : Component
     [DataField]
     public float MeteorVelocity = 10f;
 
+    [DataField]
+    public float StrikeOffsetRadius = 200f; //imp edit
+
+    [DataField]
+    public float InteriorSpawnChance = 1f / 500f; //imp edit - bluespace meteors or something. is funny
+
+    [DataField]
+    public float InteriorSpawnRadius = 200f; //imp edit
+
+    [DataField]
+    public float SpawnPadding = 50f; //imp edit
+
     /// <summary>
     /// If true, meteors will be thrown from all angles instead of from a singular source
     /// </summary>
     [DataField]
     public bool NonDirectional;
 
+    // IMP: commenting these out, ee announcer
+    /*     /// <summary>
+        /// The announcement played when a meteor swarm begins.
+        /// </summary>
+        [DataField]
+        public LocId? Announcement = "station-event-meteor-swarm-start-announcement";
+
+        [DataField]
+        public SoundSpecifier? AnnouncementSound = new SoundPathSpecifier("/Audio/Announcements/meteors.ogg")
+        {
+            Params = new()
+            {
+                Volume = -4
+            }
+        };
+     */
     /// <summary>
     /// Each meteor entity prototype and their corresponding weight in being picked.
     /// </summary>

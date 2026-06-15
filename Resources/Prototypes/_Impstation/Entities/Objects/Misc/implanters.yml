@@ -1,0 +1,17 @@
+﻿- type: entity
+  id: GayStorageImplanter
+  name: gay implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: GayStorageImplant
+
+- type: entity
+  id: ButlerImplanter
+  name: butler implanter
+  description: An implanter containing a butler bomb implant.
+  parent: BaseImplantOnlyImplanterSyndi
+  suffix: Admeme, implant before remote spawn
+  components:
+  - type: Implanter
+    implant: ButlerBombImplant

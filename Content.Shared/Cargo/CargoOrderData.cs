@@ -1,5 +1,9 @@
+using Content.Shared.Cargo.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using System.Text;
+using Content.Shared.Radio; // imp edit
+
 namespace Content.Shared.Cargo
 {
     [DataDefinition, NetSerializable, Serializable]
@@ -52,7 +56,18 @@ namespace Content.Shared.Cargo
         [DataField]
         public string? Approver;
 
-        public CargoOrderData(int orderId, string productId, string productName, int price, int amount, string requester, string reason)
+        /// <summary>
+        /// Which account to deduct funds from when ordering
+        /// </summary>
+        [DataField]
+        public ProtoId<CargoAccountPrototype> Account;
+
+        /// <summary>
+        /// Imp addition. Radio channel which receives the order announcement.
+        /// </summary>
+        public ProtoId<RadioChannelPrototype> AnnouncementChannel;
+
+        public CargoOrderData(int orderId, string productId, string productName, int price, int amount, string requester, string reason, ProtoId<CargoAccountPrototype> account, ProtoId<RadioChannelPrototype> announcementChannel) // imp edit
         {
             OrderId = orderId;
             ProductId = productId;
@@ -61,6 +76,8 @@ namespace Content.Shared.Cargo
             OrderQuantity = amount;
             Requester = requester;
             Reason = reason;
+            Account = account;
+            AnnouncementChannel = announcementChannel; // imp edit
         }
 
         public void SetApproverData(string? approver)

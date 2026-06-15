@@ -1,0 +1,157 @@
+##hunt path catalog 
+- type: listing
+  id: HereticHuntPath1
+  name: knowledge-path-hunt-s1-name
+  description: knowledge-path-hunt-s1-desc
+  icon: { sprite: _Impstation/Heretic/Hunt/hunt_revolver.rsi, state: icon }
+  productHereticKnowledge: PrincipleOfStrife
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathHunt
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    # add every path here because you shouldn't be able to buy more starter knowledge
+    blacklist:
+    - Ash
+    - Blade
+    - Flesh
+    - Hunt
+    - Lock
+    - Rust
+    - Void
+
+- type: listing
+  id: HereticHuntPath2
+  name: knowledge-path-hunt-s2-name
+  description: knowledge-path-hunt-s2-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: GraspOfStrife
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathHunt
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    whitelist:
+    - Hunt
+
+# side
+- type: listing
+  id: HereticHuntPath3
+  name: knowledge-path-hunt-s3-name
+  description: knowledge-path-hunt-s3-desc
+  icon: { sprite: _Impstation/Heretic/abilities_heretic.rsi, state: watchtower_striving }
+  productHereticKnowledge: WatchtowerStriving
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathHunt
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+
+- type: listing
+  id: HereticHuntPath4
+  name: knowledge-path-hunt-s4-name
+  description: knowledge-path-hunt-s4-desc
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: MarkOfHunt
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathHunt
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    whitelist:
+    - Hunt
+
+- type: listing
+  id: HereticHuntPath5
+  name: knowledge-path-hunt-s5-name
+  description: knowledge-path-hunt-s5-desc
+  icon: { sprite: _Impstation/Heretic/Hunt/meteoric_pouch.rsi, state: base }
+  productHereticKnowledge: MeteoricPouch
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathHunt
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    whitelist:
+    - Hunt
+
+# side
+- type: listing
+  id: HereticHuntPath6
+  name: knowledge-path-hunt-s6-name
+  description: knowledge-path-hunt-s6-desc
+  icon: { sprite: _Impstation/Heretic/abilities_heretic.rsi, state: serpents_focus }
+  productHereticKnowledge: SerpentFocus
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathHunt
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+
+- type: listing
+  id: HereticHuntPath7
+  name: knowledge-path-hunt-s7-name
+  description: knowledge-path-hunt-s7-desc
+  icon: { sprite: _Impstation/Heretic/Hunt/lionhunter.rsi, state: base }
+  productHereticKnowledge: LionsBane
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathHunt
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    whitelist:
+    - Hunt
+
+# side
+- type: listing
+  id: HereticHuntPath8
+  name: knowledge-path-hunt-s8-name
+  description: knowledge-path-hunt-s8-desc
+  icon: { sprite: _Impstation/Heretic/Hunt/skaptodon.rsi, state: icon }
+  productHereticKnowledge: SkaptodonCloak
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathHunt
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+
+- type: listing
+  id: HereticHuntPath9
+  name: knowledge-path-hunt-s9-name
+  description: knowledge-path-hunt-s9-desc
+  icon: { sprite: Structures/meat_spike.rsi, state: spike }
+  productHereticKnowledge: AscensionHunt
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathHunt
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    whitelist:
+    - Hunt

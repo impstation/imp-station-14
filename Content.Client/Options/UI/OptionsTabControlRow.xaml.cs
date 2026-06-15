@@ -6,6 +6,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Collections;
 using Robust.Shared.Configuration;
+using Robust.Shared.Utility;//imp
 
 namespace Content.Client.Options.UI;
 
@@ -58,7 +59,7 @@ public sealed partial class OptionsTabControlRow : Control
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
 
-        ResetButton.StyleClasses.Add(StyleBase.ButtonOpenRight);
+        ResetButton.StyleClasses.Add(StyleClass.ButtonOpenRight);
         ApplyButton.OnPressed += ApplyButtonPressed;
         ResetButton.OnPressed += ResetButtonPressed;
         DefaultButton.OnPressed += DefaultButtonPressed;
@@ -120,7 +121,7 @@ public sealed partial class OptionsTabControlRow : Control
     {
         return AddOption(new OptionSliderFloatCVar(this, _cfg, cVar, slider, min, max, scale, FormatPercent));
     }
-    
+
     /// <summary>
     /// Add a color slider option, backed by a simple string CVar.
     /// </summary>
@@ -174,6 +175,7 @@ public sealed partial class OptionsTabControlRow : Control
     {
         return AddOption(new OptionDropDownCVar<T>(this, _cfg, cVar, dropDown, options));
     }
+
 
     /// <summary>
     /// Initializes the control row. This should be called after all options have been added.
