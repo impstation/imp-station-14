@@ -32,7 +32,6 @@ namespace Content.Shared.Construction.Components
         /// <remarks>
         /// Currently only used for AtmosUnsafeAnchorSystem
         /// </remarks>
-        [DataField]
         [ViewVariables(VVAccess.ReadOnly)]
         public float AdditionalDelay = 0f;
         // IMP ADD END
