@@ -206,7 +206,7 @@
         SpaceLube: 1.2
         SpaceGlue: 0.01
         WeldingFuel: 0.6
-      consumption: 0.0001
+      consumption: 0.1 # About 15 mins of runtime with 100u capacity
     - type: Openable
       sound: null
       closeSound: null

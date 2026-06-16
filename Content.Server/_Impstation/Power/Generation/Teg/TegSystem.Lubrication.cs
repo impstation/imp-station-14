@@ -71,13 +71,15 @@ public sealed partial class TegSystem
     /// </summary>
     /// <param name="uid"></param>
     /// <param name="dt"></param>
-    /// <param name="δp"></param>
+    /// <param name="circulatorRate"></param>
     /// <returns></returns>
-    private float CirculatorEfficiency(EntityUid uid, float dt, float δp)
+    private float CirculatorEfficiency(EntityUid uid, float dt, float circulatorRate)
     {
-        Log.Debug($"dp = {δp}");
-        //TODO: find proper dp scaling
-        var consumptionModifier = δp > 0f ? 0.1f * δp : 0f;
+        Log.Debug($"consumption scalar input = {circulatorRate}");
+        // At around 5000 rate, consumption modifier should be around 1.
+        // Consumption should scale infinitely, but far less than linearly.
+        // https://www.desmos.com/calculator/myeflomtaz
+        var consumptionModifier = circulatorRate > 0 ? MathF.Log2(circulatorRate) / 12f : 0f;
 
         return _reagentEfficiency.ApplyEfficiency(uid, dt, consumptionModifier);
     }
