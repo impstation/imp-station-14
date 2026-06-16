@@ -214,6 +214,8 @@
       openableByHand: false
       openOnActivate: false
       closeable: true
+      showExamineText: false
+      verbMenuAccessible: false
     - type: RefillableSolution
       solution: lube
       # refillTime: 2
