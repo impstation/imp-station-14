@@ -263,6 +263,7 @@
   components:
   - type: StationEvent
     weight: 3
+    earliestStart: 20
     reoccurrenceDelay: 30
     minimumPlayers: 20
   - type: GlobalStatusEffectRule
