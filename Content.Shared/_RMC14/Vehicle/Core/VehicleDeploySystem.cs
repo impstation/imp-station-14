@@ -191,6 +191,8 @@ public sealed class VehicleDeploySystem : EntitySystem
 
     private void OnVehicleCanRun(Entity<VehicleDeployableComponent> ent, ref VehicleCanRunEvent args)
     {
+        return;
+
         if (!args.CanRun)
             return;
 

@@ -53,6 +53,8 @@ public sealed class VehicleWheelSystem : EntitySystem
 
     private void OnVehicleCanRun(Entity<VehicleWheelSlotsComponent> ent, ref VehicleCanRunEvent args)
     {
+        return;
+
         if (!args.CanRun)
             return;
 

@@ -40,6 +40,8 @@ public sealed partial class VehicleSystem
 
     private void OnGenericKeyedCanRun(Entity<GenericKeyedVehicleComponent> ent, ref VehicleCanRunEvent args)
     {
+        return;
+
         if (!args.CanRun)
             return;
         // We cannot run by default
