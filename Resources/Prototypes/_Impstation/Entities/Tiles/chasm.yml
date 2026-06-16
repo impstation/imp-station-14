@@ -10,3 +10,5 @@
     targetUser: true
   - type: DeleteOnTrigger
     targetUser: false
+  - type: TimedDespawn
+    lifetime: 15
