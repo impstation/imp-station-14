@@ -36,14 +36,14 @@ public sealed partial class TegSystem
         if (args.Open)
         {
             // AddSolutionAccessibility(uid);
-            _openable.TryOpen(uid);
+            _openable.SetOpen(uid, true);
             ChangeInjectorState(uid, true);
         }
 
         else
         {
             // RemoveSolutionAccessibility(uid);
-            _openable.TryClose(uid);
+            _openable.SetOpen(uid, false);
             ChangeInjectorState(uid, false);
         }
     }
