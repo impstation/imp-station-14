@@ -262,7 +262,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 1.5
+    weight: 3
     reoccurrenceDelay: 30
     minimumPlayers: 20
   - type: GlobalStatusEffectRule
