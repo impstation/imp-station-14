@@ -199,7 +199,7 @@
     - type: SolutionContainerManager
       solutions:
         lube:
-          maxVol: 250
+          maxVol: 100
     - type: ReagentEfficiency
       solution: lube
       modifiers:
