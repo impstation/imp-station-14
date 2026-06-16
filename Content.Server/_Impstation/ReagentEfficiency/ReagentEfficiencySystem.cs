@@ -42,6 +42,10 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         // Scale amount removed by dt and multiplier
         var consumedSolution = _solution.SplitSolution(ent.Comp.SolutionCache.Value, ent.Comp.Consumption * dt * throttle * consumptionMultiplier);
 
+        // FixedPoint2 rounding WILL lead to small numbers becoming 0, affecting division down the line
+        if (consumedSolution.Volume == FixedPoint2.Zero)
+            return 0f;
+
         // Find the total modifier of all the reagents removed
         // Weighted average:
         //      Modifier * amount in removed solution
