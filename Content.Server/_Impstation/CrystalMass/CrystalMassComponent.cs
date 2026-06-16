@@ -21,7 +21,7 @@ public sealed partial class CrystalMassComponent : Component
     /// Used to reduce the concurrent amount of audio playing
     /// </summary>
     [DataField]
-    public float SpawningAudioChance = 0.5f;
+    public float SpawningAudioChance = 0.1f;
 
     /// <summary>
     /// Chance for a secondary entity to spawn instead when spread

@@ -33,7 +33,7 @@ public sealed partial class CascadeRuleComponent : Component
     /// Time until the round is ended in seconds
     /// </summary>
     [DataField]
-    public TimeSpan DurationToRoundEnd = TimeSpan.FromSeconds(240);
+    public TimeSpan DurationToRoundEnd = TimeSpan.FromSeconds(300);
 
     /// <summary>
     /// Time until the round ends
