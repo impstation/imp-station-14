@@ -159,6 +159,7 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         //IMP ADD: Calculate efficiency boost from lubrication
         var efficiencyA = CirculatorEfficiency(circA, args.dt, δpA);
         var efficiencyB = CirculatorEfficiency(circB, args.dt, δpB);
+        var averageCirculatorEfficiency = (efficiencyA + efficiencyB) / 2f;
 
         Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
 
@@ -171,7 +172,7 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
 
         var electricalEnergy = 0f;
 
-        if (airA.Pressure > 0 && airB.Pressure > 0)
+        if (airA.Pressure > 0 && airB.Pressure > 0 && !float.IsNaN(cA) && !float.IsNaN(cB)) //IMP: maybe remove the isNaN checks before prod. Causing crashes because these two values can be nan and there's a debug assert to catch that
         {
             var hotA = airA.Temperature > airB.Temperature;
 
@@ -193,6 +194,9 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
             // of just feeding the TEG room temperature gas from an infinite gas miner).
             var dT = Thot - Tcold;
             N *= MathF.Tanh(dT/700); // https://www.wolframalpha.com/input?i=tanh(x/700)+from+0+to+1000
+
+            //IMP ADD: Modify by circulator efficiency
+            N *= averageCirculatorEfficiency;
 
             var transfer = Wmax * N;
             electricalEnergy = transfer * component.PowerFactor;
