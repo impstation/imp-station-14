@@ -892,10 +892,6 @@ entities:
     - type: Transform
       pos: -5.5,5.5
       parent: 768
-    - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
     - type: Storage
       storedItems:
         77:
