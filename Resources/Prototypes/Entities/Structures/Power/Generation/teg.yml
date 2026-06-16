@@ -207,6 +207,8 @@
         SpaceGlue: 0.01
         WeldingFuel: 0.6
     - type: Openable
+      sound: null
+      closeSound: null
       opened: false
       openableByHand: false
       openOnActivate: false
