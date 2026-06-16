@@ -22,7 +22,7 @@ public sealed partial class ChasmFallingComponent : Component
     [DataField("deletionTime")]
     public TimeSpan DeletionTime = TimeSpan.FromSeconds(1.8f);
 
-    [DataField("nextDeletionTime", customTypeSerializer:typeof(TimeOffsetSerializer))]
+    [DataField("nextDeletionTime", customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]
     public TimeSpan NextDeletionTime = TimeSpan.Zero;
 
@@ -35,4 +35,11 @@ public sealed partial class ChasmFallingComponent : Component
     ///     Scale that the animation should bring entities to.
     /// </summary>
     public Vector2 AnimationScale = new Vector2(0.01f, 0.01f);
+
+    /// <summary>
+    ///     Imp.
+    ///     Chasm entity that added the ChasmFalling component
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
+    public EntityUid Triggerer;
 }
