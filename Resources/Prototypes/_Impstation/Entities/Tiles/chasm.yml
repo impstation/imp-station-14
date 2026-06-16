@@ -1,0 +1,12 @@
+- type: entity
+  name: invisible portal
+  id: PortalMime
+  parent: FloorChasmEntity
+  components:
+  - type: Stealth
+    useAltShader: true
+    lastVisibility: -1
+  - type: ScramOnTrigger
+    targetUser: true
+  - type: DeleteOnTrigger
+    targetUser: false

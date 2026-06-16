@@ -44,8 +44,11 @@ public sealed class ChasmSystem : EntitySystem
             if (_timing.CurTime < chasm.NextDeletionTime)
                 continue;
 
+            // Imp start
             _trigger.Trigger(chasm.Triggerer, uid);
+            _blocker.UpdateCanMove(uid);
             RemCompDeferred(uid, chasm);
+            // Imp end
 
             /* Imp removal
             QueueDel(uid);
@@ -87,6 +90,14 @@ public sealed class ChasmSystem : EntitySystem
 
     private void OnUpdateCanMove(EntityUid uid, ChasmFallingComponent component, UpdateCanMoveEvent args)
     {
+        // Imp start
+        if (_timing.CurTime >= component.NextDeletionTime)
+        {
+            args.Uncancel();
+            return;
+        }
+        // Imp
+
         args.Cancel();
     }
 }
