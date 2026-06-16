@@ -116,8 +116,6 @@ public sealed partial class AnchorableSystem : EntitySystem
 
     private void OnUnanchorComplete(EntityUid uid, AnchorableComponent component, TryUnanchorCompletedEvent args)
     {
-        component.AdditionalDelay = 0f; // imp: Reset additional delay even if it's cancelled
-
         if (args.Cancelled || args.Used is not { } used)
             return;
 
@@ -138,8 +136,6 @@ public sealed partial class AnchorableSystem : EntitySystem
 
     private void OnAnchorComplete(EntityUid uid, AnchorableComponent component, TryAnchorCompletedEvent args)
     {
-        component.AdditionalDelay = 0f; // imp: Reset additional delay even if it's cancelled
-
         if (args.Cancelled || args.Used is not { } used)
             return;
 
