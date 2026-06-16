@@ -41,5 +41,5 @@ public sealed partial class ChasmFallingComponent : Component
     ///     Chasm entity that added the ChasmFalling component
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public EntityUid Triggerer;
+    public EntityUid Trigger;
 }

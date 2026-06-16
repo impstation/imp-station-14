@@ -45,7 +45,7 @@ public sealed class ChasmSystem : EntitySystem
                 continue;
 
             // Imp start
-            _trigger.Trigger(chasm.Triggerer, uid);
+            _trigger.Trigger(chasm.Trigger, uid);
             _blocker.UpdateCanMove(uid);
             RemCompDeferred(uid, chasm);
             // Imp end
@@ -69,7 +69,7 @@ public sealed class ChasmSystem : EntitySystem
     {
         var falling = AddComp<ChasmFallingComponent>(tripper);
 
-        falling.Triggerer = chasm; // Imp
+        falling.Trigger = chasm; // Imp
         falling.NextDeletionTime = _timing.CurTime + falling.DeletionTime;
         _blocker.UpdateCanMove(tripper);
 
