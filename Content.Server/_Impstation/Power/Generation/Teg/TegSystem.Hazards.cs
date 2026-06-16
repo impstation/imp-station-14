@@ -20,4 +20,9 @@ public sealed partial class TegSystem
 
         _gasInjectorSystem.SetEnabled(uid, injector, state);
     }
+
+    public bool IsOpen(EntityUid uid)
+    {
+        return TryComp<WiresPanelComponent>(uid, out var panel) && panel.Open;
+    }
 }
