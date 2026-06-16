@@ -206,6 +206,7 @@
         SpaceLube: 1.2
         SpaceGlue: 0.01
         WeldingFuel: 0.6
+      consumption: 0.0001
     - type: Openable
       sound: null
       closeSound: null
@@ -215,8 +216,8 @@
       closeable: true
     - type: RefillableSolution
       solution: lube
-      refillTime: 2
-      maxRefill: 10
+      # refillTime: 2
+      # maxRefill: 10
     - type: DrawableSolution
       solution: lube
     - type: ExaminableSolution
