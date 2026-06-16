@@ -1,6 +1,4 @@
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Database;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
 using Content.Shared.Stunnable;

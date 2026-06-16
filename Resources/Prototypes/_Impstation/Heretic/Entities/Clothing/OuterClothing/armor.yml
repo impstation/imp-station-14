@@ -19,13 +19,11 @@
         Caustic: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.25
-    #imp edit start: add temp and fire protection
   - type: TemperatureProtection
     heatingCoefficient: 0.005
     coolingCoefficient: 0.05
   - type: FireProtection
     reduction: 0.8 #hood doesn't get reduction, so this is 0.8 overall
-    #imp edit end
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodHeretic
     slot: head

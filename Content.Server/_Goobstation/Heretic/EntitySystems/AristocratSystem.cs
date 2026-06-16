@@ -1,13 +1,9 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Heretic.Components;
-using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Maps;
-using Content.Shared.Speech.Muting;
-using Content.Shared.StatusEffect;
 using Content.Shared.Tag;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -26,9 +22,7 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly TemperatureSystem _temp = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TileSystem _tile = default!;
 
     public override void Update(float frameTime)
@@ -88,11 +82,11 @@ public sealed partial class AristocratSystem : EntitySystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        var worldPos = _transform.GetWorldPosition(ent);
-        var tilerefs = _map.GetTilesIntersecting(
+        var pos = xform.Coordinates.Position;
+        var tilerefs = _map.GetLocalTilesIntersecting(
                 xform.GridUid.Value,
                 grid,
-                new Box2(worldPos + new Vector2(-ent.Comp.Range), worldPos + new Vector2(ent.Comp.Range)))
+                new Box2(pos + new Vector2(-ent.Comp.Range), pos + new Vector2(ent.Comp.Range)))
             .ToList();
 
         if (tilerefs.Count == 0)

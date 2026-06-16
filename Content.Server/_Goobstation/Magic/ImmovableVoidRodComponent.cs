@@ -1,6 +1,4 @@
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Magic;
 
