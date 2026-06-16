@@ -128,3 +128,18 @@
       amount: 1
   products:
     BlackFoodColoring: 8
+
+# syrups
+
+- type: reaction
+  id: VanillaSyrup
+  minTemp: 340
+  reactants:
+    VanillaExtract:
+      amount: 1
+    Sugar:
+      amount: 3
+    Water:
+      amount: 3
+  products:
+    VanillaSyrup: 5

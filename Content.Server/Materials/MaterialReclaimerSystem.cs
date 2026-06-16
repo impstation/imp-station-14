@@ -26,6 +26,9 @@ using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Gibbing;
 using Content.Shared.Humanoid;
+using Content.Shared.Body.Components; // imp
+using Content.Shared.Damage.Systems; // imp
+using Content.Shared.StatusEffectNew; // imp
 
 namespace Content.Server.Materials;
 
@@ -44,6 +47,8 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!; // imp
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // imp
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -190,6 +195,18 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 
         if (component.ReclaimMaterials)
             SpawnMaterialsFromComposition(uid, item, completion * component.Efficiency, xform: xform);
+
+        // imp edit start, unemagged recyclers damage mobs
+        if (HasComp<BodyComponent>(item) && !CanGib(uid, item, component))
+        {
+            if (!_statusEffect.HasStatusEffect(item, component.StatusEffect))
+            {
+                _damageable.ChangeDamage(item, component.Damage);
+                _statusEffect.TryAddStatusEffectDuration(item, component.StatusEffect, component.StatusEffectDuration);
+            }
+            return;
+        }
+        // imp edit end
 
         if (CanGib(uid, item, component))
         {
