@@ -82,7 +82,7 @@ public sealed partial class TegSystem
         // Consumption should scale infinitely, but far less than linearly.
         // https://www.desmos.com/calculator/myeflomtaz
         var consumptionModifier = circulatorRate > 0 ? MathF.Log2(circulatorRate) / 12f : 0f;
-
-        return _reagentEfficiency.ApplyEfficiency(uid, dt, consumptionModifier);
+        var (efficiency, consumedLubricant) = _reagentEfficiency.ApplyEfficiency(uid, dt, consumptionModifier);
+        return efficiency;
     }
 }
