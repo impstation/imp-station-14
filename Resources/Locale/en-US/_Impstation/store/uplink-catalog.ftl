@@ -193,8 +193,8 @@ uplink-bear-trap-desc = You swear you saw this in a movie once... (Multitool lin
 uplink-trash-crusher-name = Trash Compactor Cart
 uplink-trash-crusher-desc = A special janitor cart with crushing pistions hidden inside.
 
-uplink-get-name = Gold Coin
-uplink-get-desc = Extra shiny and distracting.
+uplink-fake-cash-name = Slippery Spesos
+uplink-fake-cash-desc = Not actually real but sure looks it.
 
 uplink-bee-suit-name = Bee-keeping Suit
 uplink-bee-suit-desc = Keeps you safe from stingers!

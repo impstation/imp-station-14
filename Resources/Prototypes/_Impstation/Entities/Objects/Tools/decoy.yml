@@ -17,39 +17,16 @@
       prototype: MobBabyGondal
 
 - type: entity
-  parent: TreasureCoinGold
-  id: TreasureCoinGet
+  parent: BaseItem
+  id: SlipperySpesos
+  name: spesos
+  description: You gotta have money. There are 1000000 things in the stack.
+  suffix: Fake
   components:
   - type: Sprite
-    layers:
-    - state: coin_gold
-    - state: sparkle-1
-    - state: sparkle-1
-      shader: unshaded
-  - type: StaticPrice
-    price: 175
-  - type: GetSign
+    sprite: /Textures/Objects/Economy/cash.rsi
+    state: cash_1000000
   - type: Lubed
     slipStrength: 10
     slipsLeft: 200
-
-- type: entity
-  parent: [ BaseItem, Tier2Contraband]
-  id: ContrabandHandLabeler
-  name: blood-red hand labeler
-  description: A syndicate hand labeler, used to label items as contraband.
-  components:
-    - type: Sprite
-      sprite: Objects/Tools/hand_labeler.rsi
-      state: hand_labeler
-    - type: Item
-      sprite: Objects/Tools/hand_labeler.rsi
-      storedRotation: -90
-    - type: TargetAction
-      range: 2
-      interactOnMiss: false
-    - type: EntityTargetAction
-      event: !type:ChangeComponentsSpellEvent
-        toAdd:
-        - type: Contraband
-          severity: HighlyIllegal
+    applyNamePrefix: false
