@@ -1,6 +1,16 @@
 ﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
 
 - type: listing
+  id: UplinkGet
+  name: uplink-get-name
+  description: uplink-get-desc
+  productEntity: TreasureCoinGet
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkDisruption
+
+- type: listing
   id: UplinkSingularityBeaconNukie
   name: uplink-singularity-beacon-name
   description: uplink-singularity-beacon-desc

@@ -1,0 +1,92 @@
+- type: entity
+  parent: [ SimpleMobBase ]
+  id: MobBabyGondal
+  name: baby gondal
+  description: uh, fuck?
+  suffix: syndicate
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-baby-gondal-name
+    description: ghost-role-information-baby-gondal-desc
+    mindRoles:
+    - MindRoleGhostRoleTeamAntagonist
+    - MindRoleGhostRoleFamiliar
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: SmallMob
+    speechSounds: Arachnid
+  - type: ReplacementAccent
+    accent: mothroach
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
+  - type: TriggerOnActivateImplant
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/_Impstation/Music/gondalcut.ogg"
+  - type: ActionsProvider
+    actions:
+    - ActionGondal
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Impstation/Mobs/Aliens/babygondal.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: baby-alive
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 20
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 5
+    baseSprintSpeed : 8
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: baby-alive
+      Dead:
+        Base: baby-dead
+  - type: NoSlip
+  - type: PressureImmunity
+  - type: Insulated
+  - type: CanEscapeInventory
+    baseResistTime: 3
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Syndicate
+  - type: ActiveRadio
+    channels:
+    - Syndicate
+  - type: Tag
+    tags:
+    - VimPilot
+    - Trash
+    - FootstepSound
+    - Radio
+    - MultitoolDefibrillatorTarget
+  - type: MeleeWeapon
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 5
+        Structural: 5

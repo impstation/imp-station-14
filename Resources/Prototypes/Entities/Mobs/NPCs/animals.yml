@@ -203,7 +203,7 @@
       task: SimpleHostileCompound
   - type: NpcFactionMember
     factions:
-    - SimpleHostile
+    - Bee
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -4088,7 +4088,7 @@
   - type: VentCrawler
     enterDelay: 1
   - type: AlwaysRevolutionaryConvertible
-  - type: SecretStash 
+  - type: SecretStash
     secretStashName: secret-stash-hamster
     blacklist:
       tags:

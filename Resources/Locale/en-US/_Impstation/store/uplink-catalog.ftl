@@ -177,3 +177,21 @@ uplink-glykon-desc = Beautiful, elegant, and deadly. The Glykon bundled with 4 c
 
 uplink-phone-syndicate-name = Blood-Red Phone
 uplink-phone-syndicate-desc = Useful if you need to call Syndicate High Command. Only one may be purchased.
+
+uplink-gondal-name = Noisemaker Teleporter
+uplink-gondal-desc = Call in a very loud distraction.
+
+uplink-mousetrap-name = Giant Mousetrap
+uplink-mousetrap-desc = A really big trap, for really big 'mice'.
+
+uplink-bear-trap-name = Cindy head trap
+uplink-bear-trap-desc = You swear you saw this in a movie once... (Multitool linking required.)
+
+uplink-trash-crusher-name = Trash Compactor Cart
+uplink-trash-crusher-desc = A special janitor cart with crushing pistions hidden inside.
+
+uplink-get-name = Gold Coin
+uplink-get-desc = Extra shiny and distracting.
+
+uplink-bee-suit-name = Bee-keeping Suit
+uplink-bee-suit-desc = Keeps you safe from stingers!
