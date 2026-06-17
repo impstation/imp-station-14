@@ -158,12 +158,6 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         var (airA, δpA) = openA ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletA.Air, outletA.Air); // IMP EDIT: Only transfer air if closed
         var (airB, δpB) = openB ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletB.Air, outletB.Air); // IMP EDIT: Only transfer air if closed
 
-        //IMP ADD: Calculate efficiency boost from lubrication
-        var efficiencyA = CirculatorEfficiency(circA, args.dt, δpA);
-        var efficiencyB = CirculatorEfficiency(circB, args.dt, δpB);
-        var averageCirculatorEfficiency = (efficiencyA + efficiencyB) / 2f;
-        Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
-
         var cA = _atmosphere.GetHeatCapacity(airA, true);
         var cB = _atmosphere.GetHeatCapacity(airB, true);
 
@@ -178,6 +172,21 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
 
         if (airA.Pressure > 0 && airB.Pressure > 0 && !float.IsNaN(cA) && !float.IsNaN(cB)) //IMP: maybe remove the isNaN checks before prod. Causing crashes because these two values can be nan and there's a debug assert to catch that
         {
+            //IMP ADD START
+            // Calculate efficiency boost from lubrication
+            var (efficiencyA, consumedLubricantA) = CirculatorEfficiency(circA, args.dt, δpA);
+            var (efficiencyB, consumedLubricantB) = CirculatorEfficiency(circB, args.dt, δpB);
+            var averageCirculatorEfficiency = (efficiencyA + efficiencyB) / 2f;
+            Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
+
+            // Apply damage to the circulator based on its running efficiency. Possibly triggers the failure state!
+            ApplyCirculatorEfficiencyDamage(circA, efficiencyA);
+            ApplyCirculatorEfficiencyDamage(circB, efficiencyB);
+
+            // TODO: Apply any funny effects that specific reagents might have on the circulators.
+
+            //IMP ADD END
+
             var hotA = airA.Temperature > airB.Temperature;
 
             // Calculate thermal and electrical energy transfer between the two sides.

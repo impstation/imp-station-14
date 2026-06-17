@@ -27,4 +27,28 @@ public sealed partial class TegSystem
         // Try to get the WiresPanel component and see if it's open.
         return TryComp<WiresPanelComponent>(uid, out var panel) && panel.Open;
     }
+
+    /// <summary>
+    /// Applies damage to the circulator based on the efficiency.
+    /// </summary>
+    /// <param name="efficiency">The efficiency of the circulator. Probably calculated by <see cref="ReagentEfficiencySystem"/>.</param>
+    /// <returns>The amount of damage incurred.</returns>
+    private float ApplyCirculatorEfficiencyDamage(Entity<TegCirculatorComponent?> ent, float efficiency)
+    {
+        // Ensure the circulator component exists.
+        if (!Resolve(ent, ref ent.Comp))
+            return 0f;
+
+        // No damage if the circulator is running above its nominal efficiency.
+        if (efficiency > ent.Comp.MinimumNominalEfficiency)
+            return 0f;
+
+        // Calculate damage based on the efficiency, scaling linearly.
+        float scaling = 1 - efficiency / ent.Comp.MinimumNominalEfficiency;
+        float damage = float.Lerp(0, ent.Comp.MaximumDamagePerTick, scaling);
+
+        // Apply the damage and return the amount dealt.
+        ent.Comp.Integrity -= damage;
+        return damage;
+    }
 }

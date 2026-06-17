@@ -75,14 +75,13 @@ public sealed partial class TegSystem
     /// <param name="dt">The amount of time since the last efficiency calculation.</param>
     /// <param name="circulatorRate">The speed the circulator is running at.</param>
     /// <returns></returns>
-    private float CirculatorEfficiency(EntityUid uid, float dt, float circulatorRate)
+    private (float, Solution) CirculatorEfficiency(EntityUid uid, float dt, float circulatorRate)
     {
         Log.Debug($"consumption scalar input = {circulatorRate}");
         // At around 5000 rate, consumption modifier should be around 1.
         // Consumption should scale infinitely, but far less than linearly.
         // https://www.desmos.com/calculator/myeflomtaz
         var consumptionModifier = circulatorRate > 0 ? MathF.Log2(circulatorRate) / 12f : 0f;
-        var (efficiency, consumedLubricant) = _reagentEfficiency.ApplyEfficiency(uid, dt, consumptionModifier);
-        return efficiency;
+        return _reagentEfficiency.ApplyEfficiency(uid, dt, consumptionModifier);
     }
 }
