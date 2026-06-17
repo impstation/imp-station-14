@@ -81,10 +81,14 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
         /// <summary>
         /// Changes the Enabled field of the component to the state argument and updates visuals accordingly.
         /// </summary>
-        public void SetEnabled(EntityUid uid, GasOutletInjectorComponent injector, bool state)
+        public void SetEnabled(Entity<GasOutletInjectorComponent?> ent, bool state, GasOutletInjectorComponent? injector = null)
         {
-            injector.Enabled = state;
-            UpdateAppearance(uid, injector);
+            //Ensure the component exists
+            if (!Resolve(ent, ref ent.Comp))
+                return;
+
+            ent.Comp.Enabled = state;
+            UpdateAppearance(ent, ent.Comp);
         }
         // IMP ADD END
     }
