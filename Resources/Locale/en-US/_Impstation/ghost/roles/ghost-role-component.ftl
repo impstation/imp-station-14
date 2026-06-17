@@ -200,3 +200,9 @@ ghost-role-information-carp-radio-desc = A stuffed carp containing a transmitter
 
 ghost-role-information-baby-gondal-name = Gondal Noise Maker
 ghost-role-information-baby-gondal-desc = A syndicate alligned baby gondal.
+
+ghost-role-information-syndicate-instigator-name = Syndicate Instigator
+ghost-role-information-syndicate-instigator-description = You are a barely-equipped trainee nuclear operative sent to test the station's defenses. Try to destroy the station.
+ghost-role-information-syndicate-instigator-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-solo-antagonist-name}[/bold][/color]. Covert syndicate agents are not guaranteed to help you.
+
+                                          You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
