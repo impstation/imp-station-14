@@ -127,6 +127,8 @@
         - state: circ-0-light
           shader: unshaded
           map: [ "enum.TegVisualLayers.CirculatorLight" ]
+        - state: circ-open
+          map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
 
     - type: GenericVisualizer
       visuals:
@@ -143,6 +145,10 @@
             SpeedStill: { state: circ-0-light }
             SpeedSlow: { state: circ-1-light }
             SpeedFast: { state: circ-2-light }
+          enum.WiresVisuals.MaintenancePanelState:
+            enum.WiresVisualLayers.MaintenancePanel:
+              True: { visible: false }
+              False: { visible: true }
 
     - type: Appearance
     - type: PointLight
@@ -191,7 +197,7 @@
 
     # IMP ADD START
     - type: WiresPanel
-    # - type: WiresVisuals # TODO: Implement open circulator sprite
+    - type: WiresVisuals # TODO: Implement open circulator sprite
     - type: AtmosDevice # To allow GasOutletInjector to receive updates
     - type: GasOutletInjector
       inlet: "inlet"
