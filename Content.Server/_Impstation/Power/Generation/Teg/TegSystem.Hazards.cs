@@ -18,7 +18,7 @@ public sealed partial class TegSystem
         if (!TryComp<GasOutletInjectorComponent>(uid, out var injector))
             return;
 
-        _gasInjectorSystem.SetEnabled(uid, injector, state);
+        _gasInjectorSystem.SetEnabled(uid, state, injector);
     }
 
     /// <returns>Whether this circulator is open.</returns>
