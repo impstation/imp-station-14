@@ -146,27 +146,26 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         var circA = tegGroup.CirculatorA!.Owner;
         var circB = tegGroup.CirculatorB!.Owner;
 
+        var (inletA, outletA) = GetPipes(circA);
+        var (inletB, outletB) = GetPipes(circB);
+
         // IMP ADD: Find whether the circulators are opened
         // Optimization? Comp() is called many other times in this function, so this should be ok?
         // Could cache WiresPanelComponent in CirculatorComponent for Resolve() to run faster?
         var openA = IsOpen(circA);
         var openB = IsOpen(circB);
 
-        var (inletA, outletA) = GetPipes(circA);
-        var (inletB, outletB) = GetPipes(circB);
-
         var (airA, δpA) = openA ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletA.Air, outletA.Air); // IMP EDIT: Only transfer air if closed
         var (airB, δpB) = openB ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletB.Air, outletB.Air); // IMP EDIT: Only transfer air if closed
-
-        var cA = _atmosphere.GetHeatCapacity(airA, true);
-        var cB = _atmosphere.GetHeatCapacity(airB, true);
 
         //IMP ADD: Calculate efficiency boost from lubrication
         var efficiencyA = CirculatorEfficiency(circA, args.dt, δpA);
         var efficiencyB = CirculatorEfficiency(circB, args.dt, δpB);
         var averageCirculatorEfficiency = (efficiencyA + efficiencyB) / 2f;
-
         Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
+
+        var cA = _atmosphere.GetHeatCapacity(airA, true);
+        var cB = _atmosphere.GetHeatCapacity(airB, true);
 
         // Shift ramp position based on demand and generation from previous tick.
         var curRamp = component.RampPosition;
@@ -200,7 +199,7 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
             var dT = Thot - Tcold;
             N *= MathF.Tanh(dT/700); // https://www.wolframalpha.com/input?i=tanh(x/700)+from+0+to+1000
 
-            //IMP ADD: Modify by circulator efficiency
+            //IMP ADD: Modify generator efficiency by circulator efficiency
             N *= averageCirculatorEfficiency;
 
             var transfer = Wmax * N;

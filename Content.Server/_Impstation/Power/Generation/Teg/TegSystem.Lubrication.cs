@@ -33,6 +33,7 @@ public sealed partial class TegSystem
     /// </summary>
     private void OnPanelChanged(EntityUid uid, TegCirculatorComponent comp, PanelChangedEvent args)
     {
+        // Open the circulator. "Expose" the air injector to the atmosphere and allow reagent transfer.
         if (args.Open)
         {
             // AddSolutionAccessibility(uid);
@@ -40,6 +41,7 @@ public sealed partial class TegSystem
             ChangeInjectorState(uid, true);
         }
 
+        // Close the circulator.
         else
         {
             // RemoveSolutionAccessibility(uid);
@@ -68,10 +70,10 @@ public sealed partial class TegSystem
 
     /// <summary>
     /// Calculates the efficiency of each circulator using their lubricant solutions.
+    /// Consumption ramps up as the circulatorRate increases.
     /// </summary>
-    /// <param name="uid"></param>
-    /// <param name="dt"></param>
-    /// <param name="circulatorRate"></param>
+    /// <param name="dt">The amount of time since the last efficiency calculation.</param>
+    /// <param name="circulatorRate">The speed the circulator is running at.</param>
     /// <returns></returns>
     private float CirculatorEfficiency(EntityUid uid, float dt, float circulatorRate)
     {

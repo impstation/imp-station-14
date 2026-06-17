@@ -21,8 +21,10 @@ public sealed partial class TegSystem
         _gasInjectorSystem.SetEnabled(uid, injector, state);
     }
 
+    /// <returns>Whether this circulator is open.</returns>
     public bool IsOpen(EntityUid uid)
     {
+        // Try to get the WiresPanel component and see if it's open.
         return TryComp<WiresPanelComponent>(uid, out var panel) && panel.Open;
     }
 }

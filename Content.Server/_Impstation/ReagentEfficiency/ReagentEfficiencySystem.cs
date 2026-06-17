@@ -19,27 +19,31 @@ public sealed class ReagentEfficiencySystem : EntitySystem
     /// <returns>Machine efficiency as a float. Under 1.0 means substandard efficiency, over 1.0 means more efficient than normal.</returns>
     public float ApplyEfficiency(Entity<ReagentEfficiencyComponent?> ent, float dt, float consumptionMultiplier)
     {
+        // Try to get the ReagentEfficiencyComponent.
         if (!Resolve(ent, ref ent.Comp))
             return 0f;
 
+        // If we are not consuming anything, the efficiency is 0.
         if (consumptionMultiplier <= 0f)
             return 0f;
 
+        // Try to get the Solution component.
         // Cacheable version of TryGetSolution
         if (!_solution.ResolveSolution(ent.Owner, ent.Comp.Solution, ref ent.Comp.SolutionCache, out var solution))
             return 0f;
 
+        // If the solution is empty, the efficiency is 0.
         if (solution.Volume == FixedPoint2.Zero)
             return 0f;
 
         // Remove the appropriate amount of solution:
-        // Find throttling amount
+        // Find throttling amount: Stepwise function [0,threshold) linearly maps to [0,1). [threshold, inf) maps to 1.
         var throttleThresholdVolume = solution.MaxVolume * ent.Comp.ThrottlingThreshold;
-        var throttle = throttleThresholdVolume != 0f && solution.Volume < throttleThresholdVolume ? (float)(solution.Volume / throttleThresholdVolume) : 1f; // TODO: less jank and magic numbers
+        var throttle = throttleThresholdVolume != 0f && solution.Volume < throttleThresholdVolume ? (float)(solution.Volume / throttleThresholdVolume) : 1f;
         // Scale amount removed by dt and multiplier
         var consumedSolution = _solution.SplitSolution(ent.Comp.SolutionCache.Value, ent.Comp.Consumption * dt * throttle * consumptionMultiplier);
 
-        // FixedPoint2 rounding WILL lead to small numbers becoming 0, affecting division down the line
+        // FixedPoint2 rounding WILL lead to small numbers becoming 0, affecting division down the line.
         if (consumedSolution.Volume == FixedPoint2.Zero)
             return 0f;
 
@@ -60,6 +64,7 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         //Apply throttling
         efficiency *= throttle;
 
+        // Store and return calculated efficiency.
         ent.Comp.PreviousEfficiency = efficiency;
         return efficiency;
     }
