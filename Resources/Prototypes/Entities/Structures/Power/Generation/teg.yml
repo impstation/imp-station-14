@@ -129,7 +129,7 @@
           map: [ "enum.TegVisualLayers.CirculatorLight" ]
         - state: circ-open # imp
           map: [ "enum.WiresVisualLayers.MaintenancePanel" ] # imp
-        - state: locked # imp
+        - state: circ-locked # imp
           map: ["enum.LockVisualLayers.Lock"] # imp
 
     - type: GenericVisualizer
@@ -201,7 +201,7 @@
     - type: WiresPanel
     - type: WiresVisuals
     - type: Lock
-    # - type: LockVisuals # TODO: Add lock indicator
+    - type: LockVisuals
     - type: LockedWiresPanel
     - type: AccessReader
       access: [["Engineering"]]
