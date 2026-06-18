@@ -93,14 +93,13 @@
       state: preview
 
 - type: entity
-  categories: Spawner
   parent: BaseAntagSpawner
   id: SpawnPointGhostHound
   name: hound of whimsy spawn point
   components:
   - type: GhostRole
     name: ghost-role-information-hound-name
-    description: ghost-role-information-hound-description
+    description: ghost-role-information-hound-desc
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleHound
@@ -113,9 +112,9 @@
     - sprite: Markers/jobs.rsi
       state: green
     - sprite: _Impstation\Clothing\Head\Hats\circusclownhat.rsi
-      state: preview
-      
-- type: entity   
+      state: icon
+
+- type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: SpawnPointLoneNukeOperative
   id: SpawnPointSyndicateInstigator

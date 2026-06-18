@@ -10,8 +10,6 @@
     state: full
   - type: HumanoidAppearance
     species: Borzoid
-#    hideLayersOnEquip:
-#    - Hair
   - type: Body
     prototype: Borzoid
     requiredLegs: 2
@@ -63,7 +61,13 @@
       visible: false
   - type: Inventory
     speciesId: Borzoid
-    templateId: monkey
+    templateId: borzoid
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _Impstation/Mobs/Species/Visitors/Borzoid/displacement.rsi
+            state: jumpsuit
 
 - type: entity
   parent: [BaseSpeciesDummy]
@@ -74,4 +78,4 @@
     species: Borzoid
   - type: Inventory
     speciesId: Borzoid
-    templateId: monkey
+    templateId: borzoid

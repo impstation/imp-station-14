@@ -7,7 +7,7 @@
 - type: entity
   name: The Hound Of Whimsy
   parent: MobBorzoid
-  id: MobWhimsy
+  id: MobHound
   components:
   - type: AntagObjectives
     objectives:
@@ -24,7 +24,7 @@
     footstepSoundCollection:
       collection: FootstepBells
       params:
-        volume: -2
+        volume: -4
   - type: AutoImplant
     implants:
     - SadTromboneImplant
@@ -34,7 +34,8 @@
     - Passive
   - type: GhostRole
     name: ghost-role-information-hound-name
-    description: ghost-role-information-hound-description
+    description: ghost-role-information-hound-desc
     rules: ghost-role-information-freeagent-rules
     mindRoles:
     - MindRoleHound
+  - type: WaddleAnimation
