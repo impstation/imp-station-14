@@ -200,6 +200,7 @@
     - type: WiresVisuals
     - type: Lock
     # - type: LockVisuals # TODO: Add lock indicator
+    - type: LockedWiresPanel
     - type: AccessReader
       access: [["Engineering"]]
     - type: Openable
