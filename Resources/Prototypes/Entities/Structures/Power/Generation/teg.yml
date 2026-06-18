@@ -127,8 +127,10 @@
         - state: circ-0-light
           shader: unshaded
           map: [ "enum.TegVisualLayers.CirculatorLight" ]
-        - state: circ-open
-          map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+        - state: circ-open # imp
+          map: [ "enum.WiresVisualLayers.MaintenancePanel" ] # imp
+        - state: locked # imp
+          map: ["enum.LockVisualLayers.Lock"] # imp
 
     - type: GenericVisualizer
       visuals:
@@ -145,10 +147,10 @@
             SpeedStill: { state: circ-0-light }
             SpeedSlow: { state: circ-1-light }
             SpeedFast: { state: circ-2-light }
-          enum.WiresVisuals.MaintenancePanelState:
-            enum.WiresVisualLayers.MaintenancePanel:
-              True: { visible: false }
-              False: { visible: true }
+          enum.WiresVisuals.MaintenancePanelState: # imp
+            enum.WiresVisualLayers.MaintenancePanel: # imp
+              True: { visible: false } # imp
+              False: { visible: true } # imp
 
     - type: Appearance
     - type: PointLight
