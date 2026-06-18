@@ -4,13 +4,14 @@
   name: monarch grub
   description: The parasitic spawn of a Monarch ray.
   components:
+# need a component that makes you an antag with goals on equip
   - type: Sprite
     sprite: _Impstation/Mobs/Aliens/monarch.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: grub
+      state: grub1
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
-      state: grub_eyes
+      state: grub1eyes
       shader: unshaded
   - type: Bloodstream
     bloodReferenceSolution:
@@ -67,21 +68,147 @@
     quickEquip: true
     sprite: _Impstation/Mobs/Aliens/monarch.rsi
     clothingVisuals:
-      head:
+      head: # to do, specific species versions
       - map: ["enum.DamageStateVisualLayers.Base"]
-        state: grub_equipped-HELMET
-#      head-ungu:
-#      - state: 0-equipped-HELMET-ungu
-#      head-allulalo:
-#      - state: 0-equipped-HELMET-allulalo
+        state: grub1-equipped-HELMET
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: grub1eyes-equipped-HELMET
+        shader: unshaded
     equippedPrefix: 0
-  - type: SelfEquipOnly
+  - type: SelfUnremovableClothing
   - type: TriggerOnDidEquip
   - type: TimerTrigger
+    keysIn:
+    - equip
     initialBeepDelay: 0
-    beepInterval: 6 # test time
+    beepInterval: 10 # test time
   - type: PolymorphOnTrigger
     keysIn:
     - timer
     polymorph: MobMonarchGrub2
 
+- type: entity
+  parent: [ MobMonarchGrub ]
+  id: MobMonarchGrubStage2
+  name: monarch grub
+  description: The parasitic spawn of a Monarch ray.
+  components:
+  - type: TriggerOnSpawn
+  - type: TimerTrigger
+    initialBeepDelay: 0
+    beepInterval: 10 # test time
+    keysIn:
+    - spawn
+  - type: PolymorphOnTrigger
+    keysIn:
+    - timer
+    polymorph: MobMonarchGrub3
+  - type: TriggerOnDidUnEquip
+  - type: DamageOnTrigger
+    targetContainer: true
+    damage:
+      types:
+        Piercing: 80 #to do, make this genetic or something
+    keysIn:
+    - unequip
+  - type: Sprite
+    sprite: _Impstation/Mobs/Aliens/monarch.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: grub2
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: grub2eyes
+      shader: unshaded
+  - type: Clothing
+    quickEquip: true
+    sprite: _Impstation/Mobs/Aliens/monarch.rsi
+    clothingVisuals:
+      head:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: grub2-equipped-HELMET
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: grub2eyes-equipped-HELMET
+        shader: unshaded
+
+- type: entity
+  parent: [ MobMonarchGrub ]
+  id: MobMonarchGrubStage3
+  name: young monarch ray
+  description: A baby monarch ray, this one only just grew it's wings.
+  components:
+  - type: TriggerOnSpawn
+  - type: DamageOnTrigger
+    targetContainer: true  # this is gonna need cotainter damage from my reverse bear trap pr
+    damage:
+      types:
+        # something round removing
+  # need something here that means when the entity wearing this as a hat dies its consciousness is transfered to the grub, which then CanEscapeInventory.
+
+- type: entity
+  parent: [ SimpleSpaceMobBase ]
+  id: MobMonarchRay
+  name: monarch ray
+  description:
+  components:
+
+- type: entity
+  name:
+  parent: [BaseItem]
+  id: MonarchTrap
+  description:
+  components:
+  - type: Item
+    size: Normal
+  - type: Sprite
+    sprite:
+    state:
+  - type: EmitSoundOnThrow
+    sound:
+  - type: EmitSoundOnLand
+    sound:
+  - type: Construction
+    graph: Bola
+    node: bola
+  - type: Damageable
+    damageContainer: Organic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: # goop noise
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: Ensnaring
+    freeTime: 2.0
+    breakoutTime: 5
+    walkSpeed: 0.5
+    sprintSpeed: 0.5
+    staminaDamage: 0
+    canThrowTrigger: true
+    canMoveBreakout: true
+    maxEnsnares: 1
+  - type: LandAtCursor
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.4
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
