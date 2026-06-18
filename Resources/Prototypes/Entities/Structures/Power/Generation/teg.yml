@@ -197,7 +197,20 @@
 
     # IMP ADD START
     - type: WiresPanel
-    - type: WiresVisuals # TODO: Implement open circulator sprite
+    - type: WiresVisuals
+    - type: Lock
+    # - type: LockVisuals # TODO: Add lock indicator
+    - type: AccessReader
+      access: [["Engineering"]]
+    - type: Openable
+      sound: null
+      closeSound: null
+      opened: false
+      openableByHand: false
+      openOnActivate: false
+      closeable: true
+      showExamineText: false
+      verbMenuAccessible: false
     - type: AtmosDevice # To allow GasOutletInjector to receive updates
     - type: GasOutletInjector
       inlet: "inlet"
@@ -213,15 +226,6 @@
         SpaceGlue: 0.01
         WeldingFuel: 0.6
       consumption: 0.1 # About 15 mins of runtime with 100u capacity
-    - type: Openable
-      sound: null
-      closeSound: null
-      opened: false
-      openableByHand: false
-      openOnActivate: false
-      closeable: true
-      showExamineText: false
-      verbMenuAccessible: false
     - type: RefillableSolution
       solution: lube
       # refillTime: 2
