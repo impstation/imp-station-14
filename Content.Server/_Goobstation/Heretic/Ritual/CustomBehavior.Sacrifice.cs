@@ -1,10 +1,9 @@
 using Content.Server.Heretic.EntitySystems;
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
-using Content.Shared._Impstation.Heretic; // imp edit
+using Content.Shared._Impstation.Heretic;
 using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
@@ -12,7 +11,6 @@ using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
