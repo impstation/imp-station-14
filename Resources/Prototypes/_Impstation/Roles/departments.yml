@@ -18,9 +18,9 @@
   - Mime
   - Musician
   - Reporter
+  - ServiceWorker
   - Zookeeper
   # non-roundstart
-  - ServiceWorker
   - Visitor
 
 #Used for HD playtime requirments
@@ -32,7 +32,6 @@
   roles:
   - Bartender
   - Chef
-  #- ServiceWorker
   primary: false
   editorHidden: true
   manifestHidden: true

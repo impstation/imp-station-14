@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Water wand Sprited by MattFright",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "water",
+         "delays": [
+        [ 0.5, 0.5, 0.5, 0.5 ]
+        ]
+        },
+        {
+            "name": "water-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "water-inhand-left",
+            "directions": 4
+        }
+    ]
+}

@@ -9,7 +9,7 @@
 # Table: null
 
 # 2024-09-09
-BorgModuleService: BorgModuleBartender
+# BorgModuleService: BorgModuleBartender
 
 # 2024-11-25
 #impstation change
@@ -151,6 +151,19 @@ RandomCommandCorpseSpawner: CommandCorpseSpawner
 AirlockEVALocked: AirlockCommandLocked
 AirlockEVAGlassLocked: AirlockCommandGlassLocked
 
+# 2026-01-13
+# unify our cardboard entities with upstream's
+WallCardboard: Cardwall
+DoorCardboard: CardDoor
+
 # 2026-01-17
 # rename Time Patrol to match upstream conventions
 RandomHumanoidSpawnerERTLeaderEVALecterTime : RandomHumanoidSpawnerERTLeaderArmedTime
+
+# 2026-01-26
+# removes mapped jermov boards
+JermovCircuitBoard: null
+
+# 2026-03-19
+#removes painting "the sleeping gypsy"
+PaintingSleepingGypsy: RandomPainting

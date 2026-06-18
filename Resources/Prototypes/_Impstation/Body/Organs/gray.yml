@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseGrayOrganUnGibbable
+  id: BaseGrayOrgan
   parent: BaseItem
   abstract: true
   components:
@@ -28,16 +28,10 @@
     - Meat
     - Organ
 
-- type: entity
-  id: BaseGrayOrgan
-  parent: BaseGrayOrganUnGibbable
-  abstract: true
-  components:
-  - type: Gibbable
 
 - type: entity
   id: OrganGrayBrain
-  parent: BaseGrayOrganUnGibbable
+  parent: BaseGrayOrgan
   name: moluuma
   description: "Jazee thinking pib talking."
   components:
@@ -135,7 +129,7 @@
     removeEmpty: true
     solutionOnBody: false
     solution: "Lung"
-    metabolizerTypes: [ Human ]
+    metabolizerTypes: [ Gray ]
     groups:
     - id: Gas
       rateModifier: 100.0
@@ -175,7 +169,7 @@
   # You're technically 'immune to poison' without a heart, but.. uhh, you'll have bigger problems on your hands.
   - type: Metabolizer
     maxReagents: 2
-    metabolizerTypes: [Human]
+    metabolizerTypes: [ Gray ]
     groups:
     - id: Medicine
     - id: Poison
@@ -210,7 +204,7 @@
   - type: Metabolizer
     # mm yummy
     maxReagents: 3
-    metabolizerTypes: [Human]
+    metabolizerTypes: [ Gray ]
     groups:
     - id: Food
     - id: Drink
@@ -222,23 +216,12 @@
 
 - type: entity
   id: OrganGrayLiver
-  parent: BaseGrayOrgan
+  parent: [BaseGrayOrgan, OrganHumanLiver]
   name: beobu
   description: "Jazee sipsun alcohol."
   components:
-  - type: Sprite
-    state: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
-    maxReagents: 1
-    metabolizerTypes: [Human]
-    groups:
-    - id: Alcohol
-      rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
-  - type: Tag # goob edit
-    tags:
-    - Meat
-    - Organ
-    - Liver
+    metabolizerTypes: [ Gray ]
 
 - type: entity
   id: OrganGrayKidneys
@@ -251,7 +234,7 @@
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Metabolizer
     maxReagents: 5
-    metabolizerTypes: [Human]
+    metabolizerTypes: [ Gray ]
     removeEmpty: true
   - type: Tool
     qualities:

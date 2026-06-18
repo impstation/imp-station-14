@@ -84,7 +84,7 @@
     weight: 3.5 #not as rare as midround ling or zombies, but rare enough to feel dread
     duration: 1
     earliestStart: 20 #maybe a strange choice, but the one play of v-rex in shift i saw was really calm
-    minimumPlayers: 50
+    minimumPlayers: 40
     maxOccurrences: 1 # imagine 2 of them
   - type: VentCrittersRule
     specialEntries:
@@ -125,6 +125,14 @@
     reoccurrenceDelay: 20
     minimumPlayers: 10
     duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostOppa
+      min: 1
+      max: 1
+      pickPlayer: false
 
 # syndicate infiltrator
 - type: entity
@@ -250,14 +258,95 @@
 
 # biomagnetic polarization
 - type: entity
-  id: BiomagneticPolarizationRule
-  parent: BaseGameRule
+  id: BiomagneticPolarization
+  parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 1
-    duration: 150
-    maxDuration: 300
+    weight: 3
+    earliestStart: 20
     reoccurrenceDelay: 30
   - type: GlobalStatusEffectRule
-    statusEffect: "StatusEffectBiomagneticPolarization"
-    announcement: "station-event-biomagnetic-polarization-announcement"
+    statusEffect: StatusEffectBiomagneticPolarization
+    announcement: station-event-biomagnetic-polarization-announcement
+
+- type: entity
+  parent: BaseMidRoundAntag
+  id: ButlerSpawn
+  components:
+  - type: StationEvent
+    weight: 1.5
+  - type: AntagLoadProfileRule
+  - type: AntagObjectives
+    objectives:
+    - ButlerServeObjective
+    - ButlerDieObjective
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostButler
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: ButlerGear
+      roleLoadout:
+      - RoleSurvivalStandard
+      components:
+      - type: RandomHumanoidAppearance
+      - type: AutoImplant
+        implants:
+        - ButlerBombImplant
+      - type: UnableToWield
+      - type: NpcFactionMember
+        factions:
+        - Passive
+      mindRoles:
+      - MindRoleButler
+
+- type: entity
+  parent: BaseStationEventLongDelay
+  id: SupermatterSurge
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    reoccurrenceDelay: 25
+    weight: 1.5
+    minimumPlayers: 30
+    duration: 60
+  - type: SupermatterSurgeRule
+
+- type: entity
+  parent: BaseNukeopsRule
+  id: SyndicateInstigatorSpawn
+  components:
+  - type: StationEvent
+    weight: 2
+    reoccurrenceDelay: 10
+    minimumPlayers: 20
+    earliestStart: 35
+    duration: null # SyndicateInstigatorSpawn needs an infinite duration so that it inherits the NukeOpsRule things of an actually appropriate end screen (not always "Neutral outcome!") and... ending the game if the station is nuked.
+  - type: NukeopsRule
+    roundEndBehavior: Nothing
+  - type: SpaceSpawnRule
+  - type: AntagLoadProfileRule
+    randomProfile: true
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointSyndicateInstigator
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SyndicateInstigatorGear
+      roleLoadout:
+      - RoleSurvivalNukie
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - NamesSyndicatePrefixJunior
+        - NamesSyndicatePrefix
+        - NamesSyndicateJunior
+        nameFormat: name-format-nukie-junior
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleSyndicateInstigator

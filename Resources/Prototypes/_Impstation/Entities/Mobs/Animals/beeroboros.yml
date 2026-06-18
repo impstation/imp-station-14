@@ -4,6 +4,9 @@
   id: MobBeeroboros
   description: Short-lived, but no less dangerous.
   components:
+  - type: Tag
+    tags:
+    - XenoHornet
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -51,6 +54,9 @@
   id: MobFoes
   description: OH FUCK IT'S FOES
   components:
+  - type: Tag
+    tags:
+    - XenoHornet
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -62,11 +68,7 @@
         Blunt: 1
         Heat: 1
   - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: foes
-      sprite: _Impstation/Mobs/Animals/foes.rsi
+    sprite: _Impstation/Mobs/Animals/Bros/foes.rsi
   - type: TimedDespawn
     lifetime: 5
   - type: MobThresholds
@@ -80,12 +82,6 @@
     radius: 1.5
     color: "#d63b28"
     energy: 10.0
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: foes
-      Dead:
-        Base: foes-dead
 
 - type: entity
   name: SEOF
@@ -94,14 +90,4 @@
   description: SEOF S'TI KCUF HO
   components:
   - type: Sprite
-    drawdepth: Mobs
-    layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: seof
-      sprite: _Impstation/Mobs/Animals/foes.rsi
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: seof
-      Dead:
-        Base: seof-dead
+    sprite: _Impstation/Mobs/Animals/Bros/seof.rsi

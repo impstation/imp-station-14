@@ -27,4 +27,31 @@ public sealed partial class RevolutionaryRuleComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ShuttleCallTime = TimeSpan.FromMinutes(5);
+
+    //imp datafields below
+
+    /// <summary>
+    /// The threshold of converted players that will prompt an automatic alert level change.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float BlueThreshold = 0.3f;
+
+    /// <summary>
+    /// The alert level triggered by a threshold of players being converted.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public string AlertLevel = "blue";
+
+    /// <summary>
+    /// The announcement id triggered by a threshold of players being converted.
+    /// This is not the string itself, but the ID, e.g. it will search for station-event-sleeper-agents
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public string RuleId = "sleeper-agents";
+
+    /// <summary>
+    /// Whether the game rule has already triggered a conversion announcement.
+    /// </summary>
+    [DataField]
+    public bool AnnouncementDone = false;
 }

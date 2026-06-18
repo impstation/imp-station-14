@@ -1,9 +1,11 @@
-using Content.Server._Impstation.Thaven;
+using Content.Server._Impstation.StrangeMoods;
 using Content.Server.Administration.Logs;
+using Content.Server.Announcements.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
+using Content.Server.DoAfter;
 using Content.Server.Examine;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
@@ -11,6 +13,7 @@ using Content.Server.Ghost;
 using Content.Server.Lightning;
 using Content.Server.Popups;
 using Content.Server.Radio.EntitySystems;
+using Content.Server.Station.Systems;
 using Content.Server.Silicons.Laws;
 using Content.Server.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
@@ -22,6 +25,7 @@ using Content.Shared.Audio;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.DeviceLinking;
+using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
@@ -46,9 +50,11 @@ namespace Content.Server._EE.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem : EntitySystem
 {
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly ExamineSystem _examine = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
@@ -61,7 +67,8 @@ public sealed partial class SupermatterSystem : EntitySystem
     [Dependency] private readonly PointLightSystem _light = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly ThavenMoodsSystem _moods = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly StrangeMoodsSystem _moods = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambient = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
@@ -87,6 +94,7 @@ public sealed partial class SupermatterSystem : EntitySystem
         SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
         SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
+        SubscribeLocalEvent<SupermatterComponent, DestabilizingCrystalDoAfterEvent>(OnDestabalizeSupermatter);
         SubscribeLocalEvent<SupermatterComponent, GravPulseEvent>(OnGravPulse);
     }
 
@@ -120,6 +128,7 @@ public sealed partial class SupermatterSystem : EntitySystem
     public void OnSupermatterUpdated(EntityUid uid, SupermatterComponent sm, AtmosDeviceUpdateEvent args)
     {
         ProcessAtmos(uid, sm, args.dt);
+        sm.PreferredDelamType = ChooseDelamType(uid, sm);
         HandleDamage(uid, sm);
 
         if (sm.Damage >= sm.DamageDelaminationPoint || sm.Delamming)
@@ -186,8 +195,34 @@ public sealed partial class SupermatterSystem : EntitySystem
 
         if (args.Handled ||
             HasComp<GhostComponent>(target) ||
-            HasComp<SupermatterImmuneComponent>(item) ||
             HasComp<GodmodeComponent>(item))
+            return;
+
+        if (HasComp<SupermatterDestabalizerComponent>(item))
+        {
+            if (sm.DestabilizingCrystal)
+                return;
+
+            // Prevent if integrity is below 80%
+            if (sm.Damage > sm.DamageDelaminationPoint * 0.2)
+            {
+                _popup.PopupEntity(Loc.GetString("supermatter-destabalize-integrity-low"), uid, args.User);
+                return;
+            }
+
+            _popup.PopupEntity(Loc.GetString("supermatter-destabalize-start"), uid, args.User);
+
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, sm.DisruptionTime, new DestabilizingCrystalDoAfterEvent(), uid, null, item)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+                NeedHand = true,
+            });
+            return;
+        }
+
+        if (HasComp<SupermatterImmuneComponent>(item))
             return;
 
         // TODO: supermatter scalpel
@@ -256,6 +291,26 @@ public sealed partial class SupermatterSystem : EntitySystem
         _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), uid, args.User);
 
         sm.DelamTimer /= 2;
+    }
+
+    private void OnDestabalizeSupermatter(EntityUid uid, SupermatterComponent sm, ref DestabilizingCrystalDoAfterEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        _announcer.SendAnnouncement(
+            _announcer.GetAnnouncementId("commandReport"),
+            Filter.Broadcast(),
+            "supermatter-announcement-cascade-destabalize",
+            Loc.GetString("resonance-cascade-announcement-sender"),
+            colorOverride: Color.Cyan
+        );
+
+        _popup.PopupEntity(Loc.GetString("supermatter-destabalize-end"), uid, args.User);
+        EntityManager.QueueDeleteEntity(args.Used);
+
+        sm.DestabilizingCrystal = true;
+        args.Repeat = false;
     }
 
     private void OnGravPulse(Entity<SupermatterComponent> ent, ref GravPulseEvent args)

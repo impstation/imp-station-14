@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseAnomalocaridOrganUnGibbable
+  id: BaseAnomalocaridOrgan
   parent: BaseItem
   abstract: true
   components:
@@ -29,15 +29,8 @@
     - Organ
 
 - type: entity
-  id: BaseAnomalocaridOrgan
-  parent: BaseAnomalocaridOrganUnGibbable
-  abstract: true
-  components:
-  - type: Gibbable
-
-- type: entity
   id: OrganAnomalocaridBrain
-  parent: BaseAnomalocaridOrganUnGibbable
+  parent: BaseAnomalocaridOrgan
   name: brain
   description: "This is where cubes get rotated."
   components:
@@ -296,11 +289,35 @@
   - type: EmitSoundOnThrow
     sound: /Audio/Weapons/bolathrow.ogg
   - type: EmitSoundOnLand
-    sound: /Audio/Effects/snap.ogg
+    sound: /Audio/Effects/gib3.ogg
+  - type: Damageable #for the ensnaring behavior
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 15
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/gib3.ogg
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: LandAtCursor
   - type: Ensnaring #think fast chucklenuts!
     freeTime: 2.0
     breakoutTime: 1.5
-    walkSpeed: 0.8 
+    walkSpeed: 0.8
     sprintSpeed: 0.5
     staminaDamage: 0
     canThrowTrigger: true
