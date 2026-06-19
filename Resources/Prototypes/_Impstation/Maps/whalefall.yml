@@ -10,10 +10,10 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate:  '{0} NTAS. Whalefall {1}'
+          mapNameTemplate:  '{0} Whalefall {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'NTAS'
+            prefixCreator: 'AS'
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_omega.yml 
         - type: StationJobs
