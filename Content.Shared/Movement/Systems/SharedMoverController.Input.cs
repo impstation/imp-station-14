@@ -324,36 +324,45 @@ namespace Content.Shared.Movement.Systems
                 PhysicsSystem.SetBodyType(entity, BodyType.KinematicController);
         }
 
-        private void HandleDirChange(EntityUid entity, Direction dir, ushort subTick, bool state)
+        private void HandleDirChange(Entity<InputMoverComponent?> entity, Direction dir, ushort subTick, bool state) // RMC14, made pass InputMoverComponent as well
         {
+            var hasMover = MoverQuery.Resolve(entity.Owner, ref entity.Comp, false); // RMC14
+
             // Relayed movement just uses the same keybinds given we're moving the relayed entity
             // the same as us.
 
             // TODO: Should move this into HandleMobMovement itself.
-            if (TryComp<RelayInputMoverComponent>(entity, out var relayMover))
+            // IMP TODO: why was this change made????
+            if (RelayQuery.TryComp(entity, out var relayMover)) // RMC14, change from TryComp<RelayInputMoverComponent>(entity, out var relayMover) to RelayQuery.TryComp(entity, out var relayMover)
             {
-                DebugTools.Assert(relayMover.RelayEntity != entity);
+                DebugTools.Assert(relayMover.RelayEntity != entity.Owner); // RMC14, changed to entity.Owner from entity
                 DebugTools.AssertNotNull(relayMover.RelayEntity);
 
-                if (MoverQuery.TryGetComponent(entity, out var mover))
-                    SetMoveInput((entity, mover), MoveButtons.None);
+                if (hasMover && entity.Comp != null) // RMC14, changed from MoverQuery.TryGetComponent(entity, out var mover) to hasMover && entity.Comp != null
+                    // IMP TODO: cant this just be entity
+                    SetMoveInput((entity.Owner, entity.Comp), MoveButtons.None); // RMC14, changed from (entity, mover) to (entity.Owner, entity.Comp)
 
-                if (!_mobState.IsIncapacitated(entity))
+                if (hasMover && entity.Comp != null && entity.Comp.CanMove) // RMC14, changed from !_mobState.IsIncapacitated(entity) to hasMover && entity.Comp != null && entity.Comp.CanMove
                     HandleDirChange(relayMover.RelayEntity, dir, subTick, state);
 
                 return;
             }
 
+            /* RMC14 removal
             if (!MoverQuery.TryGetComponent(entity, out var moverComp))
                 return;
+            */
 
             // imp add start: ventcrawling
-            var moverEntity = new Entity<InputMoverComponent>(entity, moverComp);
+            if (hasMover && entity.Comp != null)
+            {
+                var moverEntity = new Entity<InputMoverComponent>(entity.Owner, entity.Comp);
 
-            // Relay the fact we had any movement event.
-            // TODO: Ideally we'd do these in a tick instead of out of sim.
-            var moveEvent = new MoveInputEvent(moverEntity, moverComp.HeldMoveButtons, dir, state);
-            RaiseLocalEvent(entity, ref moveEvent);
+                // Relay the fact we had any movement event.
+                // TODO: Ideally we'd do these in a tick instead of out of sim.
+                var moveEvent = new MoveInputEvent(moverEntity, entity.Comp.HeldMoveButtons, dir, state);
+                RaiseLocalEvent(entity, ref moveEvent);
+            }
             // imp end
 
             // For stuff like "Moving out of locker" or the likes
@@ -367,7 +376,13 @@ namespace Content.Shared.Movement.Systems
                 RaiseLocalEvent(xform.ParentUid, ref relayMoveEvent);
             }
 
-            SetVelocityDirection((entity, moverComp), dir, subTick, state);
+            // RMC14 start
+            if (!hasMover || entity.Comp == null)
+                return;
+            // RMC14 end
+
+            // IMP TODO: why the new one every single time?
+            SetVelocityDirection(new Entity<InputMoverComponent>(entity.Owner, entity.Comp), dir, subTick, state); // RMC14, changed from (entity, moverComp) to new Entity<InputMoverComponent>(entity.Owner, entity.Comp)
         }
 
         private void OnInputInit(Entity<InputMoverComponent> entity, ref ComponentInit args)

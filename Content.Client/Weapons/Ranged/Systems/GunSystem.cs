@@ -26,6 +26,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using SharedGunSystem = Content.Shared.Weapons.Ranged.Systems.SharedGunSystem;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
+using Content.Client._RMC14.Vehicle; // RMC
 
 namespace Content.Client.Weapons.Ranged.Systems;
 
@@ -42,6 +43,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly SharedMapSystem _maps = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
+    [Dependency] private readonly VehicleTurretMuzzleOffsetSystem _vehicleTurretMuzzleOffset = default!; // RMC
 
     public static readonly EntProtoId HitscanProto = "HitscanEffect";
 
@@ -324,7 +326,23 @@ public sealed partial class GunSystem : SharedGunSystem
         var ent = Spawn(message.Prototype, coordinates);
         TransformSystem.SetWorldRotationNoLerp(ent, message.Angle);
 
-        if (tracked != null)
+        // RMC14 start
+        if (_vehicleTurretMuzzleOffset.TryGetGunPose(gunUid, null, out var origin, out var rotation))
+        {
+            // var renderedMap = TransformSystem.ToMapCoordinates(origin);
+            var effectXform = Transform(ent);
+            effectXform.ActivelyLerping = false;
+            var rotationOffset = (message.Angle - rotation).Reduced();
+            TransformSystem.SetWorldRotationNoLerp((ent, effectXform), rotation + rotationOffset);
+            // TransformSystem.SetWorldPosition((ent, effectXform), renderedMap.Position + (rotation + rotationOffset).RotateVec(offset));
+
+            var track = EnsureComp<VehicleTurretTrackedMuzzleFlashComponent>(ent);
+            track.Weapon = gunUid;
+            // track.Offset = offset;
+            track.RotationOffset = rotationOffset;
+        }
+        // RMC14 end
+        else if (tracked != null) // RMC, made the if (tracked != null) part of a else if instead
         {
             var track = EnsureComp<TrackUserComponent>(ent);
             track.User = tracked;
@@ -400,7 +418,8 @@ public sealed partial class GunSystem : SharedGunSystem
             }
         };
 
-        var uidPlayer = EnsureComp<AnimationPlayerComponent>(gunUid);
+        // RMC14
+        var uidPlayer = EnsureComp<AnimationPlayerComponent>(ent);
 
         _animPlayer.Stop(gunUid, uidPlayer, "muzzle-flash-light");
         _animPlayer.Play((gunUid, uidPlayer), animTwo, "muzzle-flash-light");

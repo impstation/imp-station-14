@@ -1,0 +1,46 @@
+using Content.Shared.Camera;
+using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Systems;
+
+namespace Content.Shared._RMC14.Vehicle;
+
+public sealed class VehicleGunnerViewSystem : EntitySystem
+{
+    [Dependency] private readonly SharedContentEyeSystem _eye = default!;
+
+    public override void Initialize()
+    {
+        SubscribeLocalEvent<VehicleGunnerViewUserComponent, GetEyePvsScaleEvent>(OnGetEyePvsScale);
+        SubscribeLocalEvent<VehicleGunnerViewUserComponent, AfterAutoHandleStateEvent>(OnHandleState);
+        SubscribeLocalEvent<VehicleGunnerViewUserComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<VehicleGunnerViewUserComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnGetEyePvsScale(Entity<VehicleGunnerViewUserComponent> ent, ref GetEyePvsScaleEvent args)
+    {
+        args.Scale += ent.Comp.PvsScale + ent.Comp.CursorPvsIncrease;
+    }
+
+    private void OnHandleState(Entity<VehicleGunnerViewUserComponent> ent, ref AfterAutoHandleStateEvent args)
+    {
+        RefreshPvsScale(ent.Owner);
+    }
+
+    private void OnStartup(Entity<VehicleGunnerViewUserComponent> ent, ref ComponentStartup args)
+    {
+        RefreshPvsScale(ent.Owner);
+    }
+
+    private void OnShutdown(Entity<VehicleGunnerViewUserComponent> ent, ref ComponentShutdown args)
+    {
+        RefreshPvsScale(ent.Owner);
+    }
+
+    private void RefreshPvsScale(EntityUid uid)
+    {
+        if (!HasComp<EyeComponent>(uid) || !HasComp<ContentEyeComponent>(uid))
+            return;
+
+        _eye.UpdatePvsScale(uid);
+    }
+}

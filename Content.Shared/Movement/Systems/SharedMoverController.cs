@@ -169,11 +169,13 @@ public abstract partial class SharedMoverController : VirtualController
                 dirtied = true;
             }
 
+            /* RMC removal
             if (relayTargetMover.CanMove != mover.CanMove)
             {
                 relayTargetMover.CanMove = mover.CanMove;
                 dirtied = true;
             }
+            */
 
             if (dirtied)
             {
@@ -187,7 +189,14 @@ public abstract partial class SharedMoverController : VirtualController
             return;
 
         RelayTargetQuery.TryComp(uid, out var relayTarget);
+        /* RMC removal
         var relaySource = relayTarget?.Source;
+        */
+        // RMC14 start
+        EntityUid? relaySource = null;
+        if (relayTarget != null && EnsureValidRelayTarget(uid, relayTarget))
+            relaySource = relayTarget.Source;
+        // RMC14 end
 
         // If we're not the target of a relay then handle lerp data.
         if (relaySource == null)
@@ -224,8 +233,9 @@ public abstract partial class SharedMoverController : VirtualController
          * doing unnecessary calculations.
          * Only a Kinematic Controller should be making it to this point.
          */
-        DebugTools.Assert(physicsComponent.BodyType == BodyType.KinematicController || physicsComponent.BodyType == BodyType.Kinematic,
-            $"Input mover: {ToPrettyString(uid)} in HandleMobMovement is not the correct BodyType, BodyType found: {physicsComponent.BodyType}, expected: KinematicController.");
+        // IMP TODO, make tank into kinematic which will probably require rewrites
+        // DebugTools.Assert(physicsComponent.BodyType == BodyType.KinematicController || physicsComponent.BodyType == BodyType.Kinematic,
+        //     $"Input mover: {ToPrettyString(uid)} in HandleMobMovement is not the correct BodyType, BodyType found: {physicsComponent.BodyType}, expected: KinematicController.");
 
         // If the body is in air but isn't weightless then it can't move
         var weightless = _gravity.IsWeightless(uid);
