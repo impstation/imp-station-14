@@ -241,7 +241,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                     var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, GetNetEntity(ent).Id);
                     var rand = new System.Random(seed);
 
-                    if (!rand.Prob(rdnr.Chance))
+                    if (rand.Prob(rdnr.Chance))
                     {
                         if (ent.Comp.ShowMessages)
                             _chat.TrySendInGameICMessage(ent.Owner, Loc.GetString("defibrillator-unrevivable"), InGameICChatType.Speak, true);
@@ -252,7 +252,7 @@ public abstract class SharedDefibrillatorSystem : EntitySystem
                     else
                     {
                         failedRevive = false;
-                        rdnr.Chance -= 0.1f;
+                        rdnr.Chance += 0.1f;
                         Dirty(target, rdnr);
                     }
                 }
