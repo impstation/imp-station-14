@@ -15,9 +15,10 @@
 
 - type: entity
   parent: BaseSupermatter
-  id: SupermatterShard
+  id: StaticSupermatterShard
   name: supermatter shard
   description: A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure.
+  suffix: Anchored
   components:
   - type: Sprite
     sprite: _Impstation/Structures/Power/Generation/Supermatter/supermatter_shard.rsi
@@ -84,5 +85,11 @@
     noRot: true
   - type: Pullable
     prevFixedRotation: true
+
+- type: entity
+  parent: StaticSupermatterShard
+  id: SupermatterShard
+  suffix: DO NOT MAP, Unanchored
+  components:
   - type: Physics
     bodyType: Dynamic
