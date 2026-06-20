@@ -22,11 +22,11 @@ public sealed partial class KillEveryonSystem : EntitySystem
         SubscribeLocalEvent<KillEveryonComponent, TakeGhostRoleEvent>(KillEveryon);
     }
 
-/// <summary>
-/// When the killer shrimp is taken, give the mind the role and objective.
-/// </summary>
-/// <param name="ent">The shrimp</param>
-/// <param name="args"></param>
+    /// <summary>
+    /// When the killer shrimp is taken, give the mind the role and objective.
+    /// </summary>
+    /// <param name="ent">The shrimp</param>
+    /// <param name="args"></param>
     private void KillEveryon(Entity<KillEveryonComponent> ent, ref TakeGhostRoleEvent args)
     {
         if (!_mind.TryGetMind(args.Player, out var mindId, out var mind))
