@@ -1,24 +1,4 @@
 ﻿Entries:
-- author: Squamatic
-  changes:
-  - message: W-wait, you called the red phone for a CBURN team? Don't you know that
-      Central barely even funds those guys? That whole romerol thing is just a myth,
-      anyway...
-    type: Add
-  id: 2363
-  time: '2025-10-27T09:34:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3614
-- author: EpicToast
-  changes:
-  - message: Disabilities and quirks have been combined into one section.
-    type: Tweak
-  - message: Traits can now cost or grant points in your trait budget.
-    type: Tweak
-  - message: Some traits are no longer compatible with each other.
-    type: Tweak
-  id: 2364
-  time: '2025-10-28T02:22:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3538
 - author: hivehum
   changes:
   - message: Added two new steal objectives.
@@ -4098,3 +4078,19 @@
   id: 2862
   time: '2026-06-11T07:37:46.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4397
+- author: jkwookee
+  changes:
+  - message: Biomagnetic Polarization Symbols are now a accessibility setting toggle.
+    type: Tweak
+  - message: You can roll in carpets to become shiny again.
+    type: Fix
+  id: 2863
+  time: '2026-06-18T02:33:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4445
+- author: jkwookee
+  changes:
+  - message: Added a chance for a crew member to see scary ghosts.
+    type: Add
+  id: 2864
+  time: '2026-06-19T23:23:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4451
