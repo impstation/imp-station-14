@@ -34,6 +34,7 @@ public sealed partial class HereticStoreListingControl : Control
 
         StoreItemName.Text = ListingLocalisationHelpers.GetLocalisedNameOrEntityName(_data, _prototype);
         StoreItemDescription.SetMessage(ListingLocalisationHelpers.GetLocalisedDescriptionOrEntityDescription(_data, _prototype));
+        StoreItemFlavor.SetMessage(ListingLocalisationHelpers.GetLocalisedFlavorText(_data));
 
         UpdateBuyButtonText();
         StoreItemBuyButton.Disabled = !CanBuy();

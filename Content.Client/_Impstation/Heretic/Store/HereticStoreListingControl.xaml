@@ -23,7 +23,11 @@
                     HorizontalAlignment="Right"
                     Margin="0,0,8,0"/>
             </BoxContainer>
-            <RichTextLabel Name="StoreItemDescription" VerticalAlignment="Top"/>
+            <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
+                <RichTextLabel Name="StoreItemDescription" VerticalAlignment="Top"/>
+                <PanelContainer StyleClasses="LowDivider" Margin="0,0,0,8"/>
+                <RichTextLabel Name="StoreItemFlavor" VerticalAlignment="Top" StyleClasses="italic"/>
+            </BoxContainer>
         </BoxContainer>
     </BoxContainer>
 </Control>
