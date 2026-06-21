@@ -5,8 +5,7 @@ knowledge-path-side-s1-sensor-desc =
     Allows you to transmute a heart and a flare into a Seeking Heart.
     Its beat quickens in proximity of an Eldritch Tome.
     ---
-
-    The library hungers for knowledge. Such hunger can be used.
+    "The library hungers for knowledge. Such hunger can be used."
 
 ## stage 3
 knowledge-path-side-s3-armor-name = Armorer’s Ritual
@@ -14,8 +13,7 @@ knowledge-path-side-s3-armor-desc =
     Allows you to transmute a table and a gas mask to create Ominous Armor.
     Ominous Armor provides great protection while also acting as a focus when hooded.
     ---
-
-    The Rusted Hills welcomed the Blacksmith in their generosity. And the Blacksmith returned their generosity in kind.
+    "The Rusted Hills welcomed the Blacksmith in their generosity. And the Blacksmith returned their generosity in kind."
 
 knowledge-path-side-s3-flask-name = Priest's Ritual
 knowledge-path-side-s3-flask-desc =
@@ -27,16 +25,14 @@ knowledge-path-side-s3-mirror-desc =
     Allows you to transmute a pair of eyes, a light bulb, and a crowbar into a Wildering Mirror.
     When held, the Wildering Mirror has a high chance to deflect energy weapons such as disablers.
     ---
-
-    Wherever it's kept, it will be visible in the splintered reflections of the pupils.
+    "Wherever it's kept, it will be visible in the splintered reflections of the pupils."
 
 knowledge-path-side-s3-key-name = Frangiclave
 knowledge-path-side-s3-key-desc =
     Allows you to transmute an ID card and an organ into a Frangiclave.
     When thrown, the Frangiclave will instantly destroy any inanimate object, and then vanish.
     ---
-
-    It cannot be locked away. Keep it in the hand or beneath the tongue.
+    "It cannot be locked away. Keep it in the hand or beneath the tongue."
 
 ## stage 5
 knowledge-path-side-s5-name = Ritual of Knowledge
