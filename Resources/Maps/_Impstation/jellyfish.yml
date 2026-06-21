@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 05/20/2026 01:15:37
-  entityCount: 16579
+  time: 05/25/2026 02:21:43
+  entityCount: 16584
 maps:
 - 1
 grids:
@@ -11417,7 +11417,7 @@ entities:
     - type: Transform
       pos: -15.4765,19.942474
       parent: 2
-- proto: ApidCryopodEmergency
+- proto: ApidCryopodDoctor
   entities:
   - uid: 16505
     components:
@@ -14847,7 +14847,7 @@ entities:
   - uid: 4984
     components:
     - type: Transform
-      pos: -0.60888124,-39.71212
+      pos: -0.5639949,-39.594585
       parent: 2
 - proto: BoxFolderWhite
   entities:
@@ -52482,7 +52482,7 @@ entities:
   - uid: 7370
     components:
     - type: Transform
-      pos: 2.6288435,-40.1669
+      pos: 2.936005,-40.42271
       parent: 2
 - proto: FloorDrain
   entities:
@@ -76573,6 +76573,14 @@ entities:
     - type: Transform
       pos: 13.5,-44.5
       parent: 2
+- proto: GlassBoxNukeDiskFilled
+  entities:
+  - uid: 16582
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,-39.5
+      parent: 2
 - proto: GoldRingGem
   entities:
   - uid: 2031
@@ -86139,6 +86147,18 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -44.5,-19.5
+      parent: 2
+  - uid: 16580
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,-29.5
+      parent: 2
+  - uid: 16581
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,-28.5
       parent: 2
 - proto: PoweredWarmSmallLight
   entities:
@@ -95970,6 +95990,12 @@ entities:
     - type: Transform
       pos: -6.5,-12.5
       parent: 2
+  - uid: 16583
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 4.5,-17.5
+      parent: 2
 - proto: TargetClown
   entities:
   - uid: 2327
@@ -96268,7 +96294,7 @@ entities:
   - uid: 7379
     components:
     - type: Transform
-      pos: 2.4725935,-39.620026
+      pos: 2.529755,-40.11021
       parent: 2
   - uid: 15884
     components:
@@ -96805,6 +96831,11 @@ entities:
     components:
     - type: Transform
       pos: 13.5,-0.5
+      parent: 2
+  - uid: 16584
+    components:
+    - type: Transform
+      pos: 4.5,-17.5
       parent: 2
 - proto: VendingMachineCourierDrobe
   entities:
