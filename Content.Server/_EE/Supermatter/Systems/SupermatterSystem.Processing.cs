@@ -29,7 +29,6 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Spawners;
 
 namespace Content.Server._EE.Supermatter.Systems;
 
@@ -111,20 +110,15 @@ public sealed partial class SupermatterSystem
         // Ramps up or down in increments of 0.02 up to the proportion of CO2
         // Given infinite time, powerloss_dynamic_scaling = co2comp
         // Some value from 0-1
-        if (sm.GasStorage.TotalMoles > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleThreshold) && // if there are more than 20 mols,
-            sm.GasComposition.GetMoles(Gas.CarbonDioxide) > _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionGasThreshold)) // and more than 20% co2
-        {
-            var co2powerloss = Math.Clamp(sm.GasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
-            sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
-        }
-        else
-            sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling - 0.05f, 0f, 1f);
 
-        // Ranges from 0~1(1 - (0~1 * 1~(1.5 * (mol / 500))))
+        var co2powerloss = Math.Clamp(sm.GasComposition.GetMoles(Gas.CarbonDioxide) - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
+        sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling + co2powerloss, 0f, 1f);
+        var powerlossMoleScaling = sm.GasStorage.TotalMoles * (1f / 40f);
+
+        // Ranges from 0~1(1 - (0~1 * (1 / 40)))
         // We take the mol count, and scale it to be our inhibitor
-        sm.PowerlossInhibitor = Math.Clamp(
-            1 - sm.PowerlossDynamicScaling * Math.Clamp(sm.GasStorage.TotalMoles / _config.GetCVar(EECCVars.SupermatterPowerlossInhibitionMoleBoostThreshold), 1f, 1.5f),
-            0f, 1f);
+        sm.PowerlossInhibitor =
+            Math.Clamp(1 - sm.PowerlossDynamicScaling * powerlossMoleScaling, 0f, 1f);
 
         if (sm.MatterPower != 0)
         {
@@ -189,9 +183,14 @@ public sealed partial class SupermatterSystem
         if (sm.Event != SupermatterEvent.Surging) // Imp change, if surging dosen't decay power so that lightning can appear
             sm.Power = Math.Max(sm.Power - sm.PowerLoss, 0f);
 
-        // Adjust the gravity pull range
+        // Adjust the gravity pull range and acceleration based on absorbed moles
         if (TryComp<GravityWellComponent>(uid, out var gravityWell))
-            gravityWell.MaxRange = Math.Clamp(sm.Power / 850f, 0.5f, 3f);
+        {
+            // All maxed out at 500 absorbed moles, above that only occurance rate changes
+            gravityWell.MaxRange = Math.Clamp(sm.GasStorage.TotalMoles / 50f, 0.5f, 10f);
+            gravityWell.BaseRadialAcceleration = Math.Clamp(sm.GasStorage.TotalMoles / 5f, 1f, 100f);
+            gravityWell.BaseTangentialAcceleration = Math.Clamp(sm.GasStorage.TotalMoles / 10f, 0.1f, 50f);
+        }
 
         // Log the first powering of the supermatter
         if (sm.Power > 0 && !sm.HasBeenPowered)
@@ -203,6 +202,9 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void SupermatterZap(EntityUid uid, SupermatterComponent sm)
     {
+        if (sm.Damage < sm.DamagePenaltyPoint || sm.Power < _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold))
+            return;
+
         var zapPower = 0;
         var zapCount = 0;
         var zapRange = Math.Clamp(sm.Power / 1000, 2, 7);
@@ -230,43 +232,42 @@ public sealed partial class SupermatterSystem
     }
 
     /// <summary>
-    /// Generate temporary anomalies depending on accumulated power.
+    /// Generate anomalies depending on accumulated power, damage, or naturally.
     /// </summary>
     private void GenerateAnomalies(EntityUid uid, SupermatterComponent sm)
     {
+        if (sm.Status == SupermatterStatusType.Inactive)
+            return;
+
         var xform = Transform(uid);
-        var anomalies = new List<string>();
+        var anomalies = 0;
 
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        // Bluespace anomaly: ~1/150 chance
-        if (_random.Prob(1 / sm.AnomalyBluespaceChance))
-            anomalies.Add(sm.AnomalyBluespaceSpawnPrototype);
+        // Note that this is run every atmos device update which is around 0.57 seconds
+        // Random anomaly chances: ~1/6000 when active
+        if (_random.Prob(1 / sm.AnomalyNaturalChance))
+            anomalies++;
+        // Random anomaly chances: ~1/150 if damage penalty
+        if (sm.Damage > sm.DamagePenaltyPoint && _random.Prob(1 / sm.AnomalyDamagePenaltyChance))
+            anomalies++;
+        // Random anomaly chances: ~1/500 if power penalty
+        if (sm.Power > _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPenaltyChance))
+            anomalies++;
+        // Random anomaly chances: ~1/150 if severe power penalty
+        if (sm.Power > _config.GetCVar(EECCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalySeverePenaltyChance))
+            anomalies++;
 
-        // Gravity anomaly: ~1/150 chance above SeverePowerPenaltyThreshold, or ~1/750 chance otherwise
-        if (sm.Power > _config.GetCVar(EECCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyGravityChanceSevere) ||
-            _random.Prob(1 / sm.AnomalyGravityChance))
-            anomalies.Add(sm.AnomalyGravitySpawnPrototype);
-
-        // Pyroclastic anomaly: ~1/375 chance above SeverePowerPenaltyThreshold, or ~1/2500 chance above PowerPenaltyThreshold
-        if (sm.Power > _config.GetCVar(EECCVars.SupermatterSeverePowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPyroChanceSevere) ||
-            sm.Power > _config.GetCVar(EECCVars.SupermatterPowerPenaltyThreshold) && _random.Prob(1 / sm.AnomalyPyroChance))
-            anomalies.Add(sm.AnomalyPyroSpawnPrototype);
-
-        var count = anomalies.Count;
-        if (count == 0)
+        if (anomalies == 0)
             return;
 
-        var tiles = GetSpawningPoints(uid, sm, count);
+        var tiles = GetSpawningPoints(uid, sm, anomalies);
         if (tiles == null)
             return;
 
         foreach (var tileref in tiles)
-        {
-            var anomaly = Spawn(_random.Pick(anomalies), _map.ToCenterCoordinates(tileref, grid));
-            EnsureComp<TimedDespawnComponent>(anomaly).Lifetime = sm.AnomalyLifetime;
-        }
+            Spawn(sm.AnomalyPrototype, _map.ToCenterCoordinates(tileref, grid));
     }
 
     /// <summary>
@@ -369,8 +370,8 @@ public sealed partial class SupermatterSystem
 
         if (sm.GasStorage is { })
         {
-            // Mol count only starts affecting damage when it is above 1800
-            var moleDamage = Math.Max(sm.GasStorage.TotalMoles - _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold), 0f) / 80 * sm.DamageIncreaseMultiplier;
+            // Mol count only starts affecting damage when it is above 600
+            var moleDamage = Math.Max(sm.GasStorage.TotalMoles - _config.GetCVar(EECCVars.SupermatterMolePenaltyThreshold), 0f) / 50f * sm.DamageIncreaseMultiplier;
             totalDamage += moleDamage;
         }
 
