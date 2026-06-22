@@ -13,7 +13,7 @@ knowledge-path-ash-s2-flavor =
 
 knowledge-path-ash-s3-name = Blazing Dash
 knowledge-path-ash-s3-desc =
-    Grants you Blazing Dash, a spell that lets you move extremely quickly for a short time, while setting you ablaze. Be sure to bring a firesuit.
+    Grants you Blazing Dash, a spell that lets you move extremely quickly for a short time, while setting you ablaze. Be sure to bring a firesuit or Eldritch Armor to protect from the heat.
     This spell requires a Focus to cast.
 knowledge-path-ash-s3-flavor =
     "Her formulae thrust man from the slow clinks of flint to the blazing fires of industry."
