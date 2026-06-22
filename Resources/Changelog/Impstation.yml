@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: TheGrimbeeper
   changes:
-  - message: Thieves will no longer feel the urge to die a glorious death.
-    type: Tweak
-  id: 2370
-  time: '2025-10-30T08:04:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3640
-- author: TheGrimbeeper
-  changes:
   - message: artifact foam may have contents undetermined by the scanner
     type: Tweak
   id: 2371
@@ -4088,3 +4081,21 @@
   id: 2869
   time: '2026-06-22T19:11:27.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4271
+- author: Kandiyaki
+  changes:
+  - message: heretics' void teleport is much more reliable.
+    type: Fix
+  - message: void ascendants will now spawn ice tiles around them, as was always intended.
+    type: Fix
+  - message: void ascendants now cool down the room they're in twice as fast.
+    type: Tweak
+  - message: heretic's void blast now does damage.
+    type: Tweak
+  - message: heretic's ominous armor now has fire and temperature protection. try
+      it with the Ash path!
+    type: Tweak
+  - message: void ascendants no longer mute people around them.
+    type: Remove
+  id: 2870
+  time: '2026-06-22T19:14:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4390
