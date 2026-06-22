@@ -21,3 +21,17 @@
     containers:
       entity_storage:
         id: RPD
+
+- type: entity
+  id: CrateEngineeringSupermatterShard
+  parent: CrateEngineeringSupermatterSecure
+  name: supermatter shard crate
+  description: A specialized crate immune to the supermatter that contains a supermatter shard. Requires Engineering access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: SupermatterShard
+  - type: AntiTamper
+    containers: [ entity_storage ]
