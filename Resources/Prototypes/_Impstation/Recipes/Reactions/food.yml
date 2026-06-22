@@ -157,8 +157,9 @@
       amount: 5
     Milk:
       amount: 5
-  products:
-    FoodFrostingVanilla: 5
+  effects:
+  - !type:SpawnEntity
+    entity: FoodFrostingVanilla
 
 - type: reaction
   id: SpacemansFrosting
@@ -171,8 +172,9 @@
       amount: 5
     Milk:
       amount: 5
-  products:
-    FoodFrostingSpaceman: 1
+  effects:
+  - !type:SpawnEntity
+    entity: FoodFrostingSpaceman
 
 - type: reaction
   id: CreateCakeBatterChocolate

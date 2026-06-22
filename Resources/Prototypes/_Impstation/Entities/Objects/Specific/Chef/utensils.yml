@@ -8,7 +8,7 @@
     sprite: _Impstation/Objects/Specific/Chef/measuring_cup_large.rsi
     layers:
     - state: measuringcuplarge
-    - state: measuringcuplarge1
+    - state: measuringcup1
       map: ["enum.SolutionContainerLayers.Fill"]
       visible: false
   - type: Item
@@ -18,6 +18,28 @@
     maxFillLevels: 6
     fillBaseName: measuringcup
     inHandsMaxFillLevels: 4
+    inHandsFillBaseName: -fill-
+
+- type: entity
+  name: Small measuring cup
+  parent: Beaker
+  description: Used to contain ingredients.
+  id: SmallMeasuringCup
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chef/measuring_cup_small.rsi
+    layers:
+    - state: measuringcupsmall
+    - state: measuringcup1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Specific/Chef/measuring_cup_small.rsi
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: measuringcup
+    inHandsMaxFillLevels: 3
     inHandsFillBaseName: -fill-
 
 - type: entity
