@@ -102,6 +102,12 @@ marking-GrayUnderwearToga-toga = Toga
 marking-GrayCuteEars = Gray Ears (Cute)
 marking-GrayCuteEars-cute = Gray Ears (Cute)
 
+marking-GrayFatHead = Fat Gray Head
+marking-GrayFatHead-fat = Fat Gray Head
+
+marking-GrayFatterHead = Fatter Gray Head
+marking-GrayFatterHead-fatter = Fatter Gray Head
+
 # HeadTop
 
 marking-GrayClassicAntenna = Gray Antenna (Classic)
