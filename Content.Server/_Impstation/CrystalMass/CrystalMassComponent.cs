@@ -69,14 +69,14 @@ public sealed partial class CrystalMassComponent : Component
     public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_EE/Supermatter/supermatter.ogg")
     {
         Params = AudioParams.Default
-            .WithVolume(-3f)
+            .WithVolume(-5f)
     };
 
     [DataField]
     public SoundSpecifier SpawningCrystalSound = new SoundPathSpecifier("/Audio/_Impstation/Supermatter/cracking_crystal.ogg")
     {
         Params = AudioParams.Default
-            .WithVolume(1f)
+            .WithVolume(2f)
             .WithVariation(0.25f)
     };
 
