@@ -4,12 +4,12 @@
   description: job-description-ce
   playTimeTracker: JobChiefEngineer
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 6h # imp, was 2.5h
+    # - !type:RoleTimeRequirement # IMP ATMOS REMOVAL
+    #   role: JobAtmosphericTechnician
+    #   time: 6h # imp, was 2.5h
     - !type:RoleTimeRequirement
       role: JobStationEngineer
-      time: 6h # imp, was 5h
+      time: 8h # imp, was 5h
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 20h # imp, was 10h
