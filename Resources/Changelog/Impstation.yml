@@ -1,29 +1,4 @@
 ﻿Entries:
-- author: EpicToast
-  changes:
-  - message: Luna is undergoing renovations and will not be in the standard work schedule.
-    type: Remove
-  id: 2372
-  time: '2025-11-01T01:21:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3647
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The M1 and the T25 have new firing modes! Check 'em out!
-    type: Add
-  - message: Several balance changes to the M1 and the T25-- check the PR for details
-    type: Tweak
-  id: 2373
-  time: '2025-11-01T01:23:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3638
-- author: entings
-  changes:
-  - message: Lots of little dietary tweaks. This one's for you, Reptilian players.
-    type: Tweak
-  - message: Arachnids can breathe again, for real this time.
-    type: Fix
-  id: 2374
-  time: '2025-11-01T03:47:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3626
 - author: starlighthowls
   changes:
   - message: Lowered ungus stun on impact when hitting walls.
@@ -4099,3 +4074,25 @@
   id: 2871
   time: '2026-06-22T19:17:23.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4419
+- author: Errant, msTheowo
+  changes:
+  - message: Gamepreset fallbacks fixes have been early merged. Failed conspirators
+      should no longer send you back to the lobby.
+    type: Fix
+  id: 2872
+  time: '2026-06-22T19:26:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4447
+- author: CombustibleToast
+  changes:
+  - message: Pressurized pipes no longer get harder to wrench the more you try.
+    type: Fix
+  id: 2873
+  time: '2026-06-22T19:26:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4443
+- author: starlighthowls
+  changes:
+  - message: Added the drink Gamer's Delight.
+    type: Add
+  id: 2874
+  time: '2026-06-22T19:26:02.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4433
