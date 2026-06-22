@@ -1,0 +1,88 @@
+- type: entity
+  abstract: true
+  parent: [ BasePart ]
+  id: PartBorzoid
+  name: borzoid body part
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+
+- type: entity
+  parent: [ PartBorzoid, BaseTorso ]
+  id: TorsoBorzoid
+  name: borzoid torso
+  components:
+  - type: Sprite
+    state: torso_m
+
+- type: entity
+  parent: [ PartBorzoid, BaseHead ]
+  id: HeadBorzoid
+  name: borzoid head
+  components:
+  - type: Sprite
+    state: head_m
+
+- type: entity
+  parent: [ PartBorzoid, BaseLeftArm ]
+  id: LeftArmBorzoid
+  name: left borzoid arm
+  components:
+  - type: Sprite
+    state: l_arm
+
+- type: entity
+  parent: [ PartBorzoid, BaseRightArm ]
+  id: RightArmBorzoid
+  name: right borzoid arm
+  components:
+  - type: Sprite
+    state: r_arm
+
+- type: entity
+  parent: [ PartBorzoid, BaseLeftHand ]
+  id: LeftHandBorzoid
+  name: left borzoid hand
+  components:
+  - type: Sprite
+    state: l_hand
+
+- type: entity
+  parent: [ PartBorzoid, BaseRightHand ]
+  id: RightHandBorzoid
+  name: right borzoid hand
+  components:
+  - type: Sprite
+    state: r_hand
+
+- type: entity
+  parent: [ PartBorzoid, BaseLeftLeg ]
+  id: LeftLegBorzoid
+  name: left borzoid leg
+  components:
+  - type: Sprite
+    state: l_leg
+
+- type: entity
+  parent: [ PartBorzoid, BaseRightLeg ]
+  id: RightLegBorzoid
+  name: right borzoid leg
+  components:
+  - type: Sprite
+    state: r_leg
+
+- type: entity
+  parent: [ PartBorzoid, BaseLeftFoot ]
+  id: LeftFootBorzoid
+  name: left borzoid foot
+  components:
+  - type: Sprite
+    state: l_foot
+
+- type: entity
+  parent: [ PartBorzoid, BaseRightFoot ]
+  id: RightFootBorzoid
+  name: right borzoid foot
+  components:
+  - type: Sprite
+    state: r_foot

@@ -314,6 +314,18 @@
   - type: SupermatterSurgeRule
 
 - type: entity
+  id: HoundShuttle
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    weight: 1
+    duration: 1
+    minimumPlayers: 20
+  - type: RuleGrids
+  - type: LoadMapRule
+    gridPath: /Maps/_Impstation/Shuttles/ShuttleEvent/hound.yml
+    
+- type: entity
   parent: BaseNukeopsRule
   id: SyndicateInstigatorSpawn
   components:

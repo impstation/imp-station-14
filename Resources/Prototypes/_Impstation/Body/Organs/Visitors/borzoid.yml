@@ -1,0 +1,29 @@
+- type: entity
+  parent: OrganAnimalHeart
+  id: OrganHeartOfGold
+  name: heart of gold
+  description:
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/organs.rsi
+    state: golden
+  - type: Organ
+  - type: Metabolizer
+    maxReagents: 2
+    metabolizerTypes: [ Animal ]
+    groups:
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+  - type: Tag
+    tags:
+    - Meat
+    - Organ
+    - Heart
+  - type: Item
+    size: Small
+    heldPrefix: heart
+  - type: PhysicalComposition
+    materialComposition:
+      Gold: 100
