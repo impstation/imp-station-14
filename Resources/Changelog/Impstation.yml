@@ -1,15 +1,6 @@
 ﻿Entries:
 - author: TheGrimbeeper
   changes:
-  - message: Some natural artifact effects are only on while their node is active.
-    type: Fix
-  - message: Some natural artifact effects are limited (no more infinite magic books).
-    type: Fix
-  id: 2369
-  time: '2025-10-29T12:37:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3633
-- author: TheGrimbeeper
-  changes:
   - message: Thieves will no longer feel the urge to die a glorious death.
     type: Tweak
   id: 2370
@@ -4090,3 +4081,10 @@
   id: 2868
   time: '2026-06-22T15:35:09.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4304
+- author: msTheowo, jkwookee
+  changes:
+  - message: Supermatter shards are now purchasable from cargo.
+    type: Add
+  id: 2869
+  time: '2026-06-22T19:11:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4271
