@@ -201,3 +201,16 @@
     entries:
     - id: MobClownSpider
       prob: 0.05
+
+- type: entity
+  parent: BaseStationEventShortDelay
+  id: SlurgleMigration
+  components:
+  - type: StationEvent
+    earliestStart: 10
+    weight: 2
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobSlurgle
+      prob: 0.04
