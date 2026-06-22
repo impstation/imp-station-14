@@ -1,0 +1,30 @@
+- type: entity
+  id: CrateTrashCartCrusher
+  parent: [ BaseMachine, CrateTrashCart ]
+  name: trash cart
+  suffix: Crusher
+  components:
+  - type: ArtifactCrusher
+    crushingWhitelist:
+      components:
+      - XenoArtifact
+    crushingDamage:
+      types:
+        Blunt: 10
+  - type: Machine
+    board: ArtifactCrusherMachineCircuitboard
+  - type: EntityStorage
+    capacity: 1
+    whitelist:
+      components:
+      - XenoArtifact
+      tags:
+      - CanPilot # People
+      - VimPilot # Pets
+  - type: Appearance
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      entity_storage: !type:Container
+      output_container: !type:Container

@@ -1,0 +1,128 @@
+- type: entity
+  id: GiantMousetrap
+  name: mousetrap
+  suffix: Giant
+  description: Useful for catching R.O.U.S.
+  components:
+    - type: Pullable
+    - type: Animateable
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+        - !type:PlaySoundBehavior
+          sound:
+            collection: WoodDestroy
+    - type: Clickable
+    - type: GravityAffected
+    - type: Physics
+      bodyType: Dynamic
+    - type: Sprite
+      drawdepth: HighFloorObjects
+      sprite: _Impstation/Objects/Devices/mousetrap.rsi
+      layers:
+      - state: mousetrap
+        map: ["enum.ToggleableVisuals.Layer"]
+    - type: StepTrigger
+      intersectRatio: 1
+      requiredTriggeredSpeed: 0
+    - type: Mousetrap
+    - type: ItemToggle
+      soundActivate: "/Audio/Items/Handcuffs/cuff_end.ogg"
+      soundDeactivate: "/Audio/Items/snap.ogg"
+      popupActivate: mousetrap-on-activate
+      popupDeactivate: mousetrap-on-deactivate
+    - type: UseDelay
+    - type: ItemToggleOnTrigger
+      canActivate: false
+    - type: TriggerOnStepTrigger
+    - type: DamageOnTrigger
+      targetUser: true
+      damage:
+        types:
+          Blunt: 120
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.ToggleableVisuals.Enabled:
+          enum.ToggleableVisuals.Layer:
+            True: {state: mousetraparmed}
+            False: {state: mousetrap}
+    - type: CollisionWake
+      enabled: false
+    - type: Fixtures
+      fixtures:
+        slips:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.8,-0.8,0.8,0.8"
+          hard: false
+          layer:
+            - LowImpassable
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.8,-0.8,0.8,0.8"
+          density: 30
+          mask:
+            - ItemMask
+
+- type: entity
+  parent: GiantMousetrap
+  id: GiantMousetrapGib
+  name: mousetrap
+  suffix: Giant, Admeme
+  description: Useful for killing R.O.U.S.
+  components:
+    - type: DamageOnTrigger
+      targetUser: true
+      damage:
+        types:
+          Blunt: 1000
+
+- type: entity
+  name: happy cindy-cat mask
+  description: Do mew want to purrlay a game?
+  id: ReverseBeartrap
+  parent: ClothingHeadBase
+  components:
+  - type: SelfUnremovableClothing
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Misc/reversebeartrap.rsi
+  - type: Item
+    size: Normal
+  - type: IngestionBlocker
+  - type: AddAccentClothing
+    accent: MumbleAccent
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Misc/reversebeartrap.rsi
+  - type: HideLayerClothing
+    slots:
+    - SnoutCover
+  - type: TimerTrigger
+    delay: 30
+    beepSound:
+      path: "/Audio/Animals/cat_meow.ogg"
+      params:
+        volume: 5
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+      - Trigger
+  - type: DamageOnTrigger
+    targetContainer: true
+    damage:
+      types:
+        Piercing: 200
+    keysIn:
+    - timer
+  - type: EmitSoundOnTrigger
+    predicted: true
+    keysIn:
+    - timer
+    sound:
+      path: /Audio/_Impstation/Misc/Flesh_Break_2.ogg
