@@ -1,0 +1,12 @@
+- type: entity
+  parent: ChemistryEmptyVial
+  suffix: Lead
+  id: LeadChemistryVial
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: Lead
+          Quantity: 15
