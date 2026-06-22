@@ -38,10 +38,7 @@ public sealed class ReagentEfficiencySystem : EntitySystem
             return (0f, new Solution());
 
         // Remove the appropriate amount of solution.
-        // Find throttling amount: Stepwise function [0,threshold) linearly maps to [0,1). [threshold, inf) maps to 1.
-        var throttleThresholdVolume = solution.MaxVolume * ent.Comp.ThrottlingThreshold;
-        var throttle = throttleThresholdVolume != 0f && solution.Volume < throttleThresholdVolume ? (float)(solution.Volume / throttleThresholdVolume) : 1f;
-        // Scale amount removed by dt and consumption multiplier as well
+        var throttle = Throttle(ent.Comp, solution, dt);
         var consumedSolution = _solution.SplitSolution(ent.Comp.SolutionCache.Value, ent.Comp.Consumption * dt * throttle * consumptionMultiplier);
 
         // FixedPoint2 rounding WILL lead to small numbers becoming 0, affecting division down the line.
@@ -68,5 +65,44 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         // Store and return calculated efficiency.
         ent.Comp.PreviousEfficiency = efficiency;
         return (efficiency, consumedSolution);
+    }
+
+    private float Throttle(ReagentEfficiencyComponent comp, Solution solution, float dt)
+    {
+        // Find throttling amount: Stepwise function [0,threshold) linearly maps to [0,1). [threshold, inf) maps to 1.
+        var throttleThresholdVolume = solution.MaxVolume * comp.ThrottlingThreshold;
+        if (throttleThresholdVolume != 0f && solution.Volume >= throttleThresholdVolume)
+            return 1f;
+
+        // Naiive implementation:
+        // // return (float)(solution.Volume / throttleThresholdVolume);
+        // This equation takes a fraction of the volume based on the current volume.
+        // This works as an approximation when dt is very small. But we do not have that guarantee.
+        // When dt is very large, we will be consuming a lot more than intended.
+        // For example, when solution.Volume is less than but very close to throttleThresholdVolume and dt is large,
+        // we are consuming close to the unthrottled amount for a large portion of the tank.
+        // Had dt been broken up into smaller chunks, we would have a lot more opportunities to process the correct amount.
+
+        // Instead, we need to account for the consumption rate changing itself over the duration of its consumption dt.
+        // This is functionally a continuously compounding interest, but instead of accumulating we are consuming.
+        // So it's exponential decay instead of growth.
+        // We can describe this problem with the following formula:
+        // A(t) = (A_0)e^(rt)
+        // Where
+        //      A_0 is the initial (principal amount)   - The initial solution volume
+        //      r is the rate of interest/consumption   - The rate of consumption, negative for us
+        //      t is the elapsed time                   - dt
+        //      A(t)                                    - The new solution volume after consumption
+
+        // However, instead of a new final volume, we would like to return a value [0,1) as a consumption rate multiplier.
+        // Find the change in volume:
+        // dA = A_0 - A(t)
+        // Normalize by the initial value:
+        // throttle = (A_0 - A(t))/A_0
+        // Expand and Simplify:
+        // throttle = (A_0 - (A_0)e^(rt))/A_0
+        // -> A_0(1 - e^(rt))/A_0
+        // -> 1 - e^(rt)
+        return 1 - MathF.Pow(float.E, -comp.Consumption * dt);
     }
 }
