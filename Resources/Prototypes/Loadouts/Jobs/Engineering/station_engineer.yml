@@ -1,22 +1,22 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorEngineering
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobAtmosphericTechnician
-      time: 5h # imp, was 6
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobStationEngineer
-      time: 5h # imp, was 6
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Engineering
-      time: 30h # imp, was 60
+# # Senior times Imp
+# - type: loadoutEffectGroup
+#   id: SeniorEngineering
+#   effects:
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobAtmosphericTechnician
+#       time: 5h # imp, was 6
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobStationEngineer
+#       time: 5h # imp, was 6
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:DepartmentTimeRequirement
+#       department: Engineering
+#       time: 30h # imp, was 60
 
 # Head
 - type: startingGear
@@ -42,9 +42,9 @@
 - type: loadout
   id: SeniorEngineerBeret
   startingGear: EngineeringBeret
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: SeniorEngineering
 
 # Jumpsuit
 - type: loadout
@@ -64,17 +64,17 @@
 
 - type: loadout
   id: SeniorEngineerJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpsuitSeniorEngineer
 
 - type: loadout
   id: SeniorEngineerJumpskirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: SeniorEngineering
   equipment:
     jumpsuit: ClothingUniformJumpskirtSeniorEngineer
 
@@ -124,8 +124,8 @@
 
 - type: loadout
   id: SeniorEngineerPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorEngineering
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: SeniorEngineering
   equipment:
     id: SeniorEngineerPDA

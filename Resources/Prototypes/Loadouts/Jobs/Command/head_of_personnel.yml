@@ -1,22 +1,23 @@
-# For mantles
-- type: loadoutEffectGroup
-  id: MasterHoP
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobHeadOfPersonnel
-      time: 10h # imp, was 20
-
-# Professional HoP Time (imp edit: ian backpack unlocked by MasterHoP instead)
-- type: loadoutEffectGroup
-  id: ProfessionalHoP
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobHeadOfPersonnel
-      time: 15h # special reward for HoP mains
+# Mass imp event
+# # For mantles
+# - type: loadoutEffectGroup
+#   id: MasterHoP
+#   effects:
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobHeadOfPersonnel
+#       time: 10h # imp, was 20
+#
+# # Professional HoP Time (imp edit: ian backpack unlocked by MasterHoP instead)
+# - type: loadoutEffectGroup
+#   id: ProfessionalHoP
+#   effects:
+#   - !type:JobRequirementLoadoutEffect
+#     requirement:
+#       !type:RoleTimeRequirement
+#       role: JobHeadOfPersonnel
+#       time: 15h # special reward for HoP mains
 
 # Jumpsuit
 - type: loadout
@@ -45,9 +46,9 @@
   id: HoPMantle
   equipment:
     neck: ClothingNeckMantleHOP
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterHoP
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: MasterHoP
 
 - type: startingGear
   id: HoPMantle
@@ -57,9 +58,9 @@
 # Back
 - type: loadout
   id: HoPBackpackIan
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: MasterHoP #imp
+  # effects:
+  # - !type:GroupLoadoutEffect Imp
+  #   proto: MasterHoP #imp
   equipment:
     back: ClothingBackpackIan
 
