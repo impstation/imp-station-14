@@ -56,7 +56,8 @@
 
 - type: entity
   name: tuba
-  parent: BasePlaceableInstrument
+  # parent: BasePlaceableInstrument
+  parent: BasePlaceableInstrumentRotatable # imp edit, changed from BasePlaceableInstrument
   id: TubaInstrument
   description: The big daddy of the brass family. Standing next to its majesty makes you feel insecure.
   components:
@@ -67,7 +68,8 @@
 
 - type: entity
   id: HarpInstrument
-  parent: BasePlaceableInstrument
+  # parent: BasePlaceableInstrument
+  parent: BasePlaceableInstrumentRotatable # imp edit, changed from BasePlaceableInstrument
   name: harp
   description: Plucking at the strings cuts your fingers, but at least the music is pretty.
   components:
@@ -100,7 +102,8 @@
 
 - type: entity
   id: ContrabassInstrument
-  parent: BasePlaceableInstrument
+  # parent: BasePlaceableInstrument
+  parent: BasePlaceableInstrumentRotatable # imp edit
   name: contrabass
   description: Perfect for laying down a nice jazzy beat.
   components:
@@ -148,7 +151,8 @@
     state: toms
 
 - type: entity
-  parent: [ BasePlaceableInstrumentRotatable, ConstructibleMachine]
+  parent: [ BasePlaceableInstrumentRotatable, ConstructibleMachine ]
+  suffix: Tabletop # imp
   id: DawInstrument
   name: digital audio workstation
   description: Cutting edge music technology, straight from the 90s.
@@ -168,3 +172,15 @@
   - type: Instrument
     allowPercussion: true
     allowProgramChange: true
+  - type: InteractionOutline
+  - type: Fixtures # imp edit
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - TabletopMachineMask
+        layer:
+        - TabletopMachineLayer
