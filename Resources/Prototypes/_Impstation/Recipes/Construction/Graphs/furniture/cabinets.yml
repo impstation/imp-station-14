@@ -1,0 +1,66 @@
+- type: constructionGraph
+  id: CabinetImp
+  start: start
+  graph:
+    - node: start
+      actions:
+        - !type:DeleteEntity {}
+      edges:
+# Construction
+        - to: ExtinguisherCabinet
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: Glass
+              amount: 1
+              doAfter: 1
+        - to: DefibrillatorCabinet
+          completed:
+            - !type:SnapToGrid {}
+          steps:
+            - material: Steel
+              amount: 2
+              doAfter: 1
+            - material: Glass
+              amount: 1
+              doAfter: 1
+
+# Deconstruction
+    - node: ExtinguisherCabinet
+      entity: ExtinguisherCabinet
+      edges:
+        - to: start
+          completed:
+            - !type:EmptyAllContainers
+            - !type:GivePrototype
+                prototype: SheetGlass1
+                amount: 1
+            - !type:GivePrototype
+                prototype: SheetSteel1
+                amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - tool: Prying
+              doAfter: 2
+
+    - node: DefibrillatorCabinet
+      entity: DefibrillatorCabinet
+      edges:
+        - to: start
+          completed:
+            - !type:EmptyAllContainers
+            - !type:GivePrototype
+                prototype: SheetGlass1
+                amount: 1
+            - !type:GivePrototype
+                prototype: SheetSteel1
+                amount: 2
+          steps:
+            - tool: Screwing
+              doAfter: 1
+            - tool: Prying
+              doAfter: 2

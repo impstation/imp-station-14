@@ -40,6 +40,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalGlassBreak
+  - type: Construction #imp edit start
+    graph: CabinetImp
+    node: DefibrillatorCabinet # imp edit end
 
 - type: entity
   parent: DefibrillatorCabinet
