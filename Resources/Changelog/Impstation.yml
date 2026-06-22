@@ -1,59 +1,4 @@
 ﻿Entries:
-- author: Squamatic
-  changes:
-  - message: W-wait, you called the red phone for a CBURN team? Don't you know that
-      Central barely even funds those guys? That whole romerol thing is just a myth,
-      anyway...
-    type: Add
-  id: 2363
-  time: '2025-10-27T09:34:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3614
-- author: EpicToast
-  changes:
-  - message: Disabilities and quirks have been combined into one section.
-    type: Tweak
-  - message: Traits can now cost or grant points in your trait budget.
-    type: Tweak
-  - message: Some traits are no longer compatible with each other.
-    type: Tweak
-  id: 2364
-  time: '2025-10-28T02:22:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3538
-- author: hivehum
-  changes:
-  - message: Added two new steal objectives.
-    type: Add
-  - message: Thieves get gimmick objectives!
-    type: Add
-  - message: Made an enormous rebalance to how steal targets are handled. Hopefully
-      CMOs want to kill everyone and themselves a little less frequently.
-    type: Tweak
-  id: 2365
-  time: '2025-10-28T07:49:24.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3532
-- author: msTheowo
-  changes:
-  - message: Donut boxes have received a makeover.
-    type: Tweak
-  id: 2366
-  time: '2025-10-28T07:50:38.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3630
-- author: VeeNomine
-  changes:
-  - message: Decreased the nokia soundfont that pAIs, musician PDA, and drones use.
-      No longer will your ears bleed. Future adjustments may be needed.
-    type: Tweak
-  id: 2367
-  time: '2025-10-29T12:07:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3625
-- author: Kandiyaki
-  changes:
-  - message: A new Heretic item, the Frangiclave, which instantly breaks any object
-      it's thrown at.
-    type: Add
-  id: 2368
-  time: '2025-10-29T12:22:25.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3535
 - author: TheGrimbeeper
   changes:
   - message: Some natural artifact effects are only on while their node is active.
@@ -4098,3 +4043,50 @@
   id: 2862
   time: '2026-06-11T07:37:46.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4397
+- author: jkwookee
+  changes:
+  - message: Biomagnetic Polarization Symbols are now a accessibility setting toggle.
+    type: Tweak
+  - message: You can roll in carpets to become shiny again.
+    type: Fix
+  id: 2863
+  time: '2026-06-18T02:33:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4445
+- author: jkwookee
+  changes:
+  - message: Added a chance for a crew member to see scary ghosts.
+    type: Add
+  id: 2864
+  time: '2026-06-19T23:23:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4451
+- author: lobsterpaw
+  changes:
+  - message: Oasis has received a variety of changes
+    type: Tweak
+  id: 2865
+  time: '2026-06-20T08:42:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4439
+- author: starlighthowls
+  changes:
+  - message: Added a few new Tippy trump cards!
+    type: Add
+  - message: Tippy trumps now can be sold for varying amounts depending on their rarity,
+      go bother cargo about your collection today!
+    type: Add
+  id: 2866
+  time: '2026-06-20T12:09:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4407
+- author: lobsterpaw
+  changes:
+  - message: The wizard wreck's toys have been swapped out for other toys.
+    type: Tweak
+  id: 2867
+  time: '2026-06-20T14:23:17.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4305
+- author: salamanderskies
+  changes:
+  - message: The Knowledge Store has a new UI!
+    type: Add
+  id: 2868
+  time: '2026-06-22T15:35:09.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4304
