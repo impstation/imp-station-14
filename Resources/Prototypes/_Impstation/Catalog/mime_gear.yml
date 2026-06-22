@@ -27,3 +27,13 @@
     state: box
   content:
   - SpellbookMimeInvisibleBox
+
+- type: mimeGearMenuSet
+  id: InvisiblePortal
+  name: mime-gearset-category-portal-name
+  description: mime-gearset-category-portal-description
+  sprite:
+    sprite: _Impstation/Interface/Actions/mime.rsi
+    state: box # get a sprite
+  content:
+  - SpellbookMimeInvisiblePortal

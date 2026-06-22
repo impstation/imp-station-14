@@ -67,6 +67,27 @@
     otherText: mime-invisible-box-popup-others
 
 - type: entity
+  parent: ActionMimeBase
+  id: ActionMimeInvisiblePortal
+  name: Invisible Portal
+  description: desc
+  components:
+  - type: Action
+    useDelay: 120
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Impstation/Interface/Actions/mime.rsi
+      state: chair # rsi needed
+  - type: InstantAction
+    event: !type:InstantSpawnSpellEvent
+      prototype: PortalMime
+      posData: !type:TargetInFrontSingle
+      preventCollideWithCaster: false
+  - type: PopupOnAction
+    text: mime-invisible-portal-popup-self
+    otherText: mime-invisible-portal-popup-others
+
+- type: entity
   parent: ActionMimeInvisibleWall
   id: ActionMimeInvisibleBlockade
   name: Invisible Blockade
