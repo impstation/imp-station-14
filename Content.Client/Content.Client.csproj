@@ -34,4 +34,8 @@
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>
   </ItemGroup>
+  <!-- imp add: return to brain popup -->
+  <ItemGroup>
+    <Folder Include="_Impstation\Ghost\UI\" />
+  </ItemGroup>
 </Project>

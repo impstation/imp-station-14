@@ -1,6 +1,7 @@
 ## Static
 
 - type: latheRecipePack
+  parent: RoboticsStaticImp # imp
   id: RoboticsStatic
   recipes:
   - MMI
@@ -19,6 +20,7 @@
   - BorgModuleArtistry
 
 - type: latheRecipePack
+  parent: BorgLimbsStaticImp # imp
   id: BorgLimbsStatic
   recipes:
   - LeftArmBorg

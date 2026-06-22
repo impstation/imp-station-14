@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Containers.ItemSlots;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -42,6 +43,20 @@ public sealed partial class MMIComponent : Component
     /// </summary>
     [DataField]
     public string NoBrainState = "mmi_off";
+
+    // Imp addition
+    /// <summary>
+    /// If the mind in this MMI has accepted the contract to become a borg.
+    /// </summary>
+    [DataField]
+    public bool AllowBorging;
+
+    // Imp addition
+    /// <summary>
+    ///     Popup to display when MMI insertion fails.
+    /// </summary>
+    [DataField]
+    public LocId FailPopup = "borg-mmi-fail-deny-contract-popup";
 }
 
 [Serializable, NetSerializable]
