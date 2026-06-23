@@ -77,7 +77,7 @@
       collection: FootstepSlime
   - type: Physics
   - type: Fixtures
-    fixtures: # TODO: This needs a second fixture just for mob collisions.
+    fixtures:
       fix1:
         shape:
           !type:PhysShapeCircle
@@ -125,7 +125,6 @@
     emotes: ['ZombieGroan']
   - type: Speech
     speechSounds: Bass
-    allowedEmotes: ['Scream']
   - type: Vocal
     sounds:
       Unsexed: Bear
