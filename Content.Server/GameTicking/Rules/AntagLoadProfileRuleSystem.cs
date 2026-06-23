@@ -31,6 +31,10 @@ public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfile
             ? _prefs.GetPreferences(args.Session.UserId).SelectedCharacter as HumanoidCharacterProfile
             : HumanoidCharacterProfile.RandomWithSpecies();
 
+        // imp edit start, add random profile generation
+        if (ent.Comp.RandomProfile)
+            profile = HumanoidCharacterProfile.Random(false);
+        // imp edit end
 
         if (profile?.Species is not { } speciesId || !_proto.Resolve(speciesId, out var species))
         {

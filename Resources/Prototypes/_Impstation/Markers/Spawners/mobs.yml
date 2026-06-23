@@ -81,8 +81,8 @@
       - MobFriendfish
 
 - type: entity
-  name: Feind-fish Spawner
-  id: SpawnMobFeindfish
+  name: Fiend-fish Spawner
+  id: SpawnMobFiendfish
   parent: MarkerBase
   components:
   - type: Sprite
@@ -91,4 +91,4 @@
       - state: ai
   - type: ConditionalSpawner
     prototypes:
-      - MobFeindfish
+      - MobFiendfish
