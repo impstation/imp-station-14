@@ -39,15 +39,15 @@ public sealed partial class EmotesMenuSystem : EntitySystem
         {
             return;
         }
-        if(emotePrototype.Targeted) 
+        if (emotePrototype.Targeted)
         {
-            if(target == null)
+            if (target == null)
             {
                 _popup.PopupEntity(Loc.GetString("targeted-emote-no-target"), player.Value); //if the emote needs a target but doesn't find one, cancel and send a popup
                 return;
             }
-            if (!_examine.InRangeUnOccluded(player.Value, target.Value)){
-                _popup.PopupEntity(Loc.GetString("targeted-emote-target-blocked"), player.Value);//if target isn't visible, cancel and send a popup
+            if (!_examine.InRangeUnOccluded(player.Value, target.Value) && !IsClientSide(target.Value)){
+                _popup.PopupEntity(Loc.GetString("targeted-emote-target-blocked"), player.Value);//if target isn't visible, cancel and send a popup. skip this check for clientside stuff, e.g. things in bags
                 return;
             }
             else //nothing stopping a targeted emote

@@ -1,7 +1,7 @@
-using System.Linq;
 using Content.Client.Clothing;
 using Content.Client.Examine;
 using Content.Client.Verbs.UI;
+using Content.Shared.Chat;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -12,7 +12,7 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
+using System.Linq;
 
 namespace Content.Client.Inventory
 {
@@ -211,6 +211,16 @@ namespace Content.Client.Inventory
 
             _examine.DoExamine(item.Value);
         }
+
+        public void UIInventoryEmote(string slot, EntityUid uid) //imp edit start
+        {
+            if (!TryGetSlotEntity(uid, slot, out var item))
+                return;
+
+            RaiseLocalEvent(new EmoteInventorySlotEvent(item.Value));
+            //TODO: figure out how to get the emote UI controller to do this
+            //idea: make a new event that the emote UI controller listens for, and then have this function raise that event with the item as a parameter
+        } //imp edit end
 
         public void UIInventoryOpenContextMenu(string slot, EntityUid uid)
         {

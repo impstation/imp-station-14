@@ -52,3 +52,16 @@ public sealed class PlayEmoteMessage(ProtoId<EmotePrototype> protoId, NetEntity?
     public readonly NetEntity? Target = target;
 }
 //end imp edit
+
+/// <summary>
+/// imp addition - for targeted emotes at items within an inventory
+/// </summary>
+public readonly struct EmoteInventorySlotEvent
+{
+    public readonly EntityUid TargetUid;
+
+    public EmoteInventorySlotEvent(EntityUid uid)
+    {
+        TargetUid = uid;
+    }
+}

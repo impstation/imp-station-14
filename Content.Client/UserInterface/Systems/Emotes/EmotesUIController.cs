@@ -1,9 +1,12 @@
 using Content.Client.Actions;
 using Content.Client.Eui;
+using Content.Client.Examine;
 using Content.Client.Gameplay;
+using Content.Client.Inventory;
 using Content.Client.Pointing.Components;
 using Content.Client.UserInterface.Controls;
 using Content.Client.Viewport;
+using Content.Shared.Administration;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Input;
@@ -23,6 +26,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Reflection;
+using static Content.Client.Inventory.ClientInventorySystem;
 
 namespace Content.Client.UserInterface.Systems.Emotes;
 
@@ -45,6 +49,13 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         public NetEntity? emoteTarget;
     }
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<EmoteInventorySlotEvent>(HandleInventoryEmote);
+    }
+
     private static readonly Dictionary<EmoteCategory, (string Tooltip, SpriteSpecifier Sprite)> EmoteGroupingInfo =
         new()
         {
@@ -60,10 +71,14 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
 
     public void OnStateEntered(GameplayState state)
     {
+        //CommandBinds.Builder
+        //    .Bind(ContentKeyFunctions.OpenEmotesMenu,
+        //        InputCmdHandler.FromDelegate(_ => ToggleEmotesMenu(false))) 
+        //    .Register<EmotesUIController>();
+
         CommandBinds.Builder
-            .Bind(ContentKeyFunctions.OpenEmotesMenu,
-                InputCmdHandler.FromDelegate(_ => ToggleEmotesMenu(false))) 
-            .Register<EmotesUIController>();
+                .Bind(ContentKeyFunctions.OpenEmotesMenu, new PointerInputCmdHandler(HandleEmote, outsidePrediction: true))
+                .Register<EmotesUIController>();
     }
 
     public void OnStateExited(GameplayState state)
@@ -71,9 +86,18 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         CommandBinds.Unregister<EmotesUIController>();
     }
 
-    private void ToggleEmotesMenu(bool centered)
+    private bool HandleEmote(in PointerInputCmdHandler.PointerInputCmdArgs args){
+        ToggleEmotesMenu(false, args.EntityUid);
+        return true;
+    }
+
+    private void HandleInventoryEmote(EmoteInventorySlotEvent args) //imp addition - for emoting at clientside items, e.g. in an inventory slot
     {
-        EntityUid? emoteTarget; //imp add, for targeted emotes
+        ToggleEmotesMenu(false, args.TargetUid);
+    }
+
+    private void ToggleEmotesMenu(bool centered, EntityUid? emoteTarget = null)
+    {
 
         Log.Debug(message: $"toggled emotes menu");
 
@@ -81,26 +105,8 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         if (currentState is not GameplayStateBase screen) return;
 
 
-        if (_uiManager.CurrentlyHovered is IViewportControl vp
-           && _inputManager.MouseScreenPosition.IsValid)
-        {
-            var mousePosWorld = vp.PixelToMap(_inputManager.MouseScreenPosition.Position);
+        Log.Debug(message: $"got emote target {(emoteTarget)}");
 
-            if (vp is ScalingViewport svp)
-            {
-                emoteTarget = screen.GetClickedEntity(mousePosWorld, svp.Eye);
-            }
-            else
-            {
-                emoteTarget = screen.GetClickedEntity(mousePosWorld);
-            }
-
-            Log.Debug(message: $"got emote target {(emoteTarget)}");
-        }
-        else
-        {
-            emoteTarget = null;
-        }
 
         if (_menu == null)
         {
