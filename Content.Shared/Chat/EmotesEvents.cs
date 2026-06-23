@@ -44,8 +44,24 @@ public record struct EmoteEvent(EmotePrototype Emote)
 /// <summary>
 /// Sent by the client when requesting the server to play a specific emote selected from the emote radial menu.
 /// </summary>
+// begin imp edit - added emote target parameter 
 [Serializable, NetSerializable]
-public sealed class PlayEmoteMessage(ProtoId<EmotePrototype> protoId) : EntityEventArgs
+public sealed class PlayEmoteMessage(ProtoId<EmotePrototype> protoId, NetEntity? target = null) : EntityEventArgs 
 {
     public readonly ProtoId<EmotePrototype> ProtoId = protoId;
+    public readonly NetEntity? Target = target;
+}
+//end imp edit
+
+/// <summary>
+/// imp addition - for targeted emotes at items within an inventory
+/// </summary>
+public readonly struct EmoteInventorySlotEvent
+{
+    public readonly EntityUid TargetUid;
+
+    public EmoteInventorySlotEvent(EntityUid uid)
+    {
+        TargetUid = uid;
+    }
 }
