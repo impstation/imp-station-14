@@ -218,8 +218,6 @@ namespace Content.Client.Inventory
                 return;
 
             RaiseLocalEvent(new EmoteInventorySlotEvent(item.Value));
-            //TODO: figure out how to get the emote UI controller to do this
-            //idea: make a new event that the emote UI controller listens for, and then have this function raise that event with the item as a parameter
         } //imp edit end
 
         public void UIInventoryOpenContextMenu(string slot, EntityUid uid)

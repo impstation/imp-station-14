@@ -53,7 +53,7 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EmoteInventorySlotEvent>(HandleInventoryEmote);
+        SubscribeLocalEvent<EmoteInventorySlotEvent>(HandleClientsideEmote);
     }
 
     private static readonly Dictionary<EmoteCategory, (string Tooltip, SpriteSpecifier Sprite)> EmoteGroupingInfo =
@@ -91,10 +91,15 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         return true;
     }
 
-    private void HandleInventoryEmote(EmoteInventorySlotEvent args) //imp addition - for emoting at clientside items, e.g. in an inventory slot
+    private void HandleClientsideEmote(EmoteInventorySlotEvent args) //imp edit start - for emoting at clientside items, e.g. in an inventory slot
     {
         ToggleEmotesMenu(false, args.TargetUid);
     }
+
+    public void OpenEmotesMenu(bool centered, EntityUid? emoteTarget = null) //for emoting at clientside items inside other UIs, e.g. rightclick dropdown
+    {
+        ToggleEmotesMenu(centered, emoteTarget);
+    }//imp edit end
 
     private void ToggleEmotesMenu(bool centered, EntityUid? emoteTarget = null)
     {
