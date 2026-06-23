@@ -2,37 +2,37 @@
 ## stage 1
 knowledge-path-side-s1-sensor-name = Seeking Heart
 knowledge-path-side-s1-sensor-desc =
-    The library hungers for knowledge. Such hunger can be used.
-
     Allows you to transmute a heart and a flare into a Seeking Heart.
-    Its beat quickens in proximity of a Mansus Tome.
+    Its beat quickens in proximity of an Eldritch Tome.
+knowledge-path-side-s1-sensor-flavor =
+    "The library hungers for knowledge. Such hunger can be used."
 
 ## stage 3
 knowledge-path-side-s3-armor-name = Armorer’s Ritual
 knowledge-path-side-s3-armor-desc =
-    The Rusted Hills welcomed the Blacksmith in their generosity. And the Blacksmith returned their generosity in kind.
-
-    Allows you to transmute a table and a gas mask to create Eldritch Armor.
-    Eldritch Armor provides great protection while also acting as a focus when hooded.
+    Allows you to transmute a table and a gas mask to create Ominous Armor.
+    Ominous Armor provides great protection while also acting as a focus when hooded.
+knowledge-path-side-s3-armor-flavor =
+    "The Rusted Hills welcomed the Blacksmith in their generosity. And the Blacksmith returned their generosity in kind."
 
 knowledge-path-side-s3-flask-name = Priest's Ritual
 knowledge-path-side-s3-flask-desc =
-    Transmute a tank of water and a glass shard into a Flask of Eldritch Water.
-    The flask contains a mixture of potent medicines.
+    Transmute a tank of water and a glass shard into an Eldritch Flask.
+    This flask contains a mixture of Omnizine and Tranexamic Acid.
 
 knowledge-path-side-s3-mirror-name = Wildering Mirror
 knowledge-path-side-s3-mirror-desc =
-    Wherever it's kept, it will be visible in the splintered reflections of the pupils.
-
     Allows you to transmute a pair of eyes, a light bulb, and a crowbar into a Wildering Mirror.
     When held, the Wildering Mirror has a high chance to deflect energy weapons such as disablers.
+knowledge-path-side-s3-mirror-flavor =
+    "Wherever it's kept, it will be visible in the splintered reflections of the pupils."
 
 knowledge-path-side-s3-key-name = Frangiclave
-knowledge-path-side-s3-key-desc =
-    It cannot be locked away. Keep it in the hand or beneath the tongue.
-
+knowledge-path-side-s3-desc =
     Allows you to transmute an ID card and an organ into a Frangiclave.
     When thrown, the Frangiclave will instantly destroy any inanimate object, and then vanish.
+knowledge-path-side-s3-key-flavor =
+    "It cannot be locked away. Keep it in the hand or beneath the tongue."
 
 ## stage 5
 knowledge-path-side-s5-name = Ritual of Knowledge

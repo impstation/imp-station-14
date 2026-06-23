@@ -7,7 +7,8 @@
     <Button Name="FocusButton" StyleClasses="OpenLeft" Access="Public">
         <BoxContainer HorizontalExpand="True" VerticalExpand="True" Orientation="Horizontal">
             <!-- Supermatter sprite -->
-            <TextureRect Name="SupermatterSprite" TexturePath="/Textures/_EE/Interface/Supermatter/supermatter.png" Margin="6 2" />
+            <!-- Imp, changed sprite to be set in SupermatterEntryContainer.xaml.cs -->
+            <TextureRect Name="SupermatterSprite" Margin="6 2" />
 
             <!-- Supermatter name -->
             <Label Name="SupermatterNameLabel" HorizontalExpand="True" Margin="5 0" />
