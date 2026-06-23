@@ -17,6 +17,13 @@ public sealed partial class SupermatterComponent : Component
     #region Base
 
     /// <summary>
+    /// Imp.
+    /// Used for knowing if the supermatter is a shard
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool IsShard;
+
+    /// <summary>
     /// The current status of the supermatter, used for alert sounds and the monitoring console
     /// </summary>
     [DataField]
@@ -193,6 +200,13 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float PowerlossDynamicScaling;
+
+    /// <summary>
+    /// Imp.
+    /// Radiation multiplier for the supermatter, affects base rads as well
+    /// </summary>
+    [DataField]
+    public float RadiationMultiplier = 1f;
 
     /// <summary>
     /// Affects the amount of damage and minimum point at which the SM takes heat damage
