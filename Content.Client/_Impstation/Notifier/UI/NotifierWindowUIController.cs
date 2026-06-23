@@ -160,14 +160,8 @@ public sealed class NotifierWindowUIController : UIController, IOnSystemChanged<
 
     private void SetNotifierPressed(bool pressed)
     {
-        if (NotifierButton != null)
-        {
-            NotifierButton.Pressed = pressed;
-        }
+        NotifierButton?.Pressed = pressed;
 
-        if (LobbyNotifierButton != null)
-        {
-            LobbyNotifierButton.Pressed = pressed;
-        }
+        LobbyNotifierButton?.Pressed = pressed;
     }
 }
