@@ -5,11 +5,15 @@
   description: A bottomless appetite and an insatiable bloodlust... you better start running.
   components:
   - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
     name: ghost-role-information-zombie-name
     description: ghost-role-information-zombie-description
     rules: ghost-role-information-antagonist-rules
     raffle:
       settings: default
+  - type: GhostTakeoverAvailable
   - type: NpcFactionMember
     factions:
     - Zombie
@@ -60,16 +64,6 @@
     allowedStates:
     - Alive
     - Dead
-  - type: DamageVisuals
-    thresholds: [ 10, 20, 30, 50, 70, 100 ]
-    targetLayers:
-    - "enum.DamageStateVisualLayers.Base"
-    damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
-        color: "#5c581f"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
   - type: GenericVisualizer
     visuals:
       enum.CreamPiedVisuals.Creamed:
@@ -77,6 +71,7 @@
           True: {visible: true}
           False: {visible: false}
   - type: CreamPied
+  - type: Deathgasp
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepSlime
@@ -97,7 +92,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      125: Dead
+      125: Critical
+      200: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
     baseSprintSpeed: 1.5
@@ -128,6 +124,7 @@
   - type: AutoEmote
     emotes: ['ZombieGroan']
   - type: Speech
+    speechSounds: Bass
     allowedEmotes: ['Scream']
   - type: Vocal
     sounds:
@@ -174,6 +171,7 @@
   parent: MobZombieExecration
   id: MobZombieExecrationCommon
   name: execration
+  suffix: common
   description: A bottomless appetite and an insatiable bloodlust... you better start running.
   components:
   - type: Loadout
@@ -183,6 +181,7 @@
   parent: MobZombieExecration
   id: MobZombieExecrationUncommon
   name: execration
+  suffix: uncommon
   description: A bottomless appetite and an insatiable bloodlust... you better start running.
   components:
   - type: Loadout
@@ -192,6 +191,7 @@
   parent: MobZombieExecration
   id: MobZombieExecrationRare
   name: execration
+  suffix: rare
   description: A bottomless appetite and an insatiable bloodlust... you better start running.
   components:
   - type: Loadout
