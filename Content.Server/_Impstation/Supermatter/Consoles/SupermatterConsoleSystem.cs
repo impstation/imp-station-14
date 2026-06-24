@@ -1,13 +1,13 @@
 using Content.Shared._EE.CCVar;
-using Content.Shared._EE.Supermatter.Components;
-using Content.Shared._EE.Supermatter.Consoles;
+using Content.Shared._Impstation.Supermatter.Components;
+using Content.Shared._Impstation.Supermatter.Consoles;
 using Content.Shared.Atmos;
 using Content.Shared.Radiation.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using System.Linq;
 
-namespace Content.Server._EE.Supermatter.Console.Systems;
+namespace Content.Server._Impstation.Supermatter.Console.Systems;
 
 public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
 {

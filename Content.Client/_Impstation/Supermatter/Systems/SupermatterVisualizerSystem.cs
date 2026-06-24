@@ -1,8 +1,8 @@
-using Content.Client._EE.Supermatter.Components;
-using Content.Shared._EE.Supermatter.Components;
+using Content.Client._Impstation.Supermatter.Components;
+using Content.Shared._Impstation.Supermatter.Components;
 using Robust.Client.GameObjects;
 
-namespace Content.Client._EE.Supermatter.Systems;
+namespace Content.Client._Impstation.Supermatter.Systems;
 
 public sealed class SupermatterVisualizerSystem : VisualizerSystem<SupermatterVisualsComponent>
 {

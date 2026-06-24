@@ -1,4 +1,4 @@
-using Content.Shared._EE.Supermatter.Components;
+using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared.Atmos;
 using Robust.Shared;
 using Robust.Shared.Configuration;
