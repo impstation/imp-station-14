@@ -41,15 +41,23 @@
     sprite: _Impstation/Clothing/OuterClothing/Coats/qm_hugecoat.rsi
 
 - type: entity
-  parent: ClothingOuterCoatDetective
+  parent: [ClothingOuterCoatDetective, ClothingOuterStorageFoldableBase]
   id: ClothingOuterCoatFieldJacket
-  name: field jacket
-  description: A soft black suit jacket with loose cuffs. The white lettering on the back marks the wearer as Nanotrasen security.
+  name: detective's field jacket
+  description: A green jacket with loose cuffs. The white lettering on the back marks the wearer as Nanotrasen security.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/OuterClothing/Coats/field_jacket.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Coats/detectivefieldjacket.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/OuterClothing/Coats/field_jacket.rsi
+    sprite: _Impstation/Clothing/OuterClothing/Coats/detectivefieldjacket.rsi
+  - type: Foldable
+    unfoldVerbText: fold-unzip-verb
+    foldVerbText: fold-zip-verb
+
+- type: entity
+  parent: [ClothingOuterCoatFieldJacket, ClothingOuterStorageFoldableBaseOpened]
+  id: ClothingOuterCoatFieldJacketOpened
+  name: detective's field jacket
 
 - type: entity
   parent: ClothingOuterStorageBase
