@@ -92,8 +92,17 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      125: Critical
       200: Dead
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Dead
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Voice/Misc/lowHiss3.ogg
+      params:
+        loop: False
+        variation: 0.125
+        volume: 20
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
     baseSprintSpeed: 1.5
