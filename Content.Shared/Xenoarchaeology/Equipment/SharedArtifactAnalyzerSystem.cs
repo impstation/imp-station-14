@@ -141,19 +141,6 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
                 bias.Provider = args.Source;
             }
         }
-
-        if (HasComp<AdvancedNodeScannerComponent>(args.Source))
-        {
-            ent.Comp.AdvancedNodeScanner = args.Source;
-            Dirty(ent);
-
-            // Propogate the ANS to console
-            if (ent.Comp.Console is { } console && TryComp<AnalysisConsoleComponent>(console, out var consoleComp))
-            {
-                consoleComp.AdvancedNodeScanner = args.Source;
-                Dirty(console, consoleComp);
-            }
-        }
     }
 
     private void OnLinkAttemptConsole(Entity<AnalysisConsoleComponent> ent, ref LinkAttemptEvent args)
@@ -164,9 +151,12 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 
     private void OnLinkAttemptAnalyzer(Entity<ArtifactAnalyzerComponent> ent, ref LinkAttemptEvent args)
     {
-        // IMP EDIT the if statement
-        if ((ent.Comp.Console != null && HasComp<AnalysisConsoleComponent>(args.Source)) || (ent.Comp.AdvancedNodeScanner != null && HasComp<AdvancedNodeScannerComponent>(args.Source)))
-            args.Cancel(); // can only link to one device of a type at a time
+        //IMP, bypass this cancel if linking to advanced node scanner
+        if (HasComp<AdvancedNodeScannerComponent>(args.Source))
+            return;
+
+        if (ent.Comp.Console != null)
+            args.Cancel(); // can only link to one console at a time
     }
 
     private void OnPortDisconnectedConsole(Entity<AnalysisConsoleComponent> ent, ref PortDisconnectedEvent args)
@@ -181,7 +171,7 @@ public abstract class SharedArtifactAnalyzerSystem : EntitySystem
 
     private void OnPortDisconnectedAnalyzer(Entity<ArtifactAnalyzerComponent> ent, ref PortDisconnectedEvent args)
     {
-        if (args.Port != ent.Comp.LinkingPort || ent.Comp.Console == null) //We'll handle the advanced node scanner case in SharedAdvancedNodeScannerSystem //IMP only the comment is imp
+        if (args.Port != ent.Comp.LinkingPort || ent.Comp.Console == null)
             return;
 
         ent.Comp.Console = null;
