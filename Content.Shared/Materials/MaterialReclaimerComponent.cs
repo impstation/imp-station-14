@@ -157,6 +157,12 @@ public sealed partial class MaterialReclaimerComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan StatusEffectDuration = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// Imp addition, the number of people the reclaimer has killed. Appended to the round end screen.
+    /// </summary>
+    [DataField]
+    public int KillCount = 0;
 }
 
 [NetSerializable, Serializable]
