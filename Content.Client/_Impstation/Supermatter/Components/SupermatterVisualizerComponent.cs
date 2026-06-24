@@ -1,7 +1,7 @@
-using Content.Client._EE.Supermatter.Systems;
-using Content.Shared._EE.Supermatter.Components;
+using Content.Client._Impstation.Supermatter.Systems;
+using Content.Shared._Impstation.Supermatter.Components;
 
-namespace Content.Client._EE.Supermatter.Components;
+namespace Content.Client._Impstation.Supermatter.Components;
 
 [RegisterComponent]
 [Access(typeof(SupermatterVisualizerSystem))]

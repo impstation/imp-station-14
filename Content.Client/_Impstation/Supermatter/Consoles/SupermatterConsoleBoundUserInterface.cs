@@ -1,6 +1,6 @@
-using Content.Shared._EE.Supermatter.Components;
+using Content.Shared._Impstation.Supermatter.Components;
 
-namespace Content.Client._EE.Supermatter.Consoles;
+namespace Content.Client._Impstation.Supermatter.Consoles;
 
 public sealed class SupermatterConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {

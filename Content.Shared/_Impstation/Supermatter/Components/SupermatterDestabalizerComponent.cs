@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._EE.Supermatter.Components;
+namespace Content.Shared._Impstation.Supermatter.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SupermatterDestabalizerComponent : Component

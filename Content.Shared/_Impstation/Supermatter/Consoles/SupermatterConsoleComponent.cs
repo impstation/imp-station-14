@@ -1,9 +1,9 @@
-using Content.Shared._EE.Supermatter.Consoles;
+using Content.Shared._Impstation.Supermatter.Consoles;
 using Content.Shared.Atmos;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._EE.Supermatter.Components;
+namespace Content.Shared._Impstation.Supermatter.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedSupermatterConsoleSystem))]

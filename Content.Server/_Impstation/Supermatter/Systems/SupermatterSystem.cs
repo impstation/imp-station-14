@@ -19,7 +19,7 @@ using Content.Server.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Traits.Assorted;
 using Content.Shared._EE.CCVar;
-using Content.Shared._EE.Supermatter.Components;
+using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
 using Content.Shared.Damage.Components;
@@ -47,7 +47,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Mobs; // Imp
 
-namespace Content.Server._EE.Supermatter.Systems;
+namespace Content.Server._Impstation.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem : EntitySystem
 {

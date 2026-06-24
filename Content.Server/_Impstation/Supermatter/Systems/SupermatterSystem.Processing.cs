@@ -4,7 +4,7 @@ using System.Text;
 using Content.Server.Singularity.Components;
 using Content.Server.StationEvents.Events;
 using Content.Shared._EE.CCVar;
-using Content.Shared._EE.Supermatter.Components;
+using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.StrangeMoods;
 using Content.Shared.Atmos;
 using Content.Shared.Audio;
@@ -31,7 +31,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 
-namespace Content.Server._EE.Supermatter.Systems;
+namespace Content.Server._Impstation.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem
 {
