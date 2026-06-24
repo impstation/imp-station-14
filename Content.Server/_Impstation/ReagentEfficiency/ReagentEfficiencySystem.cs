@@ -38,8 +38,26 @@ public sealed class ReagentEfficiencySystem : EntitySystem
             return (0f, new Solution());
 
         // Remove the appropriate amount of solution.
-        var throttle = Throttle(ent.Comp, solution, dt);
-        var consumedSolution = _solution.SplitSolution(ent.Comp.SolutionCache.Value, ent.Comp.Consumption * dt * throttle * consumptionMultiplier);
+        // Find nominal consumption
+        var netConsumptionRate = ent.Comp.Consumption * consumptionMultiplier;
+        var throttleThresholdVolume = (float)solution.MaxVolume * ent.Comp.ThrottlingThreshold;
+        var nominalConsumption = dt * netConsumptionRate;
+
+        // Find how much time the nominal consumption spent over the throttle threshold
+        var nominalConsumptionOverThreshold = float.Clamp(throttleThresholdVolume - (float)solution.Volume - nominalConsumption, 0, nominalConsumption);
+        var throttleDt = nominalConsumptionOverThreshold / netConsumptionRate;
+
+        // Find amount consumed in throttle
+        var throttledConsumption = Throttle((float)solution.Volume, netConsumptionRate, throttleDt);
+
+        // Mix nominal consumption and throttled consumption amounts
+        // let Cf = total consumption, Cn = nominal consumption, Ct = throttled consumption
+        // When throttleDt = 0, Cf = Cn
+        // When throttleDt = dt, Cf = Ct
+        var consumedAmount = float.Lerp(nominalConsumption, throttledConsumption, throttleDt / dt);
+        Log.Debug($"A0 {(float)solution.Volume}, r {netConsumptionRate}, Cn {nominalConsumption}, Cnover {nominalConsumptionOverThreshold}, tdt {throttleDt}, Ct {throttledConsumption}, Cf {consumedAmount}");
+
+        var consumedSolution = _solution.SplitSolution(ent.Comp.SolutionCache.Value, consumedAmount);
 
         // FixedPoint2 rounding WILL lead to small numbers becoming 0, affecting division down the line.
         if (consumedSolution.Volume == FixedPoint2.Zero)
@@ -59,20 +77,20 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         }
         efficiency /= (float)consumedSolution.Volume;
 
-        //Apply throttling
-        efficiency *= throttle;
+        //Apply throttling to efficiency
+        efficiency *= solution.Volume < throttleThresholdVolume ? (float)solution.Volume / throttleThresholdVolume : 1f; //Naiive and maybe not correct
 
         // Store and return calculated efficiency.
         ent.Comp.PreviousEfficiency = efficiency;
         return (efficiency, consumedSolution);
     }
 
-    private float Throttle(ReagentEfficiencyComponent comp, Solution solution, float dt)
+    private float Throttle(float initialAmount, float consumptionRate, float dt)
     {
         // Find throttling amount: Stepwise function [0,threshold) linearly maps to [0,1). [threshold, inf) maps to 1.
-        var throttleThresholdVolume = solution.MaxVolume * comp.ThrottlingThreshold;
-        if (throttleThresholdVolume != 0f && solution.Volume >= throttleThresholdVolume)
-            return 1f;
+        // var throttleThresholdVolume = solution.MaxVolume * comp.ThrottlingThreshold;
+        // if (throttleThresholdVolume != 0f && solution.Volume >= throttleThresholdVolume)
+        //     return 1f;
 
         // Naiive implementation:
         // // return (float)(solution.Volume / throttleThresholdVolume);
@@ -94,15 +112,19 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         //      t is the elapsed time                   - dt
         //      A(t)                                    - The new solution volume after consumption
 
-        // However, instead of a new final volume, we would like to return a value [0,1) as a consumption rate multiplier.
-        // Find the change in volume:
-        // dA = A_0 - A(t)
-        // Normalize by the initial value:
-        // throttle = (A_0 - A(t))/A_0
-        // Expand and Simplify:
-        // throttle = (A_0 - (A_0)e^(rt))/A_0
-        // -> A_0(1 - e^(rt))/A_0
-        // -> 1 - e^(rt)
-        return 1 - MathF.Pow(float.E, -comp.Consumption * dt);
+        // Return the amount consumed, not the new volume
+        // A_0 - A(t)
+        return initialAmount - initialAmount * MathF.Pow(MathF.E, -consumptionRate * dt);
+
+        // // However, instead of a new final volume, we would like to return a value [0,1) as a consumption rate multiplier.
+        // // Find the change in volume:
+        // // dA = A_0 - A(t)
+        // // Normalize by the initial value:
+        // // throttle = (A_0 - A(t))/A_0
+        // // Expand and Simplify:
+        // // throttle = (A_0 - (A_0)e^(rt))/A_0
+        // // -> A_0(1 - e^(rt))/A_0
+        // // -> 1 - e^(rt)
+        // return 1 - MathF.Pow(float.E, -1f * dt);
     }
 }
