@@ -1,73 +1,4 @@
 ﻿Entries:
-- author: TheGrimbeeper
-  changes:
-  - message: Some natural artifact effects are only on while their node is active.
-    type: Fix
-  - message: Some natural artifact effects are limited (no more infinite magic books).
-    type: Fix
-  id: 2369
-  time: '2025-10-29T12:37:15.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3633
-- author: TheGrimbeeper
-  changes:
-  - message: Thieves will no longer feel the urge to die a glorious death.
-    type: Tweak
-  id: 2370
-  time: '2025-10-30T08:04:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3640
-- author: TheGrimbeeper
-  changes:
-  - message: artifact foam may have contents undetermined by the scanner
-    type: Tweak
-  id: 2371
-  time: '2025-11-01T00:51:30.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3646
-- author: EpicToast
-  changes:
-  - message: Luna is undergoing renovations and will not be in the standard work schedule.
-    type: Remove
-  id: 2372
-  time: '2025-11-01T01:21:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3647
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: The M1 and the T25 have new firing modes! Check 'em out!
-    type: Add
-  - message: Several balance changes to the M1 and the T25-- check the PR for details
-    type: Tweak
-  id: 2373
-  time: '2025-11-01T01:23:48.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3638
-- author: entings
-  changes:
-  - message: Lots of little dietary tweaks. This one's for you, Reptilian players.
-    type: Tweak
-  - message: Arachnids can breathe again, for real this time.
-    type: Fix
-  id: 2374
-  time: '2025-11-01T03:47:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3626
-- author: starlighthowls
-  changes:
-  - message: Lowered ungus stun on impact when hitting walls.
-    type: Tweak
-  id: 2375
-  time: '2025-11-01T21:41:43.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3653
-- author: kipdotnet
-  changes:
-  - message: Allulalo are now roundstart available.
-    type: Add
-  id: 2376
-  time: '2025-11-01T23:00:01.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3621
-- author: starlighthowls
-  changes:
-  - message: Added a new lobby art by Wowls! Average Tuesday Shift
-    type: Add
-  id: 2377
-  time: '2025-11-02T01:18:26.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3650
 - author: kipdotnet
   changes:
   - message: Allulalo now have survival boxes. oops.
@@ -4090,3 +4021,83 @@
   id: 2868
   time: '2026-06-22T15:35:09.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4304
+- author: msTheowo, jkwookee
+  changes:
+  - message: Supermatter shards are now purchasable from cargo.
+    type: Add
+  id: 2869
+  time: '2026-06-22T19:11:27.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4271
+- author: Kandiyaki
+  changes:
+  - message: heretics' void teleport is much more reliable.
+    type: Fix
+  - message: void ascendants will now spawn ice tiles around them, as was always intended.
+    type: Fix
+  - message: void ascendants now cool down the room they're in twice as fast.
+    type: Tweak
+  - message: heretic's void blast now does damage.
+    type: Tweak
+  - message: heretic's ominous armor now has fire and temperature protection. try
+      it with the Ash path!
+    type: Tweak
+  - message: void ascendants no longer mute people around them.
+    type: Remove
+  id: 2870
+  time: '2026-06-22T19:14:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4390
+- author: jkwookee
+  changes:
+  - message: Fix RDNR
+    type: Fix
+  id: 2871
+  time: '2026-06-22T19:17:23.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4419
+- author: Errant, msTheowo
+  changes:
+  - message: Gamepreset fallbacks fixes have been early merged. Failed conspirators
+      should no longer send you back to the lobby.
+    type: Fix
+  id: 2872
+  time: '2026-06-22T19:26:47.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4447
+- author: CombustibleToast
+  changes:
+  - message: Pressurized pipes no longer get harder to wrench the more you try.
+    type: Fix
+  id: 2873
+  time: '2026-06-22T19:26:22.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4443
+- author: starlighthowls
+  changes:
+  - message: Added the drink Gamer's Delight.
+    type: Add
+  id: 2874
+  time: '2026-06-22T19:26:02.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4433
+- author: starlighthowls
+  changes:
+  - message: Adds mochi which can be used to make some new food! Plus moth-chi for
+      moths!
+    type: Add
+  - message: Adds a bottle of soy sauce to the chefvend.
+    type: Add
+  id: 2875
+  time: '2026-06-22T19:31:13.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4462
+- author: Tox3ct
+  changes:
+  - message: CentComm has reportedly and arbitrarily thrown away all of the weird
+      pink plushies for some weird stoner plushies.
+    type: Tweak
+  id: 2876
+  time: '2026-06-22T19:31:41.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4463
+- author: TheGrimbeeper
+  changes:
+  - message: Removed pirated copy of Advanced Node Scanner software from the Analysis
+      console
+    type: Fix
+  id: 2877
+  time: '2026-06-22T19:33:43.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4470

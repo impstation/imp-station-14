@@ -147,11 +147,14 @@ public sealed partial class SupermatterSystem
         if (TryComp<RadiationSourceComponent>(uid, out var rad))
         {
             rad.Intensity =
+                (
                 _config.GetCVar(EECCVars.SupermatterRadsBase) +
                 sm.Power
                 * Math.Max(0, 1f + transmissionBonus / 10f)
                 * 0.003f
-                * _config.GetCVar(EECCVars.SupermatterRadsModifier);
+                * _config.GetCVar(EECCVars.SupermatterRadsModifier)
+                )
+                * sm.RadiationMultiplier; // Imp
 
             rad.Slope = Math.Clamp(rad.Intensity / 15, 0.2f, 1f);
         }
@@ -459,7 +462,7 @@ public sealed partial class SupermatterSystem
                 _ => "supermatter-delam-explosion"
             };
 
-            sb.AppendLine(Loc.GetString(loc));
+            sb.AppendLine(Loc.GetString(loc, ("typeUpper", sm.IsShard ? "SHARD" : "CRYSTAL"), ("type", sm.IsShard ? "shard" : "crystal"))); // Imp, added type
             sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer)));
 
             message = sb.ToString();
@@ -548,10 +551,10 @@ public sealed partial class SupermatterSystem
         // Announce damage and any dangerous thresholds
         if (sm.Damage >= sm.DamageWarningThreshold)
         {
-            message = Loc.GetString("supermatter-warning", ("integrity", integrity));
+            message = Loc.GetString("supermatter-warning", ("integrity", integrity), ("type", sm.IsShard ? "shard" : "crystal")); // Imp, added type
             if (sm.Damage >= sm.DamageEmergencyThreshold)
             {
-                message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
+                message = Loc.GetString("supermatter-emergency", ("integrity", integrity), ("type", sm.IsShard ? "shard" : "crystal")); // Imp, added type
                 global = true;
             }
 
@@ -797,6 +800,9 @@ public sealed partial class SupermatterSystem
     /// </summary>
     private void HandleVision(EntityUid uid, SupermatterComponent sm)
     {
+        if (_container.IsEntityInContainer(uid)) // Imp
+            return;
+
         var psyDiff = -0.007f;
         var activeCascadeDelam = false;
         var lookup = new HashSet<Entity<MobStateComponent>>();

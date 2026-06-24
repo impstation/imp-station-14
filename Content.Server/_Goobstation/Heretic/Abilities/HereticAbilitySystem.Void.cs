@@ -74,7 +74,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnVoidBlink(Entity<HereticComponent> ent, ref HereticVoidBlinkEvent args)
     {
-        if (!TryUseAbility(ent, args) || !_interaction.InRangeUnobstructed(args.Performer, args.Target, range:1000F, collisionMask:CollisionGroup.Opaque, popup: true))
+        if (!TryUseAbility(ent, args) || !_examine.InRangeUnOccluded(args.Performer, args.Target, range:1000F))
             return;
 
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
