@@ -28,7 +28,9 @@ using Content.Shared.Gibbing;
 using Content.Shared.Humanoid;
 using Content.Shared.Body.Components; // imp
 using Content.Shared.Damage.Systems; // imp
+using Content.Server.GameTicking; // imp
 using Content.Shared.StatusEffectNew; // imp
+using System.Text; // imp
 
 namespace Content.Server.Materials;
 
@@ -63,6 +65,8 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 
         SubscribeLocalEvent<MaterialReclaimerComponent, BreakageEventArgs>(OnBreakage);
         SubscribeLocalEvent<MaterialReclaimerComponent, RepairedEvent>(OnRepaired);
+
+        SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText); // imp
     }
 
     private void OnPowerChanged(Entity<MaterialReclaimerComponent> entity, ref PowerChangedEvent args)
@@ -118,6 +122,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             true);
 
         _gibbing.Gib(victim);
+        entity.Comp.KillCount++; // imp
         _appearance.SetData(entity.Owner, RecyclerVisuals.Bloody, true);
         args.Handled = true;
     }
@@ -215,6 +220,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             if (component.ReclaimSolutions)
                 SpawnChemicalsFromComposition(uid, item, completion, false, component, xform);
             _gibbing.Gib(item);
+            component.KillCount++; // imp
             _appearance.SetData(uid, RecyclerVisuals.Bloody, true);
         }
         else
@@ -313,4 +319,21 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             _puddle.TrySpillAt(reclaimer, totalChemicals, out _, sound, transformComponent: xform);
         }
     }
+
+
+    // imp start
+    private void OnRoundEndText(RoundEndTextAppendEvent ev)
+    {
+        var query = EntityQueryEnumerator<MaterialReclaimerComponent>();
+        while (query.MoveNext(out var _, out var reclaimerComp))
+        {
+            if (reclaimerComp.KillCount == 0)
+                return;
+
+            var result = new StringBuilder();
+            result.AppendLine(Loc.GetString("recycler-component-souls-consumed", ("count", reclaimerComp.KillCount)));
+            ev.AddLine(result.AppendLine().ToString());
+        }
+    }
+    // imp end
 }
