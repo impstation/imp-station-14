@@ -50,12 +50,20 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         // Find amount consumed in throttle
         var throttledConsumption = Throttle((float)solution.Volume, netConsumptionRate, throttleDt);
 
+        // We would like the throttle consumption to be close to the nominal consumption when A_0 = throttle threshold.
+        // Our nominal consumption is Cn = rt, which is independent of the initial value
+        // ...
+        // var m = consumptionRate * dt / (throttleThreshold * MathF.Pow(MathF.E, consumptionRate * dt));
+        // Log.Debug($"m {m}");
+        var m = netConsumptionRate * dt / (throttleThresholdVolume * MathF.Pow(MathF.E, netConsumptionRate * dt)); // https://www.desmos.com/calculator/unkggoktle
+        throttledConsumption *= m;
+
         // Mix nominal consumption and throttled consumption amounts
         // let Cf = total consumption, Cn = nominal consumption, Ct = throttled consumption
         // When throttleDt = 0, Cf = Cn
         // When throttleDt = dt, Cf = Ct
         var consumedAmount = float.Lerp(nominalConsumption, throttledConsumption, throttleDt / dt);
-        Log.Debug($"A0 {(float)solution.Volume}, r {netConsumptionRate}, Cn {nominalConsumption}, Cnover {nominalConsumptionOverThreshold}, tdt {throttleDt}, Ct {throttledConsumption}, Cf {consumedAmount}");
+        Log.Debug($"A0 {(float)solution.Volume}, r {netConsumptionRate}, Cn {nominalConsumption}, Cnover {nominalConsumptionOverThreshold}, tdt {throttleDt}, m {m}, Ct {throttledConsumption}, Cf {consumedAmount}");
 
         var consumedSolution = _solution.SplitSolution(ent.Comp.SolutionCache.Value, consumedAmount);
 
