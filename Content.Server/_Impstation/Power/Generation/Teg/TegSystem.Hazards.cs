@@ -2,12 +2,14 @@ using Content.Server.Atmos.Piping.Components;
 using Content.Shared.Wires;
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
 using Content.Server.Atmos.Piping.Unary.Components;
+using Content.Server.Explosion.EntitySystems;
 
 namespace Content.Server.Power.Generation.Teg;
 
 public sealed partial class TegSystem
 {
     [Dependency] private readonly GasOutletInjectorSystem _gasInjectorSystem = default!;
+    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
 
     /// <summary>
     /// Changes the state of the air injector given a bool.
@@ -50,5 +52,24 @@ public sealed partial class TegSystem
         // Apply the damage and return the amount dealt.
         ent.Comp.Integrity -= damage;
         return damage;
+    }
+
+    private void CheckFail(Entity<TegCirculatorComponent?> ent)
+    {
+        // Ensure the circulator component exists.
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        // Do nothing if there is still integrity
+        if (ent.Comp.Integrity > 0)
+            return;
+
+        // Pass to failure mode
+        Explode(ent);
+    }
+
+    private void Explode(Entity<TegCirculatorComponent?> ent)
+    {
+        _explosionSystem.TriggerExplosive(ent, radius: 10);
     }
 }

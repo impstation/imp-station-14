@@ -165,9 +165,13 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         var averageCirculatorEfficiency = (efficiencyA + efficiencyB) / 2f;
         Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
 
-        // Apply damage to the circulator based on its running efficiency. Possibly triggers the failure state!
+        // Apply damage to the circulator based on its running efficiency.
         ApplyCirculatorEfficiencyDamage(circA, efficiencyA);
         ApplyCirculatorEfficiencyDamage(circB, efficiencyB);
+
+        // See if we need to trigger a failure state
+        CheckFail(circA);
+        CheckFail(circB);
 
         // TODO: Apply any funny effects that specific reagents might have on the circulators.
 
