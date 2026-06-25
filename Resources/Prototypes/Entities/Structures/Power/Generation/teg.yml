@@ -202,6 +202,7 @@
     - type: WiresVisuals
     - type: UnsafeWiresPanel
     - type: Lock
+      locked: false # to make my dev life easier. maybe it should be unlocked on init though.
     - type: LockVisuals
     - type: LockedWiresPanel
     - type: AccessReader
@@ -239,6 +240,12 @@
     - type: ExaminableSolution
       solution: lube
       locVolume: "lube-gauge-examinable-solution-on-examine-volume"
+
+    # Failure state. For now, just an explosion
+    - type: Explosive
+      explosionType: Default
+      intensitySlope: 5
+      maxIntensity: 200
 
     # IMP ADD END
 
