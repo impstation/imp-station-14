@@ -162,9 +162,9 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         // Calculate circulator stress based on delta p
         // At around 5000 dp, stress should be around 1.
         // Stress should scale infinitely, but far less than linearly.
-        // https://www.desmos.com/calculator/myeflomtaz
-        var stressA = δpA > 0 ? MathF.Log2(δpA) / 12f : 0f;
-        var stressB = δpB > 0 ? MathF.Log2(δpB) / 12f : 0f;
+        // https://www.desmos.com/calculator/jenpszfwix
+        var stressA = δpA > 0 ? MathF.Log2(δpA + 1) / 12f : 0f;
+        var stressB = δpB > 0 ? MathF.Log2(δpB + 1) / 12f : 0f;
 
         // Calculate efficiency boost from lubrication
         var (efficiencyA, consumedLubricantA) = CirculatorEfficiency(circA, args.dt, stressA);
