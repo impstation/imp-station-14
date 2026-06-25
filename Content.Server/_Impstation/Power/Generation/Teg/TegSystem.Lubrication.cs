@@ -77,6 +77,10 @@ public sealed partial class TegSystem
     /// <returns></returns>
     private (float, Solution) CirculatorEfficiency(EntityUid uid, float dt, float circulatorRate)
     {
+        // Do nothing if there's no gas flow
+        if (circulatorRate == 0)
+            return (1f, new Solution());
+
         // At around 5000 rate, consumption modifier should be around 1.
         // Consumption should scale infinitely, but far less than linearly.
         // https://www.desmos.com/calculator/myeflomtaz
