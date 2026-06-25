@@ -504,6 +504,7 @@ public sealed class VehicleSystem : EntitySystem
             return false;
         }
 
+        _transform.SetMapCoordinates(user, exitMapCoords); // imp
         // _rmcTeleporter.HandlePulling(user, exitMapCoords);
         UntrackOccupant(user, vehicleUid);
         return true;

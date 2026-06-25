@@ -11,7 +11,7 @@ public sealed class VehicleTurretMuzzleSystem : EntitySystem
 
     public override void Initialize()
     {
-        // SubscribeLocalEvent<VehicleTurretMuzzleComponent, AttemptShootEvent>(OnAttemptShoot, after: new[] { typeof(GunMuzzleOffsetSystem) });
+        SubscribeLocalEvent<VehicleTurretMuzzleComponent, AttemptShootEvent>(OnAttemptShoot, after: new[] { typeof(GunMuzzleOffsetSystem) });
         SubscribeLocalEvent<VehicleTurretMuzzleComponent, GunShotEvent>(OnGunShot);
     }
 
@@ -20,7 +20,7 @@ public sealed class VehicleTurretMuzzleSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        // args.FromCoordinates = GetMuzzleCoordinates(ent.Owner, ent.Comp, args.FromCoordinates);
+        args.FromCoordinates = GetMuzzleCoordinates(ent.Owner, ent.Comp, args.FromCoordinates);
     }
 
     private void OnGunShot(Entity<VehicleTurretMuzzleComponent> ent, ref GunShotEvent args)

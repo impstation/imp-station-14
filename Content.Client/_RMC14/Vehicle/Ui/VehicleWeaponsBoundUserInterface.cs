@@ -1,11 +1,10 @@
 using System.Numerics;
-// using Content.Shared._RMC14.UserInterface;
+using Content.Shared._RMC14.UserInterface;
 using Content.Shared._RMC14.Vehicle;
 
 namespace Content.Client._RMC14.Vehicle.Ui;
 
-public sealed class VehicleWeaponsBoundUserInterface : BoundUserInterface
-// , IRefreshableBui
+public sealed class VehicleWeaponsBoundUserInterface : BoundUserInterface, IRefreshableBui
 {
     private VehicleWeaponsMenu? _menu;
 

@@ -1,5 +1,3 @@
-// IMP TODO: support upstream ammo
-
 // using Content.Shared.Containers.ItemSlots;
 // using Content.Shared.DoAfter;
 // using Content.Shared.Hands;
@@ -39,8 +37,8 @@
 //         SubscribeLocalEvent<VehicleAmmoLoaderComponent, VehicleAmmoLoaderSelectMessage>(OnUiSelect);
 //         SubscribeLocalEvent<HandsComponent, DidEquipHandEvent>(OnHandItemChanged);
 //         SubscribeLocalEvent<HandsComponent, DidUnequipHandEvent>(OnHandItemChanged);
-//         // SubscribeLocalEvent<BulletBoxComponent, HandSelectedEvent>(OnBulletBoxHandSelected);
-//         // SubscribeLocalEvent<BulletBoxComponent, HandDeselectedEvent>(OnBulletBoxHandDeselected);
+//         SubscribeLocalEvent<BulletBoxComponent, HandSelectedEvent>(OnBulletBoxHandSelected);
+//         SubscribeLocalEvent<BulletBoxComponent, HandDeselectedEvent>(OnBulletBoxHandDeselected);
 //         SubscribeLocalEvent<VehicleHardpointAmmoComponent, VehicleAmmoChangedEvent>(OnVehicleAmmoChanged);
 //         SubscribeLocalEvent<HardpointSlotsChangedEvent>(OnHardpointSlotsChanged);
 //     }
@@ -141,17 +139,17 @@
 //             return;
 //         }
 
-//         // if (args.Used is not { } used || !TryComp(used, out BulletBoxComponent? box))
-//         //     return;
+//         if (args.Used is not { } used || !TryComp(used, out BulletBoxComponent? box))
+//             return;
 
-//         // if (!TryGetActiveAmmoBox(ent.Owner, args.User, out var activeBox) || activeBox != used)
-//         //     return;
+//         if (!TryGetActiveAmmoBox(ent.Owner, args.User, out var activeBox) || activeBox != used)
+//             return;
 
-//         // if (!TryGetLoadableAmmoProvider(ent, args.User, box, args.SlotPath, out _, out var ammoUid, out var ammo, out var hardpointAmmo))
-//         //     return;
+//         if (!TryGetLoadableAmmoProvider(ent, args.User, box, args.SlotPath, out _, out var ammoUid, out var ammo, out var hardpointAmmo))
+//             return;
 
-//         // if (args.Action == VehicleAmmoLoaderSlotAction.Load)
-//         //     DoLoadAmmoSlot(ent, args.User, (used, box), ammoUid, ammo, hardpointAmmo, args.AmmoSlot);
+//         if (args.Action == VehicleAmmoLoaderSlotAction.Load)
+//             DoLoadAmmoSlot(ent, args.User, (used, box), ammoUid, ammo, hardpointAmmo, args.AmmoSlot);
 
 //         UpdateUi(ent.Owner, args.User);
 //         args.Handled = true;
@@ -187,15 +185,15 @@
 //         UpdateOpenLoaderUis(args.User);
 //     }
 
-//     // private void OnBulletBoxHandSelected(Entity<BulletBoxComponent> ent, ref HandSelectedEvent args)
-//     // {
-//     //     UpdateOpenLoaderUis(args.User);
-//     // }
+//     private void OnBulletBoxHandSelected(Entity<BulletBoxComponent> ent, ref HandSelectedEvent args)
+//     {
+//         UpdateOpenLoaderUis(args.User);
+//     }
 
-//     // private void OnBulletBoxHandDeselected(Entity<BulletBoxComponent> ent, ref HandDeselectedEvent args)
-//     // {
-//     //     UpdateOpenLoaderUis(args.User);
-//     // }
+//     private void OnBulletBoxHandDeselected(Entity<BulletBoxComponent> ent, ref HandDeselectedEvent args)
+//     {
+//         UpdateOpenLoaderUis(args.User);
+//     }
 
 //     private void OnVehicleAmmoChanged(Entity<VehicleHardpointAmmoComponent> ent, ref VehicleAmmoChangedEvent args)
 //     {
@@ -259,18 +257,18 @@
 
 //         TrySetActiveAmmoBox(ent.Owner, args.Actor, activeBox);
 
-//         // if (!TryGetLoadableAmmoProvider(ent, args.Actor, box, args.SlotPath, out _, out var ammoUid, out var ammo, out var hardpointAmmo))
-//         //     return;
+//         if (!TryGetLoadableAmmoProvider(ent, args.Actor, box, args.SlotPath, out _, out var ammoUid, out var ammo, out var hardpointAmmo))
+//             return;
 
-//         // if (args.Action == VehicleAmmoLoaderSlotAction.Load &&
-//         //     GetLoadAmount(box, ammo, hardpointAmmo, args.AmmoSlot) <= 0)
-//         // {
-//         //     var popup = box.Amount <= 0
-//         //         ? Loc.GetString("rmc-vehicle-ammo-loader-empty", ("box", box.Owner))
-//         //         : Loc.GetString("rmc-vehicle-ammo-loader-full", ("target", ammoUid));
-//         //     _popup.PopupClient(popup, ent, args.Actor);
-//         //     return;
-//         // }
+//         if (args.Action == VehicleAmmoLoaderSlotAction.Load &&
+//             GetLoadAmount(box, ammo, hardpointAmmo, args.AmmoSlot) <= 0)
+//         {
+//             var popup = box.Amount <= 0
+//                 ? Loc.GetString("rmc-vehicle-ammo-loader-empty", ("box", box.Owner))
+//                 : Loc.GetString("rmc-vehicle-ammo-loader-full", ("target", ammoUid));
+//             _popup.PopupClient(popup, ent, args.Actor);
+//             return;
+//         }
 
 //         var doAfter = new DoAfterArgs(
 //             EntityManager,
@@ -450,142 +448,142 @@
 //             _openLoadersByUser.Remove(user);
 //     }
 
-//     // private bool TryGetLoadableAmmoProvider(
-//     //     Entity<VehicleAmmoLoaderComponent> loader,
-//     //     EntityUid user,
-//     //     BulletBoxComponent box,
-//     //     VehicleSlotPath? slotPath,
-//     //     out EntityUid vehicle,
-//     //     out EntityUid ammoUid,
-//     //     out BallisticAmmoProviderComponent ammo,
-//     //     out VehicleHardpointAmmoComponent hardpointAmmo)
-//     // {
-//     //     ammoUid = default;
-//     //     ammo = default!;
-//     //     hardpointAmmo = default!;
-//     //     vehicle = default;
+//     private bool TryGetLoadableAmmoProvider(
+//         Entity<VehicleAmmoLoaderComponent> loader,
+//         EntityUid user,
+//         BulletBoxComponent box,
+//         VehicleSlotPath? slotPath,
+//         out EntityUid vehicle,
+//         out EntityUid ammoUid,
+//         out BallisticAmmoProviderComponent ammo,
+//         out VehicleHardpointAmmoComponent hardpointAmmo)
+//     {
+//         ammoUid = default;
+//         ammo = default!;
+//         hardpointAmmo = default!;
+//         vehicle = default;
 
-//     //     if (!_vehicle.TryGetVehicleFromInterior(loader.Owner, out var vehicleUid) || vehicleUid == null)
-//     //     {
-//     //         _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-no-vehicle"), loader, user);
-//     //         return false;
-//     //     }
+//         if (!_vehicle.TryGetVehicleFromInterior(loader.Owner, out var vehicleUid) || vehicleUid == null)
+//         {
+//             _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-no-vehicle"), loader, user);
+//             return false;
+//         }
 
-//     //     vehicle = vehicleUid.Value;
+//         vehicle = vehicleUid.Value;
 
-//     //     if (loader.Comp.BulletType != null && loader.Comp.BulletType != box.BulletType)
-//     //     {
-//     //         _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-wrong-ammo"), loader, user);
-//     //         return false;
-//     //     }
+//         if (loader.Comp.BulletType != null && loader.Comp.BulletType != box.BulletType)
+//         {
+//             _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-wrong-ammo"), loader, user);
+//             return false;
+//         }
 
-//     //     if (!TryComp(vehicle, out HardpointSlotsComponent? hardpoints) ||
-//     //         !TryComp(vehicle, out ItemSlotsComponent? itemSlots))
-//     //     {
-//     //         _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-no-hardpoint"), loader, user);
-//     //         return false;
-//     //     }
+//         if (!TryComp(vehicle, out HardpointSlotsComponent? hardpoints) ||
+//             !TryComp(vehicle, out ItemSlotsComponent? itemSlots))
+//         {
+//             _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-no-hardpoint"), loader, user);
+//             return false;
+//         }
 
-//     //     if (!TryFindAmmoProvider(vehicle, hardpoints, itemSlots, loader.Comp, box, slotPath, out var provider, out var result))
-//     //     {
-//     //         var popup = result == AmmoLoaderLookupResult.WrongAmmo
-//     //             ? Loc.GetString("rmc-vehicle-ammo-loader-wrong-ammo")
-//     //             : Loc.GetString("rmc-vehicle-ammo-loader-no-hardpoint");
-//     //         _popup.PopupClient(popup, loader, user);
-//     //         return false;
-//     //     }
+//         if (!TryFindAmmoProvider(vehicle, hardpoints, itemSlots, loader.Comp, box, slotPath, out var provider, out var result))
+//         {
+//             var popup = result == AmmoLoaderLookupResult.WrongAmmo
+//                 ? Loc.GetString("rmc-vehicle-ammo-loader-wrong-ammo")
+//                 : Loc.GetString("rmc-vehicle-ammo-loader-no-hardpoint");
+//             _popup.PopupClient(popup, loader, user);
+//             return false;
+//         }
 
-//     //     ammoUid = provider.AmmoUid;
-//     //     ammo = provider.Ammo;
-//     //     hardpointAmmo = provider.HardpointAmmo;
-//     //     return true;
-//     // }
+//         ammoUid = provider.AmmoUid;
+//         ammo = provider.Ammo;
+//         hardpointAmmo = provider.HardpointAmmo;
+//         return true;
+//     }
 
-//     // private bool TryGetUnloadableAmmoProvider(
-//     //     Entity<VehicleAmmoLoaderComponent> loader,
-//     //     EntityUid user,
-//     //     VehicleSlotPath? slotPath,
-//     //     out EntityUid vehicle,
-//     //     out EntityUid ammoUid,
-//     //     out BallisticAmmoProviderComponent ammo,
-//     //     out VehicleHardpointAmmoComponent hardpointAmmo,
-//     //     out RefillableByBulletBoxComponent refill)
-//     // {
-//     //     ammoUid = default;
-//     //     ammo = default!;
-//     //     hardpointAmmo = default!;
-//     //     refill = default!;
-//     //     vehicle = default;
+//     private bool TryGetUnloadableAmmoProvider(
+//         Entity<VehicleAmmoLoaderComponent> loader,
+//         EntityUid user,
+//         VehicleSlotPath? slotPath,
+//         out EntityUid vehicle,
+//         out EntityUid ammoUid,
+//         out BallisticAmmoProviderComponent ammo,
+//         out VehicleHardpointAmmoComponent hardpointAmmo,
+//         out RefillableByBulletBoxComponent refill)
+//     {
+//         ammoUid = default;
+//         ammo = default!;
+//         hardpointAmmo = default!;
+//         refill = default!;
+//         vehicle = default;
 
-//     //     if (!_vehicle.TryGetVehicleFromInterior(loader.Owner, out var vehicleUid) || vehicleUid == null)
-//     //     {
-//     //         _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-no-vehicle"), loader, user);
-//     //         return false;
-//     //     }
+//         if (!_vehicle.TryGetVehicleFromInterior(loader.Owner, out var vehicleUid) || vehicleUid == null)
+//         {
+//             _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-no-vehicle"), loader, user);
+//             return false;
+//         }
 
-//     //     vehicle = vehicleUid.Value;
+//         vehicle = vehicleUid.Value;
 
-//     //     if (!TryComp(vehicle, out HardpointSlotsComponent? hardpoints) ||
-//     //         !TryComp(vehicle, out ItemSlotsComponent? itemSlots))
-//     //     {
-//     //         _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-no-hardpoint"), loader, user);
-//     //         return false;
-//     //     }
+//         if (!TryComp(vehicle, out HardpointSlotsComponent? hardpoints) ||
+//             !TryComp(vehicle, out ItemSlotsComponent? itemSlots))
+//         {
+//             _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-no-hardpoint"), loader, user);
+//             return false;
+//         }
 
-//     //     if (!TryFindAmmoProvider(vehicle, hardpoints, itemSlots, loader.Comp, slotPath, out var provider))
-//     //     {
-//     //         _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-no-hardpoint"), loader, user);
-//     //         return false;
-//     //     }
+//         if (!TryFindAmmoProvider(vehicle, hardpoints, itemSlots, loader.Comp, slotPath, out var provider))
+//         {
+//             _popup.PopupClient(Loc.GetString("rmc-vehicle-ammo-loader-no-hardpoint"), loader, user);
+//             return false;
+//         }
 
-//     //     ammoUid = provider.AmmoUid;
-//     //     ammo = provider.Ammo;
-//     //     hardpointAmmo = provider.HardpointAmmo;
-//     //     refill = provider.Refill;
-//     //     return true;
-//     // }
+//         ammoUid = provider.AmmoUid;
+//         ammo = provider.Ammo;
+//         hardpointAmmo = provider.HardpointAmmo;
+//         refill = provider.Refill;
+//         return true;
+//     }
 
-//     // private bool TryFindAmmoProvider(
-//     //     EntityUid vehicle,
-//     //     HardpointSlotsComponent hardpoints,
-//     //     ItemSlotsComponent itemSlots,
-//     //     VehicleAmmoLoaderComponent loader,
-//     //     BulletBoxComponent box,
-//     //     VehicleSlotPath? slotPath,
-//     //     out VehicleMountedAmmoProvider provider,
-//     //     out AmmoLoaderLookupResult result)
-//     // {
-//     //     provider = default;
-//     //     result = AmmoLoaderLookupResult.NotFound;
+//     private bool TryFindAmmoProvider(
+//         EntityUid vehicle,
+//         HardpointSlotsComponent hardpoints,
+//         ItemSlotsComponent itemSlots,
+//         VehicleAmmoLoaderComponent loader,
+//         BulletBoxComponent box,
+//         VehicleSlotPath? slotPath,
+//         out VehicleMountedAmmoProvider provider,
+//         out AmmoLoaderLookupResult result)
+//     {
+//         provider = default;
+//         result = AmmoLoaderLookupResult.NotFound;
 
-//     //     if (slotPath is { IsValid: true } selectedPath)
-//     //     {
-//     //         if (!TryFindAmmoProvider(vehicle, hardpoints, itemSlots, loader, selectedPath, out provider))
-//     //             return false;
+//         if (slotPath is { IsValid: true } selectedPath)
+//         {
+//             if (!TryFindAmmoProvider(vehicle, hardpoints, itemSlots, loader, selectedPath, out provider))
+//                 return false;
 
-//     //         if (provider.Refill.BulletType == box.BulletType)
-//     //             return true;
+//             if (provider.Refill.BulletType == box.BulletType)
+//                 return true;
 
-//     //         result = AmmoLoaderLookupResult.WrongAmmo;
-//     //         return false;
-//     //     }
+//             result = AmmoLoaderLookupResult.WrongAmmo;
+//             return false;
+//         }
 
-//     //     foreach (var candidate in _topology.GetMountedAmmoProviders(vehicle, hardpoints, itemSlots))
-//     //     {
-//     //         if (!CanUseAmmoProvider(loader, candidate))
-//     //             continue;
+//         foreach (var candidate in _topology.GetMountedAmmoProviders(vehicle, hardpoints, itemSlots))
+//         {
+//             if (!CanUseAmmoProvider(loader, candidate))
+//                 continue;
 
-//     //         if (candidate.Refill.BulletType == box.BulletType)
-//     //         {
-//     //             provider = candidate;
-//     //             return true;
-//     //         }
+//             if (candidate.Refill.BulletType == box.BulletType)
+//             {
+//                 provider = candidate;
+//                 return true;
+//             }
 
-//     //         result = AmmoLoaderLookupResult.WrongAmmo;
-//     //     }
+//             result = AmmoLoaderLookupResult.WrongAmmo;
+//         }
 
-//     //     return false;
-//     // }
+//         return false;
+//     }
 
 //     private bool TryFindAmmoProvider(
 //         EntityUid vehicle,
@@ -623,69 +621,69 @@
 //                provider.Slot.HardpointType == loader.HardpointType;
 //     }
 
-//     // private void UpdateUi(EntityUid loader, EntityUid user)
-//     // {
-//     //     if (_net.IsClient)
-//     //         return;
+//     private void UpdateUi(EntityUid loader, EntityUid user)
+//     {
+//         if (_net.IsClient)
+//             return;
 
-//     //     if (!TryComp(loader, out VehicleAmmoLoaderComponent? loaderComp))
-//     //         return;
+//         if (!TryComp(loader, out VehicleAmmoLoaderComponent? loaderComp))
+//             return;
 
-//     //     if (!_vehicle.TryGetVehicleFromInterior(loader, out var vehicleUid) || vehicleUid == null)
-//     //         return;
+//         if (!_vehicle.TryGetVehicleFromInterior(loader, out var vehicleUid) || vehicleUid == null)
+//             return;
 
-//     //     if (!TryComp(vehicleUid.Value, out HardpointSlotsComponent? hardpoints) ||
-//     //         !TryComp(vehicleUid.Value, out ItemSlotsComponent? itemSlots))
-//     //     {
-//     //         return;
-//     //     }
+//         if (!TryComp(vehicleUid.Value, out HardpointSlotsComponent? hardpoints) ||
+//             !TryComp(vehicleUid.Value, out ItemSlotsComponent? itemSlots))
+//         {
+//             return;
+//         }
 
-//     //     TrySetActiveAmmoBoxFromHeld((loader, loaderComp), user);
+//         TrySetActiveAmmoBoxFromHeld((loader, loaderComp), user);
 
-//     //     BulletBoxComponent? heldBox = null;
-//     //     if (TryGetActiveAmmoBox(loader, user, out var boxUid))
-//     //         TryComp(boxUid, out heldBox);
+//         BulletBoxComponent? heldBox = null;
+//         if (TryGetActiveAmmoBox(loader, user, out var boxUid))
+//             TryComp(boxUid, out heldBox);
 
-//     //     var providers = _topology.GetMountedAmmoProviders(vehicleUid.Value, hardpoints, itemSlots);
-//     //     var entries = new List<VehicleAmmoLoaderUiEntry>(providers.Count);
+//         var providers = _topology.GetMountedAmmoProviders(vehicleUid.Value, hardpoints, itemSlots);
+//         var entries = new List<VehicleAmmoLoaderUiEntry>(providers.Count);
 
-//     //     foreach (var provider in providers)
-//     //     {
-//     //         if (!CanUseAmmoProvider(loaderComp, provider))
-//     //             continue;
+//         foreach (var provider in providers)
+//         {
+//             if (!CanUseAmmoProvider(loaderComp, provider))
+//                 continue;
 
-//     //         if (loaderComp.BulletType != null && loaderComp.BulletType != provider.Refill.BulletType)
-//     //             continue;
+//             if (loaderComp.BulletType != null && loaderComp.BulletType != provider.Refill.BulletType)
+//                 continue;
 
-//     //         var magazineSize = _hardpointAmmo.GetMagazineSize(provider.HardpointAmmo, provider.Ammo);
-//     //         var ammoSlots = GetAmmoSlotUiEntries(heldBox, provider.Refill.BulletType, provider.Ammo, provider.HardpointAmmo, magazineSize);
-//     //         var canLoad = false;
-//     //         var canUnload = false;
-//     //         foreach (var ammoSlot in ammoSlots)
-//     //         {
-//     //             canLoad |= ammoSlot.CanLoad;
-//     //             canUnload |= ammoSlot.CanUnload;
-//     //         }
+//             var magazineSize = _hardpointAmmo.GetMagazineSize(provider.HardpointAmmo, provider.Ammo);
+//             var ammoSlots = GetAmmoSlotUiEntries(heldBox, provider.Refill.BulletType, provider.Ammo, provider.HardpointAmmo, magazineSize);
+//             var canLoad = false;
+//             var canUnload = false;
+//             foreach (var ammoSlot in ammoSlots)
+//             {
+//                 canLoad |= ammoSlot.CanLoad;
+//                 canUnload |= ammoSlot.CanUnload;
+//             }
 
-//     //         entries.Add(new VehicleAmmoLoaderUiEntry(
-//     //             provider.Slot.Path,
-//     //             provider.Slot.HardpointType.Id,
-//     //             Name(provider.AmmoUid),
-//     //             GetNetEntity(provider.AmmoUid),
-//     //             provider.Refill.BulletType,
-//     //             magazineSize,
-//     //             ammoSlots,
-//     //             canLoad,
-//     //             canUnload));
-//     //     }
+//             entries.Add(new VehicleAmmoLoaderUiEntry(
+//                 provider.Slot.Path,
+//                 provider.Slot.HardpointType.Id,
+//                 Name(provider.AmmoUid),
+//                 GetNetEntity(provider.AmmoUid),
+//                 provider.Refill.BulletType,
+//                 magazineSize,
+//                 ammoSlots,
+//                 canLoad,
+//                 canUnload));
+//         }
 
-//     //     loaderComp.Ui = new VehicleAmmoLoaderUiState(
-//     //         entries,
-//     //         heldBox?.Amount ?? 0,
-//     //         heldBox?.Max ?? 0,
-//     //         heldBox?.BulletType);
-//     //     Dirty(loader, loaderComp);
-//     // }
+//         loaderComp.Ui = new VehicleAmmoLoaderUiState(
+//             entries,
+//             heldBox?.Amount ?? 0,
+//             heldBox?.Max ?? 0,
+//             heldBox?.BulletType);
+//         Dirty(loader, loaderComp);
+//     }
 
 //     private List<VehicleAmmoLoaderUiAmmoSlot> GetAmmoSlotUiEntries(
 //         BulletBoxComponent? heldBox,

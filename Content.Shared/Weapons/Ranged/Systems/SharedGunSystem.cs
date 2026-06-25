@@ -35,6 +35,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._RMC14.Weapons.Ranged; // RMC14
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -328,7 +329,12 @@ public abstract partial class SharedGunSystem : EntitySystem
             shots = Math.Min(shots, gun.Comp.ShotsPerBurstModified - gun.Comp.ShotCounter);
         }
 
-        var attemptEv = new AttemptShootEvent(user, null);
+        // RMC14
+        var originEntity = HasComp<GunUseGunOriginComponent>(gun) ? gun.Owner : user;
+        var fromCoordinates = Transform(originEntity).Coordinates;
+        // RMC14
+
+        var attemptEv = new AttemptShootEvent(user, null, fromCoordinates, toCoordinates); // RMC14, added toCoordinates
         RaiseLocalEvent(gun, ref attemptEv);
 
         if (attemptEv.Cancelled)
@@ -343,7 +349,10 @@ public abstract partial class SharedGunSystem : EntitySystem
             return false;
         }
 
-        var fromCoordinates = Transform(user).Coordinates;
+        /* RMC14 removal
+        var fromCoordinates = Transform(user).Coordinates; 
+        */
+
         // Remove ammo
         var ev = new TakeAmmoEvent(shots, [], fromCoordinates, user);
 
@@ -694,7 +703,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 /// <param name="Cancelled">Set this to true if the shot should be cancelled.</param>
 /// <param name="ThrowItems">Set this to true if the ammo shouldn't actually be fired, just thrown.</param>
 [ByRefEvent]
-public record struct AttemptShootEvent(EntityUid User, string? Message, bool Cancelled = false, bool ThrowItems = false);
+public record struct AttemptShootEvent(EntityUid User, string? Message, EntityCoordinates FromCoordinates, EntityCoordinates? ToCoordinates, bool Cancelled = false, bool ThrowItems = false); // RMC14, added to and from coordinates
 
 /// <summary>
 ///     Raised directed on the gun after firing.

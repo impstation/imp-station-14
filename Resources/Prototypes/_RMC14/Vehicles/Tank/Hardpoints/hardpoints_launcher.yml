@@ -252,7 +252,7 @@
   #   accuracyMultiplierUnwielded: 5
   - type: BallisticAmmoProvider
     cycleable: false
-    # proto: VehicleCartridgeSentry10x50mm
+    proto: CartridgeRifle
     capacity: 500
   - type: VehicleHardpointAmmo
     magazineSize: 500

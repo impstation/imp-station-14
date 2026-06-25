@@ -1,21 +1,21 @@
-# - type: entity
-#   parent: MuzzleFlashEffect
-#   id: MuzzleFlashEffectVehicleOver
-#   categories: [ HideSpawnMenu ]
-#   components:
-#   - type: Sprite
-#     drawdepth: Effects
-#     offset: 0, 0
+- type: entity
+  parent: MuzzleFlashEffect
+  id: MuzzleFlashEffectVehicleOver
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    offset: 0, 0
 
-# - type: entity
-#   parent: MuzzleFlashEffectVehicleOver
-#   id: MuzzleFlashEffectVehicleOverLarge
-#   categories: [ HideSpawnMenu ]
-#   components:
-#   - type: Sprite
-#     drawdepth: Effects
-#     offset: 0.2, 0
-#     scale: "1.6, 1.6"
+- type: entity
+  parent: MuzzleFlashEffectVehicleOver
+  id: MuzzleFlashEffectVehicleOverLarge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    offset: 0.2, 0
+    scale: "1.6, 1.6"
 
 # - type: entity
 #   parent: RMCProjectileRocket84mm

@@ -121,7 +121,7 @@
   #   accuracyMultiplierUnwielded: 4
   - type: BallisticAmmoProvider
     cycleable: false
-    # proto: VehicleCartridgeLTAAAP
+    proto: VehicleCartridgeLTAAAP
     capacity: 500
   - type: VehicleHardpointAmmo
     magazineSize: 500
