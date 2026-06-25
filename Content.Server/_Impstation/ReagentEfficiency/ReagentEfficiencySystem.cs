@@ -114,7 +114,8 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         // // https://www.desmos.com/calculator/njoz37ate9
         // We would like the throttle consumption to be equal to the nominal consumption when the volume (A_0) is at the throttle threshold volume.
         // For this problem, A_0 is our independent variable, so we'll call it x.
-        // Our nominal consumption is Cn = rt, which is independent of volume.
+        // Let's assume t is constant for this because we've already accounted for its variability in the previous problem.
+        // Our nominal consumption is Cn = rt, which is independent of volume and is therefore a constant function.
         // Let h be our throttle threshold volume.
         // Our throttled consumption is                             Ct = x - x * e^(-rt)
         // We can add a multiplier m to Ct to change its slope:     mCt = m(x - x * e^(-rt))
