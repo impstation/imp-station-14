@@ -46,8 +46,7 @@
     energy: 3
     softness: 2
   - type: Physics
-    bodytype: Dynamic
-    # bodyType: KinematicController
+    bodyType: Dynamic
   - type: Fixtures
     fixtures:
       world:

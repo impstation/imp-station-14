@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Content.Shared._RMC14.Vehicle;
 using Robust.Client.GameObjects;
 

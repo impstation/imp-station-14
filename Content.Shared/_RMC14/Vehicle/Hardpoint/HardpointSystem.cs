@@ -1050,28 +1050,28 @@ public sealed partial class HardpointSystem : EntitySystem
         //     return;
         // }
 
-        var repairTime = GetRepairTimeForCurrentStep(ent.Owner, args.User, ent.Comp, repairAmount, isFrame);
+        // var repairTime = GetRepairTimeForCurrentStep(ent.Owner, args.User, ent.Comp, repairAmount, isFrame);
 
-        if (usedWelder && !_repairable.UseFuel(used, args.User, GetFuelCostForChunk(ent.Owner, ent.Comp, repairAmount, isFrame), true))
-        {
-            args.Handled = true;
-            return;
-        }
+        // if (usedWelder && !_repairable.UseFuel(used, args.User, GetFuelCostForChunk(ent.Owner, ent.Comp, repairAmount, isFrame), true))
+        // {
+        //     args.Handled = true;
+        //     return;
+        // }
 
-        ent.Comp.Repairing = true;
+        // ent.Comp.Repairing = true;
 
-        var doAfter = new DoAfterArgs(EntityManager, args.User, repairTime, new HardpointRepairDoAfterEvent(), ent.Owner, ent.Owner, used)
-        {
-            BreakOnMove = true,
-            BreakOnDamage = true,
-            NeedHand = true,
-        };
+        // var doAfter = new DoAfterArgs(EntityManager, args.User, repairTime, new HardpointRepairDoAfterEvent(), ent.Owner, ent.Owner, used)
+        // {
+        //     BreakOnMove = true,
+        //     BreakOnDamage = true,
+        //     NeedHand = true,
+        // };
 
-        if (!_doAfter.TryStartDoAfter(doAfter))
-        {
-            ent.Comp.Repairing = false;
-            return;
-        }
+        // if (!_doAfter.TryStartDoAfter(doAfter))
+        // {
+        //     ent.Comp.Repairing = false;
+        //     return;
+        // }
 
         args.Handled = true;
     }

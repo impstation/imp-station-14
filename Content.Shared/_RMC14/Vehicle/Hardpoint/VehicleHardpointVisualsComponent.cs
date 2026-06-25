@@ -3,9 +3,10 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._RMC14.Vehicle;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // imp autogencomp
 public sealed partial class VehicleHardpointVisualsComponent : Component
 {
+    [AutoNetworkedField] // imp autonet
     public List<VehicleHardpointLayerState> Layers = new();
 }
 

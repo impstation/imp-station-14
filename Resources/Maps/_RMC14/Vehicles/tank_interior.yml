@@ -23,7 +23,7 @@ tilemap:
   9: RMCFloorVehicleInteriorFloor3_7
   10: RMCFloorVehicleInteriorFloor3_8
   4: RMCFloorVehicleInteriorFloor3_9
-  # 0: RMCVoid
+  0: RMCVoid
 entities:
 - proto: ""
   entities:
@@ -242,21 +242,21 @@ entities:
     - type: Transform
       pos: 1.340075,-1.3274913
       parent: 2
-- proto: VehicleInteriorExtinguisher
-  entities:
-  - uid: 29
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 0.8297322,0.3712867
-      parent: 2
-- proto: VehicleInteriorNanomed
-  entities:
-  - uid: 27
-    components:
-    - type: Transform
-      pos: 0.28445482,0.37976068
-      parent: 2
+# - proto: VehicleInteriorExtinguisher
+#   entities:
+#   - uid: 29
+#     components:
+#     - type: Transform
+#       rot: -1.5707963267948966 rad
+#       pos: 0.8297322,0.3712867
+#       parent: 2
+# - proto: VehicleInteriorNanomed
+#   entities:
+#   - uid: 27
+#     components:
+#     - type: Transform
+#       pos: 0.28445482,0.37976068
+#       parent: 2
 - proto: VehicleTankBack1
   entities:
   - uid: 21
@@ -428,45 +428,45 @@ entities:
     - type: Transform
       pos: 2.5,0.5
       parent: 2
-# - proto: RMCWallInvisibleBulletBlocker
-#   entities:
-#   - uid: 32
-#     components:
-#     - type: Transform
-#       pos: 1.5094132,-3.3260386
-#       parent: 2
-#   - uid: 34
-#     components:
-#     - type: Transform
-#       rot: 1.5707963267948966 rad
-#       pos: 2.0011587,-2.441083
-#       parent: 2
-#   - uid: 35
-#     components:
-#     - type: Transform
-#       pos: 0.4718294,-3.3309548
-#       parent: 2
-#   - uid: 46
-#     components:
-#     - type: Transform
-#       rot: 1.5707963267948966 rad
-#       pos: 2.5,-0.5
-#       parent: 2
-# - proto: RMCWallInvisibleBulletLightBlocker
-#   entities:
-#   - uid: 33
-#     components:
-#     - type: Transform
-#       pos: 1.5,-3.5
-#       parent: 2
-#   - uid: 36
-#     components:
-#     - type: Transform
-#       pos: 0.5,-3.5
-#       parent: 2
-#   - uid: 37
-#     components:
-#     - type: Transform
-#       pos: 2.5,-3.5
-#       parent: 2
+- proto: RMCWallInvisibleBulletBlocker
+  entities:
+  - uid: 32
+    components:
+    - type: Transform
+      pos: 1.5094132,-3.3260386
+      parent: 2
+  - uid: 34
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.0011587,-2.441083
+      parent: 2
+  - uid: 35
+    components:
+    - type: Transform
+      pos: 0.4718294,-3.3309548
+      parent: 2
+  - uid: 46
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 2.5,-0.5
+      parent: 2
+- proto: RMCWallInvisibleBulletLightBlocker
+  entities:
+  - uid: 33
+    components:
+    - type: Transform
+      pos: 1.5,-3.5
+      parent: 2
+  - uid: 36
+    components:
+    - type: Transform
+      pos: 0.5,-3.5
+      parent: 2
+  - uid: 37
+    components:
+    - type: Transform
+      pos: 2.5,-3.5
+      parent: 2
 ...
