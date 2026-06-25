@@ -77,7 +77,6 @@ public sealed partial class TegSystem
     /// <returns></returns>
     private (float, Solution) CirculatorEfficiency(EntityUid uid, float dt, float circulatorRate)
     {
-        Log.Debug($"consumption scalar input = {circulatorRate}");
         // At around 5000 rate, consumption modifier should be around 1.
         // Consumption should scale infinitely, but far less than linearly.
         // https://www.desmos.com/calculator/myeflomtaz
