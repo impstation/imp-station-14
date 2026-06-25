@@ -73,18 +73,14 @@ public sealed partial class TegSystem
     /// Consumption ramps up as the circulatorRate increases.
     /// </summary>
     /// <param name="dt">The amount of time since the last efficiency calculation.</param>
-    /// <param name="circulatorRate">The speed the circulator is running at.</param>
+    /// <param name="circulatorStress">The speed the circulator is running at.</param>
     /// <returns></returns>
-    private (float, Solution) CirculatorEfficiency(EntityUid uid, float dt, float circulatorRate)
+    private (float, Solution) CirculatorEfficiency(EntityUid uid, float dt, float circulatorStress)
     {
         // Do nothing if there's no gas flow
-        if (circulatorRate == 0)
+        if (circulatorStress == 0)
             return (1f, new Solution());
 
-        // At around 5000 rate, consumption modifier should be around 1.
-        // Consumption should scale infinitely, but far less than linearly.
-        // https://www.desmos.com/calculator/myeflomtaz
-        var consumptionModifier = circulatorRate > 0 ? MathF.Log2(circulatorRate) / 12f : 0f;
-        return _reagentEfficiency.ApplyEfficiency(uid, dt, consumptionModifier);
+        return _reagentEfficiency.ApplyEfficiency(uid, dt, circulatorStress);
     }
 }

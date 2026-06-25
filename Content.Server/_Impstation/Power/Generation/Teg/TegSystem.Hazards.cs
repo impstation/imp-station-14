@@ -35,7 +35,7 @@ public sealed partial class TegSystem
     /// </summary>
     /// <param name="efficiency">The efficiency of the circulator. Probably calculated by <see cref="ReagentEfficiencySystem"/>.</param>
     /// <returns>The amount of damage incurred.</returns>
-    private float ApplyCirculatorEfficiencyDamage(Entity<TegCirculatorComponent?> ent, float efficiency)
+    private float ApplyCirculatorEfficiencyDamage(Entity<TegCirculatorComponent?> ent, float efficiency, float stress)
     {
         // Ensure the circulator component exists.
         if (!Resolve(ent, ref ent.Comp))
@@ -45,9 +45,16 @@ public sealed partial class TegSystem
         if (efficiency > ent.Comp.MinimumNominalEfficiency)
             return 0f;
 
+        // No damage if the circulator is not running
+        if (stress == 0f)
+            return 0f;
+
         // Calculate damage based on the efficiency, scaling linearly.
         float scaling = 1 - efficiency / ent.Comp.MinimumNominalEfficiency;
         float damage = float.Lerp(0, ent.Comp.MaximumDamagePerTick, scaling);
+
+        // Scale damage based on stress. More gas flow means more damage
+        damage *= stress;
 
         // Apply the damage and return the amount dealt.
         ent.Comp.Integrity -= damage;

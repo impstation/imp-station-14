@@ -159,15 +159,22 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         var (airB, δpB) = openB ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletB.Air, outletB.Air); // IMP EDIT: Only transfer air if closed
 
         //IMP ADD START
+        // Calculate circulator stress based on delta p
+        // At around 5000 dp, stress should be around 1.
+        // Stress should scale infinitely, but far less than linearly.
+        // https://www.desmos.com/calculator/myeflomtaz
+        var stressA = δpA > 0 ? MathF.Log2(δpA) / 12f : 0f;
+        var stressB = δpB > 0 ? MathF.Log2(δpB) / 12f : 0f;
+
         // Calculate efficiency boost from lubrication
-        var (efficiencyA, consumedLubricantA) = CirculatorEfficiency(circA, args.dt, δpA);
-        var (efficiencyB, consumedLubricantB) = CirculatorEfficiency(circB, args.dt, δpB);
+        var (efficiencyA, consumedLubricantA) = CirculatorEfficiency(circA, args.dt, stressA);
+        var (efficiencyB, consumedLubricantB) = CirculatorEfficiency(circB, args.dt, stressB);
         var averageCirculatorEfficiency = (efficiencyA + efficiencyB) / 2f;
         Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
 
         // Apply damage to the circulator based on its running efficiency.
-        ApplyCirculatorEfficiencyDamage(circA, efficiencyA);
-        ApplyCirculatorEfficiencyDamage(circB, efficiencyB);
+        ApplyCirculatorEfficiencyDamage(circA, efficiencyA, stressA);
+        ApplyCirculatorEfficiencyDamage(circB, efficiencyB, stressB);
 
         // See if we need to trigger a failure state
         CheckFail(circA);
