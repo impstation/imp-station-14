@@ -25,6 +25,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
+using Content.Shared.Vehicle.Components; // Imp
 
 namespace Content.Shared.Movement.Systems;
 
@@ -116,7 +117,7 @@ public abstract partial class SharedMoverController : VirtualController
 
     protected virtual void OnMoverStartup(Entity<InputMoverComponent> ent, ref ComponentStartup args)
     {
-       _blocker.UpdateCanMove(ent, ent.Comp);
+        _blocker.UpdateCanMove(ent, ent.Comp);
     }
 
     public override void Shutdown()
@@ -169,11 +170,13 @@ public abstract partial class SharedMoverController : VirtualController
                 dirtied = true;
             }
 
+            /* RMC removal
             if (relayTargetMover.CanMove != mover.CanMove)
             {
                 relayTargetMover.CanMove = mover.CanMove;
                 dirtied = true;
             }
+            */
 
             if (dirtied)
             {
@@ -187,7 +190,14 @@ public abstract partial class SharedMoverController : VirtualController
             return;
 
         RelayTargetQuery.TryComp(uid, out var relayTarget);
+        /* RMC removal
         var relaySource = relayTarget?.Source;
+        */
+        // RMC14 start
+        EntityUid? relaySource = null;
+        if (relayTarget != null && EnsureValidRelayTarget(uid, relayTarget))
+            relaySource = relayTarget.Source;
+        // RMC14 end
 
         // If we're not the target of a relay then handle lerp data.
         if (relaySource == null)
@@ -224,7 +234,7 @@ public abstract partial class SharedMoverController : VirtualController
          * doing unnecessary calculations.
          * Only a Kinematic Controller should be making it to this point.
          */
-        DebugTools.Assert(physicsComponent.BodyType == BodyType.KinematicController || physicsComponent.BodyType == BodyType.Kinematic,
+        DebugTools.Assert(HasComp<VehicleComponent>(uid) || physicsComponent.BodyType == BodyType.KinematicController || physicsComponent.BodyType == BodyType.Kinematic, // Imp, exclude vehicles since they need to be collidable while controllable
             $"Input mover: {ToPrettyString(uid)} in HandleMobMovement is not the correct BodyType, BodyType found: {physicsComponent.BodyType}, expected: KinematicController.");
 
         // If the body is in air but isn't weightless then it can't move
