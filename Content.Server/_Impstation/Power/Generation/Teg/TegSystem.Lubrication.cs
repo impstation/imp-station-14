@@ -68,6 +68,35 @@ public sealed partial class TegSystem
         RemComp<DrawableSolutionComponent>(uid);
     }
 
+    private float AverageCirculatorEfficiency(EntityUid circA, EntityUid circB, float δpA, float δpB, float dt)
+    {
+        //IMP ADD START
+        // Calculate circulator stress based on delta p
+        // At around 5000 dp, stress should be around 1.
+        // Stress should scale infinitely, but far less than linearly.
+        // https://www.desmos.com/calculator/jenpszfwix
+        var stressA = δpA > 0 ? MathF.Log2(δpA + 1) / 12f : 0f;
+        var stressB = δpB > 0 ? MathF.Log2(δpB + 1) / 12f : 0f;
+
+        // Calculate efficiency boost from lubrication
+        var (efficiencyA, consumedLubricantA) = CirculatorEfficiency(circA, dt, stressA);
+        var (efficiencyB, consumedLubricantB) = CirculatorEfficiency(circB, dt, stressB);
+        var averageCirculatorEfficiency = (efficiencyA + efficiencyB) / 2f;
+        Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
+
+        // Apply damage to the circulator based on its running efficiency.
+        ApplyCirculatorEfficiencyDamage(circA, efficiencyA, stressA);
+        ApplyCirculatorEfficiencyDamage(circB, efficiencyB, stressB);
+
+        // See if we need to trigger a failure state
+        CheckFail(circA, stressA);
+        CheckFail(circB, stressB);
+
+        // TODO: Apply any funny effects that specific reagents might have on the circulators.
+
+        return averageCirculatorEfficiency;
+    }
+
     /// <summary>
     /// Calculates the efficiency of each circulator using their lubricant solutions.
     /// Consumption ramps up as the circulatorRate increases.

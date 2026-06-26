@@ -61,7 +61,7 @@ public sealed partial class TegSystem
         return damage;
     }
 
-    private void CheckFail(Entity<TegCirculatorComponent?> ent)
+    private void CheckFail(Entity<TegCirculatorComponent?> ent, float stress)
     {
         // Ensure the circulator component exists.
         if (!Resolve(ent, ref ent.Comp))
@@ -71,11 +71,15 @@ public sealed partial class TegSystem
         if (ent.Comp.Integrity > 0)
             return;
 
+        // Do nothing if the circulator isn't running
+        if (stress < 0.001f)
+            return;
+
         // Pass to failure mode
-        Explode(ent);
+        Explode(ent, stress);
     }
 
-    private void Explode(Entity<TegCirculatorComponent?> ent)
+    private void Explode(EntityUid ent, float stress)
     {
         _explosionSystem.TriggerExplosive(ent, radius: 10);
     }
