@@ -240,12 +240,15 @@
     - type: ExaminableSolution
       solution: lube
       locVolume: "lube-gauge-examinable-solution-on-examine-volume"
+    - type: DumpableSolution
+      solution: lube
 
     # Failure state. For now, just an explosion
     - type: Explosive
       explosionType: Default
       intensitySlope: 5
       maxIntensity: 200
+      deleteAfterExplosion: false
 
     # IMP ADD END
 
