@@ -202,6 +202,7 @@
 - type: entity
   parent: VehicleTankBase
   id: VehicleTank
+  name: CANT MISS # imp
   components:
   - type: VehicleEnter
     interiorPath: /Maps/_RMC14/Vehicles/tank_interior.yml
@@ -209,8 +210,8 @@
     exitDoAfter: 1.0
     maxPassengers: 3
     maxXenos: 2
-    reservedPassengerPools:
-    - slots: 2
+    # reservedPassengerPools: imp
+    # - slots: 2
     entryPoints:
     - offset: 0,2
       radius: 1

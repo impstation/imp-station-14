@@ -26,7 +26,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using SharedGunSystem = Content.Shared.Weapons.Ranged.Systems.SharedGunSystem;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
-using Content.Client._RMC14.Vehicle; // RMC
+using Content.Client._RMC14.Vehicle;
+using Content.Shared._RMC14.Weapons.Ranged; // RMC
 
 namespace Content.Client.Weapons.Ranged.Systems;
 
@@ -196,8 +197,10 @@ public sealed partial class GunSystem : SharedGunSystem
             return;
         }
 
+        var coordinateEntity = HasComp<GunUseGunOriginComponent>(gun) ? gun.Owner : entity; // RMC14 IMP changed var stuff to upstream
+
         // Define target coordinates relative to gun entity, so that network latency on moving grids doesn't fuck up the target location.
-        var coordinates = TransformSystem.ToCoordinates(entity, mousePos);
+        var coordinates = TransformSystem.ToCoordinates(coordinateEntity, mousePos); // RMC14, changed to coordinateEntity from entity
 
         NetEntity? target = null;
         if (_state.CurrentState is GameplayStateBase screen)
@@ -376,17 +379,17 @@ public sealed partial class GunSystem : SharedGunSystem
         };
 
         _animPlayer.Play(ent, anim, "muzzle-flash");
-        if (!TryComp(gunUid, out PointLightComponent? light))
+        if (!TryComp(ent, out PointLightComponent? light)) // RMC14, ent from gunUid
         {
             light = Factory.GetComponent<PointLightComponent>();
             light.NetSyncEnabled = false;
-            AddComp(gunUid, light);
+            AddComp(ent, light); // RMC14, ent from gunUid
         }
 
-        Lights.SetEnabled(gunUid, true, light);
-        Lights.SetRadius(gunUid, 2f, light);
-        Lights.SetColor(gunUid, Color.FromHex("#cc8e2b"), light);
-        Lights.SetEnergy(gunUid, 5f, light);
+        Lights.SetEnabled(ent, true, light); // RMC14, ent from gunUid
+        Lights.SetRadius(ent, 2f, light); // RMC14, ent from gunUid
+        Lights.SetColor(ent, Color.FromHex("#cc8e2b"), light); // RMC14, ent from gunUid
+        Lights.SetEnergy(ent, 5f, light); // RMC14, ent from gunUid
 
         var animTwo = new Animation()
         {
@@ -418,11 +421,10 @@ public sealed partial class GunSystem : SharedGunSystem
             }
         };
 
-        // RMC14
-        var uidPlayer = EnsureComp<AnimationPlayerComponent>(ent);
+        var uidPlayer = EnsureComp<AnimationPlayerComponent>(ent); // RMC14, ent from gunUid
 
-        _animPlayer.Stop(gunUid, uidPlayer, "muzzle-flash-light");
-        _animPlayer.Play((gunUid, uidPlayer), animTwo, "muzzle-flash-light");
+        _animPlayer.Stop(ent, uidPlayer, "muzzle-flash-light"); // RMC14, ent from gunUid
+        _animPlayer.Play((ent, uidPlayer), animTwo, "muzzle-flash-light"); // RMC14, ent from gunUid
     }
 
     // TODO: Move RangedDamageSoundComponent to shared so this can be predicted.
