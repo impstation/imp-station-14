@@ -79,8 +79,15 @@ public sealed partial class TegSystem
         Explode(ent, stress);
     }
 
-    private void Explode(EntityUid ent, float stress)
+    private void Explode(Entity<TegCirculatorComponent?> ent, float stress)
     {
-        _explosionSystem.TriggerExplosive(ent, radius: 10);
+        // Ensure the circulator component exists.
+        // TODO: It definitely should, CheckFail guarantees it. Idk how to make the compiler know that though
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        float radius = float.Lerp(ent.Comp.ExplosionRadiusRange.Item1, ent.Comp.ExplosionRadiusRange.Item2, stress);
+        Log.Debug($"Explosion triggered. Stress {stress}, radius {radius}");
+        _explosionSystem.TriggerExplosive(ent, radius: radius);
     }
 }

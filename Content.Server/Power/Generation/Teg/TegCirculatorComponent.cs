@@ -71,5 +71,11 @@ public sealed partial class TegCirculatorComponent : Component
     /// </summary>
     [DataField]
     public float Integrity = 100f;
+
+    /// <summary>
+    /// The minimum and maximum size of the circulator's explosion.
+    /// </summary>
+    [DataField]
+    public (float, float) ExplosionRadiusRange = (4f, 8f);
     // IMP ADD END
 }
