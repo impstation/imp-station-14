@@ -27,6 +27,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared.Traits; // imp
 
 namespace Content.Server.GameTicking
 {
@@ -38,6 +39,7 @@ namespace Content.Server.GameTicking
 
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
+        public static readonly ProtoId<TraitPrototype> RandomCharacterTrait = "RandomCharacter"; // imp
 
         /// <summary>
         /// How many players have joined the round through normal methods.
@@ -184,10 +186,8 @@ namespace Content.Server.GameTicking
             }
 
             string speciesId;
-            if (_randomizeCharacters || character.TraitPreferences.Contains("RandomCharacter")) // imp edit, add `|| character.TraitPreferences.Contains("RandomCharacter")`
+            if (_randomizeCharacters || character.TraitPreferences.Contains(RandomCharacterTrait)) // imp edit, add `|| character.TraitPreferences.Contains(RandomCharacterTrait)`
             {
-                var oldTraits = character.TraitPreferences; // imp addition
-
                 var weightId = _cfg.GetCVar(CCVars.ICRandomSpeciesWeights);
 
                 // If blank, choose a round start species.
@@ -211,6 +211,8 @@ namespace Content.Server.GameTicking
                     var weights = _prototypeManager.Index<WeightedRandomSpeciesPrototype>(weightId);
                     speciesId = weights.Pick(_robustRandom);
                 }
+
+                var oldTraits = character.TraitPreferences; // imp edit, preserve traits
 
                 character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
 

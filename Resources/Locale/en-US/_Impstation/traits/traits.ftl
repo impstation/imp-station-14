@@ -104,7 +104,7 @@ trait-chaos-magic-victim-name = Chaos magic victim
 trait-chaos-magic-victim-desc = At the start of each shift, you will roll 5 random traits or accents, excluding signature fonts.
 
 trait-random-character-name = Random character
-trait-random-character-desc = Every round you are a new person, given a random species, appearance, and name.
+trait-random-character-desc = Every round you are a new person, given a random species, appearance, and name. Selected traits are preserved.
 
 trait-category-randomizers = Randomizers
 
