@@ -27,6 +27,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared.Traits; // imp
 
 namespace Content.Server.GameTicking
 {
@@ -38,6 +39,7 @@ namespace Content.Server.GameTicking
 
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
+        public static readonly ProtoId<TraitPrototype> RandomCharacterTrait = "RandomCharacter"; // imp
 
         /// <summary>
         /// How many players have joined the round through normal methods.
@@ -184,7 +186,7 @@ namespace Content.Server.GameTicking
             }
 
             string speciesId;
-            if (_randomizeCharacters)
+            if (_randomizeCharacters || character.TraitPreferences.Contains(RandomCharacterTrait)) // imp edit, add `|| character.TraitPreferences.Contains(RandomCharacterTrait)`
             {
                 var weightId = _cfg.GetCVar(CCVars.ICRandomSpeciesWeights);
 
@@ -210,7 +212,19 @@ namespace Content.Server.GameTicking
                     speciesId = weights.Pick(_robustRandom);
                 }
 
+                var oldTraits = character.TraitPreferences; // imp edit, preserve traits
+
                 character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
+
+                // imp edit start, keep old traits when rolling because of the random character trait
+                if (!_randomizeCharacters)
+                {
+                    foreach (var trait in oldTraits)
+                    {
+                        character = character.WithTraitPreference(trait, _prototypeManager);
+                    }
+                }
+                // imp edit end
             }
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
