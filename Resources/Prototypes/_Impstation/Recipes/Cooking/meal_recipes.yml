@@ -682,6 +682,41 @@
   recipeType: Oven
 
 - type: microwaveMealRecipe
+  id: RecipeDaifuku
+  name: daifuku recipe
+  result: FoodDaifuku
+  time: 5
+  solids:
+    FoodBerries: 1
+    FoodMochiSlice: 1
+  recipeType: Assembler
+
+- type: microwaveMealRecipe
+  id: RecipeMDango
+  name: mitarashi dango recipe
+  result: FoodMDango
+  time: 5
+  reagents:
+    MitarashiSyrup: 12
+  solids:
+    FoodKebabSkewer: 1
+    FoodMochiSlice: 3
+  recipeType: Microwave
+
+- type: microwaveMealRecipe
+  id: RecipeHDango
+  name: hanami dango recipe
+  result: FoodHDango
+  time: 5
+  reagents:
+    PinkFoodColoring: 1
+    GreenFoodColoring: 1
+  solids:
+    FoodKebabSkewer: 1
+    FoodMochiSlice: 3
+  recipeType: Microwave
+
+- type: microwaveMealRecipe
   id: RecipeCakeChocolate
   name: chocolate cake recipe
   result: FoodCakeChocolate
