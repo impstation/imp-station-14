@@ -163,6 +163,9 @@
           Quantity: 5
   - type: Item
     heldPrefix: plain
+  - type: Construction # imp
+    graph: Cakes
+    node: start
   - type: Tag # imp
     tags:
     - UnguFood
@@ -1209,6 +1212,9 @@
           Quantity: 15
   - type: Item
     heldPrefix: vanilla
+  - type: Construction # imp
+    graph: Cakes
+    node: start
   - type: Tag # imp
     tags:
     - UnguFood
@@ -1327,6 +1333,9 @@
           Quantity: 15
   - type: Item
     heldPrefix: trumpet
+  - type: Construction # imp
+    graph: Cakes
+    node: start
   - type: Tag # imp
     tags:
     - UnguFood
@@ -1556,6 +1565,9 @@
           Quantity: 10
   - type: Item
     heldPrefix: cotton
+  - type: Construction # imp
+    graph: Cakes
+    node: cotton
 
 - type: entity
   name: slice of cotton cake
