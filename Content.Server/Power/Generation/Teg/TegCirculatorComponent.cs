@@ -45,4 +45,37 @@ public sealed partial class TegCirculatorComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("lightColorFast")]
     public Color LightColorFast = Color.FromHex("#AA00FF");
+
+    // IMP ADD START
+    /// <summary>
+    /// The minimum running efficiency at which the circulator will not take damage.
+    /// </summary>
+    [DataField]
+    public float MinimumNominalEfficiency = 0.1f;
+
+    /// <summary>
+    /// The maximum possible damage incurred per tick when efficiency is at 0.
+    /// </summary>
+    [DataField]
+    public float MaximumDamagePerTick = 1f;
+
+    /// <summary>
+    /// The maximum integrity value.
+    /// <see cref="Integrity"/> can not be restored above this value by normal gameplay means.
+    /// </summary>
+    [DataField]
+    public float MaxIntegrity = 100f;
+
+    /// <summary>
+    /// The current integrity value. Triggers the failure state upon reaching 0.
+    /// </summary>
+    [DataField]
+    public float Integrity = 100f;
+
+    /// <summary>
+    /// The minimum and maximum size of the circulator's explosion.
+    /// </summary>
+    [DataField]
+    public (float, float) ExplosionRadiusRange = (4f, 8f);
+    // IMP ADD END
 }

@@ -77,4 +77,18 @@ public sealed partial class OpenableComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier? CloseSound;
+
+    // IMP ADD START
+    /// <summary>
+    /// Prevents or allows opening and closing via the right click verb menu.
+    /// </summary>
+    [DataField]
+    public bool VerbMenuAccessible = true;
+
+    /// <summary>
+    /// Prevents or allows the "Opened" examine text.
+    /// </summary>
+    [DataField]
+    public bool ShowExamineText = true;
+    // IMP ADD END
 }

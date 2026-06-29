@@ -127,6 +127,7 @@ public abstract class SharedWiresSystem : EntitySystem
     {
         var attempt = new AttemptChangePanelEvent(ent.Comp.Open, user);
         RaiseLocalEvent(ent, ref attempt);
+        ent.Comp.OpenDelay += TimeSpan.FromSeconds(attempt.AdditionalDelay); // imp add: allow for the attempt event to add an additional delay TODO: this stacks
         return !attempt.Cancelled;
     }
 
