@@ -14,5 +14,6 @@ public sealed class UnsafeWiresPanelSystem : EntitySystem
     private void OnAttemptPanelChange(Entity<UnsafeWiresPanelComponent> ent, ref AttemptChangePanelEvent args)
     {
         Log.Debug("uwp recieved AttemptChangePanelEvent");
+        args.AdditionalDelay += ent.Comp.Condition(ent, ref args);
     }
 }

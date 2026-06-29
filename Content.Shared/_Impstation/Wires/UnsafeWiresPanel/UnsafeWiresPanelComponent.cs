@@ -1,12 +1,12 @@
+using Content.Shared.Wires;
 namespace Content.Shared._Impstation.UnsafeWiresPanel;
 
 [RegisterComponent]
 [Access(typeof(UnsafeWiresPanelSystem))]
-public sealed partial class UnsafeWiresPanelComponent : Component
+public abstract partial class UnsafeWiresPanelComponent : Component
 {
     [DataField]
     public bool Enabled = true;
 
-    [DataField]
-    public float Delay = 2f;
+    public abstract float Condition(Entity<UnsafeWiresPanelComponent> ent, ref AttemptChangePanelEvent args);
 }

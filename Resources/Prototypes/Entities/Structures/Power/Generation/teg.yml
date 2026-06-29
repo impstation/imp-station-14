@@ -201,7 +201,7 @@
       # Opening, closing, and locking
     - type: WiresPanel
     - type: WiresVisuals
-    - type: UnsafeWiresPanel
+    - type: AtmosUnsafeWiresPanel
     - type: Lock
       locked: false # to make my dev life easier. maybe it should be unlocked on init though.
     - type: LockVisuals
