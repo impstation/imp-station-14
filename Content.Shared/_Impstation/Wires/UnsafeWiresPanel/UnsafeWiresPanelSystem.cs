@@ -8,12 +8,12 @@ public sealed class UnsafeWiresPanelSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<UnsafeWiresPanelComponent, AttemptChangePanelEvent>(OnAttemptPanelChange);
+        SubscribeLocalEvent<AtmosUnsafeWiresPanelComponent, AttemptChangePanelEvent>(OnAttemptPanelChangeAtmos);
     }
 
-    private void OnAttemptPanelChange(Entity<UnsafeWiresPanelComponent> ent, ref AttemptChangePanelEvent args)
+    private void OnAttemptPanelChangeAtmos(Entity<AtmosUnsafeWiresPanelComponent> ent, ref AttemptChangePanelEvent args)
     {
         Log.Debug("uwp recieved AttemptChangePanelEvent");
-        args.AdditionalDelay += ent.Comp.Condition(ent, ref args);
+        args.AdditionalDelay += ent.Comp.AdditionalDelay;
     }
 }
