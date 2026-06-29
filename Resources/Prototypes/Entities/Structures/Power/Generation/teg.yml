@@ -198,6 +198,7 @@
     - type: Climbable #imp
 
     # IMP ADD START
+      # Opening, closing, and locking
     - type: WiresPanel
     - type: WiresVisuals
     - type: UnsafeWiresPanel
@@ -216,10 +217,14 @@
       closeable: true
       showExamineText: false
       verbMenuAccessible: false
+
+      # Gas leaks
     - type: AtmosDevice # To allow GasOutletInjector to receive updates
     - type: GasOutletInjector
       inlet: "inlet"
       enabled: false
+
+      # Lubrication
     - type: SolutionContainerManager
       solutions:
         lube:
@@ -243,7 +248,7 @@
     - type: DumpableSolution
       solution: lube
 
-    # Failure state. For now, just an explosion
+    # Failure state
     - type: Explosive
       explosionType: Default
       intensitySlope: 5
