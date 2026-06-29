@@ -225,7 +225,7 @@
         lube:
           maxVol: 100
     - type: ReagentEfficiency
-      solution: lube
+      solutionName: lube
       modifiers:
         SpaceLube: 1.2
         SpaceGlue: 0.01

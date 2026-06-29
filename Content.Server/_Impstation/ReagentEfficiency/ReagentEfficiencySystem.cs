@@ -30,7 +30,7 @@ public sealed class ReagentEfficiencySystem : EntitySystem
 
         // Try to get the Solution component.
         // Cacheable version of TryGetSolution
-        if (!_solution.ResolveSolution(ent.Owner, ent.Comp.Solution, ref ent.Comp.SolutionCache, out var solution))
+        if (!_solution.ResolveSolution(ent.Owner, ent.Comp.SolutionName, ref ent.Comp.SolutionCache, out var solution))
             return (0f, new Solution());
 
         // If the solution is empty, the efficiency is 0.
@@ -48,7 +48,7 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         var throttleDt = nominalConsumptionOverThreshold / consumptionRate;
 
         // Find amount consumed in throttle
-        var throttledConsumption = Throttle((float)solution.Volume, consumptionRate, throttleDt, throttleThresholdVolume);
+        var throttledConsumption = Throttle((float)solution.Volume - ent.Comp.CurrentConsumptionAccumulation, consumptionRate, throttleDt, throttleThresholdVolume);
 
         // Mix nominal consumption and throttled consumption amounts
         // let Cf = total consumption, Cn = nominal consumption, Ct = throttled consumption
@@ -57,28 +57,45 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         var consumedAmount = float.Lerp(nominalConsumption, throttledConsumption, throttleDt / dt);
         Log.Debug($"A0 {(float)solution.Volume}, r {consumptionRate}, Cn {nominalConsumption}, Cnover {nominalConsumptionOverThreshold}, tdt {throttleDt}, Ct {throttledConsumption}, Cf {consumedAmount}");
 
-        var consumedSolution = _solution.SplitSolution(ent.Comp.SolutionCache.Value, consumedAmount);
 
-        // FixedPoint2 rounding WILL lead to small numbers becoming 0, affecting division down the line.
-        if (consumedSolution.Volume == FixedPoint2.Zero)
-            return (0f, consumedSolution);
+        // Accumulate consumption if necessary.
+        Solution consumedSolution;
+        if (consumedAmount + ent.Comp.CurrentConsumptionAccumulation < ent.Comp.ConsumptionAccumulationThreshold)
+        {
+            // Consumption this tick is too low, accumulate it and use the previously consumed solution.
+            consumedSolution = solution; //TODO: this logic may be flawed if it's used to calculate "metabolism" of reagents. We'll be returning a lot more reagents than we actually consume.
+            ent.Comp.CurrentConsumptionAccumulation += consumedAmount;
+            Log.Debug($"Consumption too low: accumulated to {ent.Comp.CurrentConsumptionAccumulation}");
+        }
+        else
+        {
+            // Consumption and accumulation exceed the threshold and can be processed this tick.
+            consumedSolution = _solution.SplitSolution(ent.Comp.SolutionCache.Value, consumedAmount + ent.Comp.CurrentConsumptionAccumulation);
+            ent.Comp.CurrentConsumptionAccumulation = 0f;
+        }
+
+        // Just for sanity, ensure that the consumed amount is more than 0.
+        if (consumedAmount + ent.Comp.CurrentConsumptionAccumulation == 0f)
+            return (0f, new Solution());
 
         // Find the total modifier of all the reagents removed
+        // We calculate based on what's in the full solution, not the removed solution to lessen FixedPoint2 rounding erorrs.
         // Weighted average:
-        //      Modifier * amount in removed solution
+        //      Modifier * amount of reagent
         //      Sum up proportional modifiers
         //      Divide by total volume consumed
         var efficiency = 0f;
-        foreach (var reagent in consumedSolution.Contents)
+        foreach (var reagent in solution)
         {
             efficiency += ent.Comp.Modifiers.TryGetValue(reagent.Reagent.Prototype, out var reagentEfficiency) ?
                 reagentEfficiency * (float)reagent.Quantity :
                 ent.Comp.DefaultModifier * (float)reagent.Quantity;
         }
-        efficiency /= (float)consumedSolution.Volume;
+        efficiency /= (float)solution.Volume;
+        // efficiency /= consumedAmount + ent.Comp.CurrentConsumptionAccumulation;
 
         //Apply throttling to efficiency
-        efficiency *= solution.Volume < throttleThresholdVolume ? (float)solution.Volume / throttleThresholdVolume : 1f; //Naiive and maybe not correct
+        efficiency *= solution.Volume < throttleThresholdVolume ? (float)solution.Volume / throttleThresholdVolume : 1f;
 
         // Store and return calculated efficiency.
         ent.Comp.PreviousEfficiency = efficiency;
@@ -95,6 +112,10 @@ public sealed class ReagentEfficiencySystem : EntitySystem
         // For example, when solution.Volume is less than but very close to throttleThresholdVolume and dt is large,
         // we are consuming close to the unthrottled amount for a large portion of the tank.
         // Had dt been broken up into smaller chunks, we would have a lot more opportunities to process the correct amount.
+
+        // Protect against division by 0 when calculating m:
+        if (dt == 0f)
+            return 0f;
 
         // Instead, we need to account for the consumption rate changing itself over the duration of its consumption dt.
         // This is functionally a continuously compounding interest, but instead of accumulating we are consuming.
