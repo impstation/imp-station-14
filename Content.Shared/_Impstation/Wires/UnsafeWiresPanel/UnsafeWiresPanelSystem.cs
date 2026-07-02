@@ -21,10 +21,13 @@ public sealed class UnsafeWiresPanelSystem : EntitySystem
 
     private void OnAttemptPanelChangeAtmos(Entity<AtmosUnsafeWiresPanelComponent> ent, ref AttemptChangePanelEvent args)
     {
+        Log.Debug("uwp recieved AttemptChangePanelEvent");
+        args.AdditionalDelay += ent.Comp.AdditionalDelay;
+        _popup.PopupClient(Loc.GetString(ent.Comp.PopupLocString), ent, args.User, PopupType.MediumCaution);
+        return;
+
         if (args.Cancelled)
             return;
-
-        Log.Debug("uwp recieved AttemptChangePanelEvent");
 
         // Get node group to iterate through
         if (!TryComp<NodeContainerComponent>(ent, out var nodes))
