@@ -1,4 +1,5 @@
 using Content.Server._Impstation.ReagentEfficiency;
+using Content.Shared._DV.Chemistry.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Nutrition.EntitySystems;
@@ -38,6 +39,7 @@ public sealed partial class TegSystem
         {
             // AddSolutionAccessibility(uid);
             _openable.SetOpen(uid, true);
+            AllowInjection(uid, true);
             ChangeInjectorState(uid, true);
         }
 
@@ -46,8 +48,24 @@ public sealed partial class TegSystem
         {
             // RemoveSolutionAccessibility(uid);
             _openable.SetOpen(uid, false);
+            AllowInjection(uid, false);
             ChangeInjectorState(uid, false);
         }
+    }
+
+    /// <summary>
+    /// Adds or removes <see cref="BlockInjectionComponent"/> to disallow or allow injector usage.
+    /// </summary>
+    /// <remarks>
+    /// This is a bad implmentation. Find a better solution.
+    /// </remarks>
+    /// <param name="status">boolean on whether injections should be allowed</param>
+    private void AllowInjection(EntityUid uid, bool status)
+    {
+        if (status)
+            RemComp<BlockInjectionComponent>(uid);
+        else
+            EnsureComp<BlockInjectionComponent>(uid);
     }
 
     private void AddSolutionAccessibility(EntityUid uid)
