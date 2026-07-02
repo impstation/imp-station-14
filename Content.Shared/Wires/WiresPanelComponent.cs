@@ -55,6 +55,13 @@ public sealed partial class WiresPanelComponent : Component
     /// <returns></returns>
     [DataField]
     public LocId? ExamineTextOpen = "wires-panel-component-on-examine-open";
+
+    // IMP ADD START
+    /// <summary>
+    /// Additional delay to a single panel opening event. Resets after every attempt.
+    /// </summary>
+    public float AdditionalDelay = 0f;
+    // IMP ADD END
 }
 
 /// <summary>
