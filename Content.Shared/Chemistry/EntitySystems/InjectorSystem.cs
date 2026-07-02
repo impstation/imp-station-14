@@ -561,6 +561,9 @@ public sealed partial class InjectorSystem : EntitySystem
     /// <returns>True if the drawing was successful, false if not.</returns>
     private bool TryDraw(Entity<InjectorComponent> injector, EntityUid user, Entity<BloodstreamComponent?> target, Entity<SolutionComponent> targetSolution)
     {
+        if (HasComp<BlockInjectionComponent>(target))  // imp add: block injector drawing as well, not just injecting
+            return false;
+
         if (!_solutionContainer.ResolveSolution(injector.Owner, injector.Comp.SolutionName, ref injector.Comp.Solution, out var solution) || solution.AvailableVolume == 0)
         {
             _popup.PopupClient("injector-component-cannot-toggle-draw-message", user, user);
