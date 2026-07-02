@@ -77,7 +77,7 @@
     itemIconStyle: NoItem
     icon:
       sprite: _Impstation/Interface/Actions/mime.rsi
-      state: chair # rsi needed
+      state: chasm
   - type: InstantAction
     event: !type:InstantSpawnSpellEvent
       prototype: PortalMime

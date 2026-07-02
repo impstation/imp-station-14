@@ -237,6 +237,7 @@
     - InvisibleWall
     - InvisibleChair
     - InvisibleBox
+    - InvisiblePortal
   - type: ActivatableUI
     key: enum.MimeGearMenuUIKey.Key
   - type: UserInterface
@@ -275,7 +276,7 @@
   parent: SpellbookMime
   id: SpellbookMimeInvisiblePortal
   name: "Guide to Mimery: Invisible Portals"
-  description: desc here
+  description: There seems to be an image of a plumber?
   components:
   - type: MimeSpellbook
     action: ActionMimeInvisiblePortal

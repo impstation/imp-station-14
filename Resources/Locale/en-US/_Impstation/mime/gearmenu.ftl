@@ -12,4 +12,4 @@ mime-gearset-category-box-name = Invisible Box
 mime-gearset-category-box-description = Make an invisible box in your hands.
 
 mime-gearset-category-portal-name = Invisible Portal
-mime-gearset-category-portal-description = desc
+mime-gearset-category-portal-description = Draw an invisible portal in front of you.
