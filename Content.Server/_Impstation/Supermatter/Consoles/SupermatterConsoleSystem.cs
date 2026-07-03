@@ -1,4 +1,4 @@
-using Content.Shared._EE.CCVar;
+using Content.Shared._Impstation.CCVar;
 using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared._Impstation.Supermatter.Consoles;
 using Content.Shared.Atmos;
@@ -173,7 +173,7 @@ public sealed class SupermatterConsoleSystem : SharedSupermatterConsoleSystem
         if (sm.GasStorage != null)
             gases = sm.GasStorage;
 
-        var tempThreshold = Atmospherics.T0C + _config.GetCVar(EECCVars.SupermatterHeatPenaltyThreshold);
+        var tempThreshold = Atmospherics.T0C + _config.GetCVar(ImpCCVars.SupermatterHeatPenaltyThreshold);
 
         return new SupermatterFocusData(
             GetNetEntity(focusSupermatter.Value),
