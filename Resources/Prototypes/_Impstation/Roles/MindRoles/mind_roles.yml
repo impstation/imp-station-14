@@ -77,3 +77,13 @@
     decay: 10
     afterCritDecayMultiplier: 8
     baseCritThreshold: 400
+
+# Syndicate Instigator
+- type: entity
+  parent: MindRoleNukeops
+  id: MindRoleSyndicateInstigator
+  name: Syndicate Instigator Role
+  components:
+  - type: MindRole
+    roleType: SoloAntagonist
+    antagPrototype: SyndicateInstigator #imp

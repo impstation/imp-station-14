@@ -102,3 +102,13 @@
   - type: Sprite
     sprite: _Impstation/Structures/Wallmounts/signs.rsi
     state: apid
+
+- type: entity
+  parent: BaseSign
+  id: SignAnchor
+  name: station anchor sign
+  description: This is the room the station anchor is in. You know like a cartoon ship's anchor? It's not that but it's kinda like that, in a way.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/signs.rsi
+    state: anch

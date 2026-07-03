@@ -93,7 +93,6 @@ public sealed class BodySystem : SharedBodySystem
         var layers = HumanoidVisualLayersExtension.Sublayers(layer.Value);
         _humanoidSystem.SetLayersVisibility((bodyEnt, humanoid), layers, visible: false);
     }
-
     public override HashSet<EntityUid> GibBody(
         EntityUid bodyId,
         bool gibOrgans = false,

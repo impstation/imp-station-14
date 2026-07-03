@@ -154,8 +154,8 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: Objects/Devices/communication.rsi
-      state: old-radio
+      sprite: _Impstation/Objects/Devices/uplink.rsi # imp edit
+      state: icon # imp edit
   - type: InstantAction
     event: !type:OpenUplinkImplantEvent
 

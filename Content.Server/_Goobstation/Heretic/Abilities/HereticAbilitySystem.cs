@@ -3,7 +3,6 @@ using Content.Server._Impstation.Heretic.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
-using Content.Shared.Interaction;
 using Content.Server.Flash;
 using Content.Server.Hands.Systems;
 using Content.Server.Heretic.EntitySystems;
@@ -11,26 +10,27 @@ using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
+using Content.Shared._Starlight.CollectiveMind;
 using Content.Shared.Actions;
 using Content.Shared.Chat;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
+using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Heretic;
+using Content.Shared.Interaction;
 using Content.Shared.Medical;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Radio.Components;
-using Content.Shared.Store.Components;
-using Robust.Shared.Audio.Systems;
 using Content.Shared.Popups;
-using Robust.Shared.Random;
-using Robust.Server.GameObjects;
-using Content.Shared.Stunnable;
 using Content.Shared.StatusEffect;
+using Content.Shared.Store.Components;
+using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
+using Robust.Server.GameObjects;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
-using Content.Shared.Eye.Blinding.Systems;
+using Robust.Shared.Random;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -52,6 +52,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _aud = default!;
     [Dependency] private readonly DoAfterSystem _doafter = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly BlindableSystem _blindable = default!;
@@ -63,6 +64,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prot = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly MansusGraspSystem _mansusGrasp = default!;
+    [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -168,8 +170,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
         }
 
-        if (TryComp<ActiveRadioComponent>(args.Target, out var radio)
-        && radio.Channels.Contains("Mansus"))
+        if (TryComp<HereticMansusLinkComponent>(args.Target, out var _))
         {
             _popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
             return;
@@ -192,11 +193,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         var target = args.Args.Target.Value;
 
-        EnsureComp<IntrinsicRadioReceiverComponent>(target);
-        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(target);
-        var radio = EnsureComp<ActiveRadioComponent>(target);
-        radio.Channels = ["Mansus"];
-        transmitter.Channels = ["Mansus"];
+        EnsureComp<CollectiveMindComponent>(target, out var mind);
+        EnsureComp<HereticMansusLinkComponent>(target);
+        _collectiveMind.UpdateCollectiveMind(target, mind);
 
         // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
         _flash.Flash(target, null, null, TimeSpan.FromSeconds(2f), 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
