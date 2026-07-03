@@ -28,15 +28,30 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
     }
 
     /// <summary> Updates device with passed anomaly data. </summary>
-    public void UpdateScannerWithNewAnomaly(EntityUid scanner, EntityUid anomaly, AnomalyScannerComponent? scannerComp = null, AnomalyComponent? anomalyComp = null)
+    public void UpdateScannerWithNewScanTarget(EntityUid scanner,
+        EntityUid target,
+        AnomalyScannerComponent? scannerComp = null,
+        AnomalyComponent? anomalyComp = null) //imp edit: EUID anomaly became EUID target to allow Slasher's effigy to work
     {
-        if (!Resolve(scanner, ref scannerComp) || !Resolve(anomaly, ref anomalyComp))
+        if (!Resolve(scanner, ref scannerComp))
             return;
 
-        scannerComp.ScannedAnomaly = anomaly;
+        scannerComp.ScannedEntity = target; // imp edit: anomaly became target to allow Slasher's effigy to work
         UpdateScannerUi(scanner, scannerComp);
 
         TryComp<AppearanceComponent>(scanner, out var appearanceComp);
+
+        // imp add: Keep scanner visuals anomaly-specific. - Needed because Slasher's effigy is an "anomaly"
+        if (!Resolve(target, ref anomalyComp, false))
+        {
+            Appearance.SetData(scanner, AnomalyScannerVisuals.HasAnomaly, false, appearanceComp);
+            Appearance.SetData(scanner, AnomalyScannerVisuals.AnomalyStability, AnomalyStabilityVisuals.Stable, appearanceComp);
+            Appearance.SetData(scanner, AnomalyScannerVisuals.AnomalySeverity, 0, appearanceComp);
+            Appearance.SetData(scanner, AnomalyScannerVisuals.AnomalyNextPulse, 0, appearanceComp);
+            return;
+        }
+
+        var anomaly = target; //end imp add
         TryComp<SecretDataAnomalyComponent>(anomaly, out var secretDataComp);
 
         Appearance.SetData(scanner, AnomalyScannerVisuals.HasAnomaly, true, appearanceComp);
@@ -52,6 +67,24 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
         Appearance.SetData(scanner, AnomalyScannerVisuals.AnomalySeverity, severity, appearanceComp);
     }
 
+    /// <summary>
+    /// Imp add: Clears the currently scanned entity and pushes "no anomaly scanned" UI state.
+    /// </summary>
+    public void ClearScanTarget(EntityUid scanner, AnomalyScannerComponent? scannerComp = null)
+    {
+        if (!Resolve(scanner, ref scannerComp))
+            return;
+
+        scannerComp.ScannedEntity = null;
+        UpdateScannerUi(scanner, scannerComp);
+
+        TryComp<AppearanceComponent>(scanner, out var appearanceComp);
+        Appearance.SetData(scanner, AnomalyScannerVisuals.HasAnomaly, false, appearanceComp);
+        Appearance.SetData(scanner, AnomalyScannerVisuals.AnomalyStability, AnomalyStabilityVisuals.Stable, appearanceComp);
+        Appearance.SetData(scanner, AnomalyScannerVisuals.AnomalySeverity, 0, appearanceComp);
+        Appearance.SetData(scanner, AnomalyScannerVisuals.AnomalyNextPulse, 0, appearanceComp);
+    }
+
     /// <summary> Update scanner interface. </summary>
     public void UpdateScannerUi(EntityUid uid, AnomalyScannerComponent? component = null)
     {
@@ -59,10 +92,19 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
             return;
 
         TimeSpan? nextPulse = null;
-        if (TryComp<AnomalyComponent>(component.ScannedAnomaly, out var anomalyComponent))
+        if (TryComp<AnomalyComponent>(component.ScannedEntity, out var anomalyComponent)) // imp add: this is here because slasher's effigy is an "anomaly" so we check if it actually IS an anomaly here
             nextPulse = anomalyComponent.NextPulseTime;
 
-        var state = new AnomalyScannerUserInterfaceState(_anomaly.GetScannerMessage(component), nextPulse);
+        // imp add: allow non-anomaly scan targets (e.g. Slasher effigy) to supply their own countdown via ScannerBuildMessageEvent.NextPulseTime
+        var msg = _anomaly.GetScannerMessage(component);
+        if (nextPulse == null && component.ScannedEntity.HasValue)
+        {
+            var msgEv = new ScannerBuildMessageEvent();
+            RaiseLocalEvent(component.ScannedEntity.Value, ref msgEv);
+            nextPulse = msgEv.NextPulseTime;
+        }
+
+        var state = new AnomalyScannerUserInterfaceState(msg, nextPulse);
         UI.SetUiState(uid, AnomalyScannerUiKey.Key, state);
     }
 
@@ -87,7 +129,18 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
 
         base.OnDoAfter(uid, component, args);
 
-        UpdateScannerWithNewAnomaly(uid, args.Args.Target.Value, component);
+        //imp remove and replace: the below code was originally in AnomalySystem's DoAfter handler, but we need it to run even if the target isn't an anomaly
+        // since Slasher's effigy is an "anomaly" but doesn't have an AnomalyComponent, this allows the scanner to update with the effigy as a target and show it
+        // as intended, patch is from 109 to 116.
+        //UpdateScannerWithNewAnomaly(uid, args.Args.Target.Value, component);
+        var scanTarget = args.Args.Target.Value;
+        var scanEv = new TryScanEntityEvent();
+        RaiseLocalEvent(scanTarget, ref scanEv);
+
+        if (!TryComp<AnomalyComponent>(scanTarget, out _) && !scanEv.Accepted)
+            return;
+
+        UpdateScannerWithNewScanTarget(uid, scanTarget, component);
     }
 
     private void OnScannerAnomalyHealthChanged(ref AnomalyHealthChangedEvent args)
@@ -95,7 +148,7 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
         var query = EntityQueryEnumerator<AnomalyScannerComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
-            if (component.ScannedAnomaly != args.Anomaly)
+            if (component.ScannedEntity != args.Anomaly)  // imp add: this is here because slasher's effigy is an "anomaly"
                 continue;
 
             UpdateScannerUi(uid, component);
@@ -113,7 +166,7 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
         var query = EntityQueryEnumerator<AnomalyScannerComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
-            if (component.ScannedAnomaly != args.Anomaly)
+            if (component.ScannedEntity != args.Anomaly)  // imp add: this is here because slasher's effigy is an "anomaly"
                 continue;
 
             UpdateScannerUi(uid, component);
@@ -129,7 +182,7 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
         var query = EntityQueryEnumerator<AnomalyScannerComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
-            if (component.ScannedAnomaly != args.Anomaly)
+            if (component.ScannedEntity != args.Anomaly) // imp add: this is here because slasher's effigy is an "anomaly"
                 continue;
 
             UpdateScannerUi(uid, component);
@@ -142,7 +195,7 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
         var query = EntityQueryEnumerator<AnomalyScannerComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
-            if (component.ScannedAnomaly != args.Anomaly)
+            if (component.ScannedEntity != args.Anomaly) // imp add: this is here because slasher's effigy is an "anomaly"
                 continue;
 
             UpdateScannerUi(uid, component);
@@ -176,7 +229,7 @@ public sealed class AnomalyScannerSystem : SharedAnomalyScannerSystem
         var scannerQuery = EntityQueryEnumerator<AnomalyScannerComponent>();
         while (scannerQuery.MoveNext(out var scannerUid, out var scanner))
         {
-            if (scanner.ScannedAnomaly != anomalyEnt)
+            if (scanner.ScannedEntity != anomalyEnt) // imp add: this is here because slasher's effigy is an "anomaly"
                 continue;
 
             Appearance.SetData(scannerUid, AnomalyScannerVisuals.AnomalyNextPulse, rounded);

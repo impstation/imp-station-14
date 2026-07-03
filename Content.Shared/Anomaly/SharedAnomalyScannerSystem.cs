@@ -2,6 +2,7 @@ using Content.Shared.Anomaly.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Content.Shared._Impstation.Slasher; // #Imp Add - Required for Slasher
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
@@ -31,7 +32,7 @@ public abstract class SharedAnomalyScannerSystem : EntitySystem
         var query = EntityQueryEnumerator<AnomalyScannerComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
-            if (component.ScannedAnomaly != args.Anomaly)
+            if (component.ScannedEntity != args.Anomaly) //imp edit: genericize for slasher
                 continue;
 
             UI.CloseUi(uid, AnomalyScannerUiKey.Key);
@@ -49,7 +50,20 @@ public abstract class SharedAnomalyScannerSystem : EntitySystem
         if (args.Target is not { } target)
             return;
 
-        if (!HasComp<AnomalyComponent>(target))
+        //if (!HasComp<AnomalyComponent>(target))
+        //       return;
+
+        //imp edit Let other systems accept or reject this scan target via a generic event.
+        var scanEv = new TryScanEntityEvent();
+        RaiseLocalEvent(target, ref scanEv);
+
+        if (scanEv.RejectionLocale != null)
+        {
+            Popup.PopupClient(Loc.GetString(scanEv.RejectionLocale), args.User, args.User);
+            return;
+        }
+
+        if (!HasComp<AnomalyComponent>(target) && !scanEv.Accepted)
             return;
 
         if (!args.CanReach)
@@ -83,4 +97,21 @@ public abstract class SharedAnomalyScannerSystem : EntitySystem
         args.Handled = true;
     }
 
+}
+
+// #Imp Add - Required for Slasher
+/// <summary>
+/// Raised on an entity when an anomaly scanner tries to interact with it.
+/// Handlers can accept the entity as a valid scan target, or reject with an optional locale popup.
+/// </summary>
+[ByRefEvent]
+public sealed class TryScanEntityEvent
+{
+    /// <summary>Whether this entity was accepted as a valid scan target by a handler.</summary>
+    public bool Accepted;
+
+    /// <summary>
+    /// Locale key for a rejection popup message. When set, the scan is cancelled and this popup is shown.
+    /// </summary>
+    public string? RejectionLocale;
 }

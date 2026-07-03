@@ -1,4 +1,4 @@
-
+using Content.Server._Impstation.Slasher;
 using Content.Server.Administration.Systems;
 using Content.Server.Physics.Controllers;
 using Robust.Shared.Prototypes;
@@ -9,7 +9,7 @@ namespace Content.Server.Physics.Components;
 /// <summary>
 /// A component which makes its entity chasing entity with selected component.
 /// </summary>
-[RegisterComponent, Access(typeof(ChasingWalkSystem), typeof(AdminVerbSystem)), AutoGenerateComponentPause]
+[RegisterComponent, Access(typeof(ChasingWalkSystem), typeof(AdminVerbSystem), typeof(SlasherFinalChaseTargetSystem), typeof(SlasherFinalEntitySystem)), AutoGenerateComponentPause]
 public sealed partial class ChasingWalkComponent : Component
 {
     /// <summary>

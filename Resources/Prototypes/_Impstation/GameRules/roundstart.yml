@@ -229,3 +229,89 @@
     specialEntries:
     - id: MobFoxRenault
       prob: 0.005
+
+- type: entity
+  parent: BaseGameRule
+  id: Slasher
+  components:
+  - type: SlasherRule
+    spawnShuttlePath: /Maps/_Impstation/Nonstations/SlasherSpawnShuttle.yml
+    deathMazeMinimumReachableTiles: 50
+    deathMazeSpawnMinSeparation: 4
+    requireDeathMazeAtmosphere: true
+    deathMazeMinimumSafeAtmosTiles: 50
+    requireDeathMazePower: true
+    deathMazeMinimumPoweredLights: 1
+    deathMazeSampleLineCount: 27
+    deathMazeSampleLineLength: 66
+    deathMazePortalPrototype: MidroundAntagTeleporter
+    deathMazeAdditionalPortalCount: 4
+    victoryLobbyMusicCollection: SlasherVictoryRoundEnd
+  - type: GameRule
+    minPlayers: 0
+    maxPlayers: 40
+  - type: AntagObjectives
+    objectives:
+    - SlasherPlaceEffigyObjective
+    - SlasherPlaceMeathooksObjective
+    - SlasherFeedSoulFragmentsObjective
+    - SlasherDoNotKillFlavorObjective
+  - type: LoadMapRule
+    mapPath: /Maps/_Impstation/Nonstations/SlasherSpawnShuttle.yml
+  - type: RuleGrids
+  - type: AntagLoadProfileRule
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ Slasher ]
+      max: 2
+      playerRatio: 15
+      spawnerPrototype: SpawnPointLocationSlasherShuttle
+      startingGear: SlasherGear
+      components:
+      - type: FlashWeakness
+      - type: CombatModeSprint
+        sprintCoefficient: 0.8
+      - type: Clumsy
+        clumsyHypo: false
+        clumsyVaulting: false
+        clumsyDefib: false
+      - type: OnDeathEntitySpawn
+        entityPrototype: ShadowKudzu
+        radius: 1
+      - type: NoGhoul
+      - type: NoSacrifice
+      - type: SlasherRole
+        actions:
+        - ActionSlasherGainShroud
+        - ActionSlasherRend
+        - ActionSlasherPlaceEffigy
+        - ActionSlasherDarkStep
+        - ActionSlasherDarkHeal
+        - ActionSlasherWeaponRecall
+      - type: SlasherEffigyLocator
+      - type: ZombieImmune
+      - type: AntagImmune
+      - type: SlasherShroud
+      - type: SlasherCombatLight
+      - type: SlasherCombatHeartbeat
+        beatInterval: 1.2
+        heartbeatSound:
+          path: /Audio/_Goobstation/Heretic/heartbeat.ogg
+      - type: Prying
+        pryPowered: true
+        force: true
+        speedModifier: 1.0
+        useSound:
+          path: /Audio/Items/crowbar.ogg
+      mindRoles:
+      - MindRoleSlasher
+      briefing:
+        text: slasher-role-greeting
+        color: Crimson
+        guides:
+        - Slasher
+        sound:
+          path: /Audio/Items/Anomaly/shadow_crit.ogg
+          params:
+            volume: 0 # this is in dB. If you make it 0 it's extremely loud.

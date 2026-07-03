@@ -42,12 +42,18 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, UnpoweredFlashlightComponent component, MapInitEvent args)
     {
+        if (!component.ManualToggle) // Imp Add for Slasher
+            return;
+
         _actionContainer.EnsureAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
         Dirty(uid, component);
     }
 
     private void OnToggleAction(EntityUid uid, UnpoweredFlashlightComponent component, ToggleActionEvent args)
     {
+        if (!component.ManualToggle) // Imp Add for Slasher
+            return;
+
         if (args.Handled)
             return;
 
@@ -57,11 +63,17 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
 
     private void OnGetActions(EntityUid uid, UnpoweredFlashlightComponent component, GetItemActionsEvent args)
     {
+        if (!component.ManualToggle) // Imp Add for Slasher
+            return;
+
         args.AddAction(component.ToggleActionEntity);
     }
 
     private void AddToggleLightVerbs(EntityUid uid, UnpoweredFlashlightComponent component, GetVerbsEvent<ActivationVerb> args)
     {
+        if (!component.ManualToggle) // Imp Add for Slasher
+            return;
+
         if (!args.CanAccess || !args.CanInteract)
             return;
 
@@ -78,6 +90,9 @@ public sealed class UnpoweredFlashlightSystem : EntitySystem
 
     private void OnMindAdded(EntityUid uid, UnpoweredFlashlightComponent component, MindAddedMessage args)
     {
+        if (!component.ManualToggle) // Imp Add for Slasher
+            return;
+
         _actionsSystem.AddAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
     }
 

@@ -170,3 +170,23 @@
     sprite: _Impstation/Clothing/Eyes/Glasses/monocle.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Eyes/Glasses/monocle.rsi
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesSlasherGlasses
+  name: slasher glasses
+  description: High-tech glasses worn by a relentless hunter.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Eyes/Glasses/bountyhunterglasses.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Eyes/Glasses/bountyhunterglasses.rsi
+  - type: ThermalVision
+    isEquipment: true
+    pulseTime: 2
+    toggleAction: PulseThermalVision
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
+  - type: PluralName
+    oneOf: plural-name-pair-1

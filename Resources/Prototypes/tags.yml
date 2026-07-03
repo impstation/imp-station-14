@@ -1289,6 +1289,9 @@
 - type: Tag
   id: Skewer # Food sequence key
 
+- type: Tag
+  id: SlasherEffigyLocator #  Imp Restricts the Slasher's temporary effigy-locator hand to the locator pinpointer.
+
 - type: Tag # sliced fruit, vegetables, pizza etc.
   id: Slice # CargoBounty blacklist: BountyFruit, BountyVegetable, BountyBread, BountyPie
 

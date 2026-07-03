@@ -1,0 +1,34 @@
+# Pulse helper entities used by Slasher pulse game rules.
+
+- type: entity
+  id: SlasherGhostOrb
+  name: ghost orb
+  categories: [ HideSpawnMenu ]
+  parent: BaseItem
+  components:
+  - type: TimedDespawn
+    lifetime: 6
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - sprite: Mobs/Elemental/living_light/luminous_entity.rsi
+      state: luminous_entity
+      color: "#b8ffb880"
+  - type: Physics
+    angularDamping: 0.02
+    linearDamping: 0.02
+    fixedRotation: true
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.16
+        density: 1
+        mask:
+        - FullTileMask
+        restitution: 0.98
+        friction: 0.01
+  - type: TileFrictionModifier
+    modifier: 0.1

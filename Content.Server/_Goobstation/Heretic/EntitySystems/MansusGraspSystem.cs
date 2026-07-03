@@ -297,6 +297,12 @@ public sealed partial class MansusGraspSystem : EntitySystem
     {
         if (!ev.Cancelled)
         {
+            if (HasComp<NoGhoulComponent>(ev.Target)) // imp add noghoul component
+            {
+                _popup.PopupEntity(Loc.GetString("heretic-ghoul-unghoulable"), ent, ent, PopupType.MediumCaution);
+                return;
+            }
+
             var minion = EnsureComp<MinionComponent>(ev.Target);
             EnsureComp<GhoulComponent>(ev.Target);
             minion.BoundOwner = ent;

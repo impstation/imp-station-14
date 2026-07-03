@@ -254,3 +254,35 @@
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
     - PopLimiter20
+
+- type: gamePreset
+  id: Slasher
+  alias:
+    - secretslasher
+  name: Slasher
+  description: secret-description
+  showInVote: false
+  rules:
+    - DummyNonAntagChance
+    - Slasher
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: SecretSlasher
+  alias:
+    - secretslasher
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - DummyNonAntagChance
+    - Slasher
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation

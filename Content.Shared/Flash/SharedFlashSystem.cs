@@ -1,5 +1,6 @@
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
+using Content.Shared._Impstation.Flash.Components; // imp add flash weakness component
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Flash.Components;
@@ -249,6 +250,10 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnPermanentBlindnessFlashAttempt(Entity<PermanentBlindnessComponent> ent, ref FlashAttemptEvent args)
     {
+        // Imp Add: Slasher
+        if (HasComp<FlashWeaknessComponent>(args.Target))
+            return;
+
         // check for total blindness
         if (ent.Comp.Blindness == 0)
             args.Cancelled = true;
@@ -256,11 +261,19 @@ public abstract class SharedFlashSystem : EntitySystem
 
     private void OnTemporaryBlindnessFlashAttempt(Entity<TemporaryBlindnessComponent> ent, ref FlashAttemptEvent args)
     {
+        // Imp Add: Slasher
+        if (HasComp<FlashWeaknessComponent>(args.Target))
+            return;
+
         args.Cancelled = true;
     }
 
     private void OnFlashImmunityFlashAttempt(Entity<FlashImmunityComponent> ent, ref FlashAttemptEvent args)
     {
+        // Imp Add: Slasher
+        if (HasComp<FlashWeaknessComponent>(args.Target))
+            return;
+
         if (TryComp<MaskComponent>(ent, out var mask) && mask.IsToggled)
             return;
 

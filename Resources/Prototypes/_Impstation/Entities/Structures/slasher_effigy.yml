@@ -1,0 +1,86 @@
+- type: entity
+  id: SlasherEffigy
+  parent: BaseStructure
+  name: blood effigy
+  description: A ritual vessel for stolen soul fragments.
+  suffix: slasher effigy
+  components:
+  - type: InteractionOutline
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+  - type: WarpPoint
+    location: Slasher Effigy
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/shadow_anom.rsi
+    layers:
+    - state: anom
+      map: ["base"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.SlasherEffigyVisuals.Status:
+        base:
+          Hidden: { state: anom }
+          Revealed: { state: pulse }
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - Impassable
+        - LowImpassable
+        layer:
+        - MachineLayer 
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.3
+        Slash: 0.3
+        Piercing: 0.3
+        Heat: 0.5
+        Structural: 0.05  # 95% reduction
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PointLight
+    enabled: true
+    color: "#7b3cf2"
+    radius: 3.0
+    energy: 2.0
+    netsync: false
+  - type: Visibility
+    layer: 16  # Slasher-only visibility while hidden (VisibilityFlags.Slasher = 1 << 4)
+  - type: StatusEffects  # Required so FlashedComponent can be added, which triggers flash-reveal logic
+    allowed:
+    - Flashed
+  - type: SlasherEffigy
+    effigyDestroyedSound:
+      path: /Audio/Items/Anomaly/shadow_crit.ogg
+      params:
+        volume: -3
+    healDamageGroups:
+    - Brute
+    - Burn
+    disruptionParticleTypes:
+    - Delta
+    - Epsilon
+    - Zeta
+    - Sigma
+    finalPhaseFragmentsRemaining: 2
+    revealedDamageTypes:
+    - Heat
+    - Structural
