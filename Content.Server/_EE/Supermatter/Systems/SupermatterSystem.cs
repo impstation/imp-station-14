@@ -1,5 +1,6 @@
 using Content.Server._Impstation.StrangeMoods;
 using Content.Server.Administration.Logs;
+using Content.Server.AlertLevel;
 using Content.Server.Announcements.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
@@ -51,6 +52,7 @@ namespace Content.Server._EE.Supermatter.Systems;
 
 public sealed partial class SupermatterSystem : EntitySystem
 {
+    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
@@ -314,6 +316,11 @@ public sealed partial class SupermatterSystem : EntitySystem
             Loc.GetString("resonance-cascade-announcement-sender"),
             colorOverride: Color.Cyan
         );
+
+        var supermatterXform = Transform(uid);
+        var stationUid = _station.GetStationInMap(supermatterXform.MapID);
+        if (stationUid != null)
+            _alertLevelSystem.SetLevel(stationUid.Value, "delta", true, true, true);
 
         _popup.PopupEntity(Loc.GetString("supermatter-destabalize-end"), uid, args.User);
         EntityManager.QueueDeleteEntity(args.Used);
