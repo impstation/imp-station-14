@@ -154,11 +154,13 @@ namespace Content.Server.Communications
                             {
                                 levels.Add(id);
                             }
-                            // Imp start
-                            else if (alertComp.CurrentLevel == id)
-                                levels.Add(id);
-                            // Imp end
                         }
+
+                        // Imp start
+                        if (alertComp.AlertLevels.Levels.TryGetValue(alertComp.CurrentLevel, out var level)
+                            && !level.Selectable)
+                            levels.Add(alertComp.CurrentLevel);
+                        // Imp end
                     }
 
                     currentLevel = alertComp.CurrentLevel;
