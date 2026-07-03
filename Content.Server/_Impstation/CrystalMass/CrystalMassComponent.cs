@@ -66,7 +66,7 @@ public sealed partial class CrystalMassComponent : Component
     public Color LightColor = Color.FromHex("#FBFF23");
 
     [DataField]
-    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_EE/Supermatter/supermatter.ogg")
+    public SoundSpecifier DustSound = new SoundPathSpecifier("/Audio/_Impstation/Supermatter/supermatter.ogg")
     {
         Params = AudioParams.Default
             .WithVolume(-3f)
