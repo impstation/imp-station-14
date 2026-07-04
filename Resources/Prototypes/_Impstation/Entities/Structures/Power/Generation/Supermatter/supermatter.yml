@@ -59,16 +59,17 @@
   - type: WarpPoint
     follow: true
     location: supermatter
-    blacklist: # imp edit
+    blacklist:
       tags:
       - GhostOnlyWarp
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
   - type: SupermatterImmune
-  - type: Tag # imp edit
+  - type: Tag
     tags:
     - GhostOnlyWarp
+    - EntitySpawnVariationBlocker
 
 - type: entity
   parent: BaseSupermatter
@@ -106,6 +107,42 @@
     energy: 10000
   - type: Appearance
   - type: Supermatter
+    defaultDelamination: ExplosionSupermatterDelamination 
+    enabledDelaminations:
+    - SingularitySupermatterDelamination
+    - TeslaSupermatterDelamination
+  - type: SupermatterLightning
+    lightningPrototype: SupermatterLightning
+    damageThresholds:
+      550:
+        zaps: 1
+        chance: 0.05
+    powerThresholds:
+      5000:
+        zaps: 2
+      7000:
+        zaps: 1
+        lightningPrototype: SupermatterLightningCharged
+      9000:
+        zaps: 1
+        lightningPrototype: SupermatterLightningSupercharged
+  - type: PsychologicalSoothingReceiver
+    rateDecay: 0.0016 # about 10 minutes to decay
+    rateGrowth: 0.0083 # about 2 minutes to soothe
+  - type: GrantComponentsOnObservation
+    message: supermatter-paracusia-player-message
+    visualType: LargeCaution
+    soundObserver: !type:SoundPathSpecifier
+      path: /Audio/Ambience/ambidanger.ogg
+    soundOwner: !type:SoundPathSpecifier
+      path: /Audio/Ambience/ambireebe3.ogg
+    grant:
+    - type: Paracusia # TODO: change to hallucinations
+      minTimeBetweenIncidents: 0.1
+      maxTimeBetweenIncidents: 300
+      maxSoundDistance: 7
+      sounds:
+        collection: Paracusia
   - type: AtmosDevice
     requireAnchored: false
     joinSystem: true
@@ -119,11 +156,11 @@
     - SupermatterDanger
     - SupermatterEmergency
     - SupermatterDelaminating
-  - type: HolidayVisuals #IMP: Mariah crystal
+  - type: HolidayVisuals
     holidays:
       festive:
       - FestiveSeason
-  - type: HolidayRsiSwap #IMP: Mariah crystal
+  - type: HolidayRsiSwap
     sprite:
       festive: _Impstation/Structures/Power/Generation/Supermatter/supermattermariah.rsi
 
@@ -161,6 +198,10 @@
     - type: Speech
       enabled: false
     - type: Supermatter
+      defaultDelamination: ExplosionSupermatterDelamination
+      enabledDelaminations:
+      - SingularitySupermatterDelamination
+      - TeslaSupermatterDelamination
       suppressAnnouncements: true
     - type: EmitSoundOnSpawn
       sound:

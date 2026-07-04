@@ -1,4 +1,5 @@
-using Content.Shared._Impstation.StrangeMoods;
+using System.Collections.Frozen;
+using Content.Shared._Impstation.Supermatter.Prototypes;
 using Content.Shared.Atmos;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DoAfter;
@@ -8,51 +9,26 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Impstation.Supermatter.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, AutoGenerateComponentPause, NetworkedComponent, AutoGenerateComponentState(true, true)]
 public sealed partial class SupermatterComponent : Component
 {
     #region Base
 
     /// <summary>
-    /// Imp.
-    /// Used for knowing if the supermatter is a shard
+    /// The current status of the singularity, used for alert sounds and the monitoring console
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public bool IsShard;
-
-    /// <summary>
-    /// The current status of the supermatter, used for alert sounds and the monitoring console
-    /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
-
-    /// <summary>
-    /// Imp.
-    /// The current supermatter event thats occuring
-    /// </summary>
-    [DataField]
-    public SupermatterEvent Event = SupermatterEvent.None;
-
-    /// <summary>
-    /// The supermatter's external gas mixture on the tile
-    /// </summary>
-    [DataField]
-    public GasMixture? GasMixture;
 
     /// <summary>
     /// The supermatter's internal gas storage
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public GasMixture? GasStorage;
-
-    /// <summary>
-    /// The supermatter's gas composition proportions
-    /// </summary>
-    [DataField]
-    public GasMixture? GasComposition;
 
     [DataField]
     public Color LightColorNormal = Color.FromHex("#ffe000");
@@ -60,29 +36,12 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public Color LightColorDelam = Color.FromHex("#ff5555");
 
-    [DataField]
-    public float HallucinationRange = 6f;
-
     #endregion
 
     #region Prototypes
 
     [DataField]
-    public EntProtoId[] LightningPrototypes =
-    {
-        "SupermatterLightning",
-        "SupermatterLightningCharged",
-        "SupermatterLightningSupercharged"
-    };
-
-    [DataField]
     public EntProtoId SliverPrototype = "SupermatterSliver";
-
-    [DataField]
-    public EntProtoId SingularitySpawnPrototype = "Singularity";
-
-    [DataField]
-    public EntProtoId TeslaSpawnPrototype = "TeslaEnergyBall";
 
     [DataField]
     public EntProtoId AnomalyBluespaceSpawnPrototype = "AnomalyBluespace";
@@ -96,17 +55,11 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public EntProtoId CollisionResultPrototype = "Ash";
 
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public EntProtoId DelamEffectsPrototype = "SupermatterDelamEffects";
-
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public EntProtoId DelamGamerulePrototype = "SupermatterDelamEventScheduler";
-
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public EntProtoId CascadeDelamGamerulePrototype = "SupermatterCascadeDelamRule";
+    [DataField]
+    public List<ProtoId<SupermatterDelaminationPrototype>> EnabledDelaminations = new();
 
     [DataField]
-    public HashSet<ProtoId<SharedMoodPrototype>> SharedMoodScrambleTargets = ["Thaven"];
+    public ProtoId<SupermatterDelaminationPrototype> DefaultDelamination = "SupermatterDelaminationExplosion";
 
     #endregion
 
@@ -126,9 +79,6 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public SoundSpecifier DelamLoopSound = new SoundPathSpecifier("/Audio/_Impstation/Supermatter/delamming.ogg");
-
-    [DataField]
-    public SoundSpecifier? CurrentSoundLoop;
 
     [DataField]
     public SoundSpecifier CalmAccent = new SoundCollectionSpecifier("SupermatterAccentNormal");
@@ -151,15 +101,6 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public ProtoId<SpeechSoundsPrototype> StatusDelamSound = "SupermatterDelaminating";
 
-    [DataField]
-    public ProtoId<SpeechSoundsPrototype>? StatusCurrentSound;
-
-    [DataField]
-    public SoundSpecifier GainParacusiaSound = new SoundPathSpecifier("/Audio/Ambience/ambidanger.ogg");
-
-    [DataField]
-    public SoundSpecifier GiveParacusiaSound = new SoundPathSpecifier("/Audio/Ambience/ambireebe3.ogg");
-
     #endregion
 
     #region Processing
@@ -167,70 +108,57 @@ public sealed partial class SupermatterComponent : Component
     /// <summary>
     /// The internal energy of the supermatter
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float Power;
 
     /// <summary>
     /// Takes the energy that supermatter collision generates and slowly turns it into actual power
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float MatterPower;
 
     /// <summary>
-    /// Affects the amount of oxygen and plasma that is released during supermatter reactions, as well as the heat generated
+    /// The percentage of the gas on the supermatter's tile that is absorbed and evaluated each atmos tick. The absorbed gasses are stored in <see cref="GasStorage"/> until the next atmos tick.
     /// </summary>
-    [DataField]
-    public float HeatModifier;
-
-    /// <summary>
-    /// The percentage of the gas on the supermatter's tile that is absorbed each atmos tick.
-    /// </summary>
+    /// <remarks>Waste gasses are added to the evaluated gas mixture, and the new mixture is released after processing.</remarks>
     [DataField]
     public float GasEfficiency = 0.15f;
 
     /// <summary>
+    /// The proportion of the absorbed gas to void. The gas is voided from the tile mixture rather than the gas storage
+    /// to preserve the accuracy of the gas storage for other functions. 
+    /// </summary>
+    /// <remarks>
+    /// In EE and Impstation, the supermatter voids gas due to an undocumented feature or bug where the absorbed gas was
+    /// being removed a second time during the damage step, and was never re-added.
+    /// </remarks>
+    [DataField]
+    public float GasVoidProportion = 1.0f;
+
+    /// <summary>
     /// Uses <see cref="PowerlossDynamicScaling"/> and <see cref="GasStorage"/> to lessen the effects of our powerloss functions
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public float PowerlossInhibitor = 1;
 
     /// <summary>
     /// Based on CO2 percentage, this slowly moves between 0 and 1.
     /// We use it to calculate <see cref="PowerlossInhibitor"/>.
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public float PowerlossDynamicScaling;
-
-    /// <summary>
-    /// Imp.
-    /// Radiation multiplier for the supermatter, affects base rads as well
-    /// </summary>
-    [DataField]
-    public float RadiationMultiplier = 1f;
 
     /// <summary>
     /// Affects the amount of damage and minimum point at which the SM takes heat damage
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public float DynamicHeatResistance = 1;
 
     /// <summary>
     /// More moles of gases are harder to heat than fewer, so let's scale heat damage around them
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public float MoleHeatPenaltyThreshold;
-
-    /// <summary>
-    /// Modifier to damage taken during supermatter reactions, soothing the supermatter when a psychologist is nearby
-    /// </summary>
-    [DataField]
-    public float PsyCoefficient;
-
-    /// <summary>
-    /// The chance for supermatter lightning to strike random coordinates instead of an entity
-    /// </summary>
-    [DataField]
-    public float ZapHitCoordinatesChance = 0.75f;
 
     /// <summary>
     /// The lifetime of a supermatter-spawned anomaly.
@@ -281,44 +209,50 @@ public sealed partial class SupermatterComponent : Component
     public float AnomalyPyroChance = 2500f;
 
     /// <summary>
-    /// The chance for a player to recieve danger text while the supermatter is cascading
+    /// The base number of rads produced by the crystal.
     /// </summary>
     [DataField]
-    public float CascadeMessageChance = 120f;
+    public float RadsBase = 4.0f;
+
+    /// <summary>
+    /// The multiplier used to scale the bonus rads produced by the supermatter.
+    /// </summary>
+    [DataField]
+    public float RadsModifier = 1.0f;
+
+    /// <summary>
+    /// The waste modifier without the <see cref="GasWasteModifierMinimum"/> applied.
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    public float GasWasteModifier;
+
+    /// <summary>
+    /// The minimum functional value of <see cref="GasWasteModifier"/>.
+    /// </summary>
+    [DataField]
+    public float GasWasteModifierMinimum = 0.5f;
 
     #endregion
 
     #region Timing
 
-    /// <summary>
-    /// We yell if over 50 damage every YellTimer Seconds
-    /// </summary>
-    [DataField]
-    public TimeSpan YellTimer;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField, AutoNetworkedField]
+    public TimeSpan? AnnounceNext;
 
-    /// <summary>
-    /// Last time the supermatter's damage was announced
-    /// </summary>
     [DataField]
-    public TimeSpan YellLast;
+    public TimeSpan AnnounceInterval = TimeSpan.FromSeconds(60);
 
     /// <summary>
     /// Time when the delamination will occur
     /// </summary>
-    [DataField]
-    public TimeSpan DelamEndTime;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField, AutoNetworkedField]
+    public TimeSpan? DelaminationTime;
 
     /// <summary>
     /// How long it takes in seconds for the supermatter to delaminate after reaching zero integrity
     /// </summary>
     [DataField]
-    public float DelamTimer = 30f;
-
-    /// <summary>
-    /// How long it takes in seconds for disrupting item actions to be used on the supermatter.
-    /// </summary>
-    [DataField]
-    public TimeSpan DisruptionTime = TimeSpan.FromSeconds(5);
+    public TimeSpan DelaminationDelay = TimeSpan.FromSeconds(30);
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
@@ -330,45 +264,36 @@ public sealed partial class SupermatterComponent : Component
     /// Minimum time in seconds between supermatter accent sounds
     /// </summary>
     [DataField]
-    public float AccentMinCooldown = 2f;
-
-    [DataField]
-    public TimeSpan ZapLast;
+    public TimeSpan AccentMinCooldown = TimeSpan.FromSeconds(2);
 
     #endregion
 
     #region Damage
 
     /// <summary>
-    /// The chance for lights across the station to flicker on a delamination
-    /// </summary>
-    [DataField]
-    public float LightFlickerChance = 0.33f;
-
-    /// <summary>
     /// The amount of damage taken
     /// </summary>
-    [DataField]
-    public float Damage = 0f;
+    [DataField, AutoNetworkedField]
+    public float Damage;
 
     /// <summary>
     /// The damage from before this cycle.
     /// Used to limit the damage we can take each cycle, and for safe alert.
     /// </summary>
-    [DataField]
-    public float DamageArchived = 0f;
+    [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
+    public float DamageArchived;
 
     /// <summary>
-    /// Is multiplied by ExplosionPoint to cap evironmental damage per cycle
+    /// The maximum amount of damage the supermatter can take in a single cycle, proportional to <see cref="DamageDelaminationThreshold"/>
     /// </summary>
     [DataField]
-    public float DamageHardcap = 0.002f;
+    public float MaximumDamagePerCycle = 0.002f;
 
     /// <summary>
-    /// Environmental damage is scaled by this
+    /// Supermatter Damage is multiplied by this value.
     /// </summary>
     [DataField]
-    public float DamageIncreaseMultiplier = 0.25f;
+    public float DamageMultiplier = 0.25f;
 
     /// <summary>
     /// Max space damage the SM will take per cycle
@@ -377,10 +302,22 @@ public sealed partial class SupermatterComponent : Component
     public float MaxSpaceExposureDamage = 2;
 
     /// <summary>
+    /// The point at which the SM begins shooting lightning.
+    /// </summary>
+    [DataField]
+    public float DamagePenaltyPoint = 550;
+
+    /// <summary>
     /// The point at which we should start sending radio messages about the damage.
     /// </summary>
     [DataField]
     public float DamageWarningThreshold = 50;
+
+    /// <summary>
+    /// The point at which the SM begins showing warning signs.
+    /// </summary>
+    [DataField]
+    public float DamageDangerThreshold = 300;
 
     /// <summary>
     /// The point at which we start sending station announcements about the damage.
@@ -389,48 +326,59 @@ public sealed partial class SupermatterComponent : Component
     public float DamageEmergencyThreshold = 500;
 
     /// <summary>
-    /// The point at which the SM begins shooting lightning.
-    /// </summary>
-    [DataField]
-    public int DamagePenaltyPoint = 550;
-
-    /// <summary>
     /// The point at which the SM begins delaminating.
     /// </summary>
     [DataField]
-    public int DamageDelaminationPoint = 900;
+    public float DamageDelaminationThreshold = 900;
 
     /// <summary>
-    /// The point at which the SM begins showing warning signs.
+    /// Whether the SM is currently in the delaminating process. 
     /// </summary>
-    [DataField]
-    public int DamageDelamAlertPoint = 300;
-
-    [DataField]
-    public bool Delamming;
-
-    [DataField]
-    public DelamType PreferredDelamType = DelamType.Explosion;
+    /// <remarks>
+    /// <para>This can be false while the <see cref="Status"/> is <see cref="SupermatterStatusType.Delaminating"/>, such as when the crystal is just entering the delamination process. If you don't need the distinction, use Status instead.</para>
+    /// </remarks>
+    [DataField, AutoNetworkedField]
+    public bool IsDelaminating;
 
     /// <summary>
-    /// If a destabalizing crystal is attatched to the SM.
+    /// This field only exists to facilitate networking the delamination prototype to clients.
     /// </summary>
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
+    public ProtoId<SupermatterDelaminationPrototype>? PreferredDelaminationProtoId;
+
+    /// <summary>
+    /// The selected delamination type to occur.
+    /// </summary>
+    /// <remarks>
+    /// Changing this after the SM has started delaminating will cause mispredictions in clients, as the chosen prototype ID is only sent to clients when the delamination process starts.
+    /// </remarks>
     [DataField]
-    public bool DestabilizingCrystal;
+    public SupermatterDelaminationPrototype? PreferredDelamination;
+
+    /// <summary>
+    /// If this is true, the SM will not change the preferred delamination type once it is set. This exists only to be used for admemes.
+    /// </summary>
+    /// <remarks>
+    /// The naming of this property is intentional to keep it adjacent to <see cref="PreferredDelamination"/> in VV.
+    /// </remarks>
+    [DataField]
+    public bool PreferredDelaminationIsForced;
 
     #endregion
 
     #region Announcements
 
-    [DataField]
-    public bool DelamAnnounced;
-
     /// <summary>
-    /// The radio channel for supermatter alerts
+    /// Whether the current delamination process has been announced.
     /// </summary>
     [DataField]
-    public bool SuppressAnnouncements = false;
+    public bool IsDelaminationAnnounced;
 
+    /// <summary>
+    /// Whether to suppress announcements for this supermatter.
+    /// </summary>
+    [DataField]
+    public bool SuppressAnnouncements;
 
     /// <summary>
     /// The radio channel for supermatter alerts
@@ -452,98 +400,65 @@ public sealed partial class SupermatterComponent : Component
 
     #endregion
 
-    #region Signal Ports
-
+    /// <summary>
+    /// Mapping used with <see cref="Status"/> to determine which device linking port to invoke.
+    /// </summary>
     [DataField]
-    public ProtoId<SourcePortPrototype> PortInactive = "SupermatterInactive";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortNormal = "SupermatterNormal";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortCaution = "SupermatterCaution";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortWarning = "SupermatterWarning";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortDanger = "SupermatterDanger";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortEmergency = "SupermatterEmergency";
-
-    [DataField]
-    public ProtoId<SourcePortPrototype> PortDelaminating = "SupermatterDelaminating";
-
-    #endregion
+    public Dictionary<SupermatterStatusType, ProtoId<SourcePortPrototype>> SignalPorts = new()
+    {
+        { SupermatterStatusType.Error, "SupermatterInactive" },
+        { SupermatterStatusType.Inactive, "SupermatterInactive" },
+        { SupermatterStatusType.Normal, "SupermatterNormal" },
+        { SupermatterStatusType.Caution, "SupermatterCaution" },
+        { SupermatterStatusType.Warning, "SupermatterWarning" },
+        { SupermatterStatusType.Danger, "SupermatterDanger" },
+        { SupermatterStatusType.Emergency, "SupermatterEmergency" },
+        { SupermatterStatusType.Delaminating, "SupermatterDelaminating" }
+    };
 
     #region Console-Only Values
 
     /// <summary>
     /// The power decay of the supermatter, to be displayed on the monitoring console
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public float PowerLoss;
 
     /// <summary>
     /// The low temperature healing of the supermatter, to be displayed on the monitoring console
     /// </summary>
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public float HeatHealing;
-
-    /// <summary>
-    /// The true value of <see cref="HeatModifier"/> without a lower bound, to be displayed on the monitoring console
-    /// </summary>
-    [DataField]
-    public float GasHeatModifier;
 
     #endregion
 }
 
-public enum DelamType : int
-{
-    Explosion = 0,
-    Singulo = 1,
-    Tesla = 2,
-    Cascade = 3
-}
-
-[Serializable, NetSerializable]
-public struct SupermatterGasFact
+public readonly record struct SupermatterGasFact(float TransmitModifier, float WasteModifier, float PowerMixRatio, float HeatResistance)
 {
     /// <summary>
     /// Multiplied with the supermatter's power to determine rads
     /// </summary>
-    public float TransmitModifier;
+    public readonly float TransmitModifier = TransmitModifier;
 
     /// <summary>
     /// Affects the amount of oxygen and plasma that is released during supermatter reactions, as well as the heat generated
     /// </summary>
-    public float HeatPenalty;
+    public readonly float WasteModifier = WasteModifier;
 
     /// <summary>
     /// Affects the amount of power generated by the supermatter
     /// </summary>
-    public float PowerMixRatio;
+    public readonly float PowerMixRatio = PowerMixRatio;
 
     /// <summary>
     /// Affects the supermatter's resistance to temperature
     /// </summary>
-    public float HeatResistance;
-
-    public SupermatterGasFact(float transmitModifier, float heatPenalty, float powerMixRatio, float heatResistance)
-    {
-        TransmitModifier = transmitModifier;
-        HeatPenalty = heatPenalty;
-        PowerMixRatio = powerMixRatio;
-        HeatResistance = heatResistance;
-    }
+    public readonly float HeatResistance = HeatResistance;
 }
 
-[Serializable, NetSerializable]
 public static class SupermatterGasData
 {
-    public static readonly Dictionary<Gas, SupermatterGasFact> GasData = new()
+    public static readonly FrozenDictionary<Gas, SupermatterGasFact> GasData = new Dictionary<Gas, SupermatterGasFact>()
     {
         { Gas.Oxygen,        new(1.5f, 1f,    1f,  1f) },
         { Gas.Nitrogen,      new(0f,   -1.5f, -1f, 1f) },
@@ -554,36 +469,36 @@ public static class SupermatterGasData
         { Gas.Ammonia,       new(0f,   1f,    1f , 1f) },
         { Gas.NitrousOxide,  new(0f,   -5f,   -1f, 6f) },
         { Gas.Frezon,        new(3f,   -10f,  -1f, 1f) }
-    };
+    }.ToFrozenDictionary();
 
-    public static float CalculateGasMixModifier(GasMixture mix, Func<SupermatterGasFact, float> getModifier)
+    private static float CalculateGasMixModifier(Dictionary<Gas, float> ratios, Func<SupermatterGasFact, float> getModifier)
     {
-        var modifier = 0f;
+        float modifier = 0;
 
-        foreach (var gasId in Enum.GetValues<Gas>())
-            modifier += mix.GetMoles(gasId) * getModifier(GasData.GetValueOrDefault(gasId));
+        foreach (var (gas, ratio) in ratios)
+            modifier += ratio * getModifier(GasData[gas]);
 
         return modifier;
     }
 
-    public static float GetTransmitModifiers(GasMixture mix)
+    public static float GetTransmitModifiers(Dictionary<Gas, float> ratios)
     {
-        return CalculateGasMixModifier(mix, data => data.TransmitModifier);
+        return CalculateGasMixModifier(ratios, data => data.TransmitModifier);
     }
 
-    public static float GetHeatPenalties(GasMixture mix)
+    public static float GetMixWastePenalty(Dictionary<Gas, float> ratios)
     {
-        return CalculateGasMixModifier(mix, data => data.HeatPenalty);
+        return CalculateGasMixModifier(ratios, data => data.WasteModifier);
     }
 
-    public static float GetPowerMixRatios(GasMixture mix)
+    public static float GetPowerMixRatios(Dictionary<Gas, float> ratios)
     {
-        return CalculateGasMixModifier(mix, data => data.PowerMixRatio);
+        return CalculateGasMixModifier(ratios, data => data.PowerMixRatio);
     }
 
-    public static float GetHeatResistances(GasMixture mix)
+    public static float GetHeatResistances(Dictionary<Gas, float> ratios)
     {
-        return CalculateGasMixModifier(mix, data => data.HeatResistance);
+        return CalculateGasMixModifier(ratios, data => data.HeatResistance);
     }
 }
 
@@ -609,16 +524,6 @@ public enum SupermatterCrystalState : byte
     GlowDelam
 }
 
-// Imp start
-[Serializable, NetSerializable]
-public enum SupermatterEvent : byte
-{
-    None = 0,
-    Surging = 1,
-    Discharging = 2, // TODO: future supermatter event causing singularity delamination conditions
-}
-// Imp end
-
 [Serializable, NetSerializable]
 public enum SupermatterVisuals : byte
 {
@@ -627,18 +532,40 @@ public enum SupermatterVisuals : byte
 }
 
 [Serializable, NetSerializable]
-public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
-{
-}
+public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent;
 
-[Serializable, NetSerializable]
-public sealed partial class DestabilizingCrystalDoAfterEvent : SimpleDoAfterEvent
-{
-}
+/// <summary>
+/// Raised when the supermatter takes damage, with the amount of damage taken.
+/// </summary>
+[ByRefEvent]
+public record struct SupermatterDamagedEvent;
 
-[Serializable, NetSerializable]
-public sealed partial class SupermatterSpriteUpdateEvent(NetEntity uid, string state) : EntityEventArgs
-{
-    public NetEntity Entity = uid;
-    public string State = state;
-}
+/// <summary>
+/// Raised when the supermatter starts the delamination process.
+/// </summary>
+[ByRefEvent]
+public record struct SupermatterDelaminationStartedEvent;
+
+/// <summary>
+/// Raised when the supermatter cancels the delamination process.
+/// </summary>
+[ByRefEvent]
+public record struct SupermatterDelaminationCancelledEvent;
+
+/// <summary>
+/// Raised when the supermatter finishes the delamination timer.
+/// </summary>
+[ByRefEvent]
+public record struct SupermatterDelaminationEvent;
+
+/// <summary>
+/// Raised when the supermatter should announce its status.
+/// </summary>
+[ByRefEvent]
+public record struct SupermatterAnnouncementEvent;
+
+/// <summary>
+/// Raised when the supermatter's status changes.
+/// </summary>
+[ByRefEvent]
+public record struct SupermatterStatusChangedEvent;
