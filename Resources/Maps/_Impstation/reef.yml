@@ -17218,8 +17218,6 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - invalid
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -17303,8 +17301,6 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - invalid
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -17319,8 +17315,6 @@ entities:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
-          ents:
-          - invalid
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -20631,7 +20625,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13
-      - invalid
   - uid: 63695
     components:
     - type: Transform
@@ -21182,7 +21175,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - invalid
       - 13
   - uid: 89959
     components:
@@ -21191,7 +21183,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - invalid
       - 13
   - uid: 89963
     components:
@@ -21200,7 +21191,6 @@ entities:
       parent: 2
     - type: DeviceNetwork
       deviceLists:
-      - invalid
       - 13
   - uid: 90306
     components:
@@ -21208,32 +21198,24 @@ entities:
       pos: -32.5,16.5
       parent: 2
     - type: DeviceNetwork
-      deviceLists:
-      - invalid
   - uid: 90423
     components:
     - type: Transform
       pos: -29.5,21.5
       parent: 2
     - type: DeviceNetwork
-      deviceLists:
-      - invalid
   - uid: 90427
     components:
     - type: Transform
       pos: -29.5,20.5
       parent: 2
     - type: DeviceNetwork
-      deviceLists:
-      - invalid
   - uid: 90430
     components:
     - type: Transform
       pos: -29.5,19.5
       parent: 2
     - type: DeviceNetwork
-      deviceLists:
-      - invalid
   - uid: 90642
     components:
     - type: Transform
@@ -21331,7 +21313,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 13
-      - invalid
   - uid: 91938
     components:
     - type: Transform
@@ -23609,8 +23590,6 @@ entities:
       canCollide: True
       bodyType: Dynamic
     - type: DeviceNetwork
-      deviceLists:
-      - invalid
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 77118
@@ -23676,8 +23655,6 @@ entities:
       pos: 9.5,-12.5
       parent: 2
     - type: DeviceNetwork
-      deviceLists:
-      - invalid
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 77867
