@@ -52,6 +52,8 @@
     maxFillLevels: 6
     fillBaseName: hypo_fill
     solutionName: hypospray
+  - type: FitsInDispenser # imp
+    solution: hypospray
 
 - type: entity
   parent: [BaseHypospray, BaseSyndicateContraband]
@@ -140,6 +142,13 @@
     allowedModes:
     - JetInjectorDynamicMode
     - JetInjectorInjectMode
+  - type: FitsInDispenser # imp
+    solution: hypospray
+  - type: RefillableSolution # imp, required for chem dispenser
+    solution: hypospray
+    refillTime: 10 # its a bit fiddly to pour into a jet injector, I dont reccommend it
+    maxRefill: 5
+
 
 - type: entity
   parent: JetInjector
@@ -168,6 +177,10 @@
     allowedModes:
     - AdvancedJetInjectorDynamicMode
     - AdvancedJetInjectorInjectMode
+  - type: RefillableSolution # imp, required for chem dispenser
+    solution: hypospray
+    refillTime: 10
+    maxRefill: 10 # same but you can do a liiitle more beacuse its Advanced
 
 - type: entity
   parent: SyndiHypo
