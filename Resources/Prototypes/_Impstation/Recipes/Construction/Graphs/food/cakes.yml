@@ -9,12 +9,10 @@
     - to: vanillaCake
       steps:
       - tag: VanillaFrosting
-        amount: 1
         doAfter: 1
     - to: spacemanCake
       steps:
       - tag: SpacemanFrosting
-        amount: 1
         doAfter: 1
 
   - node: vanillaCake
