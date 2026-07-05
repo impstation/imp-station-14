@@ -9,10 +9,12 @@
     - to: vanillaCake
       steps:
       - tag: VanillaFrosting
+        name: construction-graph-tag-frosting-vanilla
         doAfter: 1
     - to: spacemanCake
       steps:
       - tag: SpacemanFrosting
+        name: construction-graph-tag-frosting-spacemans
         doAfter: 1
 
   - node: vanillaCake
