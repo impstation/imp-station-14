@@ -154,6 +154,7 @@
     - Bee
     - Trash
     - MultitoolDefibrillatorTarget #imp
+    - RecyclerGibbable # imp
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -452,6 +453,7 @@
     - VimPilot
     - MultitoolDefibrillatorTarget # imp
     - KodeEdible # imp
+    - RecyclerGibbable # imp
   - type: Destructible
     thresholds:
     - trigger:
@@ -637,6 +639,7 @@
     - CannotSuicide
     - VimPilot
     - MultitoolDefibrillatorTarget #imp
+    - RecyclerGibbable # imp
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
@@ -906,6 +909,7 @@
     - Trash
     - MultitoolDefibrillatorTarget #imp
     - Butterfly #imp, for butterfly orchid
+    - RecyclerGibbable # imp
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -1356,6 +1360,30 @@
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.8
+  - type: MeleeThrowOnHit
+    unanchorOnHit: Unanchorable
+    speed: 6.5
+    distance: 5.5
+  - type: TargetEmoteOnMelee
+    emote: Flip
+  - type: Speech
+    speechSounds: Gorilla
+    speechVerb: Monkey
+    allowedEmotes: ['Scream', 'Laugh', "BeatingChest"]
+  - type: BodyEmotes
+    soundsId: GorillaBody
+  - type: AdvancedFullReplacementAccent
+    accent: monkey
+  - type: Emoting
+  - type: Vocal
+    sounds:
+      Male: Gorilla
+      Female: Gorilla
+      Unsexed: Gorilla
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
   # imp edit end
 
 - type: entity
@@ -1611,7 +1639,8 @@
     speechSounds: Monkey
     speechVerb: Monkey
     allowedEmotes: ['Scream', 'Laugh'] #imp
-  - type: MonkeyAccent
+  - type: AdvancedFullReplacementAccent # imp
+    accent: monkey
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-primate
   - type: AlwaysRevolutionaryConvertible
@@ -1660,7 +1689,8 @@
     speechSounds: Monkey
     speechVerb: Monkey
     allowedEmotes: ['Scream', 'Laugh'] #imp
-  - type: MonkeyAccent
+  - type: AdvancedFullReplacementAccent # imp
+    accent: monkey
   - type: NpcFactionMember
     factions:
     - Syndicate
@@ -2024,6 +2054,7 @@
     - Mouse
     - Meat
     - MultitoolDefibrillatorTarget #imp
+    - RecyclerGibbable # imp
   - type: Respirator
     damage:
       types:
@@ -2244,7 +2275,8 @@
     energy: 5
     netsync: false
   - type: RadiationSource
-    intensity: 0.3
+    intensity: 0.5
+    slope: 0.3
   - type: Bloodstream
     bloodReferenceSolution:
       reagents:
@@ -2326,6 +2358,7 @@
     tags:
     - VimPilot
     - MultitoolDefibrillatorTarget #imp edit
+    - RecyclerGibbable # imp
   # imp edit start
   - type: GoobAbsorbable
     biomassRestored: 0.2
@@ -2404,6 +2437,7 @@
   - type: Tag
     tags:
     - MultitoolDefibrillatorTarget
+    - RecyclerGibbable
   - type: GoobAbsorbable
     biomassRestored: 0.1
   - type: Carriable
@@ -2482,6 +2516,7 @@
     tags:
     - VimPilot
     - MultitoolDefibrillatorTarget # imp
+    - RecyclerGibbable # imp
   - type: Destructible
     thresholds:
     - trigger:
@@ -3494,6 +3529,7 @@
     tags:
     - VimPilot
     - MultitoolDefibrillatorTarget
+    - RecyclerGibbable # imp
   # imp edit start
 
 - type: entity
@@ -3766,6 +3802,7 @@
     tags:
     - VimPilot
     - MultitoolDefibrillatorTarget
+    - RecyclerGibbable
   # imp edit end
 
 - type: entity
@@ -4005,6 +4042,7 @@
     - Hamster
     - Meat
     - MultitoolDefibrillatorTarget #imp
+    - RecyclerGibbable # imp
   - type: Respirator
     damage:
       types:
@@ -4061,6 +4099,20 @@
   - type: VentCrawler
     enterDelay: 1
   - type: AlwaysRevolutionaryConvertible
+  - type: SecretStash
+    secretStashName: secret-stash-hamster
+    blacklist:
+      tags:
+      - QuantumSpinInverter # grinder problems
+    tryInsertItemSound: /Audio/Effects/Fluids/blood2.ogg
+    tryRemoveItemSound: /Audio/Effects/Fluids/blood1.ogg
+  - type: ToolOpenable
+    openToolQualityNeeded: Slicing
+    closeToolQualityNeeded: Welding
+    name: secret-stash-hamster
+  - type: ContainerContainer
+    containers:
+      stash: !type:ContainerSlot {}
   # imp edit end
 
 - type: entity

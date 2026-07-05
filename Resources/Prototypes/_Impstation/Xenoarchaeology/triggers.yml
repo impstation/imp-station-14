@@ -30,6 +30,7 @@
     TriggerMagnet: 1
     TriggerResurrection: 1
     TriggerStun: 1
+    TriggerNat20: 0.3
     TriggerDrinkCaffeine: 0.05
     TriggerDrinkClassicMartini: 0.05
     TriggerDrinkBudgetInsuls: 0.05
@@ -101,6 +102,19 @@
     - Hyronalin
     - Inaprovaline
     - Epinephrine
+
+- type: xenoArchTrigger
+  id: TriggerNat20
+  tip: xenoarch-trigger-hint-nat-20
+  targetDepths: [ 1, 2, 3, 4 ]
+  components:
+  - type: XATDiceRolled
+    range: 10
+    minSides: 20
+    targetSide: 20
+    mode: "High"
+
+#region Drinks
 
 - type: xenoArchTrigger
   id: TriggerDrinkCaffeine

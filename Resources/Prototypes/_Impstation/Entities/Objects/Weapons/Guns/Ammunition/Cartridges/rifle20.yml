@@ -1,6 +1,6 @@
 - type: entity
   id: BaseCartridgeRifle
-  name: cartridge (.20 rifle)
+  name: cartridge (.20 assault)
   parent: [ BaseCartridge, BaseSecurityContraband ]
   abstract: true
   components:
@@ -8,7 +8,7 @@
     tags:
       - CartridgeRifle
   - type: CartridgeAmmo
-    proto: BulletRifle
+    proto: BulletStandard
   - type: Sprite
     sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
     layers:
@@ -19,21 +19,21 @@
 
 - type: entity
   id: CartridgeRifle
-  name: cartridge (.20 rifle)
+  name: cartridge (.20 assault)
   parent: BaseCartridgeRifle
   description: A modern intermediate cartridge for combat rifles. Standard kinetic ammunition is common and useful in most situations.
   components:
   - type: CartridgeAmmo
-    proto: BulletRifle
+    proto: BulletStandard
 
 - type: entity
   id: CartridgeRiflePractice
-  name: cartridge (.20 rifle practice)
+  name: cartridge (.20 assault practice)
   parent: BaseCartridgeRifle
   description: A modern intermediate cartridge for combat rifles. Chalk ammunition is generally non-harmful, used for practice.
   components:
   - type: CartridgeAmmo
-    proto: BulletRiflePractice
+    proto: BulletStandardPractice
   - type: Sprite
     layers:
       - state: base
@@ -44,12 +44,12 @@
 
 - type: entity
   id: CartridgeRifleIncendiary
-  name: cartridge (.20 rifle incendiary)
+  name: cartridge (.20 assault incendiary)
   parent: BaseCartridgeRifle
   description: A modern intermediate cartridge for combat rifles. Incendiary ammunition contains a self-igniting compound that sets the target ablaze.
   components:
   - type: CartridgeAmmo
-    proto: BulletRifleIncendiary
+    proto: BulletStandardIncendiary
   - type: Sprite
     layers:
       - state: base
@@ -60,12 +60,12 @@
 
 - type: entity
   id: CartridgeRifleUranium
-  name: cartridge (.20 rifle uranium)
+  name: cartridge (.20 assault uranium)
   parent: BaseCartridgeRifle
   description: A modern intermediate cartridge for combat rifles. Uranium ammunition replaces the lead core of the bullet with fissile material, irradiating the target from the inside.
   components:
   - type: CartridgeAmmo
-    proto: BulletRifleUranium
+    proto: BulletStandardUranium
   - type: Sprite
     layers:
       - state: base

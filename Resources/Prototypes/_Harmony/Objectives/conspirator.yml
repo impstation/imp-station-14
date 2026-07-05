@@ -86,7 +86,7 @@
   - type: Objective
     icon:
       sprite: _Impstation/Objects/Weapons/Melee/stunbaton.rsi # imp edit
-      state: stunbaton_off
+      state: stunbaton_on
 
 - type: entity
   parent: BaseConspiratorObjective
@@ -108,8 +108,8 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Walls/solid.rsi
-      state: rgeneric
+      sprite: Structures/Holo/security.rsi
+      state: icon
 
 
 - type: entity
@@ -166,4 +166,18 @@
     icon:
       sprite: Objects/Consumable/Food/snacks.rsi
       state: chips-trash
+
+# survive and get to evac objective
+- type: entity
+  parent: [BaseConspiratorObjective, BaseLivingObjective]
+  id: ConspiratorEvacObjective
+  name: Escape to CentComm alive and unrestrained via the escape shuttle.
+  description: The whole crew must make it out alive and free.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: EscapeShuttleCondition
+
 # imp end

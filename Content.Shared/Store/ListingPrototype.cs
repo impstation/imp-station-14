@@ -6,6 +6,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Content.Shared.Heretic.Prototypes; // imp
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array; // imp
 
 namespace Content.Shared.Store;
 
@@ -43,6 +44,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.RestockTime,
         other.DiscountDownTo,
         other.ProductHereticKnowledge, // imp add
+        other.FlavorText, // Imp
         other.DisableRefund,
         other.ApplyToMob
     )
@@ -71,6 +73,7 @@ public partial class ListingData : IEquatable<ListingData>
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
         ProtoId<HereticKnowledgePrototype>? productHereticKnowledge, // imp
+        string? flavorText, // imp
         bool disableRefund,
         bool applyToMob
     )
@@ -95,6 +98,7 @@ public partial class ListingData : IEquatable<ListingData>
         RestockTime = restockTime;
         DiscountDownTo = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(dataDiscountDownTo);
         ProductHereticKnowledge = productHereticKnowledge; // imp
+        FlavorText = flavorText; // Imp
         DisableRefund = disableRefund;
         ApplyToMob = applyToMob;
     }
@@ -206,6 +210,14 @@ public partial class ListingData : IEquatable<ListingData>
     [DataField]
     public ProtoId<HereticKnowledgePrototype>? ProductHereticKnowledge;
 
+    // Imp start
+    /// <summary>
+    /// Flavor text that's seperate from the listing's description.
+    /// </summary>
+    [DataField]
+    public string? FlavorText;
+    // Imp end
+
     [DataField]
     public bool RaiseProductEventOnUser;
 
@@ -281,8 +293,28 @@ public partial class ListingData : IEquatable<ListingData>
 /// </summary>
 [Prototype]
 [DataDefinition]
-public sealed partial class ListingPrototype : ListingData, IPrototype
+public sealed partial class ListingPrototype : ListingData, IPrototype, IInheritingPrototype // imp edit, add IInheritingPrototype
 {
+    // imp edit start, add support for parents and abstract
+    /// <summary>
+    ///     The collection of parents for this prototype. Parents' data is applied to the child in order of
+    ///     specification in the array.
+    /// </summary>
+    ///  <inheritdoc />
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<ListingPrototype>))]
+    public string[]? Parents { get; private set; }
+
+    /// <summary>
+    ///     Whether this prototype is "abstract". This behaves ike an abstract class, abstract prototypes are never
+    ///     indexable and do not show up when enumerating prototypes, as they're just a source of data to inherit
+    ///     from.
+    /// </summary>
+    ///  <inheritdoc />
+    [NeverPushInheritance]
+    [AbstractDataField]
+    public bool Abstract { get; private set; }
+    // imp edit end
+
     /// <summary> Setter/getter for item cost from prototype. </summary>
     [DataField]
     public IReadOnlyDictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Cost
@@ -336,6 +368,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.RestockTime,
             listingData.DiscountDownTo,
             listingData.ProductHereticKnowledge, // imp
+            listingData.FlavorText, // Imp
             listingData.DisableRefund,
             listingData.ApplyToMob
         )
