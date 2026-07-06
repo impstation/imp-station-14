@@ -57,3 +57,7 @@ login_dataset = "LoginTips"
 [whitelist]
 enabled = true
 # we are reenabling the whitelist after admins decided it was a good idea
+
+[admin]
+# sets time that players must wait before dismissing an admin message on login
+message_wait_time = 10
