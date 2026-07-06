@@ -95,6 +95,20 @@ public sealed class ThirstSystem : EntitySystem
         SetThirst(uid, component, component.CurrentThirst + amount);
     }
 
+    // Imp. It works this way for Hunger thirst should do the same.
+    /// <summary>
+    /// Adds to the current thirst of an entity by the specified value
+    /// </summary>
+    /// <param name="uid"></param>
+    /// <param name="amount"></param>
+    /// <param name="component"></param>
+    public void ModifyThirst(EntityUid uid, float amount, ThirstComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+        SetThirst(uid, component, component.CurrentThirst + amount);
+    }
+
     public void SetThirst(EntityUid uid, ThirstComponent component, float amount)
     {
         component.CurrentThirst = Math.Clamp(amount,
