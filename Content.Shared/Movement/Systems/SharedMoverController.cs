@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._EE.Movement.Events;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -567,7 +568,10 @@ public abstract partial class SharedMoverController : VirtualController
 
         if (mobMover.StepSoundDistance < distanceNeeded)
             return false;
-
+        //EE edit start
+        var footstepSoundEv = new MakeFootstepSoundEvent();
+        RaiseLocalEvent(uid, footstepSoundEv);
+        //EE edit end
         mobMover.StepSoundDistance -= distanceNeeded;
 
         if (FootstepModifierQuery.TryComp(uid, out var moverModifier))
