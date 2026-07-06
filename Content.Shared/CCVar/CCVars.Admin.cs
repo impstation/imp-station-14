@@ -45,7 +45,7 @@ public sealed partial class CCVars
     ///     How much time does the user have to wait in seconds before confirming that they saw an admin message?
     /// </summary>
     public static readonly CVarDef<float> MessageWaitTime =
-        CVarDef.Create("admin.message_wait_time", 10f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("admin.message_wait_time", 3f, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
     ///     Default severity for role bans
