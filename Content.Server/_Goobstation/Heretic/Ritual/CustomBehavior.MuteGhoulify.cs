@@ -14,7 +14,6 @@ namespace Content.Server.Heretic.Ritual;
 
 public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
 {
-
     // imp start
     private MinionSystem _minion = default!;
     private PopupSystem _popup = default!;
