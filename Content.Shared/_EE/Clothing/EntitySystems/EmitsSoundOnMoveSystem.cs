@@ -38,8 +38,6 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
     private void OnEquipped(Entity<Components.EmitsSoundOnMoveComponent> ent, ref GotEquippedEvent args)
     {
         ent.Comp.IsSlotValid = !args.SlotFlags.HasFlag(ent.Comp.InvalidSlots);
-       var xform = Transform(ent.Owner);
-        ent.Comp.LastPosition = xform.Coordinates;
     }
 
     private void OnUnequipped(Entity<Components.EmitsSoundOnMoveComponent> ent, ref GotUnequippedEvent args)
@@ -52,18 +50,13 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
         var uid = ent.Owner;
         var component = ent.Comp;
 
-        if (!_physicsQuery.TryGetComponent(uid, out var physics)
-            || !_timing.IsFirstTimePredicted)
+        if (!_timing.IsFirstTimePredicted)
             return;
-
+        if (_timing.CurTime < ent.Comp.CooldownTimer)
+            return;
         var xform = Transform(uid);
         // Space does not transmit sound
         if (xform.GridUid is null)
-            return;
-
-        if (!xform.Coordinates.TryDistance(EntityManager, ent.Comp.LastPosition, out float distance))
-            return;
-        if (distance<ent.Comp.DistanceNeeded)
             return;
 
         if (component.RequiresGravity && _gravity.IsWeightless(uid))
@@ -85,5 +78,7 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
             .WithVariation(sound.Params.Variation ?? 0f);
 
         _audio.PlayPredicted(sound, uid, uid, audioParams);
+        ent.Comp.CooldownTimer=_timing.CurTime + ent.Comp.SoundCooldown;
+        Dirty(ent);
     }
 }

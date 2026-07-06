@@ -25,8 +25,8 @@ public sealed partial class EmitsSoundOnMoveComponent : Component
     [DataField("requiresGravity"), AutoNetworkedField]
     public bool RequiresGravity = true;
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    public EntityCoordinates LastPosition = EntityCoordinates.Invalid;
+    [DataField, AutoNetworkedField]
+    public TimeSpan CooldownTimer = TimeSpan.Zero;
 
     /// <summary>
     ///   Whether this item is equipped in a inventory item slot.
@@ -38,7 +38,7 @@ public sealed partial class EmitsSoundOnMoveComponent : Component
     ///     If worn, how far the wearer has to walk in order to make a sound.
     /// </summary>
     [DataField]
-    public float DistanceNeeded = 1.5f;
+    public TimeSpan SoundCooldown = TimeSpan.FromSeconds(3);
 
     /// <summary>
     ///     Whether or not this item must be worn in order to make sounds.
