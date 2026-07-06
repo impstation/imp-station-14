@@ -148,6 +148,11 @@ public sealed class HellWorldSystem : EntitySystem
         //make clone
         _cloning.TryCloning(uid, _xform.GetMapCoordinates(newSpawn.Uid), _cloneSettings, out var clone); //RIP SacrifialWhiteBoy variable name
 
+        if (clone != null)
+        {
+            inHell.CloneBody = clone;
+        }
+
         if (TryComp<BlindableComponent>(clone, out _))
         {
             _blind.AdjustEyeDamage(clone.Value, 5); //make it more disorienting
@@ -162,7 +167,7 @@ public sealed class HellWorldSystem : EntitySystem
     }
 
     /// <summary>
-    /// Handles moving the mind back into the clone and applying the status effect
+    /// Handles moving the mind back into the original body and applying the status effect
     /// </summary>
     private void OnReturn(Entity<InHellComponent> uid, ref HereticReturnFromHellEvent args)
     {
@@ -203,6 +208,9 @@ public sealed class HellWorldSystem : EntitySystem
             var brief = Loc.GetString(hellVictim.Effect.Message);
             _antag.SendBriefing(session, brief, Color.MediumPurple, new SoundPathSpecifier("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg"));
         }
+
+        //delete hell clone
+        Del(inHell.CloneBody);
     }
 
     /// <summary>
@@ -224,7 +232,6 @@ public sealed class HellWorldSystem : EntitySystem
     /// adds the component disallowing sacrifice
     /// happens BEFORE onreturn, so effects are generated here
     /// </summary>
-
     private void SacrificeCleanup(EntityUid uid, HereticSacrificeEffectPrototype? effect = null)
     {
         EnsureComp<NoSacrificeComponent>(uid);
@@ -254,6 +261,12 @@ public sealed class HellWorldSystem : EntitySystem
         {
             //fallback to cryo, incase someone forgot to map points
             spawnPoints = EntityManager.GetAllComponents(typeof(CryostorageComponent)).ToImmutableList();
+
+            //is cryo unavailable? fuck.
+            if (spawnPoints.Count == 0)
+            {
+                return;
+            }
         }
         var newSpawn = _random.Pick(spawnPoints);
         var spawnTgt = Transform(newSpawn.Uid).Coordinates;
