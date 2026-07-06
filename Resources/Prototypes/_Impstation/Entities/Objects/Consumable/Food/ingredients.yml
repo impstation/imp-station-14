@@ -165,6 +165,13 @@
   components:
   - type: Item
     size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Sugar
+          Quantity: 5
   - type: FlavorProfile
     flavors:
     - sweetdough
