@@ -2,7 +2,7 @@ using Content.Server._Impstation.StationEvents.Components;
 using Content.Server.Announcements.Systems;
 using Content.Server.Lightning;
 using Content.Server.StationEvents.Events;
-using Content.Shared._EE.Supermatter.Components;
+using Content.Shared._Impstation.Supermatter.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Player;
