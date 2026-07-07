@@ -54,6 +54,11 @@ public sealed partial class TegCirculatorComponent : Component
     public float MinimumNominalEfficiency = 0.1f;
 
     /// <summary>
+    /// The minimum running efficiency at which warning visuals will begin.
+    /// </summary>
+    public float MinimumWarningEfficiency = 0.5f;
+
+    /// <summary>
     /// The maximum possible damage incurred per tick when efficiency is at 0.
     /// </summary>
     [DataField]
@@ -70,7 +75,13 @@ public sealed partial class TegCirculatorComponent : Component
     /// The current integrity value. Triggers the failure state upon reaching 0.
     /// </summary>
     [DataField]
-    public float Integrity = 100f;
+    public float Integrity = 100f; // TODO: Have this set to MaxIntegrity and make it not a datafield. Can't reference other vars in this scope
+
+    /// <summary>
+    /// The minimum integrity the circulator can run at before the running visuals change.
+    /// </summary>
+    [DataField]
+    public float MinimumNominalIntegrity = 50f;
 
     /// <summary>
     /// The minimum and maximum size of the circulator's explosion.
