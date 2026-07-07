@@ -12,7 +12,6 @@ public sealed partial class FactionChangeEntityEffectSystem : EntityEffectSystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<FactionChange> args)
     {
-
         //do nothing if the faction has no faction member comp
         if (!TryComp<NpcFactionMemberComponent>(entity, out var npcFactionMember))
             return;
