@@ -31,6 +31,9 @@
     thresholds:
       0: Alive
       2000: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Dead: BorgDead
   - type: Sprite
     drawdepth: Mobs
     layers:

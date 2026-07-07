@@ -88,6 +88,9 @@
     thresholds:
       0: Alive
       100: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Dead: BorgDead
   - type: Destructible
     thresholds:
     - trigger:

@@ -91,7 +91,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      25: Dead
+      50: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Dead: BorgDead
   - type: NoSlip
   - type: StatusEffects
     allowed:
