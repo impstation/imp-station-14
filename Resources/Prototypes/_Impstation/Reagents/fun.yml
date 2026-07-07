@@ -200,9 +200,10 @@
   metabolisms:
     Medicine:
       effects:
-      - !type:FactionChange
-        faction: Passive
+      - !type:ChangeNPCBehavior
+        rootTask: IdleCompound
         conditions:
+        - !type:NPCEntityCondition
         - !type:ReagentCondition
           reagent: Irwizine
           min: 10

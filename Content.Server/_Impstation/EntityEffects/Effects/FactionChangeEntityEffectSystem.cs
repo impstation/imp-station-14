@@ -12,11 +12,6 @@ public sealed partial class FactionChangeEntityEffectSystem : EntityEffectSystem
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     protected override void Effect(Entity<MetaDataComponent> entity, ref EntityEffectEvent<FactionChange> args)
     {
-        //stops it from applying to player-controlled entities
-        if (TryComp<MindContainerComponent>(entity, out var mindContainer) && mindContainer.HasMind)
-        {
-            return;
-        }
 
         //do nothing if the faction has no faction member comp
         if (!TryComp<NpcFactionMemberComponent>(entity, out var npcFactionMember))

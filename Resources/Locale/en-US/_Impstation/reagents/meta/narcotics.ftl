@@ -1,3 +1,7 @@
+reagent-name-barbadine = barbadine
+reagent-desc-barbadine = A specialized sedative that works much more effectively on less mentally active creatures.
+
+
 reagent-name-forever-weed = forever weed
 reagent-desc-forever-weed = Baking rainbow cannabis has caused a chemical alteration. Does not fully metabolize on its own, causes hallucinations and paranoia.
 
