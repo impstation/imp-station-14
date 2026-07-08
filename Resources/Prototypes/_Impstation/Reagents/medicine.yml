@@ -123,6 +123,11 @@
       effects:
       - !type:FactionChange
         faction: Syndicate
+        conditions:
+        - !type:NPCEntityCondition
+        - !type:ReagentCondition
+          reagent: Batozine
+          min: 10
       - !type:ChangeNPCBehavior
         rootTask: SimpleHostileCompound
         conditions:

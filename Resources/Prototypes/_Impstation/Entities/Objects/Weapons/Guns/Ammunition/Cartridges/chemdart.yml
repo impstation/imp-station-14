@@ -96,7 +96,7 @@
     transferAmount: 10
 
 - type: entity
-  parent: [ TranqDart, Tier3Contraband ]
+  parent: [ Tier2Contraband, TranqDart ]
   id: BatozineDart
   name: Batozine Dart
   description: A dart designed to be loaded into a tranquilizer rifle. This one contains the chemical batozine which makes a creature attack anything that isn't syndicate.
