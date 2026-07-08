@@ -6,6 +6,8 @@ using Content.Server.Research.Systems;
 using Content.Shared.Research.Components;
 using Robust.Shared.Prototypes;
 using Content.Server.Research.Components; // imp
+using Robust.Shared.Audio; // imp
+using Robust.Shared.Audio.Systems; // imp
 
 namespace Content.Server.Research.Disk
 {
@@ -14,6 +16,10 @@ namespace Content.Server.Research.Disk
         [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly ResearchSystem _research = default!;
+        [Dependency] private readonly SharedAudioSystem _audio = default!; // imp
+
+        private static readonly SoundPathSpecifier ApproveSound = new("/Audio/Effects/Cargo/ping.ogg"); // imp
+
         public override void Initialize()
         {
             base.Initialize();
@@ -35,6 +41,7 @@ namespace Content.Server.Research.Disk
 
                 _research.ModifyServerPoints(serverEnt.Value, component.Points, clientServer);
                 _popupSystem.PopupEntity(Loc.GetString("research-disk-inserted", ("points", component.Points)), args.Target.Value, args.User);
+                _audio.PlayPvs(ApproveSound, uid);
                 QueueDel(uid);
                 args.Handled = true;
                 return;
