@@ -211,7 +211,7 @@ public sealed partial class GuideReagentEmbed : BoxContainer, IDocumentTag, ISea
         description.AddMarkupOrThrow(Loc.GetString("guidebook-reagent-physical-description",
             ("description", reagent.LocalizedPhysicalDescription)));
 
-        // imp. add contraband severity
+        // imp. add contraband severity colors
         if (_config.GetCVar(CCVars.ContrabandExamine) && _prototype.TryIndex(reagent.ContrabandSeverity, out var severity))
         {
             // Department-restricted text
@@ -219,14 +219,16 @@ public sealed partial class GuideReagentEmbed : BoxContainer, IDocumentTag, ISea
             {
                 description.PushNewline();
                 description.AddMarkupPermissive(
-                    // imp. add contraband severity
+                    // imp. add contraband severity colors
                     _contraband.GenerateDepartmentExamineMessage(reagent.AllowedDepartments, reagent.AllowedJobs, ContrabandItemType.Reagent, severity.ExamineColor));
             }
             // Other contraband text
-            else
+            // imp. commented this out.
+            else //if (reagent.ContrabandSeverity != null &&
+                 //_prototype.Resolve(reagent.ContrabandSeverity.Value, out var severity))
             {
                 description.PushNewline();
-                // imp. add contraband severity
+                // imp. add contraband severity colors
                 description.AddMarkupPermissive(Loc.GetString(severity.ExamineText, ("type", ContrabandItemType.Reagent), ("color", severity.ExamineColor)));
             }
         }
