@@ -9,15 +9,15 @@ using Content.Shared.Item;
 using Content.Shared.Movement.Events;
 using Robust.Shared.Player;
 using Content.Shared.Tools.Components;
-using Content.Shared.VentCraw.Tube.Components;
-using Content.Shared.VentCraw.Components;
+using Content.Shared._Starlight.VentCraw.Tube.Components;
+using Content.Shared._Starlight.VentCraw.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.VentCraw;
+namespace Content.Shared._Starlight.VentCraw;
 
 /// <summary>
 /// A system that handles the crawling behavior for vent creatures.

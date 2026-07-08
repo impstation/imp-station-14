@@ -9,10 +9,10 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.NodeContainer;
-using Content.Shared.VentCraw.Components;
+using Content.Shared._Starlight.VentCraw.Components;
 using Robust.Shared.Player;
 
-namespace Content.Server.VentCraw;
+namespace Content.Server._Starlight.VentCraw;
 
 public sealed class BeingVentCrawSystem : EntitySystem
 {
