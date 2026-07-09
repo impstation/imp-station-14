@@ -68,6 +68,23 @@ public sealed partial class TegSystem
         RemComp<DrawableSolutionComponent>(uid);
     }
 
+    /// <summary>
+    /// Finds the average efficiency between both TEG circulators by calling <see cref="ReagentEfficiency.ApplyEfficiency"/> on both circulators.
+    /// As a result, this function also causes the consumption of the lubricant in the circulators' solutions.
+    /// This function also handles damage dealing to the circulators.
+    /// This function also handles checking the failure state, potentially triggering it.
+    /// This function also handles applying reagent special effects. (Not yet implemented)
+    /// This function also handles updating the hazard visuals of the circulators.
+    /// </summary>
+    /// <remarks>
+    /// TODO: This function does way too much and needs to be refactored or repurposed while still minimizing edits to the upstream generator update function.
+    /// </remarks>
+    /// <param name="circA">The first circulator</param>
+    /// <param name="circB">The second circulator</param>
+    /// <param name="δpA">The delta pressure experienced by the first circulator</param>
+    /// <param name="δpB">The delta pressure experienced by the second circulator</param>
+    /// <param name="dt">The time since the last update.</param>
+    /// <returns>The average efficiency of both circulators.</returns>
     private float AverageCirculatorEfficiency(EntityUid circA, EntityUid circB, float δpA, float δpB, float dt)
     {
         //IMP ADD START
@@ -85,14 +102,19 @@ public sealed partial class TegSystem
         Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
 
         // Apply damage to the circulator based on its running efficiency.
-        ApplyCirculatorEfficiencyDamage(circA, efficiencyA, stressA);
-        ApplyCirculatorEfficiencyDamage(circB, efficiencyB, stressB);
+        var damageA = ApplyCirculatorEfficiencyDamage(circA, efficiencyA, stressA);
+        var damageB = ApplyCirculatorEfficiencyDamage(circB, efficiencyB, stressB);
 
         // See if we need to trigger a failure state
         CheckFail(circA, stressA);
         CheckFail(circB, stressB);
 
         // TODO: Apply any funny effects that specific reagents might have on the circulators.
+
+        // Update appearances for different efficiencies and damages
+        // TODO: make sure this doesn't have any problems bc the normal appearance updates are handled in the main teg update
+        UpdateCirculatorHazardAppearance(circA, damageA, efficiencyA, stressA);
+        UpdateCirculatorHazardAppearance(circB, damageB, efficiencyB, stressB);
 
         return averageCirculatorEfficiency;
     }
@@ -107,6 +129,7 @@ public sealed partial class TegSystem
     private (float, Solution) CirculatorEfficiency(EntityUid uid, float dt, float circulatorStress)
     {
         // Do nothing if there's no gas flow
+        // TODO: this causes a desync with the component, this returns 1 but the component's PreviousEfficiency isn't updated. Remove this
         if (circulatorStress == 0)
             return (1f, new Solution());
 

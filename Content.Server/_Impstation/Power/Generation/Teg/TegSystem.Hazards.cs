@@ -1,15 +1,19 @@
 using Content.Server.Atmos.Piping.Components;
+using Content.Shared.Jittering;
 using Content.Shared.Wires;
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
 using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Jittering;
+using Content.Server._Impstation.ReagentEfficiency;
 
 namespace Content.Server.Power.Generation.Teg;
 
 public sealed partial class TegSystem
 {
-    [Dependency] private readonly GasOutletInjectorSystem _gasInjectorSystem = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
+    [Dependency] private readonly GasOutletInjectorSystem _gasInjectorSystem = default!;
+    [Dependency] private readonly JitteringSystem _jitter = default!;
 
     /// <summary>
     /// Changes the state of the air injector given a bool.
@@ -89,5 +93,27 @@ public sealed partial class TegSystem
         float radius = float.Lerp(ent.Comp.ExplosionRadiusRange.Item1, ent.Comp.ExplosionRadiusRange.Item2, stress);
         Log.Debug($"Explosion triggered. Stress {stress}, radius {radius}");
         _explosionSystem.TriggerExplosive(ent, radius: radius);
+    }
+
+    private void UpdateCirculatorHazardAppearance(Entity<TegCirculatorComponent?> ent, float damageTaken, float efficiency, float stress)
+    {
+        // Ensure the circulator and reagent efficiency components exist.
+        if (!Resolve(ent, ref ent.Comp))
+            return;
+
+        // Apply warning visuals if below warning threshold
+        // TODO: implement...
+
+        // Apply subnominal visuals if taking damage
+        // TODO: Jittering uses so many component lookups. Optimize or remove this wholesale.
+        // TODO: Could look better
+        if (efficiency < ent.Comp.MinimumNominalEfficiency)
+        {
+            float amplitude = float.Lerp(10, 0, efficiency / ent.Comp.MinimumNominalEfficiency);
+            float frequency = float.Lerp(20, 80, stress);
+            _jitter.AddJitter(ent, amplitude, frequency);
+        }
+        else
+            RemComp<JitteringComponent>(ent);
     }
 }
