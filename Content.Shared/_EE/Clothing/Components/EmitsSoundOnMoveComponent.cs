@@ -47,8 +47,8 @@ public sealed partial class EmitsSoundOnMoveComponent : Component
     public bool RequiresWorn;
 
     /// <summary>
-    ///     What slots we don't want noises to be emmited from
+    ///     What slots we don't want noises to be emmited from, pocket by default
     /// </summary>
     [DataField]
-    public SlotFlags InvalidSlots = SlotFlags.NONE;
+    public SlotFlags InvalidSlots = SlotFlags.POCKET;
 }
