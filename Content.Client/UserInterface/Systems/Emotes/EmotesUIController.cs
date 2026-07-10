@@ -37,7 +37,7 @@ public sealed class EmotesUIController : UIController, IOnStateChanged<GameplayS
         public NetEntity? emoteTarget;
     } //imp edit end
 
-    public override void Initialize() //imp edit start: subscribe to clientside emote events (for stuff in bags, pockets, etc)
+    public override void Initialize() //imp edit start: subscribe to clientside emote events, for stuff in bags, pockets, etc
     {
         base.Initialize();
 
