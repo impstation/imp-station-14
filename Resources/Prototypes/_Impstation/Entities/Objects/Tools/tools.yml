@@ -326,7 +326,7 @@
     maxUseTime: 10
   - type: EmitsSoundOnMove
     soundCollection:
-      collection: FootstepJester
+      collection: FootstepKeyRing
       params:
         variation: 0.07 #copied from the existing jester shoes
     requiresGravity: false
@@ -334,3 +334,8 @@
   - type: Clothing
     slots: [ belt ]
     quickEquip: false
+  - type: Item
+    sprite: _Impstation/Objects/Devices/keyring.rsi
+    size: Small
+    shape:
+    - 0,0,1,1

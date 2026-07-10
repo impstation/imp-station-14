@@ -22,13 +22,11 @@ public sealed class EmitsSoundOnMoveSystem : EntitySystem
     [Dependency] private readonly SharedGravitySystem _gravity = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private EntityQuery<PhysicsComponent> _physicsQuery;
     private EntityQuery<ClothingComponent> _clothingQuery;
 
     public override void Initialize()
     {
         base.Initialize();
-        _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _clothingQuery = GetEntityQuery<ClothingComponent>();
         SubscribeLocalEvent<Components.EmitsSoundOnMoveComponent, GotEquippedEvent>(OnEquipped);
         SubscribeLocalEvent<Components.EmitsSoundOnMoveComponent, GotUnequippedEvent>(OnUnequipped);
