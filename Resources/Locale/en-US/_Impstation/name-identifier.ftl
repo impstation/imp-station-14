@@ -5,7 +5,7 @@ name-identifier-format-anomaly = ANOM-{$number}
 name-identifier-format-artifact = ARTI-{$number}
 name-identifier-format-replicator = R-{$number}
 
-#Anomalites
+# Anomalites
 name-identifier-anomalite-pyroclastic = ANOM-PY {$number}
 name-identifier-anomalite-bluespace = ANOM-BL {$number}
 name-identifier-anomalite-electric = ANOM-EL {$number}

@@ -27,7 +27,7 @@ accent-words-kodepiia-4 = Crhcrh!
 accent-words-kodepiia-5 = Hrrrss.
 accent-words-kodepiia-6 = Brrh?
 
-#pleebnar
+# Pleebnar
 accent-words-pleebnar-1 = Glup!
 accent-words-pleebnar-2 = Pisk!
 accent-words-pleebnar-3 = weblele...

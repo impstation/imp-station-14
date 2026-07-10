@@ -25,7 +25,7 @@ traitor-death-match-end-round-description-entry = {$originalName}'s PDA, with {$
 # TraitorRole
 
 # Imp Edit: Removed greeting for Traitor Flavor
-#traitor-role-greeting =
+# traitor-role-greeting =
 #    You are an agent sent by {$corporation} on behalf of [color = darkred]The Syndicate.[/color]
 #    Your objectives and codewords are listed in the character menu.
 #    Use your uplink to buy the tools you'll need for this mission.
