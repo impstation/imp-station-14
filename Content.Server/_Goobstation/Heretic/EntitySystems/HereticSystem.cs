@@ -1,6 +1,7 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Chat.Systems;
+using Content.Server.GameTicking;
 using Content.Server.Heretic.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
@@ -9,10 +10,8 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
-using Content.Shared.Nutrition;
 using Content.Shared.Store.Components;
 using Content.Shared.Temperature.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -21,10 +20,13 @@ public sealed partial class HereticSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly StoreSystem _store = default!;
+
+    private static readonly EntProtoId AscensionRuleId = "HereticAscensionRule";
 
     private float _timer;
     private float _passivePointCooldown = 20f * 60f;
@@ -122,6 +124,10 @@ public sealed partial class HereticSystem : EntitySystem
                 RemComp<BarotraumaComponent>(ent);
                 break;
         }
+
+        // switch alert to Cobalt + do other related fanfare
+        var ascensionGamerule = _gameTicker.AddGameRule(AscensionRuleId);
+        _gameTicker.StartGameRule(ascensionGamerule);
     }
 
     #endregion
