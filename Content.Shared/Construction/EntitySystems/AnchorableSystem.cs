@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Examine;
 using Content.Shared.Construction.Components;
@@ -83,7 +84,7 @@ public sealed partial class AnchorableSystem : EntitySystem
         // Log unanchor attempt (server only)
         _adminLogger.Add(LogType.Anchor, LogImpact.Low, $"{ToPrettyString(userUid):user} is trying to unanchor {ToPrettyString(uid):entity} from {transform.Coordinates:targetlocation}");
 
-        _tool.UseTool(usingUid, userUid, uid, anchorable.Delay, usingTool.Qualities, new TryUnanchorCompletedEvent());
+        _tool.UseTool(usingUid, userUid, uid, anchorable.Delay + anchorable.AdditionalDelay, usingTool.Qualities, new TryUnanchorCompletedEvent()); // imp: Add AdditionalDelay
     }
 
     private void OnInteractUsing(EntityUid uid, AnchorableComponent anchorable, InteractUsingEvent args)
@@ -247,7 +248,7 @@ public sealed partial class AnchorableSystem : EntitySystem
             return;
         }
 
-        _tool.UseTool(usingUid, userUid, uid, anchorable.Delay, usingTool.Qualities, new TryAnchorCompletedEvent());
+        _tool.UseTool(usingUid, userUid, uid, anchorable.Delay + anchorable.AdditionalDelay, usingTool.Qualities, new TryAnchorCompletedEvent()); // imp: Add AdditionalDelay
     }
 
     private bool Valid(
@@ -279,7 +280,7 @@ public sealed partial class AnchorableSystem : EntitySystem
         else
             RaiseLocalEvent(uid, (UnanchorAttemptEvent)attempt);
 
-        anchorable.Delay += attempt.Delay;
+        anchorable.AdditionalDelay = attempt.Delay; // imp: Use AdditionalDelay instead of adding to base Delay
 
         return !attempt.Cancelled;
     }

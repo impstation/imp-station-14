@@ -289,7 +289,7 @@
     state: plushie_snail
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/_Impstation/Voice/Snail/snail_scream.ogg
+      path: /Audio/_Impstation/Voice/Gastropoid/snail_scream.ogg
   - type: Edible
     requiresSpecialDigestion: true
   - type: FlavorProfile
@@ -315,13 +315,13 @@
 
 - type: entity
   parent: BasePlushie
-  id: PlushieImp
-  name: imp plushie
+  id: PlushieImpOld
+  name: vintage imp plushie
   description: Huh? Who's this stoner?
   components:
   - type: Sprite
     sprite: _Impstation/Objects/Fun/toys.rsi
-    state: plushie_imp
+    state: plushie_impold
   - type: EmitSoundOnUse
     sound:
       path: /Audio/_Impstation/Voice/Misc/wuhey.ogg
@@ -493,10 +493,10 @@
     state: plushie_thavenweird
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/_Impstation/Thaven/moods_changed_mono.ogg
+      path: /Audio/_Impstation/StrangeMoods/moods_changed_mono.ogg
   - type: EmitSoundOnActivate
     sound:
-      path: /Audio/_Impstation/Thaven/moods_changed_mono.ogg
+      path: /Audio/_Impstation/StrangeMoods/moods_changed_mono.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Effects/desecration-03.ogg
@@ -533,6 +533,8 @@
   - type: FoodSequenceElement
     entries:
       CottonBurger: WeirdThavenPlushie
+  - type: Physics
+    bodyType: KinematicController
 
 - type: entity
   parent: BasePlushie
@@ -1013,8 +1015,10 @@
   description: OH FUCK IT'S BR- Oh nevermind it's just a plushie.
   components:
   - type: Sprite
-    sprite:  _Impstation/Mobs/Animals/bros.rsi
-    state: bros
+    sprite: _Impstation/Mobs/Animals/Bros/bros.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Mobs/Animals/Bros/bros.rsi
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1057,8 +1061,10 @@
   description: .eihsulp a tsuj s'ti dnimreven hO -RB S'TI KCUF HO
   components:
   - type: Sprite
-    sprite:  _Impstation/Mobs/Animals/bros.rsi
-    state: sorb
+    sprite: _Impstation/Mobs/Animals/Bros/sorb.rsi
+    state: icon
+  - type: Item
+    sprite: _Impstation/Mobs/Animals/Bros/sorb.rsi
   - type: SolutionContainerManager
     solutions:
       food:
@@ -1273,3 +1279,35 @@
     sound:
       path: /Audio/_Impstation/Voice/Anomalocarid/anomalocarid_scream.ogg
   - type: MultiHandedItem
+
+- type: entity
+  parent: PlushieImpOld
+  id: PlushieImp
+  name: imp plushie
+  description: Hey, it's this stoner!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    state: plushie_imp
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    inhandVisuals:
+      left:
+      - state: plushie_imp-inhand-left
+      right:
+      - state: plushie_imp-inhand-right
+  - type: Clothing
+    quickEquip: false
+    sprite: _Impstation/Objects/Fun/toys.rsi
+    equippedPrefix: imp
+    slots:
+    - HEAD
+    clothingVisuals:
+      head:
+      - state: imp-equipped-HELMET
+        offset: "0, 0.06"
+      head-ungu:
+      - state: imp-equipped-HELMET-ungu
+      head-allulalo:
+      - state: imp-equipped-HELMET-allulalo

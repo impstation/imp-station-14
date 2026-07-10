@@ -10,8 +10,11 @@
                 <CheckBox Name="ReducedMotionCheckBox" Text="{Loc 'ui-options-reduced-motion'}" />
                 <!-- Imp add -->
                 <CheckBox Name="DisableSinguloWarpingCheckBox" Text="{Loc 'ui-options-disable-singulo-warp'}" />
+                <CheckBox Name="DisableAiStaticCheckBox" Text="{Loc 'ui-options-disable-ai-static'}" />
+                <CheckBox Name="EnableBiomagneticPolarizationSymbolsCheckBox" Text="{Loc 'ui-options-enable-biomagnetic-polarization-symbols'}" />
                 <CheckBox Name="EnableColorNameCheckBox" Text="{Loc 'ui-options-enable-color-name'}" />
                 <CheckBox Name="ColorblindFriendlyCheckBox" Text="{Loc 'ui-options-colorblind-friendly'}" />
+                <CheckBox Name="DisableWeatherCheckBox" Text="{Loc 'ui-options-disable-weather'}" />
                 <ui:OptionSlider Name="ScreenShakeIntensitySlider" Title="{Loc 'ui-options-screen-shake-intensity'}" />
                 <ui:OptionSlider Name="ChatWindowOpacitySlider" Title="{Loc 'ui-options-chat-window-opacity'}" />
                 <ui:OptionSlider Name="SpeechBubbleTextOpacitySlider" Title="{Loc 'ui-options-speech-bubble-text-opacity'}" />
@@ -29,15 +32,8 @@
                 <!-- Imp add -->
                 <Label Text="{Loc 'ui-options-accessability-header-misc'}"
                        StyleClasses="LabelKeyText"/>
-                <Label Text="{Loc ui-options-notifier-label}"
+                <Label Text="{Loc ui-options-notifier-moved}"
                        StyleClasses="LabelKeyText"/>
-                <CheckBox Name="NotifierEnable" Text="{Loc ui-options-notifier-enable}"/>
-                <PanelContainer>
-                    <PanelContainer.PanelOverride>
-                        <graphics:StyleBoxFlat BackgroundColor="#4a4d68"/>
-                    </PanelContainer.PanelOverride>
-                    <TextEdit Name="NotifierExamineTextEdit" MinHeight="150" Margin="5 5" />
-                </PanelContainer>
             </BoxContainer>
         </ScrollContainer>
         <ui:OptionsTabControlRow Name="Control" Access="Public" />

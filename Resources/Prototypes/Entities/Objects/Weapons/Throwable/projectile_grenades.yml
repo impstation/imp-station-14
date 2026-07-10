@@ -52,7 +52,7 @@
         friction: 0.2
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseSecurityContraband]
+  parent: [FragileGrenadeBase, ProjectileGrenadeBase, BaseSecurityContraband]
   id: GrenadeStinger
   name: stinger grenade
   description: A grenade that launches rubber projectiles, or sting balls, at high speeds in the hopes to stun a target. Stings like hell. #imp
@@ -90,7 +90,7 @@
       path: /Audio/Effects/countdown.ogg
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseSyndicateContraband]
+  parent: [FragileGrenadeBase, ProjectileGrenadeBase, BaseSyndicateContraband]
   id: GrenadeIncendiary
   name: incendiary grenade
   description: Guaranteed to light up the mood.
@@ -131,7 +131,7 @@
     price: 1500
 
 - type: entity
-  parent: [ProjectileGrenadeBase, BaseSyndicateContraband]
+  parent: [FragileGrenadeBase, ProjectileGrenadeBase, BaseSyndicateContraband]
   id: GrenadeShrapnel
   name: shrapnel grenade
   description: Launches a deadly spray of shrapnel and fragmentation that rip through any unfortunate soul in the area of effect. #imp

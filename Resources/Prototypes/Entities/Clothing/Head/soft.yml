@@ -188,9 +188,9 @@
   description: A white baseball cap.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Soft/mimesoft.rsi
+    sprite: _Impstation/Clothing/Head/Soft/mimesoft.rsi #imp
   - type: Clothing
-    sprite: Clothing/Head/Soft/mimesoft.rsi
+    sprite: _Impstation/Clothing/Head/Soft/mimesoft.rsi #imp
 
 - type: entity
   parent: [ClothingHeadHeadHatBaseFlipped, ClothingHeadHatMimesoft]

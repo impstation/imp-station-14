@@ -1,9 +1,8 @@
 - type: entity
-  id: BaseMagazineShotgun
-  name: shell drum (.50 shells) #imp
-  description: A .50 shell 8-shot drum magazine. #imp
-  parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
+  parent: [ BaseItem, BaseSecurityContraband ]
+  id: BaseMagazineShotgunWizden #imp - see the _Impstation directory for the version we use
+  name: ammo drum (.50 shells)
   components:
   - type: Tag
     tags:
@@ -22,16 +21,16 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#820a16" #imp
+        color: "#d73307"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#820a16" #imp
+        color: "#d73307"
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi #imp
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -44,20 +43,22 @@
   - type: Appearance
 
 - type: entity
-  id: MagazineShotgunEmpty
-  name: shell drum (.50 any) #imp
-  description: A .50 shell 8-shot drum magazine with no apparent markings. #imp
+  abstract: true # imp
+  id: MagazineShotgunEmptyWizden #imp - see the _Impstation directory for the version we use
+  name: ammo drum (.50 shells any)
   suffix: empty
-  parent: BaseMagazineShotgun
+  description: A large drum magazine used by some military-grade automatic shotguns.
+  parent: BaseMagazineShotgunWizden #imp
   components:
   - type: BallisticAmmoProvider
     proto: null
 
 - type: entity
-  id: MagazineShotgun
-  name: shell drum (.50 buckshot) #imp
-  description: A .50 shell 8-shot drum magazine, marked as buckshot. #imp
-  parent: BaseMagazineShotgun
+  abstract: true # imp
+  parent: BaseMagazineShotgunWizden # imp
+  id: MagazineShotgunWizden #imp - see the _Impstation directory for the version we use
+  name: ammo drum (.50 pellet)
+  description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgun
@@ -72,17 +73,18 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#820a16" #imp
+        color: "#ba7710"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#820a16" #imp
+        color: "#ba7710"
 
 - type: entity
-  id: MagazineShotgunBeanbag
-  name: shell drum (.50 stun slug) #imp
-  description: A .50 shell 8-shot drum magazine, marked as stun slugs. #imp
-  parent: BaseMagazineShotgun
+  abstract: true # imp
+  parent: BaseMagazineShotgunWizden # imp
+  id: MagazineShotgunBeanbagWizden #imp - see the _Impstation directory for the version we use
+  name: ammo drum (.50 beanbag)
+  description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold less-than-lethal beanbag ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunBeanbag
@@ -97,17 +99,18 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#4477bc" #imp
+        color: "#30722d"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#4477bc" #imp
+        color: "#30722d"
 
 - type: entity
-  id: MagazineShotgunSlug
-  name: shell drum (.50 slug) #imp
-  description: A .50 shell 8-shot drum magazine, marked as slugs. #imp
-  parent: BaseMagazineShotgun
+  abstract: true # imp
+  parent: BaseMagazineShotgunWizden # imp
+  id: MagazineShotgunSlugWizden #imp - see the _Impstation directory for the version we use
+  name: ammo drum (.50 slug)
+  description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold long-ranged slug ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunSlug
@@ -122,23 +125,24 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#662598" #imp
+        color: "#72382d"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#662598" #imp
+        color: "#72382d"
 
 - type: entity
-  id: MagazineShotgunIncendiary
-  name: shell drum (.50 incendiary) #imp
-  description: A .50 shell 8-shot drum magazine, marked as incendiary. #imp
-  parent: BaseMagazineShotgun
+  abstract: true # imp
+  parent: BaseMagazineShotgunWizden # imp
+  id: MagazineShotgunIncendiaryWizden #imp - see the _Impstation directory for the version we use
+  name: ammo drum (.50 incendiary)
+  description: A large drum magazine used by some military-grade automatic shotguns. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
     proto: ShellShotgunIncendiary
   - type: Sprite
     layers:
-    - state: incendiary # imp
+    - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
@@ -147,8 +151,8 @@
       left:
       - state: inhand-left-mag
       - state: inhand-left-stripe
-        color: "#d46925" #imp
+        color: "#72382d"
       right:
       - state: inhand-right-mag
       - state: inhand-right-stripe
-        color: "#d46925" #imp
+        color: "#72382d"

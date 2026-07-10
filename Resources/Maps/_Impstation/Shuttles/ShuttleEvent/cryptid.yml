@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 260.2.0
+  engineVersion: 268.0.0
   forkId: ""
   forkVersion: ""
-  time: 06/22/2025 22:00:20
+  time: 12/20/2025 19:53:32
   entityCount: 562
 maps: []
 grids:
@@ -334,48 +334,16 @@ entities:
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.824879
-          - 82.10312
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.824879
+            Nitrogen: 82.10312
         - volume: 2500
           immutable: True
-          moles:
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+          moles: {}
         - volume: 2500
           temperature: 293.15
           moles:
-          - 21.823984
-          - 82.09976
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
-          - 0
+            Oxygen: 21.823984
+            Nitrogen: 82.09976
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
@@ -433,6 +401,8 @@ entities:
     - type: Transform
       pos: 6.5,-2.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: AtmosDeviceFanDirectional
   entities:
   - uid: 305
@@ -1731,36 +1701,26 @@ entities:
         immutable: False
         temperature: 293.147
         moles:
-        - 1.8977377
-        - 7.139109
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
+          Oxygen: 1.8977377
+          Nitrogen: 7.139109
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
           showEnts: False
           occludes: True
           ents:
-          - 310
           - 564
-          - 319
-          - 318
-          - 317
-          - 316
-          - 315
-          - 314
-          - 313
-          - 312
-          - 311
           - 320
+          - 311
+          - 312
+          - 313
+          - 314
+          - 315
+          - 316
+          - 317
+          - 318
+          - 319
+          - 310
         paper_label: !type:ContainerSlot
           showEnts: False
           occludes: True
@@ -2106,13 +2066,6 @@ entities:
     - type: Transform
       pos: 0.5740572,1.4218471
       parent: 1
-- proto: DrinkWatermelonJuice
-  entities:
-  - uid: 548
-    components:
-    - type: Transform
-      pos: 11.787036,2.772217
-      parent: 1
 - proto: FaxMachineBase
   entities:
   - uid: 262
@@ -2154,13 +2107,6 @@ entities:
     components:
     - type: Transform
       pos: 11.183077,2.374093
-      parent: 1
-- proto: FoodBurgerChicken
-  entities:
-  - uid: 554
-    components:
-    - type: Transform
-      pos: 11.422453,2.6368003
       parent: 1
 - proto: FoodMealCultLollipop
   entities:
@@ -3078,6 +3024,20 @@ entities:
     - type: Transform
       pos: -3.5,-1.5
       parent: 1
+- proto: RandomDrinkGlass
+  entities:
+  - uid: 338
+    components:
+    - type: Transform
+      pos: 11.5,2.5
+      parent: 1
+- proto: RandomFoodSingle
+  entities:
+  - uid: 304
+    components:
+    - type: Transform
+      pos: 11.5,2.5
+      parent: 1
 - proto: ShuttleWindow
   entities:
   - uid: 15
@@ -3222,6 +3182,8 @@ entities:
     - type: Transform
       pos: 0.5,-8.5
       parent: 1
+    - type: Fixtures
+      fixtures: {}
 - proto: SMESBasic
   entities:
   - uid: 302

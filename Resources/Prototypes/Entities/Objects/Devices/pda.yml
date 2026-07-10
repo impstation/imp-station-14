@@ -102,7 +102,7 @@
       enum.PdaUiKey.Key:
         type: PdaBoundUserInterface
       enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
+        type: UplinkBoundUserInterface # imp edit, was StoreBoundUserInterface
       enum.RingerUiKey.Key:
         type: RingerBoundUserInterface
       enum.InstrumentUiKey.Key:
@@ -280,7 +280,7 @@
 - type: entity
   parent: BasePDA
   id: ServiceWorkerPDA
-  name: service worker PDA
+  name: service attendant PDA # imp edit
   description: Why isn't it gray?
   components:
   - type: Pda
@@ -442,6 +442,23 @@
     accentHColor: "#333333"
   - type: Icon
     state: pda-mime
+  - type: Sprite
+    state: "mime-pda"
+    sprite: _Impstation/Objects/Devices/mime_pda.rsi #imp
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ] #imp for the whole layers section here
+      sprite: _Impstation/Objects/Devices/mime_pda.rsi
+      state: pda-mime
+    - sprite: Objects/Devices/pda.rsi
+      state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - sprite: Objects/Devices/pda.rsi
+      state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
   - type: Muted # for random sentience event
 
 - type: entity
@@ -1083,6 +1100,8 @@
   components:
   - type: Pda
     id: AtmosIDCard
+  - type: Sprite #imp
+    sprite: _Impstation/Objects/Devices/atmos_pda.rsi #imp
   - type: Appearance
     appearanceDataInit:
      enum.PdaVisuals.PdaType:
@@ -1090,7 +1109,7 @@
        pda-atmos
   - type: PdaBorderColor
     borderColor: "#949137"
-    accentVColor: "#447987"
+    accentVColor: "#488B8F" #imp
   - type: Icon
     state: pda-atmos
 
@@ -1570,6 +1589,22 @@
     state: pda-seniorcourier
 
 - type: entity
+  parent: [ BaseHighlyIllegalContraband, BasePDA ]
+  id: NinjaPDA
+  name: ninja PDA
+  description: You stealthy bastard, you!
+  components:
+  - type: Pda
+    id: NinjaIDCard
+  - type: Appearance
+    appearanceDataInit:
+      enum.PdaVisuals.PdaType:
+        !type:String
+        pda-ninja
+  - type: Icon
+    state: pda-ninja
+
+- type: entity
   parent: [ BaseMajorContraband, SyndiPDA ]
   id: PiratePDA
   name: pirate PDA
@@ -1606,7 +1641,7 @@
       enum.PdaUiKey.Key:
         type: PdaBoundUserInterface
       enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
+        type: UplinkBoundUserInterface # imp edit, was StoreBoundUserInterface
       enum.RingerUiKey.Key:
         type: RingerBoundUserInterface
       enum.InstrumentUiKey.Key:

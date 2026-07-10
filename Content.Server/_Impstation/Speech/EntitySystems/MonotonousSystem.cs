@@ -1,8 +1,8 @@
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed class MonotonousSystem : EntitySystem
 {
@@ -16,7 +16,7 @@ public sealed class MonotonousSystem : EntitySystem
         SubscribeLocalEvent<MonotonousComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, MonotonousComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<MonotonousComponent> entity, ref AccentGetEvent args)
     {
         args.Message = RegexAnyPunctuationNotPeriod.Replace(args.Message, ".");
 

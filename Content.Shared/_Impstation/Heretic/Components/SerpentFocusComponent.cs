@@ -16,9 +16,6 @@ public sealed partial class SerpentFocusComponent : SwitchableOverlayComponent
     public override SoundSpecifier? ActivateSound { get; set; } = new SoundPathSpecifier("/Audio/Effects/Weather/Wind_4_2.ogg");
 
     public override SoundSpecifier? DeactivateSound { get; set; } = new SoundPathSpecifier("/Audio/Effects/Weather/Wind_2_1.ogg");
-
-    [DataField]
-    public float LightRadius = 5f;
 }
 
 public sealed partial class ToggleSerpentFocusEvent : InstantActionEvent;

@@ -244,10 +244,16 @@
     - id: ImmovableRodGondal # imp
       prob: 0.0075
       orGroup: rodProto
+    - id: ImmovableRodGondalWide # imp
+      prob: 0.0075
+      orGroup: rodProto
     - id: ImmovableRodHollowPlasticBarrel # imp
       prob: 0.0075
       orGroup: rodProto
     - id: ImmovableRodBaguette # imp
+      prob: 0.0075
+      orGroup: rodProto
+    - id: ImmovableRodUncle # imp
       prob: 0.0075
       orGroup: rodProto
 

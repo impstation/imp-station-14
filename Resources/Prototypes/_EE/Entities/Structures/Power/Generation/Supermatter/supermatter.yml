@@ -119,6 +119,13 @@
     - SupermatterDanger
     - SupermatterEmergency
     - SupermatterDelaminating
+  - type: HolidayVisuals #IMP: Mariah crystal
+    holidays:
+      festive:
+      - FestiveSeason
+  - type: HolidayRsiSwap #IMP: Mariah crystal
+    sprite:
+      festive: _Impstation/Structures/Power/Generation/Supermatter/supermattermariah.rsi
 
 - type: entity
   parent: BaseSupermatter
@@ -126,3 +133,20 @@
   name: supermatter crystal
   description: A strangely translucent and iridescent crystal. On closer inspection, it's made of sugar.
   suffix: decorative
+
+- type: entity
+  parent: BaseSupermatter
+  id: SupermatterDecorativeMariah
+  name: supermatter crystal
+  description: A strangely translucent and iridescent crystal. On closer inspection, it's made of sugar.
+  suffix: decorative, mariah
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Power/Generation/Supermatter/supermattermariah.rsi
+    state: supermatter
+    drawdepth: Mobs
+    snapCardinals: true
+    offset: -0.015,0.295
+  - type: Icon
+    sprite: _Impstation/Structures/Power/Generation/Supermatter/supermattermariah.rsi
+    state: supermatter

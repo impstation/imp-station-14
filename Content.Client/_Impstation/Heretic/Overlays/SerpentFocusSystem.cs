@@ -11,7 +11,6 @@ public sealed class SerpentFocusSystem : Client.Overlays.EquipmentHudSystem<Serp
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
 
     private SerpentFocusOverlay _serpentOverlay = default!;
-    private BaseSwitchableOverlay<SerpentFocusComponent> _overlay = default!;
 
     public override void Initialize()
     {
@@ -20,7 +19,6 @@ public sealed class SerpentFocusSystem : Client.Overlays.EquipmentHudSystem<Serp
         SubscribeLocalEvent<SerpentFocusComponent, SwitchableOverlayToggledEvent>(OnToggle);
 
         _serpentOverlay = new SerpentFocusOverlay();
-        _overlay = new BaseSwitchableOverlay<SerpentFocusComponent>();
     }
 
     protected override void OnRefreshComponentHud(Entity<SerpentFocusComponent> ent, ref RefreshEquipmentHudEvent<SerpentFocusComponent> args)
@@ -45,7 +43,6 @@ public sealed class SerpentFocusSystem : Client.Overlays.EquipmentHudSystem<Serp
     {
         base.UpdateInternal(args);
         SerpentFocusComponent? tvComp = null;
-        var lightRadius = 0f;
         foreach (var comp in args.Components)
         {
             if (!comp.IsActive)
@@ -53,24 +50,20 @@ public sealed class SerpentFocusSystem : Client.Overlays.EquipmentHudSystem<Serp
 
             if (tvComp == null)
                 tvComp = comp;
-
-            lightRadius = MathF.Max(lightRadius, comp.LightRadius);
         }
 
-        _serpentOverlay.ResetLight(false);
-        UpdateSerpentOverlay(tvComp, lightRadius);
+        UpdateSerpentOverlay(tvComp);
     }
 
     protected override void DeactivateInternal()
     {
         base.DeactivateInternal();
 
-        UpdateSerpentOverlay(null, 0f);
+        UpdateSerpentOverlay(null);
     }
 
-    private void UpdateSerpentOverlay(SerpentFocusComponent? comp, float lightRadius)
+    private void UpdateSerpentOverlay(SerpentFocusComponent? comp)
     {
-        _serpentOverlay.LightRadius = lightRadius;
         _serpentOverlay.Comp = comp;
 
         switch (comp)
@@ -80,26 +73,7 @@ public sealed class SerpentFocusSystem : Client.Overlays.EquipmentHudSystem<Serp
                 break;
             case null:
                 _overlayMan.RemoveOverlay(_serpentOverlay);
-                _serpentOverlay.ResetLight();
                 break;
         }
-    }
-
-    private void UpdateOverlay(SerpentFocusComponent? tvComp)
-    {
-        _overlay.Comp = tvComp;
-
-        switch (tvComp)
-        {
-            case { DrawOverlay: true } when !_overlayMan.HasOverlay<BaseSwitchableOverlay<SerpentFocusComponent>>():
-                _overlayMan.AddOverlay(_overlay);
-                break;
-            case null or { DrawOverlay: false }:
-                _overlayMan.RemoveOverlay(_overlay);
-                break;
-        }
-
-        // Night vision overlay is prioritized
-        _overlay.IsActive = !_overlayMan.HasOverlay<BaseSwitchableOverlay<NightVisionComponent>>();
     }
 }

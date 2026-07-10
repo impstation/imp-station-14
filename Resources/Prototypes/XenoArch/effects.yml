@@ -1,5 +1,5 @@
 - type: entityTable
-  id: XenoArtifactEffectsDefaultTable
+  id: XenoArtifactEffectsDefaultTable #760 total weight - propagate any changes to the table weights in all (item_/structure_)xenoartifacts.yml definitions
   table: !type:GroupSelector
     children:
     # hijacks use key, prevents from using artifact, sadly
@@ -156,12 +156,12 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [2, 3, 4]
     - id: XenoArtifactHostileFaunaSpawn
-      weight: 10.0
+      weight: 10.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [2, 3, 4]
     - id: XenoArtifactCashSpawn
-      weight: 10.0 # imp edit
+      weight: 7.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [2, 3, 4]
@@ -274,12 +274,12 @@
       weight: 10.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [4, 5]
+        depths: [3, 4, 5]
     - id: XenoArtifactBoom
-      weight: 10.0 # imp edit
+      weight: 7.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [3, 4, 5]
+        depths: [4, 5]
     - id: XenoArtifactEffectCreationGasPlasma
       weight: 10.0 # imp edit
       conditions:
@@ -366,6 +366,11 @@
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 1, 2, 3 ]
+    - id: XenoArtifactPresentLesser
+      weight: 7.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 1, 2, 3 ]
     - id: XenoArtifactPresent
       weight: 10.0 # imp edit
       conditions:
@@ -380,7 +385,7 @@
       weight: 3.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 2, 3, 4 ]
+        depths: [ 3, 4, 5 ]
     - id: XenoArtifactGridKnockdown
       weight: 5.0 # imp edit
       conditions:
@@ -392,24 +397,49 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 4, 5 ]
     - id: XenoArtifactScrambleDNA
-      weight: 1 # imp edit
+      weight: 1.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
     - id: XenoArtifactInjectCryptobiolin
-      weight: 10.0 # imp edit
+      weight: 4.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 0, 1, 2 ]
+        depths: [ 2, 3 ]
     - id: XenoArtifactInjectDrunkHigh
+      weight: 3.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 3, 4 ]
+    - id: XenoArtifactMindlessClone
       weight: 10.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 0, 1, 2 ]
-    # imp edit end
+        depths: [ 3, 4, 5 ]
+    - id: XenoArtifactAnimateSingle
+      weight: 9.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 2, 3, 4, 5 ]
+    - id: XenoArtifactAnimateTriple
+      weight: 8.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 4, 5 ]
+    - id: XenoArtifactCashSpawnMajor
+      weight: 3.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 3, 4, 5 ]
+    - id: XenoArtifactBed
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 1, 2, 3 ]
+      # imp edit end
 
 - type: entityTable
-  id: XenoArtifactEffectsHandheldOnlyTable
+  id: XenoArtifactEffectsHandheldOnlyTable # 20 total weight
   table: !type:GroupSelector
     children:
     #- id: XenoArtifactBecomeRandomInstrument
@@ -579,6 +609,9 @@
     - type: HeldSpeedModifier
       walkModifier: 1.2
       sprintModifier: 1.3
+    - type: MovementSpeedModifier # Imp 6x its own movespeed
+      baseWalkSpeed: 3
+      baseSprintSpeed: 1.5
 
 - type: entity
   id: XenoArtifactDrill
@@ -595,6 +628,7 @@
       soundHit:
         path: /Audio/Weapons/bladeslice.ogg
     - type: Sharp
+    - type: CombatMode # imp: let the artifacts bite you
 
 - type: entity
   id: XenoArtifactGenerateEnergy
@@ -646,7 +680,7 @@
 - type: entity
   id: XenoArtifactGhost
   parent: BaseOneTimeXenoArtifactEffect
-  description: Becomes sentient
+  description: Neurological activity #IMP: change desc to allow confusion with animate effect
   components:
   - type: XAEApplyComponents
     components:
@@ -658,7 +692,7 @@
       description: ghost-role-information-artifact-description
       rules: ghost-role-information-freeagent-rules
       raffle:
-        settings: default
+        settings: short #imp edit
       mindRoles:
       - MindRoleGhostRoleFreeAgent
     - type: GhostTakeoverAvailable
@@ -772,7 +806,7 @@
 - type: entity
   id: XenoArtifactEffectJunkSpawn
   parent: BaseXenoArtifactEffect
-  description: Create recyclable junk
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -787,10 +821,9 @@
         - !type:NestedSelector
           tableId: GenericTrashItems
           weight: 35
-        - !type:AllSelector
+        - !type:NestedSelector
+          tableId: AllPlushiesTable
           weight: 1
-          children:
-          - id: ToySpawner
 
 - type: entity
   id: XenoArtifactEffectLightFlicker
@@ -829,7 +862,7 @@
 - type: entity
   id: XenoArtifactFloraSpawn
   parent: BaseXenoArtifactEffect
-  description: Produces flora
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -923,7 +956,7 @@
 - type: entity
   id: XenoArtifactRandomInstrumentSpawn
   parent: BaseXenoArtifactEffect
-  description: Creates musical instrument
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 2
@@ -937,14 +970,24 @@
     components:
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
-      table: !type:AllSelector
+      table: !type:GroupSelector #imp structure instruments edit start
         children:
-        - id: RandomInstruments
+        - !type:NestedSelector
+          tableId: RandomInstrumentTable
+          weight: 100
+        - !type:NestedSelector
+          tableId: RandomStructureInstrumentTable
+          weight: 20
+        - !type:GroupSelector
+          weight: 1
+          children:
+          - id: MobPianoInstrumentMimic
+        #imp structure instruments edit end
 
 - type: entity
   id: XenoArtifactMonkeySpawn
   parent: BaseXenoArtifactEffect
-  description: Creates primate
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 3
@@ -1068,7 +1111,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawn
   parent: BaseXenoArtifactEffect # todo: splice into different well-named effects, amounts should reflect how rare material is
-  description: Create rare materials
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1098,7 +1141,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnSilver
   parent: BaseXenoArtifactEffect
-  description: Create rare materials
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -1122,7 +1165,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnPlasma
   parent: BaseXenoArtifactEffect
-  description: Create plasma
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -1146,7 +1189,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnGold
   parent: BaseXenoArtifactEffect
-  description: Create gold
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 3
@@ -1170,7 +1213,7 @@
 - type: entity
   id: XenoArtifactRareMaterialSpawnUranium
   parent: BaseXenoArtifactEffect
-  description: Create uranium
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -1194,7 +1237,7 @@
 - type: entity
   id: XenoArtifactAngryCarpSpawn
   parent: BaseXenoArtifactEffect
-  description: Create hostile fish
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 3
@@ -1218,7 +1261,7 @@
 - type: entity
   id: XenoArtifactFaunaSpawn
   parent: BaseXenoArtifactEffect
-  description: Create friendly fauna
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -1266,7 +1309,7 @@
 - type: entity
   id: XenoArtifactHostileFaunaSpawn
   parent: BaseXenoArtifactEffect
-  description: Create hostile fauna
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 4
@@ -1293,7 +1336,7 @@
 - type: entity
   id: XenoArtifactCashSpawn
   parent: BaseXenoArtifactEffect
-  description: Create money
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 2
@@ -1503,7 +1546,7 @@
 - type: entity
   id: XenoArtifactMaterialSpawnGlass
   parent: BaseXenoArtifactEffect
-  description: Create glass
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode #IMP
     maxNodeUnlocks: 5 #IMP
@@ -1520,7 +1563,7 @@
 - type: entity
   id: XenoArtifactMaterialSpawnSteel
   parent: BaseXenoArtifactEffect
-  description: Create steel
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode #IMP
     maxNodeUnlocks: 5 #IMP
@@ -1537,7 +1580,7 @@
 - type: entity
   id: XenoArtifactMaterialSpawnPlastic
   parent: BaseXenoArtifactEffect
-  description: Create plastic
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode #IMP
     maxNodeUnlocks: 5 #IMP
@@ -1561,7 +1604,7 @@
 - type: entity
   id: XenoArtifactArtifactSpawn
   parent: BaseXenoArtifactEffect
-  description: Create artifact
+  description: Matter creation #imp effect obfuscation
   components:
   - type: XenoArtifactNode
     maxDurability: 2
@@ -1586,7 +1629,7 @@
   components:
   - type: XAEShuffle
   - type: XAETelepathic
-    range: 7.5
+    range: 14 #IMP 7.5 -> 14, actually make this DO something...
     messages:
     - shuffle-artifact-popup
 
@@ -1609,7 +1652,7 @@
 - type: entity
   id: XenoArtifactSingularity #IMP swapped the id of this and the tesla because they were incorrect??
   parent: BaseOneTimeXenoArtifactEffect
-  description: Imminent doom #IMP desc changed
+  description: Stationwide destruction #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true
@@ -1624,7 +1667,7 @@
 - type: entity
   id: XenoArtifactTesla #IMP swapped the id of this and the singulo because they were incorrect??
   parent: BaseOneTimeXenoArtifactEffect
-  description: Imminent doom #IMP desc changed
+  description: Stationwide destruction #IMP desc changed
   components:
   - type: XAEApplyComponents
     applyIfAlreadyHave: true

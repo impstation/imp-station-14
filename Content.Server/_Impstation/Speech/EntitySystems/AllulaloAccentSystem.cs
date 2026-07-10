@@ -1,5 +1,5 @@
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
 using Content.Shared.Speech;
 
 namespace Content.Server._Impstation.Speech.EntitySystems;
@@ -23,7 +23,7 @@ public sealed class AllulaloAccentSystem : EntitySystem
         SubscribeLocalEvent<AllulaloAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, AllulaloAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<AllulaloAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

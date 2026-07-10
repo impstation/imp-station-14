@@ -253,6 +253,31 @@
   flavorType: Complex
   description: flavor-complex-profane
 
+- type: flavor
+  id: funnyliftingdrink
+  flavorType: Complex
+  description: flavor-complex-funny-lifting-drink
+
+- type: flavor
+  id: gamers
+  flavorType: Complex
+  description: flavor-complex-gamers
+  
+- type: flavor
+  id: creamsoda
+  flavorType: Complex
+  description: flavor-complex-cream-soda
+
+- type: flavor
+  id: creamsodaorange
+  flavorType: Complex
+  description: flavor-complex-cream-soda-orange
+
+- type: flavor
+  id: creamsodaberry
+  flavorType: Complex
+  description: flavor-complex-cream-soda-berry
+
 # ID Tart
 - type: flavor
   id: armory
@@ -508,3 +533,33 @@
   id: gooey
   flavorType: Base
   description: flavor-base-gooey
+
+- type: flavor
+  id: concerning
+  flavorType: Complex
+  description: flavor-complex-concerning
+
+- type: flavor
+  id: magic
+  flavorType: Complex
+  description: flavor-complex-magic
+
+- type: flavor
+  id: treatchunk
+  flavorType: Complex
+  description: flavor-complex-treatchunk
+
+- type: flavor
+  id: ants
+  flavorType: Base
+  description: flavor-base-ants
+
+- type: flavor
+  id: lightactually #the other light is "like a light gone out", which is insane to just call "light"
+  flavorType: Base
+  description: flavor-base-light
+
+- type: flavor
+  id: hardtack
+  flavorType: Complex
+  description: flavor-complex-hardtack

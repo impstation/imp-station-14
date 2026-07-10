@@ -92,6 +92,7 @@
   - type: GuideHelp
     guides:
     - Pumps
+  - type: DeviceRestrictOverlap # Funky RPD
 
 - type: entity
   parent: GasBinaryBase
@@ -166,72 +167,12 @@
     - type: GuideHelp
       guides:
       - Pumps
-  # imp edit start
+    - type: DeviceRestrictOverlap # Funky RPD
+    # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
     - type: VentCrawTransit
     # imp edit end
-# TODO: Uncomment once pressure regulators are merged
-#- type: entity
-#  parent: GasBinaryBase
-#  id: GasPressureRegulator
-#  name: inlet pressure regulator
-#  description: A valve that releases gas when the inlet pressure exceeds a certain threshold.
-#  placement:
-#    mode: AlignAtmosPipeLayers
-#  components:
-#  - type: Rotatable
-#  - type: Transform
-#    noRot: false
-#  - type: SubFloorHide
-#    visibleLayers:
-#    - enum.SubfloorLayers.FirstLayer
-#  - type: Sprite
-#    sprite: Structures/Piping/Atmospherics/pump.rsi
-#    layers:
-#    - sprite: Structures/Piping/Atmospherics/pipe.rsi
-#      state: pipeStraight
-#      map: [ "enum.PipeVisualLayers.Pipe" ]
-#    - state: pumpPressureRegulator
-#      map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
-#  - type: AtmosPipeLayers
-#    alternativePrototypes:
-#      Primary: GasPressureRegulator
-#      Secondary: GasPressureRegulatorAlt1
-#      Tertiary: GasPressureRegulatorAlt2
-#  - type: Appearance
-#  - type: GenericVisualizer
-#    visuals:
-#      enum.PressureRegulatorVisuals.State:
-#        enabled:
-#          True: { state: pumpPressureRegulatorOn }
-#          False: { state: pumpPressureRegulator }
-#  - type: PipeColorVisuals
-#  - type: GasPressureRegulator
-#    enabled: false
-#    threshold: 4500
-#  - type: Construction
-#    graph: GasBinary
-#    node: pressureregulator
-#  - type: ActivatableUI
-#    key: enum.GasPressureRegulatorUiKey.Key
-#    blockSpectators: true
-#  - type: ActivatableUIRequiresAnchor
-#  - type: UserInterface
-#    interfaces:
-#      enum.GasPressureRegulatorUiKey.Key:
-#        type: GasPressureRegulatorBoundUserInterface
-#  - type: AmbientSound
-#    enabled: false
-#    volume: -9
-#    range: 5
-#    sound:
-#      path: /Audio/Ambience/Objects/gas_hiss.ogg
-#  - type: AtmosMonitoringConsoleDevice
-#    navMapBlip: GasFlowRegulator
-#  - type: GuideHelp
-#    guides:
-#    - PressureRegulator
 
 - type: entity
   parent: GasBinaryBase
@@ -248,6 +189,7 @@
     visibleLayers:
     - enum.SubfloorLayers.FirstLayer
   - type: Sprite
+    drawdepth: FloorObjects #imp
     sprite: Structures/Piping/Atmospherics/pump.rsi
     layers:
     - sprite: Structures/Piping/Atmospherics/pipe.rsi
@@ -293,6 +235,7 @@
   - type: GuideHelp
     guides:
     - PressureRegulator
+  - type: DeviceRestrictOverlap # Funky RPD
 
 - type: entity
   parent: GasBinaryBase
@@ -335,6 +278,7 @@
     - type: GuideHelp
       guides:
       - PassiveGate
+    - type: DeviceRestrictOverlap # Funky RPD
     # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
@@ -402,6 +346,7 @@
     - type: GuideHelp
       guides:
       - ManualValve
+    - type: DeviceRestrictOverlap # Funky RPD
     #imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
@@ -480,6 +425,7 @@
   - type: GuideHelp
     guides:
     - SignalValve
+  - type: DeviceRestrictOverlap # Funky RPD
   # imp edit start
   - type: VentCrawTube
     containerId: VentCrawTube
@@ -525,6 +471,7 @@
     - type: GuideHelp
       guides:
       - GasCanisters
+    - type: DeviceRestrictOverlap # Funky RPD
     # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube
@@ -596,6 +543,7 @@
     - type: GuideHelp
       guides:
       - AirVent
+    - type: DeviceRestrictOverlap # Funky RPD
     # imp edit start
     - type: VentCrawTube
       containerId: VentCrawTube

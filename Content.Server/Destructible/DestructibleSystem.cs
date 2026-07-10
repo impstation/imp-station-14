@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Body.Systems;
 using Content.Server.Construction;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
@@ -16,6 +15,7 @@ using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.Destructible.Thresholds.Triggers;
 using Content.Shared.FixedPoint;
+using Content.Shared.Gibbing;
 using Content.Shared.Humanoid;
 using Content.Shared.Trigger.Systems;
 using JetBrains.Annotations;
@@ -23,7 +23,6 @@ using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Shared.Projectiles; // imp
 
 namespace Content.Server.Destructible
 {
@@ -35,7 +34,7 @@ namespace Content.Server.Destructible
 
         [Dependency] public readonly AtmosphereSystem AtmosphereSystem = default!;
         [Dependency] public readonly AudioSystem AudioSystem = default!;
-        [Dependency] public readonly BodySystem BodySystem = default!;
+        [Dependency] public readonly GibbingSystem Gibbing = default!;
         [Dependency] public readonly ConstructionSystem ConstructionSystem = default!;
         [Dependency] public readonly ExplosionSystem ExplosionSystem = default!;
         [Dependency] public readonly StackSystem StackSystem = default!;
@@ -45,7 +44,6 @@ namespace Content.Server.Destructible
         [Dependency] public readonly SharedContainerSystem ContainerSystem = default!;
         [Dependency] public readonly IPrototypeManager PrototypeManager = default!;
         [Dependency] public readonly IAdminLogManager AdminLogger = default!;
-        [Dependency] public readonly SharedProjectileSystem ProjectileSystem = default!; // imp
 
         public override void Initialize()
         {
@@ -94,16 +92,6 @@ namespace Content.Server.Destructible
                         AdminLogger.Add(LogType.Damaged,
                             logImpact,
                             $"Unknown damage source caused {ToPrettyString(uid):subject} to trigger [{triggeredBehaviors}]");
-                    }
-
-                    // imp edit, unembed any embedded projectiles if the entity is about to be destroyed
-                    foreach (var behavior in threshold.Behaviors)
-                    {
-                        if (behavior is DoActsBehavior actBehavior && actBehavior.HasAct(ThresholdActs.Destruction))
-                        {
-                            ProjectileSystem.RemoveEmbeddedChildren(uid);
-                            break;
-                        }
                     }
 
                     Execute(threshold, uid, args.Origin);

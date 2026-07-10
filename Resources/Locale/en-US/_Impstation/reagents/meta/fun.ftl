@@ -34,7 +34,7 @@ reagent-desc-butterfliesbigger = The pure essence of that fluttery, nervous feel
 reagent-name-paprika = paprika
 reagent-desc-paprika = A spice like no other, can cause even the most hearty of Englishmen to toil at night.
 
-reagent-name-pulp = Pulp 
+reagent-name-pulp = Pulp
 reagent-desc-pulp = The mushed up remains of a wood-based product. Moths are able to derive sustenance from this.
 
 reagent-name-trash = trash
@@ -42,3 +42,12 @@ reagent-desc-trash = A slurry of discarded food, drink and packaging.
 
 reagent-name-something = something
 reagent-desc-something = It's something.
+
+reagent-name-ants = ants
+reagent-desc-ants = Literally just ants.
+
+reagent-name-lifting-concentrate = lifting concentrate
+reagent-desc-lifting-concentrate = A pure concentrate extracted from the native flora of Teo. Contact with the substance can result in the laws of gravity being defied.
+
+reagent-name-gamers = gamer's delight
+reagent-desc-gamers = Pow block fire flower sippin' on this shit for hours.

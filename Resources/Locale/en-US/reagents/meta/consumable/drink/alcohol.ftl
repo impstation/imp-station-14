@@ -8,8 +8,8 @@ reagent-name-beer = beer
 reagent-desc-beer = An alcoholic beverage made from malted grains, hops, yeast, and water.
 
 reagent-name-blue-curacao = blue Curaçao
-reagent-desc-blue-curacao = Exotically blue, fruity drink, distilled from oranges.
-
+reagent-desc-blue-curacao = Bright blue, fruity drink, distilled from oranges.
+# imp edit (reagent desc) #changed exotically -> bright
 reagent-name-cognac = cognac
 reagent-desc-cognac = A sweet and strongly alcoholic drink, twice distilled and left to mature for several years. Classy as fornication.
 
@@ -193,9 +193,6 @@ reagent-desc-jungle-bird = Despite the name, it’s not exceptionally popular am
 
 reagent-name-kalimotxo = kalimotxo
 reagent-desc-kalimotxo = A high-class Cuba Libre, for the discerning alcoholic.
-
-reagent-name-kira-special = Kira special
-reagent-desc-kira-special = Long live the guy who everyone had mistaken for a girl. Baka!
 
 reagent-name-tortuga = Tortuga
 reagent-desc-tortuga = Perfect for pirates who’ve been selected as the designated driver. Yarr!

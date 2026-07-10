@@ -11,6 +11,12 @@
   - type: TargetObjective
     title: objective-condition-kill-person-title
   - type: PickRandomPerson
+    filters:
+    # Can't have multiple objectives to kill the same person.
+    - !type:TargetObjectiveMindFilter
+      blacklist:
+        components:
+        - KillPersonCondition
   - type: KillPersonCondition
 
 # Steal
@@ -20,7 +26,7 @@
   id: AntiqueDisablerStealObjective
   components:
   - type: NotJobRequirement
-    job: HeadOfPersonnel
+    jobs: [ HeadOfPersonnel ]
   - type: StealCondition
     stealGroup: AntiqueDisabler
     descriptionText: objective-condition-steal-antiquedisabler-description
@@ -33,7 +39,7 @@
   description: CentComm has given the CMO a fancy new HUD. Would be a shame if it went missing.
   components:
   - type: NotJobRequirement
-    job: [ ChiefMedicalOfficer, Chemist, MedicalDoctor, MedicalIntern ]
+    jobs: [ ChiefMedicalOfficer, Chemist, MedicalDoctor, MedicalIntern ]
   - type: StealCondition
     stealGroup: MedChemHUD
 
@@ -92,12 +98,12 @@
       whitelist:
         components:
         - TraitorRole
-    # Can't have multiple objectives to help/save the same person
-    - !type:TargetObjectiveMindFilter
-      blacklist:
-        components:
-        - RandomTraitorAlive
-        - RandomTraitorProgress
+    # Can't have multiple objectives to help/save the same person # TODO FIX THIS
+    # - !type:TargetObjectiveMindFilter
+    #   blacklist:
+    #     components:
+    #     - RandomTraitorAlive
+    #     - RandomTraitorProgress
   - type: ObjectiveBlacklistRequirement
     blacklist:
       component: null

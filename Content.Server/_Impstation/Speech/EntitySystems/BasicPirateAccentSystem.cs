@@ -1,8 +1,8 @@
-using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
+using Content.Server.Speech.EntitySystems;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed class BasicPirateAccentSystem : EntitySystem
 {
@@ -14,7 +14,7 @@ public sealed class BasicPirateAccentSystem : EntitySystem
         SubscribeLocalEvent<BasicPirateAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, BasicPirateAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<BasicPirateAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

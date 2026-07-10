@@ -22,7 +22,7 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
         SubscribeLocalEvent<EmbedPassiveDamageComponent, DamageOtherOnHitStartupEvent>(OnDamageOtherOnHitStartup);
         SubscribeLocalEvent<ItemToggleEmbedPassiveDamageComponent, ItemToggleDamageOtherOnHitStartupEvent>(OnItemToggleStartup);
         SubscribeLocalEvent<EmbedPassiveDamageComponent, EmbedEvent>(OnEmbed);
-        SubscribeLocalEvent<EmbedPassiveDamageComponent, RemoveEmbedEvent>(OnRemoveEmbed);
+        SubscribeLocalEvent<EmbedPassiveDamageComponent, EmbedDetachEvent>(OnRemoveEmbed);
         SubscribeLocalEvent<EmbedPassiveDamageComponent, ItemToggledEvent>(OnItemToggle);
     }
 
@@ -65,7 +65,7 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
         Dirty(ent);
     }
 
-    private void OnRemoveEmbed(Entity<EmbedPassiveDamageComponent> ent, ref RemoveEmbedEvent args)
+    private void OnRemoveEmbed(Entity<EmbedPassiveDamageComponent> ent, ref EmbedDetachEvent args)
     {
         ent.Comp.Embedded = null;
         ent.Comp.EmbeddedDamageable = null;

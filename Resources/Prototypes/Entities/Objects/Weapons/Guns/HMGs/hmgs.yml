@@ -1,14 +1,14 @@
 - type: entity
   name: BaseWeaponHeavyMachineGun
   parent: BaseItem
-  id: BaseWeaponHeavyMachineGun
+  id: BaseWeaponHeavyMachineGunWizden #imp - see the _Impstation directory for the version we use
   description: Spray and pray.
   abstract: true
   components:
   - type: Sprite
   - type: Item
     size: Ginormous
-  # - type: MultiHandedItem #imp-- messes with gun-requires-wield and wielding is cooler than an item always needing two hands to hold.
+  - type: MultiHandedItem
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -25,52 +25,20 @@
   - type: StaticPrice
     price: 500
   # No chamber because HMG may want its own
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.6
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-#imp edit end
 
 - type: entity
   name: minigun
-  id: WeaponMinigun
-  parent: [ BaseWeaponHeavyMachineGun, BaseGunWieldable, BaseMajorContraband ] #imp
-  description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses .10 mini ammo. #imp
+  id: WeaponMinigunWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
+  parent: [ BaseWeaponHeavyMachineGun, BaseMajorContraband ]
+  description: Vzzzzzt! Rahrahrahrah! Vrrrrr! Uses .10 rifle ammo.
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/minigun.rsi #imp
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
     layers:
     - state: icon
-  - type: GunRequiresWield #imp
-  - type: Clothing #imp
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/minigun.rsi
-    quickEquip: false
-    slots:
-    - Back
-    - suitStorage
   - type: Item
-    sprite: _Impstation/Objects/Weapons/Guns/MachineGuns/minigun.rsi #imp
+    sprite: Objects/Weapons/Guns/HMGs/minigun.rsi
   - type: Gun
     fireRate: 15
     soundGunshot:
@@ -82,29 +50,3 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.4 #slower, but hits harder; bigger object to shove with
-    damage:
-      types:
-        Blunt: 8
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 15
-    damage:
-      types:
-        Blunt: 12
-  - type: StaminaDamageOnHit
-    damage: 15 #slight stagger, but still like 7 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-#imp edit end

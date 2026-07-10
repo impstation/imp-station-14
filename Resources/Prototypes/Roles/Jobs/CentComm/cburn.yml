@@ -5,7 +5,7 @@
   playTimeTracker: JobCBURN
   setPreference: false
   startingGear: CBURNGear
-  icon: "JobIconCBURN" #imp
+  icon: "JobIconCBURN"
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
@@ -34,11 +34,11 @@
     pocket1: RadioHandheld
 #    pocket2: WeaponLaserGun #imp
     belt: ClothingBeltBandolier
-    suitstorage: FuelTankOlympus #imp
+#    suitstorage: FuelTankOlympus #imp
   storage:
     back:
-    - WeaponShotgunDoubleBarreled
-    - BoxShotgunIncendiary
+#    - WeaponShotgunDoubleBarreled #imp, weapons mapped on shuttle
+#    - BoxShotgunIncendiary #imp
     - GrenadeFlashBang
     - PillAmbuzolPlus
     - PillAmbuzol

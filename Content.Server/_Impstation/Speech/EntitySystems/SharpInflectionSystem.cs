@@ -1,8 +1,8 @@
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed class SharpInflectionSystem : EntitySystem
 {
@@ -19,7 +19,7 @@ public sealed class SharpInflectionSystem : EntitySystem
         SubscribeLocalEvent<SharpInflectionComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, SharpInflectionComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<SharpInflectionComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

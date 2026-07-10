@@ -48,8 +48,8 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: _Impstation/Mobs/Animals/bros.rsi
-          state: bros
+        - sprite: _Impstation/Mobs/Animals/Bros/bros.rsi
+          state: icon
     - type: ClusterSpawner
       prototypes:
         - MobBros
@@ -177,8 +177,8 @@
     - type: Sprite
       layers:
         - state: blue
-        - sprite: _Impstation/Mobs/Animals/foes.rsi
-          state: foes
+        - sprite: _Impstation/Mobs/Animals/Bros/foes.rsi
+          state: icon
     - type: ClusterSpawner
       prototypes:
         - MobFoes
@@ -250,3 +250,38 @@
   - type: ConditionalSpawner
     prototypes:
     - MobTckut
+
+- type: entity
+  name: Jonny spawner
+  suffix: passenger pet
+  id: SpawnMobDogCockroachJonny
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: ai
+  - type: ConditionalSpawner
+    prototypes:
+    - MobCockroachJonnyCutter
+    - MobCockroachJonnyDriver
+    - MobCockroachJonnyCrowbar
+    - MobCockroachJonnyWrench
+    - MobCockroachJonnyNetworkConfig
+    - MobCockroachJonnyPulser
+    - MobCockroachJonnyWelder
+
+- type: entity
+  name: tck'ju'q'tp spawner
+  suffix: Decapoid Core
+  id: BorgSpawnerDecapoidCore
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: green
+        - sprite: _Impstation/Mobs/Silicon/Bots/decacore.rsi
+          state: icon
+    - type: ConditionalSpawner
+      prototypes:
+        - DecapoidCore

@@ -3,6 +3,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
+using Content.Shared.Gibbing;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Store;
@@ -35,6 +36,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
     [Dependency] private readonly SharedRottingSystem _rotting = default!;
     [Dependency] private readonly SharedStealthSystem _stealth = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterfaceSystem = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly CollectiveMindUpdateSystem _collectiveMind = default!; // imp
 
     public void SubscribeAbilities()
@@ -551,7 +553,7 @@ public sealed partial class GoobChangelingSystem : EntitySystem
 
         PlayMeatySound(uid, comp);
 
-        _bodySystem.GibBody(uid);
+        _gibbing.Gib(uid);
     }
 
     #endregion
@@ -585,7 +587,8 @@ public sealed partial class GoobChangelingSystem : EntitySystem
             return;
         }
 
-        EnsureComp<FlashImmunityComponent>(uid);
+        var flashImmune = EnsureComp<FlashImmunityComponent>(uid);
+        _flash.SetExamineState((uid, flashImmune), false); //#IMP Don't give away that we're a changeling by showing "It provides protection from bright flashes"
         _popup.PopupEntity(Loc.GetString("changeling-passive-activate"), uid, uid);
     }
     public void OnBiodegrade(EntityUid uid, GoobChangelingComponent comp, ref ActionBiodegradeEvent args)
@@ -595,10 +598,12 @@ public sealed partial class GoobChangelingSystem : EntitySystem
 
         if (TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {
-            var cuff = cuffs.LastAddedCuffs;
+            // imp start
+            var cuff = _cuffs.GetLastCuffOrNull((uid, cuffs));
 
-            _cuffs.Uncuff(uid, cuffs.LastAddedCuffs, cuff);
+            _cuffs.TryUncuff((uid, cuffs), uid);
             QueueDel(cuff);
+            // imp end
         }
 
         var soln = new Solution();

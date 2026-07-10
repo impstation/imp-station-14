@@ -1,8 +1,8 @@
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed class SnalienAccentSystem : EntitySystem
 {
@@ -60,7 +60,7 @@ public sealed class SnalienAccentSystem : EntitySystem
         SubscribeLocalEvent<SnalienAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, SnalienAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<SnalienAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

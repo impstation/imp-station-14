@@ -1,6 +1,7 @@
 - type: entity
   name: proto-kinetic accelerator
-  id: WeaponProtoKineticAccelerator
+  id: WeaponProtoKineticAcceleratorWizden #imp - see the _Impstation directory for the version we use
+  abstract: true #imp
   parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
   description: Fires low-damage kinetic bolts at a short range.
   components:
@@ -20,33 +21,3 @@
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
-
-#imp edit begin; weapon melee
-  - type: MeleeWeapon
-    range: 0.8
-    attackRate: 0.6
-    damage:
-      types:
-        Blunt: 5
-    soundHit:
-      path: /Audio/Effects/hit_kick.ogg
-    soundSwing:
-      path: /Audio/_Impstation/Weapons/Guns/Melee/shove_foley.ogg
-    resetOnHandSelected: false
-  - type: AltFireMelee
-    attackType: Heavy
-  - type: DamageOtherOnHit #for throwing
-    staminaCost: 10
-    damage:
-      types:
-        Blunt: 8
-  - type: StaminaDamageOnHit
-    damage: 10 #slight stagger, but still like 10 hits to stun completely
-  - type: MeleeRequiresWield
-  - type: MeleeThrowOnHit
-    distance: 0.8
-    speed: 5
-  - type: Tag
-    tags:
-      - PKAGun # for the bounty
-#imp edit end

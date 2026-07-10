@@ -1,0 +1,11 @@
+- type: antag
+  id: Conspirator
+  name: roles-antag-conspirator-name
+  antagonist: true
+  setPreference: true
+  playTimeTracker: AntagConspirator # imp edit
+  objective: roles-antag-conspirator-objective
+  guides: [ Conspirators ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 3600 # 1h

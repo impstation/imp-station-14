@@ -36,6 +36,12 @@ public sealed partial class SpiderComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan? NextWebSpawn;
+
+    /// <summary>
+    /// Imp addition. If true the action only spawns one web tile isntead of five.
+    /// </summary>
+    [DataField]
+    public bool SpawnOneWeb = false;
 }
 
 public sealed partial class SpiderWebActionEvent : InstantActionEvent { }

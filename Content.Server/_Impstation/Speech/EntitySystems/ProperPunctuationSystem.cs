@@ -1,8 +1,7 @@
-using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed class ProperPunctuationSystem : EntitySystem
 {
@@ -12,7 +11,7 @@ public sealed class ProperPunctuationSystem : EntitySystem
         SubscribeLocalEvent<ProperPunctuationComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, ProperPunctuationComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<ProperPunctuationComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

@@ -16,8 +16,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Random;
 using System.Text;
-using Content.Server._Goobstation.Heretic.EntitySystems;
 using Content.Shared.Roles.Components;
+using Content.Server._Impstation.Heretic.EntitySystems;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -90,10 +90,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
 
         //#IMP: Make sure they can use the store button
         var uiComp = EnsureComp<UserInterfaceComponent>(target);
-        if (!_userInterfaceSystem.HasUi(target, StoreUiKey.Key, uiComp))
-        {
-            _userInterfaceSystem.SetUi(target, StoreUiKey.Key, new InterfaceData("StoreBoundUserInterface"));
-        }
+        _userInterfaceSystem.SetUi((target, uiComp), StoreUiKey.Key, new InterfaceData("HereticKnowledgeBoundUserInterface"));
 
         rule.Minds.Add(mindId);
 
