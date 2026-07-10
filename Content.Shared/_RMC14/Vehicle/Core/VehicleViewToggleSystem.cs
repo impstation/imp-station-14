@@ -10,6 +10,7 @@ public sealed class VehicleViewToggleSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // imp
 
     public override void Initialize()
     {
@@ -105,6 +106,7 @@ public sealed class VehicleViewToggleSystem : EntitySystem
         {
             ent.Comp.InsideTarget = eye.Target;
             _eye.SetTarget(ent.Owner, outside, eye);
+            _eye.SetRotation(ent.Owner, _transform.GetWorldRotation(Transform(outside)), eye); // imp still dosent work oughghghghgh
             ent.Comp.IsOutside = true;
         }
 

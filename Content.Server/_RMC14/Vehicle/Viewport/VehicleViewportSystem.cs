@@ -104,6 +104,7 @@ public sealed class VehicleViewportSystem : EntitySystem
         userState.Source = source;
 
         _eye.SetTarget(user, vehicle);
+        // _eye.SetRotation(user, Transform(vehicle).LocalRotation, newEye); // imp
         _viewToggle.EnableViewToggle(user, vehicle, source, userState.PreviousTarget, isOutside: true);
         return true;
     }
@@ -131,6 +132,7 @@ public sealed class VehicleViewportSystem : EntitySystem
         userState.PeekTarget = Spawn(VehiclePeekAnchor, peekCoords);
 
         _eye.SetTarget(user, userState.PeekTarget);
+        // _eye.SetRotation(user, Transform(userState.PeekTarget.Value).LocalRotation, eye); // imp idk broken probably cause the entity was just spawned
         Dirty(user, userState);
         return true;
     }

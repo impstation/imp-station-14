@@ -42,9 +42,9 @@
     anchored: true
   - type: Clickable
   - type: InteractionOutline
-  # - type: Icon
-  #   sprite: _RMC14/Markers/landmarks.rsi
-  #   state: invisible_wall
+  - type: Icon
+    sprite: _RMC14/Markers/landmarks.rsi
+    state: invisible_wall
   - type: Sprite
     drawdepth: LowFloors
     texture: /Textures/_RMC14/Tiles/floors/void.png

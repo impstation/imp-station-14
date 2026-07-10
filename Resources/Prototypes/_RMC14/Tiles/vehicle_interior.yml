@@ -1,24 +1,5 @@
 - type: tile
   abstract: true
-  id: CMPlanetBase
-  isSubfloor: true
-  deconstructTools: [ ]
-  footstepSounds:
-    collection: FootstepGrass
-  heatCapacity: 10000
-  weather: true
-  indestructible: true
-  canDig: true
-
-- type: tile
-  parent: CMPlanetBase
-  id: RMCVoid
-  name: tiles-rmc-empty
-  sprite: "/Textures/Tiles/vehicle_interior.rsi/floor_0.png"
-# IMP TODO, taken from planet/tiles remove from map in map editor
-
-- type: tile
-  abstract: true
   id: RMCFloorVehicleInteriorBase
   name: vehicle interior floor
   baseTurf: FloorSteel # IMP, edited from RMC to use upstream stuff

@@ -5,8 +5,8 @@
   description: A vehicle key cut for a specific lock.
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
-    state: idjanitor
+    sprite: Objects/Vehicles/atv.rsi # imp, not use removed jani icon and instead ATV key
+    state: keys # imp, not use removed jani icon and instead ATV key
   - type: Item
     size: Tiny
   - type: VehicleKey
@@ -19,8 +19,8 @@
   description: An unprogrammed vehicle key that can be imprinted to a vehicle.
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
-    state: idjanitor
+    sprite: Objects/Vehicles/atv.rsi # imp, not use removed jani icon and instead ATV key
+    state: keys # imp, not use removed jani icon and instead ATV key
   - type: Item
     size: Tiny
   - type: VehicleKey
@@ -33,8 +33,8 @@
   description: A blank vehicle key designed to copy an existing vehicle key.
   components:
   - type: Sprite
-    sprite: Objects/Misc/id_cards.rsi
-    state: idjanitor
+    sprite: Objects/Vehicles/atv.rsi # imp, not use removed jani icon and instead ATV key
+    state: keys # imp, not use removed jani icon and instead ATV key
   - type: Item
     size: Tiny
   - type: VehicleKey
