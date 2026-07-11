@@ -46,7 +46,7 @@ namespace Content.Client.Lobby
                 return;
             }
 
-            Lobby = (LobbyGui)_userInterfaceManager.ActiveScreen;
+            Lobby = (LobbyGui) _userInterfaceManager.ActiveScreen;
 
             var chatController = _userInterfaceManager.GetUIController<ChatUIController>();
             _gameTicker = _entityManager.System<ClientGameTicker>();
