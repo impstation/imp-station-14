@@ -53,6 +53,7 @@ public sealed partial class ReadyManifestUi : FancyWindow
             {
                 StyleClasses = { "LabelBig" },
                 Text = departmentName,
+                Margin = new Thickness(6, 0, 0, 0), // Imp, add left margin
             });
 
             var jobs = department.Roles.Select(jobId => _prototypeManager.Index(jobId))
