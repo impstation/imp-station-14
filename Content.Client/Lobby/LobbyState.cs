@@ -1,4 +1,3 @@
-using Content.Client._Harmony.ReadyManifest; // Harmony
 using Content.Client.Audio;
 using Content.Client.GameTicking.Managers;
 using Content.Client.LateJoin;
@@ -16,6 +15,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Content.Client._Harmony.ReadyManifest; // Harmony
 
 namespace Content.Client.Lobby
 {
@@ -46,7 +46,7 @@ namespace Content.Client.Lobby
                 return;
             }
 
-            Lobby = (LobbyGui) _userInterfaceManager.ActiveScreen;
+            Lobby = (LobbyGui)_userInterfaceManager.ActiveScreen;
 
             var chatController = _userInterfaceManager.GetUIController<ChatUIController>();
             _gameTicker = _entityManager.System<ClientGameTicker>();

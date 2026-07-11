@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Numerics;
-using Content.Client._Harmony.ReadyManifest.UI; // Harmony
 using Content.Client.ContextMenu.UI;
 using Content.Client.Examine;
 using Content.Client.PDA;
@@ -17,6 +16,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Shared.Graphics;
 using static Robust.Client.UserInterface.StylesheetHelpers;
+using Content.Client._Harmony.ReadyManifest.UI; // Harmony
 
 namespace Content.Client.Stylesheets
 {
