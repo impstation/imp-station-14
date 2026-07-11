@@ -165,6 +165,7 @@ namespace Content.Server.GameTicking
                     continue;
                 RaiseNetworkEvent(GetStatusMsg(playerSession), playerSession.Channel);
             }
+
             // Harmony start - ready manifest
             var playerToggledReady = new PlayerToggledReadyEvent();
             RaiseLocalEvent(ref playerToggledReady);
@@ -184,19 +185,14 @@ namespace Content.Server.GameTicking
                 return;
             }
 
-            // imp edit start, no need to update if the player is already (un)readied
-            var status = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
-            if (_playerGameStatuses[player.UserId] == status)
-            {
-                return;
-            }
-            // imp edit end
             _playerGameStatuses[player.UserId] = ready ? PlayerGameStatus.ReadyToPlay : PlayerGameStatus.NotReadyToPlay;
             RaiseNetworkEvent(GetStatusMsg(player), player.Channel);
+
             // Harmony start - ready manifest
             var playerToggledReady = new PlayerToggledReadyEvent();
             RaiseLocalEvent(ref playerToggledReady);
             // Harmony end - ready manifest
+
             // update server info to reflect new ready count
             UpdateInfoText();
         }
