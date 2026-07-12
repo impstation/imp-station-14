@@ -22,8 +22,16 @@
   components:
   - type: EntityTableContainerFill
     containers:
-      entity_storage: !type:NestedSelector
-        tableId: LockerFillQuarterMaster
+    # Moffstation - Start - Harmony QM Hardsuit in locker variations
+      # entity_storage: !type:NestedSelector
+        # tableId: LockerFillQuarterMaster
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LockerFillQuarterMaster
+        - !type:NestedSelector
+          tableId: FillQuarterMasterHardsuit
+    # Moffstation - End
 
 # No laser table
 - type: entityTable
