@@ -13,6 +13,9 @@ public sealed partial class AscensionRuleComponent : Component
     [DataField]
     public TimeSpan DelayForCobaltEffects = TimeSpan.FromSeconds(15);
 
+    /// <summary>
+    /// percentage of lights that will flicker upon ascension
+    /// </summary>
     [DataField]
     public float LightFlickerChance = 0.33f;
 

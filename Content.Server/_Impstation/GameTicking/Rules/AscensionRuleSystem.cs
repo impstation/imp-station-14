@@ -2,6 +2,8 @@ using Content.Server.AlertLevel;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Ghost;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Heretic;
+using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Light.Components;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;

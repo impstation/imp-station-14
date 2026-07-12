@@ -128,6 +128,7 @@ public sealed partial class HereticSystem : EntitySystem
         // switch alert to Cobalt + do other related fanfare
         var ascensionGamerule = _gameTicker.AddGameRule(AscensionRuleId);
         _gameTicker.StartGameRule(ascensionGamerule);
+        RaiseLocalEvent(ent, new EventHereticPostAscension(ent.Comp));
     }
 
     #endregion
