@@ -5,6 +5,7 @@ using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
+using Content.Client.Stylesheets; // imp
 
 namespace Content.Client._Harmony.ReadyManifest.UI;
 
@@ -14,10 +15,12 @@ public sealed partial class ReadyManifestJobListing : GridContainer
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
+    /* Imp removal, using status palette
     public const string StyleClassReadyIndicatorNoReady = "ReadyIndicatorNoReady";
     public const string StyleClassReadyIndicatorLowReady = "ReadyIndicatorLowReady";
     public const string StyleClassReadyIndicatorMediumReady = "ReadyIndicatorMediumReady";
     public const string StyleClassReadyIndicatorHighReady = "ReadyIndicatorHighReady";
+    */
 
     public ReadyManifestJobListing(ProtoId<JobPrototype> jobId, ReadyManifestJobData? readyCount)
     {
@@ -39,7 +42,7 @@ public sealed partial class ReadyManifestJobListing : GridContainer
 
         if (readyCount == null)
         {
-            ReadyIndicator.StyleClasses.Add(StyleClassReadyIndicatorNoReady);
+            ReadyIndicator.StyleClasses.Add(StyleClass.StatusCritical); // Imp, StyleClass.StatusCritical instead of StyleClassReadyIndicatorNoReady
             return;
         }
 
@@ -49,25 +52,25 @@ public sealed partial class ReadyManifestJobListing : GridContainer
         {
             locId = "high";
             usedReadyCount = readyCount.Value.HighReadies;
-            ReadyIndicator.StyleClasses.Add(StyleClassReadyIndicatorHighReady);
+            ReadyIndicator.StyleClasses.Add(StyleClass.StatusGood); // Imp, StyleClass.StatusGood instead of StyleClassReadyIndicatorHighReady
         }
         else if (readyCount.Value.MediumReadies > 0)
         {
             locId = "medium";
             usedReadyCount = readyCount.Value.MediumReadies;
-            ReadyIndicator.StyleClasses.Add(StyleClassReadyIndicatorMediumReady);
+            ReadyIndicator.StyleClasses.Add(StyleClass.StatusWarning); // Imp, StyleClass.StatusWarning instead of StyleClassReadyIndicatorMediumReady
         }
         else if (readyCount.Value.LowReadies > 0)
         {
             locId = "low";
             usedReadyCount = readyCount.Value.LowReadies;
-            ReadyIndicator.StyleClasses.Add(StyleClassReadyIndicatorLowReady);
+            ReadyIndicator.StyleClasses.Add(StyleClass.StatusCritical); // Imp, StyleClass.StatusCritical instead of StyleClassReadyIndicatorLowReady
         }
         else
         {
             locId = "no";
             usedReadyCount = 0;
-            ReadyIndicator.StyleClasses.Add(StyleClassReadyIndicatorNoReady);
+            ReadyIndicator.StyleClasses.Add(StyleClass.StatusCritical); // Imp, StyleClass.StatusCritical instead of StyleClassReadyIndicatorNoReady
         }
 
         ReadyCount.Text = Loc.GetString(
