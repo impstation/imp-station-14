@@ -42,20 +42,15 @@ public sealed partial class KeyRingSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<KeyRingComponent, ComponentStartup>(OnComponentStartup);
         SubscribeLocalEvent<KeyRingComponent, AfterInteractEvent>(TryStartKeyCardDoAfter);
         SubscribeLocalEvent<KeyRingComponent, KeyRingDoorDoAfterEvent>(KeyCardDoorDoAfter);
         SubscribeLocalEvent<KeyRingComponent, KeyRingLockDoAfterEvent>(KeyCardLockDoAfter);
     }
 
-    private void OnComponentStartup(Entity<KeyRingComponent> ent, ref ComponentStartup args)
-    {
-        ent.Comp.UseDelay = TimeSpan.FromSeconds(_random.NextDouble(ent.Comp.MinUseTime,ent.Comp.MaxUseTime));
-        Dirty(ent);
-    }
-
     private void TryStartKeyCardDoAfter(Entity<KeyRingComponent> ent, ref AfterInteractEvent args)
     {
+        if (ent.Comp.UseDelay==TimeSpan.Zero)// wanted this to be on startup but it caused a test fail
+            ent.Comp.UseDelay = TimeSpan.FromSeconds(_random.NextDouble(ent.Comp.MinUseTime,ent.Comp.MaxUseTime));
         if (!TryComp<AccessReaderComponent>(args.Target, out var accessReader))
             return;
 
