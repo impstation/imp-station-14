@@ -19,6 +19,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -45,6 +46,7 @@ public sealed class HellWorldSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -55,6 +57,16 @@ public sealed class HellWorldSystem : EntitySystem
 
     private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml");
     private readonly ProtoId<CloningSettingsPrototype> _cloneSettings = "HellClone";
+    private readonly List<EntProtoId> _soulParts = new()
+    {
+        "SoulFragmentSight",
+        "SoulFragmentHunger",
+        "SoulFragmentDreams",
+        "SoulFragmentSpeech",
+        "SoulFragmentSword",
+        "SoulFragmentShield",
+        "SoulFragmentRhythm"
+    };
 
     public override void Initialize()
     {
@@ -96,12 +108,12 @@ public sealed class HellWorldSystem : EntitySystem
     /// </summary>
     private void BeforeSend(Entity<InHellComponent> uid, ref HereticBeforeHellEvent args)
     {
-        //spawn a clone of the victim
-        _cloning.TryCloning(uid, _transform.GetMapCoordinates(uid), uid.Comp.CloneSettings, out var clone);
-
-        //gib clone to get matching organs.
-        if (clone != null)
-            _gibbing.Gib(clone.Value);
+        //spawn victims soul parts for use in rituals
+        foreach(var part in _soulParts)
+        {
+            var partEnt = Spawn(part, _xform.GetMapCoordinates(uid));
+            FlingDroppedEntity(partEnt);
+        }
 
         //set original body to put the mind back in later
         uid.Comp.OriginalBody = uid;
@@ -112,6 +124,13 @@ public sealed class HellWorldSystem : EntitySystem
             return;
         }
         uid.Comp.Mind = mindContainer.Mind.Value;
+    }
+
+    private void FlingDroppedEntity(EntityUid target) //this code is direct from GibbingSystem, but inside another system so i can't get to it >:(
+    {
+        var impulse = 25 + _random.NextFloat(5);
+        var scatterVec = _random.NextAngle().ToVec() * impulse;
+        _physics.ApplyLinearImpulse(target, scatterVec);
     }
 
     /// <summary>

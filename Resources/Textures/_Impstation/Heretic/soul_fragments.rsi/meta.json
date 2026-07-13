@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-4.0",
-  "copyright": "created by Sha-Sheng & Kandiyaki for Impstation",
+  "copyright": "created by Kandiyaki for Impstation",
   "size": {
     "x": 32,
     "y": 32
@@ -9,6 +9,72 @@
     "states": [
         {
             "name": "sight",
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+		{
+            "name": "hunger",
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+		{
+            "name": "rhythm",
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+		{
+            "name": "sword",
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+		{
+            "name": "shield",
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+		{
+            "name": "speech",
+            "delays": [
+                [
+                    0.3,
+                    0.3,
+                    0.3,
+                    0.3
+                ]
+            ]
+        },
+		{
+            "name": "dreams",
             "delays": [
                 [
                     0.3,
