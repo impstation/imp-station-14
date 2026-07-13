@@ -4,7 +4,6 @@ using Content.Server.Ghost;
 using Content.Server.Popups;
 using Content.Server.Stack;
 using Content.Server.Wires;
-using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -25,7 +24,11 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared.Gibbing;
 using Content.Shared.Humanoid;
+using Content.Shared.Body.Components; // imp
+using Content.Shared.Damage.Systems; // imp
+using Content.Shared.StatusEffectNew; // imp
 
 namespace Content.Server.Materials;
 
@@ -39,11 +42,13 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
     [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!; //bobby
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!; // imp
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // imp
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -112,7 +117,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             Filter.PvsExcept(victim, entityManager: EntityManager),
             true);
 
-        _body.GibBody(victim, true);
+        _gibbing.Gib(victim);
         _appearance.SetData(entity.Owner, RecyclerVisuals.Bloody, true);
         args.Handled = true;
     }
@@ -191,13 +196,25 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         if (component.ReclaimMaterials)
             SpawnMaterialsFromComposition(uid, item, completion * component.Efficiency, xform: xform);
 
+        // imp edit start, unemagged recyclers damage mobs
+        if (HasComp<BodyComponent>(item) && !CanGib(uid, item, component))
+        {
+            if (!_statusEffect.HasStatusEffect(item, component.StatusEffect))
+            {
+                _damageable.ChangeDamage(item, component.Damage);
+                _statusEffect.TryAddStatusEffectDuration(item, component.StatusEffect, component.StatusEffectDuration);
+            }
+            return;
+        }
+        // imp edit end
+
         if (CanGib(uid, item, component))
         {
             var logImpact = HasComp<HumanoidAppearanceComponent>(item) ? LogImpact.Extreme : LogImpact.Medium;
             _adminLogger.Add(LogType.Gib, logImpact, $"{ToPrettyString(item):victim} was gibbed by {ToPrettyString(uid):entity} ");
             if (component.ReclaimSolutions)
                 SpawnChemicalsFromComposition(uid, item, completion, false, component, xform);
-            _body.GibBody(item, true);
+            _gibbing.Gib(item);
             _appearance.SetData(uid, RecyclerVisuals.Bloody, true);
         }
         else

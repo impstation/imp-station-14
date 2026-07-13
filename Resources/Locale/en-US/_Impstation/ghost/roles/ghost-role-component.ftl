@@ -185,8 +185,21 @@ ghost-role-information-eeep-desc = A bad tempered and fully grown Electric sheep
 ghost-role-information-ductspider-name = Duct Spider
 ghost-role-information-ductspider-description = A hungry tiny spider.
 
+butler-spawn = You have received a great responsibility from The Sirs Collective!
+ghost-role-information-butler-name = Exploding Butler
+ghost-role-information-butler-description = You are a devoted butler destined to explode. Your target holds the remote that will end your life. Serve them well.
+
 ghost-role-information-rock-name = Grotesque
 ghost-role-information-rock-desc = A powerfull stone monster, you must protect your wizard!
 
 ghost-role-information-magic-monkey-name = Magic monkey
 ghost-role-information-magic-monkey-desc = A wizards Apprentice.
+
+ghost-role-information-carp-radio-name = Big mouth carp
+ghost-role-information-carp-radio-desc = A stuffed carp containing a transmitter that picks up distant space radio shows.
+
+ghost-role-information-syndicate-instigator-name = Syndicate Instigator
+ghost-role-information-syndicate-instigator-description = You are a barely-equipped trainee nuclear operative sent to test the station's defenses. Try to destroy the station.
+ghost-role-information-syndicate-instigator-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-solo-antagonist-name}[/bold][/color]. Covert syndicate agents are not guaranteed to help you.
+
+                                          You don't remember any of your previous life, and you don't remember anything you learned as a ghost.

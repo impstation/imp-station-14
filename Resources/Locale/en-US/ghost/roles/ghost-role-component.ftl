@@ -270,8 +270,10 @@ ghost-role-information-syndicate-cyborg-description = The Syndicate needs reinfo
 ghost-role-information-derelict-engineering-cyborg-name = Derelict Engineer Cyborg
 ghost-role-information-derelict-engineering-cyborg-description = You are an engineer cyborg that got lost in space. After years of exposure to ion storms you find yourself near a space station.
 
-ghost-role-information-derelict-cyborg-name = Derelict Generic Cyborg
-ghost-role-information-derelict-cyborg-description = You are a regular cyborg that got lost in space. After years of exposure to ion storms you find yourself near a space station.
+## imp edit start
+ghost-role-information-derelict-cyborg-name = Derelict Science Cyborg
+ghost-role-information-derelict-cyborg-description = You are a science cyborg that got lost in space. After years of exposure to ion storms you find yourself near a space station.
+## imp edit end
 
 ghost-role-information-derelict-janitor-cyborg-name = Derelict Janitor Cyborg
 ghost-role-information-derelict-janitor-cyborg-description = You are a janitor cyborg that got lost in space. After years of exposure to ion storms you find yourself near a space station.

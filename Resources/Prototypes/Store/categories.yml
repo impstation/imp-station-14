@@ -104,7 +104,13 @@
 - type: storeCategory
   id: UplinkPointless
   name: store-category-pointless
-  priority: 10
+  priority: 11 # imp edit, 10 -> 11
+
+#nukie delivery
+
+- type: storeCategory
+  id: NukieDelivery
+  name: store-category-nukie-delivery
 
 #revenant
 - type: storeCategory

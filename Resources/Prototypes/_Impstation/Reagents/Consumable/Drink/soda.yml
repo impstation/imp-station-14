@@ -90,7 +90,7 @@
         type: Local
         visualType: MediumCaution
         messages: [ "shrimpsoda-anomalocarid-effect-best" ]
-        probability: 0.2
+        probability: 0.01
       - !type:PopupMessage
         conditions:
         - !type:MetabolizerTypeCondition
@@ -220,3 +220,57 @@
         effectProto: StatusEffectFloating
         type: Update
   fizziness: 0.99 #What the actual hell is fizziness. #Well I guess the lifting drinks GOTTA be fizzy
+
+- type: reagent
+  id: CreamSoda
+  name: reagent-name-cream-soda-drink
+  parent: BaseSoda
+  desc: reagent-desc-cream-soda-drink
+  physicalDesc: reagent-physical-desc-fizzy-and-creamy
+  flavor: creamsoda
+  color: "#fdf9e8"
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+  fizziness: 0.8
+
+- type: reagent
+  id: CreamSodaOrange
+  name: reagent-name-orange-cream-soda-drink
+  parent: BaseSoda
+  desc: reagent-desc-orange-cream-soda-drink
+  physicalDesc: reagent-physical-desc-fizzy-and-creamy
+  flavor: creamsodaorange
+  color: "#eed487"
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+  fizziness: 0.8
+
+- type: reagent
+  id: CreamSodaBerry
+  name: reagent-name-berry-cream-soda-drink
+  parent: BaseSoda
+  desc: reagent-desc-berry-cream-soda-drink
+  physicalDesc: reagent-physical-desc-fizzy-and-creamy
+  flavor: creamsodaberry
+  color: "#861227"
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 2
+  fizziness: 0.8

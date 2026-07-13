@@ -34,6 +34,9 @@
   id: BorgModuleTckTck
 
 - type: Tag
+  id: BorgNeck
+
+- type: Tag
   id: Bowl
 
 - type: Tag
@@ -58,7 +61,7 @@
   id: CartridgeBazooka
 
 - type: Tag
-  id: CartridgeLPistol
+  id: CartridgeMime
 
 - type: Tag
   id: CartridgeMinigun
@@ -124,6 +127,9 @@
   id: Crystal # BountyCrystal
 
 - type: Tag
+  id: DamageVariable
+
+- type: Tag
   id: Dart
 
 - type: Tag
@@ -137,6 +143,12 @@
 
 - type: Tag
   id: DecapoidGenericTag
+
+- type: Tag
+  id: Dinnerware
+
+- type: Tag
+  id: DrinkCup
 
 - type: Tag
   id: DroneUsable
@@ -158,6 +170,9 @@
 
 - type: Tag
   id: Firebomb # specifically the ones you make in a soda can. that's just what they're called.
+
+- type: Tag
+  id: FitsInDispenser
 
 - type: Tag
   id: FloorChasmEntity
@@ -200,6 +215,9 @@
 
 - type: Tag
   id: Insuls # anything with the APPEARANCE of insuls, not anything that insulates.
+
+- type: Tag
+  id: Ingredient
 
 - type: Tag
   id: JanitorialWelder
@@ -346,6 +364,9 @@
   id: PyrottonBoll
 
 - type: Tag
+  id: RecyclerGibbable
+
+- type: Tag
   id: RegenerativeMesh
 
 - type: Tag
@@ -362,6 +383,9 @@
 
 - type: Tag
   id: SGD
+
+- type: Tag
+  id: Shaker
 
 - type: Tag
   id: ShellCoconut
@@ -427,6 +451,9 @@
   id: WeaponCleanerLakeUpgradeKit
 
 - type: Tag
+  id: WeaponSniperMuldoonUpgradeKit
+
+- type: Tag
   id: WeaponSurvivalRifleUpgradeRifleKit
 
 - type: Tag
@@ -434,6 +461,9 @@
 
 - type: Tag
   id: WeldingTool
+
+- type: Tag
+  id: XenoHornet
 
 - type: Tag
   id: DecapoidSilicon

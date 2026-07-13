@@ -100,3 +100,32 @@
     sprite: _Impstation/Structures/Storage/Crates/service_secure.rsi
   - type: AccessReader
     access: [["Service"]]
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateSalvageSecure
+  name: secure salvage crate
+  components:
+  - type: Icon
+    sprite: _Impstation/Structures/Storage/Crates/salvage_secure.rsi
+  - type: Sprite
+    sprite: _Impstation/Structures/Storage/Crates/salvage_secure.rsi
+  - type: AccessReader
+    access: [["Salvage"]]
+
+- type: entity
+  id: CrateEngineeringSupermatterSecure
+  parent: [ CrateEngineeringSecure, BaseEngineeringContraband ]
+  description: A specialized crate that is immune to the supermatter, capable of holding a supermatter shard.
+  components:
+  - type: Icon
+    sprite: _Impstation/Structures/Storage/Crates/supermatter.rsi
+  - type: Sprite
+    sprite: _Impstation/Structures/Storage/Crates/supermatter.rsi
+  - type: EntityStorage
+    whitelist:
+      components:
+      - Supermatter
+  - type: SupermatterImmune
+  - type: RadiationBlockingContainer
+    resistance: 5

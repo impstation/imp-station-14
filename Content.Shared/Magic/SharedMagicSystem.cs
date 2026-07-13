@@ -1,12 +1,11 @@
 using System.Numerics;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Gibbing;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -33,6 +32,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
+using Content.Shared.Buckle; // imp
 
 namespace Content.Shared.Magic;
 
@@ -53,7 +53,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -68,6 +68,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly ExamineSystemShared _examine= default!;
+    [Dependency] private readonly SharedBuckleSystem _buckle = default!; // imp
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
 
@@ -142,7 +143,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
         foreach (var position in GetInstantSpawnPositions(transform, args.PosData))
         {
-            SpawnSpellHelper(args.Prototype, position, args.Performer, preventCollide: args.PreventCollideWithCaster);
+            SpawnSpellHelper(args.Prototype, position, args.Performer, preventCollide: args.PreventCollideWithCaster, tryBuckle: args.TryBuckle); // imp edit, add TryBuckle
         }
 
         args.Handled = true;
@@ -334,7 +335,7 @@ public abstract class SharedMagicSystem : EntitySystem
     // End Teleport Spells
     #endregion
     #region Spell Helpers
-    private void SpawnSpellHelper(string? proto, EntityCoordinates position, EntityUid performer, float? lifetime = null, bool preventCollide = false)
+    private void SpawnSpellHelper(string? proto, EntityCoordinates position, EntityUid performer, float? lifetime = null, bool preventCollide = false, bool tryBuckle = false) // imp edit, add TryBuckle
     {
         if (!_net.IsServer)
             return;
@@ -352,6 +353,13 @@ public abstract class SharedMagicSystem : EntitySystem
             var comp = EnsureComp<PreventCollideComponent>(ent);
             comp.Uid = performer;
         }
+
+        // imp edit start
+        if (tryBuckle)
+        {
+            _buckle.TryBuckle(performer, performer, ent);
+        }
+        // imp edit end
     }
 
     private void AddComponents(EntityUid target, ComponentRegistry comps)
@@ -390,11 +398,7 @@ public abstract class SharedMagicSystem : EntitySystem
         var impulseVector = direction * 10000;
 
         _physics.ApplyLinearImpulse(ev.Target, impulseVector);
-
-        if (!TryComp<BodyComponent>(ev.Target, out var body))
-            return;
-
-        _body.GibBody(ev.Target, true, body);
+        _gibbing.Gib(ev.Target);
     }
 
     // End Touch Spells
@@ -461,7 +465,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         if (TryComp<BasicEntityAmmoProviderComponent>(wand, out var basicAmmoComp) && basicAmmoComp.Count != null)
-            _gunSystem.UpdateBasicEntityAmmoCount(wand.Value, basicAmmoComp.Count.Value + ev.Charge, basicAmmoComp);
+            _gunSystem.UpdateBasicEntityAmmoCount((wand.Value, basicAmmoComp), basicAmmoComp.Count.Value + ev.Charge);
         else if (TryComp<LimitedChargesComponent>(wand, out var charges))
             _charges.AddCharges((wand.Value, charges), ev.Charge);
     }

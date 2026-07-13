@@ -1,5 +1,5 @@
 - type: entityTable
-  id: XenoArtifactEffectsDefaultTable
+  id: XenoArtifactEffectsDefaultTable #760 total weight - propagate any changes to the table weights in all (item_/structure_)xenoartifacts.yml definitions
   table: !type:GroupSelector
     children:
     # hijacks use key, prevents from using artifact, sadly
@@ -156,7 +156,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [2, 3, 4]
     - id: XenoArtifactHostileFaunaSpawn
-      weight: 10.0
+      weight: 10.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [2, 3, 4]
@@ -274,12 +274,12 @@
       weight: 10.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [4, 5]
+        depths: [3, 4, 5]
     - id: XenoArtifactBoom
-      weight: 10.0 # imp edit
+      weight: 7.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [3, 4, 5]
+        depths: [4, 5]
     - id: XenoArtifactEffectCreationGasPlasma
       weight: 10.0 # imp edit
       conditions:
@@ -397,7 +397,7 @@
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 4, 5 ]
     - id: XenoArtifactScrambleDNA
-      weight: 1 # imp edit
+      weight: 1.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4 ]
@@ -405,24 +405,24 @@
       weight: 4.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 2, 3]
+        depths: [ 2, 3 ]
     - id: XenoArtifactInjectDrunkHigh
       weight: 3.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 3, 4 ]
     - id: XenoArtifactMindlessClone
-      weight: 6.0 # imp edit
+      weight: 10.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 3, 4, 5 ]
     - id: XenoArtifactAnimateSingle
-      weight: 7.0 # imp edit
+      weight: 9.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 2, 3, 4, 5 ]
     - id: XenoArtifactAnimateTriple
-      weight: 6.0 # imp edit
+      weight: 8.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
         depths: [ 4, 5 ]
@@ -430,11 +430,16 @@
       weight: 3.0 # imp edit
       conditions:
       - !type:XenoArchDepthCondition # imp addition
-        depths: [ 3, 4, 5]
-    # imp edit end
+        depths: [ 3, 4, 5 ]
+    - id: XenoArtifactBed
+      weight: 10.0 # imp edit
+      conditions:
+      - !type:XenoArchDepthCondition # imp addition
+        depths: [ 1, 2, 3 ]
+      # imp edit end
 
 - type: entityTable
-  id: XenoArtifactEffectsHandheldOnlyTable
+  id: XenoArtifactEffectsHandheldOnlyTable # 20 total weight
   table: !type:GroupSelector
     children:
     #- id: XenoArtifactBecomeRandomInstrument
@@ -623,6 +628,7 @@
       soundHit:
         path: /Audio/Weapons/bladeslice.ogg
     - type: Sharp
+    - type: CombatMode # imp: let the artifacts bite you
 
 - type: entity
   id: XenoArtifactGenerateEnergy
@@ -686,7 +692,7 @@
       description: ghost-role-information-artifact-description
       rules: ghost-role-information-freeagent-rules
       raffle:
-        settings: default
+        settings: short #imp edit
       mindRoles:
       - MindRoleGhostRoleFreeAgent
     - type: GhostTakeoverAvailable
@@ -964,9 +970,19 @@
     components:
     - type: EntityTableSpawner
       deleteSpawnerAfterSpawn: false
-      table: !type:AllSelector
+      table: !type:GroupSelector #imp structure instruments edit start
         children:
-        - id: RandomInstruments
+        - !type:NestedSelector
+          tableId: RandomInstrumentTable
+          weight: 100
+        - !type:NestedSelector
+          tableId: RandomStructureInstrumentTable
+          weight: 20
+        - !type:GroupSelector
+          weight: 1
+          children:
+          - id: MobPianoInstrumentMimic
+        #imp structure instruments edit end
 
 - type: entity
   id: XenoArtifactMonkeySpawn

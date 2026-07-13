@@ -29,23 +29,17 @@ public sealed class ImpCCVars : CVars
     public static readonly CVarDef<bool> DisableAiStatic =
         CVarDef.Create("accessibility.disable_ai_static", false, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+    /// </summary>
+    /// Makes the Biomagnetic Polarization status effect polarity show as a large symbol ontop of the entity.
+    /// </summary>
+    public static readonly CVarDef<bool> EnableBiomagneticPolarizationSymbols =
+        CVarDef.Create("accessibility.enable_biomagnetic_polarization_symbols", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
     /// <summary>
     /// The number of shared moods to give thaven by default.
     /// </summary>
     public static readonly CVarDef<uint> ThavenSharedMoodCount =
         CVarDef.Create<uint>("thaven.shared_mood_count", 1, CVar.SERVERONLY);
-
-    /// <summary>
-    /// If the player has the accessibility notifier turned on
-    /// </summary>
-    public static readonly CVarDef<bool> NotifierOn =
-        CVarDef.Create("accessibility.notifier_on", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "if the notifier system is active");
-
-    /// <summary>
-    /// the contents of a players accessibility notifier
-    /// </summary>
-    public static readonly CVarDef<string> NotifierExamine =
-        CVarDef.Create("accessibility.notifier_examine", "", CVar.ARCHIVE | CVar.REPLICATED | CVar.CLIENT, "content of accessibility issue notifier.");
 
     /// <summary>
     /// URL of the Discord webhook which will relay last messages before death.
@@ -91,4 +85,16 @@ public sealed class ImpCCVars : CVars
     /// </summary>
     public static readonly CVarDef<bool> AntagPlaytimeBiasing =
         CVarDef.Create("antag.play_time_biasing", false, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     If true, random characters made with "ic.random_characters" can be non-roundstart species.
+    /// </summary>
+    public static readonly CVarDef<bool> ICRandomSpeciesRandomViable =
+        CVarDef.Create("ic.random_species_random_viable", true, CVar.SERVERONLY);
+
+    /// <summary>
+    /// How many characters the notifier text can be.
+    /// </summary>
+    public static readonly CVarDef<int> NotifierFreetextMaxLength =
+        CVarDef.Create("notifier.freetext_max_length", 1000, CVar.REPLICATED | CVar.SERVER);
 }

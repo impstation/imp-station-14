@@ -35,6 +35,25 @@
         - id: EmergencyRollerBedSpawnFolded
 
 - type: entity
+  parent: ClothingBackpackDuffelSyndicateMedicalBundle
+  id: ClothingBackpackDuffelSyndicateFilledMedicine
+  name: syndicate medicine duffel bag
+  description: A large duffel bag containing essential medicinal reagents.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: JugBicaridine
+        - id: JugPuncturase
+        - id: JugDermaline
+        - id: JugDylovene
+        - id: JugHyronalin
+        - id: JugSaline
+        - id: JugDexalinPlus
+        - id: JugTranexamicAcid
+
+- type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledShotgun
   name: Hydra bundle #imp
@@ -444,8 +463,8 @@
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateFilledHushpup
-  name: Hushpup bundle
-  description: Contains the Hushpup, bundled with a box of buckshot. Quarter included.
+  name: Hypnalis bundle #imp
+  description: Contains the Hypnalis, bundled with a box of buckshot. Quarter included.
   components:
   - type: EntityTableContainerFill
     containers:
