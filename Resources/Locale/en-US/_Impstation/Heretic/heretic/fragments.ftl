@@ -1,0 +1,7 @@
+heretic-soul-fragment-sight = [color=purple]This can be used as Eyes in a ritual.[/color]
+heretic-soul-fragment-hunger = [color=purple]This can be used as a Stomach in a ritual.[/color]
+heretic-soul-fragment-dreams = [color=purple]This can be used as a Brain in a ritual.[/color]
+heretic-soul-fragment-speech = [color=purple]This can be used as Lungs in a ritual.[/color]
+heretic-soul-fragment-sword = [color=purple]This can be used as Kidneys in a ritual.[/color]
+heretic-soul-fragment-shield = [color=purple]This can be used as a Liver in a ritual.[/color]
+heretic-soul-fragment-rhythm = [color=purple]This can be used as a Heart in a ritual.[/color]

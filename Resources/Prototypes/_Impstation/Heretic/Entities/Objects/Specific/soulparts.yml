@@ -1,0 +1,25 @@
+- type: entity
+  parent: [ BaseItem, TierXContraband ]
+  id: SoulFragmentSight
+  name: sight fragment
+  description: The Archivist's gifts.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: sight
+  - type: Icon
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: sight
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#f7ff1c"
+  - type: Tag 
+    tags:
+      - Meat
+      - Organ
+      - Eyes
+  - type: HereticSoulFragment
+    message: heretic-soul-fragment-sight
