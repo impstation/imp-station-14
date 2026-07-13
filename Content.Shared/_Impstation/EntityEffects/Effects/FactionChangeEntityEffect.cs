@@ -13,6 +13,6 @@ public sealed partial class FactionChange : EntityEffectBase<FactionChange>
 
     public override string? EntityEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
         => Loc.GetString("reagent-effect-guidebook-factionchange",
-            ("faction", Faction.ToString()),
+            ("faction", Faction),
             ("chance", Probability));
 }

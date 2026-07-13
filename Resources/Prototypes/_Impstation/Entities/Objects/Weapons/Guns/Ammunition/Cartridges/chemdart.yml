@@ -1,7 +1,7 @@
 - type: entity
   name: Tranquilizer Dart
   parent: [ BaseItem, BaseRestrictedZookeeperContraband ]
-  description: A dart designed to be loaded into a tranquilizer rifle. This one contains the chemical Barbadine, which induces drowsiness, and works much more effectively on less mentally active creatures.
+  description: A dart designed to be loaded into a tranquilizer rifle. This one contains the chemical Barbadine, which induces drowsiness that works much more effectively on non-sentient creatures.
   id: TranqDart
   components:
   - type: Sprite
@@ -99,7 +99,7 @@
   parent: [ Tier2Contraband, TranqDart ]
   id: BatozineDart
   name: Batozine Dart
-  description: A dart designed to be loaded into a tranquilizer rifle. This one contains the chemical batozine which makes a creature attack anything that isn't syndicate.
+  description: A dart designed to be loaded into a tranquilizer rifle. This one contains the chemical batozine which makes a creature attack anything that isn't part of the syndicate.
   components:
   - type: Sprite
     layers:

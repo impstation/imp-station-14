@@ -4,10 +4,12 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Impstation.EntityConditions.Conditions;
 
+/// <summary>
+/// Returns true if the entity has the ActiveNPC component.
+/// </summary>
 /// <inheritdoc cref="EntityConditionSystem{T, TCondition}"/>
 public sealed partial class NPCEntityConditionSystem : EntityConditionSystem<ActiveNPCComponent, NPCEntityCondition>
 {
-    // Returns true if the entity has the ActiveNPC component.
     protected override void Condition(Entity<ActiveNPCComponent> entity, ref EntityConditionEvent<NPCEntityCondition> args)
     {
         args.Result = true;

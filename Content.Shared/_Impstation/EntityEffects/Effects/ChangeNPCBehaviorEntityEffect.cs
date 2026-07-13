@@ -5,7 +5,6 @@ namespace Content.Shared._Impstation.EntityEffects.Effects;
 
 public sealed partial class ChangeNPCBehavior : EntityEffectBase<ChangeNPCBehavior>
 {
-    // Should work with any htnCompound.
     [DataField(required: true)]
     public string rootTask = string.Empty;
 
