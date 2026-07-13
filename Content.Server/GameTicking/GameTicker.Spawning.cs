@@ -213,7 +213,7 @@ namespace Content.Server.GameTicking
                 }
 
                 // imp edit start
-                var oldTraits = character.TraitPreferences; // imp edit, preserve traits
+                var oldTraits = character.TraitPreferences; // preserve traits
 
                 // just replace the character profile with a fully random one so we can keep the weights from the species prototypes
                 if (_randomizeCharactersRandomViableSpecies)
@@ -231,7 +231,7 @@ namespace Content.Server.GameTicking
                 }
                 // imp edit end
                 // character = HumanoidCharacterProfile.RandomWithSpecies(speciesId); // imp edit, comment out
-                  
+
             }
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)
