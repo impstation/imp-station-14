@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: starlighthowls
   changes:
-  - message: Dolphin got un-cursed.
-    type: Tweak
-  id: 2380
-  time: '2025-11-03T10:37:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3649
-- author: starlighthowls
-  changes:
   - message: Russian people got a lot more Russian.
     type: Tweak
   id: 2381
@@ -4105,3 +4098,11 @@
   id: 2879
   time: '2026-07-13T16:38:21.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4329
+- author: Kandiyaki
+  changes:
+  - message: Heretics' Sacrifice victims will no longer be teleported when sacrificed,
+      or automatically revived afterwards.
+    type: Tweak
+  id: 2880
+  time: '2026-07-13T16:51:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4471
