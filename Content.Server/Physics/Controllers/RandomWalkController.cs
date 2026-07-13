@@ -89,11 +89,11 @@ internal sealed class RandomWalkController : VirtualController
         if (randomWalk.BreakPulling && TryComp<PullableComponent>(uid, out var pulling))
             _pulling.TryStopPull(uid, pulling);
 
-        if (TryComp<EmbeddableProjectileComponent>(uid, out var embeddable) && embeddable.Target != null)
+        if (TryComp<EmbeddableProjectileComponent>(uid, out var embeddable) && embeddable.EmbeddedIntoUid != null)
         {
             // calculate the direction away from the embed target
             var pos = _transform.GetWorldPosition(uid);
-            var posTarget = _transform.GetWorldPosition(embeddable.Target.Value);
+            var posTarget = _transform.GetWorldPosition(embeddable.EmbeddedIntoUid.Value);
             var delta = posTarget - pos;
             var speed = delta.Length() > 0 ? delta.Normalized() * -1 : Vector2.Zero;
 

@@ -116,7 +116,7 @@
         reagents:
         - ReagentId: GrayBlood
           Quantity: 3
-  - type: ReplacementAccent
+  - type: AdvancedFullReplacementAccent
     accent: pleebnar
   - type: Tag
     tags:
@@ -149,8 +149,10 @@
       types:
         Piercing: 0
   - type: Bloodstream
-    bloodReagent: GrayBlood
-    bloodMaxVolume: 50
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GrayBlood
+        Quantity: 50
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning

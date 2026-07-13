@@ -1,0 +1,28 @@
+﻿- type: entity
+  name: finger gun
+  parent: BaseItem
+  id: WeaponPistolFingerGun
+  description: Your hand.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Interface/Actions/mime.rsi
+    state: gun
+  - type: Gun
+    soundGunshot: null
+    soundEmpty: null
+    fireRate: 5
+    selectedMode: SemiAuto
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: BallisticAmmoProvider
+    capacity: 3
+    proto: CartridgeMime
+    cycleable: false
+    whitelist:
+      tags:
+      - CartridgeMime
+  - type: BallisticAmmoSelfRefiller
+    autoRefillRate: 10s
+  - type: AmmoCounter
+  - type: Appearance

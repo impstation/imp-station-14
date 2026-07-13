@@ -26,9 +26,10 @@
     #- id: SpiderClownSpawn
     #- id: SpiderSpawn
     - id: VentClog
+    - id: ButlerSpawn # imp
     - id: GoblinKnightEvent # imp
     - id: HereticBooksSpawnSmall #imp
-    - id: BiomagneticPolarizationRule # imp
+    - id: BiomagneticPolarization # imp
     - id: SynthStorm # CD: Unique event for synths
 
 - type: entityTable
@@ -64,6 +65,7 @@
     - id: OppaSpawnLight #imp
     - id: OppaSpawnNight #imp
     - id: SyndicateInfiltratorSpawn # imp
+    - id: SyndicateInstigatorSpawn # imp
     - !type:NestedSelector # imp
       tableId: TouristShuttleEvents
 
@@ -257,7 +259,7 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 1 #imp
+    weight: 3 #imp
     duration: null
     earliestStart: 30
     reoccurrenceDelay: 20
@@ -281,7 +283,7 @@
       pickPlayer: false
       startingGear: SpaceNinjaGear
       roleLoadout:
-      - RoleSurvivalEVA
+      - RoleSurvivalSpaceNinja
       briefing:
         text: ninja-role-greeting
         color: Green
@@ -489,6 +491,7 @@
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
+    occursDuringRoundEnd: false
   - type: ZombieRule
   - type: AntagSelection
     definitions:
@@ -636,8 +639,17 @@
     - Research
     - Security
     - Service
+    - Medical #imp
     blacklist:
     - External # don't space everything
+    bannedExtras: #imp
+     tags:
+     - ExternalAirlock
+     components:
+     - GasCanister
+     - BorgChassis
+     - Emitter
+     - AntiTamper
 
 - type: entity
   parent: BaseGameRule

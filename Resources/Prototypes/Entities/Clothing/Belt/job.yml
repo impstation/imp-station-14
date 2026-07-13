@@ -30,7 +30,6 @@
       - WeldingMask
       - RemoteSignaller
       - UtilityKnife
-      - Dart #Until Zookeeper gets its own belt they're gonna have to share. This is a temporary stopgap. Also Imp.
       components:
       - StationMap
       - SprayPainter
@@ -180,6 +179,7 @@
       - Bloodpack
       - Gauze
       - Ointment
+      - Tourniquet
       - CigPack
       - PillCanister
       - Radio
@@ -187,7 +187,6 @@
       - SurgeryTool
       - Dropper
       components:
-      - Hypospray
       - Injector
       - Pill
       - HandLabeler
@@ -200,7 +199,7 @@
           - Bottle
       hypo:
         whitelist:
-          components:
+          tags:
           - Hypospray
       pill:
         whitelist:
@@ -250,7 +249,7 @@
   - type: Storage
     whitelist:
       tags:
-      - PlantAnalyzer # nf uncomment
+      - PlantAnalyzer # nf
       - PlantSampleTaker
       - BotanyShovel
       - BotanyHoe
@@ -271,10 +270,6 @@
         whitelist:
           tags:
           - BotanyHatchet
-      # hydro:
-      #   whitelist:
-      #     tags:
-      #     - PlantAnalyzer # Dunno what to put here, should be aight.
       hoe:
         whitelist:
           tags:
@@ -401,6 +396,8 @@
       - Pribar
       - SpaceBladeSec
       - HandheldCriminalRecords
+      - BlasterCell
+      - StarflareCell
       # imp edit end
       components:
       - Stunbaton

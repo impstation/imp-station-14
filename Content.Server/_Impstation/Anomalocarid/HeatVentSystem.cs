@@ -1,11 +1,16 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Server.Jittering;
 using Content.Server.Popups;
 using Content.Shared._Impstation.Anomalocarid;
+using Content.Shared.Actions.Components;
 using Content.Shared.Alert;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Ghost;
+using Content.Shared.Mind.Components;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server._Impstation.Anomalocarid;
@@ -16,6 +21,8 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly JitteringSystem _jittering = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly RespiratorSystem _respirator = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -25,6 +32,12 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
         base.Initialize();
 
         SubscribeLocalEvent<HeatVentComponent, HeatVentDoAfterEvent>(OnVent);
+        SubscribeLocalEvent<HeatVentComponent, MindAddedMessage>(OnMindAdded);
+    }
+
+    private void OnMindAdded(Entity<HeatVentComponent> ent, ref MindAddedMessage args)
+    {
+        ent.Comp.MindActive = true;
     }
 
     private void OnVent(Entity<HeatVentComponent> ent, ref HeatVentDoAfterEvent args)
@@ -50,7 +63,7 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
         var query = EntityQueryEnumerator<HeatVentComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (_timing.CurTime < comp.UpdateTimer)
+            if (_timing.CurTime < comp.UpdateTimer || !comp.MindActive)
                 continue;
 
             comp.UpdateTimer = _timing.CurTime + comp.UpdateCooldown;
@@ -67,7 +80,13 @@ public sealed class HeatVentSystem : SharedHeatVentSystem
         ent.Comp.HeatStored += ent.Comp.HeatAdded;
 
         if (ent.Comp.HeatStored >= ent.Comp.HeatDamageThreshold)
+        {
+            _jittering.DoJitter(ent, ent.Comp.UpdateCooldown, false);
             _damage.TryChangeDamage(ent.Owner, ent.Comp.HeatDamage, ignoreResistances: true, interruptsDoAfters: false);
+
+            if (_random.NextFloat() < ent.Comp.TooHotPopupChance && ent.Comp.TooHotPopups != null)
+                _popup.PopupEntity(Loc.GetString(_random.Pick(ent.Comp.TooHotPopups)), ent);
+        }
 
         UpdateAlert(ent);
     }

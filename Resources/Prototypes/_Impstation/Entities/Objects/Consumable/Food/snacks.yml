@@ -443,3 +443,40 @@
   - type: Tag
     tags:
     - Trash
+
+# survival box things
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackHardtack
+  name: hardtack
+  description: An extremely hard and dense biscuit made to survive long ship voyages. Hopefully you're not about to find out why some call them worm castles.
+  components:
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/hardtack.rsi
+    size: Small
+    shape:
+    - 0,0,1,0
+    heldPrefix: hardtack
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Snacks/hardtack.rsi
+    state: hardtack
+  - type: FlavorProfile
+    flavors:
+      - hardtack
+  - type: Edible #custom sound for this would be nice
+    transferAmount: 5 #3 bites, but they take a long time
+    delay: 10
+    forceFeedDelay: 20
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment #more nutriment than a ration, but it takes a really long time to eat it
+          Quantity: 7.5
+        - ReagentId: TableSalt
+          Quantity: 7.5
+  - type: Tag
+    tags:
+      - ReptilianFood

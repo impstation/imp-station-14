@@ -274,6 +274,14 @@ public abstract class SharedFlashSystem : EntitySystem
             args.PushMarkup(Loc.GetString("flash-protection"));
     }
 
+    ///<summary>
+    ///#IMP Change examine state
+    ///</summary>
+    public void SetExamineState(Entity<FlashImmunityComponent> ent, bool newState)
+    {
+        ent.Comp.ShowInExamine = newState;
+    }
+
     // EE THROWING, allows for flashing when thrown at someone
     private void OnFlashThrowHitEvent(Entity<FlashComponent> ent, ref ThrowDoHitEvent args)
     {

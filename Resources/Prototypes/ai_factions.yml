@@ -1,20 +1,21 @@
 - type: npcFaction
   id: Dragon
   hostile:
-    - NanoTrasen
-    - Syndicate
-    - Xeno
-    - PetsNT
-    - Zombie
-    - Revolutionary
-    - AllHostile
-    - Wizard
-    - Changeling # imp
-    - Heretic # imp
-    - Dino # imp
-    - Penguin # imp
-    - SimpleHostile # imp
-    - Replicator # imp
+  - NanoTrasen
+  - Syndicate
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Revolutionary
+  - AllHostile
+  - Wizard
+  - Xenoborg
+  - Changeling # imp
+  - Heretic # imp
+  - Dino # imp
+  - Penguin # imp
+  - SimpleHostile # imp
+  - Replicator # imp
 
 - type: npcFaction
   id: NanoTrasen
@@ -37,6 +38,7 @@
   - PetsNT
   - AllHostile
   - Wizard
+  - DuctSpider # imp
   - Penguin # imp
 
 - type: npcFaction
@@ -44,15 +46,17 @@
 
 - type: npcFaction
   id: PetsNT
+  friendly:
+  - NanoTrasen
   hostile:
   - Mouse
   - SimpleHostile
   - Zombie
   - Xeno
   - AllHostile
-  - Wizard
-  - Dino # imp
   - Dragon
+  - Dino # imp
+  - DuctSpider # imp
   - Replicator # imp
 
 - type: npcFaction
@@ -110,6 +114,7 @@
   - Changeling # imp
   - Heretic # imp
   - Dino # imp
+  - DuctSpider # imp
   - Penguin # imp
   - Replicator # imp
   - Dragon
@@ -133,6 +138,7 @@
   - Penguin # imp
   - Replicator # imp
   - Dog # imp
+  - DuctSpider # imp
   - Dragon
   - Xenoborg
 
@@ -168,6 +174,7 @@
   - Changeling # imp
   - Heretic # imp
   - Dino # imp
+  - DuctSpider # imp
   - Penguin # imp
   - Replicator # imp
   - Dog # imp
@@ -194,6 +201,7 @@
   - Penguin # imp
   - Replicator # imp
   - Dog # imp
+  - DuctSpider # imp
 
 - type: npcFaction
   id: Xenoborg

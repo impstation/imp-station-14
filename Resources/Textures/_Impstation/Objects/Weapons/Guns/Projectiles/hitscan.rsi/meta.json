@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "_synd taken and modified from cev-eris at https://github.com/discordia-space/CEV-Eris/tree/7ff8f28ea4de734f3cc3cb70f2d4e4b4263a988d, laser_rifle by, and edits by DVDPlayerOfDiscordFame (github)",
+  "copyright": "_synd taken and modified from cev-eris at https://github.com/discordia-space/CEV-Eris/tree/7ff8f28ea4de734f3cc3cb70f2d4e4b4263a988d, laser_rifle and xeno beams by, and edits by DVDPlayerOfDiscordFame (github)",
   "size": {
     "x": 32,
     "y": 32
@@ -24,6 +24,36 @@
     },
     {
       "name": "muzzle_laser_rifle",
+      "delays": [
+        [
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002
+        ]
+      ]
+    },
+    {
+      "name": "muzzle_xenolight",
+      "delays": [
+        [
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002
+        ]
+      ]
+    },
+    {
+      "name": "muzzle_xenoheavy",
       "delays": [
         [
           0.060000002,
@@ -68,6 +98,36 @@
       ]
     },
     {
+      "name": "impact_xenolight",
+      "delays": [
+        [
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002
+        ]
+      ]
+    },
+    {
+      "name": "impact_xenoheavy",
+      "delays": [
+        [
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002
+        ]
+      ]
+    },
+    {
       "name": "beam_synd",
       "delays": [
         [
@@ -84,6 +144,36 @@
     },
     {
       "name": "beam_laser_rifle",
+      "delays": [
+        [
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002
+        ]
+      ]
+    },
+    {
+      "name": "beam_xenolight",
+      "delays": [
+        [
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002,
+          0.060000002
+        ]
+      ]
+    },
+    {
+      "name": "beam_xenoheavy",
       "delays": [
         [
           0.060000002,

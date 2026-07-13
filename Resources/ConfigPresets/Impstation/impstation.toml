@@ -4,7 +4,7 @@ desc = "Unofficial server for fans of RTVS featuring custom content. Come and se
 soft_max_players = 100
 # seconds
 # default 120
-round_restart_time = 300
+round_restart_time = 150
 # default 150
 lobbyduration = 600
 
@@ -58,3 +58,7 @@ login_dataset = "LoginTips"
 enabled = false
 # we do have a whitelist in place, but as of 15 august 2025 the server is open again
 # whitelist cutoff date: ~0:00CT 28 april 2025
+
+[admin]
+# sets time that players must wait before dismissing an admin message on login
+message_wait_time = 10

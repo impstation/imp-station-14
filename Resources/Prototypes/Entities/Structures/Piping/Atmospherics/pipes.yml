@@ -20,6 +20,13 @@
   - type: CollideOnAnchor
   - type: Anchorable
   - type: Rotatable
+  # Funky RPD Start
+  - type: RCDDeconstructable
+    cost: 1 # Imp
+    delay: 2
+    fx: EffectRCDDeconstruct2
+    rpd: true
+  # Funky RPD End
   - type: Destructible
     thresholds:
     - trigger: # for nukes
@@ -414,36 +421,40 @@
         nodeGroupID: Pipe
         pipeDirection: South
         pipeLayer: 0
+        volume: 50
       south1:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: South
         pipeLayer: 1
+        volume: 50
       south2:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: South
         pipeLayer: 2
+        volume: 50
       north0:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
         pipeLayer: 0
+        volume: 50
       north1:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
         pipeLayer: 1
+        volume: 50
       north2:
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
         pipeLayer: 2
+        volume: 50
   - type: GasPipeManifold
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasPipeManifold
     showAbsentConnections: false
   - type: AtmosDevice
-  - type: Tag
-    tags:
-    - Unstackable
+  # Funky RPD, unnecessary tag unstackable removed

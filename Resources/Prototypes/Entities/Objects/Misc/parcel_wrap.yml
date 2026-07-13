@@ -43,6 +43,7 @@
 
 - type: entity
   abstract: true
+  parent: BasePaperLabelable # We use this instead of BasePaperLabelableVisualized because WrappedParcel needs its own GenericVisualizer component for the parcel itself, and WrappedParcelHumanoid currently doesn't have label sprites at all
   id: BaseWrappedParcel
   name: wrapped parcel
   description: Something wrapped up in paper. I wonder what's inside...
@@ -64,17 +65,6 @@
       params:
         volume: -4
     unwrapTrash: ParcelWrapTrash
-  - type: ItemSlots
-  - type: PaperLabel
-    labelSlot:
-      insertVerbText: comp-paper-label-insert
-      ejectVerbText: comp-paper-label-eject
-      whitelist:
-        components:
-        - Paper
-      blacklist:
-        tags:
-        - Book
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -107,7 +97,7 @@
     - Recyclable # Parcel entity is recyclable, and when it's destroyed, it'll drop its contents.
 
 - type: entity
-  parent: [BaseItem, BaseWrappedParcel]
+  parent: [ BaseItem, BaseWrappedParcel ]
   id: WrappedParcel
   components:
   - type: Appearance
@@ -120,7 +110,7 @@
           "Medium": { state: "parcel-medium" }
           "Large": { state: "parcel-medium" }
           "Huge": { state: "parcel-large" }
-          "Ginormous": { state: "parcel-large" }
+          "Ginormous": { state: "parcel-huge" } # imp edit, parcel-large -> parcel-huge
       enum.PaperLabelVisuals.HasLabel:
         enum.PaperLabelVisuals.Layer:
           True: { visible: true }
@@ -132,13 +122,13 @@
           CaptainsPaper: { state: captains_paper }
           Invoice: { state: invoice }
   - type: Sprite
-    sprite: Objects/Misc/ParcelWrap/wrapped_parcel.rsi
+    sprite: _Impstation/Objects/Misc/ParcelWrap/wrapped_parcel.rsi # imp edit
     layers:
     - state: parcel-medium
       map: [ "enum.WrappedParcelVisuals.Layer" ]
     - state: paper
       visible: false
-      sprite: Objects/Misc/ParcelWrap/paper_labels.rsi
+      sprite: _Impstation/Objects/Misc/ParcelWrap/paper_labels.rsi # imp edit
       map: ["enum.PaperLabelVisuals.Layer"]
 
 - type: entity

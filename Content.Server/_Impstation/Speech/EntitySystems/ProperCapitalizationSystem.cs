@@ -1,8 +1,8 @@
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed class ProperCapitalizationSystem : EntitySystem
 {
@@ -16,7 +16,7 @@ public sealed class ProperCapitalizationSystem : EntitySystem
         SubscribeLocalEvent<ProperCapitalizationComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, ProperCapitalizationComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<ProperCapitalizationComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

@@ -43,7 +43,6 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 1.25
         reagents:
         - ReagentId: CocoaPowder
           Quantity: 0.125
@@ -79,7 +78,6 @@
           Quantity: 5
   - type: Tag
     tags:
-    - Ingredient
     - UnguFood
 
 - type: entity

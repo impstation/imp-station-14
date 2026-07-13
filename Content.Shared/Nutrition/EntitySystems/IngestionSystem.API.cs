@@ -142,8 +142,6 @@ public sealed partial class IngestionSystem
 
     public void SpawnTrash(Entity<EdibleComponent> entity, EntityUid? user = null)
     {
-        _projectile.RemoveEmbeddedChildren(entity); // imp edit
-
         if (entity.Comp.Trash.Count == 0)
             return;
 

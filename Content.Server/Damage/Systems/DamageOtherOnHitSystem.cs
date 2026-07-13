@@ -56,7 +56,7 @@ public sealed class DamageOtherOnHitSystem : SharedDamageOtherOnHitSystem
             && component.Damage.AnyPositive())
             return;
 
-        var isEmbedded = TryComp<EmbeddableProjectileComponent>(uid, out var embed) && embed.Target != null;
+        var isEmbedded = TryComp<EmbeddableProjectileComponent>(uid, out var embed) && embed.EmbeddedIntoUid != null;
 
         // Ignore thrown items that are too slow, as long as the projectile is not embedded
         if (!isEmbedded && physics.LinearVelocity.LengthSquared() < component.MinVelocity)

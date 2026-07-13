@@ -270,8 +270,10 @@ ghost-role-information-syndicate-cyborg-description = The Syndicate needs reinfo
 ghost-role-information-derelict-engineering-cyborg-name = Derelict Engineer Cyborg
 ghost-role-information-derelict-engineering-cyborg-description = You are an engineer cyborg that got lost in space. After years of exposure to ion storms you find yourself near a space station.
 
-ghost-role-information-derelict-cyborg-name = Derelict Generic Cyborg
-ghost-role-information-derelict-cyborg-description = You are a regular cyborg that got lost in space. After years of exposure to ion storms you find yourself near a space station.
+## imp edit start
+ghost-role-information-derelict-cyborg-name = Derelict Science Cyborg
+ghost-role-information-derelict-cyborg-description = You are a science cyborg that got lost in space. After years of exposure to ion storms you find yourself near a space station.
+## imp edit end
 
 ghost-role-information-derelict-janitor-cyborg-name = Derelict Janitor Cyborg
 ghost-role-information-derelict-janitor-cyborg-description = You are a janitor cyborg that got lost in space. After years of exposure to ion storms you find yourself near a space station.
@@ -357,6 +359,12 @@ ghost-role-information-tomatokiller-description = This little tomato will serve 
 ghost-role-information-gingerbread-name = Gingerbread Man
 ghost-role-information-gingerbread-description = A being of pure holiday spirit.
                                      Spread molassesy goodness and to all good cheer.
+
+ghost-role-information-mothership-core-name = Mothership Core
+ghost-role-information-mothership-core-desc = You are the core of the xenoborg mothership, help them multiply by borging any brain they bring to you.
+
+ghost-role-information-xenoborg-name = Xenoborg
+ghost-role-information-xenoborg-desc = A strange cyborg made to replicate itself and take over the station by turning any sentient being into xenoborgs.
 
 ghost-role-information-wizard-name = Wizard
 ghost-role-information-wizard-desc = YER A WIZARD! Show the station what your magic is made of.

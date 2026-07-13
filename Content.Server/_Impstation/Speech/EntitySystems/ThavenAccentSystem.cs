@@ -1,17 +1,13 @@
 using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
+using Content.Server.Speech.EntitySystems;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 // hi, this is a copy of NoContractionsAccentSystem, split to retain function of accentless for non thaven using the trait
 public sealed class ThavenAccentComponentAccentSystem : EntitySystem
 {
     [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
-    private static readonly Regex RegexLowerS = new("s+");
-    private static readonly Regex RegexUpperS = new("S+");
-    private static readonly Regex RegexInternalX = new(@"(\w)x");
-    private static readonly Regex RegexLowerEndX = new(@"\bx([\-|r|R]|\b)");
-    private static readonly Regex RegexUpperEndX = new(@"\bX([\-|r|R]|\b)");
 
     public override void Initialize()
     {
@@ -19,14 +15,8 @@ public sealed class ThavenAccentComponentAccentSystem : EntitySystem
         SubscribeLocalEvent<ThavenAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    public string Accentuate(string message)
+    private void OnAccent(Entity<ThavenAccentComponent> entity, ref AccentGetEvent args)
     {
-        var accentedMessage = _replacement.ApplyReplacements(message, "nocontractions");
-        return accentedMessage.ToString();
-    }
-
-    private void OnAccent(EntityUid uid, ThavenAccentComponent component, AccentGetEvent args)
-    {
-        args.Message = Accentuate(args.Message);
+        args.Message = _replacement.ApplyReplacements(args.Message, "nocontractions");
     }
 }

@@ -4,7 +4,10 @@
   suffix: Testosterone
   components:
   - type: Bloodstream
-    bloodReagent: Testosterone
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Testosterone
+        Quantity: 100
   - type: PointLight
     color: "#267ef0"
   - type: Sprite
@@ -21,7 +24,10 @@
   suffix: Estradiol
   components:
   - type: Bloodstream
-    bloodReagent: Estradiol
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Estradiol
+        Quantity: 100
   - type: PointLight
     color: "pink"
   - type: Sprite
@@ -38,7 +44,10 @@
   suffix: Romerol
   components:
   - type: Bloodstream
-    bloodReagent: Romerol
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Romerol
+        Quantity: 100
   - type: PointLight
     color: "#7e916e"
   - type: Sprite
@@ -55,7 +64,10 @@
   suffix: Phlogiston
   components:
   - type: Bloodstream
-    bloodReagent: Phlogiston
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Phlogiston
+        Quantity: 100
   - type: PointLight
     color: "#D4872A"
   - type: Sprite
@@ -72,7 +84,10 @@
   suffix: Licoxide
   components:
   - type: Bloodstream
-    bloodReagent: Licoxide
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Licoxide
+        Quantity: 100
   - type: PointLight
     color: "#FDD023"
   - type: Sprite
@@ -89,7 +104,10 @@
   suffix: MindbreakerToxin
   components:
   - type: Bloodstream
-    bloodReagent: MindbreakerToxin
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: MindbreakerToxin
+        Quantity: 100
   - type: PointLight
     color: "#77b58e"
   - type: Sprite
@@ -106,7 +124,10 @@
   suffix: Desoxyephedrine
   components:
   - type: Bloodstream
-    bloodReagent: Desoxyephedrine
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Desoxyephedrine
+        Quantity: 100
   - type: PointLight
     color: "#FAFAFA"
   - type: Sprite
@@ -123,7 +144,10 @@
   suffix: CogChamp
   components:
   - type: Bloodstream
-    bloodReagent: CogChamp
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CogChamp
+        Quantity: 100
   - type: PointLight
     color: "#B5A642"
   - type: Sprite
@@ -140,7 +164,10 @@
   suffix: Lexorin
   components:
   - type: Bloodstream
-    bloodReagent: Lexorin
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Lexorin
+        Quantity: 100
   - type: PointLight
     color: "#6b0007"
   - type: Sprite
@@ -157,7 +184,10 @@
   suffix: TheeHorsepussy
   components:
   - type: Bloodstream
-    bloodReagent: TheeHorsepussy
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: TheeHorsepussy
+        Quantity: 100
   - type: PointLight
     color: "#7BD18C"
   - type: Sprite
@@ -174,7 +204,10 @@
   suffix: Ipecac
   components:
   - type: Bloodstream
-    bloodReagent: Ipecac
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Ipecac
+        Quantity: 100
   - type: PointLight
     color: "#422912"
   - type: Sprite
@@ -191,7 +224,10 @@
   suffix: Honk
   components:
   - type: Bloodstream
-    bloodReagent: Honk
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Honk
+        Quantity: 100
   - type: PointLight
     color: "#F2E9D2"
   - type: Sprite
@@ -208,7 +244,10 @@
   suffix: Chlorine Trifluoride
   components:
   - type: Bloodstream
-    bloodReagent: ChlorineTrifluoride
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: ChlorineTrifluoride
+        Quantity: 100
   - type: PointLight
     color: "#FFC8C8"
   - type: Sprite
@@ -225,7 +264,10 @@
   suffix: JuiceThatMakesYouWeh
   components:
   - type: Bloodstream
-    bloodReagent: JuiceThatMakesYouWeh
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouWeh
+        Quantity: 100
   - type: PointLight
     color: "#59b23a"
   - type: Sprite
@@ -242,7 +284,10 @@
   suffix: BrosochloricBros
   components:
   - type: Bloodstream
-    bloodReagent: BrosochloricBros
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: BrosochloricBros
+        Quantity: 100
   - type: PointLight
     color: "#47181A"
   - type: Sprite
@@ -259,7 +304,10 @@
   suffix: DrGibb
   components:
   - type: Bloodstream
-    bloodReagent: DrGibb
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: DrGibb
+        Quantity: 100
   - type: PointLight
     color: "#102000"
   - type: Sprite
@@ -276,7 +324,10 @@
   suffix: JuiceThatMakesYouUngh
   components:
   - type: Bloodstream
-    bloodReagent: JuiceThatMakesYouUngh
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: JuiceThatMakesYouUngh
+        Quantity: 100
   - type: PointLight
     color: "#8F3134"
   - type: Sprite
@@ -293,7 +344,10 @@
   suffix: Coffee
   components:
   - type: Bloodstream
-    bloodReagent: Coffee
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Coffee
+        Quantity: 100
   - type: PointLight
     color: "#664300"
   - type: Sprite

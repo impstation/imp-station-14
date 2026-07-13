@@ -1,0 +1,8 @@
+- type: polymorph
+  id: AdminAntSmite
+  configuration:
+    entity: MobAnt
+    forced: true
+    transferName: true
+    inventory: Transfer
+    ignoreAllowRepeatedMorphs: true

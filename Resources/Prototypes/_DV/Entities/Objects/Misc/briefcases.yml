@@ -29,12 +29,14 @@
     maxItemSize: Huge
     grid:
     - 0,0,8,4
-  - type: StorageFill # Iimp - removed figurine since it doesnt exist here, added Syndicate document printer.
-    contents:
-    - id: PaperRecruiterUplink
-      amount: 1
-    - id: SyndicateDocumentPrinterFlatpack
-      amount: 1
+  - type: EntityTableContainerFill # Iimp - removed figurine since it doesnt exist here, added Syndicate document printer.
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PaperRecruiterUplink
+          amount: 1
+        - id: SyndicateDocumentPrinterFlatpack
+          amount: 1
   - type: Lock
     lockOnClick: false
   - type: UIRequiresLock
@@ -48,7 +50,7 @@
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
       enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
+        type: UplinkBoundUserInterface # imp edit, was StoreBoundUserInterface
   - type: Store
     name: store-recruiter-name-uplink
     ownerOnly: true

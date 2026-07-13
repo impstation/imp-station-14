@@ -154,8 +154,8 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: Objects/Devices/communication.rsi
-      state: old-radio
+      sprite: _Impstation/Objects/Devices/uplink.rsi # imp edit
+      state: icon # imp edit
   - type: InstantAction
     event: !type:OpenUplinkImplantEvent
 
@@ -253,6 +253,17 @@
     icon: { sprite: Interface/Actions/voice-mask.rsi, state: icon }
   - type: InstantAction
     event: !type:VoiceMaskSetNameEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionShootWater
+  name: Spray water!
+  description: Spray water towards your enemies.
+  components:
+  - type: Action
+    icon: { sprite: Clothing/Neck/Misc/pins.rsi, state: flower }
+  - type: InstantAction
+    event: !type:SprayLiquidEvent
 
 - type: entity
   parent: BaseAction
@@ -478,3 +489,11 @@
     icon: Interface/Actions/shop.png
   - type: InstantAction
     event: !type:IntrinsicStoreActionEvent
+
+- type: entity
+  parent: ActionChangeVoiceMask
+  id: ActionChangeVoiceMaskImplant
+  components:
+  - type: Action
+    icon: { sprite: Interface/Actions/voice-mask.rsi, state: icon }
+    itemIconStyle: BigAction

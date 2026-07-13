@@ -57,6 +57,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#eb87c0"
+  - type: PaperLabelType #Imp change
+    paperType: PaperDyedPink
 
 - type: entity
   parent: Paper
@@ -78,6 +80,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#ba453f"
+  - type: PaperLabelType #Imp change
+    paperType: PaperDyedRed
 
 - type: entity
   parent: Paper
@@ -99,6 +103,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#ec912e"
+  - type: PaperLabelType #Imp change
+    paperType: PaperDyedOrange
 
 - type: entity
   parent: Paper
@@ -120,6 +126,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#fee36c"
+  - type: PaperLabelType #Imp change
+    paperType: PaperDyedYellow
 
 - type: entity
   parent: Paper
@@ -141,6 +149,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#c7dd4b"
+  - type: PaperLabelType #Imp change
+    paperType: PaperDyedGrass
 
 - type: entity
   parent: Paper
@@ -162,6 +172,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#0da04d"
+  - type: PaperLabelType #Imp change
+    paperType: PaperDyedGreen
 
 - type: entity
   parent: Paper
@@ -183,6 +195,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#1796c8"
+  - type: PaperLabelType #Imp change
+    paperType: PaperDyedOcean
 
 - type: entity
   parent: Paper
@@ -204,6 +218,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#49cddd"
+  - type: PaperLabelType #Imp change
+    paperType: PaperDyedSky
 
 - type: entity
   parent: Paper
@@ -225,6 +241,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#938bda"
+  - type: PaperLabelType #Imp change
+    paperType: PaperDyedPurple
 
 - type: entity
   parent: Paper
@@ -246,6 +264,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#cfbdaa"
+  - type: PaperLabelType #Imp change
+    paperType: PaperDyedTan
 
 - type: entity
   parent: Paper
@@ -267,6 +287,8 @@
       visible: false
   - type: PaperVisuals
     backgroundModulate: "#a47449"
+  - type: PaperLabelType #Imp change
+    paperType: PaperDyedBrown
 
 - type: entity
   parent: BoxBase
@@ -288,20 +310,22 @@
     whitelist:
       tags:
       - Document
-  - type: StorageFill
-    contents:
-    - id: PaperDyedYellow
-      amount: 4
-    - id: PaperDyedGreen
-      amount: 4
-    - id: PaperDyedRed
-      amount: 4
-    - id: PaperDyedOcean
-      amount: 4
-    - id: PaperDyedTan
-      amount: 4
-    - id: PaperDyedBrown
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PaperDyedYellow
+          amount: 4
+        - id: PaperDyedGreen
+          amount: 4
+        - id: PaperDyedRed
+          amount: 4
+        - id: PaperDyedOcean
+          amount: 4
+        - id: PaperDyedTan
+          amount: 4
+        - id: PaperDyedBrown
+          amount: 4
 
 - type: entity
   parent: BoxReamClassic
@@ -313,20 +337,22 @@
     sprite: _DV/Objects/Misc/bureaucracy.rsi
     layers:
     - state: ream-bright
-  - type: StorageFill
-    contents:
-    - id: PaperDyedOrange
-      amount: 4
-    - id: PaperDyedGrass
-      amount: 4
-    - id: PaperDyedYellow
-      amount: 4
-    - id: PaperDyedSky
-      amount: 4
-    - id: PaperDyedPink
-      amount: 4
-    - id: PaperDyedPurple
-      amount: 4
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: PaperDyedOrange
+          amount: 4
+        - id: PaperDyedGrass
+          amount: 4
+        - id: PaperDyedYellow
+          amount: 4
+        - id: PaperDyedSky
+          amount: 4
+        - id: PaperDyedPink
+          amount: 4
+        - id: PaperDyedPurple
+          amount: 4
 
 - type: entity
   parent: BoxReamClassic
@@ -338,10 +364,12 @@
     sprite: _DV/Objects/Misc/bureaucracy.rsi
     layers:
     - state: ream-white
-  - type: StorageFill
-    contents:
-    - id: Paper
-      amount: 24
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: Paper
+          amount: 24
 
 - type: entity
   parent: Paper

@@ -177,8 +177,8 @@
   id: BrosBurger
   name: food-sequence-burger-content-bros
   sprites:
-  - sprite: _Impstation/Mobs/Animals/bros.rsi
-    state: bros
+  - sprite: _Impstation/Mobs/Animals/Bros/bros.rsi
+    state: icon
 
 - type: foodSequenceElement
   id: CigarBurger
@@ -328,15 +328,15 @@
   id: BrosPlushie
   name: food-sequence-cotton-burger-content-plushie-bros
   sprites:
-  - sprite: _Impstation/Mobs/Animals/bros.rsi
-    state: bros
+  - sprite: _Impstation/Mobs/Animals/Bros/bros.rsi
+    state: icon
 
 - type: foodSequenceElement
   id: SorbPlushie
   name: food-sequence-cotton-burger-content-plushie-sorb
   sprites:
-  - sprite: _Impstation/Mobs/Animals/bros.rsi
-    state: sorb
+  - sprite: _Impstation/Mobs/Animals/Bros/sorb.rsi
+    state: icon
 
 - type: foodSequenceElement
   id: StringCheese
@@ -344,3 +344,19 @@
   sprites:
   - sprite: _Impstation/Objects/Consumable/Food/Ingredients/stringcheese.rsi
     state: burger
+
+# my dog
+
+- type: foodSequenceElement
+  id: Sausage
+  name:
+  sprites:
+  - sprite: _Impstation/Objects/Consumable/Food/hotdog_sequence.rsi
+    state: hotdog
+
+- type: foodSequenceElement
+  id: Hotdogdog
+  name: food-sequence-hotdog-content-hotdog
+  sprites:
+  - sprite: _Impstation/Objects/Consumable/Food/hotdog.rsi
+    state: hotdog_plain

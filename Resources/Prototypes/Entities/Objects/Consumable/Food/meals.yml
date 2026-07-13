@@ -81,6 +81,7 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: SpaceFriesBurger
+      Hotdog: SpaceFriesBurger
   - type: Tag # imp
     tags:
     - Vegetable
@@ -115,6 +116,7 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: CheesyFriesBurger
+      Hotdog: CheesyFriesBurger
   - type: Tag # imp
     tags:
     - Vegetable
@@ -150,6 +152,7 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: CarrotFriesBurger
+      Hotdog: CarrotFriesBurger 
 # Tastes like carrots, salt.
 
 - type: entity
@@ -568,6 +571,7 @@
   - type: FoodSequenceElement # imp
     entries:
       Burger: FriedEggBurger
+      Hotdog: FriedEggBurger
 # Tastes like egg, salt, pepper.
 
 - type: entity
@@ -667,6 +671,7 @@
     - type: FoodSequenceElement # imp
       entries:
         Burger: QuesoBurger
+        Hotdog: QuesoBurger
     - type: SolutionContainerManager # imp
       solutions:
         food:
@@ -689,7 +694,7 @@
   name: sashimi
   parent: FoodMealBase
   id: FoodMealSashimi
-  description: Its taste can only be described as "Exotic". The poisoning though? That's pretty common.
+  description: Fresh raw fish cut thin and served! It's considered a delicacy on earth. The earth iteration isn't so poisonous, though.. #imp edit # original "Its taste can only be described as "Exotic". The poisoning though? That's pretty common." 
   components:
   - type: FlavorProfile
     flavors:
@@ -711,7 +716,7 @@
   - type: Tag
     tags:
     - Meat
-# tastes exotic
+# tastes exotic 
 
 - type: entity
   parent: FoodMealBase

@@ -70,7 +70,10 @@
       Burn:
         sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
-    bloodReagent: GoblinBlood
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: GoblinBlood
+        Quantity: 250
   - type: Butcherable
     spawned:
     - id: FoodMeatGoblin
@@ -286,7 +289,7 @@
       - id: ClothingBeltUtilityBlackFilled # a full toolbelt. no multitool
         weight: 0.2
       - id: MaintenanceToolSpawner # this is the "tools" pool from maints lockers. rare chance to get anything particularly useful out of it.
-      - id: ToySpawner # touys
+      - id: PlushieSpawner50 # touys
     - !type:GroupSelector # RARE WEIGHT
       weight: 5
       children:

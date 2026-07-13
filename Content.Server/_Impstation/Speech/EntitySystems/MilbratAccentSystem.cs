@@ -1,8 +1,8 @@
-using System.Text.RegularExpressions;
-using Content.Server.Speech.Components;
+using Content.Server._Impstation.Speech.Components;
+using Content.Server.Speech.EntitySystems;
 using Content.Shared.Speech;
 
-namespace Content.Server.Speech.EntitySystems;
+namespace Content.Server._Impstation.Speech.EntitySystems;
 
 public sealed class MilbratAccentSystem : EntitySystem
 {
@@ -14,7 +14,7 @@ public sealed class MilbratAccentSystem : EntitySystem
         SubscribeLocalEvent<MilbratAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, MilbratAccentComponent component, AccentGetEvent args)
+    private void OnAccent(Entity<MilbratAccentComponent> entity, ref AccentGetEvent args)
     {
         var message = args.Message;
 

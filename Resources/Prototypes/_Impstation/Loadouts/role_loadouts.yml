@@ -16,7 +16,7 @@
 # Special
 # GroupSpeciesBreathTool
 # GroupTankHarness
-# Weapon 
+# Weapon
 # Ammo
 
 # Cargo
@@ -36,7 +36,6 @@
   - GroupSpeciesBreathTool
   - GroupBreathToolDecapoid
   - GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic
 
 # Security
 - type: roleLoadout
@@ -50,14 +49,12 @@
   - MedicalGloves
   - BrigmedicShoes
   - BrigmedicBackpack
-  - SecurityEyewear
   - SurvivalBrigmedic
   - Trinkets
-  - SecurityStar
+  - SecurityJobTrinkets # who give a fuck
   - GroupSpeciesBreathToolMedSec
   - GroupBreathToolDecapoid
   - GroupTankHarnessWithOuterwear
-  - GroupTankHarnessWithOuterwearAquatic
 
 # Service
 - type: roleLoadout
@@ -78,4 +75,3 @@
   - GroupSpeciesBreathToolCommand
   - GroupBreathToolDecapoid
   - GroupTankHarnessCommandWithOuterwear
-  - GroupTankHarnessCommandWithOuterwearAquatic

@@ -1,0 +1,6 @@
+- type: entity
+  parent: MobStatusEffectBase # Not even rejuvenate can cure SSD...
+  id: StatusEffectFloating
+  name: floating
+  components:
+  - type: FloatingStatusEffect

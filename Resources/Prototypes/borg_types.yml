@@ -90,7 +90,7 @@
   - BorgModuleTool
   - BorgModuleMining
   - BorgModuleTraversal
-  - BorgModuleAppraisal
+  # - BorgModuleAppraisal # imp
 
   radioChannels:
   - Supply
@@ -131,7 +131,6 @@
     - BorgModuleJanitor
 
   defaultModules:
-  - BorgModuleTool
   - BorgModuleCleaning
   - BorgModuleCustodial
 
@@ -170,7 +169,6 @@
     - BorgModuleMedical
 
   defaultModules:
-  - BorgModuleTool
   - BorgModuleChemical
   - BorgModuleTopicals
   - BorgModuleRescue
@@ -227,13 +225,12 @@
     - BorgModuleService
 
   defaultModules:
-  - BorgModuleTool
   - BorgModuleMusique
-  - BorgModuleBartender # imp
   - BorgModuleService
+  - BorgModuleChef # imp
   - BorgModuleClowning
-  - BorgModuleGardening
-  - BorgModuleHarvesting
+  - BorgModuleGardening # imp edited
+#  - BorgModuleHarvesting # imp
   radioChannels:
   - Science
   - Service

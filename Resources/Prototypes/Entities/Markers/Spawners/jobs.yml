@@ -151,7 +151,7 @@
 - type: entity
   id: SpawnPointServiceWorker
   parent: SpawnPointJobBase
-  name: service worker
+  name: service attendant # imp edit
   components:
   - type: SpawnPoint
     job_id: ServiceWorker
@@ -279,18 +279,6 @@
     layers:
       - state: green
       - state: musician
-
-- type: entity
-  id: SpawnPointBoxer
-  parent: SpawnPointJobBase
-  name: boxer
-  components:
-  - type: SpawnPoint
-    job_id: Boxer
-  - type: Sprite
-    layers:
-      - state: green
-      - state: boxer
 
 - type: entity
   id: SpawnPointBorg
@@ -632,15 +620,3 @@
     layers:
       - state: green
       - state: psychologist
-
-- type: entity
-  id: SpawnPointZookeeper
-  parent: SpawnPointJobBase
-  name: zookeeper
-  components:
-  - type: SpawnPoint
-    job_id: Zookeeper
-  - type: Sprite
-    layers:
-      - state: green
-      - state: zookeeper

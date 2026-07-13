@@ -29,3 +29,7 @@ alert-level-white-instructions = Look out for phantoms, and report if necessary.
 alert-level-puce = Puce
 alert-level-puce-announcement = A food recall has been initiated, and your station is affected.
 alert-level-puce-instructions = Don't eat the burgers in the cafeteria...
+
+alert-level-ice = Ice
+alert-level-ice-announcement = A cataclysmic Christmas event is occuring. Shelter in place. Do NOT interact with Her.
+alert-level-ice-instructions = All she wants is you...

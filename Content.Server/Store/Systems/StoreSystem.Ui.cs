@@ -151,7 +151,7 @@ public sealed partial class StoreSystem
             return;
 
         //condition checking because why not
-        if (listing.Conditions != null)
+        if (listing.Conditions != null && !component.PassAllConditions) // imp edit, add "&& !component.PassAllConditions"
         {
             var args = new ListingConditionArgs(component.AccountOwner ?? GetBuyerMind(buyer), uid, listing, EntityManager);
             var conditionsMet = listing.Conditions.All(condition => condition.Condition(args));
@@ -219,7 +219,7 @@ public sealed partial class StoreSystem
             EntityUid? actionId;
             // I guess we just allow duplicate actions?
             // Allow duplicate actions and just have a single list buy for the buy-once ones.
-            if (!_mind.TryGetMind(buyer, out var mind, out _))
+            if (listing.ApplyToMob || !_mind.TryGetMind(buyer, out var mind, out _))
                 actionId = _actions.AddAction(buyer, listing.ProductAction);
             else
                 actionId = _actionContainer.AddAction(mind, listing.ProductAction);

@@ -31,7 +31,7 @@
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound
-          
+
 - type: htnCompound
   id: MoproachCompound
   branches:
@@ -107,14 +107,27 @@
         - !type:HTNCompoundTask
           task: IdleCompound
 
-- type: htnCompound
+- type: htnCompound #imp add
+  id: WizSporeCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: InnateRangedCombatCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: FollowCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound
+
+- type: htnCompound # imp add
   id: NiceCarpCompound
   branches:
     - tasks:
         - !type:HTNCompoundTask
           task: IdleCompound
 
-- type: htnCompound
+- type: htnCompound # imp add
   id: KisserTomatoCompound
   branches:
     - tasks:

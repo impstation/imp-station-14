@@ -1,9 +1,9 @@
 - type: gameMap
   id: BagelImp
-  mapName: 'Bagel Station'
+  mapName: 'Bagel'
   mapPath: /Maps/_Impstation/bagel.yml
   minPlayers: 35
-  maxPlayers: 69
+  maxPlayers: 64
   stations:
     Bagel:
       stationProto: StandardNanotrasenStation
@@ -16,7 +16,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_lox.yml
         - type: StationJobs
-          availableJobs: # Total of 63 jobs roundstart, max of 77 inc. latejoins and trainees.
+          availableJobs: # Total of 64 jobs roundstart, max of 78 inc. latejoins and trainees.
             # command - 8
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
@@ -37,13 +37,14 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
+            ServiceWorker: [ 1, 1 ]
             # engineering - 7-11
             AtmosphericTechnician: [ 3, 3 ]
             StationEngineer: [ 4, 4 ]
             TechnicalAssistant: [ 4, 4 ]
             # medical - 8-12
             Chemist: [ 2, 2 ]
-            MedicalDoctor: [ 4, 1 ] 
+            MedicalDoctor: [ 4, 4 ]
             MedicalIntern: [ 4, 4 ]
             Paramedic: [ 1, 1 ]
             Psychologist: [ 1, 1 ]
