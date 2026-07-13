@@ -51,9 +51,7 @@ public sealed class HellWorldSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml");
     private readonly ProtoId<CloningSettingsPrototype> _cloneSettings = "HellClone";
