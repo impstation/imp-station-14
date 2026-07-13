@@ -212,11 +212,16 @@ namespace Content.Server.GameTicking
                     speciesId = weights.Pick(_robustRandom);
                 }
 
+                // imp edit start
                 var oldTraits = character.TraitPreferences; // imp edit, preserve traits
 
-                character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
+                // just replace the character profile with a fully random one so we can keep the weights from the species prototypes
+                if (_randomizeCharactersRandomViableSpecies)
+                    character = HumanoidCharacterProfile.Random(false);
+                else
+                    character = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
 
-                // imp edit start, keep old traits when rolling because of the random character trait
+                // keep old traits when rolling because of the random character trait
                 if (!_randomizeCharacters)
                 {
                     foreach (var trait in oldTraits)
@@ -225,6 +230,8 @@ namespace Content.Server.GameTicking
                     }
                 }
                 // imp edit end
+                // character = HumanoidCharacterProfile.RandomWithSpecies(speciesId); // imp edit, comment out
+                  
             }
 
             // We raise this event to allow other systems to handle spawning this player themselves. (e.g. late-join wizard, etc)

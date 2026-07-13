@@ -691,3 +691,55 @@
       amount: 3
   products:
     FunnyLiftingDrink: 6
+
+- type: reaction
+  id: GamersDelight
+  requiredMixerCategories:
+    - Shake
+  reactants:
+    BrosochloricBros:
+      amount: 1
+    DoctorsDelight:
+      amount: 1
+    SpaceLube:
+      amount: 1
+  products:
+    GamersDelight: 3
+    
+- type: reaction
+  id: CreamSoda
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    VanillaSyrup:
+      amount: 2
+    Cream:
+      amount: 3
+    SodaWater:
+      amount: 10
+  products:
+    CreamSoda: 15
+
+- type: reaction
+  id: CreamSodaOrange
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    CreamSoda:
+      amount: 10
+    JuiceOrange:
+      amount: 5
+  products:
+    CreamSodaOrange: 15
+
+- type: reaction
+  id: CreamSodaBerry
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    CreamSoda:
+      amount: 10
+    JuiceBerry:
+      amount: 5
+  products:
+    CreamSodaBerry: 15
