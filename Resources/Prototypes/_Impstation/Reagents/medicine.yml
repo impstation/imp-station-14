@@ -136,6 +136,12 @@
         - !type:ReagentCondition
           reagent: Batozine
           min: 10
+      - !type:PreventSentience
+        conditions:
+        - !type:NPCEntityCondition
+        - !type:ReagentCondition
+          reagent: Batozine
+          min: 10
 
 - type: reagent
   id: Brutoxidone

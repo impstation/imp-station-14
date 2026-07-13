@@ -10,6 +10,12 @@ reagent-effect-guidebook-factionchange =
         *[other] change the faction of
     } the metabolizer to {$faction}
 
+reagent-effect-guidebook-preventsentience =
+    { $chance ->
+        [1] Prevents sentience of
+        *[other] prevent the sentience of
+    } the metabolizer
+
 entity-effect-guidebook-vomit-override =
     { $chance ->
         [1] Causes

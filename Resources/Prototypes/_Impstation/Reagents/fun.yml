@@ -207,6 +207,12 @@
         - !type:ReagentCondition
           reagent: Irwizine
           min: 10
+      - !type:PreventSentience
+        conditions:
+        - !type:NPCEntityCondition
+        - !type:ReagentCondition
+          reagent: Irwizine
+          min: 10
 
 - type: reagent
   id: Sadness
