@@ -1,16 +1,16 @@
-reagent-effect-guidebook-changenpcbehavior =
+reagent-effect-guidebook-change-npc-behavior =
     { $chance ->
         [1] Changes the behavior of
         *[other] change the behavior of
     } the metabolizer
 
-reagent-effect-guidebook-factionchange =
+reagent-effect-guidebook-faction-change =
     { $chance ->
         [1] Changes the faction of
         *[other] change the faction of
     } the metabolizer to {$faction}
 
-reagent-effect-guidebook-preventsentience =
+reagent-effect-guidebook-prevent-sentience =
     { $chance ->
         [1] Prevents sentience of
         *[other] prevent the sentience of
