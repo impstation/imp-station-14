@@ -18,6 +18,6 @@ public sealed partial class ChangeNPCBehaviorEntityEffectSystem : EntityEffectSy
         htn.RootTask = new HTNCompoundTask { Task = args.Effect.rootTask };
 
         // Resets their targeting.
-        htn.CheckServices = true;
+        htn.Blackboard.Remove<EntityUid>("Target");
     }
 }
