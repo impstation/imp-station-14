@@ -12,6 +12,7 @@ using Content.Shared.Traits.Assorted; // imp unborgable
 using Robust.Shared.Audio.Systems; // imp unborgable
 using Robust.Shared.Enums; // imp; for Gender
 using Robust.Shared.GameObjects.Components.Localization; // imp; for Grammar
+using Content.Shared.Tag; // imp; for unborgable
 
 namespace Content.Shared.Silicons.Borgs;
 
@@ -20,6 +21,7 @@ public abstract partial class SharedBorgSystem
     [Dependency] private readonly GrammarSystem _grammar = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!; // imp
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // imp
+    [Dependency] private readonly TagSystem _tag = default!; // imp for unborgable
 
     private static readonly EntProtoId SiliconBrainRole = "MindRoleSiliconBrain";
 
@@ -113,6 +115,15 @@ public abstract partial class SharedBorgSystem
         var brain = args.Item;
         if (!TryComp<UnborgableComponent>(brain, out var unborgable))
             return;
+
+        // IMP EDIT:
+        // if brain is a diona nymph, display failure popup and exit without deleting
+        if (_tag.HasTag(brain, "DionaNymph"))
+        {
+            _popup.PopupPredicted(Loc.GetString(unborgable.NymphFailPopup), ent, ent, PopupType.MediumCaution);
+            return;
+        }
+        // END IMP EDIT
 
         _popup.PopupPredicted(Loc.GetString(unborgable.FailPopup), ent, ent, PopupType.MediumCaution);
         _audio.PlayPredicted(unborgable.FailSound, ent, ent);

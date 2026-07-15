@@ -4,6 +4,9 @@ using Content.Shared.Body.Events;
 using Content.Shared.Zombies;
 using Content.Server.Zombies;
 using Robust.Shared.Prototypes;
+using Content.Shared.Tag; // imp for unborgable
+using Content.Shared.Body.Systems; // imp for unborgable
+using Content.Shared.Traits.Assorted; // imp for unborgable
 
 namespace Content.Server.Species.Systems;
 
@@ -12,6 +15,8 @@ public sealed partial class NymphSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly ZombieSystem _zombie = default!;
+    [Dependency] private readonly SharedBodySystem _sharedBodySystem = default!; // imp edit for Unborgable
+    [Dependency] private readonly TagSystem _tagSystem = default!; // imp edit for Unborgable
 
     public override void Initialize()
     {
@@ -34,6 +39,22 @@ public sealed partial class NymphSystem : EntitySystem
 
         if (HasComp<ZombieComponent>(args.OldBody)) // Zombify the new nymph if old one is a zombie
             _zombie.ZombifyEntity(nymph);
+
+        // IMP EDIT START - Unborgable trait support
+        if (HasComp<UnborgableComponent>(uid))
+        {
+            AddComp<UnborgableComponent>(nymph); // Add UnborgableComponent to brain nymph
+            // Add UnborgableComponent to brain organ inside the nymph (dropped upon gibbing)
+            foreach (var organ in _sharedBodySystem.GetBodyOrgans(nymph))
+            {
+                if (_tagSystem.HasTag(organ.Id, "Brain"))
+                {
+                    AddComp<UnborgableComponent>(organ.Id);
+                    break;
+                }
+            }
+        }
+        // IMP EDIT END - Unborgable trait support
 
         // Move the mind if there is one and it's supposed to be transferred
         if (comp.TransferMind == true && _mindSystem.TryGetMind(args.OldBody, out var mindId, out var mind))
