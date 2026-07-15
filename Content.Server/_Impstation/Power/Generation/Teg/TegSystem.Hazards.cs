@@ -32,7 +32,7 @@ public sealed partial class TegSystem
     public bool IsOpen(EntityUid uid)
     {
         // Try to get the WiresPanel component and see if it's open.
-        return TryComp<WiresPanelComponent>(uid, out var panel) && panel.Open;
+        return TryComp<WiresPanelComponent>(uid, out var panel) && panel.Open; //TODO: Optimize out this trycomp
     }
 
     /// <summary>
@@ -40,12 +40,8 @@ public sealed partial class TegSystem
     /// </summary>
     /// <param name="efficiency">The efficiency of the circulator. Probably calculated by <see cref="ReagentEfficiencySystem"/>.</param>
     /// <returns>The amount of damage incurred.</returns>
-    private float ApplyCirculatorEfficiencyDamage(Entity<TegCirculatorComponent?> ent, float efficiency, float stress)
+    private float ApplyCirculatorEfficiencyDamage(Entity<TegCirculatorComponent> ent, float efficiency, float stress)
     {
-        // Ensure the circulator component exists.
-        if (!Resolve(ent, ref ent.Comp))
-            return 0f;
-
         // No damage if the circulator is running above its nominal efficiency.
         if (efficiency > ent.Comp.MinimumNominalEfficiency)
             return 0f;
@@ -66,12 +62,8 @@ public sealed partial class TegSystem
         return damage;
     }
 
-    private void CheckFail(Entity<TegCirculatorComponent?> ent, float stress)
+    private void CheckFail(Entity<TegCirculatorComponent> ent, float stress)
     {
-        // Ensure the circulator component exists.
-        if (!Resolve(ent, ref ent.Comp))
-            return;
-
         // Do nothing if there is still integrity
         if (ent.Comp.Integrity > 0)
             return;
@@ -84,13 +76,8 @@ public sealed partial class TegSystem
         Explode(ent, stress);
     }
 
-    private void Explode(Entity<TegCirculatorComponent?> ent, float stress)
+    private void Explode(Entity<TegCirculatorComponent> ent, float stress)
     {
-        // Ensure the circulator component exists.
-        // TODO: It definitely should, CheckFail guarantees it. Idk how to make the compiler know that though
-        if (!Resolve(ent, ref ent.Comp))
-            return;
-
         float radius = float.Lerp(ent.Comp.ExplosionRadiusRange.Item1, ent.Comp.ExplosionRadiusRange.Item2, stress);
         Log.Debug($"Explosion triggered. Stress {stress}, radius {radius}");
         _explosionSystem.TriggerExplosive(ent, radius: radius);

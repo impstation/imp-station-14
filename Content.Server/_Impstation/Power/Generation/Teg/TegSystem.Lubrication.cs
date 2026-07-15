@@ -87,8 +87,18 @@ public sealed partial class TegSystem
     /// <param name="δpB">The delta pressure experienced by the second circulator</param>
     /// <param name="dt">The time since the last update.</param>
     /// <returns>The average efficiency of both circulators.</returns>
-    private float AverageCirculatorEfficiency(Entity<TegCirculatorComponent?> circA, Entity<TegCirculatorComponent?> circB, float δpA, float δpB, float dt)
+    private float AverageCirculatorEfficiency(Entity<TegCirculatorComponent> circA, Entity<TegCirculatorComponent> circB, float δpA, float δpB, float dt)
     {
+        //Get the ReagentEfficiencyComponents of each circulator
+        ReagentEfficiencyComponent? recA = null;
+        ReagentEfficiencyComponent? recB = null;
+        if (!TryReagentEfficiencyComp(circA, ref recA) || !TryReagentEfficiencyComp(circA, ref recB))
+        {
+            // At least one of the circulators doesn't have the component.
+            // Default to normal TEG behavior with 1f efficiency and no damage.
+            return 1f;
+        }
+
         // Calculate circulator stress based on delta p
         // At around 5000 dp, stress should be around 1.
         // Stress should scale infinitely, but far less than linearly.
@@ -115,9 +125,9 @@ public sealed partial class TegSystem
         // Update appearances for different efficiencies and damages
         // TODO: make sure this doesn't have any problems bc the normal appearance updates are handled in the main teg update
         // TODO: Refactor lubricant processing to have a more uniform cache and access to relevant components, like solution
-        _solution.ResolveSolution(circA, circA.Comp.SolutionName, ref circA.Comp.SolutionCache, out var solution);
-        UpdateCirculatorHazardAppearance(circA, damageA, efficiencyA, stressA);
-        UpdateCirculatorHazardAppearance(circB, damageB, efficiencyB, stressB);
+        _solution.ResolveSolution((EntityUid)circA, recA.SolutionName, ref recA.SolutionCache, out var solution);
+        UpdateCirculatorHazardAppearance(circA, fillA, damageA, efficiencyA, stressA);
+        UpdateCirculatorHazardAppearance(circB, fillB, damageB, efficiencyB, stressB);
 
         return averageCirculatorEfficiency;
     }

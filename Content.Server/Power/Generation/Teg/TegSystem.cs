@@ -146,6 +146,12 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         var circA = tegGroup.CirculatorA!.Owner;
         var circB = tegGroup.CirculatorB!.Owner;
 
+        var circAComp = Comp<TegCirculatorComponent>(circA); // IMP EDIT: moved up from further down in the function
+        var circBComp = Comp<TegCirculatorComponent>(circB); // IMP EDIT: moved up from further down in the function
+
+        var entA = new Entity<TegCirculatorComponent>(circA, circAComp); // IMP ADD: for use with lubrication
+        var entB = new Entity<TegCirculatorComponent>(circB, circBComp); // IMP ADD: for use with lubrication
+
         var (inletA, outletA) = GetPipes(circA);
         var (inletB, outletB) = GetPipes(circB);
 
@@ -159,7 +165,7 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         var (airB, δpB) = openB ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletB.Air, outletB.Air); // IMP EDIT: Only transfer air if closed
 
         // IMP ADD: Calculate efficiencies of circulators. May trigger failure state!
-        var averageCirculatorEfficiency = AverageCirculatorEfficiency(circA, circB, δpA, δpB, args.dt);
+        var averageCirculatorEfficiency = AverageCirculatorEfficiency(entA, entB, δpA, δpB, args.dt);
 
         var cA = _atmosphere.GetHeatCapacity(airA, true);
         var cB = _atmosphere.GetHeatCapacity(airB, true);
@@ -228,9 +234,6 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         // seizures.
         supplier.MaxSupply = component.PowerSmoothingFactor * (power * component.RampFactor) +
                              (1 - component.PowerSmoothingFactor) * supplier.MaxSupply;
-
-        var circAComp = Comp<TegCirculatorComponent>(circA);
-        var circBComp = Comp<TegCirculatorComponent>(circB);
 
         circAComp.LastPressureDelta = δpA;
         circAComp.LastMolesTransferred = airA.TotalMoles;
