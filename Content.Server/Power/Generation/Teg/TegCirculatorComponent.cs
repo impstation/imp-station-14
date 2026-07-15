@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Atmos;
+using Content.Server._Impstation.ReagentEfficiency;
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -57,6 +58,14 @@ public sealed partial class TegCirculatorComponent : Component
     /// The minimum fill level before a warning visual is displayed.
     /// </summary>
     public float WarningFillLevel = 0.25f;
+
+    /// <summary>
+    /// Cache for REC to avoid comp lookups every atmos tick.
+    /// </summary>
+    /// <remarks>
+    /// TODO: Bad pattern/design? I have no idea.
+    /// </remarks>
+    public ReagentEfficiencyComponent? _reagentEfficiencyComponentCache = null; //TODO: make this private. access doesn't seem to work?
 
     /// <summary>
     /// The maximum possible damage incurred per tick when efficiency is at 0.

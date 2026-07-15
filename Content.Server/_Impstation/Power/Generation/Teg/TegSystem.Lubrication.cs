@@ -138,4 +138,34 @@ public sealed partial class TegSystem
 
         return _reagentEfficiency.ApplyEfficiency(uid, dt, circulatorStress);
     }
+
+    /// <summary>
+    /// Tries to get the <see cref="ReagentEfficiencyComponent"/> associated with a TEG Circulator entity.
+    /// </summary>
+    /// <remarks>
+    /// Uses the cache within <see cref="TegCirculatorComponent"/> before using Resolve().
+    /// Bad pattern or design? idk
+    /// </remarks>
+    /// <param name="comp">A ref to the ReagentEfficiencyComponent. Expected to be null but not required.</param>
+    /// <returns>Whether the entity has the ReagentEfficiencyComponent</returns>
+    private bool TryReagentEfficiencyComp(Entity<TegCirculatorComponent> ent, ref ReagentEfficiencyComponent? comp)
+    {
+        // Check the cache in the circulator component
+        if (ent.Comp._reagentEfficiencyComponentCache is not null)
+        {
+            comp = ent.Comp._reagentEfficiencyComponentCache;
+            return true;
+        }
+
+        // Cache miss, check with Resolve.
+        if (Resolve(ent, ref comp))
+        {
+            // Resolve success. Before returning, update the cache
+            ent.Comp._reagentEfficiencyComponentCache = comp;
+            return true;
+        }
+
+        // Component doesn't exist in the cache nor on the entity, so it doesn't exist.
+        return false;
+    }
 }
