@@ -1,9 +1,12 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Server._Impstation.ReagentEfficiency;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Wires;
+using Robust.Shared.Toolshed.Commands.GameTiming;
+using System.Linq;
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -87,17 +90,19 @@ public sealed partial class TegSystem
     /// <param name="δpB">The delta pressure experienced by the second circulator</param>
     /// <param name="dt">The time since the last update.</param>
     /// <returns>The average efficiency of both circulators.</returns>
-    private float AverageCirculatorEfficiency(Entity<TegCirculatorComponent> circA, Entity<TegCirculatorComponent> circB, float δpA, float δpB, float dt)
+    private float AverageCirculatorEfficiency(Entity<TegCirculatorComponent, ReagentEfficiencyComponent?> circA, Entity<TegCirculatorComponent, ReagentEfficiencyComponent?> circB, float δpA, float δpB, float dt)
     {
-        //Get the ReagentEfficiencyComponents of each circulator
-        ReagentEfficiencyComponent? recA = null;
-        ReagentEfficiencyComponent? recB = null;
-        if (!TryReagentEfficiencyComp(circA, ref recA) || !TryReagentEfficiencyComp(circA, ref recB))
+        // Get the ReagentEfficiencyComponents of each circulator
+        if (!TryReagentEfficiencyComp(circA, ref circA.Comp2) || !TryReagentEfficiencyComp(circB, ref circB.Comp2))
         {
             // At least one of the circulators doesn't have the component.
             // Default to normal TEG behavior with 1f efficiency and no damage.
             return 1f;
         }
+
+        // "Cast" both circulators to have non-nullable RECs. There is probably a better way to do this
+        var entA = new Entity<TegCirculatorComponent, ReagentEfficiencyComponent>(circA, circA.Comp1, circA.Comp2);
+        var entB = new Entity<TegCirculatorComponent, ReagentEfficiencyComponent>(circB, circB.Comp1, circB.Comp2);
 
         // Calculate circulator stress based on delta p
         // At around 5000 dp, stress should be around 1.
@@ -106,28 +111,27 @@ public sealed partial class TegSystem
         var stressA = δpA > 0 ? MathF.Log2(δpA + 1) / 12f : 0f;
         var stressB = δpB > 0 ? MathF.Log2(δpB + 1) / 12f : 0f;
 
-        // Calculate efficiency boost from lubrication
-        var (efficiencyA, consumedLubricantA) = CirculatorEfficiency(circA, dt, stressA);
-        var (efficiencyB, consumedLubricantB) = CirculatorEfficiency(circB, dt, stressB);
+        // Calculate efficiency multiplier from lubrication
+        var (efficiencyA, consumedLubricantA) = CirculatorEfficiency(entA, dt, stressA);
+        var (efficiencyB, consumedLubricantB) = CirculatorEfficiency(entB, dt, stressB);
         var averageCirculatorEfficiency = (efficiencyA + efficiencyB) / 2f;
         Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
 
         // Apply damage to the circulator based on its running efficiency.
-        var damageA = ApplyCirculatorEfficiencyDamage(circA, efficiencyA, stressA);
-        var damageB = ApplyCirculatorEfficiencyDamage(circB, efficiencyB, stressB);
+        var damageA = ApplyCirculatorEfficiencyDamage(entA, efficiencyA, stressA);
+        var damageB = ApplyCirculatorEfficiencyDamage(entB, efficiencyB, stressB);
 
         // See if we need to trigger a failure state
-        CheckFail(circA, stressA);
-        CheckFail(circB, stressB);
+        CheckFail(entA, stressA);
+        CheckFail(entB, stressB);
 
         // TODO: Apply any funny effects that specific reagents might have on the circulators.
 
         // Update appearances for different efficiencies and damages
         // TODO: make sure this doesn't have any problems bc the normal appearance updates are handled in the main teg update
         // TODO: Refactor lubricant processing to have a more uniform cache and access to relevant components, like solution
-        _solution.ResolveSolution((EntityUid)circA, recA.SolutionName, ref recA.SolutionCache, out var solution);
-        UpdateCirculatorHazardAppearance(circA, fillA, damageA, efficiencyA, stressA);
-        UpdateCirculatorHazardAppearance(circB, fillB, damageB, efficiencyB, stressB);
+        UpdateCirculatorHazardAppearance(entA, damageA, efficiencyA, stressA);
+        UpdateCirculatorHazardAppearance(entB, damageB, efficiencyB, stressB);
 
         return averageCirculatorEfficiency;
     }
@@ -158,7 +162,7 @@ public sealed partial class TegSystem
     /// </remarks>
     /// <param name="comp">A ref to the ReagentEfficiencyComponent. Expected to be null but not required.</param>
     /// <returns>Whether the entity has the ReagentEfficiencyComponent</returns>
-    private bool TryReagentEfficiencyComp(Entity<TegCirculatorComponent> ent, ref ReagentEfficiencyComponent? comp)
+    private bool TryReagentEfficiencyComp(Entity<TegCirculatorComponent> ent, [NotNullWhen(true)] ref ReagentEfficiencyComponent? comp)
     {
         // Check the cache in the circulator component
         if (ent.Comp._reagentEfficiencyComponentCache is not null)
@@ -168,7 +172,7 @@ public sealed partial class TegSystem
         }
 
         // Cache miss, check with Resolve.
-        if (Resolve(ent, ref comp))
+        if (Resolve(ent, ref comp, logMissing: false))
         {
             // Resolve success. Before returning, update the cache
             ent.Comp._reagentEfficiencyComponentCache = comp;
@@ -177,5 +181,23 @@ public sealed partial class TegSystem
 
         // Component doesn't exist in the cache nor on the entity, so it doesn't exist.
         return false;
+    }
+
+    /// <summary>
+    /// Gets the lubricant fill level of the circulator as a fraction of the max volume.
+    /// </summary>
+    /// <returns>The fill level in a range [0,1]. If a <see cref="SolutionComponent"/> is not found, 0f is returned.</returns>
+    private float GetCirculatorFillLevel(Entity<TegCirculatorComponent, ReagentEfficiencyComponent> circ)
+    {
+        // Get the solution and ensure it exists.
+        if (!_solution.ResolveSolution((EntityUid)circ, circ.Comp2.SolutionName, ref circ.Comp2.SolutionCache, out var solution))
+            return 0f;
+
+        // Ensure we don't divide by zero.
+        if (solution.MaxVolume == 0)
+            return 0f;
+
+        // Find the fill level
+        return (float)(solution.Volume / solution.MaxVolume);
     }
 }

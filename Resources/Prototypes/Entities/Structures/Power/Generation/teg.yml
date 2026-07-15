@@ -127,6 +127,9 @@
         - state: circ-0-light
           shader: unshaded
           map: [ "enum.TegVisualLayers.CirculatorLight" ]
+        - state: circ-fill-0
+          shader: unshaded
+          map: [ "enum.TegVisualLayers.CirculatorFillLight" ]
         - state: circ-open # imp
           map: [ "enum.WiresVisualLayers.MaintenancePanel" ] # imp
         - state: circ-locked # imp
@@ -138,6 +141,9 @@
           enum.TegVisualLayers.CirculatorLight:
             True: { visible: true }
             False: { visible: false }
+          enum.TegVisualLayers.CirculatorFillLight:
+            True: { visible: true }
+            False: { visible: false }
         enum.TegVisuals.CirculatorSpeed:
           enum.TegVisualLayers.CirculatorBase:
             SpeedStill: { state: circ-0 }
@@ -147,6 +153,11 @@
             SpeedStill: { state: circ-0-light }
             SpeedSlow: { state: circ-1-light }
             SpeedFast: { state: circ-2-light }
+        enum.TegVisuals.CirculatorFillLevel:
+          enum.TegVisualLayers.CirculatorFillLight:
+            Subnominal: { state: circ-fill-0 }
+            Warning: { state: circ-fill-1 }
+            Nominal: { state: circ-fill-2 }
         enum.WiresVisuals.MaintenancePanelState: # imp
           enum.WiresVisualLayers.MaintenancePanel: # imp
             True: { visible: false } # imp

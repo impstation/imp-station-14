@@ -83,14 +83,10 @@ public sealed partial class TegSystem
         _explosionSystem.TriggerExplosive(ent, radius: radius);
     }
 
-    private void UpdateCirculatorHazardAppearance(Entity<TegCirculatorComponent?> ent, float fillLevel, float damageTaken, float efficiency, float stress)
+    private void UpdateCirculatorHazardAppearance(Entity<TegCirculatorComponent, ReagentEfficiencyComponent> ent, float damageTaken, float efficiency, float stress)
     {
-        // Ensure the circulator and reagent efficiency components exist.
-        if (!Resolve(ent, ref ent.Comp))
-            return;
-
         // Apply fill level visual
-        var fillLevelEnum = fillLevel switch
+        var fillLevelEnum = GetCirculatorFillLevel(ent) switch
         {
             >= 0.2f => TegFillLevel.Nominal,
             >= 0.05f and < 0.2f => TegFillLevel.Warning,
@@ -101,9 +97,9 @@ public sealed partial class TegSystem
         // Apply subnominal visuals if taking damage
         // TODO: Jittering uses so many component lookups. Optimize or remove this wholesale.
         // TODO: Could look better
-        if (efficiency < ent.Comp.MinimumNominalEfficiency)
+        if (efficiency < ent.Comp1.MinimumNominalEfficiency)
         {
-            float amplitude = float.Lerp(10, 0, efficiency / ent.Comp.MinimumNominalEfficiency);
+            float amplitude = float.Lerp(10, 0, efficiency / ent.Comp1.MinimumNominalEfficiency);
             float frequency = float.Lerp(20, 80, stress);
             _jitter.AddJitter(ent, amplitude, frequency);
         }

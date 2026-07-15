@@ -22,7 +22,8 @@ public enum TegVisualLayers
 {
     PowerOutput,
     CirculatorBase,
-    CirculatorLight
+    CirculatorLight,
+    CirculatorFillLight // IMP ADD
 }
 
 /// <summary>
