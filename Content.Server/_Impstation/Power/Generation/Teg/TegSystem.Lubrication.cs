@@ -1,4 +1,5 @@
 using Content.Server._Impstation.ReagentEfficiency;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Nutrition.EntitySystems;
@@ -23,8 +24,9 @@ public sealed partial class TegSystem
     /// </summary>
     private const float MaxRefillAttemptAmount = 10f;
 
-    [Dependency] private readonly ReagentEfficiencySystem _reagentEfficiency = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
+    [Dependency] private readonly ReagentEfficiencySystem _reagentEfficiency = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
     /// <summary>
     ///     Called when the WiresPanel component changes with the PanelChangedEvent.
@@ -85,9 +87,8 @@ public sealed partial class TegSystem
     /// <param name="δpB">The delta pressure experienced by the second circulator</param>
     /// <param name="dt">The time since the last update.</param>
     /// <returns>The average efficiency of both circulators.</returns>
-    private float AverageCirculatorEfficiency(EntityUid circA, EntityUid circB, float δpA, float δpB, float dt)
+    private float AverageCirculatorEfficiency(Entity<TegCirculatorComponent?> circA, Entity<TegCirculatorComponent?> circB, float δpA, float δpB, float dt)
     {
-        //IMP ADD START
         // Calculate circulator stress based on delta p
         // At around 5000 dp, stress should be around 1.
         // Stress should scale infinitely, but far less than linearly.
@@ -113,6 +114,8 @@ public sealed partial class TegSystem
 
         // Update appearances for different efficiencies and damages
         // TODO: make sure this doesn't have any problems bc the normal appearance updates are handled in the main teg update
+        // TODO: Refactor lubricant processing to have a more uniform cache and access to relevant components, like solution
+        _solution.ResolveSolution(circA, circA.Comp.SolutionName, ref circA.Comp.SolutionCache, out var solution);
         UpdateCirculatorHazardAppearance(circA, damageA, efficiencyA, stressA);
         UpdateCirculatorHazardAppearance(circB, damageB, efficiencyB, stressB);
 

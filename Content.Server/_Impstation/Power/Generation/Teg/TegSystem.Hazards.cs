@@ -1,11 +1,12 @@
-using Content.Server.Atmos.Piping.Components;
 using Content.Shared.Jittering;
+using Content.Shared.Power.Generation.Teg;
 using Content.Shared.Wires;
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
 using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Jittering;
 using Content.Server._Impstation.ReagentEfficiency;
+
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -95,14 +96,20 @@ public sealed partial class TegSystem
         _explosionSystem.TriggerExplosive(ent, radius: radius);
     }
 
-    private void UpdateCirculatorHazardAppearance(Entity<TegCirculatorComponent?> ent, float damageTaken, float efficiency, float stress)
+    private void UpdateCirculatorHazardAppearance(Entity<TegCirculatorComponent?> ent, float fillLevel, float damageTaken, float efficiency, float stress)
     {
         // Ensure the circulator and reagent efficiency components exist.
         if (!Resolve(ent, ref ent.Comp))
             return;
 
-        // Apply warning visuals if below warning threshold
-        // TODO: implement...
+        // Apply fill level visual
+        var fillLevelEnum = fillLevel switch
+        {
+            >= 0.2f => TegFillLevel.Nominal,
+            >= 0.05f and < 0.2f => TegFillLevel.Warning,
+            _ => TegFillLevel.Subnominal
+        };
+        _appearance.SetData(ent, TegVisuals.CirculatorFillLevel, fillLevelEnum);
 
         // Apply subnominal visuals if taking damage
         // TODO: Jittering uses so many component lookups. Optimize or remove this wholesale.

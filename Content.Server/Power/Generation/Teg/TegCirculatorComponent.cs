@@ -54,9 +54,9 @@ public sealed partial class TegCirculatorComponent : Component
     public float MinimumNominalEfficiency = 0.1f;
 
     /// <summary>
-    /// The minimum running efficiency at which warning visuals will begin.
+    /// The minimum fill level before a warning visual is displayed.
     /// </summary>
-    public float MinimumWarningEfficiency = 0.5f;
+    public float WarningFillLevel = 0.25f;
 
     /// <summary>
     /// The maximum possible damage incurred per tick when efficiency is at 0.

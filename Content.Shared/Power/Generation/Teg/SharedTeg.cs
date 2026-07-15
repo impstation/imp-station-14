@@ -11,6 +11,7 @@ public enum TegVisuals
     PowerOutput,
     CirculatorSpeed,
     CirculatorPower,
+    CirculatorFillLevel // IMP ADD
 }
 
 /// <summary>
@@ -34,3 +35,13 @@ public enum TegCirculatorSpeed
     SpeedSlow,
     SpeedFast
 }
+
+// IMP ADD START
+[Serializable, NetSerializable]
+public enum TegFillLevel
+{
+    Subnominal,
+    Warning,
+    Nominal
+}
+// IMP ADD END

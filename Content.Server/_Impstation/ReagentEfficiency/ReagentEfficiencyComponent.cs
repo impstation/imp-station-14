@@ -24,7 +24,7 @@ public sealed partial class ReagentEfficiencyComponent : Component
     /// When the solution volume is below this value, the amount of reagent consumed and efficiency decreases linearly to 0.
     /// </summary>
     [DataField]
-    public float ThrottlingThreshold = 0.2f; //TODO: clamp to above 0
+    public float ThrottlingThreshold = 0.05f; //TODO: clamp to above 0
 
     /// <summary>
     /// How many units of reagent are consumed per second.
