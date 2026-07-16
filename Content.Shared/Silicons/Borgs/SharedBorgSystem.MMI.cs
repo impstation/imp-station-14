@@ -116,12 +116,13 @@ public abstract partial class SharedBorgSystem
         if (!TryComp<UnborgableComponent>(brain, out var unborgable))
             return;
 
-        // IMP EDIT:
-        // if brain is a diona nymph, display failure popup and exit without deleting
+        // IMP EDIT: different behavior if brain is a diona nymph
         if (_tag.HasTag(brain, "DionaNymph"))
         {
-            _popup.PopupPredicted(Loc.GetString(unborgable.NymphFailPopup), ent, ent, PopupType.MediumCaution);
-            return;
+            args.Cancelled = true; // to ensure ejection happens within method
+            _popup.PopupPredicted(Loc.GetString(unborgable.NymphFailPopup), ent, ent, PopupType.MediumCaution); // display different failure popup
+            bool didEjectWork = _itemSlots.TryEjectToHands(brain, args.Slot, args.User); // eject nymph back out of OSI
+            return; // exit OnMMIAttemptInsert WITHOUT dissolving & killing the nymph
         }
         // END IMP EDIT
 

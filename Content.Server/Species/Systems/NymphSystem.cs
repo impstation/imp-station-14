@@ -6,6 +6,7 @@ using Content.Server.Zombies;
 using Robust.Shared.Prototypes;
 using Content.Shared.Tag; // imp for unborgable
 using Content.Shared.Body.Systems; // imp for unborgable
+using Content.Shared.Traits.Assorted; // imp for unborgable
 
 namespace Content.Server.Species.Systems;
 
