@@ -8,11 +8,11 @@ using Content.Shared.Chemistry.EntitySystems; // imp unborgable
 using Content.Shared.Containers.ItemSlots; // imp unborgable
 using Content.Shared.Fluids; // imp unborgable
 using Content.Shared.Popups; // imp unborgable
+using Content.Shared.Tag; // imp unborgable
 using Content.Shared.Traits.Assorted; // imp unborgable
 using Robust.Shared.Audio.Systems; // imp unborgable
 using Robust.Shared.Enums; // imp; for Gender
 using Robust.Shared.GameObjects.Components.Localization; // imp; for Grammar
-using Content.Shared.Tag; // imp; for unborgable
 
 namespace Content.Shared.Silicons.Borgs;
 

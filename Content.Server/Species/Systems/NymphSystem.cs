@@ -4,9 +4,9 @@ using Content.Shared.Body.Events;
 using Content.Shared.Zombies;
 using Content.Server.Zombies;
 using Robust.Shared.Prototypes;
-using Content.Shared.Tag; // imp for unborgable
-using Content.Shared.Body.Systems; // imp for unborgable
-using Content.Shared.Traits.Assorted; // imp for unborgable
+using Content.Shared.Body.Systems; // imp unborgable
+using Content.Shared.Tag; // imp unborgable
+using Content.Shared.Traits.Assorted; // imp unborgable
 
 namespace Content.Server.Species.Systems;
 
