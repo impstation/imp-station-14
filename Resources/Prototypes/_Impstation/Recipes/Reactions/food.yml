@@ -154,7 +154,7 @@
   effects:
     - !type:SpawnEntity
       entity: FoodMochiPaste
-      
+
 # syrups
 
 - type: reaction
@@ -265,10 +265,10 @@
   - Stir
   reactants:
     Fiber:
-      amount: 15
-    Milk:
-      amount: 15
-    Sugar:
+      amount: 10
+    Water:
+      amount: 10
+    Flour:
       amount: 5
   effects:
   - !type:SpawnEntity

@@ -23,14 +23,14 @@
   - node: spacemanCake
     entity: FoodCakeSpaceman
 
-  - node: cotton
+  - node: cottonCake
     entity: FoodCakeCottonUnfrosted
     edges:
-    - to: cottonCake
+    - to: cottoncake
       steps:
       - material: Cotton
         amount: 5
         doAfter: 1
 
-  - node: cottonCake
+  - node: cottoncake
     entity: FoodCakeCotton

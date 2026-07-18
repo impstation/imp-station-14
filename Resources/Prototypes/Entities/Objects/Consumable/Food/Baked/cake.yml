@@ -1214,7 +1214,7 @@
     heldPrefix: vanilla
   - type: Construction # imp
     graph: Cakes
-    node: start
+    node: vanillaCake
   - type: Tag # imp
     tags:
     - UnguFood
@@ -1335,7 +1335,7 @@
     heldPrefix: trumpet
   - type: Construction # imp
     graph: Cakes
-    node: start
+    node: spacemanCake
   - type: Tag # imp
     tags:
     - UnguFood
@@ -1567,7 +1567,7 @@
     heldPrefix: cotton
   - type: Construction # imp
     graph: Cakes
-    node: cotton
+    node: cottonCake
 
 - type: entity
   name: slice of cotton cake

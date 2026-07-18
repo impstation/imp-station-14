@@ -21,7 +21,7 @@
     inHandsFillBaseName: -fill-
 
 - type: entity
-  name: Small measuring cup
+  name: small measuring cup
   parent: Beaker
   description: Used to contain ingredients.
   id: SmallMeasuringCup
@@ -97,6 +97,9 @@
       solutions:
         drink:
           maxVol: 1
+    - type: SolutionTransfer
+      transferAmount: 1
+      canChangeTransferAmount: false
     - type: Tag
       tags:
       - ChefBeltItem
@@ -124,3 +127,6 @@
     solutions:
       drink:
         maxVol: 3
+  - type: SolutionTransfer
+    transferAmount: 3
+    canChangeTransferAmount: false

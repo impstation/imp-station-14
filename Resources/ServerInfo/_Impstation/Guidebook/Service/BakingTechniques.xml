@@ -6,9 +6,9 @@
   Measurements here will be written in [color=cyan]units[/color]. Several recipes require small amounts of certain reagents, measuring spoons included in baking kits can aid in this process.
 
   <Box>
-    <GuideEntityEmbed Entity="BoxCardboardIngredientBaking" Caption=""/>
-    <GuideEntityEmbed Entity="SmallMeasuringSpoon" Caption=""/>
-    <GuideEntityEmbed Entity="Whisk" Caption=""/>
+    <GuideEntityEmbed Entity="BoxCardboardIngredientBaking" Caption="baking ingredients box"/>
+    <GuideEntityEmbed Entity="SmallMeasuringSpoon" Caption="measuring spoon"/>
+    <GuideEntityEmbed Entity="Whisk" Caption="whisk"/>
   </Box>
 
   ## Cakes
@@ -17,15 +17,9 @@
 
   All batters will require a thorough mixing after the ingredients are in the container of your choosing.
 
-  - Regular Batter : 15 Flour, 12 Egg, 5 Sugar, 5 Milk, and 1 Vanilla Extract
-  - Chocolate Batter: 15 Flour, 12 Egg, 5 Sugar, 5 Milk, and 5 Cocoa Powder
-  - Cotton Batter: 15 Fiber, 15 Milk, and 5 Sugar
-
-  After baking the batter the cakes, while edible, will feel very bare and can use a touchup. This can be done by adding a topping such as frosting to them to seal the deal.
-
-  - Vanilla Cake : Add vanilla frosting
-  - Spacemans Cake : Add spacemans frosting
-  - Cotton Cake : Add cotton
+  - Regular Batter : 15u Flour, 12u Egg, 5u Sugar, 5u Milk, and 1u Vanilla Extract
+  - Chocolate Batter: 15u Flour, 12u Egg, 5u Sugar, 5u Milk, and 5u Cocoa Powder
+  - Cotton Batter: 10u Fiber, 10u Water, and 5u Flour
 
   <Box>
     <GuideEntityEmbed Entity="FoodCakeVanilla" Caption=""/>
@@ -35,9 +29,20 @@
 
   ## Frostings
 
-  What is a desert without a bit of extra sugar on top. Several different frostings can be applied to a cake base to enrich is flavor.
+  What is a dessert without a bit of extra sugar on top. Several different frostings can be applied to a cake base to enrich its flavor.
 
-  - Vanilla Frosting: 5 Milk, 5 Sugar, 2 Vanilla Extract
-  - Spacemans Frosting: 5 Milk, 5 Sugar, 10 Polypyrylium Oligomers
+  <Box>
+    <GuideEntityEmbed Entity="FoodFrostingVanilla" Caption=""/>
+    <GuideEntityEmbed Entity="FoodFrostingSpaceman" Caption=""/>
+  </Box>
+
+  - Vanilla Frosting: 5u Milk, 5u Sugar, 2u Vanilla Extract
+  - Spacemans Frosting: 5u Milk, 5u Sugar, 10u Polypyrylium Oligomers
+
+  After baking the batter for 15 seconds, the cakes - while edible - will feel very bare and can use a touch-up. This can be done by adding a topping such as frosting to them to seal the deal.
+
+  - Vanilla Cake : Add vanilla frosting
+  - Spacemans Cake : Add spacemans frosting
+  - Cotton Cake : Add cotton
 
 </Document>
