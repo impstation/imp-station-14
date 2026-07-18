@@ -27,7 +27,7 @@ heretic-role-greeting-short =
 ## ghoul
 heretic-ghoul-greeting =
     You have been summoned into this world by {CAPITALIZE(THE($ent))}!
-    You must aid him in his journey to ascension and protect him at all costs.
+    You must aid {OBJECT($ent)} in {POSS-ADJ($ent)} journey to ascension and protect {OBJECT($ent)} at all costs.
     You may follow other heretics if your master is beyond resurrection.
 heretic-ghoul-greeting-noname =
     You have been summoned into this world by eldritch forces.
