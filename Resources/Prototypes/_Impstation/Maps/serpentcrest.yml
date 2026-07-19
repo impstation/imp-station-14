@@ -18,7 +18,7 @@
           path: /Maps/Shuttles/cargo_syndicate.yml
         - type: StationJobs
           availableJobs: 
-            #command (7)
+            #command (8)
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             HeadOfSecurity: [ 1, 1 ]
@@ -26,6 +26,7 @@
             ChiefEngineer: [ 1, 1 ]
             ResearchDirector: [ 1, 1 ]
             Quartermaster: [ 1, 1 ]
+            HospitalityDirector: [ 1, 1]
             #service 
             Bartender: [ 2, 2 ]
             Botanist: [ 2, 2 ]
@@ -44,9 +45,9 @@
             MedicalDoctor: [ 5, 5 ]
             Paramedic: [ 2, 2 ]
             MedicalIntern: [ 3, 3 ] #intern, not counted
-            #science (5)
-            Scientist: [ 5, 5 ]
-            ResearchAssistant: [ 4, 4 ] #intern, not counted
+            #science (6)
+            Scientist: [ 5, 6 ]
+            ResearchAssistant: [ 1, 1 ] #intern, not counted
             #security 
             Warden: [ 1, 1 ]
             SecurityOfficer: [ 5, 6 ]
@@ -56,6 +57,7 @@
             #supply 
             SalvageSpecialist: [ 4, 4 ]
             CargoTechnician: [ 4, 5 ]
+            Courier: [ 1, 1 ]
             #civilian 
             Passenger: [ -1, -1 ] #infinite, not counted
             Clown: [ 1, 1 ]
