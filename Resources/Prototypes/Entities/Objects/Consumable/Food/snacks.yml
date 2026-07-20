@@ -150,8 +150,8 @@
   - type: Tag
     tags:
       - FoodSnack
+      - UnguFood # macro edit - allow ungu to eat
       - ReptilianFood # imp
-      - UnguFood # imp
   - type: SpawnItemsOnUse
     items:
       - id: FoodPacketChocolateTrash
@@ -190,11 +190,12 @@
     tags:
       - FoodSnack
       - ReptilianFood
-      - UnguFood # imp
+      - UnguFood # macro edit - allow ungu to eat
+  # imp edit start
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25 # imp
+        maxVol: 25
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -202,9 +203,10 @@
           Quantity: 3
         - ReagentId: CocoaPowder
           Quantity: 1
-  - type: SliceableFood # imp start
+  - type: SliceableFood
     count: 8
-    slice: FoodChocolateChip # imp end
+    slice: FoodChocolateChip
+  # imp edit end
 
 - type: entity
   parent: FoodSnackBase
@@ -292,7 +294,13 @@
   - type: Edible
     trash:
     - FoodPacketPopcornTrash
-  - type: SolutionContainerManager # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 15
@@ -301,9 +309,7 @@
           Quantity: 3 # weird compromise because this is... like a recipe... but nobody ever makes it...
         - ReagentId: TableSalt
           Quantity: 5
-  - type: Tag # imp
-    tags:
-    - UnguFood
+  # imp edit end
 
 - type: entity
   name: 4no raisins
@@ -342,7 +348,12 @@
   - type: Edible
     trash:
     - FoodPacketSemkiTrash
-  - type: SolutionContainerManager # imp
+  # imp edit start
+  - type: Tag
+    tags:
+    - UnguFood # macro
+    - ReptilianFood
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 10
@@ -351,10 +362,7 @@
           Quantity: 1
         - ReagentId: TableSalt
           Quantity: 5
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - ReptilianFood
+  # imp edit end
 
 - type: entity
   name: sus jerky
@@ -401,17 +409,19 @@
   - type: Edible
     trash:
     - FoodPacketSyndiTrash
-  - type: SolutionContainerManager # imp
+  # imp edit start
+  - type: Tag
+    tags:
+    - UnguFood # macro
+    - Fruit # flavor profile says it tastes like fruit cake
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 15
         reagents:
         - ReagentId: Nutriment # higher bc not in vending machines
           Quantity: 10
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Fruit # flavor profile says it tastes like fruit cake
+  # imp edit end
 
 - type: entity
   parent: FoodSnackBase
@@ -499,9 +509,11 @@
   - type: Edible
     trash:
     - FoodPacketChowMeinTrash
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
 
 - type: entity
   parent: FoodSnackBase
@@ -542,9 +554,11 @@
   - type: Edible
     trash:
     - FoodPacketDanDanTrash
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
 
 - type: entity
   parent: FoodSnackBase
@@ -572,9 +586,11 @@
   - type: Edible
     trash:
     - FoodCookieFortune
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
 
 - type: entity
   parent: BaseItem
@@ -694,7 +710,8 @@
     tags:
     - FoodSnack
     - ReptilianFood
-    - UnguFood # imp
+    - UnguFood # macro edit - allow ungu to eat
+  # imp edit start
   - type: SolutionContainerManager
     solutions:
       food:
@@ -702,6 +719,7 @@
         reagents:
         - ReagentId: Sugar
           Quantity: 15
+  # imp edit end
   - type: FlavorProfile
     flavors:
     - sweet

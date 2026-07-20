@@ -139,6 +139,7 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquatic # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
+  - EmergencyWheat # MACRO: Ungu
 
 # nitrogen or oxygen tank, depending on what your species needs
 - type: loadoutGroup
@@ -152,6 +153,7 @@
   - LoadoutSpeciesEVADiscount # imp
   - LoadoutSpeciesEVANitrogen
   - LoadoutSpeciesEVAOxygen
+  - LoadoutSpeciesEVAUngu # macro
 
 # vox get a nitrogen tank, other species get nothing
 - type: loadoutGroup
@@ -168,8 +170,8 @@
   loadouts:
   - LoadoutSpeciesPocketDoubleNitrogen
   - LoadoutSpeciesPocketDoubleOxygen
-  - LoadoutSpeciesPocketDoubleOxygenKodepiia # imp
-  - LoadoutSpeciesPocketDoubleOxygenUngu # imp
+  - LoadoutSpeciesPocketDoubleOxygenUngu # macro
+  - LoadoutSpeciesPocketDoubleOxygenKodepiia # macro
   - LoadoutSpeciesPocketDoubleOxygenDiscount # imp
 
 # Command
@@ -765,8 +767,8 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticClown # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
-  - EmergencyMeatClown # imp
-  - EmergencyWheatClown # imp
+  - EmergencyWheatClown # MACRO: Ungu
+  - EmergencyMeatClown # macro
   - EmergencyDiscountClown # imp
 
 - type: loadoutGroup
@@ -846,16 +848,18 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticMime # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
-  - EmergencyMeatMime # imp
-  - EmergencyWheatMime # imp
+  - EmergencyWheatMime # MACRO: Ungu
+  - EmergencyMeatMime # macro
   - EmergencyDiscountMime # imp
 
+# imp edit start
 - type: loadoutGroup
   id: MimeJobTrinkets
   name: loadout-group-jobtrinkets
   minLimit: 0
   loadouts:
   - LizardPlushieMime
+# imp edit end
 
 - type: loadoutGroup
   id: MusicianJumpsuit
@@ -1236,8 +1240,8 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticExtended # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
-  - EmergencyMeatExtended # imp
-  - EmergencyWheatExtended # imp
+  - EmergencyWheatExtended # MACRO: Ungu
+  - EmergencyMeatExtended # macro
   - EmergencyDiscountExtended # imp
 
 # Science
@@ -1641,8 +1645,8 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticSecurity # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
-  - EmergencyMeatSecurity # imp
-  - EmergencyWheatSecurity # imp
+  - EmergencyWheatSecurity # MACRO: Ungu
+  - EmergencyMeatSecurity # macro
   - EmergencyDiscountSecurity # imp
 
 # Wildcards
@@ -1688,8 +1692,8 @@
   - LoadoutSpeciesVoxNitrogen
   - EmergencyAquaticSyndicate # MACRO: Decapoids
   - LoadoutSpeciesAquaticFullTank # MACRO: Decapoids
-  - EmergencyMeatSyndicate # imp
-  - EmergencyWheatSyndicate # imp
+  - EmergencyWheatSyndicate # MACRO: Ungu
+  - EmergencyMeatSyndicate # macro
   - EmergencyDiscountSyndicate # imp
 
 - type: loadoutGroup

@@ -163,13 +163,17 @@
           Quantity: 5
   - type: Item
     heldPrefix: plain
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Cake
   - type: Construction # imp
     graph: Cakes
     node: start
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Cake
+  # imp edit end
 
 # Added in type lines above
 
@@ -191,11 +195,15 @@
           Quantity: 1
   - type: Item
     heldPrefix: plain-slice
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
+  # imp edit start
     - Cake
     - Slice
+  # imp edit end
 # Tastes like sweetness, cake.
 
 - type: entity
@@ -376,10 +384,12 @@
       - state: plain-inhand-right
       - state: alpha-filling-inhand-right
         color: "#ffffff"
-  # imp edit start
+  # macro edit start - allow ungu to eat
   - type: Tag
     tags:
     - UnguFood
+  # macro edit end
+  # imp edit start
     - Cake
   - type: FlavorProfile
     flavors:
@@ -399,9 +409,9 @@
           Quantity: 20
         - ReagentId: Vitamin
           Quantity: 5
-        - ReagentId: Milk # Imp
+        - ReagentId: Milk
           Quantity: 5
-        - ReagentId: TableSalt # Imp
+        - ReagentId: TableSalt
           Quantity: 5
   # imp edit end
 
@@ -423,7 +433,40 @@
       - state: plain-inhand-right
       - state: alpha-slice-filling-inhand-right
         color: "#ffffff"
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
 # Tastes like sweetness, cream cheese.
+  # imp edit start
+  - type: Tag
+    tags:
+    - UnguFood
+    - Cake
+    - Slice
+  - type: FlavorProfile
+    flavors:
+    - creamy
+    - cheesy
+    ignoreReagents:
+    - TableSalt
+    - Milk
+    - Vitamin
+    - Nutriment
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Milk
+          Quantity: 1
+        - ReagentId: TableSalt
+          Quantity: 1
   # imp edit start
   - type: Tag
     tags:
@@ -1145,7 +1188,14 @@
     slice: FoodCakeBirthdaySlice
   - type: Item
     heldPrefix: birthday
-  - type: SolutionContainerManager # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Cake
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 35
@@ -1154,12 +1204,9 @@
           Quantity: 20
         - ReagentId: Vitamin
           Quantity: 5
-        - ReagentId: Cream # imp
+        - ReagentId: Cream
           Quantity: 5
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Cake
+  # imp edit end
 
 - type: entity
   name: slice of birthday cake
@@ -1171,7 +1218,15 @@
     state: birthday-slice
   - type: Item
     heldPrefix: birthday-slice
-  - type: SolutionContainerManager # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Cake
+    - Slice
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 10
@@ -1182,11 +1237,7 @@
           Quantity: 1
         - ReagentId: Cream
           Quantity: 1
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Cake
-    - Slice
+  # imp edit end
 # Tastes like sweetness, cake, christmas.
 
 - type: entity
@@ -1212,13 +1263,17 @@
           Quantity: 15
   - type: Item
     heldPrefix: vanilla
-  - type: Construction # imp
-    graph: Cakes
-    node: vanillaCake
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
+  # imp edit start
     - Cake
+  - type: Construction
+    graph: Cakes
+    node: vanillaCake
+  # imp edit end
 
 - type: entity
   name: slice of vanilla cake
@@ -1247,11 +1302,15 @@
       right:
       - state: plain-slice-inhand-right
       - state: alpha-slice-filling-inhand-right
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
+  # imp edit start
     - Cake
     - Slice
+  # imp edit end
 # Tastes like sweetness, cake, vanilla.
 
 - type: entity
@@ -1277,10 +1336,12 @@
           Quantity: 15
   - type: Item
     heldPrefix: clown
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
-    - Cake
+  # macro edit end
+    - Cake # imp
 
 - type: entity
   name: slice of clown cake
@@ -1303,11 +1364,15 @@
           Quantity: 5
   - type: Item
     heldPrefix: clown-slice
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
+  # imp edit start
     - Cake
     - Slice
+  # imp edit end
 # Tastes like sweetness, cake, clown.
 
 - type: entity
@@ -1333,13 +1398,17 @@
           Quantity: 15
   - type: Item
     heldPrefix: trumpet
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Cake
   - type: Construction # imp
     graph: Cakes
     node: spacemanCake
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Cake
+  # imp edit end
 
 - type: entity
   name: slice of spaceman's cake
@@ -1362,11 +1431,15 @@
           Quantity: 3
   - type: Item
     heldPrefix: trumpet-slice
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
+  # imp edit start
     - Cake
     - Slice
+   # imp edit end
 # Tastes like sweetness, cake, jam.
 
 - type: entity
@@ -1496,11 +1569,15 @@
     color: "#FFFF00"
     radius: 2
     energy: 2.5
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
+    - UnguFood
+  # macro edit end
+  # imp edit staart
     - Cake
     - Suppermatter
-    - UnguFood # imp
+  # imp edit end
 
 - type: entity
   name: suppermatter shard
@@ -1528,7 +1605,7 @@
   - type: Tag
     tags:
     - Slice
-    - UnguFood # imp
+    - UnguFood # macro edit - allow ungu to eat
   - type: FoodSequenceElement
     entries:
       Taco: Suppermatter

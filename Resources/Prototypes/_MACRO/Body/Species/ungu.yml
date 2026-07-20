@@ -1,0 +1,428 @@
+- type: markingsGroup
+  id: Ungu
+  onlyGroupWhitelisted: true
+  limits:
+    enum.HumanoidVisualLayers.Hair:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.FacialHair:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.Head:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.HeadSide:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.HeadTop:
+      limit: 2
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentTop:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.UndergarmentBottom:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Chest:
+      limit: 3
+      required: false
+    enum.HumanoidVisualLayers.LArm:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RArm:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.LLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.RLeg:
+      limit: 4
+      required: false
+    enum.HumanoidVisualLayers.Snout:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Eyes:
+      limit: 1
+      required: false
+    enum.HumanoidVisualLayers.Tail:
+      limit: 1
+      required: false
+
+- type: entity
+  parent: BaseSpeciesAppearance
+  id: AppearanceUngu
+  categories: [ HideSpawnMenu ]
+  name: ungu appearance
+  components:
+  - type: Inventory
+    templateId: ungu
+    speciesId: ungu
+    displacements:
+      gloves:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+            state: hands
+      belt:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+            state: belt
+      back:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+            state: back
+      ears:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+            state: ears
+      head:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+            state: head
+      mask:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+            state: mask
+      neck:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+            state: neck
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+            state: shoes
+      eyes:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+            state: eyes
+      outerClothing:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+            state: outerwear
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+            state: jumpsuit
+  - type: Hands
+    leftHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+          state: inhand_left
+    rightHandDisplacement:
+      sizeMaps:
+        32:
+          sprite: _MACRO/Mobs/Species/Ungu/displacement.rsi
+          state: inhand_right
+  - type: InitialBody
+    organs:
+      Torso: OrganUnguTorso
+      Head: OrganUnguHead
+      ArmLeft: OrganUnguArmLeft
+      ArmRight: OrganUnguArmRight
+      HandLeft: OrganUnguHandLeft
+      HandRight: OrganUnguHandRight
+      LegLeft: OrganUnguLegLeft
+      LegRight: OrganUnguLegRight
+      FootLeft: OrganUnguFootLeft
+      FootRight: OrganUnguFootRight
+      Brain: OrganUnguBrain
+      Eyes: OrganUnguEyes
+      Tongue: OrganUnguTongue
+      Appendix: OrganUnguAppendix
+      Ears: OrganUnguEars
+      Lungs: OrganUnguLungs
+      Heart: OrganUnguHeart
+      Stomach: OrganUnguStomach
+      Liver: OrganUnguLiver
+      Kidneys: OrganUnguKidneys
+  - type: HumanoidProfile
+    species: Ungu
+
+- type: entity
+  parent:
+  - AppearanceUngu
+  - BaseSpeciesMobOrganic
+  id: MobUngu
+  name: Urist McHooves
+  components:
+  - type: CowToolProficiency
+  - type: Pullable
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.7
+  - type: MovementSpeedModifier
+    baseSprintSpeed: 2.9
+    baseWalkSpeed: 1.3
+  - type: CombatModeSprint
+    stunSeconds: 1
+    doImpactDamage: true
+    beginCombatMessage: "ungu-begin-combat-popup"
+  - type: CombatModeVisuals
+    sprite:
+      sprite: _MACRO/Mobs/Species/Ungu/parts.rsi
+      state: angry
+  - type: CombatMode
+  - type: MeleeWeapon
+    attackRate: 0.6
+    soundHit:
+      collection: Punch
+    angle: 30
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 8
+        Structural: 12
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 12
+        Structural: 20
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      200: Dead
+  - type: StaminaDamageOnHit
+    damage: 18
+  - type: Hunger
+    thresholds:
+      Overfed: 150
+      Okay: 100
+      Peckish: 50
+      Starving: 25
+      Dead: 0
+    baseDecayRate: 0.0124 # 3/4 as fast as a human
+  - type: Thirst
+  - type: Icon
+    sprite: _MACRO/Mobs/Species/Ungu/parts.rsi
+    state: full
+  - type: Butcherable
+    spawned:
+    - id: FoodMeat
+      amount: 5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300 #STOP! BEING! 500!!!
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Vocal
+    emoteSounds: UnisexUngu
+  - type: BodyEmotes
+    soundsId: UnguBodyEmotes
+  - type: Damageable
+    damageModifierSet: Ungu
+  - type: TemperatureDamage
+    heatDamageThreshold: 320
+    coldDamageThreshold: 200
+    coldDamage:
+      types:
+        Cold: 0.1 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat: 3.0 #per second, scales with temperature & other constants
+  - type: Temperature
+    currentTemperature: 310.15
+    specificHeat: 42
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: Blood
+        Quantity: 600
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: _MACRO/Mobs/Effects/ungu_brute_damage.rsi
+        color: "#ff624a"
+  - type: Speech
+    speechSounds: Ungu
+    allowedEmotes: ['Moo']
+  - type: TypingIndicator
+    proto: Ungu
+  - type: JumpAbility
+    action: ActionDash
+    jumpDistance: 4
+    jumpSound:
+      path: /Audio/Weapons/punchmiss.ogg
+      params:
+        pitch: .5
+        volume: -3
+        variation: 0.05
+  - type: CreamPied
+    sprite:
+      sprite: Effects/creampie.rsi
+      state: creampie_ungu
+
+- type: entity
+  parent: OrganBase
+  id: OrganUngu
+  suffix: ungu
+  abstract: true
+
+- type: entity
+  id: OrganUnguMetabolizer
+  abstract: true
+  components:
+  - type: Metabolizer # just copying this shit wholesale from the stomach and hoping it works
+    maxReagents: 3
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Food
+    - id: Drink
+
+- type: entity
+  id: OrganUnguVisual
+  abstract: true
+  components:
+  - type: VisualOrgan
+    data:
+      sprite: _MACRO/Mobs/Species/Ungu/parts.rsi
+  - type: VisualOrganMarkings
+    markingData:
+      group: Ungu
+
+- type: entity
+  parent: [ OrganUngu, OrganUnguVisual ]
+  id: OrganUnguExternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MACRO/Mobs/Species/Ungu/parts.rsi
+
+- type: entity
+  parent: OrganUngu
+  id: OrganUnguInternal
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+
+- type: entity
+  parent: [ OrganBaseTorso, OrganUnguExternal ]
+  id: OrganUnguTorso
+
+- type: entity
+  parent: [ OrganBaseHead, OrganUnguExternal ]
+  id: OrganUnguHead
+  components:
+  - type: HandOrgan
+    handID: left
+    data:
+      location: Left
+
+- type: entity
+  parent: [ OrganBaseArmLeft, OrganUnguExternal ]
+  id: OrganUnguArmLeft
+
+- type: entity
+  parent: [ OrganBaseArmRight, OrganUnguExternal ]
+  id: OrganUnguArmRight
+
+- type: entity
+  parent: [ OrganBaseHandLeft, OrganUnguExternal ]
+  id: OrganUnguHandLeft
+
+- type: entity
+  parent: [ OrganBaseHandRight, OrganUnguExternal ]
+  id: OrganUnguHandRight
+
+- type: entity
+  parent: [ OrganBaseLegLeft, OrganUnguExternal ]
+  id: OrganUnguLegLeft
+
+- type: entity
+  parent: [ OrganBaseLegRight, OrganUnguExternal ]
+  id: OrganUnguLegRight
+
+- type: entity
+  parent: [ OrganBaseFootLeft, OrganUnguExternal ]
+  id: OrganUnguFootLeft
+
+- type: entity
+  parent: [ OrganBaseFootRight, OrganUnguExternal ]
+  id: OrganUnguFootRight
+
+- type: entity
+  parent: [ OrganBaseBrain, OrganUnguInternal ]
+  id: OrganUnguBrain
+
+- type: entity
+  parent: [ OrganUnguInternal, OrganUnguExternal, OrganBaseEyes ]
+  id: OrganUnguEyes
+
+- type: entity
+  parent: [ OrganBaseTongue, OrganUnguInternal ]
+  id: OrganUnguTongue
+
+- type: entity
+  parent: [ OrganBaseAppendix, OrganUnguInternal ]
+  id: OrganUnguAppendix
+
+- type: entity
+  parent: [ OrganBaseEars, OrganUnguInternal ]
+  id: OrganUnguEars
+
+- type: entity
+  parent: [ OrganBaseLungs, OrganUnguInternal, OrganHumanMetabolizer ]
+  id: OrganUnguLungs
+
+- type: entity
+  parent: [ OrganBaseHeart, OrganUnguInternal, OrganHumanMetabolizer ]
+  id: OrganUnguHeart
+
+- type: entity
+  parent: [ OrganBaseStomach, OrganUnguInternal, OrganUnguMetabolizer ]
+  id: OrganUnguStomach
+  description: A lot going on here.
+  components:
+  - type: SolutionManager
+    solutions:
+    - SolutionStomachUngu
+  - type: Stomach
+    isSpecialDigestibleExclusive: true
+    specialDigestible:
+      tags:
+      - Fruit
+      - Pill
+      - Crayon
+      - Paper
+      - BananaPeel
+      - Ruminant
+      - Wheat
+      - Vegetable
+      - UnguFood
+      - Flower
+      - Mushroom
+
+- type: entity
+  parent: SolutionStomach
+  id: SolutionStomachUngu
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Solution
+    solution:
+      maxVol: 200
+
+- type: entity
+  parent: [ OrganBaseLiver, OrganUnguInternal, OrganHumanMetabolizer ]
+  id: OrganUnguLiver
+
+- type: entity
+  parent: [ OrganBaseKidneys, OrganUnguInternal, OrganHumanMetabolizer ]
+  id: OrganUnguKidneys

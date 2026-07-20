@@ -3,7 +3,9 @@
   name: chat-emote-name-hiss
   whitelist:
     components:
-    - Respirator
+    - Vocal
+  category: Vocal
+  available: false
   chatMessages: ["chat-emote-msg-hiss"]
   chatTriggers:
   - hiss
@@ -186,3 +188,5 @@
     - moo
     - mooed
     - moo'd
+
+

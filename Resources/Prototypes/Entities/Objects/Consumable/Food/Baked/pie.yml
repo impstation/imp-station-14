@@ -135,9 +135,15 @@
     layers:
     - state: tin
     - state: baklava
-  - type: SliceableFood
-    slice: FoodPieBaklavaSlice
-  - type: SolutionContainerManager # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Pie
+    - ReptilianFood # pistachios
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 40
@@ -146,11 +152,11 @@
           Quantity: 30
         - ReagentId: TableSalt # sorry snails
           Quantity: 5
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Pie
-    - ReptilianFood # pistachios
+  # imp edit end
+  - type: ToolRefinable
+    refineResult:
+    - id: FoodPieBaklavaSlice
+      amount: 8
 
 - type: entity
   name: slice of baklava
@@ -164,7 +170,16 @@
     - nutty
   - type: Sprite
     state: baklava-slice
-  - type: SolutionContainerManager # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Pie
+    - Slice
+    - ReptilianFood # pistachios
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 10
@@ -173,12 +188,7 @@
           Quantity: 7.5
         - ReagentId: TableSalt # sorry snails
           Quantity: 1.25
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Pie
-    - Slice
-    - ReptilianFood # pistachios
+  # imp edit end
 # Tastes like pie, nuts.
 
 - type: entity
@@ -703,22 +713,26 @@
     - mushroom
   - type: Sprite
     state: amanita
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+   - Pie
+   - Mushroom
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 70 # imp
+        maxVol: 70
         reagents:
         - ReagentId: Nutriment
-          Quantity: 35 # imp
+          Quantity: 35
         - ReagentId: Amatoxin
-          Quantity: 10 # imp
-        # - ReagentId: Vitamin # imp
+          Quantity: 10
+        # - ReagentId: Vitamin # imp remove
         #  Quantity: 4
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Pie
-    - Mushroom
+  # imp edit end
 # Tastes like pie, mushrooms.
 
 - type: entity
@@ -732,11 +746,15 @@
     - mushroom
   - type: Sprite
     state: plump
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
+  # imp edit start
     - Pie
     - Mushroom
+  # imp edit end
 # Tastes like pie, mushrooms.
 
 # Tart

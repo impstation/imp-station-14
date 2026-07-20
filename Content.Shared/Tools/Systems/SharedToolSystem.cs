@@ -14,8 +14,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Content.Shared._Impstation.Tools.Components; // imp
-using Content.Shared.Whitelist; // imp
+using Content.Shared._MACRO.Tools.Components; // macro
 
 namespace Content.Shared.Tools.Systems;
 
@@ -174,16 +173,16 @@ public abstract partial class SharedToolSystem : EntitySystem
 
         var toolEvent = new ToolDoAfterEvent(fuel, doAfterEv, GetNetEntity(target));
 
-        // imp edit start, if a tool has CowTool and the user has CowToolProficiency, use speed modifier from CowToolComponent
+        // macro edit start, if a tool has CowTool and the user has CowToolProficiency, use speed modifier from CowToolComponent
         // else, use speed modifier from ToolComponent, as normal
         TimeSpan doAfterDuration; //delay parameter moved to its own variable from DoAfterArgs call below to allow it to be set to different durations
         if (TryComp<CowToolComponent>(tool, out var cowToolComponent) && TryComp<CowToolProficiencyComponent>(user, out _))
             doAfterDuration = delay / cowToolComponent.ProficiencySpeedModifier;
         else
             doAfterDuration = delay / toolComponent.SpeedModifier;
-        // imp edit end
+        // macro edit end
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, doAfterDuration, toolEvent, tool, target: target, used: tool) // imp edit, doAfterDuration was previously delay / toolComponent.SpeedModifier
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, doAfterDuration, toolEvent, tool, target: target, used: tool)// macro edit, doAfterDuration was previously delay / toolComponent.SpeedModifier
         {
             BreakOnDamage = true,
             BreakOnMove = true,

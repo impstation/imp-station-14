@@ -1,0 +1,73 @@
+- type: speechSounds
+  id: Ungu
+  saySound:
+    path: /Audio/_MACRO/Voice/Ungu/ungu_talk.ogg
+  askSound:
+    path: /Audio/_MACRO/Voice/Ungu/ungu_ask.ogg
+  exclaimSound:
+    path: /Audio/_MACRO/Voice/Ungu/ungu_yell.ogg
+
+- type: emoteSounds
+  id: UnisexUngu
+  params:
+    variation: 0.025
+  sounds:
+    Scream:
+      path: /Audio/_MACRO/Voice/Ungu/ungu_scream.ogg
+    Laugh:
+      path: /Audio/_MACRO/Voice/Ungu/ungu_laugh.ogg
+    Sneeze:
+      collection: UnisexSneezes
+    CatMeow:
+      collection: CatMeows
+    CatHisses:
+      collection: CatHisses
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+    RobotBeep:
+      collection: RobotBeeps
+    Yawn:
+      path: /Audio/_MACRO/Voice/Ungu/ungu_yawn.ogg
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Crying:
+      path: /Audio/_MACRO/Voice/Ungu/ungu_cry.ogg
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Gasp:
+      path: /Audio/_MACRO/Voice/Ungu/ungu_gasp.ogg
+    DefaultDeathgasp:
+      path: /Audio/_MACRO/Voice/Ungu/ungu_death_gasp.ogg
+    Sigh:
+      path: /Audio/_MACRO/Voice/Ungu/ungu_sigh.ogg
+    Cough:
+      collection: MaleCoughs
+    Moo:
+      path: /Audio/Animals/cow_moo.ogg
+      params:
+        variation: 0.2
+
+# body emotes
+- type: emoteSounds
+  id: UnguBodyEmotes
+  sounds:
+    Clap:
+      collection: Claps
+      params:
+        pitch: .55
+    ClapSingle:
+      collection: ClapSingle
+      params:
+        pitch: .55
+    Snap:
+      collection: Snaps
+      params:
+        volume: -3
+    Salute:
+      collection: Salutes

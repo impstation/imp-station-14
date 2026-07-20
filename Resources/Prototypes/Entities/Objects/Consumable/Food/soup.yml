@@ -437,7 +437,13 @@
     layers:
     - state: bowl
     - state: rice
-  - type: SolutionContainerManager # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 10
@@ -446,9 +452,7 @@
           Quantity: 6
         - ReagentId: Nutriment
           Quantity: 2
-  - type: Tag # imp
-    tags:
-    - UnguFood
+  # imp edit end
 
 - type: entity
   name: egg-fried rice
@@ -484,7 +488,7 @@
 #    - Meat # imp
     - ReptilianFood # imp
     - Soup
-    - UnguFood # imp
+    - UnguFood # macro edit - allow ungu to eat
 
 - type: entity
   name: rice and pork
@@ -536,23 +540,27 @@
     layers:
     - state: bowl
     - state: rice-pudding
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Soup
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 35 # imp
+        maxVol: 35
         reagents:
         - ReagentId: Nutriment
-          Quantity: 8 # imp
-        #- ReagentId: Vitamin # imp
+          Quantity: 8
+        #- ReagentId: Vitamin # imp remove
         #  Quantity: 3
         - ReagentId: Milk
-          Quantity: 10 # imp
+          Quantity: 10
         - ReagentId: Sugar
-          Quantity: 11 # imp
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Soup
+          Quantity: 11
+  # imp edit end
 
 - type: entity
   name: black-eyed gumbo
@@ -606,22 +614,26 @@
     layers:
     - state: bowl
     - state: oatmeal
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # im edit start
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10 # imp
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 5 # imp
-        #- ReagentId: Vitamin
+        #- ReagentId: Vitamin # imp remove
         #  Quantity: 2
-        - ReagentId: Sugar # imp
+        - ReagentId: Sugar
           Quantity: 3
-        #- ReagentId: Milk # imp
+        #- ReagentId: Milk # imp remove
         #  Quantity: 10
-  - type: Tag # imp
-    tags:
-    - UnguFood
+  # imp edit end
 
 - type: entity
   name: space liberty duff
@@ -654,19 +666,23 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/meals.rsi
     state: amanita-jelly
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Mushroom
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 50 # imp
+        maxVol: 50
         reagents:
         - ReagentId: Nutriment
-          Quantity: 15 # imp
+          Quantity: 15
         - ReagentId: Amatoxin
-          Quantity: 30 # imp - this shit killing you
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Mushroom
+          Quantity: 30 # this shit killing you
+  # imp edit end
 
 # Soup
 
@@ -1154,24 +1170,29 @@
     layers:
     - state: bowl
     - state: mushroom
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Soup
+    - Mushroom
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 25 # imp
+        maxVol: 25
         reagents:
         - ReagentId: Nutriment
-          Quantity: 10 # imp
+          Quantity: 10
         #- ReagentId: Vitamin
-        #  Quantity: 6 # imp
+        #  Quantity: 6 # imp remove
         - ReagentId: Water
           Quantity: 5
         - ReagentId: Milk
           Quantity: 5
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Soup
-    - Mushroom
+  # imp edit end
+
 
 - type: entity
   name: beet soup

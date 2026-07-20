@@ -48,10 +48,12 @@
       - sweet
   - type: Item
     size: Tiny
+  # macro edit start - allow ungu to eat
   - type: Tag
     tags:
-      - Muffin
-      - UnguFood # imp
+    - UnguFood
+  # macro edit end
+      - Muffin # imp
 
 - type: entity
   name: berry muffin
@@ -181,10 +183,12 @@
   components:
   - type: Sprite
     state: bun-honey
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
-    - Bread
+  # macro edit end
+    - Bread # imp
 
 - type: entity
   name: hotcross bun
@@ -194,10 +198,12 @@
   components:
   - type: Sprite
     state: bun-hotcross
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
-    - Bread
+  # macro edit end
+    - Bread # imp
 
 - type: entity
   name: meat bun
@@ -255,24 +261,28 @@
   components:
   - type: Sprite
     state: cookie-oatmeal
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 20 # imp
         reagents:
-        #- ReagentId: Nutriment # imp
+        #- ReagentId: Nutriment # imp remove
         #  Quantity: 5
         #- ReagentId: Vitamin
         #  Quantity: 1
-        - ReagentId: Oats # imp
+        - ReagentId: Oats
           Quantity: 5
-        - ReagentId: Sugar # imp
+        - ReagentId: Sugar
           Quantity: 5
-        - ReagentId: Butter # imp
+        - ReagentId: Butter
           Quantity: 5
-  - type: Tag # imp
-    tags:
-    - UnguFood
+  # imp edit end
 
 - type: entity
   name: raisin cookie
@@ -305,7 +315,13 @@
   components:
   - type: Sprite
     state: cookie-sugar
-  - type: SolutionContainerManager # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+  - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 20
@@ -316,9 +332,7 @@
           Quantity: 5
         - ReagentId: Butter
           Quantity: 5
-  - type: Tag # imp
-    tags:
-    - UnguFood
+  # imp edit end
 
 # Nuggets
 
@@ -573,25 +587,29 @@
     layers:
       - state: tray
       - state: waffles
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5 # imp
-        - ReagentId: Milk # imp
           Quantity: 5
-        - ReagentId: EggCooked # imp
+        - ReagentId: Milk
+          Quantity: 5
+        - ReagentId: EggCooked
           Quantity: 6
-        # - ReagentId: Vitamin # imp
+        # - ReagentId: Vitamin # imp remove
         #  Quantity: 1
   - type: Construction # Frontier
     graph: WaffleCone
     node: start
-  - type: Tag # imp
-    tags:
-    - UnguFood
+  # imp edit end
 
 - type: entity
   name: soy waffles
@@ -668,9 +686,11 @@
   components:
   - type: Sprite
     state: pretzel
-  - type: Tag # imp
+  # macro edit start - allow ungu to eat
+  - type: Tag
     tags:
     - UnguFood
+  # macro edit end
 
 - type: entity
   name: cannoli
@@ -680,18 +700,22 @@
   components:
   - type: Sprite
     state: cannoli
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 10 # imp
+        maxVol: 10
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
         - ReagentId: Vitamin
           Quantity: 1
-  - type: Tag # imp
-    tags:
-    - UnguFood
+  # imp edit end
 
 - type: entity
   name: dumplings
@@ -732,23 +756,27 @@
       - smokey
   - type: Sprite
     state: chevrechaud
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Bread
   - type: SolutionContainerManager
     solutions:
       food:
         maxVol: 10 # imp
         reagents:
         - ReagentId: Nutriment
-          Quantity: 2.25 # imp
+          Quantity: 2.25
         - ReagentId: Vitamin
-          Quantity: 0.2 # imp
-        - ReagentId: TableSalt # imp
+          Quantity: 0.2
+        - ReagentId: TableSalt
           Quantity: 0.4
-        - ReagentId: Blackpepper # imp
+        - ReagentId: Blackpepper
           Quantity: 0.4
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Bread
+  # imp edit end
 
 - type: entity
   name: cotton chèvre chaud
@@ -982,25 +1010,29 @@
       - butter
   - type: Sprite
     state: croissant
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Bread
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 15 # imp
+        maxVol: 15
         reagents:
         - ReagentId: Nutriment
-          Quantity: 5 # imp
+          Quantity: 5
         - ReagentId: Butter
-          Quantity: 5 # imp
-        # - ReagentId: Vitamin # imp
+          Quantity: 5
+        # - ReagentId: Vitamin # imp remove
         #  Quantity: 1
   - type: DamageOtherOnHit
     damage:
       types:
         Blunt: 0 # so the damage stats icon doesn't immediately give away the syndie ones
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Bread
+  # imp edit end
 
 - type: entity
   parent: FoodBakedCroissant
@@ -1058,21 +1090,25 @@
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/misc.rsi
     state: grilled-cheese
+  # macro edit start - allow ungu to eat
+  - type: Tag
+    tags:
+    - UnguFood
+  # macro edit end
+  # imp edit start
+    - Bread
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 20 # imp
+        maxVol: 20
         reagents:
         - ReagentId: Nutriment
-          Quantity: 12 # imp
+          Quantity: 12
         - ReagentId: Butter
-          Quantity: 5 # imp
-        # - ReagentId: Vitamin
+          Quantity: 5
+        # - ReagentId: Vitamin # imp remove
         #  Quantity: 3
-  - type: Tag # imp
-    tags:
-    - UnguFood
-    - Bread
+  # imp edit end
 
 - type: entity
   parent: FoodBakedGrilledCheeseSandwich

@@ -1,0 +1,35 @@
+- type: species
+  id: Ungu
+  name: species-name-ungu
+  roundStart: false
+  #randomViable: true
+  prototype: MobUngu
+  dollPrototype: AppearanceUngu
+  skinColoration: Hues
+  defaultSkinTone: "#FFFFFF"
+  maleFirstNames: NamesUnguFirst
+  femaleFirstNames: NamesUnguFirst
+  lastNames: NamesUnguLast
+  sexes:
+  - Unsexed
+  - Male
+  - Female
+  youngAge: 60
+  oldAge: 150
+  defaultSoundsBySex:
+  - UnisexUngu
+  - UnisexUngu
+  - UnisexUngu
+  voices:
+  - UnisexUngu
+
+# Developer Notes
+#
+# Ungu are a species of large, beefy ungulates. Theyre characterised by their large silhouette and brazen combat.
+# Ungu are slow, but are capable of speeding themselves up by entering combat mode, although while in this state
+# they take damage from running into walls and other structures, and also have a charge ability that functions
+# similarly to vulpkanin's leap. They also are unable to wear hardsuits, and are limited to "softsuits" like EVA suits.
+#
+# You might want to enable them if you want variety in melee combat roles, or if you just think theyre cute.
+# Be advised, however, that they tend to need custom sprites due to their deviation from the standard silhouette,
+# so that may cause your devs extra work down the line.
