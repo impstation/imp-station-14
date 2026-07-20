@@ -317,9 +317,11 @@
     slots:
     - Back
     - suitStorage
+  - type: Item
+    size: Ginormous
   - type: ItemSlots
     slots:
-      Nodachi:
+      sword:
         name: Sword
         insertVerbText: sheath-insert-verb
         ejectVerbText: sheath-eject-verb
@@ -328,7 +330,7 @@
         whitelist:
           tags:
           - HosNodachi
-      Shell:
+      shell:
         whitelist:
           tags:
           - ShellShotgun
