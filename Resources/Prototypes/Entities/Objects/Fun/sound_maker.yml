@@ -49,9 +49,15 @@
     - Honking
     useSound: *SoundBikeHorn
   - type: DamageOtherOnHit # imp
+  # imp edit start
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  # imp edit end
 
 - type: entity
-  parent: BaseItem
+  parent: BikeHorn # imp edit, but I have no idea why it wasn't already like this
   id: CluwneHorn
   name: broken bike horn
   description: A broken horn off of a bicycle.
@@ -314,6 +320,13 @@
   - type: Tag
     tags:
     - ToyRubberDuck
+  # imp edit start
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  # imp edit end
+
 
 - type: entity
   parent: BaseRubberToy
@@ -340,6 +353,13 @@
   - type: MeleeWeapon
     wideAnimationRotation: 110
     soundHit: *SoundRubberChicken
+  # imp edit start
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  # imp edit end
+
 
 - type: entity
   parent: BaseItem
@@ -396,6 +416,13 @@
     tags:
     - ClownRecorder
     - Payload
+  # imp edit start
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  # imp edit end
+
 
 - type: entity
   parent: BaseItem
@@ -459,6 +486,12 @@
         density: 30
         mask:
         - ItemMask
+  # imp edit start
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  # imp edit end
 
 - type: entity
   parent: BaseItem
@@ -493,3 +526,10 @@
     hidden: true
   - type: UseDelay
     delay: 2.0
+  # imp edit start
+  - type: TriggerOnSignal
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  # imp edit end
+
