@@ -1,86 +1,4 @@
 ﻿Entries:
-- author: TheGrimbeeper
-  changes:
-  - message: Artifacts now slightly permissive of contaminants in what you splash
-      on them.
-    type: Tweak
-  id: 2379
-  time: '2025-11-02T12:38:34.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3656
-- author: starlighthowls
-  changes:
-  - message: Dolphin got un-cursed.
-    type: Tweak
-  id: 2380
-  time: '2025-11-03T10:37:23.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3649
-- author: starlighthowls
-  changes:
-  - message: Russian people got a lot more Russian.
-    type: Tweak
-  id: 2381
-  time: '2025-11-04T00:31:40.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3659
-- author: sev7ves
-  changes:
-  - message: Added an accessibility issues notifier. This is used to notify other
-      players of OOC issues like disability, internet issues, or phobias.
-    type: Add
-  id: 2382
-  time: '2025-11-04T02:07:39.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/2872
-- author: mousesweater
-  changes:
-  - message: new positive traits! slight and hefty!
-    type: Add
-  id: 2383
-  time: '2025-11-04T02:19:53.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3641
-- author: SixValentine
-  changes:
-  - message: Tesloose bar sign
-    type: Add
-  id: 2384
-  time: '2025-11-04T03:21:33.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/1893
-- author: sev7ves
-  changes:
-  - message: the star icon does not display on people not using the notifier anymore
-    type: Fix
-  id: 2385
-  time: '2025-11-04T11:53:21.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3674
-- author: TheGrimbeeper
-  changes:
-  - message: killing revenants will (once again) not also kill the server
-    type: Fix
-  id: 2386
-  time: '2025-11-05T09:50:12.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3677
-- author: mqole
-  changes:
-  - message: Heretic abilities have received a fresh coat of paint.
-    type: Tweak
-  id: 2387
-  time: '2025-11-05T14:37:46.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3676
-- author: DVDPlayerOfDiscordFame
-  changes:
-  - message: There's a new friend that can pop out of your vents, though they might
-      not be so friendly!
-    type: Add
-  id: 2388
-  time: '2025-11-05T16:06:49.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3642
-- author: starlighthowls
-  changes:
-  - message: Added allulalo plushie.
-    type: Add
-  - message: Added Eeeplet plushie.
-    type: Add
-  id: 2389
-  time: '2025-11-06T08:31:36.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3654
 - author: honeyed-lemons
   changes:
   - message: The RGB wand now properly makes things RGB!
@@ -4101,3 +4019,91 @@
   id: 2878
   time: '2026-07-06T10:13:34.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4494
+- author: jkwookee
+  changes:
+  - message: Supermatter now rarely creates anomalies while active.
+    type: Tweak
+  - message: Supermatters undergoing high mole absorption create a major gravitational
+      well.
+    type: Tweak
+  - message: Supermatter now evaluates Co2 at lower mole counts & percentages as well.
+    type: Tweak
+  id: 2879
+  time: '2026-07-13T16:38:21.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4329
+- author: Kandiyaki
+  changes:
+  - message: Heretics' Sacrifice victims will no longer be teleported when sacrificed,
+      or automatically revived afterwards.
+    type: Tweak
+  id: 2880
+  time: '2026-07-13T16:51:59.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4471
+- author: mycobiota, sev7ves
+  changes:
+  - message: A strange "commemorative" flippo lighter can now be found very rarely
+      as maintenance loot.
+    type: Add
+  - message: Basic lighters, cheap lighters, and Discount Dan's lighters will fail
+      to light occasionally.
+    type: Tweak
+  id: 2881
+  time: '2026-07-13T16:54:49.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4464
+- author: lobsterpaw
+  changes:
+  - message: whitelist engage
+    type: Tweak
+  id: 2882
+  time: '2026-07-13T16:55:46.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4496
+- author: salamanderskies
+  changes:
+  - message: The Frangiclave has a store description again.
+    type: Fix
+  id: 2883
+  time: '2026-07-13T16:57:36.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4484
+- author: salamanderskies
+  changes:
+  - message: The intro text for ghouls now respects the summoner's pronouns.
+    type: Fix
+  id: 2884
+  time: '2026-07-13T16:57:50.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4485
+- author: youtubevideo3
+  changes:
+  - message: some minor edits to the PG accent.
+    type: Tweak
+  id: 2885
+  time: '2026-07-13T16:59:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4492
+- author: bugju1ce
+  changes:
+  - message: grays use -'re contractions correctly again
+    type: Fix
+  id: 2886
+  time: '2026-07-13T17:01:12.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4497
+- author: msTheowo
+  changes:
+  - message: Added the random character trait, a way to be a completely different
+      character every round!
+    type: Add
+  id: 2887
+  time: '2026-07-20T23:56:04.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4341
+- author: mothrii, meatsmall
+  changes:
+  - message: its Haven fixes
+    type: Tweak
+  id: 2888
+  time: '2026-07-21T01:56:44.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4491
+- author: Simul-ad-Astra
+  changes:
+  - message: horns and other squeaky things may now be called upon to sing from afar.
+    type: Add
+  id: 2889
+  time: '2026-07-21T01:56:25.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4511
