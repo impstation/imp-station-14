@@ -67,7 +67,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Piercing: 0.5
+        Piercing: 1
 
 - type: entity
   parent: TranqDart
@@ -84,16 +84,16 @@
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVol: 10
+        maxVol: 11
         reagents:
         - ReagentId: Irwizine
-          Quantity: 10
+          Quantity: 11
   - type: SolutionInjectWhileEmbedded
-    transferAmount: 10
+    transferAmount: 11
     solution: injector
     updateInterval: 1
   - type: SolutionInjectOnEmbed
-    transferAmount: 10
+    transferAmount: 11
 
 - type: entity
   parent: [ Tier2Contraband, TranqDart ]
@@ -110,13 +110,13 @@
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVol: 10
+        maxVol: 11
         reagents:
         - ReagentId: Batozine
-          Quantity: 10
+          Quantity: 11
   - type: SolutionInjectWhileEmbedded
-    transferAmount: 10
+    transferAmount: 11
     solution: injector
     updateInterval: 1
   - type: SolutionInjectOnEmbed
-    transferAmount: 10
+    transferAmount: 11
