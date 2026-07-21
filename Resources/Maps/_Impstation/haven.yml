@@ -4,7 +4,7 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/06/2026 02:51:22
+  time: 07/20/2026 02:50:59
   entityCount: 14861
 maps:
 - 1
@@ -72088,13 +72088,8 @@ entities:
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -25.578842,-6.0341706
+      pos: -25.593313,-5.8843555
       parent: 2
-    - type: Clothing
-      quickEquip: True
-      slots: NONE
-    - type: Tag
-      tags: []
 - proto: Mirror
   entities:
   - uid: 3674
