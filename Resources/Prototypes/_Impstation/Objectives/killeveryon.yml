@@ -12,7 +12,3 @@
       sprite: Objects/Weapons/Melee/combat_knife.rsi
       state: icon
   - type: AutoCompleteCondition
-  - type: ObjectiveBlacklistRequirement
-    blacklist:
-      components:
-      - AutoCompleteCondition

@@ -787,7 +787,9 @@
         settings: short
       mindRoles:
       - MindRoleKillEveryon
-    - type: KillEveryon
+    - type: GrantObjectives
+      objectives:
+        - KillEveryonObjective
     - type: Hands
       hands:
         hand_right:
