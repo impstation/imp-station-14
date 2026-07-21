@@ -343,3 +343,13 @@
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpskirt/hos_colonelsuitskirt.rsi
 
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformPorterSkirt
+  name: porter jumpskirt
+  description: A rugged uniform for dodging ankle biters like dogs & clowns. The letter on the back stands for mail!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/porter_skirt.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpskirt/porter_skirt.rsi

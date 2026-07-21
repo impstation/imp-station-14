@@ -1,0 +1,38 @@
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float boozePower;
+const highp float TimeScale = 0.5;
+const highp float DistortionScale = 0.01;
+const highp float DistanceStrengthener = 3;
+const highp float DistanceDampener = 2;
+
+// Fans Notes
+// Shader is intended to not apply around the character but rather the edges of the screen
+// This shifts the effect so that your eyes are locked more to the center of the screen rather than making the
+// entire screen difficult to look at and thus pushing people away from getting drunk due to OOC reasons
+
+// Larger DistanceDampener will strengthen the effect closer to the character
+// Larger DistanceStrengthener will strengthen the distance of the movement the closer to the edges it is
+
+void fragment() {
+
+    highp float mod = mix(0.0, DistortionScale, boozePower);    
+    highp vec2 coord = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.xy;
+    highp float time = TIME * TimeScale;
+
+    highp float dist = distance(coord, vec2(0.5, 0.5));
+
+    highp vec2 offset = (dist * DistanceStrengthener) * vec2((mod * 1.5) * sin(time * 1.5), (mod * 2.0) * cos(time * 1.5 - 0.2));
+    highp vec4 tex1 = zTextureSpec(SCREEN_TEXTURE, coord + offset);
+
+    // An extra overlay for if we're REALLY steaming
+    if (boozePower > 0.5) {
+        offset = vec2((mod * 2.0 - DistortionScale) * sin(time * 0.333 - 0.2), (mod * 2.0 - DistortionScale) * cos(time * 0.333));
+        tex1 = mix(tex1, zTextureSpec(SCREEN_TEXTURE, coord + offset), mix(0.0, 0.3, boozePower*2.0-1.0));
+    }
+
+    offset = (dist * DistanceStrengthener) * vec2((mod * 1.5) * sin(time * 1.5), (mod * 2.0) * cos(time * 1.5 - 0.2));
+    tex1 = mix(tex1, zTextureSpec(SCREEN_TEXTURE, coord - offset), 0.2);
+
+    offset = vec2((mod * 1.0) * sin(time * 1.0 + 0.1), (mod * 1.0) * cos(time * 1.0));
+    COLOR = mix((dist * DistanceDampener) * tex1, zTextureSpec(SCREEN_TEXTURE, coord + offset), mix(0.0, 0.5, boozePower));
+}

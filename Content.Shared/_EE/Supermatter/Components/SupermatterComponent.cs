@@ -17,10 +17,24 @@ public sealed partial class SupermatterComponent : Component
     #region Base
 
     /// <summary>
-    /// The current status of the singularity, used for alert sounds and the monitoring console
+    /// Imp.
+    /// Used for knowing if the supermatter is a shard
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool IsShard;
+
+    /// <summary>
+    /// The current status of the supermatter, used for alert sounds and the monitoring console
     /// </summary>
     [DataField]
     public SupermatterStatusType Status = SupermatterStatusType.Inactive;
+
+    /// <summary>
+    /// Imp.
+    /// The current supermatter event thats occuring
+    /// </summary>
+    [DataField]
+    public SupermatterEvent Event = SupermatterEvent.None;
 
     /// <summary>
     /// The supermatter's external gas mixture on the tile
@@ -33,6 +47,12 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public GasMixture? GasStorage;
+
+    /// <summary>
+    /// The supermatter's gas composition proportions
+    /// </summary>
+    [DataField]
+    public GasMixture? GasComposition;
 
     [DataField]
     public Color LightColorNormal = Color.FromHex("#ffe000");
@@ -64,18 +84,8 @@ public sealed partial class SupermatterComponent : Component
     [DataField]
     public EntProtoId TeslaSpawnPrototype = "TeslaEnergyBall";
 
-    // one day...
-    // [DataField]
-    // public EntProtoId KudzuSpawnPrototype = "SupermatterKudzu";
-
     [DataField]
-    public EntProtoId AnomalyBluespaceSpawnPrototype = "AnomalyBluespace";
-
-    [DataField]
-    public EntProtoId AnomalyGravitySpawnPrototype = "AnomalyGravity";
-
-    [DataField]
-    public EntProtoId AnomalyPyroSpawnPrototype = "AnomalyPyroclastic";
+    public EntProtoId AnomalyPrototype = "RandomAnomalySpawner";
 
     [DataField]
     public EntProtoId CollisionResultPrototype = "Ash";
@@ -85,6 +95,9 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public EntProtoId DelamGamerulePrototype = "SupermatterDelamEventScheduler";
+
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public EntProtoId CascadeDelamGamerulePrototype = "SupermatterCascadeDelamRule";
 
     [DataField]
     public HashSet<ProtoId<SharedMoodPrototype>> SharedMoodScrambleTargets = ["Thaven"];
@@ -183,6 +196,13 @@ public sealed partial class SupermatterComponent : Component
     public float PowerlossDynamicScaling;
 
     /// <summary>
+    /// Imp.
+    /// Radiation multiplier for the supermatter, affects base rads as well
+    /// </summary>
+    [DataField]
+    public float RadiationMultiplier = 1f;
+
+    /// <summary>
     /// Affects the amount of damage and minimum point at which the SM takes heat damage
     /// </summary>
     [DataField]
@@ -207,12 +227,6 @@ public sealed partial class SupermatterComponent : Component
     public float ZapHitCoordinatesChance = 0.75f;
 
     /// <summary>
-    /// The lifetime of a supermatter-spawned anomaly.
-    /// </summary>
-    [DataField]
-    public float AnomalyLifetime = 60f;
-
-    /// <summary>
     /// The minimum distance from the supermatter that anomalies will spawn at
     /// </summary>
     [DataField]
@@ -225,34 +239,34 @@ public sealed partial class SupermatterComponent : Component
     public float AnomalySpawnMaxRange = 10f;
 
     /// <summary>
-    /// The chance for a bluespace anomaly to spawn when power or damage is high
+    /// The chance for a anomaly to spawn while supermatter is active
     /// </summary>
     [DataField]
-    public float AnomalyBluespaceChance = 150f;
+    public float AnomalyNaturalChance = 6000f;
 
     /// <summary>
-    /// The chance for a gravity anomaly to spawn when power or damage is high, and the severe power penalty threshold is exceeded
+    /// The chance for a anomaly to spawn while supermatter has reached the damage penalty threshold
     /// </summary>
     [DataField]
-    public float AnomalyGravityChanceSevere = 150f;
+    public float AnomalyDamagePenaltyChance = 150f;
 
     /// <summary>
-    /// The chance for a gravity anomaly to spawn when power or damage is high
+    /// The chance for a anomaly to spawn while supermatter is active and the power penalty threshold is exceeded
     /// </summary>
     [DataField]
-    public float AnomalyGravityChance = 750f;
+    public float AnomalyPenaltyChance = 500f;
 
     /// <summary>
-    /// The chance for a pyroclastic anomaly to spawn when power or damage is high, and the severe power penalty threshold is exceeded
+    /// The chance for a anomaly to spawn while supermatter is active and the severe power penalty threshold is exceeded
     /// </summary>
     [DataField]
-    public float AnomalyPyroChanceSevere = 375f;
+    public float AnomalySeverePenaltyChance = 150f;
 
     /// <summary>
-    /// The chance for a pyroclastic anomaly to spawn when power or damage is high, and the power penalty threshold is exceeded
+    /// The chance for a player to recieve danger text while the supermatter is cascading
     /// </summary>
     [DataField]
-    public float AnomalyPyroChance = 2500f;
+    public float CascadeMessageChance = 120f;
 
     #endregion
 
@@ -281,6 +295,12 @@ public sealed partial class SupermatterComponent : Component
     /// </summary>
     [DataField]
     public float DelamTimer = 30f;
+
+    /// <summary>
+    /// How long it takes in seconds for disrupting item actions to be used on the supermatter.
+    /// </summary>
+    [DataField]
+    public TimeSpan DisruptionTime = TimeSpan.FromSeconds(5);
 
     /// <summary>
     /// Last time a supermatter accent sound was triggered
@@ -373,6 +393,12 @@ public sealed partial class SupermatterComponent : Component
 
     [DataField]
     public DelamType PreferredDelamType = DelamType.Explosion;
+
+    /// <summary>
+    /// If a destabalizing crystal is attatched to the SM.
+    /// </summary>
+    [DataField]
+    public bool DestabilizingCrystal;
 
     #endregion
 
@@ -565,6 +591,16 @@ public enum SupermatterCrystalState : byte
     GlowDelam
 }
 
+// Imp start
+[Serializable, NetSerializable]
+public enum SupermatterEvent : byte
+{
+    None = 0,
+    Surging = 1,
+    Discharging = 2, // TODO: future supermatter event causing singularity delamination conditions
+}
+// Imp end
+
 [Serializable, NetSerializable]
 public enum SupermatterVisuals : byte
 {
@@ -574,6 +610,11 @@ public enum SupermatterVisuals : byte
 
 [Serializable, NetSerializable]
 public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
+{
+}
+
+[Serializable, NetSerializable]
+public sealed partial class DestabilizingCrystalDoAfterEvent : SimpleDoAfterEvent
 {
 }
 
