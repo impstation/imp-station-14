@@ -9,6 +9,7 @@
   id: BaseMobSpecies
   abstract: true
   components:
+  - type: GeneHost
   - type: Sprite
     layers:
     - map: [ "enum.HumanoidVisualLayers.TailUnderlay" ] # imp
