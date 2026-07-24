@@ -5,6 +5,7 @@ using Content.Shared.Weapons.Misc;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
+using Content.Shared.Trigger.Systems; // Imp
 
 namespace Content.Shared.Chasm;
 
@@ -18,6 +19,7 @@ public sealed class ChasmSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedGrapplingGunSystem _grapple = default!;
+    [Dependency] private readonly TriggerSystem _trigger = default!; // Imp
 
     public override void Initialize()
     {
@@ -42,7 +44,15 @@ public sealed class ChasmSystem : EntitySystem
             if (_timing.CurTime < chasm.NextDeletionTime)
                 continue;
 
+            // Imp start
+            _trigger.Trigger(chasm.Trigger, uid);
+            _blocker.UpdateCanMove(uid);
+            RemCompDeferred(uid, chasm);
+            // Imp end
+
+            /* Imp removal
             QueueDel(uid);
+            */
         }
     }
 
@@ -59,6 +69,7 @@ public sealed class ChasmSystem : EntitySystem
     {
         var falling = AddComp<ChasmFallingComponent>(tripper);
 
+        falling.Trigger = chasm; // Imp
         falling.NextDeletionTime = _timing.CurTime + falling.DeletionTime;
         _blocker.UpdateCanMove(tripper);
 
@@ -79,6 +90,14 @@ public sealed class ChasmSystem : EntitySystem
 
     private void OnUpdateCanMove(EntityUid uid, ChasmFallingComponent component, UpdateCanMoveEvent args)
     {
+        // Imp start
+        if (_timing.CurTime >= component.NextDeletionTime)
+        {
+            args.Uncancel();
+            return;
+        }
+        // Imp
+
         args.Cancel();
     }
 }
