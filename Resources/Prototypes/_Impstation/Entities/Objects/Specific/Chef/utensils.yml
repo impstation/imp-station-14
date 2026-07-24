@@ -1,0 +1,132 @@
+- type: entity
+  name: large measuring cup
+  parent: LargeBeaker
+  description: Used to contain a large amount of ingredients.
+  id: LargeMeasuringCup
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chef/measuring_cup_large.rsi
+    layers:
+    - state: measuringcuplarge
+    - state: measuringcup1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Specific/Chef/measuring_cup_large.rsi
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: measuringcup
+    inHandsMaxFillLevels: 4
+    inHandsFillBaseName: -fill-
+
+- type: entity
+  name: small measuring cup
+  parent: Beaker
+  description: Used to contain ingredients.
+  id: SmallMeasuringCup
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chef/measuring_cup_small.rsi
+    layers:
+    - state: measuringcupsmall
+    - state: measuringcup1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    size: Normal
+    sprite: _Impstation/Objects/Specific/Chef/measuring_cup_small.rsi
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: measuringcup
+    inHandsMaxFillLevels: 3
+    inHandsFillBaseName: -fill-
+
+- type: entity
+  parent: BaseItem
+  id: Whisk
+  name: whisk
+  description: A whisk for beating ingredients into submission.
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Chef/whisk.rsi
+      state: icon
+    - type: Item
+      size: Normal
+    - type: MeleeWeapon
+      wideAnimationRotation: 180
+      attackRate: 1.5
+      damage:
+        types:
+          Blunt: 2
+    - type: ReactionMixer
+      mixMessage: "default-mixing-success"
+      timeToMix: 5
+      reactionTypes:
+        - Whisk
+        - Stir
+    - type: Tag
+      tags:
+        - Metal
+        - ChefBeltItem
+    - type: DamageOtherOnHit
+    - type: ThrowingAngle
+      angle: 180
+
+- type: entity
+  name: tiny measuring spoon
+  parent: DrinkBase
+  description: Used to contain a tiny amount of ingredients.
+  id: TinyMeasuringSpoon
+  components:
+    - type: Sprite
+      sprite: _Impstation/Objects/Specific/Chef/measuring_spoon_red.rsi
+      layers:
+      - state: red
+      - state: red1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+    - type: Item
+      size: Tiny
+      sprite: _Impstation/Objects/Specific/Chef/measuring_spoon_red.rsi
+    - type: SolutionContainerVisuals
+      maxFillLevels: 1
+      fillBaseName: red
+    - type: Appearance
+    - type: SolutionContainerManager
+      solutions:
+        drink:
+          maxVol: 1
+    - type: SolutionTransfer
+      transferAmount: 1
+      canChangeTransferAmount: false
+    - type: Tag
+      tags:
+      - ChefBeltItem
+
+- type: entity
+  name: small measuring spoon
+  parent: TinyMeasuringSpoon
+  description: Used to contain a small amount of ingredients.
+  id: SmallMeasuringSpoon
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Chef/measuring_spoon_blue.rsi
+    layers:
+    - state: blue
+    - state: blue1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Item
+    size: Tiny
+    sprite: _Impstation/Objects/Specific/Chef/measuring_spoon_blue.rsi
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: blue
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 3
+  - type: SolutionTransfer
+    transferAmount: 3
+    canChangeTransferAmount: false

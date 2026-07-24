@@ -1,0 +1,63 @@
+- type: entity
+  name: unfrosted cotton cake
+  parent: FoodCakeBase
+  id: FoodCakeCottonUnfrosted
+  description: A cake made of fiber.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
+    state: cotton-unfrosted
+  - type: SliceableFood
+    slice: FoodCakeCottonUnfrostedSlice
+  - type: Tag
+    tags:
+    - Cake
+    - ClothMade
+    - ClothFood
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 55
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 25
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Fiber
+          Quantity: 5
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
+    heldPrefix: cotton-unfrosted
+  - type: Construction
+    graph: Cakes
+    node: cottonCake
+
+- type: entity
+  name: slice of unfrosted cotton cake
+  parent: FoodCakeSliceBase
+  id: FoodCakeCottonUnfrostedSlice
+  description: A slice of cotton cake. The lack of frosting is disappointing.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
+    state: cotton-unfrosted-slice
+  - type: Tag
+    tags:
+    - Cake
+    - ClothMade
+    - ClothFood
+    - Slice
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Fiber
+          Quantity: 1
+  - type: Item
+    sprite: _Impstation/Objects/Consumable/Food/Baked/cake.rsi
+    heldPrefix: cotton-unfrosted-slice

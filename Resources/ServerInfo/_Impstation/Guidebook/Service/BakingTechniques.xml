@@ -1,0 +1,48 @@
+<Document>
+  # Baking
+
+  Baking often involves several mixing and preparatory steps before a final product can be made. Many such steps will involve baking in the oven or applying a topping onto a intermediate step.
+
+  Measurements here will be written in [color=cyan]units[/color]. Several recipes require small amounts of certain reagents, measuring spoons included in baking kits can aid in this process.
+
+  <Box>
+    <GuideEntityEmbed Entity="BoxCardboardIngredientBaking" Caption="baking ingredients box"/>
+    <GuideEntityEmbed Entity="SmallMeasuringSpoon" Caption="measuring spoon"/>
+    <GuideEntityEmbed Entity="Whisk" Caption="whisk"/>
+  </Box>
+
+  ## Cakes
+
+  Cakes come in many forms but they all start with a base layer of delicious fluff which is made by baking their respective batters for 15 seconds in an oven.
+
+  All batters will require a thorough mixing after the ingredients are in the container of your choosing.
+
+  - Regular Batter : 15u Flour, 12u Egg, 5u Sugar, 5u Milk, and 1u Vanilla Extract
+  - Chocolate Batter: 15u Flour, 12u Egg, 5u Sugar, 5u Milk, and 5u Cocoa Powder
+  - Cotton Batter: 10u Fiber, 10u Water, and 5u Flour
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodCakeVanilla" Caption=""/>
+    <GuideEntityEmbed Entity="FoodCakeChocolate" Caption=""/>
+    <GuideEntityEmbed Entity="FoodCakeCotton" Caption=""/>
+  </Box>
+
+  ## Frostings
+
+  What is a dessert without a bit of extra sugar on top. Several different frostings can be applied to a cake base to enrich its flavor.
+
+  <Box>
+    <GuideEntityEmbed Entity="FoodFrostingVanilla" Caption=""/>
+    <GuideEntityEmbed Entity="FoodFrostingSpaceman" Caption=""/>
+  </Box>
+
+  - Vanilla Frosting: 5u Milk, 5u Sugar, 2u Vanilla Extract
+  - Spacemans Frosting: 5u Milk, 5u Sugar, 10u Polypyrylium Oligomers
+
+  After baking the batter for 15 seconds, the cakes - while edible - will feel very bare and can use a touch-up. This can be done by adding a topping such as frosting to them to seal the deal.
+
+  - Vanilla Cake : Add vanilla frosting
+  - Spacemans Cake : Add spacemans frosting
+  - Cotton Cake : Add cotton
+
+</Document>
