@@ -22,10 +22,12 @@ using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Wires;
 using Content.Shared.Whitelist;
+using Content.Shared.Xenoborgs.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
@@ -146,6 +148,7 @@ public abstract partial class SharedBorgSystem : EntitySystem
 
         if (!panelComp.Open || args.User == chassis.Owner)
             args.Cancelled = true;
+
     }
 
     private void OnItemSlotEjectAttempt(Entity<BorgChassisComponent> chassis, ref ItemSlotEjectAttemptEvent args)
@@ -243,6 +246,17 @@ public abstract partial class SharedBorgSystem : EntitySystem
             {
                 // Don't use PopupClient because CanPlayerBeBorged is not predicted.
                 _popup.PopupEntity(Loc.GetString("borg-player-not-allowed"), used, args.User);
+                return;
+            }
+
+            // imp addition: don't allow positronic brains into chassis without laws
+            if (!HasComp<SiliconLawBoundComponent>(chassis) && HasComp<BorgBrainComponent>(used) && !HasComp<MMIComponent>(used))
+                return;
+
+            // imp addition: check for accepted contract on attempted MMI insertion unless being xeno'd
+            if (TryComp<MMIComponent>(used, out var mmiComp) && !mmiComp.AllowBorging && !HasComp<XenoborgComponent>(chassis))
+            {
+                _popup.PopupPredicted(Loc.GetString(mmiComp.FailPopup), used, null);
                 return;
             }
 

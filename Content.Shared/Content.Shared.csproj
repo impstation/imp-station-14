@@ -16,6 +16,11 @@
     <ProjectReference Include="..\Content.Shared.Database\Content.Shared.Database.csproj" />
   </ItemGroup>
 
+  <!-- imp add: return to brain popup -->
+  <ItemGroup>
+    <Folder Include="_Impstation\Ghost\" />
+  </ItemGroup>
+
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
 </Project>

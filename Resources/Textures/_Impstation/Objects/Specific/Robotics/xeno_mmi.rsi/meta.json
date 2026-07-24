@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "originals taken from tgstation at https://github.com/tgstation/tgstation/commit/cf45322c7ee16f9d7e43d5260daf24ceb77c1b25, modified for xeno mmi by formlessnamelss (github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "mmi_icon"
+    },
+    {
+      "name": "mmi_off"
+    },
+    {
+      "name": "mmi_alive"
+    },
+    {
+      "name": "mmi_dead"
+    },
+    {
+      "name": "mmi_brain",
+      "delays":[
+        [
+          0.7,
+          0.2,
+          0.5,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "posibrain-searching",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

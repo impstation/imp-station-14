@@ -5,46 +5,147 @@
     "y": 32
   },
   "license": "CC-BY-SA-3.0",
-  "copyright": "Modified from tgstation at https://github.com/tgstation/tgstation/commit/faf6db214927874c19b8fa8585d26b5d40de1acc, modified by Ecramox(Github).",
-  "states": [
-    {
-      "name": "bounty",
-      "directions": 4
-    },
-    {
-      "name": "bounty_moving",
-      "directions": 4,
-      "delays": [
-        [
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1
-        ],
-        [
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
-      "name": "bounty_e",
-      "directions": 4
-    },
-    {
-      "name": "bounty_e_r",
-      "directions": 4
-    },
-    {
-      "name": "bounty_l",
-      "directions": 4
-    }
-
-  ]
+  "copyright": "Modified from tgstation at https://github.com/tgstation/tgstation/commit/faf6db214927874c19b8fa8585d26b5d40de1acc, modified by Ecramox(Github), osi ball sprites were originally xenoborg sprites, created and modified by Samuka-C (github), modified for osi ball by formlessnameless (github).",
+    "states": [
+        {
+            "name": "bounty",
+            "directions": 4
+        },
+        {
+            "name": "bounty_moving",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "bounty_e",
+            "directions": 4
+        },
+        {
+            "name": "bounty_e_r",
+            "directions": 4
+        },
+        {
+            "name": "bounty_l",
+            "directions": 4
+        },
+        {
+            "name": "osi_ball",
+            "directions": 4
+        },
+        {
+            "name": "osi_ball_e",
+            "directions": 4,
+            "delays": [
+                [
+                    0.3,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.3,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.3,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.3,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "osi_ball_e_r",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "osi_ball_l",
+            "directions": 4,
+            "delays": [
+                [
+                    0.3,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.3,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.3,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.3,
+                    0.2,
+                    0.2
+                ]
+            ]
+        }
+    ]
 }

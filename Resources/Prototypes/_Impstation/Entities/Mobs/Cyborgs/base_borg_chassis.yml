@@ -1,0 +1,243 @@
+﻿# No way to sanely remove components from child objects so here we goooooooooooooooooooooooo
+- type: entity
+  parent: [BaseMob, StripableInventoryBase]
+  id: BaseBrainEnclosure
+  name: osi enclosure
+  description: An enclosure that allows for the disembodied to gain a little more autonomy. Can't do much more than move and talk.
+  save: false
+  abstract: true
+  components:
+  - type: Reactive
+    groups:
+      Acidic: [Touch]
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      collection: MetalThud
+  - type: NoSlip
+  - type: StaticPrice
+    price: 1250
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.15
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 2.5
+    baseFriction: 0.125
+    frictionNoInput: 0.125
+  - type: Sprite
+    sprite: _Impstation/Mobs/Silicon/chassis.rsi
+  - type: RotationVisuals
+    horizontalRotation: 90
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Critical
+    - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      75: Critical
+      150: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+    showOverlays: false
+    allowRevives: true
+  - type: HealthExaminable
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+    locPrefix: silicon
+  - type: UserInterface
+    interfaces:
+      enum.SiliconLawsUiKey.Key:
+        type: SiliconLawBoundUserInterface
+        requireInputValidation: false
+      enum.BorgUiKey.Key:
+        type: BorgBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: ActivatableUI
+    key: enum.BorgUiKey.Key
+  - type: Inventory
+    templateId: brainEnclosure
+  - type: ZombieImmune
+  - type: Repairable
+    doAfterDelay: 10
+    allowSelfRepair: false
+  - type: BorgChassis
+  - type: LockingWhitelist
+    blacklist:
+      components:
+      - BorgChassis
+      - RoboticsConsole
+  - type: WiresPanel
+    openingTool: Screwing
+  - type: ActivatableUIRequiresPanel
+  - type: NameIdentifier
+    group: Silicon
+  - type: ContainerContainer
+    containers:
+      borg_brain: !type:ContainerSlot { }
+      cell_slot: !type:ContainerSlot { }
+      part-container: !type:Container
+      program-container: !type:Container
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: true
+  - type: ItemToggle
+    onActivate: false # You should not be able to turn off a borg temporarily.
+    activated: false # gets activated when a mind is added
+    onUse: false # no item-borg toggling sorry
+  - type: ItemTogglePointLight
+  - type: AccessToggle
+  - type: PowerCellDraw
+    drawRate: 0.01 # Really light, since it's just mobility and life support
+  # no ToggleCellDraw since dont want to lose access when power is gone
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+  - type: Body
+    thermalVisibility: false
+  - type: StatusEffects
+    allowed:
+    - Flashed
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Borg
+  - type: Vocal
+    sounds:
+      Unsexed: UnisexSilicon
+    wilhelmProbability: 0
+  - type: DamagedSiliconAccent
+  - type: UnblockableSpeech
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepBorg
+  - type: Lock
+    locked: true
+    unlockOnClick: false
+    customLockText: "back panel"
+  - type: UIRequiresLock
+    userInterfaceKeys:
+    - enum.BorgUiKey.Key
+  - type: LockedWiresPanel
+  - type: Damageable
+    damageContainer: Silicon
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Machines/warning_buzzer.ogg
+          params:
+            volume: 5
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:EmptyContainersBehaviour
+        containers:
+        - borg_brain
+        - borg_module
+        - cell_slot
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: HandheldLight
+    toggleOnInteract: false
+    wattage: 0.2
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      startValue: 0.1
+      endValue: 2.0
+      isLooped: true
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 4
+    netsync: false
+  - type: Pullable
+  - type: StandingState
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+    - CanPilot
+    - SiliconEmotes
+    - Unimplantable
+  - type: Emoting
+  - type: ProtectedFromStepTriggers
+  - type: DamageOnInteractProtection
+    damageProtection:
+      flatReductions:
+        Heat: 10 # capable of touching light bulbs and stoves without feeling pain!
+
+- type: entity
+  abstract: true
+  id: BaseBrainEnclosureTransponder
+  components:
+  # no explosives, this is just for monitoring - it could be funny though
+  - type: BorgTransponder
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: CyborgControl
+    transmitFrequencyId: RoboticsConsole
+    savableAddress: false
+  - type: SignatureFont
+    font: Sixtyfour
+  - type: SkipLoadingCharacterRecords
+
+- type: entity
+  id: BaseBrainEnclosureNT
+  parent: [BaseBrainEnclosure, BaseBrainEnclosureTransponder]
+  abstract: true
+  components:
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: AccessReader
+    access: [["Command"], ["Research"]]
+  - type: ShowJobIcons
+  - type: InteractionPopup
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg

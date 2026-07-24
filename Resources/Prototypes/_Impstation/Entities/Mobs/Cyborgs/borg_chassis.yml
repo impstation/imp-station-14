@@ -1,0 +1,36 @@
+﻿- type: entity
+  id: BrainEnclosure
+  parent: BaseBrainEnclosureNT
+  components:
+  - type: Sprite
+    layers:
+    - state: osi_ball
+    - state: osi_ball_e
+      map: [ "enum.BorgVisualLayers.Light" ]
+      shader: unshaded
+      visible: false
+    - state: osi_ball_l
+      shader: unshaded
+      map: [ "light" ]
+      visible: false
+  - type: BorgChassis
+    maxModules: 0
+    hasMindState: osi_ball_e
+    noMindState: osi_ball_e_r
+    brainWhitelist:
+      tags:
+      - BorgBrainNT
+  - type: BorgTransponder
+    sprite:
+      sprite: _Impstation/Mobs/Silicon/chassis.rsi
+      state: osi_ball
+    name: cyborg
+  - type: Construction
+    graph: BrainEnclosure
+    node: osiball
+    containers:
+    - part-container
+    - cell_slot
+  - type: InteractionPopup
+    interactSuccessString: petting-success-generic-cyborg
+    interactFailureString: petting-failure-generic-cyborg

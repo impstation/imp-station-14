@@ -349,6 +349,10 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: LawSynced # imp
+  - type: BorgChassis # imp: restrict brain types
+    brainWhitelist:
+      tags:
+      - BorgBrainNT
 
 - type: entity
   id: BaseBorgChassisSyndicate
@@ -512,6 +516,9 @@
     maxModules: 0
     hasMindState: robot_e
     noMindState: robot_e_r
+    brainWhitelist: # imp: xeno specific mmis
+      tags:
+      - BorgBrainXeno
     moduleWhitelist:
       tags:
       - XenoborgModuleGeneric

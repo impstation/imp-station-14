@@ -1,0 +1,39 @@
+- type: constructionGraph
+  id: BrainEnclosure
+  start: start
+  graph:
+  - node: start
+    entity: BrainEnclosureEndoskeleton
+    edges:
+    - to: osiball
+      steps:
+      - assemblyId: generic
+        guideString: borg-construction-guide-string
+
+      - material: Cable
+        amount: 1
+        doAfter: 1
+        store: part-container
+
+      - tool: Screwing
+        doAfter: 0.5
+
+  - node: osiball
+    entity: BrainEnclosure
+
+- type: constructionGraph
+  id: XenoBrainDeconvert
+  start: start
+  graph:
+  - node: start
+    entity: XenoMMIFilled
+    edges:
+    - to: normalOsi
+      steps:
+      - tool: Pulsing
+        doAfter: 1
+      - tool: Screwing
+        doAfter: 1
+
+  - node: normalOsi
+    entity: MMIFilled

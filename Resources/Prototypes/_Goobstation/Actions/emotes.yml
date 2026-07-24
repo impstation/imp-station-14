@@ -12,6 +12,9 @@
   - does a flip.
   - does a flip!
   event: !type:AnimationFlipEmoteEvent
+  blacklist: # imp
+    tags:
+    - ImmobileEmoter
 
 - type: emote
   id: Spin
@@ -24,6 +27,9 @@
   - spins.
   - spins!
   event: !type:AnimationSpinEmoteEvent
+  blacklist: # imp
+    tags:
+    - ImmobileEmoter
 
 - type: emote
   id: Jump
@@ -40,3 +46,6 @@
   - bounces.
   - bounces!
   event: !type:AnimationJumpEmoteEvent
+  blacklist: # imp
+    tags:
+    - ImmobileEmoter
