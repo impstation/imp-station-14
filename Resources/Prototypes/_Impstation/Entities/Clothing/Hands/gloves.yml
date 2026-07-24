@@ -84,6 +84,19 @@
   - type: FingerprintMask
 
 - type: entity
+  parent: ClothingHandsGlovesJanitor
+  id: ClothingHandsGlovesJanitorInsul
+  name: rubber gloves
+  description: High-quality rubber gloves, squeaky to do some cleaning!
+  suffix: Insulated
+  components:
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-rubber
+    fiberColor: fibers-yellow
+  - type: FingerprintMask
+  
+- type: entity  
   parent: [ ClothingHandsGlovesColorBlack, BaseSecurityEngineeringContraband ]
   id: ClothingHandsGlovesCombatBudget
   name: budget combat gloves
