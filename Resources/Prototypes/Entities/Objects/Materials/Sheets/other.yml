@@ -60,13 +60,14 @@
     heldPrefix: paper
   - type: Appearance
   - type: Extractable
-    grindableSolutionName: paper
+    grindableSolutionName: food # imp
   - type: SolutionContainerManager
     solutions:
-      paper:
+      food: # imp
+        maxVol: 6 # imp
         reagents:
-        - ReagentId: Cellulose
-          Quantity: 3
+        - ReagentId: Pulp # imp
+          Quantity: 6 # imp
 
 
 - type: entity
