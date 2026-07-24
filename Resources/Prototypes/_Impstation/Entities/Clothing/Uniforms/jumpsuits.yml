@@ -167,24 +167,24 @@
 - type: entity
   parent: [ClothingUniformBase]
   id: ClothingUniformDetectiveSuit
-  name: detective suit
+  name: detective's brown suit
   description: Now excuse me, if I may just have a moment of your time...
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/detectivesuit.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/det_suitbrown.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/detectivesuit.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/det_suitbrown.rsi
 
 - type: entity
   parent: [ClothingUniformBase]
   id: ClothingUniformMiamiVice
-  name: miami vice suit
+  name: detective's white suit
   description: When you need to arrest the clown at twelve o'clock and boogie board at one.
   components:
   - type: Sprite
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/miamivice.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/det_suitmiami.rsi
   - type: Clothing
-    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/miamivice.rsi
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/det_suitmiami.rsi
 
 - type: entity
   parent: [ClothingUniformBase]
@@ -636,3 +636,25 @@
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/porter_shorts.rsi
   - type: Clothing
     sprite: _Impstation/Clothing/Uniforms/Jumpsuit/porter_shorts.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitDetTurtle
+  name: detective's turtleneck
+  description: For the cat that won't cop out when there's danger all about.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/det_sweater.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/det_sweater.rsi
+
+- type: entity
+  parent: [ClothingUniformBase]
+  id: ClothingUniformDetBlackSuit
+  name: detective's black suit
+  description: A plain black suit for a professional detective. Smells like coffee.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/det_suitblack.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Uniforms/Jumpsuit/det_suitblack.rsi

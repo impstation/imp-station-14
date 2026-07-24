@@ -12,17 +12,6 @@
 
 # Detective
 
-- type: entity
-  parent: [ ClothingUniformSkirtBase, ClothingUniformRollableBase ] # imp - we dont have rmcrollable so im having this use foldable
-  id: ClothingUniformJumpskirtDetTurtle
-  name: detective's turtleneck
-  description: A comfortable and tight-fitting turtleneck for those with the resolve to reach the position of detective.
-  components:
-  - type: Sprite
-    sprite: _DV/Clothing/Uniforms/Jumpskirt/detective_alt.rsi
-  - type: Clothing
-    sprite: _DV/Clothing/Uniforms/Jumpskirt/detective_alt.rsi
-
 # Warden
 
 - type: entity
