@@ -10,3 +10,16 @@
         reagents:
         - ReagentId: Water
           Quantity: 40
+
+- type: entity
+  parent: PuddleTemporary
+  id: PuddleCyan
+  suffix: Cyan food coloring
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      puddle:
+        maxVol: 100
+        reagents:
+        - ReagentId: CyanFoodColoring
+          Quantity: 50
