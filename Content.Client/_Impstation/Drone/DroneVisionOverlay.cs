@@ -2,7 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.Stealth;
 using Content.Shared.Body.Components;
-using Content.Shared._Impstation.Overlays;
+using Content.Shared._Impstation.Drone;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -10,7 +10,7 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 
-namespace Content.Client._Impstation.Overlays;
+namespace Content.Client._Impstation.Drone;
 
 public sealed class DroneVisionOverlay : Overlay
 {
