@@ -19,6 +19,12 @@ public sealed partial class InHellComponent : Component
     public TimeSpan ExitHellTime = default!;
 
     /// <summary>
+    /// where does the mind go when sent to hell?
+    /// </summary>
+    [DataField]
+    public EntityUid? CloneBody;
+
+    /// <summary>
     /// where do we put the mind when we're done?
     /// </summary>
     [DataField]
