@@ -1,19 +1,6 @@
-# 10 Hr
-- type: loadoutEffectGroup
-  id: Engineer10hr
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobStationEngineer
-      time: 10h
-
 # Jumpsuit
 - type: loadout
   id: SpaceEngineerJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Engineer10hr
   equipment:
     jumpsuit: ClothingUniformSpaceJumpsuitEngineer
 

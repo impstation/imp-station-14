@@ -1,21 +1,8 @@
-# Loadout Timer
-- type: loadoutEffectGroup
-  id: UltimateGodGrey
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobPassenger
-      time: 100h # ~67 rounds. Only a true passenger main will have access to the greycloak.
-
 # Neck
 - type: loadout
   id: GreyCloak
   equipment:
     neck: ClothingNeckCloakPassenger
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: UltimateGodGrey
 
 - type: startingGear
   id: GreyCloak
@@ -46,8 +33,5 @@
 # Jumpsuit
 - type: loadout
   id: GraytiderSpaceJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: GreyTider
   equipment:
     jumpsuit: ClothingUniformSpaceJumpsuitGrayTider
