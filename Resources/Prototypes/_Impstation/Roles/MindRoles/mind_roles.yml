@@ -62,6 +62,22 @@
     roleType: Familiar
   - type: ButlerRole
 
+# Slasher
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleSlasher
+  name: Slasher Role
+  components:
+  - type: MindRole
+    antagPrototype: Slasher
+    roleType: SoloAntagonist
+    exclusiveAntag: true
+    subtype: role-subtype-slasher
+  - type: Stamina
+    decay: 10
+    afterCritDecayMultiplier: 8
+    baseCritThreshold: 400
+
 # Syndicate Instigator
 - type: entity
   parent: MindRoleNukeops

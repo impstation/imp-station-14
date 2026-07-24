@@ -1,0 +1,55 @@
+- type: antag
+  id: Slasher
+  name: roles-antag-slasher-name
+  antagonist: true
+  setPreference: true
+  playTimeTracker: AntagSlasher
+  objective: roles-antag-slasher-objective
+  guides: [ ]
+
+- type: startingGear
+  id: SlasherGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSlasher
+    head: ClothingHeadHatSlasherCorpsoft
+    mask: ClothingMaskSlasher
+    back: ClothingBackpackSatchel
+    pocket1: SlasherGearContainer
+    ears: ClothingHeadsetSlasher
+    gloves: ClothingHandsGlovesSlasher
+    outerClothing: ClothingOuterCoatSlasher
+    shoes: ClothingShoesBootsSlasher
+    id: SlasherPDA
+  storage:
+    back:
+    - SlasherKnife
+    - SlasherHatchet
+    - SlasherChainsaw
+
+- type: startingGear
+  id: SlasherGearClown
+  parent: SlasherGear
+  equipment:
+    gloves: ClothingHandsGlovesSlasherClown
+    mask: ClothingMaskSlasherClown
+    jumpsuit: ClothingUniformJumpsuitSlasherClown
+    outerClothing: ClothingOuterCoatSlasherClown
+    shoes: ClothingShoesSlasherClown
+
+- type: startingGear
+  id: SlasherGearGriffy
+  parent: SlasherGear
+  equipment:
+    head: ClothingHeadSlasherGriffy
+    outerClothing: ClothingOuterSlasherGriffy
+    id: SlasherGriffyPDA
+
+- type: startingGear
+  id: SlasherGearCaptain
+  parent: SlasherGear
+  equipment:
+    head: ClothingHeadHatSlasherCaptain
+    outerClothing: ClothingOuterArmorSlasherCaptainCarapace
+    jumpsuit: ClothingUniformJumpsuitSlasherCaptain
+    gloves: ClothingHandsGlovesSlasherCaptain
+    shoes: ClothingShoesBootsSlasherCaptain

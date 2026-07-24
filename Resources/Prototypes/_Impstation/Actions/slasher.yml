@@ -1,0 +1,206 @@
+# Slasher hotbar actions
+
+- type: entity
+  parent: BaseAction
+  id: ActionSlasherGainShroud
+  name: slasher-action-gain-shroud-name
+  description: slasher-action-gain-shroud-desc
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    raiseOnAction: true
+    icon: # Placeholder icon - use chameleon implant sprite until a dedicated Slasher icon exists
+      sprite: Actions/Implants/implants.rsi
+      state: chameleon
+    useDelay: 120
+    startDelay: true
+  - type: InstantAction
+    event: !type:SlasherGainShroudEvent
+  - type: SlasherShroudAction
+    bleedAmount: 2
+    bleedReapplyDelay: 3
+    bleedCapRatio: 0.5
+    movementVisibilityRate: .05
+    minVisibility: -1
+
+- type: entity
+  parent: BaseAction
+  id: ActionSlasherRend
+  name: slasher-action-rend-name
+  description: slasher-action-rend-desc
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    raiseOnAction: true
+    icon: Interface/Actions/harm.png # Placeholder icon — replace with a dedicated Slasher rend icon
+    useDelay: 90
+    startDelay: true
+  - type: TargetAction
+    range: 1.5
+    checkCanAccess: false # allow targeting structures that block normal line-of-sight
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - Door
+      tags:
+      - Wall
+      - Window
+    event: !type:SlasherRendEvent
+  - type: SlasherRendAction
+    rendDelay: 5
+    distanceThreshold: 1.5
+    rendStartSound:
+      path: /Audio/Machines/airlock_creaking.ogg
+    rendCompleteSound:
+      collection: MetalCrunch
+    windowRendCompleteSound:
+      collection: GlassBreak
+    rendDamage:
+      types:
+        Structural: 9999
+
+- type: entity
+  parent: BaseAction
+  id: ActionSlasherLoseShroud
+  name: slasher-action-lose-shroud-name
+  description: slasher-action-lose-shroud-desc
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    raiseOnAction: true
+    icon: # Placeholder icon - use chameleon implant sprite until a dedicated Slasher icon exists
+      sprite: Actions/Implants/implants.rsi
+      state: chameleon
+    useDelay: 5
+  - type: InstantAction
+    event: !type:SlasherLoseShroudEvent
+  - type: SlasherUnshroudAction
+
+- type: entity
+  parent: BaseAction
+  id: ActionSlasherPlaceMeathook
+  name: slasher-action-place-meathook-name
+  description: slasher-action-place-meathook-desc
+  components:
+  - type: LimitedCharges
+    maxCharges: 2
+  - type: Action
+    itemIconStyle: BigAction
+    raiseOnAction: true
+    useDelay: 10
+    icon:
+      sprite: Structures/meat_spike.rsi
+      state: spike
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MapGrid
+  - type: WorldTargetAction
+    event: !type:SlasherPlaceMeathookEvent
+
+- type: entity
+  parent: BaseAction
+  id: ActionSlasherPlaceEffigy
+  name: slasher-action-place-effigy-name
+  description: slasher-action-place-effigy-desc
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    raiseOnAction: true
+    useDelay: 10
+    icon:
+      sprite: Structures/meat_spike.rsi
+      state: spikebloody
+  - type: TargetAction
+    checkCanAccess: false
+    range: 0
+  - type: EntityTargetAction
+    canTargetSelf: false
+    whitelist:
+      components:
+      - MapGrid
+  - type: WorldTargetAction
+    event: !type:SlasherPlaceEffigyEvent
+  - type: SlasherPlaceEffigyAction
+
+- type: entity
+  parent: BaseAction
+  id: ActionSlasherDarkStep
+  name: slasher-action-dark-step-name
+  description: slasher-action-dark-step-desc
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    raiseOnAction: true
+    useDelay: 30
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: jaunt
+  - type: TargetAction
+    checkCanAccess: false
+    range: 12
+  - type: WorldTargetAction
+    event: !type:SlasherDarkStepEvent
+  - type: LightLevelTeleportAction
+    channelTime: 2.5
+    ambientDarkThreshold: 0.5
+
+- type: entity
+  parent: BaseAction
+  id: ActionSlasherDarkHeal
+  name: slasher-action-dark-heal-name
+  description: slasher-action-dark-heal-desc
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    raiseOnAction: true
+    useDelay: 30
+    icon:
+      sprite: _Impstation/Objects/Specific/Medical/firstaidkits.rsi
+      state: advkit
+  - type: InstantAction
+    event: !type:SlasherDarkHealEvent
+  - type: LightLevelHealAction
+    healAmount: 50
+    ambientDarkThreshold: 0.5
+
+- type: entity
+  parent: BaseAction
+  id: ActionSlasherLocateEffigy
+  name: slasher-action-locate-effigy-name
+  description: slasher-action-locate-effigy-desc
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    raiseOnAction: true
+    icon:
+      sprite: Structures/Specific/Anomalies/shadow_anom.rsi
+      state: anom
+    iconOn:
+      sprite: Structures/Specific/Anomalies/shadow_anom.rsi
+      state: pulse
+  - type: InstantAction
+    event: !type:SlasherLocateEffigyEvent
+  - type: SlasherLocateEffigyAction
+
+- type: entity
+  parent: BaseAction
+  id: ActionSlasherWeaponRecall
+  name: slasher-action-weapon-recall-name
+  description: slasher-action-weapon-recall-desc
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    raiseOnAction: true
+    useDelay: 30
+    icon:
+      sprite: Objects/Magic/magicactions.rsi
+      state: item_recall
+  - type: InstantAction
+    event: !type:OnWeaponRecallActionEvent
+  - type: WeaponRecall

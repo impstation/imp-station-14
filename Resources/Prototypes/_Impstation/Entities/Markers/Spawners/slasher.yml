@@ -1,0 +1,88 @@
+- type: entity
+  id: SpawnPointSlasher
+  parent: MarkerBase
+  name: slasher antag spawn point
+  suffix: Slasher
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicate
+  - type: AntagSpawner
+    prototype: MobHuman
+  - type: SpawnPoint
+    job_id: Passenger
+
+- type: entity
+  id: SpawnPointLocationSlasherShuttle
+  name: slasher shuttle spawn location
+  suffix: Slasher
+  parent: MarkerBase
+  components:
+  - type: SpawnPoint
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: prisoner
+  - type: SlasherSpawnShuttleLocation
+
+- type: entity
+  id: SpawnPointLocationDeathMaze
+  name: death maze spawn location
+  suffix: Slasher
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: prisoner
+  - type: DeathMazeSpawnLocation
+
+- type: entity
+  id: SpawnPointLocationDeathMazeCenter
+  name: death maze center location
+  suffix: Slasher
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - state: ai
+  - type: DeathMazeSpawnLocation
+    isCenter: true
+
+- type: entity
+  id: SlasherDeathMazeRoomFillMarker
+  name: slasher death maze room fill marker
+  suffix: Slasher
+  parent: BaseRoomMarker
+  components:
+  - type: RoomFill
+    clearExisting: true
+    minSize: 5,5
+    maxSize: 5,5
+    roomWhitelist:
+      tags:
+      - Maints
+
+# Deterministic anomaly spawners used by SlasherAnomalyBurstPulse.
+- type: entity
+  id: SlasherAnomalySpawnerFlesh
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    chance: 1
+    prototypes:
+    - AnomalyFlesh
+
+- type: entity
+  id: SlasherAnomalySpawnerShadow
+  parent: MarkerBase
+  components:
+  - type: RandomSpawner
+    chance: 1
+    prototypes:
+    - AnomalyShadow

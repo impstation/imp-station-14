@@ -64,7 +64,8 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     /// <summary>
     /// Clears the servers sensor status list
     /// </summary>
-    private void OnRemove(EntityUid uid, CrewMonitoringServerComponent component, ComponentRemove args)
+    //Imp Edit: Made static to satisfy analyzer; method no longer depends on system state.
+    private static void OnRemove(EntityUid uid, CrewMonitoringServerComponent component, ComponentRemove args)
     {
         component.SensorStatus.Clear();
     }
@@ -77,12 +78,18 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
+        //Imp Edit: Gather stale keys first to avoid mutating SensorStatus while iterating it.
+        var staleReal = new List<string>();
         foreach (var (address, sensor) in component.SensorStatus)
         {
             var dif = _gameTiming.CurTime - sensor.Timestamp;
             if (dif.Seconds > component.SensorTimeout)
-                component.SensorStatus.Remove(address);
+                staleReal.Add(address); // imp edit: remove the stale entry after iterating
         }
+
+        foreach (var address in staleReal) //imp add: remove stale entrties after iterating to avoid mutating the collection while enumerating it.
+            component.SensorStatus.Remove(address);
+
     }
 
     /// <summary>
@@ -105,8 +112,31 @@ public sealed class CrewMonitoringServerSystem : EntitySystem
     /// <summary>
     /// Clears sensor data on disconnect
     /// </summary>
-    private void OnDisconnected(EntityUid uid, CrewMonitoringServerComponent component, ref DeviceNetServerDisconnectedEvent _)
+    //Imp Edit: Made static to satisfy analyzer; method no longer depends on system state.
+    private static void OnDisconnected(EntityUid uid, CrewMonitoringServerComponent component, ref DeviceNetServerDisconnectedEvent _)
     {
         component.SensorStatus.Clear();
+    }
+
+    /// <summary>
+    /// Adds or updates a sensor status entry by network address.
+    /// </summary>
+    public void SetSensorStatusByAddress(EntityUid uid, string address, SuitSensorStatus status, CrewMonitoringServerComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.SensorStatus[address] = status;
+    }
+
+    /// <summary>
+    /// Removes a sensor status entry by network address.
+    /// </summary>
+    public void RemoveSensorStatusByAddress(EntityUid uid, string address, CrewMonitoringServerComponent? component = null)
+    {
+        if (!Resolve(uid, ref component))
+            return;
+
+        component.SensorStatus.Remove(address);
     }
 }

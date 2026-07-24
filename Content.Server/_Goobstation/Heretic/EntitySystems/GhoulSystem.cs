@@ -1,6 +1,7 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Humanoid;
+using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared.Administration.Systems;
 using Content.Shared.Body.Systems;
 using Content.Shared.Examine;
@@ -26,6 +27,12 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
+        if (HasComp<NoGhoulComponent>(ent)) // imp add noghoul component 
+        {
+            RemCompDeferred<GhoulComponent>(ent.Owner);
+            return;
+        }
+
         RemComp<RespiratorComponent>(ent);
         RemComp<BarotraumaComponent>(ent);
         RemComp<HungerComponent>(ent);

@@ -1,0 +1,21 @@
+- type: entity
+  id: SlasherSoulFragment
+  parent: BaseItem
+  name: soul fragment
+  description: A condensed shard of stolen essence. Disappears into the aether after a short time.
+  components:
+  - type: Sprite
+    sprite: Mobs/Ghosts/revenant.rsi
+    state: ectoplasm
+  - type: PointLight
+    enabled: true
+    color: "#a855f7"
+    radius: 2
+    softness: 1
+  - type: SlasherSoulFragment
+  - type: MultiHandedItem
+  - type: TimedDespawn
+    lifetime: 300
+  - type: Item
+    size: Ginormous
+    sprite: Mobs/Ghosts/revenant.rsi

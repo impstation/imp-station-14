@@ -6,6 +6,7 @@ using Content.Server.Materials;
 using Content.Server.Radiation.Systems;
 using Content.Server.Radio.EntitySystems;
 using Content.Server.Station.Systems;
+using Content.Server._Impstation.Slasher; // #Imp Add - Required for Slasher
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Prototypes;
@@ -227,11 +228,25 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
     public FormattedMessage GetScannerMessage(AnomalyScannerComponent component)
     {
         var msg = new FormattedMessage();
-        if (component.ScannedAnomaly is not { } anomaly || !TryComp<AnomalyComponent>(anomaly, out var anomalyComp))
+        if (component.ScannedEntity is not { } scanned /*anomaly || !TryComp<AnomalyComponent>(anomaly, out var anomalyComp) */) //imp edit: this still percludes all non-anomalies but allows slasher effigies
         {
             msg.AddMarkupOrThrow(Loc.GetString("anomaly-scanner-no-anomaly"));
             return msg;
         }
+
+        //Imp Add: Allow other server systems to supply a custom message for non-anomaly scan targets.
+        var msgEv = new ScannerBuildMessageEvent();
+        RaiseLocalEvent(scanned, ref msgEv);
+        if (msgEv.Message != null)
+            return msgEv.Message;
+
+        if (!TryComp<AnomalyComponent>(scanned, out var anomalyComp))
+        {
+            msg.AddMarkupOrThrow(Loc.GetString("anomaly-scanner-no-anomaly"));
+            return msg;
+        }
+
+        var anomaly = scanned; // Imp add: This needs to be here because the scanner needs to know what entity it's scanning- Slasher is an "anomaly"
 
         TryComp<SecretDataAnomalyComponent>(anomaly, out var secret);
 
@@ -363,5 +378,20 @@ public sealed partial class AnomalySystem : SharedAnomalySystem
         //The timer at the end here is actually added in the ui itself.
         return msg;
     }
+
     #endregion
+}
+
+// Imp Add - Required for Slasher
+// <summary>
+// Raised on a scanned entity (server-side) when the anomaly scanner builds its display message.
+// Handlers can set <see cref="ScannerBuildMessageEvent.Message"/> to override the default anomaly readout.
+// </summary>
+[ByRefEvent]
+public sealed class ScannerBuildMessageEvent
+{
+    // <summary>Custom message to display in the anomaly scanner UI. Overrides the default readout when set.</summary>
+    public FormattedMessage? Message;
+    // <summary>Overrides the scanner pulse timer countdown. Used by non-anomaly entities such as the Slasher effigy.</summary>
+    public TimeSpan? NextPulseTime;
 }

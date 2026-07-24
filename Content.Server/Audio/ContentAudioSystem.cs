@@ -23,6 +23,7 @@ public sealed class ContentAudioSystem : SharedContentAudioSystem
 
     private SoundCollectionPrototype? _lobbyMusicCollection = default!;
     private string[]? _lobbyPlaylist;
+    private string[]? _roundEndLobbyPlaylistOverride;
 
     public override void Initialize()
     {
@@ -90,8 +91,37 @@ public sealed class ContentAudioSystem : SharedContentAudioSystem
         // because ShowRoundEndScoreboard triggers the start of the music playing
         // at the end of a round, and this needs to be set before RestartRound
         // in order for the lobby song status display to be accurate.
-        _lobbyPlaylist = ShuffleLobbyPlaylist();
+        if (_roundEndLobbyPlaylistOverride != null)
+        {
+            _lobbyPlaylist = _roundEndLobbyPlaylistOverride;
+            _roundEndLobbyPlaylistOverride = null;
+        }
+        else
+        {
+            _lobbyPlaylist = ShuffleLobbyPlaylist();
+        }
+
         RaiseNetworkEvent(new LobbyPlaylistChangedEvent(_lobbyPlaylist));
+    }
+
+    /// <summary>
+    /// Overrides the lobby playlist used at the next round end.
+    /// This does not permanently change the configured lobby collection.
+    /// </summary>
+    /// <param name="collectionId">Sound collection ID to use for next round end.</param>
+    /// <returns>True if the override was accepted and the collection exists.</returns>
+    public bool TrySetNextRoundEndLobbyPlaylist(string collectionId)
+    {
+        if (!_prototypeManager.TryIndex<SoundCollectionPrototype>(collectionId, out var collection))
+            return false;
+
+        var playlist = collection.PickFiles
+            .Select(x => x.ToString())
+            .ToArray();
+
+        _robustRandom.Shuffle(playlist);
+        _roundEndLobbyPlaylistOverride = playlist;
+        return true;
     }
 
     private string[] ShuffleLobbyPlaylist()

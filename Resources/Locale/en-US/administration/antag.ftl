@@ -11,6 +11,9 @@ admin-verb-make-wizard = Make the target into a Wizard.
 admin-verb-make-space-ninja = Make the target into a Space Ninja.
 admin-verb-make-changeling = Make the target into a Changeling.
 
+# imp
+admin-verb-make-slasher = Make the target into a Slasher.
+
 
 admin-verb-text-make-traitor = Make Traitor
 admin-verb-text-make-initial-infected = Make Initial Infected
@@ -23,5 +26,8 @@ admin-verb-text-make-paradox-clone = Create Paradox Clone
 admin-verb-text-make-wizard = Make Wizard
 admin-verb-text-make-space-ninja = Make Ninja
 admin-verb-text-make-changeling = Make Changeling (WIP)
+
+# imp
+admin-verb-text-make-slasher = Make Slasher
 
 admin-overlay-antag-classic = ANTAG

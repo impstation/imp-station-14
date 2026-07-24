@@ -18,6 +18,9 @@ public sealed partial class UnpoweredFlashlightComponent : Component
     [DataField, AutoNetworkedField]
     public bool LightOn;
 
+    [DataField] //Imp Add
+    public bool ManualToggle = true;
+
     [DataField]
     public EntProtoId ToggleAction = "ActionToggleLight";
 

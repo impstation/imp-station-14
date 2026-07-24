@@ -1,0 +1,2 @@
+slasher-threat-passed-announcement = Long-distance sensors indicate the threat has passed. Emergency evacuation has been called to facilitate asset retrieval.
+slasher-threat-passed-sender = Central Command
