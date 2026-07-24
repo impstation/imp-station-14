@@ -1,0 +1,127 @@
+- type: species
+  id: Borzoid
+  name: species-name-borzoid
+  roundStart: true
+  randomViable: false
+  prototype: MobBorzoid
+  sprites: MobBorzoidSprites
+  defaultSkinTone: "#FFFFFF"
+  skinColoration: None
+  markingLimits: MobBorzoidMarkingLimits
+  dollPrototype: MobBorzoidDummy
+  sexes:
+  - Unsexed
+
+- type: speciesBaseSprites
+  id: MobBorzoidSprites
+  sprites:
+    Eyes: MobBorzoidEyes
+    Head: MobBorzoidHead
+    Chest: MobBorzoidTorso
+    LArm: MobBorzoidLArm
+    RArm: MobBorzoidRArm
+    LHand: MobBorzoidLHand
+    RHand: MobBorzoidRHand
+    LLeg: MobBorzoidLLeg
+    RLeg: MobBorzoidRLeg
+    LFoot: MobBorzoidLFoot
+    RFoot: MobBorzoidRFoot
+
+- type: markingPoints
+  id: MobBorzoidMarkingLimits
+  onlyWhitelisted: true
+  points:
+    Hair:
+      points: 1
+      required: false
+      weight: 1
+
+- type: humanoidBaseSprite
+  id: MobBorzoidEyes
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobBorzoidHead
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobBorzoidHeadMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobBorzoidHeadFemale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: head
+
+- type: humanoidBaseSprite
+  id: MobBorzoidTorso
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobBorzoidTorsoMale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobBorzoidTorsoFemale
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobBorzoidLLeg
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobBorzoidLHand
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobBorzoidLArm
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobBorzoidLFoot
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobBorzoidRLeg
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobBorzoidRHand
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobBorzoidRArm
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobBorzoidRFoot
+  baseSprite:
+    sprite: _Impstation/Mobs/Species/Visitors/Borzoid/parts.rsi
+    state: r_foot

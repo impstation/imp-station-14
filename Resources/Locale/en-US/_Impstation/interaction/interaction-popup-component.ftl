@@ -62,3 +62,8 @@ petting-failure-vrex = You think about brushing {THE($target)}'s bristly ridge, 
 
 petting-success-babyanom = You pet {THE($target)} on its smooth wet head.
 petting-failure-babyanom = You try to pet {THE($target)}, but it nips at your fingers!
+
+## Borzoid
+
+petting-success-borzoid = You pet {$target}, it's kinda weird for everyone involved.
+petting-failure-borzoid = You reach out to pet {THE($target)}, but it's aura is too powerful!
