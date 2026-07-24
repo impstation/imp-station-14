@@ -77,6 +77,7 @@
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
+    - VentZombieEventScheduler # imp edit
 
 - type: gamePreset
   id: Extended
@@ -258,6 +259,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - VentZombieEventScheduler # imp edit
 
 - type: gamePreset
   id: Zombieteors
@@ -275,3 +277,4 @@
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - VentZombieEventScheduler # imp edit
