@@ -33,3 +33,7 @@ alert-level-puce-instructions = Don't eat the burgers in the cafeteria...
 alert-level-ice = Ice
 alert-level-ice-announcement = A cataclysmic Christmas event is occuring. Shelter in place. Do NOT interact with Her.
 alert-level-ice-instructions = All she wants is you...
+
+alert-level-cobalt = Cobalt
+alert-level-cobalt-announcement = Security should prepare to employ lethal force on ascendant threats. Do not break mirrors, sharpen blades, ████ ███, or allow yourself to begin dreaming.
+alert-level-cobalt-instructions = Avoid ascendant threats.
