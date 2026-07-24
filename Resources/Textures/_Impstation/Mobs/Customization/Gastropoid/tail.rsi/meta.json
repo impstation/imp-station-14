@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "big, cone, and small by Widgetbeck (github). weewoo and prosthetic et al by crocodilecarousel (github). cracked, duotone, spiral, glow, gradient, overgrown, seam, spots, swirl, cone stripes, specks, glass, multicolor, flower, mantle, and ribbon sprited by emmetian (github).",
+    "copyright": "big, cone, and small by Widgetbeck (github). weewoo and prosthetic et al by crocodilecarousel (github). cracked, duotone, spiral, glow, gradient, overgrown, seam, spots, swirl, cone stripes, specks, glass, multicolor, flower, mantle, and ribbon sprited by emmetian (github), veil and cape by StarlightHowls.",
     "size": {
         "x": 32,
         "y": 32
@@ -589,6 +589,26 @@
         },
         {
             "name": "smallflowers2",
+            "directions": 4
+        },
+        {
+            "name": "veil",
+            "directions": 4
+        },
+        {
+            "name": "veileyes",
+            "directions": 4
+        },
+        {
+            "name": "veilears",
+            "directions": 4
+        },
+        {
+            "name": "cape1",
+            "directions": 4
+        },
+        {
+            "name": "cape2",
             "directions": 4
         }
     ]
