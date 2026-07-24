@@ -20,6 +20,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
 using Robust.Shared.Configuration;
 using Content.Shared.CCVar; // imp
+using Content.Shared.Wires; //imp
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -50,7 +51,7 @@ namespace Content.Server.Power.Generation.Teg;
 /// <seealso cref="TegCirculatorComponent"/>
 /// <seealso cref="TegNodeGroup"/>
 /// <seealso cref="TegSensorData"/>
-public sealed class TegSystem : EntitySystem
+public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class for .Hazards and .Lubrication
 {
     /// <summary>
     /// Node name for the TEG part connection nodes (<see cref="TegNodeGroup"/>).
@@ -92,6 +93,8 @@ public sealed class TegSystem : EntitySystem
 
         SubscribeLocalEvent<TegGeneratorComponent, ExaminedEvent>(GeneratorExamined);
         SubscribeLocalEvent<TegCirculatorComponent, ExaminedEvent>(CirculatorExamined); // imp add
+
+        SubscribeLocalEvent<TegCirculatorComponent, PanelChangedEvent>(OnPanelChanged); // imp add for TegSystem.Lubrication and .Hazards
 
         _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
     }
@@ -143,11 +146,26 @@ public sealed class TegSystem : EntitySystem
         var circA = tegGroup.CirculatorA!.Owner;
         var circB = tegGroup.CirculatorB!.Owner;
 
+        var circAComp = Comp<TegCirculatorComponent>(circA); // IMP EDIT: moved up from further down in the function
+        var circBComp = Comp<TegCirculatorComponent>(circB); // IMP EDIT: moved up from further down in the function
+
+        var entA = new Entity<TegCirculatorComponent>(circA, circAComp); // IMP ADD: for use with lubrication
+        var entB = new Entity<TegCirculatorComponent>(circB, circBComp); // IMP ADD: for use with lubrication
+
         var (inletA, outletA) = GetPipes(circA);
         var (inletB, outletB) = GetPipes(circB);
 
-        var (airA, δpA) = GetCirculatorAirTransfer(inletA.Air, outletA.Air);
-        var (airB, δpB) = GetCirculatorAirTransfer(inletB.Air, outletB.Air);
+        // IMP ADD: Find whether the circulators are opened
+        // Optimization? Comp() is called many other times in this function, so this should be ok?
+        // Could cache WiresPanelComponent in CirculatorComponent for Resolve() to run faster?
+        var openA = IsOpen(circA);
+        var openB = IsOpen(circB);
+
+        var (airA, δpA) = openA ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletA.Air, outletA.Air); // IMP EDIT: Only transfer air if closed
+        var (airB, δpB) = openB ? (new GasMixture(), 0f) : GetCirculatorAirTransfer(inletB.Air, outletB.Air); // IMP EDIT: Only transfer air if closed
+
+        // IMP ADD: Calculate efficiencies of circulators. May trigger failure state!
+        var averageCirculatorEfficiency = AverageCirculatorEfficiency(entA, entB, δpA, δpB, args.dt);
 
         var cA = _atmosphere.GetHeatCapacity(airA, true);
         var cB = _atmosphere.GetHeatCapacity(airB, true);
@@ -161,7 +179,7 @@ public sealed class TegSystem : EntitySystem
 
         var electricalEnergy = 0f;
 
-        if (airA.Pressure > 0 && airB.Pressure > 0)
+        if (airA.Pressure > 0 && airB.Pressure > 0 && !float.IsNaN(cA) && !float.IsNaN(cB)) //IMP: maybe remove the isNaN checks before prod. Causing crashes because these two values can be nan and there's a debug assert to catch that
         {
             var hotA = airA.Temperature > airB.Temperature;
 
@@ -183,6 +201,9 @@ public sealed class TegSystem : EntitySystem
             // of just feeding the TEG room temperature gas from an infinite gas miner).
             var dT = Thot - Tcold;
             N *= MathF.Tanh(dT/700); // https://www.wolframalpha.com/input?i=tanh(x/700)+from+0+to+1000
+
+            //IMP ADD: Modify generator efficiency by circulator efficiency
+            N *= averageCirculatorEfficiency;
 
             var transfer = Wmax * N;
             electricalEnergy = transfer * component.PowerFactor;
@@ -213,9 +234,6 @@ public sealed class TegSystem : EntitySystem
         // seizures.
         supplier.MaxSupply = component.PowerSmoothingFactor * (power * component.RampFactor) +
                              (1 - component.PowerSmoothingFactor) * supplier.MaxSupply;
-
-        var circAComp = Comp<TegCirculatorComponent>(circA);
-        var circBComp = Comp<TegCirculatorComponent>(circB);
 
         circAComp.LastPressureDelta = δpA;
         circAComp.LastMolesTransferred = airA.TotalMoles;

@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Atmos;
+using Content.Server._Impstation.ReagentEfficiency;
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -45,4 +46,56 @@ public sealed partial class TegCirculatorComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("lightColorFast")]
     public Color LightColorFast = Color.FromHex("#AA00FF");
+
+    // IMP ADD START
+    /// <summary>
+    /// The minimum running efficiency at which the circulator will not take damage.
+    /// </summary>
+    [DataField]
+    public float MinimumNominalEfficiency = 0.1f;
+
+    /// <summary>
+    /// The minimum fill level before a warning visual is displayed.
+    /// </summary>
+    public float WarningFillLevel = 0.25f;
+
+    /// <summary>
+    /// Cache for REC to avoid comp lookups every atmos tick.
+    /// </summary>
+    /// <remarks>
+    /// TODO: Bad pattern/design? I have no idea.
+    /// </remarks>
+    public ReagentEfficiencyComponent? _reagentEfficiencyComponentCache = null; //TODO: make this private. access doesn't seem to work?
+
+    /// <summary>
+    /// The maximum possible damage incurred per tick when efficiency is at 0.
+    /// </summary>
+    [DataField]
+    public float MaximumDamagePerTick = 1f;
+
+    /// <summary>
+    /// The maximum integrity value.
+    /// <see cref="Integrity"/> can not be restored above this value by normal gameplay means.
+    /// </summary>
+    [DataField]
+    public float MaxIntegrity = 100f;
+
+    /// <summary>
+    /// The current integrity value. Triggers the failure state upon reaching 0.
+    /// </summary>
+    [DataField]
+    public float Integrity = 100f; // TODO: Have this set to MaxIntegrity and make it not a datafield. Can't reference other vars in this scope
+
+    /// <summary>
+    /// The minimum integrity the circulator can run at before the running visuals change.
+    /// </summary>
+    [DataField]
+    public float MinimumNominalIntegrity = 50f;
+
+    /// <summary>
+    /// The minimum and maximum size of the circulator's explosion.
+    /// </summary>
+    [DataField]
+    public (float, float) ExplosionRadiusRange = (4f, 8f);
+    // IMP ADD END
 }
