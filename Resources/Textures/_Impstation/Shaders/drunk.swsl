@@ -2,8 +2,8 @@ uniform sampler2D SCREEN_TEXTURE;
 uniform highp float boozePower;
 const highp float TimeScale = 0.5;
 const highp float DistortionScale = 0.01;
-const highp float DistanceStrengthener = 3;
-const highp float DistanceDampener = 2;
+const highp float DistanceStrengthener = 3.0;
+const highp float DistanceDampener = 2.0;
 
 // Fans Notes
 // Shader is intended to not apply around the character but rather the edges of the screen
@@ -15,7 +15,7 @@ const highp float DistanceDampener = 2;
 
 void fragment() {
 
-    highp float mod = mix(0.0, DistortionScale, boozePower);    
+    highp float mod = mix(0.0, DistortionScale, boozePower);
     highp vec2 coord = FRAGCOORD.xy * SCREEN_PIXEL_SIZE.xy;
     highp float time = TIME * TimeScale;
 
