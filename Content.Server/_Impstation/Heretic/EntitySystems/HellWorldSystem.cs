@@ -238,33 +238,6 @@ public sealed class HellWorldSystem : EntitySystem
     }
 
     /// <summary>
-    /// teleports the sacrifice victim to one of the pre-mapped "safe points"
-    /// </summary>
-    public void TeleportToHereticSpawnPoint(EntityUid uid)
-    {
-        //clear physics joints so the heretic isn't teleported with the victim
-        _jointSystem.ClearJoints(uid);
-
-        //get all possible spawn points, choose one, then get the place
-        var spawnPoints = EntityManager.GetAllComponents(typeof(MidRoundAntagSpawnLocationComponent)).ToImmutableList();
-        if (spawnPoints.Count == 0)
-        {
-            //fallback to cryo, incase someone forgot to map points
-            spawnPoints = EntityManager.GetAllComponents(typeof(CryostorageComponent)).ToImmutableList();
-
-            //is cryo unavailable? fuck.
-            if (spawnPoints.Count == 0)
-            {
-                return;
-            }
-        }
-        var newSpawn = _random.Pick(spawnPoints);
-        var spawnTgt = Transform(newSpawn.Uid).Coordinates;
-
-        _xform.SetCoordinates(uid, spawnTgt);
-    }
-
-    /// <summary>
     /// Handles recoloring sac victims via desaturating their skin
     /// </summary>
     private void OnInit(EntityUid ent, HellVictimComponent component, ComponentInit args)
