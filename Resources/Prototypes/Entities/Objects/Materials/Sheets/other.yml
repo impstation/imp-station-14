@@ -36,8 +36,8 @@
 - type: entity
   parent: SheetOtherBase
   id: SheetPaper
-  name: paper
-  description: Most commercially-made paper is made from paper. Paper is made from wood, trees, and paper. # imp
+  name: cardstock
+  description: Thick paper used for building and other arts and crafts. Or stocking cards # imp
   suffix: Full
   components:
   - type: Stack
@@ -73,7 +73,7 @@
 - type: entity
   parent: SheetPaper
   id: SheetPaper1
-  name: paper
+  name: cardstock
   suffix: Single
   components:
   - type: Sprite

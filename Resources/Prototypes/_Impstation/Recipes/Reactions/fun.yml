@@ -222,6 +222,5 @@
     Water:
       amount: 5
   effects:
-    - !type:CreateEntityReactionEffect
-      entity: FoodDough # CHANGE THIS TO PULP BALL LATER!!!!!!
-      
+    - !type:SpawnEntity
+      entity: PaperPulpBall # CHANGE THIS TO PULP BALL LATER!!!!!!

@@ -306,6 +306,7 @@
     - ConstructionMaterial
     - ClothMade #imp
     - DroneUsable #imp
+    - Ore #imp, for use in ore processors into paper (material)
   - type: Extractable
     grindableSolutionName: food #imp
   #   juiceSolution: # imp, commented out at a later date
