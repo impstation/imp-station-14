@@ -41,11 +41,10 @@ public sealed class SwordDamoclesSystem : EntitySystem
 
         var adj = _sprite.GetLocalBounds((ent, sprite)).Height;
 
-        var layer = _sprite.AddLayer((ent, sprite), new SpriteSpecifier.Rsi(new ResPath("/Textures/_Impstation/Misc/sword_of_damocles.rsi"), "sword")); // change to Impstation/Objects/Misc/SwordDamocles when that sprite exists
+        var layer = _sprite.AddLayer((ent, sprite), new SpriteSpecifier.Rsi(new ResPath("/Textures/_Impstation/Misc/sword_of_damocles.rsi"), "sword"));
         _sprite.LayerMapSet((ent, sprite), SwordDamoclesKey.Key, layer);
 
         _sprite.LayerSetOffset((ent, sprite), layer, new Vector2(0.0f, adj));
-        // sprite.LayerSetShader(layer, "unshaded");
     }
 
     private enum SwordDamoclesKey

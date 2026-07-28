@@ -1,5 +1,3 @@
-using Content.Server.Administration.Components;
-using Content.Shared._Impstation.Administration.Components; // imp
 using System.Numerics;
 using System.Threading;
 using Content.Server.Atmos.EntitySystems;
@@ -61,7 +59,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Spawners;
 using Robust.Shared.Utility;
 using Timer = Robust.Shared.Timing.Timer;
-using Content.Server.Resist;
+using Content.Server.Resist; //imp
+using Content.Shared._Impstation.Administration.Components; //imp
 using Content.Shared.Damage; //imp
 using Content.Shared.Damage.Prototypes; //imp
 
@@ -101,7 +100,6 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly SuperBonkSystem _superBonkSystem = default!;
     [Dependency] private readonly SlipperySystem _slipperySystem = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
-    // [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     private readonly EntProtoId _actionViewLawsProtoId = "ActionViewLaws";
@@ -199,7 +197,7 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/Misc/sword_of_damocles.rsi"), "sword"),
             Act = () =>
             {
-                if (TryComp<SwordDamoclesComponent>(args.Target, out var swordComp)) // if it has the component already
+                if (HasComp<SwordDamoclesComponent>(args.Target)) // if it has the component already
                 {
                     _damage.TryChangeDamage(args.Target, new DamageSpecifier(_prototypeManager.Index(DamageTypePiercing), 500), ignoreResistances: true, interruptsDoAfters: true); // do damage defined by the component
                     RemComp<SwordDamoclesComponent>(args.Target); // and remove the component
@@ -222,9 +220,9 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new("/Textures/_Impstation/Misc/sword_of_damocles.rsi"), "sword"),
             Act = () =>
             {
-                if (TryComp<SwordDamoclesComponent>(args.Target, out var swordComp)) // if it has the component already
+                if (HasComp<SwordDamoclesComponent>(args.Target)) // if it has the component already
                 {
-                    _damage.TryChangeDamage(args.Target, new DamageSpecifier(_prototypeManager.Index(DamageTypeBlunt), 1000), ignoreResistances: true, interruptsDoAfters: true); // do damage defined by the component
+                    _damage.TryChangeDamage(args.Target, new DamageSpecifier(_prototypeManager.Index(DamageTypeBlunt), 1000), ignoreResistances: true, interruptsDoAfters: true); // do damage
                     RemComp<SwordDamoclesComponent>(args.Target); // and remove the component
                 }
                 else // if it doesn't
