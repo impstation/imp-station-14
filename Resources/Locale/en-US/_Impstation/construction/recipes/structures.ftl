@@ -1,1 +1,1 @@
-construction-recipe-barricade-covering = over-wall barricade
+construction-recipe-barricade-covering = mounted barricade
