@@ -12,6 +12,34 @@
   - hisses
   - hissed
 
+# Ovinia
+- type: emote
+  id: Baa
+  name: chat-emote-name-baa
+  category: Vocal
+  available: false
+  icon: _MACRO/Interface/Emotes/baa.png
+  whitelist:
+    requireAll: true
+    components:
+    - Vocal
+    tags:
+    - OviniaEmotes
+  chatMessages: [ chat-emote-msg-baa ]
+  chatTriggers:
+    - baas
+    - baa
+    - baahs
+    - baah
+    - baahed
+    - baah'd
+    - baahing
+    - bah
+    - bahs
+    - bahed
+    - bah'd
+
+
 # Kode
 - type: emote
   id: KodeHonk
@@ -143,33 +171,6 @@
     - boomed
     - booming
 
-# Ovinia
-- type: emote
-  id: Baa
-  name: chat-emote-name-baa
-  category: Vocal
-  available: false
-  icon: _MACRO/Interface/Emotes/baa.png
-  whitelist:
-    requireAll: true
-    components:
-    - Vocal
-    tags:
-    - OviniaEmotes
-  chatMessages: [ chat-emote-msg-baa ]
-  chatTriggers:
-    - baas
-    - baa
-    - baahs
-    - baah
-    - baahed
-    - baah'd
-    - baahing
-    - bah
-    - bahs
-    - bahed
-    - bah'd
-
 # Ungu
 - type: emote
   id: Moo
@@ -188,5 +189,3 @@
     - moo
     - mooed
     - moo'd
-
-

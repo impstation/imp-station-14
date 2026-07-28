@@ -6,3 +6,4 @@ species-name-gastropoid = Gastropoid
 species-name-kodepiia = Kodepiia
 species-name-ungu = Ungu
 species-name-decapoid = Decapoid
+species-name-ovinia = Ovinia

@@ -1,0 +1,34 @@
+- type: species
+  id: Ovinia
+  name: species-name-ovinia
+  roundStart: false
+  #randomViable: false
+  prototype: MobOvinia
+  defaultSkinTone: "#ffffff"
+  dollPrototype: AppearanceOvinia
+  skinColoration: Hues
+  maleFirstNames: NamesOviniaFirst
+  femaleFirstNames: NamesOviniaFirst
+  lastNames: NamesOviniaLast
+  sexes:
+  - Male
+  - Female
+  - Unsexed
+  defaultSoundsBySex:
+  - MaleOvinia
+  - FemaleOvinia
+  - MaleOvinia
+
+# Developer Notes
+#
+# Ovinia are a species of ovine alien that particularly look like terran sheep and ovines.
+# They resist heat, cold, and shock, as well as having a reduced flammibility due to the properties of wool.
+# In return however, they are weaker to slash and pierce and cannot consume theobromine.
+# Additionally, Ovinia's hooved feet protect them from sharp floor hazards like shards of glass.
+# Most animals additionally are neutral towards Ovinia until provoked due to their docile temperments.
+# Also, due to their unique biology and multiple stomachs, ovinia absorb nutrients more efficiently,
+# leading to them to go a longer time without getting hungry or thirsty, though they spend extra time consuming.
+#
+# You might want to enable them for another morphotype for players to use to make characters.
+# You might also want to enable them to allow a more pacifist approach to most vent critters.
+# You also want to do so because they're sheepie.

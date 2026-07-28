@@ -1,0 +1,89 @@
+- type: speechVerb
+  id: Ovinia
+  name: chat-speech-verb-name-ovinia
+  speechVerbStrings:
+  - chat-speech-verb-ovinia-1
+  - chat-speech-verb-ovinia-2
+  - chat-speech-verb-ovinia-3
+  - chat-speech-verb-ovinia-4
+
+- type: speechSounds
+  id: Ovinia
+  saySound:
+    path: /Audio/_MACRO/Voice/Ovinia/ovinia_say.ogg
+  askSound:
+    path: /Audio/_MACRO/Voice/Ovinia/ovinia_ask.ogg
+  exclaimSound:
+    path: /Audio/_MACRO/Voice/Ovinia/ovinia_exclaim.ogg
+
+- type: emoteSounds
+  id: MaleOvinia
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_MACRO/Voice/Ovinia/ovinia_scream.ogg
+    Laugh:
+      collection: MaleLaugh
+    Sneeze:
+      collection: MaleSneezes
+    Cough:
+      collection: MaleCoughs
+    Yawn:
+      collection: MaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: MaleSigh
+    Crying:
+      collection: MaleCry
+    Whistle:
+      collection: Whistles
+    Weh:
+      collection: Weh
+    Hew:
+      collection: Hew
+    Baa:
+      collection: OviniaBaa
+    Moo:
+      collection: CowMoo
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathgasp:
+      collection: MaleDeathGasp
+
+- type: emoteSounds
+  id: FemaleOvinia
+  params:
+    variation: 0.125
+  sounds:
+    Scream:
+      path: /Audio/_MACRO/Voice/Ovinia/ovinia_scream.ogg
+    Laugh:
+      collection: FemaleLaugh
+    Sneeze:
+      collection: FemaleSneezes
+    Cough:
+      collection: FemaleCoughs
+    Yawn:
+      collection: FemaleYawn
+    Snore:
+      collection: Snores
+    Honk:
+      collection: BikeHorn
+    Sigh:
+      collection: FemaleSigh
+    Crying:
+      collection: FemaleCry
+    Whistle:
+      collection: Whistles
+    Baa:
+      collection: OviniaBaa
+    Moo:
+      collection: CowMoo
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathgasp:
+      collection: FemaleDeathGasp

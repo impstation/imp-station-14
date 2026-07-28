@@ -1,0 +1,20 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Made by juniwoofs",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "ovinia-tail",
+            "directions": 4
+        },
+        {
+            "name": "ovinia-tail_wag",
+            "directions": 4,
+            "delays": [[0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2], [0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2]]
+        }
+    ]
+}
