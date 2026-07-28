@@ -20,7 +20,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Utility;
 using Robust.Shared.Configuration;
 using Content.Shared.CCVar; // imp
-using Content.Shared.Wires; //imp
+using Content.Shared.Wires; // imp
 
 namespace Content.Server.Power.Generation.Teg;
 

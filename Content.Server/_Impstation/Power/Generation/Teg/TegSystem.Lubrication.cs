@@ -115,7 +115,7 @@ public sealed partial class TegSystem
         var (efficiencyA, consumedLubricantA) = CirculatorEfficiency(entA, dt, stressA);
         var (efficiencyB, consumedLubricantB) = CirculatorEfficiency(entB, dt, stressB);
         var averageCirculatorEfficiency = (efficiencyA + efficiencyB) / 2f;
-        Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
+        // Log.Debug($"Efficiency cA: {efficiencyA} cB: {efficiencyB}");
 
         // Apply damage to the circulator based on its running efficiency.
         var damageA = ApplyCirculatorEfficiencyDamage(entA, efficiencyA, stressA);
