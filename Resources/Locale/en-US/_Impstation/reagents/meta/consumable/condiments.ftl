@@ -27,3 +27,6 @@ reagent-desc-purple-food-coloring = A way to add a bit of the color purple to co
 
 reagent-name-black-food-coloring = black food coloring
 reagent-desc-black-food-coloring = The natural result of mixing too many food colorings.
+
+reagent-name-msyrup = mitarashi syrup
+reagent-desc-msyrup = A sweet soy sauce glaze.

@@ -44,6 +44,7 @@ public partial class ListingData : IEquatable<ListingData>
         other.RestockTime,
         other.DiscountDownTo,
         other.ProductHereticKnowledge, // imp add
+        other.FlavorText, // Imp
         other.DisableRefund,
         other.ApplyToMob
     )
@@ -72,6 +73,7 @@ public partial class ListingData : IEquatable<ListingData>
         TimeSpan restockTime,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> dataDiscountDownTo,
         ProtoId<HereticKnowledgePrototype>? productHereticKnowledge, // imp
+        string? flavorText, // imp
         bool disableRefund,
         bool applyToMob
     )
@@ -96,6 +98,7 @@ public partial class ListingData : IEquatable<ListingData>
         RestockTime = restockTime;
         DiscountDownTo = new Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2>(dataDiscountDownTo);
         ProductHereticKnowledge = productHereticKnowledge; // imp
+        FlavorText = flavorText; // Imp
         DisableRefund = disableRefund;
         ApplyToMob = applyToMob;
     }
@@ -206,6 +209,14 @@ public partial class ListingData : IEquatable<ListingData>
     // so i'm just gonna shitcode my way out of my misery
     [DataField]
     public ProtoId<HereticKnowledgePrototype>? ProductHereticKnowledge;
+
+    // Imp start
+    /// <summary>
+    /// Flavor text that's seperate from the listing's description.
+    /// </summary>
+    [DataField]
+    public string? FlavorText;
+    // Imp end
 
     [DataField]
     public bool RaiseProductEventOnUser;
@@ -357,6 +368,7 @@ public sealed partial class ListingDataWithCostModifiers : ListingData
             listingData.RestockTime,
             listingData.DiscountDownTo,
             listingData.ProductHereticKnowledge, // imp
+            listingData.FlavorText, // Imp
             listingData.DisableRefund,
             listingData.ApplyToMob
         )

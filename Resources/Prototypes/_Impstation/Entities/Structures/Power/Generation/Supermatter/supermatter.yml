@@ -12,3 +12,84 @@
     - type: EmitSoundOnSpawn
       sound:
         path: /Audio/Effects/teleport_arrival.ogg
+
+- type: entity
+  parent: BaseSupermatter
+  id: StaticSupermatterShard
+  name: supermatter shard
+  description: A strangely translucent and iridescent crystal that looks like it used to be part of a larger structure.
+  suffix: Anchored
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Power/Generation/Supermatter/supermatter_shard.rsi
+    drawdepth: Mobs
+    snapCardinals: true
+    noRot: true
+    layers:
+    - state: supermatter-shard
+      map: [ "enum.SupermatterVisuals.Crystal" ]
+    - state: supermatter-shard-psy
+      map: [ "enum.SupermatterVisuals.Psy" ]
+      color: "#ffffff00"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.4"
+        mask:
+          - Impassable
+          - HighImpassable
+          - MidImpassable
+          - LowImpassable
+        layer:
+          - MidImpassable
+          - BulletImpassable
+  - type: SupermatterVisuals
+    crystal:
+      Normal: { state: supermatter-shard }
+      Glow: { state: supermatter-shard-glow }
+      GlowEmergency: { state: supermatter-shard-glow }
+      GlowDelam: { state: supermatter-shard-glow }
+  - type: Explosive
+    explosionType: Supermatter
+    totalIntensity: 16000
+    intensitySlope: 25
+    maxIntensity: 100
+  - type: GravityWell
+    baseRadialAcceleration: 1
+    maxRange: 0.5
+    gravPulsePeriod: 15
+  - type: SinguloFood
+    energy: 1000
+  - type: Appearance
+  - type: Supermatter
+    isShard: true
+    gasEfficiency: 0.1
+    radiationMultiplier: 0.25
+  - type: AtmosDevice
+    requireAnchored: false
+    joinSystem: true
+  - type: RadiationSource
+  - type: DeviceLinkSource
+    ports:
+    - SupermatterInactive
+    - SupermatterNormal
+    - SupermatterCaution
+    - SupermatterWarning
+    - SupermatterDanger
+    - SupermatterEmergency
+    - SupermatterDelaminating
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Pullable
+    prevFixedRotation: true
+
+- type: entity
+  parent: StaticSupermatterShard
+  id: SupermatterShard
+  suffix: DO NOT MAP, Unanchored
+  components:
+  - type: Physics
+    bodyType: Dynamic
