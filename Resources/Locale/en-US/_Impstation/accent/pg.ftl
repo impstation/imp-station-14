@@ -54,10 +54,10 @@ accent-pg-words-18 = fuckup
 accent-pg-words-replace-18 = mistake
 
 accent-pg-words-19 = what the fuck
-accent-pg-words-replace-19 = what
+accent-pg-words-replace-19 = what the flip
 
 accent-pg-words-20 = oh fuck
-accent-pg-words-replace-20 = oh no
+accent-pg-words-replace-20 = oh crap
 
 accent-pg-words-21 = fuckface
 accent-pg-words-replace-21 = jerkface
@@ -354,7 +354,7 @@ accent-pg-words-119 = shitpig
 accent-pg-words-replace-119 = stinkpig
 
 accent-pg-words-120 = oh shit
-accent-pg-words-replace-120 = aw crud
+accent-pg-words-replace-120 = oh snap
 
 accent-pg-words-121 = start shit
 accent-pg-words-replace-121 = cause trouble
@@ -1103,8 +1103,8 @@ accent-pg-words-replace-368 = took your dad out to dinner
 accent-pg-words-369 = fucked
 accent-pg-words-replace-369 = freaked
 
-accent-pg-words-370 = fuck
-accent-pg-words-replace-370 = frick
+accent-pg-words-370 = holy fuck
+accent-pg-words-replace-370 = holy fiddlesticks
 
 accent-pg-words-371 = had sex
 accent-pg-words-replace-371 = did stuff
@@ -1138,3 +1138,9 @@ accent-pg-words-replace-380 = craploads
 
 accent-pg-words-381 = bitch
 accent-pg-words-replace-381 = biscuit
+
+accent-pg-words-382 = fuck
+accent-pg-words-replace-382 = frick
+
+accent-pg-words-383 = fucking
+accent-pg-words-replace-383 = freaking
