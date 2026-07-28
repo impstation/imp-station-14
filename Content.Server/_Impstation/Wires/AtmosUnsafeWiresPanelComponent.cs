@@ -1,7 +1,7 @@
-namespace Content.Shared._Impstation.Wires;
+namespace Content.Server._Impstation.Wires;
 
 [RegisterComponent]
-[Access(typeof(SharedUnsafeWiresPanelSystem))]
+[Access(typeof(UnsafeWiresPanelSystem))]
 public sealed partial class AtmosUnsafeWiresPanelComponent : Component
 {
     [DataField]

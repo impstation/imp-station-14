@@ -1,16 +1,12 @@
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.Popups;
-using Content.Shared.Atmos.Components;
-using Content.Shared.Atmos.EntitySystems;
 using Content.Shared.NodeContainer;
-using Content.Shared.NodeContainer.NodeGroups;
 using Content.Shared.Wires;
 
-using Content.Shared._Impstation.Wires;
 
 namespace Content.Server._Impstation.Wires;
 
-public sealed class UnsafeWiresPanelSystem : SharedUnsafeWiresPanelSystem
+public sealed class UnsafeWiresPanelSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
