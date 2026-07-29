@@ -1602,9 +1602,7 @@
   - type: Computer
     board: ComputerMassMediaCircuitboard
   - type: DeviceNetworkRequiresPower
-  - type: NewsWriter
-  - type: AccessReader
-    access: [[ "Reporter" ]] #imp edit
+  - type: NewsWriter # Removed subsequent access line - Imp edit
   - type: ActivatableUI
     key: enum.NewsWriterUiKey.Key
   - type: ActivatableUIRequiresVision
