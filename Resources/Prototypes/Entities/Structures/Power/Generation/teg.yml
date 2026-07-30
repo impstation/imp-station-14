@@ -287,7 +287,7 @@
     - type: Explosive
       explosionType: Default
       intensitySlope: 2
-      totalIntensity: 1000
+      totalIntensity: 1500
       maxIntensity: 50
       deleteAfterExplosion: true # final failure state will be recoverable. For now, explosion makes sense to have it completely destroyed.
 

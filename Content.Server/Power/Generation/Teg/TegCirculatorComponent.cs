@@ -92,25 +92,6 @@ public sealed partial class TegCirculatorComponent : Component
     public float MaximumDamagePerTick = 1f;
 
     /// <summary>
-    /// The maximum integrity value.
-    /// <see cref="Integrity"/> can not be restored above this value by normal gameplay means.
-    /// </summary>
-    [DataField]
-    public float MaxIntegrity = 100f;
-
-    /// <summary>
-    /// The current integrity value. Triggers the failure state upon reaching 0.
-    /// </summary>
-    [DataField]
-    public float Integrity = 100f; // TODO: Have this set to MaxIntegrity and make it not a datafield. Can't reference other vars in this scope
-
-    /// <summary>
-    /// The minimum integrity the circulator can run at before the running visuals change.
-    /// </summary>
-    [DataField]
-    public float MinimumNominalIntegrity = 50f;
-
-    /// <summary>
     /// The minimum and maximum size of the circulator's explosion.
     /// </summary>
     [DataField]

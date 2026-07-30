@@ -64,7 +64,7 @@ public sealed partial class TegSystem
         float damage = float.Lerp(0, ent.Comp.MaximumDamagePerTick, scaling);
 
         // Scale damage based on stress. More gas flow means more damage
-        damage *= stress;
+        damage *= stress; // TODO: this causes the damage dealt to go over *MaximumDamagePerTick*, which is not intuitive.
 
         // Apply the damage and return the amount dealt.
         // TODO: pass in DamageableComponent in an Entity<> to prevent unnecessary resolves
@@ -72,28 +72,6 @@ public sealed partial class TegSystem
         // ent.Comp.Integrity -= damage;
 
         return damage;
-    }
-
-    private void CheckFail(Entity<TegCirculatorComponent> ent, float stress)
-    {
-        // TODO: see about folding this into DestructableComponent
-        // Do nothing if there is still integrity
-        if (ent.Comp.Integrity > 0)
-            return;
-
-        // Do nothing if the circulator isn't running
-        if (stress < 0.001f)
-            return;
-
-        // Pass to failure mode
-        Explode(ent, stress);
-    }
-
-    private void Explode(Entity<TegCirculatorComponent> ent, float stress)
-    {
-        float radius = float.Lerp(ent.Comp.ExplosionRadiusRange.Item1, ent.Comp.ExplosionRadiusRange.Item2, stress);
-        Log.Debug($"Explosion triggered. Stress {stress}, radius {radius}");
-        _explosionSystem.TriggerExplosive(ent, radius: radius);
     }
 
     private void UpdateCirculatorHazardAppearance(Entity<TegCirculatorComponent, ReagentEfficiencyComponent> ent, float damageTaken, float efficiency, float stress)

@@ -122,8 +122,8 @@ public sealed partial class TegSystem
         var damageB = ApplyCirculatorEfficiencyDamage(entB, efficiencyB, stressB);
 
         // See if we need to trigger a failure state
-        CheckFail(entA, stressA);
-        CheckFail(entB, stressB);
+        // CheckFail(entA, stressA);
+        // CheckFail(entB, stressB); // Now handled with DestructableComponent and its triggers.
 
         // TODO: Apply any funny effects that specific reagents might have on the circulators.
 
