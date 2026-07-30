@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/30/2026 02:46:19
-  entityCount: 26778
+  time: 07/30/2026 02:51:44
+  entityCount: 26781
 maps:
 - 1
 grids:
@@ -40766,6 +40766,21 @@ entities:
     components:
     - type: Transform
       pos: -85.5,2.5
+      parent: 2
+  - uid: 26779
+    components:
+    - type: Transform
+      pos: -74.5,-66.5
+      parent: 2
+  - uid: 26780
+    components:
+    - type: Transform
+      pos: -74.5,-67.5
+      parent: 2
+  - uid: 26781
+    components:
+    - type: Transform
+      pos: -74.5,-68.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -172461,7 +172476,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -234267.98
+      secondsUntilStateChange: -234309.4
       state: Opening
     - type: Airlock
       autoClose: False
