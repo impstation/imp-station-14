@@ -269,11 +269,27 @@
       damageValue: -10
       doAfterDelay: 3
       fuelCost: 10
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              MaterialWoodPlank:
+                min: 2
+                max: 2
+          - !type:ExplodeBehavior
     - type: Explosive
       explosionType: Default
-      intensitySlope: 5
-      maxIntensity: 200
-      deleteAfterExplosion: false
+      intensitySlope: 2
+      totalIntensity: 1000
+      maxIntensity: 50
+      deleteAfterExplosion: true # final failure state will be recoverable. For now, explosion makes sense to have it completely destroyed.
 
     # IMP ADD END
 
