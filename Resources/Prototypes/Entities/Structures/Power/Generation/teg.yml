@@ -204,6 +204,9 @@
     - type: AtmosUnsafeUnanchor
     - type: PipeRestrictOverlap
     - type: TegCirculator
+      integrityDamage:
+        types:
+          Structural: 10
     - type: StealTarget
       stealGroup: Teg
     - type: Climbable #imp
@@ -259,7 +262,13 @@
     - type: DumpableSolution
       solution: lube
 
-    # Failure state
+    # Integrity and failure state
+    - type: Damageable
+      damageContainer: StructuralInorganic
+    - type: Repairable
+      damageValue: -10
+      doAfterDelay: 3
+      fuelCost: 10
     - type: Explosive
       explosionType: Default
       intensitySlope: 5

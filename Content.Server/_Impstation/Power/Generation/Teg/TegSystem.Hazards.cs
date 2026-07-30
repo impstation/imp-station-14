@@ -6,12 +6,16 @@ using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Jittering;
 using Content.Server._Impstation.ReagentEfficiency;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Repairable;
 
 
 namespace Content.Server.Power.Generation.Teg;
 
 public sealed partial class TegSystem
 {
+    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly GasOutletInjectorSystem _gasInjectorSystem = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
@@ -42,6 +46,11 @@ public sealed partial class TegSystem
     /// <returns>The amount of damage incurred.</returns>
     private float ApplyCirculatorEfficiencyDamage(Entity<TegCirculatorComponent> ent, float efficiency, float stress)
     {
+        // Ensure we have the damageableComponent
+        // TODO: optimize this, probably by caching the component in the circulator component
+        if (!TryComp<DamageableComponent>(ent, out var damageComp))
+            return 0f;
+
         // No damage if the circulator is running above its nominal efficiency.
         if (efficiency > ent.Comp.MinimumNominalEfficiency)
             return 0f;
@@ -58,12 +67,16 @@ public sealed partial class TegSystem
         damage *= stress;
 
         // Apply the damage and return the amount dealt.
-        ent.Comp.Integrity -= damage;
+        // TODO: pass in DamageableComponent in an Entity<> to prevent unnecessary resolves
+        _damageableSystem.TryChangeDamage((EntityUid)ent, ent.Comp.IntegrityDamage * stress, ignoreResistances: true);
+        // ent.Comp.Integrity -= damage;
+
         return damage;
     }
 
     private void CheckFail(Entity<TegCirculatorComponent> ent, float stress)
     {
+        // TODO: see about folding this into DestructableComponent
         // Do nothing if there is still integrity
         if (ent.Comp.Integrity > 0)
             return;

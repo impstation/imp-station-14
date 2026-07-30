@@ -1,5 +1,7 @@
 ﻿using Content.Shared.Atmos;
-using Content.Server._Impstation.ReagentEfficiency; // IMP ADD: for rework
+using Content.Server._Impstation.ReagentEfficiency;
+using Content.Shared.Damage;
+using YamlDotNet.Core; // IMP ADD: for rework
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -67,6 +69,22 @@ public sealed partial class TegCirculatorComponent : Component
     /// </remarks>
     public ReagentEfficiencyComponent? _reagentEfficiencyComponentCache = null; //TODO: make this private. access doesn't seem to work?
 
+    [DataField]
+    public DamageSpecifier IntegrityDamage = default!;
+
+    /// <summary>
+    /// The maximum amount of damage the circulator can have before the failure state gets triggered.
+    /// </summary>
+    [DataField]
+    public float MaximumDamage = 100;
+
+    /// <summary>
+    /// The threshold at which subnominal visuals start to be shown.
+    /// </summary>
+    [DataField]
+    public float MaximumNominalDamage = 50;
+
+    // TODO: Remove all below "Integrity" related things when use of Damageable is fully implemented.
     /// <summary>
     /// The maximum possible damage incurred per tick when efficiency is at 0.
     /// </summary>
