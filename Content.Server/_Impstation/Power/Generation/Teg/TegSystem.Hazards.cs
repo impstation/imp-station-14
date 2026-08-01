@@ -5,11 +5,12 @@ using Content.Server.Atmos.Piping.Unary.EntitySystems;
 using Content.Server.Atmos.Piping.Unary.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Jittering;
-using Content.Server._Impstation.ReagentEfficiency;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Repairable;
-
+using Content.Server.Popups;
+using Content.Server._Impstation.ReagentEfficiency;
+using Content.Shared._Impstation.Repairable;
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -19,6 +20,7 @@ public sealed partial class TegSystem
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly GasOutletInjectorSystem _gasInjectorSystem = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     /// <summary>
     /// Changes the state of the air injector given a bool.
@@ -72,6 +74,18 @@ public sealed partial class TegSystem
         // ent.Comp.Integrity -= damage;
 
         return damage;
+    }
+
+	/// <summary>
+    /// Cancels the repair doafter if the circulator is not opened.
+    /// </summary>
+    private void OnRepairAttempt(Entity<TegCirculatorComponent> ent, ref RepairAttemptEvent args)
+    {
+        if (!IsOpen(ent)){
+            args.Cancelled = true;
+            _popup.PopupEntity(Loc.GetString("openable-component-try-use-closed", ("owner", ent)), ent, args.Repairer);
+            //Show popup
+        }
     }
 
     private void UpdateCirculatorHazardAppearance(Entity<TegCirculatorComponent, ReagentEfficiencyComponent> ent, float damageTaken, float efficiency, float stress)

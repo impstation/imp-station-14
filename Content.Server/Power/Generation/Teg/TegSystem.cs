@@ -21,6 +21,7 @@ using Robust.Shared.Utility;
 using Robust.Shared.Configuration;
 using Content.Shared.CCVar; // imp
 using Content.Shared.Wires; // imp
+using Content.Shared._Impstation.Repairable; //imp
 
 namespace Content.Server.Power.Generation.Teg;
 
@@ -95,6 +96,7 @@ public sealed partial class TegSystem : EntitySystem // IMP EDIT: partial class 
         SubscribeLocalEvent<TegCirculatorComponent, ExaminedEvent>(CirculatorExamined); // imp add
 
         SubscribeLocalEvent<TegCirculatorComponent, PanelChangedEvent>(OnPanelChanged); // imp add for TegSystem.Lubrication and .Hazards
+        SubscribeLocalEvent<TegCirculatorComponent, RepairAttemptEvent>(OnRepairAttempt);
 
         _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
     }
