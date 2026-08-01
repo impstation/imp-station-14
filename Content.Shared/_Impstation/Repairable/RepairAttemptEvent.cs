@@ -21,17 +21,17 @@ public record struct RepairAttemptEvent(EntityUid Repairer, EntityUid Target, Re
     /// <summary>
     /// The entity performing the repair.
     /// </summary>
-    public EntityUid Repairer = Repairer;
+    public readonly EntityUid Repairer = Repairer;
 
     /// <summary>
     /// The entity receving the repair
     /// </summary>
-    public EntityUid Target = Target;
+    public readonly EntityUid Target = Target;
 
     /// <summary>
     /// The component attached to Target that allows for the repair.
     /// </summary>
-    public RepairableComponent Repairable = RepairableComponent;
+    public readonly RepairableComponent Repairable = RepairableComponent;
 
     /// <summary>
     /// The doafter time for the repair.
