@@ -1,0 +1,120 @@
+- type: entity
+  parent: TegCenter
+  id: TegCenterMaintenance
+  suffix: "Maintenance Required"
+  # No custom components yet. Child entity for consistency for now.
+
+- type: entity
+  parent: TegCirculator
+  id: TegCirculatorMaintenance
+  suffix: "Maintenance Required"
+  components:
+
+  # Overwrite the base's visualizer because we have more to add
+    - type: GenericVisualizer
+      visuals:
+        enum.TegVisuals.CirculatorPower:
+          enum.TegVisualLayers.CirculatorLight:
+            True: { visible: true }
+            False: { visible: false }
+          enum.TegVisualLayers.CirculatorFillLight: # imp
+            True: { visible: true } # imp
+            False: { visible: false } # imp
+        enum.TegVisuals.CirculatorSpeed:
+          enum.TegVisualLayers.CirculatorBase:
+            SpeedStill: { state: circ-0 }
+            SpeedSlow: { state: circ-1 }
+            SpeedFast: { state: circ-2 }
+          enum.TegVisualLayers.CirculatorLight:
+            SpeedStill: { state: circ-0-light }
+            SpeedSlow: { state: circ-1-light }
+            SpeedFast: { state: circ-2-light }
+        enum.TegVisuals.CirculatorFillLevel: # imp
+          enum.TegVisualLayers.CirculatorFillLight: # imp
+            Subnominal: { state: circ-fill-0 } # imp
+            Warning: { state: circ-fill-1 } # imp
+            Nominal: { state: circ-fill-2 } # imp
+        enum.WiresVisuals.MaintenancePanelState: # imp
+          enum.WiresVisualLayers.MaintenancePanel: # imp
+            True: { visible: false } # imp
+            False: { visible: true } # imp
+
+    # New functionality
+    # Opening, closing, and locking
+    - type: WiresPanel
+    - type: WiresVisuals
+    - type: AtmosUnsafeWiresPanel
+    - type: Lock
+      locked: false # to make my dev life easier. maybe it should be unlocked on init though.
+    - type: LockVisuals
+    - type: LockedWiresPanel
+    - type: AccessReader
+      access: [["Engineering"]]
+    - type: Openable
+      sound: null
+      closeSound: null
+      opened: false
+      openableByHand: false
+      openOnActivate: false
+      closeable: true
+      showExamineText: false
+      verbMenuAccessible: false
+
+      # Gas leaks
+    - type: AtmosDevice # To allow GasOutletInjector to receive updates
+    - type: GasOutletInjector
+      inlet: "inlet"
+      enabled: false
+
+      # Lubrication
+    - type: SolutionContainerManager
+      solutions:
+        lube:
+          maxVol: 100
+    - type: ReagentEfficiency
+      solutionName: lube
+      modifiers:
+        SpaceLube: 1.2
+        SpaceGlue: 0.01
+        WeldingFuel: 0.6
+      consumption: 0.1 # About 15 mins of runtime with 100u capacity
+    - type: RefillableSolution
+      solution: lube
+      # refillTime: 2
+      # maxRefill: 10
+    - type: DrawableSolution
+      solution: lube
+    - type: ExaminableSolution
+      solution: lube
+      locVolume: "lube-gauge-examinable-solution-on-examine-volume"
+    - type: DumpableSolution
+      solution: lube
+
+    # Integrity and failure state
+    - type: Damageable
+      damageContainer: StructuralInorganic
+    - type: Repairable
+      damageValue: -10
+      doAfterDelay: 3
+      fuelCost: 10
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              MaterialWoodPlank:
+                min: 2
+                max: 2
+          - !type:ExplodeBehavior
+    - type: Explosive
+      explosionType: Default
+      intensitySlope: 2
+      totalIntensity: 1500
+      maxIntensity: 50
+      deleteAfterExplosion: true # final failure state will be recoverable. For now, explosion makes sense to have it completely destroyed.
