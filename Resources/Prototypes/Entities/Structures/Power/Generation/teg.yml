@@ -143,6 +143,7 @@
             SpeedStill: { state: circ-0-light }
             SpeedSlow: { state: circ-1-light }
             SpeedFast: { state: circ-2-light }
+
     - type: Appearance
     - type: PointLight
       enabled: false
@@ -184,9 +185,6 @@
     - type: AtmosUnsafeUnanchor
     - type: PipeRestrictOverlap
     - type: TegCirculator
-      integrityDamage:
-        types:
-          Structural: 10
     - type: StealTarget
       stealGroup: Teg
     - type: Climbable #imp
