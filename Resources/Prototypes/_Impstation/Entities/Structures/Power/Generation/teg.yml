@@ -17,9 +17,9 @@
           enum.TegVisualLayers.CirculatorLight:
             True: { visible: true }
             False: { visible: false }
-          enum.TegVisualLayers.CirculatorFillLight: # imp
-            True: { visible: true } # imp
-            False: { visible: false } # imp
+          enum.TegVisualLayers.CirculatorFillLight:
+            True: { visible: true }
+            False: { visible: false }
         enum.TegVisuals.CirculatorSpeed:
           enum.TegVisualLayers.CirculatorBase:
             SpeedStill: { state: circ-0 }
@@ -29,15 +29,15 @@
             SpeedStill: { state: circ-0-light }
             SpeedSlow: { state: circ-1-light }
             SpeedFast: { state: circ-2-light }
-        enum.TegVisuals.CirculatorFillLevel: # imp
-          enum.TegVisualLayers.CirculatorFillLight: # imp
-            Subnominal: { state: circ-fill-0 } # imp
-            Warning: { state: circ-fill-1 } # imp
-            Nominal: { state: circ-fill-2 } # imp
-        enum.WiresVisuals.MaintenancePanelState: # imp
-          enum.WiresVisualLayers.MaintenancePanel: # imp
-            True: { visible: false } # imp
-            False: { visible: true } # imp
+        enum.TegVisuals.CirculatorFillLevel:
+          enum.TegVisualLayers.CirculatorFillLight:
+            Subnominal: { state: circ-fill-0 }
+            Warning: { state: circ-fill-1 }
+            Nominal: { state: circ-fill-2 }
+        enum.WiresVisuals.MaintenancePanelState:
+          enum.WiresVisualLayers.MaintenancePanel:
+            True: { visible: false }
+            False: { visible: true }
 
     # New functionality
     # Opening, closing, and locking
