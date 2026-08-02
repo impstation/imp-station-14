@@ -9,6 +9,11 @@
   id: TegCirculatorMaintenance
   suffix: "Maintenance Required"
   components:
+  # Overwrite the circulator component because we need to specify one of the fields
+    - type: TegCirculator
+      integrtiyDamage:
+        types:
+          Structural: 10
 
   # Overwrite the base's visualizer because we have more to add
     - type: GenericVisualizer
