@@ -14,7 +14,6 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly HereticRitualSystem _ritual = default!;
 
     public HereticKnowledgePrototype GetKnowledge(ProtoId<HereticKnowledgePrototype> id)
     {
@@ -26,7 +25,7 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         var data = GetKnowledge(id);
 
         if (data.Event != null)
-            RaiseLocalEvent(uid, (object) data.Event, true);
+            RaiseLocalEvent(uid, data.Event, true);
 
 
         if (data.ActionPrototypes != null)
@@ -47,7 +46,7 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
                 comp.Power += 1;
             }
             // If the knowledge is from main path, increase power by one
-            else if (path== comp.MainPath)
+            else if (path == comp.MainPath)
             {
                 comp.Power += 1;
             }

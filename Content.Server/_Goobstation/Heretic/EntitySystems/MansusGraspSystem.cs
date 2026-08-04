@@ -243,7 +243,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
     {
         var tags = ent.Comp.Tags;
 
-        if(!TryComp<HandsComponent>(args.User, out var userHands))
+        if (!TryComp<HandsComponent>(args.User, out var userHands))
         {
             return;
         }
@@ -253,7 +253,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
         || !MansusGraspActive(args.User) && !(userHands.Count <= 1) // no grasp or no extra hand to make a grasp
         || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
-        || (!tags.Contains("Write") && !tags.Contains("DecapoidClaw")) // not a writing implement or decapoid claw
+        || !tags.Contains("Write") && !tags.Contains("DecapoidClaw") // not a writing implement or decapoid claw
         || args.Target != null && HasComp<ItemComponent>(args.Target)) //don't allow clicking items (otherwise the circle gets stuck to them)
             return;
 
@@ -295,15 +295,18 @@ public sealed partial class MansusGraspSystem : EntitySystem
     /// </summary
     private void OnFleshGraspDoAfter(Entity<HereticComponent> ent, ref FleshGraspDoAfterEvent ev)
     {
-        if (!ev.Cancelled)
-        {
-            var minion = EnsureComp<MinionComponent>(ev.Target);
-            EnsureComp<GhoulComponent>(ev.Target);
-            minion.BoundOwner = ent;
-            minion.FactionsToAdd.Add(_hereticFaction);
-            _minion.ConvertEntityToMinion((ev.Target, minion), true, true, true);
-            var popupOthers = Loc.GetString("heretic-flesh-revive-finish");
-            _popup.PopupEntity(popupOthers, ev.Target, PopupType.LargeCaution);
-        }
+        if (ev.Cancelled)
+            return;
+
+        // Convert the entity into a ghoul.
+        var minion = EnsureComp<MinionComponent>(ev.Target);
+        EnsureComp<GhoulComponent>(ev.Target);
+        minion.BoundOwner = ent;
+        _minion.ConvertEntityToMinion((ev.Target, minion), true);
+
+        // Show a big popup to everyone in the vicinity.
+        var popupOthers = Loc.GetString("heretic-flesh-revive-finish");
+        _popup.PopupEntity(popupOthers, ev.Target, PopupType.LargeCaution);
+
     }
 }

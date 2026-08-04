@@ -11,6 +11,8 @@ using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
+using Content.Server.Popups;
+using Content.Shared.Popups;
 using Robust.Shared.Player;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -18,47 +20,49 @@ namespace Content.Server.Heretic.EntitySystems;
 /// <summary>
 /// Handles minions summoned by Heretics, such as ghouls. Used with <see cref"MinionComponent"/>
 /// </summary>
-public sealed class MinionSystem : EntitySystem
+public sealed partial class MinionSystem : EntitySystem
 {
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly EuiManager _euiMan = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private AntagSelectionSystem _antag = default!;
+    [Dependency] private EuiManager _euiMan = default!;
+    [Dependency] private PopupSystem _popup = default!;
+    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private NpcFactionSystem _faction = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedRoleSystem _role = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MinionComponent, AttackAttemptEvent>(OnTryAttack);
+        SubscribeLocalEvent<MinionComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<MinionComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
     }
 
     /// <summary>
     /// Handles converting an entity to a minion.
     /// </summary>
-    /// <param name="ent">The minion's MinionComp</param>
+    /// <param name="ent">The minion's MinionComp, and its associated entity.</param>
     /// <param name="createGhostRole">If the conversion should create a ghost role.</param>
-    /// <param name="sendBriefing">If the conversion should send the briefing text</param>
-    /// <param name="removeBaseFactions">If the conversion should remove the entity's pre-existing factions.</param>
-    public void ConvertEntityToMinion(Entity<MinionComponent> ent, bool createGhostRole, bool sendBriefing, bool removeBaseFactions)
+    public void ConvertEntityToMinion(Entity<MinionComponent> ent, bool createGhostRole)
     {
-        var hasMind = _mind.TryGetMind(ent, out var mindId, out _);
+        // Check if the entity has a mind.
+        var hasMind = _mind.TryGetMind(ent, out _, out _);
 
-        if (hasMind && sendBriefing == true)
+        // If the entity has a mind, send them briefing text and a popup.
+        if (hasMind == true)
         {
-            if (ent.Comp.BoundOwner != null)
-                SendBriefing((ent, ent.Comp), mindId);
+            SendBriefing(ent);
 
-            if (_playerManager.TryGetSessionByEntity(mindId, out var session))
+            if (_playerManager.TryGetSessionByEntity(ent, out var session))
                 _euiMan.OpenEui(new GhoulNotifEui(), session);
         }
 
+        // In any case, make it sentient and a familiar.
         _mind.MakeSentient(ent);
-        _role.MindAddRole(mindId, "MindRoleGhostRoleFamiliar");
+        _role.MindAddRole(ent, "MindRoleGhostRoleFamiliar");
 
-        if (!HasComp<GhostRoleComponent>(ent) && !hasMind && createGhostRole == true)
+        // If the entity doesn't have a mind, and we want it to become a ghost role, give it the necessary things to become a ghost role.
+        if (!hasMind && createGhostRole == true)
         {
             var ghostRole = EnsureComp<GhostRoleComponent>(ent);
             ghostRole.RoleName = Loc.GetString(ent.Comp.GhostRoleName);
@@ -66,59 +70,63 @@ public sealed class MinionSystem : EntitySystem
             ghostRole.RoleRules = Loc.GetString(ent.Comp.GhostRoleRules);
         }
 
-        if (!HasComp<GhostRoleMobSpawnerComponent>(ent) && !hasMind)
+        // If it doesn't have a mind, and isn't an entity that spawns another entity on ghost takeover, allow ghosts to take over the entity.
+        if (!hasMind && !HasComp<GhostRoleMobSpawnerComponent>(ent))
             EnsureComp<GhostTakeoverAvailableComponent>(ent);
 
-        if (removeBaseFactions == true)
-            _faction.ClearFactions((ent, null));
-
-        foreach (var faction in ent.Comp.FactionsToAdd)
-        {
-            _faction.AddFaction((ent, null), faction);
-        }
+        // Clear the entity's factions and add the faction defined in MinionComponent (Heretic, by default)
+        _faction.ClearFactions((ent, null));
+        _faction.AddFaction((ent, null), ent.Comp.MinionFaction);
     }
 
     /// <summary>
     /// Handles sending the briefing text to the minion, as well as adding role components.
     /// </summary>
-    /// <param name="ent">The minion's MinionComp</param>
-    /// <param name="mindId">The minion.</param>
-    private void SendBriefing(Entity<MinionComponent> ent, EntityUid mindId)
+    /// <param name="ent">The minion's MinionComp, and its associated entity.</param>
+    private void SendBriefing(Entity<MinionComponent> ent)
     {
+        // String to be used as briefing text.
         string brief;
 
         // If the entity has no owner, then use the no-name greeting, otherwise address the summoner by name.
         if (ent.Comp.BoundOwner == null)
-            brief = Loc.GetString("heretic-ghoul-greeting-noname");
+            brief = Loc.GetString("heretic-minion-greeting-noname");
         else
-            brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity((EntityUid)ent.Comp.BoundOwner, EntityManager)));
+            brief = Loc.GetString("heretic-minion-greeting", ("ent", Identity.Entity((EntityUid)ent.Comp.BoundOwner, EntityManager)));
 
         _antag.SendBriefing(ent, brief, Color.MediumPurple, ent.Comp.BriefingSound);
 
+        // Add the role component if they don't have it already.
         if (!TryComp<GhoulRoleComponent>(ent, out _))
-            AddComp(mindId, new GhoulRoleComponent(), overwrite: true);
+            AddComp(ent, new GhoulRoleComponent());
 
-        if (!TryComp<RoleBriefingComponent>(ent, out var rolebrief))
-            AddComp(mindId, new RoleBriefingComponent { Briefing = brief }, overwrite: true);
-        else
-            rolebrief.Briefing += $"\n{brief}";
+        // Make sure the minion has RoleBriefingComp, and set its text to the briefing text.
+        var rolebrief = EnsureComp<RoleBriefingComponent>(ent);
+        rolebrief.Briefing = brief;
     }
 
-    private void OnTakeGhostRole(Entity<MinionComponent> ent, ref TakeGhostRoleEvent args)
+    /// <summary>
+    /// Called when a ghost takes a ghost role minion.
+    /// </summary>
+    /// <param name="ent">The minion's MinionComp, and its associated entity</param>
+    /// <param name="ev">Event called when a ghost takes a ghost role.</param>
+    private void OnTakeGhostRole(Entity<MinionComponent> ent, ref TakeGhostRoleEvent ev)
     {
-        var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
-
-        if (ent.Comp.BoundOwner == null)
-            return;
-
-        if (hasMind)
-            SendBriefing(ent, mindId);
+        SendBriefing(ent);
     }
 
-    private static void OnTryAttack(Entity<MinionComponent> ent, ref AttackAttemptEvent args)
+    /// <summary>
+    /// Called when a minion attempts to attack.
+    /// </summary>
+    /// <param name="ent">The minion's MinionComp, and its associated entit</param>
+    /// <param name="ev"><see cref="AttackAttemptEvent"/></param>
+    private void OnAttackAttempt(Entity<MinionComponent> ent, ref AttackAttemptEvent ev)
     {
-        // prevent attacking owner
-        if (ent.Comp.BoundOwner != null && args.Target == ent.Comp.BoundOwner)
-            args.Cancel();
+        // No attacking your summoner.
+        if (ent.Comp.BoundOwner != null && ev.Target == ent.Comp.BoundOwner)
+        {
+            _popup.PopupEntity(Loc.GetString("heretic-minion-no-attack"), ent, ent, PopupType.MediumCaution);
+            ev.Cancel();
+        }
     }
 }
