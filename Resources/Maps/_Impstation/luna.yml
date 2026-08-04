@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 07/28/2026 21:41:47
-  entityCount: 27663
+  time: 08/04/2026 17:28:02
+  entityCount: 27682
 maps:
 - 1
 grids:
@@ -9049,7 +9049,7 @@ entities:
       pos: 11.5,-27.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -59427.992
+      secondsUntilStateChange: -60909.38
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -12216,6 +12216,17 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+  - uid: 13402
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,40.5
+      parent: 2
+    - type: AccessReader
+      accessListsOriginal:
+      - - Engineering
+    - type: Fixtures
+      fixtures: {}
   - uid: 13841
     components:
     - type: MetaData
@@ -14725,6 +14736,16 @@ entities:
     - type: Transform
       pos: -1.5,72.5
       parent: 2
+  - uid: 1504
+    components:
+    - type: Transform
+      pos: 27.5,37.5
+      parent: 2
+  - uid: 1629
+    components:
+    - type: Transform
+      pos: 27.5,38.5
+      parent: 2
   - uid: 2441
     components:
     - type: Transform
@@ -14784,6 +14805,16 @@ entities:
     components:
     - type: Transform
       pos: 9.5,54.5
+      parent: 2
+  - uid: 3231
+    components:
+    - type: Transform
+      pos: 27.5,39.5
+      parent: 2
+  - uid: 3421
+    components:
+    - type: Transform
+      pos: 27.5,40.5
       parent: 2
   - uid: 4360
     components:
@@ -18160,6 +18191,11 @@ entities:
     - type: Transform
       pos: -0.5,77.5
       parent: 2
+  - uid: 12980
+    components:
+    - type: Transform
+      pos: 20.5,37.5
+      parent: 2
   - uid: 13171
     components:
     - type: Transform
@@ -18900,36 +18936,6 @@ entities:
     - type: Transform
       pos: 52.5,23.5
       parent: 2
-  - uid: 13401
-    components:
-    - type: Transform
-      pos: 25.5,35.5
-      parent: 2
-  - uid: 13402
-    components:
-    - type: Transform
-      pos: 24.5,35.5
-      parent: 2
-  - uid: 13403
-    components:
-    - type: Transform
-      pos: 23.5,35.5
-      parent: 2
-  - uid: 13404
-    components:
-    - type: Transform
-      pos: 22.5,35.5
-      parent: 2
-  - uid: 13405
-    components:
-    - type: Transform
-      pos: 21.5,35.5
-      parent: 2
-  - uid: 13407
-    components:
-    - type: Transform
-      pos: 20.5,35.5
-      parent: 2
   - uid: 13449
     components:
     - type: Transform
@@ -19120,11 +19126,6 @@ entities:
     - type: Transform
       pos: 15.5,37.5
       parent: 2
-  - uid: 13487
-    components:
-    - type: Transform
-      pos: 23.5,37.5
-      parent: 2
   - uid: 13488
     components:
     - type: Transform
@@ -19150,20 +19151,10 @@ entities:
     - type: Transform
       pos: 18.5,37.5
       parent: 2
-  - uid: 13493
-    components:
-    - type: Transform
-      pos: 21.5,37.5
-      parent: 2
   - uid: 13494
     components:
     - type: Transform
       pos: 16.5,37.5
-      parent: 2
-  - uid: 13495
-    components:
-    - type: Transform
-      pos: 20.5,37.5
       parent: 2
   - uid: 13496
     components:
@@ -24560,6 +24551,31 @@ entities:
     - type: Transform
       pos: 49.5,71.5
       parent: 2
+  - uid: 19199
+    components:
+    - type: Transform
+      pos: 21.5,40.5
+      parent: 2
+  - uid: 19200
+    components:
+    - type: Transform
+      pos: 22.5,36.5
+      parent: 2
+  - uid: 19201
+    components:
+    - type: Transform
+      pos: 23.5,36.5
+      parent: 2
+  - uid: 19480
+    components:
+    - type: Transform
+      pos: 24.5,36.5
+      parent: 2
+  - uid: 20034
+    components:
+    - type: Transform
+      pos: 25.5,36.5
+      parent: 2
   - uid: 20095
     components:
     - type: Transform
@@ -25079,6 +25095,71 @@ entities:
     components:
     - type: Transform
       pos: -22.5,53.5
+      parent: 2
+  - uid: 23018
+    components:
+    - type: Transform
+      pos: 26.5,36.5
+      parent: 2
+  - uid: 23234
+    components:
+    - type: Transform
+      pos: 27.5,36.5
+      parent: 2
+  - uid: 23267
+    components:
+    - type: Transform
+      pos: 28.5,36.5
+      parent: 2
+  - uid: 23268
+    components:
+    - type: Transform
+      pos: 29.5,36.5
+      parent: 2
+  - uid: 23269
+    components:
+    - type: Transform
+      pos: 30.5,36.5
+      parent: 2
+  - uid: 23271
+    components:
+    - type: Transform
+      pos: 31.5,36.5
+      parent: 2
+  - uid: 23272
+    components:
+    - type: Transform
+      pos: 32.5,36.5
+      parent: 2
+  - uid: 23273
+    components:
+    - type: Transform
+      pos: 32.5,37.5
+      parent: 2
+  - uid: 23274
+    components:
+    - type: Transform
+      pos: 32.5,38.5
+      parent: 2
+  - uid: 23275
+    components:
+    - type: Transform
+      pos: 32.5,39.5
+      parent: 2
+  - uid: 23276
+    components:
+    - type: Transform
+      pos: 32.5,40.5
+      parent: 2
+  - uid: 23283
+    components:
+    - type: Transform
+      pos: 27.5,41.5
+      parent: 2
+  - uid: 23287
+    components:
+    - type: Transform
+      pos: 32.5,41.5
       parent: 2
   - uid: 23355
     components:
@@ -36334,6 +36415,11 @@ entities:
     - type: Transform
       pos: -17.5,28.5
       parent: 2
+  - uid: 3837
+    components:
+    - type: Transform
+      pos: 22.5,40.5
+      parent: 2
   - uid: 3882
     components:
     - type: Transform
@@ -36343,6 +36429,11 @@ entities:
     components:
     - type: Transform
       pos: 13.5,-69.5
+      parent: 2
+  - uid: 4829
+    components:
+    - type: Transform
+      pos: 22.5,39.5
       parent: 2
   - uid: 5309
     components:
@@ -41249,16 +41340,6 @@ entities:
     - type: Transform
       pos: 17.5,36.5
       parent: 2
-  - uid: 12979
-    components:
-    - type: Transform
-      pos: 24.5,36.5
-      parent: 2
-  - uid: 12980
-    components:
-    - type: Transform
-      pos: 23.5,36.5
-      parent: 2
   - uid: 12981
     components:
     - type: Transform
@@ -42358,6 +42439,16 @@ entities:
     components:
     - type: Transform
       pos: -30.5,70.5
+      parent: 2
+  - uid: 13401
+    components:
+    - type: Transform
+      pos: 22.5,38.5
+      parent: 2
+  - uid: 13403
+    components:
+    - type: Transform
+      pos: 21.5,40.5
       parent: 2
   - uid: 13813
     components:
@@ -44903,6 +44994,11 @@ entities:
     components:
     - type: Transform
       pos: 47.5,74.5
+      parent: 2
+  - uid: 19197
+    components:
+    - type: Transform
+      pos: 22.5,37.5
       parent: 2
   - uid: 20658
     components:
@@ -57580,13 +57676,6 @@ entities:
     - type: Transform
       pos: -27.456358,8.397601
       parent: 2
-  - uid: 23018
-    components:
-    - type: MetaData
-      name: Sunshine's Treat
-    - type: Transform
-      pos: 26.557425,55.47033
-      parent: 2
   - uid: 27335
     components:
     - type: Transform
@@ -57603,6 +57692,13 @@ entities:
     components:
     - type: Transform
       pos: -17.886515,-0.91290593
+      parent: 2
+- proto: ClothingHandsGlovesConducting
+  entities:
+  - uid: 13404
+    components:
+    - type: Transform
+      pos: 26.575344,55.483086
       parent: 2
 - proto: ClothingHandsGlovesPowerglove
   entities:
@@ -59975,13 +60071,6 @@ entities:
     - type: Transform
       pos: 43.50336,75.7263
       parent: 2
-- proto: DawInstrument
-  entities:
-  - uid: 3837
-    components:
-    - type: Transform
-      pos: 16.5,-62.5
-      parent: 2
 - proto: Decalamp
   entities:
   - uid: 619
@@ -61729,6 +61818,20 @@ entities:
     - type: Transform
       pos: 56.449776,88.737305
       parent: 2
+- proto: DeskIntercomMedical
+  entities:
+  - uid: 13493
+    components:
+    - type: Transform
+      pos: 13.5,18.5
+      parent: 2
+- proto: DeskIntercomSecurity
+  entities:
+  - uid: 23284
+    components:
+    - type: Transform
+      pos: 5.5,18.5
+      parent: 2
 - proto: DiceBag
   entities:
   - uid: 3484
@@ -61905,12 +62008,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 16.5,39.5
-      parent: 2
-  - uid: 4829
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 23.5,37.5
       parent: 2
   - uid: 4865
     components:
@@ -62118,6 +62215,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 39.5,72.5
+      parent: 2
+  - uid: 12979
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 23.5,37.5
       parent: 2
   - uid: 14468
     components:
@@ -82880,6 +82983,13 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 13407
+    components:
+    - type: Transform
+      pos: 22.5,38.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 16719
     components:
     - type: Transform
@@ -101486,14 +101596,6 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 1629
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 22.5,38.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
   - uid: 1788
     components:
     - type: Transform
@@ -122151,14 +122253,6 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-  - uid: 27750
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -9.5,-23.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 27751
     components:
     - type: Transform
@@ -122278,6 +122372,14 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+  - uid: 13487
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -9.5,-23.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
 - proto: IntercomMedical
   entities:
   - uid: 3420
@@ -122315,14 +122417,6 @@ entities:
       fixtures: {}
 - proto: IntercomSecurity
   entities:
-  - uid: 3421
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 13.5,18.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
   - uid: 4188
     components:
     - type: Transform
@@ -124173,14 +124267,6 @@ entities:
     components:
     - type: Transform
       pos: 16.653004,81.64127
-      parent: 2
-  - uid: 26819
-    components:
-    - type: MetaData
-      desc: 'It has her name written on each individual plank. '
-      name: Laura's Wood
-    - type: Transform
-      pos: -16.659344,-46.690414
       parent: 2
 - proto: MaterialWoodPlank10
   entities:
@@ -126049,30 +126135,21 @@ entities:
       parent: 2
 - proto: PlushieAtmosian
   entities:
-  - uid: 3231
+  - uid: 13495
     components:
-    - type: MetaData
-      desc: Drowning and dying badly it seems
-      name: Sully
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: 31.500488,-46.700546
+      pos: 31.44024,-46.72448
       parent: 2
   - uid: 18965
     components:
-    - type: MetaData
-      desc: Feed this thing ice cream
-      name: "'Puro'"
     - type: Transform
-      pos: -13.475275,-29.365458
+      pos: -13.456524,-29.352945
       parent: 2
-  - uid: 26913
+  - uid: 19089
     components:
-    - type: MetaData
-      desc: Best leave her to it.
-      name: Johan
     - type: Transform
-      pos: -6.408621,125.49585
+      pos: -6.466501,125.50377
       parent: 2
 - proto: PlushieCaptain
   entities:
@@ -126187,15 +126264,12 @@ entities:
     - type: Transform
       pos: 30.405638,101.6904
       parent: 2
-- proto: PlushieLizard
+- proto: PlushieLizardJobChiefmedicalofficer
   entities:
-  - uid: 1504
+  - uid: 19194
     components:
-    - type: MetaData
-      desc: So that's where she went
-      name: Keel-Ree
     - type: Transform
-      pos: 32.5,-55.5
+      pos: 32.53383,-55.461018
       parent: 2
 - proto: PlushieMoth
   entities:
@@ -126258,12 +126332,10 @@ entities:
       parent: 2
 - proto: PlushieSnail
   entities:
-  - uid: 19480
+  - uid: 19195
     components:
-    - type: MetaData
-      name: Judge Markram
     - type: Transform
-      pos: 45.471172,73.48783
+      pos: 45.496273,73.46863
       parent: 2
 - proto: PlushieSnake
   entities:
@@ -141224,7 +141296,7 @@ entities:
       pos: 0.5,-46.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -59858.242
+      secondsUntilStateChange: -61339.63
       state: Opening
   - uid: 7274
     components:
@@ -141967,6 +142039,18 @@ entities:
     components:
     - type: Transform
       pos: 3.5,-57.5
+      parent: 2
+- proto: SpawnPointLatejoin
+  entities:
+  - uid: 13405
+    components:
+    - type: Transform
+      pos: 0.5,4.5
+      parent: 2
+  - uid: 19196
+    components:
+    - type: Transform
+      pos: 0.5,-2.5
       parent: 2
 - proto: SpawnPointLawyer
   entities:
@@ -143318,6 +143402,9 @@ entities:
       pos: 4.5,74.5
       parent: 2
     - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraCommand
+      nameSet: True
       id: HoP Line
   - uid: 17572
     components:
@@ -143500,6 +143587,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -2.5,78.5
       parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: AI access
   - uid: 17567
     components:
     - type: Transform
@@ -143608,18 +143700,30 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 3.5,29.5
       parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: MedChapel
   - uid: 17609
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,39.5
       parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
+      nameSet: True
+      id: Outside Science
   - uid: 17610
     components:
     - type: Transform
       pos: -6.5,44.5
       parent: 2
     - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
       id: SciSec Hall South
   - uid: 17611
     components:
@@ -143628,6 +143732,8 @@ entities:
       pos: -6.5,60.5
       parent: 2
     - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
       id: SciSec Hall North
   - uid: 17612
     components:
@@ -143643,6 +143749,8 @@ entities:
       pos: 22.5,72.5
       parent: 2
     - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraGeneral
       id: Outside Security
   - uid: 17617
     components:
@@ -143697,6 +143805,11 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 25.5,41.5
       parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraMedical
+      nameSet: True
+      id: Lecture Hall
   - uid: 14894
     components:
     - type: Transform
@@ -143854,6 +143967,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -16.5,37.5
       parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: Artifact North
   - uid: 17541
     components:
     - type: MetaData
@@ -143861,6 +143979,11 @@ entities:
     - type: Transform
       pos: -20.5,35.5
       parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraScience
+      nameSet: True
+      id: Artifact South
   - uid: 17542
     components:
     - type: Transform
@@ -143943,6 +144066,8 @@ entities:
       pos: 5.5,61.5
       parent: 2
     - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
       id: Warden's Office
   - uid: 17509
     components:
@@ -143950,6 +144075,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: 10.5,56.5
       parent: 2
+    - type: SurveillanceCamera
+      setupAvailableNetworks:
+      - SurveillanceCameraSecurity
+      nameSet: True
+      id: Security
   - uid: 17510
     components:
     - type: Transform
