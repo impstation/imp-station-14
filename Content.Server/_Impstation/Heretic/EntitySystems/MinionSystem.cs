@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.Heretic.Components;
+using Content.Server._Impstation.Heretic.Components;
 using Content.Server._Goobstation.Heretic.UI;
 using Content.Server.Antag;
 using Content.Server.EUI;
@@ -15,7 +15,7 @@ using Content.Server.Popups;
 using Content.Shared.Popups;
 using Robust.Shared.Player;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Server._Impstation.Heretic.EntitySystems;
 
 /// <summary>
 /// Handles minions summoned by Heretics, such as ghouls. Used with <see cref"MinionComponent"/>
@@ -46,7 +46,7 @@ public sealed partial class MinionSystem : EntitySystem
     public void ConvertEntityToMinion(Entity<MinionComponent> ent, bool createGhostRole)
     {
         // Check if the entity has a mind.
-        var hasMind = _mind.TryGetMind(ent, out _, out _);
+        var hasMind = _mind.TryGetMind(ent, out var mindID, out _);
 
         // If the entity has a mind, send them briefing text and a popup.
         if (hasMind == true)
@@ -59,7 +59,7 @@ public sealed partial class MinionSystem : EntitySystem
 
         // In any case, make it sentient and a familiar.
         _mind.MakeSentient(ent);
-        _role.MindAddRole(ent, "MindRoleGhostRoleFamiliar");
+        _role.MindAddRole(mindID, "MindRoleGhostRoleFamiliar");
 
         // If the entity doesn't have a mind, and we want it to become a ghost role, give it the necessary things to become a ghost role.
         if (!hasMind && createGhostRole == true)

@@ -1,4 +1,3 @@
-using Content.Server._Goobstation.Heretic.Components;
 using Content.Server._Impstation.Heretic.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;

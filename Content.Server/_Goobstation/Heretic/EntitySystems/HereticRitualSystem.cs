@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.Heretic.Components;
+using Content.Server._Impstation.Heretic.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.Components;
 using Content.Shared._Goobstation.Heretic.Components;
@@ -24,15 +24,15 @@ namespace Content.Server.Heretic.EntitySystems;
 /// </summary>
 public sealed partial class HereticRitualSystem : EntitySystem
 {
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ISerializationManager _series = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private ISerializationManager _series = default!;
+    [Dependency] private IAdminLogManager _adminLogManager = default!;
+    [Dependency] private EntityLookupSystem _lookup = default!;
+    [Dependency] private HereticKnowledgeSystem _knowledge = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
 
