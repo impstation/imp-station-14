@@ -24,7 +24,5 @@ public sealed partial class MinionComponent : Component
     /// </summary>
     [DataField] public List<ProtoId<NpcFactionPrototype>> FactionsToAdd = [];
 
-    [DataField] public string Briefing = "heretic-ghoul-greeting";
-
     [DataField] public SoundPathSpecifier BriefingSound = new("/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
 }

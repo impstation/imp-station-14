@@ -15,6 +15,9 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Heretic.EntitySystems;
 
+/// <summary>
+/// Handles minions summoned by Heretics, such as ghouls. Used with <see cref"MinionComponent"/>
+/// </summary>
 public sealed class MinionSystem : EntitySystem
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
@@ -24,14 +27,29 @@ public sealed class MinionSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
 
-    public void ConvertEntityToMinion(Entity<MinionComponent> ent, bool? createGhostRole, bool? sendBriefing, bool? removeBaseFactions)
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<MinionComponent, AttackAttemptEvent>(OnTryAttack);
+        SubscribeLocalEvent<MinionComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
+    }
+
+    /// <summary>
+    /// Handles converting an entity to a minion.
+    /// </summary>
+    /// <param name="ent">The minion's MinionComp</param>
+    /// <param name="createGhostRole">If the conversion should create a ghost role.</param>
+    /// <param name="sendBriefing">If the conversion should send the briefing text</param>
+    /// <param name="removeBaseFactions">If the conversion should remove the entity's pre-existing factions.</param>
+    public void ConvertEntityToMinion(Entity<MinionComponent> ent, bool createGhostRole, bool sendBriefing, bool removeBaseFactions)
     {
         var hasMind = _mind.TryGetMind(ent, out var mindId, out _);
 
         if (hasMind && sendBriefing == true)
         {
             if (ent.Comp.BoundOwner != null)
-                SendBriefing((ent, ent.Comp), mindId, ent.Comp.BoundOwner.Value);
+                SendBriefing((ent, ent.Comp), mindId);
 
             if (_playerManager.TryGetSessionByEntity(mindId, out var session))
                 _euiMan.OpenEui(new GhoulNotifEui(), session);
@@ -60,9 +78,21 @@ public sealed class MinionSystem : EntitySystem
         }
     }
 
-    private void SendBriefing(Entity<MinionComponent> ent, EntityUid owner, EntityUid mindId)
+    /// <summary>
+    /// Handles sending the briefing text to the minion, as well as adding role components.
+    /// </summary>
+    /// <param name="ent">The minion's MinionComp</param>
+    /// <param name="mindId">The minion.</param>
+    private void SendBriefing(Entity<MinionComponent> ent, EntityUid mindId)
     {
-        var brief = Loc.GetString(ent.Comp.Briefing, ("ent", Identity.Entity(owner, EntityManager)));
+        string brief;
+
+        // If the entity has no owner, then use the no-name greeting, otherwise address the summoner by name.
+        if (ent.Comp.BoundOwner == null)
+            brief = Loc.GetString("heretic-ghoul-greeting-noname");
+        else
+            brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity((EntityUid)ent.Comp.BoundOwner, EntityManager)));
+
         _antag.SendBriefing(ent, brief, Color.MediumPurple, ent.Comp.BriefingSound);
 
         if (!TryComp<GhoulRoleComponent>(ent, out _))
@@ -74,14 +104,6 @@ public sealed class MinionSystem : EntitySystem
             rolebrief.Briefing += $"\n{brief}";
     }
 
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<MinionComponent, AttackAttemptEvent>(OnTryAttack);
-        SubscribeLocalEvent<MinionComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
-    }
-
     private void OnTakeGhostRole(Entity<MinionComponent> ent, ref TakeGhostRoleEvent args)
     {
         var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
@@ -90,7 +112,7 @@ public sealed class MinionSystem : EntitySystem
             return;
 
         if (hasMind)
-            SendBriefing(ent, ent.Comp.BoundOwner.Value, mindId);
+            SendBriefing(ent, mindId);
     }
 
     private static void OnTryAttack(Entity<MinionComponent> ent, ref AttackAttemptEvent args)
