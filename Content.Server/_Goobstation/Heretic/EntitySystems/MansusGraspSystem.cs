@@ -1,4 +1,3 @@
-using Content.Server._Impstation.Heretic.Components;
 using Content.Server._Impstation.Heretic.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Hands.Systems;
@@ -21,7 +20,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Systems;
-using Content.Shared.NPC.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.StatusEffect;

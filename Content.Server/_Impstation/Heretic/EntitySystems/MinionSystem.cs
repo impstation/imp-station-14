@@ -11,8 +11,9 @@ using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared._Impstation.Heretic.EntitySystems;
-
+using Content.Shared.Tag;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.Heretic.EntitySystems;
 
@@ -25,8 +26,12 @@ public sealed partial class MinionSystem : SharedMinionSystem
     [Dependency] private readonly EuiManager _euiMan = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
+
+    private static readonly ProtoId<TagPrototype> HereticMinion = "HereticMinion";
+    private static readonly ProtoId<TagPrototype> HereticFlesh = "HereticFlesh";
 
     public override void Initialize()
     {
@@ -93,12 +98,10 @@ public sealed partial class MinionSystem : SharedMinionSystem
 
         _antag.SendBriefing(ent, brief, Color.MediumPurple, ent.Comp.BriefingSound);
 
-        // Add the role component if they don't have it already.
-        if (!TryComp<GhoulRoleComponent>(ent, out _))
-            AddComp(ent, new GhoulRoleComponent());
+        EnsureComp<GhoulRoleComponent>(ent);
 
         // Make sure the minion has RoleBriefingComp, and set its text to the briefing text.
-        EnsureComp<RoleBriefingComponent>(ent.Owner, out var rolebrief);
+        EnsureComp<RoleBriefingComponent>(ent, out var rolebrief);
         rolebrief.Briefing = brief;
     }
 
