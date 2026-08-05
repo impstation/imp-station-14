@@ -87,6 +87,12 @@ public sealed class ImpCCVars : CVars
         CVarDef.Create("antag.play_time_biasing", false, CVar.SERVERONLY);
 
     /// <summary>
+    ///     If true, random characters made with "ic.random_characters" can be non-roundstart species.
+    /// </summary>
+    public static readonly CVarDef<bool> ICRandomSpeciesRandomViable =
+        CVarDef.Create("ic.random_species_random_viable", true, CVar.SERVERONLY);
+
+    /// <summary>
     /// How many characters the notifier text can be.
     /// </summary>
     public static readonly CVarDef<int> NotifierFreetextMaxLength =
