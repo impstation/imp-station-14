@@ -44,21 +44,21 @@ namespace Content.Server.Heretic.EntitySystems;
 public sealed partial class MansusGraspSystem : EntitySystem
 {
 
-    [Dependency] private SharedStaminaSystem _stamina = default!;
-    [Dependency] private SharedStunSystem _stun = default!;
-    [Dependency] private SharedAudioSystem _audio = default!;
-    [Dependency] private ChatSystem _chat = default!;
-    [Dependency] private SharedGunSystem _gun = default!;
-    [Dependency] private RatvarianLanguageSystem _language = default!;
-    [Dependency] private SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private SharedDoorSystem _door = default!;
-    [Dependency] private PopupSystem _popup = default!;
-    [Dependency] private StatusEffectsSystem _statusEffect = default!;
-    [Dependency] private DamageableSystem _damage = default!;
-    [Dependency] private TemperatureSystem _temperature = default!;
-    [Dependency] private MinionSystem _minion = default!;
-    [Dependency] private HandsSystem _hands = default!;
-    [Dependency] private MovementModStatusSystem _movementModStatus = default!;
+    [Dependency] private readonly SharedStaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly RatvarianLanguageSystem _language = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedDoorSystem _door = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly MinionSystem _minion = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly MovementModStatusSystem _movementModStatus = default!;
 
     public static readonly EntProtoId FlashSlowdown = "FlashSlowdownStatusEffect";
 
