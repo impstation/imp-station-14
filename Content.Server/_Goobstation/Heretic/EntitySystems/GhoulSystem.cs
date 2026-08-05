@@ -24,6 +24,31 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly GibbingSystem _gibbing = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<GhoulComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<GhoulComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<GhoulComponent, MobStateChangedEvent>(OnMobStateChange);
+    }
+
+    private void OnInit(Entity<GhoulComponent> ent, ref ComponentInit args)
+    {
+        GhoulifyEntity(ent);
+    }
+
+    private void OnExamine(Entity<GhoulComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup($"[color=red]{Loc.GetString("heretic-ghoul-examine", ("ent", args.Examined))}[/color]");
+    }
+
+    private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead)
+            _gibbing.Gib(ent);
+    }
+
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
         RemComp<RespiratorComponent>(ent);
@@ -64,29 +89,5 @@ public sealed class GhoulSystem : Shared.Heretic.EntitySystems.SharedGhoulSystem
             _threshold.SetMobStateThreshold(ent, (Shared.FixedPoint.FixedPoint2)(deadThr / ent.Comp.HealthDivisor) / 1.25f, MobState.Critical, th);
         }
         // imp edit end
-    }
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<GhoulComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<GhoulComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<GhoulComponent, MobStateChangedEvent>(OnMobStateChange);
-    }
-
-    private void OnInit(Entity<GhoulComponent> ent, ref ComponentInit args)
-    {
-        GhoulifyEntity(ent);
-    }
-    private void OnExamine(Entity<GhoulComponent> ent, ref ExaminedEvent args)
-    {
-        args.PushMarkup($"[color=red]{Loc.GetString("heretic-ghoul-examine", ("ent", args.Examined))}[/color]");
-    }
-
-    private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
-    {
-        if (args.NewMobState == MobState.Dead)
-            _gibbing.Gib(ent);
     }
 }

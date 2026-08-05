@@ -91,7 +91,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HereticComponent, EventHereticOpenStore>(OnStore);
-        SubscribeLocalEvent<HereticComponent, EventHereticMansusGrasp>(OnMansusGrasp);
 
         SubscribeLocalEvent<MinionComponent, EventHereticMansusLink>(OnMansusLink);
         SubscribeLocalEvent<MinionComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
@@ -135,28 +134,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         _store.ToggleUi(ent, ent, store);
-    }
-    private void OnMansusGrasp(Entity<HereticComponent> ent, ref EventHereticMansusGrasp args)
-    {
-        if (!TryUseAbility(ent, args))
-            return;
-
-        if (_mansusGrasp.MansusGraspActive(ent.Owner))
-        {
-            _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
-            return;
-        }
-
-        var st = Spawn("TouchSpellMansus", Transform(ent).Coordinates);
-
-        if (!_hands.TryForcePickupAnyHand(ent, st))
-        {
-            _popup.PopupEntity(Loc.GetString("heretic-ability-fail"), ent, ent);
-            QueueDel(st);
-            return;
-        }
-
-        args.Handled = true;
     }
 
     private void OnMansusLink(Entity<MinionComponent> ent, ref EventHereticMansusLink args)
