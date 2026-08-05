@@ -1,4 +1,4 @@
-using Content.Server._Impstation.Heretic.Components;
+using Content.Shared._Impstation.Heretic.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.Components;
 using Content.Shared._Goobstation.Heretic.Components;

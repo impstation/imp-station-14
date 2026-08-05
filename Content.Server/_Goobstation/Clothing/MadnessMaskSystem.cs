@@ -1,4 +1,4 @@
-using Content.Server._Impstation.Heretic.Components;
+using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage.Components;

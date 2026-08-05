@@ -43,7 +43,6 @@ namespace Content.Server.Heretic.EntitySystems;
 /// </summary>
 public sealed partial class MansusGraspSystem : EntitySystem
 {
-
     [Dependency] private readonly SharedStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -300,10 +299,10 @@ public sealed partial class MansusGraspSystem : EntitySystem
         EnsureComp<GhoulComponent>(ev.Target);
         minion.BoundOwner = ent;
         _minion.ConvertEntityToMinion((ev.Target, minion), true);
+        Dirty(ent);
 
         // Show a big popup to everyone in the vicinity.
         var popupOthers = Loc.GetString("heretic-flesh-revive-finish");
         _popup.PopupEntity(popupOthers, ev.Target, PopupType.LargeCaution);
-
     }
 }

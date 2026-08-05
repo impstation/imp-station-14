@@ -31,9 +31,9 @@ heretic-minion-greeting =
     You may follow other heretics if your master is beyond resurrection.
 heretic-minion-greeting-noname =
     You have been summoned into this world by eldritch forces.
-    Obey the orders of your masters no matter what.
+    Obey the orders of heretics no matter what.
 heretic-minion-no-attack =
-    You cannot attack your master!
+    You cannot harm your master!
 
 ghostrole-ghoul-name = Ghoul
 ghostrole-prophet-name = Raw Prophet

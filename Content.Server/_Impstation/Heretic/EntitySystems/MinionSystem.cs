@@ -1,4 +1,3 @@
-using Content.Server._Impstation.Heretic.Components;
 using Content.Server._Goobstation.Heretic.UI;
 using Content.Server.Antag;
 using Content.Server.EUI;
@@ -6,13 +5,13 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Roles;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
-using Content.Server.Popups;
-using Content.Shared.Popups;
+using Content.Shared._Impstation.Heretic.Components;
+using Content.Shared._Impstation.Heretic.EntitySystems;
+
 using Robust.Shared.Player;
 
 namespace Content.Server._Impstation.Heretic.EntitySystems;
@@ -20,21 +19,19 @@ namespace Content.Server._Impstation.Heretic.EntitySystems;
 /// <summary>
 /// Handles minions summoned by Heretics, such as ghouls. Used with <see cref"MinionComponent"/>
 /// </summary>
-public sealed partial class MinionSystem : EntitySystem
+public sealed partial class MinionSystem : SharedMinionSystem
 {
-    [Dependency] private AntagSelectionSystem _antag = default!;
-    [Dependency] private EuiManager _euiMan = default!;
-    [Dependency] private PopupSystem _popup = default!;
-    [Dependency] private ISharedPlayerManager _playerManager = default!;
-    [Dependency] private NpcFactionSystem _faction = default!;
-    [Dependency] private SharedMindSystem _mind = default!;
-    [Dependency] private SharedRoleSystem _role = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly EuiManager _euiMan = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MinionComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<MinionComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
     }
 
@@ -101,7 +98,7 @@ public sealed partial class MinionSystem : EntitySystem
             AddComp(ent, new GhoulRoleComponent());
 
         // Make sure the minion has RoleBriefingComp, and set its text to the briefing text.
-        var rolebrief = EnsureComp<RoleBriefingComponent>(ent);
+        EnsureComp<RoleBriefingComponent>(ent.Owner, out var rolebrief);
         rolebrief.Briefing = brief;
     }
 
@@ -113,20 +110,5 @@ public sealed partial class MinionSystem : EntitySystem
     private void OnTakeGhostRole(Entity<MinionComponent> ent, ref TakeGhostRoleEvent ev)
     {
         SendBriefing(ent);
-    }
-
-    /// <summary>
-    /// Called when a minion attempts to attack.
-    /// </summary>
-    /// <param name="ent">The minion's MinionComp, and its associated entit</param>
-    /// <param name="ev"><see cref="AttackAttemptEvent"/></param>
-    private void OnAttackAttempt(Entity<MinionComponent> ent, ref AttackAttemptEvent ev)
-    {
-        // No attacking your summoner.
-        if (ent.Comp.BoundOwner != null && ev.Target == ent.Comp.BoundOwner)
-        {
-            _popup.PopupEntity(Loc.GetString("heretic-minion-no-attack"), ent, ent, PopupType.MediumCaution);
-            ev.Cancel();
-        }
     }
 }

@@ -1,14 +1,15 @@
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 
-namespace Content.Server._Impstation.Heretic.Components;
+namespace Content.Shared._Impstation.Heretic.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MinionComponent : Component
 {
     /// <summary>
     /// Indicates who the entity serves.
     /// </summary>
-    [DataField] public EntityUid? BoundOwner;
+    [DataField, AutoNetworkedField] public EntityUid? BoundOwner;
 
     /// <summary>
     /// The faction that the minion should be added to.
