@@ -11,9 +11,7 @@ using Content.Shared.Roles;
 using Content.Shared.Roles.Components;
 using Content.Shared._Impstation.Heretic.Components;
 using Content.Shared._Impstation.Heretic.EntitySystems;
-using Content.Shared.Tag;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._Impstation.Heretic.EntitySystems;
 
@@ -26,12 +24,8 @@ public sealed partial class MinionSystem : SharedMinionSystem
     [Dependency] private readonly EuiManager _euiMan = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
-
-    private static readonly ProtoId<TagPrototype> HereticMinion = "HereticMinion";
-    private static readonly ProtoId<TagPrototype> HereticFlesh = "HereticFlesh";
 
     public override void Initialize()
     {
