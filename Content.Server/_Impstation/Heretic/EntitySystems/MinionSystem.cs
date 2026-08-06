@@ -106,7 +106,8 @@ public sealed partial class MinionSystem : SharedMinionSystem
     /// <param name="ev">Event called when a ghost takes a ghost role.</param>
     private void OnTakeGhostRole(Entity<MinionComponent> ent, ref TakeGhostRoleEvent ev)
     {
-        // Make sure the ghost taking the entity gets the familiar mindrole.
+        // Make sure the ghost taking the entity gets these.
+        _mind.MakeSentient(ent);
         _role.MindAddRole(ent, "MindRoleGhostRoleFamiliar");
 
         SendBriefing(ent);

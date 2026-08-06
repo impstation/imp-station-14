@@ -10,11 +10,17 @@ namespace Content.Server.Heretic.Ritual;
 
 public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
 {
-    private readonly MinionSystem _minion = default!;
-    private readonly PopupSystem _popup = default!;
+    private MinionSystem _minion = default!;
+    private PopupSystem _popup = default!;
 
     public override bool Execute(RitualData args, out string? outstr)
     {
+        // Why do I have to do it like this.
+        // Why do I have to do it like this.
+        // Why do I have to do it like this.
+        // - Salamander.
+        _minion = args.EntityManager.System<MinionSystem>();
+        _popup = args.EntityManager.System<PopupSystem>();
         return base.Execute(args, out outstr);
     }
 
