@@ -2,9 +2,7 @@ using Content.Shared._Impstation.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Speech.Muting;
 using Content.Server.Popups;
-using Content.Shared.NPC.Prototypes;
 using Content.Shared.Popups;
-using Robust.Shared.Prototypes;
 using Content.Shared._Impstation.Heretic.Components;
 using Content.Server._Impstation.Heretic.EntitySystems;
 
@@ -12,9 +10,9 @@ namespace Content.Server.Heretic.Ritual;
 
 public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior
 {
-    private MinionSystem _minion = default!;
-    private PopupSystem _popup = default!;
-    private readonly ProtoId<NpcFactionPrototype> _hereticFaction = "Heretic";
+    private readonly MinionSystem _minion = default!;
+    private readonly PopupSystem _popup = default!;
+
     public override bool Execute(RitualData args, out string? outstr)
     {
         return base.Execute(args, out outstr);
