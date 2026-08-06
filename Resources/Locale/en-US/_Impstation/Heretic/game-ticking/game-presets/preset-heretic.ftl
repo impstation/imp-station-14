@@ -34,6 +34,8 @@ heretic-minion-greeting-noname =
     Obey the orders of heretics no matter what.
 heretic-minion-no-attack =
     You cannot harm your master!
+heretic-kin-no-attack =
+    You cannot harm your kin!
 
 ghostrole-ghoul-name = Ghoul
 ghostrole-prophet-name = Raw Prophet

@@ -31,5 +31,15 @@ public abstract class SharedMinionSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("heretic-minion-no-attack"), ent.Owner, ent.Owner, PopupType.MediumCaution);
             ev.Cancel();
         }
+
+        // No attacking minions from the same master, either
+        if (ent.Comp.BoundOwner != null && TryComp<MinionComponent>(ev.Target, out var targComp))
+        {
+            if (targComp.BoundOwner == ent.Comp.BoundOwner)
+            {
+                _popup.PopupClient(Loc.GetString("heretic-kin-no-attack"), ent.Owner, ent.Owner, PopupType.MediumCaution);
+                ev.Cancel();
+            }
+        }
     }
 }

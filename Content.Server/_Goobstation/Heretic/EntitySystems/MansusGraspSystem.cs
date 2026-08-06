@@ -297,7 +297,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         EnsureComp<GhoulComponent>(ev.Target);
         minion.BoundOwner = ent;
         _minion.ConvertEntityToMinion((ev.Target, minion), true);
-        Dirty(ent);
+        Dirty(ev.Target, minion);
 
         // Show a big popup to everyone in the vicinity.
         var popupOthers = Loc.GetString("heretic-flesh-revive-finish");
