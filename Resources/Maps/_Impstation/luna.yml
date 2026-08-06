@@ -4,8 +4,8 @@ meta:
   engineVersion: 270.1.0
   forkId: ""
   forkVersion: ""
-  time: 08/04/2026 17:28:02
-  entityCount: 27682
+  time: 08/06/2026 16:26:42
+  entityCount: 27680
 maps:
 - 1
 grids:
@@ -7568,6 +7568,8 @@ entities:
       - 26963
       - 27372
       - 27371
+      - 3335
+      - 3759
     - type: Fixtures
       fixtures: {}
   - uid: 27631
@@ -7582,8 +7584,6 @@ entities:
       - 27633
       - 27630
       - 27627
-      - 27709
-      - 27706
     - type: Fixtures
       fixtures: {}
 - proto: AirAlarmFreezer
@@ -9049,7 +9049,7 @@ entities:
       pos: 11.5,-27.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -60909.38
+      secondsUntilStateChange: -61808.156
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -104518,6 +104518,17 @@ entities:
       - 18570
     - type: AtmosPipeColor
       color: '#0055CCFF'
+  - uid: 3335
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 37.5,42.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 26959
+    - type: AtmosPipeColor
+      color: '#0055CCFF'
   - uid: 5794
     components:
     - type: Transform
@@ -106224,17 +106235,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 27631
-  - uid: 27709
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 36.5,42.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27631
-    - type: AtmosPipeColor
-      color: '#990000FF'
 - proto: GasVentPumpFreezer
   entities:
   - uid: 19303
@@ -106268,6 +106268,17 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 18573
+  - uid: 3759
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 36.5,42.5
+      parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 26959
+    - type: AtmosPipeColor
+      color: '#990000FF'
   - uid: 6976
     components:
     - type: Transform
@@ -107894,17 +107905,6 @@ entities:
     - type: DeviceNetwork
       deviceLists:
       - 27631
-  - uid: 27706
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 37.5,42.5
-      parent: 2
-    - type: DeviceNetwork
-      deviceLists:
-      - 27631
-    - type: AtmosPipeColor
-      color: '#0055CCFF'
 - proto: GasVentScrubberFreezer
   entities:
   - uid: 17696
@@ -123665,18 +123665,6 @@ entities:
     components:
     - type: Transform
       pos: 24.864798,60.3395
-      parent: 2
-- proto: MagazinePistolSubMachineGunTopMounted
-  entities:
-  - uid: 3759
-    components:
-    - type: Transform
-      pos: 20.66494,52.314255
-      parent: 2
-  - uid: 3760
-    components:
-    - type: Transform
-      pos: 20.50869,52.439255
       parent: 2
 - proto: MailingUnit
   entities:
@@ -141296,7 +141284,7 @@ entities:
       pos: 0.5,-46.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -61339.63
+      secondsUntilStateChange: -62238.406
       state: Opening
   - uid: 7274
     components:
@@ -142020,6 +142008,13 @@ entities:
     components:
     - type: Transform
       pos: 19.5,89.5
+      parent: 2
+- proto: SpawnPointHeadOfSecurityWeapon
+  entities:
+  - uid: 3760
+    components:
+    - type: Transform
+      pos: 20.5,52.5
       parent: 2
 - proto: SpawnPointHospitalityDirector
   entities:
@@ -169672,13 +169667,6 @@ entities:
     components:
     - type: Transform
       pos: 24.58702,60.634644
-      parent: 2
-- proto: WeaponSubMachineGunWt550
-  entities:
-  - uid: 3335
-    components:
-    - type: Transform
-      pos: 20.395344,52.564255
       parent: 2
 - proto: WeaponWandWater
   entities:
