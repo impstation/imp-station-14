@@ -1,11 +1,4 @@
 ﻿Entries:
-- author: sev7ves
-  changes:
-  - message: allulalo can use holopads now.
-    type: Fix
-  id: 2392
-  time: '2025-11-06T18:08:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3669
 - author: Kandiyaki
   changes:
   - message: allulalo heretics are no longer forced to have a mansus grasp in their
@@ -4106,3 +4099,11 @@
   id: 2891
   time: '2026-07-27T09:46:46.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4512
+- author: DinnerCalzone
+  changes:
+  - message: Fixed service attendant on Plasma starting the round freezing, suffocating,
+      and in the dark.
+    type: Fix
+  id: 2892
+  time: '2026-08-05T04:21:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4522
