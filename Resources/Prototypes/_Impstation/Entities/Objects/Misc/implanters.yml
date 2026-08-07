@@ -15,3 +15,11 @@
   components:
   - type: Implanter
     implant: ButlerBombImplant
+
+- type: entity
+  id: GoateeImplanter
+  name: goatee implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: GoateeImplant
