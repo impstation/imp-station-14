@@ -1,0 +1,39 @@
+- type: weightedRandom
+  id: GeneTiers
+  weights:
+    GeneTier1: 100
+    GeneTier2: 90
+    GeneTier3: 70
+    GeneTier4: 45
+    GeneTier5: 15
+    GeneTierSpecial: 1
+
+- type: weightedRandomEntity
+  id: GeneTier1
+  weights:
+    FireballGene: 1
+
+- type: weightedRandomEntity
+  id: GeneTier2
+  weights:
+    FireballGene: 1
+
+- type: weightedRandomEntity
+  id: GeneTier3
+  weights:
+    FireballGene: 1
+
+- type: weightedRandomEntity
+  id: GeneTier4
+  weights:
+    FireballGene: 1
+
+- type: weightedRandomEntity
+  id: GeneTier5
+  weights:
+    FireballGene: 1
+
+- type: weightedRandomEntity
+  id: GeneTierSpecial
+  weights:
+    FireballGene: 1
