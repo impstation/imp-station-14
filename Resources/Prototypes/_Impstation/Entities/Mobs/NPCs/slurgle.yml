@@ -1,0 +1,106 @@
+- type: entity
+  parent: SimpleSpaceMobBase
+  id: MobSlurgle
+  name: slurgle
+  description: Looks like this one likes you.
+  components:
+  - type: Physics
+    bodyType: Dynamic
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Impstation/Mobs/Aliens/slurgle.rsi
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: empty
+    - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+      state: slurgle
+  - type: Body
+    prototype: Mouse
+  - type: NoSlip
+  - type: Examiner
+  - type: MobMover
+  - type: InputMover
+  - type: MovementIgnoreGravity
+    weightless: true
+  - type: FloatingVisuals
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        - MidImpassable
+        - LowImpassable
+        density: 1000
+  - type: StatusEffects
+    allowed:
+    - ForcedSleep
+  - type: InteractionPopup
+    successChance: 0.99
+    interactSuccessString: petting-success-eeeplet # its squishy too
+    interactSuccessSound:
+      path: /Audio/_Impstation/Animals/slurglewurble.ogg
+    interactSuccessSpawn: EffectHearts
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+  - type: Prying
+    pryPowered: true
+    force: true
+    speedModifier: 6
+  - type: PointLight
+    radius: 2
+    energy: 4
+    color: "#caf8fa"
+    castShadows: true
+  - type: Hunger
+    thresholds:
+      Overfed: 200
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+    baseDecayRate: 0.3
+  - type: HTN
+    rootTask:
+      task: SlurgleCompound
+    blackboard:
+      NavPry: !type:Bool
+        true
+  - type: NPCImprintingOnSpawnBehaviour
+    spawnFriendsSearchRadius: 40 # its so full of love
+    whitelist:
+      components:
+      - HumanoidAppearance
+  - type: Pullable
+  - type: Bloodstream
+    bloodReferenceSolution:
+      reagents:
+      - ReagentId: CyanFoodColoring # is it worth it.....
+        Quantity: 150
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      2001: Dead  # you can kill them if you Really have to
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: Pops
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          PuddleCyan:
+            min: 1
+            max: 1

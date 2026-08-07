@@ -1,0 +1,9 @@
+- type: htnCompound
+  id: SlurgleCompound
+  branches:
+    - tasks:
+        - !type:HTNCompoundTask
+          task: FoodCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: KisserTomatoCompound
