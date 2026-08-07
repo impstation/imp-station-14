@@ -1814,16 +1814,16 @@
     CandleSmall: 3 # imp
   recipeType: Assembler # Frontier
 
-- type: microwaveMealRecipe
-  id: RecipeChocolateCake
-  name: chocolate cake recipe
-  result: FoodCakeChocolate
-  time: 5
-  group: Cake
-  solids:
-    FoodCakePlain: 1
-    FoodSnackChocolateBar: 2
-  recipeType: Assembler # Frontier
+#- type: microwaveMealRecipe # imp Handled by RecipeCakeChocolate now
+#  id: RecipeChocolateCake
+#  name: chocolate cake recipe
+#  result: FoodCakeChocolate
+#  time: 5
+#  group: Cake
+#  solids:
+#    FoodCakePlain: 1
+#    FoodSnackChocolateBar: 2
+#  recipeType: Assembler # Frontier
 
 - type: microwaveMealRecipe
   id: RecipeBrainCake
