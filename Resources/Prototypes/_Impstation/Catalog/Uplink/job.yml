@@ -1,6 +1,186 @@
 ﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
 
 - type: listing
+  id: UplinkClothingSyndiHeadHatCone
+  name: uplink-clothing-syndi-head-cone-name
+  description: uplink-clothing-syndi-head-cone-desc
+  productEntity: ClothingSyndiHeadHatCone
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    makeHidden: true
+    whitelist:
+    - Engineering
+
+- type: listing
+  id: UplinkNetworkConfiguratorWithTrigger
+  name: uplink-network-configurator-with-trigger-name
+  description: uplink-network-configurator-with-trigger-desc
+  productEntity: NetworkConfiguratorWithTrigger
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    makeHidden: true
+    whitelist:
+    - Engineering
+
+- type: listing
+  id: uplinkTrashBagSlippery
+  name: uplink-slippery-trash-bag-name
+  description: uplink-slippery-trash-bag-desc
+  productEntity: TrashBagSlippery
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Janitor
+
+- type: listing
+  id: uplinkdDiceBagd4DiceSharp
+  name: uplink-d4-sharp-name
+  description: uplink-d4-sharp-desc
+  productEntity: DiceBagd4DiceSharp
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Librarian
+
+- type: listing
+  id: UplinkHandLabelerRadioJammer
+  name: uplink-hand-labeler-radio-jammer-name
+  description: uplink-hand-labeler-radio-jammer-desc
+  productEntity: HandLabelerRadioJammer
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    makeHidden: true
+    whitelist:
+    - Cargo
+
+- type: listing
+  id: uplinkClothingShoesColorWhiteNoSound
+  name: uplink-clothing-shoes-white-no-sound-name
+  description: uplink-clothing-shoes-white-no-sound-desc
+  productEntity: ClothingShoesColorWhiteNoSound
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Mime
+
+- type: listing
+  id: uplinkCleanerGrenadeLube
+  name: uplink-cleanade-lube-name
+  description: uplink-cleanade-lube-desc
+  productEntity: CleanerGrenadeLube
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Janitor
+
+- type: listing
+  id: uplinkFoodShakerPepperLead
+  name: uplink-food-pepper-shaker-lead-name
+  description: uplink-food-pepper-shaker-lead-desc
+  productEntity: FoodShakerPepperLead
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Chef
+
+- type: listing
+  id: uplinkEmergencyMedipenMute
+  name: uplink-emergency-medipen-mute-name
+  description: uplink-emergency-medipen-mute-desc
+  productEntity: EmergencyMedipenMute
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Mime
+
+- type: listing
+  id: uplinkHiddenUplinkRadioBotany
+  name: uplink-hidden-radio-botany-name
+  description: uplink-hidden-radio-botany-desc
+  productEntity: HiddenUplinkRadioBotany
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Botanist
+
+- type: listing
+  id: UplinkHiddenUplinkRadioScience
+  name: uplink-hidden-uplink-radio-science-name
+  description: uplink-hidden-uplink-radio-science-desc
+  productEntity: HiddenUplinkRadioScience
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    makeHidden: true
+    whitelist:
+    - Science
+
+- type: listing
+  id: UplinkLeadChemistryVial
+  name: uplink-lead-chemistry-vial-name
+  description: uplink-lead-chemistry-vial-desc
+  productEntity: LeadChemistryVial
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    makeHidden: true
+    whitelist:
+    - Medical
+
+- type: listing
   id: uplinkHotsauces
   name: uplink-hotsauces-name
   description: uplink-hotsauces-desc
@@ -18,6 +198,87 @@
     makeHidden: true
     whitelist:
     - Chef
+
+- type: listing
+  id: uplinkJanitorInsul
+  name: uplink-janitor-insul-name
+  description: uplink-janitor-insul-desc
+  productEntity: ClothingHandsGlovesJanitorInsul
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Janitor
+
+- type: listing
+  id: uplinkPitcherNapalm
+  name: uplink-pitcher-napalm-name
+  description: uplink-pitcher-napalm-desc
+  productEntity: PitcherNapalm
+  cost:
+    Telecrystal: 3
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Chef
+
+- type: listing
+  id: uplinkClothingEyesGlassesChemicalSyndi
+  name: uplink-chem-goggles-flash-immune-name
+  description: uplink-chem-goggles-flash-immune-desc
+  productEntity: ClothingEyesGlassesChemicalSyndi
+  cost:
+    Telecrystal: 4
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    makeHidden: true
+    whitelist:
+    - Medical
+
+- type: listing
+  id: uplinkMopSheathFilled
+  name: uplink-mop-sword-name
+  description: uplink-mop-sword-desc
+  productEntity: MopSheathFilled
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    makeHidden: true
+    whitelist:
+    - Janitor
+
+- type: listing
+  id: UplinkUtilityKnifeSyndi
+  name: uplink-utility-knife-syndi-name
+  description: uplink-utility-knife-syndi-desc
+  productEntity: UtilityKnifeSyndi
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerDepartmentCondition
+    makeHidden: true
+    whitelist:
+    - Cargo
 
 - type: listing
   id: uplinkShockDartBox
