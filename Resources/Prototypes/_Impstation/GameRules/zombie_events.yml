@@ -1,0 +1,98 @@
+- type: entity
+  id: VentZombieEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+  - type: BasicStationEventScheduler
+    minimumTimeUntilFirstEvent: 1200 #20 min-- early for the jumpscare
+    minMaxEventTiming:
+      min: 600 #10 min
+      max: 900 #15 min
+    scheduledGameRules: !type:NestedSelector
+      tableId: VentZombieEventsTable
+
+- type: entityTable
+  id: VentZombieEventsTable
+  table: !type:AllSelector
+    children:
+    - id: NormalVentZombieSpawn
+    - id: ExtraRareVentZombieSpawn
+    - id: MassVentZombieSpawn
+    - id: JumpscareVentZombieSpawn
+
+- type: entity
+  id: NormalVentZombieSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    earliestStart: 40
+    reoccurrenceDelay: 1
+    minimumPlayers: 20
+    weight: 10
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobZombieExecrationCommon
+      prob: 0.03
+    - id: MobZombieExecrationUncommon
+      prob: 0.015
+    - id: MobZombieExecrationRare
+      prob: 0.005
+
+- type: entity
+  id: ExtraRareVentZombieSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    earliestStart: 40
+    reoccurrenceDelay: 45
+    minimumPlayers: 20
+    weight: 3
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobZombieExecrationCommon
+      prob: 0.005
+    - id: MobZombieExecrationUncommon
+      prob: 0.015
+    - id: MobZombieExecrationRare
+      prob: 0.03
+
+- type: entity
+  id: MassVentZombieSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    earliestStart: 40
+    reoccurrenceDelay: 45
+    minimumPlayers: 20
+    weight: 6
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobZombieExecrationCommon
+      prob: 0.06
+    - id: MobZombieExecrationUncommon
+      prob: 0.03
+    - id: MobZombieExecrationRare
+      prob: 0.01
+
+- type: entity
+  id: JumpscareVentZombieSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: false
+    earliestStart: 20
+    reoccurrenceDelay: 15
+    minimumPlayers: 20
+    weight: 3
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobZombieExecrationCommon
+      prob: 0.03
+    - id: MobZombieExecrationUncommon
+      prob: 0.015
+    - id: MobZombieExecrationRare
+      prob: 0.005

@@ -203,3 +203,6 @@ ghost-role-information-syndicate-instigator-description = You are a barely-equip
 ghost-role-information-syndicate-instigator-rules = You are a [color={role-type-team-antagonist-color}][bold]{role-type-solo-antagonist-name}[/bold][/color]. Covert syndicate agents are not guaranteed to help you.
 
                                           You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
+
+ghost-role-information-zombie-name = Zombified Execration
+ghost-role-information-zombie-description = You have crawled through the dark for so long... so cold, so very... very hungry... You've forgotten who you were, and you do not know what you've become. Now you can see light, and you can smell food.
