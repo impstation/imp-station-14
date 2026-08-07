@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseGimmickObjective
+  id: WhimsyRandomObjective
+  name: Hound Of Whimsy
+  description: You have a very particular set of skills, skills you have acquired over a very long career, you know what you must do. This objective is not tracked and will automatically succeed, so just have fun with it!
+  components:
+  - type: Objective
+    unique: true
+    difficulty: 2
+    icon:
+      sprite: _Impstation\Clothing\Head\Hats\circusclownhat.rsi
+      state: icon
+  - type: AutoCompleteCondition
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - AutoCompleteCondition
