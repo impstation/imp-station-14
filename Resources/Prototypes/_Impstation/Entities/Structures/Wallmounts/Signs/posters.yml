@@ -40,3 +40,25 @@
   - type: Sprite
     sprite: _Impstation/Structures/Wallmounts/posters.rsi
     state: poster55_legit
+
+#Station Map Posters
+
+- type: entity
+  parent: PosterBase
+  id: PosterMapPathway
+  name: "Pathway Map"
+  description: "A map of Pathway Station."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: pathwaymap
+
+- type: entity
+  parent: PosterBase
+  id: PosterMapUnion
+  name: "Union Map"
+  description: "A map of Union Station."
+  components:
+  - type: Sprite
+    sprite: _Impstation/Structures/Wallmounts/posters.rsi
+    state: unionmap

@@ -1,26 +1,4 @@
 ﻿Entries:
-- author: sev7ves
-  changes:
-  - message: allulalo can use holopads now.
-    type: Fix
-  id: 2392
-  time: '2025-11-06T18:08:35.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3669
-- author: Kandiyaki
-  changes:
-  - message: allulalo heretics are no longer forced to have a mansus grasp in their
-      nonexistent second hand when drawing a transmutation rune.
-    type: Fix
-  id: 2393
-  time: '2025-11-07T02:14:14.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3666
-- author: VeeNomine
-  changes:
-  - message: 'Law !@#%: Silicon World'
-    type: Add
-  id: 2394
-  time: '2025-11-07T06:46:56.0000000+00:00'
-  url: https://github.com/impstation/imp-station-14/pull/3679
 - author: kipdotnet
   changes:
   - message: Folding chairs are now a 1x4 in storage.
@@ -4106,3 +4084,33 @@
   id: 2891
   time: '2026-07-27T09:46:46.0000000+00:00'
   url: https://github.com/impstation/imp-station-14/pull/4512
+- author: DinnerCalzone
+  changes:
+  - message: Fixed service attendant on Plasma starting the round freezing, suffocating,
+      and in the dark.
+    type: Fix
+  id: 2892
+  time: '2026-08-05T04:21:28.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4522
+- author: salamanderskies
+  changes:
+  - message: The ghoul briefing text now addresses the summoner by their correct pronouns
+      (but for real this time).
+    type: Fix
+  - message: Ghouls are now unable to attack their summoners in melee.
+    type: Fix
+  - message: Muted ghouls now properly count as ghouls.
+    type: Fix
+  - message: Ghouls are now unable to attack fellow ghouls from the same summoner
+      in melee.
+    type: Tweak
+  id: 2893
+  time: '2026-08-06T12:03:03.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4526
+- author: BombasterDS, Solstice, Androidonator, jkwookee
+  changes:
+  - message: Lifeline effects for admins.
+    type: Add
+  id: 2894
+  time: '2026-08-07T19:21:56.0000000+00:00'
+  url: https://github.com/impstation/imp-station-14/pull/4483
