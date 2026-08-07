@@ -19,6 +19,8 @@
   - !type:GiveItemOnHolidaySpecial
     holiday: FirefighterDay
     prototype: FireAxe
+  setPreference: false #imp
+  overrideConsoleVisibility: true #imp
 
 - type: startingGear
   id: AtmosphericTechnicianGear
