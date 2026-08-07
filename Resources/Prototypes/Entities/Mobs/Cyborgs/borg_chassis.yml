@@ -68,14 +68,16 @@
   - type: BorgPda
   # End Impstation - Borg PDAs
 
+# Imp Edit
 - type: entity
-  id: BorgChassisGeneric
+  id: BorgChassisScience
   parent: BorgChassisSelectable
-  name: generic cyborg
+  name: science cyborg
   suffix: type picked
   components:
   - type: BorgSwitchableType
-    selectedBorgType: generic
+    selectedBorgType: science
+# Imp Edit
 
 - type: entity
   id: BorgChassisMining
