@@ -87,8 +87,8 @@ namespace Content.IntegrationTests.Tests
             "/Maps/_Impstation/eclipse.yml", // Contains PTK-800 "Matter Dematerializer", LSE-400c "Svalinn machine gun"
 
             // Shuttles
-            "/Maps/_Impstation/Shuttles/listening_post.yml" // // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
-
+            "/Maps/_Impstation/Shuttles/listening_post.yml", // // Contains captain's rubber stamp, chief engineer's rubber stamp, chaplain's rubber stamp, clown's rubber stamp, blablabla you get the picture
+            "/Maps/_Harmony/Shuttles/ShuttleEvent/ERPSmall.yml" // Harmony map
         };
 
         /// <summary>
