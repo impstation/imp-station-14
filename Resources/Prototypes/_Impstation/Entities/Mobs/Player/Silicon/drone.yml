@@ -21,27 +21,27 @@
       - Handcuff
       - Gun
       - EnergySword
-  - type: Illiterate # imp special component. Disables reading and writing on paper.
-  - type: ContainerContainer # imp.
+  - type: Illiterate # Disables reading and writing on paper.
+  - type: ContainerContainer
     containers:
       cell_slot: !type:ContainerSlot { }
-  - type: PowerCellSlot # imp.
+  - type: PowerCellSlot
     cellSlotId: cell_slot
     fitsInCharger: true
-  - type: PowerCellDraw # imp
+  - type: PowerCellDraw
     drawRate: 0.6
-  - type: ItemSlots # imp
+  - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellMedium
         disableEject: true
-  - type: Instrument # imp
+  - type: Instrument
     allowPercussion: false
     handheld: false
     bank: 110
     program: 4
-  - type: Loadout # imp special. this replaces the InnateTool component.
+  - type: Loadout # this replaces the InnateTool component.
     prototypes:
     - StartingGearDroneTools
   - type: NameIdentifier
@@ -56,20 +56,20 @@
         type: StrippableBoundUserInterface
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
-      enum.InstrumentUiKey.Key: #imp
+      enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
         requireInputValidation: false
-      enum.StationMapUiKey.Key: #imp
+      enum.StationMapUiKey.Key:
         type: StationMapBoundUserInterface
         requireInputValidation: false
-  - type: StationMap #imp
+  - type: StationMap 
   - type: GhostRole
     job: Drone
     makeSentient: true
     name: ghost-role-information-drone-name
     description: ghost-role-information-drone-description
     rules: ghost-role-information-drone-rules
-    mindRoles: # imp
+    mindRoles: 
     - MindRoleGhostRoleSilicon #should this have its own Drone mind role..?
   - type: GhostTakeoverAvailable
   - type: SiliconLawBound
@@ -91,7 +91,10 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      25: Dead
+      60: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Dead: BorgDead
   - type: NoSlip
   - type: StatusEffects
     allowed:
@@ -167,7 +170,28 @@
     - Engineering
     - Maintenance
   - type: DroneVision
-  - type: ZombieImmune
+  - type: Hands
+    showInHands: false
+    canBeStripped: false
+    showExamine: false
+    activeHandId: hand1
+    hands:
+      hand1:
+        location: Middle
+      hand2:
+        location: Middle
+      hand3:
+        location: Middle
+      hand4:
+        location: Middle
+      hand5:
+        location: Middle
+    sortedHands: 
+    - hand1
+    - hand2
+    - hand3
+    - hand4
+    - hand5
 
 # Drone actions
 
@@ -201,9 +225,9 @@
   id: StartingGearDroneTools
   equipment:
     pocket1: trayScannerUnremoveable
-    pocket2: GasAnalyzerUnremoveable
-    pocket3: PinpointerStationUnremoveable
+    pocket2: PinpointerStationUnremoveable
   inhand:
   - OmnitoolUnremoveable
   - WelderExperimentalUnremoveable
   - RCDRechargingCardboardUnremoveable
+  - GasAnalyzerUnremoveable
