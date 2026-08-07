@@ -263,15 +263,6 @@
 #  conflicts:
 #    - ItemBad
 
-# Smoker: You are hopelessly addicted to cigarettes. You must be smoking one at all times.
-- type: strangeMood
-  id: Smoker
-  moodName: thaven-mood-smoker-name
-  moodDesc: thaven-mood-smoker-desc
-  conflicts:
-    - DisapproveOfDrugs
-    - NonSmoker
-
 # Eye For An Eye: You must treat every living being the way that it treats you.
 - type: strangeMood
   id: EyeForEye
@@ -337,6 +328,26 @@
   - Coulrophobia
   - Clownignore
   - Circus
+
+# Brand Devotee: You have an unshakable loyalty to your favorite brand, [BRANDS]. Everyone needs to know how good their products are.
+- type: strangeMood
+  id: BrandDevotee
+  moodName: thaven-mood-brand-devotee-name
+  moodDesc: thaven-mood-brand-devotee-misc
+  moodVars:
+    brand: Brands
+  conflicts:
+  - Centrist
+  - YesMan
+
+# Smoker: You are hopelessly addicted to cigarettes. You must be smoking one at all times.
+#- type: strangeMood
+#  id: Smoker
+#  moodName: thaven-mood-smoker-name
+#  moodDesc: thaven-mood-smoker-desc
+#  conflicts:
+#    - DisapproveOfDrugs
+#    - NonSmoker
 
 # The color [COLOR] is the only acceptable color for decorations. Endeavor to make your environment this color where possible.
 #- type: strangeMood
