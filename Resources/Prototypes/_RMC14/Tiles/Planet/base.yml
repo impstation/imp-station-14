@@ -1,0 +1,19 @@
+- type: tile
+  abstract: true
+  id: CMPlanetBase
+  isSubfloor: true
+  deconstructTools: [ ]
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
+  indestructible: true 
+  canDig: true
+# imp edited some stuff I forgot check later
+
+- type: tile
+  parent: CMPlanetBase
+  id: RMCVoid
+  name: tiles-rmc-empty
+  sprite: /Textures/_RMC14/Tiles/floors/void.png
+  # weedsSpreadable: false

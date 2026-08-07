@@ -25,6 +25,10 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Timing;
 // end ee throwing
+// RMC start
+using Content.Shared._RMC14.Weapons.Ranged;
+using Robust.Shared.Containers;
+// RMC end
 
 namespace Content.Shared.Projectiles;
 
@@ -39,6 +43,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IGameTiming _timing = default!; // imp
     [Dependency] private readonly SharedPopupSystem _popup = default!; // imp
+    [Dependency] private readonly SharedContainerSystem _container = default!; // RMC
 
     public override void Initialize()
     {
@@ -278,7 +283,28 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
         {
             args.Cancelled = true;
+            return; // RMC, return early
         }
+
+        // RMC14 start
+        if (component.Weapon == null)
+            return;
+
+        if (!HasComp<GunIgnoreContainerOwnerCollisionComponent>(component.Weapon.Value))
+            return;
+
+        var current = component.Weapon.Value;
+        while (_container.TryGetContainingContainer((current, null), out var container))
+        {
+            if (args.OtherEntity == container.Owner)
+            {
+                args.Cancelled = true;
+                return;
+            }
+
+            current = container.Owner;
+        }
+        // RMC14 end
     }
 
     public void SetShooter(EntityUid id, ProjectileComponent component, EntityUid shooterId)

@@ -5,13 +5,14 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
+using Content.Shared._RMC14.Vehicle; // RMC14
 
 namespace Content.Shared.Actions.Components;
 
 /// <summary>
 /// Component all actions are required to have.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedActionsSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedActionsSystem), typeof(VehicleViewToggleSystem))] // RMC14 added typeof(VehicleViewToggleSystem)
 [AutoGenerateComponentState(true, true)]
 [EntityCategory("Actions")]
 public sealed partial class ActionComponent : Component

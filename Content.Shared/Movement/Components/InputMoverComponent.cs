@@ -7,6 +7,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Movement.Components
 {
+    // IMP TODO: remove the vv adds to not modify upstream files, used for testing ingame I think
     [RegisterComponent, NetworkedComponent]
     public sealed partial class InputMoverComponent : Component
     {
@@ -35,6 +36,7 @@ namespace Content.Shared.Movement.Components
         public Vector2 CurTickWalkMovement;
         public Vector2 CurTickSprintMovement;
 
+        [ViewVariables]
         public MoveButtons HeldMoveButtons = MoveButtons.None;
 
         /// <summary>
@@ -43,12 +45,14 @@ namespace Content.Shared.Movement.Components
         /// <remarks>
         /// This can be useful to filter out input from just pressing the walk button with no directions, for example.
         /// </remarks>
+        [ViewVariables]
         public bool HasDirectionalMovement => (HeldMoveButtons & MoveButtons.AnyDirection) != MoveButtons.None;
 
         // I don't know if we even need this networked? It's mostly so conveyors can calculate properly.
         /// <summary>
         /// Direction to move this tick.
         /// </summary>
+        [ViewVariables]
         public Vector2 WishDir;
 
         /// <summary>
@@ -79,6 +83,7 @@ namespace Content.Shared.Movement.Components
         public const float SprintingSoundModifier = 3.5f;
         public const float WalkingSoundModifier = 1.5f;
 
+        [ViewVariables]
         public bool Sprinting => (HeldMoveButtons & MoveButtons.Walk) == 0x0;
 
         [ViewVariables(VVAccess.ReadWrite)]

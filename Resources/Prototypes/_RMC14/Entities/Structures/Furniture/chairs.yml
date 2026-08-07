@@ -1,0 +1,45 @@
+- type: entity
+  abstract: true
+  parent: SeatBase
+  id: CMSeatBase
+  name: abstract chair
+  suffix: RMC
+  components:
+  # - type: Corrodible
+  #   timeToApply: 4
+  #   structure: true
+  # - type: Sprite
+  #   sprite: _RMC14/Structures/Furniture/chairs.rsi
+  #   state: chair
+  # - type: Tag
+  #   tags:
+  #   - RMCSeat
+  # - type: RMCMesonsNonviewable
+  # - type: Damageable
+  #   damageContainer: StructuralMarine
+  #   damageModifierSet: StructuralMarine
+  # - type: MeleeReceivedMultiplier
+  #   xenoDamage:
+  #     types:
+  #       Slash: 51
+  #   otherMultiplier: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      # - !type:SpawnEntitiesBehavior
+      #   spawn:
+      #     CMSheetMetal1:
+      #       min: 1
+      #       max: 1
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  # - type: InteractedBlacklist
+  #   blacklist:
+  #     components:
+  #     - Xeno

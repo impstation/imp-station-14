@@ -26,6 +26,8 @@ public enum CollisionGroup
     DoorPassable       = 1 << 8, // 256 Allows door to close over top, Like blast doors over conveyors for disposals rooms/cargo.
     Mobs               = 1 << 9, // 512 living things (IMP EDIT!)
 
+    Vehicle = 1 << 30, // RMC
+
     MapGrid = MapGridHelpers.CollisionGroup, // Map grids, like shuttles. This is the actual grid itself, not the walls or other entities connected to the grid.
 
     // 32 possible groups

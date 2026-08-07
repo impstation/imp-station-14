@@ -1,4 +1,5 @@
 using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Events; // RMC
 
 namespace Content.Shared.Movement.Systems;
 
@@ -10,17 +11,30 @@ public abstract partial class SharedMoverController
         SubscribeLocalEvent<MovementRelayTargetComponent, ComponentShutdown>(OnTargetRelayShutdown);
         SubscribeLocalEvent<MovementRelayTargetComponent, AfterAutoHandleStateEvent>(OnAfterRelayTargetState);
         SubscribeLocalEvent<RelayInputMoverComponent, AfterAutoHandleStateEvent>(OnAfterRelayState);
+        SubscribeLocalEvent<RelayInputMoverComponent, CanMoveUpdatedEvent>(OnRelayCanMoveUpdated); // RMC14
     }
 
     private void OnAfterRelayTargetState(Entity<MovementRelayTargetComponent> entity, ref AfterAutoHandleStateEvent args)
     {
         PhysicsSystem.UpdateIsPredicted(entity.Owner);
+        EnsureValidRelayTarget(entity.Owner, entity.Comp); // RMC14
     }
 
     private void OnAfterRelayState(Entity<RelayInputMoverComponent> entity, ref AfterAutoHandleStateEvent args)
     {
         PhysicsSystem.UpdateIsPredicted(entity.Owner);
     }
+
+    // RMC14 start
+    private void OnRelayCanMoveUpdated(Entity<RelayInputMoverComponent> ent, ref CanMoveUpdatedEvent args)
+    {
+        if (args.CanMove)
+            return;
+
+        if (MoverQuery.TryComp(ent.Comp.RelayEntity, out var inputMoverComponent))
+            SetMoveInput((ent.Comp.RelayEntity, inputMoverComponent), MoveButtons.None);
+    }
+    // RMC14 end
 
     /// <summary>
     ///     Sets the relay entity and marks the component as dirty. This only exists because people have previously
@@ -93,4 +107,27 @@ public abstract partial class SharedMoverController
     }
 
     protected virtual void UpdateMoverStatus(Entity<InputMoverComponent?, MovementRelayTargetComponent?> ent) { }
+
+    // IMP TODO: why is this a bool
+    // RMC14 start
+    private bool EnsureValidRelayTarget(EntityUid uid, MovementRelayTargetComponent relayTarget)
+    {
+        var source = relayTarget.Source;
+        var valid =
+            source.IsValid() &&
+            RelayQuery.TryComp(source, out var sourceRelay) &&
+            sourceRelay.RelayEntity == uid;
+
+        if (valid)
+            return true;
+
+        if (MoverQuery.TryComp(uid, out var mover))
+            SetMoveInput((uid, mover), MoveButtons.None);
+
+        if (!Timing.ApplyingState)
+            RemCompDeferred<MovementRelayTargetComponent>(uid);
+
+        return false;
+    }
+    // RMC14 end
 }

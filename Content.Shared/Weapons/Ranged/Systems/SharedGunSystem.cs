@@ -35,6 +35,8 @@ using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._RMC14.Weapons.Ranged;
+using Content.Shared._RMC14.Vehicle; // RMC14
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
@@ -66,6 +68,8 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly TagSystem TagSystem = default!;
     [Dependency] protected readonly ThrowingSystem ThrowingSystem = default!;
+    [Dependency] private readonly VehicleRideSurfaceSystem _rideSurface = default!;
+    [Dependency] private readonly VehicleWeaponsSystem _rmcVehicleWeapons = default!;
 
     /// <summary>
     /// Default projectile speed
@@ -155,8 +159,28 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (gun.Owner != GetEntity(msg.Gun))
             return;
 
+        /* Imp removal
         gun.Comp.ShootCoordinates = GetCoordinates(msg.Coordinates);
+        */
+
+        // Imp start, stuff from RMC SharedGunPredictionSystem but moved to non-predicted gun system
+        var shootCoordinates = GetCoordinates(msg.Coordinates); // Coordinates from RequestShootEvent instead of direct
+        var targetUid = GetEntity(msg.Target); // Target from RequestShootEvent instead of direct
+        if (targetUid is { } clickedTarget)
+        {
+            var mapCoordinates = TransformSystem.ToMapCoordinates(shootCoordinates); // Imp, changed to use TransformSystem of SharedGunSystem
+            if (_rideSurface.TryGetRiderAtCoordinates(clickedTarget, mapCoordinates, out var rider))
+                targetUid = rider;
+        }
+
+        // Imp, removed suppression stuff
+        gun.Comp.ShootCoordinates = shootCoordinates; // Imp, switched to comp
+        gun.Comp.Target = targetUid; // Imp, switched to comp
+        // Imp end
+
+        /*
         gun.Comp.Target = GetEntity(msg.Target);
+        */
         AttemptShoot(user.Value, gun);
     }
 
@@ -185,6 +209,19 @@ public abstract partial class SharedGunSystem : EntitySystem
         return true;
     }
 
+    // RMC14
+    // IMP TODO, not needed if not automating?
+    /// <summary>
+    /// Sets the current gun target, returning the previous value.
+    /// </summary>
+    public EntityUid? SwapTarget(Entity<GunComponent> gun, EntityUid? target)
+    {
+        var previous = gun.Comp.Target;
+        gun.Comp.Target = target;
+        return previous;
+    }
+    // RMC14
+
     /// <summary>
     ///     Tries to get an entity with <see cref="GunComponent"/> from the specified entity's hands, or from the entity itself.
     /// </summary>
@@ -193,6 +230,33 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <returns>True if gun was found</returns>
     public bool TryGetGun(EntityUid entity, out Entity<GunComponent> gun)
     {
+        // RMC14
+        // imp redid this comment it
+        // IMP TODO, says entity id 0
+        // if (TryComp<VehiclePortGunOperatorComponent>(entity, out var portGunOperator) &&
+        //     portGunOperator.Gun is { } portGun &&
+        //     TryComp<VehiclePortGunComponent>(portGun, out var portGunComp) &&
+        //     portGunComp.Operator == entity &&
+        //     TryComp<GunComponent>(portGun, out var portGunGun)) // Imp, best naming ever
+        // {
+        //     gun = (portGun, portGunGun); // Imp
+        //     // gunEntity = portGun; Imp removal
+        //     // gunComp = portGunGun; Imp removal
+        //     return true;
+        // }
+
+        if (TryComp<VehicleWeaponsOperatorComponent>(entity, out var vehicleOperator) &&
+            vehicleOperator.Vehicle is { } vehicle &&
+            _rmcVehicleWeapons.TryGetSelectedWeaponForOperator(vehicle, entity, out var selected) &&
+            TryComp<GunComponent>(selected, out var selectedGun))
+        {
+            gun = (selected, selectedGun); // Imp
+            // gunEntity = selected; Imp removal
+            // gunComp = selectedGun; Imp removal
+            return true;
+        }
+        // RMC14
+
         gun = default;
 
         if (_hands.GetActiveItem(entity) is { } held &&
@@ -328,7 +392,12 @@ public abstract partial class SharedGunSystem : EntitySystem
             shots = Math.Min(shots, gun.Comp.ShotsPerBurstModified - gun.Comp.ShotCounter);
         }
 
-        var attemptEv = new AttemptShootEvent(user, null);
+        // RMC14
+        var originEntity = HasComp<GunUseGunOriginComponent>(gun) ? gun.Owner : user;
+        var fromCoordinates = Transform(originEntity).Coordinates;
+        // RMC14
+
+        var attemptEv = new AttemptShootEvent(user, null, fromCoordinates, toCoordinates); // RMC14, added toCoordinates
         RaiseLocalEvent(gun, ref attemptEv);
 
         if (attemptEv.Cancelled)
@@ -343,7 +412,10 @@ public abstract partial class SharedGunSystem : EntitySystem
             return false;
         }
 
-        var fromCoordinates = Transform(user).Coordinates;
+        /* RMC14 removal
+        var fromCoordinates = Transform(user).Coordinates; 
+        */
+
         // Remove ammo
         var ev = new TakeAmmoEvent(shots, [], fromCoordinates, user);
 
@@ -694,7 +766,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 /// <param name="Cancelled">Set this to true if the shot should be cancelled.</param>
 /// <param name="ThrowItems">Set this to true if the ammo shouldn't actually be fired, just thrown.</param>
 [ByRefEvent]
-public record struct AttemptShootEvent(EntityUid User, string? Message, bool Cancelled = false, bool ThrowItems = false);
+public record struct AttemptShootEvent(EntityUid User, string? Message, EntityCoordinates FromCoordinates, EntityCoordinates? ToCoordinates, bool Cancelled = false, bool ThrowItems = false); // RMC14, added to and from coordinates
 
 /// <summary>
 ///     Raised directed on the gun after firing.

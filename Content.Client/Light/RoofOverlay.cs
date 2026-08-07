@@ -8,6 +8,10 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Map.Enumerators;
 using Robust.Shared.Physics;
+// RMC14 start
+using Content.Shared._RMC14.Vehicle.Viewport;
+using Robust.Client.Player;
+// RMC14 end
 
 namespace Content.Client.Light;
 
@@ -16,6 +20,7 @@ public sealed class RoofOverlay : Overlay
     private readonly IEntityManager _entManager;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IOverlayManager _overlay = default!;
+    [Dependency] private readonly IPlayerManager _player = default!; // RMC14
 
     private readonly EntityLookupSystem _lookup;
     private readonly SharedMapSystem _mapSystem;
@@ -45,6 +50,11 @@ public sealed class RoofOverlay : Overlay
     {
         if (args.Viewport.Eye == null || !_entManager.HasComponent<MapLightComponent>(args.MapUid))
             return;
+
+        // RMC14
+        if (IsPeekingThroughRemoteTarget(args.MapId))
+            return;
+        // RMC14
 
         var viewport = args.Viewport;
         var eye = args.Viewport.Eye;
@@ -128,4 +138,24 @@ public sealed class RoofOverlay : Overlay
 
         worldHandle.SetTransform(Matrix3x2.Identity);
     }
+
+    // RMC14
+    private bool IsPeekingThroughRemoteTarget(MapId drawnMap)
+    {
+        if (_player.LocalEntity is not { } player ||
+            !_entManager.TryGetComponent(player, out VehicleViewportUserComponent? viewport) ||
+            !_entManager.TryGetComponent(player, out EyeComponent? eye) ||
+            !_entManager.TryGetComponent(player, out TransformComponent? playerXform) ||
+            viewport.PeekTarget is not { } peekTarget ||
+            eye.Target != peekTarget ||
+            !_entManager.TryGetComponent(peekTarget, out TransformComponent? targetXform))
+        {
+            return false;
+        }
+
+        return targetXform.MapID != MapId.Nullspace &&
+               targetXform.MapID != playerXform.MapID &&
+               targetXform.MapID == drawnMap;
+    }
+    // RMC14
 }

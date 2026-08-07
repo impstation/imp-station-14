@@ -18,6 +18,10 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Numerics;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
+// RMC14
+using Content.Shared._RMC14.Vehicle;
+using Content.Shared.Vehicle.Components;
+// RMC14
 
 namespace Content.Server.Explosion.EntitySystems;
 
@@ -480,6 +484,10 @@ public sealed partial class ExplosionSystem
             && !xform.Anchored
             && throwForce > 0
             && !EntityManager.IsQueuedForDeletion(uid)
+            // RMC14
+            && !HasComp<VehicleComponent>(uid)
+            && !HasComp<GridVehicleMoverComponent>(uid)
+            // RMC14
             && _physicsQuery.TryGetComponent(uid, out var physics)
             && physics.BodyType == BodyType.Dynamic)
         {
