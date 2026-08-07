@@ -5,7 +5,7 @@ Impstation is a fork of Space Station 14, a remake of SS13 that runs on [Robust 
 While we are not a server that allows sexual content, <b>we do not allow people under the age of 20 to play on Impstation.</b>
 
 ## Links
-[Website](https://impstation.gay/) | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Standalone Download](https://spacestation14.io/about/nightlies/)
+Website | [Steam](https://store.steampowered.com/app/1255460/Space_Station_14/) | [Standalone Download](https://spacestation14.io/about/nightlies/)
 
 ## Documentation/Wiki
 
