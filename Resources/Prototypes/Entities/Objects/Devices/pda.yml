@@ -129,7 +129,7 @@
     damage:
       types:
         Blunt: 4
-  - type: ComponentToggler #imp :)
+  - type: ComponentToggler # imp :)
     components:
     - type: LightningTarget
       priority: 1
@@ -137,6 +137,10 @@
     onUse: false
     onActivate: false
     predictable: false
+  - type: AltAccess # imp
+    altAccessAction: ActionAccessPDA
+    slotFlags:
+    - IDCARD
 
 - type: entity
   parent: BasePDA

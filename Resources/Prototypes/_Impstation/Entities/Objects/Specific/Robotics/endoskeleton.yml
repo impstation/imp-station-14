@@ -1,0 +1,61 @@
+﻿- type: entity
+  id: BrainEnclosureEndoskeleton
+  name: osi enclosure endoskeleton
+  description: A frame that OSI enclosures are built on.
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.15
+        density: 80
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        restitution: 0.3
+        friction: 0.2
+  - type: Sprite
+    noRot: true
+    drawdepth: Items
+    sprite: _Impstation/Objects/Specific/Robotics/cyborg_parts.rsi
+    state: ball_base
+  - type: Appearance
+  - type: ItemMapper
+    sprite: _Impstation/Objects/Specific/Robotics/cyborg_parts.rsi
+    mapLayers:
+      ball_top+o:
+        whitelist:
+          tags:
+          - BrainBallTop
+      ball_bot+o:
+        whitelist:
+          tags:
+          - BrainBallBot
+  - type: ContainerContainer
+    containers:
+      part-container: !type:Container
+      cell_slot: !type:Container
+  - type: PartAssembly
+    parts:
+      generic:
+      - BrainBallTop
+      - BrainBallBot
+  - type: Construction
+    graph: BrainEnclosure
+    node: start
+    defaultTarget: osiball
+    containers:
+    - part-container
+    - cell_slot
+  - type: Pullable
+  - type: GuideHelp
+    guides:
+    - Cyborgs
+    - Robotics

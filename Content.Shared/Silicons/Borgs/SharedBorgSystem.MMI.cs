@@ -1,10 +1,12 @@
+using Content.Shared.Actions;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Content.Shared.Chemistry.Components; // imp unborgable
-using Content.Shared.Chemistry.EntitySystems; // imp unborgable
+using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Construction.Steps; // imp unborgable
 using Content.Shared.Containers.ItemSlots; // imp unborgable
 using Content.Shared.Fluids; // imp unborgable
 using Content.Shared.Popups; // imp unborgable
@@ -21,8 +23,6 @@ public abstract partial class SharedBorgSystem
     [Dependency] private readonly SharedPuddleSystem _puddle = default!; // imp
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!; // imp
 
-    private static readonly EntProtoId SiliconBrainRole = "MindRoleSiliconBrain";
-
     public void InitializeMMI()
     {
         SubscribeLocalEvent<MMIComponent, ComponentInit>(OnMMIInit);
@@ -33,6 +33,7 @@ public abstract partial class SharedBorgSystem
         SubscribeLocalEvent<MMIComponent, EntRemovedFromContainerMessage>(OnMMILinkedRemoved);
 
         SubscribeLocalEvent<MMIComponent, ItemSlotInsertAttemptEvent>(OnMMIAttemptInsert); // imp
+        SubscribeLocalEvent<MMIComponent, ToggleBorgContractEvent>(OnContractToggle); // imp
     }
 
     private void OnMMIInit(Entity<MMIComponent> ent, ref ComponentInit args)
@@ -53,23 +54,9 @@ public abstract partial class SharedBorgSystem
         if (HasComp<UnborgableComponent>(brain)) // imp add
             return;
 
-
-        //IMP EDIT: keep the pronouns of the brain inserted
-        var grammar = EnsureComp<GrammarComponent>(ent);
-        if (TryComp<GrammarComponent>(brain, out var formerSelf))
-        {
-            _grammar.SetGender((ent, grammar), formerSelf.Gender);
-            //man-machine interface is not a proper noun, so i'm not setting proper here
-        }
-        //END IMP EDIT
-
-        if (_mind.TryGetMind(brain, out var mindId, out var mindComp))
-        {
-            _mind.TransferTo(mindId, ent.Owner, true, mind: mindComp);
-
-            if (!_roles.MindHasRole<SiliconBrainRoleComponent>(mindId))
-                _roles.MindAddRole(mindId, SiliconBrainRole, silent: true);
-        }
+        // imp add: raise event on brain insertion
+        var successEvent = new MMIInsertionSuccessEvent(ent, brain);
+        RaiseLocalEvent(ent, successEvent);
 
         _appearance.SetData(ent.Owner, MMIVisuals.BrainPresent, true);
     }
@@ -77,6 +64,7 @@ public abstract partial class SharedBorgSystem
     private void OnMMIMindAdded(Entity<MMIComponent> ent, ref MindAddedMessage args)
     {
         _appearance.SetData(ent.Owner, MMIVisuals.HasMind, true);
+        _mind.MakeSentient(ent, false); // imp add: properly allow emoting
     }
 
     private void OnMMIMindRemoved(Entity<MMIComponent> ent, ref MindRemovedMessage args)
@@ -126,5 +114,31 @@ public abstract partial class SharedBorgSystem
             }
         }
         EntityManager.PredictedQueueDeleteEntity(brain);
+    }
+
+    // imp add
+    private void OnContractToggle(Entity<MMIComponent> ent, ref ToggleBorgContractEvent args)
+    {
+        var (uid, comp) = ent;
+        comp.AllowBorging = !comp.AllowBorging;
+        args.Toggle = true;
+        args.Handled = true;
+        Dirty(uid, comp);
+    }
+}
+
+// imp add
+public sealed partial class ToggleBorgContractEvent : InstantActionEvent
+{
+};
+
+// imp add
+public sealed class MMIInsertionSuccessEvent : CancellableEntityEventArgs
+{
+    public EntityUid BrainInserted;
+
+    public MMIInsertionSuccessEvent(Entity<MMIComponent> mmi, EntityUid brainInserted)
+    {
+        BrainInserted = brainInserted;
     }
 }

@@ -1,9 +1,19 @@
 ﻿# Static
+- type: latheRecipePack
+  id: RoboticsStaticImp
+  recipes:
+  - BrainEnclosureEndoskeleton
 
 - type: latheRecipePack
   id: BorgModulesStaticImp
   recipes:
   - BorgModuleArtistic
+
+- type: latheRecipePack
+  id: BorgLimbsStaticImp
+  recipes:
+  - BrainBallTop
+  - BrainBallBot
 
 # Dynamic
 

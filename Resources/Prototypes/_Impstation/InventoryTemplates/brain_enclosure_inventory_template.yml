@@ -1,0 +1,37 @@
+- type: inventoryTemplate
+  id: brainEnclosure
+  slots:
+  - name: head
+    slotTexture: head
+    slotFlags: HEAD
+    uiWindowPos: 2,0
+    strippingWindowPos: 0,0
+    displayName: Head
+    offset: 0.015625, -0.09375
+  - name: neck
+    slotTexture: neck
+    slotFlags: NECK
+    uiWindowPos: 2,1
+    strippingWindowPos: 0,1
+    displayName: neck
+    offset: 0.05, -0.22
+    whitelist:
+      tags:
+      - Medal
+      - TeddyRibbon
+  - name: ears
+    slotTexture: ears
+    slotFlags: EARS
+    stripTime: 3
+    uiWindowPos: 3,0
+    strippingWindowPos: 1,0
+    displayName: Audio Interface
+    offset: 0.015625, -0.09375
+  - name: id
+    slotTexture: id
+    fullTextureName: template_small
+    slotFlags: IDCARD
+    stripTime: 6
+    uiWindowPos: 3,1
+    strippingWindowPos: 1,1
+    displayName: PDA Interface

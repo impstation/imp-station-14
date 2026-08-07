@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: BaseMMI # imp, keeping this entity Mostly The Same because it has to be merged with upstream
   id: MMI
   name: organic-synthetic interface #imp, renamed from man-machine interface
   description: A machine able to facilitate communication between a biological brain and electronics, enabling crew to continue to provide value after work-related incidents. A first step towards a cyborg. # imp edit for clarity
@@ -38,7 +38,8 @@
   - type: TypingIndicator
     proto: robot
   - type: Speech
-    speechSounds: Pai
+    speechVerb: Robotic # imp edit
+    speechSounds: Borg # imp edit
   - type: ItemSlots
   - type: ContainerContainer
     containers:
@@ -52,6 +53,14 @@
     whitelist:
       components:
       - SecretStash
+  - type: ActionGrant # imp addition: borg consent action
+    actions:
+    - ActionAllowBorgingToggle
+  - type: Tag # imp addition: tags
+    tags:
+    - SiliconEmotes
+    - ImmobileEmoter
+    - BorgBrainNT
 
 - type: entity
   parent: MMI
@@ -65,6 +74,9 @@
       whitelist:
         components:
         - Brain
+  - type: Construction # imp addition: allow deconversion of xeno brains
+    graph: XenoBrainDeconvert
+    node: normalOsi
 
 - type: entity
   parent: BaseItem
@@ -122,6 +134,8 @@
     - type: Tag
       tags:
       - CannotSuicide
+      - BorgBrainNT # Imp
+      - BorgBrainXeno # Imp
     - type: GenericVisualizer
       visuals:
         enum.ToggleableGhostRoleVisuals.Status:
@@ -137,5 +151,8 @@
       whitelist:
         components:
         - SecretStash
-    - type: StealTarget #imp
+    - type: StealTarget # imp
       stealGroup: PositronicBrains
+    - type: ActionGrant # imp addition: hibernation action
+      actions:
+      - ActionDisconnect
