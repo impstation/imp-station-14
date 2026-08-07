@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "license": "CC0-1.0",
+  "copyright": "by youtubevideo3 for impstation, based loosely on sprites ported from Frontier Station 14 & edited by sha-seng and hilda., original sprites by Imaginos16 from tgstation. Licensed under CC-BY-SA 3.0.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-open"
+    },
+    {
+      "name": "equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "open-equipped-OUTERCLOTHING",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "open-equipped-OUTERCLOTHING-vox",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-ungu",
+      "directions": 4
+    },
+    {
+      "name": "open-equipped-OUTERCLOTHING-ungu",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
+      "name": "open-equipped-OUTERCLOTHING-anomalocarid",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "open-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "open-inhand-right",
+      "directions": 4
+    }
+  ]
+}

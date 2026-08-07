@@ -29,11 +29,21 @@
   equipment:
     jumpsuit: ClothingUniformDetectiveSuitSkirt #imp
 
+- type: loadout
+  id: DetectiveSuitBlackPants
+  equipment:
+    jumpsuit: ClothingUniformDetBlackSuit
+
+- type: loadout
+  id: DetectiveSuitBlackSkirt
+  equipment:
+    jumpsuit: ClothingUniformDetBlackSuitskirt
+
 # Outer Clothing
 - type: loadout
   id: ClothingOuterCoatFieldJacket
   equipment:
-    outerClothing: ClothingOuterCoatFieldJacket #imp
+    outerClothing: ClothingOuterCoatFieldJacket
 
 # Head
 - type: loadout
