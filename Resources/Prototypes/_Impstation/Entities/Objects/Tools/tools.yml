@@ -311,3 +311,32 @@
   - type: Tag
     tags:
     - RollingPin
+
+- type: entity
+  parent: BaseItem
+  id: KeyRing
+  name: Key Ring
+  description: The HDs key ring, it can open any door in the station! ...If you can find the right one.
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/keyring.rsi # ideally to be replaced with a custom sprite some point in the future
+    state: icon
+  - type: KeyRing
+    minUseTime: 5
+    maxUseTime: 10
+  - type: EmitsSoundOnMove
+    soundCollection:
+      collection: FootstepKeyRing
+      params:
+        variation: 0.07 #copied from the existing jester shoes
+    requiresGravity: false
+    requiresWorn: false
+    invalidSlots: NONE
+  - type: Clothing
+    slots: [ belt ]
+    quickEquip: false
+  - type: Item
+    sprite: _Impstation/Objects/Devices/keyring.rsi
+    size: Small
+    shape:
+    - 0,0,1,1

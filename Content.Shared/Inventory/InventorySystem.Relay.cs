@@ -1,3 +1,4 @@
+using Content.Shared._EE.Movement.Events;
 using Content.Shared.Armor;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
@@ -67,6 +68,7 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, DownedEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, CheckMagicItemEvent>(RelayInventoryEvent); // goob edit
         SubscribeLocalEvent<InventoryComponent, TransformSpeakerVoiceEvent>(RelayInventoryEvent); // impstation edit
+        SubscribeLocalEvent<InventoryComponent, MakeFootstepSoundEvent>(RelayInventoryEvent);// EE edit
 
         // by-ref events
         SubscribeLocalEvent<InventoryComponent, RefreshFrictionModifiersEvent>(RefRelayInventoryEvent);
