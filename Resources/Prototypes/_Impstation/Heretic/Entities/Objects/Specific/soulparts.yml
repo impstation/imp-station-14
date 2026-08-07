@@ -1,0 +1,181 @@
+- type: entity
+  parent: [ BaseItem, TierXContraband ]
+  id: SoulFragmentSight
+  name: soul fragment - sight
+  description: The Archivist's gifts.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: sight
+    noRot: true
+  - type: Icon
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: sight
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#f7ff1c"
+  - type: Tag 
+    tags:
+      - Organ
+      - Eyes
+  - type: HereticSoulFragment
+    message: heretic-soul-fragment-sight
+
+- type: entity
+  parent: SoulFragmentSight
+  id: SoulFragmentHunger
+  name: soul fragment - hunger
+  description: The Doe's gifts.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: hunger
+    noRot: true #doe in shambles
+  - type: Icon
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: hunger
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#ff4423"
+  - type: Tag 
+    tags:
+      - Organ
+      - Stomach
+  - type: HereticSoulFragment
+    message: heretic-soul-fragment-hunger
+
+- type: entity
+  parent: SoulFragmentSight
+  id: SoulFragmentDreams
+  name: soul fragment - dreams
+  description: A gift to ourselves.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: dreams
+    noRot: true
+  - type: Icon
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: dreams
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#68d8d6"
+  - type: Tag 
+    tags:
+      - Organ
+      - Brain
+  - type: HereticSoulFragment
+    message: heretic-soul-fragment-dreams
+
+- type: entity
+  parent: SoulFragmentSight
+  id: SoulFragmentRhythm
+  name: soul fragment - rhythm
+  description: The Note's gifts.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: rhythm
+    noRot: true
+  - type: Icon
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: rhythm
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#ff7c6d"
+  - type: Tag 
+    tags:
+      - Organ
+      - Heart
+  - type: HereticSoulFragment
+    message: heretic-soul-fragment-rhythm
+
+- type: entity
+  parent: SoulFragmentSight
+  id: SoulFragmentSpeech
+  name: soul fragment - speech
+  description: The Alchemist's gifts.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: speech
+    noRot: true
+  - type: Icon
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: speech
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#de50e5"
+  - type: Tag 
+    tags:
+      - Organ
+      - Lungs
+  - type: HereticSoulFragment
+    message: heretic-soul-fragment-speech
+
+- type: entity
+  parent: SoulFragmentSight
+  id: SoulFragmentSword
+  name: soul fragment - sword
+  description: The Fugitive's gifts.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: sword
+    noRot: true
+  - type: Icon
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: sword
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#d6dd49"
+  - type: Tag 
+    tags:
+      - Organ
+      - Kidneys
+  - type: HereticSoulFragment
+    message: heretic-soul-fragment-sword
+
+- type: entity
+  parent: SoulFragmentSight
+  id: SoulFragmentShield
+  name: soul fragment - shield
+  description: The Warden's gifts.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: shield
+    noRot: true
+  - type: Icon
+    sprite: _Impstation/Heretic/soul_fragments.rsi
+    state: shield
+  - type: PointLight
+    radius: 1.5
+    energy: 3
+    color: "#ef6007"
+  - type: Tag 
+    tags:
+      - Organ
+      - Liver
+  - type: HereticSoulFragment
+    message: heretic-soul-fragment-shield
