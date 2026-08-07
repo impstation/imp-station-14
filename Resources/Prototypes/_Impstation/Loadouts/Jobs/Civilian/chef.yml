@@ -1,54 +1,22 @@
-# Senior times
-- type: loadoutEffectGroup
-  id: SeniorChef
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChef
-      time: 30h
-
-# Outerwear
-- type: loadoutEffectGroup
-  id: SeniorChefApron
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:RoleTimeRequirement
-      role: JobChef
-      time: 10h
-
 - type: loadout
   id: ChefCuteApron
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorChefApron
   equipment:
     outerClothing: ClothingOuterApronCuteChef
 
 # Jumpsuit
 - type: loadout
   id: ChefSpaceJumpsuit
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorChef
   equipment:
     jumpsuit: ClothingUniformSpaceJumpsuitChef
 
 - type: loadout
   id: HeadChef
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorChef
   equipment:
     jumpsuit: ClothingUniformHeadChef
 
 
 - type: loadout
   id: HeadChefSkirt
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorChef
   equipment:
     jumpsuit: ClothingUniformHeadChefSkirt
 
@@ -60,18 +28,12 @@
 
 - type: loadout
   id: HeadChefShoes
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorChef
   equipment:
     shoes: ClothingShoesHeadChef
 
 # Neck
 - type: loadout
   id: HeadChefNeck
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorChef
   equipment:
     neck: ClothingNeckHeadChef
 
@@ -83,8 +45,5 @@
 
 - type: loadout
   id: SeniorChefPDA
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: SeniorChef
   equipment:
     id: SeniorChefPDA
