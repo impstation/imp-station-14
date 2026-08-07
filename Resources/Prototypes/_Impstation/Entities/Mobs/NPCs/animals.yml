@@ -772,3 +772,30 @@
   - type: NpcFactionMember
     factions:
       - Dog
+
+- type: entity
+  parent: MobWeirdShrimp
+  suffix: Antag
+  id: MobWeirdShrimpKillEveryon
+  components:
+    - type: GhostRole
+      makeSentient: true
+      name: ghost-role-information-weirdshrimp-name
+      description: ghost-role-information-weirdshrimp-description
+      rules: ghost-role-information-familiar-weirdshrimp-rules
+      raffle:
+        settings: short
+      mindRoles:
+      - MindRoleKillEveryon
+    - type: GrantObjectives
+      objectives:
+        - KillEveryonObjective
+    - type: Hands
+      hands:
+        hand_right:
+          location: Right
+      sortedHands:
+      - hand_right
+    - type: ComplexInteraction
+    - type: CombatMode
+      canDisarm: true
