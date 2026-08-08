@@ -16,6 +16,7 @@ public sealed partial class SynthComponent : Component
     /// <summary>
     /// VDS - The reagent that replaces the synth's blood
     /// </summary>
-    [DataField]
-    public Solution SynthBloodReagent = new([new("SynthBlood", 300)]);
+    // Imp Edit - Changed to string.
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public string SynthBloodReagent = "SynthBlood";
 }
