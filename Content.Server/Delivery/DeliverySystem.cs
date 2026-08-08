@@ -75,6 +75,8 @@ public sealed partial class DeliverySystem : SharedDeliverySystem
         RaiseLocalEvent(ev);
         // imp end
 
+        PopulateContents(ent, entry.JobPrototype); // IMP: departmental mail real
+
         Dirty(ent);
     }
 

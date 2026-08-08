@@ -8,8 +8,8 @@ reagent-name-beer = beer
 reagent-desc-beer = An alcoholic beverage made from malted grains, hops, yeast, and water.
 
 reagent-name-blue-curacao = blue Curaçao
-reagent-desc-blue-curacao = Exotically blue, fruity drink, distilled from oranges.
-
+reagent-desc-blue-curacao = Bright blue, fruity drink, distilled from oranges.
+# imp edit (reagent desc) #changed exotically -> bright
 reagent-name-cognac = cognac
 reagent-desc-cognac = A sweet and strongly alcoholic drink, twice distilled and left to mature for several years. Classy as fornication.
 

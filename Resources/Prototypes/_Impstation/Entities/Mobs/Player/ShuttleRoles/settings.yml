@@ -65,6 +65,39 @@
       fallbackRole: MindRoleGhostRoleNeutral
       chance: 0.3
 
+#this is here to facilitate the random spawners for the shuttles, so that the RandomAntagChance component can be used
+- type: randomHumanoidSettings
+  id: VisitorParamedicFlatline
+  parent: VisitorMedical
+  components:
+    - type: GhostRole
+      name: job-name-paramedic
+      rules: ghost-role-information-antagonistchance-rules
+    - type: Loadout
+      prototypes: [ VisitorParamedic, VisitorParamedicAlt ]
+      roleLoadout: [ RoleSurvivalMedical ]
+    - type: RandomAntagChance
+      antagRole: MindRoleInitialInfected 
+      fallbackRole: MindRoleGhostRoleNeutral
+      chance: .15
+
+#this is here to facilitate the random spawners for the shuttles, so that the RandomAntagChance component can be used
+- type: randomHumanoidSettings
+  id: VisitorChaplainEternal
+  parent: VisitorCivilian
+  components:
+    - type: BibleUser
+    - type: GhostRole
+      name: job-name-chaplain
+      rules: ghost-role-information-antagonistchance-rules
+    - type: Loadout
+      prototypes: [ VisitorChaplain, VisitorChaplainAlt ]
+      roleLoadout: [ RoleSurvivalStandard ]
+    - type: RandomAntagChance
+      antagRole: Changeling
+      fallbackRole: MindRoleGhostRoleNeutral
+      chance: .3
+
 # CentComm Interns
 - type: randomHumanoidSettings
   id: CentcommIntern

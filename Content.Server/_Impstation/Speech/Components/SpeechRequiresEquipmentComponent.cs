@@ -1,7 +1,7 @@
-using Content.Server.Speech.EntitySystems;
+using Content.Server._Impstation.Speech.EntitySystems;
 using Content.Shared.Whitelist;
 
-namespace Content.Server.Speech.Components;
+namespace Content.Server._Impstation.Speech.Components;
 
 [RegisterComponent]
 [Access(typeof(SpeechRequiresEquipmentSystem))]

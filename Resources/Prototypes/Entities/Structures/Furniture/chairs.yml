@@ -388,11 +388,17 @@
       state: storage
   - type: Appearance
   - type: MeleeWeapon
+    wideAnimationRotation: 270 #imp
     damage:
       types:
-        Blunt: 8
+        Blunt: 6 #imp
     soundHit:
       collection: MetalThud
+  - type: Wieldable #Imp start
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 6 #Imp end
   - type: Construction
     graph: Seat
     node: chairFolding

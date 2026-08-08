@@ -30,7 +30,7 @@
   table: !type:GroupSelector
     children:
     - id: SpellbookMimeInvisibleWall
-    - id: SpellbookMimeInvisibleChair
+    # - id: SpellbookMimeInvisibleChair #disabled until a safe implementation is made
     - id: SpellbookMimeInvisibleBox
     - id: SpellbookMimeVow
       weight: 0.1

@@ -74,3 +74,21 @@
     - WhitelistChameleon
     - CorgiWearable
     
+
+#HOS Helmet
+- type: entity
+  parent: [ClothingHeadHelmetArmoredBase, BaseSecurityCommandContraband]
+  id: ClothingHeadHelmetHOS
+  name: head of security's helmet
+  description: A security helmet made for a superior to stick out in combat. The little shield even protects one from Syndicate mindcontrol waves (supposedly).
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/Head/Helmets/hos_helmet.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/Head/Helmets/hos_helmet.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    layers:
+      Hair: HEAD

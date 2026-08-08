@@ -833,13 +833,6 @@
 
 - type: entity
   parent: ClothingMaskClownChameleonSecurity
-  id: ClothingMaskClownSecurity
-  components:
-  - type: ChameleonClothing
-    default: ClothingMaskClownSecurity
-
-- type: entity
-  parent: ClothingMaskClownChameleonSecurity
   id: ClothingMaskClownSecurityWigless
   name: security clown mask
   description: A security-themed clown mask and wig. Discombobulate.

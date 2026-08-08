@@ -1,0 +1,60 @@
+# hi there this is how departmental mail works. when a mail delivery is picking its loot table...
+#
+# 1. it will use the per-job mail table first
+#
+# 2. if there is no per-job mail table, then it will use the primary department
+#   - (most departments are primary, command isn't. so the research director's primary department is science)
+#
+# 3. if there is no primary department, it will use the first applicable department
+#   - (so, if there's no science table, then RD will fallback to command)
+#
+# 4. if there is no applicable department table, it will just use the basic mail table
+#
+# note that you'll have to decide for yourself how much the base mail table weighs in here by
+# including the LetterDeliveryRewards or PackageDeliveryRewards tables in the selector somewhere.
+# if you want, you can leave it out and replace the mail loot table entirely if you want a job/department
+# to not get the "generic" mail
+#
+# have fun you guys
+# - portfiend (march 11 2026)
+
+# TODO: Populate this
+- type: entity
+  abstract: true
+  id: DepartmentalLetters
+  components:
+  - type: Delivery
+    departmentTables: {}
+      # FIG 1. command is not a primary department, so this is a "fallback" for command members
+      # who do not have mail for their job or primary department defined
+      # Command: !type:NestedSelector
+      #   tableId: LotteryCashEntityTable
+      #
+      # FIG 2. if you want "generic" mail to still roll for the engineering department,
+      # you'll have to include it in the selector and decide the weights yourself
+      # Engineering: !type:GroupSelector
+      #   children:
+      #   - !type:NestedSelector
+      #     tableId: LotteryCanistersEntityTable
+      #     weight: 0.3
+      #   - !type:NestedSelector
+      #     tableId: LetterDeliveryRewards
+      #     weight: 0.7
+      #
+      # FIG 3. science just gets food, including the research director
+      # Science: !type:NestedSelector
+      #   tableId: MealFoodTable
+    jobTables: {}
+      # FIG 4. chief engineers will only get CE mail, they won't get engineering mail.
+      # per-job tables are always the highest priority loot table
+      # ChiefEngineer: !type:NestedSelector
+      #   tableId: LotteryPlushiesEntityTable
+
+# TODO: Populate this
+- type: entity
+  abstract: true
+  id: DepartmentalPackages
+  components:
+  - type: Delivery
+    departmentTables: {} # remove these when you add them ok
+    jobTables: {} # remove these when you add them ok

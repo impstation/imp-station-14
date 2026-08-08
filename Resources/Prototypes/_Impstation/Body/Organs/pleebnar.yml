@@ -1,5 +1,5 @@
 - type: entity
-  id: BasePleebnarOrganUnGibbable
+  id: BasePleebnarOrgan
   parent: BaseItem
   abstract: true
   components:
@@ -23,13 +23,6 @@
     tags:
     - Meat
     - Organ
-
-- type: entity
-  id: BasePleebnarOrgan
-  parent: BasePleebnarOrganUnGibbable
-  abstract: true
-  components:
-  - type: Gibbable
 
 - type: entity
   id: OrganPleebnarLungs

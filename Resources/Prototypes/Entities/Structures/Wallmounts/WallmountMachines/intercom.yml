@@ -116,6 +116,7 @@
   - type: TooShortForUIBlacklist #imp
 
 - type: entity
+  parent: BaseWallmountMetallic # imp edit
   id: IntercomAssembly
   name: intercom assembly
   description: An intercom. It doesn't seem very helpful right now.

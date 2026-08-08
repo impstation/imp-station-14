@@ -1,71 +1,74 @@
 <Document>
   # Path of Hunt
-  The Path of Hunt focuses on gunplay and tangible items, and comes highly recommended for first-time Heretics. It's very strong in its comfort zone - which is to say, far away from its prey - but flounders in close-combat situations.
+  The [color=yellowgreen]Path of Hunt[/color] focuses on gunplay and tangible items, and comes highly recommended for first-time Heretics.
 
-  It offers many powerful tools which will allow you to use your guns far more effectively than heathens. Ascending will make you reflect any and all projectiles that hit you.
+  It's very strong in its comfort zone - which is to say, far away from its prey - but flounders in close-combat situations.
 
-  ## Principle of Strife
+  It offers many powerful tools which will allow you to use your guns far more effectively than heathens.
+
+  [color=#8f63e6]Ascending[/color] will make you reflect any and all projectiles that hit you.
+
+  ##Abilities
   <Box>
-    <GuideEntityEmbed Entity="WeaponRevolverSerpentine" Caption=""/>
+    <GuideEntityEmbed Entity="WeaponRevolverSerpentine" Caption="Principle of Strife"/>
   </Box>
-  Opens up the Path of Hunt to you.
+  Opens up the [color=yellowgreen]Path of Hunt[/color] to you.
 
-  Allows you to transmute a pistol and a knife into a Serpentine Revolver. Makeshift Pistols and Flare Guns will both suffice.
+  Allows you to transmute a pistol and a knife into a [color=red]Serpentine Revolver[/color]. Makeshift Pistols and Flare Guns will both suffice.
 
-  ## Hunter's Grasp
   <Box>
-    <GuideEntityEmbed Entity="TouchSpellMansus" Caption=""/>
+    <GuideEntityEmbed Entity="HereticIconGrasp" Caption="Hunter's Grasp"/>
   </Box>
-  Your Mansus Grasp gains the ability to refill an empty bullet casing.
+  Your [color=green]Mansus Grasp[/color] gains the ability to refill an empty bullet casing.
 
-  ## Watchtower Striving
   <Box>
-    <GuideEntityEmbed Entity="HereticWatchtower" Caption=""/>
+    <GuideEntityEmbed Entity="HereticIconTower" Caption="Watchtower Striving"/>
   </Box>
-  Grants you the Watchtower Striving spell, which places a watchtower that is invisible to non-heretics and redirects bullets towards them when hit. 
+  Grants you the [color=yellowgreen]Watchtower Striving[/color] spell, which places a tower that redirects bullets towards heathens when hit.
 
-  Requires a Focus.
+  This spell requires a [color=#8f63e6]Focus[/color] to cast.
 
-  ## Mark of Hunt
   <Box>
-    <GuideEntityEmbed Entity="TouchSpellMansus" Caption=""/>
+    <GuideEntityEmbed Entity="HereticIconGrasp" Caption="Mark of Hunt"/>
   </Box>
-  Your Mansus Grasp will cause your prey to be slowed for a short time.
+  Your [color=green]Mansus Grasp[/color] will cause your prey to be slowed for a short time.
 
-  ## Meteoric Pouch
   <Box>
-    <GuideEntityEmbed Entity="HereticAmmoPouch" Caption=""/>
+    <GuideEntityEmbed Entity="HereticAmmoPouch" Caption="Meteoric Pouch"/>
   </Box>
-  Grants a ritual that allows you to transmute a pill canister and a pipe into a Meteoric Pouch, which works as a portable ammo fabricator. 
+  Grants a ritual that allows you to transmute a pill canister and a pipe into a [color=red]Meteoric Pouch[/color], which works as a portable ammo fabricator.
 
-  A Meteoric Pouch can produce Meteoric Bullets, which go through walls.
+  A [color=red]Meteoric Pouch[/color] produces [color=red]Meteoric Bullets[/color], which phase through walls.
 
-  ## Serpent's Focus
   <Box>
-    <GuideEntityEmbed Entity="OrganThavenEyes" Caption=""/>
+    <GuideEntityEmbed Entity="HereticIconFocus" Caption="Serpent's Focus"/>
   </Box>
-  Grants you the Serpent's Focus ability, which allows you to see living things through walls, but blacks out your vision. 
+  Grants you the [color=yellowgreen]Serpent's Focus[/color] ability, which allows you to see living things through walls, but blacks out your vision.
 
-  Requires a Focus.
+  This spell requires a [color=#8f63e6]Focus[/color] to cast.
 
-  ## Lion's Bane
   <Box>
-    <GuideEntityEmbed Entity="WeaponSniperLionhunter" Caption=""/>
+    <GuideEntityEmbed Entity="WeaponSniperLionhunter" Caption="Lion's Bane"/>
   </Box>
-  Grants a ritual that allows you to transmute a pistol, some meat, and some eyes into a Lionhunter's Rifle. 
-  
-  The Lionhunter's Rifle comes full of .60 meteoric bullets, and has long-range sniper sights. When paired with Serpent's Focus, the user can cause extreme damage from a safe, hidden position.
+  Grants a ritual that allows you to transmute a pistol, some meat, and a pair of eyes into a [color=red]Lionhunter's Rifle[/color].
 
-  ## Warden's Shroud
+  The [color=red]Lionhunter's Rifle[/color] comes full of .60 meteoric bullets, and has long-range sniper sights.
+
+  When paired with the [color=yellowgreen]Serpent's Focus[/color] ability, the user can cause extreme damage from a safe, hidden position.
+
   <Box>
-    <GuideEntityEmbed Entity="HereticSkaptodonCloak" Caption=""/>
+    <GuideEntityEmbed Entity="HereticSkaptodonCloak" Caption="Warden's Shroud"/>
   </Box>
-  Grants a ritual that allows you to transmute a scarf, a glass shard, and a brain into a Skaptodon Cloak, which allows the wearer to become invisible while still.
-  
-  The Skaptodon Cloak can be active for two minutes on a full charge, and needs to be turned off for a short time before it will begin to recharge.
+  Grants a ritual that allows you to transmute a scarf, a glass shard, and a brain into a [color=red]Skaptodon Cloak[/color], which allows the wearer to become invisible while still.
 
-  ## Manhunt's Reversal
-  The ascension ritual of the path of Hunt.Bring 3 handcuffed corpses to a transmutation rune to complete the ritual.
+  The [color=red]Skaptodon Cloak[/color] can be active for two minutes on a full charge, and needs to be turned off for a short time before it will begin to recharge.
 
-  This ritual will complete your transformation from Prey to Hunter. You will redirect all projectiles that hit you back at your foes. However, you can still be hurt by melee weapons.
+  <Box>
+    <GuideEntityEmbed Entity="KitchenSpike" Caption="Manhunt's Reversal"/>
+  </Box>
+  The [color=#8f63e6]Ascension[/color] ritual of the [color=yellowgreen]Path of Hunt[/color].
+
+  Bring 3 handcuffed corpses to a [color=#8f63e6]Transmutation Rune[/color] to complete the ritual.
+
+  This ritual will complete your transformation from Prey to [color=yellowgreen]Hunter[/color]. You will redirect all projectiles that hit you back at your foes. However, you can still be hurt by melee weapons and lasers.
 </Document>

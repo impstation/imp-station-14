@@ -1,0 +1,159 @@
+- type: entity
+  parent: [ SimpleMobBase, MobCombat ]
+  id: BaseMobGhoul
+  abstract: true
+  components:
+  - type: Minion
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.00
+    baseSprintSpeed: 3.00
+  - type: InputMover
+  - type: MobMover
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+      Extinguish: [Touch]
+  - type: NpcFactionMember
+    factions:
+    - Heretic
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+  - type: NoSlip
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghostrole-ghoul-name
+    description: ghostrole-ghoul-desc
+    rules: ghostrole-ghoul-rules
+    raffle:
+      settings: short
+    mindRoles: # imp
+    - MindRoleGhostRoleFamiliar
+  - type: HereticMansusLink
+  - type: GhostTakeoverAvailable
+  - type: InnateHereticMagic
+
+- type: entity
+  parent: BaseMobGhoul
+  id: MobGhoulStalker
+  name: flesh stalker
+  description: An abomination cobbled together from varied remains. Its appearance changes slightly every time you blink.
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Dead
+  - type: Sprite
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: stalker
+  - type: ActionsProvider
+    actions:
+    - ActionHereticJaunt
+  # basically an EMP implant. don't feel like making 1 more emp action
+    - ActionActivateEmpImplant
+  - type: TriggerOnActivateImplant
+  - type: EmpOnTrigger
+    range: 5
+    energyConsumption: 50000
+    disableDuration: 20
+  - type: MeleeWeapon
+    altDisarm: false
+    soundHit:
+      path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+    angle: 90
+    animation: WeaponArcDisarm
+    attackRate: 3
+    damage:
+      types:
+        Slash: 12
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
+
+- type: entity
+  parent: [BaseMobGhoul,FlyingMobBase]
+  id: MobGhoulProphet
+  name: raw prophet
+  description: An abomination stitched together from a few severed arms and one swollen, orphaned eye.
+  components:
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    layers:
+    - map: [ "movement" ]
+      state: raw_prophet
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: raw_prophet-move
+    noMovementLayers:
+      movement:
+        state: raw_prophet
+  - type: ActionsProvider
+    actions:
+    - ActionHereticJaunt
+    - ActionHereticMansusLink
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5.00
+    baseSprintSpeed: 8.00
+  - type: Hands
+    hands:
+      hand:
+        location: Right
+    sortedHands:
+    - hand
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Loadout
+    prototypes:
+    - ProphetGear
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:GibBehavior
+        recursive: false
+
+- type: entity
+  parent: BaseMobGhoul
+  id: MobGhoulRustWalker
+  name: rust walker
+  description: A grinding, clanking construct which leaches life from its surroundings with every armoured step.
+  categories: [ DoNotMap ] # imp
+  components:
+  - type: MobThresholds
+    thresholds:
+      100: Dead

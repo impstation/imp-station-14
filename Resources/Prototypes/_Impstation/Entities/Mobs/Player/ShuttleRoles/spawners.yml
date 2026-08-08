@@ -83,6 +83,38 @@
     prototypes:
     - RandomHumanoidVisitorLibrarianCryptid
 
+#this is here to facilitate the random spawners for the shuttles, so that the RandomAntagChance component can be used
+- type: entity 
+  name: visiting paramedic spawner
+  id: VisitorParamedicSpawnerFlatline
+  parent: MarkerBase
+  suffix: tag
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner_medical
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidVisitorParamedicFlatline
+
+#this is here to facilitate the random spawners for the shuttles, so that the RandomAntagChance component can be used
+- type: entity
+  name: visiting chaplain spawner
+  id: VisitorChaplainSpawnerEternal
+  parent: MarkerBase
+  suffix: tag
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: Structures/Decoration/banner.rsi
+        state: banner
+  - type: RandomSpawner
+    prototypes:
+    - RandomHumanoidVisitorChaplainEternal
+
 - type: entity
   name: party gray spawner
   id: VisitorPartyGraySpawner

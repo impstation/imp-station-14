@@ -36,6 +36,14 @@ public sealed class LightBehaviorSystem : EntitySystem
             container.LightBehaviour.UpdatePlaybackValues(container.Animation);
             _player.Play(uid, container.Animation, container.FullKey);
         }
+        // imp early merge start
+        else
+        {
+            //StopLightBehaviour((uid, component), container.LightBehaviour.ID); //imp, this code will show up in an upmerge. we don't want it
+            // Only stop this specific behavior, not all siblings with the same id
+            if (TryComp(uid, out AnimationPlayerComponent? animPlayer))
+                _player.Stop(uid, animPlayer, container.FullKey);
+        } // end imp
     }
 
     private void OnLightStartup(Entity<LightBehaviourComponent> entity, ref ComponentStartup args)
@@ -68,7 +76,7 @@ public sealed class LightBehaviorSystem : EntitySystem
             var propertyValue = AnimationHelper.GetAnimatableProperty(light, property);
             if (propertyValue != null)
             {
-                entity.Comp.OriginalPropertyValues.Add(property, propertyValue);
+                entity.Comp.OriginalPropertyValues[property] = propertyValue; // imp edit
             }
         }
         else

@@ -1,0 +1,6 @@
+- type: stack
+  parent: BaseTileStack
+  id: FloorDecaCarpet
+  name: stack-red-carpet-tile
+  icon: { sprite: /Textures/_Impstation/Structures/Furniture/Carpets/decapoid_carpet.rsi, state: icon }
+  spawn: FloorDecaCarpetItem

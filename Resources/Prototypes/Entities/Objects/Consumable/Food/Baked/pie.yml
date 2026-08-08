@@ -226,10 +226,10 @@
       food:
         maxVol: 55
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 42
-        - ReagentId: Vitamin
-          Quantity: 6
+        - ReagentId: Cream # imp - edited for consistency between sprite and puddle created when thrown
+          Quantity: 21.5
+        - ReagentId: JuiceBanana # imp
+          Quantity: 20.5
 
 - type: entity
   name: slice of banana cream pie
@@ -254,10 +254,10 @@
       food:
         maxVol: 15
         reagents:
-        - ReagentId: Nutriment
-          Quantity: 10.5
-        - ReagentId: Vitamin
-          Quantity: 1.5
+        - ReagentId: Cream # imp
+          Quantity: 6.5
+        - ReagentId: JuiceBanana # imp
+          Quantity: 5.5
 # Tastes like pie, cream, banana.
 
 - type: entity

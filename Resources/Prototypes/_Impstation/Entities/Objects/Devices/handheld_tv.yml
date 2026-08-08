@@ -43,3 +43,34 @@
     speechVerb: Robotic
   - type: SurveillanceCameraSpeaker
   - type: SurveillanceCameraMonitor
+
+- type: entity
+  id: CameraHandheldBorg #Borg version - extreme range and no power requirement
+  parent: BaseItem
+  suffix: Entertainment
+  name: integrated television
+  description: A nifty device that lets you scare yourself from anywhere on the station!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Devices/handheld_tv.rsi
+    layers:
+    - state: handheld_tv
+  - type: Item
+  - type: ActivatableUI
+    requireActiveHand: false
+    inHandsOnly: true
+    key: enum.SurveillanceCameraMonitorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SurveillanceCameraMonitorUiKey.Key:
+        type: SurveillanceCameraMonitorBoundUserInterface
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SurveillanceCamera
+    transmitFrequencyId: SurveillanceCamera
+  - type: WirelessNetworkConnection
+    range: 10000 #quiet large
+  - type: Speech
+    speechVerb: Robotic
+  - type: SurveillanceCameraSpeaker
+  - type: SurveillanceCameraMonitor

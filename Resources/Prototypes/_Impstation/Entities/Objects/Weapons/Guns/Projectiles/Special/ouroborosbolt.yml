@@ -14,6 +14,8 @@
       - state: bee
   - type: Ammo
     muzzleFlash: MuzzleFlashEffectEnergySmall
+  - type: CollisionFilter
+    requiredTags: [XenoHornet]
   - type: TriggerOnSpawn
     keyOut: timer
   - type: TriggerOnCollide
@@ -29,6 +31,7 @@
     keysIn:
     - trigger
     proto: MobBeeroboros
+    maxTriggers: 1
   - type: Projectile
     impactEffect: BulletImpactEffectOrangeDisabler
     damage:
@@ -37,6 +40,8 @@
     soundHit:
       collection: WeakHit
     forceSound: true
+  - type: TimedDespawn # Without this the projectile FX won't disappear
+    lifetime: 0.27 # Needs a slight delay or the bee won't spawn
 
 - type: entity
   name : ouroBROSbolt

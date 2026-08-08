@@ -487,3 +487,27 @@
     collection: FootstepHull
   itemDrop: FloorTileItemSteel # Have to put something here according to upstream comments and I can't be bothered to test myself. Shouldn't be obtainable though
   heatCapacity: 10000
+
+- type: tile
+  id: FloorDecapoid
+  name: tiles-decapoid-floor
+  sprite: /Textures/_Impstation/Tiles/Misc/decapoid.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDecapoid
+  heatCapacity: 10000
+
+- type: tile
+  id: FloorDecapoidFancy
+  name: tiles-decapoid-floor-fancy
+  sprite: /Textures/_Impstation/Tiles/Misc/decapoid_fancy.png
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepTile
+  itemDrop: FloorTileItemDecapoidFancy
+  heatCapacity: 10000

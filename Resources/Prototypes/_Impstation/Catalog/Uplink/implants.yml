@@ -1,0 +1,18 @@
+﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
+
+- type: listing
+  id: UplinkGayImplanter
+  name: uplink-gay-implanter-name
+  description: uplink-gay-implanter-desc
+  icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
+  productEntity: GayStorageImplanter
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkImplants
+  conditions: # i want this to only show up in surplus crates
+  - !type:BuyerWhitelistCondition
+    makeHidden: true
+    whitelist:
+      components:
+      - SurplusBundle

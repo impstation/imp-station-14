@@ -4,15 +4,12 @@ using Content.Server.Antag;
 using Content.Server.Cloning;
 using Content.Server.EUI;
 using Content.Server.Humanoid;
-using Content.Server.StationEvents;
 using Content.Shared._Impstation.Heretic.Components;
-using Content.Shared.Administration.Systems;
-using Content.Shared.Bed.Cryostorage;
-using Content.Shared.Body.Systems;
 using Content.Shared.Cloning;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Gibbing;
 using Content.Shared.Heretic;
 using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Humanoid;
@@ -22,7 +19,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.EntitySerialization;
 using Robust.Shared.EntitySerialization.Systems;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -49,15 +45,13 @@ public sealed class HellWorldSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly SharedJointSystem _jointSystem = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     private readonly ResPath _mapPath = new("Maps/_Impstation/Nonstations/InfiniteArchives.yml");
     private readonly ProtoId<CloningSettingsPrototype> _cloneSettings = "HellClone";
@@ -107,10 +101,9 @@ public sealed class HellWorldSystem : EntitySystem
 
         //gib clone to get matching organs.
         if (clone != null)
-            _body.GibBody(clone.Value, true);
+            _gibbing.Gib(clone.Value);
 
-        //teleport the body to a midround antag spawn spot so it's not just tossed into space
-        TeleportToHereticSpawnPoint(uid);
+        //set original body to put the mind back in later
         uid.Comp.OriginalBody = uid;
         uid.Comp.ExitHellTime = _timing.CurTime + uid.Comp.HellDuration;
         //make sure the victim has a mind
@@ -143,7 +136,7 @@ public sealed class HellWorldSystem : EntitySystem
         var mindComp = Comp<MindComponent>(inHell.Mind.Value);
         mindComp.PreventGhosting = true;
 
-        //make clone 
+        //make clone
         _cloning.TryCloning(uid, _xform.GetMapCoordinates(newSpawn.Uid), _cloneSettings, out var clone); //RIP SacrifialWhiteBoy variable name
 
         if (TryComp<BlindableComponent>(clone, out _))
@@ -228,7 +221,6 @@ public sealed class HellWorldSystem : EntitySystem
         EnsureComp<NoSacrificeComponent>(uid);
         EnsureComp<HellVictimComponent>(uid, out var victim);
         victim.Effect = GenerateHellTrait();
-        _rejuvenate.PerformRejuvenate(uid);
     }
 
     private HereticSacrificeEffectPrototype GenerateHellTrait()
@@ -236,27 +228,6 @@ public sealed class HellWorldSystem : EntitySystem
         //get a random effect from the list
         var allEffects = _prototypeManager.EnumeratePrototypes<HereticSacrificeEffectPrototype>().ToList();
         return _random.Pick(allEffects);
-    }
-
-    /// <summary>
-    /// teleports the sacrifice victim to one of the pre-mapped "safe points"
-    /// </summary>
-    public void TeleportToHereticSpawnPoint(EntityUid uid)
-    {
-        //clear physics joints so the heretic isn't teleported with the victim
-        _jointSystem.ClearJoints(uid);
-
-        //get all possible spawn points, choose one, then get the place
-        var spawnPoints = EntityManager.GetAllComponents(typeof(MidRoundAntagSpawnLocationComponent)).ToImmutableList();
-        if (spawnPoints.Count == 0)
-        {
-            //fallback to cryo, incase someone forgot to map points
-            spawnPoints = EntityManager.GetAllComponents(typeof(CryostorageComponent)).ToImmutableList();
-        }
-        var newSpawn = _random.Pick(spawnPoints);
-        var spawnTgt = Transform(newSpawn.Uid).Coordinates;
-
-        _xform.SetCoordinates(uid, spawnTgt);
     }
 
     /// <summary>

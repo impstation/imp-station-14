@@ -455,6 +455,11 @@
         - !type:ReagentCondition
           reagent: Felinase
           min: 15
+        # imp edit start
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity
+          inverted: true
+        # imp edit end
         damage:
           types:
             Radiation: 0.5
@@ -506,6 +511,11 @@
         - !type:ReagentCondition
           reagent: Caninase
           min: 15
+        # imp edit start
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity
+          inverted: true
+        # imp edit end
         damage:
           types:
             Radiation: 0.5

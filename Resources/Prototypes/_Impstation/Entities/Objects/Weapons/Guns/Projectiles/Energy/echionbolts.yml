@@ -69,3 +69,34 @@
   - type: SolutionInjectOnProjectileHit
     transferAmount: 5
     solution: bolt
+
+- type: entity
+  name: ananke plasma bolt
+  id: BulletPlasmaAnanke
+  parent: BulletPlasmaAdder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Weapons/Guns/Projectiles/energybolts.rsi
+    layers:
+    - state: heavysynd
+      shader: unshaded
+  - type: Projectile
+    impactEffect: BulletImpactEffectSyndicate
+    damage:
+      types:
+        Heat: 7
+        Piercing: 7
+  - type: TimedDespawn
+    lifetime: 0.20 # Very short range
+
+- type: entity
+  name: echion plasma barrage
+  id: BulletPlasmaSpread
+  categories: [ HideSpawnMenu ]
+  parent: BulletPlasmaAnanke
+  components:
+  - type: ProjectileSpread
+    proto: BulletPlasmaAnanke
+    count: 5 #70 damage if you hit all your shots, but hardcapped range
+    spread: 20

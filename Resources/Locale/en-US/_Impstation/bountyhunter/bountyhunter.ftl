@@ -21,6 +21,8 @@ roles-antag-bounty-hunter-objective = Hunt down your target and get paid.
 
 bounty-hunter-roundend-name = Bounty Hunter
 
+bounty-hunter-backpack-window-title = Bounty Hunter Background
+
 bounty-hunter-category-raider-name = Raider
 bounty-hunter-category-raider-description =
     You aren't a fan of subtlety.

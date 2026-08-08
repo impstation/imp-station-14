@@ -1,0 +1,27 @@
+﻿# Please list new additions in this order: by TC price in its category, and if it has the same price as another item, then by alphabetical order by ID (not name).
+
+- type: listing
+  id: UplinkBeenade
+  name: uplink-beenade-name
+  description: uplink-beenade-desc
+  productEntity: BeeGrenade
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkExplosives
+
+- type: listing
+  id: UplinkBrosGrenade
+  name: uplink-bros-grenade-name
+  description: uplink-bros-grenade-desc
+  productEntity: BrosGrenade
+  cost:
+    Telecrystal: 14
+  categories:
+  - UplinkExplosives
+  conditions:
+  - !type:StoreWhitelistCondition
+    makeHidden: true
+    blacklist:
+      tags:
+      - NukeOpsUplink

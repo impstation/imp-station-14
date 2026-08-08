@@ -43,7 +43,6 @@
   - type: SolutionContainerManager # imp
     solutions:
       food:
-        maxVol: 1.25
         reagents:
         - ReagentId: CocoaPowder
           Quantity: 0.125

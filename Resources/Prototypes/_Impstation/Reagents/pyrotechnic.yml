@@ -23,6 +23,17 @@
           types:
             Poison: 0.7
             Radiation: 0.5
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ]
+          inverted: true
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.7
+        conditions:
+        - !type:MetabolizerTypeCondition
+          type: [ Gray ] # gray radiation immunity
       - !type:MovementSpeedModifier
         walkSpeedModifier: 0.7
         sprintSpeedModifier: 0.7

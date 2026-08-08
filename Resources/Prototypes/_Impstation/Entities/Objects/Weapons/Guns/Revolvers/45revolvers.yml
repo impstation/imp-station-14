@@ -1,4 +1,6 @@
-# .45 Magnum deals 35 pierce per shot (CartridgeMagnum)
+# .45 Magnum (CartridgeMagnum) should deal 35 pierce per shot on average (+25).
+# Base Revolver Weapons have a default GunDamage bonus of +25 Piercing.
+
 - type: entity
   name: SEC .45
   parent: [BaseWeaponRevolver, BaseSecurityContraband]
@@ -21,13 +23,21 @@
     - 0,0,1,0
     sprite: _Impstation/Objects/Weapons/Guns/Revolvers/sec45.rsi
   - type: Gun
-    fireRate: 2.2
+    fireRate: 2.7
     minAngle: 6
-    maxAngle: 24
-    angleIncrease: 6
+    maxAngle: 16
+    angleIncrease: 4
     angleDecay: 10
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/revolver.ogg
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 22 #32 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: RevolverAmmoProvider
     whitelist:
       tags:
@@ -178,6 +188,14 @@
     storedOffset: 1,-5
   - type: Gun
     fireRate: 1
+  - type: GunDamage
+    damage:
+      types:
+        Piercing: 20 #30 pierce
+    damageSpecific:
+      DamageVariable:
+        types:
+          Piercing: 0
   - type: ContainerContainer
     containers:
       revolver-ammo: !type:Container

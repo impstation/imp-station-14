@@ -59,6 +59,7 @@
       - GenpopEnter
       - GenpopLeave
       - Vault #imp
+      - Zoo #imp
       privilegedIdSlot:
         name: id-card-console-privileged-id
         ejectSound: /Audio/Machines/id_swipe.ogg
@@ -149,6 +150,7 @@
     - GenpopEnter
     - GenpopLeave
     - Vault #imp
+    - Zoo #imp
     privilegedIdSlot:
       name: id-card-console-privileged-id
       startingItem: UniversalIDCard

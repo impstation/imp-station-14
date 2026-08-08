@@ -5,7 +5,7 @@
   id: PoisonAutoInjector
   components:
   - type: Sprite
-    sprite: _Impstation/Objects/Specific/Medical/poisonpen.rsi
+    sprite: _Impstation/Objects/Specific/Medical/medipen.rsi
     layers:
     - state: poisonpen
       map: ["enum.SolutionContainerLayers.Fill"]
@@ -101,3 +101,61 @@
         reagents:
         - ReagentId: Romerol
           Quantity: 5
+
+- type: entity
+  parent: ChemicalMedipen
+  id: EmergencyMedipenDiscountDan
+  name: Doctor Dan's all-in-one QuikFix pen
+  description: Contains everything you may or may not need in an emergency, and more!
+  components:
+  - type: Sprite
+    sprite: _Impstation/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: danmedipen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: Item
+    sprite: Objects/Specific/Medical/medipen.rsi
+    inhandVisuals:
+      left:
+      - state: base-needle-inhand-left
+      - state: base-colorA-inhand-left
+        color: "#dfd2b9"
+      - state: base-colorB-inhand-left
+        color: "#ef9a35"
+      right:
+      - state: base-needle-inhand-right
+      - state: base-colorA-inhand-right
+        color: "#dfd2b9"
+      - state: base-colorB-inhand-right
+        color: "#ef9a35"
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: danmedipen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 20
+        reagents:
+        - ReagentId: Bicaridine
+          Quantity: 1.5
+        - ReagentId: Kelotane
+          Quantity: 1.5
+        - ReagentId: Dylovene
+          Quantity: 1.5
+        - ReagentId: Dexalin
+          Quantity: 1.5
+        - ReagentId: PotassiumIodide
+          Quantity: 1.5
+        - ReagentId: Epinephrine
+          Quantity: 4
+        - ReagentId: TableSalt #basically the same as saline probably
+          Quantity: 1.5
+        - ReagentId: Honey #yummy!
+          Quantity: 1
+        - ReagentId: PinkFoodColoring #pink = healthy
+          Quantity: 6
+  - type: Tag # goob edit
+    tags:
+      - Trash
+      - EmergencyMedipen

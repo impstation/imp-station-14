@@ -1,0 +1,197 @@
+- type: entity
+  parent: PosterBase
+  id: HereticIconDash
+  name: "Blazing Dash"
+  description: "FL'SH F'R'!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: blazing_dash
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconCascade
+  name: "Fire Cascade"
+  description: "C'SC'DE!!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: fire_cascade
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconSurgery
+  name: "Knit Flesh"
+  description: "CL'M M'N!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: flesh_surgery
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconHeart
+  name: "Living Heart"
+  description: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: living_heart
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconGrasp
+  name: "Mansus Grasp"
+  description: "R'CH TH' TR'TH!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: mansus_grasp
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconLink
+  name: "Mansus Link"
+  description: "P'RC' TH' M'ND!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: mansus_link
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconRebirth
+  name: "Nightwatcher's Rebirth"
+  description: "GL'RY T' TH' N'GHTW'TC'ER!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: nightwatcher_rebirth
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconOath
+  name: "Oath of Flame"
+  description: "FL'MS!!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: oath_of_flame
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconStore
+  name: "Knowledge Store"
+  description: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: open_store
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconHymn
+  name: "Preist's Final Hymn"
+  description: "REALITY UNCOIL!!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: reality_uncoil
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconFocus
+  name: "Serpent's Focus"
+  description: "H'NT'NG PR'D'T'R!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: serpents_focus
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconVoidBlast
+  name: "Void Blast"
+  description: "FR'Z'!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: void_blast
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconPhase
+  name: "Void Phase"
+  description: "RE'L'T' PH'S'E!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: void_phase
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconPull
+  name: "Void Pull"
+  description: "BR'NG F'RTH T' M'!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: void_pull
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconFlameBlast
+  name: "Volcanic Blast"
+  description: "V'LC'N!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: volcano_blast
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconTower
+  name: "Watchtower Striving"
+  description: "C'S'L'SS W'TCH'R!"
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Impstation/Heretic/abilities_heretic.rsi
+    state: watchtower_striving
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconWay
+  name: "Aristocrat's Way"
+  description: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Interface/Alerts/temperature.rsi
+    state: cold1
+
+- type: entity
+  parent: PosterBase
+  id: HereticIconWaltz
+  name: "Waltz at the End of Time"
+  description: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Interface/Alerts/temperature.rsi
+    state: cold3

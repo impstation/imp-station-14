@@ -120,3 +120,12 @@
   components:
   - type: AccessReader
     access: [["Vault"]]
+
+# Zoo
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsZoo
+  suffix: Zoo, Locked
+  components:
+  - type: AccessReader
+    access: [["Zoo"]]

@@ -131,3 +131,15 @@
     sprite: _Impstation/Clothing/Head/Hardsuits/dinosuit.rsi
   - type: FactionClothing
     faction: Dino
+
+# Hemolymph-blue Hardsuit
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSyndie
+  id: ClothingHeadHelmetHardsuitSyndieBlue
+  name: hemolymph-blue hardsuit helmet
+  description: A heavily armored helmet designed for work in special oper- Why is it blue?
+  components:
+  - type: Sprite
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator_blue.rsi
+  - type: Clothing
+    sprite: _Impstation/Clothing/OuterClothing/Hardsuits/syndicate_operator_blue.rsi

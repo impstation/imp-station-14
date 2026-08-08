@@ -45,7 +45,7 @@ public sealed class SurplusBundleSystem : EntitySystem
     {
         var ret = new List<ListingData>();
 
-        var listings = _store.GetAvailableListings(ent, null, ent.Comp2.Categories, ent.Owner) // imp owner
+        var listings = _store.GetAvailableListings(ent, null, ent.Comp2.Categories, ent.Owner, ent.Comp2) // imp edit, add ent.Owner and ent.Comp2
             .OrderBy(p => p.Cost.Values.Sum())
             .Where(p => p.Buyable) // imp where
             .ToList();
