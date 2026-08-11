@@ -444,6 +444,22 @@
     tags:
     - Trash
 
+- type: entity
+  parent: DrinkRamen
+  id: DrinkInfernoRamen
+  name: inferno ramen
+  description: That extra spicy flavor for when hell isn't enough!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: DryRamen
+          Quantity: 10
+        - ReagentId: InfernoSauce
+          Quantity: 5
+
 # survival box things
 
 - type: entity
