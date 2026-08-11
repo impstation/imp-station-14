@@ -1,6 +1,6 @@
-using Content.Server.Heretic.EntitySystems;
+using Content.Shared.Heretic.EntitySystems;
 
-namespace Content.Server.Heretic.Components;
+namespace Content.Shared.Heretic.Components;
 
 [RegisterComponent, Access(typeof(HereticSoulFragmentSystem))]
 public sealed partial class HereticSoulFragmentComponent : Component

@@ -1,9 +1,8 @@
-using Content.Server.Heretic.Components;
+using Content.Shared.Heretic.Components;
 using Content.Shared.Examine;
-using Content.Shared.Heretic;
 
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Shared.Heretic.EntitySystems;
 
 public sealed partial class HereticSoulFragmentSystem : EntitySystem
 {
