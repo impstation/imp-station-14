@@ -149,7 +149,7 @@ public sealed partial class ClimbSystem : VirtualController
 
     private void OnCanDragDropOn(EntityUid uid, ClimbableComponent component, ref CanDropTargetEvent args)
     {
-        if (args.Handled || !component.Vaultable)
+        if (args.Handled || !component.Vaultable || !component.AcceptDragAndDrop) // IMP ADD AcceptDragAndDrop condition
             return;
 
         // If already climbing then don't show outlines.

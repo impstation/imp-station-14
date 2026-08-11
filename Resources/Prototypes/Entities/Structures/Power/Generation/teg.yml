@@ -106,6 +106,7 @@
     - type: StealTarget
       stealGroup: Teg
     - type: Climbable #imp
+      acceptDragAndDrop: false #imp
 
 - type: entity
   id: TegCirculator
@@ -191,6 +192,7 @@
     - type: StealTarget
       stealGroup: Teg
     - type: Climbable #imp
+      acceptDragAndDrop: false #imp
 
 - # Spawned by the client-side circulator examine code to indicate the inlet/outlet direction.
   type: entity
