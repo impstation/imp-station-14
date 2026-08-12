@@ -12,21 +12,6 @@ namespace Content.Server.Power.Generation.Teg;
 
 public sealed partial class TegSystem
 {
-    /// <summary>
-    /// Name of the circulators' solution container.
-    /// </summary>
-    private const string SolutionName = "lube";
-
-    /// <summary>
-    /// The amount of time it takes to apply lubrication to the circulators.
-    /// </summary>
-    private const float RefillTimeSeconds = 2f;
-
-    /// <summary>
-    /// The maximum amount of lubrication that can be applied to the circulator in a single action.
-    /// </summary>
-    private const float MaxRefillAttemptAmount = 10f;
-
     [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly ReagentEfficiencySystem _reagentEfficiency = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
@@ -53,24 +38,6 @@ public sealed partial class TegSystem
             _openable.SetOpen(uid, false);
             ChangeInjectorState(uid, false);
         }
-    }
-
-    private void AddSolutionAccessibility(EntityUid uid)
-    {
-        // RefillableSolutionComponent
-        var refill = EnsureComp<RefillableSolutionComponent>(uid);
-        refill.Solution = SolutionName;
-        refill.RefillTime = TimeSpan.FromSeconds(RefillTimeSeconds);
-        refill.MaxRefill = MaxRefillAttemptAmount;
-
-        var draw = EnsureComp<DrawableSolutionComponent>(uid);
-        draw.Solution = SolutionName;
-    }
-
-    private void RemoveSolutionAccessibility(EntityUid uid)
-    {
-        RemComp<RefillableSolutionComponent>(uid);
-        RemComp<DrawableSolutionComponent>(uid);
     }
 
     /// <summary>
