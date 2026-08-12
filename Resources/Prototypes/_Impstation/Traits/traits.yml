@@ -181,3 +181,12 @@
   components:
   - type: HungryTrait
   cost: -1
+
+- type: trait
+  id: Lumbago
+  name: trait-lumbago-name
+  description: trait-lumbago-desc
+  category: Traits
+  components:
+  - type: Lumbago
+  cost: -4
