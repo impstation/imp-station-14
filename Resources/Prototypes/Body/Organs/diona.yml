@@ -218,9 +218,6 @@
   - type: Brain #imp edit
   - type: Body
     prototype: AnimalNymphBrain
-  - type: Tag # imp edit
-    tags:
-    - DionaNymph
 
 - type: entity
   id: OrganDionaNymphStomach
@@ -233,9 +230,6 @@
   - type: IsDeadIC
   - type: Body
     prototype: AnimalNymphStomach
-  - type: Tag # imp edit
-    tags:
-    - DionaNymph
 
 - type: entity
   id: OrganDionaNymphLungs
@@ -248,6 +242,3 @@
   - type: IsDeadIC
   - type: Body
     prototype: AnimalNymphLungs
-  - type: Tag # imp edit
-    tags:
-    - DionaNymph

@@ -4257,7 +4257,7 @@
   - type: Speech
     speechVerb: Plant
     speechSounds: Alto
-    allowedEmotes: ['Chirp']
+    allowedEmotes: ['Chirp', 'Multichirp'] # imp - let them multichirp
   - type: Vocal
     sounds:
       Male: UnisexDiona
@@ -4268,6 +4268,7 @@
     - DoorBumpOpener
     - VimPilot
     - DionaHivemind #imp
+    - DionaNymph #imp
   - type: Emoting
   - type: BodyEmotes
     soundsId: Nymph
