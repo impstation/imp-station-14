@@ -24,6 +24,7 @@ public abstract partial class SharedBorgSystem
     [Dependency] private readonly TagSystem _tag = default!; // imp for unborgable
 
     private static readonly EntProtoId SiliconBrainRole = "MindRoleSiliconBrain";
+    private static readonly ProtoId<TagPrototype> DionaNymph = "DionaNymph";
 
     public void InitializeMMI()
     {
@@ -117,7 +118,7 @@ public abstract partial class SharedBorgSystem
             return;
 
         // IMP EDIT: different behavior if brain is a diona nymph
-        if (_tag.HasTag(brain, "DionaNymph"))
+        if (_tag.HasTag(brain, DionaNymph))
         {
             args.Cancelled = true; // to ensure ejection happens within method
             _popup.PopupPredicted(Loc.GetString(unborgable.NymphFailPopup), ent, ent, PopupType.MediumCaution); // display different failure popup

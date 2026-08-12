@@ -18,6 +18,8 @@ public sealed partial class NymphSystem : EntitySystem
     [Dependency] private readonly SharedBodySystem _sharedBodySystem = default!; // imp edit for Unborgable
     [Dependency] private readonly TagSystem _tagSystem = default!; // imp edit for Unborgable
 
+    private static readonly ProtoId<TagPrototype> Brain = "Brain"; // imp edit for Unborgable
+
     public override void Initialize()
     {
         base.Initialize();
@@ -47,7 +49,7 @@ public sealed partial class NymphSystem : EntitySystem
             // Add UnborgableComponent to brain organ inside the nymph (dropped upon gibbing)
             foreach (var organ in _sharedBodySystem.GetBodyOrgans(nymph))
             {
-                if (_tagSystem.HasTag(organ.Id, "Brain"))
+                if (_tagSystem.HasTag(organ.Id, Brain))
                 {
                     AddComp<UnborgableComponent>(organ.Id);
                     break;
