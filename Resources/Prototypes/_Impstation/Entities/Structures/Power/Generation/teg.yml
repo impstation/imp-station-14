@@ -9,7 +9,24 @@
   id: TegCirculatorMaintenance
   suffix: "Maintenance Required"
   components:
-  # Overwrite the base's visualizer because we have more to add
+
+    # Overwrite the base's sprite and visualizer because we have more to add
+    - type: Sprite
+      sprite: _Impstation/Structures/Power/Generation/teg.rsi # imp
+      layers:
+        - state: circ-0
+          map: [ "enum.TegVisualLayers.CirculatorBase" ]
+        - state: circ-0-light
+          shader: unshaded
+          map: [ "enum.TegVisualLayers.CirculatorLight" ]
+        - state: circ-fill-0 # imp
+          shader: unshaded # imp
+          map: [ "enum.TegVisualLayers.CirculatorFillLight" ] # imp
+        - state: circ-open # imp
+          map: [ "enum.WiresVisualLayers.MaintenancePanel" ] # imp
+        - state: circ-locked # imp
+          map: ["enum.LockVisualLayers.Lock"] # imp
+
     - type: GenericVisualizer
       visuals:
         enum.TegVisuals.CirculatorPower:
