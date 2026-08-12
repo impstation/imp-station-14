@@ -121,7 +121,7 @@ public abstract partial class SharedBorgSystem
         {
             args.Cancelled = true; // to ensure ejection happens within method
             _popup.PopupPredicted(Loc.GetString(unborgable.NymphFailPopup), ent, ent, PopupType.MediumCaution); // display different failure popup
-            bool didEjectWork = _itemSlots.TryEjectToHands(brain, args.Slot, args.User); // eject nymph back out of OSI
+            _itemSlots.TryEjectToHands(brain, args.Slot, args.User); // eject nymph back out of OSI
             return; // exit OnMMIAttemptInsert WITHOUT dissolving & killing the nymph
         }
         // END IMP EDIT
