@@ -1,4 +1,3 @@
-using Content.Shared._EE.Movement.Events;
 using Content.Shared.Armor;
 using Content.Shared.Atmos;
 using Content.Shared.Chat;
@@ -36,6 +35,7 @@ using Content.Shared._Impstation.SalvoHud; // imp edit
 using Content.Shared.Examine; // imp
 using Content.Shared.Heretic; // goob edit
 using Content.Shared.Mobs; // EE edit
+using Content.Shared._EE.Movement.Events;//EE edit
 
 namespace Content.Shared.Inventory;
 

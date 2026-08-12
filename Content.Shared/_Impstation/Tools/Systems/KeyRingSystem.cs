@@ -1,26 +1,21 @@
-
-
-using System.Linq;
 using Content.Shared._Impstation.Tools.Components;
-using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Audio;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Lock;
+using Content.Shared.Random.Helpers;
+using Content.Shared.Tools.Components;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.Tools.Systems;
+namespace Content.Shared._Impstation.Tools.Systems;
 
 public sealed partial class KeyRingSystem : EntitySystem
 {
@@ -33,53 +28,37 @@ public sealed partial class KeyRingSystem : EntitySystem
     [Dependency] private IRobustRandom _random = default!;
     [Dependency] private SharedAudioSystem _audio = default!;
 
-    [Serializable, NetSerializable]
-    public sealed partial class KeyRingDoorDoAfterEvent : SimpleDoAfterEvent;
-
-    [Serializable, NetSerializable]
-    public sealed partial class KeyRingLockDoAfterEvent : SimpleDoAfterEvent;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<KeyRingComponent, AfterInteractEvent>(TryStartKeyCardDoAfter);
-        SubscribeLocalEvent<KeyRingComponent, KeyRingDoorDoAfterEvent>(KeyCardDoorDoAfter);
-        SubscribeLocalEvent<KeyRingComponent, KeyRingLockDoAfterEvent>(KeyCardLockDoAfter);
+        SubscribeLocalEvent<KeyRingComponent, AfterInteractEvent>(TryStartKeyRingDoAfter);
+        SubscribeLocalEvent<KeyRingComponent, SimpleToolDoAfterEvent>(KeyRingDoAfter);
     }
 
-    private void TryStartKeyCardDoAfter(Entity<KeyRingComponent> ent, ref AfterInteractEvent args)
+    private void TryStartKeyRingDoAfter(Entity<KeyRingComponent> ent, ref AfterInteractEvent args)
     {
-        if (ent.Comp.UseDelay==TimeSpan.Zero)// wanted this to be on startup but it caused a test fail
-            ent.Comp.UseDelay = TimeSpan.FromSeconds(_random.NextDouble(ent.Comp.MinUseTime,ent.Comp.MaxUseTime));
+        if (ent.Comp.UseDelay==TimeSpan.Zero){// wanted this to be on startup but it caused a test fail
+            //TODO: Replace with random predicted when we get that.
+            var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, ent.GetHashCode());
+            var rand = new System.Random(seed);
+
+            ent.Comp.UseDelay = TimeSpan.FromSeconds((rand.NextDouble() % ent.Comp.MaxUseTime)+ent.Comp.MinUseTime);//system.random nextdouble doesn't have min and max args so i had to do it manually.
+        }
         if (!TryComp<AccessReaderComponent>(args.Target, out var accessReader))
             return;
-
-        DoAfterArgs? doargs = null;
-
-        if (HasComp<DoorComponent>(args.Target)){
-            doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.UseDelay, new KeyRingDoorDoAfterEvent(), ent, target: args.Target, args.Used)
-            {
-                BreakOnDamage = true,
-                BreakOnHandChange = true,
-                BreakOnMove = true,
-                BreakOnWeightlessMove = true,
-            };
-        }
-        else if (HasComp<LockComponent>(args.Target))
-        {
-            doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.UseDelay, new KeyRingLockDoAfterEvent(), ent, target: args.Target, args.Used)
-            {
-                BreakOnDamage = true,
-                BreakOnHandChange = true,
-                BreakOnMove = true,
-                BreakOnWeightlessMove = true,
-            };
-        }
-        else
+        if (!HasComp<DoorComponent>(args.Target) && !HasComp<LockComponent>(args.Target))
         {
             args.Handled = true;
             return;
         }
+        var doargs = new DoAfterArgs(EntityManager, args.User, ent.Comp.UseDelay, new SimpleToolDoAfterEvent(), ent, target: args.Target, args.Used)
+        {
+            BreakOnDamage = true,
+            BreakOnHandChange = true,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true,
+        };
 
         _doAfter.TryStartDoAfter(doargs);
         args.Handled = true;
@@ -93,7 +72,7 @@ public sealed partial class KeyRingSystem : EntitySystem
 
     }
 
-    private void KeyCardDoorDoAfter(Entity<KeyRingComponent> ent, ref KeyRingDoorDoAfterEvent args)
+    private void KeyRingDoAfter(Entity<KeyRingComponent> ent, ref SimpleToolDoAfterEvent args)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
@@ -103,11 +82,20 @@ public sealed partial class KeyRingSystem : EntitySystem
             return;
         }
 
-        if (!TryComp<DoorComponent>(args.Target.Value, out var doorComp)||!_accessReaderSystem.GetMainAccessReader(args.Target.Value, out var accessReader))
-            return;
+        var isDoor = false;
+        var isLock = false;
+        if(!_accessReaderSystem.GetMainAccessReader(args.Target.Value, out var accessReader))
+               return;
 
+        if (TryComp<DoorComponent>(args.Target.Value, out var doorComp))
+            isDoor = true;
+
+        if(TryComp<LockComponent>(args.Target.Value, out var lockComponent))
+            isLock = true;
+        if (!isDoor&& !isLock)
+            return;
         var accessComponent = accessReader.Value.Comp;
-        var isAirlock = TryComp<AirlockComponent>(args.Target, out var airlockComp);
+        var isAirlock = HasComp<AirlockComponent>(args.Target);
 
         foreach (var accessList in accessComponent.AccessLists)
         {
@@ -115,53 +103,32 @@ public sealed partial class KeyRingSystem : EntitySystem
             {
                 if (!accessList.Contains(accessType))
                     continue;
-                if (isAirlock)
+                if (isDoor&&isAirlock)
                     _doorSystem.Deny(args.Target.Value, doorComp, user: args.User, predicted: true);
                 return;
             }
         }
 
-        if (_doorSystem.TryToggleDoor(args.Target.Value, doorComp, user: args.User, predicted: true)) {
+        if (isDoor && _doorSystem.TryToggleDoor(args.Target.Value, doorComp, user: args.User, predicted: true)) {
             _adminLogger.Add(LogType.Action,
                             LogImpact.Medium,
-                            $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)}: {doorComp.State}");
+                            $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)}: {doorComp!.State}");
+        }
+        else if (isLock)
+        {
+            _lockSystem.ToggleLock(args.Target.Value, args.User, lockComponent);
+            _adminLogger.Add(LogType.Action,
+                LogImpact.Medium,
+                $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} locked: {lockComponent!.Locked}");
         }
 
-        ent.Comp.UseDelay = TimeSpan.FromSeconds(_random.NextDouble(ent.Comp.MinUseTime,ent.Comp.MaxUseTime));
+        //TODO: Replace with random predicted when we get that.
+        var seed = SharedRandomExtensions.HashCodeCombine((int)_timing.CurTick.Value, ent.GetHashCode());
+        var rand = new System.Random(seed);
+
+        ent.Comp.UseDelay = TimeSpan.FromSeconds((rand.NextDouble() % ent.Comp.MaxUseTime)+ent.Comp.MinUseTime);
         _audio.Stop(ent.Comp.KeyringAudioStream);
         _audio.PlayPredicted(ent.Comp.SuccessAudio, args.Target.Value, args.User);
-        Dirty(ent);
-    }
-
-    private void KeyCardLockDoAfter(Entity<KeyRingComponent> ent, ref KeyRingLockDoAfterEvent args)
-    {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-        if (args.Target == null || args.Cancelled)//if the target somehow dissapears or the action was cancelled then return
-        {
-            _audio.Stop(ent.Comp.KeyringAudioStream);
-            return;
-        }
-        if (!TryComp<LockComponent>(args.Target.Value, out var lockComponent)||!_accessReaderSystem.GetMainAccessReader(args.Target.Value, out var accessReader))
-            return;
-
-        var accessComponent = accessReader.Value.Comp;
-        foreach (var accessList in accessComponent.AccessLists)
-        {
-            foreach (var accessType in ent.Comp.Blacklist)
-            {
-                if (!accessList.Contains(accessType))
-                    continue;
-                return;
-            }
-        }
-        _lockSystem.ToggleLock(args.Target.Value, args.User, lockComponent);
-        _adminLogger.Add(LogType.Action,
-                            LogImpact.Medium,
-                            $"{ToPrettyString(args.User):player} used {ToPrettyString(args.Used)} on {ToPrettyString(args.Target.Value)} locked: {lockComponent.Locked}");
-        _audio.Stop(ent.Comp.KeyringAudioStream);
-        _audio.PlayPredicted(ent.Comp.SuccessAudio, args.Target.Value, args.User);
-        ent.Comp.UseDelay = TimeSpan.FromSeconds(_random.NextDouble(ent.Comp.MinUseTime,ent.Comp.MaxUseTime));
         Dirty(ent);
     }
 
