@@ -4,16 +4,16 @@ using Content.Server.Mind;
 namespace Content.Server._Impstation.Antag;
 
 /// <summary>
-/// System to a player a set of objectives upon taking a over ghost role entity
+///  Adds objectives to a player mind on taking control of a ghost role entity.
 /// </summary>
-public sealed partial class GrantObjectivesSystem : EntitySystem
+public sealed partial class GhostTakeoverEntityObjectives : EntitySystem
 {
     [Dependency] private readonly MindSystem _mind = default!;
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<GrantObjectivesComponent, TakeGhostRoleEvent>(GrantObjectives);
+        SubscribeLocalEvent<GhostTakeoverEntityObjectivesComponent, TakeGhostRoleEvent>(GrantObjectives);
     }
 
     /// <summary>
@@ -21,7 +21,7 @@ public sealed partial class GrantObjectivesSystem : EntitySystem
     /// </summary>
     /// <param name="ent"></param>
     /// <param name="args"></param>
-    private void GrantObjectives(Entity<GrantObjectivesComponent> ent, ref TakeGhostRoleEvent args)
+    private void GrantObjectives(Entity<GhostTakeoverEntityObjectivesComponent> ent, ref TakeGhostRoleEvent args)
     {
         if (!_mind.TryGetMind(args.Player, out var mindId, out var mind))
             return;
