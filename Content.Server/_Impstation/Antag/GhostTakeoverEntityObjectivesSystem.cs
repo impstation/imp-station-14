@@ -6,7 +6,7 @@ namespace Content.Server._Impstation.Antag;
 /// <summary>
 ///  Adds objectives to a player mind on taking control of a ghost role entity.
 /// </summary>
-public sealed partial class GhostTakeoverEntityObjectives : EntitySystem
+public sealed partial class GhostTakeoverEntityObjectivesSystem : EntitySystem
 {
     [Dependency] private readonly MindSystem _mind = default!;
     public override void Initialize()
